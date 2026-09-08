@@ -269,7 +269,7 @@ storage/
     {technique}.svg
 ```
 
-현재 API와 MCP 컨테이너는 같은 영속 볼륨을 공유해야 한다. Railway에서 별도 서비스의 로컬 디스크는 자동 공유되지 않는다. 공유 저장소를 구성하거나 동일 호스트 배치가 필요하다. S3는 `archive()`와 첨부 접근 계층을 대체하는 후속 확장 지점이며 아직 구현된 드라이버로 표시하지 않는다.
+Compose의 API와 MCP 컨테이너는 같은 영속 볼륨을 공유한다. Railway 운영 배포에서는 `TRIZ_EMBED_MCP=true`로 API 서비스에 `/agent/mcp`를 함께 제공하고 `/data` 볼륨을 사용한다. 장시간 MCP 호출은 `asyncio.to_thread`에서 실행해 상태 조회 API를 막지 않는다. 프런트는 별도 GitHub 저장소와 서비스로 배포되어 인증된 `/api` 프록시를 제공한다. 백엔드 리스너는 IPv4/IPv6를 함께 수신한다. S3는 후속 확장 지점이며 아직 구현된 드라이버로 표시하지 않는다.
 
 PoC SQLite → MySQL 이전은 `pilot/scripts/migrate_sqlite.py`가 담당한다. 기본은 dry run, `--apply` 시 빈 대상 DB에만 복사하며 기존 DB를 덮어쓰지 않는다. 원본·보고서 파일 볼륨도 함께 보존한다. 이전 실행의 단계 번호는 v2에서 추가한 S0 연구 단계를 고려해 재개 시 보정한다.
 
@@ -316,7 +316,7 @@ PoC SQLite → MySQL 이전은 `pilot/scripts/migrate_sqlite.py`가 담당한다
 - 브라우저: PC 홈·5개 메뉴, 입력·첨부, 이력·역질의 재개, 모바일 가로 넘침, 도식·근거 부족·다운로드 링크.
 - Vite 배포 빌드.
 
-이 작업 환경에는 Docker가 없어 **실제 MySQL·Redis·PostgreSQL·n8n 컨테이너의 통합 실행은 미검증**이다. MySQL DDL 컴파일과 SQLite 공통 저장 경로, 실제 MCP 초기화/호출 프로토콜을 로컬에서 검증한다. 브라우저 테스트의 분석 응답은 fixture이며 실제 LLM 품질 평가가 아니다.
+로컬 Compose는 Docker 미설치로 실행하지 않았다. Railway에서는 실제 MySQL·Redis·PostgreSQL·n8n과 API/MCP/프런트를 연결하고 가상 입력 1건으로 DeepSeek 호출, 질문 대기·답변 재개, 영구 저장을 확인했다. 로컬 브라우저 회귀 테스트는 fixture 기반이며, 별도 실제 사이트 점검과 산업별 답변 품질 평가는 구분한다. 상세 배포 검증 기록은 `docs/DEPLOYMENT_STATUS.md`를 참고한다.
 
 최종 현장 검증은 동일한 입력과 예산으로 기존 PoC와 v2를 비교해야 한다. 반도체 세정/식각, 전극 코팅, 화학 반응, 기계 진동, SW 일관성, 제약 강한 사례, 정보 부족, 스캔 도면을 포함한다. 평가 지표는 제약 위반 수, 메커니즘 정확성, 실험 구체성, 원리/근거 연결, 타산업 이식 가능성, 미확인 주장 비율, 호출·토큰·비용, 전체/단계 지연이다.
 

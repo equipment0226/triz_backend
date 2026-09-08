@@ -4,6 +4,9 @@ FastAPI + TRIZ MCP 52 tools + n8n queue + MySQL.
 
 Frontend: https://github.com/equipment0226/triz_front
 
+운영 사이트: https://trizfront-production.up.railway.app
+실제 연결·보고서 검증: [배포 기록](docs/DEPLOYMENT_STATUS.md).
+
 ## Railway
 
 이 저장소 루트의 Dockerfile과 railway.json을 사용한다. API와 MCP는 동일 서비스·볼륨에서 실행한다.

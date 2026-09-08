@@ -46,7 +46,7 @@ def view(state):
         report_sections=sections(report, diagrams) if state.report else [],
         summary=plain_text(human(state.report.narrative.get("executive_summary", ""))) if state.report else "",
         report_ready=bool(state.report), additions=state.scratch.get("patent_additions", []),
-        evidence_gaps=state.scratch.get("evidence_gaps", []), search_status=state.scratch.get("search_status", {}),
+        evidence_gaps=state.scratch.get("evidence_gaps", []), search_status=report.scratch['search_status'],
         related_references=state.scratch.get("related_references", []),
         warnings=[human(w) for w in state.control.warnings],
         review_status={"checked": sum(s.status == "OK" for s in state.steps), "unverified": sum(s.status == "WARN" for s in state.steps)})

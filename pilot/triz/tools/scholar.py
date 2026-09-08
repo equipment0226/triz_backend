@@ -261,8 +261,8 @@ def patent_page(identifier):
     if not PATENT_ID_RE.fullmatch(identifier):
         return None
     url = "https://patents.google.com/patent/" + identifier + "/en"
-    response = httpx.get(url, timeout=TIMEOUT, headers={"User-Agent": UA}, follow_redirects=True)
-    response.raise_for_status()
+    from .patent_search import request
+    response = request('google_patents', 'get', url, timeout=TIMEOUT, headers={"User-Agent": UA}, follow_redirects=True)
     page = PatentPage(); page.feed(response.text)
     actual = page.meta.get("citation_patent_number", "")
     normalized = re.sub(r"[\s:-]", "", actual).upper()
@@ -278,13 +278,19 @@ def patent_page(identifier):
         retrieval_scope="공개 특허 원문 페이지에서 번호·제목·초록 확인")
 
 
-def google_patents(query: str, k: int = 4) -> list[dict]:
+def google_patents(query: str, k: int = 4, diagnostics=None) -> list[dict]:
     """Free public web search; no paid patent API, credentials or invented identifiers."""
+    from .patent_search import request, Unavailable
+    info = diagnostics if diagnostics is not None else {}
+    info['errors'] = []
     try:
-        response = httpx.get("https://patents.google.com/xhr/query", params={"url": urlencode({"q": query, "num": min(k, 10)})},
+        response = request('google_patents', 'get', "https://patents.google.com/xhr/query", params={"url": urlencode({"q": query, "num": min(k, 10)})},
             headers={"User-Agent": UA}, timeout=TIMEOUT, follow_redirects=True)
         response.raise_for_status()
-        hits = [hit for group in response.json().get("results", {}).get("cluster", []) for hit in group.get("result", [])]
+        data = response.json()
+        if not isinstance(data, dict) or not isinstance(data.get('results'), dict):
+            raise ValueError('Missing patent search response schema')
+        hits = [hit for group in data['results'].get("cluster", []) for hit in group.get("result", [])]
         out = []
         for hit in hits[:k]:
             identifier = hit.get("patent", {}).get("publication_number", "")
@@ -292,10 +298,19 @@ def google_patents(query: str, k: int = 4) -> list[dict]:
                 record = patent_page(identifier)
                 if record:
                     out.append(dict(record))
+            except Unavailable as exc:
+                info['errors'].append(exc.detail)
+                break
             except (httpx.HTTPError, ValueError):
                 continue
+        if hits and not out and not info['errors']:
+            info['errors'].append({'provider':'google_patents','reason':'SOURCE_VERIFICATION_FAILED'})
         return out
-    except (httpx.HTTPError, ValueError, TypeError):
+    except Unavailable as exc:
+        info['errors'].append(exc.detail)
+        return []
+    except (httpx.HTTPError, ValueError, TypeError, AttributeError):
+        info['errors'].append({'provider':'google_patents','reason':'INVALID_RESPONSE'})
         log.warning("Google Patents 공개 검색을 일시적으로 사용할 수 없습니다.")
         return []
 
@@ -345,14 +360,25 @@ def search(query: str, k: int = 4, providers: list[str] | None = None) -> list[d
             log.warning("%s 조회 실패: %s", name, exc)
     return out
 
-def search_kind(query: str, kind: str = "PATENT", k: int = 4) -> list[dict]:
+def search_kind(query: str, kind: str = "PATENT", k: int = 4, *, diagnostics=None) -> list[dict]:
     if kind not in ("PATENT", "PAPER"):
         raise ValueError("kind must be PATENT or PAPER")
     allowed = {"google_patents"} if kind == "PATENT" and settings.free_patent_search else {"patentsview", "tavily"} if kind == "PATENT" else {"crossref", "openalex", "arxiv"}
     providers = [p for p in enabled_providers() if p in allowed]
+    if kind == 'PATENT' and providers == ['google_patents']:
+        info = diagnostics if diagnostics is not None else {}
+        records = google_patents(query, k, diagnostics=info)
+        errors = info.get('errors', [])
+        info.update(provider='google_patents', records=len(records),
+            status=('PARTIAL' if records else 'UNAVAILABLE') if errors else ('OK' if records else 'EMPTY'))
+        return records
     records = search(query, k, providers)
-    return [r for r in records if r["source_type"] == kind and r.get("identifier")
+    out = [r for r in records if r["source_type"] == kind and r.get("identifier")
             and r.get("provider") != "search_link"][:k]
+    if diagnostics is not None:
+        diagnostics.update(provider=','.join(providers), records=len(out),
+            status='OK' if out else 'UNKNOWN' if providers else 'UNAVAILABLE', errors=[])
+    return out
 
 
 def verify_url(url: str) -> bool:

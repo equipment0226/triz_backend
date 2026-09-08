@@ -48,6 +48,8 @@ def report_state(state):
               'evidence', 'constraint_checks', 'evaluation', 'report')
     result = state.model_copy(update={k: plain_value(getattr(state, k)) for k in fields})
     result.scratch = dict(state.scratch)
+    from .evidence import search_summary
+    result.scratch['search_status'] = search_summary(state)
     for key in ('title', 'excluded_concepts', 's_curve', 'taboo', 'principle_patents', 'patent_additions', 'related_references', 'evidence_mappings'):
         if key in result.scratch:
             result.scratch[key] = plain_value(result.scratch[key])

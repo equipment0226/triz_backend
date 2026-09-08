@@ -78,6 +78,8 @@ verification:
   skip_nodes: [s0_bootstrap, s9_report]
 
 constraints:
+  max_concepts_per_call: 2
+  max_pairs_per_call: 24
   enforce_stages: [S1, S3, S4, S5, S6, S7]
   min_passing_concepts: 5     # 게이트 통과 개념이 이보다 적으면 재도출
   treat_unknown_as: CONDITIONAL   # CONDITIONAL | PASS | FAIL

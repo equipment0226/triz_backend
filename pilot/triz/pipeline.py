@@ -77,7 +77,9 @@ def execute_stage(run_id, stage_index, epoch=0):
         events.emit(run_id, "stage_start", stage=key, label=label, index=stage_index, total=len(PIPELINE))
         try:
             fn(ctx)
-            failed = [s for s in state.steps if s.status == "FAILED" and s.seq > state.scratch.get("last_stage_seq", 0)]
+            resolved = state.scratch.get("resolved_step_failures", {})
+            failed = [s for s in state.steps if s.status == "FAILED" and s.seq > state.scratch.get("last_stage_seq", 0)
+                      and s.step_id not in resolved]
             if failed:
                 raise RuntimeError("필수 분석 호출이 실패했습니다. 설정을 확인하고 이어서 실행해 주세요.")
             state.control.stage_index += 1
@@ -153,6 +155,11 @@ def resume(run_id, payload):
             return False
         if payload.get("interrupt_id") and payload["interrupt_id"] != state.pending.interrupt_id:
             return False
+        if state.pending.kind == "DECIDE":
+            expected = {c['concept_id'] for c in state.pending.payload.get('conditional', [])}
+            decisions = payload.get('decisions')
+            if not isinstance(decisions, dict) or set(decisions) != expected or any(v not in ('accept', 'drop') for v in decisions.values()):
+                raise ValueError("보류된 모든 해결책의 유지·제외 판정을 선택해 주세요.")
         state.scratch["resume_payload"] = payload
         state.pending = None
         return True
@@ -189,6 +196,8 @@ def rerun_from(run_id, stage_key, instruction=""):
             for key in ("patent_additions", "evidence_gaps"):
                 state.scratch.pop(key, None)
         state.scratch.pop("resume_payload", None)
+        if idx <= 8:
+            state.scratch.pop("gate_decisions", None)
         state.scratch["last_stage_seq"] = len(state.steps)
         if instruction:
             state.control.injected_agents.setdefault(f"stage:{stage_key}", []).append(

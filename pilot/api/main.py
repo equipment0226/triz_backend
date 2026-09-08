@@ -286,6 +286,8 @@ def stream_events(run_id: str) -> StreamingResponse:
 def resume(run_id: str, body: ResumeBody) -> dict:
     try:
         ok = pipeline.resume(run_id, body.payload)
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
     except Exception as exc:
         raise HTTPException(500, f"재개 실패: {exc}") from exc
     if not ok:

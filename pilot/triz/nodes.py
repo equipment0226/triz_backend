@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
@@ -1015,6 +1016,12 @@ def s6_concept(ctx: RunContext) -> None:
 
 
 # ════════════════════════════════════════════════ S7
+def _gate_fingerprint(st):
+    return hashlib.sha256(json.dumps([c.model_dump(mode='json') for c in st.concepts] +
+        [st.constraints.model_dump(mode='json'), [c.model_dump(mode='json') for c in st.constraint_checks]],
+        sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+
 def s7_gate(ctx: RunContext) -> None:
     st = ctx.state
     ctx.set_stage(Stage.S7.value)
@@ -1022,6 +1029,9 @@ def s7_gate(ctx: RunContext) -> None:
     payload = ctx.resume_payload()
     if payload:
         decisions = payload.get("decisions") or {}
+        expected = {c.concept_id for c in st.constraint_checks if c.verdict == 'CONDITIONAL'}
+        if set(decisions) != expected or any(v not in ('accept', 'drop') for v in decisions.values()):
+            raise ValueError("보류된 모든 해결책의 유지·제외 판정이 필요합니다.")
         for cid, choice in decisions.items():
             chk = st.check_for(cid)
             if not chk:
@@ -1031,9 +1041,23 @@ def s7_gate(ctx: RunContext) -> None:
                 chk.verdict = "CONDITIONAL"
                 chk.requires_user_decision = False
             elif choice == "drop":
+                concept = st.concept(cid)
+                if concept:
+                    st.scratch.setdefault('excluded_concepts', []).append({'idea': concept.title, 'reason': '제약 검토에서 사용자가 제외함'})
                 st.concepts = [c for c in st.concepts if c.id != cid]
                 st.constraint_checks = [c for c in st.constraint_checks if c.concept_id != cid]
+        st.scratch['gate_decisions'] = {'decisions': dict(decisions), 'fingerprint': _gate_fingerprint(st)}
+        # Preserve failed model-call records. A complete human decision resolves only
+        # gate-call failures, without declaring the retained concepts compliant.
+        resolved = st.scratch.setdefault('resolved_step_failures', {})
+        for step in st.steps:
+            if step.status == 'FAILED' and (step.node == 's7_gate' or step.node.startswith('s7_gate_')):
+                resolved[step.step_id] = '사용자 제약 판정 완료: 조건부 유지 또는 제외. 자동 검토 실패 기록은 보존함.'
+        ctx.emit('gate_decisions', decisions=decisions)
         ctx.persist()
+        return
+
+    if st.scratch.get('gate_decisions', {}).get('fingerprint') == _gate_fingerprint(st):
         return
 
     if not st.constraints.items:
@@ -1041,19 +1065,24 @@ def s7_gate(ctx: RunContext) -> None:
                                 for c in st.concepts]
         return
 
-    d = agent.run_agent(
-        ctx, node="s7_gate", label="제약 게이트 검문", stage=Stage.S7.value,
-        agent_id="gatekeeper", prompt_id="P_S7_GATEKEEPER", tier="T2",
-        system_override="You are a strict compliance gatekeeper. Output JSON only. "
-                        "Judge only constraint compliance, nothing else.",
-        vars={"constraints_full": verify.constraints_full(st),
-              "concepts_for_gate": digest.concepts_for_gate(st)},
-        default={},
-    ) or {}
+    concepts = digest.concepts_for_gate(st)
+    batch_size = max(1, min(int(cfg('constraints.max_concepts_per_call', 2)),
+                           int(cfg('constraints.max_pairs_per_call', 24)) // max(1, len(st.constraints.items))))
+    raw_results = []
+    for start in range(0, len(concepts), batch_size):
+        batch = concepts[start:start+batch_size]
+        d = agent.run_agent(
+            ctx, node=f"s7_gate_{start // batch_size + 1}", label=f"제약 검토 {start+1}–{start+len(batch)}/{len(concepts)}", stage=Stage.S7.value,
+            agent_id="gatekeeper", prompt_id="P_S7_GATEKEEPER", tier="T2",
+            system_override="You are a strict compliance gatekeeper. Output JSON only. "
+                            "Judge only constraint compliance, nothing else.",
+            vars={"constraints_full": verify.constraints_full(st), "concepts_for_gate": batch}, default={}) or {}
+        ids = {c['concept_id'] for c in batch}
+        raw_results.extend(r for r in build_list(ConstraintCheckResult, d.get('results')) if r.concept_id in ids)
 
     results: list[ConstraintCheckResult] = []
     by_id = {c.id: c for c in st.concepts}
-    for r in build_list(ConstraintCheckResult, d.get("results")):
+    for r in raw_results:
         if r.concept_id in by_id:
             results.append(r)
     for c in st.concepts:  # 판정 누락분은 CONDITIONAL 처리
@@ -1092,7 +1121,7 @@ def s7_gate(ctx: RunContext) -> None:
     st.constraint_checks = [r for r in results if r.verdict != "FAIL"]
 
     min_pass = int(cfg("constraints.min_passing_concepts", 5))
-    if len(passed) < min_pass and cond:
+    if cond and (len(passed) < min_pass or any(r.requires_user_decision for r in cond)):
         ctx.persist()
         raise HumanInterrupt("DECIDE", "제약 판정이 보류된 해결책을 확인해 주세요", {
             "conditional": [{

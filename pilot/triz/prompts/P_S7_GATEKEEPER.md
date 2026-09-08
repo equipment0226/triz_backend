@@ -33,6 +33,7 @@
 
 [근거 인용]
 각 판정의 reason에는 개념 본문에서 근거가 된 문구를 그대로 인용하라.
+현재 입력된 개념만 판정한다. reason은 근거 인용을 포함해 80자 이내로 간결하게 쓰되 제약별 판정을 생략하지 않는다.
 
 [출력 JSON]
 {"results":[{"concept_id":"","per_constraint":[{"constraint_id":"","verdict":"PASS","reason":""}],"verdict":"PASS","violated_ids":[],"mitigation":"","requires_user_decision":false}]}

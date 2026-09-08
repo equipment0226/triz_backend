@@ -643,7 +643,12 @@
 {% if search_status.get('patent_status') in ('UNAVAILABLE', 'PARTIAL', 'UNKNOWN') %}
 **특허 검색 상태**
 
-{% if search_status.patent_status == 'UNAVAILABLE' %}
+{% set patent_errors = search_status.get('patent_error_reasons', []) %}
+{% if 'QUERY_BUDGET_EXCEEDED' in patent_errors or 'MONTHLY_BUDGET_EXCEEDED' in patent_errors %}
+BigQuery 조회량 상한에 도달해 특허 검색을 중단했다. 검색 결과가 0건이라는 의미는 아니며, 관련 특허의 존재 여부와 해결안 적용성은 추가 확인이 필요하다.
+{% elif 'NOT_CONFIGURED' in patent_errors or 'INVALID_CREDENTIALS' in patent_errors or 'AUTHENTICATION_FAILED' in patent_errors or 'ACCESS_DENIED_OR_QUOTA' in patent_errors %}
+BigQuery 인증·권한 또는 사용 할당량을 확인해야 하므로 특허 조회를 완료하지 못했다. 관련 특허의 존재 여부와 해결안 적용성은 추가 확인이 필요하다.
+{% elif search_status.patent_status == 'UNAVAILABLE' %}
 검색 서비스의 응답 오류로 특허 검색을 완료하지 못했다. 관련 특허의 존재 여부와 해결안 적용성은 추가 확인이 필요하다.
 {% elif search_status.patent_status == 'PARTIAL' %}
 확보한 특허 자료가 있으나 일부 검색은 실패했거나 완료 여부를 확인할 수 없다. 검색 범위 보완이 필요하다.

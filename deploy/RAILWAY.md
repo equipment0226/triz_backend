@@ -68,3 +68,9 @@ GitHub push 성공과 서비스 구동 성공은 별도로 기록한다. 실제 
 
 공식 안내: [GitHub/Docker 서비스](https://docs.railway.com/services),
 [환경변수 참조](https://docs.railway.com/variables), [CLI](https://docs.railway.com/cli).
+
+## BigQuery 특허 조회
+
+공개 특허 DB 복제 없이 조회하는 선택형 공급자를 지원한다. triz_backend에 서비스 계정 인증과
+쿼리 프로젝트를 등록한 뒤 dry run과 샘플 조회를 통과하면 `PATENT_SEARCH_PROVIDER=bigquery`로 전환한다.
+상한을 초과하면 쿼리를 실행하지 않는다. [설정·비용 제한·검증 절차](../docs/BIGQUERY_PATENT_SEARCH.md)를 참고한다.

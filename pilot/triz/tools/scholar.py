@@ -323,10 +323,21 @@ PROVIDERS = {
 }
 
 
+def bigquery_patents(query: str, k: int = 4) -> list[dict]:
+    from .bigquery_patents import search_batch
+    return search_batch([query], k)[0][0]
+
+
+PROVIDERS['bigquery_patents'] = bigquery_patents
+
+
 def enabled_providers() -> list[str]:
     names = [p.strip().lower() for p in settings.evidence_providers if p.strip()]
-    out = ["google_patents"] if settings.free_patent_search else []
+    use_bigquery = settings.patent_search_provider == 'bigquery'
+    out = ['bigquery_patents'] if use_bigquery else ["google_patents"] if settings.free_patent_search else []
     for n in names:
+        if use_bigquery and n in ('google_patents', 'patentsview', 'tavily'):
+            continue
         if n == "patentsview" and not settings.patentsview_key:
             continue
         if n == "tavily" and not settings.tavily_key:
@@ -363,6 +374,12 @@ def search(query: str, k: int = 4, providers: list[str] | None = None) -> list[d
 def search_kind(query: str, kind: str = "PATENT", k: int = 4, *, diagnostics=None) -> list[dict]:
     if kind not in ("PATENT", "PAPER"):
         raise ValueError("kind must be PATENT or PAPER")
+    if kind == 'PATENT' and settings.patent_search_provider == 'bigquery':
+        from .bigquery_patents import search_batch
+        records, detail = search_batch([query], k)[0]
+        if diagnostics is not None:
+            diagnostics.update(detail)
+        return records
     allowed = {"google_patents"} if kind == "PATENT" and settings.free_patent_search else {"patentsview", "tavily"} if kind == "PATENT" else {"crossref", "openalex", "arxiv"}
     providers = [p for p in enabled_providers() if p in allowed]
     if kind == 'PATENT' and providers == ['google_patents']:

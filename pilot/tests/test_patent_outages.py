@@ -13,6 +13,7 @@ def isolate_patent_provider(monkeypatch):
     monkeypatch.setattr(settings, 'triz', {**settings.triz, 'evidence': {'max_queries_per_run':1,'patent_request_interval_seconds':0}})
     monkeypatch.setattr(scholar, 'enabled_providers', lambda:['google_patents'])
     monkeypatch.setattr(settings, 'free_patent_search', True)
+    monkeypatch.setattr(settings, 'patent_search_provider', 'legacy')
     yield
     patent_search._cooldown.clear(); patent_search._last_request.clear(); scholar.patent_page.cache_clear()
 

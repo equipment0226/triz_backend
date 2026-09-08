@@ -95,6 +95,15 @@ class Settings:
         self.tavily_key = _env("TAVILY_API_KEY")
         self.patentsview_key = _env("PATENTSVIEW_API_KEY")
         self.free_patent_search = _env("FREE_PATENT_SEARCH", "true").lower() == "true"
+        self.patent_search_provider = _env("PATENT_SEARCH_PROVIDER", "legacy").lower()
+        self.bigquery_project_id = _env("BIGQUERY_PROJECT_ID")
+        self.bigquery_location = _env("BIGQUERY_LOCATION", "US")
+        self.bigquery_credentials_json = _env("GOOGLE_SERVICE_ACCOUNT_JSON")
+        self.bigquery_max_bytes = _env_i("BIGQUERY_MAX_BYTES_BILLED", 256 * 1024**3)
+        self.bigquery_monthly_bytes = _env_i("BIGQUERY_MONTHLY_BYTE_LIMIT", 768 * 1024**3)
+        self.bigquery_timeout = _env_i("BIGQUERY_TIMEOUT_SECONDS", 90)
+        self.bigquery_cache_seconds = _env_i("BIGQUERY_CACHE_SECONDS", 86400)
+        self.bigquery_ledger_path = self.storage_dir / "bigquery_patents.sqlite3"
         # 키 없이 쓰는 공개 API를 기본 활성화 (tavily/patentsview는 키가 있을 때만 동작)
         self.evidence_providers = [
             p.strip() for p in _env(

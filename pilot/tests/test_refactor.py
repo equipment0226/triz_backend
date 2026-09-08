@@ -185,6 +185,24 @@ def test_mcp_catalog_and_deterministic_knowledge():
     assert triz_get_engineering_parameters(number=9)[0]['id']==9
     with pytest.raises(ValueError):triz_query_matrix(0,40)
 
+def test_mcp_stage_does_not_block_api_event_loop(monkeypatch):
+    from triz.mcp_server import triz_execute_stage
+    entered, release = threading.Event(), threading.Event()
+    def slow_stage(*args):
+        entered.set()
+        assert release.wait(timeout=3), 'MCP blocked the event loop'
+        return {'continue_execution':False}
+    monkeypatch.setattr(pipeline, 'execute_stage', slow_stage)
+    async def exercise():
+        task = asyncio.create_task(triz_execute_stage('fixture',0,0))
+        try:
+            assert await asyncio.to_thread(entered.wait, 1)
+            await asyncio.sleep(0)
+        finally:
+            release.set()
+        assert not (await asyncio.wait_for(task,1))['continue_execution']
+    asyncio.run(exercise())
+
 def test_mysql_schema_compiles_with_large_text():
     from sqlalchemy.schema import CreateTable
     from sqlalchemy.dialects.mysql import dialect

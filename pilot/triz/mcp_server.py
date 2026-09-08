@@ -1,6 +1,8 @@
 """TRIZ MCP service. TRIZ_MCP_MODULE isolates prompt groups into separate deployments."""
 import os
 import secrets
+import asyncio
+from functools import wraps
 from mcp.server.fastmcp import FastMCP
 from starlette.responses import JSONResponse
 from . import agent, knowledge, pipeline, prompts_registry as P, store
@@ -8,10 +10,19 @@ from .context import RunContext
 from .settings import settings
 
 module = os.getenv("TRIZ_MCP_MODULE", "all")
+
+def threaded(fn):
+    """Keep API polling responsive while synchronous analysis or OCR is running."""
+    @wraps(fn)
+    async def invoke(*args, **kwargs):
+        return await asyncio.to_thread(fn, *args, **kwargs)
+    return invoke
+
 mcp = FastMCP(f"TRIZ {module}", host=os.getenv("MCP_HOST", "127.0.0.1"),
     port=int(os.getenv("MCP_PORT", "8001")), stateless_http=True, json_response=True)
 
 @mcp.tool()
+@threaded
 def triz_execute_stage(run_id: str, stage_index: int, epoch: int) -> dict:
     """Execute one checkpointed stage; stop at user questions. Retry with the same stage and epoch."""
     return pipeline.execute_stage(run_id, stage_index, epoch)
@@ -37,12 +48,14 @@ def triz_get_inventive_principles(keyword: str = "", number: int = 0) -> list[di
             and keyword.lower() in str(p).lower()]
 
 @mcp.tool()
+@threaded
 def triz_search_evidence(query: str, kind: str = "PATENT", limit: int = 4) -> list[dict]:
     """Retrieve actual patent or paper records; unavailable providers return no evidence."""
     from .tools.scholar import search_kind
     return search_kind(query, kind, max(1, min(limit, 8)))
 
 @mcp.tool()
+@threaded
 def triz_parse_attachment(run_id: str, attachment_id: str) -> dict:
     """Re-extract a stored attachment with provenance; does not accept arbitrary paths."""
     from .tools import docparse
@@ -60,6 +73,7 @@ def triz_parse_attachment(run_id: str, attachment_id: str) -> dict:
         return {"filename": item.filename, "facts": item.extracted_facts}
 
 @mcp.tool()
+@threaded
 def triz_verify_artifact(run_id: str, rubric_id: str, artifact: dict, facts: str = "") -> dict:
     """Independently audit an artifact and archive model usage and verdict."""
     if not settings.rubric(rubric_id):
@@ -73,6 +87,7 @@ def triz_verify_artifact(run_id: str, rubric_id: str, artifact: dict, facts: str
         return result
 
 @mcp.tool()
+@threaded
 def triz_render_report(run_id: str) -> dict:
     """Render the stored report and figures without another model call."""
     from . import render
@@ -102,7 +117,7 @@ def register_prompt(prompt_id):
                 vars=variables, tier=agent.routed_tier(node), default={})
             store.save_state(state)
             return {"artifact": result, "run_id": run_id}
-    mcp.add_tool(invoke, name=f"triz_{node}", description=(
+    mcp.add_tool(threaded(invoke), name=f"triz_{node}", description=(
         f"Execute the existing {prompt_id} TRIZ module. Required variables: {', '.join(required)}. "
         "Archives input/output and cost; returns artifact without advancing the workflow."))
 

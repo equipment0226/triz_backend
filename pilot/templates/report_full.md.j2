@@ -1,0 +1,611 @@
+# TRIZ 문제해결 리포트 — {{ s.domain.target_system or '대상 시스템' }}
+
+| 항목 | 내용 |
+|---|---|
+| 작성일 | {{ now }} |
+| 도메인 | {{ s.domain.industry }}{% if s.domain.sub_domain %} / {{ s.domain.sub_domain }}{% endif %} |
+| 대상 시스템 | {{ s.domain.target_system }}{% if s.domain.super_system %} (상위: {{ s.domain.super_system }}){% endif %} |
+| 실행 모드 | {{ s.control.mode.value }} |
+| 적용 TRIZ 기법 | {{ applied_tools | join(', ') }} |
+| 비용 | ${{ '%.4f' % s.cost.total_usd }} (in {{ s.cost.tokens_in }} / out {{ s.cost.tokens_out }} tokens) |
+
+## 요약 (Executive Summary)
+{{ narrative.executive_summary or '(요약 생성 실패)' }}
+
+---
+## 1. 문제 정의
+
+### 1.1 문제 상황
+{{ s.intake.frame.restated_problem }}
+
+- **현상**: {{ s.intake.frame.symptom }}
+- **발생 조건**: {{ s.intake.frame.when_where }}
+{% if s.intake.frame.current_workaround %}- **기존 대응**: {{ s.intake.frame.current_workaround }}
+{% endif %}
+{% if s.intake.frame.success_criteria %}- **성공 기준**: {{ s.intake.frame.success_criteria | join(' / ') }}
+{% endif %}
+{% if s.intake.clarify_turns %}
+
+<details><summary>추가 확인 사항 (역질의)</summary>
+
+{% for t in s.intake.clarify_turns %}
+- Q. {{ t.question }}
+  - A. {{ t.user_answer or '(무응답 — 추정으로 진행)' }}
+{% endfor %}
+</details>
+{% endif %}
+
+### 1.2 제약조건
+
+| # | 구분 | 분류 | 적용 영역 | 내용 | 조건 | 출처 | 강제 |
+|---|---|---|---|---|---|---|---|
+{% for c in s.constraints.items %}
+| {{ loop.index }} | {{ {'MUST_HAVE':'필수','MUST_NOT_HAVE':'금지','NUMERIC':'수치','PREFERENCE':'선호'}[c.kind] }} | {{ CATEGORY_KO.get(c.category, c.category) }} | {{ c.zone or '시스템 전체' }} | {{ c.statement }} | {% if c.operator != 'none' %}{{ c.parameter }} {{ c.operator }} {{ c.value }}{{ c.unit }}{% else %}-{% endif %} | {{ {'USER':'사용자','INFERRED':'추정','REGULATION':'규제','AGENT':'분석','DOMAIN':'도메인 발굴'}[c.source] }} | {{ '반드시' if c.hard else '가급적' }} |
+{% endfor %}
+{% if not s.constraints.items %}
+| - | - | - | - | (명시된 제약 없음) | - | - | - |
+{% endif %}
+
+{% set domain_cons = s.constraints.items | selectattr('source', 'equalto', 'DOMAIN') | list %}
+{% if domain_cons %}
+**시스템이 내재적으로 갖는 제약 (자동 발굴)**
+{% for c in domain_cons %}
+- `{{ c.zone or '시스템 전체' }}` **{{ c.statement }}**
+  - 이유: {{ c.rationale }}
+{% if c.violation_example %}
+  - 흔한 오답: {{ c.violation_example }}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if taboo %}
+**이 도메인의 금기**
+
+| 적용 영역 | 하지 말아야 할 것 | 이유 |
+|---|---|---|
+{% for t in taboo %}
+| {{ t.get('zone', '전체') }} | {{ t.get('item', '') }} | {{ t.get('why', '') }} |
+{% endfor %}
+{% endif %}
+
+### 1.3 대상 시스템
+{% set chosen = s.confirm.chosen() %}
+{% if chosen %}
+**{{ chosen.name }}** — {{ chosen.description }}
+
+{% if chosen.diagram_mermaid %}
+```mermaid
+{{ chosen.diagram_mermaid }}
+```
+{% endif %}
+{% endif %}
+- **문제 영역**: {{ s.confirm.problem_zone }}
+- **작용 영역(OZ)**: {{ s.confirm.operative_zone }}
+- **작용 시간(OT)**: {{ s.confirm.operative_time }}
+
+---
+## 2. 시스템 분석
+
+{% if s.analysis.nine_windows %}
+### 2.1 9-Windows (System Operator)
+
+| | 과거 | 현재 | 미래 |
+|---|---|---|---|
+| **상위시스템** | {{ s.analysis.nine_windows.cells.get('SUPER_PAST','') }} | {{ s.analysis.nine_windows.cells.get('SUPER_PRESENT','') }} | {{ s.analysis.nine_windows.cells.get('SUPER_FUTURE','') }} |
+| **대상시스템** | {{ s.analysis.nine_windows.cells.get('SYS_PAST','') }} | {{ s.analysis.nine_windows.cells.get('SYS_PRESENT','') }} | {{ s.analysis.nine_windows.cells.get('SYS_FUTURE','') }} |
+| **하위요소** | {{ s.analysis.nine_windows.cells.get('SUB_PAST','') }} | {{ s.analysis.nine_windows.cells.get('SUB_PRESENT','') }} | {{ s.analysis.nine_windows.cells.get('SUB_FUTURE','') }} |
+
+**통찰**
+{% for i in s.analysis.nine_windows.insights %}
+- {{ i }}
+{% endfor %}
+{% endif %}
+
+### 2.2 구성요소
+
+| 구성요소 | 계층 | 역할 |
+|---|---|---|
+{% for c in s.analysis.components %}
+| {{ c.name }} | {{ LEVEL_KO.get(c.level, c.level) }} | {{ c.role }} |
+{% endfor %}
+
+### 2.3 기능 모델
+
+| 주체 | 기능 | 대상 | 종류 | 수준 | 등급 |
+|---|---|---|---|---|---|
+{% for e in s.analysis.function_edges %}
+| {{ e.subject }} | {{ e.action }} | {{ e.object }} | {{ '유익' if e.kind == 'USEFUL' else '**유해**' }} | {{ {'INSUFFICIENT':'부족','NORMAL':'적정','EXCESSIVE':'과잉'}[e.level] }} | {{ e.rank }} |
+{% endfor %}
+
+{% if s.analysis.function_mermaid %}
+```mermaid
+{{ s.analysis.function_mermaid }}
+```
+{% endif %}
+
+{% set negs = d.negative_interactions(s) %}
+{% if igrid.md %}
+**상호작용 매트릭스**
+
+{{ igrid.md }}
+
+<sub>＋ 유익 · － 유해 · ± 혼재 · 빈칸 무관. 열 번호는 행 번호와 같은 구성요소입니다.</sub>
+{% endif %}
+
+{% if negs %}
+**유해/혼재 상호작용 상세**
+{% for n in negs %}
+- {{ n }}
+{% endfor %}
+{% endif %}
+
+{% if s.analysis.su_fields %}
+### 2.4 물질-장 분석 (Su-Field)
+
+{% for m in s.analysis.su_fields %}
+**{{ loop.index }}. {{ m.label }}**
+
+| S1 (대상) | S2 (도구) | F (장) | 완전성 | 작용 상태 | 표준해 탐색 범위 |
+|---|---|---|---|---|---|
+| {{ m.s1 }} | {{ m.s2 or '없음' }} | {{ m.field or '없음' }} | {{ COMPLETENESS_KO.get(m.completeness, m.completeness) }} | {{ SU_EFFECT_KO.get(m.effect, m.effect) }} | {{ m.standard_class_hint | join(', ') }} |
+
+{% if m.diagram_mermaid %}
+```mermaid
+{{ m.diagram_mermaid }}
+```
+{% endif %}
+{% endfor %}
+{% endif %}
+
+### 2.5 가용 자원
+
+| 자원 | 분류 | 위치 | 가용성 | 활용 가능 기능 |
+|---|---|---|---|---|
+{% for r in s.analysis.resources %}
+| {{ r.name }}{% if r.blocked_by_constraint %} ⛔{% endif %} | {{ RESOURCE_KO.get(r.category, r.category) }} | {{ WHERE_KO.get(r.where, r.where) }} | {{ AVAIL_KO.get(r.availability, r.availability) }} | {{ r.usable_for | join(', ') }} |
+{% endfor %}
+
+{% if s.analysis.ceca %}
+### 2.6 인과사슬 분석 (CECA)
+
+{% if s.analysis.ceca.mermaid %}
+```mermaid
+{{ s.analysis.ceca.mermaid }}
+```
+{% endif %}
+
+| # | 유형 | 내용 | 모순 씨앗 |
+|---|---|---|---|
+{% for n in s.analysis.ceca.nodes %}
+| {{ loop.index }} | {{ {'TARGET_DISADVANTAGE':'대상 문제','INTERMEDIATE':'중간 원인','ROOT_CAUSE':'근본 원인','KEY_DISADVANTAGE':'핵심 문제'}.get(n.node_type, n.node_type) }} | {{ n.text }} | {{ '⚡' if n.is_contradiction_seed else '' }} |
+{% endfor %}
+{% endif %}
+
+---
+## 3. 문제 정의 (TRIZ)
+
+{{ narrative.contradiction_narrative or '' }}
+
+{% if s.definition.ifr %}
+### 3.1 이상 해결책 (IFR)
+
+> {{ s.definition.ifr.statement }}
+
+- **X-요소**: {{ s.definition.ifr.x_element }}
+- **추가 금지**: {{ s.definition.ifr.without | join(' / ') }}
+- **강화 IFR**: {{ s.definition.ifr.intensified }}
+- **이상성 관점**: {{ s.definition.ifr.ideality_note }}
+{% if s.definition.ifr.constraint_conflicts %}
+- ⚠️ **제약 충돌 검토**: {{ s.definition.ifr.constraint_conflicts | join(' / ') }}
+{% endif %}
+{% endif %}
+
+### 3.2 모순 도출
+
+{% if s.definition.technical_contradictions %}
+#### 기술적 모순 (Technical Contradiction)
+
+{% for t in s.definition.technical_contradictions %}
+**기술적 모순 {{ loop.index }} — {{ t.label }}** (심각도 {{ t.severity }}/5)
+
+| 항목 | 내용 |
+|---|---|
+| 조치 | {{ t.if_action }} |
+| 개선 | {{ t.then_good }} → **#{{ t.improving_param_id }} {{ param(t.improving_param_id, t.param_scheme) }}** |
+| 악화 | {{ t.but_bad }} → **#{{ t.worsening_param_id }} {{ param(t.worsening_param_id, t.param_scheme) }}** |
+| 매핑 근거 | {{ t.rationale }} |
+
+{% endfor %}
+{% endif %}
+
+{% if s.definition.physical_contradictions %}
+#### 물리적 모순 (Physical Contradiction)
+
+{% for p in s.definition.physical_contradictions %}
+**물리적 모순 {{ loop.index }} — {{ p.label }}** ({{ p.scale }})
+
+> `{{ p.element }}`의 **{{ p.parameter }}**는
+> **{{ p.state_a | pred }}** — {{ p.reason_a }}
+> 동시에 **{{ p.state_b | pred }}** — {{ p.reason_b }}
+
+검토 분리 원리: {{ p.separation_candidates | join(', ') }}
+
+{% endfor %}
+{% endif %}
+
+{% if s.definition.trimming %}
+### 3.3 트리밍 검토
+
+| 대상 부품 | 규칙 | 사라지는 기능 | 기능 이관 주체 | 실현성 | 위험 |
+|---|---|---|---|---|---|
+{% for t in s.definition.trimming %}
+| {{ t.target_component }} | {{ t.rule }} | {{ t.replaced_function }} | {{ t.replacement_carrier }} | {{ t.feasibility }} | {{ t.risk_note }} |
+{% endfor %}
+{% endif %}
+
+{% if s.definition.key_problems %}
+### 3.4 핵심 문제 선정
+
+| 순위 | 핵심 문제 | 관련 모순 | 선정 사유 | 영향도 | 해결가능성 |
+|---|---|---|---|---|---|
+{% for k in s.definition.key_problems %}
+| {{ loop.index }} | {{ k.title }} | {{ k.contradiction_ids | lbl }} | {{ k.why_key }} | {{ k.impact }}/5 | {{ k.tractability }}/5 |
+{% endfor %}
+
+{% if viz.flow %}
+**문제 → 모순 → 해결책 논리 흐름**
+
+```mermaid
+{{ viz.flow }}
+```
+{% endif %}
+{% endif %}
+
+---
+## 4. 해결책 도출 과정
+
+{% if viz.track_pie %}
+**해결 트랙별 아이디어 기여도**
+
+```mermaid
+{{ viz.track_pie }}
+```
+{% endif %}
+
+{% if s.solve.matrix_lookups %}
+### 4.1 모순 행렬 조회 및 발명원리
+
+| 개선 파라미터 | 악화 파라미터 | 도출된 발명원리 | 출처 |
+|---|---|---|---|
+{% for m in s.solve.matrix_lookups %}
+| #{{ m.improving_param_id }} {{ param(m.improving_param_id, scheme) }} | #{{ m.worsening_param_id }} {{ param(m.worsening_param_id, scheme) }} | {% for p in m.principle_ids %}{{ p }}. {{ principle(p) }}{{ ' / ' if not loop.last }}{% endfor %} | {{ m.note }} |
+{% endfor %}
+
+| 원리 | 해석 | 아이디어 | 활용 자원 |
+|---|---|---|---|
+{% for a in s.solve.principle_apps %}
+| **{{ a.principle_id }}. {{ a.principle_name }}** | {{ a.interpretation }} | {{ a.idea }} | {{ (a.uses_resources or []) | join(', ') }} |
+{% endfor %}
+{% endif %}
+
+{% if s.solve.separation_apps %}
+### 4.2 분리 원리 적용 (물리적 모순)
+
+| 분리 원리 | 적용 | 분리 방식 | 아이디어 | 연계 발명원리 |
+|---|---|---|---|---|
+{% for a in s.solve.separation_apps %}
+| {{ {'TIME':'시간 분리','SPACE':'공간 분리','CONDITION':'조건 분리','SYSTEM_LEVEL':'시스템 수준 분리'}.get(a.kind, a.kind) }} | {{ '○' if a.applicable else '✗' }} | {{ a.how or a.not_applicable_reason }} | {{ a.idea }} | {{ (a.supporting_principles or []) | join(', ') }} |
+{% endfor %}
+{% endif %}
+
+{% if s.solve.standard_apps %}
+### 4.3 76 표준해 적용
+
+{% for a in s.solve.standard_apps %}
+**{{ a.standard_code }} {{ a.standard_title }}**
+- 모델 변환: `{{ a.transformation }}`
+- 변환 결과: `{{ a.resulting_su_field }}`
+- 적용안: {{ a.idea }}
+
+{% endfor %}
+{% endif %}
+
+{% if s.solve.ariz %}
+### 4.4 ARIZ-85C 실행 기록
+
+{% for st_ in s.solve.ariz.steps %}
+**{{ st_.step_code }} {{ st_.step_title }}**{% if st_.status != 'DONE' %} `{{ st_.status }}`{% endif %}
+
+{{ st_.output }}
+
+{% endfor %}
+
+**핵심 산출**
+- 갈등 요소 쌍: {{ s.solve.ariz.conflict_pair }}
+- 작용 영역(OZ): {{ s.solve.ariz.operative_zone }} / 작용 시간(OT): {{ s.solve.ariz.operative_time }}
+- IFR-1: {{ s.solve.ariz.ifr1 }}
+- IFR-2: {{ s.solve.ariz.ifr2 }}
+- 거시 물리모순: {{ s.solve.ariz.physical_contradiction_macro }}
+- 미시 물리모순: {{ s.solve.ariz.physical_contradiction_micro }}
+{% if s.solve.ariz.solution_directions %}
+- 해결 방향:
+{% for x in s.solve.ariz.solution_directions %}
+  - {{ x }}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+{% if s.solve.trend_apps %}
+### 4.5 기술 진화 트렌드
+
+| 트렌드 | 현재 단계 | 다음 단계 | 아이디어 |
+|---|---|---|---|
+{% for a in s.solve.trend_apps %}
+| {{ a.trend_id }} {{ a.trend_name }} | {{ a.current_stage }} | {{ a.next_stage }} | {{ a.idea }} |
+{% endfor %}
+{% if s_curve %}
+- **S-커브 위치**: {{ s_curve.stage }} — {{ s_curve.note }}
+- **병목 요소**: {{ s_curve.bottleneck }}
+{% endif %}
+{% endif %}
+
+{% if s.solve.fos_apps %}
+### 4.6 기능지향탐색(FOS) / 특성 전이
+
+{% for a in s.solve.fos_apps %}
+- **{{ a.leading_area }}** → {{ a.transferred_feature }}
+  - 일반화 기능: {{ a.generalized_function }}
+  - 이식 시 조정: {{ a.adaptation_note }}
+{% endfor %}
+{% endif %}
+
+{% if s.solve.coverage_note %}
+> **도출 커버리지**: {{ s.solve.coverage_note }}
+{% if s.solve.gaps %}
+> 부족한 부분: {{ s.solve.gaps | join(' / ') }}
+{% endif %}
+{% endif %}
+
+---
+## 5. 제약조건 검토
+
+{% if cmatrix.md %}
+**제약 × 해결책 매트릭스**
+
+{{ cmatrix.md }}
+
+<sub>○ 준수 · ✕ 위반 · ? 판정불가 · — 해당없음. 열 번호는 1.2 제약조건 표의 번호와 같습니다.</sub>
+{% endif %}
+
+| 해결책 | 판정 | 위반 제약 | 보완 필요 사항 |
+|---|---|---|---|
+{% for e in s.evaluation.evaluations %}
+{% set c = concept_map.get(e.concept_id) %}
+{% set chk = check_map.get(e.concept_id) %}
+| {{ c.title if c else '-' }} | {{ {'PASS':'통과','CONDITIONAL':'조건부','FAIL':'탈락'}.get(chk.verdict, chk.verdict) if chk else 'N/A' }} | {{ (chk.violated_ids | lbl) if chk else '' }} | {{ chk.mitigation if chk else '' }} |
+{% endfor %}
+
+---
+## 6. 최종 해결책 (우선순위순)
+
+{% if viz.quadrant %}
+```mermaid
+{{ viz.quadrant }}
+```
+{% endif %}
+{% if viz.novelty_pie %}
+```mermaid
+{{ viz.novelty_pie }}
+```
+{% endif %}
+
+{% for e in s.evaluation.evaluations %}
+{% set c = concept_map.get(e.concept_id) %}
+{% if c %}
+### [{{ e.rank }}위] {{ c.title }}
+> {{ c.one_liner }}
+
+| 구분 | 내용 |
+|---|---|
+| 적용 TRIZ 기법 | {% for o in c.triz_origin %}{{ o.get('track','') }}-{{ o.get('ref','') }}{{ ' · ' if not loop.last }}{% endfor %} |
+| 해소 모순 | {{ c.addresses_contradictions | lbl }} |
+| 신규성 | {{ NOVELTY_KO.get(c.novelty_class, c.novelty_class) }} |
+| 개조 규모 | {{ SCALE_KO.get(c.change_scale, c.change_scale) }} |
+| 성숙도 | {{ MATURITY_KO.get(c.maturity, c.maturity) }} |
+| 기대 효과 | {{ c.expected_effect }} |
+| 필요 자원 | {{ c.required_resources | join(', ') }} |
+| 종합 평가 | **{{ e.total_score }}/5** · 리스크 {{ GRADE_KO.get(e.risk_level, e.risk_level) }} · 효과 {{ GRADE_KO.get(e.return_level, e.return_level) }} · **{{ QUADRANT_KO.get(e.quadrant, e.quadrant) }}** |
+
+**개념 설명**
+{{ c.description | hz }}
+
+**동작 원리**: {{ c.working_principle | hz }}
+
+{% if c.changes_to_system %}
+**시스템 변경 사항**
+{% for ch in c.changes_to_system %}
+- {{ ch }}
+{% endfor %}
+{% endif %}
+
+{% if c.assumptions %}
+**전제 가정**
+{% for a in c.assumptions %}
+- {{ a }}
+{% endfor %}
+{% endif %}
+
+{% if c.open_risks %}
+**잠재 위험**
+{% for r in c.open_risks %}
+- {{ r }}
+{% endfor %}
+{% endif %}
+
+{% if c.diagram_mermaid %}
+```mermaid
+{{ c.diagram_mermaid }}
+```
+{% endif %}
+
+{% if c.evidence_ids %}
+**참고자료**
+{% for eid in c.evidence_ids %}
+{% set ev = evidence_map.get(eid) %}
+{% if ev %}
+{% if ev.url %}
+- [{{ SOURCE_KO.get(ev.source_type, ev.source_type) }}{% if ev.year %}·{{ ev.year }}{% endif %}] [{{ ev.title or ev.claim }}]({{ ev.url }}){% if ev.identifier %} `{{ ev.identifier }}`{% endif %}{% if not ev.verified %} ⚠️링크 확인 필요{% endif %}
+  <br/><sub>{{ ev.claim }}</sub>
+{% else %}
+- [모델 지식·미검증] {{ ev.claim or ev.title }}
+{% endif %}
+{% endif %}
+{% endfor %}
+{% else %}
+> ⚠️ 외부 참고자료 미확보 — 자체 분석에 근거한 제안 (검증 필요)
+{% endif %}
+
+**다직군 평가**
+
+| 검토자 | 관점 | 점수 | 의견 |
+|---|---|---|---|
+{% for sc in e.scores %}
+| {{ sc.reviewer_role }} | {{ sc.dimension }} | {{ sc.score }}/5 | {{ sc.rationale }} |
+{% endfor %}
+
+{% if e.dissent %}
+> **소수 의견**: {{ e.dissent | join(' / ') }}
+{% endif %}
+
+---
+{% endif %}
+{% endfor %}
+
+{% if patents.principles %}
+## 6+. 동일 원리 선행 특허 대조
+
+이번에 적용한 TRIZ 원리로 **같은 종류의 모순을 이미 해결한 사례**가 있는지 산업을 가리지 않고 검색했습니다.
+(검색 대상 원리: {{ patents.principles | map(attribute='ref') | join(' · ') }} · 검토한 자료 {{ patents.searched or 0 }}건)
+
+{% if patents.matches %}
+### 6+.1 우리 해결책과 메커니즘이 일치하는 선행자료
+
+| 해결책 | 적용 원리 | 선행자료 | 같다고 본 근거 |
+|---|---|---|---|
+{% for m in patents.matches %}
+| {{ m.concept_title }} | {{ m.principle_ref }} | {% if m.url %}[{{ SOURCE_KO.get(m.source_type, m.source_type) }}] [{{ m.title }}]({{ m.url }}){% if m.identifier %} `{{ m.identifier }}`{% endif %}{% else %}{{ m.title }}{% endif %} | {{ m.why }} |
+{% endfor %}
+{% else %}
+> 메커니즘이 실질적으로 일치한다고 판단할 만한 선행자료를 찾지 못했습니다.
+> {{ patents.note or '' }}
+{% endif %}
+
+{% if patents.additions %}
+### 6+.2 선행자료에서 발견한 **추가 해결책 후보**
+
+같은 원리를 쓰지만 위 해결책들에는 없던 구현 방식입니다.
+**아래 항목은 다직군 평가와 제약 게이트를 거치지 않았습니다** — 채택 전 별도 검토가 필요합니다.
+
+{% for a in patents.additions %}
+**{{ loop.index }}. {{ a.title }}**
+> {{ a.one_liner }}
+
+| 구분 | 내용 |
+|---|---|
+| 적용 원리 | {{ a.principle_ref }} |
+| 동작 원리 | {{ a.working_principle }} |
+| 기존 해결책과의 차이 | {{ a.how_it_differs }} |
+| 기대 효과 | {{ a.expected_effect }} |
+{% if a.open_risks %}
+| 확인 필요 | {{ a.open_risks | join(' / ') }} |
+{% endif %}
+{% if a.url %}
+| 출처 | [{{ SOURCE_KO.get(a.source_type, a.source_type) }}] [{{ a.source_title }}]({{ a.url }}){% if a.identifier %} `{{ a.identifier }}`{% endif %} |
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if not patents.providers %}
+> 특허 전용 데이터베이스 키(`PATENTSVIEW_API_KEY` 또는 `TAVILY_API_KEY`)가 없어
+> 구체적인 특허번호 대신 공식 검색 링크로 제시했습니다.
+{% endif %}
+{% endif %}
+
+## 7. 실행 로드맵
+
+{{ s.evaluation.portfolio_note | hz }}
+
+{% if viz.roadmap %}
+```mermaid
+{{ viz.roadmap }}
+```
+{% endif %}
+
+{% if s.evaluation.roadmap %}
+| 시점 | 해결책 | 선행 조건 | 담당 관점 |
+|---|---|---|---|
+{% for r in s.evaluation.roadmap %}
+{% set c = concept_map.get(r.get('concept_id')) %}
+| {{ r.get('phase','') }} | {{ c.title if c else (r.get('concept_id','') | lbl) }} | {{ r.get('precondition','') }} | {{ r.get('owner','') }} |
+{% endfor %}
+{% endif %}
+
+{% if s.evaluation.ranking_note %}
+**우선순위 근거**: {{ s.evaluation.ranking_note | hz }}
+{% endif %}
+
+## 8. 한계 및 검증 필요사항
+
+{{ narrative.limitation_note or '' }}
+
+{% if s.control.warnings %}
+**⚠️ 자동 검증 미통과 / 경고 항목**
+{% for w in s.control.warnings %}
+- {{ w }}
+{% endfor %}
+{% endif %}
+
+## 부록 A. 참고자료 (검색 기반)
+
+{% set linked = s.evidence | selectattr('url') | list %}
+{% if linked %}
+| # | 유형 | 제목 | 식별자 | 연도 | 링크 |
+|---|---|---|---|---|---|
+{% for ev in linked %}
+| {{ loop.index }} | {{ SOURCE_KO.get(ev.source_type, ev.source_type) }} | {{ ev.title or ev.claim }} | {{ ev.identifier or '-' }} | {{ ev.year or '-' }} | [열기]({{ ev.url }}) |
+{% endfor %}
+{% else %}
+(검색으로 확보한 참고자료 없음)
+{% endif %}
+
+{% set unlinked = s.evidence | rejectattr('url') | list %}
+{% if unlinked %}
+<details><summary>출처 링크가 없는 보조 지식 {{ unlinked|length }}건 (검증 필요)</summary>
+
+{% for ev in unlinked %}
+- {{ ev.claim or ev.title }}
+{% endfor %}
+</details>
+{% endif %}
+
+{% if excluded or s.definition.dropped %}
+## 부록 B. 검토했으나 제외된 항목
+
+| 항목 | 제외 사유 |
+|---|---|
+{% for x in excluded %}
+| {{ x.get('idea','') | hz }} | {{ x.get('reason','') | hz }} |
+{% endfor %}
+{% for x in s.definition.dropped %}
+| {{ x.get('id','') | lbl }} | {{ x.get('reason','') | hz }} |
+{% endfor %}
+{% endif %}
+
+## 부록 C. 추론 이력 (Step Trace)
+
+| # | 단계 | 작업 | 담당 관점 | 모델 티어 | 검증 | 시도 | 상태 |
+|---|---|---|---|---|---|---|---|
+{% for st_ in s.steps %}
+| {{ st_.seq }} | {{ st_.stage }} | {{ st_.label }} | {{ st_.agent_id | hz }} | {{ st_.tier }} | {{ {'PASS':'통과','CONDITIONAL':'조건부','FAIL':'미통과','REPAIR':'보정'}.get(st_.verdicts[-1].get('verdict','-') if st_.verdicts else '-', '-') }} | {{ st_.verify_attempts }} | {{ {'OK':'완료','FAILED':'실패','SKIPPED':'건너뜀'}.get(st_.status, st_.status) }}{{ ' 👤' if st_.human_intervened }} |
+{% endfor %}

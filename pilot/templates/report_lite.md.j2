@@ -1,0 +1,110 @@
+# TRIZ 문제해결 리포트 (간이) — {{ s.domain.target_system or '대상' }}
+
+| 항목 | 내용 |
+|---|---|
+| 작성일 | {{ now }} |
+| 도메인 | {{ s.domain.industry }} |
+| 적용 기법 | {{ applied_tools | join(', ') }} |
+| 비용 | ${{ '%.4f' % s.cost.total_usd }} |
+
+## 요약
+{{ narrative.executive_summary or '' }}
+
+## 1. 문제와 모순
+{{ s.intake.frame.restated_problem }}
+
+{{ narrative.contradiction_narrative or '' }}
+
+{% for t in s.definition.technical_contradictions %}
+- **기술적 모순** {{ t.if_action }} → 개선 `{{ param(t.improving_param_id, t.param_scheme) }}` / 악화 `{{ param(t.worsening_param_id, t.param_scheme) }}`
+{% endfor %}
+{% for p in s.definition.physical_contradictions %}
+- **물리적 모순** {{ p.element }}의 {{ p.parameter }}는 {{ p.state_a | pred }} ↔ 동시에 {{ p.state_b | pred }}
+{% endfor %}
+
+{% if s.constraints.items %}
+**제약조건**
+
+| # | 적용 영역 | 내용 | 강제 |
+|---|---|---|---|
+{% for c in s.constraints.items %}
+| {{ loop.index }} | {{ c.zone or '시스템 전체' }} | {{ c.statement }} | {{ 'HARD' if c.hard else 'soft' }} |
+{% endfor %}
+{% endif %}
+
+{% if taboo %}
+**이 도메인의 금기**
+{% for t in taboo %}
+- `{{ t.get('zone', '전체') }}` {{ t.get('item', '') }} — {{ t.get('why', '') }}
+{% endfor %}
+{% endif %}
+
+{% if viz.flow %}
+**문제 → 모순 → 해결책 흐름**
+
+```mermaid
+{{ viz.flow }}
+```
+{% endif %}
+
+## 2. 추천 해결책
+
+{% if viz.quadrant %}
+```mermaid
+{{ viz.quadrant }}
+```
+{% endif %}
+
+{% for e in s.evaluation.evaluations %}
+{% set c = concept_map.get(e.concept_id) %}
+{% if c %}
+### [{{ e.rank }}위] {{ c.title }} — {{ e.total_score }}/5 ({{ QUADRANT_KO.get(e.quadrant, e.quadrant) }})
+> {{ c.one_liner }}
+
+{{ c.description | hz }}
+
+- **기대 효과**: {{ c.expected_effect | hz }}
+- **필요 자원**: {{ c.required_resources | join(', ') }}
+- **위험**: {{ c.open_risks | join(' / ') }}
+{% if c.evidence_ids %}
+- **참고자료**: {% for eid in c.evidence_ids %}{% set ev = evidence_map.get(eid) %}{% if ev and ev.url %}[{{ ev.title[:40] or ev.identifier }}]({{ ev.url }}){{ ' · ' if not loop.last }}{% endif %}{% endfor %}
+{% endif %}
+- **평가 요약**: {% for sc in e.scores %}{{ sc.reviewer_role }} {{ sc.score }}{{ ' · ' if not loop.last }}{% endfor %}
+
+{% endif %}
+{% endfor %}
+
+## 3. 실행 순서
+{{ s.evaluation.portfolio_note | hz }}
+
+{% if viz.roadmap %}
+```mermaid
+{{ viz.roadmap }}
+```
+{% endif %}
+
+## 4. 한계
+{{ narrative.limitation_note or '' }}
+{% for w in s.control.warnings %}
+- ⚠️ {{ w }}
+{% endfor %}
+
+<details><summary>상세 분석 (기능/자원/인과사슬)</summary>
+
+**기능 모델**
+{% for e in s.analysis.function_edges %}
+- [{{ '유해' if e.kind=='HARMFUL' else '유익' }}] {{ e.subject }} → {{ e.action }} → {{ e.object }}
+{% endfor %}
+
+**가용 자원**
+{% for r in s.analysis.resources %}
+- {{ r.name }} ({{ r.category }}/{{ r.where }})
+{% endfor %}
+
+{% if s.analysis.ceca %}
+**인과사슬**
+{% for n in s.analysis.ceca.nodes %}
+- [{{ {'TARGET_DISADVANTAGE':'대상 문제','INTERMEDIATE':'중간 원인','ROOT_CAUSE':'근본 원인','KEY_DISADVANTAGE':'핵심 문제'}.get(n.node_type, n.node_type) }}] {{ n.text }}
+{% endfor %}
+{% endif %}
+</details>

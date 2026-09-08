@@ -1,0 +1,68 @@
+{
+  "note": "76 표준해 구조(5 클래스). PoC에는 실무에서 가장 자주 쓰이는 항목을 수록했다. 각 항목 본문은 공개 TRIZ 문헌으로 검증/보강할 것(verified=false 항목 우선).",
+  "classes": {
+    "1": "물질-장 모델의 구성과 파괴 (13)",
+    "2": "물질-장 모델의 발전 (23)",
+    "3": "상위 시스템 및 미시 수준으로의 전이 (6)",
+    "4": "검출 및 측정 (17)",
+    "5": "표준해 적용을 위한 보조 기법 (17)"
+  },
+  "standards": [
+    {"code": "1.1.1", "title_ko": "불완전 물질-장 모델의 완성", "description": "S1만 있고 도구(S2) 또는 장(F)이 없어 기능이 성립하지 않으면, 빠진 요소를 도입해 완전한 물질-장 모델을 구성한다.", "applicability": ["MISSING_S2", "MISSING_F", "INCOMPLETE"], "transformation": "S1 → S1 -[F]- S2", "verified": true},
+    {"code": "1.1.2", "title_ko": "내부 복합 물질-장", "description": "기존 요소를 바꿀 수 없을 때, S1 또는 S2 '내부'에 첨가물(S3)을 도입해 작용을 보강한다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "S1 -[F]- S2  →  S1(+S3) -[F]- S2", "verified": true},
+    {"code": "1.1.3", "title_ko": "외부 복합 물질-장", "description": "내부를 바꿀 수 없다면 S1 또는 S2 '외부'에 물질 S3를 부착·도포해 작용을 보강한다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "S1 -[F]- S2  →  S1 + S3(외부) -[F]- S2", "verified": true},
+    {"code": "1.1.4", "title_ko": "환경 물질의 활용", "description": "새 물질을 넣을 수 없다면 시스템을 둘러싼 환경(공기, 물, 진공, 기존 유동)을 S3로 사용한다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "환경물질을 도구로 편입", "verified": true},
+    {"code": "1.1.5", "title_ko": "변형된 환경의 활용", "description": "환경을 그대로 쓸 수 없다면 환경 자체를 변형(가압, 이온화, 온도 변경, 첨가물 투입)해 사용한다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "환경 → 변형된 환경", "verified": true},
+    {"code": "1.1.6", "title_ko": "최소 작용 모드", "description": "작용을 정밀하게 제어하기 어렵다면 필요한 양보다 약간 적게 가하고 부족분을 다른 수단으로 보완한다.", "applicability": ["EXCESSIVE"], "transformation": "작용량 최소화 + 보조 수단", "verified": false},
+    {"code": "1.1.7", "title_ko": "최대 작용 후 잉여 제거", "description": "정밀 제어가 어렵다면 과잉으로 작용시킨 뒤 잉여분을 제거한다.", "applicability": ["USEFUL_INSUFFICIENT", "EXCESSIVE"], "transformation": "과잉 작용 → 잉여 제거", "verified": false},
+    {"code": "1.1.8", "title_ko": "선택적 최대 작용", "description": "일부 영역에는 최대 작용이, 다른 영역에는 최소 작용이 필요하면 보호 물질을 도입하거나 국부적으로만 강한 장을 가한다.", "applicability": ["EXCESSIVE", "HARMFUL"], "transformation": "국부적 장 집중 + 보호막", "verified": false},
+
+    {"code": "1.2.1", "title_ko": "제3의 물질로 유해작용 차단", "description": "유익 작용과 유해 작용이 함께 일어나고 두 물질이 직접 접촉할 필요가 없다면, 사이에 제3의 물질 S3를 도입해 유해 작용을 차단한다.", "applicability": ["HARMFUL"], "transformation": "S1 -[F]- S2 → S1 - S3 - S2", "verified": true},
+    {"code": "1.2.2", "title_ko": "기존 물질의 변형으로 차단", "description": "외부 물질을 넣을 수 없다면 S1 또는 S2를 변형(표면 처리, 조성 변경)해 유해 작용을 없앤다.", "applicability": ["HARMFUL"], "transformation": "S1 또는 S2의 변형체 도입", "verified": true},
+    {"code": "1.2.3", "title_ko": "유해작용의 유도·배출", "description": "유해한 장·물질을 제거할 수 없다면 다른 곳으로 흘려보내거나 흡수시켜 시스템 밖으로 배출한다.", "applicability": ["HARMFUL"], "transformation": "유해작용 경로 우회/흡수", "verified": true},
+    {"code": "1.2.4", "title_ko": "상쇄 장의 도입", "description": "유해한 장을 상쇄하는 제2의 장(반대 위상, 반대 방향)을 도입한다.", "applicability": ["HARMFUL"], "transformation": "F_harm + F_counter → 0", "verified": true},
+    {"code": "1.2.5", "title_ko": "자성의 소거", "description": "자성이 유해 작용의 원인이라면 퀴리점 이상 가열 또는 반대 자장으로 자성을 제거한다.", "applicability": ["HARMFUL"], "transformation": "자성 제거", "verified": false},
+
+    {"code": "2.1.1", "title_ko": "연쇄 물질-장 모델", "description": "제어가 어려운 작용을 두 단계로 나누어, 중간 물질을 통해 순차적으로 전달하는 연쇄 구조로 만든다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "S1 -[F]- S2 → S1 -[F1]- S3 -[F2]- S2", "verified": true},
+    {"code": "2.1.2", "title_ko": "이중 물질-장 모델", "description": "기존 요소를 바꿀 수 없다면 제2의 장 F2를 추가로 도입해 작용을 보강한다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "S1 -[F1,F2]- S2", "verified": true},
+    {"code": "2.2.1", "title_ko": "제어성 높은 장으로 대체", "description": "제어가 어려운 장을 더 제어하기 쉬운 장으로 바꾼다(중력<기계<열<화학<전기<자기<전자기).", "applicability": ["USEFUL_INSUFFICIENT", "EXCESSIVE"], "transformation": "F → F'(제어성↑)", "verified": true},
+    {"code": "2.2.2", "title_ko": "도구 물질의 분할", "description": "도구(S2)를 더 잘게 분할해 작용의 분해능과 제어성을 높인다(덩어리→입자→분말→분자).", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "S2 → 분할된 S2", "verified": true},
+    {"code": "2.2.3", "title_ko": "다공질·모세관 구조로 전환", "description": "도구 물질을 다공성·모세관 구조로 바꾸고 기공에 기능성 물질을 담아 작용을 제어한다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "고체 S2 → 다공질 S2(+충전물)", "verified": true},
+    {"code": "2.2.4", "title_ko": "동적화(Dynamization)", "description": "경직된 시스템을 가동·가변 구조로 바꾼다(고정→관절→유연→유체).", "applicability": ["USEFUL_INSUFFICIENT", "HARMFUL"], "transformation": "정적 구조 → 동적 구조", "verified": true},
+    {"code": "2.2.5", "title_ko": "장의 구조화", "description": "균일한 장을 공간적으로 구조화된 장(패턴·구배·정재파)으로 바꾼다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "균일 F → 구조화 F", "verified": true},
+    {"code": "2.2.6", "title_ko": "물질의 구조화", "description": "균일한 물질을 공간적으로 구조화된 물질(패턴, 이방성, 구배 재료)로 바꾼다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "균일 S → 구조화 S", "verified": true},
+    {"code": "2.3.1", "title_ko": "리듬 정합", "description": "장의 주기와 대상 물질의 고유 주기를 일치시켜 작용 효율을 높인다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "F 주파수 = S 고유주파수", "verified": true},
+    {"code": "2.3.2", "title_ko": "리듬 비정합", "description": "유해한 공진을 피하기 위해 주기를 의도적으로 어긋나게 한다.", "applicability": ["HARMFUL"], "transformation": "F 주파수 ≠ S 고유주파수", "verified": true},
+    {"code": "2.3.3", "title_ko": "독립적 작용의 병행", "description": "양립하기 어려운 두 작용을, 한쪽의 휴지 구간에 다른 쪽을 수행하도록 시간적으로 배치한다.", "applicability": ["HARMFUL", "USEFUL_INSUFFICIENT"], "transformation": "작용의 시간 분할", "verified": true},
+    {"code": "2.4.1", "title_ko": "강자성 물질과 자기장의 도입", "description": "강자성 물질과 자기장을 도입해 비접촉·고제어 작용을 만든다.", "applicability": ["USEFUL_INSUFFICIENT", "HARMFUL"], "transformation": "S2 → 강자성체 + 자기장", "verified": true},
+    {"code": "2.4.2", "title_ko": "자성 유체의 활용", "description": "자성 입자를 담은 유체를 도입해 형상 적응성과 자기 제어성을 동시에 얻는다.", "applicability": ["USEFUL_INSUFFICIENT"], "transformation": "고체 도구 → 자성 유체", "verified": true},
+
+    {"code": "3.1.1", "title_ko": "바이/폴리 시스템으로의 전이", "description": "단일 시스템의 성능 한계에 도달하면 동일하거나 유사한 시스템을 결합해 새로운 성질을 얻는다.", "applicability": ["SYSTEM_LIMIT"], "transformation": "모노 → 바이 → 폴리", "verified": true},
+    {"code": "3.1.2", "title_ko": "결합 요소 간 연결 강화", "description": "결합된 시스템 간 연결을 강화해 단순 합 이상의 성질을 얻는다.", "applicability": ["SYSTEM_LIMIT"], "transformation": "느슨한 결합 → 강한 결합", "verified": false},
+    {"code": "3.1.3", "title_ko": "구성 요소 특성의 차별화", "description": "결합된 요소들을 서로 다른 특성으로 만들어(비대칭화) 새로운 기능을 만든다.", "applicability": ["SYSTEM_LIMIT"], "transformation": "동일 요소 → 이종 요소", "verified": false},
+    {"code": "3.1.4", "title_ko": "폴리 시스템의 축약", "description": "발전된 폴리 시스템에서 중복 요소를 제거해 다시 단순한 시스템으로 되돌린다(트리밍).", "applicability": ["SYSTEM_LIMIT"], "transformation": "폴리 → 축약된 모노", "verified": true},
+    {"code": "3.1.5", "title_ko": "전체와 부분에 상반된 성질 부여", "description": "시스템 전체와 그 부분이 서로 반대되는 성질을 갖게 하여 물리적 모순을 해소한다.", "applicability": ["PHYSICAL_CONTRADICTION"], "transformation": "부분=A, 전체=非A", "verified": true},
+    {"code": "3.2.1", "title_ko": "미시 수준으로의 전이", "description": "거시적 기계 요소를 분자·입자·장 수준의 작용으로 대체한다.", "applicability": ["SYSTEM_LIMIT", "USEFUL_INSUFFICIENT"], "transformation": "거시 부품 → 미시 작용", "verified": true},
+
+    {"code": "4.1.1", "title_ko": "측정 대신 변경", "description": "측정·검출이 어렵다면 측정할 필요가 없도록 시스템을 바꾼다(측정 문제의 제거).", "applicability": ["MEASUREMENT"], "transformation": "측정 요구 자체를 제거", "verified": true},
+    {"code": "4.1.2", "title_ko": "복제물의 측정", "description": "대상을 직접 측정하기 어렵다면 그 복제·이미지·모형을 측정한다.", "applicability": ["MEASUREMENT"], "transformation": "대상 → 복제물 측정", "verified": true},
+    {"code": "4.1.3", "title_ko": "연속 측정의 이산화", "description": "연속 측정 대신 두 상태의 검출(있음/없음, 임계 초과 여부)로 바꾼다.", "applicability": ["MEASUREMENT"], "transformation": "측정 → 검출", "verified": true},
+    {"code": "4.2.1", "title_ko": "측정용 물질-장 구성", "description": "측정이 어려우면 검출하기 쉬운 장을 도입해 측정용 물질-장 모델을 구성한다.", "applicability": ["MEASUREMENT"], "transformation": "S → S -[F검출]- 센서", "verified": true},
+    {"code": "4.2.2", "title_ko": "검출용 첨가물 도입", "description": "쉽게 검출되는 첨가물(형광, 자성, 방사성 트레이서)을 대상에 도입한다.", "applicability": ["MEASUREMENT"], "transformation": "S + 트레이서", "verified": true},
+    {"code": "4.2.3", "title_ko": "환경에 첨가물 도입", "description": "대상에 첨가할 수 없다면 주변 환경에 검출 가능한 첨가물을 넣어 간접 측정한다.", "applicability": ["MEASUREMENT"], "transformation": "환경 + 트레이서", "verified": false},
+    {"code": "4.3.1", "title_ko": "자연 현상의 활용", "description": "이미 시스템에서 일어나는 물리 현상(공진, 열복사, 방전)을 측정 신호로 활용한다.", "applicability": ["MEASUREMENT"], "transformation": "기존 현상 → 측정 신호", "verified": true},
+    {"code": "4.3.2", "title_ko": "공진 주파수 측정", "description": "시스템 또는 대상의 고유 공진 주파수 변화를 통해 상태를 측정한다.", "applicability": ["MEASUREMENT"], "transformation": "공진 주파수 = 상태 지표", "verified": true},
+    {"code": "4.5.1", "title_ko": "측정 시스템의 이중화·연속화", "description": "단발 측정을 연속 모니터링 또는 이중 측정으로 발전시켜 신뢰도를 높인다.", "applicability": ["MEASUREMENT"], "transformation": "단발 → 연속/이중", "verified": false},
+
+    {"code": "5.1.1", "title_ko": "물질 도입의 우회", "description": "새 물질을 넣을 수 없다면 (a) 빈 공간, (b) 기존 물질의 장(field), (c) 외부 자원, (d) 물질 자체 대신 그 파생물을 사용한다.", "applicability": ["RESOURCE_LIMIT"], "transformation": "실체 도입 → 자원 활용", "verified": true},
+    {"code": "5.1.2", "title_ko": "물질의 분할 도입", "description": "물질을 통째로 넣지 않고 잘게 나누어 필요한 곳에만 도입한다.", "applicability": ["RESOURCE_LIMIT"], "transformation": "전량 도입 → 국부 도입", "verified": false},
+    {"code": "5.1.3", "title_ko": "일시적 물질 도입", "description": "작용이 끝나면 사라지는 물질(증발, 용해, 승화)을 도입한다.", "applicability": ["RESOURCE_LIMIT", "HARMFUL"], "transformation": "영구 도입 → 일시 도입", "verified": true},
+    {"code": "5.2.1", "title_ko": "이미 존재하는 장의 활용", "description": "새 장을 만들지 않고 시스템에 이미 존재하는 장(열, 진동, 압력, 유동)을 사용한다.", "applicability": ["RESOURCE_LIMIT"], "transformation": "기존 장 재활용", "verified": true},
+    {"code": "5.2.2", "title_ko": "환경 장의 활용", "description": "주변 환경에 존재하는 장(중력, 대기압, 온도차)을 활용한다.", "applicability": ["RESOURCE_LIMIT"], "transformation": "환경 장 활용", "verified": true},
+    {"code": "5.3.1", "title_ko": "상변화의 활용", "description": "물질의 상변화를 이용해 성질을 필요에 따라 바꾼다(고체↔액체↔기체).", "applicability": ["PHYSICAL_CONTRADICTION"], "transformation": "상변화로 상반 특성 확보", "verified": true},
+    {"code": "5.3.2", "title_ko": "이중 상태 물질", "description": "조건에 따라 두 상태를 오가는 물질(형상기억, 상변화 물질)을 사용한다.", "applicability": ["PHYSICAL_CONTRADICTION"], "transformation": "조건 의존 이중 상태", "verified": true},
+    {"code": "5.4.1", "title_ko": "물리적 효과의 자기 제어 활용", "description": "임계점(퀴리점, 상전이점)을 넘나드는 물리 효과로 시스템이 스스로 상태를 전환하게 한다.", "applicability": ["PHYSICAL_CONTRADICTION"], "transformation": "자기 제어 전환", "verified": true},
+    {"code": "5.5.1", "title_ko": "상위 구조의 분해로 입자 생성", "description": "필요한 입자를 얻기 어렵다면 더 큰 구조를 분해해서 얻는다.", "applicability": ["RESOURCE_LIMIT"], "transformation": "상위 구조 분해", "verified": false},
+    {"code": "5.5.2", "title_ko": "하위 구조의 결합으로 입자 생성", "description": "필요한 입자를 더 작은 단위를 결합해 만든다.", "applicability": ["RESOURCE_LIMIT"], "transformation": "하위 단위 결합", "verified": false}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "TRIZ Studio — checkpointed MCP workflow",
+  "active": false,
+  "nodes": [
+    {"id":"webhook","name":"TRIZ Dispatch","type":"n8n-nodes-base.webhook","typeVersion":2,"position":[0,0],"webhookId":"triz-dispatch","parameters":{"httpMethod":"POST","path":"triz-dispatch","authentication":"headerAuth","responseMode":"onReceived","options":{}}},
+    {"id":"input","name":"Dispatch payload","type":"n8n-nodes-base.set","typeVersion":3.4,"position":[240,0],"parameters":{"mode":"raw","jsonOutput":"={{ JSON.stringify($json.body) }}","options":{}}},
+    {"id":"execute","name":"Execute one MCP stage","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[480,0],"retryOnFail":true,"maxTries":3,"waitBetweenTries":5000,"parameters":{"method":"POST","url":"={{ $env.TRIZ_API_URL + '/internal/execute' }}","authentication":"genericCredentialType","genericAuthType":"httpHeaderAuth","sendBody":true,"specifyBody":"json","jsonBody":"={{ JSON.stringify({run_id:$json.run_id, stage_index:$json.stage_index, epoch:$json.epoch}) }}","options":{"timeout":3600000}}},
+    {"id":"continue","name":"Another stage ready?","type":"n8n-nodes-base.if","typeVersion":2.2,"position":[740,0],"parameters":{"conditions":{"options":{"caseSensitive":true,"typeValidation":"strict","version":2},"conditions":[{"id":"ready","leftValue":"={{ $json.continue_execution }}","rightValue":true,"operator":{"type":"boolean","operation":"true","singleValue":true}}],"combinator":"and"},"options":{}}},
+    {"id":"paused","name":"Checkpoint saved — human or completion","type":"n8n-nodes-base.noOp","typeVersion":1,"position":[980,160],"parameters":{}}
+  ],
+  "connections": {
+    "TRIZ Dispatch":{"main":[[{"node":"Dispatch payload","type":"main","index":0}]]},
+    "Dispatch payload":{"main":[[{"node":"Execute one MCP stage","type":"main","index":0}]]},
+    "Execute one MCP stage":{"main":[[{"node":"Another stage ready?","type":"main","index":0}]]},
+    "Another stage ready?":{"main":[[{"node":"Execute one MCP stage","type":"main","index":0}],[{"node":"Checkpoint saved — human or completion","type":"main","index":0}]]}
+  },
+  "settings":{"executionOrder":"v1","executionTimeout":14400,"saveExecutionProgress":true},
+  "pinData":{},"tags":[]
+}

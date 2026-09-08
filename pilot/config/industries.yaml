@@ -1,0 +1,68 @@
+difficulties:
+  routine: {depth: component, questions: 2, hypothesis_limit: 2}
+  advanced: {depth: mechanism, questions: 3, hypothesis_limit: 3}
+  frontier: {depth: multiscale, questions: 4, hypothesis_limit: 4}
+industries:
+  semiconductor:
+    label: 반도체
+    keywords: [반도체, 웨이퍼, 식각, 리소그래피, 플라즈마, semiconductor, wafer, etch, transistor, ALD, CMP]
+    default_difficulty: frontier
+    disciplines: [반도체 소자 물리, 표면·계면 화학, 재료·신소재공학, 화학공학]
+    theories: [전하 수송과 터널링의 적용 여부, 표면 반응·흡착 동역학, 플라즈마 이온 에너지 분포, 응력·열·물질 전달]
+    measurements: [공정 노드·패턴 치수·종횡비, 재료 스택·표면 상태, 온도·압력·가스·시간 범위, 결함 계측과 대조군]
+    transfer_domains: [박막 코팅, 전기화학, 정밀 광학, 미세유체]
+    roles: [반도체 소자 물리 전문가, 표면화학·재료 전문가, 공정 통합 엔지니어]
+  battery:
+    label: 이차전지
+    keywords: [배터리, 이차전지, 전극, 전해질, battery, lithium]
+    default_difficulty: frontier
+    disciplines: [전기화학, 재료공학, 열공학]
+    theories: [이온 확산·전하 전달, 계면층 성장, 열 발생·방출 균형]
+    measurements: [전극 조성·로딩·공극률, 전류밀도·온도, 사이클·열화·안전 한계]
+    transfer_domains: [연료전지, 촉매 반응기, 다공성 여과]
+    roles: [전기화학 전문가, 전극 재료 엔지니어, 배터리 안전 전문가]
+  chemical:
+    label: 화학·소재
+    keywords: [화학, 촉매, 반응, 고분자, chemical, catalyst, polymer]
+    default_difficulty: advanced
+    disciplines: [반응공학, 열역학, 재료공학]
+    theories: [반응속도와 평형, 확산 지배·반응 지배, 선택도와 부산물 경로]
+    measurements: [반응물·촉매·조성, 온도·압력·체류시간, 수율·선택도·물질수지]
+    transfer_domains: [생물 반응기, 반도체 표면처리, 식품 공정]
+    roles: [반응공학 전문가, 재료·표면 전문가, 공정 안전 담당]
+  software:
+    label: 소프트웨어·정보시스템
+    keywords: [소프트웨어, 서버, 데이터베이스, 인증, software, database, latency, API, 분산]
+    default_difficulty: advanced
+    disciplines: [분산시스템, 알고리즘, 보안공학]
+    theories: [동시성·일관성 모델, 큐잉 이론, 위협 모델]
+    measurements: [트래픽·p95 지연, 장애 조건·복구 목표, 데이터 일관성·보안 요구]
+    transfer_domains: [물류 대기행렬, 통신망, 제조 스케줄링]
+    roles: [분산시스템 설계자, 성능 엔지니어, 보안 전문가]
+  manufacturing:
+    label: 제조·기계·디스플레이
+    keywords: [제조, 기계, 디스플레이, 반송, 진동, 설비, display, manufacturing, bearing]
+    default_difficulty: advanced
+    disciplines: [기계역학, 제어공학, 생산기술]
+    theories: [진동·접촉·마찰, 열변형, 동적 제어와 안정성]
+    measurements: [부품 구조·접촉면, 속도·하중·온도, 불량률·택트타임·주파수]
+    transfer_domains: [항공 진동 제어, 광학 정렬, 의료 정밀 구동]
+    roles: [기계 설계자, 제어 엔지니어, 생산 품질 전문가]
+  business:
+    label: 서비스·물류·경영
+    keywords: [배송, 물류, 고객, 조직, 서비스, logistics, business]
+    default_difficulty: routine
+    disciplines: [운영관리, 의사결정, 인간공학]
+    theories: [병목과 대기행렬, 인센티브·행동, 정보 비대칭]
+    measurements: [처리량·대기시간, 비용·서비스 수준, 이해관계자와 금지 조건]
+    transfer_domains: [제조 병목 개선, 통신 라우팅, 공공서비스]
+    roles: [운영관리 전문가, 사용자 경험 연구자, 비용 분석가]
+  general:
+    label: 일반·복합 문제
+    keywords: []
+    default_difficulty: routine
+    disciplines: [시스템공학]
+    theories: [기능·원인·자원 관계, 경계 조건]
+    measurements: [대상·문제 현상, 개선 목표·제약, 재현 조건·기존 시도]
+    transfer_domains: [제조, 서비스, 자연계 시스템]
+    roles: [시스템 분석가, 현장 엔지니어, 검증 담당]

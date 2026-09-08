@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+dist/
+pilot/data/
+test-results/
+.pytest_cache/
+.npm-cache/
+playwright-report/
+release/
+.deployment/

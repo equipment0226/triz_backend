@@ -1,0 +1,43 @@
+# 도메인별 검토자 시드. Persona Factory가 이 시드 + LLM 생성분을 병합한다.
+rules:
+  always_dimensions: [FEASIBILITY, COST, RISK, TIME]
+  safety_keywords: [안전, 규제, 인증, 환경, 폭발, 유해, 인허가, 법규, safety, regulation]
+
+seeds:
+  default:
+    - { role_name: "구현 담당 엔지니어", dimensions: [FEASIBILITY], mandate: "제안이 실제로 만들어질 수 있는지 책임진다" }
+    - { role_name: "원가/재무 담당", dimensions: [COST], mandate: "투자 대비 회수를 책임진다" }
+    - { role_name: "품질 책임자", dimensions: [QUALITY, RISK], mandate: "품질 사고를 막는다" }
+    - { role_name: "운영/생산 관리자", dimensions: [TIME, ADOPTION], mandate: "운영 중단을 최소화한다" }
+
+  equipment_process:
+    - { role_name: "설비 기술 리더", dimensions: [FEASIBILITY], mandate: "장비 개조의 기술적 성립성을 책임진다" }
+    - { role_name: "수율/품질 관리자", dimensions: [QUALITY, RISK], mandate: "수율 손실을 막는다" }
+    - { role_name: "설비 투자 심의역", dimensions: [COST], mandate: "CAPEX 타당성을 심의한다" }
+    - { role_name: "생산 가동률 PM", dimensions: [TIME], mandate: "라인 정지 시간을 통제한다" }
+    - { role_name: "EHS 담당", dimensions: [SAFETY], mandate: "안전/환경 규정 위반을 차단한다", veto_power: true }
+
+  software_service:
+    - { role_name: "시스템 아키텍트", dimensions: [FEASIBILITY, SCALABILITY], mandate: "구조적 지속가능성을 지킨다" }
+    - { role_name: "SRE", dimensions: [RISK, TIME], mandate: "가용성과 운영 부하를 지킨다" }
+    - { role_name: "보안 담당", dimensions: [SAFETY], mandate: "보안 요건 위반을 차단한다", veto_power: true }
+    - { role_name: "프로덕트 오너", dimensions: [ADOPTION, COST], mandate: "사용자 가치와 예산을 지킨다" }
+
+  business:
+    - { role_name: "재무 리더", dimensions: [COST], mandate: "수익성을 지킨다" }
+    - { role_name: "브랜드 매니저", dimensions: [QUALITY, ADOPTION], mandate: "브랜드 가치를 지킨다" }
+    - { role_name: "영업 총괄", dimensions: [ADOPTION, TIME], mandate: "현장 실행 가능성을 본다" }
+    - { role_name: "법무/컴플라이언스", dimensions: [SAFETY], mandate: "법규 위반을 차단한다", veto_power: true }
+
+  daily_life:
+    - { role_name: "실사용자", dimensions: [ADOPTION], mandate: "실제로 계속 쓸 수 있는지 본다" }
+    - { role_name: "가계 예산 관리자", dimensions: [COST], mandate: "지출을 통제한다" }
+    - { role_name: "안전 담당", dimensions: [SAFETY, RISK], mandate: "사고 위험을 막는다" }
+    - { role_name: "주변 이해관계자", dimensions: [TIME, QUALITY], mandate: "주변에 미치는 영향을 본다" }
+
+# 산업 키워드 → 시드 그룹 매핑 (부분 문자열 매칭, 위에서부터 우선)
+industry_map:
+  - { keywords: [디스플레이, 반도체, 이차전지, 장비, 설비, 공정, 제조, 플랜트, 기계, 자동차, equipment, semiconductor], group: equipment_process }
+  - { keywords: [소프트웨어, SW, 서비스, 플랫폼, 앱, 클라우드, software, saas], group: software_service }
+  - { keywords: [마케팅, 영업, 물류, 금융, 인사, 조직, 기획, business, hr], group: business }
+  - { keywords: [생활, 가정, 주거, 육아, 취미, 개인], group: daily_life }

@@ -1,0 +1,58 @@
+[
+  {"function_ko": "물체를 비접촉으로 지지하거나 이동시킨다", "effects": [
+    {"name": "자기부상", "domain": "PHYSICAL", "principle": "자기력의 반발/흡인으로 공극을 유지", "conditions": "강자성체 또는 전자석, 제어 전원 필요"},
+    {"name": "공기(기체) 정압 베어링", "domain": "PHYSICAL", "principle": "가압 기체막이 하중을 지지", "conditions": "청정 가압원 필요, 고진공 환경에서는 제약"},
+    {"name": "음향 부상", "domain": "PHYSICAL", "principle": "정재파의 음향 방사압으로 부양", "conditions": "소형·경량 대상 한정"},
+    {"name": "정전기 척(ESC)", "domain": "PHYSICAL", "principle": "정전기력으로 유전체를 흡착·지지", "conditions": "고전압, 잔류 전하 관리 필요"}
+  ]},
+  {"function_ko": "진동을 억제하거나 격리한다", "effects": [
+    {"name": "동조질량감쇠기(TMD)", "domain": "PHYSICAL", "principle": "부가 질량-스프링의 역위상 운동으로 진동 상쇄"},
+    {"name": "점탄성 감쇠", "domain": "PHYSICAL", "principle": "고분자 층의 전단 변형으로 진동 에너지를 열로 소산"},
+    {"name": "능동 진동 제어", "domain": "PHYSICAL", "principle": "가속도 피드백 + 액추에이터로 역위상 힘 인가"},
+    {"name": "자기유변(MR) 감쇠", "domain": "PHYSICAL", "principle": "자기장으로 유체 점도를 실시간 변경"}
+  ]},
+  {"function_ko": "온도 변화 없이 점도·강성을 바꾼다", "effects": [
+    {"name": "전기유변효과(ER)", "domain": "PHYSICAL", "principle": "전기장에 의한 입자 사슬 형성으로 항복응력 증가"},
+    {"name": "자기유변효과(MR)", "domain": "PHYSICAL", "principle": "자기장에 의한 자성 입자 정렬"},
+    {"name": "전단담화/전단농화", "domain": "PHYSICAL", "principle": "비뉴턴 유체의 전단속도 의존 점도 변화"},
+    {"name": "진공 재밍", "domain": "PHYSICAL", "principle": "입자 충전체를 진공 배기하면 강체화"}
+  ]},
+  {"function_ko": "미세 입자를 포집·제거한다", "effects": [
+    {"name": "정전 집진", "domain": "PHYSICAL", "principle": "대전된 입자를 전기장으로 포집"},
+    {"name": "열영동", "domain": "PHYSICAL", "principle": "온도 구배에서 입자가 저온부로 이동"},
+    {"name": "코안다 유동 분리", "domain": "PHYSICAL", "principle": "곡면 부착 유동으로 입자와 기류를 분리"},
+    {"name": "초음파 응집", "domain": "PHYSICAL", "principle": "정재파 절점에 입자를 집적"}
+  ]},
+  {"function_ko": "접촉 마찰을 줄인다", "effects": [
+    {"name": "탄성유체윤활(EHL)", "domain": "PHYSICAL", "principle": "고압에서 윤활막이 형성되어 접촉을 분리"},
+    {"name": "초음파 마찰 저감", "domain": "PHYSICAL", "principle": "고주파 미세 진동으로 실접촉 시간을 감소"},
+    {"name": "고체 윤활(DLC/MoS2)", "domain": "PHYSICAL", "principle": "층상 구조의 저전단 계면 형성", "conditions": "진공·고온 환경에 적합"},
+    {"name": "라이덴프로스트 효과", "domain": "PHYSICAL", "principle": "증기막이 접촉을 차단"}
+  ]},
+  {"function_ko": "형상·치수를 자동으로 보상한다", "effects": [
+    {"name": "바이메탈(열팽창 차)", "domain": "PHYSICAL", "principle": "이종 재료의 팽창계수 차로 변위 생성"},
+    {"name": "형상기억합금", "domain": "PHYSICAL", "principle": "상변태 온도에서 기억 형상 복원"},
+    {"name": "저팽창 합금(Invar)", "domain": "PHYSICAL", "principle": "자기변형 상쇄로 열팽창 최소화"}
+  ]},
+  {"function_ko": "상태를 비접촉으로 측정·검출한다", "effects": [
+    {"name": "와전류 변위 측정", "domain": "PHYSICAL", "principle": "도체에 유도된 와전류로 간극 측정"},
+    {"name": "레이저 간섭계/삼각측량", "domain": "PHYSICAL", "principle": "광 위상·각도 변화로 변위 측정"},
+    {"name": "공진 주파수 편이", "domain": "PHYSICAL", "principle": "질량·강성 변화가 고유진동수를 이동시킴"},
+    {"name": "적외선 방사 측온", "domain": "PHYSICAL", "principle": "복사 에너지로 온도 추정"}
+  ]},
+  {"function_ko": "에너지를 회수하거나 재활용한다", "effects": [
+    {"name": "회생 제동", "domain": "PHYSICAL", "principle": "운동에너지를 전기로 변환 회수"},
+    {"name": "열전 효과(제벡)", "domain": "PHYSICAL", "principle": "온도차를 전위차로 변환"},
+    {"name": "압전 효과", "domain": "PHYSICAL", "principle": "기계적 변형을 전하로 변환"}
+  ]},
+  {"function_ko": "혼합·분리를 촉진한다", "effects": [
+    {"name": "캐비테이션", "domain": "PHYSICAL", "principle": "기포 붕괴 시 국부 고에너지 발생"},
+    {"name": "원심 분리", "domain": "PHYSICAL", "principle": "밀도차에 원심력을 곱해 분리 촉진"},
+    {"name": "삼투/역삼투", "domain": "CHEMICAL", "principle": "반투막 양단 농도차 이용"}
+  ]},
+  {"function_ko": "표면 특성을 국부적으로 바꾼다", "effects": [
+    {"name": "플라즈마 표면 처리", "domain": "CHEMICAL", "principle": "표면 관능기 변화로 젖음성·접착력 조절"},
+    {"name": "연잎 효과(초소수성)", "domain": "GEOMETRIC", "principle": "미세 요철 + 저표면에너지로 접촉각 극대화"},
+    {"name": "레이저 텍스처링", "domain": "GEOMETRIC", "principle": "미세 패턴으로 마찰·유지력 제어"}
+  ]}
+]

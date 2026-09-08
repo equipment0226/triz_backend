@@ -1,0 +1,119 @@
+# ============================================================
+# TRIZ 실행 파라미터 — 코드 수정 없이 여기만 바꾸면 된다.
+# (환경변수 TRIZ_* 가 있으면 그 값이 우선한다)
+# ============================================================
+
+run:
+  default_mode: FULL          # LITE | FULL | DEEP
+  lang: ko
+  budget_usd: 3.0             # 초과 시 선택 트랙 비활성화 + 티어 강등
+  max_wallclock_min: 30
+  parallel_workers: 4
+
+solutions:
+  min_solutions: 5            # 최종 리포트에 실을 최소 해결책 수
+  max_solutions: 10           # 최대
+  min_concepts: 8             # S6에서 만들 개념 후보 최소
+  max_concepts: 12            # S6은 5개씩 배치로 생성한다(출력 잘림 방지)
+  min_raw_ideas: 12           # S5 통합 후 최소 아이디어 수 (미달 시 트랙 추가 후 재시도)
+  ideas_per_principle: 1      # 발명원리 1개당 최소 아이디어
+  max_principles_per_contradiction: 6
+  matrix_cross_check: true    # 행렬 결과가 6개 미만일 때 LLM 제안을 '추가 후보'로만 보또다
+  novelty_mix:                # 신규성 목표 비중 (합계 10 기준)
+    SAME_DOMAIN: 3
+    CROSS_DOMAIN: 3
+    NEW: 4
+
+analysis:
+  min_components: 14          # 모듈이 아니라 축·베어링·커플링 수준까지 내려가게 하는 하한
+  max_components: 28
+  min_harmful_functions: 2
+  min_resources: 12
+  min_resource_categories: 5
+  ceca_min_depth: 4
+  max_su_fields: 3
+
+definition:
+  min_technical_contradictions: 1
+  min_physical_contradictions: 1
+  target_contradictions: 4    # 최대한 뽑되 이 정도를 목표로
+  max_key_problems: 3
+
+tracks:
+  # 모드별 기본 활성 트랙
+  LITE: [A_MATRIX, B_SEPARATION, E_TRIMMING]
+  FULL: [A_MATRIX, B_SEPARATION, C_STANDARDS, E_TRIMMING, F_TRENDS, H_EFFECTS]
+  DEEP: [A_MATRIX, B_SEPARATION, C_STANDARDS, D_ARIZ, E_TRIMMING, F_TRENDS, G_FOS, H_EFFECTS]
+  # 1차 결과 부실 시 자동 추가되는 심화 트랙
+  escalation_tracks: [D_ARIZ, G_FOS, H_EFFECTS]
+
+ariz:
+  enabled_parts: [1, 2, 3, 4, 5, 7]   # 6(문제변경)/8/9는 필요 시
+  max_reformulation_loops: 1
+
+evaluation:
+  min_reviewers: 4
+  max_reviewers: 6
+  dimension_weights:
+    FEASIBILITY: 0.25
+    RISK: 0.20
+    COST: 0.20
+    TIME: 0.15
+    QUALITY: 0.15
+    ADOPTION: 0.05
+    SAFETY: 0.0        # veto 전용 (점수 가중은 0, 위반 시 강등)
+    SCALABILITY: 0.0
+  quadrant_thresholds:
+    low_risk_max: 2.5
+    high_return_min: 3.5
+
+verification:
+  enabled: true
+  max_repair_attempts: 1      # 전체 수리 상한, 승급 시 카운터 초기화 금지
+  critical_rubrics: [R3_FUNC, R3_CECA, R4_CONTRA, R6_CONCEPT]
+  escalate_tier_on_fail: true # 실패 시 상위 티어로 승급 재시도
+  pass_threshold_default: 0.72
+  reject_below_default: 0.45
+  # 검증을 건너뛸 노드(비용 절감)
+  skip_nodes: [s0_bootstrap, s9_report]
+
+constraints:
+  enforce_stages: [S1, S3, S4, S5, S6, S7]
+  min_passing_concepts: 5     # 게이트 통과 개념이 이보다 적으면 재도출
+  treat_unknown_as: CONDITIONAL   # CONDITIONAL | PASS | FAIL
+
+intake:
+  min_confidence: 0.7
+  max_clarify_rounds: 2
+  max_clarify_questions: 4
+  required_fields: [industry, target_system, symptom, constraints]
+
+confirm:
+  min_candidates: 2
+  max_candidates: 4
+
+evidence:
+  enabled: true               # 공개 학술 API(crossref/openalex/arxiv)는 키 없이 동작
+  max_queries_per_run: 16
+  max_cards: 20
+  bilingual_queries: true
+  min_refs_per_solution: 1    # 최종 선정 해결책마다 확보할 최소 참고자료 수
+  max_refs_per_solution: 3
+  allow_search_links: false   # 검색 결과 페이지를 문헌·특허 근거로 취급하지 않음
+  verify_urls: true
+  principle_search_limit: 4   # 동일 원리 특허를 찾을 원리 수 (적용된 원리 중 상위 N개)
+  max_patent_additions: 3     # 특허에서 발견해 추가 제안할 해결책 수 상한
+
+feedback_rag:
+  enabled: true
+  top_k: 3                    # 프롬프트에 주입할 과거 사례 수
+  max_influenced_concepts: 3  # 과거 사례가 영향을 줄 수 있는 개념 수 상한 (과적합 방지)
+  min_rating_to_store: 4
+  weight_min: 0.90
+  weight_max: 1.30
+
+report:
+  template: report_visual.md.j2
+  lite_template: report_visual.md.j2
+  include_step_trace: true
+  include_dropped_appendix: true

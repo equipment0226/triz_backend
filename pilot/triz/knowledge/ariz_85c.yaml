@@ -1,0 +1,71 @@
+version: "85C"
+parts:
+  - id: 1
+    title: "문제 분석"
+    steps:
+      - { code: "1.1", title: "미니문제 정식화", required: true }
+      - { code: "1.2", title: "갈등 요소 쌍(도구/대상) 정의", required: true }
+      - { code: "1.3", title: "기술적 모순 TC1/TC2 도식화", required: true }
+      - { code: "1.4", title: "주기능 기준 모순 선택", required: true }
+      - { code: "1.5", title: "갈등 상황 강화 서술", required: true }
+      - { code: "1.6", title: "미니문제 요구 재정의", required: true }
+      - { code: "1.7", title: "극한 강화(Intensification)", required: true }
+  - id: 2
+    title: "문제 모델 분석"
+    steps:
+      - { code: "2.1", title: "작용 영역(OZ) 정의", required: true }
+      - { code: "2.2", title: "작용 시간(OT: T1/T2/T3) 정의", required: true }
+      - { code: "2.3", title: "물질-장 자원(SFR) 목록화", required: true }
+      - { code: "2.4", title: "자원 우선순위 결정", required: true }
+  - id: 3
+    title: "IFR과 물리적 모순"
+    steps:
+      - { code: "3.1", title: "IFR-1 정식화", required: true }
+      - { code: "3.2", title: "IFR-1 강화(신규 물질/장 도입 금지)", required: true }
+      - { code: "3.3", title: "거시 수준 물리적 모순", required: true }
+      - { code: "3.4", title: "미시 수준 물리적 모순", required: true }
+      - { code: "3.5", title: "IFR-2 정식화", required: true }
+      - { code: "3.6", title: "표준해 1차 적용 점검", required: false }
+  - id: 4
+    title: "자원의 동원과 활용"
+    steps:
+      - { code: "4.1", title: "작은 사람들 모델(SLP)", required: true }
+      - { code: "4.2", title: "IFR로부터 한 걸음 물러서기", required: true }
+      - { code: "4.3", title: "자원의 혼합 사용", required: false }
+      - { code: "4.4", title: "빈 공간(Void) 활용", required: false }
+      - { code: "4.5", title: "파생 자원 활용", required: false }
+      - { code: "4.6", title: "전기장 도입 검토", required: false }
+      - { code: "4.7", title: "장 + 반응 물질 쌍 도입", required: false }
+  - id: 5
+    title: "지식 베이스 적용"
+    steps:
+      - { code: "5.1", title: "76 표준해 재적용", required: true }
+      - { code: "5.2", title: "기해결 유사 문제 참조", required: false }
+      - { code: "5.3", title: "분리 원리·발명원리 적용", required: true }
+      - { code: "5.4", title: "물리·화학·기하 효과 적용", required: true }
+  - id: 6
+    title: "문제의 변경 또는 대체"
+    max_loops: 1
+    steps:
+      - { code: "6.1", title: "복합 문제 분해", required: false }
+      - { code: "6.2", title: "갈등 쌍 재선택", required: false }
+      - { code: "6.3", title: "요구 수준 재검토", required: false }
+      - { code: "6.4", title: "상위 시스템으로 문제 이동", required: false }
+  - id: 7
+    title: "해결안 검증"
+    steps:
+      - { code: "7.1", title: "IFR-1 충족도 평가(%)", required: true }
+      - { code: "7.2", title: "물리적 모순 해소 여부(절충인가)", required: true }
+      - { code: "7.3", title: "신규 유해작용 점검(3개 이상)", required: true }
+      - { code: "7.4", title: "제약조건 충족 확인", required: true }
+  - id: 8
+    title: "해결안의 확산"
+    steps:
+      - { code: "8.1", title: "상위 시스템 변경 요구", required: false }
+      - { code: "8.2", title: "초효과(Super-effect)", required: false }
+      - { code: "8.3", title: "타 문제 적용 가능성", required: false }
+  - id: 9
+    title: "프로세스 회고"
+    steps:
+      - { code: "9.1", title: "표준 흐름과의 차이", required: false }
+      - { code: "9.2", title: "결정적 스텝 식별", required: false }

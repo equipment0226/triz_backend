@@ -58,7 +58,7 @@
 {% for e in s.evaluation.evaluations %}
 {% set c = concept_map.get(e.concept_id) %}
 {% if c %}
-### [{{ e.rank }}위] {{ c.title }} — {{ e.total_score }}/5 ({{ QUADRANT_KO.get(e.quadrant, e.quadrant) }})
+### [{{ '추가 도출' if e.rank == 99 else e.rank ~ '위' }}] {{ c.title }} — {{ e.total_score }}/5 ({{ QUADRANT_KO.get(e.quadrant, e.quadrant) }})
 > {{ c.one_liner }}
 
 {{ c.description | hz }}

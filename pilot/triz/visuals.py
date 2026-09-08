@@ -22,18 +22,54 @@ def label(value, x, y, width=18, color="#273b43", size=13, pixels=None, anchor="
     return f'<text x="{x}" y="{y}" text-anchor="{anchor}" fill="{color}" font-size="{size}">' + "".join(
         f'<tspan x="{x}" dy="{0 if i == 0 else size * 1.55}">{escape(line)}</tspan>' for i, line in enumerate(chunks)) + '</text>'
 
+def _route(a, b, positions, rows, row_bounds, gutters, gap, lane):
+    """Use the empty row corridors and column gutters, never a node interior."""
+    x1, y1, h1 = positions[a]; x2, y2, h2 = positions[b]
+    r1, r2 = rows[a], rows[b]
+    offset = (lane % 5 - 2) * 8
+    if a == b:
+        right = x1 + 130
+        outside = min((x for x in gutters if x > right), default=gutters[-1])
+        above = row_bounds[r1][0] - gap / 2 + offset
+        points = [(right,y1), (outside,y1), (outside,above), (x1,above), (x1,y1-h1/2-4)]
+    elif r1 == r2 and abs(x2-x1) <= 340:
+        direction = 1 if x2 > x1 else -1
+        points = [(x1+direction*130,y1+offset), (x2-direction*130,y2+offset)]
+    elif r1 == r2:
+        above = row_bounds[r1][0] - gap / 2 + offset
+        points = [(x1+offset,y1-h1/2-4), (x1+offset,above), (x2+offset,above), (x2+offset,y2-h2/2-4)]
+    else:
+        direction = 1 if r2 > r1 else -1
+        source_y = (row_bounds[r1][1] + gap/2 if direction > 0 else row_bounds[r1][0] - gap/2) + offset
+        target_y = (row_bounds[r2][0] - gap/2 if direction > 0 else row_bounds[r2][1] + gap/2) + offset
+        gutter = min(gutters, key=lambda x: abs(x-x1)+abs(x-x2)) + offset
+        points = [(x1+offset,y1+direction*(h1/2+4)), (x1+offset,source_y),
+                  (gutter,source_y), (gutter,target_y), (x2+offset,target_y), (x2+offset,y2-direction*(h2/2+4))]
+    simplified = []
+    for point in points:
+        if simplified and point == simplified[-1]: continue
+        while len(simplified) >= 2 and ((simplified[-2][0] == simplified[-1][0] == point[0]) or (simplified[-2][1] == simplified[-1][1] == point[1])):
+            simplified.pop()
+        simplified.append(point)
+    return simplified
+
+
 def svg(title, nodes, edges=(), columns=3):
     columns = max(1, min(columns, len(nodes) or 1))
-    width, box_width, size = max(360, columns * 300 + 24), 252, 13
+    width, box_width, size = columns * 340 + 64, 252, 13
+    gap = 100
     header_height = len(wrap(title, width - 48, 16)) * 25 + 35
     heights = [max(90, len(wrap(n[1], box_width - 36, size)) * size * 1.55 + 42) for n in nodes]
-    positions, top = {}, header_height
+    positions, rows, row_bounds, top = {}, {}, {}, header_height + gap
     for row in range(math.ceil(len(nodes) / columns)):
         indices = range(row * columns, min(len(nodes), (row + 1) * columns))
         row_height = max(heights[i] for i in indices)
         for i in indices:
-            positions[nodes[i][0]] = (width / columns * (i % columns + .5), top + row_height / 2, row_height)
-        top += row_height + 70
+            positions[nodes[i][0]] = (32 + 340 * (i % columns + .5), top + row_height / 2, row_height)
+            rows[nodes[i][0]] = row
+        row_bounds[row] = (top, top + row_height)
+        top += row_height + gap
+    gutters = [32 + i * 340 for i in range(columns + 1)]
     valid_edges = [(a, b, text, bad) for a, b, text, bad in edges if a in positions and b in positions]
     node_names = {n[0]: n[1] for n in nodes}
     legends = [f'{i+1}. {node_names[a]} → {node_names[b]}: {text}' for i, (a, b, text, bad) in enumerate(valid_edges)]
@@ -45,18 +81,15 @@ def svg(title, nodes, edges=(), columns=3):
         f'<defs><marker id="{marker}" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7b949a"/></marker></defs>',
         label(title, width / 2, 30, size=16, pixels=width-48)]
     for i, (a, b, text, bad) in enumerate(valid_edges):
-        x1, y1, h1 = positions[a]; x2, y2, h2 = positions[b]
-        dx, dy = x2-x1, y2-y1
-        if not dx and not dy:
-            continue  # The legend preserves self-relations without drawing a zero-length arrow.
-        def boundary(h):
-            return min((box_width/2+4)/abs(dx) if dx else float('inf'), (h/2+4)/abs(dy) if dy else float('inf'))
-        t1, t2 = boundary(h1), boundary(h2)
+        points = _route(a, b, positions, rows, row_bounds, gutters, gap, i)
         color = '#c66060' if bad else '#63888d'
         dash = ' stroke-dasharray="5 4"' if bad else ''
-        body.append(f'<path d="M{x1+dx*t1},{y1+dy*t1} L{x2-dx*t2},{y2-dy*t2}" fill="none" stroke="{color}" stroke-width="2"{dash} marker-end="url(#{marker})"/>')
-        body.append(f'<circle cx="{(x1+x2)/2}" cy="{(y1+y2)/2}" r="12" fill="white" stroke="{color}"/>')
-        body.append(label(i+1, (x1+x2)/2, (y1+y2)/2+4, size=11))
+        path = 'M' + ' L'.join(f'{x},{y}' for x,y in points)
+        body.append(f'<path class="diagram-edge" d="{path}" fill="none" stroke="{color}" stroke-width="2" stroke-linejoin="round"{dash} marker-end="url(#{marker})"/>')
+        start, end = max(zip(points, points[1:]), key=lambda pair: abs(pair[0][0]-pair[1][0])+abs(pair[0][1]-pair[1][1]))
+        lx, ly = (start[0]+end[0])/2, (start[1]+end[1])/2
+        body.append(f'<circle class="diagram-edge-label" cx="{lx}" cy="{ly}" r="12" fill="white" stroke="{color}"/>')
+        body.append(label(i+1, lx, ly+4, size=11))
     for key, text, tone in nodes:
         x, y, h = positions[key]
         fill = {'bad':'#fbe8e7', 'good':'#d9efea', 'field':'#e0e8f7'}.get(tone, '#fff')

@@ -2,12 +2,12 @@
 
 | 항목 | 내용 |
 |---|---|
-| 작성일 | {{ now }} |
-| 도메인 | {{ s.domain.industry }}{% if s.domain.sub_domain %} / {{ s.domain.sub_domain }}{% endif %} |
-| 대상 시스템 | {{ s.domain.target_system }}{% if s.domain.super_system %} (상위: {{ s.domain.super_system }}){% endif %} |
-| 실행 모드 | {{ s.control.mode.value }} |
-| 적용 TRIZ 기법 | {{ applied_tools | join(', ') }} |
-| 비용 | ${{ '%.4f' % s.cost.total_usd }} (in {{ s.cost.tokens_in }} / out {{ s.cost.tokens_out }} tokens) |
+| 작성일 | {{ ( now ) | cell }} |
+| 도메인 | {{ ( s.domain.industry ) | cell }}{% if s.domain.sub_domain %} / {{ ( s.domain.sub_domain ) | cell }}{% endif %} |
+| 대상 시스템 | {{ ( s.domain.target_system ) | cell }}{% if s.domain.super_system %} (상위: {{ ( s.domain.super_system ) | cell }}){% endif %} |
+| 실행 모드 | {{ ( s.control.mode.value ) | cell }} |
+| 적용 TRIZ 기법 | {{ ( applied_tools | join(', ') ) | cell }} |
+| 비용 | ${{ ( '%.4f' % s.cost.total_usd ) | cell }} (in {{ ( s.cost.tokens_in ) | cell }} / out {{ ( s.cost.tokens_out ) | cell }} tokens) |
 
 ## 요약 (Executive Summary)
 {{ narrative.executive_summary or '(요약 생성 실패)' }}
@@ -46,7 +46,7 @@
 | # | 구분 | 분류 | 적용 영역 | 내용 | 조건 | 출처 | 강제 |
 |---|---|---|---|---|---|---|---|
 {% for c in s.constraints.items %}
-| {{ loop.index }} | {{ {'MUST_HAVE':'필수','MUST_NOT_HAVE':'금지','NUMERIC':'수치','PREFERENCE':'선호'}[c.kind] }} | {{ CATEGORY_KO.get(c.category, c.category) }} | {{ c.zone or '시스템 전체' }} | {{ c.statement }} | {% if c.operator != 'none' %}{{ c.parameter }} {{ c.operator }} {{ c.value }}{{ c.unit }}{% else %}-{% endif %} | {{ {'USER':'사용자','INFERRED':'추정','REGULATION':'규제','AGENT':'분석','DOMAIN':'도메인 발굴'}[c.source] }} | {{ '반드시' if c.hard else '가급적' }} |
+| {{ ( loop.index ) | cell }} | {{ ( {'MUST_HAVE':'필수','MUST_NOT_HAVE':'금지','NUMERIC':'수치','PREFERENCE':'선호'}[c.kind] ) | cell }} | {{ ( CATEGORY_KO.get(c.category, c.category) ) | cell }} | {{ ( c.zone or '시스템 전체' ) | cell }} | {{ ( c.statement ) | cell }} | {% if c.operator != 'none' %}{{ ( c.parameter ) | cell }} {{ ( c.operator ) | cell }} {{ ( c.value ) | cell }}{{ ( c.unit ) | cell }}{% else %}-{% endif %} | {{ ( {'USER':'사용자','INFERRED':'추정','REGULATION':'규제','AGENT':'분석','DOMAIN':'도메인 발굴'}[c.source] ) | cell }} | {{ ( '반드시' if c.hard else '가급적' ) | cell }} |
 {% endfor %}
 {% if not s.constraints.items %}
 | - | - | - | - | (명시된 제약 없음) | - | - | - |
@@ -57,9 +57,13 @@
 **시스템이 내재적으로 갖는 제약 (자동 발굴)**
 {% for c in domain_cons %}
 - `{{ c.zone or '시스템 전체' }}` **{{ c.statement }}**
-  - 이유: {{ c.rationale }}
+
+  이유: {{ c.rationale }}
+
 {% if c.violation_example %}
-  - 흔한 오답: {{ c.violation_example }}
+
+  흔한 오답: {{ c.violation_example }}
+
 {% endif %}
 {% endfor %}
 {% endif %}
@@ -70,7 +74,7 @@
 | 적용 영역 | 하지 말아야 할 것 | 이유 |
 |---|---|---|
 {% for t in taboo %}
-| {{ t.get('zone', '전체') }} | {{ t.get('item', '') }} | {{ t.get('why', '') }} |
+| {{ ( t.get('zone', '전체') ) | cell }} | {{ ( t.get('item', '') ) | cell }} | {{ ( t.get('why', '') ) | cell }} |
 {% endfor %}
 {% endif %}
 
@@ -97,9 +101,9 @@
 
 | | 과거 | 현재 | 미래 |
 |---|---|---|---|
-| **상위시스템** | {{ s.analysis.nine_windows.cells.get('SUPER_PAST','') }} | {{ s.analysis.nine_windows.cells.get('SUPER_PRESENT','') }} | {{ s.analysis.nine_windows.cells.get('SUPER_FUTURE','') }} |
-| **대상시스템** | {{ s.analysis.nine_windows.cells.get('SYS_PAST','') }} | {{ s.analysis.nine_windows.cells.get('SYS_PRESENT','') }} | {{ s.analysis.nine_windows.cells.get('SYS_FUTURE','') }} |
-| **하위요소** | {{ s.analysis.nine_windows.cells.get('SUB_PAST','') }} | {{ s.analysis.nine_windows.cells.get('SUB_PRESENT','') }} | {{ s.analysis.nine_windows.cells.get('SUB_FUTURE','') }} |
+| **상위시스템** | {{ ( s.analysis.nine_windows.cells.get('SUPER_PAST','') ) | cell }} | {{ ( s.analysis.nine_windows.cells.get('SUPER_PRESENT','') ) | cell }} | {{ ( s.analysis.nine_windows.cells.get('SUPER_FUTURE','') ) | cell }} |
+| **대상시스템** | {{ ( s.analysis.nine_windows.cells.get('SYS_PAST','') ) | cell }} | {{ ( s.analysis.nine_windows.cells.get('SYS_PRESENT','') ) | cell }} | {{ ( s.analysis.nine_windows.cells.get('SYS_FUTURE','') ) | cell }} |
+| **하위요소** | {{ ( s.analysis.nine_windows.cells.get('SUB_PAST','') ) | cell }} | {{ ( s.analysis.nine_windows.cells.get('SUB_PRESENT','') ) | cell }} | {{ ( s.analysis.nine_windows.cells.get('SUB_FUTURE','') ) | cell }} |
 
 **통찰**
 {% for i in s.analysis.nine_windows.insights %}
@@ -112,7 +116,7 @@
 | 구성요소 | 계층 | 역할 |
 |---|---|---|
 {% for c in s.analysis.components %}
-| {{ c.name }} | {{ LEVEL_KO.get(c.level, c.level) }} | {{ c.role }} |
+| {{ ( c.name ) | cell }} | {{ ( LEVEL_KO.get(c.level, c.level) ) | cell }} | {{ ( c.role ) | cell }} |
 {% endfor %}
 
 ### 2.3 기능 모델
@@ -120,8 +124,10 @@
 | 주체 | 기능 | 대상 | 종류 | 수준 | 등급 |
 |---|---|---|---|---|---|
 {% for e in s.analysis.function_edges %}
-| {{ e.subject }} | {{ e.action }} | {{ e.object }} | {{ '유익' if e.kind == 'USEFUL' else '**유해**' }} | {{ {'INSUFFICIENT':'부족','NORMAL':'적정','EXCESSIVE':'과잉'}[e.level] }} | {{ e.rank }} |
+| {{ ( e.subject ) | cell }} | {{ ( e.action ) | cell }} | {{ ( e.object ) | cell }} | {{ ( '유익' if e.kind == 'USEFUL' else '**유해**' ) | cell }} | {{ ( {'INSUFFICIENT':'부족','NORMAL':'적정','EXCESSIVE':'과잉'}[e.level] ) | cell }} | {{ ( e.rank ) | cell }} |
 {% endfor %}
+
+{{ diagram('functions') }}
 
 {% if s.analysis.function_mermaid %}
 ```mermaid
@@ -153,7 +159,9 @@
 
 | S1 (대상) | S2 (도구) | F (장) | 완전성 | 작용 상태 | 표준해 탐색 범위 |
 |---|---|---|---|---|---|
-| {{ m.s1 }} | {{ m.s2 or '없음' }} | {{ m.field or '없음' }} | {{ COMPLETENESS_KO.get(m.completeness, m.completeness) }} | {{ SU_EFFECT_KO.get(m.effect, m.effect) }} | {{ m.standard_class_hint | join(', ') }} |
+| {{ ( m.s1 ) | cell }} | {{ ( m.s2 or '없음' ) | cell }} | {{ ( m.field or '없음' ) | cell }} | {{ ( COMPLETENESS_KO.get(m.completeness, m.completeness) ) | cell }} | {{ ( SU_EFFECT_KO.get(m.effect, m.effect) ) | cell }} | {{ ( m.standard_class_hint | join(', ') ) | cell }} |
+
+{{ diagram('sufield-' ~ loop.index0 ~ '') }}
 
 {% if m.diagram_mermaid %}
 ```mermaid
@@ -168,11 +176,15 @@
 | 자원 | 분류 | 위치 | 가용성 | 활용 가능 기능 |
 |---|---|---|---|---|
 {% for r in s.analysis.resources %}
-| {{ r.name }}{% if r.blocked_by_constraint %} ⛔{% endif %} | {{ RESOURCE_KO.get(r.category, r.category) }} | {{ WHERE_KO.get(r.where, r.where) }} | {{ AVAIL_KO.get(r.availability, r.availability) }} | {{ r.usable_for | join(', ') }} |
+| {{ ( r.name ) | cell }}{% if r.blocked_by_constraint %} ⛔{% endif %} | {{ ( RESOURCE_KO.get(r.category, r.category) ) | cell }} | {{ ( WHERE_KO.get(r.where, r.where) ) | cell }} | {{ ( AVAIL_KO.get(r.availability, r.availability) ) | cell }} | {{ ( r.usable_for | join(', ') ) | cell }} |
 {% endfor %}
+
+{{ diagram('resources') }}
 
 {% if s.analysis.ceca %}
 ### 2.6 인과사슬 분석 (CECA)
+
+{{ diagram('ceca') }}
 
 {% if s.analysis.ceca.mermaid %}
 ```mermaid
@@ -183,7 +195,7 @@
 | # | 유형 | 내용 | 모순 씨앗 |
 |---|---|---|---|
 {% for n in s.analysis.ceca.nodes %}
-| {{ loop.index }} | {{ {'TARGET_DISADVANTAGE':'대상 문제','INTERMEDIATE':'중간 원인','ROOT_CAUSE':'근본 원인','KEY_DISADVANTAGE':'핵심 문제'}.get(n.node_type, n.node_type) }} | {{ n.text }} | {{ '⚡' if n.is_contradiction_seed else '' }} |
+| {{ ( loop.index ) | cell }} | {{ ( {'TARGET_DISADVANTAGE':'대상 문제','INTERMEDIATE':'중간 원인','ROOT_CAUSE':'근본 원인','KEY_DISADVANTAGE':'핵심 문제'}.get(n.node_type, n.node_type) ) | cell }} | {{ ( n.text ) | cell }} | {{ ( '⚡' if n.is_contradiction_seed else '' ) | cell }} |
 {% endfor %}
 {% endif %}
 
@@ -204,6 +216,7 @@
 {% if s.definition.ifr.constraint_conflicts %}
 - ⚠️ **제약 충돌 검토**: {{ s.definition.ifr.constraint_conflicts | join(' / ') }}
 {% endif %}
+{{ diagram('ifr') }}
 {% endif %}
 
 ### 3.2 모순 도출
@@ -216,10 +229,12 @@
 
 | 항목 | 내용 |
 |---|---|
-| 조치 | {{ t.if_action }} |
-| 개선 | {{ t.then_good }} → **#{{ t.improving_param_id }} {{ param(t.improving_param_id, t.param_scheme) }}** |
-| 악화 | {{ t.but_bad }} → **#{{ t.worsening_param_id }} {{ param(t.worsening_param_id, t.param_scheme) }}** |
-| 매핑 근거 | {{ t.rationale }} |
+| 조치 | {{ ( t.if_action ) | cell }} |
+| 개선 | {{ ( t.then_good ) | cell }} → **#{{ ( t.improving_param_id ) | cell }} {{ ( param(t.improving_param_id, t.param_scheme) ) | cell }}** |
+| 악화 | {{ ( t.but_bad ) | cell }} → **#{{ ( t.worsening_param_id ) | cell }} {{ ( param(t.worsening_param_id, t.param_scheme) ) | cell }}** |
+| 매핑 근거 | {{ ( t.rationale ) | cell }} |
+
+{{ diagram('tc-' ~ loop.index0) }}
 
 {% endfor %}
 {% endif %}
@@ -236,6 +251,8 @@
 
 검토 분리 원리: {{ p.separation_candidates | join(', ') }}
 
+{{ diagram('pc-' ~ loop.index0) }}
+
 {% endfor %}
 {% endif %}
 
@@ -245,8 +262,9 @@
 | 대상 부품 | 규칙 | 사라지는 기능 | 기능 이관 주체 | 실현성 | 위험 |
 |---|---|---|---|---|---|
 {% for t in s.definition.trimming %}
-| {{ t.target_component }} | {{ t.rule }} | {{ t.replaced_function }} | {{ t.replacement_carrier }} | {{ t.feasibility }} | {{ t.risk_note }} |
+| {{ ( t.target_component ) | cell }} | {{ ( t.rule ) | cell }} | {{ ( t.replaced_function ) | cell }} | {{ ( t.replacement_carrier ) | cell }} | {{ ( t.feasibility ) | cell }} | {{ ( t.risk_note ) | cell }} |
 {% endfor %}
+{{ diagram('trimming') }}
 {% endif %}
 
 {% if s.definition.key_problems %}
@@ -255,7 +273,7 @@
 | 순위 | 핵심 문제 | 관련 모순 | 선정 사유 | 영향도 | 해결가능성 |
 |---|---|---|---|---|---|
 {% for k in s.definition.key_problems %}
-| {{ loop.index }} | {{ k.title }} | {{ k.contradiction_ids | lbl }} | {{ k.why_key }} | {{ k.impact }}/5 | {{ k.tractability }}/5 |
+| {{ ( loop.index ) | cell }} | {{ ( k.title ) | cell }} | {{ ( k.contradiction_ids | lbl ) | cell }} | {{ ( k.why_key ) | cell }} | {{ ( k.impact ) | cell }}/5 | {{ ( k.tractability ) | cell }}/5 |
 {% endfor %}
 
 {% if viz.flow %}
@@ -281,16 +299,23 @@
 {% if s.solve.matrix_lookups %}
 ### 4.1 모순 행렬 조회 및 발명원리
 
-| 개선 파라미터 | 악화 파라미터 | 도출된 발명원리 | 출처 |
-|---|---|---|---|
 {% for m in s.solve.matrix_lookups %}
-| #{{ m.improving_param_id }} {{ param(m.improving_param_id, scheme) }} | #{{ m.worsening_param_id }} {{ param(m.worsening_param_id, scheme) }} | {% for p in m.principle_ids %}{{ p }}. {{ principle(p) }}{{ ' / ' if not loop.last }}{% endfor %} | {{ m.note }} |
+#### 모순행렬 조회 {{ loop.index }}
+
+| 항목 | 내용 |
+|---|---|
+| 개선 파라미터 | #{{ ( m.improving_param_id ) | cell }} {{ ( param(m.improving_param_id, scheme) ) | cell }} |
+| 악화 파라미터 | #{{ ( m.worsening_param_id ) | cell }} {{ ( param(m.worsening_param_id, scheme) ) | cell }} |
+| 도출된 발명원리 | {% for p in m.principle_ids %}{{ ( p ) | cell }}. {{ ( principle(p) ) | cell }}{{ ( ' / ' if not loop.last ) | cell }}{% endfor %} |
+| 출처 | {{ ( m.note ) | cell }} |
+
+{{ diagram('matrix-' ~ loop.index0) }}
 {% endfor %}
 
 | 원리 | 해석 | 아이디어 | 활용 자원 |
 |---|---|---|---|
 {% for a in s.solve.principle_apps %}
-| **{{ a.principle_id }}. {{ a.principle_name }}** | {{ a.interpretation }} | {{ a.idea }} | {{ (a.uses_resources or []) | join(', ') }} |
+| **{{ ( a.principle_id ) | cell }}. {{ ( a.principle_name ) | cell }}** | {{ ( a.interpretation ) | cell }} | {{ ( a.idea ) | cell }} | {{ ( (a.uses_resources or []) | join(', ') ) | cell }} |
 {% endfor %}
 {% endif %}
 
@@ -300,8 +325,9 @@
 | 분리 원리 | 적용 | 분리 방식 | 아이디어 | 연계 발명원리 |
 |---|---|---|---|---|
 {% for a in s.solve.separation_apps %}
-| {{ {'TIME':'시간 분리','SPACE':'공간 분리','CONDITION':'조건 분리','SYSTEM_LEVEL':'시스템 수준 분리'}.get(a.kind, a.kind) }} | {{ '○' if a.applicable else '✗' }} | {{ a.how or a.not_applicable_reason }} | {{ a.idea }} | {{ (a.supporting_principles or []) | join(', ') }} |
+| {{ ( {'TIME':'시간 분리','SPACE':'공간 분리','CONDITION':'조건 분리','SYSTEM_LEVEL':'시스템 수준 분리'}.get(a.kind, a.kind) ) | cell }} | {{ ( '○' if a.applicable else '✗' ) | cell }} | {{ ( a.how or a.not_applicable_reason ) | cell }} | {{ ( a.idea ) | cell }} | {{ ( (a.supporting_principles or []) | join(', ') ) | cell }} |
 {% endfor %}
+{{ diagram('separation') }}
 {% endif %}
 
 {% if s.solve.standard_apps %}
@@ -314,6 +340,7 @@
 - 적용안: {{ a.idea }}
 
 {% endfor %}
+{{ diagram('standards') }}
 {% endif %}
 
 {% if s.solve.ariz %}
@@ -339,6 +366,7 @@
   - {{ x }}
 {% endfor %}
 {% endif %}
+{{ diagram('ariz') }}
 {% endif %}
 
 {% if s.solve.trend_apps %}
@@ -347,12 +375,13 @@
 | 트렌드 | 현재 단계 | 다음 단계 | 아이디어 |
 |---|---|---|---|
 {% for a in s.solve.trend_apps %}
-| {{ a.trend_id }} {{ a.trend_name }} | {{ a.current_stage }} | {{ a.next_stage }} | {{ a.idea }} |
+| {{ ( a.trend_id ) | cell }} {{ ( a.trend_name ) | cell }} | {{ ( a.current_stage ) | cell }} | {{ ( a.next_stage ) | cell }} | {{ ( a.idea ) | cell }} |
 {% endfor %}
 {% if s_curve %}
 - **S-커브 위치**: {{ s_curve.stage }} — {{ s_curve.note }}
 - **병목 요소**: {{ s_curve.bottleneck }}
 {% endif %}
+{{ diagram('trends') }}
 {% endif %}
 
 {% if s.solve.fos_apps %}
@@ -363,6 +392,7 @@
   - 일반화 기능: {{ a.generalized_function }}
   - 이식 시 조정: {{ a.adaptation_note }}
 {% endfor %}
+{{ diagram('fos') }}
 {% endif %}
 
 {% if s.solve.coverage_note %}
@@ -381,6 +411,7 @@
 - {{ key }}: {{ value | hz }}
 {% endfor %}
 {% endfor %}
+{{ diagram('effects') }}
 {% endif %}
 
 {% if s.solve.raw_ideas %}
@@ -389,7 +420,7 @@
 | 아이디어 | 도출 기법 | 적용 원리·출처 | 해결하려는 모순 | 활용 자원 | 구체적 수단 |
 |---|---|---|---|---|---|
 {% for idea in s.solve.raw_ideas %}
-| {{ idea.title }} | {{ TRACK_KO.get(idea.track, idea.track) }} | {{ idea.source_ref }} | {{ idea.addresses | lbl }} | {{ idea.uses_resources | join(', ') }} | {{ idea.idea }} |
+| {{ ( idea.title ) | cell }} | {{ ( TRACK_KO.get(idea.track, idea.track) ) | cell }} | {{ ( idea.source_ref ) | cell }} | {{ ( idea.addresses | lbl ) | cell }} | {{ ( idea.uses_resources | join(', ') ) | cell }} | {{ ( idea.idea ) | cell }} |
 {% endfor %}
 {% endif %}
 
@@ -408,7 +439,7 @@
 {% for e in s.evaluation.evaluations %}
 {% set c = concept_map.get(e.concept_id) %}
 {% set chk = check_map.get(e.concept_id) %}
-| {{ c.title if c else '-' }} | {{ {'PASS':'통과','CONDITIONAL':'조건부','FAIL':'탈락'}.get(chk.verdict, chk.verdict) if chk else 'N/A' }} | {{ (chk.violated_ids | lbl) if chk else '' }} | {{ chk.mitigation if chk else '' }} |
+| {{ ( c.title if c else '-' ) | cell }} | {{ ( {'PASS':'통과','CONDITIONAL':'조건부','FAIL':'탈락'}.get(chk.verdict, chk.verdict) if chk else 'N/A' ) | cell }} | {{ ( (chk.violated_ids | lbl) if chk else '' ) | cell }} | {{ ( chk.mitigation if chk else '' ) | cell }} |
 {% endfor %}
 
 ---
@@ -425,22 +456,22 @@
 ```
 {% endif %}
 
-{% for e in s.evaluation.evaluations %}
-{% set c = concept_map.get(e.concept_id) %}
+{% for c in report_concepts %}
+{% set e = evaluation_map.get(c.id) %}
 {% if c %}
-### [{{ e.rank }}위] {{ c.title }}
+### [{{ '추가 도출' if e and e.rank == 99 else (e.rank ~ '위' if e and e.rank else '평가 전') }}] {{ c.title }}
 > {{ c.one_liner }}
 
 | 구분 | 내용 |
 |---|---|
-| 적용 TRIZ 기법 | {% for o in c.triz_origin %}{{ o.get('track','') }}-{{ o.get('ref','') }}{{ ' · ' if not loop.last }}{% endfor %} |
-| 해소 모순 | {{ c.addresses_contradictions | lbl }} |
-| 신규성 | {{ NOVELTY_KO.get(c.novelty_class, c.novelty_class) }} |
-| 개조 규모 | {{ SCALE_KO.get(c.change_scale, c.change_scale) }} |
-| 성숙도 | {{ MATURITY_KO.get(c.maturity, c.maturity) }} |
-| 기대 효과 | {{ c.expected_effect }} |
-| 필요 자원 | {{ c.required_resources | join(', ') }} |
-| 종합 평가 | **{{ e.total_score }}/5** · 리스크 {{ GRADE_KO.get(e.risk_level, e.risk_level) }} · 효과 {{ GRADE_KO.get(e.return_level, e.return_level) }} · **{{ QUADRANT_KO.get(e.quadrant, e.quadrant) }}** |
+| 적용 TRIZ 기법 | {% for o in c.triz_origin %}{{ ( o.get('track','') ) | cell }}-{{ ( o.get('ref','') ) | cell }}{{ ( ' · ' if not loop.last ) | cell }}{% endfor %} |
+| 해소 모순 | {{ ( c.addresses_contradictions | lbl ) | cell }} |
+| 신규성 | {{ ( NOVELTY_KO.get(c.novelty_class, c.novelty_class) ) | cell }} |
+| 개조 규모 | {{ ( SCALE_KO.get(c.change_scale, c.change_scale) ) | cell }} |
+| 성숙도 | {{ ( MATURITY_KO.get(c.maturity, c.maturity) ) | cell }} |
+| 기대 효과 | {{ ( c.expected_effect ) | cell }} |
+| 필요 자원 | {{ ( c.required_resources | join(', ') ) | cell }} |
+| 종합 평가 | {% if e %}**{{ ( e.total_score ) | cell }}/5** · 리스크 {{ ( GRADE_KO.get(e.risk_level, e.risk_level) ) | cell }} · 효과 {{ ( GRADE_KO.get(e.return_level, e.return_level) ) | cell }} · **{{ ( QUADRANT_KO.get(e.quadrant, e.quadrant) ) | cell }}**{% else %}평가 전{% endif %} |
 
 **개념 설명**
 {{ c.description | hz }}
@@ -468,38 +499,40 @@
 {% endfor %}
 {% endif %}
 
+{{ diagram('concept-' ~ concept_indices[c.id] ~ '') }}
+
 {% if c.diagram_mermaid %}
 ```mermaid
 {{ c.diagram_mermaid }}
 ```
 {% endif %}
 
-{% if c.evidence_ids %}
-**참고자료**
-{% for eid in c.evidence_ids %}
-{% set ev = evidence_map.get(eid) %}
-{% if ev %}
-{% if ev.url %}
-- [{{ SOURCE_KO.get(ev.source_type, ev.source_type) }}{% if ev.year %}·{{ ev.year }}{% endif %}] [{{ ev.title or ev.claim }}]({{ ev.url }}){% if ev.identifier %} `{{ ev.identifier }}`{% endif %}{% if not ev.verified %} ⚠️링크 확인 필요{% endif %}
-  <br/><sub>{{ ev.claim }}</sub>
-{% else %}
-- [모델 지식·미검증] {{ ev.claim or ev.title }}
-{% endif %}
-{% endif %}
+**검증 계획**
+
+| 검증 지표 | 실험 | 성공 기준 | 반증 기준 |
+|---|---|---|---|
+{% for v in c.validation_plan %}
+| {{ ( v.get('metric','') ) | cell }} | {{ ( v.get('experiment','') ) | cell }} | {{ ( v.get('success_criterion',v.get('target','')) ) | cell }} | {{ ( v.get('failure_criterion','') ) | cell }} |
 {% endfor %}
-{% else %}
-> ⚠️ 외부 참고자료 미확보 — 자체 분석에 근거한 제안 (검증 필요)
-{% endif %}
+
+**이식 조건**
+{% for condition in c.transfer_conditions %}
+- {{ condition }}
+{% endfor %}
+
+**참고자료**
+
+{{ references(c.id) }}
 
 **다직군 평가**
 
 | 검토자 | 관점 | 점수 | 의견 |
 |---|---|---|---|
-{% for sc in e.scores %}
-| {{ sc.reviewer_role }} | {{ sc.dimension }} | {{ sc.score }}/5 | {{ sc.rationale }} |
+{% for sc in (e.scores if e else []) %}
+| {{ ( sc.reviewer_role ) | cell }} | {{ ( sc.dimension ) | cell }} | {{ ( sc.score ) | cell }}/5 | {{ ( sc.rationale ) | cell }} |
 {% endfor %}
 
-{% if e.dissent %}
+{% if e and e.dissent %}
 > **소수 의견**: {{ e.dissent | join(' / ') }}
 {% endif %}
 
@@ -519,7 +552,7 @@
 | 해결책 | 적용 원리 | 선행자료 | 같다고 본 근거 |
 |---|---|---|---|
 {% for m in patents.matches %}
-| {{ m.concept_title }} | {{ m.principle_ref }} | {% if m.url %}[{{ SOURCE_KO.get(m.source_type, m.source_type) }}] [{{ m.title }}]({{ m.url }}){% if m.identifier %} `{{ m.identifier }}`{% endif %}{% else %}{{ m.title }}{% endif %} | {{ m.why }} |
+| {{ ( m.concept_title ) | cell }} | {{ ( m.principle_ref ) | cell }} | {% if m.url %}[{{ ( SOURCE_KO.get(m.source_type, m.source_type) ) | cell }}] [{{ ( m.title ) | cell }}]({{ ( m.url ) | cell }}){% if m.identifier %} `{{ ( m.identifier ) | cell }}`{% endif %}{% else %}{{ ( m.title ) | cell }}{% endif %} | {{ ( m.why ) | cell }} |
 {% endfor %}
 {% else %}
 > 메커니즘이 실질적으로 일치한다고 판단할 만한 선행자료를 찾지 못했습니다.
@@ -538,15 +571,15 @@
 
 | 구분 | 내용 |
 |---|---|
-| 적용 원리 | {{ a.principle_ref }} |
-| 동작 원리 | {{ a.working_principle }} |
-| 기존 해결책과의 차이 | {{ a.how_it_differs }} |
-| 기대 효과 | {{ a.expected_effect }} |
+| 적용 원리 | {{ ( a.principle_ref ) | cell }} |
+| 동작 원리 | {{ ( a.working_principle ) | cell }} |
+| 기존 해결책과의 차이 | {{ ( a.how_it_differs ) | cell }} |
+| 기대 효과 | {{ ( a.expected_effect ) | cell }} |
 {% if a.open_risks %}
-| 확인 필요 | {{ a.open_risks | join(' / ') }} |
+| 확인 필요 | {{ ( a.open_risks | join(' / ') ) | cell }} |
 {% endif %}
 {% if a.url %}
-| 출처 | [{{ SOURCE_KO.get(a.source_type, a.source_type) }}] [{{ a.source_title }}]({{ a.url }}){% if a.identifier %} `{{ a.identifier }}`{% endif %} |
+| 출처 | [{{ ( SOURCE_KO.get(a.source_type, a.source_type) ) | cell }}] [{{ ( a.source_title ) | cell }}]({{ ( a.url ) | cell }}){% if a.identifier %} `{{ ( a.identifier ) | cell }}`{% endif %} |
 {% endif %}
 
 {% endfor %}
@@ -555,6 +588,28 @@
 {% if not patents.providers %}
 > 공개 검색에서 원문을 확인한 특허만 참고자료로 취급합니다. 검색 링크만 남은 항목은 적용 근거가 아닙니다.
 {% endif %}
+{% endif %}
+
+{% if s.scratch.get('patent_additions') %}
+## 추가 도출 후보
+
+{% for a in s.scratch.patent_additions %}
+### [추가 도출] {{ a.title }}
+
+{{ a.how_it_differs }}
+
+{{ a.status }}
+
+**검증 계획**: {{ a.validation_test or '' }}
+
+**이식 조건**
+{% for condition in a.transfer_conditions %}
+- {{ condition }}
+{% endfor %}
+
+[{{ a.reference.title }}]({{ a.reference.url }})
+
+{% endfor %}
 {% endif %}
 
 ## 7. 실행 로드맵
@@ -572,7 +627,7 @@
 |---|---|---|---|
 {% for r in s.evaluation.roadmap %}
 {% set c = concept_map.get(r.get('concept_id')) %}
-| {{ r.get('phase','') }} | {{ c.title if c else (r.get('concept_id','') | lbl) }} | {{ r.get('precondition','') }} | {{ r.get('owner','') }} |
+| {{ ( r.get('phase','') ) | cell }} | {{ ( c.title if c else (r.get('concept_id','') | lbl) ) | cell }} | {{ ( r.get('precondition','') ) | cell }} | {{ ( r.get('owner','') ) | cell }} |
 {% endfor %}
 {% endif %}
 
@@ -598,7 +653,7 @@
 | # | 유형 | 제목 | 식별자 | 연도 | 링크 |
 |---|---|---|---|---|---|
 {% for ev in linked %}
-| {{ loop.index }} | {{ SOURCE_KO.get(ev.source_type, ev.source_type) }} | {{ ev.title or ev.claim }} | {{ ev.identifier or '-' }} | {{ ev.year or '-' }} | [열기]({{ ev.url }}) |
+| {{ ( loop.index ) | cell }} | {{ ( SOURCE_KO.get(ev.source_type, ev.source_type) ) | cell }} | {{ ( ev.title or ev.claim ) | cell }} | {{ ( ev.identifier or '-' ) | cell }} | {{ ( ev.year or '-' ) | cell }} | [열기]({{ ( ev.url ) | cell }}) |
 {% endfor %}
 {% else %}
 (검색으로 확보한 참고자료 없음)
@@ -620,10 +675,10 @@
 | 항목 | 제외 사유 |
 |---|---|
 {% for x in excluded %}
-| {{ x.get('idea','') | hz }} | {{ x.get('reason','') | hz }} |
+| {{ ( x.get('idea','') | hz ) | cell }} | {{ ( x.get('reason','') | hz ) | cell }} |
 {% endfor %}
 {% for x in s.definition.dropped %}
-| {{ x.get('id','') | lbl }} | {{ x.get('reason','') | hz }} |
+| {{ ( x.get('id','') | lbl ) | cell }} | {{ ( x.get('reason','') | hz ) | cell }} |
 {% endfor %}
 {% endif %}
 
@@ -632,5 +687,5 @@
 | # | 단계 | 작업 | 담당 관점 | 모델 티어 | 검증 | 시도 | 상태 |
 |---|---|---|---|---|---|---|---|
 {% for st_ in s.steps %}
-| {{ st_.seq }} | {{ st_.stage }} | {{ st_.label }} | {{ st_.agent_id | hz }} | {{ st_.tier }} | {{ {'PASS':'통과','CONDITIONAL':'조건부','FAIL':'미통과','REPAIR':'보정'}.get(st_.verdicts[-1].get('verdict','-') if st_.verdicts else '-', '-') }} | {{ st_.verify_attempts }} | {{ {'OK':'완료','FAILED':'실패','SKIPPED':'건너뜀'}.get(st_.status, st_.status) }}{{ ' 👤' if st_.human_intervened }} |
+| {{ ( st_.seq ) | cell }} | {{ ( st_.stage ) | cell }} | {{ ( st_.label ) | cell }} | {{ ( st_.agent_id | hz ) | cell }} | {{ ( st_.tier ) | cell }} | {{ ( {'PASS':'통과','CONDITIONAL':'조건부','FAIL':'미통과','REPAIR':'보정'}.get(st_.verdicts[-1].get('verdict','-') if st_.verdicts else '-', '-') ) | cell }} | {{ ( st_.verify_attempts ) | cell }} | {{ ( {'OK':'완료','FAILED':'실패','SKIPPED':'건너뜀'}.get(st_.status, st_.status) ) | cell }}{{ ( ' 👤' if st_.human_intervened ) | cell }} |
 {% endfor %}

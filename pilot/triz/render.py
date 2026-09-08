@@ -252,11 +252,14 @@ def roadmap_mermaid(s: GlobalState) -> str:
 def _md_table(header: list[str], rows: list[list[str]], align: str = "---") -> str:
     if not rows:
         return ""
-    out = ["| " + " | ".join(str(h or "") for h in header) + " |",
+    out = ["| " + " | ".join(_cell(h) for h in header) + " |",
            "|" + "|".join([align] * len(header)) + "|"]
-    out += ["| " + " | ".join(str(c) if c not in (None, "") else "" for c in r) + " |"
+    out += ["| " + " | ".join(_cell(c) for c in r) + " |"
             for r in rows]
     return "\n".join(out)
+
+def _cell(value):
+    return re.sub(r"\s*\n\s*", " ", str(value if value is not None else "")).replace("|", r"\|")
 
 
 def constraint_matrix(s: GlobalState) -> dict:
@@ -275,11 +278,13 @@ def constraint_matrix(s: GlobalState) -> dict:
         rows.append({"title": c.title, "verdict": (chk.verdict if chk else "CONDITIONAL") or "CONDITIONAL",
                      "cells": [per.get(con.id) or "—" for con in cons],
                      "mitigation": (chk.mitigation if chk else "") or ""})
-    md = _md_table(
-        ["해결책"] + [str(i) for i in range(1, len(cons) + 1)] + ["종합"],
-        [[r["title"]] + [mark.get(x, x) for x in r["cells"]]
-         + [verdict_ko.get(r["verdict"], r["verdict"])] for r in rows],
-    ) if cons and rows else ""
+    chunks = []
+    for start in range(0, len(cons), 8):
+        stop = min(start+8, len(cons))
+        chunks.append(f"**제약 {start+1}–{stop} 판정**\n\n" + _md_table(
+            ["해결책"] + [str(i) for i in range(start+1, stop+1)] + ["종합"],
+            [[r['title']] + [mark.get(x, x) for x in r['cells'][start:stop]] + [verdict_ko.get(r['verdict'], r['verdict'])] for r in rows]))
+    md = '\n\n'.join(chunks) if cons and rows else ''
     legend = "\n".join(f"{i}. {c.statement}" + (f" — {c.zone}" if c.zone else "")
                        for i, c in enumerate(cons, 1))
     return {"constraints": cons, "rows": rows, "md": md, "legend": legend}
@@ -337,11 +342,13 @@ def _env(labels: dict[str, str], keep_code: bool = False) -> Environment:
     env.filters["hz"] = lambda v: humanize(str(v or ""), labels, keep_code)
     env.filters["pred"] = predicate
     env.filters["join"] = _safe_join
+    env.filters["cell"] = _cell
     return env
 
 
-def render_report(state: GlobalState, narrative: dict, template: str = "") -> str:
+def render_report(state: GlobalState, narrative: dict, template: str = "", *, diagram=None, references=None) -> str:
     from .visuals import figures
+    from .report_style import reference_cards
     labels = build_label_map(state)
     env = _env(labels)
     lite = state.control.mode == RunMode.LITE
@@ -353,6 +360,7 @@ def render_report(state: GlobalState, narrative: dict, template: str = "") -> st
     concept_map = {c.id: c for c in state.concepts}
     evidence_map = {e.id: e for e in state.evidence}
     check_map = {c.concept_id: c for c in state.constraint_checks}
+    evaluation_map = {e.concept_id: e for e in state.evaluation.evaluations}
 
     applied = []
     if state.analysis.nine_windows:
@@ -396,8 +404,14 @@ def render_report(state: GlobalState, narrative: dict, template: str = "") -> st
         cmatrix=constraint_matrix(state),
         igrid=interaction_grid(state),
         figures=figures(state),
+        diagram=diagram or (lambda key: ''),
+        references=references or (lambda cid: '\n\n'.join(f"[{r['title']}]({r['url']})\n\n{r['description']}" for r in reference_cards(state, state.concept(cid)))),
+        concept_indices={c.id: i for i, c in enumerate(state.concepts)},
+        report_concepts=sorted(state.concepts, key=lambda c: evaluation_map[c.id].rank or 999 if c.id in evaluation_map else 999),
+        evaluation_map=evaluation_map,
     )
-    return _localize(humanize(md, labels))  # 본문에 남은 내부 코드·열거값 최종 정리
+    from .report_style import plain_text
+    return plain_text(_localize(humanize(md, labels)))
 
 
 def save(state: GlobalState, markdown: str) -> Path:
@@ -415,5 +429,6 @@ def save(state: GlobalState, markdown: str) -> Path:
 
 def render_html(state):
     from .presentation import view
+    from .report_style import report_state
     env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), autoescape=True)
-    return env.get_template("report.html.j2").render(v=view(state))
+    return env.get_template("report.html.j2").render(v=view(report_state(state)))

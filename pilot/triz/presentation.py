@@ -6,6 +6,8 @@ from .render import QUADRANT_KO
 def view(state):
     from .pipeline import stage_list
     from .report_content import sections
+    from .report_style import report_state, reference_cards, plain_text
+    report = report_state(state)
     labels = build_label_map(state)
     def human(value):
         return humanize(str(value or ""), labels)
@@ -14,6 +16,7 @@ def view(state):
         e = next((e for e in state.evaluation.evaluations if e.concept_id == c.id), None)
         check = state.check_for(c.id)
         solutions.append(dict(key=c.id, title=c.title, summary=c.one_liner,
+            reference_cards=reference_cards(state, c),
             description=human(c.description), mechanism=human(c.working_principle),
             changes=c.changes_to_system, effect=c.expected_effect, assumptions=c.assumptions,
             risks=c.open_risks, validation=c.validation_plan, transfer_conditions=c.transfer_conditions,
@@ -30,7 +33,7 @@ def view(state):
     message = (state.pending.title if state.pending else "보고서가 완성되었어요. 해결안을 검토해 주세요." if state.report
                else "분석이 잠시 멈췄어요. 설정을 확인한 뒤 이어서 진행할 수 있어요." if state.status in ("FAILED", "INTERRUPTED")
                else f"{steps[min(index, len(steps)-1)]['label']}을 진행하고 있어요.")
-    diagrams = visuals.figures(state)
+    diagrams = [f for f in visuals.figures(report) if f['key'] != 'nine-windows']
     return dict(run_id=state.run_id, title=state.scratch.get("title") or state.raw_query[:60],
         query=state.raw_query, industry=state.domain.industry, system=state.domain.target_system,
         status=state.status, stage_index=index, stages=steps, guide=message,
@@ -40,8 +43,8 @@ def view(state):
         constraints=[c.statement for c in state.constraints.items],
         reviewers=[dict(role=p.role_name, mandate=p.mandate, avatar=i % 6) for i, p in enumerate(state.evaluation.reviewers)],
         solutions=sorted(solutions, key=lambda c: c["rank"] or 999), figures=diagrams,
-        report_sections=sections(state, diagrams) if state.report else [],
-        summary=human(state.report.narrative.get("executive_summary", "")) if state.report else "",
+        report_sections=sections(report, diagrams) if state.report else [],
+        summary=plain_text(human(state.report.narrative.get("executive_summary", ""))) if state.report else "",
         report_ready=bool(state.report), additions=state.scratch.get("patent_additions", []),
         evidence_gaps=state.scratch.get("evidence_gaps", []), search_status=state.scratch.get("search_status", {}),
         related_references=state.scratch.get("related_references", []),

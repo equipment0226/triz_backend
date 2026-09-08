@@ -94,7 +94,7 @@ confirm:
 
 evidence:
   enabled: true               # 공개 학술 API(crossref/openalex/arxiv)는 키 없이 동작
-  max_queries_per_run: 16
+  max_queries_per_run: 40
   max_cards: 20
   bilingual_queries: true
   min_refs_per_solution: 1    # 최종 선정 해결책마다 확보할 최소 참고자료 수
@@ -113,7 +113,7 @@ feedback_rag:
   weight_max: 1.30
 
 report:
-  template: report_visual.md.j2
-  lite_template: report_visual.md.j2
+  template: report_full.md.j2
+  lite_template: report_full.md.j2
   include_step_trace: true
   include_dropped_appendix: true

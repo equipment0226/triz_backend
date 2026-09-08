@@ -1,6 +1,7 @@
 """공신력 있는 공개 학술·특허 검색 어댑터.
 
 API 키 없이 동작하는 소스를 기본으로 쓴다.
+- Google Patents (공개 웹 검색·원문 페이지): 특허 검색 기본값, 키 불필요
 - Crossref  (DOI, 논문)         : 키 불필요
 - OpenAlex  (DOI, 논문/저널)     : 키 불필요
 - arXiv     (프리프린트)         : 키 불필요
@@ -14,9 +15,12 @@ from __future__ import annotations
 import logging
 import json
 import re
+from html import unescape
+from html.parser import HTMLParser
+from functools import lru_cache
 import xml.etree.ElementTree as ET
 from typing import Any
-from urllib.parse import quote_plus, urlparse
+from urllib.parse import quote_plus, urlparse, urlencode
 from concurrent.futures import ThreadPoolExecutor
 
 import httpx
@@ -30,9 +34,9 @@ TIMEOUT = 20
 PATENT_ID_RE = re.compile(r"^(US|EP|JP|KR|CN|WO|DE|FR|GB)[-\s]?\d{4,}[A-Z]?\d*$", re.I)
 
 
-def _clean(text: str, n: int = 320) -> str:
+def _clean(text: str, n: int = 1800) -> str:
     text = re.sub(r"<[^>]+>", " ", text or "")
-    text = " ".join(text.split())
+    text = " ".join(unescape(text).split())
     return text[:n]
 
 
@@ -78,7 +82,7 @@ def openalex(query: str, k: int = 4) -> list[dict]:
     try:
         r = httpx.get(
             "https://api.openalex.org/works",
-            params={"search": query, "per_page": k, "mailto": "triz-pilot@localhost"},
+            params={"search": query, "per_page": k},
             headers={"User-Agent": UA}, timeout=TIMEOUT, follow_redirects=True,
         )
         r.raise_for_status()
@@ -90,7 +94,7 @@ def openalex(query: str, k: int = 4) -> list[dict]:
             if not title or not url:
                 continue
             venue = ((it.get("primary_location") or {}).get("source") or {}).get("display_name", "")
-            out.append(_rec(source_type="PAPER", title=_clean(title, 200), identifier=doi,
+            out.append(_rec(source_type="PAPER", title=_clean(title, 200), identifier=doi or it.get("id", ""),
                             url=url, year=str(it.get("publication_year") or ""),
                             venue=_clean(venue, 80),
                             snippet=_clean(_invert_abstract(it.get("abstract_inverted_index"))),
@@ -109,7 +113,7 @@ def _invert_abstract(inv: dict | None) -> str:
         for i in idxs:
             positions.append((i, word))
     positions.sort()
-    return " ".join(w for _, w in positions[:80])
+    return " ".join(w for _, w in positions[:350])
 
 
 # ───────────────────────────────────────── arXiv
@@ -117,7 +121,7 @@ def arxiv(query: str, k: int = 3) -> list[dict]:
     try:
         r = httpx.get(
             "https://export.arxiv.org/api/query",
-            params={"search_query": f"all:{query}", "max_results": k},
+            params={"search_query": " AND ".join("all:" + word for word in re.findall(r"[A-Za-z0-9]+", query)), "max_results": k},
             headers={"User-Agent": UA}, timeout=TIMEOUT, follow_redirects=True,
         )
         r.raise_for_status()
@@ -226,22 +230,93 @@ def search_links(query: str) -> list[dict]:
     ]
 
 
+class PatentPage(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.meta, self.abstract = {}, []
+        self.depth = 0
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "meta":
+            self.meta[attrs.get("name", attrs.get("itemprop", ""))] = attrs.get("content", "")
+        if tag in ("meta", "link", "br", "img", "input", "hr"):
+            return
+        if self.depth:
+            self.depth += 1
+        elif attrs.get("class") == "abstract" or attrs.get("itemprop") == "abstract":
+            self.depth = 1
+
+    def handle_endtag(self, tag):
+        if self.depth and tag not in ("meta", "link", "br", "img", "input", "hr"):
+            self.depth -= 1
+
+    def handle_data(self, data):
+        if self.depth:
+            self.abstract.append(data)
+
+
+@lru_cache(maxsize=256)
+def patent_page(identifier):
+    if not PATENT_ID_RE.fullmatch(identifier):
+        return None
+    url = "https://patents.google.com/patent/" + identifier + "/en"
+    response = httpx.get(url, timeout=TIMEOUT, headers={"User-Agent": UA}, follow_redirects=True)
+    response.raise_for_status()
+    page = PatentPage(); page.feed(response.text)
+    actual = page.meta.get("citation_patent_number", "")
+    normalized = re.sub(r"[\s:-]", "", actual).upper()
+    base = re.sub(r"[A-Z]\d?$", "", identifier.upper())
+    if normalized not in (identifier.upper(), base) or urlparse(str(response.url)).path != "/patent/" + identifier + "/en":
+        return None
+    title = page.meta.get("DC.title") or page.meta.get("citation_title")
+    if not title:
+        return None
+    return _rec(source_type="PATENT", title=_clean(title, 300), identifier=identifier, url=url,
+        year=(page.meta.get("DC.date") or page.meta.get("citation_publication_date", ""))[:4],
+        snippet=_clean(" ".join(page.abstract)), provider="google_patents", venue="Google Patents",
+        retrieval_scope="공개 특허 원문 페이지에서 번호·제목·초록 확인")
+
+
+def google_patents(query: str, k: int = 4) -> list[dict]:
+    """Free public web search; no paid patent API, credentials or invented identifiers."""
+    try:
+        response = httpx.get("https://patents.google.com/xhr/query", params={"url": urlencode({"q": query, "num": min(k, 10)})},
+            headers={"User-Agent": UA}, timeout=TIMEOUT, follow_redirects=True)
+        response.raise_for_status()
+        hits = [hit for group in response.json().get("results", {}).get("cluster", []) for hit in group.get("result", [])]
+        out = []
+        for hit in hits[:k]:
+            identifier = hit.get("patent", {}).get("publication_number", "")
+            try:
+                record = patent_page(identifier)
+                if record:
+                    out.append(dict(record))
+            except (httpx.HTTPError, ValueError):
+                continue
+        return out
+    except (httpx.HTTPError, ValueError, TypeError):
+        log.warning("Google Patents 공개 검색을 일시적으로 사용할 수 없습니다.")
+        return []
+
+
 # ───────────────────────────────────────── 통합
 PROVIDERS = {
     "crossref": crossref, "openalex": openalex, "arxiv": arxiv,
     "patentsview": patentsview, "tavily": tavily,
+    "google_patents": google_patents,
 }
 
 
 def enabled_providers() -> list[str]:
     names = [p.strip().lower() for p in settings.evidence_providers if p.strip()]
-    out = []
+    out = ["google_patents"] if settings.free_patent_search else []
     for n in names:
         if n == "patentsview" and not settings.patentsview_key:
             continue
         if n == "tavily" and not settings.tavily_key:
             continue
-        if n in PROVIDERS:
+        if n in PROVIDERS and n not in out:
             out.append(n)
     return out
 
@@ -255,7 +330,9 @@ def search(query: str, k: int = 4, providers: list[str] | None = None) -> list[d
         return []
     with ThreadPoolExecutor(max_workers=min(3, len(names))) as pool:
         batches = list(pool.map(lambda name: PROVIDERS[name](query, k), names))
-    for name, batch in zip(names, batches):
+    # Round-robin keeps the first provider from crowding out richer abstracts.
+    interleaved = [(names[j], [batch[i]]) for i in range(max(map(len, batches), default=0)) for j, batch in enumerate(batches) if i < len(batch)]
+    for name, batch in interleaved:
         try:
             for rec in batch:
                 url = rec.get("url", "")
@@ -271,7 +348,7 @@ def search(query: str, k: int = 4, providers: list[str] | None = None) -> list[d
 def search_kind(query: str, kind: str = "PATENT", k: int = 4) -> list[dict]:
     if kind not in ("PATENT", "PAPER"):
         raise ValueError("kind must be PATENT or PAPER")
-    allowed = {"patentsview", "tavily"} if kind == "PATENT" else {"crossref", "openalex", "arxiv"}
+    allowed = {"google_patents"} if kind == "PATENT" and settings.free_patent_search else {"patentsview", "tavily"} if kind == "PATENT" else {"crossref", "openalex", "arxiv"}
     providers = [p for p in enabled_providers() if p in allowed]
     records = search(query, k, providers)
     return [r for r in records if r["source_type"] == kind and r.get("identifier")

@@ -17,6 +17,8 @@ LargeText = Text().with_variant(LONGTEXT(), "mysql")
 def table(name, fields, key):
     return Table(name, metadata, *[Column(n, t, primary_key=n == key,
         autoincrement=(n == key and t is Integer)) for n, t in fields.items()], mysql_charset="utf8mb4")
+accounts = table("accounts", dict(user_id=String(64), email=String(320), name=Text, created_at=String(40)), "user_id")
+sessions = table("account_sessions", dict(token_hash=String(64), user_id=String(64), expires_at=Float), "token_hash")
 runs = table("runs", dict(run_id=String(64), user_id=String(64), title=Text, mode=String(16),
     industry=Text, target_system=Text, status=String(32), current_stage=String(64),
     cost_usd=Float, started_at=String(40), ended_at=String(40)), "run_id")
@@ -122,11 +124,69 @@ def load_state(run_id):
     with engine.connect() as c:
         payload = c.execute(select(states.c.state_json).where(states.c.run_id == run_id)).scalar()
     return GlobalState.model_validate_json(payload) if payload else None
-def list_runs(limit=50):
+def list_runs(limit=50, user_id=None):
+    init()
+    query = select(runs)
+    if user_id is not None:
+        query = query.where(runs.c.user_id == user_id)
+    with engine.connect() as c:
+        return [dict(r) for r in c.execute(query.order_by(runs.c.started_at.desc())
+            .limit(max(1, min(limit, 1000)))).mappings()]
+
+def run_owner(run_id):
     init()
     with engine.connect() as c:
-        return [dict(r) for r in c.execute(select(runs).order_by(runs.c.started_at.desc())
-            .limit(max(1, min(limit, 1000)))).mappings()]
+        return c.execute(select(runs.c.user_id).where(runs.c.run_id == run_id)).scalar()
+
+def create_session(subject, email, name):
+    import hashlib, secrets, time
+    init()
+    user_id = hashlib.sha256(("google:" + subject).encode()).hexdigest()
+    token = secrets.token_urlsafe(32)
+    with engine.begin() as c:
+        # The immutable Google subject, not the changeable email, owns the account.
+        existing = c.execute(select(accounts.c.user_id).where(accounts.c.user_id == user_id)).scalar()
+        if existing:
+            c.execute(update(accounts).where(accounts.c.user_id == user_id).values(email=email, name=name))
+        else:
+            c.execute(accounts.insert().values(user_id=user_id, email=email, name=name, created_at=_now()))
+        c.execute(delete(sessions).where(sessions.c.expires_at < time.time()))
+        c.execute(sessions.insert().values(token_hash=hashlib.sha256(token.encode()).hexdigest(), user_id=user_id, expires_at=time.time() + 43200))
+    if settings.legacy_owner_email and email.lower() == settings.legacy_owner_email:
+        claim_legacy_runs(user_id)
+    return {"token": token, "user": {"id": user_id, "email": email, "name": name}}
+
+def claim_legacy_runs(user_id):
+    """Migrate the former single-user workspace only to its configured, Google-verified owner."""
+    for row in list_runs(limit=1000, user_id="local"):
+        try:
+            with run_lock(row['run_id']):
+                state = load_state(row['run_id'])
+                if not state or state.user_id != 'local' or state.status in ('RUNNING', 'QUEUED'):
+                    continue
+                state.user_id = user_id
+                with engine.begin() as c:
+                    c.execute(update(runs).where(runs.c.run_id == state.run_id, runs.c.user_id == 'local').values(user_id=user_id))
+                    _upsert(c, states, dict(run_id=state.run_id, state_json=state.model_dump_json(), updated_at=_now()))
+                archive(state.run_id, 'state.json', state.model_dump_json())
+        except RuntimeError:
+            continue  # A busy analysis can be claimed on the next login.
+
+def session_user(token):
+    import hashlib, time
+    if not token or len(token) > 128:
+        return None
+    init()
+    with engine.connect() as c:
+        row = c.execute(select(accounts).join(sessions, accounts.c.user_id == sessions.c.user_id).where(
+            sessions.c.token_hash == hashlib.sha256(token.encode()).hexdigest(), sessions.c.expires_at > time.time())).mappings().first()
+    return {"id": row["user_id"], "email": row["email"], "name": row["name"]} if row else None
+
+def revoke_session(token):
+    import hashlib
+    init()
+    with engine.begin() as c:
+        c.execute(delete(sessions).where(sessions.c.token_hash == hashlib.sha256(token.encode()).hexdigest()))
 def delete_run(run_id):
     init()
     with run_lock(run_id), engine.begin() as c:

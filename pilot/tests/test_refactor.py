@@ -127,7 +127,7 @@ def test_patent_paper_providers_are_separate(monkeypatch):
 
 def test_evidence_matching_requires_provenance_and_transfer(state,monkeypatch):
     c=ConceptSpec(title="Contact separation"); state.concepts=[c]
-    state.scratch["evidence_candidates"]=[{"source_type":"PATENT","title":"Real patent","identifier":"US1234567","url":"https://patents.google.com/patent/US1234567","year":"2020","snippet":"contact separation","provider":"patentsview"}]
+    state.scratch["evidence_candidates"]=[{"source_type":"PATENT","title":"Real patent","identifier":"US1234567","url":"https://patents.google.com/patent/US1234567","year":"2020","snippet":"A contact separation mechanism uses independently controlled support and cleaning phases to avoid mechanical damage.","provider":"patentsview"}]
     monkeypatch.setattr(evidence,"discover",lambda ctx:None)
     monkeypatch.setattr(agent,"run_agent",lambda *a,**k:{"matches":[{"index":0,"concept_id":c.id,"confidence":.9,"mechanism_mapping":"same means","transfer_conditions":["vacuum compatibility"]}],"additions":[{"index":99,"title":"invented"}]})
     evidence.attach(RunContext(state))

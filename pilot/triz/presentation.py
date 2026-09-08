@@ -5,6 +5,7 @@ from .render import QUADRANT_KO
 
 def view(state):
     from .pipeline import stage_list
+    from .report_content import sections
     labels = build_label_map(state)
     def human(value):
         return humanize(str(value or ""), labels)
@@ -21,13 +22,15 @@ def view(state):
             verdict={"PASS": "제약 충족", "CONDITIONAL": "조건 확인 필요", "FAIL": "제약 위반"}.get(check.verdict if check else "", "검토 전"),
             quadrant=QUADRANT_KO.get(e.quadrant, "") if e else "",
             evidence=[dict(title=r.title, url=r.url, kind="특허" if r.source_type == "PATENT" else "논문",
-                identifier=r.identifier, scope=r.evidence_scope, verified=r.verified) for r in state.evidences(c.evidence_ids)
+                identifier=r.identifier, scope=r.evidence_scope, verified=r.verified,
+                mechanism=state.scratch.get("evidence_mappings", {}).get(c.id, {}).get(r.identifier, {}).get("mechanism", r.claim)) for r in state.evidences(c.evidence_ids)
                 if r.url.startswith(("https://", "http://")) and r.identifier and r.source_type in ("PATENT", "PAPER")]))
     steps = stage_list()
     index = state.control.stage_index
     message = (state.pending.title if state.pending else "보고서가 완성되었어요. 해결안을 검토해 주세요." if state.report
                else "분석이 잠시 멈췄어요. 설정을 확인한 뒤 이어서 진행할 수 있어요." if state.status in ("FAILED", "INTERRUPTED")
                else f"{steps[min(index, len(steps)-1)]['label']}을 진행하고 있어요.")
+    diagrams = visuals.figures(state)
     return dict(run_id=state.run_id, title=state.scratch.get("title") or state.raw_query[:60],
         query=state.raw_query, industry=state.domain.industry, system=state.domain.target_system,
         status=state.status, stage_index=index, stages=steps, guide=message,
@@ -36,9 +39,11 @@ def view(state):
         problem=human(state.intake.frame.restated_problem), symptom=state.intake.frame.symptom,
         constraints=[c.statement for c in state.constraints.items],
         reviewers=[dict(role=p.role_name, mandate=p.mandate, avatar=i % 6) for i, p in enumerate(state.evaluation.reviewers)],
-        solutions=sorted(solutions, key=lambda c: c["rank"] or 999), figures=visuals.figures(state),
+        solutions=sorted(solutions, key=lambda c: c["rank"] or 999), figures=diagrams,
+        report_sections=sections(state, diagrams) if state.report else [],
         summary=human(state.report.narrative.get("executive_summary", "")) if state.report else "",
         report_ready=bool(state.report), additions=state.scratch.get("patent_additions", []),
         evidence_gaps=state.scratch.get("evidence_gaps", []), search_status=state.scratch.get("search_status", {}),
+        related_references=state.scratch.get("related_references", []),
         warnings=[human(w) for w in state.control.warnings],
         review_status={"checked": sum(s.status == "OK" for s in state.steps), "unverified": sum(s.status == "WARN" for s in state.steps)})

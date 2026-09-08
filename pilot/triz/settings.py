@@ -61,6 +61,8 @@ class Settings:
         self.port = _env_i("PORT", _env_i("APP_PORT", 8000))
         self.embed_mcp = _env("TRIZ_EMBED_MCP", "false").lower() == "true"
         self.app_token = _env("TRIZ_APP_TOKEN")
+        self.require_user_auth = _env("REQUIRE_USER_AUTH", "true" if self.app_token else "false").lower() == "true"
+        self.legacy_owner_email = _env("LEGACY_OWNER_EMAIL").strip().lower()
         self.log_level = _env("LOG_LEVEL", "INFO")
 
         self.db_path = (ROOT / _env("DB_PATH", "./data/triz.db")).resolve()
@@ -92,6 +94,7 @@ class Settings:
         self.search_provider = _env("SEARCH_PROVIDER", "none").lower()
         self.tavily_key = _env("TAVILY_API_KEY")
         self.patentsview_key = _env("PATENTSVIEW_API_KEY")
+        self.free_patent_search = _env("FREE_PATENT_SEARCH", "true").lower() == "true"
         # 키 없이 쓰는 공개 API를 기본 활성화 (tavily/patentsview는 키가 있을 때만 동작)
         self.evidence_providers = [
             p.strip() for p in _env(

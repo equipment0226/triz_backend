@@ -407,9 +407,13 @@ def save(state: GlobalState, markdown: str) -> Path:
     store.archive(state.run_id, "report.md", markdown)
     for figure in figures(state):
         store.archive(state.run_id, f"{figure['key']}.svg", figure["svg"])
-    env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), autoescape=True)
-    html = env.get_template("report.html.j2").render(v=view(state))
+    html = render_html(state)
     store.archive(state.run_id, "report.html", html)
     path = settings.storage_dir / f"{state.run_id}.md"
     path.write_text(markdown, encoding="utf-8")
     return path
+
+def render_html(state):
+    from .presentation import view
+    env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), autoescape=True)
+    return env.get_template("report.html.j2").render(v=view(state))

@@ -74,6 +74,7 @@ def write_feedback(state, distill: dict) -> int:
                 collection=COLLECTION,
                 doc=f"{gen} :: {contra} :: {concept.title} — {concept.one_liner}",
                 meta={
+                    "user_id": state.user_id,
                     "run_id": state.run_id, "concept_id": concept.id, "title": concept.title,
                     "one_liner": concept.one_liner, "industry": state.domain.industry,
                     "is_engineering": state.domain.is_engineering,
@@ -92,7 +93,7 @@ def write_feedback(state, distill: dict) -> int:
                 doc_id=f"fx-{uuid.uuid4().hex[:10]}",
                 collection=FAILURES,
                 doc=f"{gen} :: {concept.title} :: {fb.comment or ''} :: {', '.join(fb.reason_tags)}",
-                meta={"industry": state.domain.industry, "reason_tags": fb.reason_tags,
+                meta={"user_id": state.user_id, "industry": state.domain.industry, "reason_tags": fb.reason_tags,
                       "title": concept.title, "rating": fb.rating},
                 weight=1.0,
             )
@@ -102,10 +103,12 @@ def write_feedback(state, distill: dict) -> int:
 
 # ─────────────────────────────── 읽기
 def retrieve(query: str, collection: str = COLLECTION, k: int | None = None,
-             industry: str = "") -> list[dict]:
+             industry: str = "", user_id: str = "") -> list[dict]:
     if not settings.cfg("feedback_rag.enabled", True):
         return []
     docs = store.rag_all(collection)
+    if settings.require_user_auth or user_id:
+        docs = [d for d in docs if d.get("meta", {}).get("user_id") == user_id and user_id]
     if not docs:
         return []
     k = k or int(settings.cfg("feedback_rag.top_k", 3))
@@ -131,8 +134,8 @@ def prior_cases_block(state) -> str:
     if not settings.cfg("feedback_rag.enabled", True):
         return ""
     query = f"{state.intake.frame.restated_problem} {' '.join(c.label for c in state.definition.technical_contradictions[:2])}"
-    hits = retrieve(query, industry=state.domain.industry)
-    fails = retrieve(query, collection=FAILURES, k=2, industry=state.domain.industry)
+    hits = retrieve(query, industry=state.domain.industry, user_id=state.user_id)
+    fails = retrieve(query, collection=FAILURES, k=2, industry=state.domain.industry, user_id=state.user_id)
     if not hits and not fails:
         return ""
     limit = int(settings.cfg("feedback_rag.max_influenced_concepts", 3))

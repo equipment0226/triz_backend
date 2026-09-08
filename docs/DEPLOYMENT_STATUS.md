@@ -65,7 +65,26 @@ MCP lifespan/프로토콜·IPv4/IPv6 접속 검사 통과. 실제 API·브라우
 3. Railway에서 해당 서비스의 배포가 SUCCESS인지 확인한다.
 4. 사이트 로그인 후 이력·문제 분석·다운로드를 확인한다. DB와 `/data` 볼륨을 삭제하지 않는다.
 
-데모 로그인 정보: 원본 작업공간 `.deployment/demo-access.txt`.
+공유 데모 로그인은 제거했다. 공개 페이지는 누구나 접속하고, Problem Solving은 Google 계정으로 가입·로그인한다.
 본인 계정으로 설정한 n8n 관리자 비밀번호는 이 파일과 별개다.
 
-전체 산업별 품질 평가, 다중 사용자 격리, S3 확장, 부하·장애 복구 훈련은 후속 범위다.
+전체 산업별 품질 평가, S3 확장, 부하·장애 복구 훈련은 후속 범위다.
+
+## 추가 개선 — Google 로그인·전체 보고서·무료 특허 검색
+
+- Main 명칭 변경, 특정 기업 활용 사례 영역 삭제, About us 프로필 추가.
+- Main / Tool 소개 / Sample Case 입력 예시 / About us 공개. Problem Solving과 내 분석 이력은 Google 로그인 필요.
+- 웹 OAuth authorization code + PKCE/state/nonce, 공식 Google 라이브러리 ID 토큰 검증. 최초 로그인 시 회원 자동 생성.
+- MySQL 계정·12시간 세션, HTTP-only Secure 쿠키, 로그아웃 시 세션 철회. gateway는 클라이언트가 보낸 인증 헤더를 제거한다.
+- API의 모든 실행 ID 경로(상태·이벤트·보고서·재실행·삭제 포함)를 소유자로 제한. 개인 피드백 RAG도 계정별로 제한.
+- 기존 local 실행은 LEGACY_OWNER_EMAIL과 일치하는 Google 인증 계정으로만 첫 로그인 시 연결한다. 다른 계정에는 공개하지 않는다.
+- 원 PoC report_full 템플릿의 문제 정의·제약·시스템/기능·자원·원인·모순/IFR·해결기법·아이디어·해결안·평가·로드맵을 보고서 탭과 단일 HTML에 함께 제공.
+- 기존 저장 보고서도 다운로드 시 현재 템플릿으로 렌더링. ZIP 버튼 제거. 도식과 텍스트를 포함한 HTML 하나를 내려받으며 브라우저에서 PDF 인쇄 가능.
+- 한글 폭과 전체 줄 수로 SVG 노드 크기를 계산. 긴 라벨을 자르지 않으며 관계 설명은 번호와 전체 범례로 표시. 브라우저 도식 확대·스크롤 제공.
+- 특허는 Google Patents 무료 공개 웹 검색과 원문 페이지 확인을 사용. 검색 API 키 불필요. 차단·제한 시 우회하지 않고 빈 결과로 처리하므로 공급자 가용성에 영향을 받는다.
+- 논문은 Crossref/OpenAlex/arXiv 결과를 섞고 초록을 확장. 해결안별 논문·특허 검색어, 최대 40개 쿼리, 3개 해결안씩 적용성 대조.
+- 충분한 초록과 작동 원리 대응·이식 조건을 갖춘 자료만 근거로 연결. 약한 관련성은 유사 사례로 별도 표시. 메타데이터 확인은 청구항·침해·실증 성능 검증을 뜻하지 않는다.
+
+Google 설정: triz_front에 GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, PUBLIC_ORIGIN. 웹 OAuth의 승인된 리디렉션 URI는
+`https://trizfront-production.up.railway.app/auth/google/callback`이다. Google 동의 화면이 테스트 상태면 테스트 사용자 등록 필요.
+OAuth 비밀키는 저장소·로그에 기록하지 않는다. 현재 변경의 배포 및 Google 실제 로그인 결과는 아래 검증 기록을 참고한다.

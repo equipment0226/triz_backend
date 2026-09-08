@@ -11,8 +11,8 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any, Optional
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Header, Depends
-from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse, JSONResponse
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Header, Depends, Request
+from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse, JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -45,7 +45,43 @@ async def app_auth(request, call_next):
         supplied = request.headers.get("x-triz-app-token", "")
         if not secrets.compare_digest(supplied, settings.app_token):
             return JSONResponse({"detail": "Unauthorized"}, status_code=401)
+    if request.url.path.startswith("/api") and settings.require_user_auth:
+        user = await asyncio.to_thread(store.session_user, request.headers.get("x-triz-session", ""))
+        if not user:
+            return JSONResponse({"detail": "Google 로그인 후 사용할 수 있습니다."}, status_code=401)
+        request.state.user_id = user["id"]
+        parts = request.url.path.strip("/").split("/")
+        if len(parts) >= 3 and parts[:2] == ["api", "runs"]:
+            owner = await asyncio.to_thread(store.run_owner, parts[2])
+            if owner != user["id"]:
+                return JSONResponse({"detail": "실행 기록이 없습니다."}, status_code=404)
+        if request.url.path in ("/api/rag", "/api/health/llm"):
+            return JSONResponse({"detail": "관리자 전용 기능입니다."}, status_code=403)
     return await call_next(request)
+
+def gateway_auth(x_triz_app_token: str = Header(default="")):
+    if not settings.app_token or not secrets.compare_digest(x_triz_app_token, settings.app_token):
+        raise HTTPException(401, "Unauthorized")
+
+class AccountBody(BaseModel):
+    subject: str
+    email: str
+    name: str
+
+@app.post("/internal/auth/sessions", dependencies=[Depends(gateway_auth)])
+def register_account(body: AccountBody):
+    if not body.subject or len(body.subject) > 255 or len(body.email) > 320 or len(body.name) > 500:
+        raise HTTPException(422, "Invalid account")
+    return store.create_session(body.subject, body.email, body.name)
+
+@app.get("/internal/auth/session", dependencies=[Depends(gateway_auth)])
+def account_session(x_triz_session: str = Header(default="")):
+    return {"user": store.session_user(x_triz_session)}
+
+@app.delete("/internal/auth/session", dependencies=[Depends(gateway_auth)])
+def logout_account(x_triz_session: str = Header(default="")):
+    store.revoke_session(x_triz_session)
+    return {"ok": True}
 
 @app.get("/healthz")
 def readiness():
@@ -94,6 +130,8 @@ class FeedbackBody(BaseModel):
 # ───────────────────────────────── 상태/설정
 @app.get("/api/health")
 def health() -> dict:
+    if settings.require_user_auth:
+        return {"ok": True, "llm_configured": settings.llm_ready}
     return {
         "ok": True,
         "llm_configured": settings.llm_ready,
@@ -128,6 +166,7 @@ def knowledge(name: str) -> Any:
 # ───────────────────────────────── 실행
 @app.post("/api/runs")
 async def create_run(
+    request: Request,
     query: str = Form(...),
     mode: Optional[str] = Form(None),
     files: list[UploadFile] = File(default=[]),
@@ -163,14 +202,14 @@ async def create_run(
                                       kind=docparse.kind_of(f.filename),
                                       extracted_text=text, extracted_facts=facts,
                                       storage_path=safe, sha256=hashlib.sha256(data).hexdigest()))
-    state = pipeline.create_run(query, mode=mode, attachments=attachments)
+    state = pipeline.create_run(query, mode=mode, attachments=attachments, user_id=getattr(request.state, "user_id", "local"))
     await asyncio.to_thread(pipeline.start, state.run_id)
     return {"run_id": state.run_id}
 
 
 @app.get("/api/runs")
-def list_runs() -> list[dict]:
-    return store.list_runs()
+def list_runs(request: Request) -> list[dict]:
+    return store.list_runs(user_id=getattr(request.state, "user_id", None))
 
 
 @app.get("/api/runs/{run_id}")
@@ -278,11 +317,11 @@ def get_report(run_id: str, format: str = "md"):
         raise HTTPException(404, "리포트가 아직 생성되지 않았습니다.")
     if format in ("html", "bundle"):
         from triz import render
+        if format == "html":
+            return HTMLResponse(render.render_html(state), headers={"Content-Disposition": 'attachment; filename="triz-report.html"'})
         folder = settings.storage_dir / "runs" / run_id
         if not (folder / "report.html").exists():
             render.save(state, state.report.markdown)
-        if format == "html":
-            return FileResponse(folder / "report.html", filename="triz-report.html", media_type="text/html")
         import io, zipfile
         buffer = io.BytesIO()
         with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as z:

@@ -16,6 +16,12 @@
 ## 1. 문제 정의
 
 ### 1.1 문제 상황
+**사용자가 제시한 문제**
+
+{{ s.raw_query }}
+
+**분석 대상으로 정리한 문제**
+
 {{ s.intake.frame.restated_problem }}
 
 - **현상**: {{ s.intake.frame.symptom }}
@@ -367,6 +373,26 @@
 {% endif %}
 
 ---
+{% if s.solve.effect_apps %}
+### 4.7 물리효과 적용
+
+{% for a in s.solve.effect_apps %}
+{% for key, value in a.items() %}
+- {{ key }}: {{ value | hz }}
+{% endfor %}
+{% endfor %}
+{% endif %}
+
+{% if s.solve.raw_ideas %}
+### 4.8 원리에서 해결 아이디어로
+
+| 아이디어 | 도출 기법 | 적용 원리·출처 | 해결하려는 모순 | 활용 자원 | 구체적 수단 |
+|---|---|---|---|---|---|
+{% for idea in s.solve.raw_ideas %}
+| {{ idea.title }} | {{ TRACK_KO.get(idea.track, idea.track) }} | {{ idea.source_ref }} | {{ idea.addresses | lbl }} | {{ idea.uses_resources | join(', ') }} | {{ idea.idea }} |
+{% endfor %}
+{% endif %}
+
 ## 5. 제약조건 검토
 
 {% if cmatrix.md %}
@@ -527,8 +553,7 @@
 {% endif %}
 
 {% if not patents.providers %}
-> 특허 전용 데이터베이스 키(`PATENTSVIEW_API_KEY` 또는 `TAVILY_API_KEY`)가 없어
-> 구체적인 특허번호 대신 공식 검색 링크로 제시했습니다.
+> 공개 검색에서 원문을 확인한 특허만 참고자료로 취급합니다. 검색 링크만 남은 항목은 적용 근거가 아닙니다.
 {% endif %}
 {% endif %}
 

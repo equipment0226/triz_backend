@@ -1,42 +1,70 @@
-"""Deterministic, portable SVG figures generated only from structured artifacts."""
+"""Portable SVG diagrams with text-aware layout and complete relationship legends."""
 from html import escape
 import math
-import textwrap
+import hashlib
+import unicodedata
 
-def label(value, x, y, width=18, color="#273b43", size=13):
-    chunks = textwrap.wrap(str(value), width=width) or [""]
-    return f'<text x="{x}" y="{y}" text-anchor="middle" fill="{color}" font-size="{size}">' + "".join(
-        f'<tspan x="{x}" dy="{0 if i == 0 else 19}">{escape(line)}</tspan>' for i, line in enumerate(chunks[:4])) + '</text>'
+def wrap(value, pixels, size=13):
+    """Conservative glyph widths for Korean, Latin and unbroken identifiers."""
+    lines = []
+    for paragraph in str(value).split("\n"):
+        line, used = "", 0
+        for char in paragraph:
+            advance = 0 if unicodedata.combining(char) else size * (1.05 if unicodedata.east_asian_width(char) in "WF" else .72)
+            if line and used + advance > pixels:
+                lines.append(line); line, used = "", 0
+            line += char; used += advance
+        lines.append(line)
+    return lines or [""]
+
+def label(value, x, y, width=18, color="#273b43", size=13, pixels=None, anchor="middle"):
+    chunks = wrap(value, pixels or width * size, size)
+    return f'<text x="{x}" y="{y}" text-anchor="{anchor}" fill="{color}" font-size="{size}">' + "".join(
+        f'<tspan x="{x}" dy="{0 if i == 0 else size * 1.55}">{escape(line)}</tspan>' for i, line in enumerate(chunks)) + '</text>'
 
 def svg(title, nodes, edges=(), columns=3):
-    """nodes: (key, label, tone). Edges never inferred when the artifact has no relation."""
     columns = max(1, min(columns, len(nodes) or 1))
-    width = max(360, columns * 240)
-    height = max(220, math.ceil(len(nodes) / columns) * 180 + 65)
-    positions = {n[0]: (120 + (i % columns) * 240, 100 + (i // columns) * 180) for i, n in enumerate(nodes)}
-    body = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{escape(title, quote=True)}">',
-            '<rect width="100%" height="100%" rx="16" fill="#f6f9f8"/>',
-            '<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7b949a"/></marker></defs>',
-            label(title, width / 2, 30, 70, size=15)]
-    for source, target, text, harmful in edges:
-        if source not in positions or target not in positions:
-            continue
-        x1, y1 = positions[source]
-        x2, y2 = positions[target]
-        dx, dy = x2 - x1, y2 - y1
-        distance = max(1, math.hypot(dx, dy))
-        trim = min(95, distance * .32)
-        ax, ay, bx, by = x1 + dx / distance * trim, y1 + dy / distance * trim, x2 - dx / distance * trim, y2 - dy / distance * trim
-        color = "#c66060" if harmful else "#63888d"
-        dash = ' stroke-dasharray="5 4"' if harmful else ""
-        body.append(f'<path d="M{ax},{ay} L{bx},{by}" stroke="{color}" stroke-width="2"{dash} marker-end="url(#arrow)"/>')
-        body.append(label(text, (x1+x2)/2, (y1+y2)/2 - 12, 16, color, 11))
+    width, box_width, size = max(360, columns * 300 + 24), 252, 13
+    header_height = len(wrap(title, width - 48, 16)) * 25 + 35
+    heights = [max(90, len(wrap(n[1], box_width - 36, size)) * size * 1.55 + 42) for n in nodes]
+    positions, top = {}, header_height
+    for row in range(math.ceil(len(nodes) / columns)):
+        indices = range(row * columns, min(len(nodes), (row + 1) * columns))
+        row_height = max(heights[i] for i in indices)
+        for i in indices:
+            positions[nodes[i][0]] = (width / columns * (i % columns + .5), top + row_height / 2, row_height)
+        top += row_height + 70
+    valid_edges = [(a, b, text, bad) for a, b, text, bad in edges if a in positions and b in positions]
+    node_names = {n[0]: n[1] for n in nodes}
+    legends = [f'{i+1}. {node_names[a]} → {node_names[b]}: {text}' for i, (a, b, text, bad) in enumerate(valid_edges)]
+    legend_heights = [len(wrap(t, width - 64, 12)) * 19 + 14 for t in legends]
+    height = max(220, top + sum(legend_heights) + 24)
+    marker = 'arrow-' + hashlib.sha256((title + repr(nodes)).encode()).hexdigest()[:12]
+    body = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{escape(title, quote=True)}" style="font-family:Arial,Malgun Gothic,sans-serif">',
+        '<rect width="100%" height="100%" rx="16" fill="#f6f9f8"/>',
+        f'<defs><marker id="{marker}" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7b949a"/></marker></defs>',
+        label(title, width / 2, 30, size=16, pixels=width-48)]
+    for i, (a, b, text, bad) in enumerate(valid_edges):
+        x1, y1, h1 = positions[a]; x2, y2, h2 = positions[b]
+        dx, dy = x2-x1, y2-y1
+        if not dx and not dy:
+            continue  # The legend preserves self-relations without drawing a zero-length arrow.
+        def boundary(h):
+            return min((box_width/2+4)/abs(dx) if dx else float('inf'), (h/2+4)/abs(dy) if dy else float('inf'))
+        t1, t2 = boundary(h1), boundary(h2)
+        color = '#c66060' if bad else '#63888d'
+        dash = ' stroke-dasharray="5 4"' if bad else ''
+        body.append(f'<path d="M{x1+dx*t1},{y1+dy*t1} L{x2-dx*t2},{y2-dy*t2}" fill="none" stroke="{color}" stroke-width="2"{dash} marker-end="url(#{marker})"/>')
+        body.append(f'<circle cx="{(x1+x2)/2}" cy="{(y1+y2)/2}" r="12" fill="white" stroke="{color}"/>')
+        body.append(label(i+1, (x1+x2)/2, (y1+y2)/2+4, size=11))
     for key, text, tone in nodes:
-        x, y = positions[key]
-        fill = {"bad": "#fbe8e7", "good": "#d9efea", "field": "#e0e8f7"}.get(tone, "#fff")
-        body.append(f'<rect x="{x-98}" y="{y-42}" width="196" height="106" rx="12" fill="{fill}" stroke="#cadbd7"/>')
-        body.append(label(text, x, y - 12))
-    return "".join(body) + "</svg>"
+        x, y, h = positions[key]
+        fill = {'bad':'#fbe8e7', 'good':'#d9efea', 'field':'#e0e8f7'}.get(tone, '#fff')
+        body.append(f'<g class="diagram-node"><title>{escape(str(text))}</title><rect x="{x-box_width/2}" y="{y-h/2}" width="{box_width}" height="{h}" rx="12" fill="{fill}" stroke="#cadbd7"/>')
+        body.append(label(text, x, y-h/2+29, pixels=box_width-36, size=size) + '</g>')
+    for i, (text, h) in enumerate(zip(legends, legend_heights)):
+        body.append(label(text, 32, top, size=12, pixels=width-64, anchor='start')); top += h
+    return ''.join(body) + '</svg>'
 
 def figures(state):
     out = []

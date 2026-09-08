@@ -135,9 +135,10 @@ def discover(ctx, before_concepts=False):
     ctx.emit('search_status', **st.scratch['search_status'])
     ctx.persist()
 
-def attach(ctx):
+def attach(ctx, *, discover_sources=True):
     st = ctx.state
-    discover(ctx)
+    if discover_sources:
+        discover(ctx)
     records = st.scratch.get("evidence_candidates", [])
     st.scratch["patent_additions"] = []
     if not records or not st.concepts:

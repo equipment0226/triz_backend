@@ -134,7 +134,8 @@ def _settle(job_id, billed):
 
 def _parameters(queries, k):
     from google.cloud import bigquery
-    if not 1 <= len(queries) <= 40 or not 1 <= k <= 10:
+    # Cross-project maintenance batches may exceed the per-run query budget (40).
+    if not 1 <= len(queries) <= 64 or not 1 <= k <= 10:
         raise SearchUnavailable('INVALID_QUERY')
     plans = []
     for query in queries:

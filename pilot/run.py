@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import sys
+import socket
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -22,8 +23,16 @@ def main() -> None:
     print(f"  · 검색      : {settings.search_provider}")
     print(f"  · URL       : http://{settings.host}:{settings.port}")
     print("=" * 60)
-    uvicorn.run("api.main:app", host=settings.host, port=settings.port,
-                log_level=settings.log_level.lower())
+    if settings.host == "::" and socket.has_dualstack_ipv6():
+        # asyncio's default IPv6 listener is IPv6-only. Railway peers and the
+        # loopback MCP bridge also use IPv4, so supply an explicit dual listener.
+        with socket.create_server(("::", settings.port), family=socket.AF_INET6,
+                                  dualstack_ipv6=True) as listener:
+            server = uvicorn.Server(uvicorn.Config("api.main:app", log_level=settings.log_level.lower()))
+            server.run(sockets=[listener])
+    else:
+        uvicorn.run("api.main:app", host=settings.host, port=settings.port,
+                    log_level=settings.log_level.lower())
 
 
 if __name__ == "__main__":

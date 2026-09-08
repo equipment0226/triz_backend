@@ -61,6 +61,30 @@ class SearchUnavailable(Exception):
         self.detail = dict(provider=PROVIDER, reason=reason, **detail)
 
 
+def publication_identifier(value):
+    """Format source DOCDB numbers for links; retain the raw number separately.
+
+    US application publications use a four-digit year and seven-digit sequence:
+    https://www.uspto.gov/patents/apply/applying-online/publication-number
+    DOCDB may omit sequence leading zeros. Grant/design/reissue prefixes remain.
+    """
+    compact = re.sub(r'[-\s]', '', value or '').upper()
+    if not re.fullmatch(r'[A-Z]{2}[A-Z]{0,2}\d{1,16}(?:[A-Z]\d{0,2})?', compact):
+        raise SearchUnavailable('INVALID_RESPONSE')
+    match = re.fullmatch(r'US(20\d{2})(\d{1,7})(A[129]|P[149])', compact)
+    if match:
+        year, sequence, kind = match.groups()
+        compact = 'US' + year + sequence.zfill(7) + kind
+    return compact
+
+
+def _cached_record(record):
+    source_number = record.get('publication_number') or record['identifier']
+    identifier = publication_identifier(source_number)
+    return {**record, 'publication_number': source_number, 'identifier': identifier,
+            'url': 'https://patents.google.com/patent/' + identifier + '/en'}
+
+
 def client():
     from google.cloud import bigquery
     from google.oauth2 import service_account
@@ -191,7 +215,8 @@ def search_batch(queries, k=6):
         with closing(_db()) as db:
             cached = db.execute('SELECT data FROM cache WHERE key=? AND expires>?', (cache_key, time.time())).fetchone()
         if cached:
-            return [(records, {**detail, 'cache_hit': True}) for records, detail in json.loads(cached[0])]
+            return [([_cached_record(r) for r in records], {**detail, 'cache_hit': True})
+                    for records, detail in json.loads(cached[0])]
         connection = client()
         parameters, estimate, ceiling = _prepare(connection, queries, k)
         from google.cloud import bigquery
@@ -208,15 +233,16 @@ def search_batch(queries, k=6):
         seen = [set() for _ in queries]
         for row in rows:
             idx = row['query_index']
-            identifier = re.sub(r'[-\s]', '', row['publication_number'] or '').upper()
+            identifier = publication_identifier(row['publication_number'])
             if not isinstance(idx, int) or not 0 <= idx < len(queries):
                 raise SearchUnavailable('INVALID_RESPONSE')
-            if not re.fullmatch(r'[A-Z]{2}\d{4,}[A-Z]\d{0,2}', identifier) or not row['title']:
+            if not row['title']:
                 raise SearchUnavailable('INVALID_RESPONSE')
             if identifier in seen[idx]:
                 continue
             seen[idx].add(identifier)
             batches[idx].append(_rec(source_type='PATENT', identifier=identifier,
+                publication_number=row['publication_number'],
                 title=_clean(row['title'], 500), snippet=_clean(row['abstract'] or '', 3000),
                 url='https://patents.google.com/patent/' + identifier + '/en',
                 year=str(row['publication_date'] or '')[:4], venue='Google Patents Public Datasets',

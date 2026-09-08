@@ -204,3 +204,33 @@ def test_selected_bigquery_does_not_scrape_google(monkeypatch):
     assert scholar.search_kind('spring preload', 'PATENT', diagnostics=diagnostics)
     assert diagnostics['provider'] == 'bigquery_patents'
     assert 'google_patents' not in scholar.enabled_providers()
+
+
+@pytest.mark.parametrize('source,expected', [
+    ('US-2013127069-A1', 'US20130127069A1'),
+    ('US20130127069A1', 'US20130127069A1'),
+    ('US-7909155-B2', 'US7909155B2'),
+    ('US-2013127-A', 'US2013127A'),
+    ('US-D437309-S1', 'USD437309S1'),
+    ('TW-I653721-B', 'TWI653721B'),
+    ('US-RE45000-E1', 'USRE45000E1'),
+])
+def test_docdb_link_formatting_preserves_patent_types(source, expected):
+    assert bq.publication_identifier(source) == expected
+
+
+def test_old_cached_docdb_link_corrected_without_new_query(monkeypatch):
+    connection = Client([row(number='US-2013127069-A1')])
+    monkeypatch.setattr(bq, 'client', lambda: connection)
+    first = bq.search_batch(['stacked chip cooling'])
+    assert first[0][0][0]['publication_number'] == 'US-2013127069-A1'
+    with sqlite3.connect(settings.bigquery_ledger_path) as db:
+        key, data = db.execute('SELECT key,data FROM cache').fetchone()
+        legacy = json.loads(data)
+        legacy[0][0][0].pop('publication_number')
+        legacy[0][0][0]['identifier'] = 'US2013127069A1'
+        legacy[0][0][0]['url'] = 'https://patents.google.com/patent/US2013127069A1/en'
+        db.execute('UPDATE cache SET data=? WHERE key=?', (json.dumps(legacy), key))
+    again = bq.search_batch(['stacked chip cooling'])
+    assert len(connection.calls) == 2 and again[0][1]['cache_hit']
+    assert again[0][0][0]['url'] == 'https://patents.google.com/patent/US20130127069A1/en'

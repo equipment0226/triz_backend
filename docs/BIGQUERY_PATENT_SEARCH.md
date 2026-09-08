@@ -7,7 +7,7 @@ Google Patents 웹페이지를 다시 요청하지 않으므로 웹 검색의 50
 
 ## Railway 설정 순서
 
-1. Google Cloud의 사용자 프로젝트(현재 로그인 프로젝트는 `clear-shell-499801-d8`)에서 BigQuery API를 활성화한다.
+1. Google Cloud의 사용자 프로젝트(현재 특허 조회 프로젝트는 `project-fb0bcce1-74c5-472d-a91`)에서 BigQuery API를 활성화한다.
 2. 서비스 계정을 만들고 **사용자 프로젝트**에 `BigQuery Job User` (`roles/bigquery.jobUser`) 역할을 부여한다. 공개 데이터 조회에 프로젝트 전체 Owner/Editor 역할은 필요하지 않다.
 3. 서비스 계정 JSON을 Railway **triz_backend** Variables의 `GOOGLE_SERVICE_ACCOUNT_JSON`에 넣는다. `BIGQUERY_PROJECT_ID`에는 쿼리 실행 프로젝트 ID를 넣는다. Google 로그인의 `GOOGLE_CLIENT_SECRET`과는 다른 인증이다. 키를 저장소·채팅·로그에 넣지 않는다. ADC를 이미 구성한 실행 환경에서는 JSON 대신 ADC를 사용할 수 있다.
 4. 아래 상한 변수를 확인하고 재배포한다. 기본값을 올리거나 결제 설정을 변경할 필요가 있는지는 먼저 dry run으로 판단한다.
@@ -15,6 +15,11 @@ Google Patents 웹페이지를 다시 요청하지 않으므로 웹 검색의 50
 6. dry run이 상한 내에서 통과하면 `python scripts/check_bigquery_patents.py --execute`로 기본 샘플 검색 3개를 한 작업으로 확인한다. 이후 `PATENT_SEARCH_PROVIDER=bigquery`를 설정하고 재배포한다.
 
 등록된 인증 정보가 없으면 연동 코드는 배포할 수 있지만 실제 데이터 조회와 운영 전환은 완료할 수 없다.
+
+2026-09-08 운영 검증에서 인증·dry run·실제 조회가 통과했다. 기본 샘플 검색 3개를 한 작업으로 실행해
+총 18건의 후보를 받았으며 실제 처리량은 약 214.62 GiB였다. 256 GiB 작업 상한 이내이나
+768 GiB 월 상한에서는 같은 규모의 캐시 미적중 작업을 약 3회 실행할 수 있다. 같은 검색 묶음의
+캐시 재사용은 추가 조회를 실행하지 않는다. 한 분석이 두 단계에서 서로 다른 검색 묶음을 사용한다는 점에 유의한다.
 
 ## 설정 및 비용 통제
 

@@ -19,6 +19,7 @@ def table(name, fields, key):
         autoincrement=(n == key and t is Integer)) for n, t in fields.items()], mysql_charset="utf8mb4")
 accounts = table("accounts", dict(user_id=String(64), email=String(320), name=Text, created_at=String(40)), "user_id")
 sessions = table("account_sessions", dict(token_hash=String(64), user_id=String(64), expires_at=Float), "token_hash")
+published_runs = table("published_runs", dict(run_id=String(64), consent_user_id=String(64), consented_at=String(40), basis=String(32)), "run_id")
 runs = table("runs", dict(run_id=String(64), user_id=String(64), title=Text, mode=String(16),
     industry=Text, target_system=Text, status=String(32), current_stage=String(64),
     cost_usd=Float, started_at=String(40), ended_at=String(40)), "run_id")
@@ -138,6 +139,25 @@ def run_owner(run_id):
     with engine.connect() as c:
         return c.execute(select(runs.c.user_id).where(runs.c.run_id == run_id)).scalar()
 
+def publish_run(run_id, user_id, basis="SUBMISSION_CONSENT"):
+    init()
+    with engine.begin() as c:
+        owner = c.execute(select(runs.c.user_id).where(runs.c.run_id == run_id)).scalar()
+        if not owner or owner != user_id:
+            raise ValueError("Only the owner can authorize publication")
+        _upsert(c, published_runs, dict(run_id=run_id, consent_user_id=user_id, consented_at=_now(), basis=basis))
+
+def is_published(run_id):
+    init()
+    with engine.connect() as c:
+        return c.execute(select(published_runs.c.run_id).where(published_runs.c.run_id == run_id)).scalar() is not None
+
+def public_runs_list():
+    init()
+    with engine.connect() as c:
+        return [dict(row) for row in c.execute(select(runs).join(published_runs, runs.c.run_id == published_runs.c.run_id)
+            .order_by(runs.c.started_at.desc()).limit(1000)).mappings()]
+
 def create_session(subject, email, name):
     import hashlib, secrets, time
     init()
@@ -190,7 +210,7 @@ def revoke_session(token):
 def delete_run(run_id):
     init()
     with run_lock(run_id), engine.begin() as c:
-        for t in (llm_calls, event_log, feedback, steps, states, runs):
+        for t in (llm_calls, event_log, feedback, steps, states, published_runs, runs):
             c.execute(delete(t).where(t.c.run_id == run_id))
 def save_step(run_id, step):
     init()

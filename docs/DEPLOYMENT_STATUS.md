@@ -73,10 +73,11 @@ MCP lifespan/프로토콜·IPv4/IPv6 접속 검사 통과. 실제 API·브라우
 ## 추가 개선 — Google 로그인·전체 보고서·무료 특허 검색
 
 - Main 명칭 변경, 특정 기업 활용 사례 영역 삭제, About us 프로필 추가.
-- Main / Tool 소개 / Sample Case 입력 예시 / About us 공개. Problem Solving과 내 분석 이력은 Google 로그인 필요.
+- Main / Tool 소개 / About us 공개. Sample Case는 무료 베타 동안 모든 회원의 실제 분석 사례·도식·보고서를 비회원에게도 공개한다. Problem Solving에서 분석 실행·수정은 Google 로그인 필요.
 - 웹 OAuth authorization code + PKCE/state/nonce, 공식 Google 라이브러리 ID 토큰 검증. 최초 로그인 시 회원 자동 생성.
 - MySQL 계정·12시간 세션, HTTP-only Secure 쿠키, 로그아웃 시 세션 철회. gateway는 클라이언트가 보낸 인증 헤더를 제거한다.
-- API의 모든 실행 ID 경로(상태·이벤트·보고서·재실행·삭제 포함)를 소유자로 제한. 개인 피드백 RAG도 계정별로 제한.
+- 작업용 API의 실행 ID 경로를 소유자로 제한. 공개 사례 전용 GET API(`/api/public/runs`, `/{id}/view`, `/{id}/report`)는 로그인 없이 읽기만 허용하며 계정·세션 필드는 반환하지 않는다. 개인 피드백 RAG도 계정별로 제한.
+- 신규 분석은 필수 공개 동의 체크를 받아 제출하며 서버에서도 동의를 검사한다. 공개 동의 시각·주체는 published_runs에 기록한다. 목록과 상세·보고서는 이 공개 기록이 있는 사례만 반환한다. 기존 사례는 요청자 소유 확인 후 요청자 승인에 따라 개별 등록한다.
 - 기존 local 실행은 LEGACY_OWNER_EMAIL과 일치하는 Google 인증 계정으로만 첫 로그인 시 연결한다. 다른 계정에는 공개하지 않는다.
 - 원 PoC report_full 템플릿의 문제 정의·제약·시스템/기능·자원·원인·모순/IFR·해결기법·아이디어·해결안·평가·로드맵을 보고서 탭과 단일 HTML에 함께 제공.
 - 기존 저장 보고서도 다운로드 시 현재 템플릿으로 렌더링. ZIP 버튼 제거. 도식과 텍스트를 포함한 HTML 하나를 내려받으며 브라우저에서 PDF 인쇄 가능.
@@ -88,3 +89,13 @@ MCP lifespan/프로토콜·IPv4/IPv6 접속 검사 통과. 실제 API·브라우
 Google 설정: triz_front에 GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, PUBLIC_ORIGIN. 웹 OAuth의 승인된 리디렉션 URI는
 `https://trizfront-production.up.railway.app/auth/google/callback`이다. Google 동의 화면이 테스트 상태면 테스트 사용자 등록 필요.
 OAuth 비밀키는 저장소·로그에 기록하지 않는다. 현재 변경의 배포 및 Google 실제 로그인 결과는 아래 검증 기록을 참고한다.
+
+### 추가 개선 검증
+
+- backend 00c6764, frontend 61b7e9e의 Railway 배포 SUCCESS 확인. OAuth 안전 진단은 frontend a3cb443에 추가.
+- 로컬 백엔드 36개, 브라우저 6개, gateway 통합 1개 통과. 실제 보고서 SVG 29개를 브라우저 치수로 검사해 노드 밖 글자 0건 확인.
+- 운영 공개 홈페이지 200, About us 사진 로드 정상, 비로그인 작업 API 401, Google 로그인 페이지 연결 및 브라우저 오류 0건 확인.
+- Railway 컨테이너에서 무료 검색으로 실제 특허 3건의 원문 번호·제목·초록 확인.
+- 가상 사례의 근거 검색을 갱신한 결과: 36개 검색, 후보 문헌 128건, 연결 근거 17건, 해결안 10개 중 특허 8개·논문 3개·두 유형 모두 3개. 유사 사례 8건은 별도 표시.
+- 위 갱신의 추가 모델 비용 추정은 약 $0.0294. 현업 성능·권리 범위의 검증 결과는 아니다.
+- Google 실제 로그인 실패는 invalid_client로 확인했다. 사용자가 활성 키를 교체했고, 재배포 후 클라이언트 검증 통과(invalid_client 해소), Google 계정 1개 생성과 기존 분석 1건의 소유자 연결을 운영 DB에서 확인했다.

@@ -16,6 +16,18 @@ def test_sessions_enforce_ownership_for_all_run_routes(monkeypatch):
     def headers(token): return {'X-TRIZ-APP-TOKEN':'gateway-fixture', 'X-TRIZ-SESSION':token}
     assert client.get('/api/runs', headers=headers('forged')).status_code == 401
     assert client.get('/api/runs', headers=headers(b['token'])).json() == []
+    public = {'X-TRIZ-APP-TOKEN':'gateway-fixture'}
+    assert client.get('/api/public/runs/'+state.run_id+'/view', headers=public).status_code == 404
+    assert client.get('/api/public/runs/'+state.run_id+'/report', headers=public).status_code == 404
+    assert client.post('/api/runs', headers=headers(a['token']), data={'query':'new problem'}).status_code == 422
+    with pytest.raises(ValueError):
+        store.publish_run(state.run_id, b['user']['id'])
+    store.publish_run(state.run_id, a['user']['id'])
+    cases = client.get('/api/public/runs', headers=public)
+    assert cases.status_code == 200 and any(r['run_id'] == state.run_id for r in cases.json())
+    assert all('user_id' not in r for r in cases.json())
+    assert client.get('/api/public/runs/'+state.run_id+'/view', headers=public).status_code == 200
+    assert client.post('/api/public/runs/'+state.run_id+'/resume', headers=public, json={}).status_code == 401
     assert client.get('/api/runs', headers=headers(a['token'])).json()[0]['run_id'] == state.run_id
     for suffix in ('', '/view', '/report?format=html', '/events', '/steps', '/report/context'):
         assert client.get('/api/runs/'+state.run_id+suffix, headers=headers(b['token'])).status_code == 404

@@ -45,7 +45,8 @@ async def app_auth(request, call_next):
         supplied = request.headers.get("x-triz-app-token", "")
         if not secrets.compare_digest(supplied, settings.app_token):
             return JSONResponse({"detail": "Unauthorized"}, status_code=401)
-    if request.url.path.startswith("/api") and settings.require_user_auth:
+    public_read = request.method in ("GET", "HEAD") and request.url.path.startswith("/api/public/")
+    if request.url.path.startswith("/api") and settings.require_user_auth and not public_read:
         user = await asyncio.to_thread(store.session_user, request.headers.get("x-triz-session", ""))
         if not user:
             return JSONResponse({"detail": "Google 로그인 후 사용할 수 있습니다."}, status_code=401)
@@ -169,8 +170,11 @@ async def create_run(
     request: Request,
     query: str = Form(...),
     mode: Optional[str] = Form(None),
+    public_consent: bool = Form(False),
     files: list[UploadFile] = File(default=[]),
 ) -> dict:
+    if settings.require_user_auth and not public_consent:
+        raise HTTPException(422, "무료 베타의 문제·분석·보고서 공개에 동의한 뒤 분석을 시작해 주세요.")
     if not settings.llm_ready:
         raise HTTPException(400, "LLM_API_KEY가 설정되지 않았습니다. pilot/.env를 확인하세요.")
     if not query.strip() or len(query) > 20000:
@@ -203,6 +207,8 @@ async def create_run(
                                       extracted_text=text, extracted_facts=facts,
                                       storage_path=safe, sha256=hashlib.sha256(data).hexdigest()))
     state = pipeline.create_run(query, mode=mode, attachments=attachments, user_id=getattr(request.state, "user_id", "local"))
+    if public_consent:
+        store.publish_run(state.run_id, state.user_id)
     await asyncio.to_thread(pipeline.start, state.run_id)
     return {"run_id": state.run_id}
 
@@ -210,6 +216,30 @@ async def create_run(
 @app.get("/api/runs")
 def list_runs(request: Request) -> list[dict]:
     return store.list_runs(user_id=getattr(request.state, "user_id", None))
+
+@app.get("/api/public/runs")
+def public_runs() -> list[dict]:
+    """The beta's explicitly public, read-only case library; no account/session data."""
+    fields = ('run_id', 'title', 'industry', 'target_system', 'status', 'started_at')
+    return [{key: row.get(key) for key in fields} for row in store.public_runs_list()]
+
+@app.get("/api/public/runs/{run_id}/view")
+def public_run_view(run_id: str):
+    from triz.presentation import view
+    if not store.is_published(run_id):
+        raise HTTPException(404, "공개된 분석 사례가 없습니다.")
+    state = store.load_state(run_id)
+    if not state:
+        raise HTTPException(404, "분석 사례가 없습니다.")
+    data = view(state)
+    data['pending'] = None
+    return data
+
+@app.get("/api/public/runs/{run_id}/report")
+def public_report(run_id: str):
+    if not store.is_published(run_id):
+        raise HTTPException(404, "공개된 분석 사례가 없습니다.")
+    return get_report(run_id, format='html')
 
 
 @app.get("/api/runs/{run_id}")

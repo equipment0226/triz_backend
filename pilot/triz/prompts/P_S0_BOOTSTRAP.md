@@ -8,7 +8,12 @@
 
 판단 항목:
 1. lang: 질의의 주 언어 (ko/en 등)
-2. is_engineering: 물리적 기술 시스템 문제면 true, 비즈니스·프로세스·생활 문제면 false
+2. problem_type: PHYSICAL_TECHNICAL | INFORMATION_SOFTWARE | ORGANIZATIONAL_BUSINESS | MIXED.
+   회사의 산업과 실제 문제 유형을 구분한다. 반도체 회사의 보상·협업 문제는 ORGANIZATIONAL_BUSINESS다.
+   difficulty: routine | advanced | frontier. 산업명 대신 경쟁 원인, 상충의 중첩, 관측 부족, 기존 실패로 판단한다.
+   정보가 적다는 이유로 단순 문제라고 단정하지 않는다.
+   physical_scope: MIXED일 때 실제 물리 하위문제와 경계. 확인되지 않으면 빈 문자열.
+   is_engineering: 물리적 기술 시스템 문제면 true, 비즈니스·프로세스·생활 문제면 false
 3. complexity: LOW|MID|HIGH (관련 부품/이해관계자 수, 모순의 중첩도)
 4. suggested_mode: LITE|FULL|DEEP
    - LITE: 단순 생활/소규모 문제, 정보량이 적음
@@ -20,4 +25,4 @@
    예: "진동 데이터 샘플링과 저장 용량 최적화". 빈 제목이나 말줄임표는 금지한다.
 
 [출력 JSON]
-{"lang":"ko","is_engineering":true,"complexity":"MID","suggested_mode":"FULL","domain_guess":"","title":""}
+{"lang":"ko","is_engineering":true,"problem_type":"PHYSICAL_TECHNICAL","difficulty":"advanced","physical_scope":"","complexity":"MID","suggested_mode":"FULL","domain_guess":"","title":""}

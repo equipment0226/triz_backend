@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 import threading
 import uuid
+import time
 import httpx
 from . import events, nodes, store
 from .domain import deep_dive
@@ -21,8 +22,8 @@ PIPELINE = [
     ("s5_solve", "다중 기법 해결책 탐색", nodes.s5_solve),
     ("s6_concept", "개념 구체화", nodes.s6_concept),
     ("s7_gate", "제약 검토", nodes.s7_gate),
+    ("s8_references", "근거 자료·적용 조건 검토", nodes.s8_references),
     ("s8_evaluate", "다직군 평가", nodes.s8_evaluate),
-    ("s8_references", "논문·타산업 특허 대조", nodes.s8_references),
     ("s9_report", "시각화 보고서", nodes.s9_report),
     ("s10_feedback", "피드백", nodes.s10_feedback),
 ]
@@ -38,7 +39,7 @@ def create_run(raw_query, *, mode=None, user_id="local", attachments=None):
     if not raw_query.strip():
         raise ValueError("문제를 입력해 주세요.")
     state = GlobalState(run_id=f"run-{uuid.uuid4().hex[:12]}", user_id=user_id, raw_query=raw_query)
-    state.scratch.update(pipeline_version=2, execution_epoch=0)
+    state.scratch.update(pipeline_version=3, execution_epoch=0)
     state.cost.budget_usd = float(settings.cfg("run.budget_usd", 3.0))
     if mode:
         state.control.mode = RunMode[mode.upper()]
@@ -52,6 +53,17 @@ def _upgrade(state):
         if state.control.stage_index >= 1:
             state.control.stage_index += 1
         state.scratch["pipeline_version"] = 2
+    if state.scratch.get("pipeline_version", 2) < 3:
+        # Old stage 10 awaited references after ranking. Attach first, then refresh
+        # evaluation using those records. Completed reports keep their old revision.
+        if state.control.stage_index == 10:
+            state.control.stage_index = 9
+            state.evaluation = type(state.evaluation)()
+            state.report = None
+        state.scratch["pipeline_version"] = 3
+        if state.status != "COMPLETED":
+            from .domain import sync_contract
+            sync_contract(state)
 def execute_stage(run_id, stage_index, epoch=0):
     """At-least-once deliveries: lock + expected stage/epoch prevent duplicate commits."""
     with store.run_lock(run_id):
@@ -75,7 +87,12 @@ def execute_stage(run_id, stage_index, epoch=0):
         state.scratch["stage_key"] = key
         ctx.persist()
         events.emit(run_id, "stage_start", stage=key, label=label, index=stage_index, total=len(PIPELINE))
+        started = time.time()
+        remaining = float(settings.cfg("run.max_wallclock_min", 30)) * 60 - state.scratch.get("active_seconds", 0)
+        state.scratch["execution_deadline"] = started + max(0, remaining)
         try:
+            if remaining <= 0:
+                raise AbortRun("분석 실행 시간 예산에 도달했습니다. 이어서 실행해 주세요.")
             fn(ctx)
             resolved = state.scratch.get("resolved_step_failures", {})
             failed = [s for s in state.steps if s.status == "FAILED" and s.seq > state.scratch.get("last_stage_seq", 0)
@@ -99,6 +116,11 @@ def execute_stage(run_id, stage_index, epoch=0):
             state.status = "FAILED"
             state.control.errors.append(str(exc))
             events.emit(run_id, "stage_error", stage=key, message="이 단계의 분석을 완료하지 못했습니다.")
+        finally:
+            elapsed = time.time() - started
+            state.scratch["active_seconds"] = state.scratch.get("active_seconds", 0) + elapsed
+            state.scratch.setdefault("stage_timings", []).append({"stage": key, "seconds": round(elapsed, 3), "status": state.status})
+            state.scratch.pop("execution_deadline", None)
         ctx.persist()
         if state.status == "COMPLETED":
             events.emit(run_id, "done", cost=state.cost.total_usd)
@@ -171,6 +193,7 @@ def continue_run(run_id):
         state.scratch["last_stage_seq"] = len(state.steps)
         state.cost.budget_usd = float(settings.cfg("run.budget_usd", state.cost.budget_usd))
         state.cost.over_budget = state.cost.total_usd > state.cost.budget_usd
+        state.scratch["active_seconds"] = 0
         return state.control.stage_index < len(PIPELINE)
     return _mutate(run_id, apply)
 def rerun_from(run_id, stage_key, instruction=""):
@@ -185,11 +208,11 @@ def rerun_from(run_id, stage_key, instruction=""):
         state.report = None
         # Keep archived revisions, but invalidate every dependent product artifact.
         for boundary, field in ((4, "analysis"), (5, "definition"), (6, "solve"),
-                                (7, "concepts"), (8, "constraint_checks"), (9, "evaluation")):
+                                (7, "concepts"), (8, "constraint_checks"), (10, "evaluation")):
             if idx <= boundary:
                 previous = getattr(state, field)
                 setattr(state, field, [] if isinstance(previous, list) else type(previous)())
-        if idx <= 10:
+        if idx <= 9:
             state.evidence = []
             for c in state.concepts:
                 c.evidence_ids = []

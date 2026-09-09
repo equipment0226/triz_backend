@@ -25,7 +25,7 @@ def constraints_block(state: GlobalState) -> str:
     items = state.constraints.items
     lines: list[str] = []
     if not items:
-        lines.append("(명시된 제약조건 없음. 단, 비용·안전·기존 운영 연속성은 항상 암묵적 제약이다.)")
+        lines.append("(명시된 제약조건 없음. 비용·안전·운영 영향은 검토하되 사용자가 정하지 않은 한계를 절대 제약으로 만들지 않는다.)")
     for c in items:
         num = f" [{c.parameter} {c.operator} {c.value}{c.unit}]" if c.operator != "none" else ""
         zone = f" @{c.zone}" if c.zone else ""
@@ -41,7 +41,7 @@ def constraints_block(state: GlobalState) -> str:
     if state.constraints.open_questions:
         lines.append("- (확인 필요) " + " / ".join(state.constraints.open_questions))
 
-    taboo = state.scratch.get("taboo") or []
+    taboo = confirmed_taboos(state)
     if taboo:
         lines.append("")
         lines.append("[이 도메인의 금기 — 이것을 제안하면 현장에서 즉시 기각된다]")
@@ -53,13 +53,19 @@ def constraints_block(state: GlobalState) -> str:
 
 
 def taboo_block(state: GlobalState) -> str:
-    taboo = state.scratch.get("taboo") or []
+    taboo = confirmed_taboos(state)
     if not taboo:
         return ""
     body = "\n".join(f"- @{t.get('zone', '전체')} {t.get('item', '')} ({t.get('why', '')})"
                      for t in taboo)
     return ("[절대 금기 — 이를 위반한 개념은 생성 자체를 하지 마라]\n" + body +
             "\n(영역이 다르면 허용될 수 있다. 예: 찤4버 내부는 금지, 대기측 구동부는 허용)")
+
+
+def confirmed_taboos(state):
+    constraints = {c.id: c for c in state.constraints.hard_items() if c.source in ("USER", "REGULATION")}
+    return [t for t in state.scratch.get("taboo", [])
+            if t.get("constraint_id") in constraints and t.get("confirmed") is True]
 
 
 def constraints_full(state: GlobalState) -> list[dict]:
@@ -119,16 +125,27 @@ def check_ceca(data: dict) -> list[str]:
     if not nodes:
         return ["인과사슬 노드가 비어 있다."]
     ids = {n.get("id") for n in nodes}
+    if len(ids) != len(nodes) or None in ids or "" in ids:
+        return ["FATAL-CECA: 노드 ID가 비어 있거나 중복된다."]
     for n in nodes:
         for p in n.get("parents", []):
             if p not in ids:
-                issues.append(f"DET-06: 존재하지 않는 상위 노드 참조 '{p}'.")
+                issues.append(f"FATAL-CECA: 존재하지 않는 상위 노드 참조 '{p}'.")
     if not any(n.get("node_type") == "ROOT_CAUSE" for n in nodes):
         issues.append("DET-06b: 근본 원인(ROOT_CAUSE) 노드가 없다.")
     if not any(n.get("node_type") == "TARGET_DISADVANTAGE" for n in nodes):
         issues.append("DET-06c: 최상단 손실(TARGET_DISADVANTAGE) 노드가 없다.")
     # 깊이 계산
-    depth = _chain_depth(nodes)
+    try:
+        depth = _chain_depth(nodes)
+    except ValueError:
+        return ["FATAL-CECA: 인과사슬에 순환 참조가 있다."]
+    roots = {n['id'] for n in nodes if n.get('node_type') == 'TARGET_DISADVANTAGE'}
+    reachable = set(roots)
+    for _ in nodes:
+        reachable.update(n['id'] for n in nodes if set(n.get('parents', [])) & reachable)
+    if reachable != ids:
+        issues.append("FATAL-CECA: 최상단 손실과 연결되지 않은 원인 노드가 있다.")
     mind = settings.cfg("analysis.ceca_min_depth", 3)
     if depth < mind:
         issues.append(f"DET-06d: 사슬 깊이가 {depth}단으로 최소 {mind}단에 미달한다.")
@@ -141,17 +158,18 @@ def check_ceca(data: dict) -> list[str]:
 
 def _chain_depth(nodes: list[dict]) -> int:
     by_id = {n.get("id"): n for n in nodes}
-    best = 1
-    for n in nodes:
-        depth, cur, guard = 1, n, 0
-        while cur.get("parents") and guard < 12:
-            cur = by_id.get(cur["parents"][0]) or {}
-            if not cur:
-                break
-            depth += 1
-            guard += 1
-        best = max(best, depth)
-    return best
+    done, visiting = {}, set()
+    def depth(key):
+        if key in visiting:
+            raise ValueError("cyclic cause graph")
+        if key in done:
+            return done[key]
+        visiting.add(key)
+        value = 1 + max((depth(p) for p in by_id[key].get('parents', []) if p in by_id), default=0)
+        visiting.remove(key)
+        done[key] = value
+        return value
+    return max((depth(key) for key in by_id), default=0)
 
 
 def check_contradictions(data: dict, scheme: str = "ENG_39") -> list[str]:
@@ -162,7 +180,7 @@ def check_contradictions(data: dict, scheme: str = "ENG_39") -> list[str]:
     min_pc = settings.cfg("definition.min_physical_contradictions", 1)
     if len(tcs) < min_tc:
         issues.append(f"DET-01a: 기술적 모순이 최소 {min_tc}개 필요하다.")
-    if len(pcs) < min_pc:
+    if len(pcs) < min_pc and not data.get("physical_not_applicable_reason"):
         issues.append(f"DET-03a: 물리적 모순이 최소 {min_pc}개 필요하다.")
     for tc in tcs:
         imp, wor = tc.get("improving_param_id"), tc.get("worsening_param_id")
@@ -192,8 +210,8 @@ def check_principles(data: dict, allowed: list[int]) -> list[str]:
     return issues[:8]
 
 
-def check_standards(data: dict) -> list[str]:
-    valid = K.standard_codes()
+def check_standards(data: dict, allowed=None) -> list[str]:
+    valid = K.standard_codes() if allowed is None else set(allowed) & K.standard_codes()
     issues = []
     for a in data.get("applications", []):
         if a.get("standard_code") not in valid:
@@ -254,9 +272,11 @@ def check_review(data: dict, concept_ids: set[str]) -> list[str]:
     unknown = {s.get("concept_id") for s in scores} - concept_ids
     if unknown:
         issues.append(f"DET-R1: 존재하지 않는 개념 id 평가: {sorted(unknown)[:3]}")
-    vals = [float(s.get("score", 3)) for s in scores]
-    if vals and (max(vals) - min(vals)) < 1.0:
-        issues.append("DET-R2: 점수 변별력이 없다(최고-최저 < 1점). 냉정하게 차등하라.")
+    missing = concept_ids - {s.get("concept_id") for s in scores}
+    if missing:
+        issues.append(f"DET-R2: 평가 누락 개념: {sorted(missing)}")
+    if any(not 1 <= float(s.get("score", 0)) <= 5 or not s.get("rationale") for s in scores):
+        issues.append("DET-R3: 각 평가는 1~5점과 구체적인 근거가 필요하다.")
     return issues
 
 

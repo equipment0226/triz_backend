@@ -183,11 +183,17 @@ def effects() -> list[dict]:
     return _load("effects.json")
 
 
-def effects_block(limit: int = 10) -> str:
-    out = []
-    for item in effects()[:limit]:
-        names = ", ".join(e["name"] for e in item["effects"])
-        out.append(f"- {item['function_ko']}: {names}")
+def effects_block(limit: int = 10, required_functions=()) -> str:
+    import re
+    def terms(value):
+        words = re.findall(r"[\w]{2,}", value.lower())
+        return {part for word in words for part in [word] + [word[i:i+2] for i in range(len(word)-1)]}
+    query = terms(" ".join(required_functions))
+    items = sorted(effects(), key=lambda item: -len(query & terms(item["function_ko"]))) if query else effects()
+    out = [f"현재 로컬 카탈로그: 표준해 {len(standards())}개, 효과 기능군 {len(effects())}개. 미수록 지식을 검증된 카탈로그처럼 주장하지 않는다."]
+    for item in items[:limit]:
+        descriptions = "; ".join(f"{e['name']}: {e.get('principle','')} (조건: {e.get('conditions','미확인; 적용 전 확인')})" for e in item["effects"])
+        out.append(f"- {item['function_ko']}: {descriptions}")
     return "\n".join(out)
 
 

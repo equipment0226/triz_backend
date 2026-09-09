@@ -27,8 +27,8 @@ TRACK_KO = {
     "G_FOS": "기능지향탐색(FOS)", "H_EFFECTS": "물리효과",
 }
 QUADRANT_KO = {"QUICK_WIN": "즉시 실행", "BIG_BET": "전략 투자", "FILL_IN": "보완 과제", "AVOID": "보류"}
-NOVELTY_KO = {"SAME_DOMAIN": "동종업계 검증", "CROSS_DOMAIN": "타산업 이식", "NEW": "신규 제안"}
-SCALE_KO = {"PARAMETER": "운전조건 조정", "PARTIAL": "부분 개조", "REDESIGN": "구조 재설계"}
+NOVELTY_KO = {"SAME_DOMAIN": "동일 분야 접근", "CROSS_DOMAIN": "타산업 이식", "NEW": "신규 제안"}
+SCALE_KO = {"PARAMETER": "조건·규칙 조정", "PARTIAL": "부분 변경", "REDESIGN": "구조 재설계"}
 CATEGORY_KO = {
     "USER_STATED": "사용자명시", "ENVIRONMENT": "운전환경", "MATERIAL_COMPAT": "재료양립성",
     "PHYSICS": "물리법칙", "REGULATION": "안전·규제", "OPERATION": "운영·보전",
@@ -54,6 +54,8 @@ SOURCE_KO = {"PATENT": "특허", "PAPER": "논문", "STANDARD": "표준", "VENDO
              "INTERNAL_FEEDBACK": "내부 피드백"}
 
 _ENUM_KO = {
+    "S8_REFERENCES": "근거 적용성 검토",
+    "GOAL": "목표 달성", "RESOLUTION": "모순 해소", "CAUSAL": "인과 근거",
     **TRACK_KO, **QUADRANT_KO, **NOVELTY_KO, **SCALE_KO, **CATEGORY_KO, **LEVEL_KO,
     **COMPLETENESS_KO, **SU_EFFECT_KO, **RESOURCE_KO, **WHERE_KO, **AVAIL_KO,
     **GRADE_KO, **MATURITY_KO, **SOURCE_KO,

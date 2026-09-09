@@ -22,10 +22,13 @@
 - supporting_principles: 실제로 사용한 발명원리 번호 목록
 
 [추가 지시]
-- 물질-장 모델의 도구(S2)나 장(Field)을 바꿔 분리를 달성할 수 있는지 반드시 별도로 검토하라.
+- 물질-장 모델이 실제 제공된 물리 문제에서만 S2/Field 변경을 검토한다. 조직 문제의 분리 축은 의사결정 시점·역할·상황·권한 범위로 정의한다.
   예) 기계적 접촉 지지 → 자기장/공기압 지지로 전환하면 공간·조건 분리가 동시에 성립
 - 적용 가능한 원리가 2개 미만이면 물리적 모순의 정의가 잘못되었을 가능성을 redefine_hint에 적어라.
 
 [출력 JSON]
 {"applications":[{"kind":"TIME","applicable":true,"not_applicable_reason":"","how":"","title":"","idea":"","supporting_principles":[]}],
  "redefine_hint":""}
+
+[후속 단계에 보존할 근거]
+각 applications 또는 ideas 원소에 mechanism(인과 경로), mechanism_key(개입 변수+작동 방식), intervention_variable, conditions(필요 조건 배열), strongest_objection(가장 강한 반박), validation_test(반증할 관측), hypothesis_ids를 추가한다. 각 설명은 1문장 이내. 모르는 조건은 미확인이라고 표시한다. 원래 손실을 다른 사람·시점으로 전가한 것을 해결로 포장하지 않는다.

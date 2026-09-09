@@ -560,6 +560,13 @@
 
 **동작 원리**: {{ c.working_principle | hz }}
 
+**모순 해소 근거**: {{ (c.resolution_argument or '추가 구체화 필요') | hz }}
+
+**설계 검토**: {{ {'PASS':'독립 검토 통과 · 실증은 별도', 'REVISE':'설계 보완 필요', 'UNVERIFIED':'독립 검토 미완료', 'REJECT':'제외 대상'}.get(c.quality_status, '미확인') }}
+{% for issue in c.quality_issues %}
+- {{ issue | hz }}
+{% endfor %}
+
 {% if c.changes_to_system %}
 **시스템 변경 사항**
 {% for ch in c.changes_to_system %}

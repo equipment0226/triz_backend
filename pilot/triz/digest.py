@@ -2,12 +2,81 @@
 from __future__ import annotations
 
 from .schema import GlobalState
+from collections import defaultdict
+
+
+def target_system(s):
+    chosen = s.confirm.chosen() if s.confirm.user_confirmed else None
+    return chosen.name if chosen else s.domain.target_system
+
+
+def facts_packet(s):
+    return {"user_query": s.raw_query, "frame": frame_digest(s),
+            "attachments": attachment_facts(s), "answers": clarify_history(s),
+            "deep_dive_answers": s.scratch.get("deep_dive", {}).get("answers", []),
+            "deep_dive_answer_turns": s.scratch.get("deep_dive", {}).get("answer_turns", []),
+            "confirmed_facts": s.scratch.get("deep_dive", {}).get("confirmed_facts", []),
+            "confirmed_boundary": target_system(s), "amendments": s.confirm.user_amendments}
+
+
+def causal_packet(s):
+    if not s.analysis.ceca:
+        return []
+    nodes = s.analysis.ceca.nodes
+    wanted = {n.id for n in nodes if n.is_contradiction_seed or n.node_type in ("KEY_DISADVANTAGE", "ROOT_CAUSE")}
+    by_id = {n.id: n for n in nodes}
+    pending = list(wanted)
+    while pending:
+        for parent in by_id[pending.pop()].parents:
+            if parent in by_id and parent not in wanted:
+                wanted.add(parent)
+                pending.append(parent)
+    return [n.model_dump(exclude_defaults=True) for n in nodes if n.id in wanted]
+
+
+def select_ideas(ideas, limit=40):
+    """Round-robin by addressed problem and mechanism/track, never by completion order."""
+    groups = defaultdict(list)
+    for idea in ideas:
+        groups[(tuple(sorted(idea.addresses)), idea.mechanism_key or idea.track)].append(idea)
+    result = []
+    while groups and len(result) < limit:
+        for key in list(groups):
+            result.append(groups[key].pop(0))
+            if not groups[key]:
+                del groups[key]
+            if len(result) >= limit:
+                break
+    return result
+
+
+def idea_packet(i):
+    packet = i.model_dump(exclude={"detail"}, exclude_defaults=True)
+    fields = ("self_rebuttal", "conditions", "adaptation_note", "new_risk", "how",
+              "principle", "transformation", "removed_harm", "resolution_argument", "ariz_verdict")
+    packet["support"] = {k: i.detail[k] for k in fields if i.detail.get(k)}
+    if i.detail.get("source_details"):
+        packet["support"]["source_details"] = [
+            {k: source[k] for k in ("source_idea_id", *fields) if source.get(k)}
+            for source in i.detail["source_details"]]
+    return packet
+
+
+def relevant_evidence(s, ideas=(), limit=6):
+    import re
+    query = " ".join(i.idea + " " + i.mechanism for i in ideas) or s.intake.frame.symptom
+    terms = set(re.findall(r"[\w]{2,}", query.lower()))
+    records = s.scratch.get("evidence_candidates", [])
+    ranked = sorted(records, key=lambda r: -len(terms & set(re.findall(r"[\w]{2,}",
+        (r.get("title", "") + " " + r.get("snippet", "") + " " + r.get("function_mapping", "")).lower()))))
+    return [{k: r.get(k, "") for k in ("identifier", "title", "snippet", "scope", "function_mapping")}
+            for r in ranked[:limit]]
 
 
 def domain_brief(s: GlobalState) -> dict:
     d = s.domain
     return {"industry": d.industry, "sub_domain": d.sub_domain, "job_family": d.job_family,
-            "target_system": d.target_system, "super_system": d.super_system,
+            "target_system": target_system(s), "problem_type": d.problem_type, "super_system": d.super_system,
             "operating_env": d.operating_env, "legacy": d.legacy_note}
 
 
@@ -64,7 +133,7 @@ def negative_interactions(s: GlobalState) -> list[str]:
 def ceca_seeds(s: GlobalState) -> list[str]:
     if not s.analysis.ceca:
         return []
-    return [n.text for n in s.analysis.ceca.nodes if n.is_contradiction_seed]
+    return causal_packet(s)
 
 
 def ceca_roots(s: GlobalState) -> list[str]:
@@ -79,17 +148,19 @@ def ceca_keys(s: GlobalState) -> list[str]:
     return [n.text for n in s.analysis.ceca.nodes if n.node_type == "KEY_DISADVANTAGE"]
 
 
-def contradictions_digest(s: GlobalState) -> list[str]:
+def contradictions_digest(s: GlobalState) -> list[dict]:
+    from . import knowledge as K
     out = []
     for t in s.definition.technical_contradictions:
-        out.append(f"{t.id} [기술적] {t.if_action} → 개선 #{t.improving_param_id} / 악화 #{t.worsening_param_id} : {t.label}")
+        out.append(dict(t.model_dump(), improving_definition=K.params(t.param_scheme).get(str(t.improving_param_id), {}),
+                        worsening_definition=K.params(t.param_scheme).get(str(t.worsening_param_id), {})))
     for p in s.definition.physical_contradictions:
-        out.append(f"{p.id} [물리적] {p.element}의 {p.parameter}: '{p.state_a}' vs '{p.state_b}'")
+        out.append(p.model_dump())
     return out
 
 
-def ideas_digest(s: GlobalState, limit: int = 40) -> list[str]:
-    return [f"{i.id} [{i.track}/{i.source_ref}] {i.title}: {i.idea}" for i in s.solve.raw_ideas[:limit]]
+def ideas_digest(s: GlobalState, limit: int = 40) -> list[dict]:
+    return [idea_packet(i) for i in select_ideas(s.solve.raw_ideas, limit)]
 
 
 def concepts_blind(s: GlobalState) -> list[dict]:
@@ -99,7 +170,10 @@ def concepts_blind(s: GlobalState) -> list[dict]:
          "description": c.description, "working_principle": c.working_principle,
          "changes_to_system": c.changes_to_system, "required_resources": c.required_resources,
          "expected_effect": c.expected_effect, "assumptions": c.assumptions,
-         "open_risks": c.open_risks, "has_external_evidence": bool(c.evidence_ids)}
+         "open_risks": c.open_risks, "validation_plan": c.validation_plan,
+         "resolution_argument": c.resolution_argument, "transfer_conditions": c.transfer_conditions,
+         "quality_status": c.quality_status, "quality_issues": c.quality_issues,
+         "has_external_evidence": bool(c.evidence_ids)}
         for c in s.concepts
     ]
 

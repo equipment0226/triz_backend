@@ -401,6 +401,9 @@ def get_report_context(run_id: str) -> dict:
             "quadrant": next((e.quadrant for e in state.evaluation.evaluations
                               if e.concept_id == c.id), ""),
             "verdict": (state.check_for(c.id).verdict if state.check_for(c.id) else ""),
+            "quality_status": c.quality_status,
+            "quality_issues": c.quality_issues,
+            "resolution_argument": c.resolution_argument,
             "evidence": [{"title": ev.title or ev.claim, "url": ev.url,
                           "identifier": ev.identifier, "year": ev.year,
                           "source_type": ev.source_type}

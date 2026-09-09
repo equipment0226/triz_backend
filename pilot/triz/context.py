@@ -27,6 +27,8 @@ class RunContext:
         self.lock = threading.Lock()
         self.budget = {"reserved": 0.0}
         self.cancelled = False
+        from .settings import settings
+        self.call_slots = threading.BoundedSemaphore(max(1, int(settings.cfg("run.parallel_workers", 4))))
 
     # ---------------- 이벤트
     def emit(self, type_: str, **data: Any) -> None:

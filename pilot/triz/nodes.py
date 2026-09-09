@@ -6,7 +6,7 @@ import hashlib
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
-from . import agent, digest, knowledge as K, llm, personas as PF, prompts_registry as P, rag, verify
+from . import agent, digest, domain, knowledge as K, llm, personas as PF, prompts_registry as P, rag, verify
 from .coerce import build, build_list
 from .context import AbortRun, HumanInterrupt, RunContext
 from .schema import (
@@ -46,7 +46,7 @@ def s0_bootstrap(ctx: RunContext) -> None:
     ) or {}
 
     st.control.lang = data.get("lang") or "ko"
-    st.domain.is_engineering = bool(data.get("is_engineering", True))
+    domain.sync_contract(st, data)
     if not st.scratch.get("mode_locked"):
         mode = (data.get("suggested_mode") or cfg("run.default_mode", "FULL")).upper()
         if mode in RunMode.__members__:
@@ -57,7 +57,7 @@ def s0_bootstrap(ctx: RunContext) -> None:
         st.domain.industry = data["domain_guess"]
 
     tracks = cfg(f"tracks.{st.control.mode.value}", ["A_MATRIX", "B_SEPARATION", "E_TRIMMING"])
-    st.control.enabled_tracks = list(tracks)
+    st.control.enabled_tracks = domain.select_tracks(st, tracks)
     st.cost.budget_usd = float(cfg("run.budget_usd", 3.0))
     ctx.emit("plan", mode=st.control.mode.value, tracks=st.control.enabled_tracks,
              title=st.scratch["title"])
@@ -72,8 +72,9 @@ def s1_extract(ctx: RunContext) -> None:
     payload = ctx.resume_payload()
     if payload:
         answers = payload.get("answers") or []
-        for i, turn in enumerate(st.intake.clarify_turns):
-            if not turn.answered and i < len(answers):
+        pending_turns = [t for t in st.intake.clarify_turns if not t.answered]
+        for i, turn in enumerate(pending_turns):
+            if i < len(answers):
                 turn.user_answer = (answers[i] or "").strip()
                 turn.answered = True
         if payload.get("skip"):
@@ -90,7 +91,12 @@ def s1_extract(ctx: RunContext) -> None:
     ) or {}
 
     d = data.get("domain") or {}
+    previous_contract = st.domain
     st.domain = build(DomainContext, d) or DomainContext()
+    if st.domain.problem_type == "UNKNOWN":
+        st.domain.problem_type = previous_contract.problem_type
+    domain.sync_contract(st, d)
+    st.control.enabled_tracks = domain.select_tracks(st, st.control.enabled_tracks)
     f = data.get("frame") or {}
     st.intake.frame = build(ProblemFrame, f, raw_query=st.raw_query) or ProblemFrame(
         raw_query=st.raw_query)
@@ -122,7 +128,7 @@ def s1_extract(ctx: RunContext) -> None:
                              proposed_answers=x.get("proposed_answers") or [])
                  for x in (q.get("questions") or []) if isinstance(x, dict) and x.get("question")]
         if turns:
-            st.intake.clarify_turns = turns
+            st.intake.clarify_turns.extend(turns)
             ctx.persist()
             raise HumanInterrupt("CLARIFY", "추가 정보가 필요합니다",
                                  {"questions": [t.model_dump() for t in turns]}, Stage.S1.value)
@@ -132,7 +138,7 @@ def _intake_gaps(st) -> list[str]:
     gaps: list[str] = []
     if not st.domain.industry:
         gaps.append("업종/직군 정보가 없다")
-    if not st.domain.target_system:
+    if not digest.target_system(st):
         gaps.append("문제가 발생하는 대상 시스템(모듈)이 특정되지 않았다")
     if not st.intake.frame.symptom:
         gaps.append("구체적인 문제 현상이 불명확하다")
@@ -152,6 +158,14 @@ def s2_confirm(ctx: RunContext) -> None:
     if payload:
         st.confirm.chosen_candidate_id = payload.get("candidate_id") or (
             st.confirm.candidates[0].id if st.confirm.candidates else "")
+        chosen = st.confirm.chosen()
+        if not chosen or chosen.id != st.confirm.chosen_candidate_id:
+            raise ValueError("존재하는 시스템 후보를 선택해 주세요.")
+        st.domain.target_system = chosen.name
+        if chosen.super_system:
+            st.domain.super_system = chosen.super_system
+        st.confirm.operative_zone = payload.get("operative_zone") or chosen.operative_zone or st.confirm.operative_zone
+        st.confirm.operative_time = payload.get("operative_time") or chosen.operative_time or st.confirm.operative_time
         amend = (payload.get("amendment") or "").strip()
         if amend:
             st.confirm.user_amendments.append(amend)
@@ -184,7 +198,7 @@ def s2_confirm(ctx: RunContext) -> None:
 
     if not st.confirm.candidates:
         ctx.warn("시스템 후보를 생성하지 못해 사용자 입력 시스템을 그대로 사용한다.")
-        st.confirm.candidates = [SystemCandidate(name=st.domain.target_system or "대상 시스템",
+        st.confirm.candidates = [SystemCandidate(name=digest.target_system(st) or "대상 시스템",
                                                  description=st.intake.frame.restated_problem)]
     raise HumanInterrupt("CONFIRM", "대상 시스템을 확정해 주세요", {
         "candidates": [c.model_dump() for c in st.confirm.candidates],
@@ -205,7 +219,7 @@ def s3_analyze(ctx: RunContext) -> None:
         d = agent.run_agent(
             ctx, node="s3_nine_windows", label="9-Windows 전개", stage=Stage.S3.value,
             agent_id="system_analyst", prompt_id="P_S3_NINE_WINDOWS", tier="T2",
-            vars={"target_system": st.domain.target_system, "super_system": st.domain.super_system,
+            vars={"target_system": digest.target_system(st), "super_system": st.domain.super_system,
                   "restated_problem": st.intake.frame.restated_problem,
                   "operative_time": st.confirm.operative_time},
             default={},
@@ -292,7 +306,11 @@ def s3_analyze(ctx: RunContext) -> None:
 
     nine_windows()
     function_model()              # 이후 노드가 기능모델에 의존하므로 순차 실행
-    tasks = [su_field, resources, ceca] if not lite else [resources, ceca]
+    tasks = [resources, ceca]
+    if not lite and domain.physical_allowed(st):
+        tasks.insert(0, su_field)
+    else:
+        st.analysis.su_fields = []
     workers = int(cfg("run.parallel_workers", 4))
     with ThreadPoolExecutor(max_workers=max(1, min(workers, len(tasks)))) as pool:
         list(pool.map(lambda fn: fn(), tasks))
@@ -319,7 +337,7 @@ def _discover_constraints(ctx: RunContext) -> None:
     d = agent.run_agent(
         ctx, node="s3_constraints", label="도메인·시스템 내재 제약 발굴", stage=Stage.S3.value,
         agent_id="constraint_analyst", prompt_id="P_S3_CONSTRAINTS", tier="T2",
-        vars={"industry": st.domain.industry, "target_system": st.domain.target_system,
+        vars={"industry": st.domain.industry, "target_system": digest.target_system(st),
               "super_system": st.domain.super_system,
               "operating_env": st.domain.operating_env,
               "components": digest.components_digest(st),
@@ -336,11 +354,17 @@ def _discover_constraints(ctx: RunContext) -> None:
         if not c.statement or c.statement.strip() in existing:
             continue
         existing.add(c.statement.strip())
+        # Unconfirmed domain practice is a hypothesis, not an absolute requirement.
+        c.hard = False
+        c.confidence = min(c.confidence, 0.6)
         st.constraints.items.append(c)
         added += 1
 
     taboo = [t for t in (d.get("taboo") or []) if isinstance(t, dict) and t.get("item")]
+    for item in taboo:
+        item.setdefault("confirmed", False)
     st.scratch["taboo"] = taboo
+    st.scratch["domain_assumptions"] = [t for t in taboo if not t.get("confirmed")]
     ctx.emit("artifact", kind="CONSTRAINT_DISCOVERY",
              data={"added": added, "taboo": len(taboo),
                    "items": [f"[{c.category}/{c.zone or '전체'}] {c.statement}"
@@ -351,64 +375,76 @@ def _discover_constraints(ctx: RunContext) -> None:
 def s4_define(ctx: RunContext) -> None:
     st = ctx.state
     ctx.set_stage(Stage.S4.value)
+    domain.sync_contract(st)
     scheme = "ENG_39" if st.domain.is_engineering else "BIZ_31"
     st.scratch["param_scheme"] = scheme
 
-    ifr_d = agent.run_agent(
-        ctx, node="s4_ifr", label="이상해결책(IFR) 정의", stage=Stage.S4.value,
-        agent_id="triz_master", prompt_id="P_S4_IFR", tier="T2", rubric_id="R4_IFR",
-        vars={"basic_function": digest.basic_function(st),
-              "key_disadvantages": digest.ceca_keys(st),
-              "root_causes": digest.ceca_roots(st),
-              "resource_names": [r.name for r in st.analysis.resources],
-              "operative_zone": st.confirm.operative_zone,
-              "operative_time": st.confirm.operative_time},
-        default={},
-    ) or {}
-    st.definition.ifr = build(IFR, ifr_d) or IFR()
+    def define_ifr():
+        ifr_d = agent.run_agent(
+            ctx, node="s4_ifr", label="이상해결책(IFR) 정의", stage=Stage.S4.value,
+            agent_id="triz_master", prompt_id="P_S4_IFR", tier="T2", rubric_id="R4_IFR",
+            vars={"basic_function": digest.basic_function(st),
+                  "key_disadvantages": digest.ceca_keys(st),
+                  "root_causes": digest.ceca_roots(st),
+                  "resource_names": [r.name for r in st.analysis.resources],
+                  "operative_zone": st.confirm.operative_zone,
+                  "operative_time": st.confirm.operative_time},
+            default={},
+        ) or {}
+        st.definition.ifr = build(IFR, ifr_d) or IFR()
 
-    con_d = agent.run_agent(
-        ctx, node="s4_contradictions", label="모순 도출(기술적/물리적)", stage=Stage.S4.value,
-        agent_id="contradiction_definer", prompt_id="P_S4_CONTRADICTIONS", tier="T2",
-        rubric_id="R4_CONTRA", checker=lambda d: verify.check_contradictions(d, scheme),
-        facts="\n".join(digest.function_digest(st, only_problem=True)),
-        vars={"restated_problem": st.intake.frame.restated_problem,
-              "characteristics": st.intake.candidate_characteristics,
-              "problem_functions": digest.function_digest(st, only_problem=True),
-              "contradiction_seeds": digest.ceca_seeds(st),
-              "negative_interactions": digest.negative_interactions(st),
-              "param_dictionary": K.param_dictionary_text(scheme),
-              "target_count": cfg("definition.target_contradictions", 4),
-              "min_tc": cfg("definition.min_technical_contradictions", 1),
-              "min_pc": cfg("definition.min_physical_contradictions", 1)},
-        default={},
-    ) or {}
 
-    tcs: list[TechnicalContradiction] = []
-    label_to_id: dict[str, str] = {}
-    for tc in build_list(TechnicalContradiction, con_d.get("technical_contradictions"),
-                         param_scheme=scheme):
-        tcs.append(tc)
-        label_to_id[tc.label] = tc.id
-    pcs: list[PhysicalContradiction] = []
-    for raw, pc in zip(con_d.get("physical_contradictions") or [],
-                       build_list(PhysicalContradiction,
-                                  con_d.get("physical_contradictions"))):
-        if isinstance(raw, dict):
-            pc.derived_from_tc_id = label_to_id.get(raw.get("derived_from_tc_label", ""), "")
-        pcs.append(pc)
-    st.definition.technical_contradictions = tcs
-    st.definition.physical_contradictions = pcs
+    def define_contradictions():
+        con_d = agent.run_agent(
+            ctx, node="s4_contradictions", label="모순 도출(기술적/물리적)", stage=Stage.S4.value,
+            agent_id="contradiction_definer", prompt_id="P_S4_CONTRADICTIONS", tier="T2",
+            rubric_id="R4_CONTRA", checker=lambda d: verify.check_contradictions(d, scheme),
+            facts="\n".join(digest.function_digest(st, only_problem=True)),
+            vars={"restated_problem": st.intake.frame.restated_problem,
+                  "characteristics": st.intake.candidate_characteristics,
+                  "problem_functions": digest.function_digest(st, only_problem=True),
+                  "contradiction_seeds": digest.ceca_seeds(st),
+                  "negative_interactions": digest.negative_interactions(st),
+                  "param_dictionary": K.param_dictionary_text(scheme),
+                  "target_count": cfg("definition.target_contradictions", 4),
+                  "min_tc": cfg("definition.min_technical_contradictions", 1),
+                  "min_pc": cfg("definition.min_physical_contradictions", 1)},
+            default={},
+        ) or {}
 
-    trim_d = agent.run_agent(
-        ctx, node="s4_trimming", label="트리밍 후보 도출", stage=Stage.S4.value,
-        agent_id="trimming_specialist", prompt_id="P_S4_TRIMMING", tier="T2",
-        vars={"function_edges": digest.function_digest(st),
-              "components": digest.components_digest(st),
-              "resources": digest.resources_digest(st)},
-        default={},
-    ) or {}
-    st.definition.trimming = build_list(TrimmingItem, trim_d.get("trimming"))
+        tcs: list[TechnicalContradiction] = []
+        label_to_id: dict[str, str] = {}
+        for tc in build_list(TechnicalContradiction, con_d.get("technical_contradictions"),
+                             param_scheme=scheme):
+            tcs.append(tc)
+            label_to_id[tc.label] = tc.id
+        pcs: list[PhysicalContradiction] = []
+        for raw, pc in zip(con_d.get("physical_contradictions") or [],
+                           build_list(PhysicalContradiction,
+                                      con_d.get("physical_contradictions"))):
+            if isinstance(raw, dict):
+                pc.derived_from_tc_id = label_to_id.get(raw.get("derived_from_tc_label", ""), "")
+            pcs.append(pc)
+        st.definition.technical_contradictions = tcs
+        st.definition.physical_contradictions = pcs
+
+
+    def define_trimming():
+        trim_d = agent.run_agent(
+            ctx, node="s4_trimming", label="트리밍 후보 도출", stage=Stage.S4.value,
+            agent_id="trimming_specialist", prompt_id="P_S4_TRIMMING", tier="T2",
+            vars={"function_edges": digest.function_digest(st),
+                  "components": digest.components_digest(st),
+                  "resources": digest.resources_digest(st)},
+            default={},
+        ) or {}
+        st.definition.trimming = build_list(TrimmingItem, trim_d.get("trimming"))
+
+
+    with ThreadPoolExecutor(max_workers=max(1, min(3, int(cfg("run.parallel_workers", 4))))) as pool:
+        list(pool.map(lambda fn: fn(), [define_ifr, define_contradictions, define_trimming]))
+    tcs = st.definition.technical_contradictions
+    pcs = st.definition.physical_contradictions
 
     key_d = agent.run_agent(
         ctx, node="s4_key_problem", label="핵심 문제 선정", stage=Stage.S4.value,
@@ -471,6 +507,8 @@ def _add_ideas(st, track: str, apps: list[dict], *, ref_key: str, title_key: str
                idea_key: str = "idea", addresses: list[str] | None = None) -> int:
     n = 0
     for a in apps or []:
+        if not isinstance(a, dict):
+            continue
         idea_text = a.get(idea_key) or ""
         if not idea_text:
             continue
@@ -483,6 +521,13 @@ def _add_ideas(st, track: str, apps: list[dict], *, ref_key: str, title_key: str
             addresses=list(addresses or []),
             feasibility_hint=a.get("feasibility_hint") or "MID",
             detail=a,
+            mechanism=a.get("mechanism") or a.get("principle", ""),
+            mechanism_key=a.get("mechanism_key", ""),
+            intervention_variable=a.get("intervention_variable", ""),
+            conditions=_text_list(a.get("conditions")),
+            strongest_objection=a.get("strongest_objection") or a.get("self_rebuttal", ""),
+            validation_test=a.get("validation_test", ""),
+            hypothesis_ids=a.get("hypothesis_ids") or [],
         ))
         n += 1
     return n
@@ -505,7 +550,7 @@ def _track_a(ctx: RunContext) -> None:
                   "worsening_id": tc.worsening_param_id,
                   "worsening_name": K.param_name(tc.worsening_param_id, scheme),
                   "worsening_def": K.params(scheme).get(str(tc.worsening_param_id), {}).get("definition", ""),
-                  "target_system": st.domain.target_system,
+                  "target_system": digest.target_system(st),
                   "principles_brief": K.all_principles_brief()},
             default={},
         ) or {}
@@ -538,7 +583,7 @@ def _track_a(ctx: RunContext) -> None:
             ctx, node="s5_track_a", label=f"Track A 발명원리 적용({tc.id})", stage=Stage.S5.value,
             agent_id="inventor_a", prompt_id="P_S5_TRACK_A", tier="T2", rubric_id="R5_A",
             checker=lambda x, allowed=ids: verify.check_principles(x, allowed),
-            vars={"industry": st.domain.industry, "target_system": st.domain.target_system,
+            vars={"industry": st.domain.industry, "target_system": digest.target_system(st),
                   "super_system": st.domain.super_system,
                   "if_action": tc.if_action, "then_good": tc.then_good, "but_bad": tc.but_bad,
                   "improving_id": tc.improving_param_id,
@@ -573,12 +618,14 @@ def _track_b(ctx: RunContext) -> None:
             vars={"element": pc.element, "parameter": pc.parameter,
                   "state_a": pc.state_a, "reason_a": pc.reason_a,
                   "state_b": pc.state_b, "reason_b": pc.reason_b, "scale": pc.scale,
-                  "target_system": st.domain.target_system,
+                  "target_system": digest.target_system(st),
                   "resources": digest.resources_digest(st),
                   "su_fields": digest.su_fields_digest(st),
                   "separation_block": K.separation_block()},
             default={},
         ) or {}
+        if d.get("redefine_hint"):
+            st.solve.gaps.append(d["redefine_hint"])
         for application in d.get('applications') or []:
             application['source_pc_id'] = pc.id
         apps = [a for a in (d.get("applications") or []) if a.get("applicable")]
@@ -597,10 +644,10 @@ def _track_c(ctx: RunContext) -> None:
         d = agent.run_agent(
             ctx, node="s5_track_c", label=f"Track C 76표준해({su.id})", stage=Stage.S5.value,
             agent_id="standards_specialist", prompt_id="P_S5_TRACK_C", tier="T2", rubric_id="R5_C",
-            checker=verify.check_standards,
+            checker=lambda data: verify.check_standards(data, [c['code'] for c in cands]),
             vars={"s1": su.s1, "s2": su.s2, "field": su.field,
                   "completeness": su.completeness, "effect": su.effect,
-                  "target_system": st.domain.target_system,
+                  "target_system": digest.target_system(st),
                   "resources": digest.resources_digest(st),
                   "standards_block": K.standards_block(cands)},
             default={},
@@ -632,7 +679,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
             agent_id="ariz_specialist", prompt_id="P_S5_ARIZ_PART1", tier="T2", rubric_id="R5_D",
             checker=lambda d: verify.check_ariz(d, req(1)),
             vars={"restated_problem": st.intake.frame.restated_problem,
-                  "target_system": st.domain.target_system, "super_system": st.domain.super_system,
+                  "target_system": digest.target_system(st), "super_system": st.domain.super_system,
                   "function_digest": digest.function_digest(st, only_problem=True),
                   "key_contradiction": key_contra, "steps": K.ariz_part_steps_text(1)},
             default={},
@@ -720,6 +767,12 @@ def _track_d_ariz(ctx: RunContext) -> None:
         run.steps += _ariz_steps(p7)
         run.verdicts = [v for v in (p7.get('verdicts') or []) if isinstance(v, dict)]
         for v in (p7.get("verdicts") or []):
+            for idea in st.solve.raw_ideas:
+                if idea.title == v.get("idea_title"):
+                    idea.detail["ariz_verdict"] = v
+                    if v.get("is_tradeoff") or v.get("constraint_ok") is False:
+                        idea.resolution_status = "TRADEOFF"
+                        idea.strongest_objection = v.get("note", "ARIZ 검토 미통과")
             if v.get("is_tradeoff"):
                 ctx.warn(f"ARIZ 7.2: '{v.get('idea_title')}'는 모순 해소가 아니라 절충으로 판정됨")
     st.solve.ariz = run
@@ -738,7 +791,7 @@ def _track_e(ctx: RunContext) -> None:
         agent_id="trimming_specialist", prompt_id="P_S5_TRACK_E", tier="T2",
         vars={"trimming_items": [t.model_dump() for t in st.definition.trimming],
               "resources": digest.resources_digest(st),
-              "target_system": st.domain.target_system},
+              "target_system": digest.target_system(st)},
         default={},
     ) or {}
     apps = d.get("applications") or []
@@ -752,7 +805,7 @@ def _track_f(ctx: RunContext) -> None:
     d = agent.run_agent(
         ctx, node="s5_track_f", label="Track F 진화 트렌드", stage=Stage.S5.value,
         agent_id="evolution_analyst", prompt_id="P_S5_TRACK_F", tier="T2",
-        vars={"target_system": st.domain.target_system,
+        vars={"target_system": digest.target_system(st),
               "components": digest.components_digest(st),
               "resources": digest.resources_digest(st),
               "trends_block": K.trends_block()},
@@ -773,8 +826,9 @@ def _track_g(ctx: RunContext) -> None:
         ctx, node="s5_track_g", label="Track G 기능지향탐색(FOS)", stage=Stage.S5.value,
         agent_id="cross_domain_scout", prompt_id="P_S5_TRACK_G", tier="T2",
         vars={"required_functions": _required_functions(st),
-              "target_system": st.domain.target_system,
-              "operating_env": st.domain.operating_env},
+              "target_system": digest.target_system(st),
+              "operating_env": st.domain.operating_env,
+              "contradictions": digest.contradictions_digest(st)},
         default={},
     ) or {}
     apps = d.get("applications") or []
@@ -793,9 +847,9 @@ def _track_h(ctx: RunContext) -> None:
         ctx, node="s5_track_h", label="Track H 효과(Effects) 적용", stage=Stage.S5.value,
         agent_id="effects_specialist", prompt_id="P_S5_TRACK_H", tier="T2",
         vars={"required_functions": _required_functions(st),
-              "target_system": st.domain.target_system,
+              "target_system": digest.target_system(st),
               "operating_env": st.domain.operating_env,
-              "effects_block": K.effects_block(limit=12)},
+              "effects_block": K.effects_block(limit=6, required_functions=_required_functions(st))},
         default={},
     ) or {}
     apps = d.get("applications") or []
@@ -815,23 +869,39 @@ TRACK_FUNCS = {
 def s5_solve(ctx: RunContext) -> None:
     st = ctx.state
     ctx.set_stage(Stage.S5.value)
-    tracks = list(st.control.enabled_tracks)
+    tracks = domain.select_tracks(st, st.control.enabled_tracks)
     if st.definition.technical_contradictions and "A_MATRIX" not in tracks:
         tracks.append("A_MATRIX")
     if st.definition.physical_contradictions and "B_SEPARATION" not in tracks:
         tracks.append("B_SEPARATION")
-    if st.analysis.su_fields and "C_STANDARDS" not in tracks:
+    if domain.physical_allowed(st) and st.analysis.su_fields and "C_STANDARDS" not in tracks:
         tracks.append("C_STANDARDS")
 
-    _run_tracks(ctx, tracks)
-    _evidence(ctx)
+    # Evidence planning consumes only pre-S5 facts; bounded track pool shares the call budget.
+    st.scratch.setdefault("agent_cache", {})
+    track_state = st.model_copy(deep=True)
+    track_state.steps, track_state.cost, track_state.control = st.steps, st.cost, st.control
+    track_state.scratch["agent_cache"] = st.scratch["agent_cache"]
+    track_ctx = RunContext(track_state)
+    track_ctx.lock, track_ctx.budget, track_ctx.call_slots = ctx.lock, ctx.budget, ctx.call_slots
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        retrieval = pool.submit(_evidence, ctx)
+        _run_tracks(track_ctx, tracks)
+        retrieval.result()
+    st.solve = track_state.solve
+    if "s_curve" in track_state.scratch:
+        st.scratch["s_curve"] = track_state.scratch["s_curve"]
     need_more = _merge(ctx)
 
     retries = st.control.retry_count.get("s5_solve", 0)
-    if need_more and retries < 1:
+    if need_more and retries < int(cfg("solve.max_escalations", 0)):
         st.control.retry_count["s5_solve"] = retries + 1
         extra = [t for t in cfg("tracks.escalation_tracks", ["D_ARIZ", "G_FOS", "H_EFFECTS"])
                  if t not in tracks]
+        extra = domain.select_tracks(st, extra)
+        extra = [t for t in extra if t not in tracks]
+        if not extra:
+            return
         ctx.emit("track_escalation", added=extra, reason=st.solve.gaps)
         ctx.warn(f"아이디어 부족 → 심화 트랙 추가 실행: {', '.join(extra)}")
         st.control.enabled_tracks = list(set(tracks + extra))
@@ -849,16 +919,19 @@ def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
     # idea list would let FOS relabel another track's ideas during parallel execution.
     from .schema import SolveBundle
     st.scratch.setdefault("agent_cache", {})
+    with ctx.lock:
+        branches = {t: st.model_copy(deep=True) for t in seq}
     def execute(t):
         fn = TRACK_FUNCS.get(t)
         if not fn:
             return None
-        branch = st.model_copy(deep=True)
+        branch = branches[t]
         branch.solve = SolveBundle()
         branch.steps, branch.cost, branch.control = st.steps, st.cost, st.control
         branch.scratch["agent_cache"] = st.scratch["agent_cache"]
         child = RunContext(branch)
         child.lock, child.budget = ctx.lock, ctx.budget
+        child.call_slots = ctx.call_slots
         try:
             fn(child)
             return t, branch
@@ -869,13 +942,13 @@ def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
             raise
     if not seq:
         return
-    with ThreadPoolExecutor(max_workers=min(int(cfg("run.parallel_workers", 4)), len(seq))) as pool:
+    with ThreadPoolExecutor(max_workers=max(1, min(int(cfg("run.parallel_workers", 4)), len(seq)))) as pool:
         results = list(pool.map(execute, seq))
     for item in results:
         if not item:
             continue
         t, branch = item
-        for key in ("matrix_lookups", "principle_apps", "separation_apps", "standard_apps", "trend_apps", "fos_apps", "effect_apps", "raw_ideas"):
+        for key in ("matrix_lookups", "principle_apps", "separation_apps", "standard_apps", "trend_apps", "fos_apps", "effect_apps", "raw_ideas", "gaps"):
             getattr(st.solve, key).extend(getattr(branch.solve, key))
         if branch.solve.ariz:
             st.solve.ariz = branch.solve.ariz
@@ -899,7 +972,10 @@ def _merge(ctx: RunContext) -> bool:
         ctx, node="s5_merge", label="아이디어 통합·중복제거", stage=Stage.S5.value,
         agent_id="solution_curator", prompt_id="P_S5_MERGE", tier="T2", rubric_id="R5_MERGE",
         max_tokens=8000,
-        vars={"all_ideas": digest.ideas_digest(st, limit=60),
+        vars={"all_ideas": digest.ideas_digest(st, limit=40),
+              "redefinition_hints": st.solve.gaps,
+              "causal_packet": digest.causal_packet(st),
+              "evidence": digest.relevant_evidence(st),
               "key_problems": [k.model_dump() for k in st.definition.key_problems],
               "contradictions": digest.contradictions_digest(st),
               "min_ideas": cfg("solutions.min_raw_ideas", 12),
@@ -908,28 +984,68 @@ def _merge(ctx: RunContext) -> bool:
     ) or {}
 
     merged = d.get("ideas") or []
-    if merged:
+    if "ideas" in d:
         by_id = {i.id: i for i in st.solve.raw_ideas}
         new_ideas: list[RawIdea] = []
+        used_keep_ids = set()
         for m in merged:
-            keep = [by_id[k] for k in (m.get("keep_ids") or []) if k in by_id]
-            base = keep[0] if keep else None
+            if not isinstance(m, dict):
+                continue
+            keep_ids = m.get("keep_ids") or []
+            if not isinstance(keep_ids, list) or any(not isinstance(k, str) for k in keep_ids):
+                continue
+            keep_ids = list(dict.fromkeys(keep_ids))
+            if any(k not in by_id for k in keep_ids) or used_keep_ids.intersection(keep_ids):
+                continue
+            keep = [by_id[k] for k in keep_ids]
+            if not keep:
+                continue
+            used_keep_ids.update(keep_ids)
+            base = keep[0]
+            prior_details = []
+            for idea in keep:
+                prior_details.extend(idea.detail.get("source_details") or [dict(idea.detail, source_idea_id=idea.id)])
+            status = m.get("resolution_status", "UNSUPPORTED")
+            if status not in ("RESOLVED", "TRADEOFF", "UNSUPPORTED"):
+                status = "UNSUPPORTED"
+            if any(i.resolution_status == "TRADEOFF" for i in keep):
+                status = "TRADEOFF"
+            if status == "RESOLVED" and not m.get("resolution_argument"):
+                status = "UNSUPPORTED"
             new_ideas.append(RawIdea(
                 id=base.id if base else RawIdea().id,
-                track=m.get("track") or (base.track if base else ""),
-                source_ref=" + ".join(m.get("source_refs") or ([base.source_ref] if base else [])),
+                track=base.track,
+                source_ref=" + ".join(dict.fromkeys(i.source_ref for i in keep if i.source_ref)),
                 title=m.get("title") or (base.title if base else ""),
                 idea=m.get("idea") or (base.idea if base else ""),
                 uses_resources=m.get("uses_resources") or (base.uses_resources if base else []),
                 addresses=m.get("addresses") or (base.addresses if base else []),
                 novelty_class=m.get("novelty_class") or (base.novelty_class if base else "NEW"),
                 feasibility_hint=m.get("feasibility_hint") or "MID",
-                detail=base.detail if base else {},
+                detail={"source_details": prior_details},
+                source_idea_ids=list(dict.fromkeys(k for i in keep for k in (i.source_idea_ids or [i.id]))),
+                mechanism_key=m.get("mechanism_key") or base.mechanism_key or base.id,
+                mechanism=m.get("mechanism") or base.mechanism,
+                intervention_variable=m.get("intervention_variable") or base.intervention_variable,
+                conditions=list(dict.fromkeys(_text_list(m.get("conditions")) + [v for i in keep for v in i.conditions])),
+                strongest_objection=m.get("strongest_objection") or base.strongest_objection,
+                validation_test=m.get("validation_test") or base.validation_test,
+                hypothesis_ids=list(dict.fromkeys(_text_list(m.get("hypothesis_ids")) + [v for i in keep for v in i.hypothesis_ids])),
+                resolution_status=status,
+                resolution_argument=m.get("resolution_argument", ""),
             ))
         st.solve.raw_ideas = new_ideas
     st.solve.coverage_note = d.get("coverage_note", "")
-    st.solve.gaps = d.get("gaps") or []
-    need_more = bool(d.get("need_more")) or len(st.solve.raw_ideas) < int(cfg("solutions.min_raw_ideas", 12))
+    st.solve.gaps = list(dict.fromkeys(st.solve.gaps + _text_list(d.get("gaps"))))
+    valid_ids = {t.id for t in st.definition.technical_contradictions} | {p.id for p in st.definition.physical_contradictions}
+    for idea in st.solve.raw_ideas:
+        idea.addresses = [i for i in idea.addresses if i in valid_ids]
+        if not idea.addresses:
+            idea.resolution_status = "UNSUPPORTED"
+    covered = {cid for i in st.solve.raw_ideas if i.resolution_status == "RESOLVED" for cid in i.addresses}
+    unmet = [kp.title for kp in st.definition.key_problems if not covered.intersection(kp.contradiction_ids)]
+    st.solve.gaps.extend(f"미해결 핵심 문제: {title}" for title in unmet)
+    need_more = bool(unmet) or bool(d.get("need_more"))
     ctx.emit("artifact", kind="IDEAS", data={"count": len(st.solve.raw_ideas),
                                              "tracks": st.solve.tracks_run,
                                              "need_more": need_more})
@@ -937,89 +1053,9 @@ def _merge(ctx: RunContext) -> bool:
 
 
 # ════════════════════════════════════════════════ S6
-BATCH_NOTES = [
-    "이번 배치는 '즉시 적용 가능한 개선'(운전조건·파라미터·소규모 개조)에 무게를 두라.",
-    "이번 배치는 '구조 재설계와 타 산업 이식'처럼 파급력이 큰 접근에 무게를 두라. "
-    "앞 배치와 메커니즘이 겹치면 안 된다.",
-    "이번 배치는 앞선 배치들이 다루지 않은 시스템 계층(상위 시스템·환경 자원)을 활용하라.",
-]
-
-
 def s6_concept(ctx: RunContext) -> None:
-    st = ctx.state
-    ctx.set_stage(Stage.S6.value)
-    mix = cfg("solutions.novelty_mix", {"SAME_DOMAIN": 3, "CROSS_DOMAIN": 3, "NEW": 4})
-    target = int(cfg("solutions.max_concepts", 12))
-    batch_size = 5
-    batches = max(1, min(3, -(-target // batch_size)))
-    prior = rag.prior_cases_block(st)
-
-    concepts: list[ConceptSpec] = []
-    seen_titles: set[str] = set()
-    excluded: list[dict] = []
-
-    for b in range(batches):
-        made = [f"- {c.title}: {c.one_liner}" for c in concepts]
-        note = BATCH_NOTES[min(b, len(BATCH_NOTES) - 1)]
-        if made:
-            note += "\n[이미 만든 개념 — 중복 금지]\n" + "\n".join(made)
-        d = agent.run_agent(
-            ctx, node="s6_concept", label=f"해결 개념 구체화 ({b + 1}/{batches})",
-            stage=Stage.S6.value, agent_id="concept_architect", prompt_id="P_S6_CONCEPT",
-            tier="T2", rubric_id="R6_CONCEPT" if b == 0 else None,
-            checker=None, max_tokens=8000,
-            vars={"industry": st.domain.industry, "target_system": st.domain.target_system,
-                  "super_system": st.domain.super_system, "operating_env": st.domain.operating_env,
-                  "components": digest.components_digest(st),
-                  "resources": digest.resources_digest(st),
-                  "contradictions": digest.contradictions_digest(st),
-                  "evidence_digest": digest.evidence_digest(st),
-                  "ideas": digest.ideas_digest(st, limit=30),
-                  "prior_cases_block": prior,
-                  "taboo_block": verify.taboo_block(st),
-                  "batch_size": batch_size, "batch_note": note,
-                  "mix_same": mix.get("SAME_DOMAIN", 3), "mix_cross": mix.get("CROSS_DOMAIN", 3),
-                  "mix_new": mix.get("NEW", 4)},
-            default={},
-        ) or {}
-        for c in (d.get("concepts") or []):
-            title = (c.get("title") or "").strip() if isinstance(c, dict) else ""
-            if not title or title in seen_titles:
-                continue
-            obj = build(ConceptSpec, c)
-            if obj is None:
-                continue
-            seen_titles.add(title)
-            concepts.append(obj)
-        excluded += d.get("excluded") or []
-        if len(concepts) >= target:
-            break
-
-    if not concepts:  # 폴백: 상위 아이디어를 최소 개념으로 승격해 파이프라인을 살린다
-        ctx.warn("개념 생성 실패 → 상위 아이디어를 임시 개념으로 승격(정밀도 낮음)")
-        for idea in st.solve.raw_ideas[: int(cfg("solutions.min_solutions", 5))]:
-            concepts.append(ConceptSpec(
-                title=idea.title or idea.idea[:24], one_liner=idea.idea[:60],
-                description=idea.idea, working_principle="",
-                required_resources=idea.uses_resources,
-                triz_origin=[{"track": idea.track, "ref": idea.source_ref}],
-                addresses_contradictions=idea.addresses,
-                novelty_class=idea.novelty_class,
-                assumptions=["자동 폴백으로 생성된 개념이므로 검증 필요"],
-                open_risks=["구체화되지 않은 개념"]))
-
-    st.concepts = concepts[:target]
-    st.scratch["excluded_concepts"] = excluded
-    min_c = int(cfg("solutions.min_concepts", 8))
-    if len(st.concepts) < min_c:
-        ctx.warn(f"개념이 {len(st.concepts)}개로 목표({min_c})에 미달한 상태로 평가로 진행")
-    bad = verify.check_concepts({"concepts": [c.model_dump() for c in st.concepts]},
-                                verify.resource_names(st))
-    for issue in bad[:3]:
-        ctx.warn(f"개념 품질 경고: {issue}")
-    ctx.emit("artifact", kind="CONCEPTS", data={"count": len(st.concepts),
-                                                "titles": [c.title for c in st.concepts]})
-    ctx.persist()
+    from .quality import generate_concepts
+    generate_concepts(ctx)
 
 
 # ════════════════════════════════════════════════ S7
@@ -1075,8 +1111,7 @@ def s7_gate(ctx: RunContext) -> None:
     concepts = digest.concepts_for_gate(st)
     batch_size = max(1, min(int(cfg('constraints.max_concepts_per_call', 2)),
                            int(cfg('constraints.max_pairs_per_call', 24)) // max(1, len(st.constraints.items))))
-    raw_results = []
-    for start in range(0, len(concepts), batch_size):
+    def gate_batch(start):
         batch = concepts[start:start+batch_size]
         d = agent.run_agent(
             ctx, node=f"s7_gate_{start // batch_size + 1}", label=f"제약 검토 {start+1}–{start+len(batch)}/{len(concepts)}", stage=Stage.S7.value,
@@ -1085,7 +1120,10 @@ def s7_gate(ctx: RunContext) -> None:
                             "Judge only constraint compliance, nothing else.",
             vars={"constraints_full": verify.constraints_full(st), "concepts_for_gate": batch}, default={}) or {}
         ids = {c['concept_id'] for c in batch}
-        raw_results.extend(r for r in build_list(ConstraintCheckResult, d.get('results')) if r.concept_id in ids)
+        return [r for r in build_list(ConstraintCheckResult, d.get('results')) if r.concept_id in ids]
+
+    with ThreadPoolExecutor(max_workers=max(1, int(cfg("run.parallel_workers", 4)))) as pool:
+        raw_results = [r for batch in pool.map(gate_batch, range(0, len(concepts), batch_size)) for r in batch]
 
     results: list[ConstraintCheckResult] = []
     by_id = {c.id: c for c in st.concepts}
@@ -1171,9 +1209,11 @@ def s8_evaluate(ctx: RunContext) -> None:
                   "role_name": p.role_name, "mandate": p.mandate, "bias_note": p.bias_note,
                   "dimensions": p.dimensions,
                   "restated_problem": st.intake.frame.restated_problem,
-                  "target_system": st.domain.target_system,
+                  "target_system": digest.target_system(st),
                   "operating_env": st.domain.operating_env,
-                  "constraints_block": cblock, "concepts_blind": blind},
+                  "constraints_block": cblock, "concepts_blind": blind,
+                  "success_criteria": st.intake.frame.success_criteria,
+                  "requirements": [{"improve": t.then_good, "preserve": t.but_bad} for t in st.definition.technical_contradictions]},
             default={},
         ) or {}
         out = []
@@ -1196,7 +1236,8 @@ def s8_evaluate(ctx: RunContext) -> None:
 
 
 def _aggregate(st, scores: list[ReviewerScore]) -> list[ConceptEvaluation]:
-    weights = cfg("evaluation.dimension_weights", {})
+    weights = dict(cfg("evaluation.dimension_weights", {}))
+    weights.update(cfg(f"evaluation.problem_type_weights.{domain.problem_type(st)}", {}))
     low_risk = float(cfg("evaluation.quadrant_thresholds.low_risk_max", 2.5))
     high_ret = float(cfg("evaluation.quadrant_thresholds.high_return_min", 3.5))
     evals: list[ConceptEvaluation] = []
@@ -1211,8 +1252,10 @@ def _aggregate(st, scores: list[ReviewerScore]) -> list[ConceptEvaluation]:
             agg[dim] = round(sum(v * w for v, w in vals) / sum(w for _, w in vals), 2)
         wsum = sum(weights.get(d, 0.0) for d in agg) or 1.0
         total = round(sum(agg[d] * weights.get(d, 0.0) for d in agg) / wsum, 2)
+        if c.quality_status != "PASS":
+            total = min(total, 3.0)
         risk_score = agg.get("RISK", 3.0)
-        ret = round((agg.get("QUALITY", 3.0) + agg.get("FEASIBILITY", 3.0)) / 2, 2)
+        ret = round((agg.get("GOAL", agg.get("QUALITY", 3.0)) + agg.get("RESOLUTION", agg.get("FEASIBILITY", 3.0))) / 2, 2)
         risk_inv = 5 - risk_score          # 값이 클수록 위험
         quadrant = ("QUICK_WIN" if risk_inv <= low_risk and ret >= high_ret else
                     "BIG_BET" if risk_inv > low_risk and ret >= high_ret else
@@ -1222,6 +1265,8 @@ def _aggregate(st, scores: list[ReviewerScore]) -> list[ConceptEvaluation]:
         red = [f for s in mine for f in s.red_flags]
         gate = st.check_for(c.id)
         gate_bad = bool(gate and gate.verdict in ("FAIL", "CONDITIONAL"))
+        if any(s.dimension == "SAFETY" and s.score <= 1.5 and s.red_flags for s in mine):
+            total, quadrant = min(total, 2.0), "AVOID"
         if any("제약위반" in f for f in red):
             # 제약의 최종 판정 권한은 S7 게이트에 있다. 평가자 지적은 게이트가 동의할 때만 강등.
             if gate_bad:
@@ -1245,6 +1290,8 @@ def _rank(ctx: RunContext) -> None:
         "aggregate": e.aggregate, "total": e.total_score, "quadrant": e.quadrant,
         "risk": e.risk_level, "return": e.return_level,
         "red_flags": [f for s in e.scores for f in s.red_flags][:3],
+        "improvements": [s.improvement_suggestion for s in e.scores if s.improvement_suggestion],
+        "quality_status": st.concept(e.concept_id).quality_status,
     } for e in st.evaluation.evaluations]
     meta = [{"concept_id": c.id, "novelty_class": c.novelty_class,
              "change_scale": c.change_scale, "maturity": c.maturity} for c in st.concepts]
@@ -1308,7 +1355,7 @@ def _applied_principles(st) -> list[dict]:
 
 def s8_references(ctx: RunContext) -> None:
     from .evidence import attach
-    ctx.set_stage(Stage.S9.value)
+    ctx.set_stage("S8_REFERENCES")
     attach(ctx)
 
 
@@ -1361,11 +1408,23 @@ def record_feedback(st, payload: dict, distill: dict | None = None) -> int:
         missing_perspective=payload.get("missing_perspective", ""),
         would_reuse=payload.get("would_reuse"),
         solution_feedback=build_list(SolutionFeedback, payload.get("solution_feedback")),
+        distilled=distill or {},
     )
+    if distill is None:
+        # Post-run edits reuse supplied mechanisms/comments without another model call.
+        fb.distilled = {"generalized_problem": st.intake.frame.restated_problem,
+                        "domain_lesson": fb.missing_perspective,
+                        "accepted_patterns": [], "rejected_patterns": []}
+        for item in fb.solution_feedback:
+            concept = st.concept(item.concept_id)
+            if item.rating >= 4 and concept and concept.working_principle:
+                fb.distilled["accepted_patterns"].append(concept.working_principle)
+            elif item.rating <= 2:
+                fb.distilled["rejected_patterns"].extend([item.comment] if item.comment else item.reason_tags)
     st.feedback = fb
     for s in fb.solution_feedback:
         store.save_feedback(st.run_id, s.concept_id, s.rating, s.adopted, s.reason_tags, s.comment)
-    return rag.write_feedback(st, distill or {})
+    return rag.write_feedback(st, fb.distilled)
 
 
 def s10_feedback(ctx: RunContext) -> None:
@@ -1388,6 +1447,8 @@ def s10_feedback(ctx: RunContext) -> None:
                   "contradiction_digest": digest.contradictions_digest(st),
                   "feedback_raw": [{"title": (st.concept(s.get("concept_id", "")).title
                                               if st.concept(s.get("concept_id", "")) else ""),
+                                    "mechanism": (st.concept(s.get("concept_id", "")).working_principle if st.concept(s.get("concept_id", "")) else ""),
+                                    "conditions": (st.concept(s.get("concept_id", "")).assumptions if st.concept(s.get("concept_id", "")) else []),
                                     "rating": s.get("rating"), "adopted": s.get("adopted"),
                                     "comment": s.get("comment"), "tags": s.get("reason_tags")}
                                    for s in raw if isinstance(s, dict)]},

@@ -93,6 +93,9 @@ class Provenance(BaseModel):
 
 # ────────────────────────────────────────────── S1
 class DomainContext(BaseModel):
+    problem_type: Literal["PHYSICAL_TECHNICAL", "INFORMATION_SOFTWARE", "ORGANIZATIONAL_BUSINESS", "MIXED", "UNKNOWN"] = "UNKNOWN"
+    difficulty: Literal["routine", "advanced", "frontier"] = "advanced"
+    physical_scope: str = ""
     industry: str = ""
     sub_domain: str = ""
     job_family: str = ""
@@ -180,6 +183,9 @@ class SystemCandidate(BaseModel):
     description: str = ""
     diagram_mermaid: str = ""
     similarity_reason: str = ""
+    super_system: str = ""
+    operative_zone: str = ""
+    operative_time: str = ""
 
 
 class ConfirmArtifact(BaseModel):
@@ -263,6 +269,10 @@ class ResourceItem(BaseModel):
 
 
 class CauseNode(BaseModel):
+    hypothesis_ids: list[str] = []
+    evidence_status: Literal["OBSERVED", "HYPOTHESIS", "DERIVED"] = "HYPOTHESIS"
+    evidence_refs: list[str] = []
+    falsification_test: str = ""
     id: str = ""
     text: str = ""
     node_type: Literal["TARGET_DISADVANTAGE", "INTERMEDIATE", "ROOT_CAUSE", "KEY_DISADVANTAGE"] = "INTERMEDIATE"
@@ -300,6 +310,9 @@ class IFR(BaseModel):
 
 
 class TechnicalContradiction(BaseModel):
+    cause_node_ids: list[str] = []
+    hypothesis_ids: list[str] = []
+    coupling_mechanism: str = ""
     id: str = Field(default_factory=lambda: new_id("TC"))
     label: str = ""
     if_action: str = ""
@@ -367,6 +380,16 @@ class MatrixLookup(BaseModel):
 
 
 class RawIdea(BaseModel):
+    source_idea_ids: list[str] = []
+    mechanism_key: str = ""
+    mechanism: str = ""
+    intervention_variable: str = ""
+    conditions: list[str] = []
+    strongest_objection: str = ""
+    validation_test: str = ""
+    hypothesis_ids: list[str] = []
+    resolution_status: Literal["RESOLVED", "TRADEOFF", "UNSUPPORTED"] = "UNSUPPORTED"
+    resolution_argument: str = ""
     id: str = Field(default_factory=lambda: new_id("IDEA"))
     track: str = ""
     source_ref: str = ""
@@ -441,6 +464,14 @@ class EvidenceCard(BaseModel):
 
 # ────────────────────────────────────────────── S6~S8
 class ConceptSpec(BaseModel):
+    source_idea_ids: list[str] = []
+    mechanism_key: str = ""
+    intervention_variable: str = ""
+    resolution_argument: str = ""
+    hypothesis_ids: list[str] = []
+    prior_case_ids: list[str] = []
+    quality_status: Literal["UNVERIFIED", "PASS", "REVISE", "REJECT"] = "UNVERIFIED"
+    quality_issues: list[str] = []
     id: str = Field(default_factory=lambda: new_id("CPT"))
     title: str = ""
     one_liner: str = ""
@@ -529,6 +560,7 @@ class SolutionFeedback(BaseModel):
 
 
 class FeedbackArtifact(BaseModel):
+    distilled: dict[str, Any] = {}
     overall_rating: int = 0
     solution_feedback: list[SolutionFeedback] = []
     missing_perspective: str = ""
@@ -562,6 +594,7 @@ class StepRecord(BaseModel):
 
 
 class CostLedger(BaseModel):
+    request_count: int = 0
     total_usd: float = 0.0
     by_tier: dict[str, float] = {}
     by_stage: dict[str, float] = {}

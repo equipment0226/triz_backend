@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import hashlib
+import time
 from typing import Any, Callable, Optional
 
 from . import llm, prompts_registry as P, verify
@@ -22,6 +23,9 @@ def routed_tier(node, requested="T2"):
 def tracked_chat(ctx, **kwargs):
     """Reserve worst-case request cost before parallel calls; stop without downgrading reasoning."""
     node = kwargs.pop("_node", "independent_verifier")
+    deadline = ctx.state.scratch.get("execution_deadline")
+    if deadline and time.time() >= deadline:
+        raise AbortRun("분석 실행 시간 예산에 도달했습니다. 이어서 실행하면 새 시간 예산으로 재개합니다.")
     tc = settings.tiers[kwargs.get("tier", "T2")]
     max_output = kwargs.get("max_tokens") or tc.max_tokens
     # UTF-8 bytes are a conservative token upper bound; include retry payload overhead.
@@ -34,7 +38,10 @@ def tracked_chat(ctx, **kwargs):
         ctx.budget["reserved"] = reserved + reserve
     res = None
     try:
-        res = llm.chat_json(**kwargs)
+        with ctx.call_slots:
+            if deadline and time.time() >= deadline:
+                raise AbortRun("분석 실행 시간 예산에 도달했습니다.")
+            res = llm.chat_json(**kwargs)
         return res
     except llm.LLMError as exc:
         res = getattr(exc, "usage", None)
@@ -43,6 +50,7 @@ def tracked_chat(ctx, **kwargs):
         with ctx.lock:
             ctx.budget["reserved"] -= reserve
             if res:
+                ctx.state.cost.request_count += res.meta.get("attempt") or len(res.meta.get("requests", [])) or 1
                 ctx.state.cost.total_usd += res.cost_usd
                 ctx.state.cost.tokens_in += res.tokens_in
                 ctx.state.cost.tokens_out += res.tokens_out
@@ -76,10 +84,22 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str) -> d
         return {"verdict": "UNVERIFIED", "score": 0.0, "skipped": True}
     if rubric_id not in settings.cfg("verification.critical_rubrics", [rubric_id]):
         return {"verdict": "UNVERIFIED", "score": 0.0, "skipped": True, "source": "policy"}
+    from . import digest, domain
+    support = {"observations": digest.facts_packet(ctx.state), "provided_context": facts,
+               "problem_type": domain.problem_type(ctx.state)}
+    if rubric_id in ("R4_CONTRA", "R6_CONCEPT"):
+        support["derived_causal_hypotheses"] = digest.causal_packet(ctx.state)
+        support["contradictions"] = digest.contradictions_digest(ctx.state)
+    if rubric_id == "R4_CONTRA":
+        from . import knowledge as K
+        scheme = ctx.state.scratch.get("param_scheme", "ENG_39")
+        ids = {t.get(k) for t in data.get("technical_contradictions", [])
+               for k in ("improving_param_id", "worsening_param_id")}
+        support["parameter_definitions"] = {str(i): K.params(scheme).get(str(i), {}) for i in ids}
     user = P.render(
         "P_VERIFIER_GENERIC",
         artifact_json=data,
-        facts_block=facts or "(추가 사실 없음)",
+        facts_block=support,
         constraints_block=verify.constraints_block(ctx.state),
         rubric_name=rubric.get("description", rubric_id),
         rubric_criteria=verify.rubric_criteria_text(rubric),
@@ -88,11 +108,28 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str) -> d
     )
     try:
         res = tracked_chat(ctx, system="You are a strict independent auditor. Output JSON only.",
-                            user=user, tier="T3", temperature=0.0, expect="object", max_tokens=1200)
+                            user=user, tier="T3", temperature=0.0, expect="object",
+                            max_tokens=min(4500, 1200 + 240 * len(data.get("concepts", []))) if isinstance(data, dict) else 1200)
     except llm.LLMError as exc:
         return {"verdict": "UNVERIFIED", "score": 0.0, "error": str(exc), "skipped": True}
     out = res.data if isinstance(res.data, dict) else {}
-    out.setdefault("verdict", "UNVERIFIED")
+    if out.get("verdict") not in ("PASS", "REVISE", "REJECT"):
+        out["verdict"] = "UNVERIFIED"
+    criteria = out.get("per_criterion")
+    if criteria:
+        try:
+            scores = {c['id']: float(c['score']) for c in criteria}
+            required = rubric.get('criteria', [])
+            if any(c['id'] not in scores or not 0 <= scores[c['id']] <= 1 for c in required):
+                raise ValueError('incomplete criterion scores')
+            total_weight = sum(c.get('weight', 0) for c in required)
+            out['score'] = sum(scores[c['id']] * c.get('weight', 0) for c in required) / total_weight
+            out['verdict'] = ('PASS' if out['score'] >= rubric['pass_threshold'] else
+                              'REJECT' if out['score'] < rubric['reject_below'] else 'REVISE')
+        except (ValueError, KeyError, TypeError, ZeroDivisionError):
+            out['verdict'] = 'UNVERIFIED'
+    if out.get("fatal_flaws"):
+        out["verdict"] = "REJECT"
     out.setdefault("score", 0.0)
     out["rubric"] = rubric_id
     out["_tokens"] = (res.tokens_in, res.tokens_out, res.cost_usd)
@@ -134,10 +171,20 @@ def run_agent(
             f"- {a.get('role_name','전문가')}: {a.get('instruction','')}" for a in injected)
 
     from .domain import context as domain_context
-    base_user = P.render(prompt_id, **(vars or {})) + domain_context(state, node) + inject_block
+    from .domain import problem_type, physical_allowed
+    prompt_vars = {"problem_type": problem_type(state), "physical_scope": state.domain.physical_scope,
+                   "physical_allowed": physical_allowed(state), **(vars or {})}
+    if node.startswith("s5_"):
+        from . import digest
+        prompt_vars.setdefault("contradictions", digest.contradictions_digest(state))
+    base_user = P.render(prompt_id, **prompt_vars) + domain_context(state, node) + inject_block
+    if node.startswith(("s1_", "s3_")):
+        from . import rag
+        base_user += rag.lessons_block(state)
     system = system_override or P.render(
         "P_COMMON_PREAMBLE",
         lang=state.control.lang,
+        problem_type=problem_type(state), physical_scope=state.domain.physical_scope,
         constraints_block=verify.constraints_block(state),
     )
     step.input_slice = {"prompt_id": prompt_id, "vars": vars or {}, "system": system,
@@ -150,8 +197,11 @@ def run_agent(
     except (OSError, TypeError):
         checker_source = str(checker)
     tc = settings.tiers[tier]
+    from . import digest
+    audit_context = {"facts": digest.facts_packet(state), "causal": digest.causal_packet(state),
+                     "contradictions": digest.contradictions_digest(state)} if rubric_id else None
     cache_key = hashlib.sha256(json.dumps([node, prompt_id, expect, rubric_id, checker_source,
-        settings.rubrics.get(rubric_id, {}), system, base_user, tier,
+        settings.rubrics.get(rubric_id, {}), system, base_user, tier, facts, audit_context,
         settings.tiers[tier].model, settings.tiers[tier].base_url, max_tokens, temperature,
         tc.temperature, tc.max_tokens, tc.json_mode, tc.supports_temperature, tc.token_parameter,
         settings.triz.get("verification", {})], sort_keys=True, default=str).encode()).hexdigest()
@@ -211,7 +261,7 @@ def run_agent(
         if issues:
             verdict = {"verdict": "REVISE", "score": 0.0, "source": "deterministic",
                        "revision_instructions": issues, "fatal_flaws": []}
-        elif rubric_id:
+        elif rubric_id and node not in settings.cfg("verification.skip_nodes", []):
             verdict = verify_artifact(ctx, rubric_id, data, facts)
             tk = verdict.pop("_tokens", None)
             if tk:
@@ -231,10 +281,16 @@ def run_agent(
             status = "OK" if verdict.get("verdict") == "PASS" else "WARN"
             ctx.finish_step(step, status)
             if status == "OK":
-                cache[cache_key] = step.step_id
+                with ctx.lock:
+                    cache[cache_key] = step.step_id
             return data
 
         if attempt > max_repair:
+            if verdict.get("fatal_flaws") or any(str(i).startswith("FATAL-") for i in issues):
+                step.output_json = _as_dict(data)
+                step.error = "치명적 분석 결함이 수리되지 않았습니다."
+                ctx.finish_step(step, "FAILED")
+                raise AbortRun(f"{label}: 치명적 결함이 남아 후속 분석을 중단합니다.")
             if settings.cfg("verification.escalate_tier_on_fail", True) and cur_tier != "T2" and not step.escalated and not ctx.state.cost.over_budget:
                 cur_tier = _promote(cur_tier)
                 step.escalated = True
@@ -249,7 +305,7 @@ def run_agent(
 
         user = base_user + "\n\n" + P.render(
             "P_REPAIR",
-            previous_output=json.dumps(data, ensure_ascii=False)[:6000],
+            previous_output=json.dumps(data, ensure_ascii=False),
             verdict=verdict.get("verdict"),
             score=verdict.get("score"),
             fatal_flaws=verdict.get("fatal_flaws", []),

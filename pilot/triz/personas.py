@@ -1,13 +1,15 @@
 """동적 페르소나 팩토리: 도메인 시드 + LLM 생성 병합."""
 from __future__ import annotations
 
-from . import agent, digest
+from . import agent, digest, domain
 from .context import RunContext
 from .schema import Persona, Stage
 from .settings import settings
 
 
 def _seed_group(industry: str, job_family: str, is_engineering: bool) -> str:
+    if not is_engineering:
+        return "business"
     text = f"{industry} {job_family}".lower()
     for rule in settings.personas.get("industry_map", []):
         if any(k.lower() in text for k in rule.get("keywords", [])):
@@ -16,7 +18,9 @@ def _seed_group(industry: str, job_family: str, is_engineering: bool) -> str:
 
 
 def seed_personas(state) -> list[dict]:
-    group = _seed_group(state.domain.industry, state.domain.job_family, state.domain.is_engineering)
+    kind = domain.problem_type(state)
+    group = {"ORGANIZATIONAL_BUSINESS": "business", "INFORMATION_SOFTWARE": "software_service"}.get(kind)
+    group = group or _seed_group(state.domain.industry, state.domain.job_family, state.domain.is_engineering)
     seeds = settings.personas.get("seeds", {})
     base = list(seeds.get(group, [])) or list(seeds.get("default", []))
     domain_roles = [{"role_name": role, "mandate": "도메인 이론과 적용 조건 및 반증 실험을 검토한다",
@@ -81,16 +85,29 @@ def build_personas(ctx: RunContext) -> list[Persona]:
         if len(personas) >= hi:
             break
 
-    if _needs_safety(state) and not any(p.veto_power for p in personas):
-        personas.append(Persona(role_name="안전/규제 담당", mandate="안전·규제 위반을 차단한다",
-                                dimensions=["SAFETY"], veto_power=True,
-                                bias_note="위반 소지가 있으면 무조건 반대한다"))
-
-    # 필수 차원 보강
     required = set(settings.personas.get("rules", {}).get("always_dimensions", []))
-    covered = {d for p in personas for d in p.dimensions}
-    for missing in sorted(required - covered):
-        personas.append(Persona(role_name=f"{missing} 검토역", mandate=f"{missing} 관점을 책임진다",
-                                dimensions=[missing]))
-
-    return personas[:hi] if len(personas) >= lo else personas
+    required.update(("GOAL", "RESOLUTION", "CAUSAL"))
+    if domain.problem_type(state) == "ORGANIZATIONAL_BUSINESS":
+        required.add("ADOPTION")
+    if _needs_safety(state) or any(p.veto_power for p in personas):
+        required.add("SAFETY")
+        if not any("SAFETY" in p.dimensions for p in personas):
+            personas.append(Persona(role_name="안전·규제 검토역", dimensions=["SAFETY"], veto_power=True))
+    # Reserve mandatory perspectives before applying the reviewer cap.
+    hi = max(1, hi)
+    selected, remaining = [], set(required)
+    pool = list(personas)
+    while pool and len(selected) < hi:
+        best = max(pool, key=lambda p: (len(remaining.intersection(p.dimensions)), p.veto_power))
+        pool.remove(best)
+        selected.append(best)
+        remaining.difference_update(best.dimensions)
+    while len(selected) < min(lo, hi):
+        selected.append(Persona(role_name=f"문제 해결 검토역 {len(selected)+1}", dimensions=[]))
+    for dim in sorted(remaining):
+        reviewer = min(selected, key=lambda p: len(p.dimensions))
+        reviewer.dimensions.append(dim)
+        reviewer.mandate += f" {dim}의 근거와 실패 조건을 검토한다."
+        if dim == "SAFETY":
+            reviewer.veto_power = True
+    return selected

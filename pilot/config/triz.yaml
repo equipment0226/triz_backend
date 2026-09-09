@@ -15,21 +15,17 @@ solutions:
   max_solutions: 10           # 최대
   min_concepts: 8             # S6에서 만들 개념 후보 최소
   max_concepts: 12            # S6은 5개씩 배치로 생성한다(출력 잘림 방지)
-  min_raw_ideas: 12           # S5 통합 후 최소 아이디어 수 (미달 시 트랙 추가 후 재시도)
+  min_raw_ideas: 12           # 탐색 목표. 수량만으로 보강 호출하지 않는다.
   ideas_per_principle: 1      # 발명원리 1개당 최소 아이디어
   max_principles_per_contradiction: 6
   matrix_cross_check: true    # 행렬 결과가 6개 미만일 때 LLM 제안을 '추가 후보'로만 보또다
-  novelty_mix:                # 신규성 목표 비중 (합계 10 기준)
-    SAME_DOMAIN: 3
-    CROSS_DOMAIN: 3
-    NEW: 4
+  # 신규성 비율은 강제하지 않는다. 실제 메커니즘의 다양성과 근거를 평가한다.
 
 analysis:
   min_components: 14          # 모듈이 아니라 축·베어링·커플링 수준까지 내려가게 하는 하한
   max_components: 28
   min_harmful_functions: 2
   min_resources: 12
-  min_resource_categories: 5
   ceca_min_depth: 4
   max_su_fields: 3
 
@@ -49,20 +45,37 @@ tracks:
 
 ariz:
   enabled_parts: [1, 2, 3, 4, 5, 7]   # 6(문제변경)/8/9는 필요 시
-  max_reformulation_loops: 1
+  # 재정의 신호는 기존 S5 통합에서 검토한다. 선행 분석을 바꾸는 재귀 루프는 실행하지 않는다.
+
+solve:
+  max_escalations: 0          # 기본은 기존 호출 안에서 후보 교체. 필요 시 1로 심화 트랙 허용.
 
 evaluation:
   min_reviewers: 4
   max_reviewers: 6
   dimension_weights:
-    FEASIBILITY: 0.25
-    RISK: 0.20
-    COST: 0.20
-    TIME: 0.15
-    QUALITY: 0.15
+    GOAL: 0.20
+    RESOLUTION: 0.20
+    CAUSAL: 0.15
+    FEASIBILITY: 0.15
+    RISK: 0.10
+    COST: 0.05
+    TIME: 0.05
+    QUALITY: 0.05
     ADOPTION: 0.05
     SAFETY: 0.0        # veto 전용 (점수 가중은 0, 위반 시 강등)
     SCALABILITY: 0.0
+  problem_type_weights:
+    ORGANIZATIONAL_BUSINESS:
+      GOAL: 0.20
+      RESOLUTION: 0.20
+      CAUSAL: 0.15
+      FEASIBILITY: 0.10
+      RISK: 0.10
+      COST: 0.05
+      TIME: 0.03
+      QUALITY: 0.02
+      ADOPTION: 0.15
   quadrant_thresholds:
     low_risk_max: 2.5
     high_return_min: 3.5
@@ -80,7 +93,6 @@ verification:
 constraints:
   max_concepts_per_call: 2
   max_pairs_per_call: 24
-  enforce_stages: [S1, S3, S4, S5, S6, S7]
   min_passing_concepts: 5     # 게이트 통과 개념이 이보다 적으면 재도출
   treat_unknown_as: CONDITIONAL   # CONDITIONAL | PASS | FAIL
 

@@ -1,50 +1,10 @@
-당신은 {{industry}} 분야에서 20년간 현장을 지킨 시니어 엔지니어이자 안전·품질 심의역이다.
-사용자가 말하지 않았지만 **이 시스템이라면 당연히 지켜야 하는 제약**을 발굴하라.
-이것을 놓치면 현장에서 절대 쓸 수 없는 해결책이 만들어진다.
-
-[대상 시스템] {{target_system}} (상위: {{super_system}})
-[운전 환경] {{operating_env}}
-[구성요소] {{components}}
-[가용 자원] {{resources}}
-[작용 영역/시간] {{operative_zone}} / {{operative_time}}
-[사용자가 이미 말한 제약]
-{{user_constraints}}
-
---- 발굴 관점 (각 관점마다 최소 1개, 해당 없으면 명시) ---
-1. ENVIRONMENT 운전 환경이 강제하는 것
-   예) 고진공 챔버 → 아웃가싱 물질·유기 윤활유·개방형 유체 사용 불가
-       클린룸 → 파티클 발생원(마찰, 분진, 개방형 구동부) 불가
-       고온부 → 열변형·재료 연화 한계
-2. MATERIAL_COMPAT 재료·화학적 양립성
-   예) 공정 가스와 반응하는 재질 금지, 이종금속 접촉 부식, 플라즈마 내식성
-3. PHYSICS 물리 법칙상 불가능하거나 한계인 것
-   예) 진공에서는 공기 베어링/대류 냉각 불가, 접촉 없이 마찰력 전달 불가
-4. OPERATION 운영·보전이 강제하는 것
-   예) 양산 중 챔버 개방 불가, PM 주기 내 접근 불가 영역, 인터록 해제 불가
-5. REGULATION 안전·규제·표준
-   예) 고전압/레이저/유해가스 취급 기준, 방폭, 배기 기준
-6. INTERFACE 상위 시스템과의 인터페이스 제약
-   예) 기존 제어기 통신 규격, 설치 공간·중량 한계, 기존 레시피 변경 불가
-
---- 각 제약마다 ---
-- statement: "무엇을 하면 안 된다 / 무엇이어야 한다"를 1문장으로 단정적으로
-- kind: MUST_NOT_HAVE(금지) | MUST_HAVE(필수) | NUMERIC(수치 한계) | PREFERENCE(선호)
-- category: 위 6개 중 하나
-- zone: **이 제약이 적용되는 공간/구간**을 반드시 특정하라.
-  ★ 매우 중요: 같은 물질이라도 영역에 따라 허용 여부가 다르다.
-    예) "챔버 내부(진공측)"에서는 윤활유 금지지만 "챔버 외부 대기측 구동부"에서는 허용된다.
-  영역 구분이 의미 없으면 "시스템 전체"라고 적어라.
-- hard: 위반 시 즉시 탈락이면 true, 감점 수준이면 false
-- rationale: 왜 그런지 물리적/운영적 이유 1~2문장 (일반론 금지)
-- violation_example: **이 제약을 모르는 사람이 흔히 제안하는 잘못된 해결책** 1문장
-  예) "구동부에 그리스를 도포한다 — 챔버 내부에서는 아웃가싱과 파티클로 불가"
-
---- 규칙 ---
-- 사용자가 이미 말한 것과 중복되면 만들지 마라.
-- 확신이 낮으면 hard=false, confidence<=0.6으로 두되 반드시 포함하라(검토 대상이 된다).
-- 이 도메인에서 "관행적으로 절대 하지 않는 것"을 taboo에 별도로 3~7개 나열하라.
-  각 항목은 {"item": "...", "zone": "...", "why": "..."} 형식.
-
-[출력 JSON]
-{"constraints":[{"statement":"","kind":"MUST_NOT_HAVE","category":"ENVIRONMENT","zone":"","parameter":"","operator":"none","value":"","unit":"","hard":true,"confidence":0.8,"rationale":"","violation_example":""}],
- "taboo":[{"item":"","zone":"","why":""}]}
+문제 유형에 맞는 내재 제약과 변경 가능한 관행을 구분한다.
+[산업] {{industry}} / 대상 {{target_system}} / 상위 {{super_system}}
+[환경] {{operating_env}} / 구성 {{components}} / 자원 {{resources}}
+[작용 범위·시간] {{operative_zone}} / {{operative_time}}
+[사용자가 확인한 제약] {{user_constraints}}
+물리 문제는 물질 양립성·경계조건, 정보 문제는 권한·일관성·인터페이스, 조직 문제는 이해관계자·의사결정 권한·운영·경제 조건을 점검한다.
+명시되지 않은 제약은 가설이다. hard=false, confidence<=0.6으로 작성한다. 숫자·법규·금지를 창작하지 않는다.
+관행과 선호는 바꿀 수 있는 설계 변수다. 관행을 절대 금기로 만들지 않는다. 각 제약의 zone은 공간 또는 행위자·의사결정 범위다.
+taboo는 이미 확인된 hard 제약의 constraint_id를 인용할 수 있을 때만 confirmed=true다. 개수를 채우지 않는다.
+{"constraints":[{"statement":"","kind":"PREFERENCE","category":"OPERATION","zone":"","parameter":"","operator":"none","value":"","unit":"","hard":false,"confidence":0.6,"rationale":"","violation_example":""}],"taboo":[{"item":"","zone":"","why":"","constraint_id":"","confirmed":false}]}

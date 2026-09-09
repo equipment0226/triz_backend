@@ -1,30 +1,17 @@
-여러 트랙에서 도출된 아이디어를 정리하라. 새 아이디어를 만들지 마라.
-
-[아이디어 전량]
-{{all_ideas}}
-
+여러 트랙의 후보를 모순 해소와 인과 근거로 통합한다. 새 해법·사실·출처를 창작하지 않는다.
+[아이디어] {{all_ideas}}
 [핵심 문제] {{key_problems}}
-[모순 목록] {{contradictions}}
-
-1. 중복 병합: 본질적으로 같은 아이디어는 하나로 합치고 source_refs에 모든 출처를 보존하라.
-   (표현만 다르고 메커니즘이 같으면 중복이다)
-2. 각 아이디어에 novelty_class 부여
-   - SAME_DOMAIN: 동일/유사 업종에서 실제로 쓰이는 방식
-   - CROSS_DOMAIN: 타 산업에서 검증된 방식의 이식
-   - NEW: 근거는 없으나 자원 분석상 성립 가능한 신규 접근
-3. addresses: 각 아이디어가 실제로 해소하는 모순 id를 연결하라. 아무 모순도 해소하지 못하면 제외하라.
-4. coverage_note와 gaps: 아래를 점검하고 부족하면 명시하라.
-   - 각 핵심 문제마다 아이디어가 2개 이상 있는가
-   - 서로 다른 트랙이 3종 이상 기여했는가
-   - novelty_class 3종이 모두 존재하는가
-   - 시스템 계층이 다양한가(부품 개선 / 시스템 재구성 / 상위시스템 활용)
-5. 총 아이디어가 {{min_ideas}}개 미만이거나 위 조건을 못 채우면 need_more=true.
-
-[분량 제한 — 출력이 잘리면 실패로 간주한다]
-- 아이디어는 최대 {{max_ideas}}개만 남긴다(파급력 순).
-- 각 idea 본문은 3문장 이내로 압축한다.
-- coverage_note는 4문장 이내.
-
-[출력 JSON]
-{"ideas":[{"keep_ids":[],"title":"","idea":"","track":"","source_refs":[],"uses_resources":[],"addresses":[],"novelty_class":"NEW","feasibility_hint":"MID"}],
- "coverage_note":"","gaps":[],"need_more":false}
+[모순] {{contradictions}}
+[인과 경로와 가설] {{causal_packet}}
+[재정의 신호] {{redefinition_hints}}
+[검색 자료: 미검증 조건을 반박하는 데 사용] {{evidence}}
+각 후보의 결합 원인, 개입 변수, 개선 목표 달성 경로와 악화 목표 보존 경로를 확인한다.
+같은 모순·같은 개입 변수·같은 작동 방식이면 병합한다. 모든 keep_ids, source_refs, 조건을 보존한다. 조건이 상충하면 unresolved로 설명하고 UNSUPPORTED로 둔다.
+resolution_status: RESOLVED(조건부로 양쪽 요구 성립 경로를 설명), TRADEOFF(절충·손실 이전), UNSUPPORTED(경로/근거 부족). RESOLVED는 실증 완료를 의미하지 않는다.
+핵심 가설이 틀렸을 때의 실패, 가장 강한 반박과 이를 구분할 관측을 적는다. 기존 해법이 다른 가설에서 유효하면 그 조건을 명시한다. 선행 문제 정의를 임의로 바꾸지 않는다.
+addresses는 실제 해소할 모순 ID만. 모순과 관련 없는 후보는 제외한다.
+최대 {{max_ideas}}개. {{min_ideas}}개는 탐색 목표일 뿐 수량·트랙·신규성 할당을 채우기 위해 약한 안을 남기지 않는다.
+need_more는 핵심 모순 미해결, 단일 가설 의존, 부적합 근거일 때 true. 개수만으로 true로 하지 않는다.
+novelty_class는 SAME_DOMAIN/CROSS_DOMAIN/NEW. 외부 검증 근거가 없으면 ‘검증됨’을 주장하지 않는다.
+각 idea는 2문장, 근거 필드는 각 1문장 이내.
+{"ideas":[{"keep_ids":[],"title":"","idea":"","track":"","source_refs":[],"uses_resources":[],"addresses":[],"novelty_class":"NEW","feasibility_hint":"MID","mechanism_key":"","mechanism":"","intervention_variable":"","conditions":[],"strongest_objection":"","validation_test":"","hypothesis_ids":[],"resolution_status":"UNSUPPORTED","resolution_argument":""}],"coverage_note":"","gaps":[],"need_more":false}

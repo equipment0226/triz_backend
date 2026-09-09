@@ -23,10 +23,10 @@
 
 마지막으로 다음을 정의하라.
 - problem_zone: 문제가 드러나는 영역
-- operative_zone: 작용이 실제로 일어나는 최소 공간 (경계·계면을 구체적으로)
+- operative_zone: 작용이 실제로 일어나는 최소 작용 범위 (공간·정보 경계 또는 의사결정 관계)
 - operative_time: 문제가 발생하는 시간 구간 (이전/발생중/이후 구분)
 - confirm_question: 사용자에게 물을 1문장 확인 질문
 
 [출력 JSON]
-{"candidates":[{"name":"","scope":"TARGET","description":"","diagram_mermaid":"","similarity_reason":""}],
+{"candidates":[{"name":"","scope":"TARGET","description":"","diagram_mermaid":"","similarity_reason":"","super_system":"","operative_zone":"","operative_time":""}],
  "problem_zone":"","operative_zone":"","operative_time":"","confirm_question":""}

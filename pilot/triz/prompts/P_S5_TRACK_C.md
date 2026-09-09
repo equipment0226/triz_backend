@@ -25,3 +25,6 @@
 
 [출력 JSON]
 {"applications":[{"standard_code":"","standard_title":"","transformation":"","resulting_su_field":"","title":"","idea":"","uses_resources":[]}]}
+
+[후속 단계에 보존할 근거]
+각 applications 또는 ideas 원소에 mechanism(인과 경로), mechanism_key(개입 변수+작동 방식), intervention_variable, conditions(필요 조건 배열), strongest_objection(가장 강한 반박), validation_test(반증할 관측), hypothesis_ids를 추가한다. 각 설명은 1문장 이내. 모르는 조건은 미확인이라고 표시한다. 원래 손실을 다른 사람·시점으로 전가한 것을 해결로 포장하지 않는다.

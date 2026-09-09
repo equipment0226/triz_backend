@@ -244,7 +244,7 @@ def chat_json(
     error = LLMError(f"LLM 응답 실패: {last_err}")
     error.usage = LLMResult(data=None, text=text, tier=tier, model=tc.model,
                            tokens_in=tokens_in, tokens_out=tokens_out, raw_error=last_err,
-                           meta={"requests": request_records}, cost_usd=_price(tier, tokens_in, tokens_out))
+                           meta={"requests": request_records, "attempt": attempts}, cost_usd=_price(tier, tokens_in, tokens_out))
     raise error
 
 

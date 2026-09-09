@@ -14,7 +14,7 @@
 
 --- 사고 절차 (각 원리마다 반복) ---
 1. 그 원리의 핵심 철학을 1문장으로 요약한다(interpretation).
-2. 그 철학을 대상 시스템의 **구체적 부품/공정/파라미터**에 대입한다.
+2. 그 철학을 대상 시스템의 **구체적 요소/규칙/공정/변수**에 대입한다.
    일반론 금지. 예) "분할 원리로 모듈화한다"(✗) / "일체형 구동 롤러축을 3구간 독립 구동으로 분할한다"(○)
 3. 반드시 [가용 자원] 중 하나 이상을 사용한다. 사용 자원명을 uses_resources에 적는다.
 4. 그 아이디어가 악화 파라미터를 다시 유발하지 않는지 스스로 반박한다(self_rebuttal).
@@ -24,7 +24,10 @@
 --- 출력 요건 ---
 - 원리당 최소 {{ideas_per_principle}}개의 구현안.
 - 각 idea는 2~4문장. 무엇을 어떻게 바꾸는지가 명확해야 한다.
-- title은 25자 이내의 기술 명칭 형태.
+- title은 25자 이내의 구체적인 변경안 명칭.
 
 [출력 JSON]
 {"applications":[{"principle_id":0,"principle_name":"","sub_principle":"","interpretation":"","title":"","idea":"","uses_resources":[],"self_rebuttal":"","feasibility_hint":"MID"}]}
+
+[후속 단계에 보존할 근거]
+각 applications 또는 ideas 원소에 mechanism(인과 경로), mechanism_key(개입 변수+작동 방식), intervention_variable, conditions(필요 조건 배열), strongest_objection(가장 강한 반박), validation_test(반증할 관측), hypothesis_ids를 추가한다. 각 설명은 1문장 이내. 모르는 조건은 미확인이라고 표시한다. 원래 손실을 다른 사람·시점으로 전가한 것을 해결로 포장하지 않는다.

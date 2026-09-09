@@ -163,6 +163,8 @@ def chat_json(
     request_records = []
 
     for attempt in range(attempts):
+        truncated = False
+        text = ""
         kwargs: dict[str, Any] = {
             "model": tc.model,
             "messages": messages,
@@ -223,9 +225,11 @@ def chat_json(
                     {"role": "user", "content": user},
                     {
                         "role": "user",
-                        "content": "직전 응답이 출력 한도를 넘어 잘렸다. 동일한 JSON 스키마를 유지하되 "
-                                   "항목 수를 60% 수준으로 줄이고 각 설명 문장을 3문장 이내로 압축해 "
-                                   "**완결된 JSON**으로 다시 출력하라.",
+                        "content": f"직전 응답이 {max_tokens or tc.max_tokens} 토큰 출력 한도를 넘어 잘렸다. "
+                                   "필수 필드, 요청된 모든 대상 ID, 사용자 수치·단위·금지사항을 유지하라. "
+                                   "중복 설명·원문 재인용·빈 선택 필드·들여쓰기를 제거하고 각 설명은 짧은 구절로 압축하라. "
+                                   "선택 항목만 줄일 수 있으며 필수 평가 대상과 사용자 제약을 누락하지 마라. "
+                                   "처음부터 **완결된 JSON**으로 다시 출력하라.",
                     },
                 ]
             elif text:  # 형식 오류 → 교정 요청

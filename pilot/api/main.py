@@ -7,7 +7,7 @@ import uuid
 import asyncio
 import hashlib
 import secrets
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, suppress
 from pathlib import Path
 from typing import Any, Optional
 
@@ -22,6 +22,16 @@ from triz.schema import Attachment
 from triz.settings import settings
 from triz.tools import docparse
 
+async def monitor_interrupted_runs():
+    while True:
+        await asyncio.sleep(30)
+        try:
+            await asyncio.to_thread(pipeline.recover_orphans)
+        except Exception:
+            import logging
+            logging.getLogger(__name__).exception('Execution recovery check failed')
+
+
 @asynccontextmanager
 async def lifespan(app):
     await asyncio.to_thread(pipeline.recover_orphans)
@@ -29,12 +39,18 @@ async def lifespan(app):
         import threading
         from triz.tools.vector_patents import warmup
         threading.Thread(target=warmup, name='patent-model-warmup', daemon=True).start()
-    if settings.embed_mcp:
-        from triz.mcp_server import mcp
-        async with mcp.session_manager.run():
+    monitor = asyncio.create_task(monitor_interrupted_runs())
+    try:
+        if settings.embed_mcp:
+            from triz.mcp_server import mcp
+            async with mcp.session_manager.run():
+                yield
+        else:
             yield
-    else:
-        yield
+    finally:
+        monitor.cancel()
+        with suppress(asyncio.CancelledError):
+            await monitor
 
 app = FastAPI(title="TRIZ Studio", version="2.0.0", lifespan=lifespan)
 WEB_DIR = settings.root.parent / "frontend" / "dist"

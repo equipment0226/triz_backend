@@ -97,6 +97,7 @@ constraints:
   treat_unknown_as: CONDITIONAL   # CONDITIONAL | PASS | FAIL
 
 intake:
+  extract_max_tokens: 4800    # 명시 제약·누적 답변을 보존할 출력 여유. 짧은 응답은 그대로 종료.
   min_confidence: 0.7
   max_clarify_rounds: 2
   max_clarify_questions: 4

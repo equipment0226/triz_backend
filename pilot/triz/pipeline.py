@@ -4,6 +4,7 @@ import logging
 import threading
 import uuid
 import time
+from datetime import datetime, timezone
 import httpx
 from . import events, nodes, store
 from .domain import deep_dive
@@ -28,7 +29,9 @@ PIPELINE = [
     ("s10_feedback", "피드백", nodes.s10_feedback),
 ]
 _RUNNING = {}
+_WAKEUPS = set()
 _thread_lock = threading.Lock()
+DISPATCH_GRACE_SECONDS = 180
 def stage_list():
     return [{"key": k, "label": label, "index": i} for i, (k, label, _) in enumerate(PIPELINE)]
 def envelope(state):
@@ -64,6 +67,41 @@ def _upgrade(state):
         if state.status != "COMPLETED":
             from .domain import sync_contract
             sync_contract(state)
+
+def _unresolved_failures(state):
+    """A successful answer-driven retry supersedes only its own earlier failure."""
+    resolved = state.scratch.setdefault("resolved_step_failures", {})
+    cutoff = state.scratch.get("resume_after_seq", 0)
+    baseline = state.scratch.get("last_stage_seq", 0)
+    def identity(step):
+        # Tracks and reviewers reuse node names for different logical invocations.
+        return step.stage, step.node, step.agent_id, step.prompt_id, step.label
+    replacements = {
+        identity(step): step for step in state.steps
+        if step.seq > cutoff and step.status in ("OK", "WARN", "SKIPPED")
+        and (step.status != "SKIPPED" or step.output_json)
+    } if cutoff else {}
+    failures = []
+    for step in state.steps:
+        if step.status != "FAILED" or step.seq <= baseline or step.step_id in resolved:
+            continue
+        replacement = replacements.get(identity(step)) if step.seq <= cutoff else None
+        if replacement:
+            resolved[step.step_id] = f"답변 반영 후 같은 분석 호출 완료: {replacement.step_id}"
+        else:
+            failures.append(step)
+    return failures
+
+def _mark_interrupted(state, reason, status="INTERRUPTED"):
+    state.status = status
+    state.scratch.setdefault("retry_notification_id", f"retry-{uuid.uuid4().hex}")
+    state.scratch["interruption_reason"] = reason
+
+def _emit_retry(state):
+    events.emit(state.run_id, "retry_required", status=state.status,
+                notification_id=state.scratch["retry_notification_id"],
+                message=state.scratch["interruption_reason"],
+                stage=state.scratch.get("stage_key", ""))
 def execute_stage(run_id, stage_index, epoch=0):
     """At-least-once deliveries: lock + expected stage/epoch prevent duplicate commits."""
     with store.run_lock(run_id):
@@ -85,22 +123,22 @@ def execute_stage(run_id, stage_index, epoch=0):
         key, label, fn = PIPELINE[stage_index]
         state.status = "RUNNING"
         state.scratch["stage_key"] = key
+        started = time.time()
+        state.scratch["execution_stage_active"] = {"epoch": epoch, "index": stage_index, "started_at": started}
+        state.scratch["execution_progress_at"] = started
         ctx.persist()
         events.emit(run_id, "stage_start", stage=key, label=label, index=stage_index, total=len(PIPELINE))
-        started = time.time()
         remaining = float(settings.cfg("run.max_wallclock_min", 30)) * 60 - state.scratch.get("active_seconds", 0)
         state.scratch["execution_deadline"] = started + max(0, remaining)
         try:
             if remaining <= 0:
                 raise AbortRun("분석 실행 시간 예산에 도달했습니다. 이어서 실행해 주세요.")
             fn(ctx)
-            resolved = state.scratch.get("resolved_step_failures", {})
-            failed = [s for s in state.steps if s.status == "FAILED" and s.seq > state.scratch.get("last_stage_seq", 0)
-                      and s.step_id not in resolved]
-            if failed:
+            if _unresolved_failures(state):
                 raise RuntimeError("필수 분석 호출이 실패했습니다. 설정을 확인하고 이어서 실행해 주세요.")
             state.control.stage_index += 1
             state.scratch["last_stage_seq"] = len(state.steps)
+            state.scratch.pop("resume_after_seq", None)
             state.status = "COMPLETED" if state.control.stage_index == len(PIPELINE) else "RUNNING"
             store.archive(run_id, f"stage-{epoch}-{stage_index}.json", state.model_dump(mode="json"))
             events.emit(run_id, "stage_end", stage=key, index=state.control.stage_index)
@@ -109,11 +147,13 @@ def execute_stage(run_id, stage_index, epoch=0):
             state.status = "WAITING_HUMAN"
             events.emit(run_id, "interrupt", kind=exc.request.kind, title=exc.request.title, stage=key)
         except AbortRun as exc:
-            state.status = "INTERRUPTED"
+            reason = ("분석 실행 예산에 도달했습니다. 실행 설정을 확인하고 이어서 실행해 주세요."
+                      if "예산" in str(exc) else "분석이 중단되었습니다. 저장된 단계에서 다시 이어서 실행해 주세요.")
+            _mark_interrupted(state, reason)
             ctx.warn(str(exc))
         except Exception as exc:
             log.exception("Stage failed: %s", key)
-            state.status = "FAILED"
+            _mark_interrupted(state, "이 단계의 분석을 완료하지 못했습니다. 저장된 내용으로 다시 시도해 주세요.", "FAILED")
             state.control.errors.append(str(exc))
             events.emit(run_id, "stage_error", stage=key, message="이 단계의 분석을 완료하지 못했습니다.")
         finally:
@@ -121,7 +161,11 @@ def execute_stage(run_id, stage_index, epoch=0):
             state.scratch["active_seconds"] = state.scratch.get("active_seconds", 0) + elapsed
             state.scratch.setdefault("stage_timings", []).append({"stage": key, "seconds": round(elapsed, 3), "status": state.status})
             state.scratch.pop("execution_deadline", None)
+            state.scratch.pop("execution_stage_active", None)
+            state.scratch["execution_progress_at"] = time.time()
         ctx.persist()
+        if state.status in ("FAILED", "INTERRUPTED"):
+            _emit_retry(state)
         if state.status == "COMPLETED":
             events.emit(run_id, "done", cost=state.cost.total_usd)
         return envelope(state)
@@ -135,29 +179,72 @@ def _run_loop(run_id):
                 return
     finally:
         with _thread_lock:
-            _RUNNING.pop(run_id, None)
+            if _RUNNING.get(run_id) is threading.current_thread():
+                _RUNNING.pop(run_id, None)
+                if run_id in _WAKEUPS:
+                    _WAKEUPS.discard(run_id)
+                    _spawn_local(run_id)
+
+def _spawn_local(run_id):
+    """Caller holds _thread_lock, including the old worker's final handoff."""
+    worker = threading.Thread(target=_run_loop, args=(run_id,), daemon=True)
+    _RUNNING[run_id] = worker
+    try:
+        worker.start()
+    except Exception:
+        _RUNNING.pop(run_id, None)
+        raise
+
+def _dispatch_failed(run_id, dispatch):
+    """Never overwrite a stage that started despite a webhook timeout."""
+    try:
+        with store.run_lock(run_id):
+            state = store.load_state(run_id)
+            if (not state or state.status != "QUEUED" or state.pending
+                    or state.scratch.get("dispatch_request") != dispatch
+                    or state.scratch.get("execution_epoch", 0) != dispatch["epoch"]
+                    or state.control.stage_index != dispatch["index"]):
+                return False
+            _mark_interrupted(state, "분석 실행 요청을 전달하지 못했습니다. 다시 시도해 주세요.")
+            store.save_state(state)
+            _emit_retry(state)
+            return True
+    except RuntimeError as exc:
+        if str(exc) != "Run is busy":
+            raise
+        return False  # An executing worker owns the state; recovery handles a later loss.
 def start(run_id):
     if settings.orchestrator == "n8n":
-        if not settings.n8n_webhook_url or not settings.service_token:
-            raise RuntimeError("n8n webhook과 서비스 인증 설정이 필요합니다.")
-        state = store.load_state(run_id)
-        state.status = "QUEUED"
-        store.save_state(state)
+        with store.run_lock(run_id):
+            state = store.load_state(run_id)
+            if not state:
+                raise ValueError("실행 기록이 없습니다.")
+            if state.pending or state.status in ("FAILED", "COMPLETED", "INTERRUPTED"):
+                return
+            if state.scratch.get("execution_stage_active"):
+                return
+            dispatch = {"id": uuid.uuid4().hex, "epoch": state.scratch.get("execution_epoch", 0),
+                        "index": state.control.stage_index, "started_at": time.time()}
+            state.status = "QUEUED"
+            state.scratch["dispatch_request"] = dispatch
+            state.scratch["execution_progress_at"] = dispatch["started_at"]
+            store.save_state(state)
+            message = envelope(state)
         try:
-            response = httpx.post(settings.n8n_webhook_url, json=envelope(state),
+            if not settings.n8n_webhook_url or not settings.service_token:
+                raise RuntimeError("n8n webhook과 서비스 인증 설정이 필요합니다.")
+            response = httpx.post(settings.n8n_webhook_url, json=message,
                 headers={"Authorization": f"Bearer {settings.service_token}"}, timeout=15)
             response.raise_for_status()
         except Exception:
-            state.status = "INTERRUPTED"
-            store.save_state(state)
-            raise
+            if _dispatch_failed(run_id, dispatch):
+                raise
         return
     with _thread_lock:
         if run_id in _RUNNING:
+            _WAKEUPS.add(run_id)
             return
-        worker = threading.Thread(target=_run_loop, args=(run_id,), daemon=True)
-        _RUNNING[run_id] = worker
-        worker.start()
+        _spawn_local(run_id)
 def _mutate(run_id, apply):
     with store.run_lock(run_id):
         state = store.load_state(run_id)
@@ -168,6 +255,9 @@ def _mutate(run_id, apply):
             return False
         state.scratch["execution_epoch"] = state.scratch.get("execution_epoch", 0) + 1
         state.status = "RUNNING"
+        for key in ("retry_notification_id", "interruption_reason", "execution_stage_active", "dispatch_request"):
+            state.scratch.pop(key, None)
+        state.scratch["execution_progress_at"] = time.time()
         store.save_state(state)
     start(run_id)
     return True
@@ -183,6 +273,7 @@ def resume(run_id, payload):
             if not isinstance(decisions, dict) or set(decisions) != expected or any(v not in ('accept', 'drop') for v in decisions.values()):
                 raise ValueError("보류된 모든 해결책의 유지·제외 판정을 선택해 주세요.")
         state.scratch["resume_payload"] = payload
+        state.scratch["resume_after_seq"] = len(state.steps)
         state.pending = None
         return True
     return _mutate(run_id, apply)
@@ -237,14 +328,49 @@ def inject_agent(run_id, node, role_name, instruction):
         store.save_state(state)
     return True
 def recover_orphans():
-    if settings.orchestrator == "n8n":
-        return []  # n8n owns worker recovery; API startup must not interrupt another worker.
+    """Detect lost workers under the same lock that protects stage execution.
+
+    A stage marker with a free lock proves its worker exited. Dispatch and stage
+    handoffs get a grace period; a healthy, long-running stage keeps its lock.
+    """
+    from sqlalchemy import select
+    store.init()
+    with store.engine.connect() as connection:
+        rows = connection.execute(select(store.runs.c.run_id, store.states.c.updated_at)
+            .join(store.states, store.runs.c.run_id == store.states.c.run_id)
+            .where(store.runs.c.status.in_(("RUNNING", "QUEUED")))).mappings().all()
     recovered = []
-    for row in store.list_runs(1000):
-        if row["status"] == "RUNNING" and row["run_id"] not in _RUNNING:
-            state = store.load_state(row["run_id"])
-            _upgrade(state)
-            state.status = "INTERRUPTED"
-            store.save_state(state)
-            recovered.append(state.run_id)
+    for row in rows:
+        try:
+            with store.run_lock(row["run_id"]):
+                with _thread_lock:
+                    if row["run_id"] in _RUNNING:
+                        continue
+                state = store.load_state(row["run_id"])
+                if not state or state.pending or state.status not in ("RUNNING", "QUEUED"):
+                    continue
+                active = state.scratch.get("execution_stage_active") or state.scratch.get("execution_deadline")
+                last_progress = state.scratch.get("execution_progress_at")
+                if not last_progress:
+                    # Legacy runs do not have progress markers yet. Read again
+                    # under the lock so a just-completed handoff is never stale.
+                    with store.engine.connect() as connection:
+                        updated = connection.execute(select(store.states.c.updated_at)
+                            .where(store.states.c.run_id == state.run_id)).scalar()
+                    modified = datetime.fromisoformat(updated)
+                    if modified.tzinfo is None:
+                        modified = modified.replace(tzinfo=timezone.utc)
+                    last_progress = modified.timestamp()
+                if not active and time.time() - last_progress < DISPATCH_GRACE_SECONDS:
+                    continue
+                _upgrade(state)
+                state.scratch.pop("execution_stage_active", None)
+                state.scratch.pop("execution_deadline", None)
+                _mark_interrupted(state, "분석 실행이 중단되었습니다. 저장된 단계에서 이어서 실행해 주세요.")
+                store.save_state(state)
+                _emit_retry(state)
+                recovered.append(state.run_id)
+        except RuntimeError as exc:
+            if str(exc) != "Run is busy":
+                raise
     return recovered

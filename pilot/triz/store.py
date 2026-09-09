@@ -156,19 +156,31 @@ def runs_page(page=1, search='', user_id=None, public=False):
     return dict(items=[{k:r.get(k) for k in fields} for r in rows], total=total, page=page, page_size=20)
 
 def pending_notifications(user_id):
-    """Read only this user's waiting requests, without rendering full report views."""
+    """Read the owner's actionable requests and retry notices without rendering reports."""
     init()
     with engine.connect() as c:
-        rows = c.execute(select(runs.c.run_id, runs.c.title, states.c.state_json)
+        rows = c.execute(select(runs.c.run_id, runs.c.title, runs.c.status, states.c.state_json)
             .join(states, runs.c.run_id == states.c.run_id)
-            .where(runs.c.user_id == (user_id or 'local'), runs.c.status == 'WAITING_HUMAN')
+            .where(runs.c.user_id == (user_id or 'local'),
+                   runs.c.status.in_(['WAITING_HUMAN', 'FAILED', 'INTERRUPTED']))
             .order_by(runs.c.started_at.desc())).mappings().all()
     out = []
     for row in rows:
-        pending = json.loads(row['state_json']).get('pending')
+        state = json.loads(row['state_json'])
+        pending = state.get('pending')
         if pending and pending.get('interrupt_id'):
             out.append(dict(id=pending['interrupt_id'], run_id=row['run_id'], project_title=row['title'],
                 title=pending.get('title') or '분석 검토', kind=pending.get('kind', 'REVIEW')))
+        elif row['status'] in ('FAILED', 'INTERRUPTED'):
+            scratch = state.get('scratch') or {}
+            # Legacy failures need stable IDs too; subsequent retries increment epoch.
+            notice_id = scratch.get('retry_notification_id') or (
+                f"retry:{row['run_id']}:{scratch.get('execution_epoch', 0)}:"
+                f"{state.get('control', {}).get('stage_index', 0)}:{row['status']}")
+            out.append(dict(id=notice_id, run_id=row['run_id'], project_title=row['title'],
+                title='분석 재시도', kind='RETRY_REQUIRED', status=row['status'],
+                description='분석이 중단되었습니다. 저장된 내용에서 이어서 실행해 주세요.',
+                action_label='이어서 확인'))
     return out
 
 def run_owner(run_id):

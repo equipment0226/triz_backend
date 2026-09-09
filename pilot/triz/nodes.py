@@ -87,8 +87,11 @@ def s1_extract(ctx: RunContext) -> None:
         vars={"raw_query": st.raw_query,
               "attachment_facts": digest.attachment_facts(st),
               "clarify_history": digest.clarify_history(st)},
-        default={},
-    ) or {}
+        max_tokens=int(cfg("intake.extract_max_tokens", 4800)),
+        default=None,
+    )
+    if not isinstance(data, dict) or not data:
+        raise AbortRun("문제 정보를 추출하지 못했습니다. 답변은 저장되어 있으니 이어서 실행해 주세요.")
 
     d = data.get("domain") or {}
     previous_contract = st.domain
@@ -1018,10 +1021,10 @@ def _merge(ctx: RunContext) -> bool:
                 source_ref=" + ".join(dict.fromkeys(i.source_ref for i in keep if i.source_ref)),
                 title=m.get("title") or (base.title if base else ""),
                 idea=m.get("idea") or (base.idea if base else ""),
-                uses_resources=m.get("uses_resources") or (base.uses_resources if base else []),
-                addresses=m.get("addresses") or (base.addresses if base else []),
+                uses_resources=list(dict.fromkeys(_text_list(m.get("uses_resources")) + [v for i in keep for v in i.uses_resources])),
+                addresses=m.get("addresses") or list(dict.fromkeys(v for i in keep for v in i.addresses)),
                 novelty_class=m.get("novelty_class") or (base.novelty_class if base else "NEW"),
-                feasibility_hint=m.get("feasibility_hint") or "MID",
+                feasibility_hint=m.get("feasibility_hint") or base.feasibility_hint,
                 detail={"source_details": prior_details},
                 source_idea_ids=list(dict.fromkeys(k for i in keep for k in (i.source_idea_ids or [i.id]))),
                 mechanism_key=m.get("mechanism_key") or base.mechanism_key or base.id,

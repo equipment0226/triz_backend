@@ -128,6 +128,7 @@ def deep_dive(ctx):
     ctx.set_stage("S0_RESEARCH")
     payload = ctx.resume_payload()
     if payload is not None:
+        previous_seq = len(state.steps)
         original_questions = state.scratch.get("deep_dive", {}).get("questions", [])
         profile = state.scratch["industry_profile"]
         previous_route = (profile["industry_id"], profile["difficulty"])
@@ -153,6 +154,14 @@ def deep_dive(ctx):
             {"question": q.get("question", ""), "answer": a}
             for q, a in zip(original_questions, payload.get("answers", [])) if isinstance(q, dict)]
         state.scratch["deep_dive"]["skipped"] = bool(payload.get("skip"))
+        # A catalog fallback is completed by the user's explicit domain/answer
+        # confirmation. Keep the failed call intact and record the alternate path;
+        # a NEW failed generation after a changed route must still stop execution.
+        resolved = state.scratch.setdefault("resolved_step_failures", {})
+        for step in state.steps:
+            if (step.node == "s0_deep_dive" and step.status == "FAILED"
+                    and state.scratch.get("last_stage_seq", 0) < step.seq <= previous_seq):
+                resolved[step.step_id] = "catalog context confirmed with user answers; no generated research claimed"
         return
     profile = sync_contract(state)
     data = agent.run_agent(ctx, node="s0_deep_dive", label="산업·메커니즘 심층 검토",

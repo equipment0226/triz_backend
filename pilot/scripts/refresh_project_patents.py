@@ -18,7 +18,6 @@ from sqlalchemy import select
 from triz import evidence, render, store
 from triz.context import RunContext
 from triz.settings import settings
-from triz.tools import bigquery_patents as bq
 
 
 def emit(**data):
@@ -114,7 +113,7 @@ def apply_target(target, query_results, ticket, folder):
         before_patents = sum(e.source_type == 'PATENT' for e in state.evidence)
         ctx = RunContext(state)
         state.scratch['patent_refresh'] = dict(ticket=ticket, status='MATCHING')
-        step = ctx.start_step(node='s9_patent_backfill', label='BigQuery 특허 재검색',
+        step = ctx.start_step(node='s9_patent_backfill', label='특허 검색 저장소 재검색',
             stage=state.control.current_stage, agent_id='patent_researcher', prompt_id='', tier='')
         step.input_slice = {'ticket':ticket, 'queries':list(target['plans'].values())}
         cache = state.scratch.setdefault('search_cache', {})
@@ -184,8 +183,8 @@ def main():
             unique_queries=len(plans), batch_sizes=[len(g) for g in groups])
         if not args.execute:
             return
-        if settings.patent_search_provider != 'bigquery':
-            raise ValueError('BigQuery must be selected')
+        if settings.patent_search_provider not in ('vector', 'bigquery'):
+            raise ValueError('A batch patent provider must be selected')
         folder = settings.storage_dir / 'maintenance' / args.ticket
         folder.mkdir(parents=True, exist_ok=True)
         manifest_path = folder / 'manifest.json'
@@ -196,7 +195,8 @@ def main():
         else:
             write(manifest_path, dict(targets=targets, groups=groups))
         # This maintenance process batches up to 64 queries; normal app timeout is unchanged.
-        settings.bigquery_timeout = max(settings.bigquery_timeout, 300)
+        if settings.patent_search_provider == 'bigquery':
+            settings.bigquery_timeout = max(settings.bigquery_timeout, 300)
         all_results = {}
         for index, group in enumerate(groups):
             output = folder / f'batch-{index}.json'
@@ -204,7 +204,8 @@ def main():
                 results = json.loads(output.read_text(encoding='utf-8'))
             else:
                 emit(phase='QUERY_BATCH', batch=index, queries=len(group))
-                results = bq.search_batch([plans[k]['query'] for k in group], 6)
+                from triz.tools.scholar import patent_search_batch
+                results = patent_search_batch([plans[k]['query'] for k in group], 6)
                 if any(d['status'] not in ('OK', 'EMPTY') for _,d in results):
                     emit(phase='QUERY_FAILED', batch=index, diagnostics=[d for _,d in results[:1]])
                     raise RuntimeError('Query batch incomplete; report changes not started')

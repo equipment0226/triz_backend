@@ -3,6 +3,15 @@ from . import visuals
 from .labels import build_label_map, humanize
 from .render import QUADRANT_KO
 
+def object_phrase(label):
+    """Choose the object particle using the stage label's final Hangul syllable."""
+    text = label.rstrip()
+    last = ord(text[-1]) if text else 0
+    if 0xAC00 <= last <= 0xD7A3:
+        return text + ('을' if (last - 0xAC00) % 28 else '를')
+    return text + ' 단계를'
+
+
 def view(state):
     from .pipeline import stage_list
     from .report_content import sections
@@ -32,7 +41,7 @@ def view(state):
     index = state.control.stage_index
     message = (state.pending.title if state.pending else "보고서가 완성되었어요. 해결안을 검토해 주세요." if state.report
                else "분석이 잠시 멈췄어요. 설정을 확인한 뒤 이어서 진행할 수 있어요." if state.status in ("FAILED", "INTERRUPTED")
-               else f"{steps[min(index, len(steps)-1)]['label']}을 진행하고 있어요.")
+               else f"{object_phrase(steps[min(index, len(steps)-1)]['label'])} 진행하고 있어요.")
     diagrams = [f for f in visuals.figures(report) if f['key'] != 'nine-windows']
     return dict(run_id=state.run_id, title=state.scratch.get("title") or state.raw_query[:60],
         query=state.raw_query, industry=state.domain.industry, system=state.domain.target_system,

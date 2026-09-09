@@ -10,6 +10,9 @@ def _width(text):
     return sum(2 if unicodedata.east_asian_width(c) in 'WF' else 1 for c in text)
 
 def _table_columns(tokens):
+    for token in tokens:
+        if token.type in ('th_open', 'td_open'):
+            token.attrSet('style', 'text-align:center;vertical-align:middle')
     for start, token in enumerate(tokens):
         if token.type != 'table_open': continue
         rows, row, headers = [], [], []
@@ -37,7 +40,7 @@ def _table_columns(tokens):
             weights = [w / total * 100 for w in weights]
         token.meta = {'columns': weights}
 
-def render_markdown(body):
+def render_markdown(body, emphasize_tables=True):
     parser = MarkdownIt('commonmark', {'html': False}).enable('table')
     def table_open(tokens, idx, options, env):
         token = tokens[idx]
@@ -45,9 +48,30 @@ def render_markdown(body):
         cols = ''.join(f'<col style="width:{width:.3f}%">' for width in token.meta.get('columns', []))
         return f'<table class="{cls}"><colgroup>{cols}</colgroup>\n'
     parser.renderer.rules['table_open'] = table_open
+    from .visuals import TERM_COLORS
+    from html import escape
+    def styled_text(tokens, idx, options, env):
+        text = tokens[idx].content
+        color = env.get('cell_color') if emphasize_tables else None
+        return f'<strong class="report-term" style="color:{color}">{escape(text)}</strong>' if color and text.strip() else escape(text)
+    parser.renderer.rules['text'] = styled_text
+    def cell_open(tokens, idx, options, env):
+        # Decide using the entire cell, before Markdown splits bold text or links
+        # into separate tokens. A word inside a sentence must stay uncolored.
+        inline = tokens[idx + 1] if idx + 1 < len(tokens) else None
+        children = inline.children or [] if inline and inline.type == 'inline' else []
+        text = ''.join('\n' if child.type in ('softbreak','hardbreak') else child.content for child in children)
+        env['cell_color'] = TERM_COLORS.get(text.strip())
+        return parser.renderer.renderToken(tokens, idx, options, env)
+    def cell_close(tokens, idx, options, env):
+        env['cell_color'] = None
+        return parser.renderer.renderToken(tokens, idx, options, env)
+    for tag in ('th', 'td'):
+        parser.renderer.rules[tag + '_open'] = cell_open
+        parser.renderer.rules[tag + '_close'] = cell_close
     tokens = parser.parse(body)
     _table_columns(tokens)
-    return parser.renderer.render(tokens, parser.options, {})
+    return parser.renderer.render(tokens, parser.options, {'cell_color':None})
 
 def sections(state, figures):
     from .render import render_report
@@ -75,7 +99,7 @@ def sections(state, figures):
         content = []
         for piece in re.split('(' + prefix + r'\d+END)', body):
             if piece in blocks: content.append(blocks[piece])
-            elif piece.strip(): content.append({'type': 'html', 'html': render_markdown(piece)})
+            elif piece.strip(): content.append({'type': 'html', 'html': render_markdown(piece, emphasize_tables=not bool(re.search('Executive Summary|요약', title, re.I)))})
         out.append({'key': f'report-{i}', 'title': title.strip(), 'blocks': content})
     missing = set(by_key) - used
     if missing:

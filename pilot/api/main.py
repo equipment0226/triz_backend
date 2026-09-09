@@ -11,7 +11,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any, Optional
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Header, Depends, Request
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Header, Depends, Request, Query
 from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse, JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -25,6 +25,10 @@ from triz.tools import docparse
 @asynccontextmanager
 async def lifespan(app):
     await asyncio.to_thread(pipeline.recover_orphans)
+    if settings.patent_search_provider == 'vector' and settings.qdrant_url:
+        import threading
+        from triz.tools.vector_patents import warmup
+        threading.Thread(target=warmup, name='patent-model-warmup', daemon=True).start()
     if settings.embed_mcp:
         from triz.mcp_server import mcp
         async with mcp.session_manager.run():
@@ -214,13 +218,21 @@ async def create_run(
 
 
 @app.get("/api/runs")
-def list_runs(request: Request) -> list[dict]:
+def list_runs(request: Request, page: int | None = Query(None, ge=1), search: str = Query('', max_length=200)):
+    if page is not None:
+        return store.runs_page(page, search, user_id=getattr(request.state, 'user_id', 'local'))
     return store.list_runs(user_id=getattr(request.state, "user_id", None))
 
+@app.get('/api/notifications')
+def notifications(request: Request):
+    return store.pending_notifications(getattr(request.state, 'user_id', 'local'))
+
 @app.get("/api/public/runs")
-def public_runs() -> list[dict]:
+def public_runs(page: int | None = Query(None, ge=1), search: str = Query('', max_length=200)):
     """The beta's explicitly public, read-only case library; no account/session data."""
-    fields = ('run_id', 'title', 'industry', 'target_system', 'status', 'started_at')
+    if page is not None:
+        return store.runs_page(page, search, public=True)
+    fields = ('run_id', 'title', 'mode', 'industry', 'target_system', 'status', 'started_at')
     return [{key: row.get(key) for key in fields} for row in store.public_runs_list()]
 
 @app.get("/api/public/runs/{run_id}/view")
@@ -351,15 +363,16 @@ def get_report(run_id: str, format: str = "md"):
         from triz import render
         if format == "html":
             return HTMLResponse(render.render_html(state), headers={"Content-Disposition": 'attachment; filename="triz-report.html"'})
-        folder = settings.storage_dir / "runs" / run_id
-        if not (folder / "report.html").exists():
-            render.save(state, state.report.markdown)
+        from triz.report_style import report_state
+        from triz.visuals import figures
+        current = report_state(state)
         import io, zipfile
         buffer = io.BytesIO()
         with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as z:
-            for p in folder.iterdir():
-                if p.suffix in (".svg", ".html", ".md"):
-                    z.write(p, p.name)
+            z.writestr('report.html', render.render_html(current))
+            z.writestr('report.md', render.render_report(current, current.report.narrative))
+            for figure in figures(current):
+                z.writestr(figure['key'] + '.svg', figure['svg'])
         return StreamingResponse(iter([buffer.getvalue()]), media_type="application/zip",
                                  headers={"Content-Disposition": 'attachment; filename="triz-report.zip"'})
     if format == "file":

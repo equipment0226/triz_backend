@@ -14,3 +14,9 @@ ARIZ-85C Part 7: 해결안 검증.
 [출력 JSON]
 {"steps":[{"step_code":"7.1","step_title":"","output":"","status":"DONE"}],
  "verdicts":[{"idea_title":"","ifr_satisfaction_pct":0,"is_tradeoff":false,"side_effects":[],"constraint_ok":true,"note":""}]}
+
+
+[보고서용 구조화 출력]
+각 steps 원소에 table_columns(열 이름 문자열 배열)와 table_rows(문자열의 2차원 배열)를 추가하라. 각 행의 셀 수는 열 수와 같아야 한다.
+7.1은 해결안/IFR 충족도/근거, 7.2는 해결안/모순 해소 또는 절충/근거, 7.3은 해결안/부작용/발생 가능성/대응책, 7.4는 해결안/제약/충족 여부/위반 내용으로 나눈다.
+output의 완성된 분석 문장도 그대로 유지하라. 표는 그 분석의 비교 가능한 항목을 나누는 용도이며 원문에 없는 사실을 만들지 마라. 불명확한 값은 “미확인”으로 표시하라.

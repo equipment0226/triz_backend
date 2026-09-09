@@ -392,7 +392,15 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
     if any(e.url for e in state.evidence):
         applied.append("문헌·특허 검색")
 
+    from .report_groups import matrix_groups, separation_groups, effect_groups
+    from .ariz_report import build as ariz_build, value_text as ariz_text
+    from .visuals import ordered_trends
+    matrix, unlinked_principles = matrix_groups(state)
     md = tpl.render(
+        matrix_groups=matrix, unlinked_principles=unlinked_principles,
+        separation_groups=separation_groups(state), effect_groups=effect_groups(state),
+        ariz_report=ariz_build(state), ariz_text=ariz_text,
+        ordered_trends=ordered_trends(state.solve.trend_apps),
         s=state, d=digest, narrative=narrative or {}, scheme=scheme,
         concept_map=concept_map, evidence_map=evidence_map, check_map=check_map,
         applied_tools=applied,

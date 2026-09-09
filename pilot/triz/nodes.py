@@ -51,7 +51,8 @@ def s0_bootstrap(ctx: RunContext) -> None:
         mode = (data.get("suggested_mode") or cfg("run.default_mode", "FULL")).upper()
         if mode in RunMode.__members__:
             st.control.mode = RunMode[mode]
-    st.scratch["title"] = data.get("title") or st.raw_query[:40]
+    from .titles import ensure_title
+    st.scratch["title"] = ensure_title(ctx, data.get("title"))
     if data.get("domain_guess"):
         st.domain.industry = data["domain_guess"]
 
@@ -529,6 +530,7 @@ def _track_a(ctx: RunContext) -> None:
         if not ids:
             continue
         st.solve.matrix_lookups.append(MatrixLookup(
+            source_tc_id=tc.id,
             improving_param_id=tc.improving_param_id, worsening_param_id=tc.worsening_param_id,
             principle_ids=ids, source=source, note=note))
 
@@ -555,6 +557,7 @@ def _track_a(ctx: RunContext) -> None:
         apps = d.get("applications") or []
         for a in apps:
             a.setdefault("principle_name", K.principle_name(a.get("principle_id", 0)))
+            a['source_tc_id'] = tc.id
             a["ref"] = f"원리{a.get('principle_id')} {a.get('principle_name')}"
         st.solve.principle_apps += apps
         _add_ideas(st, "A_MATRIX", apps, ref_key="ref", addresses=[tc.id])
@@ -576,6 +579,8 @@ def _track_b(ctx: RunContext) -> None:
                   "separation_block": K.separation_block()},
             default={},
         ) or {}
+        for application in d.get('applications') or []:
+            application['source_pc_id'] = pc.id
         apps = [a for a in (d.get("applications") or []) if a.get("applicable")]
         for a in apps:
             a["ref"] = f"{a.get('kind')} 분리"
@@ -603,6 +608,7 @@ def _track_c(ctx: RunContext) -> None:
         apps = d.get("applications") or []
         for a in apps:
             a["ref"] = f"표준해 {a.get('standard_code')}"
+            a['source_su_id'] = su.id
         st.solve.standard_apps += apps
         _add_ideas(st, "C_STANDARDS", apps, ref_key="ref")
 
@@ -712,6 +718,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
             default={},
         ) or {}
         run.steps += _ariz_steps(p7)
+        run.verdicts = [v for v in (p7.get('verdicts') or []) if isinstance(v, dict)]
         for v in (p7.get("verdicts") or []):
             if v.get("is_tradeoff"):
                 ctx.warn(f"ARIZ 7.2: '{v.get('idea_title')}'는 모순 해소가 아니라 절충으로 판정됨")

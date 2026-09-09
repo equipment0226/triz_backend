@@ -358,6 +358,7 @@ class DefinitionBundle(BaseModel):
 
 # ────────────────────────────────────────────── S5
 class MatrixLookup(BaseModel):
+    source_tc_id: str = ""
     improving_param_id: int = 0
     worsening_param_id: int = 0
     principle_ids: list[int] = []
@@ -383,9 +384,12 @@ class ARIZStep(BaseModel):
     step_title: str = ""
     output: str = ""
     status: Literal["DONE", "SKIPPED", "BLOCKED"] = "DONE"
+    table_columns: list[str] = []
+    table_rows: list[list[str]] = []
 
 
 class ARIZRun(BaseModel):
+    verdicts: list[dict[str, Any]] = []
     steps: list[ARIZStep] = []
     conflict_pair: str = ""
     operative_zone: str = ""

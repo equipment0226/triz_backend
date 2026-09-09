@@ -95,7 +95,19 @@ class Settings:
         self.tavily_key = _env("TAVILY_API_KEY")
         self.patentsview_key = _env("PATENTSVIEW_API_KEY")
         self.free_patent_search = _env("FREE_PATENT_SEARCH", "true").lower() == "true"
-        self.patent_search_provider = _env("PATENT_SEARCH_PROVIDER", "legacy").lower()
+        self.patent_search_provider = _env("PATENT_SEARCH_PROVIDER", "vector").lower()
+        self.patent_database_url = _env("PATENT_DATABASE_URL")
+        if self.patent_database_url.startswith("mysql://"):
+            self.patent_database_url = self.patent_database_url.replace("mysql://", "mysql+pymysql://", 1)
+        self.qdrant_url = _env("QDRANT_URL")
+        self.qdrant_api_key = _env("QDRANT_API_KEY")
+        self.patent_collection = _env("PATENT_VECTOR_COLLECTION", "patents_e5_small_v1")
+        self.patent_embedding_model = "intfloat/multilingual-e5-small"
+        self.patent_embedding_threads = _env_i("PATENT_EMBEDDING_THREADS", 2)
+        self.patent_search_timeout = _env_i("PATENT_SEARCH_TIMEOUT_SECONDS", 20)
+        self.patent_min_score = _env_f("PATENT_MIN_SCORE", 0.75)
+        self.patent_db_max_bytes = _env_i("PATENT_DB_MAX_BYTES", 200_000_000_000)
+        self.patent_vector_max_points = _env_i("PATENT_VECTOR_MAX_POINTS", 10_000_000)
         self.bigquery_project_id = _env("BIGQUERY_PROJECT_ID")
         self.bigquery_location = _env("BIGQUERY_LOCATION", "US")
         self.bigquery_credentials_json = _env("GOOGLE_SERVICE_ACCOUNT_JSON")

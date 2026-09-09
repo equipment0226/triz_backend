@@ -324,6 +324,8 @@ PROVIDERS = {
 
 
 def bigquery_patents(query: str, k: int = 4) -> list[dict]:
+    if settings.patent_search_provider == 'vector':
+        return vector_patents(query, k)
     from .bigquery_patents import search_batch
     return search_batch([query], k)[0][0]
 
@@ -331,12 +333,31 @@ def bigquery_patents(query: str, k: int = 4) -> list[dict]:
 PROVIDERS['bigquery_patents'] = bigquery_patents
 
 
+def vector_patents(query: str, k: int = 4) -> list[dict]:
+    from .vector_patents import search_batch
+    return search_batch([query], k)[0][0]
+
+
+PROVIDERS['vector_patents'] = vector_patents
+
+
+def patent_search_batch(queries, k=6):
+    if settings.patent_search_provider == 'vector':
+        from .vector_patents import search_batch
+    elif settings.patent_search_provider == 'bigquery':
+        from .bigquery_patents import search_batch
+    else:
+        raise ValueError('Batch patent provider not configured')
+    return search_batch(queries, k)
+
+
 def enabled_providers() -> list[str]:
     names = [p.strip().lower() for p in settings.evidence_providers if p.strip()]
     use_bigquery = settings.patent_search_provider == 'bigquery'
-    out = ['bigquery_patents'] if use_bigquery else ["google_patents"] if settings.free_patent_search else []
+    use_vector = settings.patent_search_provider == 'vector'
+    out = ['vector_patents'] if use_vector else ['bigquery_patents'] if use_bigquery else ["google_patents"] if settings.free_patent_search else []
     for n in names:
-        if use_bigquery and n in ('google_patents', 'patentsview', 'tavily'):
+        if (use_bigquery or use_vector) and n in ('google_patents', 'patentsview', 'tavily', 'bigquery_patents', 'vector_patents'):
             continue
         if n == "patentsview" and not settings.patentsview_key:
             continue
@@ -352,6 +373,9 @@ def search(query: str, k: int = 4, providers: list[str] | None = None) -> list[d
     seen: set[str] = set()
     out: list[dict] = []
     names = enabled_providers() if providers is None else providers
+    if settings.patent_search_provider == 'vector':
+        names = list(dict.fromkeys('vector_patents' if n in
+            ('google_patents', 'patentsview', 'tavily', 'bigquery_patents') else n for n in names))
     if not names:
         return []
     with ThreadPoolExecutor(max_workers=min(3, len(names))) as pool:
@@ -374,9 +398,8 @@ def search(query: str, k: int = 4, providers: list[str] | None = None) -> list[d
 def search_kind(query: str, kind: str = "PATENT", k: int = 4, *, diagnostics=None) -> list[dict]:
     if kind not in ("PATENT", "PAPER"):
         raise ValueError("kind must be PATENT or PAPER")
-    if kind == 'PATENT' and settings.patent_search_provider == 'bigquery':
-        from .bigquery_patents import search_batch
-        records, detail = search_batch([query], k)[0]
+    if kind == 'PATENT' and settings.patent_search_provider in ('bigquery', 'vector'):
+        records, detail = patent_search_batch([query], k)[0]
         if diagnostics is not None:
             diagnostics.update(detail)
         return records

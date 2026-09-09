@@ -1,5 +1,7 @@
 # BigQuery 특허 조회 연결
 
+> 현재 운영은 MySQL + Qdrant 검색이다. 아래는 이전 방식의 참고 기록이며, 신규 적재·갱신은 [특허 벡터 저장소 가이드](PATENT_VECTOR_STORAGE.md)를 사용한다.
+
 특허 DB를 복제하지 않고 `patents-public-data.patents.publications`를 읽는다.
 공개번호·영문 제목·영문 초록·공개일을 기존 해결안 적용성 검토에 전달한다.
 Google Patents 웹페이지를 다시 요청하지 않으므로 웹 검색의 503 차단과 독립적이다.

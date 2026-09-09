@@ -18,15 +18,18 @@ def search_summary(st):
         'UNAVAILABLE' if failed else 'UNKNOWN' if unknown else 'EMPTY' if keys else 'NOT_SEARCHED')
     providers = {diagnostics[k].get('provider') for k in keys if k in diagnostics}
     providers.update(r.get('provider') for hits in cache.values() for r in hits if r.get('source_type') == 'PATENT')
-    labels = {'bigquery_patents':'BigQuery Google Patents Public Datasets',
+    labels = {'vector_patents':'Qdrant 전체 산업 특허 검색 · MySQL',
+              'bigquery_patents':'BigQuery Google Patents Public Datasets',
               'google_patents':'Google Patents 무료 공개 웹 검색'}
     provider_label = ', '.join(labels.get(p,p) for p in sorted(p for p in providers if p))
     if not provider_label:
-        provider_label = '기존 검색 기록' if keys else ('BigQuery Google Patents Public Datasets'
+        provider_label = '기존 검색 기록' if keys else ('Qdrant 전체 산업 특허 검색 · MySQL'
+            if settings.patent_search_provider == 'vector' else 'BigQuery Google Patents Public Datasets'
             if settings.patent_search_provider == 'bigquery' else 'Google Patents 무료 공개 웹 검색'
             if settings.free_patent_search else '외부 검색 제공자')
     return dict(queries_used=len(set(cache) | set(diagnostics)), query_limit=settings.cfg('evidence.max_queries_per_run',40),
-        patent_provider_configured=(bool(settings.bigquery_project_id) if settings.patent_search_provider == 'bigquery'
+        patent_provider_configured=(bool(settings.patent_database_url and settings.qdrant_url) if settings.patent_search_provider == 'vector'
+            else bool(settings.bigquery_project_id) if settings.patent_search_provider == 'bigquery'
             else bool(set(scholar.enabled_providers()) & {'google_patents','patentsview','tavily'})),
         patent_search=provider_label,
         patent_error_reasons=sorted({e.get('reason') for k in keys for e in diagnostics.get(k,{}).get('errors',[]) if e.get('reason')}),
@@ -53,8 +56,8 @@ def discover(ctx, before_concepts=False):
                 if isinstance(q,dict) and q.get('kind') in ('PATENT','PAPER') and isinstance(q.get('query'),str):
                     saved_plans.setdefault(q['kind']+':'+q['query'].strip().lower(),q)
     for key in list(spent):
-        if (key.startswith('PATENT:') and not spent[key] and settings.patent_search_provider == 'bigquery'
-                and diagnostics.get(key,{}).get('provider') != 'bigquery_patents'):
+        if (key.startswith('PATENT:') and not spent[key] and settings.patent_search_provider in ('bigquery', 'vector')
+                and diagnostics.get(key,{}).get('provider') != settings.patent_search_provider + '_patents'):
             diagnostics[key] = {'status':'UNKNOWN','reason':'PROVIDER_CHANGED','errors':[]}
             saved_plans.setdefault(key, {'kind':'PATENT','query':key.split(':',1)[1]})
             del spent[key]
@@ -99,18 +102,17 @@ def discover(ctx, before_concepts=False):
         detail = {}
         hits = scholar.search_kind(q["query"], q["kind"], 6, diagnostics=detail)
         return [annotate(plan, hits, detail)]
-    def lookup_bigquery(batch):
-        from .tools.bigquery_patents import search_batch
-        results = search_batch([q['query'] for _,q in batch], 6)
+    def lookup_patents(batch):
+        results = scholar.patent_search_batch([q['query'] for _,q in batch], 6)
         return [annotate(plan, hits, detail) for plan, (hits, detail) in zip(batch, results)]
     if plans:
         step = ctx.start_step(node='s5_search_retrieval' if before_concepts else 's9_search_retrieval',
             label='특허·논문 검색 수집 상태', stage=st.control.current_stage, agent_id='patent_researcher', prompt_id='',tier='')
         step.input_slice = {'queries': [q for _,q in plans]}
-        patent_plans = [p for p in plans if p[1]['kind'] == 'PATENT' and settings.patent_search_provider == 'bigquery']
+        patent_plans = [p for p in plans if p[1]['kind'] == 'PATENT' and settings.patent_search_provider in ('bigquery', 'vector')]
         tasks = [(lookup, p) for p in plans if p not in patent_plans]
         if patent_plans:
-            tasks.append((lookup_bigquery, patent_plans))
+            tasks.append((lookup_patents, patent_plans))
         with ThreadPoolExecutor(max_workers=min(3, len(tasks))) as pool:
             batches = list(pool.map(lambda task: task[0](task[1]), tasks))
             for key, detail, hits in (row for batch in batches for row in batch):

@@ -134,6 +134,43 @@ def list_runs(limit=50, user_id=None):
         return [dict(r) for r in c.execute(query.order_by(runs.c.started_at.desc())
             .limit(max(1, min(limit, 1000)))).mappings()]
 
+def runs_page(page=1, search='', user_id=None, public=False):
+    """Bounded, stable pagination with search across the entire authorized library."""
+    from sqlalchemy import or_
+    init()
+    query = select(runs)
+    if public:
+        query = query.join(published_runs, runs.c.run_id == published_runs.c.run_id)
+    else:
+        query = query.where(runs.c.user_id == (user_id or 'local'))
+    if search.strip():
+        term = search.strip()
+        query = query.where(or_(*(c.contains(term, autoescape=True) for c in
+            (runs.c.title, runs.c.industry, runs.c.target_system))))
+    with engine.connect() as c:
+        total = c.execute(select(func.count()).select_from(query.subquery())).scalar_one()
+        page = max(1, min(page, max(1, (total + 19)//20)))
+        rows = [dict(r) for r in c.execute(query.order_by(runs.c.started_at.desc(), runs.c.run_id.desc())
+            .offset((page-1)*20).limit(20)).mappings()]
+    fields = ('run_id', 'title', 'mode', 'industry', 'target_system', 'status', 'started_at')
+    return dict(items=[{k:r.get(k) for k in fields} for r in rows], total=total, page=page, page_size=20)
+
+def pending_notifications(user_id):
+    """Read only this user's waiting requests, without rendering full report views."""
+    init()
+    with engine.connect() as c:
+        rows = c.execute(select(runs.c.run_id, runs.c.title, states.c.state_json)
+            .join(states, runs.c.run_id == states.c.run_id)
+            .where(runs.c.user_id == (user_id or 'local'), runs.c.status == 'WAITING_HUMAN')
+            .order_by(runs.c.started_at.desc())).mappings().all()
+    out = []
+    for row in rows:
+        pending = json.loads(row['state_json']).get('pending')
+        if pending and pending.get('interrupt_id'):
+            out.append(dict(id=pending['interrupt_id'], run_id=row['run_id'], project_title=row['title'],
+                title=pending.get('title') or '분석 검토', kind=pending.get('kind', 'REVIEW')))
+    return out
+
 def run_owner(run_id):
     init()
     with engine.connect() as c:

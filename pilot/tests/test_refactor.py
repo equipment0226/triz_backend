@@ -120,6 +120,7 @@ def test_report_exports_are_portable(state):
 
 def test_patent_paper_providers_are_separate(monkeypatch):
     from triz.tools import scholar
+    monkeypatch.setattr(scholar.settings, 'patent_search_provider', 'legacy')
     monkeypatch.setattr(scholar,"enabled_providers",lambda:["crossref"])
     spy=Mock(return_value=[]); monkeypatch.setattr(scholar,"search",spy)
     assert scholar.search_kind("pressure vibration","PATENT")==[]

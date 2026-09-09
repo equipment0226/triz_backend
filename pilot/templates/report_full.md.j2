@@ -115,8 +115,10 @@
 
 | 구성요소 | 계층 | 역할 |
 |---|---|---|
-{% for c in s.analysis.components %}
+{% for level in ['SUPER', 'TARGET', 'SUB', 'PRODUCT', 'ENVIRONMENT'] %}
+{% for c in s.analysis.components if c.level == level %}
 | {{ ( c.name ) | cell }} | {{ ( LEVEL_KO.get(c.level, c.level) ) | cell }} | {{ ( c.role ) | cell }} |
+{% endfor %}
 {% endfor %}
 
 ### 2.3 기능 모델
@@ -299,8 +301,9 @@
 {% if s.solve.matrix_lookups %}
 ### 4.1 모순 행렬 조회 및 발명원리
 
-{% for m in s.solve.matrix_lookups %}
-#### 모순행렬 조회 {{ loop.index }}
+{% for group in matrix_groups %}
+{% set m = group.lookup %}
+#### {{ group.title }}에 대한 모순행렬 결과 조회
 
 | 항목 | 내용 |
 |---|---|
@@ -309,25 +312,44 @@
 | 도출된 발명원리 | {% for p in m.principle_ids %}{{ ( p ) | cell }}. {{ ( principle(p) ) | cell }}{{ ( ' / ' if not loop.last ) | cell }}{% endfor %} |
 | 출처 | {{ ( m.note ) | cell }} |
 
-{{ diagram('matrix-' ~ loop.index0) }}
-{% endfor %}
+{{ diagram(group.key) }}
 
 | 원리 | 해석 | 아이디어 | 활용 자원 |
 |---|---|---|---|
-{% for a in s.solve.principle_apps %}
+{% for a in group.apps %}
 | **{{ ( a.principle_id ) | cell }}. {{ ( a.principle_name ) | cell }}** | {{ ( a.interpretation ) | cell }} | {{ ( a.idea ) | cell }} | {{ ( (a.uses_resources or []) | join(', ') ) | cell }} |
+{% endfor %}
+{% if not group.apps %}
+| — | 연결된 발명원리 적용 기록 없음 | — | — |
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if unlinked_principles %}
+#### 대상 핵심문제 연결 확인이 필요한 발명원리 적용안
+
+| 원리 | 해석 | 아이디어 | 활용 자원 |
+|---|---|---|---|
+{% for a in unlinked_principles %}
+| **{{ a.principle_id | cell }}. {{ a.principle_name | cell }}** | {{ a.interpretation | cell }} | {{ a.idea | cell }} | {{ (a.uses_resources or []) | join(', ') | cell }} |
 {% endfor %}
 {% endif %}
 
 {% if s.solve.separation_apps %}
 ### 4.2 분리 원리 적용 (물리적 모순)
 
+{% for group in separation_groups %}
+#### {{ group.title }}에 대한 분리원리 적용
+
+{{ group.contradiction }}
+
 | 분리 원리 | 적용 | 분리 방식 | 아이디어 | 연계 발명원리 |
 |---|---|---|---|---|
-{% for a in s.solve.separation_apps %}
+{% for a in group.apps %}
 | {{ ( {'TIME':'시간 분리','SPACE':'공간 분리','CONDITION':'조건 분리','SYSTEM_LEVEL':'시스템 수준 분리'}.get(a.kind, a.kind) ) | cell }} | {{ ( '○' if a.applicable else '✗' ) | cell }} | {{ ( a.how or a.not_applicable_reason ) | cell }} | {{ ( a.idea ) | cell }} | {{ ( (a.supporting_principles or []) | join(', ') ) | cell }} |
 {% endfor %}
-{{ diagram('separation') }}
+{{ diagram(group.key) }}
+{% endfor %}
 {% endif %}
 
 {% if s.solve.standard_apps %}
@@ -339,34 +361,88 @@
 - 변환 결과: `{{ a.resulting_su_field }}`
 - 적용안: {{ a.idea }}
 
+{{ diagram('standard-' ~ loop.index0) }}
 {% endfor %}
-{{ diagram('standards') }}
 {% endif %}
 
 {% if s.solve.ariz %}
 ### 4.4 ARIZ-85C 실행 기록
 
-{% for st_ in s.solve.ariz.steps %}
-**{{ st_.step_code }} {{ st_.step_title }}**{% if st_.status != 'DONE' %} `{{ st_.status }}`{% endif %}
+{% for part in ariz_report.parts %}
+#### {{ part.title }}
 
-{{ st_.output }}
+{% for step in part.steps %}
+##### {{ step.code }} {{ step.title }}{% if step.status != 'DONE' %} · {{ {'SKIPPED':'생략', 'BLOCKED':'진행 보류'}.get(step.status, step.status) }}{% endif %}
 
+| {{ step.columns | map('cell') | join(' | ') }} |
+| {{ '--- | ' * (step.columns | length) }}
+{% for row in step.rows %}
+| {{ row | map('cell') | join(' | ') }} |
 {% endfor %}
 
-**핵심 산출**
-- 갈등 요소 쌍: {{ s.solve.ariz.conflict_pair }}
-- 작용 영역(OZ): {{ s.solve.ariz.operative_zone }} / 작용 시간(OT): {{ s.solve.ariz.operative_time }}
-- IFR-1: {{ s.solve.ariz.ifr1 }}
-- IFR-2: {{ s.solve.ariz.ifr2 }}
-- 거시 물리모순: {{ s.solve.ariz.physical_contradiction_macro }}
-- 미시 물리모순: {{ s.solve.ariz.physical_contradiction_micro }}
-{% if s.solve.ariz.solution_directions %}
-- 해결 방향:
-{% for x in s.solve.ariz.solution_directions %}
-  - {{ x }}
+{{ diagram(step.key) }}
+
+{% if step.structured %}
+**상세 분석 기록**
+
+{{ step.output }}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+#### 핵심 산출
+
+| 구분 | 결과 |
+|---|---|
+| 갈등 요소 쌍 | {{ s.solve.ariz.conflict_pair | cell }} |
+| 작용 영역 (OZ) | {{ s.solve.ariz.operative_zone | cell }} |
+| 작용 시간 (OT) | {{ s.solve.ariz.operative_time | cell }} |
+| IFR-1 | {{ s.solve.ariz.ifr1 | cell }} |
+| IFR-2 | {{ s.solve.ariz.ifr2 | cell }} |
+| 거시 물리모순 | {{ s.solve.ariz.physical_contradiction_macro | cell }} |
+| 미시 물리모순 | {{ s.solve.ariz.physical_contradiction_micro | cell }} |
+
+{% if ariz_report.resources %}
+##### 활용 자원 인벤토리
+
+| 번호 | 자원 내용 |
+|---|---|
+{% for resource in ariz_report.resources %}
+| {{ loop.index }} | {{ resource | cell }} |
 {% endfor %}
 {% endif %}
-{{ diagram('ariz') }}
+
+{% if ariz_report.proposals %}
+#### 해결 방향 및 실행 아이디어
+
+| 번호 | 내용 |
+|---|---|
+{% for proposal in ariz_report.proposals %}
+| {{ loop.index }} | **{{ proposal.kind }}** — {{ proposal.content | cell }} |
+{% endfor %}
+{% endif %}
+
+{% if ariz_report.verdicts %}
+#### 해결안별 검증 결과
+
+{% for verdict in ariz_report.verdicts %}
+##### {{ verdict.idea_title or '검토안 ' ~ loop.index }}
+
+| 검토 항목 | 결과 |
+|---|---|
+| IFR-1 충족도 | {{ verdict.ifr_satisfaction_pct | cell }}% |
+| 절충 여부 | {{ ariz_text(verdict.is_tradeoff) | cell }} |
+| 제약조건 충족 | {{ ariz_text(verdict.constraint_ok) | cell }} |
+| 판정 근거 | {{ verdict.note | cell }} |
+
+| 잠재 부작용 | 발생 가능성·대응책 |
+|---|---|
+{% for effect in verdict.side_effects or [] %}
+| {{ loop.index }} | {{ ariz_text(effect) | cell }} |
+{% endfor %}
+{% endfor %}
+{% endif %}
+
 {% endif %}
 
 {% if s.solve.trend_apps %}
@@ -374,7 +450,7 @@
 
 | 트렌드 | 현재 단계 | 다음 단계 | 아이디어 |
 |---|---|---|---|
-{% for a in s.solve.trend_apps %}
+{% for a in ordered_trends %}
 | {{ ( a.trend_id ) | cell }} {{ ( a.trend_name ) | cell }} | {{ ( a.current_stage ) | cell }} | {{ ( a.next_stage ) | cell }} | {{ ( a.idea ) | cell }} |
 {% endfor %}
 {% if s_curve %}
@@ -382,15 +458,18 @@
 - **병목 요소**: {{ s_curve.bottleneck }}
 {% endif %}
 {{ diagram('trends') }}
+{{ diagram('s-curve') }}
 {% endif %}
 
 {% if s.solve.fos_apps %}
 ### 4.6 기능지향탐색(FOS) / 특성 전이
 
 {% for a in s.solve.fos_apps %}
-- **{{ a.leading_area }}** → {{ a.transferred_feature }}
-  - 일반화 기능: {{ a.generalized_function }}
-  - 이식 시 조정: {{ a.adaptation_note }}
+#### {{ a.leading_area }}({{ a.transferred_feature }})
+
+- 일반화 기능: {{ a.generalized_function }}
+- 이식 시 조정: {{ a.adaptation_note }}
+
 {% endfor %}
 {{ diagram('fos') }}
 {% endif %}
@@ -406,12 +485,15 @@
 {% if s.solve.effect_apps %}
 ### 4.7 물리효과 적용
 
-{% for a in s.solve.effect_apps %}
-{% for key, value in a.items() %}
-- {{ key }}: {{ value | hz }}
+{% for group in effect_groups %}
+#### {{ group.title }}
+
+| 요구 기능 | 효과 | 작동 원리 | 적용안 | 필요 조건·한계 |
+|---|---|---|---|---|
+{% for a in group.apps %}
+| {{ a.required_function | cell }} | **{{ a.effect_name | cell }}** | {{ a.principle | cell }} | **{{ a.title | cell }}** — {{ a.idea | cell }} | {{ a.conditions | cell }} |
 {% endfor %}
 {% endfor %}
-{{ diagram('effects') }}
 {% endif %}
 
 {% if s.solve.raw_ideas %}

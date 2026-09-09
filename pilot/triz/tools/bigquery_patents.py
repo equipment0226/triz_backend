@@ -69,7 +69,9 @@ def publication_identifier(value):
     DOCDB may omit sequence leading zeros. Grant/design/reissue prefixes remain.
     """
     compact = re.sub(r'[-\s]', '', value or '').upper()
-    if not re.fullmatch(r'[A-Z]{2}[A-Z]{0,2}\d{1,16}(?:[A-Z]\d{0,2})?', compact):
+    # DOCDB includes alphanumeric national sequences (e.g. IN-2005DE00420-A).
+    docdb = re.fullmatch(r'[A-Z]{2}-[A-Z0-9]*\d[A-Z0-9]*-[A-Z][0-9]{0,2}', (value or '').upper())
+    if len(compact) > 60 or not (docdb or re.fullmatch(r'[A-Z]{2}[A-Z]{0,2}\d{1,16}(?:[A-Z]\d{0,2})?', compact)):
         raise SearchUnavailable('INVALID_RESPONSE')
     match = re.fullmatch(r'US(20\d{2})(\d{1,7})(A[129]|P[149])', compact)
     if match:

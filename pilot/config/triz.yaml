@@ -55,6 +55,8 @@ solve:
 evaluation:
   min_reviewers: 4
   max_reviewers: 6
+  meeting_rounds: 2           # 1차 답변을 받은 뒤 2차 후속 질문. 1~2회만 허용.
+  meeting_questions_per_role: 2  # 라운드당 각 직군의 질문 상한. 질문 생성도 직군별 병렬 처리.
   dimension_weights:
     GOAL: 0.20
     RESOLUTION: 0.20

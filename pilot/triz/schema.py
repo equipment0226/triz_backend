@@ -536,9 +536,60 @@ class ConceptEvaluation(BaseModel):
     feedback_weight_applied: float = 1.0
 
 
+class MeetingQuestion(BaseModel):
+    id: str
+    round_number: int
+    from_role_id: str
+    to_role_id: str
+    concept_id: str
+    question: str
+    reply_to_question_id: str = ""
+
+
+class MeetingAnswer(BaseModel):
+    question_id: str
+    round_number: int
+    from_role_id: str
+    to_role_id: str
+    concept_id: str
+    answer: str
+    evidence_refs: list[str] = Field(default_factory=list)
+    uncertainties: list[str] = Field(default_factory=list)
+
+
+class MeetingSummary(BaseModel):
+    concept_id: str
+    peer_role_ids: list[str]
+    question_ids: list[str]
+    summary: str
+    assessment_change: str
+    unresolved_issues: list[str] = Field(default_factory=list)
+
+
+class MeetingFinalReview(BaseModel):
+    reviewer_id: str
+    reviewer_role: str
+    scores: list[ReviewerScore]
+    communication_summary: list[MeetingSummary]
+    retained_concerns: list[str] = Field(default_factory=list)
+
+
+class EvaluationMeeting(BaseModel):
+    input_hash: str = ""
+    status: Literal["NOT_STARTED", "RUNNING", "COMPLETED"] = "NOT_STARTED"
+    rounds: int = 2
+    initial_reviews: dict[str, list[ReviewerScore]] = Field(default_factory=dict)
+    questions: list[MeetingQuestion] = Field(default_factory=list)
+    answers: list[MeetingAnswer] = Field(default_factory=list)
+    final_reviews: list[MeetingFinalReview] = Field(default_factory=list)
+    completed_calls: dict[str, dict[str, Any]] = Field(default_factory=dict)
+    completed_call_inputs: dict[str, str] = Field(default_factory=dict)
+
+
 class EvaluationBundle(BaseModel):
     reviewers: list[Persona] = []
     evaluations: list[ConceptEvaluation] = []
+    meeting: EvaluationMeeting = Field(default_factory=EvaluationMeeting)
     ranking_note: str = ""
     portfolio_note: str = ""
     roadmap: list[dict] = []

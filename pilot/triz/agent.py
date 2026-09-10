@@ -210,10 +210,17 @@ def run_agent(
         from . import store
         previous = store.get_step(state.run_id, cache[cache_key])
         if previous and previous["status"] == "OK":
-            step.output_json = previous["output_json"]
-            step.verdicts = previous["verdicts"]
-            ctx.finish_step(step, "SKIPPED")
-            return step.output_json.get("items", []) if expect == "array" else step.output_json
+            cached = previous["output_json"]
+            cached_data = cached.get("items", []) if expect == "array" else cached
+            try:
+                reusable = not checker or not checker(cached_data)
+            except Exception:  # A changed checker must not trap retries on stale output.
+                reusable = False
+            if reusable:
+                step.output_json = cached
+                step.verdicts = previous["verdicts"]
+                ctx.finish_step(step, "SKIPPED")
+                return cached_data
 
     max_repair = int(settings.cfg("verification.max_repair_attempts", 2))
     attempt = 0

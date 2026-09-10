@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 from typing import Any, Callable, Optional
 
@@ -264,19 +265,79 @@ def check_concepts(data: dict, resource_names: set[str]) -> list[str]:
     return issues[:8]
 
 
-def check_review(data: dict, concept_ids: set[str]) -> list[str]:
-    scores = data.get("scores", [])
+def check_review(data: dict, concept_ids: set[str], dimensions: Optional[list[str]] = None) -> list[str]:
+    """Validate legacy reviews, or the complete assigned score matrix for meetings."""
+    if not isinstance(data, dict):
+        return ["DET-R0: 평가 결과는 scores 배열을 포함한 객체여야 한다."]
+    scores = data.get("scores")
+    if not isinstance(scores, list):
+        return ["DET-R0: scores는 평가 객체의 배열이어야 한다."]
     if not scores:
         return ["평가 결과가 비어 있다."]
-    issues = []
-    unknown = {s.get("concept_id") for s in scores} - concept_ids
+
+    strict = dimensions is not None
+    assigned = set(dimensions or [])
+    issues: list[str] = []
+    seen_concepts: set[str] = set()
+    pairs: set[tuple[str, str]] = set()
+    duplicates: set[tuple[str, str]] = set()
+    unassigned: set[str] = set()
+
+    def valid_number(value: Any, lower: float, upper: float) -> bool:
+        if isinstance(value, bool) or (strict and not isinstance(value, (int, float))):
+            return False
+        try:
+            number = float(value)
+        except (TypeError, ValueError, OverflowError):
+            return False
+        return math.isfinite(number) and lower <= number <= upper
+
+    for index, score in enumerate(scores, 1):
+        if not isinstance(score, dict):
+            issues.append(f"DET-R0: 평가 {index}는 객체여야 한다.")
+            continue
+        concept_id = score.get("concept_id")
+        if isinstance(concept_id, str) and concept_id.strip():
+            seen_concepts.add(concept_id)
+        else:
+            issues.append(f"DET-R1: 평가 {index}의 concept_id는 비어 있지 않은 문자열이어야 한다.")
+
+        rationale = score.get("rationale")
+        if not valid_number(score.get("score"), 1, 5) or not isinstance(rationale, str) or not rationale.strip():
+            issues.append(f"DET-R3: 평가 {index}는 유한한 1~5점과 비어 있지 않은 문자열 근거가 필요하다.")
+        if not strict:
+            continue
+
+        dimension = score.get("dimension")
+        if not isinstance(dimension, str) or dimension not in assigned:
+            unassigned.add(dimension if isinstance(dimension, str) else "(유효한 차원 없음)")
+        elif isinstance(concept_id, str) and concept_id in concept_ids:
+            pair = (concept_id, dimension)
+            if pair in pairs:
+                duplicates.add(pair)
+            pairs.add(pair)
+        if not valid_number(score.get("confidence"), 0, 1):
+            issues.append(f"DET-R4: 평가 {index}의 confidence는 유한한 0~1 숫자여야 한다.")
+        red_flags = score.get("red_flags")
+        if not isinstance(red_flags, list) or any(not isinstance(flag, str) for flag in red_flags):
+            issues.append(f"DET-R5: 평가 {index}의 red_flags는 문자열 배열이어야 한다.")
+        if "improvement_suggestion" in score and not isinstance(score["improvement_suggestion"], str):
+            issues.append(f"DET-R6: 평가 {index}의 improvement_suggestion은 문자열이어야 한다.")
+
+    unknown = seen_concepts - concept_ids
     if unknown:
         issues.append(f"DET-R1: 존재하지 않는 개념 id 평가: {sorted(unknown)[:3]}")
-    missing = concept_ids - {s.get("concept_id") for s in scores}
+    missing = concept_ids - seen_concepts
     if missing:
         issues.append(f"DET-R2: 평가 누락 개념: {sorted(missing)}")
-    if any(not 1 <= float(s.get("score", 0)) <= 5 or not s.get("rationale") for s in scores):
-        issues.append("DET-R3: 각 평가는 1~5점과 구체적인 근거가 필요하다.")
+    if strict:
+        missing_pairs = {(concept_id, dimension) for concept_id in concept_ids for dimension in assigned} - pairs
+        if missing_pairs:
+            issues.append(f"DET-R7: 담당 평가 차원 누락: {sorted(missing_pairs)}")
+        if duplicates:
+            issues.append(f"DET-R8: 중복된 개념·차원 평가: {sorted(duplicates)}")
+        if unassigned:
+            issues.append(f"DET-R9: 담당하지 않은 평가 차원: {sorted(unassigned)}")
     return issues
 
 

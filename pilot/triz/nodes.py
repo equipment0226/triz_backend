@@ -6,7 +6,7 @@ import hashlib
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
-from . import agent, digest, domain, knowledge as K, llm, personas as PF, prompts_registry as P, rag, verify
+from . import agent, digest, domain, knowledge as K, llm, prompts_registry as P, rag, verify
 from .coerce import build, build_list
 from .context import AbortRun, HumanInterrupt, RunContext
 from .schema import (
@@ -1194,46 +1194,9 @@ def s8_evaluate(ctx: RunContext) -> None:
         ctx.warn("평가할 개념이 없다.")
         return
 
-    reviewers = PF.build_personas(ctx)
-    st.evaluation.reviewers = reviewers
-    ctx.emit("personas", reviewers=[r.model_dump() for r in reviewers])
+    from .meeting import evaluate
 
-    blind = digest.concepts_blind(st)
-    cblock = verify.constraints_block(st)
-    concept_ids = {c.id for c in st.concepts}
-    all_scores: list[ReviewerScore] = []
-
-    def review(p):
-        d = agent.run_agent(
-            ctx, node="s8_review", label=f"평가: {p.role_name}", stage=Stage.S8.value,
-            agent_id=f"persona::{p.persona_id}", prompt_id="P_S8_REVIEW", tier="T2",
-            rubric_id="R8_REVIEW", checker=lambda x: verify.check_review(x, concept_ids),
-            system_override="You are an experienced domain reviewer. Output JSON only. "
-                            "You do not know how these ideas were generated.",
-            vars={"industry": st.domain.industry, "seniority": p.seniority,
-                  "role_name": p.role_name, "mandate": p.mandate, "bias_note": p.bias_note,
-                  "dimensions": p.dimensions,
-                  "restated_problem": st.intake.frame.restated_problem,
-                  "target_system": digest.target_system(st),
-                  "operating_env": st.domain.operating_env,
-                  "constraints_block": cblock, "concepts_blind": blind,
-                  "success_criteria": st.intake.frame.success_criteria,
-                  "requirements": [{"improve": t.then_good, "preserve": t.but_bad} for t in st.definition.technical_contradictions]},
-            default={},
-        ) or {}
-        out = []
-        for rs in build_list(ReviewerScore, d.get("scores"), reviewer_role=p.role_name):
-            if rs.concept_id not in concept_ids:
-                continue
-            if p.veto_power and rs.red_flags:
-                rs.score = min(rs.score, 1.5)
-            out.append(rs)
-        return out
-
-    workers = int(cfg("run.parallel_workers", 4))
-    with ThreadPoolExecutor(max_workers=max(1, min(workers, len(reviewers)))) as pool:
-        for res in pool.map(review, reviewers):
-            all_scores += res
+    all_scores = evaluate(ctx)
 
     st.evaluation.evaluations = _aggregate(st, all_scores)
     _rank(ctx)
@@ -1308,8 +1271,10 @@ def _rank(ctx: RunContext) -> None:
               "dissent": [d for e in st.evaluation.evaluations for d in e.dissent][:10],
               "min_solutions": cfg("solutions.min_solutions", 5),
               "max_solutions": cfg("solutions.max_solutions", 10)},
-        default={},
-    ) or {}
+        default=None,
+    )
+    if not isinstance(d, dict):
+        raise AbortRun("순위 산정 응답이 없어 후보를 유지한 채 중단합니다. 재시도하면 완료된 회의를 재사용합니다.")
 
     order = {r.get("concept_id"): int(r.get("rank", 99)) for r in (d.get("ranking") or [])}
     if not order:

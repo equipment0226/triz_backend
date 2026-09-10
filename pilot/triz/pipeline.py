@@ -296,7 +296,8 @@ def continue_run(run_id):
         state.cost.budget_usd = float(settings.cfg("run.budget_usd", state.cost.budget_usd))
         refresh = state.scratch.get("review_refresh", {})
         if refresh and refresh.get("status") != "COMPLETED":
-            state.cost.budget_usd += float(refresh.get("baseline_cost", 0))
+            state.cost.budget_usd = float(refresh.get("budget_usd",
+                state.cost.budget_usd + float(refresh.get("baseline_cost", 0))))
         state.cost.over_budget = state.cost.total_usd > state.cost.budget_usd
         state.scratch["active_seconds"] = 0
         return state.control.stage_index < len(PIPELINE)

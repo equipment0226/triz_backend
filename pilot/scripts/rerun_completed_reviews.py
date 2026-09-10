@@ -52,6 +52,10 @@ def prepare(run_id, job_id):
             # A newly requested execution gets the configured allowance; retain the
             # cumulative ledger and never add another allowance on a job retry.
             state.cost.budget_usd = state.cost.total_usd + float(settings.cfg("run.budget_usd", 3.0))
+            marker["budget_usd"] = state.cost.budget_usd
+        else:
+            state.cost.budget_usd = float(marker.get("budget_usd",
+                marker["baseline_cost"] + float(settings.cfg("run.budget_usd", 3.0))))
         if state.cost.total_usd >= state.cost.budget_usd:
             raise ValueError("Refresh allowance exhausted")
         marker["status"] = "RUNNING"

@@ -46,6 +46,7 @@ def test_refresh_retry_keeps_progress_and_does_not_add_budget_again(state):
     current.status = "INTERRUPTED"
     current.evaluation.meeting.completed_calls["initial:A"] = {"scores": []}
     budget = current.cost.budget_usd
+    current.cost.budget_usd = 3.0  # A pre-fix UI retry used the original whole-run cap.
     current.cost.total_usd += 0.2
     store.save_state(current)
     refresh_job.prepare(state.run_id, "test-refresh")

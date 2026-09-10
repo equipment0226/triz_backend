@@ -27,6 +27,105 @@ def _strings(value):
     return isinstance(value, list) and all(_text(x) for x in value)
 
 
+def _reference_options(transcript, role_id):
+    """Short selectors resolve to real exchanges; models never assemble foreign keys."""
+    followups, groups = [], {}
+    for i, exchange in enumerate(transcript, 1):
+        q = exchange["question"]
+        peers = {q["from_role_id"], q["to_role_id"]} - {role_id}
+        direct = role_id in (q["from_role_id"], q["to_role_id"])
+        followups.append({"followup_id": f"F{i}", "question_id": q["id"],
+                          "concept_id": q["concept_id"], "direct": direct})
+        group = groups.setdefault(q["concept_id"], {
+            "summary_id": f"S{len(groups) + 1}", "concept_id": q["concept_id"],
+            "question_ids": [], "peer_role_ids": [], "direct": False})
+        group["question_ids"].append(q["id"])
+        group["peer_role_ids"] = sorted(set(group["peer_role_ids"]) | peers)
+        group["direct"] |= direct
+    return followups, list(groups.values())
+
+
+def _output_normalizer(phase, values):
+    previous = {}
+    followups = {x["followup_id"]: x for x in values.get("followup_options", [])}
+    summaries = {x["summary_id"]: x for x in values.get("summary_options", [])}
+
+    def normalize(data):
+        nonlocal previous
+        if not isinstance(data, dict):
+            return data
+        # A repair may return only the corrected top-level fields. Keep prior
+        # fields for full validation; never fabricate missing scores or answers.
+        data = {**deepcopy(previous), **deepcopy(data)}
+        if phase == "initial" or phase == "final":
+            for row in data.get("scores", []) if isinstance(data.get("scores"), list) else []:
+                if isinstance(row, dict):
+                    flags = row.get("red_flags")
+                    if flags is None:
+                        # A missing safety-veto explanation is substantive, not
+                        # an optional empty list; let the checker request it.
+                        safety_veto = (row.get("dimension") == "SAFETY" and
+                                       isinstance(row.get("score"), (int, float)) and row["score"] <= 1.5)
+                        if not safety_veto:
+                            row["red_flags"] = []
+                    elif isinstance(flags, str):
+                        row["red_flags"] = [flags] if flags.strip() else []
+        if phase.startswith("questions_"):
+            data.setdefault("answers", [])
+            for q in data.get("questions", []) if isinstance(data.get("questions"), list) else []:
+                if not isinstance(q, dict):
+                    continue
+                ref = q.get("followup_id")
+                if isinstance(ref, str) and ref in followups:
+                    option = followups[ref]
+                    q.setdefault("concept_id", option["concept_id"])
+                    q.setdefault("reply_to_question_id", option["question_id"])
+        if phase.startswith("answer_"):
+            data.setdefault("questions", [])
+            for answer in data.get("answers", []) if isinstance(data.get("answers"), list) else []:
+                if isinstance(answer, dict):
+                    for key in ("evidence_refs", "uncertainties"):
+                        if answer.get(key) is None:
+                            answer[key] = []
+        if phase == "final":
+            for item in data.get("communication_summary", []) if isinstance(data.get("communication_summary"), list) else []:
+                if not isinstance(item, dict):
+                    continue
+                ref = item.get("summary_id")
+                if isinstance(ref, str) and ref in summaries:
+                    for key in ("concept_id", "question_ids", "peer_role_ids"):
+                        item.setdefault(key, deepcopy(summaries[ref][key]))
+                if item.get("unresolved_issues") is None:
+                    item["unresolved_issues"] = []
+        previous = deepcopy(data)
+        return data
+
+    return normalize
+
+
+def _legacy_context_matches(state, common, rounds):
+    """Retain already completed v1 calls during the reference-format rollout."""
+    if state.evaluation.meeting.rounds != rounds or state.control.injected_agents:
+        return False
+    roles = {p.persona_id: p for p in state.evaluation.reviewers}
+    if not roles:
+        return False
+    checked = set()
+    for step in state.steps:
+        if step.node != "s8_review_initial":
+            continue
+        values = step.input_slice.get("vars", {})
+        role = roles.get(values.get("role_id"))
+        if role is None:
+            continue
+        if any(values.get(key) != value for key, value in common.items()):
+            return False
+        if values.get("dimensions") != role.dimensions or values.get("role_name") != role.role_name:
+            return False
+        checked.add(role.persona_id)
+    return checked == set(roles)
+
+
 def _check_questions(data, role_id, role_ids, concept_ids, limit, prior=None):
     if not isinstance(data, dict) or not isinstance(data.get("questions"), list):
         return ["questions는 질문 객체 배열이어야 한다."]
@@ -35,7 +134,7 @@ def _check_questions(data, role_id, role_ids, concept_ids, limit, prior=None):
     if not 1 <= len(questions) <= limit:
         issues.append(f"타 직군에 질문을 1~{limit}개 보내야 한다.")
     seen = set()
-    for q in questions:
+    for index, q in enumerate(questions, 1):
         if not isinstance(q, dict):
             issues.append("각 질문은 객체여야 한다.")
             continue
@@ -49,7 +148,9 @@ def _check_questions(data, role_id, role_ids, concept_ids, limit, prior=None):
             if ref != "":
                 issues.append("최초 질문의 reply_to_question_id는 비워야 한다.")
         elif not _text(ref) or ref not in prior or prior[ref]["concept_id"] != cid:
-            issues.append("후속 질문은 같은 개념의 이전 차수에서 답변된 질문 ID를 참조해야 한다.")
+            choices = [key for key, value in prior.items() if value["concept_id"] == cid]
+            issues.append(f"questions[{index - 1}]: 후속 질문은 같은 개념의 이전 차수에서 답변된 질문 ID를 참조해야 한다. "
+                          f"concept_id={cid}, 잘못된 참조={ref}, 해당 개념의 유효 ID={choices}. followup_options에서 하나를 선택하라.")
         if _text(target) and _text(cid) and _text(q.get("question")):
             key = (target, cid, q["question"].strip())
             if key in seen:
@@ -88,18 +189,28 @@ def _check_answers(data, inbox, evidence):
     return issues
 
 
-def _check_final(data, role, concept_ids, transcript):
+def _final_batches(values):
+    """Bound score rows per output while every call retains the full meeting context."""
+    ids = [c["concept_id"] for c in values["concepts_blind"]]
+    rows = max(6, min(12, int(settings.cfg("evaluation.meeting_final_batch_rows", 12))))
+    size = max(1, rows // max(1, len(values["dimensions"])))
+    return [{**deepcopy(values), "review_concept_ids": ids[i:i + size],
+             "include_communication_summary": i == 0}
+            for i in range(0, len(ids), size)]
+
+
+def _check_final(data, role, concept_ids, transcript, *, summary_concept_ids=None, require_summary=True):
     issues = verify.check_review(data, concept_ids, role.dimensions)
     if not isinstance(data, dict) or not isinstance(data.get("communication_summary"), list):
         return issues + ["communication_summary 배열이 필요하다."]
     exchanges = {x["question"]["id"]: x["question"] for x in transcript}
     own_exchange = False
-    for item in data["communication_summary"]:
+    for index, item in enumerate(data["communication_summary"]):
         if not isinstance(item, dict):
             issues.append("소통 반영 요약은 객체여야 한다.")
             continue
         cid = item.get("concept_id")
-        if not _text(cid) or cid not in concept_ids:
+        if not _text(cid) or cid not in (summary_concept_ids or concept_ids):
             issues.append("소통 요약에 실제 concept_id가 필요하다.")
         refs, peers = item.get("question_ids"), item.get("peer_role_ids")
         if not _strings(refs) or not refs or not _strings(peers) or not peers:
@@ -109,19 +220,25 @@ def _check_final(data, role, concept_ids, transcript):
         for ref in refs:
             q = exchanges.get(ref)
             if not q or q["concept_id"] != cid:
-                issues.append("소통 요약은 같은 개념에 대해 실제 답변된 질문만 참조할 수 있다.")
+                issues.append(f"communication_summary[{index}]: 소통 요약은 같은 개념에 대해 실제 답변된 질문만 참조할 수 있다. "
+                              f"concept_id={cid}, 잘못된 참조={ref}. summary_options의 summary_id로 다시 선택하라.")
                 continue
             participants = {q["from_role_id"], q["to_role_id"]}
             own_exchange |= role.persona_id in participants
             allowed_peers.update(participants - {role.persona_id})
         if set(peers) - allowed_peers:
-            issues.append("peer_role_ids는 인용한 교환에 참여한 타 참가자만 포함해야 한다.")
+            issues.append(f"communication_summary[{index}]: peer_role_ids는 인용한 교환에 참여한 타 참가자만 포함해야 한다. "
+                          f"허용 ID={sorted(allowed_peers)}. summary_options의 summary_id를 사용하라.")
         if not _text(item.get("summary")) or not _text(item.get("assessment_change")):
             issues.append("실제 응답 내용과 최초 판단의 변경 또는 유지 이유를 요약해야 한다.")
         if not _strings(item.get("unresolved_issues")):
             issues.append("unresolved_issues는 문자열 배열이어야 한다.")
-    if not own_exchange:
+    if require_summary and not own_exchange:
         issues.append("자신이 실제 타 직군과 주고받은 교환을 최소 한 건 요약해야 한다.")
+    comments = data.get("concept_comments", {})
+    if (not isinstance(comments, dict) or any(cid not in concept_ids or not _text(comment)
+                                               for cid, comment in comments.items())):
+        issues.append("concept_comments는 이번 평가 대상 concept_id와 짧은 최종 의견의 객체여야 한다.")
     return issues
 
 
@@ -204,9 +321,18 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
                            for tier, t in settings.tiers.items()}}
     input_hash = hashlib.sha256(json.dumps(identity, sort_keys=True, ensure_ascii=False,
                                           default=str).encode()).hexdigest()
+    context_identity = {k: identity[k] for k in ("inputs", "rounds", "domain_metadata", "domain",
+                                               "personas", "role_seeds", "injected", "lang")}
+    context_identity["reviewer_counts"] = [settings.cfg("evaluation.min_reviewers", 4),
+                                           settings.cfg("evaluation.max_reviewers", 6)]
+    context_hash = hashlib.sha256(json.dumps(context_identity, sort_keys=True, ensure_ascii=False,
+                                            default=str).encode()).hexdigest()
     meeting = state.evaluation.meeting
-    if meeting.input_hash != input_hash or not state.evaluation.reviewers:
-        meeting = EvaluationMeeting(input_hash=input_hash, rounds=rounds, status="RUNNING")
+    compatible = (meeting.input_hash == input_hash or meeting.context_hash == context_hash or
+                  (not meeting.context_hash and _legacy_context_matches(state, common, rounds)))
+    if not compatible or not state.evaluation.reviewers:
+        meeting = EvaluationMeeting(input_hash=input_hash, context_hash=context_hash,
+                                    rounds=rounds, status="RUNNING")
         state.evaluation.meeting = meeting
         state.evaluation.reviewers = []
         state.evaluation.evaluations = []
@@ -218,6 +344,7 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
             ctx.persist()
             raise AbortRun("회의 참가자 구성 호출이 실패했습니다. 참가자 구성부터 다시 시도해 주세요.")
         state.evaluation.reviewers = reviewers
+    meeting.input_hash, meeting.context_hash = input_hash, context_hash
     reviewers = state.evaluation.reviewers
     role_ids = {p.persona_id for p in reviewers}
     if len(role_ids) < 2 or len(role_ids) != len(reviewers) or any(not p.dimensions for p in reviewers):
@@ -246,21 +373,60 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
         def call(p):
             key = f"{name}:{p.persona_id}"
             check = lambda data: [f"FATAL-MEETING: {issue}" for issue in checker(data, p)]
-            call_hash = hashlib.sha256(json.dumps(inputs[p.persona_id], sort_keys=True,
+            semantic_inputs = {k: v for k, v in inputs[p.persona_id].items()
+                               if k not in ("followup_options", "summary_options")}
+            call_hash = hashlib.sha256(json.dumps(semantic_inputs, sort_keys=True,
                                                   ensure_ascii=False, default=str).encode()).hexdigest()
             saved = meeting.completed_calls.get(key)
             if (saved is not None and meeting.completed_call_inputs.get(key) == call_hash
                     and not check(saved)):
                 return deepcopy(saved), call_hash
-            data = agent.run_agent(
-                ctx, node=f"s8_review_{name}", label=f"{label}: {p.role_name}",
-                stage=Stage.S8.value, agent_id=f"persona::{p.persona_id}",
-                prompt_id=prompt_id, tier="T3", system_override=SYSTEM,
-                vars=inputs[p.persona_id], checker=check, rubric_id=rubric,
-                facts=json.dumps({"review_context": inputs[p.persona_id],
-                                  "peer_statements_are_verified_facts": False},
-                                 ensure_ascii=False) if rubric else "",
-                max_tokens=token_limit(p), default=None)
+            def request(values, validate):
+                normalize = _output_normalizer(name, values)
+                data = agent.run_agent(
+                    ctx, node=f"s8_review_{name}", label=f"{label}: {p.role_name}",
+                    stage=Stage.S8.value, agent_id=f"persona::{p.persona_id}",
+                    prompt_id=prompt_id, tier="T3", system_override=SYSTEM,
+                    vars=values, checker=validate, rubric_id=rubric,
+                    normalizer=normalize, repair_attempts=settings.cfg("evaluation.meeting_repair_attempts", 2),
+                    facts=json.dumps({"review_context": values,
+                                      "peer_statements_are_verified_facts": False},
+                                     ensure_ascii=False) if rubric else "",
+                    max_tokens=token_limit(p), temperature=0.2, default=None)
+                data = normalize(data)
+                issues = validate(data)
+                if issues:
+                    raise AbortRun(f"{label}: {p.role_name} 응답이 불완전합니다. {issues[0]}")
+                return data
+
+            if name == "final":
+                batches = _final_batches(inputs[p.persona_id])
+                data = {"scores": [], "communication_summary": [], "concept_comments": {}}
+                for index, values in enumerate(batches):
+                    batch_ids = set(values["review_concept_ids"])
+                    validate = lambda d: [f"FATAL-MEETING: {issue}" for issue in _check_final(
+                        d, p, batch_ids, values["meeting_transcript"],
+                        summary_concept_ids=concept_ids,
+                        require_summary=values["include_communication_summary"])]
+                    batch_key = f"{key}:part:{index + 1}"
+                    batch_hash = hashlib.sha256(json.dumps(values, sort_keys=True,
+                        ensure_ascii=False, default=str).encode()).hexdigest()
+                    saved_batch = meeting.completed_calls.get(batch_key)
+                    if (saved_batch is not None and meeting.completed_call_inputs.get(batch_key) == batch_hash
+                            and not validate(saved_batch)):
+                        part = deepcopy(saved_batch)
+                    else:
+                        part = request(values, validate)
+                        if len(batches) > 1:
+                            with ctx.lock:
+                                meeting.completed_calls[batch_key] = deepcopy(part)
+                                meeting.completed_call_inputs[batch_key] = batch_hash
+                            ctx.persist()
+                    data["scores"].extend(part["scores"])
+                    data["communication_summary"].extend(part["communication_summary"])
+                    data["concept_comments"].update(part.get("concept_comments", {}))
+            else:
+                data = request(inputs[p.persona_id], check)
             issues = check(data)
             if issues:
                 raise AbortRun(f"{label}: {p.role_name} 응답이 불완전합니다. {issues[0]}")
@@ -286,7 +452,8 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
             raise errors[0]
         return results
 
-    score_tokens = lambda p: min(8000, 1500 + 200 * len(concept_ids) * len(p.dimensions))
+    score_tokens = lambda p: max(4800, min(8000, int(settings.cfg("evaluation.meeting_review_max_tokens", 8000))))
+    exchange_tokens = max(2400, min(8000, int(settings.cfg("evaluation.meeting_exchange_max_tokens", 4000))))
     initial = phase("initial", "회의: 독립 검토·1차 질문", PROMPTS[0], role_vars,
                     lambda d, p: verify.check_review(d, concept_ids, p.dimensions) +
                     _check_questions(d, p.persona_id, role_ids, concept_ids, limit), score_tokens)
@@ -317,7 +484,7 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
                                    "inbox": inboxes[p.persona_id], "prior_exchanges": deepcopy(prior),
                                    "initial_review": initial[p.persona_id]},
                         lambda d, p: _check_answers(d, inboxes[p.persona_id], evidence),
-                        lambda p: min(8000, 1000 + 550 * len(inboxes[p.persona_id])),
+                        lambda p: min(8000, max(exchange_tokens, 1000 + 650 * len(inboxes[p.persona_id]))),
                         participants=[p for p in reviewers if inboxes[p.persona_id]])
         for p in reviewers:
             answers = {a["question_id"]: a for a in outputs.get(p.persona_id, {}).get("answers", [])}
@@ -342,16 +509,18 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
                              lambda p: {**role_vars(p), "round_number": number + 1,
                                         "exchange_action": "ASK_FOLLOWUP", "allow_followup_questions": True,
                                         "inbox": [], "prior_exchanges": deepcopy(prior),
+                                        "followup_options": _reference_options(prior, p.persona_id)[0],
                                         "initial_review": initial[p.persona_id]},
-                             check_followup, lambda p: 2000)
+                             check_followup, lambda p: exchange_tokens)
             add_questions(followup, number + 1)
 
     transcript = _transcript(meeting)
     final = phase("final", "회의: 소통 반영 최종 평가", PROMPTS[2],
                   lambda p: {**role_vars(p), "initial_review": initial[p.persona_id],
+                             "summary_options": _reference_options(transcript, p.persona_id)[1],
                              "meeting_transcript": deepcopy(transcript), "meeting_gaps": []},
                   lambda d, p: _check_final(d, p, concept_ids, transcript),
-                  lambda p: min(8000, score_tokens(p) + 1500), rubric="R8_REVIEW")
+                  score_tokens, rubric="R8_REVIEW")
     all_scores = []
     for p in reviewers:
         data = final[p.persona_id]
@@ -365,7 +534,8 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
                 summary.assessment_change += " 서버 검증: 최초 veto 우려와 점수 상한 유지."
         meeting.final_reviews.append(MeetingFinalReview(
             reviewer_id=p.persona_id, reviewer_role=p.role_name, scores=scores,
-            communication_summary=summaries, retained_concerns=retained))
+            communication_summary=summaries, retained_concerns=retained,
+            concept_comments=data.get("concept_comments", {})))
         all_scores.extend(scores)
     meeting.status = "COMPLETED"
     ctx.persist()

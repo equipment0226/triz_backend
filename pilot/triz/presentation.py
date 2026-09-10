@@ -16,11 +16,13 @@ def view(state):
     from .pipeline import stage_list
     from .report_content import sections
     from .report_style import report_state, reference_cards, plain_text
+    from .review_comments import by_concept
     report = report_state(state)
     labels = build_label_map(state)
     def human(value):
         return humanize(str(value or ""), labels)
     solutions = []
+    reviewer_comments = by_concept(report)
     for c in state.concepts:
         e = next((e for e in state.evaluation.evaluations if e.concept_id == c.id), None)
         check = state.check_for(c.id)
@@ -31,6 +33,8 @@ def view(state):
             risks=c.open_risks, validation=c.validation_plan, transfer_conditions=c.transfer_conditions,
             score=e.total_score if e else None, rank=e.rank if e else 0,
             dimensions=e.aggregate if e else {},
+            reviewer_comments=[dict(role=human(r["role"]), comment=plain_text(human(r["comment"])))
+                               for r in reviewer_comments.get(c.id, [])],
             verdict={"PASS": "제약 충족", "CONDITIONAL": "조건 확인 필요", "FAIL": "제약 위반"}.get(check.verdict if check else "", "검토 전"),
             quadrant=QUADRANT_KO.get(e.quadrant, "") if e else "",
             evidence=[dict(title=r.title, url=r.url, kind="특허" if r.source_type == "PATENT" else "논문",

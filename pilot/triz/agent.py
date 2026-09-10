@@ -149,6 +149,8 @@ def run_agent(
     expect: str = "object",
     rubric_id: Optional[str] = None,
     checker: Optional[Callable[[Any], list[str]]] = None,
+    normalizer: Optional[Callable[[Any], Any]] = None,
+    repair_attempts: Optional[int] = None,
     facts: str = "",
     system_override: Optional[str] = None,
     temperature: Optional[float] = None,
@@ -204,7 +206,8 @@ def run_agent(
         settings.rubrics.get(rubric_id, {}), system, base_user, tier, facts, audit_context,
         settings.tiers[tier].model, settings.tiers[tier].base_url, max_tokens, temperature,
         tc.temperature, tc.max_tokens, tc.json_mode, tc.supports_temperature, tc.token_parameter,
-        settings.triz.get("verification", {})], sort_keys=True, default=str).encode()).hexdigest()
+        settings.triz.get("verification", {}), *([repair_attempts] if repair_attempts is not None else [])],
+        sort_keys=True, default=str).encode()).hexdigest()
     cache = state.scratch.setdefault("agent_cache", {})
     if cache_key in cache:
         from . import store
@@ -213,16 +216,19 @@ def run_agent(
             cached = previous["output_json"]
             cached_data = cached.get("items", []) if expect == "array" else cached
             try:
+                if normalizer:
+                    cached_data = normalizer(cached_data)
                 reusable = not checker or not checker(cached_data)
             except Exception:  # A changed checker must not trap retries on stale output.
                 reusable = False
             if reusable:
-                step.output_json = cached
+                step.output_json = _as_dict(cached_data)
                 step.verdicts = previous["verdicts"]
                 ctx.finish_step(step, "SKIPPED")
                 return cached_data
 
-    max_repair = int(settings.cfg("verification.max_repair_attempts", 2))
+    max_repair = (int(settings.cfg("verification.max_repair_attempts", 2)) if repair_attempts is None
+                  else max(0, min(3, int(repair_attempts))))
     attempt = 0
     user = base_user
     data: Any = None
@@ -252,6 +258,8 @@ def run_agent(
                 if isinstance(item, dict):
                     merged.update(item)
             data = merged or {"items": data}
+        if normalizer:
+            data = normalizer(data)
         step.tokens_in += res.tokens_in
         step.tokens_out += res.tokens_out
         step.cost_usd += res.cost_usd

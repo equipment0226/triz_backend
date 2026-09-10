@@ -351,6 +351,7 @@ def _env(labels: dict[str, str], keep_code: bool = False) -> Environment:
 def render_report(state: GlobalState, narrative: dict, template: str = "", *, diagram=None, references=None) -> str:
     from .visuals import figures
     from .report_style import reference_cards
+    from .review_comments import by_concept
     labels = build_label_map(state)
     env = _env(labels)
     lite = state.control.mode == RunMode.LITE
@@ -419,6 +420,7 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
         concept_indices={c.id: i for i, c in enumerate(state.concepts)},
         report_concepts=sorted(state.concepts, key=lambda c: evaluation_map[c.id].rank or 999 if c.id in evaluation_map else 999),
         evaluation_map=evaluation_map,
+        reviewer_comments=by_concept(state),
     )
     from .report_style import plain_text
     return plain_text(_localize(humanize(md, labels)))

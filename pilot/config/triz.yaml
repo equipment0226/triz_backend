@@ -57,6 +57,10 @@ evaluation:
   max_reviewers: 6
   meeting_rounds: 2           # 1차 답변을 받은 뒤 2차 후속 질문. 1~2회만 허용.
   meeting_questions_per_role: 2  # 라운드당 각 직군의 질문 상한. 질문 생성도 직군별 병렬 처리.
+  meeting_review_max_tokens: 8000  # 평가 행 + 문답 요약을 완결할 출력 여유. 짧은 응답은 즉시 종료.
+  meeting_final_batch_rows: 12  # 전체 회의 맥락을 유지하되 최종 출력은 최대 12개 평가 행씩 저장.
+  meeting_exchange_max_tokens: 4000
+  meeting_repair_attempts: 2      # 이미 맞는 필드는 유지하며 형식·참조 오류만 자동 수리.
   dimension_weights:
     GOAL: 0.20
     RESOLUTION: 0.20

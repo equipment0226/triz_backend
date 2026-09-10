@@ -572,10 +572,12 @@ class MeetingFinalReview(BaseModel):
     scores: list[ReviewerScore]
     communication_summary: list[MeetingSummary]
     retained_concerns: list[str] = Field(default_factory=list)
+    concept_comments: dict[str, str] = Field(default_factory=dict)
 
 
 class EvaluationMeeting(BaseModel):
     input_hash: str = ""
+    context_hash: str = ""
     status: Literal["NOT_STARTED", "RUNNING", "COMPLETED"] = "NOT_STARTED"
     rounds: int = 2
     initial_reviews: dict[str, list[ReviewerScore]] = Field(default_factory=dict)

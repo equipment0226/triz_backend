@@ -69,7 +69,13 @@
 {% if c.evidence_ids %}
 - **참고자료**: {% for eid in c.evidence_ids %}{% set ev = evidence_map.get(eid) %}{% if ev and ev.url %}[{{ ev.title[:40] or ev.identifier }}]({{ ev.url }}){{ ' · ' if not loop.last }}{% endif %}{% endfor %}
 {% endif %}
-- **평가 요약**: {% for sc in e.scores %}{{ sc.reviewer_role }} {{ sc.score }}{{ ' · ' if not loop.last }}{% endfor %}
+**다직군 평가**
+
+| 검토자 | 최종 의견 |
+|---|---|
+{% for review in reviewer_comments.get(c.id, []) %}
+| {{ review.role | cell }} | {{ review.comment | cell }} |
+{% endfor %}
 
 {% endif %}
 {% endfor %}

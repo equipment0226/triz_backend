@@ -391,12 +391,13 @@ def get_report(run_id: str, format: str = "md"):
                 z.writestr(figure['key'] + '.svg', figure['svg'])
         return StreamingResponse(iter([buffer.getvalue()]), media_type="application/zip",
                                  headers={"Content-Disposition": 'attachment; filename="triz-report.zip"'})
-    if format == "file":
-        path = settings.storage_dir / f"{run_id}.md"
-        if path.exists():
-            return FileResponse(path, filename=f"triz_report_{run_id}.md",
-                                media_type="text/markdown")
-    return PlainTextResponse(state.report.markdown, media_type="text/markdown; charset=utf-8")
+    # Old reports receive the current presentation without rerunning inference.
+    from triz import render
+    from triz.report_style import report_state
+    current = report_state(state)
+    markdown = render.render_report(current, current.report.narrative)
+    headers = {"Content-Disposition": f'attachment; filename="triz_report_{run_id}.md"'} if format == "file" else {}
+    return PlainTextResponse(markdown, media_type="text/markdown; charset=utf-8", headers=headers)
 
 
 @app.get("/api/runs/{run_id}/report/context")

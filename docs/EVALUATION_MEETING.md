@@ -1,5 +1,7 @@
 # S8 다직군 회의 평가
 
+> 2026-09-10 변경: 기본 실행은 `evaluation.mode: independent`로 전환했다. 타 직군 문답 없이 역할별 KPI 평가와 1~2문장 최종 코멘트를 받는다. 현재 동작은 [EVALUATION_REVIEW.md](EVALUATION_REVIEW.md)를 참고한다. 아래 내용은 명시적으로 `discussion` 모드를 선택했을 때의 이전 회의 동작과 저장 이력 설명이다.
+
 S8은 각 직군이 독립 점수를 낸 뒤 실제로 다른 직군에 질문하고, 받은 답변을 검토해 최종 점수를 다시 낸다. 구현은 [meeting.py](../pilot/triz/meeting.py), 연결 지점은 [nodes.py](../pilot/triz/nodes.py)의 `s8_evaluate`다.
 
 ## 실행 순서

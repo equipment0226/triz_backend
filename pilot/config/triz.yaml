@@ -53,8 +53,13 @@ solve:
   max_escalations: 0          # 기본은 기존 호출 안에서 후보 교체. 필요 시 1로 심화 트랙 허용.
 
 evaluation:
+  mode: independent          # 각 직군이 KPI에 따라 독립 평가. 타 직군 질의응답 없음.
   min_reviewers: 4
   max_reviewers: 6
+  review_max_tokens: 8000     # 점수·근거·직군별 짧은 최종 코멘트를 한 응답으로 완결.
+  review_batch_rows: 12       # 담당 항목 수에 맞춰 해결안 묶음을 나누고 완료 응답은 재사용.
+  review_repair_attempts: 2
+  # 아래 meeting_* 설정은 mode: discussion을 명시한 이전 회의 경로에서만 사용.
   meeting_rounds: 2           # 1차 답변을 받은 뒤 2차 후속 질문. 1~2회만 허용.
   meeting_questions_per_role: 2  # 라운드당 각 직군의 질문 상한. 질문 생성도 직군별 병렬 처리.
   meeting_review_max_tokens: 8000  # 평가 행 + 문답 요약을 완결할 출력 여유. 짧은 응답은 즉시 종료.
@@ -116,6 +121,8 @@ confirm:
   max_candidates: 4
 
 evidence:
+  match_max_tokens: 8000      # 적용성 검토가 긴 근거 매칭 응답 때문에 잘리지 않도록 출력 여유 확보.
+  max_matches_per_concept_kind: 2  # 후보 전체를 비교하되 해결안·자료 유형별 대표 근거만 출력.
   enabled: true               # 공개 학술 API(crossref/openalex/arxiv)는 키 없이 동작
   max_queries_per_run: 40
   max_cards: 20

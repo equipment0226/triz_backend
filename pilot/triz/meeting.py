@@ -1,4 +1,4 @@
-"""S8: independent reviewers exchange real, addressed questions before scoring again."""
+"""S8: independent role reviews, with legacy discussion checkpoints kept compatible."""
 from __future__ import annotations
 
 import hashlib
@@ -17,6 +17,9 @@ PROMPTS = ("P_S8_MEETING_INITIAL", "P_S8_MEETING_EXCHANGE", "P_S8_MEETING_FINAL"
 SYSTEM = ("You are an experienced domain reviewer participating in a real multi-role review. "
           "Speak only for your assigned role. Treat peer statements as claims, not verified facts. "
           "Output JSON only. You do not know how these ideas were generated.")
+INDEPENDENT_SYSTEM = ("You are an experienced domain reviewer independently assessing proposed solutions. "
+                      "Judge only from your assigned role's mandate, KPIs and the supplied evidence. "
+                      "Output JSON only. You do not know how these ideas were generated.")
 DIMENSION_RUBRICS = {
     "FEASIBILITY": "현재 자원·역량으로 실행 가능한가, 미검증 전제는 무엇인가.",
     "COST": "초기투자·운영비 변화와 산정 근거. 수치는 근거와 단위가 있는 추정만 허용한다.",
@@ -216,14 +219,25 @@ def _check_answers(data, inbox, evidence):
     return issues
 
 
-def _final_batches(values):
-    """Bound score rows per output while every call retains the full meeting context."""
+def _final_batches(values, *, independent=False):
+    """Bound score rows per output while retaining all solution and evidence context."""
     ids = [c["concept_id"] for c in values["concepts_blind"]]
-    rows = max(6, min(12, int(settings.cfg("evaluation.meeting_final_batch_rows", 12))))
+    key = "evaluation.review_batch_rows" if independent else "evaluation.meeting_final_batch_rows"
+    rows = max(6, min(12, int(settings.cfg(key, 12))))
     size = max(1, rows // max(1, len(values["dimensions"])))
     return [{**deepcopy(values), "review_concept_ids": ids[i:i + size],
-             "include_communication_summary": i == 0}
+             **({} if independent else {"include_communication_summary": i == 0})}
             for i in range(0, len(ids), size)]
+
+
+def _check_independent(data, role, concept_ids):
+    issues = verify.check_review(data, concept_ids, role.dimensions)
+    comments = data.get("concept_comments") if isinstance(data, dict) else None
+    if not isinstance(comments, dict) or set(comments) != concept_ids:
+        issues.append("concept_comments에 이번 평가 대상의 모든 concept_id별 최종 코멘트를 정확히 한 번씩 작성한다.")
+    elif any(not _text(comment) or len(comment.strip()) > 320 for comment in comments.values()):
+        issues.append("직군별 최종 코멘트는 핵심 판단과 실행 조건을 담은 짧은 1~2문장(최대 320자)이어야 한다.")
+    return issues
 
 
 def _check_final(data, role, concept_ids, transcript, *, summary_concept_ids=None, require_summary=True):
@@ -316,9 +330,14 @@ def _guard_veto(role, initial, final):
 
 
 def evaluate(ctx: RunContext) -> list[ReviewerScore]:
-    """Five barriers for two rounds; persist each valid role call for safe retries."""
+    """Persist each valid role/batch; independent mode has no peer exchanges."""
     state = ctx.state
-    rounds = max(1, min(2, int(settings.cfg("evaluation.meeting_rounds", 2))))
+    mode = settings.cfg("evaluation.mode", "independent")
+    if mode not in ("independent", "discussion"):
+        raise AbortRun(f"지원하지 않는 평가 방식: {mode}")
+    independent = mode == "independent"
+    system = INDEPENDENT_SYSTEM if independent else SYSTEM
+    rounds = 0 if independent else max(1, min(2, int(settings.cfg("evaluation.meeting_rounds", 2))))
     limit = max(1, min(2, int(settings.cfg("evaluation.meeting_questions_per_role", 2))))
     evidence_packet = _evidence_packet(state)
     common = {"industry": state.domain.industry,
@@ -332,13 +351,14 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
               "success_criteria": state.intake.frame.success_criteria,
               "requirements": [{"improve": t.then_good, "preserve": t.but_bad}
                                for t in state.definition.technical_contradictions],
-              "max_questions": limit}
+              **({} if independent else {"max_questions": limit})}
     # Checkpoint identity deliberately excludes steps, cost and the meeting itself.
     identity = {"version": 1, "inputs": common, "rounds": rounds, "domain_metadata": state.domain.model_dump(),
-                "domain": domain.context(state, "s8_review"), "system": SYSTEM,
+                "domain": domain.context(state, "s8_review"), "system": system,
                 "personas": settings.personas, "evaluation": settings.cfg("evaluation", {}),
                 "role_seeds": personas.seed_personas(state),
-                "prompts": {p: P.raw(p) for p in (*PROMPTS, "P_PERSONA_FACTORY", "P_VERIFIER_GENERIC")},
+                "prompts": {p: P.raw(p) for p in (*(("P_S8_REVIEW",) if independent else PROMPTS),
+                                                   "P_PERSONA_FACTORY", "P_VERIFIER_GENERIC")},
                 "rubric": settings.rubrics.get("R8_REVIEW", {}),
                 "verification": settings.cfg("verification", {}),
                 "injected": state.control.injected_agents, "lang": state.control.lang,
@@ -369,13 +389,13 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
         reviewers = personas.build_personas(ctx)
         if any(step.status == "FAILED" for step in state.steps[start:]):
             ctx.persist()
-            raise AbortRun("회의 참가자 구성 호출이 실패했습니다. 참가자 구성부터 다시 시도해 주세요.")
+            raise AbortRun("검토자 구성 호출이 실패했습니다. 검토자 구성부터 다시 시도해 주세요.")
         state.evaluation.reviewers = reviewers
     meeting.input_hash, meeting.context_hash = input_hash, context_hash
     reviewers = state.evaluation.reviewers
     role_ids = {p.persona_id for p in reviewers}
     if len(role_ids) < 2 or len(role_ids) != len(reviewers) or any(not p.dimensions for p in reviewers):
-        raise AbortRun("다직군 회의에는 서로 다른 참가자 두 명 이상과 각자의 담당 평가 차원이 필요합니다.")
+        raise AbortRun("다직군 평가에는 서로 다른 검토자 두 명 이상과 각자의 담당 평가 차원이 필요합니다.")
     meeting.status = "RUNNING"
     ctx.persist()
     ctx.emit("personas", reviewers=[r.model_dump() for r in reviewers])
@@ -387,7 +407,8 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
     def role_vars(p):
         return {**deepcopy(common), "role_id": p.persona_id, "role_name": p.role_name,
                 "seniority": p.seniority, "mandate": p.mandate, "bias_note": p.bias_note,
-                "dimensions": list(p.dimensions), "participant_roster": deepcopy(roster),
+                "dimensions": list(p.dimensions), "veto_power": p.veto_power,
+                **({} if independent else {"participant_roster": deepcopy(roster)}),
                 "dimension_rubric": "\n".join(f"- {dim}: {DIMENSION_RUBRICS.get(dim, p.mandate)}"
                                                for dim in p.dimensions)}
 
@@ -396,12 +417,13 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
         # change what a peer sees, and subsequent phases only start after all succeed.
         participants = reviewers if participants is None else participants
         inputs = {p.persona_id: variables(p) for p in participants}
-        ctx.emit("meeting_phase", phase=name, label=label, rounds=rounds)
+        ctx.emit("review_phase" if independent else "meeting_phase", phase=name, label=label, rounds=rounds)
         results, errors = {}, []
 
         def call(p):
             key = f"{name}:{p.persona_id}"
-            check = lambda data: [f"FATAL-MEETING: {issue}" for issue in checker(data, p)]
+            prefix = "FATAL-REVIEW" if independent else "FATAL-MEETING"
+            check = lambda data: [f"{prefix}: {issue}" for issue in checker(data, p)]
             semantic_inputs = {k: v for k, v in inputs[p.persona_id].items()
                                if k not in ("followup_options", "summary_options", "dimension_rubric", "answer_evidence_options")}
             call_hash = hashlib.sha256(json.dumps(semantic_inputs, sort_keys=True,
@@ -411,13 +433,14 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
                     and not check(saved)):
                 return deepcopy(saved), call_hash
             def request(values, validate):
-                normalize = _output_normalizer(name, values)
+                normalize = _output_normalizer("final" if independent else name, values)
                 data = agent.run_agent(
                     ctx, node=f"s8_review_{name}", label=f"{label}: {p.role_name}",
                     stage=Stage.S8.value, agent_id=f"persona::{p.persona_id}",
-                    prompt_id=prompt_id, tier="T3", system_override=SYSTEM,
+                    prompt_id=prompt_id, tier="T3", system_override=system,
                     vars=values, checker=validate, rubric_id=rubric,
-                    normalizer=normalize, repair_attempts=settings.cfg("evaluation.meeting_repair_attempts", 2),
+                    normalizer=normalize, repair_attempts=settings.cfg(
+                        "evaluation.review_repair_attempts" if independent else "evaluation.meeting_repair_attempts", 2),
                     facts=json.dumps({"review_context": values,
                                       "peer_statements_are_verified_facts": False},
                                      ensure_ascii=False) if rubric else "",
@@ -428,15 +451,18 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
                     raise AbortRun(f"{label}: {p.role_name} 응답이 불완전합니다. {issues[0]}")
                 return data
 
-            if name == "final":
-                batches = _final_batches(inputs[p.persona_id])
+            if name in ("final", "independent"):
+                batches = _final_batches(inputs[p.persona_id], independent=independent)
                 data = {"scores": [], "communication_summary": [], "concept_comments": {}}
                 for index, values in enumerate(batches):
                     batch_ids = set(values["review_concept_ids"])
-                    validate = lambda d: [f"FATAL-MEETING: {issue}" for issue in _check_final(
-                        d, p, batch_ids, values["meeting_transcript"],
-                        summary_concept_ids=concept_ids,
-                        require_summary=values["include_communication_summary"])]
+                    if independent:
+                        validate = lambda d: [f"FATAL-REVIEW: {issue}" for issue in _check_independent(d, p, batch_ids)]
+                    else:
+                        validate = lambda d: [f"FATAL-MEETING: {issue}" for issue in _check_final(
+                            d, p, batch_ids, values["meeting_transcript"],
+                            summary_concept_ids=concept_ids,
+                            require_summary=values["include_communication_summary"])]
                     batch_key = f"{key}:part:{index + 1}"
                     batch_inputs = {k: v for k, v in values.items() if k != "dimension_rubric"}
                     batch_hash = hashlib.sha256(json.dumps(batch_inputs, sort_keys=True,
@@ -453,7 +479,8 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
                                 meeting.completed_call_inputs[batch_key] = batch_hash
                             ctx.persist()
                     data["scores"].extend(part["scores"])
-                    data["communication_summary"].extend(part["communication_summary"])
+                    if not independent:
+                        data["communication_summary"].extend(part["communication_summary"])
                     data["concept_comments"].update(part.get("concept_comments", {}))
             else:
                 data = request(inputs[p.persona_id], check)
@@ -481,6 +508,25 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
             ctx.persist()
             raise errors[0]
         return results
+
+    if independent:
+        meeting.initial_reviews, meeting.questions, meeting.answers, meeting.final_reviews = {}, [], [], []
+        final = phase("independent", "직군별 독립 평가", "P_S8_REVIEW", role_vars,
+                      lambda d, p: _check_independent(d, p, concept_ids),
+                      lambda p: max(4800, min(8000, int(settings.cfg("evaluation.review_max_tokens", 8000)))),
+                      rubric="R8_REVIEW")
+        all_scores = []
+        for p in reviewers:
+            data = final[p.persona_id]
+            scores = _scores(data, p)
+            meeting.final_reviews.append(MeetingFinalReview(
+                reviewer_id=p.persona_id, reviewer_role=p.role_name, scores=scores,
+                communication_summary=[], concept_comments=data["concept_comments"]))
+            all_scores.extend(scores)
+        meeting.status = "COMPLETED"
+        ctx.persist()
+        ctx.emit("review_phase", phase="completed", label="직군별 독립 평가 완료", rounds=0)
+        return all_scores
 
     score_tokens = lambda p: max(4800, min(8000, int(settings.cfg("evaluation.meeting_review_max_tokens", 8000))))
     exchange_tokens = max(2400, min(8000, int(settings.cfg("evaluation.meeting_exchange_max_tokens", 4000))))

@@ -1274,7 +1274,7 @@ def _rank(ctx: RunContext) -> None:
         default=None,
     )
     if not isinstance(d, dict):
-        raise AbortRun("순위 산정 응답이 없어 후보를 유지한 채 중단합니다. 재시도하면 완료된 회의를 재사용합니다.")
+        raise AbortRun("순위 산정 응답이 없어 후보를 유지한 채 중단합니다. 재시도하면 완료된 직군별 평가를 재사용합니다.")
 
     order = {r.get("concept_id"): int(r.get("rank", 99)) for r in (d.get("ranking") or [])}
     if not order:

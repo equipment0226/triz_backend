@@ -1,4 +1,4 @@
-아래 문제 상황을 실제 조직에서 심의한다면 회의실에 누가 앉아야 하는가?
+아래 문제 상황의 해결안을 각자의 직무 관점에서 독립 검토할 책임자는 누구인가?
 검토자 페르소나를 설계하라.
 
 [업종/직군] {{industry}} / {{job_family}}
@@ -17,7 +17,7 @@
 각 페르소나:
 - role_name: 구체적 직함 (예: "진공 반송 설비 기술 리더")
 - seniority: 경력과 배경
-- mandate: 조직에서 반드시 지켜야 하는 것 1문장
+- mandate: 이 역할이 책임지는 KPI(성과 지표·목표 방향)와 조직에서 반드시 지켜야 하는 것을 1문장으로 명시. 제공되지 않은 수치 목표를 만들지 않는다.
 - dimensions: 평가 차원 1~2개
   (FEASIBILITY|COST|RISK|TIME|QUALITY|ADOPTION|SAFETY|SCALABILITY)
 - bias_note: 성향 (보수적/실험적, 무엇에 민감한지)

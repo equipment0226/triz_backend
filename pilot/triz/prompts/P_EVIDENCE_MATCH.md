@@ -9,6 +9,9 @@
 실제 후보 index만 인용한다. 무관한 후보는 생략한다. 작동 수단의 관련성이 있지만 정보가 부족한
 유사 사례는 confidence 0.45~0.69로 반환하여 추가 검토 자료로 남긴다. 제목만으로 강한 근거를 만들지 마라.
 필요한 근거 유형 {{required_kinds}}을 각 해결안에 연결하되 자료가 없으면 창작하지 않는다. 조직 문제에 관련 없는 특허를 연결하지 않는다.
+후보 전체를 비교하되 matches는 해결안별·근거 유형별로 가장 관련성 높은 서로 다른 자료 최대 {{max_matches_per_kind}}개만 반환한다.
+같은 concept_id와 index의 조합은 한 번만 출력한다. 낮은 관련성 후보를 나열하거나 초록을 그대로 반복하지 않는다.
+mechanism_mapping은 핵심 대응을 1~2문장으로, transfer_conditions는 중요한 적용·실패 조건 1~3개로 작성한다.
 기존 해결안과 수단이 같으면 matches, 실제 수단이 다르면 additions(최대 {{max_additions}}개).
 추가 제안은 현재 시스템으로 번역하고 원안과의 차이, 전제, 검증 실험, 실패 조건을 명시한다.
 {"matches":[{"index":0,"concept_id":"","confidence":0.8,"mechanism_mapping":"","transfer_conditions":[]}],

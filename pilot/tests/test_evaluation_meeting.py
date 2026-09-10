@@ -132,6 +132,7 @@ def meeting_case(state, monkeypatch):
 
     original_cfg = settings.cfg
     overrides = {
+        "evaluation.mode": "discussion",  # Legacy discussion mode remains explicitly testable.
         "run.parallel_workers": 2,
         "evaluation.meeting_rounds": 2,
         "evaluation.meeting_questions_per_role": 2,

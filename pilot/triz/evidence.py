@@ -173,7 +173,10 @@ def attach(ctx, *, discover_sources=True):
             vars={"concepts": [{"id": c.id, "title": c.title, "mechanism": c.working_principle} for c in concepts],
                   "candidates": selected, "constraints": verify.constraints_full(st),
                   "required_kinds": sorted(required_kinds(st)),
-                  "max_additions": settings.cfg("evidence.max_patent_additions", 3)}, default={}) or {}
+                  "max_matches_per_kind": settings.cfg("evidence.max_matches_per_concept_kind", 2),
+                  "max_additions": settings.cfg("evidence.max_patent_additions", 3)},
+            max_tokens=max(4000, min(8000, int(settings.cfg("evidence.match_max_tokens", 8000)))),
+            default={}) or {}
         result["matches"].extend(m for m in batch.get("matches", []) if isinstance(m, dict) and m.get("concept_id") in ids and type(m.get('index')) is int and m['index'] in allowed_indices)
         result["additions"].extend(m for m in batch.get("additions", []) if isinstance(m,dict) and type(m.get('index')) is int and m['index'] in allowed_indices)
     st.scratch["related_references"] = []

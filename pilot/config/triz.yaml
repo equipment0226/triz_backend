@@ -27,6 +27,7 @@ analysis:
   min_harmful_functions: 2
   min_resources: 12
   ceca_min_depth: 4
+  ceca_max_tokens: 8000       # 원인 노드·연결을 누락하지 않도록 출력 여유 확보
   max_su_fields: 3
 
 definition:
@@ -45,6 +46,7 @@ tracks:
 
 ariz:
   enabled_parts: [1, 2, 3, 4, 5, 7]   # 6(문제변경)/8/9는 필요 시
+  validation_max_tokens: 8000 # Part7의 모든 해결안 검증 결과를 완결
   # 재정의 신호는 기존 S5 통합에서 검토한다. 선행 분석을 바꾸는 재귀 루프는 실행하지 않는다.
 
 solve:

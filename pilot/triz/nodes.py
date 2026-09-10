@@ -296,6 +296,7 @@ def s3_analyze(ctx: RunContext) -> None:
         d = agent.run_agent(
             ctx, node="s3_ceca", label="인과사슬 분석(CECA)", stage=Stage.S3.value,
             agent_id="root_cause_analyst", prompt_id="P_S3_CECA", tier="T2", rubric_id="R3_CECA",
+            max_tokens=int(cfg("analysis.ceca_max_tokens", 8000)),
             checker=verify.check_ceca, facts=st.intake.frame.symptom,
             vars={"symptom": st.intake.frame.symptom,
                   "problem_functions": digest.function_digest(st, only_problem=True),
@@ -762,6 +763,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
         p7 = agent.run_agent(
             ctx, node="s5_ariz_p7", label="ARIZ Part7 해결안 검증", stage=Stage.S5.value,
             agent_id="ariz_specialist", prompt_id="P_S5_ARIZ_PART7", tier="T2",
+            max_tokens=int(cfg("ariz.validation_max_tokens", 8000)),
             vars={"ifr1": run.ifr1, "pc_macro": run.physical_contradiction_macro,
                   "pc_micro": run.physical_contradiction_micro,
                   "ideas": (run.final_ideas or []) + run.solution_directions},
@@ -1384,17 +1386,18 @@ def s9_report(ctx: RunContext) -> None:
         default={},
     ) or {}
 
-    template_id = "report_lite" if st.control.mode == RunMode.LITE else "report_full"
+    report = ReportArtifact(narrative=narrative,
+                            template_id="report_lite" if st.control.mode == RunMode.LITE else "report_full")
     try:
-        md = render.render_report(st, narrative)
+        md = render.render_report(st, report.narrative)
     except Exception as exc:  # noqa: BLE001
         # 템플릿 하나가 깨졌다고 리포트 전체를 잃지 않는다.
         ctx.warn(f"상세 리포트 렌더링 실패({exc}) → 간이 서식으로 대체합니다.")
-        md = render.render_report(st, narrative, template="report_lite.md.j2")
-        template_id = "report_lite"
-    st.report = ReportArtifact(markdown=md, narrative=narrative,
-                               template_id=template_id,
-                               word_count=len(md))
+        md = render.render_report(st, report.narrative, template="report_lite.md.j2")
+        report.template_id = "report_lite"
+    report.markdown = md
+    report.word_count = len(md)
+    st.report = report
     render.save(st, md)
     ctx.emit("report", length=len(md))
     ctx.persist()

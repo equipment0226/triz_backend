@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Literal, Optional
 
-from pydantic import BaseModel as _PydanticBase, Field, model_validator
+from pydantic import BaseModel as _PydanticBase, Field, field_validator, model_validator
 
 
 def _as_text(v: Any) -> str:
@@ -545,6 +545,15 @@ class EvaluationBundle(BaseModel):
 
 
 class ReportArtifact(BaseModel):
+    @field_validator('narrative', mode='before')
+    @classmethod
+    def _normalize_narrative_values(cls, value):
+        # Models sometimes add a list (e.g. next_steps) or return a structured
+        # paragraph. Preserve its contents without breaking report persistence.
+        if isinstance(value, dict):
+            return {key: _as_text(content) for key, content in value.items()}
+        return value
+
     markdown: str = ""
     template_id: str = "report_full"
     narrative: dict[str, str] = {}

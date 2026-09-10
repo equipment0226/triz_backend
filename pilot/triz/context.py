@@ -21,6 +21,20 @@ class AbortRun(Exception):
     pass
 
 
+class ProviderUnavailable(AbortRun):
+    """Only known provider failures may supply a public interruption reason."""
+    REASONS = {
+        401: "모델 API 인증 오류로 분석이 중단되었습니다. 관리자가 API 키를 확인한 뒤 이어서 실행해 주세요.",
+        402: "모델 API 잔액 부족으로 분석이 중단되었습니다. 관리자가 잔액을 충전한 뒤 이어서 실행해 주세요. 완료된 단계와 답변은 저장되어 있습니다.",
+        403: "모델 API 접근 권한 오류로 분석이 중단되었습니다. 관리자가 API 권한을 확인한 뒤 이어서 실행해 주세요.",
+    }
+
+    def __init__(self, status_code: int, usage=None):
+        self.status_code = status_code
+        self.usage = usage
+        super().__init__(self.REASONS[status_code])
+
+
 class RunContext:
     def __init__(self, state: GlobalState):
         self.state = state

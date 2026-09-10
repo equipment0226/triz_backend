@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 import httpx
 from . import events, nodes, store
 from .domain import deep_dive
-from .context import AbortRun, HumanInterrupt, RunContext
+from .context import AbortRun, HumanInterrupt, ProviderUnavailable, RunContext
 from .schema import GlobalState, RunMode
 from .settings import settings
 
@@ -157,6 +157,10 @@ def execute_stage(run_id, stage_index, epoch=0):
             state.pending = exc.request
             state.status = "WAITING_HUMAN"
             events.emit(run_id, "interrupt", kind=exc.request.kind, title=exc.request.title, stage=key)
+        except ProviderUnavailable as exc:
+            state.scratch["provider_status"] = exc.status_code
+            _mark_interrupted(state, str(exc))
+            ctx.warn(str(exc))
         except AbortRun as exc:
             reason = ("분석 실행 예산에 도달했습니다. 실행 설정을 확인하고 이어서 실행해 주세요."
                       if "예산" in str(exc) else "분석이 중단되었습니다. 저장된 단계에서 다시 이어서 실행해 주세요.")
@@ -266,7 +270,7 @@ def _mutate(run_id, apply):
             return False
         state.scratch["execution_epoch"] = state.scratch.get("execution_epoch", 0) + 1
         state.status = "RUNNING"
-        for key in ("retry_notification_id", "interruption_reason", "execution_stage_active", "dispatch_request"):
+        for key in ("retry_notification_id", "interruption_reason", "provider_status", "execution_stage_active", "dispatch_request"):
             state.scratch.pop(key, None)
         state.scratch["execution_progress_at"] = time.time()
         store.save_state(state)

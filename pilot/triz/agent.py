@@ -7,7 +7,7 @@ import time
 from typing import Any, Callable, Optional
 
 from . import llm, prompts_registry as P, verify
-from .context import RunContext, AbortRun
+from .context import RunContext, AbortRun, ProviderUnavailable
 from .settings import settings
 
 TIER_ORDER = ["T1", "T3", "T2"]
@@ -32,6 +32,8 @@ def tracked_chat(ctx, **kwargs):
     input_bound = len((kwargs["system"] + kwargs["user"]).encode("utf-8")) + 16000
     reserve = (input_bound * tc.cost_in + max_output * tc.cost_out) / 1_000_000 * settings.max_retries
     with ctx.lock:
+        if ctx.budget.get("provider_status"):
+            raise ProviderUnavailable(ctx.budget["provider_status"])
         reserved = ctx.budget["reserved"]
         if ctx.state.cost.total_usd + reserved + reserve > ctx.state.cost.budget_usd:
             raise AbortRun("호출 예산에 도달했습니다. 예산을 조정한 뒤 이어서 실행할 수 있습니다.")
@@ -39,9 +41,21 @@ def tracked_chat(ctx, **kwargs):
     res = None
     try:
         with ctx.call_slots:
+            with ctx.lock:
+                if ctx.budget.get("provider_status"):
+                    raise ProviderUnavailable(ctx.budget["provider_status"])
             if deadline and time.time() >= deadline:
                 raise AbortRun("분석 실행 시간 예산에 도달했습니다.")
-            res = llm.chat_json(**kwargs)
+            try:
+                res = llm.chat_json(**kwargs)
+            except llm.LLMError as exc:
+                res = getattr(exc, "usage", None)
+                if exc.terminal:
+                    # Publish before releasing the slot so queued roles/tracks stop too.
+                    with ctx.lock:
+                        ctx.budget["provider_status"] = exc.status_code
+                    raise ProviderUnavailable(exc.status_code, usage=res) from exc
+                raise
         return res
     except llm.LLMError as exc:
         res = getattr(exc, "usage", None)
@@ -157,7 +171,7 @@ def run_agent(
     max_tokens: Optional[int] = None,
     default: Any = None,
 ) -> Any:
-    """단일 LLM 노드 실행. 실패해도 파이프라인을 멈추지 않고 default를 반환한다."""
+    """단일 LLM 노드 실행. 계정 오류는 중단하고 일시적 호출 실패는 default를 반환한다."""
     state = ctx.state
     tier = _budget_tier(ctx, routed_tier(node, tier))
     step = ctx.start_step(node=node, label=label, stage=stage, agent_id=agent_id,
@@ -240,6 +254,9 @@ def run_agent(
         try:
             res = tracked_chat(ctx, _node=node, system=system, user=user, tier=cur_tier, expect=expect,
                                 temperature=temperature, max_tokens=max_tokens)
+        except AbortRun as exc:
+            _finish_aborted_step(ctx, step, exc)
+            raise
         except llm.LLMError as exc:
             usage = getattr(exc, "usage", None)
             if usage:
@@ -277,7 +294,12 @@ def run_agent(
             verdict = {"verdict": "REVISE", "score": 0.0, "source": "deterministic",
                        "revision_instructions": issues, "fatal_flaws": []}
         elif rubric_id and node not in settings.cfg("verification.skip_nodes", []):
-            verdict = verify_artifact(ctx, rubric_id, data, facts)
+            try:
+                verdict = verify_artifact(ctx, rubric_id, data, facts)
+            except AbortRun as exc:
+                step.output_json = _as_dict(data)
+                _finish_aborted_step(ctx, step, exc)
+                raise
             tk = verdict.pop("_tokens", None)
             if tk:
                 step.tokens_in += tk[0]
@@ -326,6 +348,17 @@ def run_agent(
             fatal_flaws=verdict.get("fatal_flaws", []),
             revision_instructions=verdict.get("revision_instructions", []),
         )
+
+
+def _finish_aborted_step(ctx, step, exc):
+    usage = getattr(exc, "usage", None)
+    if usage:
+        step.tokens_in += usage.tokens_in
+        step.tokens_out += usage.tokens_out
+        step.cost_usd += usage.cost_usd
+    step.error = str(exc)
+    ctx.emit("node_error", node=step.node, error=str(exc))
+    ctx.finish_step(step, "FAILED")
 
 
 def _as_dict(data: Any) -> dict:

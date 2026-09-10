@@ -37,7 +37,14 @@ class LLMResult:
 
 
 class LLMError(RuntimeError):
-    pass
+    def __init__(self, message: str, *, status_code: int | None = None):
+        super().__init__(message)
+        self.status_code = status_code
+
+    @property
+    def terminal(self) -> bool:
+        # These require an account/configuration change, not a JSON repair.
+        return self.status_code in (401, 402, 403)
 
 
 @lru_cache(maxsize=8)
@@ -161,8 +168,11 @@ def chat_json(
     text = ""
     truncated = False
     request_records = []
+    status_code = None
+    actual_attempts = 0
 
     for attempt in range(attempts):
+        actual_attempts = attempt + 1
         truncated = False
         text = ""
         kwargs: dict[str, Any] = {
@@ -214,10 +224,15 @@ def chat_json(
                       "truncated": truncated, "requests": request_records},
             )
         except Exception as exc:  # noqa: BLE001
+            status_code = getattr(exc, "status_code", None)
             last_err = f"{type(exc).__name__}: {exc}"
+            if len(request_records) < actual_attempts:
+                request_records.append({"request": kwargs, "response": "", "usage": {},
+                    "finish_reason": "error", "status_code": status_code,
+                    "error_type": type(exc).__name__, "elapsed": time.time() - t0})
             log.warning("LLM 호출 실패 (tier=%s, %d/%d): %s%s", tier, attempt + 1, attempts,
                         last_err, " [출력 길이 초과]" if truncated else "")
-            if attempt + 1 >= attempts:
+            if status_code in (401, 402, 403) or attempt + 1 >= attempts:
                 break
             if truncated:  # 잘렸으면 분량을 줄여 다시 요청
                 messages = [
@@ -245,10 +260,12 @@ def chat_json(
                 ]
             time.sleep(1.5 * (attempt + 1))
 
-    error = LLMError(f"LLM 응답 실패: {last_err}")
+    error = LLMError(f"LLM 응답 실패: {last_err}", status_code=status_code)
     error.usage = LLMResult(data=None, text=text, tier=tier, model=tc.model,
                            tokens_in=tokens_in, tokens_out=tokens_out, raw_error=last_err,
-                           meta={"requests": request_records, "attempt": attempts}, cost_usd=_price(tier, tokens_in, tokens_out))
+                           meta={"requests": request_records, "attempt": actual_attempts,
+                                 "status_code": status_code, "terminal": error.terminal},
+                           cost_usd=_price(tier, tokens_in, tokens_out))
     raise error
 
 

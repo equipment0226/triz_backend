@@ -179,7 +179,7 @@ def pending_notifications(user_id):
                 f"{state.get('control', {}).get('stage_index', 0)}:{row['status']}")
             out.append(dict(id=notice_id, run_id=row['run_id'], project_title=row['title'],
                 title='분석 재시도', kind='RETRY_REQUIRED', status=row['status'],
-                description='분석이 중단되었습니다. 저장된 내용에서 이어서 실행해 주세요.',
+                description=scratch.get('interruption_reason') or '분석이 중단되었습니다. 저장된 내용에서 이어서 실행해 주세요.',
                 action_label='이어서 확인'))
     return out
 

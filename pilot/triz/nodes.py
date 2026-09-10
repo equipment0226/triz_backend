@@ -586,6 +586,7 @@ def _track_a(ctx: RunContext) -> None:
         d = agent.run_agent(
             ctx, node="s5_track_a", label=f"Track A 발명원리 적용({tc.id})", stage=Stage.S5.value,
             agent_id="inventor_a", prompt_id="P_S5_TRACK_A", tier="T2", rubric_id="R5_A",
+            max_tokens=max(4000, min(8000, int(cfg("solutions.track_a_max_tokens", 8000)))),
             checker=lambda x, allowed=ids: verify.check_principles(x, allowed),
             vars={"industry": st.domain.industry, "target_system": digest.target_system(st),
                   "super_system": st.domain.super_system,

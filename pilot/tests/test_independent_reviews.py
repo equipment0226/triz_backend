@@ -10,6 +10,7 @@ from triz.context import AbortRun, RunContext
 from triz.schema import ConceptSpec, EvidenceCard, EvaluationMeeting, Persona
 from triz.settings import settings
 
+REAL_RUN_AGENT = agent.run_agent
 
 @pytest.fixture
 def independent_case(state, monkeypatch):
@@ -51,7 +52,6 @@ def test_default_pipeline_uses_independent_kpis_and_keeps_report_comments_and_ca
     state.scratch["deep_dive"] = {"competing_hypotheses": ["HIDDEN_HYPOTHESIS"]}
     state.concepts[0].evidence_ids = ["E1"]
     state.evidence = [EvidenceCard(id="E1", claim="VISIBLE_EVIDENCE", evidence_scope="Abstract only")]
-    from test_meeting_runtime import REAL_RUN_AGENT
     local, requests = threading.local(), []
     def run(ctx, **kwargs):
         local.call = kwargs

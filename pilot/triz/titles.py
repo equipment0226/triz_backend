@@ -33,7 +33,7 @@ def fallback_title(state):
 
 def ensure_title(ctx, candidate=None):
     from . import agent, llm, prompts_registry
-    from .context import AbortRun
+    from .context import AbortRun, ProviderUnavailable
     st = ctx.state
     candidate = candidate if candidate is not None else st.scratch.get('title')
     if valid_title(candidate, st.raw_query):
@@ -49,6 +49,8 @@ def ensure_title(ctx, candidate=None):
             if valid_title(candidate, st.raw_query):
                 st.scratch['title_source'] = 'title_extraction'
                 return candidate.strip()
+        except ProviderUnavailable:
+            raise
         except (llm.LLMError, AbortRun):
             continue
     st.scratch['title_source'] = 'structured_fallback'

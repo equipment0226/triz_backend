@@ -18,6 +18,7 @@ solutions:
   min_raw_ideas: 12           # 탐색 목표. 수량만으로 보강 호출하지 않는다.
   ideas_per_principle: 1      # 발명원리 1개당 최소 아이디어
   max_principles_per_contradiction: 6
+  track_a_max_tokens: 8000    # 원리별 메커니즘·반박·검증 조건까지 완결할 출력 여유
   matrix_cross_check: true    # 행렬 결과가 6개 미만일 때 LLM 제안을 '추가 후보'로만 보또다
   # 신규성 비율은 강제하지 않는다. 실제 메커니즘의 다양성과 근거를 평가한다.
 

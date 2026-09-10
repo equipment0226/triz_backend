@@ -17,6 +17,19 @@ PROMPTS = ("P_S8_MEETING_INITIAL", "P_S8_MEETING_EXCHANGE", "P_S8_MEETING_FINAL"
 SYSTEM = ("You are an experienced domain reviewer participating in a real multi-role review. "
           "Speak only for your assigned role. Treat peer statements as claims, not verified facts. "
           "Output JSON only. You do not know how these ideas were generated.")
+DIMENSION_RUBRICS = {
+    "FEASIBILITY": "현재 자원·역량으로 실행 가능한가, 미검증 전제는 무엇인가.",
+    "COST": "초기투자·운영비 변화와 산정 근거. 수치는 근거와 단위가 있는 추정만 허용한다.",
+    "RISK": "실패 손실·부작용·가역성.",
+    "TIME": "도입 기간과 운영 중단 시간.",
+    "GOAL": "명시된 성공 기준에 직접 기여하는가.",
+    "RESOLUTION": "상충하는 양쪽 요구를 보존하며 다른 주체에 손실을 전가하지 않는가.",
+    "CAUSAL": "관측과 가설을 구분하며 반증할 수 있는가.",
+    "QUALITY": "해당 문제 유형의 결과 품질·신뢰성.",
+    "ADOPTION": "현장·사용자의 수용과 지속 가능성.",
+    "SAFETY": "안전·규제·환경 위반. veto 권한 담당자의 확인된 위반은 score=1.",
+    "SCALABILITY": "다른 대상·규모로 확장할 수 있는가.",
+}
 
 
 def _text(value):
@@ -49,6 +62,8 @@ def _output_normalizer(phase, values):
     previous = {}
     followups = {x["followup_id"]: x for x in values.get("followup_options", [])}
     summaries = {x["summary_id"]: x for x in values.get("summary_options", [])}
+    evidence_keys = {x["evidence_key"]: x["id"] for x in values.get("answer_evidence_options", [])}
+    assigned = set(values.get("dimensions", []))
 
     def normalize(data):
         nonlocal previous
@@ -58,6 +73,12 @@ def _output_normalizer(phase, values):
         # fields for full validation; never fabricate missing scores or answers.
         data = {**deepcopy(previous), **deepcopy(data)}
         if phase == "initial" or phase == "final":
+            if assigned and isinstance(data.get("scores"), list):
+                # Keep this role's assigned matrix. Surplus known dimensions are
+                # not part of its mandate; missing/duplicate/invalid rows still fail.
+                data["scores"] = [row for row in data["scores"] if not isinstance(row, dict)
+                    or not isinstance(row.get("dimension"), str)
+                    or row["dimension"] not in DIMENSION_RUBRICS or row["dimension"] in assigned]
             for row in data.get("scores", []) if isinstance(data.get("scores"), list) else []:
                 if isinstance(row, dict):
                     flags = row.get("red_flags")
@@ -84,6 +105,9 @@ def _output_normalizer(phase, values):
             data.setdefault("questions", [])
             for answer in data.get("answers", []) if isinstance(data.get("answers"), list) else []:
                 if isinstance(answer, dict):
+                    if "evidence_refs" not in answer and isinstance(answer.get("evidence_keys"), list):
+                        answer["evidence_refs"] = [evidence_keys.get(key, key) if isinstance(key, str) else key
+                                                   for key in answer["evidence_keys"]]
                     for key in ("evidence_refs", "uncertainties"):
                         if answer.get(key) is None:
                             answer[key] = []
@@ -183,7 +207,10 @@ def _check_answers(data, inbox, evidence):
             issues.append("evidence_refs는 제공된 근거 ID의 문자열 배열이어야 한다.")
         elif any(ref not in evidence or expected[qid]["concept_id"] not in evidence[ref]
                  for ref in refs):
-            issues.append("해당 개념에 제공된 근거 ID만 인용할 수 있다.")
+            allowed = [ref for ref, ids in evidence.items() if expected[qid]["concept_id"] in ids]
+            issues.append(f"question_id={qid}: 해당 개념에 제공된 근거 ID만 인용할 수 있다. "
+                          f"허용 evidence_refs={allowed}; 제공된 answer_evidence_options에서 이 개념의 키만 선택하라. "
+                          "확인되지 않은 연결을 사실로 주장하지 말고, 인용 근거가 없으면 []로 쓰고 불확실성을 밝혀라.")
     if seen != set(expected):
         issues.append("아직 답하지 않은 inbox 질문이 있다.")
     return issues
@@ -360,7 +387,9 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
     def role_vars(p):
         return {**deepcopy(common), "role_id": p.persona_id, "role_name": p.role_name,
                 "seniority": p.seniority, "mandate": p.mandate, "bias_note": p.bias_note,
-                "dimensions": list(p.dimensions), "participant_roster": deepcopy(roster)}
+                "dimensions": list(p.dimensions), "participant_roster": deepcopy(roster),
+                "dimension_rubric": "\n".join(f"- {dim}: {DIMENSION_RUBRICS.get(dim, p.mandate)}"
+                                               for dim in p.dimensions)}
 
     def phase(name, label, prompt_id, variables, checker, token_limit, participants=None, rubric=None):
         # Freeze every role's input before launching workers. Completion order cannot
@@ -374,7 +403,7 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
             key = f"{name}:{p.persona_id}"
             check = lambda data: [f"FATAL-MEETING: {issue}" for issue in checker(data, p)]
             semantic_inputs = {k: v for k, v in inputs[p.persona_id].items()
-                               if k not in ("followup_options", "summary_options")}
+                               if k not in ("followup_options", "summary_options", "dimension_rubric", "answer_evidence_options")}
             call_hash = hashlib.sha256(json.dumps(semantic_inputs, sort_keys=True,
                                                   ensure_ascii=False, default=str).encode()).hexdigest()
             saved = meeting.completed_calls.get(key)
@@ -409,7 +438,8 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
                         summary_concept_ids=concept_ids,
                         require_summary=values["include_communication_summary"])]
                     batch_key = f"{key}:part:{index + 1}"
-                    batch_hash = hashlib.sha256(json.dumps(values, sort_keys=True,
+                    batch_inputs = {k: v for k, v in values.items() if k != "dimension_rubric"}
+                    batch_hash = hashlib.sha256(json.dumps(batch_inputs, sort_keys=True,
                         ensure_ascii=False, default=str).encode()).hexdigest()
                     saved_batch = meeting.completed_calls.get(batch_key)
                     if (saved_batch is not None and meeting.completed_call_inputs.get(batch_key) == batch_hash
@@ -482,6 +512,12 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
                         lambda p: {**role_vars(p), "round_number": number,
                                    "exchange_action": "ANSWER", "allow_followup_questions": False,
                                    "inbox": inboxes[p.persona_id], "prior_exchanges": deepcopy(prior),
+                                   "answer_evidence_options": [dict(evidence_key=f"E{i}", id=e["id"],
+                                       concept_ids=e["concept_ids"], identifier=e["identifier"],
+                                       question_ids=[q["question_id"] for q in inboxes[p.persona_id]
+                                                     if q["concept_id"] in e["concept_ids"]])
+                                       for i, e in enumerate(evidence_packet, 1)
+                                       if any(q["concept_id"] in e["concept_ids"] for q in inboxes[p.persona_id])],
                                    "initial_review": initial[p.persona_id]},
                         lambda d, p: _check_answers(d, inboxes[p.persona_id], evidence),
                         lambda p: min(8000, max(exchange_tokens, 1000 + 650 * len(inboxes[p.persona_id]))),

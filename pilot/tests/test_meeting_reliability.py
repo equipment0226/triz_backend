@@ -199,3 +199,30 @@ def test_final_partition_bounds_output_rows_and_requires_all_target_scores():
     role = Persona(persona_id="A", dimensions=["GOAL"])
     assert meeting._check_final({"scores": [score()], "communication_summary": []}, role,
                                {"C1", "C2"}, exchanges(), require_summary=False)
+
+
+def test_surplus_known_dimensions_do_not_override_role_assignment_or_fill_missing_rows():
+    from triz import verify
+    normalize = meeting._output_normalizer("initial", {"dimensions": ["GOAL"]})
+    data = normalize({"scores": [score(), {**score(), "dimension": "COST", "score": 5}]})
+    assert data["scores"] == [score()]
+    assert not verify.check_review(data, {"C1"}, ["GOAL"])
+    missing = normalize({"scores": [{**score(), "dimension": "COST"}]})
+    assert verify.check_review(missing, {"C1"}, ["GOAL"])
+
+
+def test_evidence_selector_preserves_source_scope_and_reports_allowed_ids():
+    options = [{"evidence_key": "E1", "id": "EV-actual", "concept_ids": ["C1"]}]
+    values = {"answer_evidence_options": options}
+    inbox = [{"question_id": "Q1", "concept_id": "C1"}]
+    evidence = {"EV-actual": ["C1"], "EV-other": ["C2"]}
+    data = meeting._output_normalizer("answer_1", values)({"answers": [
+        {"question_id": "Q1", "answer": "Conditional on field verification.", "evidence_keys": ["E1"]}]})
+    assert data["answers"][0]["evidence_refs"] == ["EV-actual"]
+    assert not meeting._check_answers(data, inbox, evidence)
+    data["answers"][0]["evidence_refs"] = ["EV-other"]
+    issues = meeting._check_answers(data, inbox, evidence)
+    assert issues and "Q1" in issues[0] and "EV-actual" in issues[0]
+    bad = meeting._output_normalizer("answer_1", values)({"answers": [
+        {"question_id": "Q1", "answer": "Unknown citation.", "evidence_keys": ["E999"]}]})
+    assert meeting._check_answers(bad, inbox, evidence)

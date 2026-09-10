@@ -63,3 +63,44 @@ def test_refresh_never_takes_over_an_active_or_unfinished_case(state):
     store.save_state(state)
     with pytest.raises(ValueError, match="Only completed"):
         refresh_job.prepare(state.run_id, "test-refresh")
+
+
+def test_normal_ui_retry_keeps_refresh_allowance_and_stops_after_report(state, monkeypatch):
+    completed(state)
+    refresh_job.prepare(state.run_id, "test-refresh")
+    current = store.load_state(state.run_id)
+    current.status = "INTERRUPTED"
+    current.scratch["review_refresh"]["status"] = "INTERRUPTED"
+    current.evaluation.meeting.status = "COMPLETED"
+    current.control.stage_index = 11
+    store.save_state(current)
+    monkeypatch.setattr(pipeline, "start", lambda _: None)
+    assert pipeline.continue_run(state.run_id)
+    resumed = store.load_state(state.run_id)
+    assert resumed.cost.budget_usd == pytest.approx(5.9)
+    def report(ctx):
+        ctx.state.report = ReportArtifact(markdown="Updated")
+    stages = list(pipeline.PIPELINE)
+    stages[11] = ("s9_report", "Report", report)
+    monkeypatch.setattr(pipeline, "PIPELINE", stages)
+    result = pipeline.execute_stage(state.run_id, 11, resumed.scratch["execution_epoch"])
+    assert result["status"] == "COMPLETED" and not result["continue_execution"]
+    saved = store.load_state(state.run_id)
+    assert saved.feedback == state.feedback and saved.pending is None
+    assert saved.scratch["review_refresh"]["status"] == "COMPLETED"
+
+
+def test_finished_legacy_ui_retry_is_reconciled_without_new_model_calls(state):
+    from triz.schema import HumanRequest
+    completed(state)
+    refresh_job.prepare(state.run_id, "test-refresh")
+    current = store.load_state(state.run_id)
+    current.status = "WAITING_HUMAN"
+    current.report = ReportArtifact(markdown="Updated")
+    current.evaluation.meeting.status = "COMPLETED"
+    current.pending = HumanRequest(kind="FEEDBACK", title="Feedback")
+    store.save_state(current)
+    assert refresh_job.prepare(state.run_id, "test-refresh") is None
+    saved = store.load_state(state.run_id)
+    assert saved.status == "COMPLETED" and saved.pending is None
+    assert saved.feedback == state.feedback

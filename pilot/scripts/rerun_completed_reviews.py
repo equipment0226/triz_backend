@@ -24,6 +24,18 @@ def prepare(run_id, job_id):
         marker = state.scratch.get("review_refresh", {})
         if marker.get("job_id") == job_id and marker.get("status") == "COMPLETED":
             return None
+        if (marker.get("job_id") == job_id and state.report and state.evaluation.meeting.status == "COMPLETED"
+                and (state.status == "COMPLETED" or (state.status == "WAITING_HUMAN" and state.pending
+                                                     and state.pending.kind == "FEEDBACK"))):
+            # A normal UI retry on older code may have reached S10. The authorized
+            # S8/S9 refresh is already done; preserve feedback and finish its marker.
+            if set(marker["concept_ids"]) != {c.id for c in state.concepts}:
+                raise ValueError("Solution set changed outside this refresh")
+            state.pending = None
+            state.status = marker["status"] = "COMPLETED"
+            state.control.stage_index = len(pipeline.PIPELINE)
+            store.save_state(state)
+            return None
         if state.status in ("RUNNING", "QUEUED", "WAITING_HUMAN"):
             raise ValueError("Case is busy or waiting for its owner")
         continuing = marker.get("job_id") == job_id

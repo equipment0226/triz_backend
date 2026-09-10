@@ -94,6 +94,9 @@ def _unresolved_failures(state):
 
 def _mark_interrupted(state, reason, status="INTERRUPTED"):
     state.status = status
+    refresh = state.scratch.get("review_refresh", {})
+    if refresh and refresh.get("status") != "COMPLETED":
+        refresh["status"] = status
     state.scratch.setdefault("retry_notification_id", f"retry-{uuid.uuid4().hex}")
     state.scratch["interruption_reason"] = reason
 
@@ -122,6 +125,9 @@ def execute_stage(run_id, stage_index, epoch=0):
         ctx = RunContext(state)
         key, label, fn = PIPELINE[stage_index]
         state.status = "RUNNING"
+        refresh = state.scratch.get("review_refresh", {})
+        if key in ("s8_evaluate", "s9_report") and refresh and refresh.get("status") != "COMPLETED":
+            refresh["status"] = "RUNNING"
         state.scratch["stage_key"] = key
         started = time.time()
         state.scratch["execution_stage_active"] = {"epoch": epoch, "index": stage_index, "started_at": started}
@@ -137,6 +143,11 @@ def execute_stage(run_id, stage_index, epoch=0):
             if _unresolved_failures(state):
                 raise RuntimeError("필수 분석 호출이 실패했습니다. 설정을 확인하고 이어서 실행해 주세요.")
             state.control.stage_index += 1
+            # An explicitly requested review refresh ends at its report even when
+            # resumed through the normal UI after a provider/validation failure.
+            if key == "s9_report" and refresh and refresh.get("status") == "RUNNING":
+                refresh["status"] = "COMPLETED"
+                state.control.stage_index = len(PIPELINE)
             state.scratch["last_stage_seq"] = len(state.steps)
             state.scratch.pop("resume_after_seq", None)
             state.status = "COMPLETED" if state.control.stage_index == len(PIPELINE) else "RUNNING"
@@ -283,6 +294,9 @@ def continue_run(run_id):
             return False
         state.scratch["last_stage_seq"] = len(state.steps)
         state.cost.budget_usd = float(settings.cfg("run.budget_usd", state.cost.budget_usd))
+        refresh = state.scratch.get("review_refresh", {})
+        if refresh and refresh.get("status") != "COMPLETED":
+            state.cost.budget_usd += float(refresh.get("baseline_cost", 0))
         state.cost.over_budget = state.cost.total_usd > state.cost.budget_usd
         state.scratch["active_seconds"] = 0
         return state.control.stage_index < len(PIPELINE)
@@ -294,6 +308,7 @@ def rerun_from(run_id, stage_key, instruction=""):
     def apply(state):
         if state.status in ("RUNNING", "QUEUED"):
             return False
+        state.scratch.pop("review_refresh", None)
         state.control.stage_index = idx
         state.pending = None
         state.report = None

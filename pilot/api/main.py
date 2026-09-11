@@ -429,7 +429,11 @@ def get_report_context(run_id: str) -> dict:
         for c in state.concepts
     ]
     solutions.sort(key=lambda x: (x["rank"] or 999))
-    return {"solutions": solutions}
+    from triz.labels import build_label_map, display_value
+    labels = build_label_map(state)
+    for solution in solutions:
+        solution['display_label'] = labels[solution['concept_id']]
+    return display_value({"solutions": solutions}, labels)
 
 
 @app.post("/api/runs/{run_id}/feedback")

@@ -1,6 +1,6 @@
 """Product-facing views: human names, evidence gaps, diagrams and actionable next steps."""
 from . import visuals
-from .labels import build_label_map, humanize
+from .labels import build_label_map, humanize, display_value
 from .render import QUADRANT_KO
 
 def object_phrase(label):
@@ -23,10 +23,10 @@ def view(state):
         return humanize(str(value or ""), labels)
     solutions = []
     reviewer_comments = by_concept(report)
-    for c in state.concepts:
+    for number, c in enumerate(state.concepts, 1):
         e = next((e for e in state.evaluation.evaluations if e.concept_id == c.id), None)
         check = state.check_for(c.id)
-        solutions.append(dict(key=c.id, title=c.title, summary=c.one_liner,
+        solutions.append(dict(key=c.id, number=number, display_label=labels[c.id], title=c.title, summary=c.one_liner,
             reference_cards=reference_cards(state, c),
             description=human(c.description), mechanism=human(c.working_principle),
             changes=c.changes_to_system, effect=c.expected_effect, assumptions=c.assumptions,
@@ -47,7 +47,7 @@ def view(state):
                else "분석이 잠시 멈췄어요. 설정을 확인한 뒤 이어서 진행할 수 있어요." if state.status in ("FAILED", "INTERRUPTED")
                else f"{object_phrase(steps[min(index, len(steps)-1)]['label'])} 진행하고 있어요.")
     diagrams = [f for f in visuals.figures(report) if f['key'] != 'nine-windows']
-    return dict(run_id=state.run_id, title=state.scratch.get("title") or state.raw_query[:60],
+    result = dict(run_id=state.run_id, title=state.scratch.get("title") or state.raw_query[:60],
         query=state.raw_query, industry=state.domain.industry, system=state.domain.target_system,
         status=state.status, stage_index=index, stages=steps, guide=message,
         pending=state.pending.model_dump(mode="json") if state.pending else None,
@@ -63,3 +63,8 @@ def view(state):
         related_references=state.scratch.get("related_references", []),
         warnings=[human(w) for w in state.control.warnings],
         review_status={"checked": sum(s.status == "OK" for s in state.steps), "unverified": sum(s.status == "WARN" for s in state.steps)})
+    if result['pending']:
+        for key in ('conditional', 'concepts'):
+            for item in result['pending']['payload'].get(key, []):
+                item['display_label'] = labels.get(item.get('concept_id'), human(item.get('title')))
+    return display_value(result, labels)

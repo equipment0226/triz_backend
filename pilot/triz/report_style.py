@@ -2,7 +2,7 @@
 import re
 from html import escape
 from pydantic import BaseModel
-from .labels import build_label_map, humanize
+from .labels import build_label_map, humanize, display_value
 
 _ADJECTIVES = set("가능 불가능 필요 불필요 중요 유효 무효 적합 부적합 충분 불충분 부족 안전 위험 유리 불리 용이 곤란 명확 불명확 확실 불확실 정확 부정확 단순 복잡 동일 유사 상이 민감 강력 강인 우수 취약 과도 과다 적절 부적절 합리 비합리 타당 부당 필수 필연 현저 미미 상당 심각 빈번 희박 적당 특수 일반 양호 불량 모호 엄격 어렵 간단 다양 풍부 저렴 비싸 편리 불편 긍정 부정 확고 긴급 필요충분 지속가능".split())
 _END = r"(?=$|[\s.!?。…,;:|<>\]\)}*\"'])"
@@ -44,16 +44,22 @@ def plain_value(value):
     return value
 
 def report_state(state):
+    # A view passes the same detached copy to templates, diagrams and reference
+    # cards. Prepare its text once; this transient flag is never serialized.
+    if getattr(state, '_report_prepared', False):
+        return state
+    labels = build_label_map(state)
     fields = ('raw_query', 'domain', 'intake', 'confirm', 'constraints', 'analysis', 'definition', 'solve', 'concepts',
               'evidence', 'constraint_checks', 'evaluation', 'report')
-    result = state.model_copy(update={k: plain_value(getattr(state, k)) for k in fields})
+    result = state.model_copy(update={k: plain_value(display_value(getattr(state, k), labels)) for k in fields})
     result.scratch = dict(state.scratch)
     from .evidence import search_summary
     result.scratch['search_status'] = search_summary(state)
     for key in ('title', 'excluded_concepts', 's_curve', 'taboo', 'principle_patents', 'patent_additions', 'related_references', 'evidence_mappings'):
         if key in result.scratch:
-            result.scratch[key] = plain_value(result.scratch[key])
-    result.control = state.control.model_copy(update={'warnings': plain_value(state.control.warnings)})
+            result.scratch[key] = plain_value(display_value(result.scratch[key], labels))
+    result.control = state.control.model_copy(update={'warnings': plain_value(display_value(state.control.warnings, labels))})
+    object.__setattr__(result, '_report_prepared', True)
     return result
 
 def reference_cards(state, concept):

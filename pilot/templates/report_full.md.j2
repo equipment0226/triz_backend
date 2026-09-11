@@ -541,7 +541,7 @@
 {% for c in report_concepts %}
 {% set e = evaluation_map.get(c.id) %}
 {% if c %}
-### [{{ '추가 도출' if e and e.rank == 99 else (e.rank ~ '위' if e and e.rank else '평가 전') }}] {{ c.title }}
+### [{{ '추가 도출' if e and e.rank == 99 else (e.rank ~ '위' if e and e.rank else '평가 전') }}] {{ c.id | lbl }}
 > {{ c.one_liner }}
 
 | 구분 | 내용 |

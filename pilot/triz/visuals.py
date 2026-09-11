@@ -201,6 +201,10 @@ def standard_model(state, app):
 
 
 def figures(state):
+    # Resolve references before wrapping text; split SVG spans cannot be matched
+    # safely by a string replacement after layout.
+    from .report_style import report_state
+    state = report_state(state)
     out = []
     def add(key, title, nodes, edges=(), columns=3, **options):
         if nodes:

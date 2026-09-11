@@ -1,81 +1,136 @@
-"""내부 ID(TC-xxxx, CPT-xxxx …)를 사람이 읽는 표현으로 바꾼다.
-
-내부 추적에는 ID가 필요하지만, 리포트/화면에서는 사용자가 코드를 역추적하는 일이
-없어야 한다. 최종 리포트는 ID를 완전히 제거하고, 중간 산출물은 병기한다.
-"""
+"""Resolve internal references to readable, consistently numbered descriptions."""
 from __future__ import annotations
 
 import re
+from functools import lru_cache
+from pydantic import BaseModel
 
-# 뒤에 한글 조사(KP-abc123은)가 붙어도 잡히도록 끝에 \b 를 두지 않는다.
-ID_RE = re.compile(r"\b(TC|PC|CPT|IDEA|KP|CON|SU|EV|TR|PER|STP|INT)-[0-9a-fA-F]{6,12}(?![0-9a-fA-F])")
+# ASCII boundaries also match IDs adjacent to Korean particles or punctuation.
+_KINDS = {
+    'TC': '기술모순', 'PC': '물리모순', 'CPT': '해결안', 'CB': '해결안',
+    'IDEA': '아이디어', 'KP': '핵심문제', 'CON': '제약', 'SU': '물질장모델',
+    'EV': '근거', 'TR': '트리밍', 'PER': '검토자', 'STP': '분석 단계',
+    'INT': '확인 요청', 'SYS': '대상 시스템', 'ATT': '첨부자료', 'RUN': '분석',
+}
+ID_RE = re.compile(r'(?<![A-Za-z0-9_])(?:' + '|'.join(_KINDS) +
+                   r')-[A-Za-z0-9]{6,32}(?![A-Za-z0-9_])', re.I)
+_STRUCTURAL = {'id', 'key', 'identifier', 'url', 'href', 'parents', 'addresses',
+               'source_ref', 'blocked_by', 'violated_ids', 'markdown', 'html', 'svg',
+               'diagram_mermaid', 'mermaid', 'function_mermaid', 'completed_calls',
+               'completed_call_inputs', 'input_hash', 'context_hash'}
 
 
 def _short(text: str, n: int = 28) -> str:
-    text = " ".join((text or "").split())
-    return text if len(text) <= n else text[: n - 1] + "…"
+    text = ' '.join(str(text or '').split())
+    return text if len(text) <= n else text[:n - 1].rstrip() + '…'
+
+
+def _description(*values, fallback='내용 확인 필요'):
+    for value in values:
+        text = ID_RE.sub('', str(value or ''))
+        text = re.sub(r'해결(?:안|책)\s*\d+\s*', '', text)
+        text = re.sub(r'\(\s*\)|\[\s*\]|「\s*」', '', text).strip(' ·:,-')
+        if text:
+            return _short(text)
+    return fallback
 
 
 def build_label_map(state) -> dict[str, str]:
-    """ID → 표시용 라벨."""
-    m: dict[str, str] = {}
-
+    """Number concepts by stored order, independently of evaluation rank."""
+    labels = {}
+    def add(code, kind, number, *values):
+        if code:
+            labels[code] = f'{kind}{number} ({_description(*values)})'
     for i, c in enumerate(state.constraints.items, 1):
-        m[c.id] = f"제약{i} 「{_short(c.statement, 24)}」"
+        add(c.id, '제약', i, c.statement)
+    for i, c in enumerate(state.confirm.candidates, 1):
+        add(c.id, '대상 시스템', i, c.name, c.description)
+    for i, c in enumerate(state.definition.technical_contradictions, 1):
+        add(c.id, '기술모순', i, c.label, f'{c.then_good} / {c.but_bad}')
+    for i, c in enumerate(state.definition.physical_contradictions, 1):
+        add(c.id, '물리모순', i, c.label, f'{c.element}의 {c.parameter}')
+    for i, c in enumerate(state.definition.key_problems, 1):
+        add(c.id, '핵심문제', i, c.title)
+    for i, c in enumerate(state.definition.trimming, 1):
+        add(c.id, '트리밍', i, c.target_component)
+    for i, c in enumerate(state.analysis.su_fields, 1):
+        add(c.id, '물질장모델', i, c.label, c.s1, c.s2)
+    if state.analysis.ceca:
+        for i, c in enumerate(state.analysis.ceca.nodes, 1):
+            add(c.id, '원인', i, c.text)
+    for i, c in enumerate(state.concepts, 1):
+        add(c.id, '해결안', i, c.title, c.one_liner, c.working_principle, c.description)
+    for i, c in enumerate(state.solve.raw_ideas, 1):
+        add(c.id, '아이디어', i, c.title, c.idea)
+    for i, c in enumerate(state.evidence, 1):
+        add(c.id, '근거', i, c.title, c.claim)
+    for c in state.evaluation.reviewers:
+        labels[c.persona_id] = _description(c.role_name, fallback='검토자')
+    # Avoid recursively expanding references in labels themselves.
+    return {k: humanize(v, {}) for k, v in labels.items()}
 
-    for i, t in enumerate(state.definition.technical_contradictions, 1):
-        label = t.label or f"{_short(t.then_good, 12)} vs {_short(t.but_bad, 12)}"
-        m[t.id] = f"기술모순{i} 「{_short(label, 26)}」"
 
-    for i, p in enumerate(state.definition.physical_contradictions, 1):
-        label = p.label or f"{p.element}의 {p.parameter}"
-        m[p.id] = f"물리모순{i} 「{_short(label, 26)}」"
-
-    for i, k in enumerate(state.definition.key_problems, 1):
-        m[k.id] = f"핵심문제{i} 「{_short(k.title, 26)}」"
-
-    for i, tr in enumerate(state.definition.trimming, 1):
-        m[tr.id] = f"트리밍{i} 「{_short(tr.target_component, 18)}」"
-
-    for i, su in enumerate(state.analysis.su_fields, 1):
-        m[su.id] = f"물질장모델{i} 「{_short(su.label, 20)}」"
-
-    for c in state.concepts:
-        m[c.id] = f"「{_short(c.title, 30)}」"
-
-    for idea in state.solve.raw_ideas:
-        m[idea.id] = f"「{_short(idea.title or idea.idea, 24)}」"
-
-    for i, e in enumerate(state.evidence, 1):
-        m[e.id] = f"근거{i} 「{_short(e.title or e.claim, 24)}」"
-
-    for p in state.evaluation.reviewers:
-        m[p.persona_id] = p.role_name
-
-    return m
+@lru_cache(maxsize=64)
+def _reference_pattern(keys):
+    known = '|'.join(re.escape(k) for k in sorted(keys, key=len, reverse=True) if k)
+    token = '(?:' + (known + '|' if known else '') + ID_RE.pattern + ')'
+    # Consume legacy wrappers: 해결안1(CB-...) becomes one canonical label.
+    wrapped = r'(?:해결(?:안|책)\s*\d+\s*)?[\(\[「]\s*`?(?P<wrapped>' + token + r')`?\s*[\)\]」]'
+    bare = r'(?<![A-Za-z0-9_])(?P<bare>' + token + r')(?![A-Za-z0-9_])'
+    return re.compile(wrapped + '|' + bare, re.I)
 
 
 def humanize(text: str, labels: dict[str, str], keep_code: bool = False) -> str:
-    """문자열 안의 ID를 라벨로 치환한다. 매핑이 없으면 코드를 지운다."""
+    """No display mode reintroduces IDs, even for unknown/legacy references."""
     if not text:
         return text
+    return _humanizer(labels)(text)
 
-    def sub(match: re.Match[str]) -> str:
-        code = match.group(0)
-        label = labels.get(code)
-        if not label:
-            return ""
-        return f"{label}({code})" if keep_code else label
 
-    out = ID_RE.sub(sub, text)
-    out = re.sub(r"\(\s*\)", "", out)
-    out = re.sub(r"[ \t]{2,}", " ", out)
-    out = re.sub(r"(^|\n)[ \t]*[·,]\s*", r"\1", out)
-    return out.strip()
+def _humanizer(labels):
+    lookup = {key.casefold(): value for key, value in labels.items()}
+    def replace(match):
+        code = match['wrapped'] or match['bare']
+        return lookup.get(code.casefold()) or (_KINDS.get(code.split('-')[0].upper(), '참조 항목') + ' (내용 확인 필요)')
+    pattern = _reference_pattern(tuple(labels))
+    # Most prose contains no reference at all. A small literal-prefix check
+    # avoids running the full legacy-reference expression over long transcripts.
+    prefixes = tuple(dict.fromkeys([k.casefold().split('-')[0] for k in labels] +
+                                   [k.casefold() + '-' for k in _KINDS]))
+    def resolve(text):
+        folded = text.casefold()
+        if not any(prefix in folded for prefix in prefixes):
+            return text
+        # Preserve real patent identifiers and link destinations.
+        parts = re.split(r'(https?://[^\s<>\[\]"\x27]+)', str(text))
+        return ''.join(part if i % 2 else pattern.sub(replace, part) for i, part in enumerate(parts))
+    return resolve
 
 
 def label_of(value, labels: dict[str, str], keep_code: bool = False) -> str:
-    """단일 ID 또는 ID 목록을 라벨로."""
     if isinstance(value, (list, tuple, set)):
-        return " · ".join(label_of(v, labels, keep_code) for v in value if v)
-    return humanize(str(value or ""), labels, keep_code) or str(value or "")
+        return ' · '.join(label_of(v, labels) for v in value if v)
+    return humanize(str(value or ''), labels)
+
+
+def display_value(value, labels):
+    """Copy nested display text while retaining machine keys and relationships."""
+    human = _humanizer(labels)
+    def visit(item):
+        if isinstance(item, str):
+            return human(item)
+        if isinstance(item, BaseModel):
+            return item.model_copy(update={k: visit(getattr(item, k))
+                for k in type(item).model_fields if not _structural(k)})
+        if isinstance(item, dict):
+            return {k: v if _structural(k) else visit(v) for k, v in item.items()}
+        if isinstance(item, list):
+            return [visit(v) for v in item]
+        if isinstance(item, tuple):
+            return tuple(visit(v) for v in item)
+        return item
+    return visit(value)
+
+
+def _structural(key):
+    return isinstance(key, str) and (key in _STRUCTURAL or key.endswith(('_id', '_ids', '_url')))

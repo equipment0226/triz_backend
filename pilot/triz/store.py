@@ -153,7 +153,12 @@ def runs_page(page=1, search='', user_id=None, public=False):
         rows = [dict(r) for r in c.execute(query.order_by(runs.c.started_at.desc(), runs.c.run_id.desc())
             .offset((page-1)*20).limit(20)).mappings()]
     fields = ('run_id', 'title', 'mode', 'industry', 'target_system', 'status', 'started_at')
-    return dict(items=[{k:r.get(k) for k in fields} for r in rows], total=total, page=page, page_size=20)
+    from .labels import build_label_map, display_value
+    items = []
+    for row in rows:
+        state = load_state(row['run_id'])
+        items.append(display_value({k: row.get(k) for k in fields}, build_label_map(state) if state else {}))
+    return dict(items=items, total=total, page=page, page_size=20)
 
 def pending_notifications(user_id):
     """Read the owner's actionable requests and retry notices without rendering reports."""
@@ -167,19 +172,23 @@ def pending_notifications(user_id):
     out = []
     for row in rows:
         state = json.loads(row['state_json'])
+        from .labels import build_label_map, humanize
+        labels = build_label_map(GlobalState.model_validate(state))
+        def human(value):
+            return humanize(str(value or ''), labels)
         pending = state.get('pending')
         if pending and pending.get('interrupt_id'):
-            out.append(dict(id=pending['interrupt_id'], run_id=row['run_id'], project_title=row['title'],
-                title=pending.get('title') or '분석 검토', kind=pending.get('kind', 'REVIEW')))
+            out.append(dict(id=pending['interrupt_id'], run_id=row['run_id'], project_title=human(row['title']),
+                title=human(pending.get('title')) or '분석 검토', kind=pending.get('kind', 'REVIEW')))
         elif row['status'] in ('FAILED', 'INTERRUPTED'):
             scratch = state.get('scratch') or {}
             # Legacy failures need stable IDs too; subsequent retries increment epoch.
             notice_id = scratch.get('retry_notification_id') or (
                 f"retry:{row['run_id']}:{scratch.get('execution_epoch', 0)}:"
                 f"{state.get('control', {}).get('stage_index', 0)}:{row['status']}")
-            out.append(dict(id=notice_id, run_id=row['run_id'], project_title=row['title'],
+            out.append(dict(id=notice_id, run_id=row['run_id'], project_title=human(row['title']),
                 title='분석 재시도', kind='RETRY_REQUIRED', status=row['status'],
-                description=scratch.get('interruption_reason') or '분석이 중단되었습니다. 저장된 내용에서 이어서 실행해 주세요.',
+                description=human(scratch.get('interruption_reason')) or '분석이 중단되었습니다. 저장된 내용에서 이어서 실행해 주세요.',
                 action_label='이어서 확인'))
     return out
 

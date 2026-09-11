@@ -350,9 +350,12 @@ def _env(labels: dict[str, str], keep_code: bool = False) -> Environment:
 
 def render_report(state: GlobalState, narrative: dict, template: str = "", *, diagram=None, references=None) -> str:
     from .visuals import figures
-    from .report_style import reference_cards
+    from .report_style import reference_cards, report_state
+    from .labels import display_value
     from .review_comments import by_concept
     labels = build_label_map(state)
+    narrative = display_value(narrative, labels)
+    state = report_state(state)
     env = _env(labels)
     lite = state.control.mode == RunMode.LITE
     name = template or settings.cfg("report.lite_template" if lite else "report.template",

@@ -24,8 +24,8 @@ def build(directory, knowledge):
     base={e['mechanism_key']:e for g in authored['groups'].values() for e in g}
     refs={**authored['SOURCES'],**read(directory/'references.json',{})}
     registry=read(directory/'identifiers.json',{})
-    literature={**read(directory/'accepted_literature_sources.json',{}),
-                **{e.get('id'):e for g in read(ROOT/'data/effects_review/reviewed-catalog.json',[]) for e in g['effects']}}
+    literature={**{e.get('id'):e for g in read(ROOT/'data/effects_review/reviewed-catalog.json',[]) for e in g['effects']},
+                **read(directory/'accepted_literature_sources.json',{})}
     links=read(directory/'literature_links.json',{})
     groups=[]; evidence={}; counts=Counter(); names=set(); keys=set(); unsupported=[]
     for line in (directory/'catalog.tsv').read_text(encoding='utf-8').splitlines():
@@ -45,7 +45,7 @@ def build(directory, knowledge):
         if not identifier.startswith(number+'.'):raise ValueError('Changing a function requires an explicit ID migration: '+key)
         prior=base.get(key,{})
         actual_domain=prior.get('domain',domain)
-        if key in {'ion-exchange','surfactant-action','gelation','anodization','electrodeposition','cathodic-protection','passivation'}:actual_domain='CHEMICAL'
+        if key in {'ion-exchange','surfactant-action','gelation','anodization','electrodeposition','cathodic-protection','passivation','thermochemical-heat-storage'}:actual_domain='CHEMICAL'
         group['effects'].append({'id':identifier,'name':name,'domain':actual_domain,'principle':principle,'conditions':conditions})
         sources=list(prior.get('sources',[]))
         if key in {'acoustic-streaming','hydrodynamic-lubrication'}:

@@ -14,10 +14,10 @@ from pathlib import Path
 import re
 import unicodedata
 
-VERSION = 'effects-extraction-v1'
-DOMAINS = {'PHYSICAL', 'CHEMICAL', 'GEOMETRIC', 'BIOLOGICAL'}
+VERSION = 'effects-extraction-v2'
+DOMAINS = {'PHYSICAL', 'CHEMICAL', 'GEOMETRIC', 'BIOLOGICAL', 'INFORMATIONAL'}
 FUNCTIONS = [
-    '물체를 비접촉으로 지지하거나 이동시킨다', '진동을 억제하거나 격리한다',
+    '물체를 지지·고정하거나 이동시킨다', '진동을 억제하거나 격리한다',
     '점도·강성을 제어한다', '미세 입자를 포집·제거한다', '접촉 마찰을 줄인다',
     '형상·치수를 제어하거나 보상한다', '상태를 측정·검출한다',
     '에너지를 회수하거나 재활용한다', '혼합·분리를 촉진한다',
@@ -26,6 +26,7 @@ FUNCTIONS = [
     '물질을 변환·합성한다', '물질을 접합·분리하거나 구조를 형성한다',
     '손상을 방지·복구한다', '생물학적 작용을 이용해 기능을 수행한다',
     '전하·전류·전기적 특성을 제어한다',
+    '정보를 전달·추정하거나 시스템을 제어한다',
 ]
 
 SYSTEM = '''You curate a Korean TRIZ scientific-effect knowledge base from public literature.
@@ -46,10 +47,12 @@ the title as the supporting span. Reuse that same short span if cited twice.
 Only use source ids supplied below, never supply a URL yourself.
 Use canonical English mechanism_key, e.g. thermophoresis, electrowetting,
 capillary-evaporation-condensation, independent of the particular industry.
-Different variants with different enabling conditions may use distinct keys.
+Do not give the same mechanism a new key just because its industry, material,
+device name or operating conditions differ. Consolidate such applications and
+preserve the different conditions; use a new key only for a different causal mechanism.
 Give reusable effect names, not patent-specific product names.
 Choose function_ko from the supplied function list and domain from PHYSICAL,
-CHEMICAL, GEOMETRIC, BIOLOGICAL. Include aliases in Korean and English.
+CHEMICAL, GEOMETRIC, BIOLOGICAL, INFORMATIONAL. Include aliases in Korean and English.
 conditions must explicitly say which needed conditions are unknown in the source.
 limitations must separate any source-stated limit from design checks inferred by
 you. design_notes must be labeled '설계 검토 제안:' and not claim source support.
@@ -147,13 +150,20 @@ def validate_output(payload, documents):
     return {'effects':accepted,'reviews':reviews,'rejected':rejected}
 
 def extract_batch(documents, llm_call):
+    empty=[d for d in documents if not d['body'].strip()]
+    readable=[d for d in documents if d['body'].strip()]
+    empty_reviews=[dict(id=d['id'],status='INSUFFICIENT_TEXT',reason='저장된 초록·본문 발췌가 없음') for d in empty]
+    if not readable:
+        return dict(effects=[],reviews=empty_reviews,rejected=[],usage=dict(tokens_in=0,tokens_out=0,cost_usd=0,model='deterministic_empty_text'))
     packet = [{'id':d['id'],'type':d['source'].get('source_type'),'title':d['source'].get('title'),
-               'text_scope':d['text_scope'],'body':d['body']} for d in documents]
+               'text_scope':d['text_scope'],'body':d['body']} for d in readable]
     result = llm_call(system=SYSTEM, user=json.dumps({'allowed_functions':FUNCTIONS,'documents':packet},ensure_ascii=False),
                       tier='T2', temperature=0.1, max_tokens=16000, retries=1)
     usage = {'tokens_in':result.tokens_in,'tokens_out':result.tokens_out,'cost_usd':result.cost_usd,'model':result.model}
     try:
-        return dict(validate_output(result.data, documents),usage=usage)
+        checked=validate_output(result.data,readable)
+        checked['reviews']+=empty_reviews
+        return dict(checked,usage=usage)
     except ValueError as error:
         error.extraction = result.data
         error.token_usage = usage

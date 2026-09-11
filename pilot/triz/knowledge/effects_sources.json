@@ -1383,6 +1383,120 @@
     "evidence_level": "편집 지식; 연결 문헌 없음",
     "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
   },
+  "7.19": {
+    "mechanism_key": "magnetocaloric-effect",
+    "name_en": "magnetocaloric effect",
+    "aliases": [
+      "자기열량 효과",
+      "magnetocaloric effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-magnetocaloric",
+        "title": "NIST · Magnetic refrigeration and the magnetocaloric effect",
+        "url": "https://www.nist.gov/news-events/news/2004/06/nist-research-reveals-tiny-iron-supplement-has-chilling-effect-bodes-well",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.20": {
+    "mechanism_key": "electrocaloric-effect",
+    "name_en": "electrocaloric effect",
+    "aliases": [
+      "전기열량 효과",
+      "electrocaloric effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electrocaloric",
+        "title": "Nature Communications · Enhanced electrocaloric efficiency via energy recovery",
+        "url": "https://www.nature.com/articles/s41467-018-04027-9",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.21": {
+    "mechanism_key": "elastocaloric-effect",
+    "name_en": "elastocaloric effect",
+    "aliases": [
+      "탄성열량 효과",
+      "elastocaloric effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-elastocaloric",
+        "title": "PNNL · Demonstration of High Efficiency Elastocaloric Cooling with Large Delta-T Using NiTi Wires",
+        "url": "https://www.pnnl.gov/publications/demonstration-high-efficiency-elastocaloric-cooling-large-delta-t-using-niti-wires",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.22": {
+    "mechanism_key": "joule-thomson-effect",
+    "name_en": "joule thomson effect",
+    "aliases": [
+      "줄–톰슨 효과",
+      "joule thomson effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-joule-thomson",
+        "title": "NBS Technical Note 227 · The Joule-Thomson process in cryogenic refrigeration systems",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/TN/nbstechnicalnote227.pdf",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.23": {
+    "mechanism_key": "absorption-refrigeration",
+    "name_en": "absorption refrigeration",
+    "aliases": [
+      "흡수식 냉동",
+      "absorption refrigeration"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-absorption-refrigeration",
+        "title": "US DOE · Absorption Chillers for CHP Systems",
+        "url": "https://www.energy.gov/sites/default/files/2017/06/f35/CHP-Absorption%20Chiller-compliant.pdf",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.24": {
+    "mechanism_key": "thermochemical-heat-storage",
+    "name_en": "thermochemical heat storage",
+    "aliases": [
+      "열화학 축열",
+      "thermochemical heat storage"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-thermochemical-storage",
+        "title": "US DOE · Design and Integration of Thermochemical Energy Storage",
+        "url": "https://www.energy.gov/cmei/buildings/articles/design-and-integration-thermochemical-energy-storage-tces-buildings-load",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
   "8.1": {
     "mechanism_key": "seebeck-generation",
     "name_en": "Seebeck effect",
@@ -1955,6 +2069,25 @@
         "year": "2005",
         "retrieval_scope": "stored_patent_abstract",
         "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.20": {
+    "mechanism_key": "supercritical-fluid-extraction",
+    "name_en": "supercritical fluid extraction",
+    "aliases": [
+      "초임계 유체 추출",
+      "supercritical fluid extraction"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-supercritical-extraction",
+        "title": "NIST · Supercritical Fluid Extraction",
+        "url": "https://nvlpubs.nist.gov/nistpubs/sp958-lide/html/152-154.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
       }
     ],
     "evidence_level": "참고 문헌과 편집 지식",
@@ -2660,6 +2793,63 @@
     "evidence_level": "참고 문헌과 편집 지식",
     "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
   },
+  "12.19": {
+    "mechanism_key": "quartz-crystal-microbalance",
+    "name_en": "quartz crystal microbalance",
+    "aliases": [
+      "수정진동자 미량저울(QCM)",
+      "quartz crystal microbalance"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-qcm",
+        "title": "Stambaugh et al. · Linking mass measured by the quartz crystal microbalance to the SI",
+        "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=927952",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.20": {
+    "mechanism_key": "photoacoustic-detection",
+    "name_en": "photoacoustic detection",
+    "aliases": [
+      "광음향 검출",
+      "photoacoustic detection"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-photoacoustic",
+        "title": "Gillis et al. · Standard photoacoustic spectrometer: Model and validation using O2 A-band spectra",
+        "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=904841",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.21": {
+    "mechanism_key": "pyroelectric-effect",
+    "name_en": "pyroelectric effect",
+    "aliases": [
+      "초전 효과",
+      "pyroelectric effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-pyroelectric",
+        "title": "NIST OOF2 · Couplings:PyroElectricity",
+        "url": "https://www.ctcms.nist.gov/~langer/oof2man-draft/Property-Couplings-PyroElectricity.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
   "13.1": {
     "mechanism_key": "refraction",
     "name_en": "refraction",
@@ -2882,6 +3072,101 @@
     "evidence_level": "편집 지식; 연결 문헌 없음",
     "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
   },
+  "13.15": {
+    "mechanism_key": "pockels-effect",
+    "name_en": "pockels effect",
+    "aliases": [
+      "포켈스 효과",
+      "pockels effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electro-magneto-optic",
+        "title": "NBS Technical Note 1307 · Limits to the precision of electro-optic and magneto-optic sensors",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/TN/nbstechnicalnote1307.pdf",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.16": {
+    "mechanism_key": "electric-kerr-effect",
+    "name_en": "electric kerr effect",
+    "aliases": [
+      "전기광학 커 효과",
+      "electric kerr effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electro-magneto-optic",
+        "title": "NBS Technical Note 1307 · Limits to the precision of electro-optic and magneto-optic sensors",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/TN/nbstechnicalnote1307.pdf",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.17": {
+    "mechanism_key": "faraday-rotation",
+    "name_en": "faraday rotation",
+    "aliases": [
+      "패러데이 회전",
+      "faraday rotation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electro-magneto-optic",
+        "title": "NBS Technical Note 1307 · Limits to the precision of electro-optic and magneto-optic sensors",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/TN/nbstechnicalnote1307.pdf",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.18": {
+    "mechanism_key": "acousto-optic-modulation",
+    "name_en": "acousto optic modulation",
+    "aliases": [
+      "음향광학 변조",
+      "acousto optic modulation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-acousto-optic",
+        "title": "NIST · Double-pass acousto-optic modulator system",
+        "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=50095",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.19": {
+    "mechanism_key": "nonlinear-optical-frequency-conversion",
+    "name_en": "nonlinear optical frequency conversion",
+    "aliases": [
+      "비선형 광학 주파수 변환",
+      "nonlinear optical frequency conversion"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-nonlinear-optics",
+        "title": "NIST · Frequency Conversion Interfaces for Photonic Quantum Systems",
+        "url": "https://www.nist.gov/programs-projects/frequency-conversion-interfaces-photonic-quantum-systems",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
   "14.1": {
     "mechanism_key": "pn-rectification",
     "name_en": "PN-junction rectification",
@@ -3093,6 +3378,25 @@
     ],
     "sources": [],
     "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.12": {
+    "mechanism_key": "electron-tunneling",
+    "name_en": "electron tunneling",
+    "aliases": [
+      "전자 터널링",
+      "electron tunneling"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-quantum-tunneling",
+        "title": "NIST · The Topografiner: An Instrument for Measuring Surface Microtopography",
+        "url": "https://nvlpubs.nist.gov/nistpubs/sp958-lide/html/214-218.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
     "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
   },
   "15.1": {
@@ -3699,6 +4003,36 @@
     ],
     "sources": [],
     "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "18.9": {
+    "mechanism_key": "microbial-sulfate-reduction",
+    "name_en": "microbial sulfate reduction",
+    "aliases": [
+      "미생물 황산염 환원",
+      "microbial sulfate reduction"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-microbial-sulfate",
+        "title": "USGS · Microbial sulfate reduction and metal attenuation in pH 4 acid mine water",
+        "url": "https://www.usgs.gov/publications/microbial-sulfate-reduction-and-metal-attenuation-ph-4-acid-mine-water",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AP-1102-A",
+        "title": "Biological treatment of sulphate and metal containing water.",
+        "url": "https://patents.google.com/patent/AP1102A/en",
+        "source_type": "PATENT",
+        "year": "2002",
+        "retrieval_scope": "abstract_and_opened_description",
+        "reviewed_at": "2026-09-12",
+        "review_note": "황산염 환원·금속 침전 및 대사 가능한 탄소 공급에 해당하는 부분 확인. 개별 장치 성능을 일반화하지 않음.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
     "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
   },
   "19.1": {

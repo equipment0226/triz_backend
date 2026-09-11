@@ -362,6 +362,7 @@
 - 적용안: {{ a.idea }}
 
 {{ diagram('standard-' ~ loop.index0) }}
+{{ diagram('standard-application-' ~ loop.index0) }}
 {% endfor %}
 {% endif %}
 
@@ -483,7 +484,7 @@
 
 ---
 {% if s.solve.effect_apps %}
-### 4.7 물리효과 적용
+### 4.7 과학·기술 효과 적용
 
 {% for group in effect_groups %}
 #### {{ group.title }}

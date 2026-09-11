@@ -14,11 +14,17 @@ import yaml
 KDIR = Path(__file__).resolve().parent / "knowledge"
 
 
-@lru_cache(maxsize=None)
 def _load(name: str) -> Any:
     path = KDIR / name
     if not path.exists():
         return {}
+    stat = path.stat()
+    return _load_version(str(path), stat.st_mtime_ns, stat.st_size)
+
+
+@lru_cache(maxsize=24)
+def _load_version(filename: str, mtime_ns: int, size: int) -> Any:
+    path = Path(filename)
     if path.suffix in (".yaml", ".yml"):
         return yaml.safe_load(path.read_text(encoding="utf-8"))
     return json.loads(path.read_text(encoding="utf-8"))
@@ -125,8 +131,10 @@ def standard_hints(completeness: str, effect: str) -> list[str]:
     return hints
 
 
-def candidate_standards(completeness: str, effect: str, limit: int = 12) -> list[dict]:
-    """물질-장 상태에 맞는 표준해 후보를 고른다."""
+def candidate_standards(completeness: str, effect: str, limit: int = 12, required_functions=()) -> list[dict]:
+    """Search all 76 standards; preserve a few state-based starting directions."""
+    if limit <= 0:
+        return []
     tags = set(SU_TO_TAGS.get(completeness, [])) | {effect}
     hint_codes = set(standard_hints(completeness, effect))
     scored: list[tuple[int, dict]] = []
@@ -142,6 +150,20 @@ def candidate_standards(completeness: str, effect: str, limit: int = 12) -> list
             scored.append((score, st))
     scored.sort(key=lambda x: -x[0])
     picked = [st for _, st in scored[:limit]]
+    if any(str(q).strip() for q in required_functions):
+        from .effect_catalog import select_effects
+        catalog = standards()
+        entries = [dict(id=s['code'],name=s['title_ko'],principle=s['description']+' '+s['transformation'],
+                        conditions=s['conditions'],domain='PHYSICAL') for s in catalog]
+        ranked = select_effects([dict(function_ko='표준해 적용',effects=entries)],required_functions,limit=len(entries))
+        by_code = {s['code']:s for s in catalog}
+        # Most slots follow the actual function and resources, so class 4/5 and
+        # newly completed standards are not buried by static early-code hints.
+        ordered = [by_code[e['id']] for e in ranked[:max(1,limit-3)]] + picked[:3] + [by_code[e['id']] for e in ranked]
+        unique = {}
+        for item in ordered:
+            unique.setdefault(item['code'],item)
+        picked = list(unique.values())[:limit]
     if not picked:
         picked = [st for st in standards() if st.get("verified")][:limit]
     return picked
@@ -150,6 +172,7 @@ def candidate_standards(completeness: str, effect: str, limit: int = 12) -> list
 def standards_block(items: list[dict]) -> str:
     return "\n".join(
         f"{s['code']} {s['title_ko']}: {s['description']}\n   모델 변환: {s.get('transformation','-')}"
+        f"\n   조건: {s.get('conditions','미확인')}\n   한계: {s.get('limitations','미확인')}"
         for s in items
     )
 
@@ -184,17 +207,17 @@ def effects() -> list[dict]:
 
 
 def effects_block(limit: int = 10, required_functions=()) -> str:
-    import re
-    def terms(value):
-        words = re.findall(r"[\w]{2,}", value.lower())
-        return {part for word in words for part in [word] + [word[i:i+2] for i in range(len(word)-1)]}
-    query = terms(" ".join(required_functions))
-    items = sorted(effects(), key=lambda item: -len(query & terms(item["function_ko"]))) if query else effects()
-    out = [f"현재 로컬 카탈로그: 표준해 {len(standards())}개, 효과 기능군 {len(effects())}개. 미수록 지식을 검증된 카탈로그처럼 주장하지 않는다."]
-    for item in items[:limit]:
-        descriptions = "; ".join(f"{e['name']}: {e.get('principle','')} (조건: {e.get('conditions','미확인; 적용 전 확인')})" for e in item["effects"])
-        out.append(f"- {item['function_ko']}: {descriptions}")
-    return "\n".join(out)
+    from .effect_catalog import format_effects
+    groups = effects()
+    return format_effects(effect_candidates(required_functions,limit),len(groups),
+                          sum(len(g['effects']) for g in groups),len(standards()))
+
+
+def effect_candidates(required_functions=(), limit: int = 6) -> list[dict]:
+    from .effect_catalog import select_effects
+    references = _load('effects_sources.json')
+    groups = [dict(group,effects=[dict(references.get(e.get('id'),{}),**e) for e in group['effects']]) for group in effects()]
+    return select_effects(groups,required_functions,limit=max(0,limit)*4)
 
 
 def ariz_script() -> dict:

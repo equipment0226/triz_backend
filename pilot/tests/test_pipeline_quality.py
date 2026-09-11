@@ -228,7 +228,7 @@ def test_unconfirmed_practice_is_not_an_absolute_taboo(state):
 
 def test_effects_retrieval_includes_conditions_and_coverage():
     block = knowledge.effects_block(limit=1, required_functions=['물체를 비접촉으로 지지하거나 이동시킨다'])
-    assert '자기부상' in block and '조건:' in block and '51개' in block
+    assert '자기부상' in block and '조건:' in block and '76개' in block
 
 
 def test_gate_batches_execute_concurrently_but_keep_order(state, monkeypatch):

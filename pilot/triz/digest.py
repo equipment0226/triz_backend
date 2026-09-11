@@ -53,7 +53,10 @@ def select_ideas(ideas, limit=40):
 def idea_packet(i):
     packet = i.model_dump(exclude={"detail"}, exclude_defaults=True)
     fields = ("self_rebuttal", "conditions", "adaptation_note", "new_risk", "how",
-              "principle", "transformation", "removed_harm", "resolution_argument", "ariz_verdict")
+              "principle", "transformation", "removed_harm", "resolution_argument", "ariz_verdict",
+              "standard_code", "standard_title", "source_su_id", "catalog_transformation",
+              "source_effect_id", "effect_name", "catalog_function", "catalog_conditions",
+              "catalog_limitations", "catalog_sources", "catalog_evidence_level", "catalog_mechanism_key")
     packet["support"] = {k: i.detail[k] for k in fields if i.detail.get(k)}
     if i.detail.get("source_details"):
         packet["support"]["source_details"] = [

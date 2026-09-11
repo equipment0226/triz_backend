@@ -69,7 +69,7 @@ def separation_groups(state):
 
 
 def effect_groups(state):
-    names = {'PHYSICAL':'물리 효과', 'CHEMICAL':'화학 효과', 'GEOMETRIC':'기하학 효과', 'BIOLOGICAL':'생물학 효과'}
+    names = {'PHYSICAL':'물리 효과', 'CHEMICAL':'화학 효과', 'GEOMETRIC':'기하학 효과', 'BIOLOGICAL':'생물학 효과', 'INFORMATIONAL':'정보·제어 효과'}
     groups = {}
     for app in state.solve.effect_apps:
         category = names.get(app.get('effect_domain'), app.get('effect_domain') or '미분류 효과')

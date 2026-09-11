@@ -215,8 +215,14 @@ def check_standards(data: dict, allowed=None) -> list[str]:
     valid = K.standard_codes() if allowed is None else set(allowed) & K.standard_codes()
     issues = []
     for a in data.get("applications", []):
+        if not isinstance(a,dict):
+            issues.append('DET-08: 표준해 적용안 형식 오류')
+            continue
         if a.get("standard_code") not in valid:
             issues.append(f"DET-08: 존재하지 않는 표준해 코드 '{a.get('standard_code')}'.")
+        if a.get('resulting_model') is not None:
+            from .su_field_model import check_model
+            issues.extend('DET-08-model: '+message for message in check_model(a['resulting_model']))
     return issues[:8]
 
 

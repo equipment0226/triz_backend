@@ -1,0 +1,3808 @@
+{
+  "1.1": {
+    "mechanism_key": "electromagnetic-suspension",
+    "name_en": "Electromagnetic suspension",
+    "aliases": [
+      "전자석 흡인형 자기부상",
+      "electromagnetic suspension",
+      "Electromagnetic suspension"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-maglev",
+        "title": "US DOE · How Maglev Works",
+        "url": "https://www.energy.gov/articles/how-maglev-works",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "1.2": {
+    "mechanism_key": "hydrostatic-gas-bearing",
+    "name_en": "Aerostatic bearing",
+    "aliases": [
+      "공기 정압 베어링",
+      "hydrostatic gas bearing",
+      "기체 정압 베어링",
+      "Aerostatic bearing"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-airbearing",
+        "title": "New Way · How Air Bearings Work",
+        "url": "https://www.newwayairbearings.com/news/blog/7287/how-do-bearings-work/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "1.3": {
+    "mechanism_key": "acoustic-levitation",
+    "name_en": "Acoustic levitation",
+    "aliases": [
+      "음향 부상",
+      "acoustic levitation",
+      "음향 방사력 부상",
+      "Acoustic levitation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-acoustic-levitation",
+        "title": "Andrade et al. · Acoustic levitation in a single-axis acoustic levitator",
+        "url": "https://arxiv.org/abs/1708.05988",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "1.4": {
+    "mechanism_key": "electrostatic-chuck",
+    "name_en": "Electrostatic chuck",
+    "aliases": [
+      "정전기척(ESC)",
+      "electrostatic chuck",
+      "정전기 척",
+      "Electrostatic chuck"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-esc",
+        "title": "COMSOL · Electrostatic Chuck",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.models.mems.electrostatic_chuck/electrostatic_chuck.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "1.5": {
+    "mechanism_key": "optical-tweezers",
+    "name_en": "Optical tweezers",
+    "aliases": [
+      "광학 집게",
+      "optical tweezers",
+      "Optical tweezers"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-tweezers",
+        "title": "Arthur Ashkin · Optical Tweezers Nobel Lecture",
+        "url": "https://www.nobelprize.org/uploads/2018/10/ashkin-lecture.pdf",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "1.6": {
+    "mechanism_key": "electrodynamic-suspension",
+    "name_en": "Electrodynamic suspension",
+    "aliases": [
+      "유도 반발형 자기부상",
+      "electrodynamic suspension",
+      "Electrodynamic suspension"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-maglev",
+        "title": "US DOE · How Maglev Works",
+        "url": "https://www.energy.gov/articles/how-maglev-works",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-eddy",
+        "title": "OpenStax · Eddy Currents",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/13-5-eddy-currents",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "1.7": {
+    "mechanism_key": "electrostatic-mems-actuation",
+    "name_en": "Electrostatic MEMS actuation",
+    "aliases": [
+      "정전 구동",
+      "electrostatic mems actuation",
+      "정전기 MEMS 구동",
+      "Electrostatic MEMS actuation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-capacitor",
+        "title": "OpenStax · Capacitors and Capacitance",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-esc",
+        "title": "COMSOL · Electrostatic Chuck",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.models.mems.electrostatic_chuck/electrostatic_chuck.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "1.8": {
+    "mechanism_key": "vacuum-gripping",
+    "name_en": "vacuum gripping",
+    "aliases": [
+      "진공 흡착",
+      "vacuum gripping"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "1.9": {
+    "mechanism_key": "lorentz-actuation",
+    "name_en": "lorentz actuation",
+    "aliases": [
+      "로런츠 힘 구동",
+      "lorentz actuation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-lorentz",
+        "title": "OpenStax · Magnetic Force on a Current-Carrying Conductor",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/11-4-magnetic-force-on-a-current-carrying-conductor",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "2.1": {
+    "mechanism_key": "resonant-absorber",
+    "name_en": "Tuned mass damper",
+    "aliases": [
+      "동조질량감쇠기(TMD)",
+      "resonant absorber",
+      "동조 질량 감쇠기",
+      "Tuned mass damper"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-resonance",
+        "title": "OpenStax · Forced Oscillations",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/15-6-forced-oscillations",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-damping",
+        "title": "OpenStax · Damped Oscillations",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/15-5-damped-oscillations",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "2.2": {
+    "mechanism_key": "viscous-damping",
+    "name_en": "Viscous damping",
+    "aliases": [
+      "점성 감쇠",
+      "viscous damping",
+      "Viscous damping"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-damping",
+        "title": "OpenStax · Damped Oscillations",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/15-5-damped-oscillations",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "2.3": {
+    "mechanism_key": "viscoelastic-response",
+    "name_en": "Viscoelasticity",
+    "aliases": [
+      "점탄성 감쇠",
+      "viscoelastic response",
+      "점탄성",
+      "Viscoelasticity"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-viscoelastic",
+        "title": "COMSOL · Linear Viscoelasticity",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.sme/sme_ug_theory.06.029.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "2.4": {
+    "mechanism_key": "vibration-isolation",
+    "name_en": "Elastic vibration isolation",
+    "aliases": [
+      "탄성 진동 절연",
+      "vibration isolation",
+      "탄성 지지 진동 절연",
+      "Elastic vibration isolation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-resonance",
+        "title": "OpenStax · Forced Oscillations",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/15-6-forced-oscillations",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-damping",
+        "title": "OpenStax · Damped Oscillations",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/15-5-damped-oscillations",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "2.5": {
+    "mechanism_key": "active-vibration-control",
+    "name_en": "active vibration control",
+    "aliases": [
+      "능동 진동 제어",
+      "active vibration control"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "2.6": {
+    "mechanism_key": "eddy-current-damping",
+    "name_en": "eddy current damping",
+    "aliases": [
+      "와전류 제동·감쇠",
+      "eddy current damping"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-eddy",
+        "title": "OpenStax · Eddy Currents",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/13-5-eddy-currents",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "2.7": {
+    "mechanism_key": "friction-damping",
+    "name_en": "friction damping",
+    "aliases": [
+      "마찰 감쇠",
+      "friction damping"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-friction",
+        "title": "OpenStax · Friction",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/6-2-friction",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "3.1": {
+    "mechanism_key": "electrorheological-fluid",
+    "name_en": "Electrorheological fluid",
+    "aliases": [
+      "전기유변 효과(ER)",
+      "electrorheological fluid",
+      "전기유변 유체",
+      "Electrorheological fluid"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-er",
+        "title": "Wen et al. · Giant electrorheological effect",
+        "url": "https://www.nature.com/articles/nmat993",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "3.2": {
+    "mechanism_key": "magnetorheological-fluid",
+    "name_en": "Magnetorheological fluid",
+    "aliases": [
+      "자기유변 효과(MR)",
+      "magnetorheological fluid",
+      "자기유변 유체",
+      "Magnetorheological fluid"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-mr",
+        "title": "NASA · Fluid Physics on the ISS",
+        "url": "https://www.nasa.gov/wp-content/uploads/2019/10/iss-fluid_physics_tagged.pdf?emrc=dd9a8d",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "3.3": {
+    "mechanism_key": "shear-thinning",
+    "name_en": "Shear thinning",
+    "aliases": [
+      "전단박화",
+      "shear thinning",
+      "Shear thinning"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-nonnewtonian",
+        "title": "COMSOL · Non-Newtonian Flow",
+        "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.mfl/mfl_ug_fluidflow_single.06.45.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "3.4": {
+    "mechanism_key": "shear-thickening",
+    "name_en": "Shear thickening",
+    "aliases": [
+      "전단농화",
+      "shear thickening",
+      "Shear thickening"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-rheology",
+        "title": "COMSOL · Newtonian and Non-Newtonian Fluids",
+        "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.polymer/polymer_introduction.02.02.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "3.5": {
+    "mechanism_key": "granular-jamming",
+    "name_en": "Granular jamming gripper",
+    "aliases": [
+      "입자 재밍",
+      "granular jamming",
+      "입자 재밍 그리퍼",
+      "Granular jamming gripper"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-jamming",
+        "title": "Brown et al. · Universal robotic gripper based on granular jamming",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2973877/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "3.6": {
+    "mechanism_key": "thixotropy",
+    "name_en": "thixotropy",
+    "aliases": [
+      "틱소트로피",
+      "thixotropy"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "3.7": {
+    "mechanism_key": "gelation",
+    "name_en": "gelation",
+    "aliases": [
+      "겔화",
+      "gelation"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "4.1": {
+    "mechanism_key": "electrostatic-precipitation",
+    "name_en": "Electrostatic precipitation",
+    "aliases": [
+      "정전 집진",
+      "electrostatic precipitation",
+      "전기집진",
+      "Electrostatic precipitation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-esp",
+        "title": "US EPA · Electrostatic Precipitators",
+        "url": "https://www.epa.gov/air-emissions-monitoring-knowledge-base/monitoring-control-technique-electrostatic-precipitators",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "4.2": {
+    "mechanism_key": "thermophoresis",
+    "name_en": "thermophoresis",
+    "aliases": [
+      "열영동",
+      "thermophoresis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-thermophoresis",
+        "title": "COMSOL · Thermophoresis",
+        "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.models.particle.thermophoresis/thermophoresis.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "4.3": {
+    "mechanism_key": "acoustophoresis",
+    "name_en": "acoustophoresis",
+    "aliases": [
+      "음향영동",
+      "acoustophoresis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-acoustophoresis",
+        "title": "COMSOL · Acoustophoretic Radiation Force",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.particle/particle_ug_fluid_flow.08.47.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "4.4": {
+    "mechanism_key": "cyclone-separation",
+    "name_en": "cyclone separation",
+    "aliases": [
+      "사이클론 분리",
+      "cyclone separation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-particulate",
+        "title": "US EPA · Stationary Source Control Techniques for Fine Particulate Matter",
+        "url": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=2000DM1R.TXT",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "4.5": {
+    "mechanism_key": "fibrous-filtration",
+    "name_en": "fibrous filtration",
+    "aliases": [
+      "섬유 여과",
+      "fibrous filtration"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-particulate",
+        "title": "US EPA · Stationary Source Control Techniques for Fine Particulate Matter",
+        "url": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=2000DM1R.TXT",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "4.6": {
+    "mechanism_key": "wet-scrubbing",
+    "name_en": "wet scrubbing",
+    "aliases": [
+      "습식 집진",
+      "wet scrubbing"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-particulate",
+        "title": "US EPA · Stationary Source Control Techniques for Fine Particulate Matter",
+        "url": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=2000DM1R.TXT",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "4.7": {
+    "mechanism_key": "ultrafiltration",
+    "name_en": "Ultrafiltration",
+    "aliases": [
+      "한외여과(UF)",
+      "ultrafiltration",
+      "한외여과",
+      "Ultrafiltration"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-uf",
+        "title": "DuPont · Ultrafiltration",
+        "url": "https://www.dupont.com/water/technologies/ultrafiltration-uf.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "5.1": {
+    "mechanism_key": "hydrodynamic-lubrication",
+    "name_en": "Hydrodynamic lubrication",
+    "aliases": [
+      "유체동압 윤활",
+      "hydrodynamic lubrication",
+      "동압 윤활",
+      "Hydrodynamic lubrication"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-hydrodynamic",
+        "title": "COMSOL · Hydrodynamic Bearing Theory",
+        "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.rotor/rotor_ug_hydrodynamicbearing.8.02.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "5.2": {
+    "mechanism_key": "elastohydrodynamic-lubrication",
+    "name_en": "elastohydrodynamic lubrication",
+    "aliases": [
+      "탄성유체윤활(EHL)",
+      "elastohydrodynamic lubrication"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "5.3": {
+    "mechanism_key": "mos2-solid-lubrication",
+    "name_en": "Molybdenum disulfide solid lubrication",
+    "aliases": [
+      "이황화몰리브덴 고체 윤활",
+      "mos2 solid lubrication",
+      "Molybdenum disulfide solid lubrication"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-mos2",
+        "title": "NASA · Friction and Wear of Solid Lubricating Films",
+        "url": "https://ntrs.nasa.gov/api/citations/19990116894/downloads/19990116894.pdf",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "5.4": {
+    "mechanism_key": "dlc-low-friction",
+    "name_en": "Diamond-like carbon tribology",
+    "aliases": [
+      "DLC 코팅의 마찰 저감",
+      "dlc low friction",
+      "DLC 코팅의 저마찰·내마모",
+      "Diamond-like carbon tribology"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-solid-lubrication",
+        "title": "NASA · Solid Lubrication Fundamentals and Applications",
+        "url": "https://ntrs.nasa.gov/citations/20010017158",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "5.5": {
+    "mechanism_key": "leidenfrost-film",
+    "name_en": "Leidenfrost vapor film",
+    "aliases": [
+      "라이덴프로스트 효과",
+      "leidenfrost film",
+      "라이덴프로스트 증기막",
+      "Leidenfrost vapor film"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-leidenfrost",
+        "title": "NASA · Film Boiling of Unconstrained Liquid Mass",
+        "url": "https://ntrs.nasa.gov/api/citations/19700021089/downloads/19700021089.pdf?attachment=true",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "5.6": {
+    "mechanism_key": "ultrasonic-friction-reduction",
+    "name_en": "ultrasonic friction reduction",
+    "aliases": [
+      "초음파 마찰 저감",
+      "ultrasonic friction reduction"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "6.1": {
+    "mechanism_key": "thermal-expansion-actuation",
+    "name_en": "Thermal expansion actuation",
+    "aliases": [
+      "열팽창",
+      "thermal expansion actuation",
+      "열팽창 구동",
+      "Thermal expansion actuation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-joule",
+        "title": "COMSOL · Joule Heating and Thermal Expansion",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.sme/sme_ug_multiphysics.18.06.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "6.2": {
+    "mechanism_key": "bimetal",
+    "name_en": "bimetal",
+    "aliases": [
+      "바이메탈",
+      "bimetal"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-bimetal",
+        "title": "OpenStax · Thermal Expansion",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-3-thermal-expansion",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "6.3": {
+    "mechanism_key": "shape-memory-alloy",
+    "name_en": "Shape-memory alloy",
+    "aliases": [
+      "형상기억 합금",
+      "shape memory alloy",
+      "Shape-memory alloy"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-sma",
+        "title": "NASA · Researchers Study Memory Materials",
+        "url": "https://www.nas.nasa.gov/pubs/news/2010/news_03-03-10.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "6.4": {
+    "mechanism_key": "invar",
+    "name_en": "invar",
+    "aliases": [
+      "저팽창 합금(Invar)",
+      "invar"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-invar",
+        "title": "NIST · Spin Fluctuations in Invar",
+        "url": "https://www.nist.gov/news-events/events/2018/09/transverse-and-longitudinal-spin-fluctuations-invar-fe065ni035",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "6.5": {
+    "mechanism_key": "thermal-expansion-compensation",
+    "name_en": "Thermal-expansion compensation",
+    "aliases": [
+      "이종 재료 열팽창 보상",
+      "thermal expansion compensation",
+      "양·음 열팽창 상쇄",
+      "Thermal-expansion compensation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-nte",
+        "title": "NASA · Ultra-Stable Structures Using Negative Thermal Expansion",
+        "url": "https://science.nasa.gov/science-research/science-enabling-technology/technology-highlights/a-new-alloy-is-enabling-ultra-stable-structures-needed-for-exoplanet-discovery/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "6.6": {
+    "mechanism_key": "converse-piezoelectricity",
+    "name_en": "Converse piezoelectric effect",
+    "aliases": [
+      "역압전 효과",
+      "converse piezoelectricity",
+      "Converse piezoelectric effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-piezo",
+        "title": "PI · Displacement Behavior of Piezo Actuators",
+        "url": "https://www.pi-usa.us/en/expertise/technology/piezo-technology/properties-piezo-actuators/displacement-behavior",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "6.7": {
+    "mechanism_key": "magnetostriction",
+    "name_en": "Magnetostriction",
+    "aliases": [
+      "자기변형",
+      "magnetostriction",
+      "자왜 효과",
+      "Magnetostriction"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-magnetostriction",
+        "title": "COMSOL · Modeling Magnetostrictive Materials",
+        "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.sme/sme_ug_modeling.05.120.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "6.8": {
+    "mechanism_key": "auxetic-geometry",
+    "name_en": "Auxetic geometry",
+    "aliases": [
+      "음의 푸아송비 구조",
+      "auxetic geometry",
+      "Auxetic geometry"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-auxetic",
+        "title": "NASA · Auxetic Structures",
+        "url": "https://ntrs.nasa.gov/api/citations/20150010164/downloads/20150010164.pdf?attachment=true",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "6.9": {
+    "mechanism_key": "bistable-structure",
+    "name_en": "Bistable structure",
+    "aliases": [
+      "쌍안정 구조",
+      "bistable structure",
+      "Bistable structure"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-bistable",
+        "title": "Rafsanjani and Pasini · Bistable Auxetic Mechanical Metamaterials",
+        "url": "https://arxiv.org/abs/1612.05988",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "6.10": {
+    "mechanism_key": "swelling-actuation",
+    "name_en": "swelling actuation",
+    "aliases": [
+      "팽윤 구동",
+      "swelling actuation"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.1": {
+    "mechanism_key": "fourier-conduction",
+    "name_en": "Fourier heat conduction",
+    "aliases": [
+      "열전도",
+      "fourier conduction",
+      "Fourier heat conduction"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-heat",
+        "title": "OpenStax · Mechanisms of Heat Transfer",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.2": {
+    "mechanism_key": "forced-convection",
+    "name_en": "Forced convection",
+    "aliases": [
+      "강제 대류",
+      "forced convection",
+      "강제 대류 열전달",
+      "Forced convection"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-heat",
+        "title": "OpenStax · Mechanisms of Heat Transfer",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.3": {
+    "mechanism_key": "natural-convection",
+    "name_en": "Natural convection",
+    "aliases": [
+      "자연 대류",
+      "natural convection",
+      "Natural convection"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-heat",
+        "title": "OpenStax · Mechanisms of Heat Transfer",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.4": {
+    "mechanism_key": "thermal-radiation",
+    "name_en": "Thermal radiation",
+    "aliases": [
+      "열복사",
+      "thermal radiation",
+      "Thermal radiation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-heat",
+        "title": "OpenStax · Mechanisms of Heat Transfer",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-nasa-thermal",
+        "title": "NASA · Small Spacecraft Thermal Control",
+        "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.5": {
+    "mechanism_key": "capillary-heat-pipe",
+    "name_en": "Capillary heat pipe",
+    "aliases": [
+      "히트파이프",
+      "capillary heat pipe",
+      "히트파이프의 증발·응축·모세관 순환",
+      "Capillary heat pipe"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-nasa-thermal",
+        "title": "NASA · Small Spacecraft Thermal Control",
+        "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.6": {
+    "mechanism_key": "thermosiphon",
+    "name_en": "Gravity thermosiphon",
+    "aliases": [
+      "열사이펀",
+      "thermosiphon",
+      "중력식 열사이펀",
+      "Gravity thermosiphon"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-nasa-thermal",
+        "title": "NASA · Small Spacecraft Thermal Control",
+        "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-heat",
+        "title": "OpenStax · Mechanisms of Heat Transfer",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.7": {
+    "mechanism_key": "phase-change-storage",
+    "name_en": "Phase-change thermal storage",
+    "aliases": [
+      "상변화 축열",
+      "phase change storage",
+      "상변화 잠열 저장",
+      "Phase-change thermal storage"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-phase",
+        "title": "OpenStax · Phase Changes",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-5-phase-changes",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-nasa-thermal",
+        "title": "NASA · Small Spacecraft Thermal Control",
+        "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.8": {
+    "mechanism_key": "heat-capacity-buffer",
+    "name_en": "Sensible-heat buffering",
+    "aliases": [
+      "현열 축열",
+      "heat capacity buffer",
+      "현열에 의한 열 완충",
+      "Sensible-heat buffering"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-phase",
+        "title": "OpenStax · Phase Changes",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-5-phase-changes",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.9": {
+    "mechanism_key": "evaporative-cooling",
+    "name_en": "Evaporative cooling",
+    "aliases": [
+      "증발 냉각",
+      "evaporative cooling",
+      "Evaporative cooling"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-phase",
+        "title": "OpenStax · Phase Changes",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-5-phase-changes",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.10": {
+    "mechanism_key": "boiling-heat-transfer",
+    "name_en": "Nucleate boiling heat transfer",
+    "aliases": [
+      "비등 열전달",
+      "boiling heat transfer",
+      "핵비등 열전달",
+      "Nucleate boiling heat transfer"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-phase",
+        "title": "OpenStax · Phase Changes",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-5-phase-changes",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-nasa-thermal",
+        "title": "NASA · Small Spacecraft Thermal Control",
+        "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.11": {
+    "mechanism_key": "condensation-recovery",
+    "name_en": "Condensation heat recovery",
+    "aliases": [
+      "응축 열전달",
+      "condensation recovery",
+      "응축 잠열 회수",
+      "Condensation heat recovery"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-phase",
+        "title": "OpenStax · Phase Changes",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-5-phase-changes",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.12": {
+    "mechanism_key": "vapor-compression",
+    "name_en": "Vapor-compression refrigeration",
+    "aliases": [
+      "증기 압축 냉동·히트펌프",
+      "vapor compression",
+      "Vapor-compression refrigeration"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-pump",
+        "title": "OpenStax · Refrigerators and Heat Pumps",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/4-3-refrigerators-and-heat-pumps",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.13": {
+    "mechanism_key": "peltier-cooling",
+    "name_en": "Peltier effect",
+    "aliases": [
+      "펠티어 효과",
+      "peltier cooling",
+      "Peltier effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-thermoelectric",
+        "title": "NIST · Thermoelectric Measurements",
+        "url": "https://www.nist.gov/programs-projects/thermoelectric-measurements",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.14": {
+    "mechanism_key": "joule-heating",
+    "name_en": "Joule heating",
+    "aliases": [
+      "줄 가열",
+      "joule heating",
+      "Joule heating"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-joule",
+        "title": "COMSOL · Joule Heating and Thermal Expansion",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.sme/sme_ug_multiphysics.18.06.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.15": {
+    "mechanism_key": "multilayer-insulation",
+    "name_en": "Multilayer insulation",
+    "aliases": [
+      "다층 복사 단열",
+      "multilayer insulation",
+      "Multilayer insulation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-nasa-thermal",
+        "title": "NASA · Small Spacecraft Thermal Control",
+        "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.16": {
+    "mechanism_key": "thermal-isolation-gap",
+    "name_en": "Gas-gap and vacuum insulation",
+    "aliases": [
+      "진공 단열",
+      "thermal isolation gap",
+      "기체층·진공 간극 단열",
+      "Gas-gap and vacuum insulation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-heat",
+        "title": "OpenStax · Mechanisms of Heat Transfer",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-nasa-thermal",
+        "title": "NASA · Small Spacecraft Thermal Control",
+        "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.17": {
+    "mechanism_key": "induction-heating",
+    "name_en": "induction heating",
+    "aliases": [
+      "유도 가열",
+      "induction heating"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "7.18": {
+    "mechanism_key": "dielectric-heating",
+    "name_en": "dielectric heating",
+    "aliases": [
+      "유전 가열",
+      "dielectric heating"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "8.1": {
+    "mechanism_key": "seebeck-generation",
+    "name_en": "Seebeck effect",
+    "aliases": [
+      "제베크 효과",
+      "seebeck generation",
+      "제벡 효과",
+      "Seebeck effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-thermoelectric",
+        "title": "NIST · Thermoelectric Measurements",
+        "url": "https://www.nist.gov/programs-projects/thermoelectric-measurements",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "8.2": {
+    "mechanism_key": "electromagnetic-induction",
+    "name_en": "Electromagnetic induction",
+    "aliases": [
+      "전자기 유도",
+      "electromagnetic induction",
+      "Electromagnetic induction"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-faraday",
+        "title": "OpenStax · Faraday’s Law",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/13-1-faradays-law",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "8.3": {
+    "mechanism_key": "photovoltaic-conversion",
+    "name_en": "Photovoltaic conversion",
+    "aliases": [
+      "광기전력 효과",
+      "photovoltaic conversion",
+      "태양광 광기전력 변환",
+      "Photovoltaic conversion"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-solar",
+        "title": "US DOE · How Does Solar Work?",
+        "url": "https://www.energy.gov/cmei/systems/how-does-solar-work",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-semiconductor",
+        "title": "OpenStax · Semiconductor Devices",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/9-7-semiconductor-devices",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "8.4": {
+    "mechanism_key": "electrochemical-cell",
+    "name_en": "Electrochemical cell",
+    "aliases": [
+      "전기화학 전지",
+      "electrochemical cell",
+      "Electrochemical cell"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-battery",
+        "title": "US DOE · Batteries",
+        "url": "https://www.energy.gov/science/doe-explainsbatteries",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "8.5": {
+    "mechanism_key": "lithium-intercalation",
+    "name_en": "Lithium-ion intercalation storage",
+    "aliases": [
+      "리튬 이온 삽입·탈리",
+      "lithium intercalation",
+      "리튬 이온 삽입·탈리 저장",
+      "Lithium-ion intercalation storage"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-li-ion",
+        "title": "US DOE · Lithium-Ion Batteries for Stationary Energy Storage",
+        "url": "https://www.energy.gov/oe/articles/fact-sheet-lithium-ion-batteries-stationary-energy-storage-october-2012",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-battery",
+        "title": "US DOE · Batteries",
+        "url": "https://www.energy.gov/science/doe-explainsbatteries",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "8.6": {
+    "mechanism_key": "capacitive-energy-storage",
+    "name_en": "Capacitive energy storage",
+    "aliases": [
+      "정전용량 에너지 저장",
+      "capacitive energy storage",
+      "Capacitive energy storage"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-capacitor",
+        "title": "OpenStax · Capacitors and Capacitance",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "8.7": {
+    "mechanism_key": "fuel-cell",
+    "name_en": "fuel cell",
+    "aliases": [
+      "연료전지",
+      "fuel cell"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-fuel-cell",
+        "title": "US DOE · Fuel Cells",
+        "url": "https://www.energy.gov/cmei/fuels/fuel-cells",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "8.8": {
+    "mechanism_key": "flywheel-storage",
+    "name_en": "flywheel storage",
+    "aliases": [
+      "플라이휠 저장",
+      "flywheel storage"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-flywheel",
+        "title": "OpenStax · Rotational Kinetic Energy",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/10-4-moment-of-inertia-and-rotational-kinetic-energy",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "8.9": {
+    "mechanism_key": "pressure-accumulator",
+    "name_en": "pressure accumulator",
+    "aliases": [
+      "유압·공압 축압",
+      "pressure accumulator"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.1": {
+    "mechanism_key": "reverse-osmosis",
+    "name_en": "Reverse osmosis",
+    "aliases": [
+      "역삼투(RO)",
+      "reverse osmosis",
+      "역삼투",
+      "Reverse osmosis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-ro",
+        "title": "DuPont · Reverse Osmosis",
+        "url": "https://www.dupont.com/water/technologies/reverse-osmosis-ro.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.2": {
+    "mechanism_key": "nanofiltration",
+    "name_en": "Nanofiltration",
+    "aliases": [
+      "나노여과(NF)",
+      "nanofiltration",
+      "나노여과",
+      "Nanofiltration"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-water",
+        "title": "DuPont · Water Treatment Technologies",
+        "url": "https://www.dupont.com/water/technologies.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.3": {
+    "mechanism_key": "osmosis",
+    "name_en": "osmosis",
+    "aliases": [
+      "삼투",
+      "osmosis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-osmosis",
+        "title": "OpenStax · Colligative Properties",
+        "url": "https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.4": {
+    "mechanism_key": "electrophoresis",
+    "name_en": "Electrophoresis",
+    "aliases": [
+      "전기영동",
+      "electrophoresis",
+      "Electrophoresis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electrohydro",
+        "title": "COMSOL · Electrohydrodynamics",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.mfl/mfl_ug_modeling.05.14.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.5": {
+    "mechanism_key": "dielectrophoresis",
+    "name_en": "Dielectrophoresis",
+    "aliases": [
+      "유전영동",
+      "dielectrophoresis",
+      "Dielectrophoresis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electrohydro",
+        "title": "COMSOL · Electrohydrodynamics",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.mfl/mfl_ug_modeling.05.14.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.6": {
+    "mechanism_key": "magnetophoresis",
+    "name_en": "Magnetophoresis",
+    "aliases": [
+      "자기영동·자력 분리",
+      "magnetophoresis",
+      "자기영동",
+      "Magnetophoresis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electrohydro",
+        "title": "COMSOL · Electrohydrodynamics",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.mfl/mfl_ug_modeling.05.14.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.7": {
+    "mechanism_key": "electrodialysis",
+    "name_en": "electrodialysis",
+    "aliases": [
+      "전기투석",
+      "electrodialysis"
+    ],
+    "sources": [
+      {
+        "identifier": "KR20050029151A",
+        "title": "Acid recovery method from waste water containing acid and metal ion by electrodialysis",
+        "url": "https://patents.google.com/patent/KR20050029151A/en",
+        "source_type": "PATENT",
+        "year": "2005",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.8": {
+    "mechanism_key": "centrifugal-separation",
+    "name_en": "centrifugal separation",
+    "aliases": [
+      "원심 분리",
+      "centrifugal separation"
+    ],
+    "sources": [
+      {
+        "identifier": "WO2013084140A1",
+        "title": "Centrifugal microfluidic device and methods of use",
+        "url": "https://patents.google.com/patent/WO2013084140A1/en",
+        "source_type": "PATENT",
+        "year": "2013",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "US9921141B2",
+        "title": "Centrifugal microfluidic device and methods of use",
+        "url": "https://patents.google.com/patent/US9921141B2/en",
+        "source_type": "PATENT",
+        "year": "2018",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.9": {
+    "mechanism_key": "gravity-settling",
+    "name_en": "gravity settling",
+    "aliases": [
+      "중력 침강",
+      "gravity settling"
+    ],
+    "sources": [
+      {
+        "identifier": "CN115155153A",
+        "title": "Tar residue crushing system for coking cold drum system and working method thereof",
+        "url": "https://patents.google.com/patent/CN115155153A/en",
+        "source_type": "PATENT",
+        "year": "2022",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.10": {
+    "mechanism_key": "distillation",
+    "name_en": "distillation",
+    "aliases": [
+      "증류",
+      "distillation"
+    ],
+    "sources": [
+      {
+        "identifier": "CN209155158U",
+        "title": "Production of biodiesel distills separation system with energy-saving type",
+        "url": "https://patents.google.com/patent/CN209155158U/en",
+        "source_type": "PATENT",
+        "year": "2019",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.11": {
+    "mechanism_key": "adsorption",
+    "name_en": "adsorption",
+    "aliases": [
+      "흡착",
+      "adsorption"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-water-treatment",
+        "title": "US EPA · Drinking Water Treatment Technologies",
+        "url": "https://www.epa.gov/sdwa/overview-drinking-water-treatment-technologies",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.12": {
+    "mechanism_key": "ion-exchange",
+    "name_en": "ion exchange",
+    "aliases": [
+      "이온교환",
+      "ion exchange"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-water-treatment",
+        "title": "US EPA · Drinking Water Treatment Technologies",
+        "url": "https://www.epa.gov/sdwa/overview-drinking-water-treatment-technologies",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.13": {
+    "mechanism_key": "solvent-extraction",
+    "name_en": "solvent extraction",
+    "aliases": [
+      "용매 추출",
+      "solvent extraction"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.14": {
+    "mechanism_key": "gas-absorption",
+    "name_en": "gas absorption",
+    "aliases": [
+      "기체 흡수·탈기",
+      "gas absorption"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-water-treatment",
+        "title": "US EPA · Drinking Water Treatment Technologies",
+        "url": "https://www.epa.gov/sdwa/overview-drinking-water-treatment-technologies",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.15": {
+    "mechanism_key": "flotation",
+    "name_en": "flotation",
+    "aliases": [
+      "부유 선별·부상 분리",
+      "flotation"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.16": {
+    "mechanism_key": "chromatography",
+    "name_en": "chromatography",
+    "aliases": [
+      "크로마토그래피",
+      "chromatography"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.17": {
+    "mechanism_key": "crystallization",
+    "name_en": "crystallization",
+    "aliases": [
+      "결정화 분리",
+      "crystallization"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.18": {
+    "mechanism_key": "freeze-drying",
+    "name_en": "Freeze drying by sublimation",
+    "aliases": [
+      "동결 건조",
+      "freeze drying",
+      "동결 건조의 승화",
+      "Freeze drying by sublimation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-phase",
+        "title": "OpenStax · Phase Changes",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-5-phase-changes",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-lyophilization",
+        "title": "FDA · Lyophilization of Parenterals",
+        "url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/inspection-guides/lyophilization-parenteral-793",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "9.19": {
+    "mechanism_key": "isoelectric-focusing",
+    "name_en": "isoelectric focusing",
+    "aliases": [
+      "등전점 집속",
+      "isoelectric focusing"
+    ],
+    "sources": [
+      {
+        "identifier": "CN1588033A",
+        "title": "Simple two-step isoelectric focusing separation analytic device",
+        "url": "https://patents.google.com/patent/CN1588033A/en",
+        "source_type": "PATENT",
+        "year": "2005",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "10.1": {
+    "mechanism_key": "wetting-control",
+    "name_en": "Wetting control",
+    "aliases": [
+      "젖음성 제어",
+      "wetting control",
+      "계면 에너지와 젖음성 제어",
+      "Wetting control"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-wetting",
+        "title": "COMSOL · Contact Angle Boundary Conditions",
+        "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.mfl/mfl_ug_fluidflow_multi.07.33.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "10.2": {
+    "mechanism_key": "lotus-superhydrophobicity",
+    "name_en": "Lotus-type superhydrophobicity",
+    "aliases": [
+      "연잎형 초발수",
+      "lotus superhydrophobicity",
+      "연잎형 초발수 표면",
+      "Lotus-type superhydrophobicity"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-lotus",
+        "title": "Wang et al. · Design of robust superhydrophobic surfaces",
+        "url": "https://www.nature.com/articles/s41586-020-2331-8",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "10.3": {
+    "mechanism_key": "lubricant-infused-surface",
+    "name_en": "Lubricant-infused surface",
+    "aliases": [
+      "윤활액 함침 표면(SLIPS)",
+      "lubricant infused surface",
+      "윤활액 함침 표면",
+      "Lubricant-infused surface"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-slips",
+        "title": "Wong et al. · Bioinspired self-repairing slippery surfaces",
+        "url": "https://www.nature.com/articles/nature10447",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "10.4": {
+    "mechanism_key": "gecko-dry-adhesion",
+    "name_en": "Gecko-inspired dry adhesion",
+    "aliases": [
+      "도마뱀 발형 건식 접착",
+      "gecko dry adhesion",
+      "Gecko-inspired dry adhesion"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-gecko",
+        "title": "Nature Communications · Gecko spatulae and bio-mimics",
+        "url": "https://www.nature.com/articles/ncomms9949",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "10.5": {
+    "mechanism_key": "electrowetting",
+    "name_en": "Electrowetting",
+    "aliases": [
+      "전기젖음",
+      "electrowetting",
+      "전기습윤",
+      "Electrowetting"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electrohydro",
+        "title": "COMSOL · Electrohydrodynamics",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.mfl/mfl_ug_modeling.05.14.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "10.6": {
+    "mechanism_key": "surfactant-action",
+    "name_en": "surfactant action",
+    "aliases": [
+      "계면활성",
+      "surfactant action"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "10.7": {
+    "mechanism_key": "plasma-surface-activation",
+    "name_en": "plasma surface activation",
+    "aliases": [
+      "플라스마 표면 활성화",
+      "plasma surface activation"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "10.8": {
+    "mechanism_key": "anodization",
+    "name_en": "anodization",
+    "aliases": [
+      "양극 산화",
+      "anodization"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "10.9": {
+    "mechanism_key": "electrodeposition",
+    "name_en": "electrodeposition",
+    "aliases": [
+      "전해 도금",
+      "electrodeposition"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "11.1": {
+    "mechanism_key": "pressure-driven-flow",
+    "name_en": "Pressure-driven flow",
+    "aliases": [
+      "압력차 유동",
+      "pressure driven flow",
+      "압력차 구동 유동",
+      "Pressure-driven flow"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-viscosity",
+        "title": "OpenStax · Viscosity and Turbulence",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/14-7-viscosity-and-turbulence",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "11.2": {
+    "mechanism_key": "venturi-entrainment",
+    "name_en": "Venturi pressure reduction",
+    "aliases": [
+      "벤투리 흡입·제트 혼합",
+      "venturi entrainment",
+      "벤투리 압력 저하와 흡입",
+      "Venturi pressure reduction"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-bernoulli",
+        "title": "OpenStax · Bernoulli’s Equation",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/14-6-bernoullis-equation",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "11.3": {
+    "mechanism_key": "electroosmotic-flow",
+    "name_en": "Electroosmotic flow",
+    "aliases": [
+      "전기삼투 유동",
+      "electroosmotic flow",
+      "Electroosmotic flow"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electrohydro",
+        "title": "COMSOL · Electrohydrodynamics",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.mfl/mfl_ug_modeling.05.14.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "11.4": {
+    "mechanism_key": "coanda-wall-jet",
+    "name_en": "Coanda wall-jet attachment",
+    "aliases": [
+      "코안다 효과",
+      "coanda wall jet",
+      "코안다 벽면 제트 부착",
+      "Coanda wall-jet attachment"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-boundary",
+        "title": "NASA Glenn · Boundary Layer",
+        "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/boundary-layer/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-lift",
+        "title": "NASA Glenn · Bernoulli and Newton",
+        "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/bernoulli-and-newton/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "11.5": {
+    "mechanism_key": "marangoni-convection",
+    "name_en": "Marangoni convection",
+    "aliases": [
+      "마랑고니 유동",
+      "marangoni convection",
+      "Marangoni convection"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-marangoni",
+        "title": "COMSOL · Modeling Marangoni Convection",
+        "url": "https://www.comsol.com/blogs/modeling-marangoni-convection-with-comsol-multiphysics/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "11.6": {
+    "mechanism_key": "acoustic-streaming",
+    "name_en": "Acoustic streaming",
+    "aliases": [
+      "음향 스트리밍",
+      "acoustic streaming",
+      "Acoustic streaming"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-streaming",
+        "title": "COMSOL · Acoustic Streaming Theory",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.aco/aco_ug_streaming.13.12.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "11.7": {
+    "mechanism_key": "capillary-wicking",
+    "name_en": "Capillary wicking",
+    "aliases": [
+      "모세관 침투",
+      "capillary wicking",
+      "모세관 침투·위킹",
+      "Capillary wicking"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-capillary",
+        "title": "COMSOL · Capillary Filling",
+        "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.models.mfl.capillary_filling_ls/capillary_filling_ls.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "11.8": {
+    "mechanism_key": "peristaltic-pumping",
+    "name_en": "peristaltic pumping",
+    "aliases": [
+      "연동 펌핑",
+      "peristaltic pumping"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "11.9": {
+    "mechanism_key": "cavitation",
+    "name_en": "cavitation",
+    "aliases": [
+      "캐비테이션",
+      "cavitation"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "11.10": {
+    "mechanism_key": "chaotic-advection",
+    "name_en": "chaotic advection",
+    "aliases": [
+      "카오스 이류 혼합",
+      "chaotic advection"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.1": {
+    "mechanism_key": "hall-effect",
+    "name_en": "Hall effect",
+    "aliases": [
+      "홀 효과",
+      "hall effect",
+      "Hall effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-hall",
+        "title": "OpenStax · The Hall Effect",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/11-6-the-hall-effect",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.2": {
+    "mechanism_key": "capacitive-sensing",
+    "name_en": "Capacitive sensing",
+    "aliases": [
+      "정전용량 센싱",
+      "capacitive sensing",
+      "정전용량 감지",
+      "Capacitive sensing"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-capacitive-sensor",
+        "title": "COMSOL · Capacitive Position Sensor",
+        "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.models.acdc.capacitive_position_sensor/capacitive_position_sensor.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.3": {
+    "mechanism_key": "direct-piezoelectricity",
+    "name_en": "Direct piezoelectric effect",
+    "aliases": [
+      "직접 압전 효과",
+      "direct piezoelectricity",
+      "정압전 효과",
+      "Direct piezoelectric effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-direct-piezo",
+        "title": "COMSOL · Piezoelectric Effect",
+        "url": "https://www.comsol.com/multiphysics/piezoelectric-effect",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.4": {
+    "mechanism_key": "piezoresistive-sensing",
+    "name_en": "Piezoresistive effect",
+    "aliases": [
+      "압저항 효과",
+      "piezoresistive sensing",
+      "Piezoresistive effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-piezoresistive",
+        "title": "COMSOL · Piezoresistive Effect",
+        "url": "https://www.comsol.com/multiphysics/piezoresistive-effect?parent=electromechanical-effects-0182-172-152",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.5": {
+    "mechanism_key": "eddy-current-sensing",
+    "name_en": "Eddy-current sensing",
+    "aliases": [
+      "와전류 센싱",
+      "eddy current sensing",
+      "와전류 비접촉 감지",
+      "Eddy-current sensing"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-eddy",
+        "title": "OpenStax · Eddy Currents",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/13-5-eddy-currents",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.6": {
+    "mechanism_key": "photodiode",
+    "name_en": "Semiconductor photodiode",
+    "aliases": [
+      "광다이오드",
+      "photodiode",
+      "반도체 광다이오드",
+      "Semiconductor photodiode"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-semiconductor",
+        "title": "OpenStax · Semiconductor Devices",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/9-7-semiconductor-devices",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.7": {
+    "mechanism_key": "atomic-magnetometry",
+    "name_en": "Atomic spin magnetometry",
+    "aliases": [
+      "원자 자력계",
+      "atomic magnetometry",
+      "원자 스핀 자기계",
+      "Atomic spin magnetometry"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-quantum",
+        "title": "NIST · Atom-Based Quantum Sensing of Electromagnetic Fields",
+        "url": "https://www.nist.gov/publications/atom-based-quantum-sensing-electromagnetic-fields",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.8": {
+    "mechanism_key": "nv-center-sensing",
+    "name_en": "NV-center sensing",
+    "aliases": [
+      "NV 중심 센싱",
+      "nv center sensing",
+      "다이아몬드 NV 중심 감지",
+      "NV-center sensing"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-quantum",
+        "title": "NIST · Atom-Based Quantum Sensing of Electromagnetic Fields",
+        "url": "https://www.nist.gov/publications/atom-based-quantum-sensing-electromagnetic-fields",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.9": {
+    "mechanism_key": "villari-effect",
+    "name_en": "Inverse magnetostriction / Villari effect",
+    "aliases": [
+      "역자기변형(빌라리 효과)",
+      "villari effect",
+      "역자왜·빌라리 효과",
+      "Inverse magnetostriction / Villari effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-magnetostriction",
+        "title": "COMSOL · Modeling Magnetostrictive Materials",
+        "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.sme/sme_ug_modeling.05.120.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.10": {
+    "mechanism_key": "resistance-thermometry",
+    "name_en": "resistance thermometry",
+    "aliases": [
+      "저항 온도 측정",
+      "resistance thermometry"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-thermometry",
+        "title": "NIST · Thermometry",
+        "url": "https://www.nist.gov/programs-projects/thermometry",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.11": {
+    "mechanism_key": "doppler-sensing",
+    "name_en": "doppler sensing",
+    "aliases": [
+      "도플러 측정",
+      "doppler sensing"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-doppler",
+        "title": "OpenStax · Doppler Effect",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/17-7-the-doppler-effect",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.12": {
+    "mechanism_key": "time-of-flight",
+    "name_en": "time of flight",
+    "aliases": [
+      "비행시간 측정(ToF)",
+      "time of flight"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.13": {
+    "mechanism_key": "interferometric-sensing",
+    "name_en": "interferometric sensing",
+    "aliases": [
+      "간섭 계측",
+      "interferometric sensing"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-interference",
+        "title": "OpenStax · Young’s Double-Slit Interference",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/3-1-youngs-double-slit-interference",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.14": {
+    "mechanism_key": "raman-spectroscopy",
+    "name_en": "raman spectroscopy",
+    "aliases": [
+      "라만 분광",
+      "raman spectroscopy"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.15": {
+    "mechanism_key": "fluorescence-sensing",
+    "name_en": "fluorescence sensing",
+    "aliases": [
+      "형광 검출",
+      "fluorescence sensing"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.16": {
+    "mechanism_key": "absorption-spectroscopy",
+    "name_en": "absorption spectroscopy",
+    "aliases": [
+      "흡수 분광",
+      "absorption spectroscopy"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.17": {
+    "mechanism_key": "nernst-potentiometry",
+    "name_en": "nernst potentiometry",
+    "aliases": [
+      "이온 선택 전위 측정",
+      "nernst potentiometry"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-nernst",
+        "title": "OpenStax · Potential, Free Energy and Equilibrium",
+        "url": "https://openstax.org/books/chemistry-2e/pages/17-4-potential-free-energy-and-equilibrium",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "12.18": {
+    "mechanism_key": "bragg-sensing",
+    "name_en": "bragg sensing",
+    "aliases": [
+      "브래그 격자 센싱",
+      "bragg sensing"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-photonic-thermometry",
+        "title": "NIST · Photonic Thermometry",
+        "url": "https://www.nist.gov/noac/technology/thermodynamics/photonic-thermometry",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.1": {
+    "mechanism_key": "refraction",
+    "name_en": "refraction",
+    "aliases": [
+      "굴절",
+      "refraction"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-refraction",
+        "title": "OpenStax · Refraction",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/1-3-refraction",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.2": {
+    "mechanism_key": "total-internal-reflection",
+    "name_en": "total internal reflection",
+    "aliases": [
+      "전반사",
+      "total internal reflection"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-tir",
+        "title": "OpenStax · Total Internal Reflection",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/1-4-total-internal-reflection",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.3": {
+    "mechanism_key": "wave-interference",
+    "name_en": "wave interference",
+    "aliases": [
+      "파동 간섭",
+      "wave interference"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-interference",
+        "title": "OpenStax · Young’s Double-Slit Interference",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/3-1-youngs-double-slit-interference",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.4": {
+    "mechanism_key": "diffraction",
+    "name_en": "diffraction",
+    "aliases": [
+      "회절",
+      "diffraction"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-diffraction",
+        "title": "OpenStax · Single-Slit Diffraction",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/4-1-single-slit-diffraction",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.5": {
+    "mechanism_key": "polarization-control",
+    "name_en": "polarization control",
+    "aliases": [
+      "편광 제어",
+      "polarization control"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-polarization",
+        "title": "OpenStax · Polarization",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/1-7-polarization",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.6": {
+    "mechanism_key": "stimulated-emission",
+    "name_en": "stimulated emission",
+    "aliases": [
+      "유도 방출",
+      "stimulated emission"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.7": {
+    "mechanism_key": "electroluminescence",
+    "name_en": "electroluminescence",
+    "aliases": [
+      "전계·전류 발광",
+      "electroluminescence"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-semiconductor",
+        "title": "OpenStax · Semiconductor Devices",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/9-7-semiconductor-devices",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.8": {
+    "mechanism_key": "electrochromism",
+    "name_en": "electrochromism",
+    "aliases": [
+      "전기변색",
+      "electrochromism"
+    ],
+    "sources": [
+      {
+        "identifier": "US20150355520A1",
+        "title": "Control circuit and method for maintaining light transmittance of electrochromic device",
+        "url": "https://patents.google.com/patent/US20150355520A1/en",
+        "source_type": "PATENT",
+        "year": "2015",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.9": {
+    "mechanism_key": "liquid-crystal-modulation",
+    "name_en": "liquid crystal modulation",
+    "aliases": [
+      "액정 광변조",
+      "liquid crystal modulation"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.10": {
+    "mechanism_key": "photonic-bandgap",
+    "name_en": "photonic bandgap",
+    "aliases": [
+      "광자 밴드갭",
+      "photonic bandgap"
+    ],
+    "sources": [
+      {
+        "identifier": "US10302818B2",
+        "title": "Photonic crystal structure, method of manufacturing the photonic crystal structure, reflective color filter, and display apparatus employing the photonic crystal structure",
+        "url": "https://patents.google.com/patent/US10302818B2/en",
+        "source_type": "PATENT",
+        "year": "2019",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.11": {
+    "mechanism_key": "surface-plasmon",
+    "name_en": "surface plasmon",
+    "aliases": [
+      "표면 플라스몬 공명",
+      "surface plasmon"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.12": {
+    "mechanism_key": "acoustic-resonator",
+    "name_en": "acoustic resonator",
+    "aliases": [
+      "음향 공진기",
+      "acoustic resonator"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.13": {
+    "mechanism_key": "porous-sound-absorption",
+    "name_en": "porous sound absorption",
+    "aliases": [
+      "다공성 흡음",
+      "porous sound absorption"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "13.14": {
+    "mechanism_key": "electromagnetic-shielding",
+    "name_en": "electromagnetic shielding",
+    "aliases": [
+      "전자기 차폐",
+      "electromagnetic shielding"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.1": {
+    "mechanism_key": "pn-rectification",
+    "name_en": "PN-junction rectification",
+    "aliases": [
+      "PN 접합 정류",
+      "pn rectification",
+      "PN-junction rectification"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-semiconductor",
+        "title": "OpenStax · Semiconductor Devices",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/9-7-semiconductor-devices",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.2": {
+    "mechanism_key": "semiconductor-doping",
+    "name_en": "Semiconductor doping",
+    "aliases": [
+      "반도체 도핑",
+      "semiconductor doping",
+      "Semiconductor doping"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-doping",
+        "title": "OpenStax · Semiconductors and Doping",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/9-6-semiconductors-and-doping",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.3": {
+    "mechanism_key": "field-effect-transistor",
+    "name_en": "Field-effect transistor",
+    "aliases": [
+      "전계 효과",
+      "field effect transistor",
+      "전계 효과 트랜지스터",
+      "Field-effect transistor"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-semiconductor",
+        "title": "OpenStax · Semiconductor Devices",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/9-7-semiconductor-devices",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.4": {
+    "mechanism_key": "photoelectric-emission",
+    "name_en": "Photoelectric emission",
+    "aliases": [
+      "광전 방출",
+      "photoelectric emission",
+      "외부 광전 효과",
+      "Photoelectric emission"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-photoelectric",
+        "title": "OpenStax · Photoelectric Effect",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/6-2-photoelectric-effect",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.5": {
+    "mechanism_key": "superconductivity",
+    "name_en": "Superconductivity",
+    "aliases": [
+      "초전도",
+      "superconductivity",
+      "초전도 전류 수송",
+      "Superconductivity"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-superconductor",
+        "title": "OpenStax · Superconductivity",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/9-8-superconductivity",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.6": {
+    "mechanism_key": "meissner-effect",
+    "name_en": "Meissner effect",
+    "aliases": [
+      "마이스너 효과",
+      "meissner effect",
+      "마이스너 효과와 자속 배제",
+      "Meissner effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-superconductor",
+        "title": "OpenStax · Superconductivity",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/9-8-superconductivity",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.7": {
+    "mechanism_key": "josephson-effect",
+    "name_en": "Josephson effect",
+    "aliases": [
+      "조지프슨 효과",
+      "josephson effect",
+      "Josephson effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-quantum-electric",
+        "title": "NIST · The Quantum Metrology Triangle",
+        "url": "https://www.nist.gov/si-redefinition/ampere/ampere-quantum-metrology-triangle",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.8": {
+    "mechanism_key": "quantum-hall",
+    "name_en": "Quantum Hall effect",
+    "aliases": [
+      "양자 홀 효과",
+      "quantum hall",
+      "Quantum Hall effect"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-quantum-electric",
+        "title": "NIST · The Quantum Metrology Triangle",
+        "url": "https://www.nist.gov/si-redefinition/ampere/ampere-quantum-metrology-triangle",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.9": {
+    "mechanism_key": "ferroelectricity",
+    "name_en": "ferroelectricity",
+    "aliases": [
+      "강유전성",
+      "ferroelectricity"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.10": {
+    "mechanism_key": "triboelectric-charging",
+    "name_en": "triboelectric charging",
+    "aliases": [
+      "접촉 대전",
+      "triboelectric charging"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "14.11": {
+    "mechanism_key": "magnetoresistance",
+    "name_en": "magnetoresistance",
+    "aliases": [
+      "자기저항 효과",
+      "magnetoresistance"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.1": {
+    "mechanism_key": "catalysis",
+    "name_en": "catalysis",
+    "aliases": [
+      "촉매 작용",
+      "catalysis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-catalysis",
+        "title": "OpenStax · Catalysis",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-7-catalysis",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.2": {
+    "mechanism_key": "water-electrolysis",
+    "name_en": "water electrolysis",
+    "aliases": [
+      "물 전기분해",
+      "water electrolysis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electrolysis",
+        "title": "US DOE · Hydrogen Production: Electrolysis",
+        "url": "https://www.energy.gov/cmei/fuels/hydrogen-production-electrolysis",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.3": {
+    "mechanism_key": "photocatalysis",
+    "name_en": "photocatalysis",
+    "aliases": [
+      "광촉매 반응",
+      "photocatalysis"
+    ],
+    "sources": [
+      {
+        "identifier": "CN109404751B",
+        "title": "Novel energy-saving LED lamp",
+        "url": "https://patents.google.com/patent/CN109404751B/en",
+        "source_type": "PATENT",
+        "year": "2020",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.4": {
+    "mechanism_key": "advanced-oxidation",
+    "name_en": "advanced oxidation",
+    "aliases": [
+      "고도 산화",
+      "advanced oxidation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-water-treatment",
+        "title": "US EPA · Drinking Water Treatment Technologies",
+        "url": "https://www.epa.gov/sdwa/overview-drinking-water-treatment-technologies",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.5": {
+    "mechanism_key": "acid-base-reaction",
+    "name_en": "acid base reaction",
+    "aliases": [
+      "산·염기 반응",
+      "acid base reaction"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.6": {
+    "mechanism_key": "precipitation-reaction",
+    "name_en": "precipitation reaction",
+    "aliases": [
+      "침전 반응",
+      "precipitation reaction"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-precipitation",
+        "title": "OpenStax · Precipitation and Dissolution",
+        "url": "https://openstax.org/books/chemistry-atoms-first-2e/pages/15-1-precipitation-and-dissolution",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.7": {
+    "mechanism_key": "polymerization",
+    "name_en": "polymerization",
+    "aliases": [
+      "중합",
+      "polymerization"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.8": {
+    "mechanism_key": "hydrolysis",
+    "name_en": "hydrolysis",
+    "aliases": [
+      "가수분해",
+      "hydrolysis"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.9": {
+    "mechanism_key": "pyrolysis",
+    "name_en": "pyrolysis",
+    "aliases": [
+      "열분해",
+      "pyrolysis"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.10": {
+    "mechanism_key": "metal-oxide-reduction",
+    "name_en": "metal oxide reduction",
+    "aliases": [
+      "금속산화물 환원",
+      "metal oxide reduction"
+    ],
+    "sources": [
+      {
+        "identifier": "CN203451593U",
+        "title": "Smelting device for smelting titanium by utilizing blast-furnace titanium slag",
+        "url": "https://patents.google.com/patent/CN203451593U/en",
+        "source_type": "PATENT",
+        "year": "2014",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.11": {
+    "mechanism_key": "sol-gel",
+    "name_en": "sol gel",
+    "aliases": [
+      "졸–겔 반응",
+      "sol gel"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "15.12": {
+    "mechanism_key": "ozone-generation",
+    "name_en": "ozone generation",
+    "aliases": [
+      "오존 생성",
+      "ozone generation"
+    ],
+    "sources": [
+      {
+        "identifier": "CN101224873A",
+        "title": "ozone generator with modular structural discharging unit",
+        "url": "https://patents.google.com/patent/CN101224873A/en",
+        "source_type": "PATENT",
+        "year": "2008",
+        "retrieval_scope": "stored_patent_abstract",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "16.1": {
+    "mechanism_key": "diffusion-bonding",
+    "name_en": "Diffusion bonding",
+    "aliases": [
+      "확산 접합",
+      "diffusion bonding",
+      "Diffusion bonding"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-diffusion-bond",
+        "title": "TWI · Diffusion Bonding",
+        "url": "https://www.twi-global.com/what-we-do/our-processes/diffusion-bonding",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "16.2": {
+    "mechanism_key": "friction-stir-welding",
+    "name_en": "Friction stir welding",
+    "aliases": [
+      "마찰교반 용접",
+      "friction stir welding",
+      "Friction stir welding"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-fsw",
+        "title": "TWI · Friction Stir Welding",
+        "url": "https://www.twi-global.com/what-we-do/research-and-technology/technologies/welding-joining-and-cutting/friction-welding/friction-stir-welding",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "16.3": {
+    "mechanism_key": "atomic-layer-deposition",
+    "name_en": "Atomic layer deposition",
+    "aliases": [
+      "원자층 증착(ALD)",
+      "atomic layer deposition",
+      "원자층 증착",
+      "Atomic layer deposition"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-ald",
+        "title": "NIST NanoFab · Atomic Layer Deposition",
+        "url": "https://www.nist.gov/system/files/documents/cnst/nanofab/NanoFabNews_v2_i1_Feb10.pdf",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "16.4": {
+    "mechanism_key": "photolithography",
+    "name_en": "Photolithography",
+    "aliases": [
+      "광리소그래피",
+      "photolithography",
+      "Photolithography"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-lithography",
+        "title": "ASML · Lithography Principles",
+        "url": "https://www.asml.com/en/technology/lithography-principles",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "16.5": {
+    "mechanism_key": "sintering",
+    "name_en": "sintering",
+    "aliases": [
+      "소결",
+      "sintering"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "16.6": {
+    "mechanism_key": "solidification",
+    "name_en": "solidification",
+    "aliases": [
+      "응고 성형",
+      "solidification"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "16.7": {
+    "mechanism_key": "plastic-forming",
+    "name_en": "plastic forming",
+    "aliases": [
+      "소성 성형",
+      "plastic forming"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "16.8": {
+    "mechanism_key": "sputter-deposition",
+    "name_en": "sputter deposition",
+    "aliases": [
+      "스퍼터 증착",
+      "sputter deposition"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "16.9": {
+    "mechanism_key": "laser-ablation",
+    "name_en": "laser ablation",
+    "aliases": [
+      "레이저 제거 가공",
+      "laser ablation"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "16.10": {
+    "mechanism_key": "electrospinning",
+    "name_en": "electrospinning",
+    "aliases": [
+      "전기방사",
+      "electrospinning"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "17.1": {
+    "mechanism_key": "cathodic-protection",
+    "name_en": "cathodic protection",
+    "aliases": [
+      "음극 방식",
+      "cathodic protection"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-corrosion",
+        "title": "OpenStax · Corrosion",
+        "url": "https://openstax.org/books/chemistry-2e/pages/17-6-corrosion",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "17.2": {
+    "mechanism_key": "passivation",
+    "name_en": "passivation",
+    "aliases": [
+      "부동태화",
+      "passivation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-corrosion",
+        "title": "OpenStax · Corrosion",
+        "url": "https://openstax.org/books/chemistry-2e/pages/17-6-corrosion",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "17.3": {
+    "mechanism_key": "precipitation-hardening",
+    "name_en": "precipitation hardening",
+    "aliases": [
+      "석출 강화",
+      "precipitation hardening"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "17.4": {
+    "mechanism_key": "grain-refinement",
+    "name_en": "grain refinement",
+    "aliases": [
+      "결정립 미세화 강화",
+      "grain refinement"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "17.5": {
+    "mechanism_key": "work-hardening",
+    "name_en": "work hardening",
+    "aliases": [
+      "가공 경화",
+      "work hardening"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "17.6": {
+    "mechanism_key": "shot-peening",
+    "name_en": "shot peening",
+    "aliases": [
+      "쇼트피닝",
+      "shot peening"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "17.7": {
+    "mechanism_key": "sacrificial-energy-absorption",
+    "name_en": "sacrificial energy absorption",
+    "aliases": [
+      "희생 구조 에너지 흡수",
+      "sacrificial energy absorption"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "17.8": {
+    "mechanism_key": "barrier-coating",
+    "name_en": "barrier coating",
+    "aliases": [
+      "차단막 보호",
+      "barrier coating"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "18.1": {
+    "mechanism_key": "enzyme-catalysis",
+    "name_en": "enzyme catalysis",
+    "aliases": [
+      "효소 촉매",
+      "enzyme catalysis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-enzymes",
+        "title": "Molecular Biology of the Cell · Catalysis and the Use of Energy",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK26838/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "18.2": {
+    "mechanism_key": "fermentation",
+    "name_en": "fermentation",
+    "aliases": [
+      "발효",
+      "fermentation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-fermentation",
+        "title": "OpenStax · Metabolism without Oxygen",
+        "url": "https://openstax.org/books/biology-2e/pages/7-5-metabolism-without-oxygen",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "18.3": {
+    "mechanism_key": "anaerobic-digestion",
+    "name_en": "anaerobic digestion",
+    "aliases": [
+      "혐기성 소화",
+      "anaerobic digestion"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-anaerobic",
+        "title": "US EPA · How Anaerobic Digestion Works",
+        "url": "https://www.epa.gov/agstar/how-does-anaerobic-digestion-work",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "18.4": {
+    "mechanism_key": "photosynthesis",
+    "name_en": "photosynthesis",
+    "aliases": [
+      "광합성",
+      "photosynthesis"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-photosynthesis",
+        "title": "OpenStax · Light-Dependent Reactions of Photosynthesis",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "18.5": {
+    "mechanism_key": "biofilm-treatment",
+    "name_en": "biofilm treatment",
+    "aliases": [
+      "생물막 분해",
+      "biofilm treatment"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-water-treatment",
+        "title": "US EPA · Drinking Water Treatment Technologies",
+        "url": "https://www.epa.gov/sdwa/overview-drinking-water-treatment-technologies",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "18.6": {
+    "mechanism_key": "pcr",
+    "name_en": "pcr",
+    "aliases": [
+      "중합효소 연쇄반응(PCR)",
+      "pcr"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-pcr",
+        "title": "Kary Mullis · Nobel Lecture",
+        "url": "https://www.nobelprize.org/prizes/chemistry/1993/mullis/lecture/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "18.7": {
+    "mechanism_key": "electroporation",
+    "name_en": "electroporation",
+    "aliases": [
+      "전기천공",
+      "electroporation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-electroporation",
+        "title": "NLM MeSH · Electroporation",
+        "url": "https://ncbi.nlm.nih.gov/mesh/68018274",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "10.14279/depositonce-1441",
+        "title": "Pulsed Electric Fields (PEF) for Permeabilization of Cell Membranes in Food- and Bioprocessing – Applications, Process and Equipment Design and Cost Analysis.",
+        "url": "https://doi.org/10.14279/depositonce-1441",
+        "source_type": "PAPER",
+        "year": "2006",
+        "retrieval_scope": "stored_search_excerpt",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "18.8": {
+    "mechanism_key": "biomolecular-recognition",
+    "name_en": "biomolecular recognition",
+    "aliases": [
+      "생체분자 인식",
+      "biomolecular recognition"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "19.1": {
+    "mechanism_key": "negative-feedback",
+    "name_en": "negative feedback",
+    "aliases": [
+      "음의 피드백",
+      "negative feedback"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "19.2": {
+    "mechanism_key": "feedforward",
+    "name_en": "feedforward",
+    "aliases": [
+      "피드포워드 보상",
+      "feedforward"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "19.3": {
+    "mechanism_key": "state-estimation",
+    "name_en": "state estimation",
+    "aliases": [
+      "상태 추정",
+      "state estimation"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-kalman",
+        "title": "MathWorks · Model Predictive Control and State Estimation",
+        "url": "https://www.mathworks.com/help/mpc/gs/control-of-a-multi-input-single-output-plant.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "19.4": {
+    "mechanism_key": "model-predictive-control",
+    "name_en": "model predictive control",
+    "aliases": [
+      "모델 예측 제어(MPC)",
+      "model predictive control"
+    ],
+    "sources": [
+      {
+        "identifier": "REF-mpc",
+        "title": "MathWorks · What Is Model Predictive Control?",
+        "url": "https://uk.mathworks.com/videos/understanding-model-predictive-control-part-2-what-is-mpc--1528106359076.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ],
+    "evidence_level": "참고 문헌과 편집 지식",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "19.5": {
+    "mechanism_key": "error-correcting-code",
+    "name_en": "error correcting code",
+    "aliases": [
+      "오류 정정 부호",
+      "error correcting code"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "19.6": {
+    "mechanism_key": "lock-in-detection",
+    "name_en": "lock in detection",
+    "aliases": [
+      "동기 검파",
+      "lock in detection"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "19.7": {
+    "mechanism_key": "phased-array",
+    "name_en": "phased array",
+    "aliases": [
+      "위상 배열",
+      "phased array"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  },
+  "19.8": {
+    "mechanism_key": "sampling-reconstruction",
+    "name_en": "sampling reconstruction",
+    "aliases": [
+      "표본화와 신호 복원",
+      "sampling reconstruction"
+    ],
+    "sources": [],
+    "evidence_level": "편집 지식; 연결 문헌 없음",
+    "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+  }
+}

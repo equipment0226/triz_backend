@@ -144,60 +144,8 @@ def svg(title, nodes, edges=(), columns=3, *, divided=False, circles=False, show
     return ''.join(body) + '</svg>'
 
 def standard_model(state, app):
-    """Read stated substances/fields and arrows; '+' alone does not imply a link."""
-    from .report_groups import sources
-    source_ids = sources(state, app, 'su')
-    originals = [s for s in state.analysis.su_fields if s.id in source_ids]
-    original = originals[0] if len(originals) == 1 else None
-    base = {'S1':original.s1, 'S2':original.s2, 'S3':original.s3, 'F':original.field} if original else {}
-    raw = str(app.get('resulting_su_field') or '')
-    pattern = re.compile(r"(?<![A-Za-z0-9])(S[1-9]|F\d*)([′'’*]?)(?![A-Za-z0-9])")
-    items = []
-    position = 0
-    while match := pattern.search(raw, position):
-        key, prime = match.groups()
-        end = match.end()
-        after = end
-        while after < len(raw) and raw[after].isspace(): after += 1
-        description = ''
-        if after < len(raw) and raw[after] in '(（':
-            depth, end = 1, after+1
-            while end < len(raw) and depth:
-                if raw[end] in '(（': depth += 1
-                elif raw[end] in ')）': depth -= 1
-                end += 1
-            description = raw[after+1:end-1] if depth == 0 else raw[after+1:end]
-        items.append(dict(key=key, prime=prime, description=description.strip(), start=match.start(), end=end))
-        position = end
-    substances = [x for x in items if x['key'].startswith('S')]
-    fields = [x for x in items if x['key'].startswith('F')]
-    if not substances:
-        substances = [dict(key=k, prime='', description=v, start=0, end=0) for k, v in base.items() if k.startswith('S') and v]
-    if not fields and base.get('F'):
-        fields = [dict(key='F', prime='', description=base['F'], start=0, end=0)]
-    nodes = {}
-    for item in fields + substances:
-        key = item['key']
-        text = item['description'] or base.get(key) or '상세 명칭 미기재'
-        tone = 'field' if key.startswith('F') else ''
-        if item['prime'] or (base.get(key) and text != base[key]): tone = 'changed'
-        elif original and not base.get(key): tone = 'added'
-        nodes[key] = (key, key + item['prime'] + '\n' + text, tone)
-    edges = []
-    for a, b in zip(substances, substances[1:]):
-        between = raw[a['end']:b['start']]
-        if re.search(r'[-=]+\s*>|→|⇒|⟶', between) and a['key'] != b['key']:
-            field = next((f for f in fields if a['end'] <= f['start'] < b['start']), None)
-            edge_label = (field['key'] + field['prime'] + ' · ' + (field['description'] or base.get(field['key'], '작용'))) if field else '작용 전달'
-            edges.append((a['key'], b['key'], edge_label, False))
-            if field:
-                edges.append((field['key'], b['key'], '작용장', False))
-    note = '주황: 변경된 물질·장 · 보라: 추가된 물질·장. 명시된 화살표만 연결하며 +로만 추가된 요소의 연결은 추정하지 않는다.'
-    if not original:
-        note += ' 원본 물질–장 모델 연결 미확인: 변경 비교에 한계가 있다.'
-    if not nodes:
-        nodes['unknown'] = ('unknown', '변환 모델의 물질·장\n구조 정보 확인 필요', '')
-    return list(nodes.values()), edges, note
+    from .su_field_model import application_model
+    return application_model(state,app)
 
 
 def figures(state):
@@ -255,10 +203,17 @@ def figures(state):
         add(group['key'], group['title'] + ' · 분리원리 적용',
             [(str(i), str(item.get('title') or item.get('how') or item.get('not_applicable_reason') or '적용 내용 미기재'), 'good' if item.get('applicable') else 'bad') for i, item in enumerate(group['apps'])])
     for i, app in enumerate(state.solve.standard_apps):
-        ns, es, note = standard_model(state, app)
-        title = f"{app.get('standard_code', '')} {app.get('standard_title') or app.get('title') or '표준해'} · 변환 모델"
-        add(f'standard-{i}', title, ns, es, 3, circles=True)
-        if out and out[-1]['key'] == f'standard-{i}':
+        from .knowledge import standards
+        from .standard_diagrams import render_standard
+        source = next((s for s in standards() if s['code']==app.get('standard_code')),None)
+        if source:
+            out.append(dict(key=f'standard-{i}',title=f"{source['code']} {source['title_ko']} · 표준해 개념 구조",
+                compact=True,svg=render_standard(source),
+                note='표준해 원리의 변환 전후 구조. 아래의 적용 모델은 현재 문제에 대한 구체화이다.'))
+        if app.get('resulting_su_field') or app.get('resulting_model'):
+            ns, es, note = standard_model(state, app)
+            title = f"{app.get('standard_code', '')} · 현재 문제의 적용 모델"
+            add(f'standard-application-{i}', title, ns, es, 3, circles=True)
             out[-1]['note'] = note
     add('fos', '타산업 기능 이식', [(str(i), str(item.get('leading_area') or '산업 미확인') + '\n' +
         str(item.get('transferred_feature') or item.get('idea') or item.get('title') or '적용 내용 보완 필요'), 'good')

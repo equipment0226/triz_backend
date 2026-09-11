@@ -57,7 +57,7 @@ def test_standard_model_parses_prime_field_and_does_not_invent_plus_link(state):
     app = dict(source_su_id=source.id, standard_code='4.1.1', standard_title='측정',
         resulting_su_field="S1(진동 신호) -[F'(최소 샘플링)]-> S2(데이터 수집 장치) + S3(압축/요약 모듈)")
     nodes, edges, _ = visuals.standard_model(state, app)
-    assert {n[0]:n[2] for n in nodes} == {'F':'changed', 'S1':'', 'S2':'', 'S3':'added'}
+    assert {n[0]:n[2] for n in nodes} == {'F′':'changed', 'S1':'', 'S2':'', 'S3':'added'}
     assert ('S1','S2') in [e[:2] for e in edges]
     assert not any('S3' in e[:2] for e in edges)
     state.solve.standard_apps = [app]

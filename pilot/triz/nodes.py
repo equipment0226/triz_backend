@@ -641,15 +641,18 @@ def _track_b(ctx: RunContext) -> None:
 
 
 def _track_c(ctx: RunContext) -> None:
+    from .catalog_binding import bind_standard
     st = ctx.state
     for su in st.analysis.su_fields[:2]:
-        cands = K.candidate_standards(su.completeness, su.effect)
+        cands = K.candidate_standards(su.completeness, su.effect,
+            required_functions=[*_required_functions(st),su.s1,su.s2 or '',su.field or '',*digest.resources_digest(st)])
         if not cands:
             continue
         d = agent.run_agent(
             ctx, node="s5_track_c", label=f"Track C 76표준해({su.id})", stage=Stage.S5.value,
             agent_id="standards_specialist", prompt_id="P_S5_TRACK_C", tier="T2", rubric_id="R5_C",
             checker=lambda data: verify.check_standards(data, [c['code'] for c in cands]),
+            normalizer=lambda data: bind_standard(data,cands),
             vars={"s1": su.s1, "s2": su.s2, "field": su.field,
                   "completeness": su.completeness, "effect": su.effect,
                   "target_system": digest.target_system(st),
@@ -657,7 +660,14 @@ def _track_c(ctx: RunContext) -> None:
                   "standards_block": K.standards_block(cands)},
             default={},
         ) or {}
-        apps = d.get("applications") or []
+        d = bind_standard(d,cands)
+        allowed = {item['code'] for item in cands}
+        apps = []
+        for app in d.get('applications') or []:
+            if isinstance(app,dict) and app.get('standard_code') in allowed:
+                apps.append(app)
+            else:
+                st.solve.gaps.append(f'{su.id}: 후보 목록에 없는 표준해 적용안을 제외함')
         for a in apps:
             a["ref"] = f"표준해 {a.get('standard_code')}"
             a['source_su_id'] = su.id
@@ -742,19 +752,33 @@ def _track_d_ariz(ctx: RunContext) -> None:
                                   for i in (p4.get("ideas") or [])], ref_key="ref")
 
     if 5 in parts_enabled:
+        from .catalog_binding import bind_effect, bind_standard
         su = st.analysis.su_fields[0] if st.analysis.su_fields else None
-        cands = K.candidate_standards(su.completeness, su.effect) if su else K.standards()[:10]
+        cands = K.candidate_standards(su.completeness if su else '',su.effect if su else '',
+            required_functions=[*_required_functions(st),run.physical_contradiction_macro,run.physical_contradiction_micro])
+        effect_cands = K.effect_candidates(_required_functions(st),limit=10)
+        from .effect_catalog import format_effects
+        def bind_part5(data):
+            if not isinstance(data,dict): return {}
+            result=dict(data)
+            ideas=bind_standard({'applications':data.get('ideas') or []},cands)
+            result['ideas']=[bind_effect({'applications':[idea]},effect_cands)['applications'][0]
+                if isinstance(idea,dict) and (idea.get('source_effect_id') or idea.get('effect_name')) else idea
+                for idea in ideas['applications']]
+            return result
         p5 = agent.run_agent(
             ctx, node="s5_ariz_p5", label="ARIZ Part5 지식베이스 적용", stage=Stage.S5.value,
             agent_id="ariz_specialist", prompt_id="P_S5_ARIZ_PART5", tier="T2",
+            normalizer=bind_part5,
             vars={"part4": p4.get("steps", []), "pc_macro": run.physical_contradiction_macro,
                   "pc_micro": run.physical_contradiction_micro,
                   "sfr_inventory": run.sfr_inventory,
                   "standards_block": K.standards_block(cands),
                   "separation_block": K.separation_block(),
-                  "effects_block": K.effects_block()},
+                  "effects_block": format_effects(effect_cands,len(K.effects()),sum(len(g['effects']) for g in K.effects()),len(K.standards()))},
             default={},
         ) or {}
+        p5 = bind_part5(p5)
         run.steps += _ariz_steps(p5)
         run.final_ideas = _text_list(p5.get("final_ideas"))
         _add_ideas(st, "D_ARIZ", [{**i, "ref": f"ARIZ {i.get('source_step','5.x')}"}
@@ -848,17 +872,22 @@ def _track_g(ctx: RunContext) -> None:
 
 
 def _track_h(ctx: RunContext) -> None:
+    from .catalog_binding import bind_effect
     st = ctx.state
+    required = _required_functions(st)
+    catalog = K.effect_candidates(required,limit=6)
+    from .effect_catalog import format_effects
     d = agent.run_agent(
         ctx, node="s5_track_h", label="Track H 효과(Effects) 적용", stage=Stage.S5.value,
         agent_id="effects_specialist", prompt_id="P_S5_TRACK_H", tier="T2",
-        vars={"required_functions": _required_functions(st),
+        normalizer=lambda data: bind_effect(data,catalog),
+        vars={"required_functions": required,
               "target_system": digest.target_system(st),
               "operating_env": st.domain.operating_env,
-              "effects_block": K.effects_block(limit=6, required_functions=_required_functions(st))},
+              "effects_block": format_effects(catalog,len(K.effects()),sum(len(g['effects']) for g in K.effects()),len(K.standards()))},
         default={},
     ) or {}
-    apps = d.get("applications") or []
+    apps = [a for a in bind_effect(d,catalog).get('applications',[]) if isinstance(a,dict)]
     for a in apps:
         a["ref"] = f"효과/{a.get('effect_name','')}"
     st.solve.effect_apps += apps
@@ -1318,9 +1347,12 @@ def _applied_principles(st) -> list[dict]:
         if pid:
             add(f"발명원리 {pid} {K.principle_name(int(pid))}", a.get("interpretation", ""))
     for a in st.solve.separation_apps:
-        add(f"분리원리 {a.get('separation_type', '')}", a.get("interpretation", ""))
+        if a.get('applicable') is not False:
+            add(f"분리원리 {a.get('kind') or a.get('separation_type', '')}", a.get("how") or a.get("interpretation", ""))
     for a in st.solve.standard_apps:
-        add(f"표준해 {a.get('standard_id', '')}", a.get("interpretation", ""))
+        add(f"표준해 {a.get('standard_code') or a.get('standard_id', '')} {a.get('standard_title','')}", a.get("transformation") or a.get("interpretation", ""))
+    for a in st.solve.effect_apps:
+        add(f"과학효과 {a.get('source_effect_id') or '추가 가설'} {a.get('effect_name','')}",a.get('principle',''))
     return out
 
 

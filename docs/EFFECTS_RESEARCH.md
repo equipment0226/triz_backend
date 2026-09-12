@@ -6,11 +6,11 @@
 
 사용자 요청에 따라 2026-09-12부터 **이 대화의 직접 추론**으로 조사한다. 외부 LLM API로 추출·재검토하지 않는다. `research_policy.json`의 `external_llm_calls_allowed: false`가 오프라인 `mine`·`review_catalog`의 기본 모델 호출을 차단한다. 이 정책은 서비스 이용자의 대화형 TRIZ 분석과 별개다. 서버 과학효과 워커 이전은 취소된 상태이며 자동 실행 서비스를 만들지 않았다.
 
-대상은 DB에 적재되는 **전체 산업의 전체 특허**다. IT·통신·소프트웨어·보안·정보처리도 포함하며 업종 필터를 걸지 않는다. `effect_source_pages.harvest_page`는 검색 상위 결과가 아닌 공개번호 순서로 저장 초록을 읽는다. 2026-09-12 00:24:24 UTC 조회 당시 저장소는 4,696,411건이었다. 계속 적재 중이므로 고정 총량이 아니다.
+대상은 DB에 적재되는 **전체 산업의 전체 특허**다. IT·통신·소프트웨어·보안·정보처리도 포함하며 업종 필터를 걸지 않는다. `effect_source_pages.harvest_page`는 검색 상위 결과가 아닌 공개번호 순서로 저장 초록을 읽는다. 2026-09-12 00:51:51 UTC 조회 당시 저장소는 4,730,779건이었다. 계속 적재 중이므로 고정 총량이 아니다.
 
-이번 직접 검토는 AP-00143-S1부터 AR-016942-A1까지 조회한 800건이다. 초록 386건을 직접 읽어 원리 연결 161건, 추가 확인 보류 135건, 설계 구성 89건, 근거 부족 주장 제외 1건으로 기록했다. 나머지 414건은 초록 없음이며 읽거나 분석한 초록 수에 넣지 않는다. 전체 수백만 건을 읽었다는 뜻이 아니며 전체 순회는 미완료다.
+이번 직접 검토는 AP-00143-S1부터 AR-022081-A1까지 조회한 1,000건이다. 초록 586건을 직접 읽어 원리 연결 252건, 추가 확인 보류 186건, 설계 구성 146건, 근거 부족 주장 제외 2건으로 기록했다. 나머지 414건은 초록 없음이며 읽거나 분석한 초록 수에 넣지 않는다. 전체 수백만 건을 읽었다는 뜻이 아니며 전체 순회는 미완료다.
 
-현재 정본은 **19개 기능군, 260개 효과**다. 217개에서 43개를 직접 편집해 추가했다. IT의 OFDM·시분할 다중화·분산 장벽 동기화·지도 학습·상관 검출·변환 영역 합성곱도 포함한다. 227개는 참고 문헌이 연결되고 33개는 연결 문헌 없는 편집 지식이다. 참고 문헌 연결이 모든 현장 조건·성능의 실증을 뜻하지 않는다.
+현재 정본은 **19개 기능군, 269개 효과**다. 217개에서 52개를 직접 편집해 추가했다. IT의 OFDM·시분할 다중화·분산 장벽 동기화·지도 학습·상관 검출·변환 영역 합성곱·힐베르트 변환·최단 경로 탐색도 포함한다. 244개는 참고 문헌이 연결되고 25개는 연결 문헌 없는 편집 지식이다. 참고 문헌 연결이 모든 현장 조건·성능의 실증을 뜻하지 않는다.
 
 ## 편집 원칙
 
@@ -21,13 +21,13 @@
 - 부분 초록·번역 오류·깨진 수식은 보류 이유로 남긴다. 다형과 결정 외형, 압저항과 접점 닫힘, 피커링 유화와 전분 배합 등을 구분한다.
 - 정본은 간결하게 유지한다. 상세 판단·출처·검색 별칭은 별도 파일에 남긴다.
 
-`catalog.tsv`가 직접 편집한 정본이고 `identifiers.json`이 변경하지 않는 식별자 원장이다. `references.json`에는 공식·일차 문헌, `editorial_metadata.json`에는 직접 편집한 분야·별칭을 둔다. `literature_links.json`과 `accepted_literature_sources.json`은 실제 읽은 문헌과 원리를 연결한다. `review-2026-09-12-manual.md`와 `manual-patents-2026-09-12.tsv`(191건), `manual-patents-2026-09-12-02.tsv`(195건)에 이번 판단을 기록했다.
+`catalog.tsv`가 직접 편집한 정본이고 `identifiers.json`이 변경하지 않는 식별자 원장이다. `references.json`에는 공식·일차 문헌, `editorial_metadata.json`에는 직접 편집한 분야·별칭을 둔다. `literature_links.json`과 `accepted_literature_sources.json`은 실제 읽은 문헌과 원리를 연결한다. `review-2026-09-12-manual.md`와 `manual-patents-2026-09-12.tsv`(191건), `manual-patents-2026-09-12-02.tsv`(195건), `manual-patents-2026-09-12-03.tsv`(200건)에 이번 판단을 기록했다.
 
 ## API 없이 이어서 조사하기
 
-원시 페이지는 `pilot/data/patent_effects_manual/page-000001.json`부터 저장돼 있다. 요약은 `pilot/research/effects/manual-progress.json`, 800건 상태 원장은 `pilot/data/patent_effects_manual/review-ledger.json`이다. `manual_reviews/`의 01·02 검토 기록은 각 결정을 입력 내용 해시에 결합한다. 바뀐 초록에 이전 결정을 자동 적용하지 않는다.
+원시 페이지는 `pilot/data/patent_effects_manual/page-000001.json`부터 저장돼 있다. 요약은 `pilot/research/effects/manual-progress.json`, 1,000건 상태 원장은 `pilot/data/patent_effects_manual/review-ledger.json`이다. `manual_reviews/`의 01·02·03 검토 기록은 각 결정을 입력 내용 해시에 결합한다. 바뀐 초록에 이전 결정을 자동 적용하지 않는다.
 
-네 페이지는 `manual_archives/2026-09-12-02.json.gz`에도 보존했다. 이전 01 압축본은 처음 세 페이지의 기록으로 유지한다. 각 압축본의 내용은 공개 서지·초록 페이지 JSON의 배열이며 서로 중복되므로 합산하지 않는다. 원시 페이지가 없으면 최신 02 압축본에서 각각 `page-000001.json`부터 복원할 수 있다. 사용자 프로젝트·개인 첨부·인증정보는 포함하지 않는다.
+다섯 페이지는 `manual_archives/2026-09-12-03.json.gz`에도 보존했다. 이전 01·02 압축본은 처음 세·네 페이지의 기록으로 유지한다. 각 압축본의 내용은 공개 서지·초록 페이지 JSON의 배열이며 서로 중복되므로 합산하지 않는다. 원시 페이지가 없으면 최신 03 압축본에서 각각 `page-000001.json`부터 복원할 수 있다. 사용자 프로젝트·개인 첨부·인증정보는 포함하지 않는다.
 
 먼저 기존 기록의 상태를 계산한다. API나 추론을 호출하지 않는다.
 
@@ -35,10 +35,10 @@
 .venv/Scripts/python.exe pilot/scripts/record_manual_effect_reviews.py
 ```
 
-미검토 초록이 0건일 때 다음 묶음을 조회한다. 위 명령이 다음 요청 파일을 생성한다. 현재 커서는 `AR-016942-A1`, 이번 순회의 상한은 `ZA-F202500713-S`다. 기존 파일을 덮어쓰지 않고 다음 번호로 저장한다. 서버 접속은 기존 Railway 인증을 사용하며 DB는 읽기만 한다.
+미검토 초록이 0건일 때 다음 묶음을 조회한다. 위 명령이 다음 요청 파일을 생성한다. 현재 커서는 `AR-022081-A1`, 이번 순회의 상한은 `ZA-F202500713-S`다. 기존 파일을 덮어쓰지 않고 다음 번호로 저장한다. 서버 접속은 기존 Railway 인증을 사용하며 DB는 읽기만 한다.
 
 ```powershell
-.venv/Scripts/python.exe deploy/patent_remote.py deploy/harvest_manual_patent_page.py --params pilot/data/patent_effects_manual/next-request.json --output pilot/data/patent_effects_manual/page-000005.json
+.venv/Scripts/python.exe deploy/patent_remote.py deploy/harvest_manual_patent_page.py --params pilot/data/patent_effects_manual/next-request.json --output pilot/data/patent_effects_manual/page-000006.json
 ```
 
 새 초록을 대화에서 직접 읽고 별도 TSV에 `공개번호|LINK 또는 DEFER 또는 DESIGN_ONLY 또는 REJECT_CLAIM|정본 키,정본 키|판단 이유`를 작성한다. LINK는 이미 편집한 `catalog.tsv` 키만 참조한다. 초록 없는 행은 정확한 빈 문자열 여부로 표시하며 직접 읽은 것으로 등록하지 않는다.

@@ -1,6 +1,6 @@
-# 직접 추론 검토: 217 → 260
+# 직접 추론 검토: 217 → 269
 
-외부 LLM API 호출 없이 저장 초록과 공개 일차 문헌을 읽고 작성했다. 코드는 작성된 결정의 검증·직렬화에만 사용했다. 개별 판단 191건은 `manual-patents-2026-09-12.tsv`, 추가 195건은 `manual-patents-2026-09-12-02.tsv`다. 입력 해시 결합은 `manual_reviews/`의 01·02 기록이다. 초록 없는 414건은 분석으로 계산하지 않는다.
+외부 LLM API 호출 없이 저장 초록과 공개 일차 문헌을 읽고 작성했다. 코드는 작성된 결정의 검증·직렬화에만 사용했다. 개별 판단 191건은 `manual-patents-2026-09-12.tsv`, 추가 195건은 `manual-patents-2026-09-12-02.tsv`, 세 번째 200건은 `manual-patents-2026-09-12-03.tsv`다. 입력 해시 결합은 `manual_reviews/`의 01·02·03 기록이다. 초록 없는 414건은 분석으로 계산하지 않는다.
 
 ## 인접 항목과의 구분
 
@@ -69,4 +69,24 @@ ToF 12.12는 AR-011379-A1의 검출점 사이 특징 통과시간도 포함하�
 
 두 번째 묶음에서는 195개 초록을 직접 읽어 70건을 기존·신규 원리에 연결하고 67건을 보류, 58건을 설계 구성으로 기록했다. 나트륨 채널 조절·공동 링다운·금속 교환 반응·정수압 보상 등은 관련 원리에 성급히 합치지 않고 후속 검토 대상으로 남겼다. 누락된 수식·번역 오류·약물 계열만으로 분자 표적을 확정하지 않았다.
 
-386개 초록은 공개번호 초기 구간이며 산업 전체를 대표하지 않는다. 전체 순차 탐색과 신규·변경 자료의 후속 순회가 필요하다. 문헌 연결은 개별 설계의 성능 보증이 아니다.
+## 세 번째 묶음: 260 → 269
+
+AR-016954-A1부터 AR-022081-A1까지 200개 초록을 직접 읽었다. 원리 연결 91건, 보류 51건, 설계 구성 57건, 근거 부족 주장 제외 1건이다. 누적 조회 1,000건 중 실제 초록 검토는 586건이며 414건은 초록이 없다.
+
+| 신규 원리 | 특허 응용과 기존 항목과의 구분 | 교차 확인한 일차 문헌 |
+| --- | --- | --- |
+| 유체압 피스톤 구동 | AR-017871-A1의 유압 프레스와 AR-021110-A1의 공압 피스톤. 압력 유동·축압과 달리 압력×면적의 힘·행정 변환이다. 힘 증대를 일의 증폭으로 해석하지 않는다. | [NASA Pascal 원리](https://www.grc.nasa.gov/WWW/K-12/WindTunnel/Activities/Pascals_principle) |
+| 유체 터빈 동력 변환 | AR-017951-A1·AR-018419-A1의 풍력 회전 구동. 후단 발전기의 전자기 유도와 구분하며 수력도 같은 축 동력 변환에 통합한다. | [DOE 풍력 터빈](https://www.energy.gov/articles/how-wind-turbine-works), [DOE 수력](https://www.energy.gov/cmei/water/how-hydropower-works) |
+| 방사성 붕괴 | AR-017351-A1의 밀봉 동위원소 방사선원. 원자핵 전이이며 열복사·핵분열 연쇄반응과 다르다. | [NRC Radiation Basics](https://www.nrc.gov/about-nrc/radiation/health-effects/radiation-basics) |
+| 전류법 전기화학 센싱 | AR-019002-A1의 효소·매개체 센서. 전극 반응 전류를 측정하며 Nernst 평형 전위 측정과 구분한다. | [IUPAC amperometry](https://goldbook.iupac.org/terms/view/09128) |
+| 힐베르트 직교 신호 변환 | AR-018502-A1의 I/Q TV 수신 조합. 직교 성분의 신호 표현 변환으로, 특정 주파수 검파·합성곱 계산과 요구 기능이 다르다. | [SciPy hilbert](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.hilbert.html) |
+| 증분 변위 인코딩 | AR-019798-A1의 슬롯 계수와 별도 방향 검출. ToF 전파·이동 시간 측정과 구분한다. 특허에 직교 신호를 사용했다고 단정하지 않는다. | [Renishaw 광학 인코더](https://www.renishaw.com/en/how-renishaw-optical-encoders-work--36979) |
+| 그래프 최단 경로 탐색 | AR-021258-A1의 목적지 기준 최단 경로 트리. 최소 신장 트리와 다르며 특허가 명시하지 않은 Dijkstra 알고리즘을 귀속하지 않는다. | [NetworkX shortest paths](https://networkx.org/documentation/stable/reference/algorithms/shortest_paths.html) |
+| 이온 채널 개폐 조절 | AR-020988-A1의 K 채널 개방. 막의 이온 전도를 바꾸며 효소 저해·비채널 수용체의 하위 신호 전달·전기천공과 구분한다. 모든 채널 개방이 과분극을 일으키지는 않는다. | [MacKinnon Nobel 강연](https://www.nobelprize.org/uploads/2018/06/mackinnon-lecture.pdf), [Main 등 KCNQ 논문](https://pubmed.ncbi.nlm.nih.gov/10908292/) |
+| 고분자 배향 회복 열수축 | AR-021904-A1의 이축 연신 열수축 필름. 사슬 배향의 열적 완화이며 일반 열팽창·합금 형상기억 변태·진동 감쇠와 구분한다. | [저자 기관의 논문 초록](https://cris.bgu.ac.il/en/publications/morphology-and-stress-relaxation-in-oriented-polyolefin-shrink-fi-2/) |
+
+IUPAC 항목은 검색에 표시된 공식 정의와 주석을 확인했으며 직접 페이지 요청은 403이었다. Main 등의 논문과 열수축 논문은 초록 수준으로 확인했고 유료 전문을 읽었다고 기록하지 않는다. NRC 문헌의 반감기 예시 수치 등 의심스러운 부연은 채택하지 않고 붕괴의 일반 정의만 사용했다. 직접 열람 문헌과 특허가 모든 재료·조건의 성능을 입증한 것으로 확대하지 않는다.
+
+AR-019838-A1의 자기 수처리에 의한 분자 정렬·스케일 제거 주장은 독립적인 실증 근거가 없어 과학효과로 추가하지 않았다. AR-021624-A1은 흡수·흡착 번역만으로 흡착 기작을 확정하지 않고 명시된 세정 계면활성 응용만 연결했다. 기존 ER·MR·NMR 등의 새 특허는 기존 식별자에 연결했으며 산업이나 제품별 중복 항목을 만들지 않았다.
+
+586개 초록은 공개번호 초기 구간이며 산업 전체를 대표하지 않는다. 전체 순차 탐색과 신규·변경 자료의 후속 순회가 필요하다. 문헌 연결은 개별 설계의 성능 보증이 아니다.

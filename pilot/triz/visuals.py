@@ -206,15 +206,13 @@ def figures(state):
         from .knowledge import standards
         from .standard_diagrams import render_standard
         source = next((s for s in standards() if s['code']==app.get('standard_code')),None)
-        if source:
+        if app.get('resulting_su_field') or app.get('resulting_model'):
+            from .standard_application_diagrams import render_application
+            out.append(dict(key=f'standard-{i}',**render_application(state,app,source)))
+        elif source:
             out.append(dict(key=f'standard-{i}',title=f"{source['code']} {source['title_ko']} · 표준해 개념 구조",
                 compact=True,svg=render_standard(source),
-                note='표준해 원리의 변환 전후 구조. 아래의 적용 모델은 현재 문제에 대한 구체화이다.'))
-        if app.get('resulting_su_field') or app.get('resulting_model'):
-            ns, es, note = standard_model(state, app)
-            title = f"{app.get('standard_code', '')} · 현재 문제의 적용 모델"
-            add(f'standard-application-{i}', title, ns, es, 3, circles=True)
-            out[-1]['note'] = note
+                note='구체적인 적용 구조가 저장되지 않아 표준해의 기본 구성만 표시합니다.'))
     add('fos', '타산업 기능 이식', [(str(i), str(item.get('leading_area') or '산업 미확인') + '\n' +
         str(item.get('transferred_feature') or item.get('idea') or item.get('title') or '적용 내용 보완 필요'), 'good')
         for i,item in enumerate(state.solve.fos_apps)], divided=True)

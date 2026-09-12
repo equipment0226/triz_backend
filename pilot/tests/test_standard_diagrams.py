@@ -8,6 +8,89 @@ from triz.standard_diagrams import validate_specs, render_standard
 from triz.schema import SuFieldModel, ReportArtifact, GlobalState
 
 
+def application_panels(figure):
+    root = ET.fromstring(figure['svg'])
+    return {element.get('data-phase'): element for element in root.iter() if element.get('data-phase')}
+
+
+def test_report_merges_reference_and_application_once_without_losing_graph(state):
+    from triz.presentation import view
+    from triz.render import render_html
+    original = SuFieldModel(label='냉각 중 표면 손상', s1='제품', s2='냉각 장치', field='열 전달', effect='HARMFUL')
+    state.analysis.su_fields = [original]
+    model = dict(nodes=[dict(id=k, label=v) for k,v in [
+        ('S1a','제품의 열 민감 부위'), ('S1b','제품의 지지 부위'), ('S2','냉각 장치'),
+        ('S3','보호 중간층'), ('F','열 전달'), ("F'",'보호층 제어 장')]], edges=[
+        dict(source='F',target='S2',label='냉각 에너지 공급'),
+        dict(source='S2',target='S3',label='중간층을 통해 냉각'),
+        dict(source='S3',target='S1a',label='표면을 보호하며 냉각'),
+        dict(source="F'",target='S3',label='보호층 제어'),
+        dict(source='S1b',target='S1a',label='잔류 간섭',kind='harmful'),
+        dict(source='S1a',target='S1b',label='구조적 연결',kind='neutral')])
+    state.solve.standard_apps = [dict(standard_code='1.2.1',source_su_id=original.id,resulting_model=model)]
+    state.report = ReportArtifact()
+    before = state.model_dump_json()
+    data = view(state)
+    applications = [f for f in data['figures'] if f['key'].startswith('standard-')]
+    assert len(applications) == 1
+    panels = application_panels(applications[0])
+    assert set(panels) == {'before','after'}
+    after = panels['after']
+    assert {e.get('data-node') for e in after.iter() if e.get('data-node')} == {'S1a','S1b','S2','S3','F','F′'}
+    edges = [(e.get('data-source'),e.get('data-target'),e.get('data-style')) for e in after.iter() if e.get('class')=='sis-edge']
+    assert edges == [('F','S2','action'),('S2','S3','action'),('S3','S1a','action'),('F′','S3','action'),('S1b','S1a','harmful'),('S1a','S1b','neutral')]
+    assert all(n['label'] in ''.join(after.itertext()) for n in model['nodes'])
+    used = [b['figure']['key'] for s in data['report_sections'] for b in s['blocks'] if b.get('type')=='figure']
+    assert [k for k in used if k.startswith('standard-')] == ['standard-0']
+    assert render_html(state).count('data-diagram="standard-application"') == 1
+    assert state.model_dump_json() == before
+
+
+def test_merged_diagram_keeps_each_standard_motif_and_saved_direction(state):
+    from triz.standard_application_diagrams import render_application
+    from triz.su_field_model import check_model, key
+    for standard in K.standards():
+        spec = validate_specs(K.standards())[standard['code']]
+        expected = spec['after']
+        # Application IDs use substance/field roles. Other reference symbols
+        # (process, energy, etc.) remain in the principle caption, not fake nodes.
+        model = dict(nodes=[dict(id=n['id'],label=n['label']) for n in expected['nodes']],edges=[])
+        if check_model(model):
+            model['nodes'] = [dict(id='S1',label='실제 대상'),dict(id='F',label='실제 작용')]
+        else:
+            for e in expected['edges']:
+                model['edges'].append(dict(source=e['source'],target=e['target'],label=e['label'],kind='harmful' if e['style']=='harmful' else 'useful'))
+                if e['style']=='both':
+                    model['edges'].append(dict(source=e['target'],target=e['source'],label=e['label']))
+        figure = render_application(state,dict(standard_code=standard['code'],resulting_model=model),standard)
+        panel = application_panels(figure)['after']
+        actual = {e.get('data-node'):e.get('data-kind') for e in panel.iter() if e.get('data-node')}
+        assert set(actual) == {key(n['id']) for n in model['nodes']}
+        assert [(e.get('data-source'),e.get('data-target')) for e in panel.iter() if e.get('class')=='sis-edge'] == [(key(e['source']),key(e['target'])) for e in model['edges']]
+        for n in expected['nodes']:
+            if n['id'] in actual:
+                assert actual[n['id']] == n['kind']
+        assert spec['note'] in ''.join(ET.fromstring(figure['svg']).itertext())
+
+
+def test_merged_diagram_does_not_invent_transformation_or_choose_wrong_original(state):
+    from triz.standard_application_diagrams import render_application
+    a = SuFieldModel(label='문제 A',s1='제품 A',s2='장치 A',field='기계적 장')
+    b = SuFieldModel(label='문제 B',s1='제품 B',s2='장치 B',field='전기장')
+    state.analysis.su_fields = [a,b]
+    figure = render_application(state,dict(standard_code='1.1.3',source_su_id=b.id,resulting_su_field='S1(제품 B) + S3(피복)'))
+    panels = application_panels(figure)
+    assert '제품 B' in ''.join(panels['before'].itertext())
+    assert '제품 A' not in figure['svg']
+    assert not any(e.get('class')=='sis-edge' for e in panels['after'].iter())
+    ambiguous = render_application(state,dict(standard_code='1.1.3',resulting_su_field='S1(제품) + S3(피복)'))
+    assert set(application_panels(ambiguous)) == {'after'}
+    assert '연결 미확인' in ambiguous['note']
+    invalid = render_application(state,dict(standard_code='1.1.3',source_su_id=a.id,resulting_model=dict(nodes=[],edges=[])))
+    assert set(application_panels(invalid)) == {'unconfirmed'}
+    assert '변환 후' not in invalid['svg'] and '검증 실패' in invalid['note']
+
+
 def test_all_76_reference_diagrams_match_frontend_assets_and_report_numbers(state):
     catalog=K.standards()
     specs=validate_specs(catalog)

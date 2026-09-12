@@ -1,6 +1,7 @@
 from pathlib import Path
 from types import SimpleNamespace
 import xml.etree.ElementTree as ET
+import re
 import pytest
 
 from triz import knowledge as K, visuals, nodes, agent, digest, verify
@@ -42,7 +43,7 @@ def test_report_merges_reference_and_application_once_without_losing_graph(state
     assert all(n['label'] in ''.join(after.itertext()) for n in model['nodes'])
     used = [b['figure']['key'] for s in data['report_sections'] for b in s['blocks'] if b.get('type')=='figure']
     assert [k for k in used if k.startswith('standard-')] == ['standard-0']
-    assert render_html(state).count('data-diagram="standard-application"') == 1
+    assert len(re.findall(r'<svg\b[^>]*\bdata-diagram="standard-application"', render_html(state))) == 1
     assert state.model_dump_json() == before
 
 

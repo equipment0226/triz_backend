@@ -139,9 +139,24 @@ def predicate(text: str) -> str:
 
 
 # ──────────────────────────────────── 시각화 생성기
+def quadrant_points(s: GlobalState) -> list[dict]:
+    """The same measured coordinates for portable SVG and Markdown exports."""
+    points = []
+    for e in s.evaluation.evaluations:
+        c = s.concept(e.concept_id)
+        if not e.aggregate or not c:
+            continue
+        risk = e.aggregate.get("RISK", 3.0)
+        benefit = (e.aggregate.get("QUALITY", 3.0) + e.aggregate.get("FEASIBILITY", 3.0)) / 2
+        x = max(0, min(1, (5 - risk) / 4))
+        y = max(0, min(1, (benefit - 1) / 4))
+        points.append(dict(id=c.id, title=c.title, x=float(f'{x:.3f}'), y=float(f'{y:.3f}')))
+    return points
+
+
 def quadrant_mermaid(s: GlobalState) -> str:
-    evs = [e for e in s.evaluation.evaluations if e.aggregate]
-    if not evs:
+    points = quadrant_points(s)
+    if not points:
         return ""
     lines = [
         "quadrantChart",
@@ -154,15 +169,8 @@ def quadrant_mermaid(s: GlobalState) -> str:
         '    quadrant-4 "보류"',
     ]
     # Plot measured aggregates directly; never move points into cosmetic quadrants.
-    for e in evs:
-        c = s.concept(e.concept_id)
-        if not c:
-            continue
-        risk = e.aggregate.get("RISK", 3.0)
-        benefit = (e.aggregate.get("QUALITY", 3.0) + e.aggregate.get("FEASIBILITY", 3.0)) / 2
-        x = max(0, min(1, (5 - risk) / 4))
-        y = max(0, min(1, (benefit - 1) / 4))
-        lines.append(f'    "{_safe(c.title, 28)}": [{x:.3f}, {y:.3f}]')
+    for p in points:
+        lines.append(f'    "{_safe(p["title"], 28)}": [{p["x"]:.3f}, {p["y"]:.3f}]')
     return "\n".join(lines)
 
 def _pie(title: str, counts: dict[str, int]) -> str:

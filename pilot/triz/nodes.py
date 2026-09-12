@@ -769,6 +769,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
         p5 = agent.run_agent(
             ctx, node="s5_ariz_p5", label="ARIZ Part5 지식베이스 적용", stage=Stage.S5.value,
             agent_id="ariz_specialist", prompt_id="P_S5_ARIZ_PART5", tier="T2",
+            max_tokens=int(cfg("ariz.knowledge_max_tokens", 16000)),
             normalizer=bind_part5,
             vars={"part4": p4.get("steps", []), "pc_macro": run.physical_contradiction_macro,
                   "pc_micro": run.physical_contradiction_micro,
@@ -788,7 +789,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
         p7 = agent.run_agent(
             ctx, node="s5_ariz_p7", label="ARIZ Part7 해결안 검증", stage=Stage.S5.value,
             agent_id="ariz_specialist", prompt_id="P_S5_ARIZ_PART7", tier="T2",
-            max_tokens=int(cfg("ariz.validation_max_tokens", 8000)),
+            max_tokens=int(cfg("ariz.validation_max_tokens", 16000)),
             vars={"ifr1": run.ifr1, "pc_macro": run.physical_contradiction_macro,
                   "pc_micro": run.physical_contradiction_micro,
                   "ideas": (run.final_ideas or []) + run.solution_directions},
@@ -1006,7 +1007,7 @@ def _merge(ctx: RunContext) -> bool:
     d = agent.run_agent(
         ctx, node="s5_merge", label="아이디어 통합·중복제거", stage=Stage.S5.value,
         agent_id="solution_curator", prompt_id="P_S5_MERGE", tier="T2", rubric_id="R5_MERGE",
-        max_tokens=8000,
+        max_tokens=int(cfg("solutions.merge_max_tokens", 16000)),
         vars={"all_ideas": digest.ideas_digest(st, limit=40),
               "redefinition_hints": st.solve.gaps,
               "causal_packet": digest.causal_packet(st),

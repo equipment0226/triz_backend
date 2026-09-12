@@ -174,6 +174,11 @@ def run_agent(
     """단일 LLM 노드 실행. 계정 오류는 중단하고 일시적 호출 실패는 default를 반환한다."""
     state = ctx.state
     tier = _budget_tier(ctx, routed_tier(node, tier))
+    if max_tokens is None and node.startswith("s5_"):
+        # Resolve before cost reservation and cache hashing. Tier-wide defaults can
+        # be too small for structured multi-solution outputs, even with bounded retrieval.
+        max_tokens = max(settings.tiers[tier].max_tokens,
+                         int(settings.cfg("solutions.track_max_tokens", 8000)))
     step = ctx.start_step(node=node, label=label, stage=stage, agent_id=agent_id,
                           prompt_id=prompt_id, tier=tier)
 

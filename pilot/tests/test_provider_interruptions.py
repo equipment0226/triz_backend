@@ -83,6 +83,48 @@ def test_account_error_after_truncation_retains_consumed_usage(monkeypatch):
     assert usage.cost_usd > 0 and usage.data is None
 
 
+def test_s5_output_limit_reaches_provider_and_invalidates_only_changed_cache(state, monkeypatch):
+    monkeypatch.setattr(settings.tiers['T2'], 'max_tokens', 4000)
+    monkeypatch.setitem(settings.triz['solutions'], 'track_max_tokens', 8000)
+    create = install_sdk(monkeypatch, [response({'ok': True}) for _ in range(3)])
+    ctx = RunContext(state)
+    run_node(ctx, 's5_track_h')
+    assert create.call_args.kwargs['max_tokens'] == 8000
+    run_node(ctx, 's5_track_h')
+    assert create.call_count == 1
+    monkeypatch.setitem(settings.triz['solutions'], 'track_max_tokens', 12000)
+    run_node(ctx, 's5_track_h')
+    assert create.call_count == 2
+    assert create.call_args.kwargs['max_tokens'] == 12000
+    run_node(ctx, 's4_other')
+    assert create.call_args.kwargs['max_tokens'] == 4000
+
+
+def test_ariz_knowledge_call_keeps_tables_and_effect_binding_with_larger_limit(state, monkeypatch):
+    from triz import knowledge
+    monkeypatch.setattr(settings.tiers['T2'], 'max_tokens', 4000)
+    monkeypatch.setitem(settings.triz['ariz'], 'enabled_parts', [5])
+    effect = knowledge.effect_candidates(['electrostatic chuck ESC'], limit=1)[0]
+    monkeypatch.setattr(knowledge, 'effect_candidates', lambda *args, **kwargs: [effect])
+    data = {'steps': [dict(step_code=f'5.{i}', step_title='적용 검토', output='조건을 확인한다.',
+            status='DONE', table_columns=['조건', '검토'], table_rows=[['잔류 전하', '해제 확인']])
+            for i in range(1, 5)],
+        'final_ideas': ['정전기 척 적용 검토'],
+        'ideas': [dict(title='정전기 척 적용 검토', idea='잔류 전하와 해제 조건을 확인한다.',
+            source_step='5.4', source_effect_id=effect['id'], effect_name=effect['name'],
+            mechanism='전기장에 의한 인력', conditions=['잔류 전하 관리'])]}
+    create = install_sdk(monkeypatch, [response(data)])
+    nodes._track_d_ariz(RunContext(state))
+    assert create.call_count == 1
+    assert create.call_args.kwargs['max_tokens'] == 16000
+    assert [s.step_code for s in state.solve.ariz.steps] == ['5.1', '5.2', '5.3', '5.4']
+    assert state.steps[-1].output_json['steps'][3]['table_rows'] == [['잔류 전하', '해제 확인']]
+    saved_idea = state.steps[-1].output_json['ideas'][0]
+    assert saved_idea['source_effect_id'] == effect['id']
+    assert '잔류 전하 관리' in saved_idea['conditions']
+    assert effect['conditions'] in saved_idea['conditions']
+
+
 def test_pipeline_preserves_checkpoint_and_answers_then_resumes_after_account_recovery(state, monkeypatch):
     create = install_sdk(monkeypatch, [response({"checkpoint": 1}), provider_error(402), response({"done": True})])
     checked = Mock(return_value=[])

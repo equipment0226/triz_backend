@@ -19,6 +19,8 @@ solutions:
   ideas_per_principle: 1      # 발명원리 1개당 최소 아이디어
   max_principles_per_contradiction: 6
   track_a_max_tokens: 8000    # 원리별 메커니즘·반박·검증 조건까지 완결할 출력 여유
+  track_max_tokens: 8000      # S5 기본 출력 한도. 낮은 티어 기본값과 별도로 적용.
+  merge_max_tokens: 16000     # 후보별 근거를 유지한 통합·중복 제거 결과를 완결.
   matrix_cross_check: true    # 행렬 결과가 6개 미만일 때 LLM 제안을 '추가 후보'로만 보또다
   # 신규성 비율은 강제하지 않는다. 실제 메커니즘의 다양성과 근거를 평가한다.
 
@@ -47,7 +49,8 @@ tracks:
 
 ariz:
   enabled_parts: [1, 2, 3, 4, 5, 7]   # 6(문제변경)/8/9는 필요 시
-  validation_max_tokens: 8000 # Part7의 모든 해결안 검증 결과를 완결
+  knowledge_max_tokens: 16000 # Part5의 표준해·효과 적용안, 표와 후속 근거를 완결.
+  validation_max_tokens: 16000 # Part7의 모든 해결안 검증 결과를 완결
   # 재정의 신호는 기존 S5 통합에서 검토한다. 선행 분석을 바꾸는 재귀 루프는 실행하지 않는다.
 
 solve:

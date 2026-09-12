@@ -71,5 +71,6 @@ def test_larger_output_limits_are_scoped_to_ceca_and_ariz_validation(state, monk
 
     expected = int(override) if override is not None else 8000
     expanded = {node: call["max_tokens"] for node, call in calls.items() if "max_tokens" in call}
-    assert expanded == {"s3_ceca": expected, "s5_ariz_p7": expected}
+    assert expanded == {"s3_ceca": expected,
+                        "s5_ariz_p7": int(override) if override is not None else 16000}
     assert "s3_function_model" in calls and "s5_ariz_p4" in calls

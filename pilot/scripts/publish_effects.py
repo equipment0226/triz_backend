@@ -14,7 +14,7 @@ import sys
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from triz.effect_mining import atomic_json
+from triz.effect_mining import atomic_json, DOMAINS
 
 def read(path,default):
     return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
@@ -27,6 +27,7 @@ def build(directory, knowledge):
     literature={**{e.get('id'):e for g in read(ROOT/'data/effects_review/reviewed-catalog.json',[]) for e in g['effects']},
                 **read(directory/'accepted_literature_sources.json',{})}
     links=read(directory/'literature_links.json',{})
+    metadata=read(directory/'editorial_metadata.json',{})
     groups=[]; evidence={}; counts=Counter(); names=set(); keys=set(); unsupported=[]
     for line in (directory/'catalog.tsv').read_text(encoding='utf-8').splitlines():
         if not line.strip() or line.startswith('#'):continue
@@ -46,6 +47,8 @@ def build(directory, knowledge):
         prior=base.get(key,{})
         actual_domain=prior.get('domain',domain)
         if key in {'ion-exchange','surfactant-action','gelation','anodization','electrodeposition','cathodic-protection','passivation','thermochemical-heat-storage'}:actual_domain='CHEMICAL'
+        actual_domain=metadata.get(key,{}).get('domain',actual_domain)
+        if actual_domain not in DOMAINS:raise ValueError('Invalid domain: '+key)
         group['effects'].append({'id':identifier,'name':name,'domain':actual_domain,'principle':principle,'conditions':conditions})
         sources=list(prior.get('sources',[]))
         if key in {'acoustic-streaming','hydrodynamic-lubrication'}:
@@ -65,12 +68,13 @@ def build(directory, knowledge):
         sources=list({s['url']:s for s in sources if s.get('url')}.values())
         status='참고 문헌과 편집 지식' if sources else '편집 지식; 연결 문헌 없음'
         evidence[identifier]={'mechanism_key':key,'name_en':prior.get('name_en',key.replace('-',' ')),
-            'aliases':list(dict.fromkeys([name,key.replace('-',' '),*prior.get('aliases',[])])),
+            'aliases':list(dict.fromkeys([name,key.replace('-',' '),*prior.get('aliases',[]),*metadata.get(key,{}).get('aliases',[])])),
             'sources':sources,'evidence_level':status,
             'verification_scope':'원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음.'}
         counts['with_sources' if sources else 'editorial_knowledge_only']+=1
         if unresolved:unsupported.append({'key':key,'reference_topics':unresolved,'has_other_source':bool(sources)})
     ids=[e['id'] for g in groups for e in g['effects']]
+    if metadata.keys()-keys:raise ValueError('Metadata without a canonical mechanism: '+str(metadata.keys()-keys))
     if len(ids)!=len(set(ids)):raise ValueError('Duplicate stable identifier')
     if any(len(e['principle'])>160 or len(e['conditions'])>180 for g in groups for e in g['effects']):raise ValueError('Editorial entry is not concise')
     return groups,evidence,registry,dict(counts),unsupported

@@ -3,7 +3,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from collections import Counter
 import json
-from .effect_mining import atomic_json, digest, normalize
+from .effect_mining import atomic_json, digest, normalize, require_research_llm_permission
 
 VERSION='effects-semantic-review-v1'
 SYSTEM='''You are reviewing a Korean engineering mechanism catalog against its source abstracts/excerpts.
@@ -67,6 +67,7 @@ def validate_reviews(payload, entries, sources):
 
 def review_catalog(catalog, documents, directory, workers=8, llm_call=None, emit=print):
     if llm_call is None:
+        require_research_llm_permission()
         from .llm import chat_json
         llm_call=chat_json
     sources={d['source']['identifier']:{'title':d['source'].get('title',''),'type':d['source'].get('source_type',''),

@@ -1,63 +1,62 @@
 # 과학효과 편집과 재조사
 
-서비스 정본은 `pilot/triz/knowledge/effects.json`이다. 기능군 아래에 `id`, `name`, `domain`, `principle`, `conditions`만 저장한다. 화면은 타이틀 아래 자료 식별자·요구 기능·작동 원리·필요 조건을 표시한다. 원리와 핵심 조건은 사람이 읽고 비교해서 편집하며, 개별 특허의 제품 설명을 자동으로 정본에 추가하지 않는다.
+서비스 정본은 `pilot/triz/knowledge/effects.json`이다. 기능군 아래 `id`, `name`, `domain`, `principle`, `conditions`만 저장한다. 화면은 타이틀·자료 식별자·요구 기능·작동 원리·필요 조건을 표시한다. 출처·별칭은 `effects_sources.json`에서 Agent 검색에 결합한다.
 
-## 현재 조사 범위
+## 현재 방식과 범위
 
-2026-09-11 14:12:58 UTC 조사 당시 특허 저장소는 3,955,679건이었다. 저장된 분석의 공개 문헌 4,472건을 확인하고, 전체 특허 검색 색인에 기능 검색어 60개를 질의했다. 중복 문헌을 합친 실제 입력은 5,059건(논문 2,396건, 특허 2,663건)이며 그중 특허 2,356건은 저장된 초록을 확보했다. 전체 특허 395만 건의 본문을 읽었다는 뜻은 아니다. 색인 대기 특허 866건도 당시 검색 범위 밖이었다.
+사용자 요청에 따라 2026-09-12부터 **이 대화의 직접 추론**으로 조사한다. 외부 LLM API로 추출·재검토하지 않는다. `research_policy.json`의 `external_llm_calls_allowed: false`가 오프라인 `mine`·`review_catalog`의 기본 모델 호출을 차단한다. 이 정책은 서비스 이용자의 대화형 TRIZ 분석과 별개다. 서버 과학효과 워커 이전은 취소된 상태이며 자동 실행 서비스를 만들지 않았다.
 
-1차 추출은 5,059건 모두에 상태를 남겼다. 메커니즘 추출 2,074건, 적합한 메커니즘 없음 1,761건, 본문 부족 1,224건이다. 문헌에서 추출·병합한 후보 2,158개에 대한 별도 자동 검토는 유지 1,612개, 수정 85개, 제외 461개였다. 이는 초록·발췌 수준의 자동 검토이며 실험이나 전문가 검증이 아니다.
+대상은 DB에 적재되는 **전체 산업의 전체 특허**다. IT·통신·소프트웨어·보안·정보처리도 포함하며 업종 필터를 걸지 않는다. `effect_source_pages.harvest_page`는 검색 상위 결과가 아닌 공개번호 순서로 저장 초록을 읽는다. 2026-09-11 23:55:34 UTC 조회 당시 저장소는 4,663,864건이었다. 계속 적재 중이므로 고정 총량이 아니다.
 
-2026-09-12 최신 편집판은 19개 기능군, 대표 메커니즘 217개다. 200개 정본에 열량 효과·교축 냉각·흡수 냉동·열화학 축열·초임계 추출·질량 및 광음향·초전 검출·전기광학 및 자기광학·전자 터널링·미생물 황산염 환원 등 17개를 직접 편집해 추가했다. 159개는 연결 참고 문헌이 있고 58개는 연결 문헌 없는 편집 지식이다. 제품별·공정별 중복 나열을 피하며 전 산업을 빠짐없이 망라한 완성 목록으로 간주하지 않는다. 추가 원리와 인접 기존 항목을 구분한 근거는 `pilot/research/effects/review-2026-09-12.md`에 기록했다.
+이번 직접 검토는 AP-00143-S1부터 AR-011638-A1까지 조회한 600건이다. 초록 191건을 직접 읽어 원리 연결 91건, 추가 확인 보류 68건, 설계 구성 31건, 근거 부족 주장 제외 1건으로 기록했다. 나머지 409건은 초록 없음이며 읽거나 분석한 초록 수에 넣지 않는다. 전체 수백만 건을 읽었다는 뜻이 아니며 전체 순회는 미완료다.
 
-같은 날 특허 저장소의 공개번호 순차 조회도 시작했다. 완료한 두 묶음은 AP-00143-S1부터 AR-013051-A1까지 600건이다. 실제 저장 초록이 있는 223건을 분석했고 초록이 없는 377건은 자료 부족으로 분류했다. 이 중 자동 검토 후보 100개가 남았으며 정본 217개와는 별도다. 세 번째 묶음은 부분 완료되어 재개 시 성공한 추출·검토 묶음을 재사용한다. 첫 묶음 21개에 대한 직접 편집 판단은 위 검토 기록에 남겼다.
+현재 정본은 **19개 기능군, 258개 효과**다. 217개에서 41개를 직접 편집해 추가했다. IT의 OFDM·시분할 다중화·분산 장벽 동기화·지도 학습도 포함한다. 213개는 참고 문헌이 연결되고 45개는 연결 문헌 없는 편집 지식이다. 참고 문헌 연결이 모든 현장 조건·성능의 실증을 뜻하지 않는다.
 
-사용자 요청으로 조사를 중지했다. 로컬 분석 프로세스는 종료했으며 서버 분석 서비스는 생성·배포하지 않았다. 조사 진행 위치와 결과는 로컬에 보존한다. 아래 재실행 명령은 이후 사용자가 조사를 재개할 때 실행한다.
+## 편집 원칙
 
-## 편집 기준
+- 원리·입력·출력·필요조건을 직접 비교한다. 제품명·산업·특허번호가 달라도 같은 원리면 기존 항목에 연결한다.
+- 물리·화학·기하·생물·정보 원리를 구분한다. 소프트웨어를 억지로 물리 효과에 대응시키지 않는다.
+- 단순 서비스 흐름·UI·제품 조합만으로 새 원리를 만들지 않는다. IT 알고리즘도 실제 처리 과정과 성립 조건이 있어야 한다.
+- 특허의 제안·효능 주장을 실험 결과나 보편적 성능으로 취급하지 않는다. 초록에 없는 수식·수치·표적을 출처에 귀속하지 않는다.
+- 부분 초록·번역 오류·깨진 수식은 보류 이유로 남긴다. 다형과 결정 외형, 압저항과 접점 닫힘, 피커링 유화와 전분 배합 등을 구분한다.
+- 정본은 간결하게 유지한다. 상세 판단·출처·검색 별칭은 별도 파일에 남긴다.
 
-- 같은 원리의 응용은 대표 원리에 연결한다. 열확산판·열 스트랩은 열전도, 여러 원심 공정은 원심 분리에 해당한다.
-- 조건·입출력이 본질적으로 다른 원리는 구분한다. 직접/역압전, ER/MR, 흡착/흡수, DLC/MoS₂는 별개 항목이다.
-- ESC는 접촉 고정이다. MR은 단순 점도 변화가 아니라 항복응력의 변화를 설명한다. RO는 삼투압을 넘는 압력 조건을 포함한다.
-- 특허의 제안이나 논문의 일부 발췌만으로 범용 성능·실증을 주장하지 않는다. 조건을 모르면 임의 수치를 넣지 않는다.
-- 정보·제어 기술은 INFORMATIONAL로 구분해 물리 현상과 혼동하지 않는다.
+`catalog.tsv`가 직접 편집한 정본이고 `identifiers.json`이 변경하지 않는 식별자 원장이다. `references.json`에는 공식·일차 문헌, `editorial_metadata.json`에는 직접 편집한 분야·별칭을 둔다. `literature_links.json`과 `accepted_literature_sources.json`은 실제 읽은 문헌과 원리를 연결한다. `review-2026-09-12-manual.md`와 `manual-patents-2026-09-12.tsv`에 이번 판단을 기록했다.
 
-편집 파일은 `pilot/research/effects/catalog.tsv`, 고정 식별자는 `identifiers.json`, 추가 참고문헌은 `references.json`이다. `literature_links.json`은 실제로 읽고 연결한 문헌 후보를 명시한다. 출처·영문 검색어는 `effects_sources.json`에 보존하여 Agent 검색 시 결합한다. 출처가 없는 편집 지식에는 연결 문헌이 없다고 기록한다. 문헌 연결의 후속 조사 주제와 출판 해시는 `reference_followups.json`, `publication.json`에 남는다.
+## API 없이 이어서 조사하기
 
-## 재실행
+원시 페이지는 `pilot/data/patent_effects_manual/page-000001.json`부터 저장돼 있다. 요약은 `pilot/research/effects/manual-progress.json`, 600건 상태 원장은 `pilot/data/patent_effects_manual/review-ledger.json`이다. `manual_reviews/2026-09-12-01.json`은 각 결정을 입력 내용 해시에 결합한다. 바뀐 초록에 이전 결정을 자동 적용하지 않는다.
 
-프로젝트 루트에서 실행한다. 기존 배포에 접속하는 첫 명령은 Railway 인증과 해당 서비스의 읽기 권한이 필요하다. 공개 서지·초록만 읽으며 프로젝트 입력·사용자 식별자·개인 첨부 자료는 수집하지 않는다.
+세 페이지는 `manual_archives/2026-09-12-01.json.gz`에도 보존했다. 압축 내용은 공개 서지·초록 페이지 JSON의 배열이다. 원시 페이지가 없으면 각각 `page-000001.json`부터 복원할 수 있다. 사용자 프로젝트·개인 첨부·인증정보는 포함하지 않는다.
+
+먼저 기존 기록의 상태를 계산한다. API나 추론을 호출하지 않는다.
 
 ```powershell
-python deploy/patent_remote.py deploy/harvest_effect_sources.py --output .tmp/effect-sources-next.json
-.venv/Scripts/python.exe pilot/scripts/refresh_effects.py --input .tmp/effect-sources-next.json --workers 6
+.venv/Scripts/python.exe pilot/scripts/record_manual_effect_reviews.py
 ```
 
-새 산업이나 기법을 조사할 때 `{"queries":["검색어1", "검색어2"]}` 형식의 JSON을 만들어 첫 명령에 `--params 파일경로`를 추가한다. 실행 결과는 당시 저장소 수, 실제 질의 목록·검색 상태·문헌 종류·초록 확보 수를 기록한다. 이 질의 목록은 조사 계획이며 전체 산업의 커버리지를 보증하지 않는다.
-
-문헌은 기존 식별자를 유지하며 누적된다. 같은 입력으로 재실행하면 성공한 추출·검토 묶음을 재사용하고 실패 묶음을 다시 시도한다. 본문·메타데이터·묶음 구성이 바뀌면 관련 묶음을 다시 처리할 수 있다. 추출·검토에는 설정된 LLM의 사용료가 발생한다. 원문 전체가 없는 문헌은 그대로 본문 부족 상태를 유지하며 별도 원문 확보 후 다시 실행한다.
-
-새 후보를 읽고 `catalog.tsv`에서 채택·통합·조건을 직접 편집한 뒤 정본을 생성한다. 자동 추출 CLI는 서비스 `effects.json`에 직접 쓰기를 거부한다.
+미검토 초록이 0건일 때 다음 묶음을 조회한다. 위 명령이 다음 요청 파일을 생성한다. 현재 커서는 `AR-011638-A1`, 이번 순회의 상한은 `ZA-F202500713-S`다. 기존 파일을 덮어쓰지 않고 다음 번호로 저장한다. 서버 접속은 기존 Railway 인증을 사용하며 DB는 읽기만 한다.
 
 ```powershell
+python deploy/patent_remote.py deploy/harvest_manual_patent_page.py --params pilot/data/patent_effects_manual/next-request.json --output pilot/data/patent_effects_manual/page-000004.json
+```
+
+새 초록을 대화에서 직접 읽고 별도 TSV에 `공개번호|LINK 또는 DEFER 또는 DESIGN_ONLY 또는 REJECT_CLAIM|정본 키,정본 키|판단 이유`를 작성한다. LINK는 이미 편집한 `catalog.tsv` 키만 참조한다. 초록 없는 행은 정확한 빈 문자열 여부로 표시하며 직접 읽은 것으로 등록하지 않는다.
+
+```powershell
+.venv/Scripts/python.exe pilot/scripts/record_manual_effect_reviews.py --record pilot/research/effects/manual-next.tsv --review-id next-review --link-sources
 .venv/Scripts/python.exe pilot/scripts/publish_effects.py --check
 .venv/Scripts/python.exe pilot/scripts/publish_effects.py
 .venv/Scripts/python.exe frontend/scripts/sync-knowledge.py
-.venv/Scripts/python.exe -m pytest pilot/tests/test_effect_catalog.py pilot/tests/test_pipeline_quality.py -q
+.venv/Scripts/python.exe -m pytest pilot/tests/test_manual_effect_reviews.py pilot/tests/test_effect_catalog.py pilot/tests/test_pipeline_quality.py pilot/tests/test_standard_diagrams.py -q
 ```
 
-발행은 결정된 편집 내용을 검증·직렬화하는 과정이다. 코드는 과학적 동등성을 추론하거나 편집자를 대신해 새로운 효과를 채택하지 않는다. 같은 원리의 새 산업 응용은 항목 수를 늘리기보다 별칭·문헌 연결을 보강한다. 식별자는 항목 추가·정렬로 바뀌지 않는다.
+발행·원장 코드는 작성된 결정을 검증·직렬화한다. 과학적 동등성 판단·요약·채택을 코드가 대신하지 않는다. 검토 JSON은 불변이며 수정에는 새 review-id가 필요하다. 미검토 초록이 있으면 완료 커서는 그 페이지 앞에서 멈춘다. 다음 페이지를 조회하기 전에 해당 부분부터 읽는다.
 
-원시 조사와 제외 근거는 `pilot/data/effects_mining/` 및 `pilot/data/effects_review/`에 남긴다. 순차 특허 조사는 `pilot/data/patent_effects_sweep/`의 SQLite 원장·페이지별 초록·추출·검토 결과·진행 JSON에 남긴다. 이 파일들은 서비스 정본이나 프론트엔드 번들에 포함하지 않는다.
+이 순회는 엄밀한 DB 시점 스냅샷이 아니다. 이미 지나간 공개번호 위치의 신규 특허·변경 초록은 다음 순회에서 확인한다. 순회를 끝낸 뒤 새 페이지 폴더에서 커서·상한을 비워 시작하고 이전 검토 해시와 대조한다. 본문 없는 자료는 원문 확보 전까지 자료 부족으로 유지한다.
 
-## 순차 특허 조사 재개
+## 이전 자동 조사 기록
 
-```powershell
-.venv/Scripts/python.exe pilot/scripts/sweep_patent_effects.py --page-size 400 --workers 4
-```
+정책 변경 전 공개 문헌 5,059건(논문 2,396·특허 2,663)을 자동 처리했다. 추출 2,074건, 기구 없음 1,761건, 본문 부족 1,224건이며 후보 2,158개의 자동 검토는 유지 1,612·수정 85·제외 461개였다. 직접 읽거나 정본에 채택한 수가 아니다. 원시 결과는 `pilot/data/effects_mining/`, `pilot/data/effects_review/`에 남아 있다.
 
-같은 작업 폴더에서는 완료 커서 다음부터 재개하며, 부분 완료 페이지의 성공한 묶음을 재사용한다. 페이지 원장과 진행 위치는 같은 SQLite 트랜잭션에 저장해 재시작 중복을 막는다. 초록이 완전히 같은 문헌은 별도 중복 상태로 기록하고, 초록이 다른 같은 특허군은 따로 읽는다. 초록이 없는 문헌은 모델 호출 없이 자료 부족으로 분류한다. `analyzed`는 상태 판정을 남긴 문헌 수이고 실제 초록 분석 수는 `readable_abstracts`, 빈 초록은 `empty_abstracts`다.
-
-첫 순회는 시작 시 확보한 공개번호 상한까지 진행한다. 엄밀한 데이터베이스 시점 스냅샷은 아니며 순회 중 이미 지나간 위치에 들어오는 신규·변경 자료는 다음 순회에서 확인한다. 기존 순회를 완료한 뒤 `--new-sweep`를 추가하면 저장된 내용 해시와 비교해 신규·변경 자료를 처리한다. 진행 중에 `--new-sweep`를 주면 새 순회로 넘어가므로 보통 재개 시에는 사용하지 않는다.
-
-`deploy/deploy_effect_worker.py`와 `pilot/scripts/effect_worker.py`는 서버 실행을 준비한 코드다. 현재 배포되지 않았고 자동 실행되지 않는다. 서버 이전은 사용자 요청으로 취소했다. 재개 시 이 문서의 로컬 명령부터 사용하거나 서버 실행을 별도로 결정한다.
+이전 API 순차 조사도 600건(초록 223·빈 초록 377)과 부분 완료 다음 묶음을 남겼다. `pilot/data/patent_effects_sweep/`에 중지 상태로 보존한다. 새 직접 검토 600건과 중복되므로 합산하지 않는다. 재조회 때 과거 커서 앞에도 새 특허가 들어온 사실을 확인했다. `refresh_effects.py`, `sweep_patent_effects.py`, `effect_worker.py`는 현재 과학효과 조사에 실행하지 않는다.

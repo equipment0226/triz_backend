@@ -73,6 +73,13 @@ Schema:
 def normalize(value):
     return ' '.join(unicodedata.normalize('NFKC', str(value or '')).split())
 
+
+def require_research_llm_permission():
+    """Only governs offline catalog research; interactive TRIZ agents are separate."""
+    policy_path=Path(__file__).resolve().parents[1]/'research/effects/research_policy.json'
+    if policy_path.exists() and json.loads(policy_path.read_text(encoding='utf-8')).get('external_llm_calls_allowed') is False:
+        raise RuntimeError('RESEARCH_LLM_API_DISABLED: 사용자가 대화 내 직접 추론을 요청했습니다. 자동 추출·재검토 API를 실행하지 않습니다.')
+
 def digest(value):
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
 
@@ -181,6 +188,7 @@ def batch_documents(documents, batch_size=50, max_chars=85000):
 
 def mine(records, output_dir, *, workers=6, batch_size=50, llm_call=None, emit=print):
     if llm_call is None:
+        require_research_llm_permission()
         from .llm import chat_json
         llm_call = chat_json
     directory = Path(output_dir)

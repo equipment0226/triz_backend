@@ -1,0 +1,1381 @@
+{
+  "version": "KR_PATENT_DRAFT_BASELINE_V0_2",
+  "rules": [
+    {
+      "rule_id": "SEC01",
+      "criterion": "사건·원본 run·선택 concept의 접근권한과 소유 관계를 서버에서 검사한다.",
+      "required_evidence": "인증 사용자·원본 소유자·case ACL",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_SECURITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_sec01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SEC02",
+      "criterion": "새 특허 case는 PRIVATE이며 기존 TRIZ 공개 동의·원본 visibility·베타 입력 흐름을 변경하거나 상속하지 않는다.",
+      "required_evidence": "신규 case ACL·public API 미노출·기존 공개 설정 불변 회귀시험",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_SECURITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_sec02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SEC03",
+      "criterion": "TRIZ_STUDIO_BETA에서의 공개는 이번 외부 공개이력 집계·자동 위험 항목·감점·RL 부정 라벨에 합산하지 않는다. 독립적인 외부 논문·특허·판매·제안·웹 공개는 원래 범위로 유지한다.",
+      "required_evidence": "origin 분류·scope policy version·당사자가 제시한 외부 공개자료; beta 원본 provenance는 보존",
+      "severity": "MAJOR",
+      "basis_class": "USER_DEFINED_ANALYSIS_SCOPE_WITH_LEGAL_BOUNDARY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_sec03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SEC04",
+      "criterion": "미공개 발명·개인정보의 외부 전송을 공급자·목적·보관정책 단위로 허용한다.",
+      "required_evidence": "provider allowlist·데이터 분류·전송 승인",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_SECURITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_sec04",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SEC05",
+      "criterion": "문헌·첨부는 비신뢰 데이터로 취급하며 내부 지시·URL 실행 권한을 주지 않는다.",
+      "required_evidence": "파싱 로그·도구 권한·다운로드 허용목록",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_SECURITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_sec05",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SEC06",
+      "criterion": "공개 특허 원문 캐시와 개인 발명·분석·학습 자료를 분리한다.",
+      "required_evidence": "저장소 구획·tenant filter·RAG 경로",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_SECURITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_sec06",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "ADM01",
+      "criterion": "출원인·발명자 등 기본 서지사항을 확인하고 모르는 식별번호를 생성하지 않는다.",
+      "required_evidence": "당사자 입력·서지 확인표",
+      "severity": "MAJOR",
+      "basis_class": "LAW",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_adm01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "ADM02",
+      "criterion": "발명자 기여와 특허를 받을 권리의 보유·승계 근거를 구분한다.",
+      "required_evidence": "기여 기록·계약·직무발명 관련 확인",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_adm02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "ADM03",
+      "criterion": "사람의 실질적인 기술 기여 기록을 수집하되 승인 클릭을 창작 기여로 간주하지 않는다.",
+      "required_evidence": "문제 구체화·구성 수정·실험·해석의 기여 기록",
+      "severity": "MAJOR",
+      "basis_class": "OFFICIAL_GUIDANCE",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_adm03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "ADM04",
+      "criterion": "공지예외·우선권·대리권·국가연구개발 등 조건부 기재·서류 필요성을 판정한다.",
+      "required_evidence": "해당 여부 답변·증빙 목록·기준일",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_adm04",
+        "logic": "conditional_filing_fact_relevant",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "ADM05",
+      "criterion": "PCT·분할·임시명세서·서열목록·기탁 등 특수 유형을 일반 초안과 구분한다.",
+      "required_evidence": "발명 유형·출원 경로",
+      "severity": "MAJOR",
+      "basis_class": "PRODUCT_PROFILE",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_adm05",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "TECH01",
+      "criterion": "해결 목표가 아니라 이를 달성하는 구체적 기술 수단을 설명한다.",
+      "required_evidence": "기술적 구성·절차·입출력",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_tech01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "TECH02",
+      "criterion": "구성요소·연결·동작·입출력에 안정적인 ID와 일관된 명칭을 부여한다.",
+      "required_evidence": "InventionGraph·용어표",
+      "severity": "MAJOR",
+      "basis_class": "ENGINEERING_POLICY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_tech02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "TECH03",
+      "criterion": "필수 구성과 선택 구성, 서로 배타적인 대안을 구분한다.",
+      "required_evidence": "feature necessity·variant group",
+      "severity": "MAJOR",
+      "basis_class": "ENGINEERING_POLICY",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_tech03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "TECH04",
+      "criterion": "작동 원리와 기술 효과 사이의 인과관계 및 적용 한계를 검토한다.",
+      "required_evidence": "원리 설명·조건·계산 또는 기술 근거",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_tech04",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "TECH05",
+      "criterion": "통상의 기술자가 실시할 수 있는 핵심 정보가 제공되는지 검토한다.",
+      "required_evidence": "최소 실시형태·구현 조건·절차",
+      "severity": "MAJOR",
+      "basis_class": "LAW",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_tech05",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "TECH06",
+      "criterion": "실측·계산·시뮬레이션·문헌·가설을 분리하고 계획을 실험결과로 쓰지 않는다.",
+      "required_evidence": "원본 측정·계산 산출물·출처·상태",
+      "severity": "BLOCKER",
+      "basis_class": "OFFICIAL_GUIDANCE",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_tech06",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "TECH07",
+      "criterion": "수치 범위·단위·경계·비교조건이 일관되고 기술적으로 해석 가능한지 검사한다.",
+      "required_evidence": "parameter nodes·계산 조건",
+      "severity": "MAJOR",
+      "basis_class": "ENGINEERING_POLICY",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_tech07",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "TECH08",
+      "criterion": "소프트웨어·AI의 구체적 정보처리, 입출력 관계, 필요한 데이터·모델·학습 정보를 검토한다.",
+      "required_evidence": "SW/AI 분야 확장 profile·데이터 흐름",
+      "severity": "MAJOR",
+      "basis_class": "OFFICIAL_GUIDANCE",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_tech08",
+        "logic": "software_or_ai_profile",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "TECH09",
+      "criterion": "조성·제조조건·측정법·재현성 등 해당 분야의 핵심 정보 필요성을 판정한다.",
+      "required_evidence": "분야별 요구조건·실험 및 문헌 근거",
+      "severity": "MAJOR",
+      "basis_class": "ENGINEERING_POLICY",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_tech09",
+        "logic": "materials_chemical_process_or_special_domain",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "SEARCH01",
+      "criterion": "코퍼스 기간·언어·종류·적재 완료·색인 상태·갱신 기준을 검색 스냅샷에 남긴다.",
+      "required_evidence": "source checkpoint·index revision·검색일",
+      "severity": "MAJOR",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_search01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SEARCH02",
+      "criterion": "문제 표현 외에 핵심 구성·관계·동의어·분류·반대 관점으로 검색한다.",
+      "required_evidence": "QueryPlan·각 분기 결과",
+      "severity": "MAJOR",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_search02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "SEARCH03",
+      "criterion": "EMPTY·PARTIAL·UNAVAILABLE를 구분하고 검색 실패를 선행기술 부재로 서술하지 않는다.",
+      "required_evidence": "공급자 진단·응답·호출 상태",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_search03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SEARCH04",
+      "criterion": "2000년 이전 문헌·논문·매뉴얼·표준 등 기존 코퍼스 외 공개기술의 누락을 검토한다.",
+      "required_evidence": "검색 범위 계획·외부 문헌·누락 목록",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_search04",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "DISCLOSE_REVIEW_SCOPE_LIMITATION"
+    },
+    {
+      "rule_id": "SEARCH05",
+      "criterion": "공개번호·공보 종류·정확한 공개일·원문 버전을 맞추며 출원일과 공개일을 혼동하지 않는다.",
+      "required_evidence": "원문 표지·서지·문헌 해시",
+      "severity": "BLOCKER",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_search05",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SEARCH06",
+      "criterion": "패밀리 중복 제거는 탐색에만 쓰고 법적 대조에서는 해당 국가·공개본을 보존한다.",
+      "required_evidence": "패밀리 구성·각 공개본·청구범위 버전",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_search06",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "SEARCH07",
+      "criterion": "신규성 등 결론에 중요한 문헌은 초록이 아니라 필요한 원문 문단·도면까지 확인한다.",
+      "required_evidence": "원문 asset·page/paragraph locator·coverage",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_search07",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "SEARCH08",
+      "criterion": "다운로드 원본과 추출문·번역문을 구분하고 파싱 누락을 표시한다.",
+      "required_evidence": "원문 hash·추출 품질·언어·번역 provenance",
+      "severity": "MAJOR",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_search08",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SEARCH09",
+      "criterion": "기존 캐시·필요 필드·검토 쟁점·예산·허용 목적을 확인한 호출만 수행한다.",
+      "required_evidence": "EnrichmentTicket·cache status·cost ledger",
+      "severity": "MAJOR",
+      "basis_class": "PRODUCT_OPERATIONS",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_search09",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SEARCH10",
+      "criterion": "등록·소멸 상태와 선행기술 가치를 분리하며 특허성 검토를 FTO로 표시하지 않는다.",
+      "required_evidence": "문헌 공개 사실·검토 목적",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_search10",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "PAT01",
+      "criterion": "발명의 성립·산업상 이용가능성 등 기본 대상 적합성을 검토한다.",
+      "required_evidence": "기술적 과제·수단·이용 형태",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_pat01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "PAT02",
+      "criterion": "신규성은 각 청구항에 대해 하나의 선행 문헌이 해당 구성과 관계를 공개하는지 검토한다.",
+      "required_evidence": "claim chart·문헌별 대응 문단",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_REVIEW_POLICY",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_pat02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "PAT03",
+      "criterion": "진보성은 차이점·통상의 기술자·결합 이유·기술적 장애·효과를 별도로 검토한다.",
+      "required_evidence": "출발 문헌·차이점·결합 논거·반론",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_REVIEW_POLICY",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_pat03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "PAT04",
+      "criterion": "미공개 선출원의 검색 한계와 제29조제3항 관련 쟁점을 별도로 남긴다.",
+      "required_evidence": "출원·공개 시점·검토 범위",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_pat04",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "DISCLOSE_REVIEW_SCOPE_LIMITATION"
+    },
+    {
+      "rule_id": "PAT05",
+      "criterion": "TRIZ NEW·verified·maturity·점수를 법적 판정이나 실험검증 완료로 승계하지 않는다.",
+      "required_evidence": "기존 필드·실제 원문/시험 여부",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_pat05",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CLM01",
+      "criterion": "청구 대상과 적정한 독립항·종속항 구조를 정의한다.",
+      "required_evidence": "ClaimTree·청구대상·발명 특징",
+      "severity": "MAJOR",
+      "basis_class": "LAW",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_clm01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "CLM02",
+      "criterion": "모든 청구 구성에 명세서의 실질적 뒷받침과 기술 내용의 출처가 존재한다.",
+      "required_evidence": "claim-feature-paragraph links·근거 문맥",
+      "severity": "BLOCKER",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT",
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_clm02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "CLM03",
+      "criterion": "지칭 대상·구성 관계·기능 범위가 명확하며 불필요한 모호 표현을 점검한다.",
+      "required_evidence": "문장별 해석·용어표",
+      "severity": "MAJOR",
+      "basis_class": "LAW",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_clm03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "CLM04",
+      "criterion": "종속항이 앞선 청구항을 정확히 인용하며 자기인용·순환·없는 번호가 없다.",
+      "required_evidence": "청구항 인용 DAG",
+      "severity": "BLOCKER",
+      "basis_class": "LAW",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_clm04",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CLM05",
+      "criterion": "복수 인용은 택일적이며 직접·간접 다중 종속의 금지 구조가 없는지 확인한다.",
+      "required_evidence": "인용 그래프 전이 폐쇄",
+      "severity": "BLOCKER",
+      "basis_class": "LAW",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_clm05",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CLM06",
+      "criterion": "청구항마다 줄을 구분하고 순차적인 아라비아숫자 번호를 부여한다.",
+      "required_evidence": "ClaimTree·렌더 결과",
+      "severity": "BLOCKER",
+      "basis_class": "LAW",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_clm06",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CLM07",
+      "criterion": "청구된 발명들의 기술적 관련성과 단일 발명 개념을 검토한다.",
+      "required_evidence": "공통 특징·단일성 검토",
+      "severity": "MAJOR",
+      "basis_class": "LAW",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_clm07",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "CLM08",
+      "criterion": "선택적 구성의 불필요한 필수화와 근거 없는 과도한 일반화를 함께 검토한다.",
+      "required_evidence": "필수/선택 맵·범위 비교",
+      "severity": "MAJOR",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_clm08",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "CLM09",
+      "criterion": "승인된 청구 범위가 달라지면 이전 승인을 무효화하고 해당 범위의 재확인을 받는다.",
+      "required_evidence": "ClaimTree hash·approval·change reason",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_APPROVAL",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_clm09",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "SPEC01",
+      "criterion": "공식 명세서 구조에 기술분야·배경·과제·해결수단·효과·실시내용 등을 배치한다.",
+      "required_evidence": "DocumentAST·형식 profile",
+      "severity": "MAJOR",
+      "basis_class": "LAW",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_spec01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "SPEC02",
+      "criterion": "배경기술과 자신의 미공개 발명·추정 내용을 구분한다.",
+      "required_evidence": "문헌 근거·자기 발명 태그",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_spec02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "SPEC03",
+      "criterion": "과제·해결수단·효과·실시형태가 같은 기술적 내용을 가리키는지 확인한다.",
+      "required_evidence": "문단별 feature/effect 참조",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT",
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_spec03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "SPEC04",
+      "criterion": "변형예는 실제 구현 가능성과 지원 근거가 있고 상호 양립 여부가 분명하다.",
+      "required_evidence": "variant groups·작동 조건",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT",
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_spec04",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "SPEC05",
+      "criterion": "요약서는 기술적 요약이며 신규 구성이나 검토 의견·홍보 문구를 추가하지 않는다.",
+      "required_evidence": "요약-feature 매핑·원문",
+      "severity": "MAJOR",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_spec05",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "SPEC06",
+      "criterion": "작성 중 새로 생성된 기술적 사실은 기존 사실처럼 확정하지 않는다.",
+      "required_evidence": "statement origin·user confirmation",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT",
+        "PATENT_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_spec06",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "SPEC07",
+      "criterion": "식별항목·내용·번호·순서와 인용을 공식 문서 유형에 맞게 검사한다.",
+      "required_evidence": "DocumentAST·허용 항목·오류 맵",
+      "severity": "BLOCKER",
+      "basis_class": "OFFICIAL_MANUAL",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_spec07",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "DRAW01",
+      "criterion": "도면 종류와 목적을 청구항·실시형태의 설명 필요성에 따라 결정한다.",
+      "required_evidence": "DrawingSpec·관련 feature/claim",
+      "severity": "MAJOR",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_draw01",
+        "logic": "drawing_required_or_present",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "DRAW02",
+      "criterion": "도면의 구성·연결·층 순서·이동·신호 방향이 발명 그래프와 일치한다.",
+      "required_evidence": "DrawingSpec·렌더·InventionGraph",
+      "severity": "BLOCKER",
+      "basis_class": "ENGINEERING_POLICY",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_draw02",
+        "logic": "drawing_required_or_present",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "DRAW03",
+      "criterion": "도면부호·구성명·도면번호와 본문 참조가 일관된다.",
+      "required_evidence": "도면 부호표·문단 참조",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_draw03",
+        "logic": "drawing_required_or_present",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "DRAW04",
+      "criterion": "발상용 컨셉 이미지와 승인된 출원도면 후보를 구분한다.",
+      "required_evidence": "artifact purpose·approval",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_draw04",
+        "logic": "drawing_required_or_present",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "DRAW05",
+      "criterion": "출력 후 부호·선·문자 잘림·겹침·가독성을 확인한다.",
+      "required_evidence": "렌더 검토·형식 변환 결과",
+      "severity": "MAJOR",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [
+        "TECHNICAL_CONTENT"
+      ],
+      "applicability": {
+        "handler": "applies_draw05",
+        "logic": "drawing_required_or_present",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "REVIEW_AND_RESOLVE_MATERIAL_ISSUES"
+    },
+    {
+      "rule_id": "DRAW06",
+      "criterion": "해당 문서 유형의 도면 설명·대표도 등 연동 항목을 함께 검사한다.",
+      "required_evidence": "문서 유형·도면 목록·요약서",
+      "severity": "MAJOR",
+      "basis_class": "OFFICIAL_MANUAL",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_draw06",
+        "logic": "drawing_required_or_present",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "OPS01",
+      "criterion": "원본·검증의무·snapshot·정책·법규팩·모델·템플릿 버전을 새 case에서 고정한다. 기존 run/state/report는 수정하지 않는다.",
+      "required_evidence": "manifest·hash·provenance",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_REPRODUCIBILITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "OPS02",
+      "criterion": "특허 전용 엄격한 스키마를 쓰며 dict/list를 문자열로 조용히 평탄화하지 않는다.",
+      "required_evidence": "JSON schema validation·raw output",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_QUALITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "OPS03",
+      "criterion": "작업은 case·epoch·입력 hash·rule version으로 멱등하게 커밋한다.",
+      "required_evidence": "task ledger·CAS·lease",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_RELIABILITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "OPS04",
+      "criterion": "토큰·API·이미지 비용을 예약·실사용으로 분리하고 재시도도 같은 예산에 포함한다.",
+      "required_evidence": "budget ledger·provider call id",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_COST",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops04",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "OPS05",
+      "criterion": "T3 기술내용·특허내용 독립 검토의 이견을 Issue/Conflict로 보존하고, 근거·국소 수정·T3 재검토로 해결한다. 다수결·점수 평균으로 BLOCKER를 제거하지 않는다.",
+      "required_evidence": "IssueLedger·근거·반론·해결 상태",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_REVIEW",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops05",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "OPS06",
+      "criterion": "수정된 사실·범위·도면에 의존하는 검사·승인만 찾아 무효화한다.",
+      "required_evidence": "artifact dependency graph·change set",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_REPRODUCIBILITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops06",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "OPS07",
+      "criterion": "질문마다 누락 항목·이유·재사용 가능한 답변·미답변 영향을 연결한다.",
+      "required_evidence": "GapRegister·AnswerRecord",
+      "severity": "MAJOR",
+      "basis_class": "PRODUCT_USABILITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops07",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "OPS08",
+      "criterion": "문서 완성도·검색 수준·법률 쟁점·공식 작성기 검증을 별도 상태로 표시한다.",
+      "required_evidence": "quality axes·check results",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_REPORTING",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops08",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "OPS09",
+      "criterion": "출원서·명세서/청구범위·요약서·필요 도면과 조건부 자료 목록을 구분한다.",
+      "required_evidence": "별지 14~17 profile·packet manifest",
+      "severity": "BLOCKER",
+      "basis_class": "LAW_AND_PRODUCT",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops09",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "OPS10",
+      "criterion": "HWPX 편집본과 HLZ 등 제출용 파일을 구분하고 실제 작성기 변환 검증 상태를 기록한다.",
+      "required_evidence": "editor version·conversion log·output hash",
+      "severity": "MAJOR",
+      "basis_class": "OFFICIAL_MANUAL",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops10",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "EDITOR_COMPATIBILITY_BADGE_ONLY"
+    },
+    {
+      "rule_id": "OPS11",
+      "criterion": "내보내기 요청은 정확한 manifest hash에 연결한다. 미완료 검토본 다운로드와 DRAFT_READY 패키지를 구분하고 실제 출원·대리인 선임을 수행하지 않는다.",
+      "required_evidence": "approval hash·manifest",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_APPROVAL",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_ops11",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "ECO01",
+      "criterion": "보호할 제품·시장·모방 위험·노출 가능성과 청구 범위를 비교한다.",
+      "required_evidence": "사용자 사업목표·가정",
+      "severity": "INFO",
+      "basis_class": "BUSINESS_REVIEW",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_eco01",
+        "logic": "advisory_requested_or_business_input_present",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "ADVISORY_ONLY"
+    },
+    {
+      "rule_id": "ECO02",
+      "criterion": "매출·가치·성공확률·비용을 근거 없이 수치화하지 않는다.",
+      "required_evidence": "사용자 비용·시장 자료·추정 근거",
+      "severity": "INFO",
+      "basis_class": "BUSINESS_REVIEW",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_eco02",
+        "logic": "advisory_requested_or_business_input_present",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "ADVISORY_ONLY"
+    },
+    {
+      "rule_id": "ECO03",
+      "criterion": "경제성·경쟁사·FTO 참고 의견은 별도 내부 검토자료에만 둔다.",
+      "required_evidence": "artifact purpose·packet section",
+      "severity": "INFO",
+      "basis_class": "BUSINESS_REVIEW",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_eco03",
+        "logic": "advisory_requested_or_business_input_present",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "ADVISORY_ONLY"
+    },
+    {
+      "rule_id": "CMP01",
+      "criterion": "기존 테이블·열·타입·NULL성·enum·기본값·ID·인덱스·JSON 구조를 변경하지 않는다. 기본 migration은 신규 patent_* 테이블 생성만 허용한다.",
+      "required_evidence": "DDL diff·schema fingerprint",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_COMPATIBILITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_cmp01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CMP02",
+      "criterion": "원본 run/state/steps/report/첨부/특허 BLOB에 쓰지 않는다. 원본 보고서 재생성도 하지 않는다.",
+      "required_evidence": "원본 hash·읽기 전용 권한·회귀 fixture",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_COMPATIBILITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_cmp02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CMP03",
+      "criterion": "V3 원장·게이트·RL은 검증된 adapter로 연계한다. 없으면 legacy read-only adapter를 사용하고 검증 부재를 NOT_AVAILABLE로 남긴다.",
+      "required_evidence": "capability manifest·adapter contract tests",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_COMPATIBILITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_cmp03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CMP04",
+      "criterion": "patent T1/T2/T3는 namespaced profile로 지정하고 기존 전역 모델·라우팅·budget·evaluation.mode 설정을 바꾸지 않는다.",
+      "required_evidence": "before/after config hash",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_COMPATIBILITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_cmp04",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CMP05",
+      "criterion": "feature flag OFF는 신규 작업 dispatch만 중지하며 기존 TRIZ 조회·재개·보고서 동작을 보존한다.",
+      "required_evidence": "flag-off regression·route snapshots",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_COMPATIBILITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_cmp05",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "MCP01",
+      "criterion": "각 특허 subprocess는 MCP registry에 목적·타입·권한·비용·오류 계약을 갖는다. 매 규칙을 별도 LLM/서버로 만들지 않는다.",
+      "required_evidence": "tool manifest·tools/list contract test",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_PROTOCOL",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_mcp01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "MCP02",
+      "criterion": "모든 도구는 인증된 주체·case·입력 snapshot·readset·budget을 서버에서 검사하고 임의 SQL/파일경로/역할 spoof를 허용하지 않는다.",
+      "required_evidence": "task ticket·ACL·schema·lease",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_PROTOCOL",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_mcp02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "MCP03",
+      "criterion": "도구 실행 성공, 규칙 PASS/FAIL/UNKNOWN, 문서 완성도와 실제 출원 상태를 분리한다.",
+      "required_evidence": "result envelope",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_PROTOCOL",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_mcp03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "MOD01",
+      "criterion": "신규 모듈의 역할은 T1 저비용, T2 저비용, T3 고급 추론이며 승급 순서는 T1→T2→T3다.",
+      "required_evidence": "resolved model capability·namespaced route",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_MODEL_POLICY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_mod01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "MOD02",
+      "criterion": "TECHNICAL_CONTENT와 PATENT_CONTENT를 별도 T3 호출·별도 reviewer record로 독립 수행한다.",
+      "required_evidence": "role IDs·snapshot·model capability·coverage",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_REVIEW",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_mod02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "MOD03",
+      "criterion": "GLOBAL_FINAL은 T3이며 모든 중요한 청구항·설명·효과·도면이 검토 coverage에 포함된다. 요약만 읽고 전체 검토라고 하지 않는다.",
+      "required_evidence": "coverage manifest·global review hash",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_REVIEW",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_mod03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CON01",
+      "criterion": "동일 snapshot의 기술·용어·단위·제약 kernel을 사용하며 중앙 reducer만 읽기집합 검증 후 patch를 커밋한다.",
+      "required_evidence": "readset·kernel hash·patch",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_CONSISTENCY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_con01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CON02",
+      "criterion": "변경된 구성의 직접·간접 의존 산출물과 최종 승인만 무효화하고 무관한 결과는 재사용한다.",
+      "required_evidence": "dependency edges·invalidation set",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_CONSISTENCY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_con02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CON03",
+      "criterion": "T2 조율자는 쟁점과 수정안을 정리할 뿐 필수 규칙·T3 판정·승인 범위를 임의 완화하지 않는다.",
+      "required_evidence": "issue history·patch provenance",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_CONSISTENCY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_con03",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CON04",
+      "criterion": "문장 수정·기술 변경·청구범위 변경을 구분하며 신규 구조·수치·효과는 사람이 확인하기 전 제안으로 남긴다.",
+      "required_evidence": "change classification·human scope acknowledgment",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_CONSISTENCY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_con04",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "RL01",
+      "criterion": "학습은 인간 검토와 병렬이고 현재 run/epoch의 policy를 고정한다. 운영 경로가 학습 완료를 기다리지 않는다.",
+      "required_evidence": "pinned policy·separate job/worker·timelines",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_LEARNING",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_rl01",
+        "logic": "rl_enabled_or_feedback_collected_or_training_claimed",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "RL02",
+      "criterion": "RL은 action/순서/추가검색/수리범위를 제안하되 필수 T3·근거·보안·기술요건·보호범위를 제거할 수 없다.",
+      "required_evidence": "feasible action mask·proposed/executed/override",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_LEARNING",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_rl02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "RL03",
+      "criterion": "자동검사·T3평가·사람 확인·실제 결과 라벨을 분리하고 unknown을 0/성공으로 만들지 않는다. 병렬 branch·수정 reward를 중복 지급하지 않는다.",
+      "required_evidence": "reward maturity·event IDs·dataset cutoff",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_LEARNING",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_rl03",
+        "logic": "rl_enabled_or_feedback_collected_or_training_claimed",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "RL04",
+      "criterion": "patent 정책은 별도 task namespace에서 기존 trainer와 호환 검증 후 학습한다. 로그/RAG 저장만으로 RL 완료라고 표시하지 않는다.",
+      "required_evidence": "trainer capability·parameter checkpoint·evaluation/shadow",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_LEARNING",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_rl04",
+        "logic": "rl_enabled_or_feedback_collected_or_training_claimed",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CST01",
+      "criterion": "초안 생성 전에 세 필수 T3 검토와 제한적 재검토 비용을 예약한다. 모델 창 크기별 실제 coverage를 포함한다.",
+      "required_evidence": "price snapshot·token bound·reservation",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_COST",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_cst01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "CST02",
+      "criterion": "캐시는 정확한 데이터·규칙·모델·scope 버전으로 재사용하고 재시도는 중앙 회계에서 제한한다. 응답유실 과금은 미확인으로 보존한다.",
+      "required_evidence": "cache key·attempt ledger·idempotency key",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_COST",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_cst02",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    },
+    {
+      "rule_id": "DAT01",
+      "criterion": "공개 특허 원문 캐시만 이용조건 범위에서 공용 재사용한다. 개인 발명·질의·claim chart·피드백·학습자료는 권한별로 분리한다.",
+      "required_evidence": "scope tags·cache/RL access tests",
+      "severity": "BLOCKER",
+      "basis_class": "PRODUCT_SECURITY",
+      "semantic_roles": [],
+      "applicability": {
+        "handler": "applies_dat01",
+        "logic": "always",
+        "missing_facts": "UNKNOWN_NOT_NA"
+      },
+      "release_policy": "MUST_SATISFY_PRODUCT_INVARIANT"
+    }
+  ]
+}

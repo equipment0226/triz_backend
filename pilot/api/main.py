@@ -7,7 +7,7 @@ import uuid
 import asyncio
 import hashlib
 import secrets
-from contextlib import asynccontextmanager, suppress
+from contextlib import asynccontextmanager, suppress, AsyncExitStack
 from pathlib import Path
 from typing import Any, Optional
 
@@ -44,14 +44,24 @@ async def lifespan(app):
     from triz.ax.service import supervise
     import os
     learning=asyncio.create_task(supervise()) if new_runs_enabled() and os.getenv('TRIZ_AX_WORKER_ENABLED','true').lower()=='true' else None
+    patent_worker = None
+    if os.getenv('PATENT_WORKER_ENABLED', 'false').lower() == 'true':
+        from patent_draft.runtime import supervise as supervise_patent
+        patent_worker = asyncio.create_task(supervise_patent())
     try:
-        if settings.embed_mcp:
-            from triz.mcp_server import mcp
-            async with mcp.session_manager.run():
-                yield
-        else:
+        async with AsyncExitStack() as stack:
+            if settings.embed_mcp:
+                from triz.mcp_server import mcp
+                await stack.enter_async_context(mcp.session_manager.run())
+            if os.getenv('PATENT_MCP_ENABLED', 'false').lower() == 'true':
+                from patent_draft.mcp import mcp as patent_mcp
+                await stack.enter_async_context(patent_mcp.session_manager.run())
             yield
     finally:
+        if patent_worker:
+            patent_worker.cancel()
+            with suppress(asyncio.CancelledError):
+                await patent_worker
         if learning:
             learning.cancel()
             with suppress(asyncio.CancelledError):
@@ -63,6 +73,15 @@ async def lifespan(app):
 app = FastAPI(title="TRIZ Studio", version="2.0.0", lifespan=lifespan)
 from triz.ax.api import router as ax_router
 app.include_router(ax_router)
+from patent_draft.api import router as patent_router, internal as patent_internal, error_handler as patent_error_handler
+from patent_draft.domain import PatentError
+app.include_router(patent_router)
+app.include_router(patent_internal)
+app.add_exception_handler(PatentError, patent_error_handler)
+import os as _patent_os
+if _patent_os.getenv('PATENT_MCP_ENABLED', 'false').lower() == 'true':
+    from patent_draft.mcp import app as patent_mcp_app
+    app.mount('/patent-agent', patent_mcp_app)
 WEB_DIR = settings.root.parent / "frontend" / "dist"
 
 if settings.embed_mcp:

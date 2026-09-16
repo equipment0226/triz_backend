@@ -1,5 +1,5 @@
 """Bounded concept allocation and one independent audit of the whole portfolio."""
-from concurrent.futures import ThreadPoolExecutor
+from .execution_config import ThreadPoolExecutor
 from . import agent, digest, rag, verify
 from .coerce import build
 from .schema import ConceptSpec, Stage
@@ -10,6 +10,9 @@ def generate_concepts(ctx):
     st = ctx.state
     ctx.set_stage(Stage.S6.value)
     target = max(1, int(settings.cfg("solutions.max_concepts", 12)))
+    from .ax import enabled as ax_enabled
+    if ax_enabled(st):
+        target = st.scratch['ax_bundle']['limits']['detailed_candidates']
     ideas = digest.select_ideas([i for i in st.solve.raw_ideas if i.resolution_status != "TRADEOFF"], target)
     prior_limit = max(0, int(settings.cfg("feedback_rag.max_influenced_concepts", 3)))
     prior = rag.prior_cases_block(st) if prior_limit else ""
@@ -27,7 +30,8 @@ def generate_concepts(ctx):
         batch_prior = prior if number == 0 else ""
         result = agent.run_agent(ctx, node="s6_concept", label=f"해결 개념 구체화 ({number+1}/{len(groups)})",
             stage=Stage.S6.value, agent_id="concept_architect", prompt_id="P_S6_CONCEPT", tier="T2",
-            max_tokens=8000, vars={"industry": st.domain.industry, "target_system": digest.target_system(st),
+            max_tokens=max(4000,int(settings.cfg('solutions.concept_max_tokens',8000))),
+            vars={"industry": st.domain.industry, "target_system": digest.target_system(st),
                 "super_system": st.domain.super_system, "operating_env": st.domain.operating_env,
                 "components": digest.components_digest(st), "resources": digest.resources_digest(st),
                 "facts": facts, "contradictions": contradictions,
@@ -83,7 +87,7 @@ def generate_concepts(ctx):
     st.scratch["excluded_concepts"] = excluded
     audit_concepts(ctx)
     ctx.emit("artifact", kind="CONCEPTS", data={"count": len(st.concepts), "titles": [c.title for c in st.concepts]})
-    if len(st.concepts) < int(settings.cfg("solutions.min_concepts", 8)):
+    if len(st.concepts) < (1 if ax_enabled(st) else int(settings.cfg("solutions.min_concepts", 8))):
         ctx.warn("충분한 근거를 가진 개념만 유지했습니다. 후보 개수보다 모순 해소와 검증 가능성을 우선합니다.")
     ctx.persist()
 
@@ -139,6 +143,9 @@ def audit_concepts(ctx):
                     c.quality_status = "REVISE"
                 c.quality_issues.append(f"기존 자원 확인 또는 신규 도입 표시 필요: {name}")
         if c.quality_status == "REJECT":
+            from .ax import enabled as ax_enabled
+            if ax_enabled(st):
+                st.scratch.setdefault('ax_excluded', []).append(c.model_dump(mode='json'))
             st.scratch.setdefault("excluded_concepts", []).append({"idea": c.title, "reason": "; ".join(c.quality_issues) or "독립 품질 검토 REJECT"})
         else:
             retained.append(c)

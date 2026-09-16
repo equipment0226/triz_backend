@@ -357,6 +357,10 @@ def _env(labels: dict[str, str], keep_code: bool = False) -> Environment:
 
 
 def render_report(state: GlobalState, narrative: dict, template: str = "", *, diagram=None, references=None) -> str:
+    from .ax import enabled as ax_enabled
+    if ax_enabled(state):
+        from .ax.report import markdown
+        return markdown(state)
     from .visuals import figures
     from .report_style import reference_cards, report_state
     from .labels import display_value
@@ -451,6 +455,10 @@ def save(state: GlobalState, markdown: str) -> Path:
     return path
 
 def render_html(state):
+    from .ax import enabled as ax_enabled
+    if ax_enabled(state):
+        from .ax.report import html_report
+        return html_report(state)
     from .presentation import view
     from .report_style import report_state
     env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), autoescape=True)

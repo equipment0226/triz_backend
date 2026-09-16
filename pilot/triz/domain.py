@@ -34,6 +34,9 @@ def select_tracks(state, tracks):
     selected = list(dict.fromkeys(tracks))
     if not physical_allowed(state):
         selected = [t for t in selected if t not in ("C_STANDARDS", "H_EFFECTS")]
+        from .ax import enabled as ax_enabled
+        if ax_enabled(state) and 'H_EFFECTS' in tracks:
+            selected.append('H_EFFECTS')
         if state.control.mode.value != "LITE" and "G_FOS" not in selected:
             selected.append("G_FOS")
     return selected

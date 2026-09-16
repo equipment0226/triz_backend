@@ -67,4 +67,22 @@ def view(state):
         for key in ('conditional', 'concepts'):
             for item in result['pending']['payload'].get(key, []):
                 item['display_label'] = labels.get(item.get('concept_id'), human(item.get('title')))
-    return display_value(result, labels)
+    from .ax.runtime import public_view
+    ax=public_view(state)
+    if ax:
+        from .ax.validation import selection
+        status=state.scratch.get('ax_selection') or selection(state)
+        by_id={r['candidate_id']:r for r in status['candidates']}
+        for c in result['solutions']:
+            row=by_id.get(c['key'],{'status':'CONDITIONAL','missing':['검증·선택 미완료']})
+            c['verdict']={'READY':'검증 통과','CONDITIONAL':'조건부 검토','REJECTED':'제외'}[row['status']]
+            c['quadrant']=''
+            c['validation_missing']=row['missing']
+        if state.report:
+            from .ax.report import markdown
+            from .report_content import render_markdown
+            result['report_sections']=[{'key':'ax-report','title':'검증·선택 보고서',
+                'html':render_markdown(markdown(state))}]
+    result=display_value(result,labels)
+    result['ax']=ax  # Version/decision identifiers must never be humanized.
+    return result

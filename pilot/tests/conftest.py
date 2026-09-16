@@ -9,6 +9,7 @@ TEST_DIR = tempfile.TemporaryDirectory(prefix="triz-tests-")
 os.environ["DATABASE_URL"] = "sqlite:///" + (Path(TEST_DIR.name) / "test.db").as_posix()
 os.environ["STORAGE_DIR"] = str(Path(TEST_DIR.name) / "storage")
 os.environ["ORCHESTRATOR"] = "local"
+os.environ['TRIZ_AX_ENABLED']='false'  # Legacy regression fixtures; AX tests opt in explicitly.
 os.environ["LLM_API_KEY"] = "offline-test"
 os.environ["TRIZ_SERVICE_TOKEN"] = "offline-test-service"
 import pytest

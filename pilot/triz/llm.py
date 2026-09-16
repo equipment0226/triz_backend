@@ -48,11 +48,11 @@ class LLMError(RuntimeError):
 
 
 @lru_cache(maxsize=8)
-def _client(tier: str) -> OpenAI:
+def _client(tier: str, endpoint: str | None = None) -> OpenAI:
     tc = settings.tiers[tier]
     if not tc.api_key:
         raise LLMError("LLM_API_KEY 가 설정되지 않았습니다. pilot/.env 를 확인하세요.")
-    return OpenAI(api_key=tc.api_key, base_url=tc.base_url, timeout=settings.timeout, max_retries=0)
+    return OpenAI(api_key=tc.api_key, base_url=endpoint or tc.base_url, timeout=settings.timeout, max_retries=0)
 
 
 def extract_json(text: str) -> Any:
@@ -143,9 +143,9 @@ def salvage_truncated(text: str) -> Any:
     return None
 
 
-def _price(tier: str, tin: int, tout: int) -> float:
+def _price(tier: str, tin: int, tout: int, config=None) -> float:
     tc = settings.tiers[tier]
-    return (tin / 1_000_000) * tc.cost_in + (tout / 1_000_000) * tc.cost_out
+    return (tin / 1_000_000) * (config['cost_in'] if config else tc.cost_in) + (tout / 1_000_000) * (config['cost_out'] if config else tc.cost_out)
 
 
 def chat_json(
@@ -157,8 +157,12 @@ def chat_json(
     max_tokens: int | None = None,
     expect: str = "object",  # "object" | "array"
     retries: int | None = None,
+    model_config: dict | None = None,
 ) -> LLMResult:
     tc = settings.tiers[tier]
+    if model_config:
+        from types import SimpleNamespace
+        tc = SimpleNamespace(**{**vars(tc), **model_config})
     is_reasoner = "reason" in tc.model.lower()
     attempts = retries if retries is not None else settings.max_retries
     messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
@@ -184,15 +188,19 @@ def chat_json(
             kwargs["temperature"] = tc.temperature if temperature is None else temperature
         if tc.json_mode:
             kwargs["response_format"] = {"type": "json_object"}
+        if tc.thinking_mode:
+            kwargs["extra_body"] = {"thinking": {"type": tc.thinking_mode}}
         try:
             t0 = time.time()
-            resp = _client(tier).chat.completions.create(**kwargs)
+            connection = _client(tier, tc.base_url) if model_config else _client(tier)
+            resp = connection.chat.completions.create(**kwargs)
             elapsed = time.time() - t0
             choice = resp.choices[0]
             text = (choice.message.content or "").strip()
             truncated = getattr(choice, "finish_reason", "") == "length"
             usage = getattr(resp, "usage", None)
             request_records.append({"request": kwargs, "response": text,
+                "provider_model":getattr(resp,'model',None),
                 "finish_reason": getattr(choice, "finish_reason", ""),
                 "usage": usage.model_dump() if usage and hasattr(usage, "model_dump") else {},
                 "elapsed": elapsed})
@@ -219,8 +227,10 @@ def chat_json(
                 model=tc.model,
                 tokens_in=tokens_in,
                 tokens_out=tokens_out,
-                cost_usd=_price(tier, tokens_in, tokens_out),
+                cost_usd=_price(tier, tokens_in, tokens_out, model_config),
                 meta={"elapsed": round(elapsed, 2), "attempt": attempt + 1,
+                      "requested_model":tc.model,"provider_model":getattr(resp,'model',None),
+                      "cost_basis":"configured_token_rates",
                       "truncated": truncated, "requests": request_records},
             )
         except Exception as exc:  # noqa: BLE001
@@ -265,7 +275,7 @@ def chat_json(
                            tokens_in=tokens_in, tokens_out=tokens_out, raw_error=last_err,
                            meta={"requests": request_records, "attempt": actual_attempts,
                                  "status_code": status_code, "terminal": error.terminal},
-                           cost_usd=_price(tier, tokens_in, tokens_out))
+                           cost_usd=_price(tier, tokens_in, tokens_out, model_config))
     raise error
 
 

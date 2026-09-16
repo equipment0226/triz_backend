@@ -112,8 +112,8 @@ def test_meeting_output_limits_have_headroom_without_reducing_rounds(meeting_cas
     with patch.object(agent, "run_agent", respond):
         meeting.evaluate(RunContext(state))
     assert len(responder.calls) == 10 and state.evaluation.meeting.rounds == 2
-    assert all(limit == 8000 for node, limit, _ in limits if node in (PHASES[0], PHASES[-1]))
-    assert all(4000 <= limit <= 8000 for node, limit, _ in limits if node not in (PHASES[0], PHASES[-1]))
+    assert all(limit == 32000 for node, limit, _ in limits if node in (PHASES[0], PHASES[-1]))
+    assert all(limit == 16000 for node, limit, _ in limits if node not in (PHASES[0], PHASES[-1]))
     assert all(repairs == 2 for _, _, repairs in limits)
 
 

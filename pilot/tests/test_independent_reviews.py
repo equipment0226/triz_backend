@@ -29,7 +29,7 @@ def independent_case(state, monkeypatch):
         values = kwargs["vars"]
         calls.append(deepcopy(kwargs))
         assert kwargs["node"] == "s8_review_independent"
-        assert kwargs["prompt_id"] == "P_S8_REVIEW" and kwargs["max_tokens"] == 8000
+        assert kwargs["prompt_id"] == "P_S8_REVIEW" and kwargs["max_tokens"] == 32000
         assert not {"participant_roster", "meeting_transcript", "initial_review", "inbox", "prior_exchanges"} & values.keys()
         assert len(values["review_concept_ids"]) * len(values["dimensions"]) <= 12
         return {"scores": [{"concept_id": cid, "dimension": dim, "score": 3, "confidence": .7,
@@ -67,7 +67,7 @@ def test_default_pipeline_uses_independent_kpis_and_keeps_report_comments_and_ca
     nodes.s8_evaluate(RunContext(state))
     assert len(calls) == len(requests) == 2
     for request in requests:
-        assert request["tier"] == "T3" and request["max_tokens"] == 8000
+        assert request["tier"] == "T3" and request["max_tokens"] == 32000
         assert "VISIBLE_OBSERVATION" in request["user"] and "VISIBLE_EVIDENCE" in request["user"]
         assert "HIDDEN_ORIGIN" not in request["user"] and "HIDDEN_HYPOTHESIS" not in request["user"]
         assert "{{" not in request["user"]
@@ -134,7 +134,7 @@ def test_incomplete_comments_or_score_matrix_are_not_accepted(independent_case, 
     state, respond, _, _ = independent_case
     role = Persona(role_name="Finance", dimensions=["COST"])
     values = {"role_name": role.role_name, "dimensions": role.dimensions, "review_concept_ids": ["C1", "C2"]}
-    data = respond(RunContext(state), node="s8_review_independent", prompt_id="P_S8_REVIEW", max_tokens=8000, vars=values)
+    data = respond(RunContext(state), node="s8_review_independent", prompt_id="P_S8_REVIEW", max_tokens=32000, vars=values)
     if fault == "missing_comment": del data["concept_comments"]["C2"]
     if fault == "unknown_comment": data["concept_comments"]["OTHER"] = "Unknown"
     if fault == "long_comment": data["concept_comments"]["C1"] = "x" * 321
@@ -149,7 +149,7 @@ def test_large_evidence_candidate_set_has_output_headroom_without_discarding_lat
         source_type="PATENT", url=f"https://example.com/{i}", year="2020", provider="offline",
         concept_ids=["C1"], snippet="Thermal transfer is controlled by a reversible contact and an independent isolation mechanism.") for i in range(95)]
     def respond(ctx, **kwargs):
-        assert kwargs["max_tokens"] == 8000
+        assert kwargs["max_tokens"] == 32000
         assert len(kwargs["vars"]["candidates"]) == 95
         assert kwargs["vars"]["max_matches_per_kind"] == 2
         return {"matches": [{"concept_id": "C1", "index": 94, "confidence": .8,

@@ -1,5 +1,5 @@
 """Function-oriented patent discovery with explicit evidence provenance and query budgets."""
-from concurrent.futures import ThreadPoolExecutor
+from .execution_config import ThreadPoolExecutor
 import time
 from . import agent, digest, verify, domain
 from .schema import EvidenceCard
@@ -107,7 +107,15 @@ def discover(ctx, before_concepts=False):
     def lookup(plan):
         _, q = plan
         detail = {}
-        hits = scholar.search_kind(q["query"], q["kind"], 6, diagnostics=detail)
+        from .ax import enabled as ax_enabled
+        if ax_enabled(st) and q['kind']=='PATENT' and settings.patent_search_provider not in ('vector','none','free'):
+            hits=[]
+            detail.update(status='UNAVAILABLE',provider=settings.patent_search_provider,errors=['V3 per-run search pricing is not registered'])
+        elif ax_enabled(st) and q['kind']=='PATENT' and settings.tavily_key and not settings.free_patent_search:
+            hits=[]
+            detail.update(status='UNAVAILABLE',provider='tavily',errors=['V3 paid search is not enabled'])
+        else:
+            hits = scholar.search_kind(q["query"], q["kind"], 6, diagnostics=detail)
         return [annotate(plan, hits, detail)]
     def lookup_patents(batch):
         results = scholar.patent_search_batch([q['query'] for _,q in batch], 6)
@@ -116,7 +124,9 @@ def discover(ctx, before_concepts=False):
         step = ctx.start_step(node='s5_search_retrieval' if before_concepts else 's9_search_retrieval',
             label='특허·논문 검색 수집 상태', stage=st.control.current_stage, agent_id='patent_researcher', prompt_id='',tier='')
         step.input_slice = {'queries': [q for _,q in plans]}
-        patent_plans = [p for p in plans if p[1]['kind'] == 'PATENT' and settings.patent_search_provider in ('bigquery', 'vector')]
+        from .ax import enabled as ax_enabled
+        batch_providers=('vector',) if ax_enabled(st) else ('bigquery','vector')
+        patent_plans = [p for p in plans if p[1]['kind'] == 'PATENT' and settings.patent_search_provider in batch_providers]
         tasks = [(lookup, p) for p in plans if p not in patent_plans]
         if patent_plans:
             tasks.append((lookup_patents, patent_plans))
@@ -175,7 +185,7 @@ def attach(ctx, *, discover_sources=True):
                   "required_kinds": sorted(required_kinds(st)),
                   "max_matches_per_kind": settings.cfg("evidence.max_matches_per_concept_kind", 2),
                   "max_additions": settings.cfg("evidence.max_patent_additions", 3)},
-            max_tokens=max(4000, min(8000, int(settings.cfg("evidence.match_max_tokens", 8000)))),
+            max_tokens=max(4000, int(settings.cfg("evidence.match_max_tokens", 8000))),
             default={}) or {}
         result["matches"].extend(m for m in batch.get("matches", []) if isinstance(m, dict) and m.get("concept_id") in ids and type(m.get('index')) is int and m['index'] in allowed_indices)
         result["additions"].extend(m for m in batch.get("additions", []) if isinstance(m,dict) and type(m.get('index')) is int and m['index'] in allowed_indices)

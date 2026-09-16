@@ -39,6 +39,24 @@ def test_global_effect_retrieval_finds_late_mechanism_and_keeps_source_condition
         assert text in block
 
 
+def test_bracketed_effect_id_keeps_canonical_source_and_limits():
+    from triz.catalog_binding import bind_effect
+    catalog=[dict(id='7.1',name='열전도',function_ko='열 전달',principle='온도차에 의한 전도',
+                  conditions='열경로 필요',limitations='계면 열저항 별도 확인',
+                  sources=[{'identifier':'reviewed-source'}])]
+    bound=bind_effect({'applications':[dict(source_effect_id=' [7.1] ',
+        effect_name='열전도 (Fourier heat conduction)',catalog_limitations='임의의 설명')]},catalog)
+    app=bound['applications'][0]
+    assert app['source_effect_id']=='7.1'
+    assert app['effect_name']=='열전도'
+    assert app['catalog_sources']==catalog[0]['sources']
+    assert app['catalog_limitations']==catalog[0]['limitations']
+    # Partial IDs and unfamiliar mechanisms must not inherit a source.
+    for unknown in ('[7.1] extra','[7.10]','7'):
+        app=bind_effect({'applications':[dict(source_effect_id=unknown,effect_name='unknown')]},catalog)['applications'][0]
+        assert app['source_effect_id'] is None and app['catalog_sources']==[]
+
+
 def extraction():
     return {'effects':[{'name':'모세관 이동','name_en':'capillary transport','mechanism_key':'capillary-transport','aliases':['모세관'],
         'function_ko':'유체를 이동·분배한다','domain':'PHYSICAL','principle':'젖음성에 의한 압력차로 이동한다.',

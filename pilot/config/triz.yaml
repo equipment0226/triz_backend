@@ -6,11 +6,20 @@
 run:
   default_mode: FULL          # LITE | FULL | DEEP
   lang: ko
-  budget_usd: 3.0             # 초과 시 선택 트랙 비활성화 + 티어 강등
-  max_wallclock_min: 30
+  budget_usd: 1.0             # legacy 실행 한도. 초과 시 중단하며 추론 품질을 자동 강등하지 않는다.
+  max_wallclock_min: 90
   parallel_workers: 4
 
+ax:
+  enabled: true              # 신규 실행만 AX. TRIZ_AX_ENABLED=false로 신규 실행 롤백 가능.
+  hard_budget_usd: 1.0       # 모델 API 비용. 기존 서버·DB·벡터 인프라 고정비는 별도.
+  max_provider_attempts: 2
+  coordinator_hitl: false
+  learning_worker: separate_cpu_process
+  paid_learning_enabled: false
+
 solutions:
+  concept_max_tokens: 32000
   min_solutions: 5            # 최종 리포트에 실을 최소 해결책 수
   max_solutions: 10           # 최대
   min_concepts: 8             # S6에서 만들 개념 후보 최소
@@ -18,9 +27,9 @@ solutions:
   min_raw_ideas: 12           # 탐색 목표. 수량만으로 보강 호출하지 않는다.
   ideas_per_principle: 1      # 발명원리 1개당 최소 아이디어
   max_principles_per_contradiction: 6
-  track_a_max_tokens: 8000    # 원리별 메커니즘·반박·검증 조건까지 완결할 출력 여유
-  track_max_tokens: 8000      # S5 기본 출력 한도. 낮은 티어 기본값과 별도로 적용.
-  merge_max_tokens: 16000     # 후보별 근거를 유지한 통합·중복 제거 결과를 완결.
+  track_a_max_tokens: 32000    # 원리별 메커니즘·반박·검증 조건까지 완결할 출력 여유
+  track_max_tokens: 32000      # S5 기본 출력 한도. 낮은 티어 기본값과 별도로 적용.
+  merge_max_tokens: 32000     # 후보별 근거를 유지한 통합·중복 제거 결과를 완결.
   matrix_cross_check: true    # 행렬 결과가 6개 미만일 때 LLM 제안을 '추가 후보'로만 보또다
   # 신규성 비율은 강제하지 않는다. 실제 메커니즘의 다양성과 근거를 평가한다.
 
@@ -30,7 +39,7 @@ analysis:
   min_harmful_functions: 2
   min_resources: 12
   ceca_min_depth: 4
-  ceca_max_tokens: 8000       # 원인 노드·연결을 누락하지 않도록 출력 여유 확보
+  ceca_max_tokens: 32000       # 원인 노드·연결을 누락하지 않도록 출력 여유 확보
   max_su_fields: 3
 
 definition:
@@ -49,8 +58,8 @@ tracks:
 
 ariz:
   enabled_parts: [1, 2, 3, 4, 5, 7]   # 6(문제변경)/8/9는 필요 시
-  knowledge_max_tokens: 16000 # Part5의 표준해·효과 적용안, 표와 후속 근거를 완결.
-  validation_max_tokens: 16000 # Part7의 모든 해결안 검증 결과를 완결
+  knowledge_max_tokens: 32000 # Part5의 표준해·효과 적용안, 표와 후속 근거를 완결.
+  validation_max_tokens: 32000 # Part7의 모든 해결안 검증 결과를 완결
   # 재정의 신호는 기존 S5 통합에서 검토한다. 선행 분석을 바꾸는 재귀 루프는 실행하지 않는다.
 
 solve:
@@ -60,15 +69,15 @@ evaluation:
   mode: independent          # 각 직군이 KPI에 따라 독립 평가. 타 직군 질의응답 없음.
   min_reviewers: 4
   max_reviewers: 6
-  review_max_tokens: 8000     # 점수·근거·직군별 짧은 최종 코멘트를 한 응답으로 완결.
+  review_max_tokens: 32000     # 점수·근거·직군별 짧은 최종 코멘트를 한 응답으로 완결.
   review_batch_rows: 12       # 담당 항목 수에 맞춰 해결안 묶음을 나누고 완료 응답은 재사용.
   review_repair_attempts: 2
   # 아래 meeting_* 설정은 mode: discussion을 명시한 이전 회의 경로에서만 사용.
   meeting_rounds: 2           # 1차 답변을 받은 뒤 2차 후속 질문. 1~2회만 허용.
   meeting_questions_per_role: 2  # 라운드당 각 직군의 질문 상한. 질문 생성도 직군별 병렬 처리.
-  meeting_review_max_tokens: 8000  # 평가 행 + 문답 요약을 완결할 출력 여유. 짧은 응답은 즉시 종료.
+  meeting_review_max_tokens: 32000  # 평가 행 + 문답 요약을 완결할 출력 여유. 짧은 응답은 즉시 종료.
   meeting_final_batch_rows: 12  # 전체 회의 맥락을 유지하되 최종 출력은 최대 12개 평가 행씩 저장.
-  meeting_exchange_max_tokens: 4000
+  meeting_exchange_max_tokens: 16000
   meeting_repair_attempts: 2      # 이미 맞는 필드는 유지하며 형식·참조 오류만 자동 수리.
   dimension_weights:
     GOAL: 0.20
@@ -98,6 +107,7 @@ evaluation:
     high_return_min: 3.5
 
 verification:
+  max_tokens: 8000
   enabled: true
   max_repair_attempts: 1      # 전체 수리 상한, 승급 시 카운터 초기화 금지
   critical_rubrics: [R3_FUNC, R3_CECA, R4_CONTRA, R6_CONCEPT]
@@ -114,7 +124,7 @@ constraints:
   treat_unknown_as: CONDITIONAL   # CONDITIONAL | PASS | FAIL
 
 intake:
-  extract_max_tokens: 4800    # 명시 제약·누적 답변을 보존할 출력 여유. 짧은 응답은 그대로 종료.
+  extract_max_tokens: 16000    # 명시 제약·누적 답변을 보존할 출력 여유. 짧은 응답은 그대로 종료.
   min_confidence: 0.7
   max_clarify_rounds: 2
   max_clarify_questions: 4
@@ -125,7 +135,7 @@ confirm:
   max_candidates: 4
 
 evidence:
-  match_max_tokens: 8000      # 적용성 검토가 긴 근거 매칭 응답 때문에 잘리지 않도록 출력 여유 확보.
+  match_max_tokens: 32000      # 적용성 검토가 긴 근거 매칭 응답 때문에 잘리지 않도록 출력 여유 확보.
   max_matches_per_concept_kind: 2  # 후보 전체를 비교하되 해결안·자료 유형별 대표 근거만 출력.
   enabled: true               # 공개 학술 API(crossref/openalex/arxiv)는 키 없이 동작
   max_queries_per_run: 40

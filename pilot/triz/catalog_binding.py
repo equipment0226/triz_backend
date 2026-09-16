@@ -33,13 +33,21 @@ def bind_effect(data, catalog):
     by_name={e['name']:e for e in catalog}
     for app in data.get('applications') or []:
         if not isinstance(app,dict): continue
-        source=by_id.get(app.get('source_effect_id')) or by_name.get(app.get('effect_name'))
+        source_id=app.get('source_effect_id')
+        # The prompt renders [7.1]; a provider can return that exact notation.
+        # Normalize only the enclosing pair, never guess another catalog identity.
+        if isinstance(source_id,str):
+            source_id=source_id.strip()
+            if source_id.startswith('[') and source_id.endswith(']'):
+                source_id=source_id[1:-1].strip()
+        source=by_id.get(source_id) or by_name.get(app.get('effect_name'))
         app['source_effect_id']=source['id'] if source else None
         app['catalog_sources']=source.get('sources',[]) if source else []
         app['catalog_evidence_level']=source.get('evidence_level','기초 참고자료') if source else '카탈로그 외 추가 가설'
         if source:
             app.update(effect_name=source['name'],effect_domain=source.get('domain','PHYSICAL'),
                        principle=source['principle'],catalog_conditions=source.get('conditions',''),
+                       catalog_limitations=source.get('limitations',''),
                        catalog_function=source['function_ko'],catalog_mechanism_key=source.get('mechanism_key',''))
             app['conditions']=conditions(source.get('conditions'),app.get('conditions'))
     return data

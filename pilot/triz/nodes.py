@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import json
 import hashlib
-from concurrent.futures import ThreadPoolExecutor
+from .execution_config import ThreadPoolExecutor
 from typing import Any
 
 from . import agent, digest, domain, knowledge as K, llm, prompts_registry as P, rag, verify
@@ -586,7 +586,7 @@ def _track_a(ctx: RunContext) -> None:
         d = agent.run_agent(
             ctx, node="s5_track_a", label=f"Track A 발명원리 적용({tc.id})", stage=Stage.S5.value,
             agent_id="inventor_a", prompt_id="P_S5_TRACK_A", tier="T2", rubric_id="R5_A",
-            max_tokens=max(4000, min(8000, int(cfg("solutions.track_a_max_tokens", 8000)))),
+            max_tokens=max(4000, int(cfg("solutions.track_a_max_tokens", 8000))),
             checker=lambda x, allowed=ids: verify.check_principles(x, allowed),
             vars={"industry": st.domain.industry, "target_system": digest.target_system(st),
                   "super_system": st.domain.super_system,
@@ -756,7 +756,8 @@ def _track_d_ariz(ctx: RunContext) -> None:
         su = st.analysis.su_fields[0] if st.analysis.su_fields else None
         cands = K.candidate_standards(su.completeness if su else '',su.effect if su else '',
             required_functions=[*_required_functions(st),run.physical_contradiction_macro,run.physical_contradiction_micro])
-        effect_cands = K.effect_candidates(_required_functions(st),limit=10)
+        from .ax.runtime import effect_candidates
+        effect_cands = effect_candidates(st, _required_functions(st), limit=10)
         from .effect_catalog import format_effects
         def bind_part5(data):
             if not isinstance(data,dict): return {}
@@ -876,7 +877,8 @@ def _track_h(ctx: RunContext) -> None:
     from .catalog_binding import bind_effect
     st = ctx.state
     required = _required_functions(st)
-    catalog = K.effect_candidates(required,limit=6)
+    from .ax.runtime import effect_candidates
+    catalog = effect_candidates(st, required, limit=6)
     from .effect_catalog import format_effects
     d = agent.run_agent(
         ctx, node="s5_track_h", label="Track H 효과(Effects) 적용", stage=Stage.S5.value,
@@ -906,11 +908,14 @@ def s5_solve(ctx: RunContext) -> None:
     st = ctx.state
     ctx.set_stage(Stage.S5.value)
     tracks = domain.select_tracks(st, st.control.enabled_tracks)
+    from .ax import enabled as ax_enabled
+    if ax_enabled(st):
+        tracks = list(st.scratch['ax_coordination']['tracks'])
     if st.definition.technical_contradictions and "A_MATRIX" not in tracks:
         tracks.append("A_MATRIX")
     if st.definition.physical_contradictions and "B_SEPARATION" not in tracks:
         tracks.append("B_SEPARATION")
-    if domain.physical_allowed(st) and st.analysis.su_fields and "C_STANDARDS" not in tracks:
+    if not ax_enabled(st) and domain.physical_allowed(st) and st.analysis.su_fields and "C_STANDARDS" not in tracks:
         tracks.append("C_STANDARDS")
 
     # Evidence planning consumes only pre-S5 facts; bounded track pool shares the call budget.
@@ -928,6 +933,8 @@ def s5_solve(ctx: RunContext) -> None:
     if "s_curve" in track_state.scratch:
         st.scratch["s_curve"] = track_state.scratch["s_curve"]
     need_more = _merge(ctx)
+    if ax_enabled(st):
+        st.solve.raw_ideas = digest.select_ideas(st.solve.raw_ideas, st.scratch['ax_bundle']['limits']['initial_candidates'])
 
     retries = st.control.retry_count.get("s5_solve", 0)
     if need_more and retries < int(cfg("solve.max_escalations", 0)):
@@ -1196,6 +1203,9 @@ def s7_gate(ctx: RunContext) -> None:
     for r in failed:  # 제약 위반 개념은 폐기
         c = by_id.get(r.concept_id)
         if c:
+            from .ax import enabled as ax_enabled
+            if ax_enabled(st):
+                st.scratch.setdefault('ax_excluded', []).append(c.model_dump(mode='json'))
             st.scratch.setdefault("excluded_concepts", []).append(
                 {"idea": c.title, "reason": f"제약 위반: {', '.join(r.violated_ids) or '판정 FAIL'}"})
     st.concepts = [c for c in st.concepts if c.id not in {r.concept_id for r in failed}]
@@ -1368,6 +1378,14 @@ def s9_report(ctx: RunContext) -> None:
 
     st = ctx.state
     ctx.set_stage(Stage.S9.value)
+    from .ax import enabled as ax_enabled
+    if ax_enabled(st):
+        md=render.render_report(st,{})
+        st.report=ReportArtifact(narrative={},template_id='ax_snapshot_v1',markdown=md,word_count=len(md))
+        render.save(st,md)
+        ctx.emit('report',length=len(md))
+        ctx.persist()
+        return
     top = [{"title": (st.concept(e.concept_id).title if st.concept(e.concept_id) else ""),
             "one_liner": (st.concept(e.concept_id).one_liner if st.concept(e.concept_id) else ""),
             "expected_effect": (st.concept(e.concept_id).expected_effect if st.concept(e.concept_id) else ""),

@@ -43,10 +43,13 @@ class TierConfig:
         self.api_key = _env(f"LLM_API_KEY_{tier}") or _env("LLM_API_KEY")
         self.base_url = _env(f"LLM_BASE_URL_{tier}") or _env("LLM_BASE_URL", "https://api.deepseek.com/v1")
         self.temperature = _env_f(f"LLM_TEMPERATURE_{tier}", {"T1": 0.1, "T2": 0.3, "T3": 0.7}[tier])
-        self.max_tokens = _env_i(f"LLM_MAX_TOKENS_{tier}", {"T1": 2400, "T2": 6500, "T3": 1800}[tier])
+        self.max_tokens = _env_i(f"LLM_MAX_TOKENS_{tier}", {"T1": 16000, "T2": 32000, "T3": 32000}[tier])
         self.json_mode = _env(f"LLM_JSON_MODE_{tier}", "false" if "reason" in self.model.lower() else "true").lower() == "true"
         self.supports_temperature = _env(f"LLM_SUPPORTS_TEMPERATURE_{tier}", "false" if "reason" in self.model.lower() else "true").lower() == "true"
         self.token_parameter = _env(f"LLM_TOKEN_PARAMETER_{tier}", "max_tokens")
+        self.thinking_mode = _env(f"LLM_THINKING_MODE_{tier}")
+        if self.thinking_mode not in ('', 'enabled', 'disabled'):
+            raise ValueError(f'Invalid LLM_THINKING_MODE_{tier}')
         self.cost_in = _env_f(f"COST_IN_PER_M_{tier}", 0.28)
         self.cost_out = _env_f(f"COST_OUT_PER_M_{tier}", 0.42)
 
@@ -83,7 +86,7 @@ class Settings:
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self.storage_dir.mkdir(parents=True, exist_ok=True)
 
-        self.timeout = _env_i("LLM_TIMEOUT_SEC", 180)
+        self.timeout = _env_i("LLM_TIMEOUT_SEC", 300)
         self.max_retries = _env_i("LLM_MAX_RETRIES", 2)
         self.tiers = {
             "T1": TierConfig("T1", "deepseek-chat"),
@@ -147,10 +150,19 @@ class Settings:
             raw = os.getenv(env_key)
             if raw:
                 self.triz.setdefault(section, {})[key] = cast(raw)
+        project_budget=os.getenv('TRIZ_PROJECT_BUDGET_USD')
+        if project_budget:
+            amount=float(project_budget)
+            if not 0 < amount < float('inf'):
+                raise ValueError('Invalid TRIZ_PROJECT_BUDGET_USD')
+            self.triz.setdefault('run',{})['budget_usd']=amount
+            self.triz.setdefault('ax',{})['hard_budget_usd']=amount
 
     def cfg(self, path: str, default: Any = None) -> Any:
         """'solutions.min_solutions' 같은 점 표기로 triz.yaml 값을 읽는다."""
-        node: Any = self.triz
+        from .execution_config import profile
+        bundle=profile.get()
+        node: Any = bundle['config'] if bundle else self.triz
         for part in path.split("."):
             if not isinstance(node, dict) or part not in node:
                 return default
@@ -158,10 +170,13 @@ class Settings:
         return node
 
     def rubric(self, rubric_id: str) -> dict[str, Any] | None:
-        rb = self.rubrics.get(rubric_id)
+        from .execution_config import profile
+        bundle=profile.get()
+        rubrics=bundle['rubrics'] if bundle else self.rubrics
+        rb = rubrics.get(rubric_id)
         if not rb:
             return None
-        defaults = self.rubrics.get("defaults", {})
+        defaults = rubrics.get("defaults", {})
         rb = dict(rb)
         rb.setdefault("pass_threshold", defaults.get("pass_threshold", 0.72))
         rb.setdefault("reject_below", defaults.get("reject_below", 0.45))

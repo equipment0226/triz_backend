@@ -40,6 +40,10 @@ async def lifespan(app):
         from triz.tools.vector_patents import warmup
         threading.Thread(target=warmup, name='patent-model-warmup', daemon=True).start()
     monitor = asyncio.create_task(monitor_interrupted_runs())
+    from triz.ax.runtime import new_runs_enabled
+    from triz.ax.service import supervise
+    import os
+    learning=asyncio.create_task(supervise()) if new_runs_enabled() and os.getenv('TRIZ_AX_WORKER_ENABLED','true').lower()=='true' else None
     try:
         if settings.embed_mcp:
             from triz.mcp_server import mcp
@@ -48,11 +52,17 @@ async def lifespan(app):
         else:
             yield
     finally:
+        if learning:
+            learning.cancel()
+            with suppress(asyncio.CancelledError):
+                await learning
         monitor.cancel()
         with suppress(asyncio.CancelledError):
             await monitor
 
 app = FastAPI(title="TRIZ Studio", version="2.0.0", lifespan=lifespan)
+from triz.ax.api import router as ax_router
+app.include_router(ax_router)
 WEB_DIR = settings.root.parent / "frontend" / "dist"
 
 if settings.embed_mcp:

@@ -21,7 +21,7 @@ from functools import lru_cache
 import xml.etree.ElementTree as ET
 from typing import Any
 from urllib.parse import quote_plus, urlparse, urlencode
-from concurrent.futures import ThreadPoolExecutor
+from ..execution_config import ThreadPoolExecutor
 
 import httpx
 

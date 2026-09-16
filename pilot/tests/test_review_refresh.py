@@ -11,6 +11,7 @@ def completed(state):
     state.feedback = FeedbackArtifact(overall_rating=4)
     state.concepts = [ConceptSpec(id="C1", title="Keep this solution")]
     state.cost.total_usd = 2.9
+    state.cost.budget_usd = 3.0  # Historical project retains its original cap.
     state.scratch["active_seconds"] = 2000
     store.save_state(state)
 
@@ -32,7 +33,7 @@ def test_refresh_runs_only_evaluation_and_report_preserving_feedback_and_inputs(
     saved = store.load_state(state.run_id)
     assert calls == ["s8_evaluate", "s9_report"]
     assert saved.concepts == state.concepts and saved.feedback == state.feedback
-    assert saved.cost.total_usd == 2.9 and saved.cost.budget_usd == pytest.approx(5.9)
+    assert saved.cost.total_usd == 2.9 and saved.cost.budget_usd == pytest.approx(3.9)
     assert saved.scratch["active_seconds"] == 0
     assert saved.control.stage_index == len(pipeline.PIPELINE)
     assert refresh_job.refresh(state.run_id, "test-refresh")["status"] == "ALREADY_COMPLETED"
@@ -78,7 +79,7 @@ def test_normal_ui_retry_keeps_refresh_allowance_and_stops_after_report(state, m
     monkeypatch.setattr(pipeline, "start", lambda _: None)
     assert pipeline.continue_run(state.run_id)
     resumed = store.load_state(state.run_id)
-    assert resumed.cost.budget_usd == pytest.approx(5.9)
+    assert resumed.cost.budget_usd == pytest.approx(3.9)
     def report(ctx):
         ctx.state.report = ReportArtifact(markdown="Updated")
     stages = list(pipeline.PIPELINE)

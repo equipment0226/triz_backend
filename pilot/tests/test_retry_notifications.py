@@ -63,7 +63,7 @@ def test_failed_intake_keeps_answers_and_previous_frame_without_new_questions(st
     assert saved.intake.clarify_turns[0].user_answer == 'retain 95%'
     assert saved.intake.clarify_turns[0].answered
     assert [c['node'] for c in calls] == ['s1_extract']
-    assert calls[0]['max_tokens'] == 4800
+    assert calls[0]['max_tokens'] == 16000
 
 
 def test_confirmed_catalog_fallback_resolves_failed_research_without_claiming_success(state, monkeypatch):

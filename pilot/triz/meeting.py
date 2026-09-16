@@ -3,7 +3,8 @@ from __future__ import annotations
 
 import hashlib
 import json
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import as_completed
+from .execution_config import ThreadPoolExecutor
 from copy import deepcopy
 
 from . import agent, digest, domain, personas, prompts_registry as P, verify
@@ -513,7 +514,7 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
         meeting.initial_reviews, meeting.questions, meeting.answers, meeting.final_reviews = {}, [], [], []
         final = phase("independent", "직군별 독립 평가", "P_S8_REVIEW", role_vars,
                       lambda d, p: _check_independent(d, p, concept_ids),
-                      lambda p: max(4800, min(8000, int(settings.cfg("evaluation.review_max_tokens", 8000)))),
+                      lambda p: max(4800, int(settings.cfg("evaluation.review_max_tokens", 8000))),
                       rubric="R8_REVIEW")
         all_scores = []
         for p in reviewers:
@@ -528,8 +529,8 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
         ctx.emit("review_phase", phase="completed", label="직군별 독립 평가 완료", rounds=0)
         return all_scores
 
-    score_tokens = lambda p: max(4800, min(8000, int(settings.cfg("evaluation.meeting_review_max_tokens", 8000))))
-    exchange_tokens = max(2400, min(8000, int(settings.cfg("evaluation.meeting_exchange_max_tokens", 4000))))
+    score_tokens = lambda p: max(4800, int(settings.cfg("evaluation.meeting_review_max_tokens", 8000)))
+    exchange_tokens = max(2400, int(settings.cfg("evaluation.meeting_exchange_max_tokens", 4000)))
     initial = phase("initial", "회의: 독립 검토·1차 질문", PROMPTS[0], role_vars,
                     lambda d, p: verify.check_review(d, concept_ids, p.dimensions) +
                     _check_questions(d, p.persona_id, role_ids, concept_ids, limit), score_tokens)
@@ -566,7 +567,7 @@ def evaluate(ctx: RunContext) -> list[ReviewerScore]:
                                        if any(q["concept_id"] in e["concept_ids"] for q in inboxes[p.persona_id])],
                                    "initial_review": initial[p.persona_id]},
                         lambda d, p: _check_answers(d, inboxes[p.persona_id], evidence),
-                        lambda p: min(8000, max(exchange_tokens, 1000 + 650 * len(inboxes[p.persona_id]))),
+                        lambda p: exchange_tokens,
                         participants=[p for p in reviewers if inboxes[p.persona_id]])
         for p in reviewers:
             answers = {a["question_id"]: a for a in outputs.get(p.persona_id, {}).get("answers", [])}

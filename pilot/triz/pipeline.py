@@ -38,17 +38,22 @@ def envelope(state):
     return dict(run_id=state.run_id, stage_index=state.control.stage_index,
                 epoch=state.scratch.get("execution_epoch", 0), status=state.status,
                 continue_execution=state.status == "RUNNING" and not state.pending)
-def create_run(raw_query, *, mode=None, user_id="local", attachments=None):
+def create_run(raw_query, *, mode=None, user_id="local", attachments=None, workflow_version=None):
     if not raw_query.strip():
         raise ValueError("문제를 입력해 주세요.")
     state = GlobalState(run_id=f"run-{uuid.uuid4().hex[:12]}", user_id=user_id, raw_query=raw_query)
     state.scratch.update(pipeline_version=3, execution_epoch=0)
-    state.cost.budget_usd = float(settings.cfg("run.budget_usd", 3.0))
+    # A new project takes today's server defaults, never another run's pinned context.
+    state.cost.budget_usd = float(settings.triz.get('run',{}).get('budget_usd',1.0))
     if mode:
         state.control.mode = RunMode[mode.upper()]
         state.scratch["mode_locked"] = True
     state.intake.attachments = attachments or []
     store.create_run(state)
+    from .ax import WORKFLOW
+    from .ax.runtime import initialize, new_runs_enabled
+    if workflow_version == WORKFLOW or (workflow_version is None and new_runs_enabled()):
+        initialize(state)
     store.save_state(state)
     return state
 def _upgrade(state):
@@ -134,11 +139,15 @@ def execute_stage(run_id, stage_index, epoch=0):
         state.scratch["execution_progress_at"] = started
         ctx.persist()
         events.emit(run_id, "stage_start", stage=key, label=label, index=stage_index, total=len(PIPELINE))
+        from .execution_config import profile
+        profile_token=profile.set(state.scratch.get('ax_bundle'))
         remaining = float(settings.cfg("run.max_wallclock_min", 30)) * 60 - state.scratch.get("active_seconds", 0)
         state.scratch["execution_deadline"] = started + max(0, remaining)
         try:
             if remaining <= 0:
                 raise AbortRun("분석 실행 시간 예산에 도달했습니다. 이어서 실행해 주세요.")
+            from .ax import runtime as ax_runtime
+            ax_runtime.before_stage(ctx, key)
             fn(ctx)
             if _unresolved_failures(state):
                 raise RuntimeError("필수 분석 호출이 실패했습니다. 설정을 확인하고 이어서 실행해 주세요.")
@@ -151,6 +160,7 @@ def execute_stage(run_id, stage_index, epoch=0):
             state.scratch["last_stage_seq"] = len(state.steps)
             state.scratch.pop("resume_after_seq", None)
             state.status = "COMPLETED" if state.control.stage_index == len(PIPELINE) else "RUNNING"
+            ax_runtime.checkpoint(state, key)
             store.archive(run_id, f"stage-{epoch}-{stage_index}.json", state.model_dump(mode="json"))
             events.emit(run_id, "stage_end", stage=key, index=state.control.stage_index)
         except HumanInterrupt as exc:
@@ -172,12 +182,16 @@ def execute_stage(run_id, stage_index, epoch=0):
             state.control.errors.append(str(exc))
             events.emit(run_id, "stage_error", stage=key, message="이 단계의 분석을 완료하지 못했습니다.")
         finally:
+            profile.reset(profile_token)
             elapsed = time.time() - started
             state.scratch["active_seconds"] = state.scratch.get("active_seconds", 0) + elapsed
             state.scratch.setdefault("stage_timings", []).append({"stage": key, "seconds": round(elapsed, 3), "status": state.status})
             state.scratch.pop("execution_deadline", None)
             state.scratch.pop("execution_stage_active", None)
             state.scratch["execution_progress_at"] = time.time()
+        if state.status in ('WAITING_HUMAN', 'FAILED', 'INTERRUPTED'):
+            from .ax import runtime as ax_runtime
+            ax_runtime.checkpoint(state, key, interrupted=True)
         ctx.persist()
         if state.status in ("FAILED", "INTERRUPTED"):
             _emit_retry(state)
@@ -269,6 +283,10 @@ def _mutate(run_id, apply):
         if not apply(state):
             return False
         state.scratch["execution_epoch"] = state.scratch.get("execution_epoch", 0) + 1
+        from .ax import enabled as ax_enabled
+        if ax_enabled(state):
+            from .ax.ledger import advance_epoch
+            advance_epoch(state, 'user_resume_or_replan')
         state.status = "RUNNING"
         for key in ("retry_notification_id", "interruption_reason", "provider_status", "execution_stage_active", "dispatch_request"):
             state.scratch.pop(key, None)
@@ -297,7 +315,12 @@ def continue_run(run_id):
         if state.pending or state.status not in ("INTERRUPTED", "FAILED", "CREATED", "QUEUED"):
             return False
         state.scratch["last_stage_seq"] = len(state.steps)
-        state.cost.budget_usd = float(settings.cfg("run.budget_usd", state.cost.budget_usd))
+        # Resume preserves this project's own cap and accumulated spend. Global
+        # defaults apply only when creating a project, never reset its allowance.
+        from .ax import enabled as ax_enabled
+        if ax_enabled(state):
+            from .ax.ledger import budget
+            state.cost.budget_usd=budget(state.run_id)['limit_microusd']/1e6
         refresh = state.scratch.get("review_refresh", {})
         if refresh and refresh.get("status") != "COMPLETED":
             state.cost.budget_usd = float(refresh.get("budget_usd",
@@ -332,6 +355,10 @@ def rerun_from(run_id, stage_key, instruction=""):
         state.scratch.pop("resume_payload", None)
         if idx <= 8:
             state.scratch.pop("gate_decisions", None)
+            for key in ('ax_recovery_complete','ax_recovery','ax_baseline_candidates','ax_applied_rules','ax_rule_patches'):
+                state.scratch.pop(key,None)
+        if idx <= 7:
+            state.scratch.pop('ax_excluded',None)
         state.scratch["last_stage_seq"] = len(state.steps)
         if instruction:
             state.control.injected_agents.setdefault(f"stage:{stage_key}", []).append(

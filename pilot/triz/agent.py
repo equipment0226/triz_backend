@@ -22,6 +22,10 @@ def routed_tier(node, requested="T2"):
 
 def tracked_chat(ctx, **kwargs):
     """Reserve worst-case request cost before parallel calls; stop without downgrading reasoning."""
+    from .ax import enabled as ax_enabled
+    if ax_enabled(ctx.state):
+        from .ax.gateway import chat
+        return chat(ctx, **kwargs)
     node = kwargs.pop("_node", "independent_verifier")
     deadline = ctx.state.scratch.get("execution_deadline")
     if deadline and time.time() >= deadline:
@@ -110,7 +114,8 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str) -> d
         ids = {t.get(k) for t in data.get("technical_contradictions", [])
                for k in ("improving_param_id", "worsening_param_id")}
         support["parameter_definitions"] = {str(i): K.params(scheme).get(str(i), {}) for i in ids}
-    user = P.render(
+    from .ax.runtime import render_prompt
+    user = render_prompt(ctx.state,
         "P_VERIFIER_GENERIC",
         artifact_json=data,
         facts_block=support,
@@ -123,7 +128,8 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str) -> d
     try:
         res = tracked_chat(ctx, system="You are a strict independent auditor. Output JSON only.",
                             user=user, tier="T3", temperature=0.0, expect="object",
-                            max_tokens=min(4500, 1200 + 240 * len(data.get("concepts", []))) if isinstance(data, dict) else 1200)
+                            max_tokens=int(settings.cfg('verification.max_tokens',
+                                min(4500,1200+240*len(data.get('concepts',[]))) if isinstance(data,dict) else 1200)))
     except llm.LLMError as exc:
         return {"verdict": "UNVERIFIED", "score": 0.0, "error": str(exc), "skipped": True}
     out = res.data if isinstance(res.data, dict) else {}
@@ -177,7 +183,7 @@ def run_agent(
     if max_tokens is None and node.startswith("s5_"):
         # Resolve before cost reservation and cache hashing. Tier-wide defaults can
         # be too small for structured multi-solution outputs, even with bounded retrieval.
-        max_tokens = max(settings.tiers[tier].max_tokens,
+        max_tokens = max(state.scratch.get('ax_bundle',{}).get('models',{}).get(tier,{}).get('max_tokens',settings.tiers[tier].max_tokens),
                          int(settings.cfg("solutions.track_max_tokens", 8000)))
     step = ctx.start_step(node=node, label=label, stage=stage, agent_id=agent_id,
                           prompt_id=prompt_id, tier=tier)
@@ -198,11 +204,12 @@ def run_agent(
     if node.startswith("s5_"):
         from . import digest
         prompt_vars.setdefault("contradictions", digest.contradictions_digest(state))
-    base_user = P.render(prompt_id, **prompt_vars) + domain_context(state, node) + inject_block
+    from .ax.runtime import render_prompt
+    base_user = render_prompt(state, prompt_id, **prompt_vars) + domain_context(state, node) + inject_block
     if node.startswith(("s1_", "s3_")):
         from . import rag
         base_user += rag.lessons_block(state)
-    system = system_override or P.render(
+    system = system_override or render_prompt(state,
         "P_COMMON_PREAMBLE",
         lang=state.control.lang,
         problem_type=problem_type(state), physical_scope=state.domain.physical_scope,
@@ -345,7 +352,7 @@ def run_agent(
                      f"사유: {'; '.join((verdict.get('revision_instructions') or ['-'])[:2])})")
             return data
 
-        user = base_user + "\n\n" + P.render(
+        user = base_user + "\n\n" + render_prompt(state,
             "P_REPAIR",
             previous_output=json.dumps(data, ensure_ascii=False),
             verdict=verdict.get("verdict"),

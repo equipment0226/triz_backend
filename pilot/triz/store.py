@@ -107,19 +107,24 @@ def create_run(state, title=""):
             title=title or state.raw_query[:60], mode=state.control.mode.value,
             industry=state.domain.industry, target_system=state.domain.target_system,
             status=state.status, current_stage=state.control.current_stage, cost_usd=0, started_at=_now()))
+def _save_state_db(c, state):
+    """Projection writer also used by AX's atomic artifact/outbox transaction."""
+    payload = state.model_dump_json()
+    _upsert(c, states, dict(run_id=state.run_id, state_json=payload, updated_at=_now()))
+    values = dict(status=state.status, current_stage=state.control.current_stage,
+        cost_usd=state.cost.total_usd, industry=state.domain.industry,
+        target_system=state.domain.target_system, mode=state.control.mode.value,
+        title=state.scratch.get("title") or state.raw_query[:60])
+    if state.status in ("COMPLETED", "FAILED"):
+        values["ended_at"] = _now()
+    c.execute(update(runs).where(runs.c.run_id == state.run_id).values(**values))
+
+
 def save_state(state):
     init()
-    payload = state.model_dump_json()
     with engine.begin() as c:
-        _upsert(c, states, dict(run_id=state.run_id, state_json=payload, updated_at=_now()))
-        values = dict(status=state.status, current_stage=state.control.current_stage,
-            cost_usd=state.cost.total_usd, industry=state.domain.industry,
-            target_system=state.domain.target_system, mode=state.control.mode.value,
-            title=state.scratch.get("title") or state.raw_query[:60])
-        if state.status in ("COMPLETED", "FAILED"):
-            values["ended_at"] = _now()
-        c.execute(update(runs).where(runs.c.run_id == state.run_id).values(**values))
-    archive(state.run_id, "state.json", payload)
+        _save_state_db(c, state)
+    archive(state.run_id, "state.json", state.model_dump_json())
 def load_state(run_id):
     init()
     with engine.connect() as c:

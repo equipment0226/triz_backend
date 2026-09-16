@@ -44,6 +44,26 @@ def run_node(ctx, node="test_generate", **kwargs):
         prompt_id="P_S0_BOOTSTRAP", vars={"raw_query": "saved observation"}, **kwargs)
 
 
+def test_pinned_provider_mode_and_prices_survive_runtime_changes(monkeypatch):
+    create=Mock(return_value=response({'ok':True}))
+    monkeypatch.setattr(llm,'_client',lambda *args:SimpleNamespace(
+        chat=SimpleNamespace(completions=SimpleNamespace(create=create))))
+    monkeypatch.setattr(settings.tiers['T2'],'thinking_mode','enabled')
+    result=CHAT_JSON(system='JSON',user='test',retries=1,model_config={
+        'model':'deepseek-flash','thinking_mode':'disabled','cost_in':.3,'cost_out':1.2})
+    assert create.call_args.kwargs['model']=='deepseek-flash'
+    assert create.call_args.kwargs['extra_body']=={'thinking':{'type':'disabled'}}
+    assert result.cost_usd==pytest.approx((10*.3+20*1.2)/1_000_000)
+
+
+def test_unspecified_provider_mode_keeps_existing_request(monkeypatch):
+    create=install_sdk(monkeypatch,[response({'ok':True})])
+    monkeypatch.setattr(settings.tiers['T2'],'thinking_mode','')
+    result=llm.chat_json(system='JSON',user='test',retries=1)
+    assert result.data=={'ok':True}
+    assert 'extra_body' not in create.call_args.kwargs
+
+
 @pytest.mark.parametrize("status", [401, 402, 403])
 def test_account_errors_never_retry_and_record_actual_request(monkeypatch, status):
     create = install_sdk(monkeypatch, [provider_error(status)])
@@ -116,7 +136,7 @@ def test_ariz_knowledge_call_keeps_tables_and_effect_binding_with_larger_limit(s
     create = install_sdk(monkeypatch, [response(data)])
     nodes._track_d_ariz(RunContext(state))
     assert create.call_count == 1
-    assert create.call_args.kwargs['max_tokens'] == 16000
+    assert create.call_args.kwargs['max_tokens'] == 32000
     assert [s.step_code for s in state.solve.ariz.steps] == ['5.1', '5.2', '5.3', '5.4']
     assert state.steps[-1].output_json['steps'][3]['table_rows'] == [['잔류 전하', '해제 확인']]
     saved_idea = state.steps[-1].output_json['ideas'][0]
@@ -253,5 +273,5 @@ def test_track_a_keeps_all_principles_and_has_room_for_mechanism_fields(state, m
         return {"applications": [{"principle_id": i, "idea": f"Mechanism {i}"} for i in range(1, 7)]}
     monkeypatch.setattr(agent, "run_agent", respond)
     nodes._track_a(RunContext(state))
-    assert len(captured) == 1 and captured[0]["max_tokens"] == 8000
+    assert len(captured) == 1 and captured[0]["max_tokens"] == 32000
     assert len(state.solve.principle_apps) == len(state.solve.raw_ideas) == 6

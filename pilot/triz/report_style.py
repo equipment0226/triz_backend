@@ -30,7 +30,13 @@ def plain_text(value):
         return chunk
     # Do not rewrite link destinations or inline code identifiers.
     parts = re.split(r"(https?://[^\s<>]+|(?<!`)`[^`\n]+`(?!`))", str(value))
-    return "".join(p if i % 2 else text(p) for i, p in enumerate(parts))
+    result="".join(p if i % 2 else text(p) for i, p in enumerate(parts))
+    # Enum fields on the detached state still drive template/grouping logic.
+    # Normalize prose before SVG wrapping and report summary rendering only.
+    if not re.fullmatch(r'[A-Za-z][A-Za-z0-9_]*',result):
+        from .display_terms import display_text
+        result=display_text(result)
+    return result
 
 def plain_value(value):
     if isinstance(value, str):

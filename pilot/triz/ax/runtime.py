@@ -45,9 +45,10 @@ def bundle(state=None):
           'config':copy.deepcopy(settings.triz),'rubrics':copy.deepcopy(settings.rubrics),
           'limits':{'branches':3,'recovery_targets':2,'repairs_per_blocker':2,'depth':2,
                     'validation_reserve_microusd':120000,'initial_candidates':12,'detailed_candidates':8,
-                    'presentation_target':5,'recovery_additions':4,'expansion_rounds':1},
+                    'presentation_target':5,'recovery_additions':4,'expansion_rounds':1,'portfolio_completion_v1':True},
           'source_hashes':{str(p.relative_to(root.parent)).replace('\\','/'):digest(p.read_text(encoding='utf-8')) for p in
                            [root/'nodes.py',root/'quality.py',root/'verify.py',root/'render.py',
+                            root/'display_terms.py',root/'report_style.py',
                             root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
                             root/'ax/learning.py',root.parent/'templates/report_full.md.j2',

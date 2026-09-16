@@ -550,7 +550,7 @@
 | 적용 TRIZ 기법 | {% for o in c.triz_origin %}{{ ( o.get('track','') ) | cell }}-{{ ( o.get('ref','') ) | cell }}{{ ( ' · ' if not loop.last ) | cell }}{% endfor %} |
 | 해소 모순 | {{ ( c.addresses_contradictions | lbl ) | cell }} |
 | 신규성 | {{ ( NOVELTY_KO.get(c.novelty_class, c.novelty_class) ) | cell }} |
-| 개조 규모 | {{ ( SCALE_KO.get(c.change_scale, c.change_scale) ) | cell }} |
+| 변경 범위 | {{ ( SCALE_KO.get(c.change_scale, c.change_scale) ) | cell }} |
 | 성숙도 | {{ ( MATURITY_KO.get(c.maturity, c.maturity) ) | cell }} |
 | 기대 효과 | {{ ( c.expected_effect ) | cell }} |
 | 필요 자원 | {{ ( c.required_resources | join(', ') ) | cell }} |

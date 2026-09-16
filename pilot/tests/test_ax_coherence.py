@@ -132,7 +132,7 @@ def test_existing_pinned_bundle_keeps_legacy_validation_contract(dlc):
 
 def test_old_workflow_remains_readable_and_new_version_is_fixed(dlc):
     from triz.ax import enabled,WORKFLOW,RELEASE
-    assert WORKFLOW=='triz-ax-v3.1' and RELEASE=='triz-ax-v3.1.1'
+    assert WORKFLOW=='triz-ax-v3.1' and RELEASE=='triz-ax-v3.1.2'
     assert dlc.scratch['ax_bundle']['release_version']==RELEASE
     original=copy.deepcopy(dlc.scratch['ax_bundle'])
     dlc.scratch['workflow_version']='triz-ax-v3.1'

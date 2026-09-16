@@ -89,7 +89,13 @@ def generate_concepts(ctx):
         excluded.extend(data.get("excluded") or [])
     st.concepts = made[:target]
     st.scratch["excluded_concepts"] = excluded
+    generated_count=len(st.concepts)
     audit_concepts(ctx)
+    if st.scratch.get('ax_bundle',{}).get('limits',{}).get('portfolio_completion_v1'):
+        st.scratch.setdefault('ax_portfolio_trace',[]).append({'stage':'concepts',
+            'available_ideas':len(st.solve.raw_ideas),'assigned_ideas':len(ideas),
+            'generated_count':generated_count,'retained_after_audit':len(st.concepts),
+            'excluded_count':len(st.scratch.get('excluded_concepts',[]))})
     ctx.emit("artifact", kind="CONCEPTS", data={"count": len(st.concepts), "titles": [c.title for c in st.concepts]})
     if len(st.concepts) < (st.scratch['ax_bundle']['limits'].get('presentation_target',1) if ax_enabled(st) else int(settings.cfg("solutions.min_concepts", 8))):
         ctx.warn("충분한 근거를 가진 개념만 유지했습니다. 후보 개수보다 모순 해소와 검증 가능성을 우선합니다.")

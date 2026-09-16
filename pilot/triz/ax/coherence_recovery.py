@@ -37,11 +37,16 @@ def targets(state, phase):
             output.append({'candidate_id':c.id,'baseline':c,
                 'obligation_ids':[o['id'] for o in assessment['obligations'] if set(o['contradiction_ids'])&set(c.addresses_contradictions)],
                 'gaps':[{'kind':'CONSTRAINT_FAILURE','description':failures[c.id]}],'action':'REPAIR_CANDIDATE'})
-    if not output and assessment['shortfall'] and assessment['obligations']:
-        output.append({'candidate_id':'portfolio','baseline':None,
+    completion=state.scratch.get('ax_bundle',{}).get('limits',{}).get('portfolio_completion_v1')
+    if (not output or completion) and assessment['shortfall'] and assessment['obligations']:
+        portfolio={'candidate_id':'portfolio','baseline':None,
             'obligation_ids':[o['id'] for o in assessment['obligations']],
             'gaps':[{'kind':'CANDIDATE_SHORTFALL','description':'다른 개입 위치·기구의 대안을 탐색한다. 기존 안을 이름만 바꾸지 않는다.'}],
-            'action':'SOLVE_SUBPROBLEM'})
+            'action':'SOLVE_SUBPROBLEM'}
+        # Preserve a distinct exploration slot even when repair issues fill the
+        # queue. An uncovered original problem remains the first priority.
+        index=1 if completion and output and output[0]['candidate_id'].startswith('scope-') else 0
+        output.insert(index,portfolio)
     return output
 
 

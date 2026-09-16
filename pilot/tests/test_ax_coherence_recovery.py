@@ -22,6 +22,8 @@ def test_repair_rechecks_original_protected_side_even_if_auditor_misses_it(dlc,m
     from triz import agent,quality
     candidate(dlc)
     dlc.concepts[0].quality_status='REVISE'
+    # This fixture exercises the previously pinned repair-only contract.
+    dlc.scratch['ax_bundle']['limits'].pop('portfolio_completion_v1',None)
     dlc.concepts[0].quality_issues=['기구 보완']
     baseline=dlc.concepts[0].model_dump(mode='json')
     raw=proposal(dlc,side)

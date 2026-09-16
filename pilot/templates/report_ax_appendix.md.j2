@@ -70,6 +70,6 @@
 | 요구 기능 | 작동 기구 | 적용 조건 | 판단 상태·근거 |
 |---|---|---|---|
 {% for item in details.effect_applicability %}
-| {{ item.required_function | cell }} | {{ item.mechanism | cell }} | {{ item.conditions | string | cell }} | {{ item.status | cell }} · {{ item.reason | cell }} |
+| {{ item.required_function | cell }} | {{ item.mechanism | cell }} | {{ item.conditions | cell }} | {{ item.status | cell }} · {{ item.reason | cell }} |
 {% endfor %}
 {% endif %}

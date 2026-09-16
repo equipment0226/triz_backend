@@ -26,9 +26,9 @@ TRACK_KO = {
     "D_ARIZ": "ARIZ-85C", "E_TRIMMING": "트리밍", "F_TRENDS": "진화 트렌드",
     "G_FOS": "기능지향탐색(FOS)", "H_EFFECTS": "물리효과",
 }
-QUADRANT_KO = {"QUICK_WIN": "즉시 실행", "BIG_BET": "전략 투자", "FILL_IN": "보완 과제", "AVOID": "보류"}
+QUADRANT_KO = {"QUICK_WIN": "QUICK WIN", "BIG_BET": "BIG BET", "FILL_IN": "FILL IN", "AVOID": "보류"}
 NOVELTY_KO = {"SAME_DOMAIN": "동일 분야 접근", "CROSS_DOMAIN": "타산업 이식", "NEW": "신규 제안"}
-SCALE_KO = {"PARAMETER": "조건·규칙 조정", "PARTIAL": "부분 변경", "REDESIGN": "구조 재설계"}
+SCALE_KO = {"PARAMETER": "파라미터 조정", "PARTIAL": "국부적 변경", "REDESIGN": "구조 재설계"}
 CATEGORY_KO = {
     "USER_STATED": "사용자명시", "ENVIRONMENT": "운전환경", "MATERIAL_COMPAT": "재료양립성",
     "PHYSICS": "물리법칙", "REGULATION": "안전·규제", "OPERATION": "운영·보전",
@@ -72,18 +72,8 @@ _FENCE_RE = re.compile(r"```.*?```", re.S)
 
 
 def _localize(md: str) -> str:
-    """본문에 남은 내부 열거값을 한글로 바꿈. 코드 블록은 건드리지 않는다."""
-    def swap(chunk: str) -> str:
-        return _ENUM_RE.sub(lambda m: _ENUM_KO[m.group(1)], chunk)
-
-    parts: list[str] = []
-    last = 0
-    for fence in _FENCE_RE.finditer(md):
-        parts.append(swap(md[last:fence.start()]))
-        parts.append(fence.group(0))
-        last = fence.end()
-    parts.append(swap(md[last:]))
-    return "".join(parts)
+    from .display_terms import display_text
+    return display_text(md,_ENUM_KO)
 
 
 def _safe(text: str, n: int = 24) -> str:
@@ -269,7 +259,8 @@ def _md_table(header: list[str], rows: list[list[str]], align: str = "---") -> s
     return "\n".join(out)
 
 def _cell(value):
-    return re.sub(r"\s*\n\s*", " ", str(value if value is not None else "")).replace("|", r"\|")
+    from .display_terms import display_value
+    return re.sub(r"\s*\n\s*", " ", display_value(value) if value is not None else "").replace("|", r"\|")
 
 
 def constraint_matrix(s: GlobalState) -> dict:

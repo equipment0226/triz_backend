@@ -1081,6 +1081,14 @@ def _merge(ctx: RunContext) -> bool:
                 resolution_status=status,
                 resolution_argument=m.get("resolution_argument", ""),
             ))
+        if st.scratch.get('ax_bundle',{}).get('limits',{}).get('portfolio_completion_v1'):
+            # A merge response is not an exclusion verdict. Keep unaccounted
+            # source ideas for the normal independent/constraint checks.
+            omitted=[idea for key,idea in by_id.items() if key not in used_keep_ids]
+            st.scratch.setdefault('ax_portfolio_trace',[]).append({
+                'stage':'merge','input_count':len(by_id),'merged_count':len(new_ideas),
+                'unaccounted_preserved':len(omitted)})
+            new_ideas.extend(omitted)
         st.solve.raw_ideas = new_ideas
     st.solve.coverage_note = d.get("coverage_note", "")
     st.solve.gaps = list(dict.fromkeys(st.solve.gaps + _text_list(d.get("gaps"))))

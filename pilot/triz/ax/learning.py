@@ -13,13 +13,15 @@ from . import ledger
 from .contracts import ACTIONS,digest,now
 
 FEATURES=8
+FEATURE_SCHEMAS={'ax-features-v1':8,'ax-features-v2':12}
 
 
 def q_values(policy,x):
-    if len(x)!=FEATURES or any(not math.isfinite(v) for v in x):
+    size=FEATURE_SCHEMAS.get(policy.get('feature_schema','ax-features-v1'))
+    if size is None or len(x)!=size or any(not math.isfinite(v) for v in x):
         raise ValueError('Invalid feature vector')
     weights=policy['weights']
-    if len(weights)!=len(ACTIONS) or any(len(w)!=FEATURES for w in weights):
+    if len(weights)!=len(ACTIONS) or any(len(w)!=size for w in weights):
         raise ValueError('Invalid Q checkpoint')
     values=[sum(a*b for a,b in zip(row,x)) for row in weights]
     if any(not math.isfinite(v) for v in values):
@@ -36,7 +38,8 @@ def choose(policy,x,actions,permitted,preferred=None):
     return max(choices,key=lambda i:(q[ACTIONS.index(actions[i])],-i))
 
 
-def dataset(tenant_id,project_id,*,cutoff=None):
+def dataset(tenant_id,project_id,*,cutoff=None,feature_schema='ax-features-v1'):
+    size=FEATURE_SCHEMAS[feature_schema]
     cutoff=cutoff or now()
     samples=[]
     exclusions=Counter()
@@ -49,6 +52,9 @@ def dataset(tenant_id,project_id,*,cutoff=None):
             exclusions['test_or_missing_run']+=1
             continue
         decisions=[d for d in ledger.decision_history(h['run_id'],h['owner_id']) if d['created_at']<=cutoff]
+        if h['bundle'] and json.loads(h['bundle']).get('feature_schema','ax-features-v1')!=feature_schema:
+            exclusions['different_feature_schema']+=1
+            continue
         # Equal timestamps have a deterministic insertion order only if explicit order exists.
         decisions.sort(key=lambda d:(d['created_at'],d['decision_id']))
         by_decision=defaultdict(list)
@@ -58,6 +64,13 @@ def dataset(tenant_id,project_id,*,cutoff=None):
                 exclusions['unconsented_unlinked_or_late']+=1
                 continue
             if p['decision_type'] in ('RECORD_TEST_RESULT','RECORD_FIELD_RESULT') and p['result'] in ('PASS','FAIL'):
+                if feature_schema=='ax-features-v2' and p['result']=='PASS':
+                    from .coherence import candidate_check
+                    candidate=state.concept(p.get('candidate_id'))
+                    if (not candidate or p['target_version_id']!=state.scratch.get('ax_members',{}).get('concepts')
+                            or candidate_check(state,candidate)['gaps']):
+                        exclusions['incomplete_or_stale_positive_technical_label']+=1
+                        continue
                 maturity='FIELD' if p['decision_type']=='RECORD_FIELD_RESULT' else 'TEST'
                 value=(2.0 if maturity=='FIELD' else 1.0)*(1 if p['result']=='PASS' else -1)
             elif p['decision_type'] in ('APPROVE_EXPLORATION','REJECT_EXPLORATION'):
@@ -72,6 +85,9 @@ def dataset(tenant_id,project_id,*,cutoff=None):
             if not labels:
                 continue
             p=d['payload']
+            if len(p['features'])!=size:
+                exclusions['invalid_feature_shape']+=1
+                continue
             selected=p['actions'][p['executed_index']]
             if not selected['allowed'] or p['governor_override']:
                 exclusions['override_not_policy_action']+=1
@@ -95,11 +111,11 @@ def dataset(tenant_id,project_id,*,cutoff=None):
             samples.append({'decision_id':d['decision_id'],'run_id':h['run_id'],'group':group,
                 'available_at':d['created_at'],'features':p['features'],'action':selected['ticket']['action_type'],
                 'allowed':list(dict.fromkeys(a['ticket']['action_type'] for a in p['actions'] if a['allowed'])),
-                'next_features':nxt['features'] if nxt else [0.0]*FEATURES,
+                'next_features':nxt['features'] if nxt else [0.0]*size,
                 'next_allowed':list(dict.fromkeys(a['ticket']['action_type'] for a in nxt['actions'] if a['allowed'])) if nxt else [],
                 'terminal':nxt is None,'reward':max(-2,min(2,value-cost)),
                 'dimensions':{'observed_judgment':value,'cost_usd':cost,'field_observed':any(x[2]=='FIELD' for x in chosen)},
-                'maturity':'TECHNICAL' if technical else 'PREFERENCE','review_ids':[x[0]['event_id'] for x in chosen],
+                'maturity':'TECHNICAL' if technical else 'PREFERENCE','feature_schema':feature_schema,'review_ids':[x[0]['event_id'] for x in chosen],
                 'review_hashes':[x[0]['content_hash'] for x in chosen],
                 'behavior_probability':p.get('behavior_probability')})
     # Bound the CPU batch while retaining complete families, newest first.
@@ -118,7 +134,7 @@ def dataset(tenant_id,project_id,*,cutoff=None):
     holdout=set(ordered[-max(1,len(ordered)//4):]) if ordered else set()
     for s in samples:
         s['split']='holdout' if s['group'] in holdout else 'train'
-    manifest={'schema':'ax-dataset-v1','feature_schema':'ax-features-v1','action_catalog':'ax-actions-v1',
+    manifest={'schema':'ax-dataset-v1','feature_schema':feature_schema,'action_catalog':'ax-actions-v1',
         'tenant_id':tenant_id,'project_id':project_id,'cutoff':cutoff,'samples':samples,
         'excluded':dict(exclusions),'synthetic':False,'split':'problem-group time holdout; exact-query fallback'}
     manifest['dataset_id']='dataset-'+digest(manifest)
@@ -141,20 +157,25 @@ def readiness(manifest):
     return {'ready':not reasons,'reasons':reasons,'action_support':dict(counts),'samples':len(samples)}
 
 
-def train(samples,*,epochs=180,learning_rate=.025,discount=.8,alpha=.05):
+def train(samples,*,epochs=180,learning_rate=.025,discount=.8,alpha=.05,feature_schema=None):
     if not samples or epochs<1 or epochs>2000:
         raise ValueError('Bounded nonempty training batch required')
-    weights=[[0.0]*FEATURES for _ in ACTIONS]
+    feature_schema=feature_schema or samples[0].get('feature_schema','ax-features-v1')
+    size=FEATURE_SCHEMAS[feature_schema]
+    if any(len(s['features'])!=size or len(s['next_features'])!=size or
+           s.get('feature_schema',feature_schema)!=feature_schema for s in samples):
+        raise ValueError('Mixed feature schemas cannot share a checkpoint')
+    weights=[[0.0]*size for _ in ACTIONS]
     target=copy.deepcopy(weights)
     support=sorted({s['action'] for s in samples})
     policy={'algorithm':'linear-conservative-offline-q-v1','weights':weights,'support_actions':support,
-            'feature_schema':'ax-features-v1','action_catalog':'ax-actions-v1',
+            'feature_schema':feature_schema,'action_catalog':'ax-actions-v1',
             'discount':discount,'alpha':alpha,'epochs':epochs}
     initial=digest(weights)
     losses=[]
     for epoch in range(epochs):
         loss=0.0
-        gradients=[[0.0]*FEATURES for _ in ACTIONS]
+        gradients=[[0.0]*size for _ in ACTIONS]
         for s in samples:
             x=s['features']; q=q_values(policy,x); a=ACTIONS.index(s['action'])
             legal=[ACTIONS.index(k) for k in s['allowed']]
@@ -168,14 +189,14 @@ def train(samples,*,epochs=180,learning_rate=.025,discount=.8,alpha=.05):
             loss += .5*error*error+alpha*(highest+math.log(denominator)-q[a])
             for j in legal:
                 derivative=(error if j==a else 0)+alpha*(math.exp(q[j]-highest)/denominator-(1 if j==a else 0))
-                for f in range(FEATURES):
+                for f in range(size):
                     gradients[j][f]+=derivative*x[f]/len(samples)
         for j in range(len(ACTIONS)):
-            for f in range(FEATURES):
+            for f in range(size):
                 weights[j][f]-=learning_rate*gradients[j][f]
         if epoch%10==0: target=copy.deepcopy(weights)
         losses.append(loss/len(samples))
-    q_values(policy,[1.0]*FEATURES)
+    q_values(policy,[1.0]*size)
     policy['training']={'initial_weights_hash':initial,'final_weights_hash':digest(weights),
         'parameters_changed':initial!=digest(weights),'loss_first':losses[0],'loss_last':losses[-1]}
     return policy

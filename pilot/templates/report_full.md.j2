@@ -7,7 +7,7 @@
 | 대상 시스템 | {{ ( s.domain.target_system ) | cell }}{% if s.domain.super_system %} (상위: {{ ( s.domain.super_system ) | cell }}){% endif %} |
 | 실행 모드 | {{ ( s.control.mode.value ) | cell }} |
 | 적용 TRIZ 기법 | {{ ( applied_tools | join(', ') ) | cell }} |
-| 비용 | ${{ ( '%.4f' % s.cost.total_usd ) | cell }} (in {{ ( s.cost.tokens_in ) | cell }} / out {{ ( s.cost.tokens_out ) | cell }} tokens) |
+| 비용 | {% if s.scratch.get('ax_report_details', {}).get('metadata_missing') %}이 출력 버전에 비용 기록 미고정{% else %}${{ ( '%.4f' % s.cost.total_usd ) | cell }} (in {{ ( s.cost.tokens_in ) | cell }} / out {{ ( s.cost.tokens_out ) | cell }} tokens){% endif %} |
 
 ## 요약 (Executive Summary)
 {{ narrative.executive_summary or '(요약 생성 실패)' }}
@@ -793,3 +793,7 @@ BigQuery 인증·권한 또는 사용 할당량을 확인해야 하므로 특허
 {% for st_ in s.steps %}
 | {{ ( st_.seq ) | cell }} | {{ ( st_.stage ) | cell }} | {{ ( st_.label ) | cell }} | {{ ( st_.agent_id | hz ) | cell }} | {{ ( st_.tier ) | cell }} | {{ ( {'PASS':'통과','CONDITIONAL':'조건부','FAIL':'미통과','REPAIR':'보정'}.get(st_.verdicts[-1].get('verdict','-') if st_.verdicts else '-', '-') ) | cell }} | {{ ( st_.verify_attempts ) | cell }} | {{ ( {'OK':'완료','FAILED':'실패','SKIPPED':'건너뜀'}.get(st_.status, st_.status) ) | cell }}{{ ( ' 👤' if st_.human_intervened ) | cell }} |
 {% endfor %}
+
+{% if s.scratch.get('ax_report_details') %}
+{% include 'report_ax_appendix.md.j2' %}
+{% endif %}

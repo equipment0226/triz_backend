@@ -360,7 +360,7 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
     from .ax import enabled as ax_enabled
     if ax_enabled(state):
         from .ax.report import markdown
-        return markdown(state)
+        return markdown(state, diagram=diagram, references=references)
     from .visuals import figures
     from .report_style import reference_cards, report_state
     from .labels import display_value
@@ -369,6 +369,8 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
     narrative = display_value(narrative, labels)
     state = report_state(state)
     env = _env(labels)
+    if 'report_date' in state.scratch:
+        env.globals['now'] = state.scratch['report_date']
     lite = state.control.mode == RunMode.LITE
     name = template or settings.cfg("report.lite_template" if lite else "report.template",
                                     "report_lite.md.j2" if lite else "report_full.md.j2")
@@ -446,7 +448,8 @@ def save(state: GlobalState, markdown: str) -> Path:
     from .presentation import view
     from .visuals import figures
     store.archive(state.run_id, "report.md", markdown)
-    for figure in figures(state):
+    from .report_style import report_state
+    for figure in figures(report_state(state)):
         store.archive(state.run_id, f"{figure['key']}.svg", figure["svg"])
     html = render_html(state)
     store.archive(state.run_id, "report.html", html)

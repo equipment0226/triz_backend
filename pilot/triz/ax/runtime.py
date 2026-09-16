@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 from .. import prompts_registry, knowledge
 from ..settings import settings
-from . import WORKFLOW, enabled
+from . import WORKFLOW, RELEASE, enabled
 from . import ledger
 from .contracts import digest, GATES, Conflict
 
@@ -13,7 +13,9 @@ DEPENDENCIES = {
     'definition': ('problem','analysis'), 'solve': ('definition',),
     'concepts': ('solve','analysis'), 'constraints': ('problem','concepts'),
     'evidence': ('concepts',), 'evaluation': ('constraints','evidence'),
-    'selection': ('evaluation','constraints','evidence'), 'report': ('selection',),
+    'coherence': ('problem','definition','concepts','constraints'),
+    'selection': ('evaluation','constraints','evidence','coherence'), 'report_context': ('selection',),
+    'report': ('selection','report_context'),
     'feedback': ('selection',),
 }
 OUTPUTS = {
@@ -33,7 +35,7 @@ def new_runs_enabled():
 
 def bundle(state=None):
     root=Path(__file__).resolve().parents[1]
-    data={'workflow':WORKFLOW,'coordinator_hitl':False,'policy_version':'rules-v1','feature_schema':'ax-features-v1',
+    data={'workflow':WORKFLOW,'release_version':RELEASE,'coherence_contract':'coherence-v1','coordinator_hitl':False,'policy_version':'rules-v1','feature_schema':'ax-features-v2',
           'action_catalog':'ax-actions-v1','rule_catalog_version':'empty-v1',
           'rule_catalog':[], 'policy':None,
           'models':{t:{k:getattr(c,k) for k in MODEL_FIELDS} for t,c in settings.tiers.items()},
@@ -42,12 +44,17 @@ def bundle(state=None):
           'effect_sources':copy.deepcopy(knowledge._load('effects_sources.json')),
           'config':copy.deepcopy(settings.triz),'rubrics':copy.deepcopy(settings.rubrics),
           'limits':{'branches':3,'recovery_targets':2,'repairs_per_blocker':2,'depth':2,
-                    'validation_reserve_microusd':60000,'initial_candidates':6,'detailed_candidates':3},
-          'source_hashes':{p.name:digest(p.read_text(encoding='utf-8')) for p in
-                           [root/'nodes.py',root/'quality.py',root/'verify.py']}}
+                    'validation_reserve_microusd':120000,'initial_candidates':12,'detailed_candidates':8,
+                    'presentation_target':5,'recovery_additions':4,'expansion_rounds':1},
+          'source_hashes':{str(p.relative_to(root.parent)).replace('\\','/'):digest(p.read_text(encoding='utf-8')) for p in
+                           [root/'nodes.py',root/'quality.py',root/'verify.py',root/'render.py',
+                            root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',
+                            root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
+                            root/'ax/learning.py',root.parent/'templates/report_full.md.j2',
+                            root.parent/'templates/report.html.j2',root.parent/'templates/report_ax_appendix.md.j2']}}
     if state is not None:
         from .registry import for_run
-        data.update(for_run(state))
+        data.update(for_run(state,feature_schema=data['feature_schema']))
     data['bundle_id']='bundle-'+digest(data)
     return data
 
@@ -83,6 +90,9 @@ def section(state,key):
                 'gaps':state.scratch.get('evidence_gaps',[])}
     if key=='selection':
         return state.scratch.get('ax_selection',{'status':'NOT_RUN','candidates':[]})
+    if key=='coherence':
+        from .coherence import assess
+        return assess(state)
     if key=='solve':
         return dict(dump(state.solve),effect_applicability=state.scratch.get('ax_effect_applicability',[]))
     value=getattr(state,key)
@@ -111,6 +121,14 @@ def checkpoint(state,stage,*,interrupted=False):
         from .validation import selection
         state.scratch['ax_selection']=selection(state)
         sections['selection']=state.scratch['ax_selection']
+    from .coherence import enabled as coherence_enabled
+    if coherence_enabled(state) and set(keys)&{'definition','concepts','constraints','evaluation'}:
+        state.scratch['ax_coherence']=section(state,'coherence')
+        # Capture producer versions first; selection reads this exact coherence version.
+        selection_payload=sections.pop('selection',None)
+        sections['coherence']=state.scratch['ax_coherence']
+        if selection_payload is not None:
+            sections['selection']=selection_payload
     for key,label,stages in GATES:
         if stage in stages:
             gates=state.scratch['ax_gates']
@@ -160,6 +178,29 @@ def before_stage(ctx,key):
             for a in state.solve.effect_apps]
         ledger.capture(state,{'solve':section(state,'solve')},DEPENDENCIES,'effect_applicability')
     if key=='s8_references':
+        from .coherence import enabled as coherence_enabled
+        if coherence_enabled(state):
+            from . import recovery
+            added=recovery.run(ctx,phase='after_constraints')
+            if added:
+                # Recheck only new candidates; never clear approvals/checks on the baseline.
+                from ..context import RunContext
+                from ..nodes import s7_gate
+                branch=state.model_copy(deep=True)
+                branch.concepts=[c for c in branch.concepts if c.id in added]
+                branch.constraint_checks=[]
+                branch.scratch['ax_autonomous_gate']=True
+                branch.steps,branch.cost,branch.control=state.steps,state.cost,state.control
+                child=RunContext(branch)
+                child.lock,child.budget,child.call_slots=ctx.lock,ctx.budget,ctx.call_slots
+                child.persist=ctx.persist
+                s7_gate(child)
+                state.concepts=[c for c in state.concepts if c.id not in added]+branch.concepts
+                state.constraint_checks.extend(branch.constraint_checks)
+                for name in ('excluded_concepts','ax_excluded','ax_constraint_failures'):
+                    if name in branch.scratch:
+                        state.scratch[name]=branch.scratch[name]
+                checkpoint(state,'s7_gate')
         from .coordinator import stage_action
         stage_action(state,'FETCH_EVIDENCE','concepts')
     if key=='s7_gate' and not state.scratch.get('resume_payload'):
@@ -168,8 +209,14 @@ def before_stage(ctx,key):
         rules.apply(state)
     if key=='s9_report':
         from .validation import selection
+        from .coherence import enabled as coherence_enabled
+        if coherence_enabled(state):
+            state.scratch['ax_coherence']=section(state,'coherence')
+            ledger.capture(state,{'coherence':state.scratch['ax_coherence']},DEPENDENCIES,'final_coherence')
         state.scratch['ax_selection']=selection(state)
         ledger.capture(state,{'selection':state.scratch['ax_selection']},DEPENDENCIES,'report_selection')
+        from .report import context
+        ledger.capture(state,{'report_context':context(state)},DEPENDENCIES,'report_context')
         state.scratch['ax_report_snapshot_id']=state.scratch['ax_snapshot_id']
         from .coordinator import stage_action
         stage_action(state,'FINALIZE' if state.scratch['ax_selection']['recommended'] else 'DEFER','selection')
@@ -192,13 +239,28 @@ def effect_candidates(state,required,limit=6):
         allowed={'INFORMATIONAL'}
     groups=[dict(g,effects=[dict(b['effect_sources'].get(e['id'],{}),**e) for e in g['effects']
         if allowed is None or e.get('domain') in allowed]) for g in b['effects']]
-    return select_effects(groups,required,limit=limit*4)
+    from .coherence import enabled as coherence_enabled
+    if not coherence_enabled(state) or len(required)<2:
+        return select_effects(groups,required,limit=limit*4)
+    # Global catalog access per function prevents a common function swallowing
+    # a less common one; industry names never restrict eligible effects.
+    pools=[select_effects(groups,[function],limit=limit*4) for function in required]
+    output=[]; seen=set()
+    for rank in range(limit*4):
+        for pool in pools:
+            if rank<len(pool) and pool[rank]['id'] not in seen:
+                output.append(pool[rank]); seen.add(pool[rank]['id'])
+                if len(output)>=limit*4:
+                    return output
+    return output
 
 
 def public_view(state):
     if not enabled(state):
         return None
-    return {'workflow':WORKFLOW,'snapshot_id':state.scratch.get('ax_snapshot_id'),
+    return {'workflow':state.scratch['workflow_version'],
+            'release_version':state.scratch['ax_bundle'].get('release_version',state.scratch['workflow_version']),
+            'snapshot_id':state.scratch.get('ax_snapshot_id'),
             'epoch':state.scratch.get('execution_epoch',0),'gates':state.scratch.get('ax_gates',{}),
             'coordination':state.scratch.get('ax_coordination',{}),
             'coordinator_hitl':False,

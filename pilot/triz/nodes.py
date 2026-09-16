@@ -934,10 +934,14 @@ def s5_solve(ctx: RunContext) -> None:
         st.scratch["s_curve"] = track_state.scratch["s_curve"]
     need_more = _merge(ctx)
     if ax_enabled(st):
+        from .ax.coordinator import expand
+        expand(ctx,need_more)
+        st.scratch['ax_idea_inventory']=[i.model_dump(mode='json') for i in st.solve.raw_ideas]
         st.solve.raw_ideas = digest.select_ideas(st.solve.raw_ideas, st.scratch['ax_bundle']['limits']['initial_candidates'])
 
     retries = st.control.retry_count.get("s5_solve", 0)
-    if need_more and retries < int(cfg("solve.max_escalations", 0)):
+    from .ax.coherence import enabled as coherence_enabled
+    if need_more and not coherence_enabled(st) and retries < int(cfg("solve.max_escalations", 0)):
         st.control.retry_count["s5_solve"] = retries + 1
         extra = [t for t in cfg("tracks.escalation_tracks", ["D_ARIZ", "G_FOS", "H_EFFECTS"])
                  if t not in tracks]
@@ -1206,13 +1210,14 @@ def s7_gate(ctx: RunContext) -> None:
             from .ax import enabled as ax_enabled
             if ax_enabled(st):
                 st.scratch.setdefault('ax_excluded', []).append(c.model_dump(mode='json'))
+                st.scratch.setdefault('ax_constraint_failures', {})[c.id]=r.model_dump(mode='json')
             st.scratch.setdefault("excluded_concepts", []).append(
                 {"idea": c.title, "reason": f"제약 위반: {', '.join(r.violated_ids) or '판정 FAIL'}"})
     st.concepts = [c for c in st.concepts if c.id not in {r.concept_id for r in failed}]
     st.constraint_checks = [r for r in results if r.verdict != "FAIL"]
 
     min_pass = int(cfg("constraints.min_passing_concepts", 5))
-    if cond and (len(passed) < min_pass or any(r.requires_user_decision for r in cond)):
+    if cond and not st.scratch.get('ax_autonomous_gate') and (len(passed) < min_pass or any(r.requires_user_decision for r in cond)):
         ctx.persist()
         raise HumanInterrupt("DECIDE", "제약 판정이 보류된 해결책을 확인해 주세요", {
             "conditional": [{
@@ -1381,7 +1386,8 @@ def s9_report(ctx: RunContext) -> None:
     from .ax import enabled as ax_enabled
     if ax_enabled(st):
         md=render.render_report(st,{})
-        st.report=ReportArtifact(narrative={},template_id='ax_snapshot_v1',markdown=md,word_count=len(md))
+        from .ax.report import project
+        st.report=ReportArtifact(narrative=project(st).report.narrative,template_id='report_full',markdown=md,word_count=len(md))
         render.save(st,md)
         ctx.emit('report',length=len(md))
         ctx.persist()

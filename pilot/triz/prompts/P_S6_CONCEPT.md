@@ -19,4 +19,5 @@
 - prior_case_ids: 제공된 과거 사례를 반영한 경우만 해당 ID. 없으면 빈 배열.
 - 신규성·개조 규모는 실제 해법에 맞게 분류한다. 특정 비율이나 기술 명칭을 강제하지 않는다.
 - diagram_mermaid는 빈 문자열. 시각화는 코드가 생성한다.
+{{coherence_contract}}
 {"concepts":[{"title":"","one_liner":"","description":"","working_principle":"","changes_to_system":[],"required_resources":[],"source_idea_ids":[],"mechanism_key":"","intervention_variable":"","resolution_argument":"","hypothesis_ids":[],"prior_case_ids":[],"triz_origin":[{"track":"","ref":""}],"addresses_contradictions":[],"novelty_class":"NEW","change_scale":"PARTIAL","expected_effect":"","assumptions":[],"open_risks":[],"maturity":"CONCEPT","evidence_ids":[],"diagram_mermaid":"","validation_plan":[{"metric":"","baseline":"","target":"","experiment":"","failure_criterion":""}],"transfer_conditions":[]}],"excluded":[{"idea":"","reason":""}]}

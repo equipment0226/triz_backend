@@ -17,7 +17,12 @@ def view(state):
     from .report_content import sections
     from .report_style import report_state, reference_cards, plain_text
     from .review_comments import by_concept
-    report = report_state(state)
+    from .ax import enabled as ax_enabled
+    if ax_enabled(state) and state.report:
+        from .ax.report import project
+        report = report_state(project(state))
+    else:
+        report = report_state(state)
     labels = build_label_map(state)
     def human(value):
         return humanize(str(value or ""), labels)
@@ -58,8 +63,8 @@ def view(state):
         constraints=[c.statement for c in state.constraints.items],
         reviewers=[dict(role=p.role_name, mandate=p.mandate, avatar=i % 6) for i, p in enumerate(state.evaluation.reviewers)],
         solutions=sorted(solutions, key=lambda c: c["rank"] or 999), figures=diagrams,
-        report_sections=sections(report, diagrams) if state.report and not ax else [],
-        summary=plain_text(human(state.report.narrative.get("executive_summary", ""))) if state.report else "",
+        report_sections=sections(report, diagrams) if state.report else [],
+        summary=plain_text(human(report.report.narrative.get("executive_summary", ""))) if state.report else "",
         report_ready=bool(state.report), additions=state.scratch.get("patent_additions", []),
         evidence_gaps=state.scratch.get("evidence_gaps", []), search_status=report.scratch['search_status'],
         related_references=state.scratch.get("related_references", []),
@@ -78,11 +83,7 @@ def view(state):
             c['verdict']={'READY':'검증 통과','CONDITIONAL':'조건부 검토','REJECTED':'제외'}[row['status']]
             c['quadrant']=''
             c['validation_missing']=row['missing']
-        if state.report:
-            from .ax.report import markdown
-            from .report_content import render_markdown
-            result['report_sections']=[{'key':'ax-report','title':'검증·선택 보고서',
-                'html':render_markdown(markdown(state))}]
+            c['constraint_status']={'PASS':'제약 충족','CONDITIONAL':'조건 확인 필요','FAIL':'제약 위반'}.get(row.get('constraint_verdict'),'검토 전')
     result=display_value(result,labels)
     result['ax']=ax  # Version/decision identifiers must never be humanized.
     return result

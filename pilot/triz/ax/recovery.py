@@ -33,7 +33,11 @@ def complementary(left,right,external_functions):
     return bool((ln|rn)&set(external_functions)) or not ln or not rn
 
 
-def run(ctx):
+def run(ctx,phase='before_constraints'):
+    from .coherence import enabled as coherence_enabled
+    if coherence_enabled(ctx.state):
+        from .coherence_recovery import run as repair
+        return repair(ctx,phase)
     state=ctx.state
     limits=state.scratch['ax_bundle']['limits']
     if state.scratch.get('ax_recovery_complete'): return

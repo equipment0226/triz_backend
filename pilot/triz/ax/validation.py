@@ -3,6 +3,9 @@
 
 def selection(state):
     from . import ledger
+    from . import coherence
+    assessment = coherence.assess(state) if coherence.enabled(state) else None
+    connections = {r['candidate_id']:r for r in assessment['candidates']} if assessment else {}
     versions=state.scratch.get('ax_members',{})
     observations=[r['payload'] for r in ledger.active_reviews(state.run_id,state.user_id)
         if r['payload']['target_version_id']==versions.get('concepts') and
@@ -23,6 +26,11 @@ def selection(state):
             missing.append('모순 해소 연결 미확인')
         if not candidate.working_principle or not candidate.validation_plan:
             missing.append('작동 기구 또는 검증 계획 누락')
+        connection = connections.get(candidate.id)
+        if connection:
+            missing.extend(g['description'] for g in connection['gaps'])
+            if connection['mechanism'] and connection['mechanism']['contribution'] in ('MONITOR_ONLY','ENABLER'):
+                missing.append('보조·진단 기능의 기여이며 단독 모순 해소는 추가 검토 필요')
         # A generated test plan or bibliography never certifies a performed test.
         obligations=[]
         for i,plan in enumerate(candidate.validation_plan):
@@ -40,7 +48,15 @@ def selection(state):
         rows.append({'candidate_id':candidate.id,'status':status,'missing':missing,'obligations':obligations,
                      'evidence_ids':candidate.evidence_ids,'quality_status':candidate.quality_status,
                      'constraint_verdict':check.verdict if check else 'UNKNOWN'})
-    return {'candidates':rows,'recommended':[r['candidate_id'] for r in rows if r['status']=='READY'],
+    result = {'candidates':rows,'recommended':[r['candidate_id'] for r in rows if r['status']=='READY'],
             'conditional':[r['candidate_id'] for r in rows if r['status']=='CONDITIONAL'],
             'status':'COMPLETE' if rows else 'NO_CANDIDATES',
             'scope':'개념 검토와 실제 시험 결과를 구분한 판정'}
+    if assessment:
+        result.update({k:assessment[k] for k in ('coverage_gaps','scope_status','presentation_target','retained_count','shortfall','display_limit')})
+        result['status'] = 'PARTIAL' if assessment['coverage_gaps'] or assessment['shortfall'] else result['status']
+        for row in rows:
+            connection=connections[row['candidate_id']]
+            row.update(concept_review=connection['concept_review'],test_preparation=connection['test_preparation'],
+                       structural_status=connection['structural_status'],coherence_gaps=connection['gaps'])
+    return result

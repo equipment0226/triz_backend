@@ -78,6 +78,8 @@ def research_project(tenant,project):
             if r['payload']['target_version_id']!=state.scratch.get('ax_members',{}).get('concepts'): continue
             candidate=state.concept(r['payload']['candidate_id'])
             if not candidate: continue
+            from .coherence import enabled as coherence_enabled, candidate_check
+            if coherence_enabled(state) and candidate_check(state,candidate)['gaps']: continue
             refs={idea.source_ref for idea in state.solve.raw_ideas if idea.id in candidate.source_idea_ids and idea.track=='H_EFFECTS'}
             for app in state.solve.effect_apps:
                 if app.get('ref') not in refs: continue

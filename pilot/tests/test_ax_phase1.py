@@ -21,7 +21,7 @@ def dlc():
         if_action='냉각수 온도를 높인다',then_good='냉동기 에너지 감소 가능',but_bad='GPU 접합 온도 상승',
         coupling_mechanism='GPU와 냉각수 사이 열전달 온도차 감소')]
     s.definition.physical_contradictions=[PhysicalContradiction(id='PC-DLC',element='냉각수',parameter='온도',
-        state_a='높아야 함',state_b='낮아야 함',reason_a='냉각 에너지 절감',reason_b='GPU 온도 제한')]
+        state_a='높아야 함',state_b='낮아야 함',reason_a='냉각 에너지 절감',reason_b='GPU 온도 제한',derived_from_tc_id='TC-DLC')]
     for stage in ('s2_confirm','s3_analyze','s4_define'):
         runtime.checkpoint(s,stage)
     return s
@@ -32,7 +32,13 @@ def candidate(s):
         working_principle='콜드플레이트의 국소 열전달을 개선한다',
         addresses_contradictions=['TC-DLC'],resolution_argument='동일 열부하에서 국소 열저항 감소로 보상 가능한지 검증',
         expected_effect='냉각수 온도 상승 시 GPU 온도 제한 충족 여부는 미확인',
-        assumptions=['열부하와 유량 미제공'],validation_plan=[{'test':'동일 GPU 열부하에서 온도와 펌프 전력 동시 측정'}])]
+        assumptions=['열부하와 유량 미제공'],validation_plan=[{'metric':'GPU 온도와 냉각 전력',
+            'experiment':'동일 GPU 열부하에서 온도와 펌프 전력 동시 측정','success_criterion':'기준 냉각 전력 이하 및 GPU 온도 한계 이하',
+            'failure_criterion':'온도 한계 또는 기준 전력 초과',
+            'obligation_refs':[{'contradiction_id':'TC-DLC','side':s} for s in ('IMPROVE','PROTECT')]}])]
+    s.scratch['ax_mechanisms']={'DLC-1':{'intervention':'콜드플레이트 유로 변경','target':'GPU 콜드플레이트',
+        'changed_variable':'국소 열저항','mediating_functions':['열전달 면적 및 유동 경계층 조절'],
+        'outcome':'동일 열부하에서 GPU-냉각수 온도차 감소 가능','operating_scope':'동일 열부하·유량 비교'}}
     s.constraint_checks=[ConstraintCheckResult(concept_id='DLC-1',verdict='PASS')]
     runtime.checkpoint(s,'s6_concept')
     runtime.checkpoint(s,'s7_gate')
@@ -65,7 +71,7 @@ def test_dlc_phase1_route_lineage_validation_and_report(dlc):
 
 
 def test_ax_report_can_be_reopened_while_waiting_for_feedback(dlc, monkeypatch):
-    """AX reports have no legacy diagram slots; the view must not run that parser."""
+    """The shared full template must consume every diagram while feedback waits."""
     from triz import presentation, report_content
     from triz.schema import ReportArtifact, HumanRequest
     candidate(dlc)
@@ -76,13 +82,12 @@ def test_ax_report_can_be_reopened_while_waiting_for_feedback(dlc, monkeypatch):
     dlc.control.stage_index = 12
     dlc.pending = HumanRequest(kind='FEEDBACK', title='해결책에 대한 피드백을 남겨 주세요',
         payload={'concepts': [{'concept_id':'DLC-1','title':dlc.concepts[0].title}]})
-    monkeypatch.setattr(report_content, 'sections', lambda *args: (_ for _ in ()).throw(
-        AssertionError('AX view invoked the legacy report slot parser')))
     before = dlc.model_dump(mode='json')
     result = presentation.view(dlc)
     assert result['status'] == 'WAITING_HUMAN' and result['pending']['kind'] == 'FEEDBACK'
-    assert result['report_ready'] and result['report_sections'][0]['key'] == 'ax-report'
-    assert '조건부 검토' in result['report_sections'][0]['html']
+    assert result['report_ready']
+    assert '1. 문제 정의' in [s['title'] for s in result['report_sections']]
+    assert any('조건부 검토' in b.get('html', '') for s in result['report_sections'] for b in s['blocks'])
     assert result['solutions'][0]['key'] == 'DLC-1'
     assert dlc.model_dump(mode='json') == before
 

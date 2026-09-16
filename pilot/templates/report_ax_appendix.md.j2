@@ -1,0 +1,75 @@
+## 부록 D. 검증 상태와 분석 기록
+
+{% set details = s.scratch.ax_report_details %}
+분석 버전: {{ details.snapshot_id }} · 출력 버전: {{ details.render_version }}
+
+기대 효과와 작동 기구는 설계 가설이다. 개념의 독립 검토와 실제 시험 결과를 구분한다.
+
+{% if details.missing %}
+**기록 누락 또는 미고정 항목**
+{% for item in details.missing %}
+- {{ item }}
+{% endfor %}
+{% endif %}
+
+{% if details.coherence %}
+### 원래 문제와 해결 기구의 연결
+
+| 핵심 문제 | 개선할 측면 | 보호할 측면 |
+|---|---|---|
+{% for obligation in details.coherence.obligations %}
+| {{ obligation.description | cell }} | {{ obligation.improve | cell }} | {{ obligation.protect | cell }} |
+{% endfor %}
+
+{% for item in details.coherence.candidates %}
+#### {{ item.candidate_id | lbl }}의 작동 경로
+{% if item.mechanism %}
+{% set m = item.mechanism %}
+| 개입 | 대상·물리량 | 매개 기능 | 기대 결과 | 운전 범위 |
+|---|---|---|---|---|
+| {{ m.intervention | cell }} | {{ m.target | cell }} · {{ m.changed_variable | cell }} | {{ m.mediating_functions | join(' → ') | cell }} | {{ m.outcome | cell }} | {{ m.operating_scope | cell }} |
+{% for condition in m.conditions %}
+- 적용 조건: {{ condition.condition }} — {{ condition.applicability }}
+{% endfor %}
+{% endif %}
+{% for gap in item.gaps %}
+- 보완 필요: {{ gap.description }}
+{% endfor %}
+{% endfor %}
+
+{% if details.coherence.shortfall %}
+목표 5개 대비 {{ details.coherence.shortfall }}개 부족하다. 성립·연결·제약 검토와 예산 범위에서 남긴 후보를 표시하며, 개수를 채우기 위해 불성립 후보를 추가하지 않는다.
+{% endif %}
+{% endif %}
+
+{% for row in details.selection.get('candidates', []) %}
+### {{ row.candidate_id | lbl }}
+
+**{{ {'READY':'검증 통과','CONDITIONAL':'조건부 검토','REJECTED':'제외'}.get(row.status, row.status) }}**
+{% for item in row.missing %}
+- {{ item }}
+{% endfor %}
+
+| 시험 의무 | 시험 계획 | 결과 |
+|---|---|---|
+{% for test in row.obligations %}
+| {{ loop.index }} | {{ test.description | string | cell }} | {{ {'NOT_RUN':'미실행','PASS':'통과','FAIL':'실패','UNKNOWN':'미확인','ERROR':'오류'}.get(test.status, test.status) }} |
+{% endfor %}
+{% endfor %}
+
+{% if details.selection.get('coverage_gaps') %}
+**남은 핵심 문제**
+{% for gap in details.selection.coverage_gaps %}
+- {{ gap.get('description', gap.get('obligation_id', '')) }}
+{% endfor %}
+{% endif %}
+
+{% if details.effect_applicability %}
+### 과학효과 적용 조건 검토
+
+| 요구 기능 | 작동 기구 | 적용 조건 | 판단 상태·근거 |
+|---|---|---|---|
+{% for item in details.effect_applicability %}
+| {{ item.required_function | cell }} | {{ item.mechanism | cell }} | {{ item.conditions | string | cell }} | {{ item.status | cell }} · {{ item.reason | cell }} |
+{% endfor %}
+{% endif %}

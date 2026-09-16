@@ -72,13 +72,13 @@ def reviews_current(payload,tenant,project,c):
     return set(ids)<=valid
 
 
-def train_project(tenant,project):
+def train_project(tenant,project,feature_schema='ax-features-v1'):
     from . import learning
-    manifest=learning.dataset(tenant,project)
+    manifest=learning.dataset(tenant,project,feature_schema=feature_schema)
     ready=learning.readiness(manifest)
     if not ready['ready']: return dict(ready,status='COLLECTING')
     dataset_id=put('dataset',tenant,project,manifest)
-    model=learning.train([s for s in manifest['samples'] if s['split']=='train'])
+    model=learning.train([s for s in manifest['samples'] if s['split']=='train'],feature_schema=feature_schema)
     evaluation=learning.evaluate(model,[s for s in manifest['samples'] if s['split']=='holdout'])
     eligible=(model['training']['parameters_changed'] and evaluation['logged_action_support']==1 and
         evaluation['bellman_mse'] is not None and evaluation['bellman_mse']<=evaluation['zero_q_mse'])
@@ -95,7 +95,7 @@ def train_project(tenant,project):
         'evaluation':evaluation,'parameters_changed':model['training']['parameters_changed']}
 
 
-def for_run(state):
+def for_run(state,feature_schema='ax-features-v1'):
     tenant=state.user_id; project=state.scratch.get('ax_project_id',state.user_id)
     # init is additive and also supports first V3 run on an existing installation.
     ledger.init()
@@ -107,6 +107,7 @@ def for_run(state):
             vid=pointer[field]
             if not vid: continue
             payload=get(vid,tenant,project,c)['payload']
+            if payload['model'].get('feature_schema','ax-features-v1')!=feature_schema: continue
             if not reviews_current(payload,tenant,project,c): continue
             if field=='policy_id' and int(digest(state.run_id)[:8],16)%100>=pointer['canary_percent']: continue
             result['policy' if field=='policy_id' else 'shadow_policy']=payload['model']

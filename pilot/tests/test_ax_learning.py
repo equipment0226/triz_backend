@@ -55,7 +55,7 @@ def test_dataset_consent_exact_decision_revision_and_missing_reward(dlc):
     body=reviewed_decision(dlc,consent='NO_TRAINING')
     h=ledger.head(dlc.run_id)
     def samples():
-        return [s for s in learning.dataset(h['tenant_id'],h['project_id'])['samples'] if s['run_id']==dlc.run_id]
+        return [s for s in learning.dataset(h['tenant_id'],h['project_id'],feature_schema=dlc.scratch['ax_bundle']['feature_schema'])['samples'] if s['run_id']==dlc.run_id]
     assert samples()==[]
     revised=dict(body,event_id=body['event_id']+'-consent',supersedes_event_id=body['event_id'],consent='PROJECT_ONLY')
     ledger.submit_review(dlc.run_id,'local',revised)
@@ -132,6 +132,7 @@ def test_dlc_registered_calculation_and_missing_inputs():
 def test_recovery_preserves_baseline_and_rejects_unknown_patch(dlc,monkeypatch):
     from triz import agent,quality
     candidate(dlc)
+    dlc.scratch['ax_bundle'].pop('coherence_contract')  # The pinned legacy repair contract remains supported.
     dlc.concepts[0].quality_status='REVISE'
     dlc.concepts[0].quality_issues=['기구 설명 보완']
     baseline=dlc.concepts[0].model_dump(mode='json')

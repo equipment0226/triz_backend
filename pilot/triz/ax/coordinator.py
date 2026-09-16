@@ -8,11 +8,20 @@ TRACKS=('A_MATRIX','B_SEPARATION','C_STANDARDS','D_ARIZ','E_TRIMMING','F_TRENDS'
 
 
 def features(state):
-    return [1.0, min(1,len(state.definition.technical_contradictions)/4),
+    base = [1.0, min(1,len(state.definition.technical_contradictions)/4),
             min(1,len(state.definition.physical_contradictions)/4),
             min(1,len(state.solve.gaps)/4), min(1,len(state.concepts)/3),
             min(1,len(state.evidence)/10), float(domain.physical_allowed(state)),
             max(0,1-state.cost.total_usd/max(.001,state.cost.budget_usd))]
+    if state.scratch['ax_bundle'].get('feature_schema') == 'ax-features-v2':
+        from .coherence import assess
+        report=assess(state)
+        gaps=[g for r in report['candidates'] for g in r['gaps']]
+        base += [len(report['coverage_gaps'])/max(1,len(report['obligations'])),
+                 min(1,len(gaps)/max(1,len(report['candidates'])*3)),
+                 min(1,sum(g['kind']=='ADVERSE_SIDE_OMITTED' for g in gaps)/max(1,len(report['candidates']))),
+                 min(1,sum(bool(r.get('ancestor_regression')) for r in state.scratch.get('ax_recovery',[]))/4)]
+    return base
 
 
 def feasible(state,ticket,*,handlers):
@@ -68,6 +77,7 @@ def decide(state,proposals,preferred,handlers,context):
     payload={'snapshot_id':state.scratch['ax_snapshot_id'],'context':context,
              'bundle_id':state.scratch['ax_bundle']['bundle_id'],
              'policy_version':state.scratch['ax_bundle']['policy_version'],
+             'feature_schema':state.scratch['ax_bundle'].get('feature_schema','ax-features-v1'),
              'features':features(state),'actions':rows,'proposed_index':proposed,'executed_index':chosen,
              'behavior_probability':None,'selection_mode':mode,
              'governor_override':proposed!=chosen,'override_reason':rows[proposed]['blocked_reason'] if proposed!=chosen else None}
@@ -90,13 +100,25 @@ def route(ctx):
         raise AbortRun('문제 범위를 먼저 확정해 주세요.')
     if not (state.definition.technical_contradictions or state.definition.physical_contradictions):
         raise AbortRun('해결안 탐색 전에 분석의 모순과 근거를 확인해 주세요.')
+    from .coherence import enabled as coherence_enabled
     tracks=[]
     if state.definition.technical_contradictions:
         tracks.append('A_MATRIX')
     if state.definition.physical_contradictions:
         tracks.append('B_SEPARATION')
-    if len(tracks)<3:
+    pending=[]
+    if coherence_enabled(state):
+        if domain.physical_allowed(state) and state.analysis.su_fields:
+            tracks.append('C_STANDARDS')
+        if state.definition.trimming:
+            pending.append('E_TRIMMING')
+        if state.analysis.function_edges:
+            pending.append('G_FOS')
+        pending.append('D_ARIZ')
+    if 'H_EFFECTS' not in tracks:
         tracks.append('H_EFFECTS')
+    pending=list(dict.fromkeys(tracks[3:]+pending))
+    tracks=tracks[:3]
     targets=[state.scratch['ax_members']['definition']]
     ticket=ActionTicket(action_type='GENERATE_BASELINE',target_version_ids=targets,
         parameters={'tracks':tracks,'preserve_requirements':True},expected_outputs=['CandidateVersion','ApplicabilityCheck'],
@@ -106,10 +128,46 @@ def route(ctx):
     chosen,did=decide(state,[ticket,defer],0,{'GENERATE_BASELINE','DEFER'},'s4.route')
     if chosen.action_type=='DEFER':
         raise AbortRun('추가 탐색을 보류했습니다. 조율 기록을 확인해 주세요.')
-    state.scratch['ax_coordination']={'decision_id':did,'tracks':chosen.parameters['tracks'],
+    state.scratch['ax_coordination']={'decision_id':did,'tracks':chosen.parameters['tracks'],'pending_tracks':pending,
         'reason':chosen.reason,'snapshot_id':state.scratch['ax_snapshot_id']}
     state.control.enabled_tracks=list(chosen.parameters['tracks'])
     ctx.emit('coordination',**state.scratch['ax_coordination'])
+
+
+def expand(ctx, need_more):
+    """One bounded, problem-driven follow-up through existing TRIZ executors."""
+    from .coherence import enabled as coherence_enabled, obligations
+    state=ctx.state
+    if not coherence_enabled(state):
+        return False
+    limits=state.scratch['ax_bundle']['limits']
+    rounds=state.scratch.get('ax_expansion_rounds',0)
+    if rounds>=limits.get('expansion_rounds',1):
+        return False
+    required=obligations(state)
+    addressed={cid for i in state.solve.raw_ideas if i.resolution_status!='TRADEOFF' for cid in i.addresses}
+    gaps=[o for o in required if not set(o['contradiction_ids'])&addressed]
+    count=len({i.mechanism_key or i.id for i in state.solve.raw_ideas if i.resolution_status!='TRADEOFF'})
+    pending=[t for t in state.scratch.get('ax_coordination',{}).get('pending_tracks',[]) if t not in state.solve.tracks_run]
+    # Deferred applicability/FOS is a meaningful alternative, not an arbitrary extra model call.
+    if not pending or not (need_more or gaps or count<limits['detailed_candidates'] or 'H_EFFECTS' in pending):
+        return False
+    if ledger.budget(state.run_id)['remaining_microusd']<limits['validation_reserve_microusd']+100000:
+        state.scratch['ax_expansion_deferred']='검증 예산 보존으로 추가 탐색 보류'
+        return False
+    selected=pending[:limits['branches']]
+    ticket=ActionTicket(action_type='SOLVE_SUBPROBLEM',target_version_ids=[state.scratch['ax_members']['definition']],
+        parameters={'tracks':selected,'depth':1,'attempt':rounds+1,'obligation_ids':[o['id'] for o in gaps]},
+        expected_outputs=['CandidateVersion'],allowed_tools=['legacy_tracks'],reserved_microusd=100000,
+        reason='미대응 문제와 보류된 적용 경로를 추가 탐색한다.')
+    chosen,did=decide(state,[ticket],0,{'SOLVE_SUBPROBLEM'},'solve:coverage_expansion')
+    from ..nodes import _run_tracks,_merge
+    _run_tracks(ctx,chosen.parameters['tracks'])
+    state.scratch['ax_expansion_rounds']=rounds+1
+    state.scratch['ax_coordination'].setdefault('expansions',[]).append(
+        {'decision_id':did,'tracks':selected,'obligation_ids':[o['id'] for o in gaps]})
+    _merge(ctx)
+    return True
 
 
 def stage_action(state,action_type,target):

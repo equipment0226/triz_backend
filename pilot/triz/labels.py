@@ -91,6 +91,9 @@ def _humanizer(labels):
     lookup = {key.casefold(): value for key, value in labels.items()}
     def replace(match):
         code = match['wrapped'] or match['bare']
+        # Single-letter causal IDs must not rename literal appendix labels.
+        if len(code) == 1 and match.string[max(0, match.start()-3):match.start()] == '부록 ':
+            return match.group(0)
         return lookup.get(code.casefold()) or (_KINDS.get(code.split('-')[0].upper(), '참조 항목') + ' (내용 확인 필요)')
     pattern = _reference_pattern(tuple(labels))
     # Most prose contains no reference at all. A small literal-prefix check

@@ -48,6 +48,10 @@ def report_state(state):
     # cards. Prepare its text once; this transient flag is never serialized.
     if getattr(state, '_report_prepared', False):
         return state
+    from .ax import enabled as ax_enabled
+    if ax_enabled(state) and state.report:
+        from .ax.report import project
+        state = project(state)
     labels = build_label_map(state)
     fields = ('raw_query', 'domain', 'intake', 'confirm', 'constraints', 'analysis', 'definition', 'solve', 'concepts',
               'evidence', 'constraint_checks', 'evaluation', 'report')

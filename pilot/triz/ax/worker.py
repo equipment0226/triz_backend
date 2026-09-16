@@ -33,9 +33,10 @@ def tick(max_events=100,max_projects=1):
     results=[]
     for item in work:
         policy=registry.train_project(item['tenant_id'],item['project_id'])
+        coherence_policy=registry.train_project(item['tenant_id'],item['project_id'],feature_schema='ax-features-v2')
         evolved=rules.research_project(item['tenant_id'],item['project_id'])
         with ledger.transaction() as c:
             c.execute(update(queue).where(queue.c.scope==item['scope'],queue.c.processed_revision<item['revision'])
                 .values(processed_revision=item['revision']))
-        results.append({'scope':item['scope'],'policy':policy,'rules':evolved})
+        results.append({'scope':item['scope'],'policy':policy,'coherence_policy':coherence_policy,'rules':evolved})
     return {'delivered':delivered,'projects':results,'external_llm_calls':0,'at':now()}

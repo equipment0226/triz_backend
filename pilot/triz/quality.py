@@ -11,6 +11,7 @@ def generate_concepts(ctx):
     ctx.set_stage(Stage.S6.value)
     target = max(1, int(settings.cfg("solutions.max_concepts", 12)))
     from .ax import enabled as ax_enabled
+    from .ax import coherence
     if ax_enabled(st):
         target = st.scratch['ax_bundle']['limits']['detailed_candidates']
     ideas = digest.select_ideas([i for i in st.solve.raw_ideas if i.resolution_status != "TRADEOFF"], target)
@@ -39,7 +40,8 @@ def generate_concepts(ctx):
                 "evidence_digest": digest.relevant_evidence(st, assigned),
                 "prior_cases_block": batch_prior, "taboo_block": verify.taboo_block(st),
                 "batch_size": len(assigned),
-                "batch_note": "배정된 아이디어당 최대 1개. 다른 배치의 아이디어를 만들지 않는다. 성립하지 않으면 excluded에 기록한다."},
+                "batch_note": "배정된 아이디어당 최대 1개. 다른 배치의 아이디어를 만들지 않는다. 성립하지 않으면 excluded에 기록한다.",
+                "coherence_contract": coherence.contract_instruction(st)},
             default={}) or {}
         return assigned, result, bool(batch_prior)
 
@@ -67,6 +69,8 @@ def generate_concepts(ctx):
             seen.add(key)
             used_sources.update(source_ids)
             c.mechanism_key = " + ".join(key)
+            if coherence.enabled(st):
+                st.scratch.setdefault('ax_mechanisms', {})[c.id] = raw.get('coherence')
             c.quality_status = "UNVERIFIED"  # generator cannot approve itself
             c.assumptions = list(dict.fromkeys(c.assumptions + [condition for i in sources for condition in i.conditions]))
             c.hypothesis_ids = list(dict.fromkeys(c.hypothesis_ids + [h for i in sources for h in i.hypothesis_ids]))
@@ -87,7 +91,7 @@ def generate_concepts(ctx):
     st.scratch["excluded_concepts"] = excluded
     audit_concepts(ctx)
     ctx.emit("artifact", kind="CONCEPTS", data={"count": len(st.concepts), "titles": [c.title for c in st.concepts]})
-    if len(st.concepts) < (1 if ax_enabled(st) else int(settings.cfg("solutions.min_concepts", 8))):
+    if len(st.concepts) < (st.scratch['ax_bundle']['limits'].get('presentation_target',1) if ax_enabled(st) else int(settings.cfg("solutions.min_concepts", 8))):
         ctx.warn("충분한 근거를 가진 개념만 유지했습니다. 후보 개수보다 모순 해소와 검증 가능성을 우선합니다.")
     ctx.persist()
 
@@ -103,8 +107,18 @@ def audit_concepts(ctx):
         "addresses_contradictions": c.addresses_contradictions, "resolution_argument": c.resolution_argument,
         "expected_effect": c.expected_effect, "assumptions": c.assumptions, "open_risks": c.open_risks,
         "validation_plan": c.validation_plan, "transfer_conditions": c.transfer_conditions} for c in st.concepts]
+    from .ax import coherence
+    coherence_checks = {}
+    if coherence.enabled(st):
+        coherence_checks = {c.id: coherence.candidate_check(st,c) for c in st.concepts}
+        for packet in packets:
+            packet['coherence'] = coherence_checks[packet['concept_id']]
     step.input_slice = {"concepts": packets, "facts": digest.facts_packet(st)}
-    verdict = agent.verify_artifact(ctx, "R6_CONCEPT", {"concepts": packets}, "후보별 판단을 per_concept에 반드시 기록한다.")
+    verdict = agent.verify_artifact(ctx, "R6_CONCEPT", {"concepts": packets},
+        "후보별 판단을 per_concept에 반드시 기록한다. 개입→매개 기능→결과의 물리적 타당성, 원래 모순 양측, "
+        "조건의 적용 범위와 원인 가설을 독립 검토한다. 경로 문자열의 존재는 타당성 증명이 아니다. "
+        "미실험은 설계 불성립과 구분한다. 능동 구동 누락은 수동/진단안에 적용하지 않는다." if coherence.enabled(st)
+        else "후보별 판단을 per_concept에 반드시 기록한다.")
     usage = verdict.pop("_tokens", None)
     if usage:
         step.tokens_in, step.tokens_out, step.cost_usd = usage
@@ -131,6 +145,11 @@ def audit_concepts(ctx):
             flaws = verdict["fatal_flaws"]
             status, issues = "REJECT", flaws if isinstance(flaws, list) else [flaws]
         c.quality_status, c.quality_issues = status, [str(i) for i in issues]
+        structural = coherence_checks.get(c.id, {}).get('gaps', [])
+        if structural:
+            if c.quality_status != 'REJECT':
+                c.quality_status = 'REVISE'
+            c.quality_issues.extend(g['description'] for g in structural)
         if not c.resolution_argument or not c.validation_plan or not c.addresses_contradictions:
             if status != "REJECT":
                 c.quality_status = "REVISE"

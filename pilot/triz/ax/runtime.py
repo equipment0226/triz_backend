@@ -55,7 +55,7 @@ def bundle(state=None):
 def initialize(state):
     state.scratch['workflow_version']=WORKFLOW
     state.scratch['ax_bundle']=bundle(state)
-    state.cost.budget_usd=float(state.scratch['ax_bundle']['config'].get('ax',{}).get('hard_budget_usd',1.0))
+    state.cost.budget_usd=float(state.scratch['ax_bundle']['config'].get('ax',{}).get('hard_budget_usd',2.0))
     state.scratch['ax_gates']={key:{'label':label,'status':'NOT_RUN'} for key,label,_ in GATES}
     ledger.bootstrap(state,state.scratch['ax_bundle'])
     ledger.capture(state,{'input':section(state,'input')},DEPENDENCIES,'run_created')

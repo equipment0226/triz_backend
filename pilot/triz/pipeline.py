@@ -44,7 +44,7 @@ def create_run(raw_query, *, mode=None, user_id="local", attachments=None, workf
     state = GlobalState(run_id=f"run-{uuid.uuid4().hex[:12]}", user_id=user_id, raw_query=raw_query)
     state.scratch.update(pipeline_version=3, execution_epoch=0)
     # A new project takes today's server defaults, never another run's pinned context.
-    state.cost.budget_usd = float(settings.triz.get('run',{}).get('budget_usd',1.0))
+    state.cost.budget_usd = float(settings.triz.get('run',{}).get('budget_usd',2.0))
     if mode:
         state.control.mode = RunMode[mode.upper()]
         state.scratch["mode_locked"] = True

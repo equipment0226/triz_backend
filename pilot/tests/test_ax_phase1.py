@@ -72,10 +72,10 @@ def test_nonphysical_effect_search_uses_canonical_domain(dlc,kind):
     assert {e['domain'] for e in results}=={'INFORMATIONAL'}
 
 
-def test_new_project_gets_its_own_dollar_despite_old_pinned_context(dlc,monkeypatch):
+def test_new_project_gets_its_own_two_dollars_despite_old_pinned_context(dlc,monkeypatch):
     from triz.settings import settings
     from triz.execution_config import profile
-    monkeypatch.setitem(settings.triz['ax'],'hard_budget_usd',1.0)
+    monkeypatch.setitem(settings.triz['ax'],'hard_budget_usd',2.0)
     old=copy.deepcopy(dlc.scratch['ax_bundle'])
     old['config']['ax']['hard_budget_usd']=.6
     token=profile.set(old)
@@ -86,9 +86,9 @@ def test_new_project_gets_its_own_dollar_despite_old_pinned_context(dlc,monkeypa
         second=pipeline.create_run('Second independent budget project',workflow_version=WORKFLOW)
     finally:
         profile.reset(token)
-    assert first.cost.budget_usd==second.cost.budget_usd==1.0
-    assert ledger.budget(first.run_id)['remaining_microusd']==250000
-    assert ledger.budget(second.run_id)['remaining_microusd']==1000000
+    assert first.cost.budget_usd==second.cost.budget_usd==2.0
+    assert ledger.budget(first.run_id)['remaining_microusd']==1250000
+    assert ledger.budget(second.run_id)['remaining_microusd']==2000000
     assert second.cost.total_usd==0
     # Changing future defaults or pressing resume does not grant this run a new dollar.
     first.status='INTERRUPTED'
@@ -98,8 +98,8 @@ def test_new_project_gets_its_own_dollar_despite_old_pinned_context(dlc,monkeypa
     monkeypatch.setattr(pipeline,'start',lambda run_id:None)
     assert pipeline.continue_run(first.run_id)
     resumed=store.load_state(first.run_id)
-    assert resumed.cost.budget_usd==1.0 and resumed.cost.total_usd==.75
-    assert ledger.budget(first.run_id)['remaining_microusd']==250000
+    assert resumed.cost.budget_usd==2.0 and resumed.cost.total_usd==.75
+    assert ledger.budget(first.run_id)['remaining_microusd']==1250000
 
 
 def test_reviews_idempotent_stale_epoch_and_owner(dlc):

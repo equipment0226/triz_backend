@@ -6,13 +6,13 @@
 run:
   default_mode: FULL          # LITE | FULL | DEEP
   lang: ko
-  budget_usd: 1.0             # legacy 실행 한도. 초과 시 중단하며 추론 품질을 자동 강등하지 않는다.
+  budget_usd: 2.0             # 프로젝트별 실행 한도. 초과 시 중단하며 추론 품질을 자동 강등하지 않는다.
   max_wallclock_min: 90
   parallel_workers: 4
 
 ax:
   enabled: true              # 신규 실행만 AX. TRIZ_AX_ENABLED=false로 신규 실행 롤백 가능.
-  hard_budget_usd: 1.0       # 모델 API 비용. 기존 서버·DB·벡터 인프라 고정비는 별도.
+  hard_budget_usd: 2.0       # 프로젝트별 모델 API 비용. 기존 서버·DB·벡터 인프라 고정비는 별도.
   max_provider_attempts: 2
   coordinator_hitl: false
   learning_worker: separate_cpu_process

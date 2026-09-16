@@ -2,11 +2,13 @@
 
 2026-09-16 사용자 요청에 따른 기존 TRIZ 변경이다. 이후 Patent (Test) 구현과 분리한다.
 
-- 신규 프로젝트는 각각 US$1. 다른 실행의 고정 설정이나 사용액을 상속하지 않는다.
-- `TRIZ_PROJECT_BUDGET_USD=1`이 legacy 및 AX 신규 실행 기본값에 함께 적용된다.
+- 최신 사용자 요청에 따라 신규 프로젝트는 각각 US$2. 다른 실행의 고정 설정이나 사용액을 상속하지 않는다.
+- `TRIZ_PROJECT_BUDGET_USD=2`가 legacy 및 AX 신규 실행 기본값에 함께 적용된다. 이전 US$1 설정을 대체한다.
 - 기존 실행 재개는 그 실행의 원래 한도와 누적 사용액을 보존한다. 재개로 예산을 충전하지 않는다.
+- 명시적인 운영자 상향은 `triz.budget_limits.increase`로 적용한다. US$2 미만 기존 프로젝트는 US$2로 올리며, 더 큰 한도·사용액·예약·분석 결과·고정 bundle은 보존한다.
+- 사용자가 별도로 승인한 중단 프로젝트 `run-b018859ea3f5`는 US$3 → US$5로 상향했다. 반영 당시 누적 사용액 US$2.79833784, 자동 재개 없음.
 - T1 출력 16,000, T2/T3 출력 32,000 토큰. 주요 생성·검토 단계의 별도 출력 제한도 확대했다.
 - 모델 요청 timeout 300초, 실행 시간 상한 90분. 재시도·후보 수 상한은 유지한다.
-- 검증: 기존 backend 회귀 402개, 예산 환경변수·legacy 분리 추가 6개, frontend gateway 1개, AX 브라우저 1개 통과. frontend production build 통과.
+- 최신 검증: `.venv/Scripts/python.exe -m pytest pilot/tests -q` — 410 passed. 기존 한도 상향의 JSON/보고서·사용액·예약 보존과 중복 적용 방지도 포함한다. frontend gateway 1개, AX 브라우저 1개 및 production build 통과.
 - 모델 유료 호출 없이 시험했다. 운영 배포 후 실제 설정 및 임시 DB에서 신규 프로젝트·재개 동작을 별도 검사한다.
 - `concept/`, `triz_ax_v3_design/`, `TRIZ_AX_V3_MASTER_DESIGN.md`를 Git 추적에서 제외한다. 점검 당시 두 원격 main에는 설계 원본이 없었다.

@@ -47,6 +47,8 @@ def view(state):
                else "분석이 잠시 멈췄어요. 설정을 확인한 뒤 이어서 진행할 수 있어요." if state.status in ("FAILED", "INTERRUPTED")
                else f"{object_phrase(steps[min(index, len(steps)-1)]['label'])} 진행하고 있어요.")
     diagrams = [f for f in visuals.figures(report) if f['key'] != 'nine-windows']
+    from .ax.runtime import public_view
+    ax = public_view(state)
     result = dict(run_id=state.run_id, title=state.scratch.get("title") or state.raw_query[:60],
         query=state.raw_query, industry=state.domain.industry, system=state.domain.target_system,
         status=state.status, stage_index=index, stages=steps, guide=message,
@@ -56,7 +58,7 @@ def view(state):
         constraints=[c.statement for c in state.constraints.items],
         reviewers=[dict(role=p.role_name, mandate=p.mandate, avatar=i % 6) for i, p in enumerate(state.evaluation.reviewers)],
         solutions=sorted(solutions, key=lambda c: c["rank"] or 999), figures=diagrams,
-        report_sections=sections(report, diagrams) if state.report else [],
+        report_sections=sections(report, diagrams) if state.report and not ax else [],
         summary=plain_text(human(state.report.narrative.get("executive_summary", ""))) if state.report else "",
         report_ready=bool(state.report), additions=state.scratch.get("patent_additions", []),
         evidence_gaps=state.scratch.get("evidence_gaps", []), search_status=report.scratch['search_status'],
@@ -67,8 +69,6 @@ def view(state):
         for key in ('conditional', 'concepts'):
             for item in result['pending']['payload'].get(key, []):
                 item['display_label'] = labels.get(item.get('concept_id'), human(item.get('title')))
-    from .ax.runtime import public_view
-    ax=public_view(state)
     if ax:
         from .ax.validation import selection
         status=state.scratch.get('ax_selection') or selection(state)

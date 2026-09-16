@@ -64,6 +64,29 @@ def test_dlc_phase1_route_lineage_validation_and_report(dlc):
     assert pipeline.stage_list()[6]['key']=='s5_solve'
 
 
+def test_ax_report_can_be_reopened_while_waiting_for_feedback(dlc, monkeypatch):
+    """AX reports have no legacy diagram slots; the view must not run that parser."""
+    from triz import presentation, report_content
+    from triz.schema import ReportArtifact, HumanRequest
+    candidate(dlc)
+    runtime.checkpoint(dlc, 's8_evaluate')
+    runtime.before_stage(RunContext(dlc), 's9_report')
+    dlc.report = ReportArtifact(narrative={})
+    dlc.status = 'WAITING_HUMAN'
+    dlc.control.stage_index = 12
+    dlc.pending = HumanRequest(kind='FEEDBACK', title='해결책에 대한 피드백을 남겨 주세요',
+        payload={'concepts': [{'concept_id':'DLC-1','title':dlc.concepts[0].title}]})
+    monkeypatch.setattr(report_content, 'sections', lambda *args: (_ for _ in ()).throw(
+        AssertionError('AX view invoked the legacy report slot parser')))
+    before = dlc.model_dump(mode='json')
+    result = presentation.view(dlc)
+    assert result['status'] == 'WAITING_HUMAN' and result['pending']['kind'] == 'FEEDBACK'
+    assert result['report_ready'] and result['report_sections'][0]['key'] == 'ax-report'
+    assert '조건부 검토' in result['report_sections'][0]['html']
+    assert result['solutions'][0]['key'] == 'DLC-1'
+    assert dlc.model_dump(mode='json') == before
+
+
 @pytest.mark.parametrize('kind',['INFORMATION_SOFTWARE','ORGANIZATIONAL_BUSINESS'])
 def test_nonphysical_effect_search_uses_canonical_domain(dlc,kind):
     dlc.domain.problem_type=kind

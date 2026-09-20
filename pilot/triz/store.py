@@ -107,6 +107,8 @@ def create_run(state, title=""):
             title=title or state.raw_query[:60], mode=state.control.mode.value,
             industry=state.domain.industry, target_system=state.domain.target_system,
             status=state.status, current_stage=state.control.current_stage, cost_usd=0, started_at=_now()))
+        # Keep a recoverable state beside the identity, even if later setup fails.
+        c.execute(states.insert().values(run_id=state.run_id, state_json=state.model_dump_json(), updated_at=_now()))
 def _save_state_db(c, state):
     """Projection writer also used by AX's atomic artifact/outbox transaction."""
     payload = state.model_dump_json()

@@ -11,7 +11,7 @@ from contextlib import asynccontextmanager, suppress, AsyncExitStack
 from pathlib import Path
 from typing import Any, Optional
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Header, Depends, Request, Query
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Header, Depends, Request, Query, BackgroundTasks
 from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse, JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -214,13 +214,62 @@ def knowledge(name: str) -> Any:
 
 
 # ───────────────────────────────── 실행
-@app.post("/api/runs")
+def _start_created_run(run_id):
+    # The project is already durable and the client has its URL. A dispatcher
+    # outage must be presented on that project, never as failed creation.
+    try:
+        pipeline.start(run_id)
+    except Exception:
+        import logging
+        logging.getLogger(__name__).exception('Initial dispatch failed for %s', run_id)
+        # n8n failures are marked by pipeline.start. Local launch failures and
+        # interrupted processes are also covered by the orphan monitor.
+
+
+def _submission_run_id(user_id, request_id):
+    return 'run-' + (hashlib.sha256((user_id + ':' + request_id).encode()).hexdigest()[:32]
+                     if request_id else uuid.uuid4().hex[:12])
+
+
+def _create_submission(query, mode, attachments, user_id, public_consent, request_id):
+    fingerprint = hashlib.sha256(json.dumps({
+        'query': query.strip(), 'mode': mode, 'public_consent': public_consent,
+        'files': [(a.filename, a.sha256) for a in attachments],
+    }, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+    # Scope retry identity to the authenticated owner, including across workers.
+    run_id = _submission_run_id(user_id, request_id)
+    try:
+        with store.run_lock('create:' + run_id):
+            state = store.load_state(run_id)
+            if state:
+                if state.user_id != user_id or state.scratch.get('creation_fingerprint') != fingerprint:
+                    raise HTTPException(409, '이미 접수된 요청과 내용이 다릅니다. 새 문제 분석으로 시작해 주세요.')
+                setup_pending = state.scratch.get('creation_pending', False)
+                if setup_pending:
+                    state = pipeline.finish_creation(state)
+                if public_consent and not store.is_published(run_id):
+                    store.publish_run(run_id, user_id)
+                return state.run_id, setup_pending
+            state = pipeline.create_run(query.strip(), mode=mode, attachments=attachments,
+                user_id=user_id, run_id=run_id, creation_fingerprint=fingerprint)
+            if public_consent:
+                store.publish_run(state.run_id, user_id)
+            return state.run_id, True
+    except RuntimeError as exc:
+        if str(exc) == 'Run is busy':
+            raise HTTPException(409, '같은 문제를 접수하고 있습니다. 잠시 후 다시 확인해 주세요.') from exc
+        raise
+
+
+@app.post("/api/runs", status_code=202)
 async def create_run(
     request: Request,
+    background_tasks: BackgroundTasks,
     query: str = Form(...),
     mode: Optional[str] = Form(None),
     public_consent: bool = Form(False),
     files: list[UploadFile] = File(default=[]),
+    idempotency_key: str = Header(default='', max_length=128),
 ) -> dict:
     if settings.require_user_auth and not public_consent:
         raise HTTPException(422, "무료 베타의 문제·분석·보고서 공개에 동의한 뒤 분석을 시작해 주세요.")
@@ -232,6 +281,7 @@ async def create_run(
         raise HTTPException(422, "분석 모드를 확인해 주세요.")
     if len(files) > 8:
         raise HTTPException(413, "첨부는 최대 8개입니다.")
+    mode = mode.upper() if mode else None
     attachments: list[Attachment] = []
     updir = settings.storage_dir / "uploads"
     updir.mkdir(parents=True, exist_ok=True)
@@ -255,11 +305,21 @@ async def create_run(
                                       kind=docparse.kind_of(f.filename),
                                       extracted_text=text, extracted_facts=facts,
                                       storage_path=safe, sha256=hashlib.sha256(data).hexdigest()))
-    state = pipeline.create_run(query, mode=mode, attachments=attachments, user_id=getattr(request.state, "user_id", "local"))
-    if public_consent:
-        store.publish_run(state.run_id, state.user_id)
-    await asyncio.to_thread(pipeline.start, state.run_id)
-    return {"run_id": state.run_id}
+    user_id = getattr(request.state, 'user_id', 'local')
+    run_id = None
+    try:
+        run_id, created = await asyncio.to_thread(_create_submission, query, mode, attachments,
+            user_id, public_consent, idempotency_key)
+    finally:
+        if attachments and (run_id or idempotency_key):
+            saved = await asyncio.to_thread(store.load_state, run_id or _submission_run_id(user_id, idempotency_key))
+            owned = {a.storage_path for a in saved.intake.attachments} if saved else set()
+            for attachment in attachments:
+                if attachment.storage_path not in owned:
+                    (updir / attachment.storage_path).unlink(missing_ok=True)
+    if created:
+        background_tasks.add_task(_start_created_run, run_id)
+    return {"run_id": run_id, "reused": not created}
 
 
 @app.get("/api/runs")

@@ -38,11 +38,15 @@ def envelope(state):
     return dict(run_id=state.run_id, stage_index=state.control.stage_index,
                 epoch=state.scratch.get("execution_epoch", 0), status=state.status,
                 continue_execution=state.status == "RUNNING" and not state.pending)
-def create_run(raw_query, *, mode=None, user_id="local", attachments=None, workflow_version=None):
+def create_run(raw_query, *, mode=None, user_id="local", attachments=None, workflow_version=None,
+               run_id=None, creation_fingerprint=None):
     if not raw_query.strip():
         raise ValueError("문제를 입력해 주세요.")
-    state = GlobalState(run_id=f"run-{uuid.uuid4().hex[:12]}", user_id=user_id, raw_query=raw_query)
+    state = GlobalState(run_id=run_id or f"run-{uuid.uuid4().hex[:12]}", user_id=user_id, raw_query=raw_query)
     state.scratch.update(pipeline_version=3, execution_epoch=0)
+    if creation_fingerprint:
+        state.scratch['creation_fingerprint'] = creation_fingerprint
+        state.scratch['creation_pending'] = True
     # A new project takes today's server defaults, never another run's pinned context.
     state.cost.budget_usd = float(settings.triz.get('run',{}).get('budget_usd',2.0))
     if mode:
@@ -50,10 +54,16 @@ def create_run(raw_query, *, mode=None, user_id="local", attachments=None, workf
         state.scratch["mode_locked"] = True
     state.intake.attachments = attachments or []
     store.create_run(state)
+    return finish_creation(state, workflow_version=workflow_version)
+
+
+def finish_creation(state, *, workflow_version=None):
+    """A retry can finish setup on its durable identity without making a new run."""
     from .ax import WORKFLOW
     from .ax.runtime import initialize, new_runs_enabled
     if workflow_version == WORKFLOW or (workflow_version is None and new_runs_enabled()):
         initialize(state)
+    state.scratch.pop('creation_pending', None)
     store.save_state(state)
     return state
 def _upgrade(state):
@@ -314,6 +324,8 @@ def continue_run(run_id):
     def apply(state):
         if state.pending or state.status not in ("INTERRUPTED", "FAILED", "CREATED", "QUEUED"):
             return False
+        if state.scratch.get('creation_pending'):
+            finish_creation(state)
         state.scratch["last_stage_seq"] = len(state.steps)
         # Resume preserves this project's own cap and accumulated spend. Global
         # defaults apply only when creating a project, never reset its allowance.
@@ -385,7 +397,7 @@ def recover_orphans():
     with store.engine.connect() as connection:
         rows = connection.execute(select(store.runs.c.run_id, store.states.c.updated_at)
             .join(store.states, store.runs.c.run_id == store.states.c.run_id)
-            .where(store.runs.c.status.in_(("RUNNING", "QUEUED")))).mappings().all()
+            .where(store.runs.c.status.in_(("CREATED", "RUNNING", "QUEUED")))).mappings().all()
     recovered = []
     for row in rows:
         try:
@@ -394,7 +406,7 @@ def recover_orphans():
                     if row["run_id"] in _RUNNING:
                         continue
                 state = store.load_state(row["run_id"])
-                if not state or state.pending or state.status not in ("RUNNING", "QUEUED"):
+                if not state or state.pending or state.status not in ("CREATED", "RUNNING", "QUEUED"):
                     continue
                 active = state.scratch.get("execution_stage_active") or state.scratch.get("execution_deadline")
                 last_progress = state.scratch.get("execution_progress_at")

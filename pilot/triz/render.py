@@ -354,9 +354,12 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
         return markdown(state, diagram=diagram, references=references)
     from .visuals import figures
     from .report_style import reference_cards, report_state
-    from .labels import display_value
+    from .labels import display_value, executive_summary
     from .review_comments import by_concept
     labels = build_label_map(state)
+    narrative = dict(narrative or {})
+    if 'executive_summary' in narrative:
+        narrative['executive_summary'] = executive_summary(narrative['executive_summary'], state)
     narrative = display_value(narrative, labels)
     state = report_state(state)
     env = _env(labels)

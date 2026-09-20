@@ -25,13 +25,13 @@ def _short(text: str, n: int = 28) -> str:
     return text if len(text) <= n else text[:n - 1].rstrip() + '…'
 
 
-def _description(*values, fallback='내용 확인 필요'):
+def _description(*values, fallback='내용 확인 필요', shorten=True):
     for value in values:
         text = ID_RE.sub('', str(value or ''))
         text = re.sub(r'해결(?:안|책)\s*\d+\s*', '', text)
         text = re.sub(r'\(\s*\)|\[\s*\]|「\s*」', '', text).strip(' ·:,-')
         if text:
-            return _short(text)
+            return _short(text) if shorten else text
     return fallback
 
 
@@ -68,6 +68,47 @@ def build_label_map(state) -> dict[str, str]:
         labels[c.persona_id] = _description(c.role_name, fallback='검토자')
     # Avoid recursively expanding references in labels themselves.
     return {k: humanize(v, {}) for k, v in labels.items()}
+
+
+def executive_summary(text, state):
+    """Use full descriptions in the summary without changing other report labels."""
+    labels = build_label_map(state)
+    numbered = {}
+    for kind, items in (('해결안', state.concepts), ('제약', state.constraints.items)):
+        for number, item in enumerate(items, 1):
+            values = (item.title, item.one_liner, item.working_principle, item.description) if kind == '해결안' else (item.statement,)
+            full = _description(*values, shorten=False)
+            numbered[(kind, str(number))] = (full, _description(*values))
+            labels[item.id] = full
+    text = str(text or '')
+    # The shared resolver consumes solution wrappers, but leaves constraint numbers.
+    constraint_codes = '|'.join(re.escape(c.id) for c in state.constraints.items if c.id)
+    if constraint_codes:
+        text = re.sub(r'제약\s*\d+\s*(?=\(\s*`?(?:' + constraint_codes + r')`?\s*\))', '', text, flags=re.I)
+    text = humanize(text, labels)
+    pattern = re.compile(r'(해결(?:안|책)|제약)\s*(\d+)\s*')
+    def unwrap(chunk):
+        out, pos = [], 0
+        while match := pattern.search(chunk, pos):
+            out.append(chunk[pos:match.start()])
+            end = match.end()
+            full, short = numbered.get((match[1].replace('해결책', '해결안'), match[2]), ('', ''))
+            if end < len(chunk) and chunk[end] == '(':
+                depth, cursor = 1, end + 1
+                while cursor < len(chunk) and depth:
+                    depth += (chunk[cursor] == '(') - (chunk[cursor] == ')')
+                    cursor += 1
+                if depth == 0:
+                    content = chunk[end + 1:cursor - 1]
+                    out.append(full if full and content.strip() == short else content)
+                    pos = cursor
+                    continue
+            out.append(full or match[0])
+            pos = end
+        out.append(chunk[pos:])
+        return ''.join(out)
+    parts = re.split(r'(https?://[^\s<>\[\]"\x27]+)', text)
+    return ''.join(part if i % 2 else unwrap(part) for i, part in enumerate(parts))
 
 
 @lru_cache(maxsize=64)

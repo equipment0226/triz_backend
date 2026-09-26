@@ -1,0 +1,163 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "be6c31928cfc8b4c49617a4697a1befb838397cee2627c1e24174326b749458b",
+  "reviews": [
+    {
+      "identifier": "AR-081798-A1",
+      "source_fingerprint": "70e8e1d61c46e825968f5ed7df8e0735dcf16258c92377dd66ca285f6ffb5e6b",
+      "content_hash": "e60177f70ffbea4c7038f4b15e39671e7505637618c0ece2691b3ca76018c872",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유연 대형 부품을 변형·이동하며 고정 분사기로 도장한다."
+    },
+    {
+      "identifier": "AR-081804-A1",
+      "source_fingerprint": "b73aa251147340ca8432cb8c4c982005b5ad6f79de499b0c971b59fe84ff031c",
+      "content_hash": "f82dcc1b5b7a13bfec7fbf72c1e83121a692886da8e172044dc70126d306c91f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물병 방제 배합의 상세 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-081810-A1",
+      "source_fingerprint": "7abeca7ce1f1e30e4a4376df5d2ef5e3ebb616735b302d22c35e9ce032bdbf5a",
+      "content_hash": "9ccd3dd5007b4a0c09afb05a852c25913173d8d72bb12d9b1a314a3c48c4a4bd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제의 치환기와 용도만 있고 분자 표적은 미상이다. 저장 초록 끝이 잘려 있다."
+    },
+    {
+      "identifier": "AR-081814-A1",
+      "source_fingerprint": "230fd397562d69acbbc18459d78135e033b03b57a195a0b68927633e5398005b",
+      "content_hash": "980d307326f7b18134d445cdad1c9f791db316e510904c8720ee4b313356e5dc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "단맛 증강 화합물의 구조만 있고 수용체 결합 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-081816-A1",
+      "source_fingerprint": "37066df513a38f03fd9e99fc4cd389c74031410bd5e4352a7e694dcb8af7bb27",
+      "content_hash": "30b927d7a69d2e3f97b5d06beaa9fe0731fc8543a0cc55ab2e99ef9d0818a5a5",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation"
+      ],
+      "reason": "고분자 기능기가 금속 이온을 포획한다."
+    },
+    {
+      "identifier": "AR-081818-A1",
+      "source_fingerprint": "e29c6bfcba1785bc826162caf8ebcee300fe87fb27699c3aa718d2ec811b5e65",
+      "content_hash": "d43b35eccab77d4aeb663be1aeba8e36b39a8a3da6878a435838fd9eaa176a4d",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "블록의 돌기·홈·걸림면으로 옹벽의 횡방향 이동을 제한한다."
+    },
+    {
+      "identifier": "AR-081827-A1",
+      "source_fingerprint": "399989d264e7baa0ed460f64adee33e352d110519d58d8c6bc6f98c932a8bca0",
+      "content_hash": "6a79a16e3149f88996f8b8c1c01a500a9e3bf10a58eb460547be781ded3c2e58",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물당 대사 유전자 발현과 적응 선택을 결합한다. 선택 생존에 의한 형질 농축 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-081858-A1",
+      "source_fingerprint": "3c0ddcbf2a90b1f3a2da6840bd0b1025ae7aa30b0b82e0584f1e5b9b18906bba",
+      "content_hash": "de43ef244b5cb08399396c530e8a5b239347ea66f70ccc586bf6c84e1de5854e",
+      "decision": "LINK",
+      "keys": [
+        "fluorescence-sensing",
+        "geometric-optical-occlusion"
+      ],
+      "reason": "발광층과 불투명 패턴을 겹쳐 광여기 시 보안 무늬를 보이게 한다."
+    },
+    {
+      "identifier": "AR-081869-A1",
+      "source_fingerprint": "9d66b0e7e88c656480a2b80c3283ef5a07eacc875c82191afe83cce602e42776",
+      "content_hash": "9ec86a9a511bf15e980c83828f7bbcd4b9471ba8fa317068b8f00427e2c6edac",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "정상·역상 전류를 합성해 불평형 삼상을 만든다. 대칭 좌표 성분 분해 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-081870-A1",
+      "source_fingerprint": "225712fe88a56054261791309e28367624a439b4b3f7af1071308b06ab012c5c",
+      "content_hash": "08482bf00862455eed6c1706b57f86c2afcd98c230cfd21a1e854b5cacd41cb5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "산 첨가로 약물 저장 안정성을 높이지만 분해 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-081872-A1",
+      "source_fingerprint": "c4f29933c6486e1b89c04ca27458d53416190e5d41332a566f19bc7b562e501f",
+      "content_hash": "cfb3185aaf77319ac0cb9b17215674e5bf0fd9394af3e7826c4658c9fdaff951",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "산성 영양액의 용해 단백질 조성이며 단백질 종류·상분리 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-081894-A1",
+      "source_fingerprint": "cdec58d028af6eeb847fa34603305d9d65ce295469b856c1111986ccc7de0284",
+      "content_hash": "0861549970d60173215ae385d46d8d9e47551b49673b3762aaa5a5c587440ba9",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "시클로프로펜으로 식물 에틸렌 작용을 억제한다. 전구체 구조의 상세 반응은 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-081912-A1",
+      "source_fingerprint": "5117871ebfdb4eb58226622efc5a4d47f1bd87d522b6fc2cb7cebb6360005135",
+      "content_hash": "a7bf0042a11274cb829e0636cd0e7e999b5ebfe7e23db7c9220d58e89bcad2c6",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering"
+      ],
+      "reason": "아세트산염 완충 항체 제형이다. 염에 의한 점도 감소의 분자간 상호작용은 미상이다."
+    },
+    {
+      "identifier": "AR-081919-A1",
+      "source_fingerprint": "9c8aaf49b19b2ebfafc2edd562d8b7f860cdb29138aea3d42b8563115eca34b9",
+      "content_hash": "f7f2fb774877e3ea64d81a8e5be4281d91358016cfacae9d8d484b5b3381c914",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "Trk 키나아제 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-081940-A4",
+      "source_fingerprint": "6e1feefbb8147e51aca0a543b6e0c6c44b706c399febf85b89d501c97f712261",
+      "content_hash": "ba6e5cc3413ed54d0c792e2eb925c9a0b023b69e4366fff12f8f37b1bb011e56",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "병뚜껑 내부 요철과 일체 성형된 고분자 삽입물을 고정한다."
+    },
+    {
+      "identifier": "AR-081964-A1",
+      "source_fingerprint": "3abdf6ca3f93bfc726bd06111959e8bd37b97c3fa55f3e2d5ae44370f9e912bd",
+      "content_hash": "67da6497b3ad0fa37c437f6ece902cfc5f355df0713845a8a7f101136bf2dc45",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "무스카린 수용체 길항을 명시한다."
+    },
+    {
+      "identifier": "AR-081970-A1",
+      "source_fingerprint": "f6ee3a3a879e7dab7c824174f6c9a8ad4b165ff6628d816749851445f66d634a",
+      "content_hash": "d63b82374942563af71e759d87d201ad65f9183b69b49ec954c914ae01bebbbc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구충제의 비수성 현탁·용해 배합이다. 개별 작용점과 상승 기전은 초록에 없다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:23:09.883762+00:00"
+}

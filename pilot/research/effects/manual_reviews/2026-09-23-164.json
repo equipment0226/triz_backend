@@ -1,0 +1,211 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "091b913e8295039379b9e69dd56579cd3a83c5e9d32c1b2cf919b0f088b98a8d",
+  "reviews": [
+    {
+      "identifier": "AR-101920-A1",
+      "source_fingerprint": "8c7b7152ffe61a5403875fb909f8bf9d943e2261518cfd1a2e036a7cdc362094",
+      "content_hash": "6c00da8280395cdad7e67db09fa305ba4f07e49066ce19d2b6d3f8a4f19d93ce",
+      "decision": "LINK",
+      "keys": [
+        "water-electrolysis",
+        "boiling-heat-transfer"
+      ],
+      "reason": "외부 전기로 물을 전기분해하고 배기 열로 물을 증발시킨다. 자석 전처리의 효율 향상이나 에너지 자립은 입증되지 않았다."
+    },
+    {
+      "identifier": "AR-101935-A1",
+      "source_fingerprint": "c3f952ce6b5848ff784b539412a364cd1376ff33fee79159373d666e76858317",
+      "content_hash": "edff6569261d6b46a75b955693856573cec20fac5889928ea219e4b4e382729c",
+      "decision": "LINK",
+      "keys": [
+        "electrodeposition"
+      ],
+      "reason": "비철금속을 전해 채취하고 양극 전류 이상을 감시한다. 전류 센서 방식은 미상이다."
+    },
+    {
+      "identifier": "AR-101938-A1",
+      "source_fingerprint": "d3fca33f006e1acae4abc3cd82c0ba20fea2980c5cbede2ffcf803792fe3485e",
+      "content_hash": "35a90c47d809aa3696454b2dabdd93e3fb920c99fa0301f675ab23e7b49c93bb",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "제조 막대의 단면 공극률을 측정해 다음 제품의 제조 변수를 보정한다."
+    },
+    {
+      "identifier": "AR-101940-A1",
+      "source_fingerprint": "45ddec663e6a1f273e02eea6d83979f87d3972bdc776cb5d79c76c1e74e91b77",
+      "content_hash": "b7b80695fc7bba571f07d944024512779fec44ca13fe9e029badf7c00c6c8e4b",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption",
+        "acid-base-reaction"
+      ],
+      "reason": "아민 수용액으로 산성 기체를 흡수하고 재생·재순환한다. 아민 구조마다 새 효과를 세지 않는다."
+    },
+    {
+      "identifier": "AR-101962-A1",
+      "source_fingerprint": "101d8a0b5442850c8e88bfe715166bb37e197d3a45cc0d998202c57cf92d9c1d",
+      "content_hash": "8c06b9b3e89d477086cef992ca9071df279ce0d1f64b9f4ca5bc09ad4da863a2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전극의 아크로 금속을 용융하고 전기량·전극 위치를 조절한다. 아크 플라스마 열 전달을 신규 후보로 문헌 확인한다."
+    },
+    {
+      "identifier": "AR-101966-A1",
+      "source_fingerprint": "2a1d555bb9eed5560b4051282b1d3c8a46cfcea0edbe9707a38bcf543f788c2e",
+      "content_hash": "8b706c62a776ebea618324d3b32bd05be4b9528f2cc155cd0e2aa7fa5648d589",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "벤질 인다졸 치환체·염·입체형 목록이며 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-101978-A1",
+      "source_fingerprint": "7715d5a03563ea9e7cc86a12b3dc0b1c3a7d8c8459f0847f0cd72f78ab02c25e",
+      "content_hash": "6a586e5c7651415bbddad2160d366cbdeca819434e03d52188263a5b3544f524",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "state-estimation"
+      ],
+      "reason": "모델의 연결 상태를 추정해 시추 공구 방향 오차를 보정한다. 특정 역설계 제어 알고리즘 이름은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-101983-A1",
+      "source_fingerprint": "b486e3bb61ded4bc886418586965e7f356cd582d824106cc7819c136eddd72f9",
+      "content_hash": "70fafe29bb157026b121b6e635837e02f2e7152775938aa31538387cb7516301",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "과산화물로 파쇄액의 점도를 낮춘다. 라디칼 사슬 절단·가교 절단 중 어느 경로인지 초록에 부족하다."
+    },
+    {
+      "identifier": "AR-102013-A1",
+      "source_fingerprint": "577c1078ea1c876b310a624a0292b6ed10b137661c9ce2dd078bea0aeb933153",
+      "content_hash": "819cee90c217d6e1dd570fc16fcb785c01739a7d7d8ba78d8e2088364f6e12af",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "회전 원판과 절단 칼날로 누에고치를 연속 절개한다."
+    },
+    {
+      "identifier": "AR-102018-A1",
+      "source_fingerprint": "fd92943c7ff76303496e9d85909b932f6d783f46480c83f11745642fa0d75c56",
+      "content_hash": "99d78048691b1e15d3ea7ab3cb510587ec52387cb496299b11e87d96db43af72",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting",
+        "lead-screw-motion"
+      ],
+      "reason": "왕복 칼날로 절단하고 조정 나사로 각 누름 핑거의 위치를 바꾼다."
+    },
+    {
+      "identifier": "AR-102032-A1",
+      "source_fingerprint": "35dff5dcf94c00d3eb36de7098639b5e3821dded9f31b320b01bb51d70de52c2",
+      "content_hash": "4de487975b4914449393725c176d49a52cf1c2f5627f251b7c32bbe57be0e3ed",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission",
+        "rolling-contact-friction-reduction"
+      ],
+      "reason": "편심 감속기와 롤러 지지 직교 운동으로 회전 전달·유격을 조절한다. 변형파 기어라고 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-102044-A1",
+      "source_fingerprint": "220de4c777de1bcbfec3178a179755453a8e2bfc64e5033adbc83f382a27e89e",
+      "content_hash": "a4ab6fdff5954eecdca5b1282ce9d2f4dd59b32b0bff4b8dd774b9f0cf244147",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "바이러스 유래 조절 서열에 연결한 외래 유전자를 식물에서 발현한다."
+    },
+    {
+      "identifier": "AR-102072-A1",
+      "source_fingerprint": "15e974a6e8bb9a8f5da8d5d7ba6b33a5e091c4f70da1af984eba88be22eeeaf0",
+      "content_hash": "c437bd4efd10fa9c7628d8fc1960eae5e74e5a7313139f210bbb14847919e58b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "설폰산 고분자의 오염 재부착 억제이다. 정전기·입체 안정화 중 실제 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-102092-A1",
+      "source_fingerprint": "03bb345f0344737849bf50cb91e8f72cebd875ff23a5162fb74b72d44b4bea9d",
+      "content_hash": "e6e4372ac4b9b7c1e912f95d2021c47b930792c79940555dc784511df7badb7c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "FVIII 대체 물질을 중화하는 항체를 생산한다. 이중항체의 효소·기질 가교 기전은 초록에 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-102096-A1",
+      "source_fingerprint": "0eaad4f197aa6e2273981d8032ab011848b1ee8020b4cc171204396f04b4b808",
+      "content_hash": "bbf95f95a50712984d3368f80c60f3086c605d8cd370b0a26dd85e5e57ba179f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "저온 여과·충전 및 삼투질 농도·점도를 정한 제형이다. 여과막 유형과 저온의 분자 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-102097-A1",
+      "source_fingerprint": "7b211fe6331c95035c9af11db318bfea79b843c80b983eedae4734583d08ff05",
+      "content_hash": "c50b7fe02176c5b7ca7d50a1c8fec031e398b1e54626682db16fbe351d8bdf68",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지정 무선 자원 요소를 무송신으로 두는 ZP CSI-RS 구성이다. 자원 침묵에 의한 간섭 회피 후보를 확인한다."
+    },
+    {
+      "identifier": "AR-102113-A1",
+      "source_fingerprint": "ce85494cfcbab28607d1209478164e06d9df951909c9215acda71cb0b4d4c166",
+      "content_hash": "ef9515666af4cf079253028047a3e72a82181734070c9eab172bb6b4a8de1718",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption",
+        "adsorption",
+        "centrifugal-pumping"
+      ],
+      "reason": "기포·감압으로 휘발성 오염물을 탈기하고 활성탄에 포집하며 원심펌프로 물을 보낸다."
+    },
+    {
+      "identifier": "AR-102128-A1",
+      "source_fingerprint": "b30c0bb76f7eec4fce46eb2dd74a54b6212017a026d4c1e5b0eba11a1a710673",
+      "content_hash": "6177b8e0f81f1a4ec12c11dc12b6dcb5d3f68c3b29327dc70e4cf1b3c29b7e84",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "영상의 이동 창을 하드웨어 저장소로 순차 전달한다. 인접 창 데이터 재사용의 구체 방식은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-102139-A2",
+      "source_fingerprint": "29bc245aa117c1ac45cd0862cb6bdb987485d8a457e5202dcb96c2b2c614555e",
+      "content_hash": "87ffaf63a2de476f657b08c767cd9fb6e7a8d0b87e5f15f1584b1d987faba2d2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "surfactant-action"
+      ],
+      "reason": "효소 저해제 등 제초제군과 계면활성제 혼합이다. 광범위한 성분 나열을 여러 신규 효과로 바꾸지 않는다."
+    },
+    {
+      "identifier": "AR-102140-A1",
+      "source_fingerprint": "297809e5691d81a962bb6b1f974027b7a1a6678063bbd60955f5d571d85c9286",
+      "content_hash": "1d456c60fc3d61bb2d717d74ededb6a4d3b8d020e9b5fc718342968958d9b2c8",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "튜브·슬리브의 정렬 홈에 와이어 링을 걸어 결합한다."
+    },
+    {
+      "identifier": "AR-102160-A1",
+      "source_fingerprint": "2f4e7f4703fb3c0c561e969e9cfabb6ab1feb85232bfc1891af02a53f66ed939",
+      "content_hash": "f12e1077b43210f02f1dc7ea1c356f5a48e688220aa9b91970162c67e9d0db75",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "왕복 피스톤으로 기체 부피를 줄여 단계적으로 압력을 높인다. 용적 압축의 상태 변화 후보로 기록한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:07:42.975238+00:00"
+}

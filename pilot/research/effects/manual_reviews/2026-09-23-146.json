@@ -1,0 +1,96 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "53799168853d2c50cb9a71ea1c018a060d48930e0617f1cf8a0a22454f2326cc",
+  "reviews": [
+    {
+      "identifier": "AR-098484-A1",
+      "source_fingerprint": "b0d61a5eff2ef23daba187465ad1d5cd76ca80fe5ae54851d197fef09a62f3a0",
+      "content_hash": "346420226b9f228cb9d67645988e9f54133e85eb612d3ee781308d9e5ae50eb6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피라졸 살충제 구조 범위만 명시되어 특정 생물 기전을 붙이지 않는다."
+    },
+    {
+      "identifier": "AR-098491-A1",
+      "source_fingerprint": "c75a56404398726d22e63e2a0d0a34ec2d5960d442df64f1005294b973285230",
+      "content_hash": "9a13fdde98738b65879c4d3ed355daecd94115472ad80e8ae68f4eee0b6c8cdd",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "분리된 각 상 유량을 기준으로 혼합상 계기를 교정하고 액면·계면 위치를 제어한다. 분리기의 구체 원리는 생략된다."
+    },
+    {
+      "identifier": "AR-098526-A1",
+      "source_fingerprint": "c0405541d37816666300382fac5b0fd3e3e6679226ae63eb642504a647442c85",
+      "content_hash": "18e8188e997bb8e9c386050b938e340425b649de8777fa327ce1ba728a4c6e48",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution",
+        "oxime-formation"
+      ],
+      "reason": "두 시스테인을 할로아세톤으로 연결한 뒤 케톤을 옥심 접합에 사용한다. 케톤에 대한 티올 부가로 혼동하지 않는다."
+    },
+    {
+      "identifier": "AR-098541-A1",
+      "source_fingerprint": "afd44e3d071918ab35aece7931dce258eaf2846f6534e2ffe994e1c9a9bced36",
+      "content_hash": "b77484fc7c0c3d575bbc53e596ca3c59db24e75d4ff67a2e8000860856baf28b",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "두꺼운 천 가장자리를 좁은 슬롯의 중공 클립에 가두어 지지한다."
+    },
+    {
+      "identifier": "AR-098544-A1",
+      "source_fingerprint": "948142c6064c0dc35a9921d90360a46e06cd7f6275e55facc135d7d95ad14973",
+      "content_hash": "28bf2dac1c36d50e85c38040b17b56f5f6c0009394afaaa500067beace9fe63e",
+      "decision": "LINK",
+      "keys": [
+        "solidification",
+        "fusion-welding"
+      ],
+      "reason": "사출 성형한 플라스틱 몸통 부분을 용접면에서 접합하는 제조이다. 가열 방법은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-098550-A1",
+      "source_fingerprint": "e216ee13753141ccc16291c826f03a6eac85a00626036f7f955ecfe7aaea0482",
+      "content_hash": "ac93831417ae4370247e7eed0a80e7377957aaf99f38607fc236ae0325ef105e",
+      "decision": "LINK",
+      "keys": [
+        "geometric-optical-occlusion"
+      ],
+      "reason": "덮개 귀가 색상 표지를 가려 체결 상태를 구분한다. 색차 기준은 설계 기준이며 새로운 광학 법칙이 아니다."
+    },
+    {
+      "identifier": "AR-098564-A1",
+      "source_fingerprint": "5b3ff0f5a20732d1e77029112123a1b54b97fe7c847a9d371663f9e764bdf6f8",
+      "content_hash": "9f69e7e9b51e711413428839d76f5da9f4810769c0054db3958f8bb7ca783ea1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다축 센서의 호도그램에서 파 방향을 구하고 센서를 회전한다. 벡터 진동 궤적을 통한 편극·방향 계측을 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-098569-A1",
+      "source_fingerprint": "5515fce8dfc655630c0b3aeaf20d39c5bd55fbb88b9dd21f9e2ce57a94f72466",
+      "content_hash": "b1bf1e2b160384e8ba7926afefaecfd795e3704b0afdb29cdb40a5c4614e4dfb",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "유비퀴놀 산화환원계 저해 살균제 조합이다. 서로 다른 약제명을 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-098581-A1",
+      "source_fingerprint": "2a420e37c3ea31b8bf59b262350ae0eee3b97ebb1fda8d4cae2c646ec8913179",
+      "content_hash": "7f96454de17a20e8e5e7caa09dcf61ea3b1e9d7bed784e5c98ab006f8c1a51f9",
+      "decision": "LINK",
+      "keys": [
+        "silane-coupling"
+      ],
+      "reason": "아미노실란계 우레탄 접착 촉진제의 적용이다. 제공되지 않은 전체 구조식은 복원하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:51:22.414576+00:00"
+}

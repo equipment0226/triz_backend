@@ -1,0 +1,135 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "7d3af25c2c5262e753f456ab17660bf0a271f5fa15ec99ce12b98a68a9116439",
+  "reviews": [
+    {
+      "identifier": "AR-079724-A1",
+      "source_fingerprint": "203a77d22a15a0faf6d6ea90348d598ca1c6c3fcd383f5e3517a7ac75b8f5580",
+      "content_hash": "680db728cc447f6954fecad07e9e65a5c6eea1c577ce8ef68bb8d882a2d3dddc",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "알파7 니코틴성 수용체 리간드를 제시한다."
+    },
+    {
+      "identifier": "AR-079725-A1",
+      "source_fingerprint": "55da46c04741d824ea97df6c1cb24b383d29c8e575c7df3bc247def249121a90",
+      "content_hash": "6f6cc8b00d97ab9d8393a4c9f6b715e30f69337967318d2009609f3a2491ebfa",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "히스타민 H4 수용체 길항을 명시한다."
+    },
+    {
+      "identifier": "AR-079746-A1",
+      "source_fingerprint": "a1157250ded63e0f2181d151f8492b119225a7be1f631ce64b7bd93324521d71",
+      "content_hash": "20d3b0469565aa427d2666b7d2e342131e973bab725a17953a4b494490025396",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "acid-base-buffering",
+        "surfactant-action"
+      ],
+      "reason": "EGFR 항체의 완충·계면활성 조성이다. 당의 단백질 안정화 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-079753-A1",
+      "source_fingerprint": "09ed400386c83654d1da91665745309f863784a62cc9430ea671a7031f3e95b8",
+      "content_hash": "822b0397f41bd1503913e169be2b7f1e6c1ee6d2421f556ad8d7d558f77131a8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "주조기와 압연기 사이의 독립 회전 컨베이어 배치이다."
+    },
+    {
+      "identifier": "AR-079754-A1",
+      "source_fingerprint": "b4a27d291cd8930161733fd860a431546cab830a219c23eb6432bc1264d2304a",
+      "content_hash": "b76829e71763730a79ea975cc0770e755a022e571b49243abf3a33d8df803090",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "나선 날개가 폐기물을 왕복 이송하고 증기로 가열 불활성화한다. 나선 벌크 이송과 열 불활성화 후보를 보강한다."
+    },
+    {
+      "identifier": "AR-079787-A1",
+      "source_fingerprint": "9e1092cf0542df64622c9600cd6c4c654a0ee1179399b05305877d517c38488d",
+      "content_hash": "3675424eba4b24b9cec473ca9863886e9c3f6c846146a5aa0226c26c35a009b2",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "알파올레핀의 이성질화와 에틸렌 분해를 조합한다. 이중결합 이동·복분해는 서로 다른 결합 변환 후보이다."
+    },
+    {
+      "identifier": "AR-079791-A1",
+      "source_fingerprint": "937ae17cec43f7a2ead6ff080d738388ac37724f279d32f908af6f015f99edeb",
+      "content_hash": "738a8ee4181f81ba65d2e7a2ca23cdb8d8cf2e6710fcf1ac3b8af098f3947e41",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion"
+      ],
+      "reason": "바람을 받는 돛의 면적·각도를 조절해 동력을 얻는다."
+    },
+    {
+      "identifier": "AR-079792-A1",
+      "source_fingerprint": "e8c9136ae034c50b19a2ca78d3860c40a09b955ca86f6db859466827bf9e5e9b",
+      "content_hash": "a444a18e3d6f5c20c27b38be732cd19fff6f32ce1538d8c24b086cb3cb63551d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "산소 함유 기체와 개질제로 역청을 처리한다. 특정 산화·중합 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-079796-A6",
+      "source_fingerprint": "64da8427fd899918959e701f2771d33b296effcb0290d89123ade2c740a6e723",
+      "content_hash": "a29d985717686954d25f9cb8650013d052b4169e11f2472db50beb4c9910dafc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "냉온수 혼합·방향 전환 밸브의 일체형 통로 구성이다."
+    },
+    {
+      "identifier": "AR-079810-A1",
+      "source_fingerprint": "62955caf0c393d521d96438e951fb9520e159950ece8a7257c6fecfe97d02c55",
+      "content_hash": "132e62089543ca5b85ca6d792f5d15dcb2027cb5441aaf36535a67ba6f06f890",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping",
+        "blade-shear-cutting"
+      ],
+      "reason": "흡입으로 종이를 유지하면서 칼날로 절단한다."
+    },
+    {
+      "identifier": "AR-079811-A1",
+      "source_fingerprint": "82bf32673bbbab912daf40f65855af0889aeb25ab0ae524a1cae058147af7d6f",
+      "content_hash": "0271a4077a766aeae18748b9a4e1b13727ec61a5ce69e6f8f7922ab8c67434a0",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping"
+      ],
+      "reason": "흡입 고정한 시트를 장력으로 찢는다. 결함 형태가 없어 응력 집중 위치 제어는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-079815-A1",
+      "source_fingerprint": "654e2956ae3cfed07e27931a59637c58cb82c8fda383528150d068eb06d97ae9",
+      "content_hash": "e5410d8150dbfa534ea8a3b9f32fa97ed98d1b83e4d992fff07fd8fcc4328fba",
+      "decision": "LINK",
+      "keys": [
+        "joule-heating",
+        "seebeck-generation",
+        "negative-feedback"
+      ],
+      "reason": "전열선과 열전대·제어기로 발효 온도를 유지한다. 차동 누전 차단은 별도 전류 비교 후보이다."
+    },
+    {
+      "identifier": "AR-079823-A1",
+      "source_fingerprint": "6e640e1538fd137b56662fe98b467c9725dec61784b578a3304e0483b65deb45",
+      "content_hash": "f6e01b8feda02afa829dd4b07eff844751aa24b8a963095add240631f787b490",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "평행사변형 링크로 파종기 바퀴·디스크의 위치를 유지한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:16:35.673465+00:00"
+}

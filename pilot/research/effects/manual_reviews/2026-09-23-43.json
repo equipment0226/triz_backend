@@ -1,0 +1,171 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d0b871e5d7cb132059164cbba1e3a270f728b2dc74100e76ff46baf8aa254659",
+  "reviews": [
+    {
+      "identifier": "AR-084740-A1",
+      "source_fingerprint": "5e422e99ef2aaa99af7380b583f1d80552df134c6652d84aff0569b777aef73b",
+      "content_hash": "f072694efb0d4ec61138536864ebfa346cd17820a4266ff287a075484ebd7768",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 피라진의 구조와 용도만으로 작용점을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-084750-A1",
+      "source_fingerprint": "f2c5c04ba6883a52285bcf00f319992613521d3906c3051a77b3419754acc14c",
+      "content_hash": "ba0368e090c517c02bb37f0541f59488b36a9c4d28a1d4ecfa5d81b63ad9eef5",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission"
+      ],
+      "reason": "왕복 플런저와 실린더의 용적 변화로 유체를 가압한다."
+    },
+    {
+      "identifier": "AR-084767-A1",
+      "source_fingerprint": "8f2429997f0a196107b71b7e955752a7dcb04b3ee06d047548d1571d740aa936",
+      "content_hash": "c53fda76f5306a13163a257c0a51fa6af3548591b577143c849eb8e46ca62ed7",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-particle-transport"
+      ],
+      "reason": "기류 항력으로 볼을 관을 따라 이동시킨다."
+    },
+    {
+      "identifier": "AR-084789-A1",
+      "source_fingerprint": "fde8d1b82cd11d6508b1d66fa76f85c362a902d13be26676322c2d3446135f80",
+      "content_hash": "cd10c65ec3abab72a833390de81be2b502fa737d051b9ecf28c8a1e4c3ed0bd0",
+      "decision": "LINK",
+      "keys": [
+        "oxidative-drying-crosslinking"
+      ],
+      "reason": "알키드 도료의 금속 건조제와 저장 중 표면 경화 억제. 억제제의 별도 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-084790-A1",
+      "source_fingerprint": "061cdfe79566ace3cec4873525be672932a595ddcd3f4022f9ecf17606d6bce7",
+      "content_hash": "ffb287a9dca7f748218c5d478e7b8822581899abe0c69d89e79ad6e85b317d5c",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion",
+        "distillation",
+        "condensation-recovery"
+      ],
+      "reason": "터빈 팽창과 열교환·분별로 탄화수소를 분리한다."
+    },
+    {
+      "identifier": "AR-084807-A1",
+      "source_fingerprint": "262e2582c4bc08cab0b919b041ee24e0c956c80e6296e6b74cb1ee9ffb90b3f4",
+      "content_hash": "02cb182410792ee3b6a3875926be78e5fcf32fcc3a79cdb9b4eae57d48f87177",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "돌출 무늬 접촉의 마찰로 침구 미끄럼을 억제한다."
+    },
+    {
+      "identifier": "AR-084836-A1",
+      "source_fingerprint": "0162f0fbdac459ab52777d9f3442b17fac0aef5d8930f704742468326f887322",
+      "content_hash": "d6cbc53becd0c433761b834a31a3c0848c01776291669c312c8fc08468c247d0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "천공 장치 내부 자유 체적 조정 설계이다. 구체 장치 성능 개선은 신규 효과화하지 않는다."
+    },
+    {
+      "identifier": "AR-084842-A1",
+      "source_fingerprint": "99cf429b2868ff5eff6506b9ab01faa2ded33ac0de0b61e71ee96453fb598b8a",
+      "content_hash": "26a883eece8dc4f0b6592517e8dab61a4e67ef1880f450d1244126d98ae8427e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미리 계산한 복수 복구 경로로 고장 경로를 우회한다. 경로 중복의 내결함성 후보이다."
+    },
+    {
+      "identifier": "AR-084846-A1",
+      "source_fingerprint": "c1d2cdb4120083bbdc89ed1c456f926f0a5f1b744aa4b1e323844f2fef59f4e9",
+      "content_hash": "475df6bfc664410ca8e42140f8e82cfdacd11bf8a774a7c24215a7041309ccf9",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "힌지와 걸림으로 수확기 플랫폼 위치를 구속한다."
+    },
+    {
+      "identifier": "AR-084851-A1",
+      "source_fingerprint": "9e366da9371f9fb2ceb7988be89afd35f2f02e0771a4158c0a376d10097f811d",
+      "content_hash": "0604e865a09cf185359d81c10cb4bbd32b9279dbe6fb4192aac7ad62a93fedfc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "복수 접속 기술의 관측 결과를 위치별 지도에 표시한다."
+    },
+    {
+      "identifier": "AR-084861-A1",
+      "source_fingerprint": "b7ee4acd60f81bde72d71d805164f79571a52ce1017b8364543a47f6fceb12e5",
+      "content_hash": "ea956cc667d0807d06195044b74dbf4de427e54dd0210028b109f725b3d2d900",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "스프링과 섬유 구조를 결합한 지지체이다. 별도의 소재 법칙은 미상이다."
+    },
+    {
+      "identifier": "AR-084865-A1",
+      "source_fingerprint": "0b34b50354f5e24973cb15c815d522e6f0a2ea3d715ffaa95b5de620f1d79342",
+      "content_hash": "e5c22de55dc07bf92e436c10d1c05959a6a7d1432954765447bc66cb86c84329",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "당 피막 과립과 붕해제를 사용한다. 붕해제의 팽윤·모세관 경로가 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-084869-A1",
+      "source_fingerprint": "cc00971da645af158c182c5277b90bd73c2ae93c4175dc88db4d537ef6cc8c5f",
+      "content_hash": "e14990694904451df5c7ed51c48997229fcdfe0d29bde816fa7829bbb60cdc12",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "무기 구성의 기계 배치이며 신규 효과와 성능 개선 사항으로 확장하지 않는다."
+    },
+    {
+      "identifier": "AR-084875-A1",
+      "source_fingerprint": "553198b6d1be350cb59f649a50737d228a952ec7c6b525c140d5cd6e5df531d8",
+      "content_hash": "afb424a45db49466231a0016b77b501605e3b78096b02b4637ed59c68c6ff63f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자 내 약물 분자 분산. 검토 중인 비정질 고체 분산 후보와 통합한다."
+    },
+    {
+      "identifier": "AR-084881-A1",
+      "source_fingerprint": "a5c7e510d997ea52aca70d9e30e2fc5014a1df192364f954aa890812a7278dea",
+      "content_hash": "7a0b8e3a0912c2eff0f6984f6bd70b479b9d44e219faa457432d551f77ad3524",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "여러 검정 결과로 누수 위치 점수를 합친다. 독립성·확률 결합식은 미상이다."
+    },
+    {
+      "identifier": "AR-084913-A1",
+      "source_fingerprint": "358b02ea418111d656499b64dd494de30031ecdf5497cc21a14d3f5a89ab51e3",
+      "content_hash": "3aafb3307c7c9107af9400bcb960113ed58d731ad94df122be7718e7dc5d3fb3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "신장 질환 화합물의 분자 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-084934-A1",
+      "source_fingerprint": "0912dd1461cff8817155c0c90b612be8cd01fdcf4afc0309a90ad6fe2bc2f036",
+      "content_hash": "a6dd6b0ecfd1c2174e258858e7bb4bba58f606940e9cc79bff9a8ab6052ff43e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "차량 상태에 따라 거울 방향을 바꾸는 제어 배치이다."
+    },
+    {
+      "identifier": "AR-084946-A1",
+      "source_fingerprint": "2cdf3467432eb212d9f6d995299664b912b8921a7d73afecd1b0d3086169cc38",
+      "content_hash": "14b1ff8d61810e3cac91bbf0c15d1a9789109cb09d0a0e8bd4900b23d79cdd7b",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening"
+      ],
+      "reason": "글리시딜 화합물과 페놀의 반응이다. 용매 조성과 온도 조건 자체는 별도 효과가 아니다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:30:36.071977+00:00"
+}

@@ -1,0 +1,142 @@
+{
+  "batch": "additions-2026-09-26-03.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 989,
+  "added": 11,
+  "after": 1000,
+  "target": 1200,
+  "source_sha256": "d28db6c6e3fb73471760788ff053afb208cfab8140670106956c3d34953cd28d",
+  "decisions": [
+    {
+      "key": "autler-townes-dressed-state-splitting",
+      "group": 13,
+      "related_keys": [
+        "electromagnetically-induced-transparency"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "EIT의 약한 구동장 경로 간섭과 강결합 혼성 준위 분열을 구분한다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.107.163604",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "water-hammer-elastic-pressure-wave",
+      "group": 11,
+      "related_keys": [
+        "compressible-shock-wave"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기체 초음속 충격파가 아닌 액체·탄성 관벽의 속도 과도와 압력파 결합이다.",
+      "source_url": "https://www.mdpi.com/2076-3417/14/16/7173",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "curved-channel-dean-secondary-flow",
+      "group": 11,
+      "related_keys": [
+        "centrifugal-separation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입자 밀도차의 직접 원심 분리 대신 곡선 유체 흐름 자체의 단면 순환이다.",
+      "source_url": "https://www.nature.com/articles/micronano201727",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "free-surface-hydraulic-jump",
+      "group": 11,
+      "related_keys": [
+        "diffuser-pressure-recovery"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "벽 유로의 완만한 감속과 달리 자유수면의 임계 유동 전환·수심 불연속이다.",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/hydraulic-jumps-in-a-channel/D40C016DC0751821684A93653E67E535",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "kelvin-helmholtz-shear-instability",
+      "group": 11,
+      "related_keys": [
+        "turbulent-transport-enhancement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "난류의 결과적 수송 증가와 달리 속도 전단 에너지가 계면 교란을 키우는 발생 기전이다.",
+      "source_url": "https://www.nature.com/articles/s41598-023-30992-3",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "rayleigh-taylor-density-acceleration-instability",
+      "group": 11,
+      "related_keys": [
+        "density-stratification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "안정 성층 억제의 반대 배치에서 계면 교란이 증폭되는 동적 불안정이다.",
+      "source_url": "https://www.nature.com/articles/299329a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "taylor-couette-centrifugal-vortex-instability",
+      "group": 11,
+      "related_keys": [
+        "curved-channel-dean-secondary-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정 곡선 관로의 강제 이차 흐름과 달리 회전 전단 기본상태가 임계 안정성을 잃는다.",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/centrifugal-instability-of-taylorcouette-flow-in-stratified-and-diffusive-fluids/0C341A4FCEB8440FB956F638FF887C74",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "bluff-body-alternating-vortex-shedding",
+      "group": 11,
+      "related_keys": [
+        "fluid-dynamic-lift"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평균 양력 형성과 달리 박리 후류가 교대·주기 하중을 만드는 비정상 기전이다.",
+      "source_url": "https://ntrs.nasa.gov/citations/20010082522",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "injected-charge-electrohydrodynamic-pumping",
+      "group": 11,
+      "related_keys": [
+        "electroosmotic-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "벽 전기이중층의 전기삼투 대신 유체 내부 주입 공간전하의 체적력을 이용한다.",
+      "source_url": "https://www.nature.com/articles/s41586-019-1479-6",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "quincke-polarization-rotation-instability",
+      "group": 1,
+      "related_keys": [
+        "dielectrophoresis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전기장 구배의 병진 힘과 달리 분극 지연과 균일장 토크의 회전 불안정이다.",
+      "source_url": "https://www.nature.com/articles/s42005-021-00596-2",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "viscoelastic-normal-stress-rod-climbing",
+      "group": 11,
+      "related_keys": [
+        "viscoelastic-response"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 카드의 선형 진동 손실과 달리 정상 전단의 비선형 정상응력 차가 자유수면을 변형한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37232105/",
+      "retrieval_scope": "publisher_abstract"
+    }
+  ],
+  "reference_label_corrections": [
+    {
+      "key": "viscoelastic-normal-stress-rod-climbing",
+      "before": "Journal of Fluid Mechanics · Rod-climbing rheometry revisited",
+      "after": "More et al. · Rod-climbing rheometry revisited (Soft Matter, 2023)",
+      "evidence": "https://pubmed.ncbi.nlm.nih.gov/37232105/",
+      "doi": "10.1039/d3sm00181d"
+    }
+  ]
+}

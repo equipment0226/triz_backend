@@ -1,0 +1,338 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "23d87dc97c1e2a86a5406a4b4c6ac4db9e208ff8abdc8c10562551a5afe439d7",
+  "reviews": [
+    {
+      "identifier": "AR-068016-A1",
+      "source_fingerprint": "bb33796a0e54384ab00aa6349f5e88accc8b79114fb3c8043b10e76478831bab",
+      "content_hash": "51307f502aae06f5b04c38aa41cb4ef3913ae7584220df51d12bb6365094cca9",
+      "decision": "LINK",
+      "keys": [
+        "transporter-inhibition"
+      ],
+      "reason": "SGLT 나트륨 의존 포도당 공수송체 억제를 명시한다. 저장 말미 절단은 표적 판정에 영향이 없다."
+    },
+    {
+      "identifier": "AR-068041-A1",
+      "source_fingerprint": "4cdc661ccddb97ab13cce0747fdb09a455aa4371ee743dd76b3d287bf3ba0a79",
+      "content_hash": "1b3c198d60b4cd16c6ed720cafe2cd63b2794f0032d6eb8a919f9fdd775557e8",
+      "decision": "LINK",
+      "keys": [
+        "polyelectrolyte-complexation",
+        "barrier-coating",
+        "ionization-solubility"
+      ],
+      "reason": "복합 coacervate가 지용성 영양소를 감싸고 pH에 따라 방출한다."
+    },
+    {
+      "identifier": "AR-068045-A1",
+      "source_fingerprint": "4e9f2b21ec2314b33e91b7e31da14fb1a5402a7fb93419a4052ad2fb19760cbc",
+      "content_hash": "676d2779a9ba4d4e370e8aaf08ea6e48f12b50b5aa7c83f442992c2abbe3cdba",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "catecholamine 유도체·prodrug의 구조와 용도이며 활성화 반응이나 수용체가 없다."
+    },
+    {
+      "identifier": "AR-068046-A1",
+      "source_fingerprint": "6c3e257213cb2b419d9d24bfc59094ee1652439a707241f6fa0b3d7c9f7093a4",
+      "content_hash": "4fe950092b9acc3c19cdaba04b8c810b876315014e9d0e443d9abc135367c8f7",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "ERK 억제제가 제목에 명시되며 저장 구조 목록은 말미에서 잘린다."
+    },
+    {
+      "identifier": "AR-068062-A1",
+      "source_fingerprint": "3a7ede88e942d13690e672558dfaaa8ffe7bac64d1fe6c614be6c5203cc9b539",
+      "content_hash": "9d01202da2f79745ae3242983c64d4426c319b210c5d893972fb9af9dafc347d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "BACE 효소 억제 cyclic sulfone이다."
+    },
+    {
+      "identifier": "AR-068068-A1",
+      "source_fingerprint": "6c562c16111074290b84a5906a8d81969beb31944909d42c6f537469463688d5",
+      "content_hash": "c72566fac3d959a43ed483c8f92b41165a701c7b7dffe4a26935d352ffa5a6a9",
+      "decision": "LINK",
+      "keys": [
+        "refraction"
+      ],
+      "reason": "구면 영역과 누진 굴절력 영역의 배치를 조절하는 다초점 렌즈이다."
+    },
+    {
+      "identifier": "AR-068074-A1",
+      "source_fingerprint": "91b35a8ecf1bfe1f15d9a1b6bd7748d277ca3347ab727cf685951e43d77a43a5",
+      "content_hash": "b396287b6ea755f6493dc914b24bd18fa2bbebca499eee3cb8b99179a1361afb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 화합물의 구조 목록만으로 표적을 특정할 수 없다."
+    },
+    {
+      "identifier": "AR-068093-A1",
+      "source_fingerprint": "33b0438c57b65b145a27aafbb837d0f56c487e2281900c85b49eae5c1e98c69f",
+      "content_hash": "56f6a926c2906a1c9510d346c4ce382114fa3227dc8d90122d23a0d8afec3840",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "articulated-linkage-motion"
+      ],
+      "reason": "분리된 압축·팽창 실린더와 나선 포트로 흡기를 회전시킨다. 난류 혼합 후보지만 배출 감소는 미확인이다."
+    },
+    {
+      "identifier": "AR-068109-A1",
+      "source_fingerprint": "f14794a156fc3f9b5a4d29a4a05ff7a662244db34d8993ad9b66a4a03be5ed18",
+      "content_hash": "9a09b45c88dc6675505b9ee6503f97390801d81b5cf11cb3e9b13a13ac6cc835",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 indole의 구조와 용도만 제시된다."
+    },
+    {
+      "identifier": "AR-068170-A1",
+      "source_fingerprint": "46c8b3f2b84f868af3edfbd562a491cb45d6af52a6e7164f0dab757473b01a47",
+      "content_hash": "64865c8b3b546825748bd56836fa1fd6bf0df066bfea131ccbef2d05e0fc8895",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion",
+        "electromagnetic-induction"
+      ],
+      "reason": "풍력 전기로 물을 높은 저장소에 펌프하고 수차로 회수한다. 중력 위치에너지 저장 후보."
+    },
+    {
+      "identifier": "AR-068187-A1",
+      "source_fingerprint": "ea55897ddbe01c5b2872748ccdb57965b9d4886a907ca906eb4d8f255b8e4652",
+      "content_hash": "45c2fa7049c8ca400a1ac56ad5c6d2a7e77e2d4b7657122bf79ca8d5425cd500",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "DPP4 억제제 합성 중간체의 결정형이며 중간체 자체 억제 활성은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-068202-A4",
+      "source_fingerprint": "c71be0ba95fb3f145ce1a19b09f577ba34dd4de35458dfd3a81e0fac8240ddbe",
+      "content_hash": "a147f69012572ea89ac594b31a024bc3a56de2f2aba436f165a5bf57613e3d00",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "한 방향으로만 잠기는 freewheel bearing으로 역회전 여유각을 줄인다. 일방향 클러치 후보."
+    },
+    {
+      "identifier": "AR-068214-A1",
+      "source_fingerprint": "7e350d74de5e12af4dc52438f5e28f4e88089ba4d9406e2ddd4e8a4afa9c7d3f",
+      "content_hash": "127a1ce370e26b9d7cac0057c2623e3f2816178abd6e0445bd1265b9a43bcc5e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡수성 의복의 보조 고정대 배치이다. 흡수 기전은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-068219-A1",
+      "source_fingerprint": "7fabd235d53383e5aa4d816a0202a3d79b045b4fe06f1bf5add55fdc6b791ca4",
+      "content_hash": "74d6b8906996716ffb635e1a01c697038379efdaaff7be6d5fcb8e4beb6c1db0",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "반경 방향 약화선을 가진 탈착형 광섬유 권취부이다."
+    },
+    {
+      "identifier": "AR-068225-A1",
+      "source_fingerprint": "513861f0273853325f79ffdf1b2a51ceb180333321561a6bc3f336464525d21d",
+      "content_hash": "2e9e5f9fd510c7394ca7e683b5f5dbe44efb5a6930a4fe7e5b23e57d8238551d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Morinda 식품의 CD8 활성 증가 주장이나 활성 성분·기전·검증 자료가 없다."
+    },
+    {
+      "identifier": "AR-068226-A1",
+      "source_fingerprint": "2ad2b12e286ac5187cb60a44ce78dba27fa3ec78d25338e00760d5e02d654b60",
+      "content_hash": "db7c6a20c01178488a85e3ef9bc2444e177ac5af26dee4f545f6425cb9951842",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "작업별 속도 한계와 측정 속도를 비교하여 과속 가속을 제한한다."
+    },
+    {
+      "identifier": "AR-068256-A1",
+      "source_fingerprint": "58170c1ea5fa52c313080e7d1817005f58debc9397046f38bf01b6ee795497c0",
+      "content_hash": "e9359b6b8009b1482fefa5987a10754dbae94714d318df1ebc2796ad6eaccfde",
+      "decision": "LINK",
+      "keys": [
+        "shear-droplet-breakup"
+      ],
+      "reason": "다른 유체 흐름 안에서 판 표면의 액체를 분무한다. 둥근 모서리 효과의 정량 조건은 없다."
+    },
+    {
+      "identifier": "AR-068268-A1",
+      "source_fingerprint": "c290627dde928371cb14b0a76324767134acca924f1467414e00367f4bf0bb4e",
+      "content_hash": "6887e228be0992e6659bc3990242d8f0d962b195142911fdfa37fde9d3ffe50e",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastic-energy-recovery"
+      ],
+      "reason": "탄성 채널이 광섬유 접속 슬리브를 잡고 과도한 굽힘을 방지한다."
+    },
+    {
+      "identifier": "AR-068271-A1",
+      "source_fingerprint": "b561b032fbf8e0bc58ecd7c6ed7fb6c2ae66e520f459bed6f3c7e3db502585ca",
+      "content_hash": "be31af0a5de297431880d3d1a61c6aac539ad2dace11cd625ea6219c7b09d4ca",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "aldehyde·polyamine·phenol의 Mannich 반응 생성물을 연료 첨가제로 쓴다. Mannich aminomethylation 후보."
+    },
+    {
+      "identifier": "AR-068299-A1",
+      "source_fingerprint": "f3f205b774c7b158203d3ce291641c542559d97d097bcd962fcd30308705dfc7",
+      "content_hash": "66196729ad1b36467c33430e6fbc44ba13c8e027e9817fdd6afa57128b8bf88e",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting",
+        "mechanical-interlocking"
+      ],
+      "reason": "왕복날과 고정날로 절단하며 회전 헤드에 탈착한다."
+    },
+    {
+      "identifier": "AR-068304-A1",
+      "source_fingerprint": "ec2e11a00164340c1f1819c2a64f51ccdfe3167db7c2b0ff72aee9be57153156",
+      "content_hash": "14dfe0a9c73522618dd5139d78ffda2f8cd945abf17e9382be34d7c0f1bad3b1",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "부직포 loop층에 갈고리가 걸리는 체결재이다."
+    },
+    {
+      "identifier": "AR-068311-A1",
+      "source_fingerprint": "d00b9824cee82fc007853a91f126ebd41a56cca95357cb48c8c33ae059027216",
+      "content_hash": "2222086a9f4df6a571c1b7f74c4a4b7b5b3850e0b4c2f253491c117bf353543f",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "pressure-driven-flow"
+      ],
+      "reason": "피스톤이 제동 유압을 만들고 복귀 시 통로를 열어 압력을 푼다."
+    },
+    {
+      "identifier": "AR-068330-A1",
+      "source_fingerprint": "33c892951af87eaac4a515de87c5b57743032f48e91d7f78fdfdafc609b3f3d5",
+      "content_hash": "6a077a735b4c2417445a4365fdfe06675262ab9e0fb5bd301480cc64df6496ba",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection",
+        "thermal-isolation-gap",
+        "negative-feedback"
+      ],
+      "reason": "벽체 공극에 열교환 공기를 순환하고 목표 온도에서 정지시켜 공기층을 형성한다."
+    },
+    {
+      "identifier": "AR-068347-A1",
+      "source_fingerprint": "006d7813217d36a1de19689785a89d9a854809f720787dc00a0e7ae5ed7a24eb",
+      "content_hash": "36d49348c30cdedd434368fa731fc35eb4f4d7adefefca28d3d8ae4efce7f078",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "c-fms 특이 결합체가 CSF1 결합을 방해한다."
+    },
+    {
+      "identifier": "AR-068352-A1",
+      "source_fingerprint": "ef58d3cce311f06d47b9e8f349c6d3404c08ade42f1ca7a28abfb2e864694b52",
+      "content_hash": "389750341b99ef6b5fa742a5471f095cd9dbd7fa0159068e1a46cb8eb93c6827",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유전자를 발현시켜 종자 지질 함량을 바꾸나 LMP별 상세 경로는 없다. 이종 유전자 발현 후보 보강."
+    },
+    {
+      "identifier": "AR-068356-A1",
+      "source_fingerprint": "b70a437c66b225dd24b2e1d44f041a72d5cd97d4e7ad9c1d65684580a15e4565",
+      "content_hash": "85fa61830aeeaf631d24534a2d3894c00061c8a0fbaf60d10446ab6865366f1f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다른 생물 유래 유전자 발현으로 식물 내병성을 바꾸는 일반 발현 원리 후보이며 상세 제작 절차는 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-068363-A1",
+      "source_fingerprint": "09dca1bcde3aad85c193ed3bcc89f120d6ebe77efb1ef3a08174643af2d753d7",
+      "content_hash": "eff93ab9dda2e2d5c7bd2092401feedcc901436351cf91d8f49169c5d1a2959d",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "PCV2 항원을 이용한 면역화이다. 다른 병원체 동시감염 감소 주장은 별도 검증이 필요하다."
+    },
+    {
+      "identifier": "AR-068381-A1",
+      "source_fingerprint": "5489b35914f7c66645e1a84e531c0b015b8daa4ec74b0827883cc6337d910905",
+      "content_hash": "b7a4548abbd9ab0f0c6d19dbdc457202da12fbcc048934e47916931ce9097ddc",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "5HT6 수용체 조절 quinoline이다."
+    },
+    {
+      "identifier": "AR-068422-A1",
+      "source_fingerprint": "7ab4f5163f6fa43499c8cc8bc4bf9830d589cac33c533f877c1d1fc7e739901e",
+      "content_hash": "ad8953042bd779cb604ae1ab941065cb3f35ab1c3df5abe2b33d3989177e18ab",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초용 pyridazinone의 구조·중간체 목록만 있다."
+    },
+    {
+      "identifier": "AR-068427-A1",
+      "source_fingerprint": "d242e522745d0f285eb34dcab15bdcb6e7d1798d302105f5eaf5019210bd6d60",
+      "content_hash": "8bf3180e6849a02add03c5d78f29e5e860bd326d99642342a776dc29f93c50f0",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "다단 원심펌프로 현탁액 압력을 높여 지층으로 주입한다. 원심펌프 에너지 전달 후보."
+    },
+    {
+      "identifier": "AR-068430-A1",
+      "source_fingerprint": "8c8b64d2f8676ec0470a6558a21ff163928736362872425eb087c8cbedf36d20",
+      "content_hash": "24ea619916b2805c5bee5edb5911026c229fc26bee66c5364669dee36b8a1539",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "gas-absorption"
+      ],
+      "reason": "재 속 잔여 알칼리가 습윤 조건에서 산성 배기가스와 반응한다."
+    },
+    {
+      "identifier": "AR-068441-A1",
+      "source_fingerprint": "d332b3997fa07857c0decbce3abb52229b846a057364d64a785519612467512a",
+      "content_hash": "7ad46d3def0964bdcefb2377ead54ff4c058f8a6a0217dbea762f75a39c6bad9",
+      "decision": "LINK",
+      "keys": [
+        "urethane-addition",
+        "fourier-conduction"
+      ],
+      "reason": "회전 가열 표면의 박막에서 isocyanate와 polyol을 반응시킨 후 냉각한다."
+    },
+    {
+      "identifier": "AR-068447-A1",
+      "source_fingerprint": "c702eecb80218d5c16a49c3570af2d68d589dd0119162ef2d9fff57ff592cd7b",
+      "content_hash": "060e2ede3e99182694129afe0f96f30b9479de8261aad1dbf361f816392197c5",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "점토·알칼리 silicate·고분자로 발포 입자를 코팅한다. 난연 기전은 초록에 없다."
+    },
+    {
+      "identifier": "AR-068453-A1",
+      "source_fingerprint": "89070f234be63d336527a23a6b3666671eddbfc2e97dcd3e095acae70962afd5",
+      "content_hash": "e4fcf885d37f08287bc198c7e35511d7e3a8e6a9ac107b0bfa1f519b84135838",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "커넥터 잠금 레버 옆 보호벽으로 걸림·변형을 방지하는 형상이다."
+    }
+  ],
+  "recorded_at": "2026-09-21T23:02:28.094069+00:00"
+}

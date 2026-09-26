@@ -1,0 +1,155 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f23004214d84eb3b5b3c09f24caee641fb183510289ed58f35a58a3d3767be13",
+  "reviews": [
+    {
+      "identifier": "AR-120108-A1",
+      "source_fingerprint": "4f0a8b6e965cdfc4b47f59b5c783ac59cce7209ccf628df34c96c47cecb98ae5",
+      "content_hash": "d4e5f3ba0b1ac2b9ecfacd5b631eeb18752929560073ac2d76dae97c54699293",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조 범위이며 표적·작용 경로는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-120126-A1",
+      "source_fingerprint": "9c7ccde04d4a0c2ad6c6f54cc28cbf5f2fd05aa985a804274f13b6a08b12d2b6",
+      "content_hash": "219f03fa0b777ff8611f98cd6f967d8fb38ca537509020d00c5509e45b634a55",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "목의 걸림턱 사이에 고리를 붙잡는 형상 구속이다."
+    },
+    {
+      "identifier": "AR-120141-A1",
+      "source_fingerprint": "595f02e6a378261eb5eb384fde9a8aafe2df1dc0a7c3403231df83af4d0bb305",
+      "content_hash": "9dedf895959a1bd222965e13e0998bc2238aeb7e4254255f78cbc7d1a506968e",
+      "decision": "LINK",
+      "keys": [
+        "thermal-radiation"
+      ],
+      "reason": "적외선 조사면과 광원 배치 조절이다. 조사로 인한 특정 재료 변환은 미특정이다."
+    },
+    {
+      "identifier": "AR-120180-A1",
+      "source_fingerprint": "3064a2500018a95a69a33cd5ae2eaeee24795e4b42783388f6e78e277c59650b",
+      "content_hash": "f53c9f10926d6785fd2d7a38578eb77636a0f3258ad469fe672624c2b55727aa",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction"
+      ],
+      "reason": "산성화한 식물 단백질 에멀션 조성이다. 입자 흡착 유화나 특정 겔화 경로는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-120186-A1",
+      "source_fingerprint": "3742c45c01a464f96638974b761ea55f977bf06462a14caecec0e823a63ba66a",
+      "content_hash": "b8d5c9c4aa651222e10baf64823abc3033be723892baf6e6d79a1c260d6004d8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "원자로 냉각수 시료를 채취하는 용기 배치이다. 결함 검출의 물리 신호는 제시되지 않았다."
+    },
+    {
+      "identifier": "AR-120225-A1",
+      "source_fingerprint": "32bfe9ab2a6ec7c8d056789a589d51649a7eb9e9dfbde62927e14bc3f5f3135e",
+      "content_hash": "dddea737538c327ea6756ead6c74a4d6059246cfe6b737cfb9f2dfa130f9d1a6",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "center-of-mass-static-stability",
+        "articulated-linkage-motion"
+      ],
+      "reason": "유압 승강·접힘 관절·운송 중 무게중심 배치이다."
+    },
+    {
+      "identifier": "AR-120227-A1",
+      "source_fingerprint": "5beb3ba4c658397a604f477b605a347d6a096366e5725b1904aae5c26fdc0cd5",
+      "content_hash": "0089411215916442cb789254ad1452c596ac27d1b5d7a33d9ea9b53de4600678",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아자퀴나졸린 구조 범위이며 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-120234-A1",
+      "source_fingerprint": "ef6bb30814f60365f5c5e30187504cf084d3612d2435e353b7beb474aa93db78",
+      "content_hash": "bc97020ae4d996d262602052efda8ffc1a84022e0c9174af2cc6834e6ed81693",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "combustion-heating"
+      ],
+      "reason": "스프링·피스톤 압력 조절기 및 산소 절단 토치이다. 산화 절단 경로를 문헌 대조한다."
+    },
+    {
+      "identifier": "AR-120238-A1",
+      "source_fingerprint": "86480fe5557cc1b7d5b2f209ddb18feed3b5c5828cae166cea9251a6c097e642",
+      "content_hash": "ef4b9b5abff45b125f4c6aa21fe6d3e293c70f7700ceaabf1fbf1aca603265e0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "삼염화인과 황으로 티오포스포릴 클로라이드를 만드는 변환이다. 인 중심의 황 도입 경로를 문헌 대조한다."
+    },
+    {
+      "identifier": "AR-120240-A1",
+      "source_fingerprint": "d208216b79a71446a39ee583be095d2abde13ca23976f4b5bba1b5f1d9314b1f",
+      "content_hash": "2c2f0e495ee727bd2ae707a931b34eb06b0c4806a623bd1504350e09ecc2ef1f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구조식이 생략된 금속·카보닐 시약 반응이다. 특정 결합 형성을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-120241-A1",
+      "source_fingerprint": "fe7fb01bfd51b3a9958454fceecc0c27f60353c49cae2b3ab518a4389fea0a71",
+      "content_hash": "bb1d368f2365bbd1bf9ac99776b4a27c380c909749e5031a06ff0c91ffcd4be6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피라졸 중간체 구조이며 구체 반응 과정은 없다."
+    },
+    {
+      "identifier": "AR-120251-A1",
+      "source_fingerprint": "a896f7a3f1de73c4dc6af611413a4de9135ff2ea1b1feb9ea06401eb79529a32",
+      "content_hash": "93c463de6750ace0cce249ab9fdfd3a408a88f59dbeb2b0cbb9ff22d5f3879e0",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "발현 카세트로 외래 유전자 발현을 조절한다. 구체 코돈·전사 경로는 미특정이다."
+    },
+    {
+      "identifier": "AR-120257-A1",
+      "source_fingerprint": "83f3ef3ffa978bce09a572447c797fb8d4900e10762a44a59e32a24300826785",
+      "content_hash": "59a83c819d1c9d6a959ce857b4d8dc4bff3b189c09695b2f4710e0bc053254ea",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "행 단위의 하중 측정에 반응하여 프레임 하중 전달을 조절한다. 압력 센서의 변환 방식은 없다."
+    },
+    {
+      "identifier": "AR-120260-A1",
+      "source_fingerprint": "a8ba9fa0a2689ad8ac0417deacf299fdf99b8d1144914b8838a38f13c94b1369",
+      "content_hash": "1594b616f9f303b2e51a9896503f00c5d63c77c534745b9011a73d5866191ebd",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal"
+      ],
+      "reason": "접촉 마찰로 표시 위의 제거 가능한 피막이 벗겨진다. 발정 예측 정확도는 별도 검증이다."
+    },
+    {
+      "identifier": "AR-120277-A1",
+      "source_fingerprint": "7481cdcac3c031b849c1bbea8cacbbe8053bee08997983b544244cc6bf0e68bb",
+      "content_hash": "d016c25339048bef344cbfa98eb3011e05131b19fbdafaf3c473cab73f3fcf8b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지르코늄염·카르복실레이트 첨가에 따른 점도 감소 주장이다. 응집·사슬 절단·수축 중 원인은 미특정이다."
+    },
+    {
+      "identifier": "AR-120293-A1",
+      "source_fingerprint": "2ae916c15a819b26acfbc0b8caee6925f4e11ae3d06f262c3ce03f16e8fa7a03",
+      "content_hash": "ba1057ae65fb37b0909fb395b0fefcd427af0915f2ae1ec464bef1894452487c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "뮈피로신·키토산·콜라겐 조성의 상처 개선 주장이다. 초록에는 약물 표적·세부 생리 경로가 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:44:22.156816+00:00"
+}

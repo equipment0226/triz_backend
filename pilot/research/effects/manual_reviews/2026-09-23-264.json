@@ -1,0 +1,152 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "9df554c8ee76f3d418b09d6fc6c951d6c6748baa85afb322f72e460199686b80",
+  "reviews": [
+    {
+      "identifier": "AR-120740-A1",
+      "source_fingerprint": "9b6062b3de95461a029075ae7c973c5ef23dd39c5611c5afce191d5095e046c3",
+      "content_hash": "0abbd0c3b2f79188437abb05be910d6e59ecd96e94c7e9670d4c9669004737f3",
+      "decision": "LINK",
+      "keys": [
+        "target-induced-protein-degradation"
+      ],
+      "reason": "CDK12 표적 단백질 분해 유도이다."
+    },
+    {
+      "identifier": "AR-120741-A1",
+      "source_fingerprint": "05e13f7e696ef9f99bb2dfdd747862e6d5060150ef6c3a64554fd1d147c59d9c",
+      "content_hash": "66458d381ce533d500b2e28cc9759812e46ac23793d92ed9ca2e8c52a8e4850e",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "LY6G6D·CD3 결합이다. 세포 연결 초안의 추가 표적 사례이다."
+    },
+    {
+      "identifier": "AR-120747-A1",
+      "source_fingerprint": "4e28722a2dd21f97a7390570b4311330ebec1afdfb77ef5c3ca29bae7be781de",
+      "content_hash": "fb3462e7fd45d7f09d1f4b44dc067974002320209e9fad73248309bf19638bf1",
+      "decision": "LINK",
+      "keys": [
+        "dynamic-system-identification",
+        "geophysical-inverse-reconstruction"
+      ],
+      "reason": "시간별 온도에서 열전달 계수·지열 물성을 역산한다. 분포 온도 센서 자체의 광학 원리는 미특정이다."
+    },
+    {
+      "identifier": "AR-120756-A1",
+      "source_fingerprint": "dc74038643e169690995339e2b674ef7532114cccdde7dd479a0c7164314ff29",
+      "content_hash": "f0e21b65860f19e7a66dbeb33a9885efcf5635eafc53e9e95c8a2d3d091f7b1d",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening",
+        "negative-feedback"
+      ],
+      "reason": "진단과 균열 형성 모델에 따라 지상 변수를 조절한다. 예측 구간 최적화가 명시되지 않아 MPC로 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-120768-A1",
+      "source_fingerprint": "21c1b2bbba7b05cde9ec35e8f8d603d48c5cf3755a5830add8a09c75f8c4b4de",
+      "content_hash": "f72ef1953d792a498418a3c04739486650ee164b6a78bb52e9110f200922cee5",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "mechanical-interlocking"
+      ],
+      "reason": "비스듬한 접합면과 축방향 체결부의 구속이다."
+    },
+    {
+      "identifier": "AR-120769-A1",
+      "source_fingerprint": "1188d80aa4c6907102e21bd836e6a6b8a68b80dbeb04126ce352eb16c8ca5998",
+      "content_hash": "369d167a7cbc51e3ff98dcdeb0a8731853f2ec70fb65bfb114409b3acc584ad7",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "lead-screw-motion"
+      ],
+      "reason": "회전 가능한 나사의 이탈 방지 및 체결이다."
+    },
+    {
+      "identifier": "AR-120782-A1",
+      "source_fingerprint": "51386d5527404d9c6ea3d962c05e261943c3ed556c91b3628a9ab17e639b48e8",
+      "content_hash": "7ee813d85ad77dcbe74845c5e65b30b7b6e7c3c8a64d33c72e4a368ac6d0c1a2",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "electromagnetic-induction",
+        "elastic-energy-recovery"
+      ],
+      "reason": "차량이 가한 기계적 일을 유압·회전 발전으로 변환한다. 차량의 에너지 입력이 필요하며 자유 에너지로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-120801-A1",
+      "source_fingerprint": "5750bf7628990817d5fdf0d07bf78528a0f16338dffefee9b09a34d71cef3890",
+      "content_hash": "c888e8b6f26375bb39d62c3cca4dcb954af5f8515d682993803b538b160d0b86",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "heterologous-gene-expression"
+      ],
+      "reason": "자일라나아제 변이 발현이다. 당사슬 효소 가수분해 계열이며 열안정성 향상의 구조적 원인은 미특정이다."
+    },
+    {
+      "identifier": "AR-120811-A1",
+      "source_fingerprint": "240154e2c8c5e851ad1cf97ac635bd4e8f03663368c344aaa2a63db1f7402e47",
+      "content_hash": "cba2a7c69a773a35b8a0d4b50b2d517dc617806cf0dd75025cfee3651dccd845",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "KRAS 저해제이다. GDP·GTP 스위치 초안과 관련되지만 결합·공유결합 기전은 미특정이다."
+    },
+    {
+      "identifier": "AR-120814-A1",
+      "source_fingerprint": "823c006d7dff73b8c0e856ce388f689b7ec8fc8a38e61f56912825b08a4f8d9a",
+      "content_hash": "424f27a925c5eef158eac6bbcee363025cfa46a3b250887c1e6e1b53f586cc33",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 캘러스의 안토시아닌 생산 유도이다. 유도 자극·신호 경로는 없다."
+    },
+    {
+      "identifier": "AR-120836-A1",
+      "source_fingerprint": "4887bfa7adcf0cca75185c95795b80f310a3f12da8d5a3aa3eb935a32454f938",
+      "content_hash": "9824a3c3c2df5ba3ba9871499839250388a515d2478a930e3919726c0e5895cf",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "linear-frequency-filtering"
+      ],
+      "reason": "평균 위상오차와 개별 차분 오차를 다른 대역폭으로 제어한다. 위상고정 루프의 구체 동기 원리를 문헌 대조한다."
+    },
+    {
+      "identifier": "AR-120849-A1",
+      "source_fingerprint": "9bf1637a3310b4bbb3187d677918e1e6a6e28f579cb2ff0c35d48e383c65dc28",
+      "content_hash": "d9a1873b7fa52af0e346bdca2245b3a7245494db29e4c1082f8dbe2bc465c0a7",
+      "decision": "LINK",
+      "keys": [
+        "target-induced-protein-degradation"
+      ],
+      "reason": "EGFR 유비퀴틴화 및 프로테아솜 분해 유도이다. 표적 이름별 신규 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-120879-A1",
+      "source_fingerprint": "ed1e76d5e0092cf789c03d958a72937e252d369b0f1505b0bc3b32709d8fb77a",
+      "content_hash": "9513ed704537944275fa29ee3c3bc3ee60d80e3127a99207a36d0aa08b401a05",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "탄성 금속선과 스프링의 정해진 형상 유지이다. 형상기억 합금이라고 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-120886-A1",
+      "source_fingerprint": "a7914c3fd658d6d1bd1e252cfa039f2fa1a9d329acb1cf15135e69f3e04bb731",
+      "content_hash": "ebbb0670414b5d64fb5960ac5cecd07c62591ca58f8145d1963694db226339a3",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "FGFR2b 항체 결합이다. 신호 억제 등 후속 기능은 미특정이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:47:11.958951+00:00"
+}

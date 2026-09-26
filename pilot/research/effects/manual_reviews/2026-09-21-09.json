@@ -1,0 +1,500 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "461bee4aaa286604aedb26b24edc457895ff17e2d1dec95d202704b432eeea54",
+  "reviews": [
+    {
+      "identifier": "AR-058946-A1",
+      "source_fingerprint": "e48b3703d34d1b7874c6f2352d66d4cfb38c197e01b41655ae119e3c1bf36d82",
+      "content_hash": "ac704c4392061f666549f92256c85b6338830792b4e9d86b9a489aeef84cc108",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction",
+        "catalysis"
+      ],
+      "reason": "고온 수소·일산화탄소로 철광석을 환원하며 하부 환원철이 코크스 가스의 중질 성분 제거에 촉매로 작용한다는 저장 초록 범위로 연결한다."
+    },
+    {
+      "identifier": "AR-058990-A3",
+      "source_fingerprint": "a3c4960146dd66a04bfcc61656f6c1b280eb73da4726ac459faf1f591671ad26",
+      "content_hash": "fdb7bb3319c9c6823e3f4b41d02af941d1da21c1c0907567180ce1e1b5db25fc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고정 혀 위 노치가 파열선을 형성한다. 응력 집중에 의한 파단 제어 후보로 보존하며 재료 강도 수치는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-059048-A1",
+      "source_fingerprint": "e93d8370ebfde4ce27b40b973b5f90ab5289cd98091ab50e73a734e4636211f6",
+      "content_hash": "f71a92823b2ba9b8670344c628e38f9b980d6c8e1392a2703c7a7f6f595a7275",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "아코디언 병의 고리 형상과 보강 리브가 형상을 지지한다. 쌍안정 전이는 제시되지 않았다."
+    },
+    {
+      "identifier": "AR-059051-A1",
+      "source_fingerprint": "2d313531761dcf27f0fa6424efba42487ef494e7bea1dfca907af191d0a31b92",
+      "content_hash": "b761cdbd20161e43e41b7952727467e923c095b03115bc58542091e4a6fec3c3",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "가스 종류별 맞물림 형상으로 부적합 연결을 막는다."
+    },
+    {
+      "identifier": "AR-059058-A1",
+      "source_fingerprint": "b329fb716f074dc03ff7f99bd0f614324a73da6caf21909f6a8fb0afb31e759a",
+      "content_hash": "e218dae5f9f840ef523f53705e36e4d3c2507d7d358ce42c9d31c35046ffc3de",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "코발트·몰리브덴 촉매의 선택적 수소화 탈황을 명시한다. 탄소·황 결합 수소분해는 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-059060-A1",
+      "source_fingerprint": "34396d46d88bf0245f6837efdc73fd73069e0487946fe0ca2daca19a73b463a1",
+      "content_hash": "77afdb89256d979937f04886137de264a416cb8c83a0695ed27997348f5c5f44",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "실리카 담체의 코발트·몰리브덴 촉매가 올레핀 수소화를 억제하면서 탈황한다는 범위로 연결한다."
+    },
+    {
+      "identifier": "AR-059070-A1",
+      "source_fingerprint": "2ec9c13089b4896105ba085fd5c83df1e4c9591c45808be453bf61586d3de131",
+      "content_hash": "78fbee39f77b37f4ac9adafb3dec52957fee671b1e76e7667bb87104fd98792a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "배터리·모터·관절을 갖춘 외골격 구성이나 힘 전달 원리는 구체적으로 제시되지 않는다."
+    },
+    {
+      "identifier": "AR-059083-A1",
+      "source_fingerprint": "b48466636de8165650a1624c05c32031463c61df4b73ce2b1e98fff9d680d251",
+      "content_hash": "b7bd6b8615322f2704d434b3aeb7bc9baafab46f2dd5c0a5eb21c49753e148a2",
+      "decision": "LINK",
+      "keys": [
+        "freeze-drying",
+        "surfactant-action"
+      ],
+      "reason": "택산 조성물의 계면활성제 및 두 차례 동결 건조를 명시한다. 약리 표적은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-059087-A1",
+      "source_fingerprint": "c863fd85eb8a692a347eed89cba7f9b90545951ba03d0c2545184e1da6a956d9",
+      "content_hash": "df73ce2a98b8f626b0e3793b51cd14dd63fcaa0a6a3f786a237b15c9a46cdea7",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "피리미딘 화합물의 PI3 키나아제 억제를 명시한다."
+    },
+    {
+      "identifier": "AR-059089-A1",
+      "source_fingerprint": "8bd1dbeee1cc635e7f4dc477e0cb5b36885fd4e82f573a8d51ca2835c598ce78",
+      "content_hash": "abad29f5ce6bfc2d63ebfe25e16d021d2407df1a31dc7593635c0363f5541740",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "결핍 리소좀 효소를 보충하는 투여 방식이다. 혈액뇌장벽 통과 성능은 검증된 사실로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-059100-A1",
+      "source_fingerprint": "6eda959b4f37caba74d477165e643edd24510618dbdb675a4767160eb93355ec",
+      "content_hash": "352b63dcacc0411c9614a064548e3295b9aa655e39f30a9fe5a8a5515531a7a1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "서로 다른 높이의 받침으로 여러 지름의 컵을 배출하는 형상 설계이다."
+    },
+    {
+      "identifier": "AR-059113-A1",
+      "source_fingerprint": "72278a8798a93987f700b2ff4881e02316bdc005f183ce46d7a9ae00b5672f27",
+      "content_hash": "b8159418e9c6f8a15ee1819e182719507a390df640033d9d11ad7e40a592b885",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "메타플루미존 외부 기생충 방제 조성이나 분자 작용 표적을 밝히지 않는다."
+    },
+    {
+      "identifier": "AR-059135-A1",
+      "source_fingerprint": "e9e612665a1d21544229289d78f6586250cdd406a4d811f1111170476b1c262f",
+      "content_hash": "f40a8747841333263051162ec4f325faba4e9e8e2224e5719ae0cf4b77c88419",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission",
+        "elastic-energy-recovery"
+      ],
+      "reason": "고무 탄성 부재가 스풀의 마찰 결합과 장력을 형성하는 수정 테이프이다."
+    },
+    {
+      "identifier": "AR-059233-A1",
+      "source_fingerprint": "de53ce7e99e6b304693ba1481f10cdd7c8dfc4a3f1830c8934361765cf704281",
+      "content_hash": "977444a7b6b267a35d70d4d89c52479987dd3dd9b656dc2e9954289742104bb4",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antigen-specific-immunization"
+      ],
+      "reason": "항혈청으로 선택한 수막구균 피막 모사 펩타이드의 인식 및 면역원성을 명시한다. 임상 효능으로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-059241-A1",
+      "source_fingerprint": "710fb9cc1372be43240703ff81cf5233c7e0d8c66a3f008b6e035deed22c732e",
+      "content_hash": "63f19a8e54e2f9d13d42706307c56f163f85fc7c6dc47ab995aa3637110a2008",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고체 제초제의 계면활성제 조합을 제시하나 안정화 경로는 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-059315-A2",
+      "source_fingerprint": "d0b705b1d6901317b19ed03117f59cf05cd9630ce50fe0779c6c8818c2d2091f",
+      "content_hash": "e8814e4a9f12d3afac6296f637021c741a1c72b584edf9a0a96fd47961ad128d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "안트라닐산 합성효소 유전자를 도입하여 트립토판 생산을 변화시킨다."
+    },
+    {
+      "identifier": "AR-059341-A1",
+      "source_fingerprint": "350a0c4d3138fab28fd67b6e70c0c212f9dc2fb48e9d291870c60d971df56d4b",
+      "content_hash": "b6551b16c0a1eeafa889fffc0a2e4857c7e7473302880255875e2c97c2409b71",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 개방 마개의 구조 설명이며 별도 물성 원리는 없다."
+    },
+    {
+      "identifier": "AR-059345-A1",
+      "source_fingerprint": "2522652af6d62fe369784a785ed690b4e9912c910c73679f936bb68997d8848b",
+      "content_hash": "679d546db0cb6853067a7a9ffb0fd1e64fa9250bd3af92e91d7107e2e500d75e",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption"
+      ],
+      "reason": "노말 부탄 흡수제로 에탄·에틸렌과 불활성 기체를 분리한다."
+    },
+    {
+      "identifier": "AR-059360-A1",
+      "source_fingerprint": "c8307817aad22cae6dfb9d0552856bbe1dfce1a75588dbcc3bbc9d6d69c0325f",
+      "content_hash": "9d8efd75d31ef49627fd17f78246ddb51f677dea76df407142050b6a1443a385",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "PEG 첨가로 하이드로겔 렌즈 이형을 개선하나 계면 또는 팽윤 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-059395-A1",
+      "source_fingerprint": "75073f08b0bbe31ecdbff164de40ec9e7d8f13c7897bd88e5dfc5eb82ce99f47",
+      "content_hash": "0a32fd84f1d64d0e7f83c48e2eb84cfd68af8af9f674c951bca1fb428751babf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "빗살형 고분자가 도공지 보수성과 점도를 바꾸나 흡착·입체 안정화의 직접 근거는 부족하다."
+    },
+    {
+      "identifier": "AR-059403-A1",
+      "source_fingerprint": "f8e6dfadf6f61fa135329679a7c6ac05ae663adb744659e013cd9cb16d469963",
+      "content_hash": "396bf396b0de0ce4ab1ef63997dd6376fe38dc57b3359afc29828330e179b5ee",
+      "decision": "LINK",
+      "keys": [
+        "solidification"
+      ],
+      "reason": "가열 용융 접착제의 냉각 고화를 연결한다. 기재 자체의 융접이나 화학 반응은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-059406-A4",
+      "source_fingerprint": "68d91589afdc5952c8ce281d5b6fefed7dedc32fd6cbe92a5b95133d0a097713",
+      "content_hash": "1a1c803097a0eb5d424df83d1c00ad6518abf1daa7f01f36b953c34f9de4e63a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 전환식 복합 게임 테이블의 공간 배치이다."
+    },
+    {
+      "identifier": "AR-059434-A1",
+      "source_fingerprint": "15f5105befbc02977c8f16ac0599a0983ad39cd53eef04587cd5c41e4b6a409b",
+      "content_hash": "b0c53898d88e6953c0e059178a2cce260f670d9a5c4264dd147a076eb9572458",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피리딜 설폭시민 살충제 구조만으로 작용 표적을 정하지 않는다."
+    },
+    {
+      "identifier": "AR-059442-A1",
+      "source_fingerprint": "c08d7105f789a84c50d36f375fd74a6be6ad987ae15e545bee50b4d454f01fa6",
+      "content_hash": "e987a7938a04cb661734dbc11d7e165b6eeca64a1b166176e70137a489be3194",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분기 지지대에 매단 화물 호퍼 구성으로, 응력 분포 계산이나 구체적 재료 효과는 없다."
+    },
+    {
+      "identifier": "AR-059476-A1",
+      "source_fingerprint": "ee72329518337b0e5cb9d1ea6757871084ee0eb3812354816ea42bbd9d409787",
+      "content_hash": "8856d1d1352de17b8b2b9eaf1e9b5d6240db2ba4a734ecb823ff0f5a779091ef",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "펌프·밸브·배관으로 기어 케이스의 세정 유체와 오염 윤활유를 이송한다."
+    },
+    {
+      "identifier": "AR-059486-A4",
+      "source_fingerprint": "a5b6e5b996f40785097dcc424733d70d60c067ee9a3c7d3904c800c7f0c5c4ba",
+      "content_hash": "1e6bf69a85535b12c0a8a444a3bf183579c4cc81df634fd6c8529e28739b46f9",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "negative-feedback"
+      ],
+      "reason": "스프링이 밸브 원판을 밀착시키며 과압이 스프링 힘을 넘으면 배기하여 압력을 낮춘다."
+    },
+    {
+      "identifier": "AR-059513-A1",
+      "source_fingerprint": "f42f0d29773b96fb2c078bacdbe12246e9531392cacfed220e800aec395a38b5",
+      "content_hash": "5cfc3dcf804a80e5c9fbe3bec3c8f01646e3a61aa8c087b16d3afee1a746e5ec",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "세로토닌 및 D3 수용체 조절을 명시한다."
+    },
+    {
+      "identifier": "AR-059519-A1",
+      "source_fingerprint": "3db49f0b7ed114e5dbe72568228b091da92d20417eff28c3d515e284da207177",
+      "content_hash": "6e1fe8fa3dafee6452c53613103e1ee879eed274e726b1141bf6a543aa071a54",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "플루메트린·플루아주론의 진드기 방제 용도이며 개별 작용 경로는 없다."
+    },
+    {
+      "identifier": "AR-059532-A1",
+      "source_fingerprint": "06fa5904443e2908219d9cb57482b22c71a5ad001acecb67bd45d4e072809268",
+      "content_hash": "a7b183466090aa4e8a6cdf4dfc07c139875dfad39dde41d471f1c7b31907c9af",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "항공기가 거리 임계값 안에 있을 때 풍력 터빈 표지를 켜는 운용 조건이다. 센서 원리는 없다."
+    },
+    {
+      "identifier": "AR-059559-A1",
+      "source_fingerprint": "365033a6e53c31e9bca9853570377b8f689bed3c39b936cd1193beb87f976290",
+      "content_hash": "039862ef8cabc9b50984b214166ee711cef1b07b64538f4b273d5cfe3171892b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "차량 연결 상태의 원격 표시 구성으로 검출 물리 원리는 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-059577-A1",
+      "source_fingerprint": "6e8d0b8d0543bf9e9b49c67882474e738dedf956ce2368e11c6dbb5f3f1db4d7",
+      "content_hash": "b61f26678f1d0ad167e34534104715aa6b828deaf30e76cd40a94296a284439b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아라비아검의 칼슘 흡수 개선 주장만으로 장내 작용 경로를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-059601-A1",
+      "source_fingerprint": "542cd4499e70c9c4198e875d342655162c5a93527333705bb75bc202a9977f62",
+      "content_hash": "8ec2d5b93bc5aa9678c2c7caed9f26185a7cfc2a76dde4165dbeff78f73f36a7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비수계 비타민 C 조성의 저장 안정성 수치이며 안정화 반응 경로는 없다."
+    },
+    {
+      "identifier": "AR-059622-A1",
+      "source_fingerprint": "bde4697d159ef5e79246e72805b31df72f0f5e6f4cf9b34eebde7fe1ac7c8a90",
+      "content_hash": "3cf58044b09b7b461bdc6cd247ab4a31900084e8184cdc7576397e4b8b49c31a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "유도성 산화질소 합성효소 억제를 명시한다."
+    },
+    {
+      "identifier": "AR-059672-A1",
+      "source_fingerprint": "a9a0d196b790fa985d3c2532fce16fba4203335a95c9de46919fe1ce00dc1e0c",
+      "content_hash": "2bf220fb7d63144b8b23e1410b0ac50648446a6b0c91e4938923ecaf65c5ec32",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "니코틴 담체 접합체의 태아 보호 용도만으로 항체 유도 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-059673-A1",
+      "source_fingerprint": "dc352fb0ad9a15437322fe64a3ee882f1296dd451726a93d1287a1b4bca6a4f3",
+      "content_hash": "348f52661b3e4498c4380dd473f467a1daecd6ab7dc77f14b062ba243678cfa6",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "section-moment-stiffening"
+      ],
+      "reason": "두 판재의 꺾인 가장자리를 맞물려 중공 각주 단면을 만든다."
+    },
+    {
+      "identifier": "AR-059675-A1",
+      "source_fingerprint": "72374e92566661b77ca1edea569c3bb7aa40698044fd69f0aed8484b1600fbf2",
+      "content_hash": "b113a702c86e5ab655302040819f38c04934163c7ff9431818e1a76aa18f3780",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수지 피복 입자와 경화제 피복 입자의 혼합 경화이나 반응 종류는 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-059700-A1",
+      "source_fingerprint": "083daf1fdc8d71e4184199c46886a5f7d43987e8bb5f21ec26db5861a4f67ae5",
+      "content_hash": "39f59861fec37ee6f1199c76506b87695fb7b5abe83e8dce534d6c66b1d1035e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수확기 드레이퍼 벨트의 국부 승강 지지 구조이다."
+    },
+    {
+      "identifier": "AR-059701-A1",
+      "source_fingerprint": "cd4095a5e20c62d5960467fc50f71feb18642600a5d523ac37eded7a8058d30b",
+      "content_hash": "23785296c54154e225dd920377686359459e44e235deabee879011b4d52eb526",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회동 플랫폼과 릴 지지대의 위치 조정 구조이다."
+    },
+    {
+      "identifier": "AR-059724-A1",
+      "source_fingerprint": "58d8be29c20406e202df4c93b7ca3389394efaa06bbc7254cbb78ae851bc17a9",
+      "content_hash": "369d7667b243f0c58529c92f15d8f3426e947eac26984dd52e388cac35b2aae0",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "환경별 최적 조건이 다른 두 효소를 발현하여 작동 조건 범위를 넓힌다."
+    },
+    {
+      "identifier": "AR-059732-A1",
+      "source_fingerprint": "93c1d01050d59c448a6c70abeb45d2e6f55feea15e439be54a13021ee4d18678",
+      "content_hash": "704b15e0de27c4147679e14aac6de8a64d15467d7827f786cc62e942fae7cc18",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "chromatography",
+        "antigen-specific-immunization"
+      ],
+      "reason": "하이드록시아파타이트 담체에 종양 항원을 흡착시키고 컬럼 세척·회수 후 백신에 사용하는 과정을 명시한다."
+    },
+    {
+      "identifier": "AR-059789-A1",
+      "source_fingerprint": "d40d0d9b0647075622ff942d772099e9279ee391a57952e47476bb0ec059c538",
+      "content_hash": "5228a1841a1239cae04ae9154dd16ec7520ca43a4f7a841ecf4c1fa88b416b07",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "TFPI 키메라의 도메인 구성이지만 저장 초록만으로 변형체의 억제 기능을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-059794-A1",
+      "source_fingerprint": "d376e2008de9fac426a7d9f0112d61eb28992e49010e764968871e2de9719229",
+      "content_hash": "f2c595615cc0ebe33c72e2a09d36027727316f81e1350f9c155fc1940aa47411",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "mechanical-interlocking",
+        "dielectric-insulation"
+      ],
+      "reason": "램프 면과 조임 너트가 동축 도체 끝을 벌려 고정하며 절연 부재가 도체를 분리한다."
+    },
+    {
+      "identifier": "AR-059809-A1",
+      "source_fingerprint": "7c400632be4f292339d85f8898f1a1992b72f889cdcf26aec73f384a42969f12",
+      "content_hash": "ddba2af2afc5fda8ed0066f55d7cd674793cb403ebc74e50289d29addc495057",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "5T4 표적 항체의 에피토프 결합을 명시한다. 접합 약물의 세포 내 방출 과정은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-059815-A1",
+      "source_fingerprint": "227aeca80082e2a531b27b83e4c9d756c190fa070847c49d4881c922fcd59e4b",
+      "content_hash": "6e12dd90943127e4ca77bf9b271b218da579f9e036dfa084a4300ae03ae2d848",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "대체 네트워크 정보를 전달하는 등록·접속 절차이다."
+    },
+    {
+      "identifier": "AR-059821-A1",
+      "source_fingerprint": "29a9662f357ac9ecce73e57e0c06cae5a340bd7a2ca1e9595e58c37e558aba9a",
+      "content_hash": "cd9dcfd1a0771c2f38e139628784d39657c010f3a0ebc46d39b62e1a32367f1e",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "침대 가장자리의 M자 스프링이 변형 후 지지력을 회복한다."
+    },
+    {
+      "identifier": "AR-059825-A4",
+      "source_fingerprint": "ce1c1bb17a8284e0ed7b2051881dc478ab7eb729c8553c69c1d7b3031bb58b90",
+      "content_hash": "443f139ac1b7eabebc71d62f928a50764853fa2dc5afa354ab6993f825864e59",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "크랭크를 포함한 연결 구조가 놀이기구 플랫폼의 회전·흔들림 운동을 전달한다."
+    },
+    {
+      "identifier": "AR-059858-A1",
+      "source_fingerprint": "23d8961f411bc08da168a890fd74ea0be96fbf60a42a78d7a4b7499def92d928",
+      "content_hash": "05675b93027b6d198bc26f3ab716a0f35c8d46d19939ca1a96929dcaa9bc8a8f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "흡수 제품의 젖음·온도 감지 영역을 말하나 감응 물질의 원리는 없다."
+    },
+    {
+      "identifier": "AR-059875-A1",
+      "source_fingerprint": "759ddff21b6fa3b500a721f3b4e64a39c159506954d0c93ccca7531fb892a142",
+      "content_hash": "63a538e932cb305ba895946e8b117d2d864fb1468feecb57426ede148499f9ce",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "신호 세기별 응답 지연과 다른 응답 수에 따른 취소를 명시한다. 타이머 기반 중복 응답 억제 후보이며 무작위 백오프라고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-059882-A1",
+      "source_fingerprint": "826e06130fb509235d066162ea52974bfa5cf6a80601da7e863ef60a1ec91813",
+      "content_hash": "af8c9ae7117025e381af08da8717bf213585ab9310c7ebc796a32a274761e3ec",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "시트 구멍을 관통한 두 갈래 부재를 가로 핀으로 포획하여 하네스를 고정한다."
+    },
+    {
+      "identifier": "AR-059904-A1",
+      "source_fingerprint": "10af6f147ebda463a85746d1a1fc3a6426e212094f4d27ab3bec8bfd55ecc477",
+      "content_hash": "969e438662efc829fe00d88635645b42208e9d52d6ed3dbc875bd09fe9b03e65",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피리다지논 제초제 구조만으로 생화학 표적을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-059963-A1",
+      "source_fingerprint": "6b3bf812b225471297f354a909199b5acf349563823aa6405942f8817e21ddfc",
+      "content_hash": "254437ebb40b99170c3f4e66af61c0a8e3b56c3c7310ef619ac5e54e0066ca07",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항염증 아미노 유도체의 용도이며 표적 기전은 없다."
+    },
+    {
+      "identifier": "AR-059970-A1",
+      "source_fingerprint": "6cb9189f8b38f56d857759120bc5cf1e3ea1519368c727558213cfe9ba9a974e",
+      "content_hash": "5c8cab04fa629982673664f195818e244195905f519fd4d9a4d53bb516e21aa6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전·이동하는 약통 덮개의 개방 단계 설계이다."
+    },
+    {
+      "identifier": "AR-059975-A1",
+      "source_fingerprint": "a885679b1dbeb54ebe0f5b0345221652c5d1857531d8f5d2d62411e154d94a88",
+      "content_hash": "2db4980d158fc623dde56ffc2ea0230debc9e2b1ace87705ebb968e398490e9a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "절단·약화 선이 접이식 정보 패널의 분리를 유도한다. 응력 집중 파단 후보로 보존한다."
+    },
+    {
+      "identifier": "AR-060047-A1",
+      "source_fingerprint": "d2e4b99e2e8c5166d1a6ed53d558e3baf2ebb8dfc6b152aaa5508d3e6a32e64b",
+      "content_hash": "4921b3f58e4799a3f0e1466daa62707dd0f280be8e8b0bdfad41cb5e9b7217a2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "핸드오버 메시지 식별자로 오래된 메시지를 식별한다. 순번 단조 증가나 구현하지 않은 프로토콜은 추정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T22:06:11.246403+00:00"
+}

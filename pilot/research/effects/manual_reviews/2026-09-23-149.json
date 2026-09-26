@@ -1,0 +1,38 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "bf517352c7f6a15a608280bf8bb6523a542694b35cfdf962c5927ba07ca4b562",
+  "reviews": [
+    {
+      "identifier": "AR-098954-A1",
+      "source_fingerprint": "025f3beef657573fc90f47311b5b3275d69286fe63899d2af925430eeb0ab2a1",
+      "content_hash": "b64fb56967d624285c62456700c0a303d905f749893d66947945f486ef2db59b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "할로알킬설폰아미드 제초제의 치환체 목록이다. 표적·생물 작용·합성 변환을 특정할 근거가 없다."
+    },
+    {
+      "identifier": "AR-098961-A1",
+      "source_fingerprint": "52d766234f5fc0b5efdaa5ce13649b1ba9eab30cecdd971f5d1523f9e16bf278",
+      "content_hash": "2eac75cc7b9b6806c78ed2bf62eed060020e18cbdd24f82d34030de793fd265f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "키네신 방추 단백질 저해 화물을 표적 결합체에 접합한다. 다른 ADC 화물로 신규 원리를 늘리지 않는다."
+    },
+    {
+      "identifier": "AR-098973-A1",
+      "source_fingerprint": "ded2d6cf0cad0e9dd8f3e7f80d1e616cd237bf93c6b6cf508038a0e92fa2d625",
+      "content_hash": "1b4cf557ebda6aa9d584fc6c2aa5f9224a989b879d0f20466b44abc0c06bb8f3",
+      "decision": "LINK",
+      "keys": [
+        "lc-electrical-resonance",
+        "capacitive-sensing"
+      ],
+      "reason": "주변 유체 전기 물성에 따른 LC 공진 주파수 변화로 RFID 감지를 한다. 전도도·유전율·손실의 결합 영향을 구분해야 한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:52:36.343377+00:00"
+}

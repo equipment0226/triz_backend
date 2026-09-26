@@ -1,0 +1,149 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "3d90793f3bab971956473ff87fdbd111a1311bdc12dcad21d9cd83a7e6fee1bc",
+  "reviews": [
+    {
+      "identifier": "AR-109061-A1",
+      "source_fingerprint": "6f3d3a77bb7c94ba175c904d7fc66626af250e3a07cb1d84444240a67ba52e9a",
+      "content_hash": "f4f934aab1ac82044d322e1e4941f472301f32c25468a36927b517494dc7325b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "섬유·필름을 묶은 유정 플러그 구조이다. 경화·팽창의 재료 작동 기전은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-109062-A1",
+      "source_fingerprint": "aeeda6d5efe53b399c77665591d602eb94c827123ea21347a0a070d9ded6ab82",
+      "content_hash": "c68c1506f801deae6b7607fd45c5867a8bedc5e33d157a4b2cb241059b07f02b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살비 벤질아미드의 구조만으로 생물 표적을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-109063-A1",
+      "source_fingerprint": "feaf217acfc3de6d4f282d85a5c55c4dbacfd999616d277050bb9224498d3e2d",
+      "content_hash": "af680a7b506ca9a00001cd112ba1f6a8b6a58115c6770efe203f1552a5ae634a",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "효모 발효로 반죽을 팽창시킨다. 냉장 중 팽창 속도 제어의 구체 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-109065-A1",
+      "source_fingerprint": "05db7195db5efad7ee1ec3f301a1ed2178ba505ed4461ad7938d796cf6453c84",
+      "content_hash": "65fb2071e7dcf3d1a0f23ef2315a49e9205c96296ea7a41a18a94456585bf18f",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "차단층과 무수말레산 그래프트 결합층의 다층 구조이다. 층 사이 공유결합 반응을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-109089-A1",
+      "source_fingerprint": "034c184800692734c2e3a4b5c26b237fcb35916cce217cd6196a8acbb839589f",
+      "content_hash": "76c25730bdc0c491bfe9efc01524e1c205e65797491eb7b050f7c100afe3db6d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "회전체의 각운동량 방향 변화와 세차를 이용한 제동 장치이다. 자이로 토크를 별도 후보로 검토하며 세차 자체를 에너지 소멸로 보지 않는다."
+    },
+    {
+      "identifier": "AR-109111-A1",
+      "source_fingerprint": "47463167486fb7b53755207dc1875aea70ee12a5be34e882203d8e29c619208a",
+      "content_hash": "86e1e019ab7b1cda9deda32ed22576bbd399cd3d4afee926e0d8d171ee0a14fb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "두 제초 성분의 혼합비만 제시하여 개별 표적·상승작용을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-109117-A1",
+      "source_fingerprint": "3b9cede29f77ecada241828d38f5ea778e2353a739078f0294567de32708dcc7",
+      "content_hash": "82f653e9a4313c39fdbcd945ae1550e756a5e510be40765978d54b9e2f37f07f",
+      "decision": "LINK",
+      "keys": [
+        "genetic-loss-of-function",
+        "heterologous-gene-expression",
+        "homologous-recombination",
+        "plant-cell-totipotency"
+      ],
+      "reason": "POLQ 감소에 따른 무작위 삽입 감소와 별도로 명시된 상동 재조합·식물 재생이다. 중합효소 세타 매개 말단 연결을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-109141-A1",
+      "source_fingerprint": "2776755939b93f2d479488464bb5b5523b8bc9a1da159a59bdb97f5915edbf55",
+      "content_hash": "6caf6785f2d03167e41ac59cefec2671e7c4868125262ac581d69282e706a2d2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피리미딘 제초제의 광범위한 구조와 용도이며 표적 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-109146-A3",
+      "source_fingerprint": "6896c76ebebe817e9e348da625c5e69a0b52fe339b4240d2c4bc422873746218",
+      "content_hash": "a41d05417cb5bfed610f1e91fb1f294ca9c3d3ee24fdab2b9bca34ffb587c1bd",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion",
+        "magnetic-adhesion",
+        "mechanical-contact-switching"
+      ],
+      "reason": "캠으로 자석 회로를 닫고 스위치를 작동시킨다. 화염 이온화 검출은 별도 후보이며 광 검출과 다르다."
+    },
+    {
+      "identifier": "AR-109150-A1",
+      "source_fingerprint": "712aec2a07cb41f38188e69f5a055fe20af36f3a4cb89f38ab34ac11513561f3",
+      "content_hash": "33b9145a917804092ff4928a111d46d18cc82ba4a0f82880aa677a465d620362",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction"
+      ],
+      "reason": "산성 수용액에서 탄산칼슘 표면을 반응시킨다. 특정 인산염 결정이나 기공 생성은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-109175-A2",
+      "source_fingerprint": "c35286db1a95977a934c20ed1b753088a41332b054fe6e9a8672674263063705",
+      "content_hash": "832b91d8983fe0b38a3c6ba52f29560c1ac40e320127c4b4d06b67f2471cb62b",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "질소 함유 계면활성제를 농업 제형에 첨가한다. 효능 증가의 임상·현장 정도는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-109189-A1",
+      "source_fingerprint": "fdbecdcf7c866be9f7ccd32ee48cf2a1c576291527c67efc56e6e46ea77dbcec",
+      "content_hash": "39b81d35cc13fa30a79bf4c68fc0ec82a2ae4f833418cb79e26260116a213ad3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "주파수 변환기로 분쇄기 시동 후 상용 전원으로 전환한다. 준비한 주파수 제어 모터 속도의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-109190-A1",
+      "source_fingerprint": "e45e131aadc785268e80f2541fa8328d81dcaa6294e6d2588b66ad0e1a326ecb",
+      "content_hash": "ca344339b3342c545232ab1fb5b0556a4cbe531edf73fe6e466eb34957eb29d1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "센서 정보와 제품 승인을 대응하는 표시 체계이며 센서 물리 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-109199-A1",
+      "source_fingerprint": "9b19ca1958a0b5e2da9bcd99dcb29144cf190c32504bdaab00c1f0319605c10d",
+      "content_hash": "983ebab7ff26fb73e0347e847e719e9c67ec07c3b573faf9da3d9a99a07182cc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "특정 서열 펩타이드의 질병 치료 용도만으로 작용 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-109201-A1",
+      "source_fingerprint": "67e1923055327cec8ea2d092be55eb2db480aaf6e9fb67acafd0e949a6683c6e",
+      "content_hash": "f02482ec8d06ae1766cca8d579561993d85b5bfe455c974a57c8c53030fe8658",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "pressure-sensitive-adhesion",
+        "surfactant-action"
+      ],
+      "reason": "불포화 단량체·건성유 성분의 공중합체 수분산액으로 감압 접착제를 만든다. 산화 건조가 실제 경화 단계임을 단정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:49:14.804613+00:00"
+}

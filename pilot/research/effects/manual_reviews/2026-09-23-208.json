@@ -1,0 +1,199 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "8a0f3754e3a6f8b2007f0192b48d91a3c88bb282a94fc53c810c24489450b850",
+  "reviews": [
+    {
+      "identifier": "AR-110320-A1",
+      "source_fingerprint": "5d082e0bb76d0883ee8d07098cb3b6830e007dccf82606ec986729956021e87a",
+      "content_hash": "79ce86d4a9d6b689d0c0eb9b4ebff02e42ed8975f098eabdfd728bc68b0d8796",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "복수 계면활성제로 파라핀 억제제 입자를 수상에 분산한다. 왁스 억제의 분자 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-110339-A1",
+      "source_fingerprint": "c995897067217a9232353b0a6bc746352686e0515d590e745727add2e97b8fb5",
+      "content_hash": "959bd47585d29974ec5c2e4f5b376417eb0009a5d260530a9ecdfeb3b1ba5782",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "펌프 스프링을 유체와 분리하는 슬리브·밀봉 챔버 구조이다."
+    },
+    {
+      "identifier": "AR-110341-A1",
+      "source_fingerprint": "027f9241a1483794433135155d0dbadbf948e575b9a04aeaffc747a24bcf031b",
+      "content_hash": "ee0567dc7f3a61a563d78a1264e11bbd799b6b3502e2aee09099ccb5e43180a8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "골대의 수평 대향 센서 배치이며 센서 물리 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-110351-A1",
+      "source_fingerprint": "71ae64df9ece18d954ace8f1eb35bf5bd18dc60fb2704abc809534844fce23b7",
+      "content_hash": "7aacb2d803213e75aaeb3f717b6ece55fa14b6cdb24407046899af9827e235a0",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "TYK2를 조절해 IL12·IL23·IFN 신호 전달을 억제한다."
+    },
+    {
+      "identifier": "AR-110367-A1",
+      "source_fingerprint": "c1e39fe8b5c14cd1e8105b33a78b791d96defa55628e98732ad911850f88fde9",
+      "content_hash": "d09d7a77e8f7784884b56b78008d54fc9be1a5160c01a62ada0a0b958c90ca36",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "oxidative-phosphorylation-uncoupling"
+      ],
+      "reason": "효소·호흡사슬 억제제와 탈결합제를 가능한 병용 성분으로 구분해 열거한다. 주성분의 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-110375-A1",
+      "source_fingerprint": "169a2c88cad1529129419a49a67e39e69cd0db5cdd0eda15db7dfcf1530b3452",
+      "content_hash": "38981c002d4fce42947377c6e046825c7696809adaf9fa5c62b482f2b4b03fe3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "티아디아졸 살충제 구조만으로 작용 표적을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-110397-A1",
+      "source_fingerprint": "61c6f5617ff6422b55b091544003411681a6a948e51b6c578744d28a5f8791d5",
+      "content_hash": "305a8abb84168c17a4d106aede15913207c1ce2d4264a2abb4b154f1c571646f",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "cKIT 결합 항체·약물 접합체로 표적 세포에 화물을 전달한다."
+    },
+    {
+      "identifier": "AR-110399-A2",
+      "source_fingerprint": "31f1ecff33e2c4062c28d015922d7a7ccf4ca2b61999be5e3f2895178260c9d8",
+      "content_hash": "9733a0b5ecbada1c0fae7bd7d236d2f71782d49adff0e50d2870082767506950",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "여러 살균 성분의 혼합 범위이며 모든 후보의 표적이나 상승효과를 일괄 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-110404-A1",
+      "source_fingerprint": "e046759deee82c6e2f1f61c65d961fe15e91dfb8834354933b490387059f77ef",
+      "content_hash": "825d9772450707ecd2904719164183fe1199ec7fc81cf6bfb627b4f83d510e64",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "인터페론 람다의 수용체 신호 작용과 섬유화 치료 용도이다. 치료 유효성은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-110423-A1",
+      "source_fingerprint": "c4caab27ecfac70f19c59fc1cdab681dcffedcf82726c15441a9a1a7b2679678",
+      "content_hash": "cefd228ff6547f899e0e47debb3030916ba621cc7d9ba58e44ba9a3ef12b395d",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "CXCR3 결합 항체의 표적 세포 감소 기능이다. ADCC·식세포 작용·보체 중 세포 제거 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-110433-A1",
+      "source_fingerprint": "96dfb68b71fec831cccc402a25e3ca5245bddabe4329791a15e73313929a25ef",
+      "content_hash": "05406ef44ee590053fa56cbd048c4d21e2b59ec4086bbcd1ad6697ff6d9a751c",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "수용성 섬유 운반체가 안구 표면의 물과 접촉해 녹으며 약물을 방출한다."
+    },
+    {
+      "identifier": "AR-110436-A1",
+      "source_fingerprint": "05632de42200da1b85fbaf0332f9ae14319d86d113eab985534c064a9c1aefd7",
+      "content_hash": "71bf47662760c40bb6ec2718657ed12d14a5216aed20c86684c55718023041fb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "사분·이분 공간 분할의 부호화와 존재하지 않는 분기 정보 생략이다. 준비한 계층 공간 분할의 추가 사례이며 산술 부호로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-110442-A1",
+      "source_fingerprint": "433dfb8f1168f457d033a07f0364168d90a5d2f5e1327905a4a176646ad8e375",
+      "content_hash": "c1693f01e71213f71a5346275a471b98e1f596509a9559acae70d66d220dbb94",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지속성·매트함·보습의 제품 목적만으로 광학·계면 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-110450-A1",
+      "source_fingerprint": "b71fa1f5d18fb82434714e7e8e5b746c8051b4cc9217daa9f001e11aea7f68b6",
+      "content_hash": "fcb7a4d6026844669b40ccd5513af8f9246f1e87620bb0144e0906600a29877a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아실글리세롤 형태별 소화·흡수 차이를 주장하나 제한 단계와 수송 경로가 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-110458-A1",
+      "source_fingerprint": "1a998bd83600f02495dbdb0647ebbb4a2615c745bd6f387aa40d34557548a884",
+      "content_hash": "88503b2f1fc4fe85fbbf813ad67362ec058cabd3167cb2dff1fb20b000b608f5",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "heterologous-gene-expression"
+      ],
+      "reason": "재조합 벡터의 항원 발현 백신이라는 일반 원리만 기록하며 FMDV 벡터 구성·제조 조건은 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-110459-A1",
+      "source_fingerprint": "0190b79fd53858384154084db9d301cd66fdbc2c5ef1acc217af48f4088e2251",
+      "content_hash": "b712bda17173fd00f64c1635f63b81f3c4fe4df9b5ecce973449347fbca9f049",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "알킬 치환 페놀의 알콕실화·말단 수식 계면활성제이다. 방향족 고리 알킬화를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-110462-A1",
+      "source_fingerprint": "ed3d445d240df3e638a92aa28ef109e5533fb40db5ed0ce2894e236deb1eb2d4",
+      "content_hash": "65c4b03a92aed222f33e44db569830f78df5f61d88a44d0d1e0f3a3679ac7c4e",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis",
+        "le-chatelier-equilibrium-shift"
+      ],
+      "reason": "물 함량과 온도로 무수아세트산의 평형 농도를 낮춰 아세트산으로 전환한다."
+    },
+    {
+      "identifier": "AR-110476-A1",
+      "source_fingerprint": "60acb2a14d2c0f72a1ca158445d43809326d4cccd0203ae1acf6202b2af632a3",
+      "content_hash": "f83417e172f5180f7b07efbb61b523f0c9612afac199307ec72a5b8a1276eb89",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption",
+        "pressure-driven-flow"
+      ],
+      "reason": "가압 가스를 물에 용해시킨 뒤 맥주 농축액과 혼합한다."
+    },
+    {
+      "identifier": "AR-110479-A1",
+      "source_fingerprint": "0741e1272777e89b98c3a73cf832e382ff890192e34c2fce2af01f09db404202",
+      "content_hash": "d4980a3e9ac7ad35aad1d83cc0dde760e02312e40ac7ab73c7316003dd075fdf",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption"
+      ],
+      "reason": "냉각한 물을 탄산화해 농축 맥주와 섞는다. 냉각 장치 종류는 미상이다."
+    },
+    {
+      "identifier": "AR-110483-A2",
+      "source_fingerprint": "943c8238eef97418a49646b4c49f5432e6c7ab19d9f3582943a35d29632f7af8",
+      "content_hash": "2bb9229f5cf5e5eacce9905096a357fa008218293e830f453ea23560f468a96d",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "정제 식물·과일즙 유래 결정성 색소 조성이다. 당 저감 분리 방법은 명시되지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:52:03.073568+00:00"
+}

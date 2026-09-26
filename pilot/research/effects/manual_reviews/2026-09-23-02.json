@@ -1,0 +1,157 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "17aa02a924d2c2df2ec9f72423e6a461a4836bc371f72da923327e9685f82f30",
+  "reviews": [
+    {
+      "identifier": "AR-075916-A1",
+      "source_fingerprint": "9b5e4c4d71091f396f58feb12d839248e88694ed91feefc70af9f4b5677924fa",
+      "content_hash": "9277183b243673ae15e2f6a724e59415d4623981579d856ea536668d542784a4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "자트로파 자엽에서 캘러스·새싹·뿌리를 거쳐 식물을 재생한다. 성숙 조직의 탈분화·전형성 후보를 기존 전구세포 분화와 대조한다."
+    },
+    {
+      "identifier": "AR-075925-A1",
+      "source_fingerprint": "0e4e56b0ae85f6009fe96f86b6ae5ffebf7f63b065b3aa50418625c476f9fe43",
+      "content_hash": "e952772f99ffc24dcaea89fc73dd9e9b4cf5b3488beffa8fdb18017e5274d4ca",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "알파5베타1 표적 항체의 인식을 명시한다. 혈관 신생 억제의 세부 경로는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-075938-A1",
+      "source_fingerprint": "789221158c39e34dbaf5fc4ede37e890adbc66382e0789388291d274db8dd0d2",
+      "content_hash": "22949cd5351a5649593b756a5d2868908bb169d102893929f93e5377bc9b1d72",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "상보 핵산에 의한 식물 바이러스 저항성의 일반 억제 원리만 연결한다. 병원체 서열·구축·전달 조건은 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-075939-A1",
+      "source_fingerprint": "7c78d0c8df69b1a48de7f52f392706f40f47cc6d0edba3a9d7cb09d6cd98aa35",
+      "content_hash": "dcbcaf482159ede2ac7dc25e1fdf448bdef270b67c8e4b197975b624756b467f",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "antibody-dependent-cellular-cytotoxicity"
+      ],
+      "reason": "FGFR3 이량체화를 막는 길항 작용과 ADCC를 명시한다. 이량체화 신호는 독립 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-075943-A1",
+      "source_fingerprint": "1b09733f6d781261e201bc65845fe115654dc8a3563729729b4f35b6520eeeab",
+      "content_hash": "bf507eaa779f5ee7367fbd3db7cb1f1d39442b23533605c216038f89ea46b470",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡수체의 날개·덮개 절개와 펼침 배치가 중심이며 별도 과학 변환은 불명확하다."
+    },
+    {
+      "identifier": "AR-075956-A1",
+      "source_fingerprint": "0bbd0ad87c9ea952a105d6c4205e297149e52d938e658d0af69bb33393dc228c",
+      "content_hash": "acfaf95553be24b0f6eae9e582b46dfdbbf20ac4b3a234a5017392126822bdc7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "연약 지면에서 바퀴를 곡면 판으로 대체한다. 접촉 면적에 의한 압력 분산 가능성은 문헌 대조 전 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-075962-A1",
+      "source_fingerprint": "3462aa7b652120052741c534ebc0b06cd5a5868444ea78e6a5e5b5a7fb1da793",
+      "content_hash": "5fa12ac5c93c560291a598fde8f957113ea88ae35a9929eb4a05bd063e3673eb",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "띠를 절곡해 펼친 길쭉한 부재의 강성을 확보한다. 절곡 단면의 강성은 기하학적 해석이다."
+    },
+    {
+      "identifier": "AR-075987-A1",
+      "source_fingerprint": "f0c3758d97c2f47589a18fd8c3bf50905069290826a7b53c193b800f039c6af4",
+      "content_hash": "da3973279713737c491ef700dd09c6eaf818a62eb7e985942cf17a8b98b9283d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "회전 숫돌 사이에서 곡물을 분쇄한다. 벌크 입자의 압축·전단 파괴를 표면 연마 제거와 대조한다."
+    },
+    {
+      "identifier": "AR-075989-A1",
+      "source_fingerprint": "3a83487d2485483014b2adbd2cd1e9a3b39d19dc169ff2d1247a0f3eaa3001a7",
+      "content_hash": "4c24534591ec91a5eaf56dd679b94ac9bfed90d074ec24429ddad01feeb16047",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "DKK1 항체의 표적 결합을 명시한다. 결합 상수만으로 치료 효과를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-075990-A1",
+      "source_fingerprint": "d1d453f92528862609e57d1daac0f4b7830a94fb30427b44827afa620655f28f",
+      "content_hash": "90c49767cf6ce241b9cba7d0a42fb02b8f867b84c0cd0305aca282b6db93b5ed",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "벽 시공 블록의 편의·품질 목표만 있어 독립 원리를 특정할 수 없다."
+    },
+    {
+      "identifier": "AR-076018-A1",
+      "source_fingerprint": "20080e87f42fc118c9b22855f04f6d323890b5ca357fe037560d55d0acb16908",
+      "content_hash": "b7ab7c9fd5968aba127069ac7407a1a5f4eea12479dbb1c3fbc313d1f6838409",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "여러 항원을 인식하는 항체 결합부 조합이다. 동시 결합·재결합 증거 없이 avidity 증가를 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-076024-A1",
+      "source_fingerprint": "9faae77cf899b43f8e859cd1b7266bb300e5fc1328ef7449e6083cc2c01cf4fe",
+      "content_hash": "5f761625c258e911f4b50f6be10a6729b12fec39e90ef7e09d9a5ae3612a578a",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GPCR 활성 관련 약물 작용을 제시하며 표적별 효능은 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-076028-A1",
+      "source_fingerprint": "2de734d3d7f801cb19e4100db01b2f8721a2d9aeba45f559205b62153881acb6",
+      "content_hash": "1686a0d6c5657f21cb6f861f89e6683f6e7b590508256fe45e7eb4b66afae525",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "Hsp90 저해를 명시한다. 샤페론 접힘 조절은 추가 근거가 필요한 후보로 남긴다."
+    },
+    {
+      "identifier": "AR-076032-A1",
+      "source_fingerprint": "4412166d8a28c98867a82bcfa837396077c68ab85a101e42876f2fe6ee9cbfe6",
+      "content_hash": "d77928f82a2afce35392fd9b5a9331aa57c48f93dba65ff1650d3a5c5d5d3aa4",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "이송 롤러·요동 팔로 탄성체를 물결형으로 배치하는 장치 구성이다."
+    },
+    {
+      "identifier": "AR-076033-A1",
+      "source_fingerprint": "391740a1919663d40867bc3b78094bf9dcfe1422eb1e0b29390e217fbe0f370f",
+      "content_hash": "2147811fe559ef64357d52dbffa359742e35b253f9bd1991605245ae9419cc30",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "이송 중 흡수체 시트를 접고 접근 위치를 제한하는 기구 배치이다."
+    },
+    {
+      "identifier": "AR-076037-A1",
+      "source_fingerprint": "2ad6a27f2e37c325bb7c36467a204371ca8c9ef8d15559ad27a7597e96746803",
+      "content_hash": "ca34d0f84116ddf648debf043f5751ed0d95e9a6db07cb80f0bf4931721ea1a9",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "enzyme-inhibition",
+        "oxygen-scavenging"
+      ],
+      "reason": "산화환원 효소·내생 산화효소 저해·산소 화학 제거를 명시한다. 항산화제를 특정 라디칼 포착제로 단정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:04:58.930626+00:00"
+}

@@ -1,0 +1,229 @@
+{
+  "batch": "additions-2026-09-26-17.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1258,
+  "added": 18,
+  "after": 1276,
+  "target": 1500,
+  "source_sha256": "391ae3d78b0a54e04b7206576a9be01662cc68ce2d4f108b74a2a3d3a59a7ddc",
+  "decisions": [
+    {
+      "key": "latent-expectation-likelihood-maximization",
+      "group": 19,
+      "related_keys": [
+        "state-estimation",
+        "supervised-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "동적 상태 추적이나 일반 지도학습과 달리 잠재변수 조건부 기댓값과 모수 우도 갱신을 교대한다.",
+      "source_url": "https://doi.org/10.1111/j.2517-6161.1977.tb01600.x",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "variational-posterior-bound-optimization",
+      "group": 19,
+      "related_keys": [
+        "bayesian-network-inference",
+        "latent-expectation-likelihood-maximization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "관측 모수의 점 추정이 아니라 사후분포 근사를 최적화하며 정확한 확률 전파와 구분한다.",
+      "source_url": "https://proceedings.mlr.press/v33/ranganath14.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "detailed-balance-markov-sampling",
+      "group": 19,
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "annealed-uphill-stochastic-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "독립 입력 표집이나 최적점 탐색 대신 목표 분포를 불변으로 만드는 전이 연쇄를 구성한다.",
+      "source_url": "https://www.cs.cmu.edu/~ggordon/MCMC/ggordon.MCMC-tutorial.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "augmented-lagrangian-splitting-coordination",
+      "group": 19,
+      "related_keys": [
+        "coordinatewise-local-search",
+        "distributed-barrier"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "한 좌표의 개선이나 실행 대기와 달리 쌍대 변수와 잔차 벌점이 분리된 해의 제약 일치를 조정한다.",
+      "source_url": "https://web.stanford.edu/~boyd/papers/pdf/admm_distr_stats.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "optimal-substructure-dynamic-programming",
+      "group": 19,
+      "related_keys": [
+        "graph-shortest-path",
+        "cache-reuse-validation",
+        "temporal-difference-action-value-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 캐시와 달리 최적성 점화식이 핵심이며 경로 문제는 특수 응용이다. 표본 시간차 학습과도 구분한다.",
+      "source_url": "https://web.mit.edu/dimitrib/www/DP1_Short_View.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "krylov-subspace-residual-solution",
+      "group": 19,
+      "related_keys": [
+        "discrete-static-equilibrium-solving",
+        "coordinatewise-local-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "물리 평형식의 구성과 구분되는 수치 해법이며 좌표축 대신 잔차의 행렬 반복 부분공간을 사용한다.",
+      "source_url": "https://digicoll.lib.berkeley.edu/record/137404/files/EECS-2010-37.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "singular-spectrum-low-rank-projection",
+      "group": 19,
+      "related_keys": [
+        "low-rank-matrix-completion",
+        "non-gaussian-independent-source-separation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결측 원소 추정이나 비가우스 독립성 분리 대신 관측 행렬의 직교 에너지 순위와 절단 오차를 사용한다.",
+      "source_url": "https://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/teaching/15851-spring24/lec6.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "capacity-cut-flow-duality",
+      "group": 19,
+      "related_keys": [
+        "graph-shortest-path",
+        "queue-buffering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "최소 경로 길이나 일시 저장 대신 네트워크 병목의 총 용량을 다룬다.",
+      "source_url": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1166/lectures/lecture16.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "mass-coupling-optimal-transport",
+      "group": 19,
+      "related_keys": [
+        "capacity-cut-flow-duality",
+        "nearest-neighbor-retrieval"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개별 최근접 짝짓기와 달리 두 주변분포 제약을 함께 만족시킨다. 용량 최대화와 목적함수도 다르다.",
+      "source_url": "https://arxiv.org/abs/1803.00567",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "implicit-feature-kernel-inner-product",
+      "group": 19,
+      "related_keys": [
+        "supervised-learning",
+        "basis-function-surface-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 손실 학습이나 유한 기저의 직접 전개와 달리 특징을 만들지 않고 내적을 평가한다.",
+      "source_url": "https://scikit-learn.org/1.3/modules/svm.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "gaussian-process-covariance-conditioning",
+      "group": 19,
+      "related_keys": [
+        "state-estimation",
+        "implicit-feature-kernel-inner-product"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "동적 상태 필터의 일반명이 아니라 함수의 공분산 사전과 조건부 분포이며 커널 점 추정과 불확실성 출력이 다르다.",
+      "source_url": "https://gaussianprocess.org/gpml/chapters/RW2.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "empirical-bootstrap-resampling-distribution",
+      "group": 19,
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "reservoir-stream-uniform-sampling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "주어진 입력 분포의 전달이나 스트림 부분집합 선택 대신 관측 경험분포로 추정량의 표집분포를 근사한다.",
+      "source_url": "https://doi.org/10.1007/978-1-4612-4380-9_41",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "exchangeable-score-conformal-coverage",
+      "group": 19,
+      "related_keys": [
+        "gaussian-process-covariance-conditioning",
+        "empirical-bootstrap-resampling-distribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "특정 사후분포나 재표집 근사가 아니라 교환가능 점수의 순위로 유한 표본의 주변 포함률을 제어한다.",
+      "source_url": "https://papers.nips.cc/paper_files/paper/2024/file/b6fa3ed9624c184bd73e435123bd576a-Paper-Conference.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "causal-graph-intervention-calculus",
+      "group": 19,
+      "related_keys": [
+        "bayesian-network-inference",
+        "signal-correlation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "사건을 관측해 조건화하는 것과 생성 과정 자체를 바꾸는 개입을 구별한다.",
+      "source_url": "https://proceedings.mlr.press/r0/pearl95a.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "instrument-induced-causal-identification",
+      "group": 19,
+      "related_keys": [
+        "causal-graph-intervention-calculus",
+        "bayesian-network-inference"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 개입 계산의 반복이 아니라 관측되지 않은 교란이 있어도 유효 도구의 외생 변화로 제한된 효과를 식별하는 경로이다.",
+      "source_url": "https://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476902",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "merkle-hash-path-membership-proof",
+      "group": 19,
+      "related_keys": [
+        "digital-certificate-trust",
+        "bloom-probabilistic-set-membership"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "발급자 신뢰나 확률적 포함 검사와 달리 신뢰한 루트에 대한 해시 경로 증명을 제공한다.",
+      "source_url": "https://www.rfc-editor.org/rfc/rfc9162.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "stochastic-neighbor-consensus-averaging",
+      "group": 19,
+      "related_keys": [
+        "byzantine-quorum-state-machine-agreement",
+        "distributed-barrier"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "명령 순서 합의나 장벽 대기와 달리 수치 상태의 차이를 평균 연산으로 축소한다.",
+      "source_url": "https://stanford.edu/~boyd/papers/gossip.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "noise-subspace-orthogonality-localization",
+      "group": 19,
+      "related_keys": [
+        "phased-array",
+        "singular-spectrum-low-rank-projection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "빔의 직접 합성이나 에너지 압축과 달리 신호 조향 벡터와 잡음 공간의 직교 조건을 역으로 탐색한다.",
+      "source_url": "https://calebrascon.info/AR/Topic6/addresources/MUSIC.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

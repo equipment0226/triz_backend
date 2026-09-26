@@ -1,0 +1,253 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "102b76253626fa807e818cb784168b08727a6b14b0f60b5ac0746c0f4302cda8",
+  "reviews": [
+    {
+      "identifier": "AR-077975-A1",
+      "source_fingerprint": "5ba6c83fa477987a05a5851decbe68308e3aa54e92ea33a24e0f1a94b6301fb6",
+      "content_hash": "163d64fd2bf53d8cff119e784dbb8d5cf3bd9db015ebe97771163f3907c75cb5",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "BRAF 관련 인산화효소 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-077987-A1",
+      "source_fingerprint": "6d894f802dfe6716fe1607a014cefb0143164aa676862acd8819e86af63f812c",
+      "content_hash": "05fd74c8fb4e2df6bc55b5895977fa4feb0bbbde75d9ab0bae2c99f9153be5bd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "두 약물의 병용 조성이다. 기전·상승작용은 초록에서 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-077997-A4",
+      "source_fingerprint": "e9794f887e6014db09320ff244743a24c9ef2d13b4a79a03ca17373d9d75f578",
+      "content_hash": "5e76d15f059d97c722c83db7f3690a3a2cdc9188ae1a882d301f9d698873c057",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage"
+      ],
+      "reason": "긴 페달 지레와 회전축 변경이다. 힘의 이득을 순에너지 증가로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-077999-A1",
+      "source_fingerprint": "8b3565c04c8884d508a5f25d23136a71af42036aa0cc5bf5ba13af712e2e1407",
+      "content_hash": "7628b2114aaf7d55528f99a6aaa979d981d7490b567aba0421a8e6f129190136",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "헵시딘 길항 화합물이다. 직접 결합·발현·분비 중 조절 단계가 미상이다."
+    },
+    {
+      "identifier": "AR-078014-A1",
+      "source_fingerprint": "e93a7fa8cdd0d36597aabdfcd7988da3b71ca8a0e8ee020b5ae01113c5634484",
+      "content_hash": "f9106da3a0919f34b4801d21b659bd2b0b5afcd667745774c23fadda3774be38",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "centrifugal-separation"
+      ],
+      "reason": "식품 미생물 배양물과 세포 원심분리를 제시한다. 열 불활성화는 후보로 검토하고 면역 상승작용은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-078022-A1",
+      "source_fingerprint": "6afd98f802628840ba6ca2092aebd0769b168c78f532e6446cacfa9af7d66986",
+      "content_hash": "1144e7ecd7653f19f0e50a19f4df7cba4bad1efcbc8f46236d599d07d8f96dd5",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "물 제트로 섬유 층을 서로 얽어 일체화한다. 섬유 웹 형성의 유체 운동량 이용은 별도 경계를 검토한다."
+    },
+    {
+      "identifier": "AR-078024-A1",
+      "source_fingerprint": "8b92db3117db82c20e6c6b74734bdad52026409b55a1e83d6b0bffa19f55ab71",
+      "content_hash": "5099c4965078f5c38d537e07b97f203a116966e4122b7dca9b1c1541a4baaff6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알칼리·알칼리토류 염 처리로 탄소 메조공을 만든다. 식각·주형·가스화 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-078028-A1",
+      "source_fingerprint": "acd3e9779f2c76cd98a7d2b1c2687ee750c1c650e4391e254bf5de6abe540a55",
+      "content_hash": "c362ae77346536c80dc2890229471897517d73e7c753b238e7a3969961e93fa9",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-membrane-actuation",
+        "one-way-clutch"
+      ],
+      "reason": "공기 주머니로 가압하고 한 방향 롤러로 커프 조임을 유지한다."
+    },
+    {
+      "identifier": "AR-078033-A1",
+      "source_fingerprint": "e439b6958c10179097c9836b57dc0994217730788a68cde0c7614e5e340867c7",
+      "content_hash": "1f757e18b4d7f7a4cf1ee4eed9a0081cfc72c1099b0dacb50142116b912cbac3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "약물을 고체 고분자에 분자 수준으로 분산한다. 비정질화·결정화 억제와 용해 개선의 근거를 검토한다."
+    },
+    {
+      "identifier": "AR-078041-A1",
+      "source_fingerprint": "4e53a0a11ace0c9aa8c8efc5940e1d7db75f7e39399b5fc9fc9ae533f87070f6",
+      "content_hash": "b15b1e68f99a377ca6c3c65834b435d0fc405a874d52503646b31a298d76e3a1",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "술폰화 올레핀 계면활성제로 저류층 오일 회수를 돕는다."
+    },
+    {
+      "identifier": "AR-078042-A1",
+      "source_fingerprint": "b4919a44dfada16de5d74082f36075ee3029b49eaa8f563a1c4c588a054ee56b",
+      "content_hash": "047b4ee86cf4cc9cb70ef9ce855c662830dd40a5ebab4903d9969be92c00d4d3",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "베이오넷 연결로 유리 성형기 부재를 빠르게 결합한다."
+    },
+    {
+      "identifier": "AR-078051-A1",
+      "source_fingerprint": "89743d9a61b3243a8257cd23924b730e5b4d2fe4d6205d5f5d3be16a557cd0ff",
+      "content_hash": "b4caca1eb0fd776a8cb1549f51273656f44af69c6a325a56184fc6f605fa72b5",
+      "decision": "LINK",
+      "keys": [
+        "photocatalysis",
+        "cement-hydration"
+      ],
+      "reason": "광촉매 시멘트 표면층으로 공기 정화 기능을 만든다. 소수성 코팅과 살생물제의 작용은 별도로 본다."
+    },
+    {
+      "identifier": "AR-078082-A1",
+      "source_fingerprint": "8bda0996afc1c18da44012ac76e9004c11c1b87ff5cf1436669c8dd978323cb0",
+      "content_hash": "12fbb9189562a089dc4594a2840b3151a8da19d02ad7c246cb0e633e715d2aa7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "황산화 다당 조성과 유착 억제 용도이다. 분자량 분포만으로 작용 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-078101-A1",
+      "source_fingerprint": "00e8e6806a93602de052b2aca20026b6190955c06e9c9b41e06e18069c83fa18",
+      "content_hash": "d567e018c44b0099bf3c26b544d534a0c2ee7307446efc8dcec969c2c02c354c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "IL1Ra를 질환·약효 지표로 사용한다. 지표 측정의 물리·화학 방법은 미상이다."
+    },
+    {
+      "identifier": "AR-078105-A1",
+      "source_fingerprint": "a8e1c3ddaa7561fc91f8caaef976e463c402efa9369ef77fbbe93f6a02a91c38",
+      "content_hash": "0ac6d146d303c05fe0b241502a433a2ad91be5df90e5d5e0e8b25cad46074131",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission"
+      ],
+      "reason": "공압 피스톤과 안내봉으로 CNC 선반에 소재를 공급한다. 유체압 피스톤 구동 항목의 기체 적용이다."
+    },
+    {
+      "identifier": "AR-078110-A1",
+      "source_fingerprint": "7f96c9fec1d09dbe52d2fd5400a3f9de82da2b38b11b7fed0a05ad9c607076b8",
+      "content_hash": "0fabd3674b2420dbf2597f698832c76dac63ce5039a7ae8200fdc6a852ef2504",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "저항이 작은 경로를 일시 막아 다른 경로로 유체를 보낸다. 차단재 제거의 화학 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-078150-A1",
+      "source_fingerprint": "7a771bc2f99d4a6a36cbfb603fa3543950d2f0209efd0a2a9cc3b520236713ef",
+      "content_hash": "bdcf84736353f000edf1df35e092c62d15f7f977297b41b3d34e217561447d93",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "선택 압력 아래에서 내성 식물 세포를 선발한다. 유전 표지 연관 선발과 차등 생존의 경계를 검토한다."
+    },
+    {
+      "identifier": "AR-078178-A1",
+      "source_fingerprint": "84b4a6bfe4903560970e895f0a368de4778836f00b6b601f980cc59d1a576193",
+      "content_hash": "e1907771fa005e3117be21e77f9f46246ae3d48090e7e725d1fcf30df4f8a635",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "TNF 전환 효소 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-078181-A1",
+      "source_fingerprint": "64e33dbf062a05a8500c0341e0d45e08575b81c49e087d2e197c997eecd79ec8",
+      "content_hash": "8f81a41635d9170e55d94cca7995e20f8d640c0aa090e098cfb42332b7b1dd7f",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "핵 수용체 Nurr1 관련 작용을 제시한다. 전사 조절의 세부 방향은 미상이다."
+    },
+    {
+      "identifier": "AR-078198-A1",
+      "source_fingerprint": "92f8d66833c96e0ba72962ef8be6d7f5dcd031b0e98408aaead0b3ab6d030d01",
+      "content_hash": "0f3a7b9289e07a936fab5de11cf7bf8c1f5c63997b2317358c9366b9be7d822b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "초음파 헤드에 액체 결합 매질과 냉각을 둔다. 음향 임피던스 경계 손실 감소의 직접 근거를 검토한다."
+    },
+    {
+      "identifier": "AR-078209-A1",
+      "source_fingerprint": "8bd05883e623608caa4a06eff0a993fe02460b445c3cd9bfc5d7013ab2ea8cbd",
+      "content_hash": "21e847bf8118a8069ae3782e7a054fd4c5fe27547ffb9c5829564cdeeaab14d3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "동물 번식용 둥지와 통로·배수 구조이다."
+    },
+    {
+      "identifier": "AR-078227-A1",
+      "source_fingerprint": "b11bb87a35e52295c39a4cd2692f2c4a6ac9f2fc51c966a101c75de20890af65",
+      "content_hash": "c787aff04b73eb0d8918c14e0209772633fba68427c2644dfdc4e8f2d3c5e9c4",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "산 촉매로 에탄올을 에틸렌으로 바꾼다. 알코올 탈수의 결합 변화를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-078240-A1",
+      "source_fingerprint": "c6b4dadd8546186f273f7edcd9cda3a1af713f13858a6a1ad3a800e9e110be00",
+      "content_hash": "18194cf274d45e08adda28a46dc5581b686a2a39bc13e24d273f9668965d8438",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "가압 혼합실에서 물·세제를 공급한다. 혼합기의 상세 유동 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-078246-A1",
+      "source_fingerprint": "50a658805ecc2b1f8dd448e5ccf3fd7c617fa10ff1642869ad001a95df650916",
+      "content_hash": "f1b5ff4c1fae14b7fa166ce9a797da5e1f3782ca1c84928a042907ff64fb5f65",
+      "decision": "LINK",
+      "keys": [
+        "transesterification",
+        "catalysis"
+      ],
+      "reason": "고체 촉매로 글리세리드의 에스터 교환을 수행한다."
+    },
+    {
+      "identifier": "AR-078277-A1",
+      "source_fingerprint": "bda3dc609e5f8d02df695658942f3322493772cf718af2701983c0860018dc71",
+      "content_hash": "f6217c8a729798a364f8a5daf9d66328c45c1d67d17e1330d59adab86bef0db3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "웹 요청·음성 합성·전화·결과 통지를 조합한다. 음성 합성 알고리즘 자체는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-078292-A1",
+      "source_fingerprint": "66e96abf7e28be6997a8ffc2507d401668d2e3e0f6c070153177f0f1e36a1b65",
+      "content_hash": "cca29a514fbe392f94c72c33af9762b94d2fc55ec53b686da30de2659dfbb327",
+      "decision": "LINK",
+      "keys": [
+        "check-valve-rectification",
+        "pressure-driven-flow"
+      ],
+      "reason": "역류 방지 밸브와 펌프로 연료를 옮긴다. 펌프의 구체 형식은 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:12:24.305353+00:00"
+}

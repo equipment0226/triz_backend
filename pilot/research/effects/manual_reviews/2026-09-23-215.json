@@ -1,0 +1,135 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "b9b33c3bc1a1ec40843fdf5fbb9fde59551005e8854b621dc2aa1f69e0f02734",
+  "reviews": [
+    {
+      "identifier": "AR-111839-A1",
+      "source_fingerprint": "b60f459acc909033aceeca8e46f0e9fb7b578dc07e552c5ea4a2479b41a3c994",
+      "content_hash": "75b4fc4b21a9bc140f7304cfb6a25004d2dfc7c29a934290cb5fa32e2c2e8639",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 락탐의 Markush 구조만으로 작용 표적을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-111889-A1",
+      "source_fingerprint": "01d5682544c26fc6c4e5affbcf833acf9521c32eed25f698f63d7ab446bc8c83",
+      "content_hash": "6da789ec52e571fb2b0f534144ff783257cc782c4106148ded4912169da67b22",
+      "decision": "LINK",
+      "keys": [
+        "swelling-actuation"
+      ],
+      "reason": "수화 팽창체가 비료 과립을 벌려 원소 황을 토양에 분산한다. 산화 속도 증가량은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-111892-A1",
+      "source_fingerprint": "c45a6b51b991559187aa33d214f05a2f7fd8835ccc57d0d2a09472d502c8a743",
+      "content_hash": "9434457e643ea54082c29c8b39f121ae5ea8881459bd2e0459b98b3bacbcb5e7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "열수력 시뮬레이션·성능곡선으로 펌프를 반복 선별하나 최적화 알고리즘은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-111910-A2",
+      "source_fingerprint": "d3504f2e655e220c86174f4f1aa84981a858fd10e37b0bf74027f7906aadf8ae",
+      "content_hash": "8623e65e3ef813c8154a1da2f8b24dcb0dd6199228a939700196b01d44cc50d0",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "innate-pattern-recognition"
+      ],
+      "reason": "항원과 CpG 보조제의 면역 유도 조성이다. 제조·투여 조건을 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-111924-A1",
+      "source_fingerprint": "57911d9fbab121196fd225a4749ffd926f38f200bb94800dc745735504e281d7",
+      "content_hash": "9e33b6d6c0104c3df268548b2fc471c10ab1e31535581a34e6b7f0e7b50927e6",
+      "decision": "LINK",
+      "keys": [
+        "heat-capacity-buffer",
+        "density-stratification"
+      ],
+      "reason": "지하 다공 암석과 순환 유기 유체로 열을 저장·회수한다. 열기관의 실제 팽창·응축 사이클은 추가 확인 대상이다."
+    },
+    {
+      "identifier": "AR-111930-A1",
+      "source_fingerprint": "b23d347ce7393ef71e769a924d8b03bb716eec8aa1897123247871d9723da53a",
+      "content_hash": "6a611dfaa0430f8b6b6d464ecf318d748c4dae3105cff03d5e8ed796dd9ae484",
+      "decision": "LINK",
+      "keys": [
+        "phased-array",
+        "polarization-control"
+      ],
+      "reason": "복수 안테나와 편파별 신호의 합성으로 위성 통신 빔을 만든다."
+    },
+    {
+      "identifier": "AR-111950-A1",
+      "source_fingerprint": "52db29698cebe7ae0ab9ee39b3454d26f458035d653349556a6c1785372b34fb",
+      "content_hash": "eea4320d074b0b45ab7d099167f1327df162740bf33390ae154682ca12e4d9a2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "서로 다른 융점의 지방산 아미드를 포함하는 필름 슬립제이다. 표면으로의 첨가제 이동을 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-111958-A1",
+      "source_fingerprint": "4639e5028402cfbc1756404fb2524ffc7911f8c5ce8b51e7ea18154b00d785ef",
+      "content_hash": "fc2813ebd82c9a194ead8ae4c464692e56d3e9777ad76d0ad52abe2c2ebde163",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "frictional-load-transmission"
+      ],
+      "reason": "쐐기를 C형 슬리브에 넣어 두 도체를 압착 고정한다."
+    },
+    {
+      "identifier": "AR-111978-A1",
+      "source_fingerprint": "acf12e1fe4ce33d69a4edae6a7edd101788f4a3c2cedd07ad5f269ea16fceb4f",
+      "content_hash": "33697ac14e6269e91a579e5083a6f4162c49644ddf903f9abe4fade7d315e282",
+      "decision": "LINK",
+      "keys": [
+        "bulk-comminution",
+        "supercritical-fluid-extraction"
+      ],
+      "reason": "팽윤 셀룰로오스를 고전단 미세화하고 초임계 유체로 용매를 제거한다. 깊은 공융 용매와 계면 없는 건조를 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-111981-A1",
+      "source_fingerprint": "69844149064242bcc7ef81978a8338236e0764680bdb0a8d532663a38b906e16",
+      "content_hash": "203f03fdcfea265c153f5159179d49eec54294b039b109a210f840da336a4a4a",
+      "decision": "LINK",
+      "keys": [
+        "differential-survival-selection",
+        "fermentation"
+      ],
+      "reason": "파지 내성 생존주 중 빠른 산 생성 균주를 선별해 유제품 발효에 쓴다. 특정 내성 유전 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-111988-A1",
+      "source_fingerprint": "4caabfcd7fdf92f0fd7f920ab678a2b6f12e927be2a61ff4439e001fc385b884",
+      "content_hash": "9e4f0055aea8d82d3d6529ef75f905750ce474f3428aab2833cf2161ed626d16",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "가벼운 농산물 상자의 구조 최적화 목적이며 보강 형상·계산 방법은 미상이다."
+    },
+    {
+      "identifier": "AR-112008-A1",
+      "source_fingerprint": "5b3531b81934ec008efa40dbaff187dec5e4013cfbd29679d634c3623544801b",
+      "content_hash": "447c4a07cf3454c0a587eead8716ba674c816c67c67fbc19773c3f76ea4aaf4e",
+      "decision": "LINK",
+      "keys": [
+        "solvent-extraction",
+        "catalysis"
+      ],
+      "reason": "이온성 액체 안에 유지한 철 착물 촉매의 산화와 선택 추출을 결합한다. 산화제·기질이 불명확해 특정 라디칼 반응은 지정하지 않는다."
+    },
+    {
+      "identifier": "AR-112011-A1",
+      "source_fingerprint": "d652d96d944f6ad1511c24a7c0fe3b5f185939460943c8013e30729c2ff9409a",
+      "content_hash": "aca2f42f501109547706b8f193985a227e54e1dccb8eaed5ce320569d56b9640",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "중아황산염·아민으로 포름알데히드의 독성을 줄이는 제형이다. 준비한 중아황산염 카보닐 부가의 추가 사례이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:58:23.385857+00:00"
+}

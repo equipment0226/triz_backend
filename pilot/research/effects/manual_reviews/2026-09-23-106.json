@@ -1,0 +1,184 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "5960600947d8d4acb95f3190503d0f838958af64a76c0cd28d22a69dbabe1217",
+  "reviews": [
+    {
+      "identifier": "AR-088004-A1",
+      "source_fingerprint": "e84d1378513d5a5a2a8ad11d273a3e6be553f31a1774352f226b0d45751c9f78",
+      "content_hash": "bdbf0290f7679ab805c113a77e8925f17d1e20b95e31e93ddf1bcf893f4820eb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "증류유와 부탄올 혼합 공정이다. 상평형이나 연소 개선 기전 근거는 없다."
+    },
+    {
+      "identifier": "AR-088006-A1",
+      "source_fingerprint": "2d5f1aa13cfbf1c1d413bc5e50560a2f8a945397e1166a45b41d6de24218fe9e",
+      "content_hash": "65766da09af4be0f46b07152cafa67c147210b52da527ab1f8b7bb8543c5aec3",
+      "decision": "LINK",
+      "keys": [
+        "fluid-jet-deposit-removal"
+      ],
+      "reason": "이동 노즐로 액체를 분사하여 코크스 탑 배플 침착물을 청소한다."
+    },
+    {
+      "identifier": "AR-088010-A1",
+      "source_fingerprint": "75ae4318283076cce410afe4244a11a37a61315494752c9a1d63f3490964712f",
+      "content_hash": "770bb98ccfc580945d61c3d04ba69ecbdad935d3e218a285aab9bc05dff34cf2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "키토올리고당의 식물 생장 개선 용도다. 수용체·신호 경로와 성능 검증은 미상이다."
+    },
+    {
+      "identifier": "AR-088016-A1",
+      "source_fingerprint": "a3e0a1a84ed8772b334974f2aeb18f0d06d1b3c5635e7bc28e03a0307ee2befb",
+      "content_hash": "919a7ae8a80062ad5748df0ddfff3749909aeccf9a06b132dfe484e3cbbc24d6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "혈액 조절제의 용해도·융점·도포 영역만 있다. 유동·혈구·젖음 변화 중 지배 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-088020-A1",
+      "source_fingerprint": "a95ad1d9328ea1c4226416409119ffe0335fa0306728c0b8dfcd94f07e7d4484",
+      "content_hash": "abffa4d6fbec85a5abc236cfbb8b97d9bf1860462d05dbafab2fe42ae89d197b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "NO 비의존·헴 의존 sGC 활성 자극을 명시한다. NO 리간드 작용으로 연결하지 않고 효소 조절의 일반 사례로만 둔다."
+    },
+    {
+      "identifier": "AR-088031-A1",
+      "source_fingerprint": "cc4dea77bfc9f4a285fe795459cba05ca27f0d57f537c6d58b13631056ce7a3d",
+      "content_hash": "98b7518ee15280398f818a145590b1b6ab8f3c4e12319493ec9ed38358deb6ac",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "천공 흡수체 벽에 혈액 조절제를 도포한다. 작동 기전은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-088033-A1",
+      "source_fingerprint": "a8efc1e2a2ec99f6622dfc123ccd3b15ac1a02a40dbb00ab8e5f7dac161e23bf",
+      "content_hash": "cfe1bbf04689d3745cbf1de16a804aa6e12e9dbf16a9a70544c3378df5694bd2",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying",
+        "pneumatic-particle-transport",
+        "centrifugal-pumping"
+      ],
+      "reason": "스크루·버킷으로 모은 곡물을 원심 팬 공기로 들어 올린다."
+    },
+    {
+      "identifier": "AR-088055-A1",
+      "source_fingerprint": "c0d78a8f4c77c9faff2b54cae1b7fd56b1af2994a447fed7c44a5fae13a7846f",
+      "content_hash": "c3e1c6c1a72f5e59a13e40607581115fcd427ec849d345e62b659127950c7c0e",
+      "decision": "LINK",
+      "keys": [
+        "motion-compensated-prediction"
+      ],
+      "reason": "계층적 영상 부호화 단위에 따라 인터 예측 단위 크기를 정한다. 계층 공간 분할 후보를 별도 검토한다."
+    },
+    {
+      "identifier": "AR-088067-A1",
+      "source_fingerprint": "0a1e81860ebaeb871282abd029c794be995a7ed415cd576e27610360fa3d4973",
+      "content_hash": "a647cebf3e5516f2b5b3272431691894f11a623c78060c494aa189dd09376486",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알루미늄염·칼슘염 무수 발한 억제 제형이다. 땀관 폐색의 상세 반응은 초록에 없다."
+    },
+    {
+      "identifier": "AR-088078-A1",
+      "source_fingerprint": "1e08d4fccb1fe2ef6632e5603fcdf11b2cbd98ea66d54dc51758dad58bf3e6c8",
+      "content_hash": "8579982f672689705705cf4a1823613592af2a04a58abd443f1b71d3d46f2b32",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "화면 뒷면 터치를 스크롤에 대응시키는 UI 구성이다. 센서 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-088100-A1",
+      "source_fingerprint": "87190eda7360d7694a783c0b4f05eddf05af008616d8cbc675adc0f0447dfa66",
+      "content_hash": "7fa45ec6ba9a32e6d0a08f49c3f48792de465f4c4ae7e96a8783242f525f4894",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "접힌 측면·모서리 패널로 상자 적층 하중을 지지한다."
+    },
+    {
+      "identifier": "AR-088104-A1",
+      "source_fingerprint": "bb793fdc3c66a4dffd8e97fec705ce56bc2ea703eae1c730fbfc1d3eccbd60df",
+      "content_hash": "91c786eb88c32e7f21bc9d6c1c1ae1a71e25ab4dd6f1914eb0061783ee316be7",
+      "decision": "LINK",
+      "keys": [
+        "automatic-repeat-request",
+        "time-division-multiplexing"
+      ],
+      "reason": "HARQ 피드백을 위한 제어 자원을 배치한다. 재전송 결합의 구체 방식은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-088105-A1",
+      "source_fingerprint": "89c88f9e324965c1d20d127eb759a7980d0130cb6c068f79366a04a4f5e5dd8b",
+      "content_hash": "d3489f74b2efec1c7399d7dcc0cb50692e8af9ed91e9e4e1f70626663c9b28b7",
+      "decision": "LINK",
+      "keys": [
+        "condensation-recovery",
+        "catalytic-hydrogenation"
+      ],
+      "reason": "알코올 기상 사슬 연장 후 응축과 수소화를 한다. Guerbet형 결합의 원리 연결 여부를 문헌으로 확인한다."
+    },
+    {
+      "identifier": "AR-088116-A1",
+      "source_fingerprint": "52a092a5e4f24cf2753ee97dce4f840dca2c43b0194e8207e4627ea26c5a3fdc",
+      "content_hash": "9e23ba9c30cfd4bcfc0cca43952e0aeeb6dcdfbd64588f1c3f131e418d736bca",
+      "decision": "LINK",
+      "keys": [
+        "alcohol-dehydration-to-alkene",
+        "forced-convection"
+      ],
+      "reason": "에탄올 탈수 반응과 고온 유출물 열 회수를 결합한다."
+    },
+    {
+      "identifier": "AR-088120-A1",
+      "source_fingerprint": "025537e563676c28703f5b66326109822dbb71eaec139b461e94b46515eb6de1",
+      "content_hash": "6d68fa23e70936348c6afdf41b06f8c13b7f767c09eb46756b1f9bea1987746b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "정량 펌프와 선택 투명 영역의 포장 배치다. 투명화제의 결정화 영향은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-088128-A1",
+      "source_fingerprint": "1f80fb97fbd84e562cc327af2275e320c7637ad320fefd83242c3ef0d37acd2b",
+      "content_hash": "c2b7e955fe45c6ef0704ad8c5d8aaec0931bda5798449a9eb8ae82e44a7e4e22",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "서로 얽힌 곡선 스프링과 탄성체로 비공기식 타이어 하중을 지지한다."
+    },
+    {
+      "identifier": "AR-088147-A1",
+      "source_fingerprint": "d2c0dc51c14dda630f80729eed75ecfaeaddfd944b8db6f1b8766df65bf52aff",
+      "content_hash": "2ff1df54f86acad30411cb21609c33fed685144271564333442e2beb772545a3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "탈용매 장치의 원뿔·도관 배치다. 실제 세정 유동이나 포집 과정은 설명되지 않는다."
+    },
+    {
+      "identifier": "AR-088148-A1",
+      "source_fingerprint": "684f2e084d4f26280a67643eb1b9bfcba897012a9b9e915097d9e2437fc1fef3",
+      "content_hash": "df8f304e834cd309330bcff4eb4ba85de60cd4a16cae3ea3472b3390811272b2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약 구조·용도만 있고 표적 기전은 미상이다. 긴 저장 초록의 끝부분도 잘려 있다."
+    },
+    {
+      "identifier": "AR-088187-A1",
+      "source_fingerprint": "6c08b4a4ca9ba36cffadabc876c4be6a38a12b518b0377eb56bcda7e04452492",
+      "content_hash": "b99bf89a56c810866a65c28e0288dcfa261014a9858e35f809311b7b2e74d7fc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전극 접속부의 전위차로 전류 분배를 측정한다. 저항 전압 강하에 의한 전류 측정 후보로 문헌 대조한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:03:16.518085+00:00"
+}

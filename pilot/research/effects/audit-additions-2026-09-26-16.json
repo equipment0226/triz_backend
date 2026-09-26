@@ -1,0 +1,249 @@
+{
+  "batch": "additions-2026-09-26-16.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1238,
+  "added": 20,
+  "after": 1258,
+  "target": 1500,
+  "source_sha256": "796a366178b3b3cf0ca7042eafdec508ce298e644ca024fa774f8a039bca029d",
+  "decisions": [
+    {
+      "key": "density-slowing-motility-phase-separation",
+      "group": 16,
+      "related_keys": [
+        "spinodal-composition-instability",
+        "active-swimming-motility-separation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평형 인력이나 운동성별 선별이 아니라 에너지 소비 추진과 밀도 의존 체류의 피드백이다.",
+      "source_url": "https://www.nature.com/articles/ncomms5351",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "active-nematic-stress-bend-instability",
+      "group": 11,
+      "related_keys": [
+        "polymer-elastic-turbulence",
+        "turing-reaction-diffusion-patterning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 전단 탄성이나 반응·확산 대신 내부에서 생성하는 능동 응력과 배향장이 결합한다.",
+      "source_url": "https://www.nature.com/articles/s41467-026-71853-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "critical-composition-fluctuation-force",
+      "group": 1,
+      "related_keys": [
+        "casimir-fluctuation-force",
+        "depletion-osmotic-attraction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전자기장 요동이나 배제된 용질의 삼투압 대신 혼합물 조성의 임계 열요동이 매개한다.",
+      "source_url": "https://www.nature.com/articles/ncomms11403",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "molecular-hydration-layer-repulsion",
+      "group": 10,
+      "related_keys": [
+        "double-layer-repulsion",
+        "polymer-steric-dispersion-stabilization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확산 이온 구름이나 고분자 압축 대신 표면에 결합·배향한 물 분자층이 중심이다.",
+      "source_url": "https://www.nature.com/articles/306249a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "entanglement-tube-polymer-reptation",
+      "group": 3,
+      "related_keys": [
+        "hydroentanglement",
+        "plasticization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "섬유의 기계적 결속이나 첨가제 유연화가 아닌 분자 사슬의 위상적 구속 아래 이동 경로이다.",
+      "source_url": "https://www.nature.com/articles/271143a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "anisotropic-conduction-electroconvection",
+      "group": 11,
+      "related_keys": [
+        "injected-charge-electrohydrodynamic-pumping",
+        "liquid-crystal-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 전하 주입이나 정적 분자 회전 대신 배향–공간전하–유동의 불안정 피드백이다.",
+      "source_url": "https://www.nature.com/articles/s41598-024-74551-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "maximum-strain-memory-mullins-softening",
+      "group": 3,
+      "related_keys": [
+        "thixotropy",
+        "cyclic-plasticity-fatigue-crack-growth"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "지속 전단시간의 점도 감소나 균열 성장 대신 최대 변형에 따른 재하 강성의 기억이다.",
+      "source_url": "https://www.nature.com/articles/s41428-025-01056-2",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dislocation-backstress-bauschinger-response",
+      "group": 17,
+      "related_keys": [
+        "work-hardening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전위 증가의 전체 강화와 달리 방향성 역응력이 항복면 이동과 반전 비대칭을 만든다.",
+      "source_url": "https://www.nature.com/articles/s41598-018-34046-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "solute-front-constitutional-instability",
+      "group": 16,
+      "related_keys": [
+        "crystallization",
+        "spinodal-composition-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "핵생성 일반이나 벌크 상분리와 달리 움직이는 고액 계면 앞 용질 경계층이 형태 불안정을 만든다.",
+      "source_url": "https://www.nature.com/articles/nmat2571",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "stretch-ordering-polymer-crystallization",
+      "group": 17,
+      "related_keys": [
+        "crystallization",
+        "work-hardening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "농축·냉각 분리나 전위 축적 대신 인장에 따른 사슬 자유에너지 변화가 결정화를 구동한다.",
+      "source_url": "https://www.nature.com/articles/s41467-025-63283-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "extensional-flow-coil-stretch-transition",
+      "group": 3,
+      "related_keys": [
+        "polymer-elastic-turbulence",
+        "viscoelastic-normal-stress-rod-climbing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "집단 유동 불안정이나 법선응력 출력 이전에 일어나는 개별 사슬의 유동 유도 형태 전이이다.",
+      "source_url": "https://www.nature.com/articles/srep33029",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "conformational-entropy-chain-elasticity",
+      "group": 3,
+      "related_keys": [
+        "elastic-energy-recovery",
+        "plasticization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탄성 저장 기능의 분자 기전으로 결합 길이 에너지보다 사슬 배치 엔트로피 변화가 중심이다.",
+      "source_url": "https://www.nature.com/articles/387308a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "solvent-quality-coil-globule-collapse",
+      "group": 6,
+      "related_keys": [
+        "swelling-actuation",
+        "extensional-flow-coil-stretch-transition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "망의 용매 흡수량이나 유동 인장과 달리 단일 사슬의 용매 품질 의존 평형 형태 변화이다.",
+      "source_url": "https://www.nature.com/articles/281208a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "bubble-phase-secondary-bjerknes-force",
+      "group": 1,
+      "related_keys": [
+        "acoustic-levitation",
+        "cavitation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 정상파의 지지력이나 붕괴 제트 대신 기포끼리 방사한 장과 부피 진동이 상호작용한다.",
+      "source_url": "https://www.nature.com/articles/s41598-022-20066-1",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nonreciprocal-stokes-swimming",
+      "group": 1,
+      "related_keys": [
+        "ion-gradient-flagellar-rotation",
+        "active-swimming-motility-separation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분자 모터의 회전 에너지원이나 유영 선별과 달리 가역 점성 방정식 아래 비상호 형상 주기의 추진 조건이다.",
+      "source_url": "https://www.nature.com/articles/ncomms6119",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rarefaction-knudsen-flow-minimum",
+      "group": 11,
+      "related_keys": [
+        "knudsen-wall-collision-gas-diffusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "벽 충돌 극한 하나의 확산 법칙과 달리 점성·희박 영역을 가로지르는 수송의 비단조 전이이다.",
+      "source_url": "https://www.nature.com/articles/s41598-024-59027-1",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "disjoining-pressure-film-rupture",
+      "group": 10,
+      "related_keys": [
+        "rayleigh-plateau-breakup",
+        "spinodal-composition-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "원통 액주 곡률이나 조성 요동과 달리 기판 위 막 두께의 계면 상호작용이 불안정을 정한다.",
+      "source_url": "https://www.nature.com/articles/ncomms8189",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "strain-dependent-shuttleworth-surface-stress",
+      "group": 6,
+      "related_keys": [
+        "elastocapillary-sheet-wrapping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일정한 액체 표면장력의 굽힘 작용과 달리 고체 표면 에너지의 변형률 미분이 추가 응력을 만든다.",
+      "source_url": "https://www.nature.com/articles/s41467-017-00636-y",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "spanning-network-percolation-conduction",
+      "group": 14,
+      "related_keys": [
+        "effective-medium-dielectric-permittivity",
+        "gelation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유효 분극 평균이나 기계적 겔화와 구분되는 시료 관통 전하 경로의 연결 임계조건이다.",
+      "source_url": "https://www.nature.com/articles/s41598-017-03365-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "compliant-oscillator-hydrodynamic-synchronization",
+      "group": 11,
+      "related_keys": [
+        "acoustic-streaming",
+        "distributed-barrier"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공유 시계·통신 장벽이나 음향 평균류 대신 저레이놀즈수 유체 상호작용이 위상 오차를 조정한다.",
+      "source_url": "https://www.nature.com/articles/s42005-018-0031-6",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

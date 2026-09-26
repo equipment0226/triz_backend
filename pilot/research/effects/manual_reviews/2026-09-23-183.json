@@ -1,0 +1,200 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f6559260ed2f99ec3644c3d454761ac08f18068ebe9c41b56188b0f8001cdda0",
+  "reviews": [
+    {
+      "identifier": "AR-105867-A1",
+      "source_fingerprint": "d306047eeaa5ad2f55c328f80804dc5760e06016440a66c144f238925d996fd1",
+      "content_hash": "4b1278984e1928b8379df8425dad2eecfbdcf076abd4af68883dea1c0ded1a54",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "chromatography"
+      ],
+      "reason": "키모신의 카세인 선택적 절단과 RP-HPLC 분석이 명시된다. 표적 단백질·효소 변이만으로 새 촉매 원리를 만들지 않으며 ESI 질량 분석은 기존 검토 후보의 추가 사례다."
+    },
+    {
+      "identifier": "AR-105892-A1",
+      "source_fingerprint": "97c7eb35f02f6ffe3ecf1dd1d8a8ed03fd160b52331b99e32f5aa52649cff7ad",
+      "content_hash": "7196e6ba9d82596098a47f34cf0584d3dd8b7f4eb1716b5cba1d6bffe9a218d2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고체인 매질이 녹을 때 내부 물체가 재배치되어 냉동 이력 단절을 표시하는 후보를 검토한다. 상변화 저장과 달리 이력 표시가 목적이다."
+    },
+    {
+      "identifier": "AR-105907-A1",
+      "source_fingerprint": "7e0dbc78a24f9300c95a6d4cecba4aab3d5dd896e17aab8e563da784388a8613",
+      "content_hash": "dd4ecc0a59064b24c1242e451c0a39fe4b09c9a0164c553a0c19a77379cf85ee",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "분해성 Mg·Al 합금으로 임시 고정부를 제거하는 사례다. 전기화학적 금속 용출의 기전·용도 경계를 확인하며 불명확한 탄성체 밀봉은 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-105922-A1",
+      "source_fingerprint": "f27cab5d462548341df0c03f5a14fd955945f6dda30c314b0bc56919589f8070",
+      "content_hash": "806d7f0ad905cbb8fd16644ca126f4d7b82adf5819314bcf523850e062c544cc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "화학 구조와 진통 용도만으로 수용체 또는 효소 기전을 특정할 수 없다."
+    },
+    {
+      "identifier": "AR-105950-A1",
+      "source_fingerprint": "3f2ae470d62daf885197a265bb88f71f4467804ddb29a7f7d7cfc08d87c44915",
+      "content_hash": "85f1cee396b82e11b63a10bb051611e0b16bed42960d5b4809423114a06c3a1e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지질 조성이나 막 구조 설명 없이 항종양 제형 용도만 제시된다."
+    },
+    {
+      "identifier": "AR-105951-A1",
+      "source_fingerprint": "09da59ae6a12725bad3b1093c4d0509282d850f75284d3e28fd1d9ae6b416c5b",
+      "content_hash": "7cdf9081633b6820feb2413ebd623c07b5a23380affa9856cb2561a9cc1cb29a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 조합·적용 시점 목록이며 각 활성물질의 작용 기전은 초록에서 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-105960-A1",
+      "source_fingerprint": "4537a45a7846411650e44ab51f5d6c5e5f70ce6bf61554fc9544ccecbd80d52e",
+      "content_hash": "7ab4c6b55a8032bced83215b65d0fd6574f1d32659a4d542c19a0d510f4b84a6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "거래 예약과 식별자 저장의 결제 업무 흐름으로 구별되는 과학 원리가 없다."
+    },
+    {
+      "identifier": "AR-105972-A1",
+      "source_fingerprint": "946b85359327bdccba026d20390fe0a09891078140591aeacf4852c8b154eb33",
+      "content_hash": "191dd6d9c9b9cede1c0e9debcabd506991e6a24d420c4b7faaa9f75ad1205349",
+      "decision": "LINK",
+      "keys": [
+        "keyed-encryption"
+      ],
+      "reason": "측정 데이터의 암호화 전송이 명시된다. ECG 전극의 생체전위는 준비 중인 카드 추가 사례이며 광용적·산소측정은 구체적인 광학 원리를 추가 확인한다."
+    },
+    {
+      "identifier": "AR-105976-A1",
+      "source_fingerprint": "2383a7e9b228074dc3a30d8f541224f75f92a9d051b59477148254ae0df49941",
+      "content_hash": "55d63e65270223fc781260534c3b48da7e56f69f06bcb0d9427fa61d9443ae04",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "파종판과 공급부 형상으로 부하·유지보수를 개선하는 구성 설명이다."
+    },
+    {
+      "identifier": "AR-105982-A1",
+      "source_fingerprint": "a1167f275dc9810d6957c1936e3c67eeb68a5a0ad55a12fe50a9f3fc31b0784e",
+      "content_hash": "68363de21a1db3aa2a2b7d8c621754a7b5747bdcfafd1a3efc12ef905019837e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비수계 포자 제형의 생존·안정성은 제시되지만 낮은 수분활성이나 휴면 유지 기전을 직접 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-105985-A1",
+      "source_fingerprint": "b0ad9c7270d3c90e7ae3f533e65f9dd4191c928f6b4a8bd335c9164024d8355a",
+      "content_hash": "13198de3de819cd1b4dec4c575705600d5db8b6ea4cbbc703558a4d7508aeaea",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion",
+        "blade-shear-cutting"
+      ],
+      "reason": "유체가 날을 회전 구동하고 날이 통과 물체를 절단하는 두 물리 작용이 명시된다."
+    },
+    {
+      "identifier": "AR-105991-A1",
+      "source_fingerprint": "28c01983c3dc395d65b58a45d8daf1f18d1e8ac096949eea91973e9ccc7b87e7",
+      "content_hash": "243c22707023da28e1cc56666fd0fdb9a031cb022de591287af7d969d80c9425",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "치환 화학 구조의 범위만으로 약리 작용 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-105992-A1",
+      "source_fingerprint": "dea4a76ea2731bdc570328c48ce35c6720251668d0cc95e694e5942e38df8b3c",
+      "content_hash": "dee0dbd6265c4b8e0bf76724df6bc51c91ca8d5529e6091a96659accbc8d8e75",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "로터 돌출부가 바스켓 내부 턱에 걸려 낙하를 막는다."
+    },
+    {
+      "identifier": "AR-106000-A1",
+      "source_fingerprint": "b8da636c34d1ef517b2facdc84eeb0e663c13268f69242e7edf663bd5108c96f",
+      "content_hash": "067d2fdb647db17976e3c64c39be9c509d0752ccdf1a282245807765a9131fbc",
+      "decision": "LINK",
+      "keys": [
+        "photolithography"
+      ],
+      "reason": "이미지 인쇄 뒤 UV 노광·세척·현상으로 판을 만드는 과정이 명시된다. 표면 잉크 고정의 분자 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-106009-A1",
+      "source_fingerprint": "bcb7a46b42af1f90844b6fe72934213c3770ee57014627072bef78957edc855b",
+      "content_hash": "5601f1c9e309db6f07e4047d458851bebaf7257ffbfe7f411505f4ff696ffdd0",
+      "decision": "LINK",
+      "keys": [
+        "physical-foaming",
+        "solidification"
+      ],
+      "reason": "가압 성형체가 급격한 압력 해방 뒤 팽창하고 냉각하며 형상을 고정한다. 발포제 반응 종류는 초록에 없어 화학 발포로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-106011-A1",
+      "source_fingerprint": "df47c95f30634782e2ff69f68c7f616530be9f8f0350b7ccee21a0c37d13126d",
+      "content_hash": "a14a064b616d0fb4e00210e9bda5b29581a02956aa1bd0827941b7632bba5e0b",
+      "decision": "LINK",
+      "keys": [
+        "coagulation-flocculation",
+        "fiber-matrix-load-transfer"
+      ],
+      "reason": "CNT 분산액을 NBR 라텍스와 혼합해 응고·건조하여 보강 복합체를 형성한다. CNT 계면 전달은 일반 적용 원리이며 특허별 성능을 입증하지 않는다."
+    },
+    {
+      "identifier": "AR-106021-A1",
+      "source_fingerprint": "cf12d1b2ba095e4e37cb2c01fa42b4752c0aff3422af3e6d11c28e806ef09241",
+      "content_hash": "5bd6778259c06ad605e71dffa2532100e3592981542f6823251f70fa5482c8e6",
+      "decision": "LINK",
+      "keys": [
+        "genetic-linkage-selection",
+        "biomolecular-recognition"
+      ],
+      "reason": "외래 대립유전자 주변의 고유 하플로타입 표지를 특이 탐침으로 판별한다. 유전자 도입 경로의 판단은 표지 조건에 의존한다."
+    },
+    {
+      "identifier": "AR-106040-A1",
+      "source_fingerprint": "48ffee01eccb61718dc338d64226884a7776ac3c969f185571020c8fb221bcab",
+      "content_hash": "ad814377f2a9e6041bb4d9d16a7f115193c34fe089b6590abb67be026d17e620",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HBV 코어 조절이라는 제목과 화학 구조만으로 조립 억제 등 구체적 경로를 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-106062-A1",
+      "source_fingerprint": "656fd29973c0501ab72e7d15b1ed06d50bad81a89b0e9487024faa7613462909",
+      "content_hash": "339bca7c346ca32c1a16b1aaeae1ceeff0b7795cb4f45ca26f747bf654f4e0b2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "냉동 매질 속 구의 위치로 냉동 이력을 표시한다. 50번 묶음 1번과 동일한 상변화 이력 표시 후보로 묶는다."
+    },
+    {
+      "identifier": "AR-106064-A4",
+      "source_fingerprint": "6e901ad22d7bfa636a4823393dd88a2a2fd8c9abf2366b194a3609b239032182",
+      "content_hash": "49006afd243a2415598f5c0db4cb7754a0b72eeaac90d1b0226caee96063b25c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "wedge-mechanism"
+      ],
+      "reason": "패널의 끼움과 쐐기·나사 고정이 명시된다. 모듈 치수 조합은 새 원리가 아니다."
+    },
+    {
+      "identifier": "AR-106072-A1",
+      "source_fingerprint": "886fe94bd7e841169d3289920c7908dc5512446a82b377409e5e2778e60ae0c6",
+      "content_hash": "9d2462d6aa170a2447c6a84425acf3219d2f06748ac94b9c5f14d64505ab0f8d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유정 케이싱의 사전 가공 복합 창 구성으로 재료 제거의 구체적 기전은 기술하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:35:48.654377+00:00"
+}

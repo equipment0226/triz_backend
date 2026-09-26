@@ -1,0 +1,165 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "80399e8f1b1babd0f9c411a0c57beec32592eafe22eb80c9d6c420d61f98c9ee",
+  "reviews": [
+    {
+      "identifier": "AR-051891-A1",
+      "source_fingerprint": "f098ffe8d0b88b75bd4a182e0bd1469c5c4bf59e3bec2dde53b2b228089333b4",
+      "content_hash": "b6fa281ca96329a24c97588983f5c7419a88f566c2affed44e4c42028d158811",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "편심 축·연결봉이 망치의 왕복 운동을 만드는 경로를 NPTEL의 관절 링크 운동 변환과 대조했다. 견과 파쇄를 별도 효과로 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-052862-A1",
+      "source_fingerprint": "9ea7df2f92e32894de90a1d79feb1c7427431437b7510cbd54e2ed18efb03384",
+      "content_hash": "4c1e71a711d11cde2d02aa74e11c56d20b7fd6348fbb8d81629c693c0009e640",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "평행사변형 관절 링크가 상판의 자세와 승강 경로를 구속한다. 링크 길이·관절 구속 원리로 편심 링크와 통합하며 단일 지레 효과와 구별한다."
+    },
+    {
+      "identifier": "AR-052582-A1",
+      "source_fingerprint": "19a45bbcbcd18c9266163bfba13d49119831a54359326a456fac5d1d1c5fed75",
+      "content_hash": "8f1a0ab864bffd14e9460a0252d5b160191476525afe9f96db301141ad1edda6",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating"
+      ],
+      "reason": "가스 연료·불꽃 점화·침수 가열기를 NASA의 연소 발열 원리와 대조했다. 발열만 연결하며 완전 연소나 열효율 수치는 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-053531-A1",
+      "source_fingerprint": "617ec0471edd9b239e11e967694b5f5d7f06e8b84747c6c090f611cfb4ad510b",
+      "content_hash": "f8e0c24ad75d866b3822934d0468bfa31fd15814330468eb590ba35fa35bc543",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "polymer-turbulent-drag-reduction"
+      ],
+      "reason": "기존 에멀전 중합 연결을 유지한다. 탄화수소에 용해되는 관로용 고분자 항력 감소제라는 설명을 고분자 탄성 응력·난류 전달의 관측·모델 연구와 대조한 기구 해석으로 연결한다. 특정 관로의 유동 수치나 감소율은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-052351-A1",
+      "source_fingerprint": "19379b3f28ff897abec0f685157199ac0662b1db1e1373c3938116f597662037",
+      "content_hash": "78b152e199a9a6ba8c1aefce79d765106c73b4b7caf456454f90a5291c566bef",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-insulation"
+      ],
+      "reason": "전기 집게의 손잡이·턱·관절을 유전체 외피가 감싼다. Fluke의 절연 저항·누설 전류 자료와 대조했으며 안전 등급이나 절연 파괴 전압은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-052376-A1",
+      "source_fingerprint": "adf1972de0d9eb1fa71ad98c3563179fbb61220b09ad2ae33d02341cc7e77936",
+      "content_hash": "cf0911d956834d64d31b8b8c6d62e9e58d41ca00236a1d5b1238a2ec3e3b2ed7",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-contact-switching"
+      ],
+      "reason": "스프링 복원 연결을 유지한다. 플러그 삽입 시 접점이 물리적으로 닿아 전도 경로를 여는 작동을 Omron의 접점 개폐와 대조했다. 전자식 스위칭으로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-053441-A1",
+      "source_fingerprint": "6c891181d6df066d807fdefd58f52ad609347643cfaee0ffd5aeb9cbc274e965",
+      "content_hash": "53a08ee5711140cba303baf53280f69d139cd02cd34146696134fc57ee517f0e",
+      "decision": "LINK",
+      "keys": [
+        "remanent-magnetic-recording"
+      ],
+      "reason": "자화 입자의 도메인 배열을 기록하고 그 자기장으로 포장을 식별한다. IBM의 입자 매체 자기 기록 모델과 대조했다. 기록 패턴의 보존을 잔류 자화로 해석하며 수명·보자력·판독 센서는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-052154-A1",
+      "source_fingerprint": "3f770f27cd874c4416ecbf45bc5eb2fb7a84a25233874d014268a03352e66a59",
+      "content_hash": "d411d82ac0c66c31a17e321f2c1cf1c8af662a762376fe08d3683b7ef3893cc0",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation"
+      ],
+      "reason": "키랄 포스핀 전이금속 착물로 엔아미드를 비대칭 수소화한다. Noyori의 촉매 수소화 연구 강연과 대조했으며 입체 선택성을 별도 신규 항목으로 세지 않는다."
+    },
+    {
+      "identifier": "AR-053100-A1",
+      "source_fingerprint": "b3f4aab25fe44d2c4b9bdeb0924921bfa847e4d73a485ebd1b7ba4306b26d3fb",
+      "content_hash": "6667c5dfbdf95573ed81fd7d5d98102b9fd62807e4f913db0ecb5e4cdf504bad",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation"
+      ],
+      "reason": "수소와 수소화 촉매를 사용한 반응을 명시한다. 촉매 수소화 범주만 연결하며 누락 구조식의 결합 위치·첨가제 기능은 복원하지 않는다."
+    },
+    {
+      "identifier": "AR-052272-A1",
+      "source_fingerprint": "891d63ad69cd4f5e7f882e7cc401b794c151d6d8f108dd5ff0c677bc04a1b9d0",
+      "content_hash": "cdb40b0809dc3f73b7f0eb497d2c85a654d1439891749460d7b990a16bf4c204",
+      "decision": "LINK",
+      "keys": [
+        "phase-transfer-catalysis"
+      ],
+      "reason": "물·유기 용매계에서 상간 이동 촉매를 쓰는 합성 단계를 IUPAC의 반응종 상간 전달 정의와 대조했다. 구체 운반체나 누락 구조식의 결합 변환은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-052899-A1",
+      "source_fingerprint": "bd3a167f3f0d6624149a40590aa55d5c37362dd0ad73d604932d64c4fc9a8dec",
+      "content_hash": "8a450c1e295584bd0c4a5d83ebe45ca9613323d548c94a46b64f149f8ee919bc",
+      "decision": "LINK",
+      "keys": [
+        "model-predictive-control",
+        "methanol-carbonylation"
+      ],
+      "reason": "기존 모델 예측 제어를 유지한다. 메탄올의 아세트산 카르보닐화를 BP 개발자의 공정 자료와 대조해 추가 연결하며 특허의 촉매를 특정 금속으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-053846-A1",
+      "source_fingerprint": "f4d79dd0096af44847ddf508e3b0cc758c0137d0693d0c9e34e890693825c3fc",
+      "content_hash": "e9e3d63ef63cde03e8de1a5a1a7e3ab313bed53b5fd678c19531c18c5fb52a49",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "fluidization",
+        "catalytic-hydrocarbon-cracking"
+      ],
+      "reason": "기존 촉매·유동화를 유지한다. 제올라이트 FCC에서 경질 올레핀을 형성하는 과정을 EIA의 촉매에 의한 탄화수소 골격 분해와 대조했다. 특정 프로필렌 선택성은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-054349-A1",
+      "source_fingerprint": "6d818e86af472fbf369b3fdd4f2ce94e654cbe2cecabc7925f553f74325a382d",
+      "content_hash": "1a1f614a2ffe8f018f071abbb822a6ae3da42c22276100e8cd8e7a9d0d655ec3",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "fluidization",
+        "catalytic-hydrocarbon-cracking"
+      ],
+      "reason": "기존 촉매·유동화를 유지한다. 탄화수소를 더 낮은 분자량 성분으로 바꾸는 FCC 설명을 촉매 분해에 연결한다. NOx 환원 반응은 별도 근거가 부족해 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-053729-A1",
+      "source_fingerprint": "9d700fbbc3e5ef54b515ff5f9d0b745cbb03f9fef50589644f01beaf5adc69eb",
+      "content_hash": "2f1cd4112bd39b497642e7e737760ffbd17149e63ba9db629b17a71e2d225610",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal"
+      ],
+      "reason": "회전 연삭 숫돌의 위치·깊이로 타이어 표면을 제거하는 작동을 Norton의 연마 입자 재료 제거 원리와 대조했다. 금속 연삭 자료의 속도·온도·숫돌 선택을 고무에 전가하지 않는다."
+    },
+    {
+      "identifier": "AR-052452-A1",
+      "source_fingerprint": "1ce7082909457687ac68f0587fa79c48a78c259d075b06768f47015e027ec60e",
+      "content_hash": "b05b4d26595d5b3256ac9c69a0716db24b1f892bb2ab9ff3c0cd310f02e3e604",
+      "decision": "LINK",
+      "keys": [
+        "linear-frequency-filtering"
+      ],
+      "reason": "저역·고역 통과 필터로 통신 대역을 구분하는 설명을 Analog Devices의 주파수 응답 자료와 대조했다. 구체 RC·RL 회로 또는 차수는 특허에 명시되지 않아 추정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T07:17:48.125357+00:00"
+}

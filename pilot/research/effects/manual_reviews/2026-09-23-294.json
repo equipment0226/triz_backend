@@ -1,0 +1,524 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "caf21245c500c2fd5f42800986b067e57ad0b19eca84483789af2f7294928418",
+  "reviews": [
+    {
+      "identifier": "AT-411201-B",
+      "source_fingerprint": "6b6fb5e93000e7165ee4ba204ad963ebc5619783313bfcab6790ed590c604674",
+      "content_hash": "f00461ebc3eb67cc9c4510c1a2688ef8cb828b9b5cefddabfe2a3dc811049180",
+      "decision": "LINK",
+      "keys": [
+        "pn-rectification",
+        "joule-heating",
+        "negative-feedback"
+      ],
+      "reason": "다이오드 정류와 스위칭 제어로 전열 출력을 조절한다."
+    },
+    {
+      "identifier": "AT-411327-B",
+      "source_fingerprint": "33f5a9aca3ce89fac55d6432f6996678090bdba97c0953661e5c9c1558bcb1c7",
+      "content_hash": "5746d79e29c967ada187fbbe27000a26c7d36d50266850fad6b43f38f251b73d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지방산과 투여 경로의 조합만으로 흡수 증진의 구체 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AT-411329-B",
+      "source_fingerprint": "300f3d62a07d737bca693a76d068959465d8762205633350114cc06a39b68902",
+      "content_hash": "f4dbb44a9ca7f6f40443e799fd8df70b5fd399384a461e3717240393f973b503",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping",
+        "elastic-energy-recovery"
+      ],
+      "reason": "흡착 패드와 탄성 지지로 스키를 고정한다."
+    },
+    {
+      "identifier": "AT-411386-B",
+      "source_fingerprint": "8e1eb894113cf991986a29dc7b15a3d82a02e9e4893695078afdb8eabdcb94ac",
+      "content_hash": "df8aa07d571dc689467f617bb41d80172c833dd0dfb4e45e09cb73375226fbd2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기체 압축 공간으로 압력 충격을 완충한다. 기체 압축 초안에 통합한다."
+    },
+    {
+      "identifier": "AT-411515-B",
+      "source_fingerprint": "c52d768c98e6ea863bea79f14fdd37651d165f22608a957559f243da01ab5594",
+      "content_hash": "0521806d149bb57cf0e1c0bba3f7726069c75bdb36cc767c6e0094c2c652fcfb",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "회전 날로 잔디를 자른다. 보호 커튼의 재료별 성능은 별도이다."
+    },
+    {
+      "identifier": "AT-411556-B",
+      "source_fingerprint": "3561c02fa87fe9e5570766fd6ff35bd61a610f5eb58ec6b33d0cb71b0d5457b2",
+      "content_hash": "bc9bb12ea339883eb51966649de9ae5b465f0fdae50bb1e2c389b08d14272429",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "철근 접지와 유연 도체 연결이다. 검출 원리로 오인하지 않는다."
+    },
+    {
+      "identifier": "AT-411570-B",
+      "source_fingerprint": "f9e3ff122c462c6e88ed5b54d065807e0ddb02c7d476e2390e10822f22bd9a6e",
+      "content_hash": "6e904abb4606d449f3b052b7fba0f592b281c4f31cfe320ff75eeb540a336444",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "제설 차량에 구조용 객실을 부착한다."
+    },
+    {
+      "identifier": "AT-411590-B",
+      "source_fingerprint": "37c7951f946e1b8f3f97692ae2f6d3a2691ff17dd772d0550f140b1c10f6129f",
+      "content_hash": "ff643e15359972841a72f43d74dcc418ee0d813ce0c13d0b6b496965ca050012",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "hydraulic-force-transmission"
+      ],
+      "reason": "권취 압력을 측정하여 유압 실린더로 조정한다."
+    },
+    {
+      "identifier": "AT-411621-B",
+      "source_fingerprint": "0a7047c8a4329a9a424143cca37f29f7b4086640bbbea01aa9f3f81e669169e0",
+      "content_hash": "6570fed996c9343f72030393c90b0531c996a93e31a9b823bcdcd16f8a0aa66d",
+      "decision": "LINK",
+      "keys": [
+        "heat-capacity-buffer"
+      ],
+      "reason": "온수 탱크 내부 센서 높이를 바꾼다."
+    },
+    {
+      "identifier": "AT-411677-B",
+      "source_fingerprint": "7e4759c3558c3481177dc64d755cd94eaa2fe3b24989a6c39cf214eefc9fcc87",
+      "content_hash": "e4ea91008cf550ee31d958a1642054d193cfb12cca9b6e3fef7cc437d352296d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "석출 억제제를 공급하지만 착화·흡착 중 지배 기전이 없다."
+    },
+    {
+      "identifier": "AT-411728-B",
+      "source_fingerprint": "3ecaa68da3873ae6d76a6338229cc284aa34160754b05e56028080e4a137fb4a",
+      "content_hash": "870c233011e4d0f59a5952064e421b5f739d08bacdbe8b8b07d0202ac7f4ce17",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "와이퍼와 분사관을 가이드 레일로 이동시키는 구성이다."
+    },
+    {
+      "identifier": "AT-411828-B",
+      "source_fingerprint": "4d0b729c2de3803651564c74e9bd1facdf33e3fdb0bd7d26338e43c361ad37d5",
+      "content_hash": "022e0f1f317932b99ece7e53015d04684b343b2c07a800e184e308e34439e1d0",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "와류 형상만으로 물 분자 군집이 지속적으로 분해·개선된다는 주장을 과학효과로 채택하지 않는다."
+    },
+    {
+      "identifier": "AT-411836-B",
+      "source_fingerprint": "64c373a9d2f98254a81d738c22e59a6b40d8d12bf0706692f86a6770d16f3071",
+      "content_hash": "7da4fdcbec6264bf528147e8122d21316fa113e010f923c3bd78fb2fd67ddee3",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "훅과 잠금판으로 작업구를 고정한다."
+    },
+    {
+      "identifier": "AT-411842-B",
+      "source_fingerprint": "5d28240668e2fff8b2a5f887b72924ae4ff3d10ba1fac215ee5c5052d0618f1b",
+      "content_hash": "4b26b6f27163832e1eb047370b359c50bf6e95c8f32bada14aec42e033099a9c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "두 장착판의 턱과 홈을 맞물린다."
+    },
+    {
+      "identifier": "AT-411860-B",
+      "source_fingerprint": "414fa2f55b22a115a86e9b0e9ff42e29251799538f27504573b76a7391f77919",
+      "content_hash": "82bb3e7e34c523aa862afd3ea85cdd1fff4cf068125c9f8e9c8f34735745efba",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "벼룩 배설물의 발색 검출이지만 반응 시약과 반응식이 없다."
+    },
+    {
+      "identifier": "AT-411863-B",
+      "source_fingerprint": "682c76fc1195cf4ba271cd859c283690788ce5dc169086f72d235ceebd6d902e",
+      "content_hash": "54f10c6756e6d6b4280a0e58a7f369b0f919b7513abf8ad36c29e6dcee46f86e",
+      "decision": "LINK",
+      "keys": [
+        "porous-gas-trapping-insulation"
+      ],
+      "reason": "섬유 충전물의 기체 공간으로 단열한다."
+    },
+    {
+      "identifier": "AT-411882-B",
+      "source_fingerprint": "749918865fed482cd78f5988b6ec18e35d65334d44a17fc5732b57db51b35b45",
+      "content_hash": "2945a99fbdd3170d4c15f50f2bd0a0590d69f2a0f3f18b0d847900837604dee9",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-contact-switching"
+      ],
+      "reason": "접촉면 이탈에 따라 스위치가 작동하여 로봇 정지를 알린다."
+    },
+    {
+      "identifier": "AT-411916-B",
+      "source_fingerprint": "39660a76aa42571310f80a7714d2e32e7a2a1858152cec16b0886bfc4254bf59",
+      "content_hash": "7363b656396d3b300abf0497987867cb4ab8ede30b0ee3f06bb34b810af008d7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 판매 공간의 배치이다."
+    },
+    {
+      "identifier": "AT-411936-B",
+      "source_fingerprint": "dbad12c214fa40740bf16eb35deeb81f4e24a0d9fde9f97c268c4b794eaf69aa",
+      "content_hash": "f4f39f32c8bb49ff89154bb0aa8df1b8e16aed04e2709f1c6146dcc8b64ee8d8",
+      "decision": "LINK",
+      "keys": [
+        "absorption-spectroscopy",
+        "linear-frequency-filtering"
+      ],
+      "reason": "적외선 흡수 스펙트럼의 배경을 빼고 미분한다. 품질 추정에는 별도 검량이 필요하다."
+    },
+    {
+      "identifier": "AT-411955-B",
+      "source_fingerprint": "35ea9f9c75dbb32956ce534d70a80455e24a9b1f485dfeb8732fcdd30215f163",
+      "content_hash": "00b3b90c3552d8640eb09250a11d0e2bb8c9cd1bea65e1bdea8c6df96e68b78f",
+      "decision": "LINK",
+      "keys": [
+        "induction-heating"
+      ],
+      "reason": "회전 금속 고리를 유도로 가열하여 굽는다."
+    },
+    {
+      "identifier": "AT-412006-B",
+      "source_fingerprint": "2c37cf58b6253464c4233f8d7dd84bb820445f528ad7e592d224511f906c8cfe",
+      "content_hash": "2bd5a4b53ecace0ba5885cf2efadcc795f42c6a78093c7270e9d4ce8de436cf0",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "스프링 복귀와 회전 정지턱을 이용한다."
+    },
+    {
+      "identifier": "AT-412090-B",
+      "source_fingerprint": "e6677d88deebbbcecc93391f6f22b157969f19dd3591f59713d0e5fc38fcc7c5",
+      "content_hash": "79dea1f66a5bb0c8319548c6115ba3f8919b26f254ac19c74b6e5c40d25d462b",
+      "decision": "LINK",
+      "keys": [
+        "carboxylic-acid-esterification",
+        "polymerization"
+      ],
+      "reason": "다가 산·알코올 축합으로 폴리에스터를 만든다."
+    },
+    {
+      "identifier": "AT-412098-B",
+      "source_fingerprint": "1f65d26831d3f76932ba908b3517d6f03efc3c462d5f6599e0a9589df3b7e7f1",
+      "content_hash": "11437f9553c8562b9cc6deb38b9b3a71c6de0feb30c21bdae70ee8bf63dfc779",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "종이 웹과 와이어 분리 위치의 배치이다."
+    },
+    {
+      "identifier": "AT-412190-B",
+      "source_fingerprint": "29063bfd2e5e2ceddb56ed8168e7d68b8aca2b992be28f3a1b8cbb824d8253c5",
+      "content_hash": "068553550d998797fa242a79d2a1a0cc142c2165b24f2fd677ac7108859a6d07",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "리브·슬릿으로 바구니를 적층 고정한다."
+    },
+    {
+      "identifier": "AT-412197-B",
+      "source_fingerprint": "affda1c26e9982bb3e9beb00a8bc845751e5b515a67265b2aae2feebe1978e4a",
+      "content_hash": "e839c9b262ee919a44e2aa7277ccd08b6865b61beb933557b78fe08c5509b7de",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "물 제트 절단은 기존 제트 가공 초안과 비교한다."
+    },
+    {
+      "identifier": "AT-412198-B",
+      "source_fingerprint": "94a28715f2a6ac927f8314c84c1b24d6f97e33bfba06cf48e12a539282437cc2",
+      "content_hash": "8f9e109ea4ac20fefc97828d945585a343871520fc6067475fa68db669da0b25",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "강 벨트의 표면 요철 형상이다."
+    },
+    {
+      "identifier": "AT-412203-B",
+      "source_fingerprint": "b4858ada54ad3f64cf7a06360ed8e43185d84edc9db1c386ba3815d01abc9b2b",
+      "content_hash": "111f5eb1f39cd6214109ff69811ea1371f83a29c0eff4c355ef320cff24867ad",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "차량 운전석을 이동하여 비상 통로를 확보한다."
+    },
+    {
+      "identifier": "AT-412227-B",
+      "source_fingerprint": "c5e7d6c79f48b2b557be6d23d0549b3ad8c6346a042f269484968f229600fa45",
+      "content_hash": "22baacf38ed5c89f6c1436de87258f4557f12775cb71f856eb8a249461634741",
+      "decision": "LINK",
+      "keys": [
+        "reluctance-actuation",
+        "elastic-energy-recovery"
+      ],
+      "reason": "전자석으로 밸브를 열고 스프링으로 닫는다."
+    },
+    {
+      "identifier": "AT-412236-B",
+      "source_fingerprint": "a5adbbfabea8bf279344506182e22a2bf496bab4e4754f47902a09a71e99fb0a",
+      "content_hash": "6c2349ec503c4dd55b1ba8d1e4ddedea5d660443bb699cf56150424188012cf4",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating"
+      ],
+      "reason": "다단 연소와 재순환으로 온도를 조절한다. 특정 질소산화물 반응은 단정하지 않는다."
+    },
+    {
+      "identifier": "AT-412356-B",
+      "source_fingerprint": "20529ca4962184f2fa3c0a7d7812b3c9d827d8aee06bfa1cc098227134d4ecc3",
+      "content_hash": "aefb9640625a8e4690e86ac9984496dc7bb7cd338e473441acf94a173c490103",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "frictional-load-transmission"
+      ],
+      "reason": "굽힌 철선과 봉의 걸림·마찰로 격자를 결속한다."
+    },
+    {
+      "identifier": "AT-412427-B",
+      "source_fingerprint": "34ea1d0b1da14542733d952e2bf1754ee5e3a194f0f1acedf7be01867b2d578b",
+      "content_hash": "2a243963e5e3069c04e8729f03f1cd8be8678fb14a6dfdcc91b581ec73f9a4a4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "빛으로 산을 생성하여 중합·용해도 변화를 유도하는 기전을 신규 검토한다."
+    },
+    {
+      "identifier": "AT-412452-B",
+      "source_fingerprint": "f6fe6a8c48e81df111d2965ddf38568889620d90fb1113c95b61da3d283aee49",
+      "content_hash": "1d1e07d5612d8886ed83534f3d42f5c7ba489160d1d096c965f5f55978001cc5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유연 연결부의 다축 운동은 굽힘 힌지 초안과 비교한다."
+    },
+    {
+      "identifier": "AT-412459-B",
+      "source_fingerprint": "4cc2a8f19929dec40325ececaaae53aa7554d0f3a37743f75f1aac5656b5c98e",
+      "content_hash": "31b894b1534ec79826bc18c98d16b53ce04a06db46170e149d3719574b077156",
+      "decision": "LINK",
+      "keys": [
+        "elastomer-contact-sealing"
+      ],
+      "reason": "예압된 탄성 링으로 커플링을 밀봉한다."
+    },
+    {
+      "identifier": "AT-412467-B",
+      "source_fingerprint": "1166242f1e6c75ad17efb907512cb6513b97c09d3ca1f6fe52fad79346944e23",
+      "content_hash": "aa183e18b233b60f7f02757eb1c8c83d5ddd47be72a70997c4cfb313f1083869",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-particle-transport",
+        "adsorption",
+        "negative-feedback"
+      ],
+      "reason": "공압 이송과 흡착 건조를 사용하며 압력·온도에 따라 제어한다."
+    },
+    {
+      "identifier": "AT-412468-B",
+      "source_fingerprint": "ba370a54aa6204e09dec29a623c50afdcde64b967208bb6d8e2e796c7890796f",
+      "content_hash": "0e8109f568c529e5aba792ed82998a9b8c5ec6e951f5225047e1a097c0cd4dc0",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping"
+      ],
+      "reason": "흡인 벨트가 인쇄용 종이를 붙들어 이송한다."
+    },
+    {
+      "identifier": "AT-412513-B",
+      "source_fingerprint": "17c34c63b8ab416bb1ee9b0655df48958a6b0365d846e06c829fc1e312401d7f",
+      "content_hash": "dbd7dec4bd8d8726185a4a895a5e5ffcfcb26fcce171265ef189fe1c930eecfa",
+      "decision": "LINK",
+      "keys": [
+        "diffraction"
+      ],
+      "reason": "레이저 회절 무늬로 구조를 검사한다. 자기 특성의 구체 측정법은 부족하다."
+    },
+    {
+      "identifier": "AT-412539-B",
+      "source_fingerprint": "c93846687dd2fa4309d823737a89c6462b98edc8aa4131b3b67f60ab3e82e965",
+      "content_hash": "545c2e25cf2501997c54a40dc76dd7dde772ce633e21a1c78223c6b88e10de78",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "주조 스트립의 밀폐 이송·스크랩 배출 구조이다."
+    },
+    {
+      "identifier": "AT-412557-B",
+      "source_fingerprint": "f35395c65d4fd2c89a7a914fcc4517c7433a5741ab8936250d8be66f60e2b2f7",
+      "content_hash": "fea5c0c8a8fc23eaef75a33f73f474d61033cdea102b2e8105b8fac62131e0fd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전기영동 도장은 기존 초안과 통합한다. 전해 탈지의 기포·산화 경로는 확정하지 않는다."
+    },
+    {
+      "identifier": "AT-412650-B",
+      "source_fingerprint": "39fe9a4026a5a14574da1018001f9f90bf58c226ff9a745b35aa9e5674729eeb",
+      "content_hash": "601f110f344668e333603ad7c815de6b1ff2fe4ce5a19c4a7c52181954bb2ca5",
+      "decision": "LINK",
+      "keys": [
+        "condensation-recovery",
+        "combustion-heating"
+      ],
+      "reason": "수증기를 응축한 뒤 잔류 황화수소 함유 가스를 태운다."
+    },
+    {
+      "identifier": "AT-412670-B",
+      "source_fingerprint": "fb75f58d4d0e745b2a6cae7299639a6400a0bb3a206540a1fbe89de08923d96b",
+      "content_hash": "1e4c368adc51e6865d7da2266faed94a38daf7cce43faa31430d47310b8a5518",
+      "decision": "LINK",
+      "keys": [
+        "fuel-cell",
+        "heat-capacity-buffer"
+      ],
+      "reason": "연료전지 발열과 온수 저장을 이용한다."
+    },
+    {
+      "identifier": "AT-412678-B",
+      "source_fingerprint": "f20bc3a7a883a72706f651542326626e530e263c20fee22f8e720daca1fa6752",
+      "content_hash": "6a4151c6cfae354f2aca210290ea34a1fbaeefd236f998e72b1976c5f9d3f9c8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "SOM 이웃 학습으로 국소 모델을 배치하는 원리를 신규 검토한다."
+    },
+    {
+      "identifier": "AT-4127-U1",
+      "source_fingerprint": "5d7ace3eb7e40cc82fdc2af75bf03a0a20ff80a991458fab0aa00234790a41be",
+      "content_hash": "f0068f7e55fc3a7fbd0502df3eb7ac51affab7ac386255dfed5cb23f1f0327ef",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "홈과 돌기로 외부 거울의 끝 위치를 정한다."
+    },
+    {
+      "identifier": "AT-412760-B",
+      "source_fingerprint": "98352e35967d54c3752a5d3f0affc66e4be9e61004c86420ef67eef54d610fc2",
+      "content_hash": "667d9d0fb803f8bb15f7b2d490b1d9d4af5ff37fe5479481345a7fd15d34b3b4",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-membrane-actuation",
+        "mechanical-interlocking"
+      ],
+      "reason": "가압 기체가 막을 부풀리고 홈이 막 가장자리를 고정한다."
+    },
+    {
+      "identifier": "AT-413000-B",
+      "source_fingerprint": "b556e6e46a0b4413409dbf54f08970f3c2a06aa3e369856f9e3e69e15865d68e",
+      "content_hash": "c5fbf20f051937024d1cf4e39509614076238af332f082c33a760062f7b6426b",
+      "decision": "LINK",
+      "keys": [
+        "hydrostatic-level-sensing"
+      ],
+      "reason": "액주 압력과 밀도를 보정해 높이 차를 계산한다."
+    },
+    {
+      "identifier": "AT-413025-B",
+      "source_fingerprint": "330ff07c07eb3b04cc149191e260fba0529eed15e45c11c4968ea4d7d4b43aee",
+      "content_hash": "6ffb543e4ebc8e95957de6952f05833eb4bc3565c2cc03fc9876d32bf151d587",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "볼 커플링의 유지 볼트를 고정한다."
+    },
+    {
+      "identifier": "AT-413060-B",
+      "source_fingerprint": "a9c3cc09ec76cc2fb6746cd86857efe14010f8ca1a3086a8192eadfbda6839de",
+      "content_hash": "ae34276ad732aaa9ee11f0ded35ccc790faaebf39b3ae5831fa7659a1e37eb14",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "허용 범위 이탈로 이상을 표시한다. 새 예측 학습 원리는 없다."
+    },
+    {
+      "identifier": "AT-413099-B",
+      "source_fingerprint": "74a78397e615a0b130aad48606a6037953a8e9ac08b16584dd62ad31f227f1ab",
+      "content_hash": "c80ff07790a0644e988a80fa94ac61c752bc45032d622f5221f057a6a74b9108",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "과산화수소의 촉매 분해에 의한 일중항 산소 생성을 신규 검토한다. 광감작으로 잘못 묶지 않는다."
+    },
+    {
+      "identifier": "AT-413114-B",
+      "source_fingerprint": "1211c8a4e713d0f3b79825d6b0023db575126adcf1d8cae529d16c0a0f93682f",
+      "content_hash": "b7e7e74ac03db18e903fca511e5bcd05a094b58bef3ce8c0948d8f87e7f22c29",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비접촉 거리 센서의 광학·음향 방식이 없다."
+    },
+    {
+      "identifier": "AT-413164-B",
+      "source_fingerprint": "0238a8b3aa33486dffb987dd5579fd77c96034ef19b635726affabce384a1b28",
+      "content_hash": "eb859dba60f3866a26362fd759b3e3b6b802af417a1a213a9a8177767b3fc52e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "영상으로 접속 면적을 맞추는 배치 최적화이다. 특정 알고리즘은 부족하다."
+    },
+    {
+      "identifier": "AT-413189-B",
+      "source_fingerprint": "4ad2783c08025d585d5b58d50c4150461670cba9e0001bb81f093ed626f45649",
+      "content_hash": "f962089e40a4cf6877d23420882aabe353ffffe0520cd4074654b902aa9e3d86",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "교류 전류 응답으로 조직 체액·변화를 추정하는 생체 임피던스 원리를 신규 검토한다."
+    },
+    {
+      "identifier": "AT-4132-U1",
+      "source_fingerprint": "b78daa956fa8ceec35de7f2ea902030cc3cf7bd7e3cbb624b32c2c266bc42544",
+      "content_hash": "3a824f297341fd5f8f48a97dae8470e0208eec8332647eaa2028109616c88dfb",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "캡 개구와 결합 핀으로 구조물을 연결한다."
+    },
+    {
+      "identifier": "AT-413207-B",
+      "source_fingerprint": "d08388b551ab88399b0853bdb80c889fcba394e900d71e33ec94823f7b20c9d8",
+      "content_hash": "67fb8346692e81919c9a180a6836d026028f19f2575abdf0c23552f6d69b5faf",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "약화선·천공으로 뚜껑의 선택 파단을 유도한다."
+    },
+    {
+      "identifier": "AT-413212-B",
+      "source_fingerprint": "60908637e4e13856a19e122371b095d4726f42a79779a4c3de84096e1f0d5302",
+      "content_hash": "87a8941b3b6cd9eff55cc9e7d1fc64157710b2b0e7897f9ab6842fb845aeda07",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "자멸사 억제제라는 표현만으로 특정 경로·표적을 확정하지 않는다."
+    },
+    {
+      "identifier": "AT-413213-B",
+      "source_fingerprint": "71769c87dfd5da9df7ab249037db41fa467d0df87f8f27c097b4f69cb009e6a6",
+      "content_hash": "265f77405761be8500ec8ee3af0f1033ad85fd02fefa58259c702a5fa9801c5d",
+      "decision": "LINK",
+      "keys": [
+        "electrophoresis"
+      ],
+      "reason": "전극으로 미생물을 이동·농축한다."
+    },
+    {
+      "identifier": "AT-413231-B",
+      "source_fingerprint": "d77582bec185ade9cfce1737d5d04e6674e1a680d72a1f2bdea8230ecffd8a29",
+      "content_hash": "2123759fcdec84c669fd14c7971a2e258ecf6e50241ec14d567197d9caa92647",
+      "decision": "LINK",
+      "keys": [
+        "bulk-comminution"
+      ],
+      "reason": "타격 천공으로 암반을 제거하고 케이싱을 삽입한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T04:03:56.261716+00:00"
+}

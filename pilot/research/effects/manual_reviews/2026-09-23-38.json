@@ -1,0 +1,99 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "a44168da6a78eb84bdcf2e80387dd682fcb55b8481f6867957c742b5d1d925a1",
+  "reviews": [
+    {
+      "identifier": "AR-083816-A1",
+      "source_fingerprint": "66abb0a68a66379d5f7a0245f0256e6506baf0514dc6cc4a7279290234a046ef",
+      "content_hash": "2da0c067305df54244fa9074cf3f84e74376924e53decb3f9f21a6b5e34e1944",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "여러 질환 용도의 화합물 치환기 목록이다. 작용 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-083825-A4",
+      "source_fingerprint": "e8062bb0eefa6ed8fb347e49c4f8e7e7f4d5bdac85518feacb993b9379a4ef18",
+      "content_hash": "460e175887e9d8af5e62da9268671bd9ca8c6f65b66ea9cb4fc40beb4adb3c4b",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "복합재 판의 접촉 마찰로 트레일러 관절 운동을 조절한다. 윤활 불필요 범위는 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-083837-A1",
+      "source_fingerprint": "743e5ca81fda2c6be763b225e32989ae9e95bab0690ead212965ec3679c22b23",
+      "content_hash": "ab126e2e5506becb8765403253fef18b49785cf815a84b596fbeae0a5107b6db",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농업 카트의 무게 측정 장치라는 목적만 있고 센서 원리는 없다."
+    },
+    {
+      "identifier": "AR-083851-A4",
+      "source_fingerprint": "f3f326f6eb663eb7f98b1102c7f2dc08976628e5e04078c99e519ebb5c6a9131",
+      "content_hash": "53463ac89c070cb00f53dc10bfe0ebdd0a77aff969f473601e84d5296c5be8b4",
+      "decision": "LINK",
+      "keys": [
+        "vibration-isolation",
+        "viscoelastic-response"
+      ],
+      "reason": "고무 마운트로 계기판 진동을 격리·감쇠한다."
+    },
+    {
+      "identifier": "AR-083857-A3",
+      "source_fingerprint": "8efec3f2d45905dceed3f42d7158c5a18d9436897db6aa7c43890207139ea377",
+      "content_hash": "a1eea450fa3cbdf04cc6658fb1e22afa984ac47abb302cbb10466304bf0ec849",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "곡물 이송기의 바퀴·피벗 위치로 작업·견인 모드를 전환한다."
+    },
+    {
+      "identifier": "AR-083875-A1",
+      "source_fingerprint": "12f8ada8848af25010f33eb420b26adda6b8457508beda46fcfca4b5d686bb30",
+      "content_hash": "764b5d863c798712b035485f3a2127e8d5507b670a70468995d50d7a43a6a611",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제의 구조와 용도만 있고 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-083903-A1",
+      "source_fingerprint": "6fc4c7dc6eb8e289a9a8d859ffe2d6679d8808e6b04eb57f7151d335ac573727",
+      "content_hash": "fc7a3bb98dab3047de02db8e4cf366601ab27155194a9e2c33e63a48b93f146e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "심장 리듬·암 치료용 화합물 구조만 있고 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-083908-A1",
+      "source_fingerprint": "71c6a3d9b369294b94aec8246759afdc15bccf9266dc92a39dcc4efda88c701b",
+      "content_hash": "92330e49997d725a18f18cf21a60a829c7405c3b4745f939bad9fec8fecda3f9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 추출물 성분과 콜레스테롤 저감 주장이다. 직접 생화학 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-083915-A1",
+      "source_fingerprint": "f21396e5549701d74a06bd3715241e10760c00c46df1da0c70169eee281ac158",
+      "content_hash": "2fb4976410809c4b94b582ce0b15bafd03252f7b0ca767d3fb71660bcef83600",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis",
+        "acetal-carbonyl-protection",
+        "transmetalation"
+      ],
+      "reason": "아세탈의 산성 가수분해와 유기금속 중간체 전환으로 향료 알데히드를 제조한다."
+    },
+    {
+      "identifier": "AR-083933-A1",
+      "source_fingerprint": "f52b8d1dabee411b8ecd1ce10885498997d96d5e162f26dbf5a33a2623c81152",
+      "content_hash": "4a3da67b7dd0dac11235f071e8fbac37f946a9ff19dbcb22decce746e5ef6013",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "JAK 키나아제 저해를 명시한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:26:50.562310+00:00"
+}

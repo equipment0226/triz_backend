@@ -1,0 +1,44 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "408cb8066f7622d6258f195d10eb2426619c497800c037aa86573bc534463ec4",
+  "reviews": [
+    {
+      "identifier": "AR-112795-A1",
+      "source_fingerprint": "4320c2af0e88cbff634870e4b85cd5101fa2931b14b2c64008c5cd61392350fa",
+      "content_hash": "a29bc8b0f9c8985d5e52a17cb2cbb6cf3049a5623f4e21a1c70357f3310f8c1d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살진균용 티아졸 화합물의 치환기 목록이다. 생물학적 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-112797-A1",
+      "source_fingerprint": "7c6365d595ea5a3fd68ad3843e86268f25b4ab4a960234ac274e44b7ce9674aa",
+      "content_hash": "7444f522d9c2caf35ff0905d39d5d1bcbc158bca08f680330365834acfdf4167",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "KRAS G12C 조절제이다. 구아닌 뉴클레오타이드 스위치 후보의 추가 사례이며 공유결합 방식은 초록으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-112801-A1",
+      "source_fingerprint": "7737d277c2b1af691ffb7e4f4f060e96bd4d80eb281daf650dadbf98a6fa1dc7",
+      "content_hash": "525e6b4f78cf6bd7aee1eefab35b707816a2847ad0419b8108e2bada544485c4",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "CXCR2 억제와 콜히친의 조합이다. 미세소관 동역학 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-112804-A1",
+      "source_fingerprint": "047d81359a9925e56e71bdcfcaf03f65ae787ae9ab9f3441c13161f57b268507",
+      "content_hash": "50184256cc7dac362dd6f959a54f72a49d230ac11d793a3571ac9b41be86cea3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "근절 활성화 화합물이다. 액틴·미오신의 ATP 구동 운동과 표적 조절을 구분하여 추가 문헌을 확인한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:02:19.691510+00:00"
+}

@@ -1,0 +1,227 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "593e4568f7b7c2c6c16fb493e3d44f93380b758b2cc6343651b97dcefad1a142",
+  "reviews": [
+    {
+      "identifier": "AR-106299-A1",
+      "source_fingerprint": "5e64eba04a2b18640b35daf77747f079885de5d0161f07810b78e5bd1009636b",
+      "content_hash": "557f4eeaba0ba4fbea973467a7d29379627438ebe9517923851be01ba109a123",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피리돈 치환 구조와 살균제 용도만 제시되며 표적 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-106320-A1",
+      "source_fingerprint": "befb3b075399c5fe92559df62d5e113d470b183732abfe931da45355b996c46b",
+      "content_hash": "78de6972405ad172198fb115fe976c3b0a4e8a5f0f45cf60dce67634c4157ffc",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "해충의 전사 서열을 RNA 간섭으로 억제하는 일반 원리만 연결한다."
+    },
+    {
+      "identifier": "AR-106325-A1",
+      "source_fingerprint": "c35de53afa7fbad52690683612d49490a398f2ffe42a0fd44f885b7d845be3d8",
+      "content_hash": "c57e37d321c6e0d38255c0fd370d372b20ee657c5e8ff8e2c9281d7eb98e7a8e",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "글루카곤 수용체 작용제임이 명시된다. 표적과 펩타이드 변경을 새 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-106334-A2",
+      "source_fingerprint": "750321b06d190e22a21bd14186c2b5f43f7b1c55f37f0c252e869b9c4fc9667f",
+      "content_hash": "126af9e4f07d2e6cfdf6a8719826f3942729c22515c7d3b99b26b3651e03a198",
+      "decision": "LINK",
+      "keys": [
+        "ionizing-radiation-radical-generation"
+      ],
+      "reason": "전자빔 조사 후 공기와 반응하여 셀룰로오스의 카르복실기가 늘어난다. 조사 유래 반응성 종의 후속 산화로 분류한다."
+    },
+    {
+      "identifier": "AR-106350-A2",
+      "source_fingerprint": "6d23ece2635f1a38506860faa8c65883bdc61df47eb95bade66cba46f1790e92",
+      "content_hash": "73ba0a2090f6b2d22089bc202ac725fa61cf51892771c62d051663c644da67a2",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "산화 촉매로 PMIDA를 글리포세이트로 전환하며 종말 농도를 관리한다. 준비 중인 산화적 N탈알킬화의 추가 기질 사례로 검토한다."
+    },
+    {
+      "identifier": "AR-106355-A1",
+      "source_fingerprint": "443c50fddf5f5aee4938ab420f82b1b7a34dd65ebf6cc3db05ff6dc82be12dee",
+      "content_hash": "f8f251cea9bfe7b43cca2fe5c8649f436631086e01b23171d1d28fdb6907fd32",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "섬유망·분절 기포 구조·수지 유로를 결합한 코어 구성으로 별도 물리 작용이 명확하지 않다."
+    },
+    {
+      "identifier": "AR-106361-A1",
+      "source_fingerprint": "cf8a66dcb28de4e561e6172f41b15d1bff0d77fc34a22e95b29f09820ec731a3",
+      "content_hash": "d6dcc60b141c2b69adad63daf34412c9cebc5d02ef515545d1cdbc5a6c3b9aae",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection",
+        "hydrostatic-pressure-compensation"
+      ],
+      "reason": "순환 냉각과 액주 정수압에 의한 회로 압력 유지가 명시된다."
+    },
+    {
+      "identifier": "AR-106373-A1",
+      "source_fingerprint": "327b3dbbad008a1dbdc875ef5d88cb9a61a4c7fdbfedce00e7c5814c388d0447",
+      "content_hash": "f023a86259f67eecc528d6429302888b71bbb8242341692a09770904cb62dc07",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "일차·이차 코일의 유도 결합으로 부착 기구에 전력과 신호를 전달한다."
+    },
+    {
+      "identifier": "AR-106389-A1",
+      "source_fingerprint": "2259bdde7006e9747975e0b834d09a24bf8e81e14cb7afcc71b0d2e6b47e8037",
+      "content_hash": "fbcf5d6e4b478e07e5445afdedc555a0469487b19db1eacb6f4258dfaf1302be",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "peroxide-oxidative-bleaching"
+      ],
+      "reason": "계면활성제·지방 용해 성분·과산화수소를 조합해 서로 다른 얼룩을 제거한다."
+    },
+    {
+      "identifier": "AR-106402-A1",
+      "source_fingerprint": "c2fcee4d8d76a498915f93507cc62087fc0ebccf238ceef2a834961b6026ff0c",
+      "content_hash": "f57f5bccf0d645576f2bd45aff5e306b0d1165e5871efca6186f8e59b653ea6c",
+      "decision": "LINK",
+      "keys": [
+        "genetic-linkage-selection"
+      ],
+      "reason": "유전 집단 표지를 아황산염 저항성 판단에 이용한다. 모든 균주에서 완전한 일치나 특정 검출법을 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-106410-A1",
+      "source_fingerprint": "344b014a3759aac68a7db34089b9f50e913122fbaa08e818762e8bffd9a16ef9",
+      "content_hash": "c320afc38bad733e98e8152c34f259ce4041b22c9b9c38ea738c9bfe350f3db9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "밀도별 다층 필름과 거싯·봉합의 용기 구성이다. 명시되지 않은 차단 성능은 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-106414-A1",
+      "source_fingerprint": "be8d7e5f7737003b78716d22717e5c7bb8afced8e281e5686747ed933c39db99",
+      "content_hash": "301e8194623424922a7fa4c988d7bdc03009fd5a666746b6f6787bd021d32cb0",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "PVDF 내층으로 화학물질 투과를 억제하고 과산화물 가황 고무를 결합한다. 열 라디칼 생성 카드는 아직 후보 상태여서 기존 카탈로그 등록 후 연결해야 한다."
+    },
+    {
+      "identifier": "AR-106462-A1",
+      "source_fingerprint": "3ac1cc246eee9d2e40aa671b8e11072b214428deb403840b437a6e7368853a8b",
+      "content_hash": "3e26e8b4f6f7172772dad41365bd8f7350eef3ad00b44f46ff6027ccba20f469",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "측면 유정의 창·슬리브·방향 지시 구조로 밀봉 재료의 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-106474-A1",
+      "source_fingerprint": "21c95e4ac95dadeeecff7f4e26c018392ae55777680341903e434cfb069f5a3c",
+      "content_hash": "d13e095dcb62885b4c2a43ded39d64026304e14451fb40a418d04f7873aa2c7d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기상 자료의 평형 수분 함량과 건조 속도로 수확 시점을 추정한다. 흡습 평형에 따른 수분 상태의 기전을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-106520-A1",
+      "source_fingerprint": "0cc6e59f2f031b3638c56c0ad8f06bcfd2e237c03b51bfea933f67d92bdafe25",
+      "content_hash": "7e4662e753d57bc10232f5ff4542260129c54d6a6fc710e43951e6141b1ebc60",
+      "decision": "LINK",
+      "keys": [
+        "chromatin-accessibility-regulation"
+      ],
+      "reason": "BET 단백질 억제의 염색질 인식 조절을 연결한다. 비정질 고체라는 사실만으로 고체 분산 안정화를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-106531-A1",
+      "source_fingerprint": "cb52c7bc188dca92320ee8bd33f8f44f1e9b396478e5efe108560e4ab75f8a79",
+      "content_hash": "e6649c2fed6c0427a374666f35fcc22dd8ab2f01fd2f3dc1d194dfc167147023",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "독액 추출 장치의 성능·무해성 주장은 검증되지 않았으며 독소 확보의 운전 조건이나 방법을 신규 효과로 정리하지 않는다."
+    },
+    {
+      "identifier": "AR-106550-A1",
+      "source_fingerprint": "0137c5e1caa475ddc8edb065fcd4884e5b675a68bcb2f1c189e32d5abd8bf16f",
+      "content_hash": "8fc6f1241149d614ac28af01f00e13a67722582bc87e01bbd8987d487b8661d5",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "chromatography"
+      ],
+      "reason": "항체 단편의 특이 결합을 hFSH 검출과 친화 크로마토그래피 정제에 이용한다."
+    },
+    {
+      "identifier": "AR-106554-A1",
+      "source_fingerprint": "328f91fb69cbc9425968ba76a0e1806a476bb36df49d527808431664d8ee800c",
+      "content_hash": "4d11978301ed063738d34a3f2fb1a1d90941028a0e1a10565c8929fa761f6f08",
+      "decision": "LINK",
+      "keys": [
+        "tribochemical-lubrication",
+        "carboxylic-acid-esterification"
+      ],
+      "reason": "유기산·폴리글리콜 반응물과 황화 올레핀·금속 디티오인산계 첨가제가 윤활을 높이는 사례다. 개별 성분의 반응막 성능은 별도 검증 조건이다."
+    },
+    {
+      "identifier": "AR-106569-A1",
+      "source_fingerprint": "75884ccad2fbe50af9683555fb202c89d5b589850826f03ab8f83cbe77d45020",
+      "content_hash": "b78b7e2a8c6f9ef9d371ab5bb600fb6432e966833ceba137ea5e7a37cbfbae7d",
+      "decision": "LINK",
+      "keys": [
+        "parametric-bandwidth-extension"
+      ],
+      "reason": "부대 이득 또는 필터 정보로 고주파 대역 여기 신호를 합성한다."
+    },
+    {
+      "identifier": "AR-106602-A1",
+      "source_fingerprint": "bf106bc177ea170c31267836d317262f372af1af7bd2938a706ada01c13f2055",
+      "content_hash": "0ae4007b66a176ce2f0f5312d446d95c5ccaf6478113314c47db7f26d3bcaebb",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "스퍼를 디플렉터 내경에 진입시켜 결합·회수한다. 다중 유정 작업 순서는 신규 원리가 아니다."
+    },
+    {
+      "identifier": "AR-106616-A1",
+      "source_fingerprint": "6e96a70057d5e7975c9408b932062f4fbae211c183afdddea3e67e0343336105",
+      "content_hash": "2f89025de80130717e230bc18cdb19b9e7ccfbc36662b4d03068ef2049109a1c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "뉴클레아제의 이중가닥 절단 표적과 통합 위치가 명시되어 준비 중인 서열 지향 DNA 절단의 추가 사례다. 상동 재조합 수선은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-106621-A1",
+      "source_fingerprint": "902a7b2c7257ddcd3f48acb7f296a4f6a98c843bd7afb7e5b53befadb3be7a3d",
+      "content_hash": "b83a1b2b15cad4147940f518c1ce8ddc2c5a51dd2c2e7c3833a7f3dea445834e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "키토산·금속염의 발한 억제 조성만으로 도관 폐색이나 가교 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-106622-A1",
+      "source_fingerprint": "d9ef30581e26d46cabbd6e94d92dfa7d952c6febc55f193c2d3e61b62009cf81",
+      "content_hash": "34ec64fbc7dcc5b14788fe3912da27a07018823e124f989d9a1a2f1122ee5dcc",
+      "decision": "LINK",
+      "keys": [
+        "uv-absorber-photoprotection",
+        "surfactant-action"
+      ],
+      "reason": "UVB 차단 성분과 비이온성 계면활성제의 조성이 명시된다. SPF 증가의 단일 원인은 특정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:36:51.312828+00:00"
+}

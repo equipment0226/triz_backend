@@ -1,0 +1,196 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d97c043d97608feb613265b35549089147983a461aecf417f06ad3636dc978bc",
+  "reviews": [
+    {
+      "identifier": "AR-089002-A1",
+      "source_fingerprint": "34a53a0377442aaec98bb33d6dea1bad0b70c60f1a456e6c28f7f8ebe3d770ae",
+      "content_hash": "ac5859b818939c31409bfa474053d04ef884eb91162616263435ffecc6a6ac86",
+      "decision": "LINK",
+      "keys": [
+        "martensitic-hardening",
+        "martensite-tempering"
+      ],
+      "reason": "담금질과 후속 뜨임의 조직 조절이 명시된다. 회절선 폭에 의한 조직 평가는 별도 후보로 보류한다."
+    },
+    {
+      "identifier": "AR-089006-A1",
+      "source_fingerprint": "d08560fdab5125eb91b36fa8d861a8c1e7657edca0889bf460b12f1fdef51815",
+      "content_hash": "c26f2ab384857b20490e8deb40a78ff7a68cd5a0c80e8b2aab4643b4952faa99",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "계면활성제와 점도 조절제로 기체 분산상을 안정화하는 유체 구성이다."
+    },
+    {
+      "identifier": "AR-089055-A1",
+      "source_fingerprint": "23809605e98c87cb7635426f9387b97d82a8eff6cbe7cb8eb6fbeaeccbeb3b72",
+      "content_hash": "1bb4362ac76dcbcf9d6406b4c1a21cd7402443a0a39804681ce0c22c5e6ea5e0",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation"
+      ],
+      "reason": "촉매 수소화가 명시된다. 산소 제거를 동반하는 결합 절단은 별도 문헌 대조 후 구분한다."
+    },
+    {
+      "identifier": "AR-089059-A1",
+      "source_fingerprint": "0be005a23b0c83cb7aeaea028efa324e3d61564faf84092963e6a7a2d1a51a6d",
+      "content_hash": "75b50fdb719259585e3055a5ed30a34a15a5c043b86ee9f7e831ed2a2c509abb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "제어 흐름 감시 구성만으로 구체적인 물리 효과나 감시 알고리즘을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-089080-A1",
+      "source_fingerprint": "e9c7a33f13c9f258454b2f569d661b01efe55a54f3dfbb1a113c28e1a53f1d10",
+      "content_hash": "5ef0faaaa5fddb5e395c38e42b0358c7f97bfdcf14a7273f8b337a8132e752ec",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "농축과 냉각에 따른 고체 분리가 명시된다. 아황산수소염 선택적 부가 분리는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-089085-A1",
+      "source_fingerprint": "b08b0e76f3f8b99db441de97b58609bfced5291a234c96ce5ead8ff89bf813a6",
+      "content_hash": "967a7eaf5747531f13424b54729c3e76d69233887d181c8f06562153e20b3b78",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "HER3 결합 항체의 신호 억제이며 결합만으로 이량체화 차단을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-089092-A1",
+      "source_fingerprint": "d6d7eb7ec9bd194b93f9d29713089908f71c8c563c2ae80abaac78c69410d48b",
+      "content_hash": "66ecef01a139f78a80b340dc70dd38dc662aa1666df399cc40ebf05a47494177",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening",
+        "mechanical-interlocking"
+      ],
+      "reason": "보강재와 격자 체결로 유연한 천장 요소의 강성과 지지를 확보한다."
+    },
+    {
+      "identifier": "AR-089102-A1",
+      "source_fingerprint": "772258f1597f90ea9f098ca8473697649075c1dd36482adb01b7a8fedc08453c",
+      "content_hash": "69b99b2ac3490f7859b6d9528715a8e89379272ad1fe73c8268761e12e8d4a92",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "불연성 부분으로 가연물 비율을 낮추는 효과를 열 차폐와 구분할 수 있는지 검토한다."
+    },
+    {
+      "identifier": "AR-089115-A1",
+      "source_fingerprint": "57149ca5a7bd88525243b163de77a3023ac8d44a1b38d4b9b94d0f3c35ee432c",
+      "content_hash": "fc82fda1546e3b3788e42a4ad5f67ee24e8ea5c67549d2d9f2be3378fa9cf6b7",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening",
+        "plastic-forming"
+      ],
+      "reason": "강판 드럼의 반복 주름은 소성 형상과 단면 배치에 해당한다."
+    },
+    {
+      "identifier": "AR-089152-A1",
+      "source_fingerprint": "963e7a1e70fd9a3e2d9076bc41ac9a824b54eb19c7ca61ec579aecc731ed4cb9",
+      "content_hash": "1b31f788eb3b501eb7a3f0f46699f6c2213956aa38f022a43fedee3701948534",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "chromatography"
+      ],
+      "reason": "모사 이동층 흡착 분리이다. 포트 전환에 의한 역류 모사는 독립 작동 원리 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-089163-A1",
+      "source_fingerprint": "e7edf2292610623c3845dfdd404d74402af7bccbd914c4aed469e107cc963fce",
+      "content_hash": "b2ba0d21700006e0f204e98d9bcbb4ced04b500a8fc5fb7637d07fb328115a22",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "셀 이동 후 방송 정보 읽기 시점과 통신 모드의 정책 구성이다."
+    },
+    {
+      "identifier": "AR-089184-A4",
+      "source_fingerprint": "aac9befeec4a108f07cef05c655c80276005394a1ab5440127062f128fe6baee",
+      "content_hash": "a1fb7483993fa20ff449a6239a8a03f3d0419657148a07c13d33cca202ba713d",
+      "decision": "LINK",
+      "keys": [
+        "lead-screw-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "나선 돌기로 회전을 삽입 방향 이동과 기계적 결합으로 바꾼다."
+    },
+    {
+      "identifier": "AR-089195-A1",
+      "source_fingerprint": "ae950485aa65465a05d6b8b616c3cc2cd41c3142c3cf6079a99bc4c0fdb929e2",
+      "content_hash": "c4313387bbb76e79a491f03e4fc95f8cac02ef1b383fabeb7ca8d345234426f1",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "농약 제형의 계면활성제 구성이며 구체적인 새로운 작동 원리는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-089214-A1",
+      "source_fingerprint": "45802f322bad782999f41619f5e7cfbbf46f78a1427ccec8d65f38f78c57d3c7",
+      "content_hash": "3c7e4a2efaf731b2cd04a556957c511a502e4464245d4e2f10d235e5f5333562",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "단백질 섬유와 응집체의 기포 안정화를 계면 흡착 및 입자 안정화와 대조한다."
+    },
+    {
+      "identifier": "AR-089222-A1",
+      "source_fingerprint": "8d72eb187ddaad79d92893db54f7ed865209eb06eefc323e4c623f7d296684de",
+      "content_hash": "ab1ee21fd6cda5fe7bc3e55c2e2fab5cdb1406ad3944b67fbbe546df4b94e300",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "영상 전송과 이상 감지의 기능만 제시되어 특정 알고리즘 효과를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-089252-A1",
+      "source_fingerprint": "b1ae04aba375c0fde9424c04cea129c9d047d47a7cdea8425af36e99a5c0cb60",
+      "content_hash": "25bbac491ee8b9be3e55704da81fe8d907cfb693cc2bb4c386eea8e85c570c68",
+      "decision": "LINK",
+      "keys": [
+        "antigen-targeted-payload-delivery",
+        "biomolecular-recognition"
+      ],
+      "reason": "FGFR2 인식 항체에 화물을 연결한 표적 전달이다. 효능을 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-089275-A1",
+      "source_fingerprint": "64bdd95ee3bee577c83c9d8b14b2144faede3a2a1b6d09d27b6d1f9f34735816",
+      "content_hash": "17c3432a567268ce379f3bebe376a30467c1080c26c46347f3be21f3f9f2deb8",
+      "decision": "LINK",
+      "keys": [
+        "tribochemical-lubrication"
+      ],
+      "reason": "활성 황을 포함하는 윤활 첨가제의 표면 반응막 작용과 연결한다. 특정 마찰 성능은 별도이다."
+    },
+    {
+      "identifier": "AR-089308-A1",
+      "source_fingerprint": "4bd687fc0dee624c02e8d2e33bb06291177e8db777f3d0e2b52c3e34c2bfad32",
+      "content_hash": "c251e79f4a9cf187c3c0156accf5acb880c60bda78e386a30a51c06c60bf1181",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "peroxide-oxidative-bleaching"
+      ],
+      "reason": "분리된 액체 혼합 후 효소 반응으로 산화성 표백 성분을 만드는 구성이다."
+    },
+    {
+      "identifier": "AR-089313-A1",
+      "source_fingerprint": "0bb5afa100880a9fb1ed7e3d10d20051bcad374bb3018006ebe40d4fc1b00450",
+      "content_hash": "8a777237072dd883ff95720585831ececdc88fffba37e86eaeae95fea791836f",
+      "decision": "LINK",
+      "keys": [
+        "adsorption"
+      ],
+      "reason": "사용 전 여과재의 흡착으로 보존 성분을 제거한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:07:44.154568+00:00"
+}

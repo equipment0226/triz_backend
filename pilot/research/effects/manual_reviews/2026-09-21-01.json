@@ -1,0 +1,228 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "b9aafd67ca76a01d48cd282b688942014df25aa89904ab96d638cf565805f47e",
+  "reviews": [
+    {
+      "identifier": "AR-054484-A1",
+      "source_fingerprint": "f4d4fcc77ca08bf487e8dca929d25221b095b0f8328a349f2b357d5f5fd272a6",
+      "content_hash": "252ed559cf0a635163354d85f874d07e803c217ef48242622e00fff57a98c809",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "콜레스테롤 흡수 억제 용도와 화합물 범위만 제시한다. 특정 막수송체나 결합 표적은 초록에서 확인되지 않는다."
+    },
+    {
+      "identifier": "AR-054488-A1",
+      "source_fingerprint": "4fce826cf1fb193079b3cf1d9844e863482bb9013d14d5f3cb142d1955fe566d",
+      "content_hash": "29c8556d9bc2cf008502bb34d7fdee62d0c370aa080ee3d000c8ad0c49514ac1",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "물을 만나 발포하는 세정 분말에 사르코시네이트 계면활성제를 명시한다. 계면활성만 연결하고 가스 발생 반응물은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-054500-A1",
+      "source_fingerprint": "589d130ca4acad2b2e81c797c11cdb2a3779e0a1aa5d08a40c0705cfe9d2c582",
+      "content_hash": "209348d4611ee157cb040860d8d87c4832eb1a461da413a0ffb35d5502f23ef5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "공랭 엔진의 실린더 헤드와 볼트 배치가 핵심이다. 공기 유동 구동과 열전달 조건이 없어 별도 원리로 확장하지 않는다."
+    },
+    {
+      "identifier": "AR-054575-A1",
+      "source_fingerprint": "165fb210d771b1bd07b27f26968247e41a45a4bb4d21eaab68b10383dadbb97c",
+      "content_hash": "94ef8f8c50fb2ebd917907f79441b1a5d001a6de8bafc380509b9fab3d262a10",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "pressure-driven-flow"
+      ],
+      "reason": "가열·가압한 화학액 또는 효소를 종이 기계 세정에 적용한다. 효소 경로는 기질·효소 종류 미상인 일반 촉매 적용으로 한정하고 효율은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-054591-A1",
+      "source_fingerprint": "634330e760c5dbfeafd0a93190bda094ea8ce4468e197f1b3074e6de4d332835",
+      "content_hash": "ffcf2c468d239c2d11146fcda30961c0c40688d1a62488443c2ffed968433727",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "GAD65 재조합 단편의 서열 변화와 진단 용도를 제시한다. 발현·정제·검출의 구체 작동 경로가 없어 추정 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-054612-A1",
+      "source_fingerprint": "19ef65444be77e5c6050569b76cb8cb6cd6c31c89377da1ddbb9c690dbbb72cc",
+      "content_hash": "2426c999bb93f0b34cf8c7cc2c0d249205333312699b40533f80203a9290c7f5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "당뇨 치료용 화합물의 치환기 범위를 제시할 뿐 표적과 작용 경로를 밝히지 않는다."
+    },
+    {
+      "identifier": "AR-054619-A1",
+      "source_fingerprint": "41adbc230a124d8cfb9c37f40b70976022556408dd28d8f767bd5484ae22f760",
+      "content_hash": "15061827219503fbb363fd7707b244a1f6d47c19b0f2c50b1680bfdc636535dd",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "아스파르틸 프로테아제 억제를 명시한다. 저장 초록 후반이 절단되어 있으므로 화합물 전체 범위나 치료 효능은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-054629-A1",
+      "source_fingerprint": "456173545c988a88b57bb6537be41d98c6a7dddddd066d33bde9cd4fe3bee4c6",
+      "content_hash": "dec4b6db52caae24046a1a8b76eb743483c4744893ec857bb382416a06e5f9ba",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "핵 수용체 LXR 조절 용도를 명시한다. 깨진 동형 표기와 절단된 구조식 범위는 복원하지 않으며 임상 효능을 근거로 삼지 않는다."
+    },
+    {
+      "identifier": "AR-054649-A1",
+      "source_fingerprint": "9bad4a5399b107fd129516b79957ca87a46663f3d20e3dac6d16a6aa328ef859",
+      "content_hash": "6547ada6e00449fd97c4100ade0a6cadafc66678b5541aebdcf45a1054276375",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수직 판과 산소 튜브 통과 구멍의 기도 보조 구조다. 전달 유량이나 조직 작용의 독립 원리는 제시되지 않는다."
+    },
+    {
+      "identifier": "AR-054653-A1",
+      "source_fingerprint": "3cfb881b1b0604fa6b13d0a42c8a3e062eb8dc1c6a4658e97c3297a703a69300",
+      "content_hash": "3cccf5a7fbe726d24d1804995fdebb857ff1f8fd7b659506a2a07b91fd9b1e57",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "의족 발목의 코일 스프링 압축과 움직임을 설명한다. 스프링 변형 에너지 저장·복원 범주만 연결한다."
+    },
+    {
+      "identifier": "AR-054661-A1",
+      "source_fingerprint": "1326158dfdd5b56e870adf619ef04e2137e662c4a37c6394ea9bd6b3483295a8",
+      "content_hash": "f81777be06b1810b5bbbd380a40dd69897c8c98e1d84d23a56d1fb1618cda44f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "형상기억 재료 요소의 수축·돌출 두 상태를 설명하나 합금 여부와 자극을 명시하지 않는다. 형상기억 합금으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-054718-A1",
+      "source_fingerprint": "b9e767f99c6bac7ce06da5b5f63ad66a807e3cea9b10c59185b002b37fcfb102",
+      "content_hash": "e3642983d004f58d70821b8c5d963b0f1aacc830c24035d3cf4c45ea9cb623bb",
+      "decision": "LINK",
+      "keys": [
+        "electrophoresis"
+      ],
+      "reason": "대전 드럼과 반대 극성 하우징 사이 전기장에서 유체 오염물이 이동·수집되고 스크레이퍼로 제거된다. 액중 전기영동으로 연결한다."
+    },
+    {
+      "identifier": "AR-054756-A1",
+      "source_fingerprint": "68dacf047b90bc48601d1ba3c195485319e9752777432ec877a9dea643195a32",
+      "content_hash": "7d9635ed273d21aa029b3d878af51c2ebe30bbde9790971403cdc6b98e2b9b35",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "forced-convection"
+      ],
+      "reason": "샴푸 세정과 제어된 공기 흐름에 의한 건조를 설명한다. 계면활성과 강제 대류만 연결하며 동물 안전·세정률을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-054757-A4",
+      "source_fingerprint": "ed22c54909726b02becc082de33d2ccebdd9052a98979a175e55b2da5cabca19",
+      "content_hash": "fdd1b54f5aefb16f5344ee7c7e79de7d877761e27c0b0079620967969da19f63",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "문을 통해 음식 찌꺼기를 용기 안으로 가리는 배치다. 독립적인 과학 효과 추가 근거가 없다."
+    },
+    {
+      "identifier": "AR-054759-A1",
+      "source_fingerprint": "bc5b6cf3a406d74b180fe8ae45707ea842916975718f9402615208124d966bde",
+      "content_hash": "48f27358abd7765ccfd9fc5e88279c9eed1e5a4e8253f8a42fc6678dd11ee6ef",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "주파수 응답으로 기체·유체 성분을 나누고 공극률과 밀도로 질량분율을 계산한다. 센서의 가진·응답 물리 원리가 없어 공진 효과로 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-054762-A2",
+      "source_fingerprint": "dcadeff83126bbb9f88c6728e4ad12b9cb31a728a5adf0bbc2105deba2efc328",
+      "content_hash": "670a42e8e6d95e3b1f0625c7095457e436361d83bacf0f5219342939b97bfaa0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "직렬 적층 유기 감광 소자의 전극 구조만 설명한다. 발전과 광검출 중 실제 변환·판독 모드를 구별할 근거가 부족하다."
+    },
+    {
+      "identifier": "AR-054784-A1",
+      "source_fingerprint": "e91315957a2e99d6962d4bd04a0db6dff76172285021f3fc633881b41e64642d",
+      "content_hash": "c9a8e714fd62b4bca057d270e9eb9d643a881014d535f379167918ba7ca90298",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Bischler–Napieralski 및 Pictet–Spengler 합성 경로를 명시한다. 기존 치환 반응과 구별되는 고리 형성 원리를 문헌 대조할 후보로 보존한다."
+    },
+    {
+      "identifier": "AR-054802-A1",
+      "source_fingerprint": "654d2b6b535c8028e8e8fee608f18355db21bd412843ed9145f667be8eb95401",
+      "content_hash": "e5ea826f52af357ec3317529ded6d4db17850d48783d338e9362c961d243b917",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "제목에 PDE4 저해를 명시한다. TNF 관련 효능 주장이나 깨진 치환기 표기는 추가 기구로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-054812-A1",
+      "source_fingerprint": "9523cc967901b729464810a47fb1677b828300c4ad20a531204caf342c707bad",
+      "content_hash": "8d81bab9bdebb4823de3ae747c9697bedc1ce0101a6446c440d5b64a706ce44a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "세포 증식 질환의 화합물 용도와 치환기만 제시한다. 표적 효소나 수용체가 확인되지 않는다."
+    },
+    {
+      "identifier": "AR-054853-A1",
+      "source_fingerprint": "70d082feb8de0093cc5a1b7976bc88da0efa0cb85a350697b797a286b31b2eab",
+      "content_hash": "a213b733c9663946cecfd621a0b2c219535ee015c544660e721c2db387ad6914",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아졸 치환 화합물의 구조 범위만 있고 기능을 일으키는 반응 또는 생물학적 표적이 없다."
+    },
+    {
+      "identifier": "AR-054874-A1",
+      "source_fingerprint": "28f586edd656e87eae8f01476fb0012510955ee53004087971b7a52b4cba6bac",
+      "content_hash": "2853daf57c29322582964823012db22751195a9c36838ec070abe36d98dd643f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "산성 조건에서 베타 케토에스터와 알킬히드라진을 반응시켜 하이드록시피라졸을 만든다. 고리화 축합 후보로 남기고 구조·탈리 과정을 문헌 대조한다."
+    },
+    {
+      "identifier": "AR-054880-A1",
+      "source_fingerprint": "c933c2ff761eb6c7d028e2998de86bdfb2654d3447f395ef6a10650ffaaa2f86",
+      "content_hash": "72163c80bb58d76809ef728c5eb76f7ac8caa95c98231aafb79a8d03066f7be3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "해충 방제 화합물의 치환기 범위만 기술하며 표적이나 방제 작용 경로는 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-054917-A2",
+      "source_fingerprint": "feff1022ae21ffc579344cf0d00474a531644b4d5af808166f851bd17251e2fe",
+      "content_hash": "7eb2f01f4394ada17f5633d6aff0b833d4c5ea86183be0ce13a19e853dc7b913",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "혐기성 균주가 CO 또는 CO2·수소 가스를 공급받아 아세트산 등을 생산하는 발효를 명시한다. 농도와 조건은 특허의 제안으로 한정한다."
+    },
+    {
+      "identifier": "AR-054966-A1",
+      "source_fingerprint": "aa4eeb22ede5d5eab7493750499f44e52a071612b0917bb3f82c2531e04e7eb3",
+      "content_hash": "51f76983bee3d3e98afb7fd708921764881f2dde906aab0bd161e5cfdd6051c5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "IP별 위험 점수를 누적해 임계치로 차단하는 규칙을 설명한다. 누적값과 임계치만으로 확률 추론·학습·CUSUM으로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-055040-A1",
+      "source_fingerprint": "505baeeb26708370d86d1eb198124a553bbd30e03a7d8273eefdd23ed8ae8bd3",
+      "content_hash": "01d7e12966e6987d7f3648428f068d4b73f10bd6a71d99fd2f82b946cc1c7e10",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "교통 통제를 위한 양방향 데이터 전송이라는 제목 수준 설명뿐으로 통신 부호·변조·제어 기구를 확인할 수 없다."
+    }
+  ],
+  "recorded_at": "2026-09-20T21:22:49.848724+00:00"
+}

@@ -1,0 +1,253 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "a67a5592436419585be5961c2492791d8cffdaebf153489d843e19d78a160d16",
+  "reviews": [
+    {
+      "identifier": "AR-098148-A1",
+      "source_fingerprint": "b30e6b23d5a811b255d544e13d95e217a2f9f8017d44b41fbf30a03d3b050c82",
+      "content_hash": "27168783222596161cb30525f40d57e37349a8fc3022818498a23563f90465ff",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping"
+      ],
+      "reason": "동축 중공 모터로 직접 구동하는 종자 분배기이며 진공·고압으로 종자를 붙이고 놓는다. 모터의 구체 전자기 방식은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-098153-A1",
+      "source_fingerprint": "c0a05c237d98a54f05afd9c800009c73775a9f40797fb8ce9f515a7701a4cb6b",
+      "content_hash": "aac1aa74ad652e24a925cf7243c98421f6a109408cf4fca41db9b31a7b763c89",
+      "decision": "LINK",
+      "keys": [
+        "feedforward"
+      ],
+      "reason": "부대정보의 이득 시퀀스로 동적 범위와 클리핑을 조절한다. 진폭 의존 이득의 동적 범위 압축을 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-098165-A4",
+      "source_fingerprint": "aed8785caad600685dacb2b62c312a7ba8315b9dd5bfe1bfd7e67bff528c6f00",
+      "content_hash": "7eca013a41078dba9d213da527fc838901a11bb342e4b0697b1c983a83f384a9",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating",
+        "viscoelastic-response"
+      ],
+      "reason": "고무계 탄성 벽과 지오멤브레인의 물리적 기능만 연결한다. 영구 무균열·무보수라는 절대 성능 주장은 검증된 사실로 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-098167-A1",
+      "source_fingerprint": "27d5b7647bdbbb17e6fa27ade63f63cd87cb5eadd5a2ae2f144ea17dc158efe4",
+      "content_hash": "33568258826be1a1eb48ea86be33b9e12fbbcfa5e552b944fb9f215f53fa47a1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "종자·막힘 감시와 무선 송신·자체 전원의 시스템 구성이다. 센서와 발전 원리는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-098173-A2",
+      "source_fingerprint": "1dec6cdbd28556ce91b562dbe467b549c062c684381070e780efdd2bcd6db13e",
+      "content_hash": "66362c0e5f593880a9c8af41e8464d7d899fcf155093af340476c9f88b2e6212",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "binding-residence-time",
+        "surface-plasmon"
+      ],
+      "reason": "TNF 항체의 친화·해리·SPR 측정이다. 수치가 전체 치료 효과를 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-098191-A1",
+      "source_fingerprint": "50d8fbf9bbf26300237274cc5452ea6e142816803279fc83c1d5c12d4fbb5a6e",
+      "content_hash": "53aaa4218ab016a4a1a799be7b70fede679c1791b5833d18e5a4937484ac37f9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "길이 방향 가열 구간별 속도 차이를 둔 장치이다. 열원 종류나 구체 전달 경로는 생략된다."
+    },
+    {
+      "identifier": "AR-098250-A1",
+      "source_fingerprint": "46f52ceffcc079c439f1c91390a4d0c2b9d648777ae34b254faa4da02c6a887b",
+      "content_hash": "4ee146369dceea73f4ef19c739518dca67e27e968857e618ee84fff91d0d8be7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "국경 표시 정보에 따라 홈 네트워크 검색 여부를 정하는 분기 규칙이다."
+    },
+    {
+      "identifier": "AR-098258-A1",
+      "source_fingerprint": "c92e29efbfc7d4638d2114277c45ddd28839cd23819067303da2635399d57586",
+      "content_hash": "c372ce51e91a2df58890757d5f2510b0c878433422a9a59671ec4cb8f16083f9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "시간 영역 가진으로 손실 오디오 프레임을 대체한다. 동일 페이지의 오류 은폐 후보에 대한 추가 사례이다."
+    },
+    {
+      "identifier": "AR-098268-A1",
+      "source_fingerprint": "d3d7d917a04c55167b77bd1345cc205d2d1668faa90d9cb65da569413126bc77",
+      "content_hash": "3052440030a5bd65b114cd996d0cb9db994533d99ba44f32f8902b1bbb722151",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening",
+        "polymerization"
+      ],
+      "reason": "에폭시 말단 폴리에스터와 에폭시 경화제의 반응 조성이다. 경화제 종류에 따른 경로 차이는 보존한다."
+    },
+    {
+      "identifier": "AR-098297-A1",
+      "source_fingerprint": "e41a6bdaca252edf3c0b33af66d3d7227d420d7fc8a281fcc8db832977bbe05d",
+      "content_hash": "9a59ae5383bfe1704519bf3d2e7f725a1e8f4ee975feb49f27d68dcdd919920b",
+      "decision": "LINK",
+      "keys": [
+        "chromatin-accessibility-regulation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "저메틸화·비유전자 위치 선정과 도입 DNA 삽입이다. 부위 특이 절단은 기존 신규 초안의 추가 사례이며 상동 재조합을 명시하지는 않는다."
+    },
+    {
+      "identifier": "AR-098306-A2",
+      "source_fingerprint": "1efe54c28d0eab93a3abd1cabf1c5c10854a188d786f303aa113bba2bae24cde",
+      "content_hash": "a836a4b4ae65de08d6916be4ea6997c738cd482c35c33fe4e954f0fa95205de1",
+      "decision": "LINK",
+      "keys": [
+        "distillation"
+      ],
+      "reason": "휘발성 보조 유체를 추가해 오일의 오염물을 단거리·박막 증류로 함께 분리한다."
+    },
+    {
+      "identifier": "AR-098326-A1",
+      "source_fingerprint": "c0685f444b5212fa1a2d5453d232a4ab2cf484741438498677490bcf74011966",
+      "content_hash": "d188554c4f128f80ae3c93b31f92e1eb40f8dd1995f36401882d2803c9693d40",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "폴리알킬렌옥사이드 공중합 계면활성제의 지하 처리 적용이다."
+    },
+    {
+      "identifier": "AR-098332-A1",
+      "source_fingerprint": "3431b81998d6922f64a6fd268a7b4d17b7735d03b7e1e24097c3b1d58ed93d2f",
+      "content_hash": "c5860e8ebc66552ed1db34c100ed26b11eb78e7ae7a4db19f77fca96cadfd3e8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "액체에 기체를 넣어 음속을 낮추고 임계 유동을 만드는 원리가 직접 명시된다. 기포 혼합물의 압축성·음속과 이미 검토된 초크 유동 후보를 구분해 검토한다."
+    },
+    {
+      "identifier": "AR-098343-A1",
+      "source_fingerprint": "79c1ab8062d0952e66d6b09b875404b3da18039a618e56e63b58e48710983c4a",
+      "content_hash": "a8a8dcf28b69f71333adbdc5d0c4e7cfcb268ebcb01160155d5c2edbbf5fd2e8",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "IDO 저해제와 합성 중간체이나 구조식이 없어 구체 합성 반응을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-098376-A1",
+      "source_fingerprint": "cf137015202b03efe9a6be0b54cdfa1050cda5acd749551176a8d93830ab20fc",
+      "content_hash": "49373893259168186ab2e5e5c9dc193e533f7a7a1fb26546b19fa90b6769c095",
+      "decision": "LINK",
+      "keys": [
+        "twisted-pair-interference-cancellation",
+        "dielectric-insulation"
+      ],
+      "reason": "절연 연선과 팽창성 테이프의 케이블 구성이다. 팽창 탄화층 신규 초안의 추가 사례로 보존한다."
+    },
+    {
+      "identifier": "AR-098377-A1",
+      "source_fingerprint": "47da048c8c442e974f02a634c6a99fe75d2f5d1b2677dfc1345a15be7fb1518d",
+      "content_hash": "2bc1f3d35049f634ed4078847acee294471ecec83dd65caece24248c3a7d852a",
+      "decision": "LINK",
+      "keys": [
+        "pressure-compaction",
+        "solidification"
+      ],
+      "reason": "합금 분말을 압축 후 함께 용융해 고체 부재로 만든다. 고상 소결이라고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-098383-A1",
+      "source_fingerprint": "9ae83c7079b7f3eb01ad33cfde7753f2da1f7aa6ba7acaec852d3e76f5573957",
+      "content_hash": "1098ccedbd4766c045d12b49e08e344fb16e01dd283fba7e1401c50e8af2aaa5",
+      "decision": "LINK",
+      "keys": [
+        "fluidization",
+        "cyclone-separation"
+      ],
+      "reason": "유동층 탈수소 후 촉매 원심 분리이다. 산화제 없는 촉매 탈수소와 급랭 반응 정지를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-098416-A1",
+      "source_fingerprint": "7775f4c0c185504ffc21ef8d6f4ff4fde16a461d7f3014256dd86609676b3e88",
+      "content_hash": "aabec2f856b211b1dd1cf8bfc8e3ab8d821b8bea81fe08643092eaed0b60ab73",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating"
+      ],
+      "reason": "회전 팔의 연소가스 분사 장치이다. 분출 운동량에 의한 반작용 토크를 신규 후보로 검토하며 주장 효율은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-098419-A1",
+      "source_fingerprint": "0d20897047e46d50a3ec39d1b5a81f5fefa0ade7ec236c9bc7aa9a0b285266dc",
+      "content_hash": "f9d3911975dac41ef619d295cb9ae0a07ec684dd1edf6738c4c842517b19600c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피라졸 살충제의 치환체·용도만 있고 표적이 없다."
+    },
+    {
+      "identifier": "AR-098425-A1",
+      "source_fingerprint": "028e34938ed417ff954873cf5396e9c7b6c3f5722ebaf538c6ddfafa36fcc398",
+      "content_hash": "658bda1da1a38d9c0cb68cc3fe6681d65ce9d502351b040ef88d192e3e8fb0e8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "여러 규격의 추가 중량을 장착하는 하우징이다. 무게중심이나 특정 하중 경로가 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-098426-A1",
+      "source_fingerprint": "6623f07dcdadac7431104adc04787878a6629090e3e74065a4b23d91e5a28890",
+      "content_hash": "935047dff87c82879bd2109c7c45f2741b877c21d16cf8093af374bf5939dec4",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물에서 Vip3A 살충 단백질을 발현하는 적용이다. 모든 조건에서 무오염·완전 방제라는 주장은 과학효과로 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-098442-A1",
+      "source_fingerprint": "2a3445ac5e26ef4023fe27108a48bbea8ede917398fef36554ec8afada284f28",
+      "content_hash": "e482c33c09a95ab6d2bfa8616caf445703b3e259b316a45c5d010251a66eb7ba",
+      "decision": "LINK",
+      "keys": [
+        "chemical-cue-directed-behavior"
+      ],
+      "reason": "미끼 성분의 방출로 목표 어류를 유인한다. 삼각 형상과 훅 배치는 설계이다."
+    },
+    {
+      "identifier": "AR-098448-A1",
+      "source_fingerprint": "2097b41a71579f34a785f4fb14b090f2d3b0731d164d12d9afc3767be136ad8c",
+      "content_hash": "136f2204b4148b00fc16c11a8ed49a841034a9cc76548a03c24d07743d310501",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 조절 단백질로 질소고정 세균과의 연계를 바꾼다. 세균 질소고정 반응은 별도 신규 후보로 직접 근거가 있다."
+    },
+    {
+      "identifier": "AR-098451-A1",
+      "source_fingerprint": "635e778a8779e858fa990822603539bf3f2010c538da71c6be99524a42eaa7db",
+      "content_hash": "d759eacb53088db6d409ee9eec6e6220cca8ab9fd4600f280c4828c3a75a85a7",
+      "decision": "LINK",
+      "keys": [
+        "urethane-addition"
+      ],
+      "reason": "폴리이소시아네이트와 폴리올 반응으로 수계 폴리우레탄 분산액을 만든다. 친수성 측쇄의 입체 안정화는 기존 초안 추가 사례로 보존한다."
+    },
+    {
+      "identifier": "AR-098462-A1",
+      "source_fingerprint": "8931c462a4611a0503c3899f5b6a9f074a7d360d6806fe0d673626f2dbe8c3a4",
+      "content_hash": "ab0eefa39c283a5694097e0b908b2c4390c6a7049c48239c343a679f39f24ad5",
+      "decision": "LINK",
+      "keys": [
+        "supervised-learning"
+      ],
+      "reason": "머리 영상 특징을 헬멧 착용·미착용 기준 특징과 비교해 분류한다. 구체 신경망이나 훈련법을 단정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:51:01.255498+00:00"
+}

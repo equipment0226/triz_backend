@@ -1,0 +1,115 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "5fb986e15f24bc1d6a718a6b5ae5e98d0c7ab1aa9c2d9788f9100f15154d5364",
+  "reviews": [
+    {
+      "identifier": "AR-098626-A1",
+      "source_fingerprint": "a77f459c62efe3f20ae0391c616106de1a5baa940a1868b1c8fe16ad6c55f0f2",
+      "content_hash": "28096b587c7f0b40f6c2d2565f8bddf305727162d873d700cbc0a80392fcf686",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제 구조 범위·중간체만 제시되어 특정 반응·생물 표적을 지정하지 않는다."
+    },
+    {
+      "identifier": "AR-098640-A1",
+      "source_fingerprint": "997133f26e87c9bea92c81fba2765039f4036b995b5fe28ed2ae3c220a3b2d91",
+      "content_hash": "b7c39b26993ec83496b93c5b99b61653a1387fd23088d961c7d66a29c74d67bc",
+      "decision": "LINK",
+      "keys": [
+        "impact-deagglomeration",
+        "pneumatic-particle-transport"
+      ],
+      "reason": "흡입 공기로 약물 분말을 이송하고 사이클론 장치로 응집을 푼다. 크기 단위의 번역 오류 가능성을 그대로 과학 조건에 쓰지 않는다."
+    },
+    {
+      "identifier": "AR-098658-A1",
+      "source_fingerprint": "f8e78530b4b03cdf3d82b89c4fd8c31f331ba44373b08ae068ae99f49fd53c1a",
+      "content_hash": "b254e4f9857e2e26a78459d8be3e9ac47abd6a7a4be2d39de85a1486f3688d68",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting",
+        "centrifugal-separation"
+      ],
+      "reason": "벌집 덮개를 절단한 후 회전으로 꿀을 추출한다. 혁신성 표현은 과학 근거가 아니다."
+    },
+    {
+      "identifier": "AR-098659-A1",
+      "source_fingerprint": "29fcd79c2ae6a5e6f09268952f83acf6571ef83d2dca3c026ebce25a90b44087",
+      "content_hash": "70c9d28eb63dc2216e8fd12ebea8c367606dfcd652c742e512ca222b8f2e03ac",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "펌프로 흡입 유량을 만들고 우회 채널과 계기로 흡입기를 시험한다. 계기 종류는 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-098672-A1",
+      "source_fingerprint": "800d976f22eb902f4c59f71bd44279f14d217b882df6e05b63543798677784f7",
+      "content_hash": "dbe92a6f3901bb6cc580fcca5d03701c8c95f1f4a7b97723a4a14c23275468ba",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "bulk-comminution"
+      ],
+      "reason": "지방산 에스터 매질에서 제초제 공동 분쇄와 유화제를 사용한다."
+    },
+    {
+      "identifier": "AR-098673-A1",
+      "source_fingerprint": "6b0ddea2065858d7e05eb1e7ab06f1119f181b93b8d31de29b62a0fb3ada2c70",
+      "content_hash": "45615b2ca09b8141f98c8e05c8950747e4e96aac63d370cf496f9aa0d4d8df2d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피롤리디논 제초제의 치환체와 제외 조건뿐이며 작동 표적이 없다."
+    },
+    {
+      "identifier": "AR-098706-A1",
+      "source_fingerprint": "df8f996023e04a2b40fa86cef15059570f325c5bea23042fc558f809212ddc28",
+      "content_hash": "7f18db2a6ab8e3bc0e4f0010cae3069bbe604e2fc0d10eb5047c4809a9288ad0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "짧은 진동 길이와 금속 감김 고분자 현·프렛 배치이다. 현의 장력·선밀도·길이에 따른 고유 주파수 관계를 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-098708-A1",
+      "source_fingerprint": "ee5d7fb315c7b5dfb6a401b7380d39aada5242afa76b3b2bee237f83bdda4d67",
+      "content_hash": "0c4a12eee39b37660b19f567ae7d9f3a3162acbf5c7692d01ecaa20b1a1ec735",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "chemical-glycosylation",
+        "thermal-biological-inactivation"
+      ],
+      "reason": "전이갈락토실화로 GOS를 만들고 가열로 효소 활성을 줄여 후속 조성 변화를 제한한다."
+    },
+    {
+      "identifier": "AR-098733-A1",
+      "source_fingerprint": "c78f1c0b4625605b714f934acbcefb734aafb08767d0c7588e302a0e57f58da9",
+      "content_hash": "e260fae70f5718d828d4a8f70bb6094ada9ec10537568e2019eb3a9ca1faf016",
+      "decision": "LINK",
+      "keys": [
+        "polymer-molecular-weight-viscosity"
+      ],
+      "reason": "과산화물로 폴리프로필렌 유변성을 바꾸는 공정이다. 라디칼 유도 사슬 절단을 별도 후보로 검토하며 단순 사슬 이동과 구분한다."
+    },
+    {
+      "identifier": "AR-098739-A1",
+      "source_fingerprint": "2de5e8ccc5433ce497a24b3c00a5ac62b0dfc4b69cf6ec7916518d04a4801866",
+      "content_hash": "1efba4f150f512000a6eb7e91c7cc49f45559ec119599217370526a452d89ec4",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GLP1·글루카곤 수용체 이중 작용제 펩타이드이다."
+    },
+    {
+      "identifier": "AR-098753-A1",
+      "source_fingerprint": "ff6c795bcf2e83e151ac265c0648c8193d4529a20c7ad9ca6ce35fef64240379",
+      "content_hash": "25e23f379ad5d8abee2c85e53e1811dd3837f17ed39934a5e57d11fca0f67074",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "시간 변화·정적 자기장으로 판상 자성 입자를 방향 정렬한다. 이미 검토된 자기 토크 초안의 추가 사례이며 이동 분리나 광학 계측이 아니다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:51:47.029211+00:00"
+}

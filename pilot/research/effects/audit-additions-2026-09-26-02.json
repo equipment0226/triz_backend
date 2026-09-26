@@ -1,0 +1,221 @@
+{
+  "batch": "additions-2026-09-26-02.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 970,
+  "added": 19,
+  "after": 989,
+  "target": 1200,
+  "source_sha256": "f56364e18e923b951babe57b7e8c0257ebb0842b711356d8cebc5ba7378fa00e",
+  "decisions": [
+    {
+      "key": "johnson-nyquist-noise-thermometry",
+      "group": 12,
+      "related_keys": [
+        "resistance-thermometry"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평균 저항의 온도 변화 대신 평형 전기 요동의 크기를 측정한다.",
+      "source_url": "https://www.nist.gov/publications/nist-johnson-noise-thermometry-system-determination-boltzmann-constant",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "spin-echo-coherent-refocusing",
+      "group": 19,
+      "related_keys": [
+        "nuclear-magnetic-resonance"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공명 신호 취득 일반과 구분되는 시간 반전 펄스 순서의 가역 위상 오차 상쇄이다.",
+      "source_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=925853",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "landau-resonant-wave-particle-transfer",
+      "group": 7,
+      "related_keys": [
+        "electron-cyclotron-resonance-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "회전 주파수 공명 대신 파 진행 방향의 위상속도와 입자 속도의 공명을 이용한다.",
+      "source_url": "https://www.nature.com/articles/s42005-022-01008-9",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "thomson-distributed-thermoelectric-heat",
+      "group": 7,
+      "related_keys": [
+        "peltier-cooling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이종 접합의 열수송 대신 온도 구배를 가진 도체 내부의 분포 열교환이다.",
+      "source_url": "https://www.nature.com/articles/127975b0",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "nernst-transverse-thermoelectric-voltage",
+      "group": 8,
+      "related_keys": [
+        "seebeck-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열구배에 대한 횡방향 자기열전 응답이다. 이온 선택 전위의 Nernst 식과 무관하다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-31372-7",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "ettingshausen-transverse-heat-transfer",
+      "group": 7,
+      "related_keys": [
+        "peltier-cooling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "접합 열전냉각과 달리 자기장에 의해 전류의 횡방향으로 열을 운반한다.",
+      "source_url": "https://www.nature.com/articles/s41567-024-02417-z",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "magnetic-reconnection-energy-release",
+      "group": 8,
+      "related_keys": [
+        "inductive-magnetic-energy-storage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 회로의 인덕터 에너지 회수와 달리 플라스마의 장 연결 구조 재편이 변환 경로다.",
+      "source_url": "https://science.nasa.gov/science-research/science-enabling-technology/technology-highlights/laboratory-technology-helps-unlock-mysteries-magnetic-reconnection/",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "ostwald-curvature-driven-ripening",
+      "group": 16,
+      "related_keys": [
+        "crystallization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "과포화액의 새 결정 생성 일반과 달리 이미 존재하는 입자 사이의 곡률 구동 물질 재분배다.",
+      "source_url": "https://www.nature.com/articles/srep03579",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "spinodal-composition-instability",
+      "group": 16,
+      "related_keys": [
+        "nucleation-barrier"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유한 크기 핵의 장벽 극복과 달리 불안정한 균일상의 미소 요동이 증폭된다.",
+      "source_url": "https://www.nature.com/articles/ncomms13067",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "taylor-aris-shear-dispersion",
+      "group": 11,
+      "related_keys": [
+        "turbulent-transport-enhancement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "난류 요동 없이 층류의 전단과 횡방향 분자확산의 결합으로 분산이 커진다.",
+      "source_url": "https://www.nature.com/articles/srep20556",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "solute-dislocation-strain-aging",
+      "group": 17,
+      "related_keys": [
+        "solid-solution-strengthening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정된 고용 원자의 평균 장벽과 달리 용질과 전위의 시간 의존 재배열·고정이다.",
+      "source_url": "https://www.nature.com/articles/nmat1765",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "thermoelastic-diffusive-damping",
+      "group": 2,
+      "related_keys": [
+        "viscoelastic-response"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "점탄성 구성식의 분자·구조 이완과 구별되는 열탄성 결합·열확산 소산 경로이다.",
+      "source_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.111.245409",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "kirkendall-diffusion-imbalance-voiding",
+      "group": 16,
+      "related_keys": [
+        "reactive-interdiffusion-surface-alloying"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "합금층 형성 자체 대신 불균등 원자 유속과 공공 응집을 이용한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15118156/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "particle-pinning-grain-boundary-migration",
+      "group": 17,
+      "related_keys": [
+        "precipitation-hardening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "같은 입자를 쓰더라도 이동을 막는 대상이 전위가 아닌 결정립계이다.",
+      "source_url": "https://www.nature.com/articles/s41598-019-42879-3",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "size-quantized-electronic-confinement",
+      "group": 14,
+      "related_keys": [
+        "semiconductor-doping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "불순물로 운반자를 도입하는 것과 달리 공간 경계가 허용 상태를 바꾼다.",
+      "source_url": "https://www.nature.com/articles/s41598-023-31989-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "state-filling-saturable-absorption",
+      "group": 13,
+      "related_keys": [
+        "laser-longitudinal-mode-locking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "모드 위상 동기화의 구현에 쓰이는 별도 물성인 상태 점유 의존 흡수 감소를 다룬다.",
+      "source_url": "https://www.nature.com/articles/s41598-025-93051-z",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "disorder-interference-anderson-localization",
+      "group": 13,
+      "related_keys": [
+        "photonic-bandgap"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "주기 배열의 허용대역 공백 대신 무질서 다중 산란 간섭에 의한 수송 억제다.",
+      "source_url": "https://www.nature.com/articles/nature07000",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "quantum-zeno-measurement-confinement",
+      "group": 19,
+      "related_keys": [
+        "quantum-disturbance-key-distribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "통신의 측정 교란 검출과 달리 반복 판별로 상태 진화 자체를 제한하는 제어이다.",
+      "source_url": "https://www.nist.gov/publications/quantum-zeno-paradox-42-years",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "stimulated-brillouin-acoustic-scattering",
+      "group": 13,
+      "related_keys": [
+        "acousto-optic-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 구동 음향 격자 변조와 달리 광장이 음향파를 자발적으로 구동하고 산란광과 상호 증폭한다.",
+      "source_url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication905.pdf",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

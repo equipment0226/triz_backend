@@ -1,0 +1,259 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "75bde4ff888fdbec9ab601618c1f20ce19219bdbaca82ec88a7e63756d5e3055",
+  "reviews": [
+    {
+      "identifier": "AR-064865-A1",
+      "source_fingerprint": "aee44fa04631ae5ce5b6176fc87576edf210dbb042353b3c0ae8170a7c11721d",
+      "content_hash": "3368fe646e2760823a6eaab0907370293216e42ead894a941f915f767972b01c",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "P2Y12 길항이라는 명시된 표적 기전만 연결한다. 저장된 치환기 열거 말미가 잘려 있어 그 이후는 검토 범위가 아니다."
+    },
+    {
+      "identifier": "AR-064871-A1",
+      "source_fingerprint": "01d60fc7e17a7922fd187d1aaf3be785c519cf2518e6f6561e70d3d0a41d8bf1",
+      "content_hash": "41b76303a4ffa4e682779d51831d195437b139b0fe9f2a1c757d98b5bc1492e4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "보호·산화·탈보호 단계를 제시하지만 구조 그림 없이 보호기와 구체적 전환 기전을 특정하기 어렵다."
+    },
+    {
+      "identifier": "AR-064898-A1",
+      "source_fingerprint": "0095286620be95f6116d68bc01e665cac5ed47296c10410c63b11766e16610f8",
+      "content_hash": "2bd5293eb8eb223d70160bb606d0e0519278207b7198af9772344e1f80308e07",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "eslicarbazepine의 용도와 병용 회피 조건이며 작용 채널 기전은 초록에 없다."
+    },
+    {
+      "identifier": "AR-064905-A1",
+      "source_fingerprint": "dbfaec1513cd67ae1bd9f4efbea0c9b5c5317d9059ced90931945570679c6664",
+      "content_hash": "d7b05590a2565701bf1e180ca65b29c8e9feb0e3c347c5cfd3aef518cc6e7659",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "엇갈린 톱니의 왕복 칼날이 절단하고 접촉 위치를 분산한다. 마모 감소 수치는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-064927-A1",
+      "source_fingerprint": "9fa215863a4913f5b90bc89d99d1d4eb91ec4083bd5e0e1a50f205e843410b59",
+      "content_hash": "754b0a5102addb22a964db7aa3071f779a54c9c96fb55a97eca454cc92f85b9d",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection",
+        "solidification"
+      ],
+      "reason": "연속 주조 금형 냉각 채널에 난류 생성 요소를 둔다. 난류 혼합의 열경계층 제어는 추가 후보로 보존한다."
+    },
+    {
+      "identifier": "AR-064936-A1",
+      "source_fingerprint": "eec48c126ae453acda3733f44a012888405723b32615a7c68e92c43b99954a31",
+      "content_hash": "ab5e4d38cf2ad421e2adedf2eb68229c3f1fc3ceb286c1555af5bdef61da1775",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation"
+      ],
+      "reason": "TRPV1 길항을 명시한다. 개별 화합물의 임상 효과는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-064939-A1",
+      "source_fingerprint": "aa39b7aaa25cc951eb8ccdcf7a12bebc7dac1f1997029f922de4890b3db62c02",
+      "content_hash": "0b590b2d350ea639239f60d4ee6277adcaaa794c1c51912c077fa52f47938973",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening"
+      ],
+      "reason": "에폭시·아민을 포화시킨 라이너를 열수·증기로 경화해 유연 상태에서 강성 구조로 바꾼다."
+    },
+    {
+      "identifier": "AR-064958-A1",
+      "source_fingerprint": "00bdb27a0aa74beaea8399e5b4295571a4b1262dbc5fbfde8647e851a9263791",
+      "content_hash": "9cedadcfe88f62d2fd4ccf18806941778f885a4f0aef2ca700f726092b8982d8",
+      "decision": "LINK",
+      "keys": [
+        "alkene-epoxidation",
+        "acid-base-reaction",
+        "gas-absorption",
+        "hydrolysis"
+      ],
+      "reason": "에틸렌 산화물 생성·흡수·염기 첨가·가수분해를 명시한다. 후속 증기 스트리핑은 별도 분리 후보이다."
+    },
+    {
+      "identifier": "AR-064970-A1",
+      "source_fingerprint": "a59e8f97d0454efb232d84b3c441dc723e7c0fb8c10d9c2f16f38d8474cf37c1",
+      "content_hash": "08a09d859f3a7c9fcfa8208ccd4c7f601e3110c8efd535297d0db208658705e5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제 혼합의 시너지 주장만으로 효소 표적이나 상호작용 원리를 정하지 않는다."
+    },
+    {
+      "identifier": "AR-064996-A1",
+      "source_fingerprint": "e02cd360878a9409b39ea8a9fdcd4aadfff5f49cafd2869d3b56a0542f00f1cd",
+      "content_hash": "3f36ca0c2803beef358e8342250daa9b6433bdc888622734eb12afe62ed4a6a3",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "JAK3 kinase 억제를 명시한다."
+    },
+    {
+      "identifier": "AR-065001-A1",
+      "source_fingerprint": "bed07fb520bc5bcf3ab332cb9172c6ba298ae313eaac7997bfd697a22657bf2f",
+      "content_hash": "c61ff8440fce7a1bf384f08cc51c34f7ea773a8ee0b97bfdabe2812363bd5dfd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "온도별 시동 가능성의 표시 설계이며 온도 검출 소자의 변환 원리는 없다."
+    },
+    {
+      "identifier": "AR-065010-A1",
+      "source_fingerprint": "272d5befd4ca833aa55bf3f3a32c6c290ac728ae966c57d0c1045a148f705fb6",
+      "content_hash": "3dfbb32cf4c7b0655a4ad462b16261ee9313bd7caeb38b0104678d3cfc4d69af",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "코일 여자에 따른 자속 변화로 다른 코일에 유도 전압을 만드는 범위만 연결한다. 순 에너지 생성 주장은 하지 않는다."
+    },
+    {
+      "identifier": "AR-065016-A1",
+      "source_fingerprint": "abebc18114cc9dcc2321cbcd48ec232038b59da3df32b51d99861880e1e91065",
+      "content_hash": "b200af7849262478220d29e5505f6c35cebec61bf6f63c22fabb66ce2b664dbd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고무 혼합과 Mooney 점도 조건이며 원인 기전이나 구조 변화가 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-065020-A1",
+      "source_fingerprint": "dea4829137f6a22ba5d1733b8d7e147632a25a3fa3861858543e50dbf6240047",
+      "content_hash": "9ace4f4fe1f49299af31f515c40174f9109360eb70f4b86d414416d5a4b90171",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-heating"
+      ],
+      "reason": "마이크로파의 반응 매질 흡수를 높이는 반응기이다. 비열적 반응 촉진을 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-065024-A1",
+      "source_fingerprint": "35b69dab14aac181369f67ef2fda02c1b54f743efa2633e8287496bb8413913d",
+      "content_hash": "9ea54e490921ac29cc597c4c941d70e14f699096e7cb56d598a9a356c2bc0a6e",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "세탁 계면활성제와 청색·보라색 색소를 명시한다. 선택적 흡수에 의한 황색 보정은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-065029-A1",
+      "source_fingerprint": "6c7761a0c72a65b5ec4b89828be1555b684a90370c624f8f61e7f93b8996afbf",
+      "content_hash": "8dae7f2c65bb54e1ac0be6745470f84dd0253a89cb72dacef6038ce2f7004ea5",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "예압 스프링과 걸림 해제로 주사 피스톤을 구동한다."
+    },
+    {
+      "identifier": "AR-065030-A1",
+      "source_fingerprint": "742fd6a2de1816b7cd2f388d8da6c88c294f52ef8881dd2d6d6922f66c9ae5b4",
+      "content_hash": "7be6c8620164ea4f29e4a02a84e99926ef2d72000c20a6f479a1145e2222bb38",
+      "decision": "LINK",
+      "keys": [
+        "polymerization"
+      ],
+      "reason": "수소·공단량체 비율과 온도·압력으로 공중합체 조성 분포를 조절한다. 구체적 반응속도 상수는 없다."
+    },
+    {
+      "identifier": "AR-065080-A1",
+      "source_fingerprint": "7d5ff4684d6a4ea2742d09d365e5e55abaa225cceabafce02cb00879527f5456",
+      "content_hash": "3d66e8e43638efaacfe53ae861ebaa3486a918231fb6aeead9749621c5a89148",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "플라스틱 사이 결정성 트리아진 층의 장벽 적층이다. 구체적 확산 계수는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-065130-A1",
+      "source_fingerprint": "593ab64c2ba48b0935a247e1cf9f688c6e9d77c007a59859fbf848783ed52c7b",
+      "content_hash": "e7a93bced9668077bcf252189a11a3aa0edd4888e66d1af118dc60b645d45b7b",
+      "decision": "LINK",
+      "keys": [
+        "queue-buffering"
+      ],
+      "reason": "실패 PDU를 버퍼에서 재전송하고 허용 크기에 맞춰 다시 분할한다. 오류 검출 기반 재전송과 패킷 분할은 각각 추가 후보이다."
+    },
+    {
+      "identifier": "AR-065163-A1",
+      "source_fingerprint": "3124c27e9b013164cb83c6aaea6f2841b72123e01ead159918c5b53e403ddf61",
+      "content_hash": "c0b3d13b902e5a17c36dff50f3b0d125effbe8bdf28c3369b4b8acd32f33b205",
+      "decision": "LINK",
+      "keys": [
+        "coagulation-flocculation"
+      ],
+      "reason": "음이온·양이온 또는 양쪽성 고분자로 펄프와 충전재를 응집하고 배수한다."
+    },
+    {
+      "identifier": "AR-065169-A1",
+      "source_fingerprint": "eed65237fc5d9ceedb1714947c5634249d1f7dba78094f95e6554c6c56eb8abe",
+      "content_hash": "6358c949fabad9180247384a85fdeb392e6ed3b777a2a238dea3a2a89f18d8cc",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "ActRIIB 융합 단백질이 activin·myostatin·GDF11 신호를 억제한다. 가용성 수용체의 리간드 포획은 문헌 대조 후보이다."
+    },
+    {
+      "identifier": "AR-065170-A1",
+      "source_fingerprint": "1bd35b80b5181b70b013b1771e05520d5523b4c3ebd5a027a5da50812c1cdddc",
+      "content_hash": "353c2a58c131d931b155ba9a759d80e1a641435d63b59ffd6c773f44b5dbdbe7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약 두 종류의 혼합 효능 주장으로 개별 표적 기전은 정하지 않는다."
+    },
+    {
+      "identifier": "AR-065208-A1",
+      "source_fingerprint": "c4809f8c49775fe72046585a98227a5214ddb68810bf865d053b9f979a10dac9",
+      "content_hash": "7189733c973c6ba5d8b5906b0e4dd8821c6a175b086c28cc3248810f03f60c0f",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "5HT7 수용체 리간드를 명시한다."
+    },
+    {
+      "identifier": "AR-065215-A1",
+      "source_fingerprint": "94bcfa2443b95aa5a1e225d10122674047209c220e699717e4621bfc0a944fe2",
+      "content_hash": "523a40a97ff7792028d412adb43bf2bdee0c1a3851cc0a3ca2fe6d0bcb0cc46d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "스멕타이트의 셀리악병 용도만으로 장내 흡착 대상이나 효능을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-065216-A1",
+      "source_fingerprint": "ae57a1b63e24448a56fea4a8d2449da50ae301313b677288ecebb2d623a5ef9b",
+      "content_hash": "081c9673bc983ab74933bfee85f11a5e202daf6f0048d0f9361cfb75c63f2b0a",
+      "decision": "LINK",
+      "keys": [
+        "lead-screw-motion",
+        "gear-ratio-transmission"
+      ],
+      "reason": "감속기·나사·너트로 앵커를 인장한다. 로드셀의 구체적 측정 원리는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-065240-A1",
+      "source_fingerprint": "b07501267cfbc5a3919fc4acdea3ed567ccb3fef01dbea0ce7e5c91c342a06a6",
+      "content_hash": "1d584b896d3a05432cd1eb2f070ebf584dbb5b904e08a2c27da7a5be9e59388a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "고정·이동 샤워 패널을 둔 침상 배치이다."
+    }
+  ],
+  "recorded_at": "2026-09-21T22:53:07.459375+00:00"
+}

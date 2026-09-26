@@ -1,0 +1,227 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d0e3cdf7427f756677975444abda08482dac0cd206ac8dab8c2d4fa7352ecd00",
+  "reviews": [
+    {
+      "identifier": "AR-101695-A1",
+      "source_fingerprint": "d751bc1fa86784d01c74f3e10ae7a250fb0c372813c72148138d5783fe283f5f",
+      "content_hash": "676656dafeaba788fdc8ab5c8e1a434e558380bba411725bbaf485c66b0d2722",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "퀴놀린 유도체 불순물 한도만 있으며 정제 방식이 없다."
+    },
+    {
+      "identifier": "AR-101704-A1",
+      "source_fingerprint": "901f75706dadbf58e1d9f85e9b15dcf10f61420b1b09d25845ff0be51c770f28",
+      "content_hash": "488fea00d44dfb41375a1b02ecad526197f527c3092aa19812d0448096cbdcad",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항결핵 화합물 치환체 목록이다. 분자 표적은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-101720-A1",
+      "source_fingerprint": "12d1b3a003f63ae53f4cea5f61887f8208fa6757dab54363d3f9d5ab95a36201",
+      "content_hash": "ccd7533c1c318d206ae94a6bb3a182f315eacbb5633e7a71d46e240d974d724c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "압력·작동 모드 센서로 흡입 순응도를 기록한다. 압력 변환 방식은 미상이다."
+    },
+    {
+      "identifier": "AR-101737-A1",
+      "source_fingerprint": "1fe1e325571a6dcedcbb10161454e1185d450ff50c1ec77f11a367c306ff9311",
+      "content_hash": "a2305515525b0d93e23de8beb30a56440310f36109a4608f001d14e4cd11c312",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "양면 터치 화면의 경기 심판 기기이다. 센싱 원리는 불명이다."
+    },
+    {
+      "identifier": "AR-101749-A1",
+      "source_fingerprint": "b89c28294356d33d6ffc767fe294e3cf32f83f1a369013458a388ee0af1839bf",
+      "content_hash": "cf114428c5c6b41186da81286dcdb2d046bc0619b0bb405421be4e7d5b9ace2c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "에어로졸 용기·밸브·안정화 요소라는 구성만 있다."
+    },
+    {
+      "identifier": "AR-101759-A1",
+      "source_fingerprint": "36e50660ebd46bb62a9f33c90652a7408aa5f9aed06f75adadde07d3d318ba54",
+      "content_hash": "c0a0ccdac781387ac6363efd81044afcfd0792ecbd340f0577ab901a336bf96f",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution",
+        "evaporative-concentration",
+        "bulk-comminution"
+      ],
+      "reason": "펙틴을 녹이고 젤라틴과 혼합한 뒤 건조·분쇄한다. 두 고분자가 이온 복합화한다고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-101761-A1",
+      "source_fingerprint": "895bf07127ca1b2aa17c18946b57b0466eb75fb65129e072bef687895e9ec64b",
+      "content_hash": "00b6d4ebaee10d1a31aa8c2e66236cb1474056527ead073ae1a2ba30d672adaf",
+      "decision": "LINK",
+      "keys": [
+        "martensitic-hardening",
+        "martensite-tempering",
+        "grain-refinement"
+      ],
+      "reason": "담금질·뜨임과 결정립·편석 제한의 강관이다. 열 확산의 조성 균질화는 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-101770-A1",
+      "source_fingerprint": "de25335401803feb5f61371d64279199d70a244faf365e44a9a99a8391937ac1",
+      "content_hash": "3843bd0ef2f340f0f2547d7494baa2193c85b910e779b715182714454265460f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "추출제가 C8 방향족의 상대 휘발도를 바꾸는 추출 증류이다. 일반 증류 및 공비 형성과 경계를 확인할 신규 후보이다."
+    },
+    {
+      "identifier": "AR-101779-A2",
+      "source_fingerprint": "269b3af3fe0ef1bea32a81b0f491bbd7042d5344ddb7f4a229c19e77e77d72fd",
+      "content_hash": "3e23dbb991b289aa817843b2d1fa5e4f539f982090d54c154212b3714ecca554",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Msca1 유전자·프로모터의 웅성 가임성 용도이다. 글루타레독신 등 상세 생화학 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-101789-A1",
+      "source_fingerprint": "d0d09d05cc910cf803bad57b4232e58a0b30845429ab31cc7a09af6a11e38750",
+      "content_hash": "c3d4948724676d9b558af63a8b90e0ff5a8570ca0fcdbab4cbb9b3ee4dc2c9d9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "신경활성 스테로이드의 투여·평가 방법이다. GABA 수용체 작용은 초록에 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-101794-A1",
+      "source_fingerprint": "0aaca9543da41c752640b3de88ba2e038e695178f11a674a037fd7bba57c4a9c",
+      "content_hash": "f90e608dae8ab57e38221d7fd24683766ec277c2b2e2cd7759bf51bcd5d971f3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "지그재그 주름의 접이식 흡입 보조 챔버 형상이다."
+    },
+    {
+      "identifier": "AR-101801-A1",
+      "source_fingerprint": "96fed6041312d4d9add5612b6070b077bd570edf4c8b94bcc9318747dd738f78",
+      "content_hash": "f1d3ed8bc496c39671bf8104d077a19b7378a3a12c07d7ddb0ab9dba6f504228",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "RET 키나아제 저해 화합물과 염이다. 질환별로 신규 효과를 세지 않는다."
+    },
+    {
+      "identifier": "AR-101802-A1",
+      "source_fingerprint": "4f741d9508293cd19704b0330a7345701bd5c985d8d06110e4efc5d2a8121e1a",
+      "content_hash": "f28f852eee8cd6451c56213a42f2fffaa53d2e50ee0d351a7ca7a5f8d77fa5e2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "혈액을 양면 전극 검출부에 넣지만 어떤 물성을 어떤 전기 방식으로 측정하는지 없다."
+    },
+    {
+      "identifier": "AR-101827-A1",
+      "source_fingerprint": "32a2ace9697ad425f97f76fe04d42df0cd4ffcd8703a19dcd570fa8c09b4218e",
+      "content_hash": "576a8a96ab7d7c2064d4d87c7a40583591eef5f69a3b78803a7c5bb922f827f1",
+      "decision": "LINK",
+      "keys": [
+        "hydroxyl-acetylation",
+        "screw-conveying"
+      ],
+      "reason": "목재를 단계 가열해 아세틸화하고 나사 컨베이어로 이송한다."
+    },
+    {
+      "identifier": "AR-101833-A1",
+      "source_fingerprint": "54a70d4f7311c2b1e11f6d471630209b28163aaca80df450e8e51f7da36d709e",
+      "content_hash": "dc8fa6132282be6b8182cfcd70e2f5806eae72f1422d0fe5b68262c1ce06a512",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "출산 보조 슬리브·삽입기와 재사용 방지 구조이다. 구체적인 잠금·힘 전달 기전은 부족하다."
+    },
+    {
+      "identifier": "AR-101844-A1",
+      "source_fingerprint": "e686f2c2a918d8c2652e498a5e383c63d5a9b9ad9aaed71cbccb3593263f9bd8",
+      "content_hash": "992383fe5050bd5c36f97ba4ba360c73b13ac2f3fe5cd904529c891089e33380",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "시스테인 잔기를 도입한 항체를 발현·분리한다. 티올 접합 반응의 상대 작용기는 기재되지 않았다."
+    },
+    {
+      "identifier": "AR-101845-A1",
+      "source_fingerprint": "7a0b3de4006e32fb181830558cf0377320222cb989c49d488eeb142cd1d4a0c1",
+      "content_hash": "c94fd8d5f864bf5ad6d768aaf5e80085b5340cc1ff73493f91792dc23d42a085",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "HER2 항체·면역접합체를 명시한다. 화물·작용은 불명이다."
+    },
+    {
+      "identifier": "AR-101858-A1",
+      "source_fingerprint": "eefb0e4d00860f93a465be3f7efe9c0a5aac14f0cdeff807d53e87268517f196",
+      "content_hash": "bbe59ecb8d3173c3254116b890c5b94c1d61738e1da6e75d1ffc65cc73b8e32b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제·보호제 조합의 용도와 치환체 목록이다. 보호제의 대사 유도는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-101873-A1",
+      "source_fingerprint": "b9d22e85575d586438eea4609fcee001bafacfd6bf46381b10bfa0423f2ade2b",
+      "content_hash": "2c7f94753dd1fe3394d256b7840968aca73dd85238dfc5f404409f6fa295f4b5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "절단 판지를 접어 용기를 만드는 T·H형 가이드 배치이다."
+    },
+    {
+      "identifier": "AR-101874-A1",
+      "source_fingerprint": "44c0cd7db5d4fe26c97f439f1cd6e9d5d83cf36ba3d9ab9e6854faf994ba8864",
+      "content_hash": "45105702e8fd4515979be9b5467a7c7a5bce0b869bac830a21bdcc16e70e1f92",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture",
+        "mechanical-interlocking"
+      ],
+      "reason": "해제 핀을 전단하여 공구를 분리하고 재결합하여 시추를 이어간다."
+    },
+    {
+      "identifier": "AR-101878-A1",
+      "source_fingerprint": "78f057b9514d69d033eda3a2af90d19f92045a433f59e2d40ea9ccfdd208847c",
+      "content_hash": "b2b0c74d47c2932ef5387d460a16a1f62b99152ee063a518819c9b845770d64b",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "대전 계면활성제와 알콕실 폴리아릴페놀 세제이다. 표백 반응은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-101891-A1",
+      "source_fingerprint": "1d25b0faa61914475ddd05ea9a36071e840f3123b12efabf6522e3ee4080669b",
+      "content_hash": "3cb1fbbc512536d7740cb531ee14ee7ebe35edf4af5a9daf16c68c6849452541",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "VASA 표적 항체를 발현하고 세포 분리에 이용한다. 물리적인 분리 구동 방식은 미상이다."
+    },
+    {
+      "identifier": "AR-101906-A1",
+      "source_fingerprint": "f21c5871863b1ff20ca2837e05d2ad7c292695f613b58a3d8e9022136d517d96",
+      "content_hash": "c60f169864844e0f9d0082397d5c24dd6b027de6dcdf462cfc6b2c2ed11b6d55",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "티아디아졸 제초제 구조·치환체이며 표적 기전은 없다."
+    },
+    {
+      "identifier": "AR-101907-A1",
+      "source_fingerprint": "f5705085156d11d66b0596f1b5a978d9cb2575b537fccdd7f1eff92ea908066e",
+      "content_hash": "048ec76dbdb6b9d695491c91d71056f06fc369e571c682f463b9265ef1ed476f",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "음이온·비이온 계면활성 세제이다. 제목만으로 산화 표백에 연결하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:07:11.173289+00:00"
+}

@@ -1,0 +1,118 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "5a187d245a8b25acb36f306ed502135e20a5bc3bfb0bf40167f9b8665c0b32eb",
+  "reviews": [
+    {
+      "identifier": "AR-120888-A1",
+      "source_fingerprint": "f5354e48d01127460c7494bef9b6e7478d8dd01082ff011706c6ccc2da1a3da8",
+      "content_hash": "881f4cfb801d8e04eadd352337234909aace7bf1a7266f720d1661d7194b7fd1",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "stress-concentration-fracture"
+      ],
+      "reason": "나사뿌리 곡률로 응력 집중과 파단을 조절한다. 응력 집중을 줄이는 방향도 같은 원리이다."
+    },
+    {
+      "identifier": "AR-120921-A2",
+      "source_fingerprint": "3196fcc9a81fda68901e2b248a5b59818a7d08049c11f65286ab08b7f9be3f7b",
+      "content_hash": "54bb0a10b9dce8284e32ad0abb11c65eb0cbdfdc5667b869ac474e4d7e995ff6",
+      "decision": "LINK",
+      "keys": [
+        "nitro-group-reduction"
+      ],
+      "reason": "니트로메탄 유래 중간체를 아민으로 환원 후 고리화한다. 도식이 없어 최초 부가·후속 고리화 유형은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-120940-A1",
+      "source_fingerprint": "5bbc00036624e21f1dd598f2277595182acd8fac84c3fe125b7d796c3ee405c7",
+      "content_hash": "86781db658303fc98795d4b149347fc6a6d9e6b61054e2fd2d18ba1096995918",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "STING 관련 화합물 구조이다. 작용 방향·결합 경로는 초록에 없다."
+    },
+    {
+      "identifier": "AR-120941-A1",
+      "source_fingerprint": "8bdd727e02baccc21d9704af9c6ebf6e7d0f08330a0edc26bfc5cbc21744bcfd",
+      "content_hash": "0e2026c717bcd3dbbbc341a5c450a57d9a14db20322f543267d9133748227124",
+      "decision": "LINK",
+      "keys": [
+        "pressure-accumulator",
+        "negative-feedback"
+      ],
+      "reason": "압축 기체를 공급·조절하는 흡입 맥동 완충기이다."
+    },
+    {
+      "identifier": "AR-120962-A4",
+      "source_fingerprint": "8db83649bfa45de94ebaa3e21153f1c6e255e8d5b08080d9625d10bb6c3948f6",
+      "content_hash": "28f55277fd49b02a6f3e59816a3dbafeb48d9d91f755641302edfb6a940948c2",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "center-of-mass-static-stability"
+      ],
+      "reason": "피벗 발의 접촉 자세 조절이다. 안전성 향상은 별도 검증이다."
+    },
+    {
+      "identifier": "AR-120964-A4",
+      "source_fingerprint": "445045f9c3093b2285505e35960aa4fb6d8e3aae36e1407ab996f2737540c57a",
+      "content_hash": "93dae1b45a426aa4bf0cdc4a2c0bab265a41ae99d6ef06f132e0248abe9286ac",
+      "decision": "LINK",
+      "keys": [
+        "gelation",
+        "check-valve-rectification",
+        "fusion-welding"
+      ],
+      "reason": "흡수성 고분자의 소변 겔화와 역류 방지·열접합이다. 힘 출력 없는 흡수를 팽윤 구동으로 세지 않는다."
+    },
+    {
+      "identifier": "AR-120979-A1",
+      "source_fingerprint": "b0397ea0b7e06aaed7a2619b87a5b9e886314b5f46d1a73e7d4d7a701da32c9a",
+      "content_hash": "affd6040a385922975daefee03dc96cd04088c19ca4de81d2335cf19e12bd0a1",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "PNPLA3 상보 이중가닥 RNA의 RNA 간섭이다. 기존 카드가 RNA 간섭을 포함하므로 중복 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-120981-A1",
+      "source_fingerprint": "d87566c1e31fdd8a7071ad1f26cfed3c7c2653328a638de55097d099d616858a",
+      "content_hash": "14081e67ae4f95cafc8f6d6bc3d5b7e4c84c4121288db34a5f6d91f0855c3c0a",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "metabolic-flux-redistribution"
+      ],
+      "reason": "효모의 Crabtree 효과를 줄이는 탄소·질소 공급이다. 산소 존재하 발효로의 대사 전환을 문헌 대조한다."
+    },
+    {
+      "identifier": "AR-120982-A1",
+      "source_fingerprint": "1eccdade019346ce691304a2a2cd2a7071a9b206707d29d73809677f4bb3a129",
+      "content_hash": "8a4561fda2ff3131e79f8580d3271afdcaceff6d33b26b28eef7458c99e0d193",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 화합물 구조 범위이며 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-120985-A1",
+      "source_fingerprint": "b5e673b900cde640d8e01912c565d80ec76b8d8fbe57a3a6aa7953a42205c5be",
+      "content_hash": "31234544e06b056da82feb213351caabc96379c680649a6d461486f1adbe9059",
+      "decision": "LINK",
+      "keys": [
+        "adsorption"
+      ],
+      "reason": "X형 제올라이트의 금속 카르보닐 흡착 분리이다."
+    },
+    {
+      "identifier": "AR-120986-A1",
+      "source_fingerprint": "fae0d4fd27c1042fe502d36c4ca40ddcad43cf0cdf53add4620dfd27340a01e8",
+      "content_hash": "b09621e2ab96fad442da8914303648e614e277a36d3818e626fb3ce28dc4fdb1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "염기·광조사·산화제를 쓰는 합성이나 구조 도식이 없다. 특정 광화학 경로는 확정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:47:37.398455+00:00"
+}

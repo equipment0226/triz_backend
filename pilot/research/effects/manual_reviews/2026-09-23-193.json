@@ -1,0 +1,28 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "0ad5f32a10db62258b6a2b9da45332e9cc2f28ccaf7997b5bead9064e0ed6e95",
+  "reviews": [
+    {
+      "identifier": "AR-108400-A1",
+      "source_fingerprint": "43439fa8e95822f5af75b1336eefbd7130875f2bbd7a9f767d0756b74a88b9e1",
+      "content_hash": "bfa5a177e97a78d67627f2211ff52cc39188e2ac0d78560c90f4b0cfeacfd955",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항균 화합물의 구조 범위만으로 표적·반응 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-108403-A2",
+      "source_fingerprint": "54787cf0909b7ce3fa2fdac92877e227a4dc4ac42d7ed9246458d86a0978812c",
+      "content_hash": "262e8150564a992d83edab3052e5709b58f77c6c11e260866c9cd62b1aeff857",
+      "decision": "LINK",
+      "keys": [
+        "pcr",
+        "fluorescence-dequenching",
+        "heterologous-gene-expression"
+      ],
+      "reason": "복합 형질 발현과 TaqMan PCR의 형광 신호를 이용한 삽입 사건·접합성 검출이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:40:49.993602+00:00"
+}

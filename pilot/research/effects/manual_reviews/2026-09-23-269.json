@@ -1,0 +1,377 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "32281d885ec5d5d0ee92e28e21944f948bc153a6415f25483ea3b1c31bb65bca",
+  "reviews": [
+    {
+      "identifier": "AR-122119-A1",
+      "source_fingerprint": "bde9121e5065778c6e1f1b75d3671beda8bb139224fd51a5d1d4dcfee9fcfb69",
+      "content_hash": "7431d35b9f9be3b53c5d11840a5b0027e200c5e215692215ed8abbba24e87935",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "환자 선정과 투여 일정이며 초록이 잘려 분자 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-122130-A1",
+      "source_fingerprint": "c614b961063920113cdd3a78cf1c7d2ad25bcec2f351e529039deec35136abd0",
+      "content_hash": "bb526d92067612bb384f4f1f55ba5b7f7a5defc2270f78cae205e5e144066002",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "LysM 인식 도메인 변경으로 올리고당 선택성을 조절한다."
+    },
+    {
+      "identifier": "AR-122158-A1",
+      "source_fingerprint": "61420268e9a2b7dbfab779780a54c6a473d4047d0b2baf69dddcad7820da4149",
+      "content_hash": "359fc46f5309828a0029f6f0bf4ed98b6d30da24b7e998e622f24829d62ae8de",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유압 회로를 순차 활성화하여 실제 움직임과 대응시키는 장치 설정 절차이다."
+    },
+    {
+      "identifier": "AR-122174-A1",
+      "source_fingerprint": "be4b86a6d8639baad699921f709a3b82e47bd50b60fcdcb61ed43e2bbaf7f223",
+      "content_hash": "1d4b2fe4521323b0c7bda945b2c58ab55d664d5e4dd4207c947b6e3d71737fe5",
+      "decision": "LINK",
+      "keys": [
+        "plasticization"
+      ],
+      "reason": "비프탈레이트 가소제를 포함한 PVC 코팅 조성이다. 접착 증가의 구체 반응은 별도이다."
+    },
+    {
+      "identifier": "AR-122181-A1",
+      "source_fingerprint": "6109f228789c8ee9c0901c07dfc4b3ac4d43dc0d26790778aca3b4ac3574ecfb",
+      "content_hash": "ee433de85bec3e0d091ac432306c4a91a586457594f58603fd83a271f045bad7",
+      "decision": "LINK",
+      "keys": [
+        "urethane-addition"
+      ],
+      "reason": "이소시아네이트와 반응성 폴리에스터·폴리카보네이트 성분의 이액형 접착제이다."
+    },
+    {
+      "identifier": "AR-122183-A2",
+      "source_fingerprint": "da5ce1e1555ba654934417c8f7002f31213df9ca4dbe745a0c9a4bb43d3023c0",
+      "content_hash": "8b4428e5241984ad6b9a37f1021f66081fb302bb18de741e780d6aa4e44f3de2",
+      "decision": "LINK",
+      "keys": [
+        "crystallization",
+        "enzyme-inhibition"
+      ],
+      "reason": "PDE4 억제제의 용해 후 냉각 결정화이다."
+    },
+    {
+      "identifier": "AR-122184-A1",
+      "source_fingerprint": "8031a1bb2fa989fcd2319a1624c47cba6d68372a6d26c5a3b4a492f6b499d386",
+      "content_hash": "c892e721ee463ffd7fe2a8c9832e130609075c4348da45a1bc2520483a82e049",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조만 있으며 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-122187-A1",
+      "source_fingerprint": "64718eb132725d6dfd9ac968f0cce8a7908576702ddd7db2e99488af5e0690a2",
+      "content_hash": "e0b6e524f2dc5f83a2a14307380cb49826730deb40fef1a24073b3bfa50614b3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구성 성분도 생략된 살진균 혼합물로 독립 기전을 확인할 수 없다."
+    },
+    {
+      "identifier": "AR-122216-A1",
+      "source_fingerprint": "69b9c197385a72a0770972c5b0d3d1923ee89bc10ac6dfe385de2f231174c2f8",
+      "content_hash": "08d5cebd848d48734e2c91b62e47f2bcf42fcde0a6079cc39168fe5ea581b618",
+      "decision": "LINK",
+      "keys": [
+        "metabolic-flux-redistribution"
+      ],
+      "reason": "질소 공급을 유지하여 미세조류 단백질·지질 생산 배분을 조절한다. 개선량은 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-122220-A4",
+      "source_fingerprint": "723becb0facc6491ab5d9ac365bd0f1388e85503a2e78f988cda600bf20cbef1",
+      "content_hash": "e6c39b8fded587035ee20b6a370322130de3fe33d9c055242aad95d5035ad110",
+      "decision": "LINK",
+      "keys": [
+        "fluid-jet-deposit-removal",
+        "pressure-driven-flow"
+      ],
+      "reason": "배터리 펌프의 세정액 분사이다. 액면 센서의 검출 방식은 없다."
+    },
+    {
+      "identifier": "AR-122247-A1",
+      "source_fingerprint": "bce8865239bac7b45c62e95625fe072b4e61fdb764614d41bcfa316e9224356e",
+      "content_hash": "ce52950acdf5cd8d498303200ab26be8a5385caa42c0047089f04ac39f256e02",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "올리브 추출물의 체중 감소 주장이다. 인과 기전이 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-122251-A1",
+      "source_fingerprint": "6d4e6d6c97c63cfc8101ee0965faa40802e378731ad3a0a10b4b858399951ee8",
+      "content_hash": "5bb9be909dee237b0ead4f6e3945b0d2f2435af71c1bf9fd20981ecdc4c1d951",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "signal-directed-protein-localization"
+      ],
+      "reason": "신호 펩타이드를 지닌 GALC 발현 구성체이다. 고수준 생산·위치 지정 원리만 연결한다."
+    },
+    {
+      "identifier": "AR-122288-A1",
+      "source_fingerprint": "a73105a8053ce54313bd0b137855479aeba531d470b3539d8629b0da98faab33",
+      "content_hash": "e82fd51308e505babb6312fff9baa9e8c3de0a5e04bf3467b3d0e79358704b79",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "단백질 스펙트럼으로 미생물을 군집화하나 측정법과 군집 알고리즘이 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-122310-A1",
+      "source_fingerprint": "f8c9153f71ade475694a7cb08141eb1ec98e63e373b5d42ed38dcfe611bd71f9",
+      "content_hash": "6382be4cfa5ff74dc6fc3b8eb8aa6aff6e651b3bc403864e41c331a2f12abc71",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "STING 조절 화합물로 작용 방향과 경로가 없다."
+    },
+    {
+      "identifier": "AR-122316-A1",
+      "source_fingerprint": "e07bd00ac8566c04c872130d53aa2bccbbbf41e3cc8cded21abda9397e5fa866",
+      "content_hash": "bd7c36a894cd5b9b92c627b97741cdee5367e627edab99ecc19b4f080e5ae32d",
+      "decision": "LINK",
+      "keys": [
+        "gelation",
+        "polymer-solvent-dissolution",
+        "plasticization"
+      ],
+      "reason": "비동물성 겔·수용성 고분자·선택적 가소제의 캡슐 피막이다."
+    },
+    {
+      "identifier": "AR-122323-A1",
+      "source_fingerprint": "c229857637bf38f5832c518ef7ab17ebc613fc1cd89f2565bff8eb5ecb0ce397",
+      "content_hash": "25e20cdc52a19dabbd0b3b24ac4705048a2afd2d4123b7988a335fb15936ec68",
+      "decision": "LINK",
+      "keys": [
+        "multicomponent-cocrystallization"
+      ],
+      "reason": "니클로사미드 공결정 형태를 포함한다. 입도 규격만으로 용출 향상을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-122356-A1",
+      "source_fingerprint": "becb99172782f07866f04af6af6da328dd5542805fe0bac7feb5243fe0a6ceb0",
+      "content_hash": "5b66ca10e10490b6c432d31b59649413eac9d78837bb65371ae0aff536d1a0cb",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "계면활성제 혼합의 제초·살진균 조성이다. 구조만으로 추가 효소 기전을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-122378-A1",
+      "source_fingerprint": "b292cf1faca5e56611ceb672ccdce9a2b6d2f1295d436a8c60bbe779a200fb85",
+      "content_hash": "df3061ce6029d1cb4a65992b81fe5902de962c441383ee6e848a117dd5c59a51",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "CDKL5 유전자 발현 구성체이다."
+    },
+    {
+      "identifier": "AR-122381-A1",
+      "source_fingerprint": "96023885f4a2477371d0d04fd360489d1a4e3ad90ccdaa252a3ab64d630d4e81",
+      "content_hash": "d1343ec2824fc135418c92dc13901992d69445236d59379ae98623e6d88f0a45",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "폭과 경사를 변경할 수 있는 관절식 트레일러이다."
+    },
+    {
+      "identifier": "AR-122390-A1",
+      "source_fingerprint": "1413979ec0ac4007eda6503cecba3307148e8d48be572b6b87f1bc503227b301",
+      "content_hash": "4af2ce82b367eeaad4ac60cef36d5c240a738d7c25b33a05a972f945adc30424",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "소분자 약리 샤페론이다. 단백질 샤페론 및 결합 안정화와의 중복 범위를 문헌으로 검토한다."
+    },
+    {
+      "identifier": "AR-122414-A1",
+      "source_fingerprint": "f4179ecf2c8216bdbd90e4f47b6d3170fb2c30e6e9b4bd53996232f8e3eb6b86",
+      "content_hash": "3a7d3a67fa03e7cd78dc9c7de299bf87a30dc67e9bb7c722a5322c4756520d17",
+      "decision": "LINK",
+      "keys": [
+        "genetic-loss-of-function"
+      ],
+      "reason": "TONSOKU 발현·활성 저하로 유전체 변화를 유도한다. 구체 복구 경로와 반복 생성은 별도 검증한다."
+    },
+    {
+      "identifier": "AR-122428-A1",
+      "source_fingerprint": "20fb42feac8eebf533a17af3f00796b67563998f82fc9fc9880a051ea85624ed",
+      "content_hash": "727948bffc2e112c037f9e2ad00d02802ca30aac5e221abcd9f01c02221fae4d",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "surfactant-action",
+        "acid-base-buffering"
+      ],
+      "reason": "IL15·수용체 복합체와 계면활성제·완충액의 제형이다."
+    },
+    {
+      "identifier": "AR-122434-A2",
+      "source_fingerprint": "a50e663f9f2ccae63e7256f2e3c7be7ce9f887066bd87d6f9a324cedcced0828",
+      "content_hash": "bc34ea2062014741e99929292d08b2b2508f124ecd4e3da39c6be066a770e26a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자 형상을 유지하며 약물이 확산 방출된다. 기존 매트릭스 확산 방출 초안으로 통합한다."
+    },
+    {
+      "identifier": "AR-122442-A1",
+      "source_fingerprint": "87b66c8192cfa3256e7506b74e17edb6bdf9cdd3736360762b1fd050c327ec2a",
+      "content_hash": "abca4fe6a53668351ac8f2090b536788326eec6c96e3c1cb47e840a9795afd33",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "소리·인형 움직임으로 섭식을 촉진한다는 주장이다. 놀람 회피와 동일한 행동 기전이라 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-122444-A1",
+      "source_fingerprint": "13d855659a0707e53fecb5279fea68be64ae06b3bf208496d5c18fa977c0b0cb",
+      "content_hash": "616f9f3905dce80abe6957f2277801cfab89ad6fc00ceabc971282ccec2a6f74",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "탄화수소 회수용 다가 음이온 계면활성제이다."
+    },
+    {
+      "identifier": "AR-122458-A1",
+      "source_fingerprint": "d7a779f655c76629645e1f4cd0ed10a86ef82397e240f3d4522e93eb284eea77",
+      "content_hash": "2aa56e2d624124be495543b9c687c9e910a14e9d796e359662b742f935c8fd25",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "다중 특이 항체의 결합·발현이다. CD3 표적 연결은 기존 초안으로 통합한다."
+    },
+    {
+      "identifier": "AR-122460-A1",
+      "source_fingerprint": "167202fa8f1b2970989142ef2eb93b64d5dcda3394ff1763016c191965db22b2",
+      "content_hash": "d099a1cf391bdbc6099baff3d1d0fc5a67cbb954f3524406a66a16170680e6cc",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering"
+      ],
+      "reason": "질소고정 미생물의 완충 제형이다. 질소고정 자체는 기존 초안과 통합한다."
+    },
+    {
+      "identifier": "AR-122462-A1",
+      "source_fingerprint": "d660f8398faff15823c0c49817c8ab6a759919ab79950e982500e8ef359f64b5",
+      "content_hash": "2a19d671a0a8f4b77abf6d0e426172ed20b37dded7e9416eb1b7ab6a14abe4a3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "시스테인 풍부 살충 펩타이드 조합이다. 단백질 막공이나 채널 저해를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-122465-A1",
+      "source_fingerprint": "4c4a2523cfcc998260fcc9cbc9c2477b7f4eb380779bd9840e3a8a652d5188eb",
+      "content_hash": "331913632ade3c7b8980479ebc67318d50ec2cac2f0bad902dfcdf54617bacc0",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating",
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "저수용성 셀룰로스의 용매 제형으로 피막을 만든다. 임상 발한 억제 효과는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-122471-A1",
+      "source_fingerprint": "e67145ea891f7ff74931d3cb3dc861d7c463fb5e55bd9955a88fb7b7332ece12",
+      "content_hash": "926f3f6ac7eda839b710b7ecbe499f550220cff9c4f1ab2a70497148de51a2bd",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "안키린 도메인 표적 결합과 숙주 발현이다."
+    },
+    {
+      "identifier": "AR-122479-A2",
+      "source_fingerprint": "06fdb1f309cb906f6da7598ad0f1e0581c5fff658a52e3e105fdd66aafd8cacf",
+      "content_hash": "52cdd156baf79edb8f9bdaf1fa98ab3adc20beda20c2eba2c26e2d1603d96583",
+      "decision": "LINK",
+      "keys": [
+        "vapor-compression",
+        "joule-thomson-effect"
+      ],
+      "reason": "혼합 냉매의 압축·열교환·팽창과 상 분리 배치이다."
+    },
+    {
+      "identifier": "AR-122507-A1",
+      "source_fingerprint": "7b795046118c9a01ef8f4dd8e92629d24338b988bb0fc5e8c7042e0ca308514b",
+      "content_hash": "0c54fbc5130a9708e177d811e3f1d777855deaf09b2b836c12dc6c58f2a87d33",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "TMPRSS2 프로테아제 억제이다. 감염체 기능을 조작하는 절차는 다루지 않는다."
+    },
+    {
+      "identifier": "AR-122508-A1",
+      "source_fingerprint": "0b1fb7f603d5f1973238769c1a89bfc7e5f729c8a689efe877544a008bf97365",
+      "content_hash": "8489d3178ecc6d9e1bdeb10fb00d17882d1403595671b417726ac9b756f59d9e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "필터 출구의 탈착식 뚜껑·기부 밀봉 배치이다. 밀봉 재료와 작동 상세가 없다."
+    },
+    {
+      "identifier": "AR-122513-A1",
+      "source_fingerprint": "98b3a84bc2e66cac695190deb65906465a2a423be9b6986d2beb7b11d16b181c",
+      "content_hash": "520db6bd9c2665edd4472bd74bba7a13f67f43c1ef1f2997b1c41cc868b2013f",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage",
+        "elastic-energy-recovery"
+      ],
+      "reason": "스프링의 지레 작용점 이동으로 농기구 하향력을 조절한다. 번역문의 공기역학력 표현은 양력 근거가 아니다."
+    },
+    {
+      "identifier": "AR-122514-A1",
+      "source_fingerprint": "f91f6f2ad3107489656f6b4382f58bad312c0535455932af4b15d628aa7ab6ff",
+      "content_hash": "360c0fbeb4e810548063c57bebed6e9bdf2831e5277c88a671964d7525b8e00f",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "CD93 표적 결합과 숙주 생산이다."
+    },
+    {
+      "identifier": "AR-122536-A1",
+      "source_fingerprint": "70674bc4ac1bb1ca6c2f000ae65433906e3304ac2c17abdb281280a43980af1c",
+      "content_hash": "924e79219e24c779026ef99f2703f6c93edb60f0e09c224e0e1d57ee88ca6f81",
+      "decision": "LINK",
+      "keys": [
+        "gelation"
+      ],
+      "reason": "가교 키토산 겔 및 금속염 조성이다. 은 이온 항균은 기존 초안으로 통합한다."
+    },
+    {
+      "identifier": "AR-122543-A1",
+      "source_fingerprint": "34566353bb945d12cb2bb8efe886291ac37330fc7602d76791df8fc41099df4c",
+      "content_hash": "0d16eef3b82d4e9f9470965df19939310872c65d2bedadd5a8a94c7fdaed30ab",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "IAP에 대한 Smac 유사체의 결합 길항이다. 효소 직접 저해로 단순화하지 않는다."
+    },
+    {
+      "identifier": "AR-122554-A1",
+      "source_fingerprint": "1ee2057379e9eda1b194c0c5b76a9559de482281baf8606a5934a23944f53295",
+      "content_hash": "285b56c7efbbc9c000eb581ef201ddf748dabd08782ae1414539675d9ed9c9f3",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "IL6 수용체 결합 항체 제형이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:54:50.736132+00:00"
+}

@@ -1,0 +1,53 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "4fdd02e3dd1e981c6787fee87f4c587bb37425c3322619f2b534d604775454e8",
+  "reviews": [
+    {
+      "identifier": "AR-086750-A1",
+      "source_fingerprint": "e00886ef3161819acfe7be256dcaca17e66cb13654cd512f31dfb38c8425c879",
+      "content_hash": "93a2afd8f75494e599eb6c295ad9f706ec2a411585af1abb09d5294bec27818b",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation"
+      ],
+      "reason": "TRPM8 리간드로 채널 기능을 조절한다. 질환별 효능은 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-086767-A1",
+      "source_fingerprint": "4a983eade7b1f65b3a60c784f1778d80640d6190895061cbb07a4571c41e4f62",
+      "content_hash": "67f82fd29c681c3ebe131afd3206b76697ad701d69473fd4db2aad451b02616f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "의자의 단계별 높이 고정 장치. 고정 원리 세부가 미상이다."
+    },
+    {
+      "identifier": "AR-086780-A1",
+      "source_fingerprint": "04251e49e14a1b36258dbc9160adf7aa3543d930214b6fa965ddb2076e81ead2",
+      "content_hash": "cf4125a898eef1d4003ad5596fe07443017acac09da09a4e034a72bf8dab6bef",
+      "decision": "LINK",
+      "keys": [
+        "crystallization",
+        "crystal-desolvation"
+      ],
+      "reason": "용매화 결정의 석출·습식 분쇄 후 가열 탈용매화이다."
+    },
+    {
+      "identifier": "AR-085378-A1",
+      "source_fingerprint": "ffebfcfc7074bf17d12a10b9ca8c4733d43c08588f2bcca1d7ffc708b885a609",
+      "content_hash": "1b70982a5027afd59c37663401a8b2dbf54a8958b6b18aedc3130f136d8cbd45",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "재검토: 입자 산란으로 광학 외관을 바꾸는 용도이며 센싱 효과와는 출력이 다르다. 단위 모순과 세부 산란 조건 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-085883-A1",
+      "source_fingerprint": "1225bb0f9c1f7c72b90f122a0a7d70d28495ec579c301bbfea6c2fc937ecec6b",
+      "content_hash": "eabe9b76cfca277e85879b7a524cb356109ea8cc2952f679fba8d569ae7383e1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "재검토: 변형률 계측은 명시되나 저항식 센서임은 명시되지 않는다. 압저항 연결을 보류한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:33:49.788992+00:00"
+}

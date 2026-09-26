@@ -1,0 +1,223 @@
+{
+  "batch": "additions-2026-09-26-14.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1200,
+  "added": 18,
+  "after": 1218,
+  "target": 1500,
+  "source_sha256": "e5b889b203bb18507ede66e81bf46d5461309877231cbc3b479de31a60526020",
+  "decisions": [
+    {
+      "key": "aldehyde-hydride-disproportionation",
+      "group": 15,
+      "related_keys": [
+        "aldehyde-oxidation-to-carboxylate",
+        "carbonyl-reduction-to-alcohol"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 산화제·환원제 대신 두 기질의 산화환원을 결합하는 카니차로 경로이다.",
+      "source_url": "https://www.nature.com/articles/s41598-022-17879-5",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "hydrazone-denitrogenative-deoxygenation",
+      "group": 15,
+      "related_keys": [
+        "hydrodeoxygenation-carbon-oxygen-cleavage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수소·표면 촉매의 직접 C–O 절단과 구분되는 질소 기체 방출 구동 경로이다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-23971-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "donor-acceptor-grob-fragmentation",
+      "group": 15,
+      "related_keys": [
+        "self-immolative-linker-fragmentation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기분해 방출 기능과 겹칠 수 있으나 특정 주개–골격–이탈기의 분절 전자 경로에 한정한다.",
+      "source_url": "https://www.nature.com/articles/s41467-025-57477-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "cyclic-transition-state-syn-elimination",
+      "group": 15,
+      "related_keys": [
+        "dehydrohalogenation",
+        "pyrolysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 염기의 제거와 다른 분자 내 고리형 수소 전달이다. 열분해 일반의 구체적 반응 경로로 유지한다.",
+      "source_url": "https://www.nature.com/articles/s41598-021-82446-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "anodic-decarboxylative-radical-dimerization",
+      "group": 15,
+      "related_keys": [
+        "protodecarboxylation",
+        "transition-metal-cross-coupling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탈탄산 뒤 양성자화와 달리 라디칼끼리 결합하며 금속의 산화적 첨가 주기를 요구하지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41586-022-04691-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "enediyne-bergman-diradical-cyclization",
+      "group": 15,
+      "related_keys": [
+        "electrocyclic-conjugated-ring-switching",
+        "thermal-homolytic-radical-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 결합의 균일 절단 대신 고리 결합 생성이 이중라디칼 전자 상태를 만든다.",
+      "source_url": "https://www.nature.com/articles/nchem.2438",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "sulfoxide-thionium-pummerer-activation",
+      "group": 15,
+      "related_keys": [
+        "sulfide-oxygen-transfer-oxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "황의 산화로 산소를 넣는 반응과 반대로 S–O 활성화가 인접 탄소의 반응성을 만든다.",
+      "source_url": "https://pubs.acs.org/doi/abs/10.1021/acs.joc.4c02548",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "aryne-elimination-addition",
+      "group": 15,
+      "related_keys": [
+        "nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "친핵체가 들어오기 전에 아라인이 생기는 제거–부가 경로이며 직접 치환과 구분한다.",
+      "source_url": "https://www.nature.com/articles/s44160-023-00408-1",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "electron-chain-radical-nucleophilic-substitution",
+      "group": 15,
+      "related_keys": [
+        "nucleophilic-substitution",
+        "redox-initiated-radical-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "친핵체는 원래 친전자체가 아닌 라디칼에 결합하며 전자가 연쇄 전파자로 재생된다.",
+      "source_url": "https://pubs.acs.org/doi/abs/10.1021/ja9902322",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nitrenoid-carbon-hydrogen-amination",
+      "group": 15,
+      "related_keys": [
+        "reductive-amination",
+        "carbene-transfer-cyclopropanation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "카보닐의 이민 환원이나 알켄의 탄소 삼원환화와 달리 C–H 위치에 질소를 도입한다.",
+      "source_url": "https://www.nature.com/articles/s41557-019-0343-5",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "pauson-khand-carbonylative-annulation",
+      "group": 15,
+      "related_keys": [
+        "alkene-alkoxycarbonylation",
+        "diels-alder-four-plus-two-cycloaddition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알켄의 단순 CO 삽입이나 디엔 고리첨가와 달리 알카인·알켄·CO 세 단위를 고리로 결합한다.",
+      "source_url": "https://doi.org/10.1021/acs.organomet.8b00810",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "isocyanide-nitrilium-mumm-assembly",
+      "group": 15,
+      "related_keys": [
+        "peptide-bond-coupling",
+        "reductive-amination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "활성화 카르복실산과 아민의 직접 축합 대신 이소시아나이드 탄소 편입과 아실 이동이 핵심이다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-34887-1",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nitrile-carbocation-ritter-capture",
+      "group": 15,
+      "related_keys": [
+        "ester-aminolysis",
+        "isocyanide-nitrilium-mumm-assembly"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 아실 탄소의 치환이나 이소시아나이드 탄소 부가와 달리 니트릴 질소로 탄소양이온을 포획한다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-22373-z",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "imine-cyanide-strecker-addition",
+      "group": 15,
+      "related_keys": [
+        "reductive-amination",
+        "carbon-nucleophile-carbonyl-addition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이민의 환원이 아닌 탄소 한 원자 편입이며 산소 카보닐 부가와 반응 중심이 다르다.",
+      "source_url": "https://www.nature.com/articles/ncomms2216",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "carbonyl-reductive-coupling",
+      "group": 15,
+      "related_keys": [
+        "carbonyl-reduction-to-alcohol",
+        "wittig-ylide-carbonyl-olefination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "각 카보닐의 수소화가 아닌 두 카보닐 탄소의 직접 결합이며 피나콜·맥머리를 별개 수로 늘리지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41467-026-70619-5",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "arene-electron-proton-birch-reduction",
+      "group": 15,
+      "related_keys": [
+        "catalytic-hydrogenation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "금속 표면의 수소 동시 첨가와 구별되는 용매화 전자·양성자 단계 경로이다. 효소 H원자 전달과 동일시하지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41467-025-58418-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "palladium-alkene-wacker-oxidation",
+      "group": 15,
+      "related_keys": [
+        "alcohol-oxidation-to-carbonyl",
+        "osmate-ester-syn-dihydroxylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 알코올의 산화나 산소 두 개의 동시 도입과 달리 알켄의 금속 매개 물 부가·산화 경로이다.",
+      "source_url": "https://www.nature.com/articles/256635b0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "alkyne-hydration-enol-tautomerization",
+      "group": 15,
+      "related_keys": [
+        "alkyne-hydrohalogenation",
+        "palladium-alkene-wacker-oxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산화적 알켄 전환과 달리 알카인의 물 첨가·호변이성이며 할로젠 부가와 생성·후속 경로가 다르다.",
+      "source_url": "https://www.nature.com/articles/s41467-017-01675-1",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

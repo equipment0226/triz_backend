@@ -1,0 +1,346 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "46b7322270c5d62572d5c4ddd6f494f67eb57de06099133c8837bc61dab7e91a",
+  "reviews": [
+    {
+      "identifier": "AR-038232-A1",
+      "source_fingerprint": "ddd187c51a289611b67c632b812c995fee03e7c4a79d5f8fc653092e11d41561",
+      "content_hash": "75e6055f4f45e50b9f2fadd17dfbaf52028683cd587170f217273c0242734b36",
+      "decision": "LINK",
+      "keys": [
+        "plasticization"
+      ],
+      "reason": "PVC와 가소제를 포함한 마개를 명시하므로 가소화에 연결한다. 특정 조성의 강성 저하량과 이행 특성은 초록에 없어 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-038241-A1",
+      "source_fingerprint": "43bdef3af7cc65fd2ea363697efdd58d205150027486b8678fecd7868971ddea",
+      "content_hash": "911a3dc3496f37f140e2de97f7f42c9cceddb4ae346a6567c901dea3aebb1d7e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 진동 및 선형 왕복 칫솔모 블록의 조합과 배치이다."
+    },
+    {
+      "identifier": "AR-038290-A1",
+      "source_fingerprint": "1db1d2ea621fd561adcabc0244e204d0099a60233094fb9895bf8428329c55bd",
+      "content_hash": "a35659d105f0ac3408ec3b4bdbce385cb829539b611c28f5a8050ac81be03f9b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기상부 부식 억제 용도를 기재하지만 보호막 형성이나 흡착 등 구체적 억제 경로는 없다."
+    },
+    {
+      "identifier": "AR-038304-A1",
+      "source_fingerprint": "8912e1150cbc0fb3ca2be9860799c7956b0e6da98ca364982370f49f82f21307",
+      "content_hash": "7f69901c2428c1fda569e00855921708bd513fc391f30a573d08a42ce132095f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "중공사 미세여과막 제조와 입자 제거를 기술한다. MF를 기존 UF와 동일시하지 않으며 응고 및 용출의 공극 형성 기전도 추가 확인한다."
+    },
+    {
+      "identifier": "AR-038341-A1",
+      "source_fingerprint": "51f6d5730d243a65fe5090881f08f111f8e42ed41c06b0ae8204964be3813211",
+      "content_hash": "c16626ceb68490f09258c00bcba54ab7ea14561858ae47a0b7e4b18bc90f854b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제목은 알파1 수용체 작용제를 지칭하나 저장 초록은 구조식 정의만 있어 표적 작용의 본문 근거를 추가 확인한다."
+    },
+    {
+      "identifier": "AR-038366-A1",
+      "source_fingerprint": "e1c19c245fde5621dd82d3a08496aa342bc20989e6c05daccd364f8f95db6a4b",
+      "content_hash": "2020dc6691cb685a9eadd4e40eff22ae73690c1b2d94770f9abe911d2d9f6ebc",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "초록 후반에 아데노신 A2a 수용체 길항제임을 명시한다. 수용체 신호 조절에 한정하며 치료 성능은 검증하지 않는다."
+    },
+    {
+      "identifier": "AR-038371-A1",
+      "source_fingerprint": "a5c46a8d671ccfb7d26b9d6f66707d5a79449bab06ab7dfbcfe9e1eae02df43d",
+      "content_hash": "e67bf69037dae8ca93eea5648cff8c6aead7ff867c1cd1e74c093dc8569211d9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "비이수화물 아지트로마이신의 건식 과립화와 제형 조성으로 별도 과학적 작용 기전은 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-038390-A1",
+      "source_fingerprint": "e013f207e55d36eaa77539c6f673dce874efdc27a9dfd83178c1d2db03dfcfbc",
+      "content_hash": "42ea352b0cabbb91837b8f5874faad3a2ed369c67d60b834d57455fc4e647263",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "유기용액에 비용매를 혼합해 플루티카손 프로피오네이트의 결정형 1을 석출시키는 과정을 명시한다."
+    },
+    {
+      "identifier": "AR-038393-A1",
+      "source_fingerprint": "760486fc97d67946f82bde5f1d75521214163984ff898d7a485ecc6bc602f7b2",
+      "content_hash": "bd0c782621feb42043b03ee7539b9246bb0f2783d4a4f5a8eb1dd6333a4897b3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항부정맥 및 심장 보호 용도를 기술하지만 분자 표적이나 작용 경로는 없다."
+    },
+    {
+      "identifier": "AR-038394-A2",
+      "source_fingerprint": "855a8307ddc1f61f5270a2282c59cdbbfffd4a4ba39a636ea2d97877cee10cda",
+      "content_hash": "8be542885d539ceefa7b93ed4b77a0279941d7571d9c57853c1e02cafc4b1881",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "코어와 코팅의 지연 방출 시험 결과는 제시하나 방출 전환이 용해나 확산 또는 파열 중 어느 기전인지 확인되지 않는다."
+    },
+    {
+      "identifier": "AR-038402-A1",
+      "source_fingerprint": "4b86c3ed88ec6dde5c44a93c8ad3168e1b84308dbb17861c297fd825ed2d98a6",
+      "content_hash": "30bdf67a3164d93ac5a8463512ad972f197000fdf0f77594935b16a07e368c1b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "절취선과 접힘선으로 상자를 계단식 진열대로 바꾸는 포장 구조이다."
+    },
+    {
+      "identifier": "AR-038429-A2",
+      "source_fingerprint": "88bde3b99c9ad030a9bc09501ed8e0ae511cbde9e50e6068210909db17b1b936",
+      "content_hash": "96c7dd0cb831dfabd4914d7ab97877e5f112dc08c447850f7e3e503afa4fabd3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "화합물 구조와 염의 정의만으로 과학효과를 식별할 수 없다."
+    },
+    {
+      "identifier": "AR-038434-A2",
+      "source_fingerprint": "994cf3bb7cb7d20773a6946e51c3ca70ac11e4f911f7e760feb4c2132502bd23",
+      "content_hash": "bf37b8ca3843aacbf831a3ae035ae3f5375cf0e4cf81434b5e2fe5d35eab44d4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "파라헤르콰미드 및 마르크포르틴 유도체의 구조만 제시한다."
+    },
+    {
+      "identifier": "AR-038458-A1",
+      "source_fingerprint": "52a8437d008109b292d37014fbefd52a20614b9dc0a4a3912c19d3e273803a43",
+      "content_hash": "08cfb0cc36cacc374656eea7d25deb900c03e5da9905d4738e67f44e4d09a059",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 버너의 공기 분배 밸브와 연료 제어 배치이며 오차를 되돌리는 제어 법칙은 없다."
+    },
+    {
+      "identifier": "AR-038459-A1",
+      "source_fingerprint": "aaf32f852e3536a49a470f532a5f8b61242af6a517a1fbd277bb9a67c5ca6623",
+      "content_hash": "7c50e43cf1dff968b5b121154b05d786ad0ed606b29fa1466dfec128f1bacdc8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "배기가스로 연료와 물을 순차 가열하는 열 회수 구조이다. 강제 순환이나 응축을 명시하지 않아 해당 효과로 임의 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-038469-A1",
+      "source_fingerprint": "7c3a040c11a4c1c92ee6df621a74573f8b597e86dbf977155e9f27bf0c370319",
+      "content_hash": "2b95a69fbf6075d0476a8b3d83e0af2971c2909c38c7e89460ada7623da3c507",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "무선 단말의 버전 목록을 서버와 비교해 최신 자료로 교체하는 갱신 절차이다."
+    },
+    {
+      "identifier": "AR-038548-A1",
+      "source_fingerprint": "944174929021963ba313a3a0d1e032dbe77d0b954e6a40449ac55b38539f49b5",
+      "content_hash": "bb01a6ecbffaf885ca567c078364230b6fb1fef2e36cdb6bdd3f3f58dd74e17f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "CDMA와 GSM 사이에서 서로 다른 노드 역할을 수행하는 프로토콜 연계 구성이다. 부호 분할의 원리는 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-038556-A1",
+      "source_fingerprint": "362d8b9658e8b2ba9e6cec34b260c3594331c5ef6a7dfc31a0150149e0e7432e",
+      "content_hash": "9f16d0cdf2062a5898e9b73db62fd071c9fa690b6ea37dedf2ed6370282d6dd4",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "바이러스와 세포 표면 수용체의 결합 및 항체의 바이러스 단백질 인식을 이용한 비교 검출을 기술한다. 구체적인 억제 후보의 작용 경로나 효능은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-038562-A1",
+      "source_fingerprint": "52f39d837a7cdb4f03dde29fe049d7c38b26b53b58b67da2725cfff812f21f53",
+      "content_hash": "f7ed480388ec7521583a1b4526e13ddaffa99a281cb23658373a8a3d9e6ad702",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 및 성장 조절 용도와 광범위한 구조 정의만 있고 생화학적 표적은 없다."
+    },
+    {
+      "identifier": "AR-038568-A1",
+      "source_fingerprint": "e58b456b13a24e2d03dc60717cfe669efa82f829d8db7ea58dc8b147f23455ba",
+      "content_hash": "f6cdad81bb59fd03fbba7b044012032d48f8c96f38c93c722431f17133d25e7a",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "항체가 베타 A4 펩타이드의 두 특정 서열 영역을 인식한다고 명시하므로 선택적 생체분자 인식에 연결한다."
+    },
+    {
+      "identifier": "AR-038574-A1",
+      "source_fingerprint": "476b26318b11c24d46f9772e8cb794b20102fa440bfdebbe945e627eae2a2072",
+      "content_hash": "e82d859bb846faf47e806db778137a577ccf75cc64596f641c0d118a434e7083",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "돌연변이 효소의 내열성 향상을 주장하지만 안정화의 구조적 원인과 촉매 반응 과정은 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-038586-A1",
+      "source_fingerprint": "0f39fca6e79d15af6a39866c73bca63f9ab9638d5a607946db87a557ea1ae985",
+      "content_hash": "4f960b4cc5445ed2bfea7f6c6880606f888d4dbccf18418435331283d55e5666",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전식 브래킷과 유체 접속부로 필터를 쉽게 교환하는 기구 설계이다."
+    },
+    {
+      "identifier": "AR-038590-A1",
+      "source_fingerprint": "c0d454f5411267274a300b10b9e71b464134a81e288175a50261dce83f5f1738",
+      "content_hash": "0377bf5a11d639cafb6663fbc18aeb39c14bf54225f70c6655d9ccc45c6deb0d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "공극 개시제를 넣은 필름을 연신해 미세공극을 형성하나 계면 박리나 공동화의 조건을 명시하지 않아 기전 연결을 보류한다."
+    },
+    {
+      "identifier": "AR-038600-A1",
+      "source_fingerprint": "44fda0288eb9056b78271bd733fd7cd780d2f9f9836f791fb686d1b66c8c1fd0",
+      "content_hash": "a1c335ab4f7a90c2ecf6c66c56b2eefb7622a53aaeb9d950b7d8c0f4ba97c212",
+      "decision": "LINK",
+      "keys": [
+        "electroporation"
+      ],
+      "reason": "액체 보존 처리에 전기천공을 사용한다고 명시한다. 펄스 조건이나 항진균제와의 상승효과는 제공되지 않아 확장하지 않는다."
+    },
+    {
+      "identifier": "AR-038622-A1",
+      "source_fingerprint": "6944a3b85335478a74e56bbc83a2b818e6440c1bba28bb1c374002fcf5572edc",
+      "content_hash": "92b5cdd0f33b10459f8cd8b5c0263168c8d1f4edc0f766fea13e2a4fbc8eacd0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "신남산염의 구조 및 이성질체 정의만으로 작용 기전을 판단할 수 없다."
+    },
+    {
+      "identifier": "AR-038647-A1",
+      "source_fingerprint": "10fa575439ce555202ea4a024f8c41ca91a157032d5744ebd5607ed212283e62",
+      "content_hash": "b59573182457547bfd97a934b6e2e86c15090a7a0ba957a48eb4fb0d1e582a4e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "준설기 치아 앞뒤에 고압 물 분사관을 배치하는 설계이다. 공동현상이나 입자 유동화는 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-038655-A1",
+      "source_fingerprint": "ec8841a3fb1554b0f2ae199550c3aef23b5b9eeb24d556064da3edb60b512b08",
+      "content_hash": "ad01938801935c9ee7bb64bd0ca2cb8c24c79c84c7f1aee9533c4d5abbf1c287",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수용성 블록 공중합체의 구조와 모발 처리 용도를 제시하나 고정이나 탄성 발현의 구체적 기전은 없다."
+    },
+    {
+      "identifier": "AR-038667-A1",
+      "source_fingerprint": "93bfc34cfd8c3db42c240149a12a554f4f5b2c4f48b8f200a4e42397a0449e2d",
+      "content_hash": "58018bb5d872870763f278d1856c5dbc486e49fff5559c66248f8ffc56179305",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control"
+      ],
+      "reason": "티슈에 소수성 영역을 형성해 액체 전파를 경계에서 멈추게 한다고 기술한다. 표면 젖음성 제어에 연결하며 미세구조 초발수는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-038668-A1",
+      "source_fingerprint": "b5e166aba83b65a781b253800f0f977add889a8cf9aefd44aba795983d13ec7d",
+      "content_hash": "b54876e2655c84a539c74e5de0820f667be56631ca2a9eb5315a60f5e42a4c89",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피드포워드 제어를 표방하지만 초록의 구체 절차는 사건 감지와 기록 및 보고에 머문다. 외란 예측과 보상 입력 생성의 관계를 확인해야 한다."
+    },
+    {
+      "identifier": "AR-038677-A1",
+      "source_fingerprint": "a7e3a607a2e5ae92099d0834008b3bf36f50e715c8bff6cc36a64fe43c27b15a",
+      "content_hash": "e344892d52e6fb65b2ebe3aadfa029a3e61edb33b75435379cbd4e855987404b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "압축과 마찰 가열 및 감압 팽창에 의한 유기물 처리를 주장한다. 각 단계의 열 및 압력 이력과 생물 처리 연결 조건이 부족해 살균 성능이나 처리 시간을 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-038706-A1",
+      "source_fingerprint": "e23a1c0d6be010fb358a57d9c53553c595191572affec0bb86cb8477570cc65b",
+      "content_hash": "814c3e1ddc4a2a043556c179dec0b48018b41fb6764ac10634037fbf13f6d0b9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살진균제 혼합의 상승효과를 주장하지만 기전과 비교 실험 근거가 초록에 없다."
+    },
+    {
+      "identifier": "AR-038717-A1",
+      "source_fingerprint": "d38994976891e167eefbc232771570a8ddf3479cf7b416111ea6dfd1ad0dc688",
+      "content_hash": "7d252a1f8f952f46ac906d0be6af0860be230e730be8beed981cebd243a37620",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 보호용 화합물의 구조와 용도만 제시하고 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-038723-A1",
+      "source_fingerprint": "3b9e10da830ee02ee24ab02b3858c75f187feb03c8a09ab3f6cec6721415aa93",
+      "content_hash": "05ad92a246b0c5742cde9b02a2ef631cc2a2335e168e6bc52f366b4fe3a446e4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "동위원소 치환을 포함한 쿠마린 구조와 바이오마커 용도를 제시하나 표적 인식이나 신호 검출 기전은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-038727-A1",
+      "source_fingerprint": "d843b5f55c1844063c01033f237cb503bd951ae2a0a9ca19859444d0a46c8c6d",
+      "content_hash": "2e057a5d572b41d8db318def66e5b72e12c39fc0e93446614b1e7af02aa0bf75",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-heating"
+      ],
+      "reason": "마이크로파 가열로 렌즈와 금형의 분리 및 수화를 촉진한다고 기술한다. 유전 가열 적용에 한정하며 흡수율과 분리 성능은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-038728-A1",
+      "source_fingerprint": "e9ec68a481224abfbbfbbac9011285b0fe1476e6cb63b147dfaa77dde598091e",
+      "content_hash": "80a216356996ba59d976badc8479ef8eb085e7d4ef1ccd913c272454aaaccebc",
+      "decision": "LINK",
+      "keys": [
+        "electrodeposition"
+      ],
+      "reason": "마스터 맨드릴의 표면을 전주로 복제해 광학 품질의 금형 인서트를 만드는 과정을 명시한다. 전해 석출에 연결하며 금속 종류와 공정 수치는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-038730-A1",
+      "source_fingerprint": "293cd7ec77d5a6cffe07f4a398335f88d2e9ee9b12af6be27895d63e50e37c19",
+      "content_hash": "5ef21f7d627907690e6e29500da6e64dccbafdac950c3562889e8db21f943140",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "안압 감소와 안과 용도만 기재하고 수용체 등 분자 표적은 없다."
+    },
+    {
+      "identifier": "AR-038753-A1",
+      "source_fingerprint": "7ebae6781bad9841ee8c54a27ee8b0e5c1877ba1d8da0fa0a91cd2afe7ad88b8",
+      "content_hash": "74e9d8a4e9240ca377bdde1d63ad749c5bba5f79398a1a86061b9ac15a9693e8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수신 확인과 손실 감지에 따라 두 모드로 흐름 제어 매개변수를 조절한다. 지연과 실제 손실을 구별하는 기준 및 제어 법칙이 없어 기존 효과에 연결을 보류한다."
+    },
+    {
+      "identifier": "AR-038759-A4",
+      "source_fingerprint": "b050115f5818afd62219e49ccead7c56920aced3d527258c538ab42be835624b",
+      "content_hash": "3f23bbd3d0b740aef7d366a263f1b60388b4fa2e21342307c2241b517055603c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "마테 용기의 두 구멍과 평면 필터를 결합한 사용 및 세척 구조이다."
+    },
+    {
+      "identifier": "AR-038762-A1",
+      "source_fingerprint": "fadd4452957c5841e5626f9f0a0d20cab7caf906a3c90a49945ef350b1c8ec1f",
+      "content_hash": "360c0bdf2c9306aa78293b225920efb39a84c9212e4279f9defaea962c3cb2b5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "인돌린 유도체의 구조와 다양한 치료 용도를 열거하지만 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-038767-A1",
+      "source_fingerprint": "beaa086ee55e94e62d839c92d29c4ceffd3fee7641c72b11a2ed929ea247d370",
+      "content_hash": "3fb88d96478fdcd361c426d07c725b6cc7b3066d8e70cd740f654d70e1dbdfb9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "혈관신생 관련 질환 용도와 아민 구조를 기술하나 효소나 수용체의 작용을 확인할 근거가 없다."
+    }
+  ],
+  "recorded_at": "2026-09-20T03:35:14.700658+00:00"
+}

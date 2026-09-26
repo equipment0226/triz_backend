@@ -1,0 +1,241 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "5cf2e410dccac197314fb33cb2bf01493bda44f500a89f2a31e954d34566f60f",
+  "reviews": [
+    {
+      "identifier": "AR-102935-A1",
+      "source_fingerprint": "95874fdbd7cc9bdb081664f432cc667d90763ada1368a6251e2b69004940952b",
+      "content_hash": "40cd55a1a045412f37ab9fadf94cee39ab9f230d45c16a3dbf841d44a81d545e",
+      "decision": "LINK",
+      "keys": [
+        "physical-foaming",
+        "fourier-conduction"
+      ],
+      "reason": "열팽창성 열가소성 미소구를 간접 가열해 팽창시킨다."
+    },
+    {
+      "identifier": "AR-102940-A1",
+      "source_fingerprint": "554502dab6fb63ae7498ddf10fdff4a0e0ca576dd747ae5bcfc4125f8d59d307",
+      "content_hash": "f8b2c4b63fb05307aad268f386256e872620a4198143048740174d5455e9d5b2",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "관형 차축을 압연·방사 단조·업세팅으로 성형한다."
+    },
+    {
+      "identifier": "AR-102950-A1",
+      "source_fingerprint": "14761dc9aa56a9b134d0c65f11b6a7a9710d6bfdc2963796aaec050f3cfab3da",
+      "content_hash": "fd4bdaff26cc7df77c716e041afabb7ba3ebfe0e311610b8b6ddfd3c6942ed6c",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "heterologous-gene-expression"
+      ],
+      "reason": "리파아제 변이체의 촉매 활성과 재조합 발현을 명시한다."
+    },
+    {
+      "identifier": "AR-102981-A1",
+      "source_fingerprint": "6196737a200096ec63d2ab2933cc5a4cdc068bf75d8c5f756534fc5dd5b607c8",
+      "content_hash": "6b080e11c29f9cd98d6b755a0176c1b9d81f425c932ad2ce8561a83c1fe7e01b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "괴사 억제 용도와 화학식만으로 세포 죽음 신호의 특정 표적을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-103002-A1",
+      "source_fingerprint": "ffd2326e3ef80816684a6cec93742ede1d6c973498e99d1ebc01295ae0675128",
+      "content_hash": "6167295d0f6804562f3e2b1e0c2a5e7ec5c523d1777878ae8c3cb3744320acf6",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution",
+        "plasticization"
+      ],
+      "reason": "수용성 PVOH 혼합물과 가소제를 이용한다. 혼합비의 성능 결과를 별도 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-103015-A1",
+      "source_fingerprint": "ee102103bb24587d939a413d9c2342a9db33c6faf46c15cf43ff5f9a38a4cc0e",
+      "content_hash": "47e7e0af079dad40f8deacbe345c35e72bda22ddc60577d708dde009e9ee6490",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening"
+      ],
+      "reason": "에폭시 말단 수지를 지방족 아민으로 경화한다. 아크릴레이트 공액 첨가는 별도 확인 대상이다."
+    },
+    {
+      "identifier": "AR-103017-A1",
+      "source_fingerprint": "2327ce6cb514a4d4419895d5bf3a75837800793ce04e42cd0da70c70ee67febc",
+      "content_hash": "30f0f9d3091b943ac73d783e1b65b1aa389cbe1beeed3cc2626ca824133a8eb8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "무수말레산 기능화 폴리올레핀과 금속의 적층 구조이며 접합 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-103020-A1",
+      "source_fingerprint": "90004872f1f7531a850fb16b8a37b1897a93262e2d43b5aee3f4faef2269b064",
+      "content_hash": "038dc798f7e6e5de9e44bb998bb00a04e169cabf2ce5041980ba34a002d12204",
+      "decision": "LINK",
+      "keys": [
+        "diffraction",
+        "crystallization"
+      ],
+      "reason": "결정질 나트륨염을 분말 X선 회절로 식별한다. 저장 초록의 회절값 목록은 생략되어 있다."
+    },
+    {
+      "identifier": "AR-103025-A1",
+      "source_fingerprint": "5a990fce3efaf294e8e735fa08c983e756da5f6c9db6fda3b95812c395ff82d6",
+      "content_hash": "06b6805df4969737cb7a35dfb7e3aeb07a385e6fd5dc4b94dac51781fe5eb026",
+      "decision": "LINK",
+      "keys": [
+        "state-estimation",
+        "linear-frequency-filtering"
+      ],
+      "reason": "음향·관성·기울기 신호를 결합하고 필터링해 섭식 행동을 추정한다. 학습 자료가 명시되지 않아 지도학습으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-103033-A1",
+      "source_fingerprint": "24e4ddce98563b3f46797cfb40203b4a4af70fc2a42a650f88d153be34dc7001",
+      "content_hash": "a74d4c5575a469af674ec5874607cb0592d64cb98757e73660d447df1ed78f2e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "탄산칼슘의 식물 방제 용도만으로 물리·화학 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-103055-A1",
+      "source_fingerprint": "e6073f201429a746b32063a2217e651e049b63c47d89f36dbf57536706cc455b",
+      "content_hash": "f8346ca67ffd4a390c597675ed86a5471185674ff734f1834c5ba4ca117289d7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "출산 후 유래 세포의 MFG-E8·Gas6·TSP 분비를 이용한다. 망막 개선을 세포 분화나 항체 포식으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-103067-A1",
+      "source_fingerprint": "918028a5bc134dcf19cff472bdc0ac6e572ca5f3d8a793a5e346b648bc25b0bc",
+      "content_hash": "b1f370bf5e5e9770b16e8c773dad7d882110304edaf0ad868c8de284c6fc5294",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "swelling-actuation",
+        "abrasive-material-removal"
+      ],
+      "reason": "계면활성제·수팽윤 고분자·연마 입자를 조합한 표면 세정제이다."
+    },
+    {
+      "identifier": "AR-103082-A1",
+      "source_fingerprint": "041da0db8bbe6c967c3405a8a77d3204b789947e21757223ec6c717ec0abaf83",
+      "content_hash": "5dca457ab6309c61d74862b4955186162bb8c36e356b242034c497469ce3eaaa",
+      "decision": "LINK",
+      "keys": [
+        "ultrafiltration"
+      ],
+      "reason": "30 kDa 미만 분자량 차단막으로 캡슐 다당을 정제한다."
+    },
+    {
+      "identifier": "AR-103086-A1",
+      "source_fingerprint": "a48f8e9b3be68f4529e27b7f07032ccf7d3589390d5643d90d8d4222599b08f6",
+      "content_hash": "ed1801bb36c2afe78a031006cce60c9055c5792ab8cb7cc22a47981e35b98f8c",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "antigen-specific-immunization"
+      ],
+      "reason": "젖산 생성균 및 선택적 백신 조합이다. 감염 저감이 산 생성 때문이라고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-103088-A1",
+      "source_fingerprint": "e36262be173f8a8697febbd4796c7a2d16a4efcc8d723f9ace023c1ff703655c",
+      "content_hash": "3fad5fff89f41fc6911912985c8c2a7bced341fc6dab7694737ed2a21f5d3929",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 화합물과 용도이며 분자 표적이 없다."
+    },
+    {
+      "identifier": "AR-103117-A1",
+      "source_fingerprint": "cd7fdeaabb987031215b51290ae49a49fe7327f573d40a09fab05a70f8c3a4e2",
+      "content_hash": "d51b568c6e1f10e1a3392a48107876977024812654df49eba19fe66834e0ad9f",
+      "decision": "LINK",
+      "keys": [
+        "bulk-comminution",
+        "melt-binder-agglomeration",
+        "pressure-compaction",
+        "solidification"
+      ],
+      "reason": "플라스틱·고무를 분쇄하고 플라스틱 용융 결합·가압·냉각한다. 특허의 ton 표기는 압력 단위로 그대로 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-103139-A1",
+      "source_fingerprint": "343f784cf5412f5c8f0f9d946859353134123b5c632a577843a49b3582a4db96",
+      "content_hash": "e853df4338d58dd4382cdc75289011b033a0ed1a118633cb7296314826fc9c2b",
+      "decision": "LINK",
+      "keys": [
+        "induction-heating",
+        "fourier-conduction"
+      ],
+      "reason": "인덕터로 포장재를 가열 밀봉하고 열전도성 지지체와 연자성 자속 부재를 사용한다."
+    },
+    {
+      "identifier": "AR-103144-A1",
+      "source_fingerprint": "239b5b38c06cd500fc0f83256c3909aca10602201f38521329530be8a38f1f91",
+      "content_hash": "57cdc1d567915b5aede59f7319a17f368b6994d7dedbed88ba21ae1a37ce9321",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption",
+        "gravity-settling",
+        "evaporative-cooling"
+      ],
+      "reason": "수산 양식수를 폭기·침강·분무 냉각하며 부유 수생식물로 질소를 제거한다. 식물 동화 흡수 후보를 확인한다."
+    },
+    {
+      "identifier": "AR-103151-A1",
+      "source_fingerprint": "715cd547d81e3c99144f582341e159f4b28cff7c7412ce7d63068ab517c9b2fa",
+      "content_hash": "26fdcc33c6784093a59f707994030859180f5bc991e38809bc5fd34dd3c35cd9",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "acid-base-reaction",
+        "acid-base-buffering",
+        "ionization-solubility"
+      ],
+      "reason": "에멀션 중합체를 중화·가열하고 구연산 완충액으로 pH를 조절해 분산성을 바꾼다."
+    },
+    {
+      "identifier": "AR-103155-A1",
+      "source_fingerprint": "c6bce3bd4ca3851ca1a9dcb588fa8a3b2b0037a8d19688469dc76791e37477ea",
+      "content_hash": "152cabd6712b658cfd4b6ebc209c236230faf18ddf0230c676877645d3e75936",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피라졸피리딘아민 화학식과 치료 용도로 분자 표적이 없다."
+    },
+    {
+      "identifier": "AR-103156-A1",
+      "source_fingerprint": "47c56763bb0962014258f845f98d059ef63659cb35e7df01c01967447f6e2a2b",
+      "content_hash": "07a440466a3f7101c95e6a59cddb1316d75545b6f0b711bf698897d82981d425",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피리딜 카르복실산 계열의 용도와 치환기 목록으로 작용 기전은 없다."
+    },
+    {
+      "identifier": "AR-103203-A1",
+      "source_fingerprint": "f5a31039232787769c4a89ff6ab2c3d1b87c1db44acf19d9ad3555d8d35a654e",
+      "content_hash": "d230b7cf2086d1bad47d137bd54bf9d2156296adac112ed497e202162aed6df7",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "뚜껑과 칼라의 복수 잠금 구조로 닫힘을 유지한다. 발생음을 독립 음향 공진 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-103217-A1",
+      "source_fingerprint": "d4271df05842bbe969c8ea99505d1ec05285e215254eaff5def44571ebd85f84",
+      "content_hash": "0389b736535d9e396b864f350e8516346f88b447b7407a3c7dca202e94cdaa23",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "살아 있거나 약독화한 병원체 백신을 수성 조성으로 가금류에 전달한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:17:45.566767+00:00"
+}

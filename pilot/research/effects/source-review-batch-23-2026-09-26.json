@@ -1,0 +1,743 @@
+{
+  "task": "research1500-agent-physics",
+  "date": "2026-09-26",
+  "authorship": "직접 대화 추론으로 작성; 외부 LLM 호출·콘텐츠 생성 스크립트 사용 없음. 이 JSON 구성은 이미 작성한 카드와 직접 선별한 인용문의 직렬화이다.",
+  "catalog_at_comparison": 1376,
+  "output": "pilot/research/effects/additions-2026-09-26-23.tsv",
+  "accepted_count": 30,
+  "comparison_method": "전체 catalog.tsv 키를 대상으로 일치 검사, 물리 관련 그룹의 키·원리 열 검토, 전체 파일의 한국어·영어 메커니즘 어휘 검색, 개별 최근접 키의 원리 대조를 실시했다. 각 카드의 명시적 경계는 comparisons에 기록한다.",
+  "source_scope_policy": "stored_search_excerpt는 공개 원문/저자 저장소의 검색 반환문만 근거로 한 범위다. reference_section은 실제 열린 문서 일부를 읽었음을 뜻하며 전문 독해를 뜻하지 않는다. publisher_abstract는 열린 출판사 초록을 읽었다. 원문 전체를 읽었다는 주장은 없다. 인용은 출처별25단어 이하로 제한했다.",
+  "comparisons": [
+    {
+      "key": "selective-optical-pumping-population-redistribution",
+      "nearest_existing_keys": [
+        "sisyphus-optical-pumping-cooling",
+        "atomic-magnetometry",
+        "dark-state-adiabatic-population-transfer",
+        "driven-electron-nuclear-polarization-transfer"
+      ],
+      "mechanism_boundary": "공간 퍼텐셜을 오르는 냉각이나 결맞은 암상태 추종과 달리 선택 흡수·비가역 이완의 반복으로 내부 점유를 재분배한다."
+    },
+    {
+      "key": "nonreciprocal-hopping-skin-localization",
+      "nearest_existing_keys": [
+        "disorder-interference-anderson-localization",
+        "exceptional-point-mode-coalescence",
+        "time-reversal-helical-edge-transport"
+      ],
+      "mechanism_boundary": "무질서 산란 국소화나 소수 위상 경계 모드와 달리 방향성 결합과 열린 경계가 광범위한 벌크 모드의 공간 분포를 바꾼다."
+    },
+    {
+      "key": "periodic-drive-coherent-tunneling-suppression",
+      "nearest_existing_keys": [
+        "electron-tunneling",
+        "quantum-zeno-measurement-confinement",
+        "periodic-band-bloch-oscillation"
+      ],
+      "mechanism_boundary": "장벽 관통 자체나 빈번한 측정 억제가 아니라 외부 주기 구동이 유효 터널 결합을 상쇄하는 결맞은 경로이다."
+    },
+    {
+      "key": "adiabatic-cycle-thouless-quantized-transport",
+      "nearest_existing_keys": [
+        "geometric-state-path-phase",
+        "quantum-hall",
+        "periodic-band-bloch-oscillation"
+      ],
+      "mechanism_boundary": "기하 위상 측정이나 정적 힘의 왕복 진동과 달리 닫힌 매개변수 주기와 채운 밴드가 정수 순수송을 만든다."
+    },
+    {
+      "key": "pauli-spin-selection-transport-blockade",
+      "nearest_existing_keys": [
+        "coulomb-charging-blockade",
+        "pauli-degeneracy-quantum-pressure",
+        "electron-tunneling"
+      ],
+      "mechanism_boundary": "단전자 충전 비용이나 평형 축퇴 압력이 아니라 두 전자의 스핀 대칭이 연속 터널 전이의 최종 상태를 금지한다."
+    },
+    {
+      "key": "superconducting-wire-coherent-phase-slip",
+      "nearest_existing_keys": [
+        "josephson-effect",
+        "superconductivity",
+        "defect-energy-superconducting-vortex-pinning"
+      ],
+      "mechanism_boundary": "접합을 통한 쿠퍼쌍 전달과 달리 선을 가로지르는 자속·위상 감김 전환이 양자 상태를 결합하며 결함의 와류 고정도 아니다."
+    },
+    {
+      "key": "fermi-sea-scattering-friedel-oscillation",
+      "nearest_existing_keys": [
+        "debye-mobile-charge-screening",
+        "conduction-mediated-rkky-exchange",
+        "wave-interference"
+      ],
+      "mechanism_boundary": "고전 열전하의 단조 차폐나 국소 스핀 사이 간접 교환이 아니라 결함 주위 전자 상태 밀도의 페르미 파장 진동을 다룬다."
+    },
+    {
+      "key": "sudden-quench-fermi-orthogonality-response",
+      "nearest_existing_keys": [
+        "kondo-local-moment-screening",
+        "fano-discrete-continuum-interference",
+        "absorption-spectroscopy"
+      ],
+      "mechanism_boundary": "정적 콘도 차폐나 두 광학 경로의 파노 간섭과 달리 급변 전후 다체 상태의 광범위한 재배열이 문턱 지수를 정한다."
+    },
+    {
+      "key": "quantum-fluctuation-stabilized-self-bound-droplet",
+      "nearest_existing_keys": [
+        "bose-einstein-macroscopic-occupation",
+        "dispersion-nonlinearity-soliton-balance",
+        "pauli-degeneracy-quantum-pressure"
+      ],
+      "mechanism_boundary": "단일 상태의 거시 점유나 분산·평균장 균형과 달리 평균장을 넘는 양자 요동 압력이 인력 붕괴를 안정화한다."
+    },
+    {
+      "key": "one-dimensional-hardcore-boson-fermionization",
+      "nearest_existing_keys": [
+        "bose-einstein-macroscopic-occupation",
+        "mott-interaction-charge-localization",
+        "pauli-degeneracy-quantum-pressure"
+      ],
+      "mechanism_boundary": "격자 정수 점유의 모트 국소화나 본래 페르미 입자의 배타성과 달리 일차원 보스 입자의 강반발이 접촉을 금지한다."
+    },
+    {
+      "key": "integrability-conserved-rapidities-delayed-thermalization",
+      "nearest_existing_keys": [
+        "disorder-interference-anderson-localization",
+        "discrete-spectrum-wavepacket-revival",
+        "landau-resonant-wave-particle-transfer"
+      ],
+      "mechanism_boundary": "공간 무질서의 이동 억제나 이산 위상 재정렬과 달리 다수 보존량이 충돌의 에너지 재분배를 제약한다."
+    },
+    {
+      "key": "attractive-potential-quantum-reflection",
+      "nearest_existing_keys": [
+        "electron-tunneling",
+        "specular-reflection-steering",
+        "casimir-fluctuation-force"
+      ],
+      "mechanism_boundary": "금지 장벽을 관통하거나 고전 반전점에서 튕기는 과정과 달리 허용된 인력 영역의 비단열 파장 변화가 반사를 만든다."
+    },
+    {
+      "key": "finite-electronic-density-quantum-capacitance",
+      "nearest_existing_keys": [
+        "capacitive-energy-storage",
+        "capacitive-sensing",
+        "pauli-degeneracy-quantum-pressure",
+        "coulomb-charging-blockade"
+      ],
+      "mechanism_boundary": "전극 거리·유전율 변화나 단전자 전도 문턱과 달리 연속 전하 주입의 화학퍼텐셜 비용이 정전용량을 제한한다."
+    },
+    {
+      "key": "helium-mixture-dilution-enthalpy-cooling",
+      "nearest_existing_keys": [
+        "evaporative-cooling",
+        "absorption-refrigeration",
+        "dufour-composition-driven-heat-flux"
+      ],
+      "mechanism_boundary": "혼합부의 냉각은 기화 잠열이나 농도구배 열유속이 아니라 액체 농후상에서 희석상으로 넘어가는 헬륨3의 엔탈피 증가이다."
+    },
+    {
+      "key": "photon-linear-momentum-radiation-pressure",
+      "nearest_existing_keys": [
+        "optical-tweezers",
+        "photophoretic-gas-momentum-force",
+        "photon-momentum-drag-current"
+      ],
+      "mechanism_boundary": "집속장 구배 포획이나 광가열에 따른 기체 충돌력과 달리 흡수·산란 광자의 선운동량이 물체에 직접 전달된다."
+    },
+    {
+      "key": "interband-position-shift-photocurrent",
+      "nearest_existing_keys": [
+        "photovoltaic-conversion",
+        "photon-momentum-drag-current",
+        "intrinsic-berry-curvature-hall-current"
+      ],
+      "mechanism_boundary": "접합 전기장의 운반자 분리나 입사 광자 운동량 전달과 달리 밴드 사이 전이의 전하중심 변위가 전류의 미시 기원이다."
+    },
+    {
+      "key": "gravitational-potential-clock-rate-shift",
+      "nearest_existing_keys": [
+        "gravity-gradient-sensing",
+        "doppler-sensing",
+        "ramsey-separated-pulse-phase-interrogation"
+      ],
+      "mechanism_boundary": "중력장의 공간 미분을 힘으로 읽거나 상대 이동의 파면 도착률을 읽는 방식과 달리 중력 퍼텐셜 차이가 시계의 고유시간 비율을 바꾼다."
+    },
+    {
+      "key": "kinematic-proper-time-dilation",
+      "nearest_existing_keys": [
+        "doppler-sensing",
+        "sagnac-rotation-phase-shift"
+      ],
+      "mechanism_boundary": "파원 접근·이탈의 전파 지연이나 회전 경로 위상차와 달리 운동하는 시계 자체의 누적 고유시간에 생기는 속도 의존 효과이다."
+    },
+    {
+      "key": "fermi-surface-screening-kohn-phonon-anomaly",
+      "nearest_existing_keys": [
+        "peierls-electron-lattice-dimerization",
+        "phonon-drag-thermoelectric-momentum",
+        "raman-spectroscopy"
+      ],
+      "mechanism_boundary": "정적 격자 이합체화나 포논 운동량의 전류 전달과 달리 전자 차폐의 파수 의존성이 동적 포논 스펙트럼을 바꾼다."
+    },
+    {
+      "key": "relativistic-electron-inertia-plasma-transparency",
+      "nearest_existing_keys": [
+        "electromagnetic-shielding",
+        "state-filling-saturable-absorption",
+        "optical-kerr-intensity-phase-modulation"
+      ],
+      "mechanism_boundary": "흡수 전이의 상태 채움이나 보통 커 굴절률 변화와 달리 상대론적 전자 관성이 플라스마의 차단 밀도 조건을 바꾼다."
+    },
+    {
+      "key": "wall-loss-flux-balanced-plasma-sheath",
+      "nearest_existing_keys": [
+        "debye-mobile-charge-screening",
+        "self-field-ambipolar-diffusion",
+        "space-charge-limited-injection"
+      ],
+      "mechanism_boundary": "평형 차폐나 벌크 공동 확산과 달리 흡수 경계로의 입자 손실 유속을 맞추는 전위가 시스를 유지한다."
+    },
+    {
+      "key": "velocity-dependent-collisional-runaway-acceleration",
+      "nearest_existing_keys": [
+        "joule-heating",
+        "plasma-wakefield-electron-acceleration",
+        "moving-scatterer-fermi-acceleration"
+      ],
+      "mechanism_boundary": "파동 후류나 이동 산란체가 주는 에너지 대신 충돌 마찰과 정전기 가속의 속도별 경쟁이 비열적 폭주를 만든다."
+    },
+    {
+      "key": "photocharge-redistribution-refractive-index-writing",
+      "nearest_existing_keys": [
+        "pockels-effect",
+        "optical-kerr-intensity-phase-modulation",
+        "photoconductive-carrier-modulation"
+      ],
+      "mechanism_boundary": "외부 전압의 즉시 굴절률 제어나 광세기 자체의 커 응답과 달리 전하 수송·포획으로 남는 내부장 무늬가 굴절률을 기록한다."
+    },
+    {
+      "key": "bandgap-trap-assisted-carrier-recombination",
+      "nearest_existing_keys": [
+        "auger-nonradiative-carrier-recombination",
+        "thermal-carrier-generation-dark-current",
+        "persistent-luminescence"
+      ],
+      "mechanism_boundary": "제삼 운반자에 에너지를 주는 오제 경로나 트랩의 지연 발광과 달리 갭 내부 준위의 연속 포획이 전자·정공을 소거한다."
+    },
+    {
+      "key": "fermi-surface-lifshitz-connectivity-transition",
+      "nearest_existing_keys": [
+        "semiconductor-doping",
+        "size-quantized-electronic-confinement",
+        "time-reversal-helical-edge-transport"
+      ],
+      "mechanism_boundary": "단순 운반자 농도 변화나 위상 절연체 경계 상태와 달리 페르미 에너지에서 등에너지면의 연결성이 바뀌는 전자 전이이다."
+    },
+    {
+      "key": "collisionless-fermi-surface-zero-sound",
+      "nearest_existing_keys": [
+        "phonon-hydrodynamic-second-sound",
+        "landau-resonant-wave-particle-transfer",
+        "pauli-degeneracy-quantum-pressure"
+      ],
+      "mechanism_boundary": "운동량 보존 포논 충돌에 기대는 열파와 달리 충돌이 드문 페르미 분포의 상호작용 복원력이 밀도파를 전달한다."
+    },
+    {
+      "key": "photon-angular-momentum-mechanical-torque",
+      "nearest_existing_keys": [
+        "optical-tweezers",
+        "inverse-faraday-optical-magnetization",
+        "spin-transfer-torque",
+        "einstein-de-haas-spin-mechanical-transfer"
+      ],
+      "mechanism_boundary": "광장 구배의 위치 포획이나 원편광 유도 자화와 달리 광장의 각운동량 감소가 물체 전체의 기계적 회전으로 전달된다."
+    },
+    {
+      "key": "interacting-floquet-discrete-time-crystal",
+      "nearest_existing_keys": [
+        "discrete-spectrum-wavepacket-revival",
+        "phase-locked-oscillator-synchronization",
+        "digital-frequency-division"
+      ],
+      "mechanism_boundary": "우연한 위상 재생이나 회로의 지정 분주와 달리 다체 상호작용이 시간 병진 대칭을 깨는 섭하모닉 응답의 강건성을 만든다."
+    },
+    {
+      "key": "positive-momentum-quantum-probability-backflow",
+      "nearest_existing_keys": [
+        "wave-interference",
+        "dirac-branch-interference-trembling-motion",
+        "electron-tunneling"
+      ],
+      "mechanism_boundary": "음의 운동량이나 다른 디랙 에너지 가지 없이도 동일 방향 운동량 성분의 간섭이 국소 확률 전류의 부호를 뒤집는다."
+    },
+    {
+      "key": "energy-selective-trap-escape-evaporative-cooling",
+      "nearest_existing_keys": [
+        "evaporative-cooling",
+        "doppler-laser-cooling",
+        "resolved-sideband-motional-cooling"
+      ],
+      "mechanism_boundary": "액체의 기화 잠열이나 광자 반동 냉각과 달리 기체 포획 에너지 필터로 뜨거운 원자를 제거한 뒤 충돌로 재평형화한다."
+    }
+  ],
+  "evidence": [
+    {
+      "keys": [
+        "selective-optical-pumping-population-redistribution"
+      ],
+      "source_title": "Cohen-Tannoudji author archive · Optical Pumping, Principles of Optical Pumping",
+      "url": "https://www.phys.ens.psl.eu/~cct/articles/petits-manuscrits/optical-pumping-1966.pdf",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn599search16",
+      "verbatim_excerpt": "In this manner, the population ratio of levels A and C is changed",
+      "read_note": "Indexed author-archive section; direct PDF open failed because content length exceeded tool limit."
+    },
+    {
+      "keys": [
+        "nonreciprocal-hopping-skin-localization"
+      ],
+      "source_title": "Nature Communications · Universal non-Hermitian skin effect in two and higher dimensions",
+      "url": "https://www.nature.com/articles/s41467-022-30161-6",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn559search4",
+      "verbatim_excerpt": "an extensive number of eigenstates of a non-Hermitian Hamiltonian are localized at the end(s) of the chain.",
+      "read_note": "Indexed original-paper abstract and introductory definition; no claim of full-paper read."
+    },
+    {
+      "keys": [
+        "periodic-drive-coherent-tunneling-suppression"
+      ],
+      "source_title": "Physical Review Letters · Coherent destruction of tunneling",
+      "url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.67.516",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn559search1",
+      "verbatim_excerpt": "for specific parameter values of the driving force, we find almost complete localization of the wave packet in one of the wells.",
+      "read_note": "Indexed original abstract; theoretical numerical result."
+    },
+    {
+      "keys": [
+        "adiabatic-cycle-thouless-quantized-transport"
+      ],
+      "source_title": "Physical Review B · Quantization of particle transport",
+      "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.27.6083",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn559search0",
+      "verbatim_excerpt": "in an infinite periodic system with full bands it must have an integer value.",
+      "read_note": "Indexed original abstract; statement limited to full-band adiabatic periodic setting."
+    },
+    {
+      "keys": [
+        "pauli-spin-selection-transport-blockade"
+      ],
+      "source_title": "Science · Current rectification by Pauli exclusion in a weakly coupled double quantum dot system",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12142438/",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn560search2",
+      "verbatim_excerpt": "We observe spin blockade due to Pauli exclusion in the tunneling characteristics of a coupled quantum dot system",
+      "read_note": "PubMed-indexed original Science abstract."
+    },
+    {
+      "keys": [
+        "superconducting-wire-coherent-phase-slip"
+      ],
+      "source_title": "Nature · Coherent quantum phase slip",
+      "url": "https://www.nature.com/articles/nature10930",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn560search0",
+      "verbatim_excerpt": "the former is a coherent transfer of vortices or fluxes across a superconducting wire.",
+      "read_note": "Indexed original Nature abstract."
+    },
+    {
+      "keys": [
+        "fermi-sea-scattering-friedel-oscillation"
+      ],
+      "source_title": "Nature · Imaging standing waves in a two-dimensional electron gas",
+      "url": "https://www.nature.com/articles/363524a0",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn560search1",
+      "verbatim_excerpt": "These spatial oscillations are quantum-mechanical interference patterns caused by scattering of the two-dimensional electron gas off step edges and point defects.",
+      "read_note": "Indexed original Nature abstract; experiment images local density of states, not directly total integrated charge density."
+    },
+    {
+      "keys": [
+        "sudden-quench-fermi-orthogonality-response"
+      ],
+      "source_title": "Nature · Quantum quench of Kondo correlations in optical absorption",
+      "url": "https://www.nature.com/articles/nature10204",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn560search7",
+      "verbatim_excerpt": "induced by a vanishing overlap between the initial and final many-body wavefunctions.",
+      "read_note": "Indexed original abstract; direct publisher open failed with redirect."
+    },
+    {
+      "keys": [
+        "quantum-fluctuation-stabilized-self-bound-droplet"
+      ],
+      "source_title": "Science · Quantum liquid droplets in a mixture of Bose-Einstein condensates",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29242233/",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn567search3",
+      "verbatim_excerpt": "We show that the droplets are stablized against collapse by quantum fluctuations",
+      "read_note": "PubMed-indexed Science abstract; source spelling preserved."
+    },
+    {
+      "keys": [
+        "one-dimensional-hardcore-boson-fermionization"
+      ],
+      "source_title": "Nature · Tonks–Girardeau gas of ultracold atoms in an optical lattice",
+      "url": "https://www.nature.com/articles/nature02530",
+      "read_scope": "publisher_abstract",
+      "tool_reference": "turn589view1",
+      "verbatim_excerpt": "In order to minimize their mutual repulsion, the bosons are prevented from occupying the same position in space.",
+      "read_note": "Publisher abstract opened; lines42-44 read."
+    },
+    {
+      "keys": [
+        "integrability-conserved-rapidities-delayed-thermalization"
+      ],
+      "source_title": "Nature · A quantum Newton's cradle",
+      "url": "https://doi.org/10.1038/nature04693",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn567search0",
+      "verbatim_excerpt": "A few complex systems have been proposed that are expected not to thermalize because their dynamics are integrable",
+      "read_note": "Indexed original Nature abstract; supplemented by author's APS conference abstract below."
+    },
+    {
+      "keys": [
+        "attractive-potential-quantum-reflection"
+      ],
+      "source_title": "Physical Review Letters · Quantum Reflection from a Solid Surface at Normal Incidence",
+      "url": "https://www.rle.mit.edu/cua_pub/ketterle_group/Theses/Pasquini_Thesis.pdf",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn570search12",
+      "verbatim_excerpt": "Quantum reflection is a process in which a particle reflects from a potential without reaching a classical turning point.",
+      "read_note": "Indexed original PRL text reproduced in author's MIT thesis."
+    },
+    {
+      "keys": [
+        "finite-electronic-density-quantum-capacitance"
+      ],
+      "source_title": "Applied Physics Letters · Quantum capacitance devices",
+      "url": "https://www.ece.stonybrook.edu/~serge/63.pdf",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn570search14",
+      "verbatim_excerpt": "a 2DEG manifests itself as a capacitor in series",
+      "read_note": "Indexed author's original APL paper; source also explains Pauli filling energy."
+    },
+    {
+      "keys": [
+        "helium-mixture-dilution-enthalpy-cooling"
+      ],
+      "source_title": "NBS Technical Note 362 · Thermodynamic properties of He3-He4 solutions with applications to the He3-He4 dilution refrigerator",
+      "url": "https://trc.nist.gov/cryogenics/Papers/Dilution_Refrigerators/1967-Thermodynamic_Properties_of_He3-He4_Solutions_with_Applications_to_DR.pdf",
+      "read_scope": "reference_section",
+      "tool_reference": "turn598view0",
+      "verbatim_excerpt": "In so doing the He absorbs heat if the tempera",
+      "read_note": "Opened NBS section3.3, PDF33, lines893-898. Short raw OCR substring retained without silently repairing line-end hyphenation."
+    },
+    {
+      "keys": [
+        "photon-linear-momentum-radiation-pressure"
+      ],
+      "source_title": "Physical Review Letters · Acceleration and trapping of particles by radiation pressure",
+      "url": "https://www.uni-ulm.de/fileadmin/website_uni_ulm/nawi.inst.220/lehre/HauptSem_WS2007/1970_ashkin.pdf",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn576search12",
+      "verbatim_excerpt": "acceleration of freely suspended particles by the forces of radiation pressure from cw visible laser light.",
+      "read_note": "Indexed original PRL paper copy; distinguishes scattering/absorption momentum from gradient trapping."
+    },
+    {
+      "keys": [
+        "interband-position-shift-photocurrent"
+      ],
+      "source_title": "Physical Review B · Anomalous shift and optical vorticity in the steady photovoltaic current",
+      "url": "https://doi.org/10.1103/PhysRevB.110.115108",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn576search1",
+      "verbatim_excerpt": "real-space displacements (“shifts”) of charged quasiparticles as they transit between Bloch states.",
+      "read_note": "Indexed original PRB abstract; no general efficiency claim."
+    },
+    {
+      "keys": [
+        "gravitational-potential-clock-rate-shift",
+        "kinematic-proper-time-dilation"
+      ],
+      "source_title": "Science · Optical Clocks and Relativity",
+      "url": "https://doi.org/10.1126/science.1192720",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn576search0",
+      "verbatim_excerpt": "Observers in relative motion or at different gravitational potentials measure disparate clock rates.",
+      "read_note": "One shared excerpt for both proper-time mechanisms; indexed original Science abstract."
+    },
+    {
+      "keys": [
+        "fermi-surface-screening-kohn-phonon-anomaly"
+      ],
+      "source_title": "Physical Review Letters · Kohn Anomalies and Electron-Phonon Interactions in Graphite",
+      "url": "https://www-g.eng.cam.ac.uk/nms/publications/pdf/Piscanec_PRL2004.pdf",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn586search12",
+      "verbatim_excerpt": "The anomalies are revealed by two sharp kinks.",
+      "read_note": "Indexed original PRL paper in authors' Cambridge archive; original paper derives electron-phonon coupling relation."
+    },
+    {
+      "keys": [
+        "relativistic-electron-inertia-plasma-transparency"
+      ],
+      "source_title": "Nature Physics · Dynamics of relativistic transparency and optical shuttering in expanding overdense plasmas",
+      "url": "https://www.nature.com/articles/nphys2390",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn581search1",
+      "verbatim_excerpt": "when the light is of sufficient intensity to drive electrons in the plasma to near light speeds, the plasma becomes transparent.",
+      "read_note": "Indexed original Nature Physics abstract; associated figure3 identifies density and Lorentz-gamma evolution."
+    },
+    {
+      "keys": [
+        "wall-loss-flux-balanced-plasma-sheath"
+      ],
+      "source_title": "IEEE Transactions on Plasma Science · Floating Sheath Potentials in Non-Maxwellian Plasmas",
+      "url": "https://cpseg.eecs.umich.edu/pub/articles/tps_13_6_1985.pdf",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn599search11",
+      "verbatim_excerpt": "This expression is derived by equating the flux of electrons and ions to a surface in the plasma.",
+      "read_note": "Indexed original IEEE paper on author's institutional server. Direct PDF was opened, but source text supporting card retained as indexed excerpt."
+    },
+    {
+      "keys": [
+        "velocity-dependent-collisional-runaway-acceleration"
+      ],
+      "source_title": "Physical Review · Electron and Ion Runaway in a Fully Ionized Gas. II",
+      "url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.117.329",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn581search0",
+      "verbatim_excerpt": "flow of particles from the collision-dominated to the electric-field-dominated region of velocity space.",
+      "read_note": "Indexed original Physical Review abstract; standard collisional kinetic model, no unlimited-energy claim."
+    },
+    {
+      "keys": [
+        "photocharge-redistribution-refractive-index-writing"
+      ],
+      "source_title": "Optics Letters · Photorefraction-induced Bragg scattering in cryogenic lithium niobate ring resonators",
+      "url": "https://opg.optica.org/ol/abstract.cfm?uri=ol-46-2-432",
+      "read_scope": "publisher_abstract",
+      "tool_reference": "turn635view2",
+      "verbatim_excerpt": "the PR effect imprints a long-lived periodic space-charge field.",
+      "read_note": "Publisher abstract opened at lines273-275; illumination-to-charge-to-index mechanism."
+    },
+    {
+      "keys": [
+        "bandgap-trap-assisted-carrier-recombination"
+      ],
+      "source_title": "Physical Review · Statistics of the Recombinations of Holes and Electrons",
+      "url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.87.835",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn584search0",
+      "verbatim_excerpt": "the recombination occurs through the mechanism of trapping.",
+      "read_note": "Indexed original Physical Review abstract; explicitly describes bandgap trap energy."
+    },
+    {
+      "keys": [
+        "fermi-surface-lifshitz-connectivity-transition"
+      ],
+      "source_title": "npj Quantum Materials · Direct observation of a uniaxial stress-driven Lifshitz transition in Sr2RuO4",
+      "url": "https://www.nature.com/articles/s41535-019-0185-9",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn631search0",
+      "verbatim_excerpt": "changing the Fermi surface topology in what is often referred to as a Lifshitz transition.",
+      "read_note": "Indexed original paper introduction and Results; not a symmetry-protected edge-state claim."
+    },
+    {
+      "keys": [
+        "collisionless-fermi-surface-zero-sound"
+      ],
+      "source_title": "Annalen der Physik · Density Modulations of Zero Sound",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202500478",
+      "read_scope": "reference_section",
+      "tool_reference": "turn635view1",
+      "verbatim_excerpt": "This longitudinal wave is called zero sound and it is generally detected at very low temperatures",
+      "read_note": "Opened original research article introduction lines91-108; retained excerpt shortened below."
+    },
+    {
+      "keys": [
+        "photon-angular-momentum-mechanical-torque"
+      ],
+      "source_title": "Optics Letters · Mechanical equivalence of spin and orbital angular momentum of light: an optical spanner",
+      "url": "https://opg.optica.org/ol/abstract.cfm?uri=ol-22-1-52",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn586search0",
+      "verbatim_excerpt": "demonstrate the transfer of the orbital angular momentum of a laser mode to a trapped particle.",
+      "read_note": "Indexed original Optics Letters abstract."
+    },
+    {
+      "keys": [
+        "interacting-floquet-discrete-time-crystal"
+      ],
+      "source_title": "Nature · Observation of a discrete time crystal",
+      "url": "https://www.nature.com/articles/nature21413",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn584search1",
+      "verbatim_excerpt": "observe a subharmonic temporal response that is robust to external perturbations.",
+      "read_note": "Indexed original Nature abstract; finite-time driven experiment."
+    },
+    {
+      "keys": [
+        "positive-momentum-quantum-probability-backflow"
+      ],
+      "source_title": "Physical Review A · Equivalence between quantum backflow and classically forbidden probability flow in a diffraction-in-time problem",
+      "url": "https://journals.aps.org/pra/abstract/10.1103/PhysRevA.99.043626",
+      "read_scope": "publisher_abstract",
+      "tool_reference": "turn601view2",
+      "verbatim_excerpt": "a matter-wave packet comprised of only plane waves with non-negative momenta exhibits negative probability flux.",
+      "read_note": "Publisher abstract opened at line92. This card is explicitly theoretical."
+    },
+    {
+      "keys": [
+        "energy-selective-trap-escape-evaporative-cooling"
+      ],
+      "source_title": "Physical Review Letters · Evaporative Cooling of Sodium Atoms",
+      "url": "https://www.rle.mit.edu/cua_pub/ketterle_group_old/Projects_1995/Pub_95/davi95-PRL05202-evap.pdf",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn599search14",
+      "verbatim_excerpt": "Evaporative cooling requires the selective removal of the most energetic atoms from the trap.",
+      "read_note": "Indexed original MIT-hosted PRL text; same retrieved passage states subsequent rethermalization. Direct PDF open failed."
+    },
+    {
+      "keys": [
+        "integrability-conserved-rapidities-delayed-thermalization"
+      ],
+      "source_title": "APS DAMOP 2006 · A quantum Newton's cradle (Toshiya Kinoshita)",
+      "url": "https://meetings.aps.org/Meeting/DAMOP06/Session/K1.2",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn599search1",
+      "verbatim_excerpt": "they do not reach equilibrium even after each atom has undergone thousands of collisions.",
+      "read_note": "Author conference abstract explicitly contrasts rapid3D thermalization and onset of thermalization when intertube tunneling is enabled."
+    },
+    {
+      "keys": [
+        "relativistic-electron-inertia-plasma-transparency"
+      ],
+      "source_title": "APS author press-release · Relativistic transparency",
+      "url": "https://higherlogicdownload.s3.amazonaws.com/APS/b702bb59-ce08-4ebc-b70c-ab50811fa080/UploadedImages/documents/hp-palaniyappan.pdf",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn631search15",
+      "verbatim_excerpt": "the mass of the electrons increases, making them “heavier.”",
+      "read_note": "Supplementary author-attributed official APS communication supporting relativistic inertia explanation; catalog anchor remains original Nature Physics paper."
+    }
+  ],
+  "exclusions": [
+    {
+      "candidate": "Aharonov–Bohm / Aharonov–Casher phase",
+      "related": [
+        "geometric-state-path-phase"
+      ],
+      "decision": "제외",
+      "reason": "자기장 없는 경로의 게이지 위상은 흥미롭지만 현 단계에서 기존 기하 위상 부모와 충분히 독립된 카드 경계를 확신하지 못했다."
+    },
+    {
+      "candidate": "Rotating-body Zel'dovich amplification",
+      "related": [
+        "electromagnetic-induction",
+        "eddy-current-damping"
+      ],
+      "decision": "제외",
+      "reason": "검토한2024원논문은 유도 발전기와의 물리적 연결을 명시한다. 역슬립 전력 전달의 이름만 바꾼 중복 위험 때문에 제외.",
+      "url": "https://www.nature.com/articles/s41467-024-49689-w",
+      "read_scope": "stored_search_excerpt",
+      "tool_reference": "turn567search2",
+      "verbatim_excerpt": "these results show an unexpected connection between the Zel’dovich effect and induction generators"
+    },
+    {
+      "candidate": "Rabi oscillation in driven two-level atom",
+      "related": [
+        "coherent-emitter-cavity-excitation-exchange",
+        "autler-townes-dressed-state-splitting"
+      ],
+      "decision": "제외",
+      "reason": "구동장 종류를 바꾼 결맞은 여기 교환 변형으로 보일 수 있어 제외."
+    },
+    {
+      "candidate": "Coherent population trapping / electromagnetically induced absorption",
+      "related": [
+        "electromagnetically-induced-transparency",
+        "dark-state-adiabatic-population-transfer"
+      ],
+      "decision": "제외",
+      "reason": "암상태·전이 경로 간섭의 점유나 관측 출력만 바꾸는 분할을 피했다."
+    },
+    {
+      "candidate": "Lamb–Dicke recoil suppression",
+      "related": [
+        "mossbauer-recoilless-nuclear-resonance",
+        "resolved-sideband-motional-cooling"
+      ],
+      "decision": "제외",
+      "reason": "구속 반동 억제라는 기존 메커니즘과 겹쳐 원자종 변경만으로 새 카드를 만들지 않았다."
+    },
+    {
+      "candidate": "Magnetic mirror / RF Paul pseudopotential confinement",
+      "related": [
+        "magnetic-plasma-confinement",
+        "oscillatory-field-ponderomotive-force"
+      ],
+      "decision": "제외",
+      "reason": "기존 궤도 구속 및 빠른 진동장 평균힘 메커니즘의 구현이다."
+    },
+    {
+      "candidate": "Normal/anomalous electromagnetic skin effect",
+      "related": [
+        "electromagnetic-shielding",
+        "lamination-eddy-current-suppression",
+        "electromagnetic-induction"
+      ],
+      "decision": "보류",
+      "reason": "전자기 확산과 비국소 수송의 독립 경계를 추가 검토할 여지가 있으나 이번 배치에 넣지 않았다."
+    },
+    {
+      "candidate": "Schottky lowering / field emission variant",
+      "related": [
+        "poole-frenkel-field-assisted-detrapping",
+        "electron-tunneling",
+        "thermionic-emission"
+      ],
+      "decision": "제외",
+      "reason": "장벽 형태·위치만 달라지는 변형을 확실한 신규 메커니즘으로 계산하지 않았다."
+    },
+    {
+      "candidate": "Bosonic stimulation / atomic paired superfluid / exciton-polariton splitting",
+      "related": [
+        "stimulated-emission",
+        "superconductivity",
+        "coherent-emitter-cavity-excitation-exchange"
+      ],
+      "decision": "제외",
+      "reason": "입자·호스트 변경 위주의 기존 효과 변형을 피했다."
+    },
+    {
+      "candidate": "Many-body localization / weak localization / coherent backscattering",
+      "related": [
+        "disorder-interference-anderson-localization"
+      ],
+      "decision": "제외",
+      "reason": "무질서 경로 간섭으로 이동을 억제하는 기존 부모 효과와의 경계가 약하다."
+    },
+    {
+      "candidate": "Schwinger vacuum pair production / vacuum birefringence",
+      "related": [
+        "photon-electron-positron-pair-creation",
+        "electric-kerr-effect"
+      ],
+      "decision": "보류",
+      "reason": "검증 범위·실험 상태 및 기존 부모 차이를 더 조사해야 하므로 이론 효과 숫자 늘리기에 사용하지 않았다."
+    }
+  ],
+  "limitations": [
+    "양자 확률 역류 카드는 원논문 초록에 근거한 이론 효과로 명시했다. 물질파 실험 검증을 주장하지 않는다.",
+    "전자 상태 채움에 따른 양자 정전용량은 기존 축퇴 압력과 파울리 배타성의 뿌리를 공유하지만 전하-화학퍼텐셜 응답이라는 독립 경계를 기록했다.",
+    "두 시계 카드는 각각 중력 퍼텐셜과 속도에 의한 고유시간 변화다. 전파 도플러 및 사냐크와의 혼동을 경계했다.",
+    "프리델 카드의 직접 관측 근거는 에너지별 국소 상태 밀도이다. 통합 전하 밀도를 직접 촬영했다고 주장하지 않는다.",
+    "비에르미트 표피 효과·시간결정·상대론적 투명화의 존재를 모든 손실계·모든 구동계·모든 고밀도 플라스마에 일반화하지 않는다.",
+    "국소 트랩 재결합은 기존 암전류 생성의 역과정과 관련되지만 순차 포획 경유라는 명시적 재결합 경로를 정의했다."
+  ],
+  "final_acceptance_note": "Consult campaign-merge-decisions-2026-09-26.json and the canonical catalog. Authored candidate counts here precede final cross-review."
+}

@@ -1,0 +1,616 @@
+{
+  "batch": "additions-2026-09-26-25.tsv",
+  "researched_at": "2026-09-26",
+  "agent": "effects_information",
+  "count": 30,
+  "inference_policy": {
+    "mode": "conversation_only",
+    "external_llm_calls": false,
+    "method": "대화 내 직접 추론과 web 검색·공개 문헌 열람으로 수동 조사·편집. 설치 및 공유 파일 변경 없음."
+  },
+  "comparison_scope": [
+    "pilot/research/effects/catalog.tsv group 19",
+    "additions-2026-09-26-17.tsv",
+    "additions-2026-09-26-21.tsv"
+  ],
+  "scope_note": "reference_section은 여기 적힌 절/수식/문서 항목을 열람했다는 뜻이며 논문 전체 검증을 뜻하지 않는다. stored_search_excerpt는 검색 도구가 반환한 원문 발췌를 근거로 사용했다. 핵심 조건과 경계는 발췌 및 수학적 정의를 바탕으로 대화 내 작성했다.",
+  "records": [
+    {
+      "key": "multipole-local-expansion-interaction-summation",
+      "group": 19,
+      "name_ko": "다중극·국소 전개의 원거리 상호작용 합산",
+      "source_title": "Greengard and Rokhlin · A Fast Algorithm for Particle Simulations",
+      "source_url": "https://web.stanford.edu/class/cme324/classics/greengard-rokhlin.pdf",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "The algorithm we present uses multipole expansions to compute potentials or forces to whatever precision is required",
+      "inspected_location": "Section 2 introduction and Section 3 algorithm search excerpts",
+      "web_trace": "turn555search13",
+      "related_existing_keys": [
+        "hierarchical-spatial-partition",
+        "transform-domain-convolution"
+      ],
+      "mechanism_boundary_ko": "공간을 나누는 것 자체나 전역 푸리에 곱셈과 달리 먼 집단의 장을 전개 계수로 합치고 이동시킨다.",
+      "support_summary_ko": "멀리 떨어진 입자 집단의 효과를 다중극 전개로 묶고 계층적으로 국소 전개에 전달하여 모든 쌍을 직접 계산하는 비용을 줄인다.",
+      "conditions_ko": "전개 가능한 상호작용 커널·공간 분리 기준·전개 차수·요구 오차·근접 상호작용 직접 처리를 확인한다."
+    },
+    {
+      "key": "outward-rounded-interval-enclosure",
+      "group": 19,
+      "name_ko": "바깥쪽 반올림의 구간 포함 연산",
+      "source_title": "Boost · Interval Arithmetic Library",
+      "source_url": "https://live.boost.org/doc/libs/1_68_0/libs/numeric/interval/doc/interval.htm",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "The fundamental property of interval arithmetic is the inclusion property",
+      "inspected_location": "Interval Arithmetic; rounding requirements",
+      "web_trace": "turn572search4",
+      "related_existing_keys": [
+        "range-adaptive-arithmetic-precision",
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "mechanism_boundary_ko": "표현 비트 수 선택이나 확률 표집이 아니라 가능한 모든 입력값의 결과를 포함하는 수치 경계를 전파한다.",
+      "support_summary_ko": "입력을 가능한 값의 구간으로 나타내고 하한은 아래로 상한은 위로 반올림하여 연산 결과가 참값의 가능한 범위를 포함하게 한다.",
+      "conditions_ko": "입력 범위·방향 반올림 지원·정의역·0을 포함한 나눗셈·같은 변수의 반복에 따른 과대평가를 확인한다."
+    },
+    {
+      "key": "distance-probability-stochastic-rounding",
+      "group": 19,
+      "name_ko": "거리 비례 확률 반올림의 평균 오차 억제",
+      "source_title": "Croci et al. · Stochastic Rounding: Implementation, Error Analysis, and Applications",
+      "source_url": "https://eprints.maths.manchester.ac.uk/2836/1/cfhm21.pdf",
+      "source_scope": "reference_section",
+      "excerpt": "a probability that depends on the distances to those numbers",
+      "inspected_location": "Section 2, equations (2.1)-(2.2), PDF page 2",
+      "web_trace": "turn592view0",
+      "related_existing_keys": [
+        "range-adaptive-arithmetic-precision",
+        "deterministic-pseudorandom-generation"
+      ],
+      "mechanism_boundary_ko": "비트폭 확대나 난수 생성 자체가 아니라 인접 수 선택 확률로 반올림의 조건부 평균을 보존한다.",
+      "support_summary_ko": "인접한 두 표현 가능 수까지의 거리에 따라 올림·내림 확률을 정해 반올림 기댓값을 원래 값과 맞추고 작은 누적 갱신의 정체를 완화한다.",
+      "conditions_ko": "유한 입력 범위·확률 구현 정밀도·난수 상관·오버플로·반복별 변동을 확인한다. 각 계산의 오차 감소를 보장하지 않는다."
+    },
+    {
+      "key": "roundoff-residual-compensated-summation",
+      "group": 19,
+      "name_ko": "반올림 잔차 재누적의 보상 합산",
+      "source_title": "Ogita et al. · Accurate Sum and Dot Product",
+      "source_url": "https://www.tuhh.de/ti3/paper/rump/OgRuOi05.pdf",
+      "source_scope": "reference_section",
+      "excerpt": "Here, a cleverly designed correction term is used to improve the result.",
+      "inspected_location": "Introduction; Algorithms 1.1 and 4.1",
+      "web_trace": "turn592view1",
+      "related_existing_keys": [
+        "range-adaptive-arithmetic-precision",
+        "sigma-delta-quantization-noise-shaping"
+      ],
+      "mechanism_boundary_ko": "표현 폭 조절이나 오차의 주파수 이동과 달리 각 덧셈의 수치 잔차를 보존해 최종 합을 보정한다.",
+      "support_summary_ko": "부동소수점 덧셈에서 빠진 낮은 자리의 잔차를 별도로 계산·누적하고 합에 다시 반영하여 총 반올림 오차를 줄인다.",
+      "conditions_ko": "잔차 복원에 맞는 연산 순서·반올림 모드·오버플로·조건수·컴파일러 재결합을 확인한다."
+    },
+    {
+      "key": "step-size-leading-error-extrapolation",
+      "group": 19,
+      "name_ko": "간격별 선도 오차 상쇄의 리처드슨 외삽",
+      "source_title": "NASA · Examining Spatial (Grid) Convergence: Richardson Extrapolation",
+      "source_url": "https://www.grc.nasa.gov/www/wind/valid/tutorial/spatconv.html",
+      "source_scope": "reference_section",
+      "excerpt": "Richardson extrapolation is a method for obtaining a higher-order estimate of the continuum value",
+      "inspected_location": "Richardson Extrapolation section",
+      "web_trace": "turn588view0",
+      "related_existing_keys": [
+        "multigrid-scale-separated-error-correction",
+        "spatial-neighbor-interpolation"
+      ],
+      "mechanism_boundary_ko": "격자 간 잔차 보정이나 관측점 사이 보간과 달리 간격에 따른 오차 전개를 상쇄하여 연속 극한을 추정한다.",
+      "support_summary_ko": "서로 다른 이산화 간격에서 얻은 근삿값을 알려진 오차 차수에 맞게 결합해 선도 오차항을 상쇄하고 간격이 0인 극한값을 추정한다.",
+      "conditions_ko": "점근 수렴 영역·실제 오차 차수·동일 문제·간격 비·불연속·반올림 오차 증폭을 확인한다."
+    },
+    {
+      "key": "tangent-linearized-newton-root-iteration",
+      "group": 19,
+      "name_ko": "접선 선형화의 뉴턴 영점 반복",
+      "source_title": "SciPy · scipy.optimize.newton",
+      "source_url": "https://docs.scipy.org/doc/scipy-1.10.0/reference/generated/scipy.optimize.newton.html",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "The Newton-Raphson method is used if the derivative fprime of func is provided",
+      "inspected_location": "Description and Notes",
+      "web_trace": "turn557search0",
+      "related_existing_keys": [
+        "coordinatewise-local-search",
+        "krylov-subspace-residual-solution"
+      ],
+      "mechanism_boundary_ko": "좌표별 목적값 시험이나 선형계 부분공간 확장과 달리 함수의 국소 미분으로 비선형 영점 갱신량을 정한다.",
+      "support_summary_ko": "현재 지점의 함수값과 미분으로 접선을 만들고 그 접선의 영점을 다음 지점으로 삼아 비선형 방정식의 해를 반복 근사한다.",
+      "conditions_ko": "미분 가능성·영점 근처 초기값·작은 도함수·중근·정지 기준과 실제 잔차를 확인한다. 전역 수렴은 보장되지 않는다."
+    },
+    {
+      "key": "homotopy-continuous-solution-path-tracking",
+      "group": 19,
+      "name_ko": "연속 문제 변형의 해 경로 추적",
+      "source_title": "Duff · Introduction to homotopy continuation",
+      "source_url": "https://homotopycontinuation.github.io/tutorial/tim-HCtut.pdf",
+      "source_scope": "reference_section",
+      "excerpt": "Numerical Integration via Predictor/Corrector",
+      "inspected_location": "Parameter homotopy and path tracking, PDF pages 21-22; caveats pages 29-32",
+      "web_trace": "turn618view1",
+      "related_existing_keys": [
+        "coordinatewise-local-search",
+        "annealed-uphill-stochastic-search"
+      ],
+      "mechanism_boundary_ko": "고정 문제의 국소 탐색이나 확률적 장벽 통과와 달리 문제 자체의 연속 변형을 따라 해의 가지를 추적한다.",
+      "support_summary_ko": "해를 아는 방정식에서 목표 방정식까지 매개변수를 연속적으로 바꾸고 각 단계의 해를 예측·보정하여 목표 해로 이어 간다.",
+      "conditions_ko": "시작 해의 완전성·특이점·경로 분기·발산·복소 경로·단계 크기와 최종 잔차를 확인한다."
+    },
+    {
+      "key": "bregman-geometry-mirror-descent",
+      "group": 19,
+      "name_ko": "브레그만 거리 기하의 거울 하강",
+      "source_title": "Beck and Teboulle · Mirror descent and nonlinear projected subgradient methods for convex optimization",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167637702002316",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "using a general distance-like function instead of the usual Euclidean squared distance",
+      "inspected_location": "Abstract; introductory excerpt identifies Bregman-like distance",
+      "web_trace": "turn558search5",
+      "related_existing_keys": [
+        "coordinatewise-local-search",
+        "augmented-lagrangian-splitting-coordination"
+      ],
+      "mechanism_boundary_ko": "좌표별 시험이나 분할 문제의 승수 조정과 달리 비유클리드 거리로 한 단계의 이동 기하를 정한다.",
+      "support_summary_ko": "목적함수의 국소 선형 근사와 선택한 브레그만 거리 벌점을 함께 최소화하여 제약 영역의 기하에 맞는 반복 갱신을 만든다.",
+      "conditions_ko": "볼록성·거울 함수의 강볼록성·정의역·단계 크기·기울기 경계와 제약 투영의 계산 가능성을 확인한다."
+    },
+    {
+      "key": "complementary-clause-resolution-refutation",
+      "group": 19,
+      "name_ko": "상보 리터럴 소거의 논리 반박 증명",
+      "source_title": "Robinson · A Machine-Oriented Logic Based on the Resolution Principle",
+      "source_url": "https://web.stanford.edu/class/linguist289/robinson65.pdf",
+      "source_scope": "reference_section",
+      "excerpt": "whose respective members form a complementary pair",
+      "inspected_location": "Section 2.19 ground resolvents; clause refutation development",
+      "web_trace": "turn592view3",
+      "related_existing_keys": [
+        "bayesian-network-inference",
+        "branch-bound-relaxation-pruning"
+      ],
+      "mechanism_boundary_ko": "확률 갱신이나 비용 경계 가지치기가 아니라 논리적으로 함의되는 절을 도출하여 반례 가정의 모순을 증명한다.",
+      "support_summary_ko": "두 논리 절에서 서로 부정 관계인 리터럴을 소거한 결론 절을 반복 도출하고 빈 절에 도달하면 원래 절 집합의 모순을 증명한다.",
+      "conditions_ko": "정확한 절 변환·변수 치환·동일성 처리·탐색 전략과 자원 한계를 확인한다. 일반 일차 논리에서 종료를 보장하지 않는다."
+    },
+    {
+      "key": "syntactic-term-variable-unification",
+      "group": 19,
+      "name_ko": "구조 항의 일관 변수 치환 통일",
+      "source_title": "SWI-Prolog · Special unification and comparison predicates",
+      "source_url": "https://www.swi-prolog.org/pldoc/man?section=unifyspecial",
+      "source_scope": "reference_section",
+      "excerpt": "representing the bindings required to make X and Y equivalent",
+      "inspected_location": "unifiable/3; unify_with_occurs_check/2",
+      "web_trace": "turn596view4",
+      "related_existing_keys": [
+        "finite-state-transducer-decoding",
+        "sequence-alignment"
+      ],
+      "mechanism_boundary_ko": "상태망의 문자열 변환이나 유사 서열 정렬과 달리 중첩 항 구조에서 같은 변수의 치환 제약을 동시에 만족시킨다.",
+      "support_summary_ko": "두 기호 항의 함수 구조를 맞추면서 변수에 일관된 값을 치환해 두 항을 같게 만들거나 구조 충돌로 불가능함을 판정한다.",
+      "conditions_ko": "함수 기호·인수 수·변수 공유·발생 검사·유한 항 또는 순환 항의 의미를 확인한다. 수학적 동치 전체를 판정하지 않는다."
+    },
+    {
+      "key": "abstract-domain-fixed-point-program-analysis",
+      "group": 19,
+      "name_ko": "추상 영역 고정점의 프로그램 성질 추론",
+      "source_title": "Cousot and Cousot · Abstract interpretation: a unified lattice model for static analysis of programs",
+      "source_url": "https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml",
+      "source_scope": "reference_section",
+      "excerpt": "finite fixpoint approximation methods",
+      "inspected_location": "Author summary of sections 7-9",
+      "web_trace": "turn558search0",
+      "related_existing_keys": [
+        "finite-state-transducer-decoding",
+        "branch-bound-relaxation-pruning"
+      ],
+      "mechanism_boundary_ko": "실제 입력열 실행이나 최적화 가지치기 대신 여러 실행을 포함하는 추상 의미와 반복 고정점으로 성질을 도출한다.",
+      "support_summary_ko": "구체적 실행 상태를 부호·범위 등 추상 원소로 보수적으로 옮기고 전이의 추상 연산을 고정점까지 전파해 실행 성질을 추론한다.",
+      "conditions_ko": "추상화의 건전성·전이 보존·확대 연산·종료·거짓 경보·환경 가정을 확인한다. 근사가 정밀하지 않으면 결론이 미정일 수 있다."
+    },
+    {
+      "key": "temporal-product-state-model-checking",
+      "group": 19,
+      "name_ko": "상태 전이와 시간 논리의 모형 검사",
+      "source_title": "Spin · Basic Spin Manual",
+      "source_url": "https://spinroot.com/spin/Man/Manual.html",
+      "source_scope": "reference_section",
+      "excerpt": "The verification is truly exhaustive: it tests all possible event sequences in all possible orders.",
+      "inspected_location": "Exhaustive Search; Digging Deeper",
+      "web_trace": "turn562search0",
+      "related_existing_keys": [
+        "finite-state-transducer-decoding",
+        "distributed-barrier"
+      ],
+      "mechanism_boundary_ko": "입출력열 해독이나 실행 동기화와 달리 가능한 전이 경로를 요구 조건과 대조해 반례 실행을 찾는다.",
+      "support_summary_ko": "시스템 전이와 요구 조건을 표현한 오토마톤을 결합하고 도달 가능한 상태·순환을 탐색해 조건 위반 실행의 존재를 판정한다.",
+      "conditions_ko": "유한 모형·환경·공정성·상태 폭증·완전 탐색 여부를 확인한다. 축약·근사 저장을 쓰면 해당 보장 범위를 따로 평가한다."
+    },
+    {
+      "key": "intermediate-node-network-coding",
+      "group": 19,
+      "name_ko": "중간 노드 정보 결합의 네트워크 부호화",
+      "source_title": "Ahlswede et al. · Network Information Flow",
+      "source_url": "https://web.stanford.edu/class/ee388/REFS/ahlswede2000network.pdf",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "by employing coding at the nodes, which we refer to as network coding, bandwidth can in general be saved",
+      "inspected_location": "Abstract of original paper",
+      "web_trace": "turn562search13",
+      "related_existing_keys": [
+        "multicast-branch-replication",
+        "error-correcting-code",
+        "capacity-cut-flow-duality"
+      ],
+      "mechanism_boundary_ko": "단순 분기 복제나 링크 오류 정정과 달리 중간 노드가 서로 다른 정보 흐름을 결합해 병목 링크를 공유한다.",
+      "support_summary_ko": "중간 노드가 여러 수신 흐름을 부호화하여 결합해 보내고 수신자는 독립된 결합 정보를 모아 원래 흐름을 복원한다.",
+      "conditions_ko": "네트워크 용량·부호 계수·수신 결합의 독립성·동기·손실·오염된 패킷과 부가정보 비용을 확인한다."
+    },
+    {
+      "key": "decoded-waveform-successive-cancellation",
+      "group": 19,
+      "name_ko": "복호 파형 재구성·차감의 순차 간섭 제거",
+      "source_title": "Tse and Viswanath · Fundamentals of Wireless Communications, section 6.1",
+      "source_url": "https://web.stanford.edu/~dntse/papers/book121004.pdf",
+      "source_scope": "reference_section",
+      "excerpt": "reconstruct user 2’s signal and subtract it from the aggregate received signal",
+      "inspected_location": "Section 6.1, PDF page 269",
+      "web_trace": "turn596view3",
+      "related_existing_keys": [
+        "mimo-spatial-multiplexing",
+        "non-gaussian-independent-source-separation",
+        "reference-channel-common-mode-rejection"
+      ],
+      "mechanism_boundary_ko": "공간 채널이나 독립 통계만으로 분리하지 않고 복호한 데이터로 간섭 파형을 재생하여 순차적으로 제거한다.",
+      "support_summary_ko": "중첩 신호 중 하나를 먼저 복호하고 채널을 반영한 파형을 재구성해 수신 신호에서 빼낸 뒤 남은 신호를 차례로 복호한다.",
+      "conditions_ko": "복호 순서·전력·채널 추정·동기·잔여 간섭·첫 단계 오류의 전파를 확인한다."
+    },
+    {
+      "key": "known-state-dirty-paper-precoding",
+      "group": 19,
+      "name_ko": "송신측 간섭 상태 적응의 더티페이퍼 부호화",
+      "source_title": "Costa · Writing on dirty paper",
+      "source_url": "https://www.researchgate.net/publication/3083840_Writing_on_dirty_paper_Corresp",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "the optimal transmitter adapts its signal to the state S rather than attempting to cancel it",
+      "inspected_location": "Author-uploaded paper abstract",
+      "web_trace": "turn562search2",
+      "related_existing_keys": [
+        "feedforward",
+        "keyed-encryption",
+        "mimo-spatial-multiplexing"
+      ],
+      "mechanism_boundary_ko": "외란의 단순 역신호 주입이 아니라 알려진 채널 상태에 조건화한 부호어 선택으로 복호 가능한 정보를 전달한다.",
+      "support_summary_ko": "송신기가 미리 아는 간섭 상태에 맞추어 부호어를 선택하면 수신기가 그 상태를 몰라도 특정 가우스 채널에서 간섭 없는 경우의 용량을 달성할 수 있다.",
+      "conditions_ko": "간섭의 비인과적 송신측 지식·가우스 모형·독립 잡음·전력 제약·긴 부호와 실제 부호화 복잡도를 확인한다."
+    },
+    {
+      "key": "parameter-space-hough-vote-accumulation",
+      "group": 19,
+      "name_ko": "매개변수 공간 누적 투표의 형상 검출",
+      "source_title": "OpenCV · Hough Line Transform",
+      "source_url": "https://docs.opencv.org/4.13.0/d6/d10/tutorial_py_houghlines.html",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "What you actually do is voting the",
+      "inspected_location": "Hough Line Transform accumulator explanation",
+      "web_trace": "turn563search3",
+      "related_existing_keys": [
+        "random-minimal-consensus-robust-fitting",
+        "signal-correlation"
+      ],
+      "mechanism_boundary_ko": "무작위 최소 표본의 모형 가설이나 고정 파형 상관 대신 각 점의 가능한 형상 매개변수를 누적한다.",
+      "support_summary_ko": "각 관측점이 속할 수 있는 직선·곡선의 매개변수 칸에 표를 누적하고 여러 점의 표가 모이는 봉우리에서 공통 형상을 검출한다.",
+      "conditions_ko": "형상 모형·매개변수 범위·격자 해상도·가장자리 검출·배경 투표·차원별 저장 비용을 확인한다."
+    },
+    {
+      "key": "normalized-laplacian-spectral-partition",
+      "group": 19,
+      "name_ko": "정규화 라플라시안 고유벡터의 그래프 분할",
+      "source_title": "Shi and Malik · Normalized Cuts and Image Segmentation",
+      "source_url": "https://people.eecs.berkeley.edu/~malik/papers/SM-ncut.pdf",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "an efficient computational technique based on a generalized eigenvalue problem can be used to optimize this criterion",
+      "inspected_location": "Abstract of original paper; normalized cut relaxation",
+      "web_trace": "turn563search12",
+      "related_existing_keys": [
+        "density-based-clustering",
+        "capacity-cut-flow-duality",
+        "singular-spectrum-low-rank-projection"
+      ],
+      "mechanism_boundary_ko": "밀도 연결·단순 최소 절단·자료 에너지 압축과 달리 집단 연결량으로 정규화한 절단의 스펙트럼 완화를 사용한다.",
+      "support_summary_ko": "연결 유사도로 만든 그래프의 정규화 절단 문제를 고유값 문제로 완화하고 고유벡터의 좌표를 이용해 연결 집단을 나눈다.",
+      "conditions_ko": "유사도·차수·고립 정점·고유값 간격·분할 수·반올림을 확인한다. 이산 최적 절단을 항상 구하지는 않는다."
+    },
+    {
+      "key": "recursive-virtual-control-backstepping",
+      "group": 19,
+      "name_ko": "가상 제어 오차 재귀 확장의 백스테핑",
+      "source_title": "Kokotovic and Krstic · Adaptive Nonlinear Control, section 2 Backstepping",
+      "source_url": "https://www.eolss.net/sample-chapters/c18/e6-43-15-07.pdf",
+      "source_scope": "reference_section",
+      "excerpt": "Both designs are recursive and expand the idea of",
+      "inspected_location": "Section 2 Backstepping, virtual control and augmented Lyapunov equations",
+      "web_trace": "turn618view2",
+      "related_existing_keys": [
+        "lyapunov-descent-stabilizing-control",
+        "negative-feedback"
+      ],
+      "mechanism_boundary_ko": "리아푸노프 감소 조건 자체보다 구체적으로 가상 입력과 추종 오차를 한 상태씩 확장해 제어식을 구성한다.",
+      "support_summary_ko": "하위 계의 상태를 가상 입력으로 삼아 안정화 목표를 정하고 실제 상태와 가상 목표의 오차를 추가하면서 최종 구동 입력까지 재귀적으로 설계한다.",
+      "conditions_ko": "엄격 피드백 구조·상태 관측·가상 입력 미분·모형 정확도·입력 포화와 차수 증가에 따른 계산량을 확인한다."
+    },
+    {
+      "key": "controlled-unitary-eigenphase-estimation",
+      "group": 19,
+      "name_ko": "제어 유니터리 위상 축적의 고유위상 추정",
+      "source_title": "IBM Quantum Learning · The phase-estimation procedure",
+      "source_url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/phase-estimation-and-factoring/phase-estimation-procedure",
+      "source_scope": "reference_section",
+      "excerpt": "when the inverse quantum Fourier transform is applied",
+      "inspected_location": "General phase estimation circuit and equations, Special case",
+      "web_trace": "turn597view0",
+      "related_existing_keys": [
+        "fourier-spectral-decomposition",
+        "quantum-disturbance-key-distribution"
+      ],
+      "mechanism_boundary_ko": "고전 표본의 스펙트럼 계산이나 측정 교란 보안 대신 제어 연산의 위상 되먹임을 측정 가능한 이진 값으로 바꾼다.",
+      "support_summary_ko": "유니터리의 서로 다른 거듭제곱을 제어 적용해 보조 레지스터에 고유위상을 축적하고 역양자 푸리에 변환 후 측정해 위상 수치를 얻는다.",
+      "conditions_ko": "입력의 고유상태 중첩·제어 연산 구현·정밀도에 따른 총 진화 시간·양자 잡음·측정 성공률을 확인한다."
+    },
+    {
+      "key": "two-reflection-quantum-amplitude-amplification",
+      "group": 19,
+      "name_ko": "두 반사의 회전에 의한 양자 탐색 확률 증폭",
+      "source_title": "IBM Quantum Learning · Grover's algorithm",
+      "source_url": "https://quantum.cloud.ibm.com/learning/en/modules/computer-science/grovers",
+      "source_scope": "reference_section",
+      "excerpt": "The combined effect of these two reflections is a rotation",
+      "inspected_location": "Geometric picture, oracle and diffusion reflections",
+      "web_trace": "turn597view1",
+      "related_existing_keys": [
+        "branch-bound-relaxation-pruning",
+        "annealed-uphill-stochastic-search"
+      ],
+      "mechanism_boundary_ko": "경계값 가지치기나 확률적 후보 수락과 달리 진폭의 결맞은 두 반사로 목표 측정 확률을 재분배한다.",
+      "support_summary_ko": "목표 상태의 위상 반전과 준비 상태 축에 대한 반사를 반복하여 상태 벡터를 목표 부분공간 쪽으로 회전시키고 측정 성공 확률을 높인다.",
+      "conditions_ko": "가역 상태 준비·목표 판별 오라클·반복 수·성공 비율·결맞음·전체 오라클 구현 비용을 확인한다."
+    },
+    {
+      "key": "graph-hamiltonian-coherent-quantum-walk",
+      "group": 19,
+      "name_ko": "그래프 해밀토니안의 결맞은 양자 보행",
+      "source_title": "Childs et al. · Exponential algorithmic speedup by quantum walk",
+      "source_url": "https://arxiv.org/pdf/quant-ph/0209131",
+      "source_scope": "reference_section",
+      "excerpt": "the Hamiltonian equal to (a constant multiple of) the adjacency matrix of the graph",
+      "inspected_location": "Quantum walk definition, PDF page 4 equations (3)-(5)",
+      "web_trace": "turn597view2",
+      "related_existing_keys": [
+        "graph-shortest-path",
+        "detailed-balance-markov-sampling",
+        "landau-zener-avoided-crossing-transfer"
+      ],
+      "mechanism_boundary_ko": "확률의 마르코프 전이나 에너지 준위의 단열 이동과 달리 그래프에서 복소 진폭을 유니터리 전파시킨다.",
+      "support_summary_ko": "그래프의 연결을 해밀토니안 행렬 요소로 표현하고 유니터리 시간 진화로 정점 사이 진폭을 전달하여 경로 간 간섭을 이용한다.",
+      "conditions_ko": "그래프 접근 모형·해밀토니안 구현·초기 상태·진화 시간·측정·잡음을 확인한다. 모든 그래프에서 고전 탐색보다 빠르지는 않다."
+    },
+    {
+      "key": "isotropic-probe-quadratic-trace-estimation",
+      "group": 19,
+      "name_ko": "등방 무작위 탐침의 이차형식 대각합 추정",
+      "source_title": "Meyer et al. · Hutch++: Optimal Stochastic Trace Estimation, section 1.1",
+      "source_url": "https://arxiv.org/pdf/2010.09649",
+      "source_scope": "reference_section",
+      "excerpt": "Hutchinson’s original work suggests using random ±1 sign vectors",
+      "inspected_location": "Section 1.1, equation (1); no Hutch++ low-rank algorithm adopted",
+      "web_trace": "turn579view0",
+      "related_existing_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "random-projection-distance-preservation",
+        "singular-spectrum-low-rank-projection"
+      ],
+      "mechanism_boundary_ko": "일반 입력 불확실성 전달·거리 보존·저랭크 절단과 달리 등방 탐침의 이차형식 항등식으로 대각합을 얻는다.",
+      "support_summary_ko": "평균이 0이고 공분산이 단위행렬인 탐침 벡터의 이차형식 기댓값이 행렬 대각합과 같다는 성질로 행렬·벡터 곱만으로 대각합을 추정한다.",
+      "conditions_ko": "탐침 독립성·이차 모멘트·표본 수·비대각 성분에 따른 분산·행렬 곱 정확도를 확인한다."
+    },
+    {
+      "key": "known-mean-correlated-control-variate",
+      "group": 19,
+      "name_ko": "알려진 평균의 상관 보조량으로 표집 분산 감소",
+      "source_title": "Owen · Control variates for quasi-Monte Carlo, section 3",
+      "source_url": "https://artowen.su.domains/reports/qmccv.pdf",
+      "source_scope": "reference_section",
+      "excerpt": "The idea in control variates is to exploit known values",
+      "inspected_location": "Section 3, equations (9)-(11)",
+      "web_trace": "turn592view4",
+      "related_existing_keys": [
+        "importance-density-ratio-sampling",
+        "reference-channel-common-mode-rejection"
+      ],
+      "mechanism_boundary_ko": "제안 분포의 밀도비나 실물 기준 센서 대신 평균이 알려진 확률변수의 중심화 편차로 추정 분산을 줄인다.",
+      "support_summary_ko": "평균을 아는 보조량의 표본 편차를 목표량에서 적절히 빼면 기댓값을 유지하면서 상관된 표집 요동을 상쇄할 수 있다.",
+      "conditions_ko": "알려진 평균의 정확성·상관·계수 선택·유한 분산·같은 표본으로 계수를 맞출 때의 편향을 확인한다."
+    },
+    {
+      "key": "coprime-residue-chinese-remainder-reconstruction",
+      "group": 19,
+      "name_ko": "서로소 나머지 결합의 정수 복원",
+      "source_title": "SageMath · Elements of integers modulo n: crt",
+      "source_url": "https://doc.sagemath.org/html/en/reference/finite_rings/sage/rings/finite_rings/integer_mod.html",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "The modulus of other must be coprime to the modulus of self.",
+      "inspected_location": "crt(other) reference entry",
+      "web_trace": "turn574search1",
+      "related_existing_keys": [
+        "error-correcting-code",
+        "secret-shared-multiparty-computation",
+        "range-adaptive-arithmetic-precision"
+      ],
+      "mechanism_boundary_ko": "오류 중복이나 비밀 분산과 달리 여러 법에서의 정확한 합동 조건을 결합해 큰 정수를 재구성한다.",
+      "support_summary_ko": "서로소 법마다 얻은 정수 나머지를 모아 각 합동식을 만족하는 값을 법들의 곱을 주기로 유일하게 복원한다.",
+      "conditions_ko": "법의 서로소성·정확한 나머지·복원 범위·정수 넘침을 확인한다. 중복 없는 나머지 표현 자체는 오류 정정이나 비밀성을 보장하지 않는다."
+    },
+    {
+      "key": "orthogonal-polynomial-node-gaussian-quadrature",
+      "group": 19,
+      "name_ko": "직교다항식 영점·가중치의 가우스 구적",
+      "source_title": "SciPy · roots_sh_legendre",
+      "source_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.roots_sh_legendre.html",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "These sample points and weights correctly integrate polynomials of degree",
+      "inspected_location": "Description states degree 2n-1 on [0,1] with unit weight",
+      "web_trace": "turn565search0",
+      "related_existing_keys": [
+        "low-discrepancy-quasi-monte-carlo-integration",
+        "basis-function-surface-reconstruction"
+      ],
+      "mechanism_boundary_ko": "점 분포의 균등성이나 함수 표현을 목표로 하지 않고 특정 다항식 공간에 대한 적분 정확 조건으로 점과 가중치를 고른다.",
+      "support_summary_ko": "직교다항식의 영점을 평가점으로 정하고 가중치를 맞추어 n개 함수값으로 2n−1차 이하 다항식의 가중 적분을 정확히 계산한다.",
+      "conditions_ko": "적분 구간·가중 함수·노드 수·매끄러움·특이점·유한 정밀도를 확인한다. 일반 함수나 고차원에서 같은 정확도를 보장하지 않는다."
+    },
+    {
+      "key": "cyclic-string-block-sort-permutation",
+      "group": 19,
+      "name_ko": "순환 문자열 정렬의 가역 문맥 재배열",
+      "source_title": "Burrows and Wheeler · A Block-sorting Lossless Data Compression Algorithm",
+      "source_url": "https://www.cs.jhu.edu/~langmea/resources/burrows_wheeler.pdf",
+      "source_scope": "reference_section",
+      "excerpt": "forming the N rotations (cyclic shifts) of S, sorting them lexicographically",
+      "inspected_location": "Section 1 and Section 2 Algorithm C",
+      "web_trace": "turn575view0",
+      "related_existing_keys": [
+        "dictionary-reference-lossless-compression",
+        "arithmetic-entropy-coding",
+        "bit-interleaving"
+      ],
+      "mechanism_boundary_ko": "문자열 참조나 확률 구간 축소와 달리 원문을 가역적으로 재배열해 같은 문맥의 기호를 모은다.",
+      "support_summary_ko": "문자열의 순환 이동들을 사전순으로 정렬하고 마지막 문자 열과 원문 위치를 기록해 비슷한 문맥의 문자를 모으는 가역 재배열을 만든다.",
+      "conditions_ko": "블록 크기·문자 순서·원문 위치 또는 종결 기호·정렬 메모리·후속 부호화를 확인한다. 재배열 자체는 길이를 줄이지 않는다."
+    },
+    {
+      "key": "multi-hash-counter-minimum-frequency-sketch",
+      "group": 19,
+      "name_ko": "다중 해시 계수 최솟값의 빈도 요약",
+      "source_title": "Cormode and Muthukrishnan · An Improved Data Stream Summary: The Count-Min Sketch and its Applications",
+      "source_url": "https://www.cs.ox.ac.uk/people/graham.cormode/pubs/papers/cm-full.pdf",
+      "source_scope": "reference_section",
+      "excerpt": "counting first and computing the minimum next",
+      "inspected_location": "Sections 3 and 4.1, update equation and minimum estimator",
+      "web_trace": "turn583view1",
+      "related_existing_keys": [
+        "bloom-probabilistic-set-membership",
+        "hash-extreme-statistic-cardinality"
+      ],
+      "mechanism_boundary_ko": "포함 여부 비트나 고유 항목 수 극값 대신 여러 충돌 계수의 최솟값으로 특정 항목의 빈도를 추정한다.",
+      "support_summary_ko": "항목이 들어올 때 여러 해시 위치의 계수를 함께 늘리고 질의 항목의 계수들 중 최솟값을 취해 충돌 과대계수가 적은 빈도를 추정한다.",
+      "conditions_ko": "비음수 빈도·해시 독립성·배열 폭과 깊이·누적량·계수 넘침·삭제 모형을 확인한다. 개별 항목을 모두 열거하지는 못한다."
+    },
+    {
+      "key": "alternate-location-displacement-hashing",
+      "group": 19,
+      "name_ko": "대체 위치 연쇄 이동의 충돌 해소 해싱",
+      "source_title": "Pagh and Rodler · Cuckoo Hashing",
+      "source_url": "https://www.rasmuspagh.net/papers/cuckoo-jour.pdf",
+      "source_scope": "reference_section",
+      "excerpt": "moving the remaining keys in the sequence from one table to the other",
+      "inspected_location": "Section 2 insertion procedure and closed-loop analysis",
+      "web_trace": "turn619view1",
+      "related_existing_keys": [
+        "consistent-hash-stable-partition",
+        "bloom-probabilistic-set-membership"
+      ],
+      "mechanism_boundary_ko": "서버 변화의 재배치 최소화나 확률적 포함 검사와 달리 실제 키의 후보 위치 불변식을 연쇄 이동으로 유지한다.",
+      "support_summary_ko": "각 키의 후보 저장 위치를 두 곳으로 제한하고 삽입 충돌 시 기존 키를 그 키의 다른 후보로 연쇄 이동해 조회 위치 수를 제한한다.",
+      "conditions_ko": "적재율·해시 품질·이동 순환·재해싱·삽입 지연·동시 갱신을 확인한다."
+    },
+    {
+      "key": "representative-path-compression-set-union",
+      "group": 19,
+      "name_ko": "대표 경로 압축의 집합 병합·소속 조회",
+      "source_title": "Princeton Algorithms · UF",
+      "source_url": "https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/UF.html",
+      "source_scope": "stored_search_excerpt",
+      "excerpt": "weighted quick union by rank with path compression by halving",
+      "inspected_location": "UF implementation description; Princeton path-compression lecture also inspected",
+      "web_trace": "turn577search0",
+      "related_existing_keys": [
+        "density-based-clustering",
+        "graph-shortest-path",
+        "cache-reuse-validation"
+      ],
+      "mechanism_boundary_ko": "군집 기준이나 경로 비용 탐색 대신 이미 판정한 동치 집합의 대표 연결을 압축해 반복 조회를 가속한다.",
+      "support_summary_ko": "집합을 대표 루트가 있는 나무로 유지하고 합칠 때 루트를 연결하며 조회한 경로의 부모를 루트 쪽으로 바꾸어 후속 소속 조회를 줄인다.",
+      "conditions_ko": "올바른 루트 연결·크기 또는 랭크 규칙·동시 접근을 확인한다. 기본 구조는 임의 분할·간선 삭제를 지원하지 않는다."
+    },
+    {
+      "key": "marginal-gain-waterfilling-resource-allocation",
+      "group": 19,
+      "name_ko": "한계 이득 균등화의 워터필링 자원 배분",
+      "source_title": "CVXPY · Water Filling in Communications",
+      "source_url": "https://www.cvxpy.org/examples/applications/water_filling_BVex5.2.html",
+      "source_scope": "reference_section",
+      "excerpt": "check that this level is flat where power has been allocated",
+      "inspected_location": "Problem formulation and example after solution",
+      "web_trace": "turn579view3",
+      "related_existing_keys": [
+        "adaptive-modulation-coding",
+        "orthogonal-frequency-multiplexing",
+        "augmented-lagrangian-splitting-coordination"
+      ],
+      "mechanism_boundary_ko": "변조 차수 변경이나 주파수 직교화와 달리 채널별 한계 이득과 공통 문턱으로 제한 전력을 배분한다.",
+      "support_summary_ko": "독립 채널의 오목한 전송률 합을 총전력 제약 아래 최대화할 때 양의 전력을 배정한 채널들의 한계 이득을 같게 하고 나머지는 0으로 둔다.",
+      "conditions_ko": "채널·잡음 정보·분리 가능한 로그 전송률·총전력 제약·음이 아닌 배분을 확인한다. 사용자 간 간섭이나 개별 한계가 있으면 해가 달라진다."
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "candidate": "multilevel Monte Carlo",
+      "reason_ko": "기존 multigrid와 다른 역할은 있으나 새 control-variate 항목의 재귀 구성이라는 경계 중복 위험으로 이번 배치에서 제외.",
+      "support_url": "https://people.maths.ox.ac.uk/gilesm/mlmc.html",
+      "support_excerpt": "a recursive control variate approach"
+    },
+    {
+      "candidate": "quantum adiabatic optimization",
+      "reason_ko": "기존 landau-zener-avoided-crossing-transfer, dark-state-adiabatic-population-transfer, annealed-uphill-stochastic-search와 단열 추종/장벽 탐색 경계가 가까워 제외."
+    },
+    {
+      "candidate": "Aitken acceleration, Romberg subtypes",
+      "reason_ko": "선도 오차/극한 외삽과 중복될 수 있어 Richardson 한 항목으로 제한."
+    },
+    {
+      "candidate": "Hutch++ as separate item",
+      "reason_ko": "기존 low-rank-projection과 새 trace-probe-estimation의 결합이므로 독립 효과로 추가하지 않음. 해당 논문 section 1.1만 일반 Hutchinson 근거로 사용."
+    },
+    {
+      "candidate": "Viterbi and Kalman/particle filtering variants",
+      "reason_ko": "기존 optimal-substructure-dynamic-programming 또는 state-estimation의 구현 변형."
+    },
+    {
+      "candidate": "new ECC, LSH, EM, VI, SPRT, FDR variants",
+      "reason_ko": "기존 군의 명칭/구현 변형이므로 추가하지 않음."
+    }
+  ],
+  "review_notes": [
+    "뉴턴 영점 반복과 호모토피는 국소 미분 갱신 대 문제 매개변수의 연속 변형을 구분했다.",
+    "구간 연산과 추상 해석은 수치 포함 경계 전파 대 프로그램 의미의 추상 고정점 분석을 구분했다.",
+    "통일과 절 소거 반박은 항의 변수 치환 대 논리 절 함의 도출의 다른 연산이다.",
+    "백스테핑은 일반 Lyapunov 조건보다 구체적인 가상 입력/오차 재귀 구성으로 한정했다.",
+    "양자 위상 추정·진폭 증폭·그래프 보행은 각각 위상 수치 판독·두 반사 회전·그래프 해밀토니안 진화이며 양자상태 이전/단열 이동과 구분했다.",
+    "명시적 출판 초록만으로 강한 성능 보장을 붙이지 않았고, 양자 보행의 속도 향상과 더티페이퍼의 용량 주장은 조건을 제한했다.",
+    "30개 모두 기존 키와 충돌 없음, 관련 기존 키 누락 없음, 열 수 10 확인."
+  ],
+  "validation": {
+    "rows": 30,
+    "columns": 10,
+    "duplicate_keys": [],
+    "existing_key_collisions": [],
+    "missing_related_keys": [],
+    "max_principle_characters": 82,
+    "max_conditions_characters": 76
+  },
+  "final_acceptance_note": "Consult campaign-merge-decisions-2026-09-26.json and the canonical catalog. Authored candidate counts here precede final cross-review."
+}

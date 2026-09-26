@@ -1,0 +1,178 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "b9162aba2c6b109499a4c6ba5485c35b1d8e4c8be07738d4823cf21c7240c8e5",
+  "reviews": [
+    {
+      "identifier": "AR-117023-A1",
+      "source_fingerprint": "efbff03b8b580d8382973e1290d08551d62465cfaf1f1b31af670dfeb092077f",
+      "content_hash": "3b83ec0ec632772d7d513395f3bb7f995b3c55d2a4a5d5f776dc1acd1445932c",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "여러 식물 호르몬·성장 조절제와 제초제의 조합이다. 모든 열거 성분이 같은 수용체로 작동한다고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-117030-A1",
+      "source_fingerprint": "f1b035974b0f11a7d7c4be4a087f08d4a4aed2a7d384824101cde637e3a8c6a0",
+      "content_hash": "f34d1d2a7d049f44000a1f4409d3df4b0ed69493c6b2d8e421e7ca23bdb37b36",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "피토엔 불포화화효소 PDS 저해 제초제의 조합이다."
+    },
+    {
+      "identifier": "AR-117034-A1",
+      "source_fingerprint": "df35c4c920c98129c7ecc26e3bf63c33d8c6ce93cf43cfca3f2564e1da4b79d2",
+      "content_hash": "e9c8e9b370aee5c58489c00278a02d9d052208f3cea210e3a3b76f93d818991e",
+      "decision": "LINK",
+      "keys": [
+        "metabolic-flux-redistribution"
+      ],
+      "reason": "지방산·지질 합성 경로를 억제하는 제초제 조합이다. 단일 효소 표적은 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-117041-A1",
+      "source_fingerprint": "6856e20e4884313c336c6a6e111091143b96f5184b4a1a1fc420627fe08fc8b0",
+      "content_hash": "4dac195738053a1d445e2a12a41f401a6ffc3794d329a271892daff766534c47",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-contact-switching"
+      ],
+      "reason": "탈착 도전 브리지로 배전선의 활성 극을 접지 연결한다."
+    },
+    {
+      "identifier": "AR-117042-A1",
+      "source_fingerprint": "8e3d12b3b68a3022839c8492b3c6c8145330c04f10982d06f82924367c2c7359",
+      "content_hash": "8ad737c18bcb55e16a02c1ed07405fc0f10fb52c011421fa3dc6015d2af0873e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 음료 구획과 덮개·빨대의 용기 배치이다."
+    },
+    {
+      "identifier": "AR-117069-A1",
+      "source_fingerprint": "4ecb84b68f95d6fe77c53088d03b846ec88b4d331d7cc73c6a114d1ca1141d08",
+      "content_hash": "e40bc00745287389c0c573b5a8ec41a9a32982319e1b7cbd7d0095ffc0ed8045",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "은행 계좌 사이 자동 이체 금액을 결정하는 금융 규칙이다. 알고리즘 원리는 없다."
+    },
+    {
+      "identifier": "AR-117084-A1",
+      "source_fingerprint": "516a14435b71cf763cd5a3a1c03f200a2d3e2eaae4d746229798a63ca3962db2",
+      "content_hash": "b9224862605713e8ec2bf7373e870f93cc3e7c056d91dff1e625357b76a0e88c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수확기 헤더의 중앙·양측 모듈을 고정 연결한다."
+    },
+    {
+      "identifier": "AR-117094-A1",
+      "source_fingerprint": "9d5c76eb03119ca3f5afce6229b4ad96f4abf6c441896ce7b439283ccebd6965",
+      "content_hash": "9781c5bb0bb5b59f443ca05d6d81ab17537165c249794b8679a04ebef55f837d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "IRF5 발현 억제 목적만 있어 안티센스 등 수단을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-117096-A1",
+      "source_fingerprint": "c054e56c9e06a8e883ecd938cecfa52f9ab3f1a3b068ffd0d19bd1fcbfe7376e",
+      "content_hash": "b9bc0988d65ce96f3031d6b0e30e7a1b0fac87413d2856a8a1f32ab2d7580f73",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "Penicillium camemberti를 이용한 식품 숙성이다. 특정 효소·향미 생성 경로는 없다."
+    },
+    {
+      "identifier": "AR-117097-A1",
+      "source_fingerprint": "fdbf9c834ae8602abcd0765e1a646b350d650139b851755396eb9bdcba808db8",
+      "content_hash": "23fbb445547a39f0153a00b030d05890aae0cab0c84358b9a1e3c750892a29db",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "인산화된 약물의 피하 투여 제형이다. 탈인산화·흡수 경로는 초록에 없다."
+    },
+    {
+      "identifier": "AR-117099-A1",
+      "source_fingerprint": "5b4e3394f0d61c7d46ed94dd859c2f0d58a91cdc5a8416067eb216aa3f0e55dc",
+      "content_hash": "620d46db75aa7e4f96764a1425cd1e520e7900a5182a07ebf3575dff2763833e",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "mechanical-interlocking"
+      ],
+      "reason": "콘과 슬립으로 관 내 플러그를 고정한다. 분해성 재료의 반응 경로는 미특정이다."
+    },
+    {
+      "identifier": "AR-117105-A1",
+      "source_fingerprint": "132fda21b66fa486681b366a09a1cf054d457170629a966b096cd98894e6301c",
+      "content_hash": "0007bf0f5808cfdd0dea567a96a6a97c2419cec5741ecde63e99d635b386c3f8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "안구 약물용 응집 미세입자라는 목적만 제시한다."
+    },
+    {
+      "identifier": "AR-117124-A1",
+      "source_fingerprint": "37e7163da9631bcd6f55a64fd59c5cd572cc7226ccf72a023988282fb27b79ec",
+      "content_hash": "6df363f7877b9a8c0d6210da39d4f46265eb910d8838437d1f59398e3acd97e6",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-pumping",
+        "cavitation"
+      ],
+      "reason": "임펠러·디퓨저 다단 펌프의 흡입 여유압 설계이다. 디퓨저의 감속 압력 회복을 별도 검토한다."
+    },
+    {
+      "identifier": "AR-117134-A1",
+      "source_fingerprint": "e1796373e1c0ad7cc9d86eecdd4f49b0785dfe199b46e20fc472fc332bdd293f",
+      "content_hash": "7289ad4b25801e8a14f8df59d03ebeecabe9bc527072dd59f06256751fe8292b",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "식물의 패턴 인식 외부 도메인과 내부 키나아제 신호 도메인을 결합한다. 키메라 수용체 신호 결합 후보의 식물 사례이다."
+    },
+    {
+      "identifier": "AR-117173-A1",
+      "source_fingerprint": "1791e9283337203483ac1f9df517c4ce937edacfb8b9d42e23dcaf543f8c6ad8",
+      "content_hash": "aa795c6b53f591d2ca7b94711aebc2a469816268076f4778fe786615cca01a56",
+      "decision": "LINK",
+      "keys": [
+        "sintering"
+      ],
+      "reason": "3차원 적층된 무기 골격을 소결하여 다공 지지체를 만든다. 적층 결합 방식은 미특정이다."
+    },
+    {
+      "identifier": "AR-117176-A1",
+      "source_fingerprint": "d63d19752177cbd924b6ba0e9c3e0f96815232380902deec30ad3343053a04b0",
+      "content_hash": "85e548637bda9cb2b9b9eb62da81147b860392fed069901fcec749b74d77ae29",
+      "decision": "LINK",
+      "keys": [
+        "polymer-turbulent-drag-reduction"
+      ],
+      "reason": "용존 이온 농도에 맞는 고분자 마찰 저감제를 고른다."
+    },
+    {
+      "identifier": "AR-117178-A1",
+      "source_fingerprint": "954105e58d77c0bfb55212a7e8a21c786628405151a407305b80f3b292efcd1a",
+      "content_hash": "36c3ae6be3c0effd34a72ac7321d59ac7d185a5e89c24d8cf56b4c2c5d7fff0c",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching",
+        "precipitation-reaction"
+      ],
+      "reason": "산 침출과 수산화물 침전으로 금속을 회수한다. 마그네시아의 고온 가수분해·산 재생은 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-117187-A1",
+      "source_fingerprint": "73dd4b0d0d20055d34d3803bbcbff69006c07eb5c713a8305434860a52584a43",
+      "content_hash": "8daf31ad89667d3b1902550165af59e499028b3902443e4acdd23cebec44d6af",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피리다지놀 제초제의 치환기 목록이다. 생물학적 작용 표적은 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:24:48.578653+00:00"
+}

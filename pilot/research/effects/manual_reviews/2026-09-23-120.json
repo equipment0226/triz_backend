@@ -1,0 +1,357 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "9365a941ca6c500e1669752139d1681f97784226921b819a150a86c81a9e6c2b",
+  "reviews": [
+    {
+      "identifier": "AR-091711-A1",
+      "source_fingerprint": "ac6f264e7fb7522ce5bb778f1c8d09d8a1224a7cca973889fc368c950c1f9b59",
+      "content_hash": "d03ce574b93ac3c01347525b1301fcbc8c7eb16c8e09ff51904be5c24e9ca2bb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "토양 안료와 산 처리의 염색 사례이나 섬유 고착 기전은 설명되지 않는다."
+    },
+    {
+      "identifier": "AR-091728-A1",
+      "source_fingerprint": "22a079455d315425c01112c47df59573ea2ab9c97e6e27e13dec3527df527610",
+      "content_hash": "353197721b301399079fd152cb5c944c1b877fc48bc77bc9a023cf5877e08b65",
+      "decision": "LINK",
+      "keys": [
+        "uv-absorber-photoprotection",
+        "surfactant-action"
+      ],
+      "reason": "자외선 차단 성분과 양친매성 실리콘의 유화 제형이다."
+    },
+    {
+      "identifier": "AR-091742-A1",
+      "source_fingerprint": "cb94317e82bb0fe89e7e364ff2ce74df20abb3a4743fecd397e42fc79c8ef501",
+      "content_hash": "5cd265e52676af84459ea2f1e1f6950d09607157dfb49e6c113dff2d0e205859",
+      "decision": "LINK",
+      "keys": [
+        "fourier-spectral-decomposition"
+      ],
+      "reason": "시계 진동의 시간·주파수 특징을 참조값과 비교한다. 특정 확률 학습이나 완전한 진위 판정은 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-091748-A1",
+      "source_fingerprint": "2176f8c8d5d2a1ff889c7e6bf36302c21797427bfef303f3f34ee41c6360bf86",
+      "content_hash": "e7e452252104b74ab96bb23e99f6ae63b3c7496e7f34d98ed67fc90a5193ab33",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "계통 고장 후 더 큰 안정 여유의 운전점으로 재시작하는 정책이다."
+    },
+    {
+      "identifier": "AR-091753-A1",
+      "source_fingerprint": "b6f31c8a4c240166ec3b172cd347cc532199b4b776868d98fcdfc5a412625207",
+      "content_hash": "6a4c4a837559f252d76bc140a7e1521d6cfc174f54ba1dfcada9ac68a12432c0",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "지지대를 회전시킨 뒤 수조로 하강시키는 기구이다."
+    },
+    {
+      "identifier": "AR-091789-A1",
+      "source_fingerprint": "9250711b1c960e73c4c09180c9566644366415583e1c6e942747646841d67474",
+      "content_hash": "13b0823dbe81ba49a86262440c030bd5cf810a611b9628e618f2ec3aea7d2617",
+      "decision": "LINK",
+      "keys": [
+        "condensation-recovery",
+        "phase-change-storage"
+      ],
+      "reason": "증기 열전달로 눈·얼음을 녹인다. 별도 센서 작동 원리는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-091805-A1",
+      "source_fingerprint": "8b9e541e28085e029f4d2034aa652eee7fcb95f22cc6bf6f42f0317bc753f57f",
+      "content_hash": "37ef3024d5576c09ae4b7f4b5db9c6dea60ef30ebbe62de7b275f087a06eb659",
+      "decision": "LINK",
+      "keys": [
+        "joule-heating",
+        "forced-convection",
+        "evaporative-concentration"
+      ],
+      "reason": "전열기로 가열한 공기가 액체를 기화시키는 장치이다."
+    },
+    {
+      "identifier": "AR-091836-A1",
+      "source_fingerprint": "1bf59aa071e6cf6a14e08a0d6e0643f5fe2dbf14a384c0fa216e953f3215947c",
+      "content_hash": "c4c6a691e84f207cb8da1f56a9d4e1bf69e22f8a2f62e124df3c7936ab34b8fb",
+      "decision": "LINK",
+      "keys": [
+        "chromatography",
+        "biomolecular-recognition"
+      ],
+      "reason": "특이적 리간드 결합과 해리로 단백질을 친화 분리한다."
+    },
+    {
+      "identifier": "AR-091845-A1",
+      "source_fingerprint": "379db6c5e1fc7867cc633b6399d017ef9f107cb999757e330514d2d6840df6c9",
+      "content_hash": "e812f911dcf582f54bf5c3dd20ad11235e22fe6727d6da82e0ad852803a58bfb",
+      "decision": "LINK",
+      "keys": [
+        "sieve-size-separation",
+        "pressure-driven-flow"
+      ],
+      "reason": "입자 통과를 막는 판 사이 유로와 역세 흐름을 사용한다."
+    },
+    {
+      "identifier": "AR-091853-A1",
+      "source_fingerprint": "8ede542767eb020020095c819999fb588ffd26da3f2730d485a7310d7500bca9",
+      "content_hash": "9d0dc68a048a3e3f8b7cfcc0bd287514c335a0f921901d42a9569ff45ab1eca1",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "케이스 변형 시 리브가 접촉해 지지하는 유량계 외장이다. 유량 검출 기전은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-091859-A4",
+      "source_fingerprint": "e278e73d72faf2e53f0699ba824885df76696e834b2ccb12129b62238c849558",
+      "content_hash": "8a000d2c0edfde4ce7991419608c08eddba9d9d7071da878317f822f04b50611",
+      "decision": "LINK",
+      "keys": [
+        "cable-drum-linear-drive"
+      ],
+      "reason": "케이블 감기와 풀기로 견인력을 전달한다. 의료 효능은 확인하지 않는다."
+    },
+    {
+      "identifier": "AR-091860-A1",
+      "source_fingerprint": "60c9363fc82a229d6b594965b08ea4ac42f176ee6f0223d526bc93682bea336f",
+      "content_hash": "6f3474b479d32f0dd3ac3b02ad286a62842cb7cb11a4954f021a405bb95f30d4",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절 구조와 구동기로 보행 운동을 안내한다. 회복 효과는 별도이다."
+    },
+    {
+      "identifier": "AR-091876-A1",
+      "source_fingerprint": "1d2950536f571c3bf03319e6214a3eb203a3232944b27ca186e95560c0b1c9ef",
+      "content_hash": "ca20c84b0555a938689afe5b7cf768deef809bef9b78ccbd7c6dff31203f4164",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "CDK·Raf·MEK 효소 저해제의 조합이다."
+    },
+    {
+      "identifier": "AR-091902-A1",
+      "source_fingerprint": "d20ec84eb45fcc97ba4d41edc014f1047d8f377a4afd4500f4e5346599a93217",
+      "content_hash": "c691923b83d69331edcc739d7f992d4a9844b6e90a5927cff6519f1bb9fcfb52",
+      "decision": "LINK",
+      "keys": [
+        "fcrn-recycling",
+        "acid-base-buffering",
+        "osmosis"
+      ],
+      "reason": "Fc 연결 단백질과 완충·등장성 제형이다. 안정성 수치는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-091903-A1",
+      "source_fingerprint": "da33e51783132ac84773538b4230f897170da6f62661564afafb99f5b652a9b7",
+      "content_hash": "599199bd10b2973b767c6ff128390c93707aa07dab77909588f30502ca68ac49",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "fcrn-recycling"
+      ],
+      "reason": "두 수용체 활성과 Fc 연결을 이용하는 호르몬 제형이다."
+    },
+    {
+      "identifier": "AR-091915-A1",
+      "source_fingerprint": "672b0253c5979bfd0fe076a4f3ca74a9502b7c21e812581b31b01c30397b3094",
+      "content_hash": "6afaad5a35cc0ec3c3087f54aae9f51c501cdfbf419a7374c6498f8b9f1ab5b8",
+      "decision": "LINK",
+      "keys": [
+        "gelation",
+        "surfactant-action",
+        "acid-base-reaction"
+      ],
+      "reason": "지방알코올·계면활성제·중화에 의한 컨디셔닝 겔 형성이다."
+    },
+    {
+      "identifier": "AR-091918-A1",
+      "source_fingerprint": "20b94719a4c36c6fd151703f01f7d9fea3a21960b0e787d8e1a5d327bb446fd5",
+      "content_hash": "b91be32561c36d052111be1534f56ec31f375afca72e00d1535d2c33f1c58355",
+      "decision": "LINK",
+      "keys": [
+        "viscoelastic-response"
+      ],
+      "reason": "완충층과 홈이 있는 보강층을 배치한 신발 구조이다."
+    },
+    {
+      "identifier": "AR-091932-A1",
+      "source_fingerprint": "7f5a03ba4222bc7e6c92037475ba9b1996e0dfc8eafe7e57e0eef875d717b416",
+      "content_hash": "677ca219fd85f27e842297e1eff6a5b602999d1b8194af43a79f697d00fb3ae6",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "고도 조절 분사 장치이다. 물을 전혀 낭비하지 않는다는 주장은 검증되지 않았다."
+    },
+    {
+      "identifier": "AR-091933-A1",
+      "source_fingerprint": "74685630edef66974b32e5055941cd4c75955ce6dbd8a924cedac7e2bbbbb451",
+      "content_hash": "7c7a0e4f20f9c88f178f28f38a4da5f9556796addd5590c4035fd7512ccbf35e",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "세정제와 오염 방출 고분자 제형이다. 구체적인 표면 개질 기전은 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-091936-A1",
+      "source_fingerprint": "4b5f756798d9de314252039fa1d357e13ecec337ae2facac7a929bc7799a54e3",
+      "content_hash": "6676023bad605b184af671d8a17be0bf50170f0e78e6712d37fd71551add9a56",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "당단백질 호르몬 유사체의 수용체 작용이다. 우수한 효능을 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-091959-A1",
+      "source_fingerprint": "2c0771bd1ff7503da8b2c9ce81b518fe4e9e27cc8b0c15894fc824124cbf7949",
+      "content_hash": "c53223a2384ac5bb485e25c1f413f42f983ed69ef9149b31f164e200302bd7b0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지지 입자의 단분산성과 재료만 제시되어 제조·강화 원리는 없다."
+    },
+    {
+      "identifier": "AR-091963-A1",
+      "source_fingerprint": "01e8ead0bfce74a49d952e65e3cd31c26cc3c31e3a88c386aecbc1a2f0c82f13",
+      "content_hash": "7b747bd7fe214d69edd73b5986b6c8ef059025d1c1cdd612a6de838750338516",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "재조합 단백질 발현이며 곤충 독성의 구체적 기전은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-091978-A1",
+      "source_fingerprint": "feb9de7c5ac946f23776156db46b05dd30b932d591bf1020b1462007138119bc",
+      "content_hash": "9f4174918504457b26ab87121f145096c1e351e449842a5ce7203adcd57ac897",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "유체로 균열을 열고 입자로 유지하는 구성이다."
+    },
+    {
+      "identifier": "AR-092003-A1",
+      "source_fingerprint": "293057c20d2e71c16faa6fe6f578823fddff6139ab3bf937f96a2c7a83b5f85d",
+      "content_hash": "0e55db7ee39387291f12a0eaea10c938979cb58d57f60682b010b5a7502eff32",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자 점도지수 개선제의 온도별 점도 보상 기전을 기존 분자량 효과와 비교한다."
+    },
+    {
+      "identifier": "AR-092008-A1",
+      "source_fingerprint": "e85f7e7d2937d7ecbcf6f6560a9540b072a6e07bf2ad1972553dfd37506d7021",
+      "content_hash": "f71e6fcc0cdc3cb62e830cd72f80cb31eb1a360724475d72b066d9633f3b1815",
+      "decision": "LINK",
+      "keys": [
+        "amorphous-solid-dispersion"
+      ],
+      "reason": "부분 비정질 약물 제형이다. 구체적인 흡습·방출 기전은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-092011-A1",
+      "source_fingerprint": "46eb2c1935486989cb5c1c86279c6bf9db7928e28cbd16789416a0cc65e0fd55",
+      "content_hash": "caaceb965a974caa5b39aef511865cc98444ac3834b2a478b33101210e160ead",
+      "decision": "LINK",
+      "keys": [
+        "polymerization"
+      ],
+      "reason": "라디칼과 페놀·유기금속 성분을 사용하는 중합이다. 각 첨가제의 역할은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-092015-A1",
+      "source_fingerprint": "1a4fef74aeb1e7fcb50c8aa9b9e14d09df89bf30a5754aa6b54bca52bf9935c2",
+      "content_hash": "6ca83dcb270fed4d115d860d9b6d2e46076494103cc624d355007c6a3fab35da",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "회전 가능한 두 바퀴 로커로 지형 변위를 허용한다."
+    },
+    {
+      "identifier": "AR-092029-A1",
+      "source_fingerprint": "d6e1aefad6fe81eb689c727118c18c16f8e1f5cf5bdc588cdf345976fd6b0e84",
+      "content_hash": "f429c18344832ec8cd27c7ac438c665bd6f51c136fb5a44b4ff3a917fb727eaf",
+      "decision": "LINK",
+      "keys": [
+        "electrostatic-charge-drainage",
+        "phenolic-radical-termination",
+        "dielectric-insulation"
+      ],
+      "reason": "대전 방지제와 페놀계 산화방지제를 포함한 절연 조성이다."
+    },
+    {
+      "identifier": "AR-092037-A1",
+      "source_fingerprint": "2cf278b5888e4fdb085046ef8f2bd7ba94ea759f13240fe5c4f37bf474fc55db",
+      "content_hash": "dcea19e83d4b34c0d3e2da534bc19048a23d573ea3b0ef33f469ab760599dcdb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "셀룰로스 혼합물의 분산 안정화이나 입자 계면 흡착과 벌크 증점을 구분할 수 없다."
+    },
+    {
+      "identifier": "AR-092075-A1",
+      "source_fingerprint": "b51bb532df55c38123f1c935e809082c4ed32971179b500c8aaa658dc7225d83",
+      "content_hash": "729845c49073ec542bb54b736e59ec27420e4efade3ec572f454a1a7f28fc205",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "식물 매개 유전자 침묵의 방제 적용이다."
+    },
+    {
+      "identifier": "AR-092077-A1",
+      "source_fingerprint": "d9bb94124e69fec12445746d98737050008a99a3e3682a93229bb96b0f4a7e1c",
+      "content_hash": "5c2c571694f488748cd1f6e30ebe03c1defcbc1aaf2b5bf88acfdb825920cf83",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "초기 파라미터와 하드웨어 키에 따른 기능 허용 정책이다."
+    },
+    {
+      "identifier": "AR-092078-A1",
+      "source_fingerprint": "b86cf7d9c9e70f6e03b05276c4d25a6e3d6013e0d77035bb6d879f3e235c2d45",
+      "content_hash": "fb77cc54709b2d0beb49aab59cc18dea67a61a7537431e33be13920195ae6c35",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "방제제 사용 후 당 증가의 결과 주장만 있어 경로를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-092082-A1",
+      "source_fingerprint": "31b527d48bb61b54151da07661810b1e7357429b60c84b22ebe9dd7a1412ee0e",
+      "content_hash": "d9cf3f0f84a0d37955171ee8b223ba04e149950fc1c9f990930b0d64dd7f1c13",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption"
+      ],
+      "reason": "세정액에 방향족 성분을 흡수하고 증기로 탈거해 재생한다."
+    },
+    {
+      "identifier": "AR-092113-A1",
+      "source_fingerprint": "072a01add2cc8cb378d796b9a9658296db0784efb3b97cdf31a9c07458419322",
+      "content_hash": "9aa94cc1889f79bb42ace973be3770890764af0510b245840303a46453a6ef0e",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "fermentation"
+      ],
+      "reason": "전분의 효소 가수분해와 후속 발효이다."
+    },
+    {
+      "identifier": "AR-092120-A1",
+      "source_fingerprint": "e3bf2cc21fecd70a4b0bf7622b94e434a0ed996effa298907985aa6ad165e692",
+      "content_hash": "fe4354e4d4bf6892e33d0bf02fc69cfb5a69270253c7565210391f03654dfc49",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "저장한 전력을 후속 모드에 공급하는 회로 구성이나 저장 소자의 물리 원리는 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:22:22.483598+00:00"
+}

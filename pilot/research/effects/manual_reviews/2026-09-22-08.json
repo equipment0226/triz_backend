@@ -1,0 +1,378 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "273952d3c77df12eeae2e60f55bb76893c0d781214afa7cf680678b26191acac",
+  "reviews": [
+    {
+      "identifier": "AR-068466-A1",
+      "source_fingerprint": "2c0134aa7ad101f92ffce73a20cb2b781bf3f835d7118be40cbf95334d2069ed",
+      "content_hash": "082591cd088e8138bf04a4593315bcbe26afc208241741fe8d576aa60be9d874",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PDE10A 효소 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-068468-A1",
+      "source_fingerprint": "7cbe8b093c31d605c7f636e77aa504b93a066b859a9ca8fdf778b80aa6d5b05d",
+      "content_hash": "25b61d269c59293a28c47067a802adc575af85f3f8e4fbc8876b95d909717682",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "유도 리간드와 전사 활성 도메인을 결합해 식물 ethylene 감수성 유전자 발현을 조절한다."
+    },
+    {
+      "identifier": "AR-068472-A1",
+      "source_fingerprint": "ef37d5891ca21b50e9b69f21076e6d59ee6d96b71ff169c6fa843ced89aba2d2",
+      "content_hash": "9107df38bf6a9362c8af4c6319297283f235c6c5785f744aa8e6ae63610ad3a1",
+      "decision": "LINK",
+      "keys": [
+        "flotation",
+        "adsorption"
+      ],
+      "reason": "황화물 산화 후 금을 재흡착하는 탄소질을 부유 분리한다."
+    },
+    {
+      "identifier": "AR-068482-A1",
+      "source_fingerprint": "b7479f62d098b4f54cffebade19cc2f6576fbd91ccc4a3726e14e446b68c12f0",
+      "content_hash": "fb7752912b9f7e6e22787a951562608f55341120e80c1c3e65757503cbbefd2e",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection",
+        "phase-change-storage"
+      ],
+      "reason": "인접 음료·냉매 관 사이 열교환과 동결 입자를 함유한 음료를 사용한다."
+    },
+    {
+      "identifier": "AR-068483-A1",
+      "source_fingerprint": "e078fbe3f0b880c715a495ea71142624c2b9507d6942c1ac361431b027f95d10",
+      "content_hash": "31d17d33c3151d8866dbbfe2b78d6eac801dd243a72d9acb76feb71ebb80a072",
+      "decision": "LINK",
+      "keys": [
+        "absorption-spectroscopy"
+      ],
+      "reason": "용융 전처리 후 원자 흡광 또는 ICP 원자 방출로 귀금속을 정량한다. 원자 방출 분광 후보."
+    },
+    {
+      "identifier": "AR-068494-A1",
+      "source_fingerprint": "61acb3abff6c886cdabb0e6e5f5777e075262c73e1e467e16d3c3c278fe49ad7",
+      "content_hash": "e4a31991499c27e5d369ebe69c58f3ecc0bd2e5622fc5b60927d5407813abc99",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation"
+      ],
+      "reason": "재생 지방 원료 수소화·탈산소와 CO+물→수소+CO2 반응을 명시한다. 수성가스 전환 후보."
+    },
+    {
+      "identifier": "AR-068500-A1",
+      "source_fingerprint": "a3be6d6c67b05f2e5164f34a94ca91480cdf4731b5268e64556df85e7fef7bc0",
+      "content_hash": "30faf8af65b73d78f87a9ae1a0e69a5c069be3ebfbe644ae0ca38bb39e6b95d6",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "abrasive-material-removal"
+      ],
+      "reason": "melamine·formaldehyde계 수지를 경화하여 연마 입자를 결합한다."
+    },
+    {
+      "identifier": "AR-068510-A1",
+      "source_fingerprint": "f5a6cb2391325ff5135d0379b41b0c553784df82d2a2b22de2b6c975171df576",
+      "content_hash": "b510c2c9a6782bfabfb71e17edf80a93f240b3b0b74e93c46bb6eb87bf8db9ed",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "mGluR2 양성 알로스테릭 조절제이다. 다른 자리 결합의 협동성 후보."
+    },
+    {
+      "identifier": "AR-068512-A1",
+      "source_fingerprint": "457f30dc7c290a58cc6ddd0bba3b87fb61fd3a61db970b73386ec18cfdd116a1",
+      "content_hash": "264424a598eeaf495e26ae8a9e72667a99ff78483dd5a9cabd1053d07e4a3c95",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "mGluR2 양성 알로스테릭 조절제이며 80번과 같은 원리로 중복 계산하지 않는다."
+    },
+    {
+      "identifier": "AR-068549-A1",
+      "source_fingerprint": "eefe12aa5d76ad33a83025e47ec32d2a2c6d4250810bcbb038e4f3517394753a",
+      "content_hash": "63f7657dc07d0c24da99e85a2df67d875f1fe0c50f29d981043f5ce2d504f664",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "ROR 핵 수용체의 리간드 결합 도메인으로 결합 물질을 찾는다."
+    },
+    {
+      "identifier": "AR-068550-A1",
+      "source_fingerprint": "14c0d387fadeae1d21a9734b8e993165fe9f88b2eb40ad7688c55ef2aa7491ab",
+      "content_hash": "e2f76fde857f8aab1809f58b4764250e59291639a693c788edfb634f70ec83b9",
+      "decision": "LINK",
+      "keys": [
+        "thixotropy",
+        "negative-feedback"
+      ],
+      "reason": "혼합 시간과 회전 에너지에 따른 가역 점도 변화를 읽고 액체 성분을 조절한다."
+    },
+    {
+      "identifier": "AR-068554-A1",
+      "source_fingerprint": "d9a4bbebdabdd4964f71ac58b21f1a93a21203dba9d33f9b2fbe22ebc4fa5ebd",
+      "content_hash": "b10e4bbe6940045f0a51228fc1f16738dc272c2eb7a8ee9f6d7c1d2617d30a94",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "측면 날개를 회전시켜 코크스 오븐 프레임 청소 장치를 가린다."
+    },
+    {
+      "identifier": "AR-068565-A1",
+      "source_fingerprint": "67b636173b9c7b5e566c1936940aa8254a285907660549d8b323dacb64f10170",
+      "content_hash": "a143d96ba38f6843321b3dc7529f783daef7bb64be310eb6e2243d8293a5a6fb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "lactone·이당류 조합만 있어 모발 작용 기전은 확인할 수 없다."
+    },
+    {
+      "identifier": "AR-068577-A1",
+      "source_fingerprint": "40191c09a16c8db1f2e13de3629b9f79f3b9adb44f3f8080858a37f87900e52c",
+      "content_hash": "da4e6c81a081a6243d0a965ec50aa2416cdf4c53760a6ada0885d823014fe52a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분할 조각을 길이·채널·순번 헤더로 이어 붙이는 프로토콜이다. 분할 재조립·순서 복원 신규 후보를 보강한다."
+    },
+    {
+      "identifier": "AR-068589-A1",
+      "source_fingerprint": "1a728d641d504d31750407730ae4dee1ff255e5859225151e03f44144e35f67b",
+      "content_hash": "b4a1874b0c29a9ad8923190bc1cea81facad76e417604d833bcfcb650c439d89",
+      "decision": "LINK",
+      "keys": [
+        "vapor-compression",
+        "forced-convection"
+      ],
+      "reason": "압축기·응축기·증발기와 공용 송풍 모터를 갖춘 차량 공조이다."
+    },
+    {
+      "identifier": "AR-068619-A1",
+      "source_fingerprint": "e27b95632d514806568d74dcaf369a8c438085a0941a74dffcdd3e79aaca0a94",
+      "content_hash": "3e89279e5a14b6db2fa4c21776abf2ff59a5e860b1c7b5732577d2240010126d",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "양이온 계면활성제가 natamycin 분산·용해를 돕는다. 생물학적 상승효과는 독립 검증 대상이다."
+    },
+    {
+      "identifier": "AR-068632-A1",
+      "source_fingerprint": "e02029f5b198251956b06f189f42837282b901db9c9e1384a9f4ce9b99d92a61",
+      "content_hash": "10c60cc0c1b8f308364d0b6686d4aa66e708b623dd5a98cb4ecd38d4ddb10bc9",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "CRTH2 길항제를 명시한다."
+    },
+    {
+      "identifier": "AR-068636-A1",
+      "source_fingerprint": "901668107881a08fb84b2f45870ec989ce20fd07283955e099e0e35970313668",
+      "content_hash": "a0a91d9fa527d9739dd0230920762bfa1c9fa55e5ebe8d9db491daf93fb7d453",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "gamma secretase 조절이라고만 하여 억제와 생성물 선택성 변화 중 하나를 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-068640-A1",
+      "source_fingerprint": "3cf8034740991590e1a89b31951231cf5779cb9386fdf22c12631ed505d89a52",
+      "content_hash": "bb66c68cb4fd3ba572522651e406dac4ba84601da66407ef6d05b4f6dca539b2",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "힌지로 접고 잠그는 휴대용 물티슈 용기이다."
+    },
+    {
+      "identifier": "AR-068644-A1",
+      "source_fingerprint": "af39aeb68ba28d7119d5de133bf02d9f13a801b045a06e5ed99f6396b96cea78",
+      "content_hash": "74773b1d67f831d631e6ee3998d3257f67ee2cd5c1f79d153bbb90fc6d635672",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 방어·생장 향상 주장이나 분자 경로가 없다."
+    },
+    {
+      "identifier": "AR-068682-A1",
+      "source_fingerprint": "5b52ef29b976c93e13f8c8bfbee913eef51f3f426d852111740dbe9f3b7f0059",
+      "content_hash": "e39c8c62ffb176dabf9e5d643a473e24b7508370331a29ad4ac9c6e8d4202a1b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "UICC·단말·서버가 앱별 로컬 키로 인증·암복호화한다. 키 기반 암호 변환 후보이며 특정 cipher는 미제시이다."
+    },
+    {
+      "identifier": "AR-068703-A6",
+      "source_fingerprint": "92d4f9f99da72c48158b7ec62bc2152ec478e584fe7f7b970dafe5e1a793f05c",
+      "content_hash": "089b6defd8a361dbbbd96ebe240a8b4dd40251e924f2bbfb772f63514a843cc7",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "잔류수 수봉과 수압 개폐 밸브로 하수 가스를 막는다. 수봉 및 체크밸브 후보."
+    },
+    {
+      "identifier": "AR-068706-A1",
+      "source_fingerprint": "8fc3f989615e4e464316fa7f9a278b8cadc36c1f534dfba86d9a7ca07923845c",
+      "content_hash": "ccabb35ee59c80b92d7e77dda22ac36303e9fa9fc410e2ef2c24946dda6a237c",
+      "decision": "LINK",
+      "keys": [
+        "rolling-contact-friction-reduction",
+        "mechanical-interlocking"
+      ],
+      "reason": "차량 받침 프레임에 바퀴와 조정 나사·슬라이더를 둔다."
+    },
+    {
+      "identifier": "AR-068722-A1",
+      "source_fingerprint": "0ce8705e83c77cd145d906e944a8bd10c7d1c2f104157763f6c34c17bb2f9a60",
+      "content_hash": "4432ee08f59e4b81efe4ce8d06fa1ce67f50d5c2f249948163d5caebf97a7cc7",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "전구체 소비·경쟁 대사·성장 제한을 바꿔 탄소원의 methionine 전환을 높인다. 대사 흐름 재분배 후보."
+    },
+    {
+      "identifier": "AR-068724-A1",
+      "source_fingerprint": "7b7901c15a9bba930f3e62bd68bc5e5bb67e5a49c6802c2892d738f6be0d2789",
+      "content_hash": "c8d6b32ccd27263062961b9ca3f71e285341498643b95c9e34fe19d1a775fc08",
+      "decision": "LINK",
+      "keys": [
+        "refraction",
+        "diffraction"
+      ],
+      "reason": "중앙 굴절 영역과 외곽 회절 영역으로 원·근 두 초점을 만든다."
+    },
+    {
+      "identifier": "AR-068728-A1",
+      "source_fingerprint": "c9db11c144cc3bb2e7919f87833898a7af8fc4a04489009317c3ba9af3516c81",
+      "content_hash": "c07ec34cfc375c146a4e4338fe620490b6624107832ceead44cc1ade0465b323",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "gear-ratio-transmission"
+      ],
+      "reason": "가변 crank 반경과 단방향 기어로 왕복 운동을 합쳐 회전 속도를 바꾼다. 일방향 클러치 후보 보강."
+    },
+    {
+      "identifier": "AR-068733-A1",
+      "source_fingerprint": "7786be93e8246bed26a88f84fc56082f8c54a28e04b15c4dc2992a6eb1b8627f",
+      "content_hash": "28965a32d655f8e5e6fc0225cef8e5b2721a663a570d0ddce57c1d914c55fe20",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution",
+        "acid-base-reaction",
+        "distillation",
+        "crystallization"
+      ],
+      "reason": "활성 aryl chloride를 amine으로 치환하고 중화·용매 증류로 결정화한다."
+    },
+    {
+      "identifier": "AR-068756-A1",
+      "source_fingerprint": "0be3ff189b46730580b07b85a86eb71ea397efa687b9d4d2f8a3436fa198de21",
+      "content_hash": "3d997a5e3d7bfede95aaedf112ce1977670a418d71c790a30b25dec38af02feb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HCV용 peptide 구조와 치료 주장만으로 직접 표적을 특정할 수 없다."
+    },
+    {
+      "identifier": "AR-068760-A1",
+      "source_fingerprint": "9cb08dcc50b2c947aab539ac80b763c7028d67981e92e09370c2318db5afb072",
+      "content_hash": "7491e586f4a2c576b39faa1147688b5a2aeb54c591aa65fcc9891cfd7524aa03",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "articulated-linkage-motion"
+      ],
+      "reason": "상판을 먼저 수직 인출한 후 회전시켜 수평 고정하는 수납 구조이다."
+    },
+    {
+      "identifier": "AR-068790-A1",
+      "source_fingerprint": "e60879d7e599f3cf80f6ae7a9c69d3b632ad9e5084ad81dde4d9d356c4639b2b",
+      "content_hash": "ba835c9e3dc34926d6d8e38d6c6cc549d19d3f18f7d5ee8552d0c8df21b43dca",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "CO2 화학 유인과 곤충 방제 조합이다. 화학 감각 유인 원리 후보만 검토하며 병원체 증식·살포 지침은 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-068794-A1",
+      "source_fingerprint": "57427e4638e38a52033a499c8f16839ddb6b132d7ef408c8314ef7fce5e61044",
+      "content_hash": "53da5f090844d00e5bc8f667bf609490580f0208275562b6dca6df6d33ff96c3",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "HCV NS3 serine protease의 결합 부위에 맞는 구조를 명시한다."
+    },
+    {
+      "identifier": "AR-068799-A1",
+      "source_fingerprint": "2997353bb7223c345759a0f0ff07206543972470fce7ecf84de033bb17251a5d",
+      "content_hash": "ff3afdd364f8451db1eed8da495b05653be18b58b82926cec2e12ee5f546a844",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "모터 운동을 피부 접촉면에 전달하나 구체적 변환 원리는 없다."
+    },
+    {
+      "identifier": "AR-068821-A1",
+      "source_fingerprint": "24713e6ed9f8bb32429d6ea403131febaf6cf3e02082f7cd15d8df916ccedb14",
+      "content_hash": "9f9a28bea41d7a1e02cfc7c5ba17fb2406e1924b434ba20ab45eaa1e1592fce1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고체·겔 위생 조성의 수중 용해와 향 방출이나 물질별 속도·수송 원리는 미제시이다."
+    },
+    {
+      "identifier": "AR-068833-A1",
+      "source_fingerprint": "4099e5ddb3ae00b5a18c6e559357d5651299e9375de9a66b7250c9bf54324e40",
+      "content_hash": "7db30c3c82bb7fae1bb8c5c83e835ea22daef7f58869c2e5388cd3d4c3c9c957",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 화합물 구조만 있고 표적은 없다."
+    },
+    {
+      "identifier": "AR-068839-A1",
+      "source_fingerprint": "1888345f5dadaa6e23e947ab18076e56d1bd5d782818edaf818707e1c1fba59c",
+      "content_hash": "3358bda5c51aa51ae814f7b4120710f9307741834e628148615e6f8aa501853f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "공기 혼합·분쇄·분급 순서이나 분급력·장치 운동이 명확하지 않다."
+    },
+    {
+      "identifier": "AR-068865-A1",
+      "source_fingerprint": "7f6a2171d6388238484ed615e47989914622ffec90c033e0e4e5b308b5c16717",
+      "content_hash": "cf74847fbf6067a9eebd454172acf3ad33a21b8881358dd21d7f79ff4bd8fe18",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "pesticide 구조·중간체만 있어 작용 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-068869-A1",
+      "source_fingerprint": "7605b67932fe2b749347877ff2c60ef903955ec01675ae3f7185b40ee9f7685b",
+      "content_hash": "76f5221f26b8ef5bee2fdd8606a029c92ccbb8a4bc5dd12085bcdd6865d49cd3",
+      "decision": "LINK",
+      "keys": [
+        "coagulation-flocculation",
+        "evaporative-concentration"
+      ],
+      "reason": "염 응집·여과·미생물 분해·선택적 증발 처리이다. 미생물 산소 조건이나 부착막은 미제시이다."
+    },
+    {
+      "identifier": "AR-068871-A1",
+      "source_fingerprint": "b98dc916f7c67472b304dc5bb9517a8d41c7ee68b2a22b0e617a5ac3d6424745",
+      "content_hash": "a7405e29d0524bdc3cbcd1d9d6f04ead060e620cfac3454e994f0ea13a786f96",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "LCO·flavonoid로 식물 생장 향상을 주장하나 공생 수용체 경로는 초록에 없다."
+    }
+  ],
+  "recorded_at": "2026-09-21T23:03:10.580902+00:00"
+}

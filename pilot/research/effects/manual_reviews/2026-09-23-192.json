@@ -1,0 +1,173 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "7381c161ef26c42185149587ecd2ceb546f9786ba130de506c92bd676b642f8f",
+  "reviews": [
+    {
+      "identifier": "AR-108189-A1",
+      "source_fingerprint": "9bb5c9dcf0baf5febddf4cbac3352b9b12e8667831ab864e3d48f810064f875a",
+      "content_hash": "eaf1f87ca1e16896aa96fc30d2bb543c075af224dde17939b9906c1a3b2407c6",
+      "decision": "LINK",
+      "keys": [
+        "state-estimation"
+      ],
+      "reason": "위치 불확실성과 변위의 품질을 평가해 누적 거리를 갱신하고 기준점을 재설정한다."
+    },
+    {
+      "identifier": "AR-108222-A1",
+      "source_fingerprint": "1e85fd70b63b96ee77180d30bb6a3b1c6ee4d5db1900847abc35ab9e1d58922f",
+      "content_hash": "4a613ffae8bb3b4faf23684a682b5dda404186dc33356bfafa5aa184c0c58c71",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "헤테로아릴 구조·치환기와 염 범위만 제시되어 작용 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-108225-A1",
+      "source_fingerprint": "4212b6d73fdcdaaf4fafa3dda4c55611edee700010a0a61440c5cf319b97ce91",
+      "content_hash": "f622e921e43ff36bf4e1f4fd1558f5a2e8b5d7489e26851b619b6230a7740355",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "negative-feedback"
+      ],
+      "reason": "식물 접촉에 따른 유연부 반력이 프레임의 횡방향 편차를 줄이는 수동 안내를 구성한다. 별도 전자 센서 제어를 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-108235-A1",
+      "source_fingerprint": "433de488bf928b0594f5af4833e023e4426958e37ee838d2df6422f0a131f43d",
+      "content_hash": "2b53f07f3b80934ea11ed527fdf2c5a46140c10feff296536c0337d63df5f04d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "마그네슘염 고함량 서방 제형의 기능만으로 확산·침식·삼투 방출을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-108239-A1",
+      "source_fingerprint": "c99cc1162e62729fc208ba8832b646031e5e8918039caab41b360716f864157d",
+      "content_hash": "146c1ad9ed9292051e6a7409f701f6ab3d16a364a3e7d6cfe7c5ab8451fb6e9e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "양극 분배봉과 판 사이의 전류 제한 장치를 배치한다. 퓨즈·능동 제어 등 제한 기전이 미상이다."
+    },
+    {
+      "identifier": "AR-108257-A1",
+      "source_fingerprint": "52a65441b808d9c86d58051c062555d07ef6995b70f9627e31d4e06f1cd9567b",
+      "content_hash": "1bb0eb94cee33ef8ed34f769476bd1044ebdd05b8356b3f9962d5a88c25f5079",
+      "decision": "LINK",
+      "keys": [
+        "diffraction"
+      ],
+      "reason": "결정 수화물의 분말 X선 회절 피크로 다형을 판별한다."
+    },
+    {
+      "identifier": "AR-108266-A1",
+      "source_fingerprint": "a97d3b71fef745d4108d903ebe8264b2cfca89046e05b7785c7a5933b42dc7f0",
+      "content_hash": "59951c08fb35384c9bfa7a422bebfaad1420f8f6e0150c7b8fba5146380c8b63",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "articulated-linkage-motion"
+      ],
+      "reason": "유압 실린더로 채집 헤드를 접고 들어 올린다. 갈퀴·벨트의 목초 이송은 구성 적용이다."
+    },
+    {
+      "identifier": "AR-108275-A1",
+      "source_fingerprint": "fd47f552e9e4f36df221e61642015d956467786b44ea2f4bd5033cb51a8b8ba8",
+      "content_hash": "675fb4e8f86855af63dbd6e95b70d7a0d96e204b0e3a36044018102d61393264",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "레일 이동 플랫폼과 회전·피벗 팔이 관을 옮기는 운동을 구속한다."
+    },
+    {
+      "identifier": "AR-108278-A1",
+      "source_fingerprint": "512b573e1edbd8a447c13c4f20ccb37cdd9e274cc1f90d52ba853921232d75b0",
+      "content_hash": "75855c06586f895de80107a0dc2b9b322dca5d5133b293cf775ca79c1b15bca7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "셀 간 신호 동시성에 따라 측정 신호 종류를 선택하는 자원 처리 규칙이다."
+    },
+    {
+      "identifier": "AR-108298-A1",
+      "source_fingerprint": "61660b10d669b7cdf33116d1dbf222363d2d5cce8d31c7293b622d684cb446c8",
+      "content_hash": "4ca51a62d8a862adcda446503d72a88c86f1919d50a0bad795adad59177fb547",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "chemical-glycosylation",
+        "hydrolysis"
+      ],
+      "reason": "갈락토올리고당 합성과 잔류 락토스 가수분해 뒤 미생물의 선택적 전환으로 정제한다. 선택적 기질 소비의 분리 기능을 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-108311-A1",
+      "source_fingerprint": "3be04d20fbe8b805557de3d3874bd32b65cc8cdd89aabdc025856a0249205b96",
+      "content_hash": "f2bc0151eb0635cadef65a104cd388d93f25f9b529af8075a8499bf3c5303659",
+      "decision": "LINK",
+      "keys": [
+        "electroluminescence",
+        "fourier-conduction",
+        "plastic-forming"
+      ],
+      "reason": "LED 조명과 금속 방열판의 스탬핑·매립 구조를 명시한다."
+    },
+    {
+      "identifier": "AR-108313-A1",
+      "source_fingerprint": "b968e77b35e0a0b9dbc69c177b5c392ff53c017e082226e02f58bc87e7a3caf1",
+      "content_hash": "adb458583584f8163bb6bba82338e7950334e702030e54cfb6fecf32760a0280",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting",
+        "mechanical-interlocking",
+        "lead-screw-motion"
+      ],
+      "reason": "판지 절단과 나사 축·너트·고정판에 의한 파지가 명시된다."
+    },
+    {
+      "identifier": "AR-108321-A1",
+      "source_fingerprint": "3fe1b25af4024bd2aa9ead3ae9877dac8a4a5a5ee6c08b91d4d2a627e67fe382",
+      "content_hash": "50c312d52c417c10c65a7a4b1bb6fc23a7d298632e7111990b2bd525421d4c68",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "교체 가능한 유연 날로 잔디를 절단한다. 날 각도 제한은 제품 구성이다."
+    },
+    {
+      "identifier": "AR-108325-A1",
+      "source_fingerprint": "c45316532abcbc44c37cb46cf4491812abfd886a314e5611cc3700230a1cf60e",
+      "content_hash": "89ae22a057b6245ae886467aae1091b0a9565592d56348fc8c011ed47c51a49a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Wnt 신호의 조절 용도이나 직접 표적·작용 단계가 미상이다. 수용체·효소 저해로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-108366-A1",
+      "source_fingerprint": "63a805cb2e0700c4d30295e970cd3ada4dc8246d60bcaa219ae7734774bd6c0f",
+      "content_hash": "eba056520c0b1df2c9bb6f017e8a50dfe24e84352bc17a7d8de91b455c72f7d9",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting",
+        "rotary-positive-displacement"
+      ],
+      "reason": "회전 롤러의 정해진 구멍으로 치즈 반죽을 분할·이송하고 경계에서 절단한다."
+    },
+    {
+      "identifier": "AR-108373-A1",
+      "source_fingerprint": "dd2723d25e7223a505b749cad1262370e63ede7292b8a8895bf83e51cb6bc37c",
+      "content_hash": "7046d4389f468a8f80ca6566d6c40dadb3b9735a56e895b78810b9d0f2856427",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "영상 위험도와 검사자의 능력에 따른 작업 배정이다. 학습 방법이나 최적화 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-108399-A1",
+      "source_fingerprint": "7f827c26e1826669fb3444903fee32fbdab259e14cb308057388c6a8644acc7f",
+      "content_hash": "e7336889935fd8810bcdf52cff3bfffbe666cc2720a9b1df83f1a240b00f2d06",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항균 화합물의 광범위한 구조와 치료 용도만으로 분자 기전을 특정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:40:18.788363+00:00"
+}

@@ -1,0 +1,157 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "a6a3aa5e4f4dd20de8435936e52e3185d97d8508d5fa4584bbb6a1ee769096e1",
+  "reviews": [
+    {
+      "identifier": "AR-079986-A1",
+      "source_fingerprint": "48ed17368c831c3c561463ae7ce0ee29c9bcdf8a9c6370cc18772e03bd62ca2e",
+      "content_hash": "d9206ff1433f5c8571248c592e8148089e227b780ce5bb4952881cbbc46ed1b1",
+      "decision": "LINK",
+      "keys": [
+        "extensional-strain-hardening"
+      ],
+      "reason": "기존 초록 검토: 알콕시아민 처리로 폴리에틸렌 용융 강도와 신장 점도 특성을 바꾼다. 분지·얽힘에 의한 신장 경화 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 신장 변형에 따른 용융체 저항 증가: 얽힌 고분자 사슬이 신장 유동에서 배향·늘어남에 따라 선형 점탄성 예측보다 큰 신장 응력을 나타낼 수 있다. 분자 구조·완화 시간·신장률에 의존하며 모든 용융체에서 나타나지 않는다. 전단 농화와는 변형 방식이 다르고 고체 가공 경화와도 구분한다."
+    },
+    {
+      "identifier": "AR-080034-A1",
+      "source_fingerprint": "18fbae6e92dfce2df918689476e7e4e55bfbdbfedc12d4b6f8fa48dd0e6bd8f7",
+      "content_hash": "04e431c88b1f335fc2b3fc5c68bcb829dff4ca21fff3554516394d89b85c5edd",
+      "decision": "LINK",
+      "keys": [
+        "residual-current-detection"
+      ],
+      "reason": "기존 초록 검토: 잔류 전류 차단기의 보조 접점 상태 검출이다. 왕복 전류 차이 검출 후보의 추가 근거로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 전류 불평형에 의한 누설 검출: 회로로 들어가고 돌아오는 전류의 합이 영이 아닌지를 검출하면 감시 경로 밖으로 흐르는 전류를 감지할 수 있다. 배선 범위·센서 대역·직류 성분·검출 임계값에 의존한다. 과전류 크기 측정과 다르며 검출만으로 접점 차단의 성공을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-080059-A1",
+      "source_fingerprint": "8d9d7bcdccac53f329a1074c83f0d8e6fb2685359f07a1667833aeef95811b3e",
+      "content_hash": "f70365f9a0fab34d60f2a2562041632ac13e9974557a7f20bc839247a40fce97",
+      "decision": "LINK",
+      "keys": [
+        "thermal-glass-tempering",
+        "thermal-stress-relaxation-annealing"
+      ],
+      "reason": "기존 초록 검토: 유리의 서냉·강화 온도 구역을 연결한다. 유리 급랭 잔류 압축응력 및 서냉 응력 완화 후보를 구분해 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 차등 냉각에 의한 유리 표면 압축 강화: 가열한 유리를 표면부터 빠르게 냉각하면 내부와 표면의 수축 이력 차이로 표면 압축·내부 인장 잔류응력이 형성될 수 있다. 두께·냉각 균일성·열 이력에 의존한다. 이온 교환 화학 강화나 결정 마르텐사이트 담금질과 구분하며 절단·손상에 취약할 수 있다.; 열 이력 조절에 의한 잔류응력 완화: 재료가 응력을 완화할 수 있는 온도 영역에서 유지하고 온도차를 줄여 냉각하면 기존 응력과 새로운 열응력의 잔류를 줄일 수 있다. 완화 속도·형상·온도 분포·냉각 속도가 중요하다. 유리 강화처럼 의도적 압축응력을 만드는 과정과 목적이 반대이며 재결정이 필수는 아니다."
+    },
+    {
+      "identifier": "AR-080178-A1",
+      "source_fingerprint": "a8e0c9ace91ef6aeb502eab95cd1c920f7602d29dd3640d5dd2fd8fa667b8c6e",
+      "content_hash": "103601fc77747d2734bd12abfd56df4dc94aba53b9e738b673c78841dfb5d5f8",
+      "decision": "LINK",
+      "keys": [
+        "thiol-carbonyl-addition"
+      ],
+      "reason": "기존 초록 검토: 티올과 카르보닐의 헤미티오아세탈 형성을 거쳐 고리화·환원한다. 황 친핵성 첨가 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 티올의 카보닐 부가에 의한 헤미티오아세탈 형성: 티올이 적합한 카보닐 탄소에 부가하면 같은 탄소에 수산기와 황 치환기가 있는 헤미티오아세탈 구조가 형성될 수 있다. 구조·pH·용매에 따라 평형과 교환성이 달라진다. 산소 친핵체의 헤미아세탈 형성과 유사하지만 결합 원자가 황이며 항상 영구 결합인 것은 아니다."
+    },
+    {
+      "identifier": "AR-080183-A1",
+      "source_fingerprint": "d820846d0ecdd24ecf91e6d83e982c998a4c7889d3aebb472fcdbe129d0a3523",
+      "content_hash": "97bc92113a6e1394ad8caa07744e4b9da7c0f64e78592dd895a23f0573335a10",
+      "decision": "LINK",
+      "keys": [
+        "fourier-spectral-decomposition",
+        "linear-channel-downmixing"
+      ],
+      "reason": "기존 초록 검토: 역이산 푸리에 변환과 계수로 오디오 채널을 다운믹스한다. 선형 채널 혼합 후보도 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 가중 합에 의한 오디오 채널 축소: 여러 입력 채널 신호에 계수를 적용해 더 적은 출력 채널로 합산하면 제한된 채널 수로 음향 정보를 전달할 수 있다. 위상 상쇄·클리핑·음상 변화가 가능하다. 추가 정보 없이는 일반적으로 원래 채널을 완전히 복원할 수 없으며 주파수 분해와 목적이 다르다."
+    },
+    {
+      "identifier": "AR-080500-A1",
+      "source_fingerprint": "f7e81023e9639295388e64d8d1a7e42f5baa69eea14ad746a50090af07f6039a",
+      "content_hash": "91f17f6d9bc8fd1cdba51f2c6c938fe72c1a7774b5a60ff4d4b3fed341bd6829",
+      "decision": "LINK",
+      "keys": [
+        "martensite-tempering"
+      ],
+      "reason": "기존 초록 검토: 강관의 수냉·담금질·뜨임으로 고온 항복강도를 확보한다. 뜨임에 따른 조직 안정화 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 뜨임에 의한 마르텐사이트 조직 조절: 담금질한 강을 후속 가열하면 탄소의 재배치·탄화물 형성·조직 회복 등이 진행되어 경도와 인성의 균형이 달라진다. 합금·온도·시간에 따라 이차 경화나 취화가 가능하다. 마르텐사이트 생성 자체와 구분하며 단순 잔류응력 완화보다 조직 변화 범위가 넓다."
+    },
+    {
+      "identifier": "AR-080632-A1",
+      "source_fingerprint": "ae67b75796cee38a7ddae6fbd74ce747683d50e1418a0311b681e718b72eeb3c",
+      "content_hash": "84da6a7e48a33bece09e0fd916dcd1c80e042ef6b57ff41822f611d37846df30",
+      "decision": "LINK",
+      "keys": [
+        "electrocoagulation"
+      ],
+      "reason": "기존 초록 검토: 전기응집·전기부상·산화를 결합해 폐수를 처리한다. 전극 용출 응집과 전기분해 기포 부상 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 전극 용출에 의한 전기응집: 희생 금속 전극에서 전기화학적으로 생성된 금속 이온이 용액에서 응집성 종을 형성하여 오염물의 불안정화·포집을 도울 수 있다. 전극·pH·전류·용액 조성에 의존하며 슬러지와 전극 소모가 생긴다. 응집제를 직접 넣는 방식의 하위 대안이며 전해 기포 부상과는 별개 기전이다."
+    },
+    {
+      "identifier": "AR-080704-A1",
+      "source_fingerprint": "ff9d67443411257538e6c5511108676d01cecdd2026a3cb52380c05bb9dedc96",
+      "content_hash": "fe87d55261bb11492573eb2a1da69ae9c090e591e758a63948c3f3d15ac4778d",
+      "decision": "LINK",
+      "keys": [
+        "condensation-recovery",
+        "hydrostatic-liquid-seal",
+        "pressure-driven-flow",
+        "claus-sulfur-recovery"
+      ],
+      "reason": "기존 초록 검토: Claus 장치의 황 응축·액봉·낙차 배출이다. Claus 황 회수 반응은 추가 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 클라우스 반응에 의한 황 회수: 황화수소와 이산화황의 산화환원 반응으로 원소 황과 물을 생성하고 황을 응축하여 회수할 수 있다. 반응 평형·기체 조성·촉매와 응축 조건이 중요하다. 황의 상변화만으로 이루어지는 분리나 황화수소의 단순 흡착과 구분한다."
+    },
+    {
+      "identifier": "AR-080842-A1",
+      "source_fingerprint": "39e906eb8808114fe35391ecc7d8d381ddd0a1da8cf8d4b3707f04e5b05c2238",
+      "content_hash": "1fc411a229b3ebd19b85735f9217daa2d6d31b675e07aa75c56fd658c05250a4",
+      "decision": "LINK",
+      "keys": [
+        "hilbert-quadrature",
+        "cross-channel-predictive-coding"
+      ],
+      "reason": "기존 초록 검토: 실수·허수 성분과 복소 예측 계수로 채널을 예측하고 잔차를 부호화한다. 채널 간 예측 부호화 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 채널 간 예측에 의한 오디오 중복 감소: 한 오디오 채널이나 공통 성분으로 다른 채널을 예측하고 예측 오차를 전송하면 채널 사이 상관에 따른 중복을 줄일 수 있다. 상관·예측 계수·잔차 표현 비용에 따라 이득이 달라진다. 영상 움직임 보상과 예측 원리를 공유하지만 공간 변위 대신 동시 오디오 채널 관계를 이용한다."
+    },
+    {
+      "identifier": "AR-080961-A1",
+      "source_fingerprint": "67969013961022127dc46ba3674b4f71ffd0d7be24f782ae58b2a0e987f1e79a",
+      "content_hash": "31fd9327647c195d02835bb8d5e29acf12fee45cae701d330bf2342c409669a2",
+      "decision": "LINK",
+      "keys": [
+        "hydrosilylation-crosslinking"
+      ],
+      "reason": "기존 초록 검토: 실리콘의 히드로실릴화 가교를 명시한다. Si-H 부가 반응의 별도 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 하이드로실릴화에 의한 사슬 연결: 규소·수소 결합이 적합한 탄소 불포화 결합에 부가되면 규소·탄소 결합이 형성되며 다관능 사슬 사이에서는 가교가 가능하다. 촉매·관능기 비율·저해 물질에 의존한다. 실리콘의 축합 경화나 우레탄·황 가교와 결합 형성 과정이 다르다."
+    },
+    {
+      "identifier": "AR-081444-A1",
+      "source_fingerprint": "ace429f42ca9b39ff78239e07c7fd6396a6f203f5207ff3583d20fe71a7cec09",
+      "content_hash": "48a401e6d029c766b684c019f12e23dc3d6b6d01e998d4509ab53e5ad3833e3a",
+      "decision": "LINK",
+      "keys": [
+        "photosensitized-singlet-oxygen"
+      ],
+      "reason": "기존 초록 검토: 광감응 염료와 빛으로 항균 작용을 유도한다. 광역학 산소 활성화 후보의 기전을 문헌과 대조한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 광감작 에너지 전달에 의한 일중항 산소 생성: 빛을 흡수한 감작제의 여기 에너지가 산소에 전달되면 반응성이 높은 일중항 산소가 생성될 수 있다. 감작제 상태·산소 공급·소광·빛 전달에 의존한다. 전자 전달형 광반응이나 전리 방사선 라디칼 생성과 다르며 모든 광감작 반응이 이 경로는 아니다."
+    },
+    {
+      "identifier": "AR-081827-A1",
+      "source_fingerprint": "399989d264e7baa0ed460f64adee33e352d110519d58d8c6bc6f98c932a8bca0",
+      "content_hash": "6a79a16e3149f88996f8b8c1c01a500a9e3bf10a58eb460547be781ded3c2e58",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "differential-survival-selection"
+      ],
+      "reason": "기존 초록 검토: 식물당 대사 유전자 발현과 적응 선택을 결합한다. 선택 생존에 의한 형질 농축 후보의 추가 근거이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 생존·증식 차이에 의한 집단 선발: 환경 조건에서 개체나 세포의 생존·증식률이 다르면 반복된 생존과 증식을 통해 유리한 형질의 집단 내 비율이 증가한다. 기존 변이·새 변이·선택 압력과 적응 비용에 의존한다. 표지 판독에 의한 분류와 다르며 원하는 유전 변화가 반드시 생기는 것은 아니다."
+    },
+    {
+      "identifier": "AR-081869-A1",
+      "source_fingerprint": "9d66b0e7e88c656480a2b80c3283ef5a07eacc875c82191afe83cce602e42776",
+      "content_hash": "9ec86a9a511bf15e980c83828f7bbcd4b9471ba8fa317068b8f00427e2c6edac",
+      "decision": "LINK",
+      "keys": [
+        "symmetrical-component-decomposition"
+      ],
+      "reason": "기존 초록 검토: 정상·역상 전류를 합성해 불평형 삼상을 만든다. 대칭 좌표 성분 분해 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 대칭 좌표 변환에 의한 삼상 불평형 분해: 삼상 교류의 페이저를 정상·역상·영상의 대칭 성분으로 선형 분해하면 불평형을 성분별로 분석할 수 있다. 페이저 표현과 주파수 조건이 맞아야 한다. 시간축 주파수 분해와 다른 상 순서의 분해이며 좌표 변환만으로 불평형이 제거되지는 않는다."
+    },
+    {
+      "identifier": "AR-082049-A1",
+      "source_fingerprint": "438dbbb5bc643a36f789710c0c3f41a9828eda52e140b4589f517ac3b98f3cde",
+      "content_hash": "1cb2aae9e1caee39ac1b1b4215c2b27ab8832d0173e6a0805121f25bf98527c9",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "chromatography",
+        "cosolvent-solubilization"
+      ],
+      "reason": "기존 초록 검토: 공용매 용해·완충 제형·HPLC 정량을 명시한다. 공용매 용해도 증가를 추가 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 혼합 용매의 용매화 변화에 의한 가용화: 서로 섞이는 용매를 혼합하여 용질 주위의 용매화 환경과 활동도를 바꾸면 단일 용매에서보다 용해도를 높일 수 있다. 조성·온도·용질에 따라 용해도가 오히려 낮아질 수 있다. 이온화·미셀 형성·비정질 고체 분산과 다른 방식이며 희석 시 석출이 가능하다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:50:10.089910+00:00"
+}

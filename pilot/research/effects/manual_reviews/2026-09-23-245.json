@@ -1,0 +1,134 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "ca696aa4ac128234a78b7dc319aceab92cc9c421e0a7e30ab31a5519d8c2f692",
+  "reviews": [
+    {
+      "identifier": "AR-117917-A1",
+      "source_fingerprint": "d5cb916a1c47d5d77f67882958efd02e01b37085acc7668afa6e2534f8746b62",
+      "content_hash": "50ef98b13f39a10f7894e7b9d2223a4de11d4469e6e7a4c5a13c967b03fe5a5b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "CDK2 키나아제 저해 화합물이다."
+    },
+    {
+      "identifier": "AR-117919-A1",
+      "source_fingerprint": "cc9c96e5d7ca6b884a4f60adcdd2b73a0d523c3b38bad69e4bad9d221f4d2bd6",
+      "content_hash": "f0b3ee4981d5048681ed29e56a9c94f6079a2e3fd10027f28d5a2c3503b3b941",
+      "decision": "LINK",
+      "keys": [
+        "pressure-compaction",
+        "combustion-heating"
+      ],
+      "reason": "금속 함유 활성탄을 압축하고 탄소를 연소시켜 무기 잔류물을 농축한다. 회수율·환경 우수성은 검증하지 않았다."
+    },
+    {
+      "identifier": "AR-117927-A1",
+      "source_fingerprint": "067ee7c14bfbb7045a54ede06f84204d2a651223647285076e3a0b76bd3f67e7",
+      "content_hash": "08f5721d645f2347b226d820e358f71a5ab3849edec6dc1feec0fe5870e96d4c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "종별 발아 조리법에 따른 탱크 배합·이송 제어이다. 발아의 생리 작용을 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-117966-A1",
+      "source_fingerprint": "2da25d2006193188f756e6adfdf020d2943f314df84653a0fab0a38640110134",
+      "content_hash": "208f2efc847dc56fda01fd98b54f73707a02a13244569b06aa9e392311802812",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "서로 다른 곡률을 가진 휠 림의 형상이다. 응력 저감·강화가 초록에 입증되지 않았다."
+    },
+    {
+      "identifier": "AR-117967-A1",
+      "source_fingerprint": "b33692183fa6f384259a1e8c68ba07a1ca7fe92213434a02e63e859de5a5083f",
+      "content_hash": "f4dcbb46eae1f0817aa9d367b1d82fb63b6738effcbec24fb76ed5530e6cced1",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution",
+        "pressure-driven-flow"
+      ],
+      "reason": "수상에 방출된 고분자가 점도를 높여 저류층 물 유동을 바꾼다. 새 결합 반응을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-117990-A1",
+      "source_fingerprint": "fbbe343fe63bce6f55622148a7c5993d8774a2656bbe2764e607801a0ea8d06e",
+      "content_hash": "b7d029f7d09165e7b63686dfd2c96c3b53fa262fc4346db0c5f856ef408a4497",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 화합물 구조만 있고 생화학 표적이 없다."
+    },
+    {
+      "identifier": "AR-118009-A1",
+      "source_fingerprint": "c363a4f71bc41e5fd364e9d5d849cf35886fd321519add376844f3795f7e3851",
+      "content_hash": "a9c53a2019975c8f032a112a4e7d73ae9431fcf2913f6ca4e501d3cbd7fef19c",
+      "decision": "LINK",
+      "keys": [
+        "antigen-targeted-payload-delivery",
+        "biomolecular-recognition"
+      ],
+      "reason": "CD228 표적 항체 약물 전달이다. 연결기 절단 방식은 초록만으로 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-118011-A1",
+      "source_fingerprint": "bfac3f4dcd3dc8e51ebabfe5bb2584747c06fc624f7ec66e0b8b2c62dd174e3f",
+      "content_hash": "d717eb7496cd98ecbeb97256205e9e5521a1dfb8af6fc563b632768c9c077971",
+      "decision": "LINK",
+      "keys": [
+        "bulk-comminution",
+        "sieve-size-separation",
+        "pressure-compaction"
+      ],
+      "reason": "폐타이어 분쇄·체 분리·가압 성형이다. 수지 경화 화학은 미특정이다."
+    },
+    {
+      "identifier": "AR-118015-A1",
+      "source_fingerprint": "73abf33dc8463966a5eb376748e0e754df67774d2d23311b81a9c544935d41de",
+      "content_hash": "701128ea0603493ed6a816ffbb5befba44e2890ca353068bdc24241fc74617ee",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조 목록이며 표적·작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-118019-A2",
+      "source_fingerprint": "15d602093507465e518573bb72d37ef60f88458fb6e7d7d5b8338b77231ec6bf",
+      "content_hash": "d8f77ef50f745897bc6b630b37641bbee43399b4d0ba6a79974d45ff32c730fa",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고위험 신경독소의 생산·활성화와 연결되는 단백질 처리 특허이다. 관련 효소·서열·처리 조건을 효과 카드로 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-118035-A1",
+      "source_fingerprint": "34189f1dc8a266146b3a64b15972ba7b22774b499fcc122de8f17a507b842de7",
+      "content_hash": "49a3e92936b44f0080ecc7b12e74018d544f3dbcd75676f665933169b546505b",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating",
+        "mechanical-interlocking"
+      ],
+      "reason": "교체 가능한 마모 보호 덮개와 고정 구조이다. 재료 자체의 경화 원리는 없다."
+    },
+    {
+      "identifier": "AR-118047-A2",
+      "source_fingerprint": "74848f355f1a803f5121bbf5dd5a226da9318d3f9424d7ca979812ab41401196",
+      "content_hash": "0bd7517752dce720df268790ec3c931b5cace62ee76d067037e42ab089a872f7",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "DKK1 결합 항체의 중화·경쟁 결합이다."
+    },
+    {
+      "identifier": "AR-118070-A1",
+      "source_fingerprint": "d6e84728797c731d1450a1218f326861bc34104e4a34c2a29b02035679170993",
+      "content_hash": "47e3b6a7bb65028383458e5c292018c62e6037a56dfa3f56d78d15bfa07c0735",
+      "decision": "LINK",
+      "keys": [
+        "grain-refinement"
+      ],
+      "reason": "오스테나이트 결정립과 입계 석출물 크기 제한이다. 황화물 응력균열 저항의 단독 원인으로 단정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:33:58.793873+00:00"
+}

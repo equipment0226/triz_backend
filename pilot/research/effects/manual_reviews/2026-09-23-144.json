@@ -1,0 +1,215 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "2c312d83b6a710d0097f5ad7da9f6f3dbd035f317c9b6b6bf31c8771e8923966",
+  "reviews": [
+    {
+      "identifier": "AR-097860-A1",
+      "source_fingerprint": "a14ce68ff5454a935ed1bbc6cbbb68e374f983e1bc52114229fb562b9a01bbdc",
+      "content_hash": "9f1bd1a51c1f4234e3cd3172f3252c9c2fc87f81fc60bff1f7c32244e743df33",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "미생물 발효물과 구게로틴 생산 균주의 식물 처리이다. 저장 초록에 리보솜 작용 경로가 직접 설명되지 않아 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-097879-A1",
+      "source_fingerprint": "39be1e265e1b4a7b58805a94886c16b438c6036e1d9ec75b9ed488ea9af932d3",
+      "content_hash": "4160b6dfe850e009f790ec632185a13b43b13184d11f08a8ccc5ee656edb7cfc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "여러 영상과 분할 결과로 지질 모형을 구성하는 시스템이다. 분할·역산 알고리즘 상세는 없다."
+    },
+    {
+      "identifier": "AR-097897-A1",
+      "source_fingerprint": "bb5d4517443db975ba48de72098a3d0c59e8050049a78df5df2c7b94eb0440f6",
+      "content_hash": "3f8de6846be2ab9726943388a83350163d1b3b72ee8ef7f269fbc3cc5bc8128e",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "redundant-path-fault-tolerance"
+      ],
+      "reason": "병렬 분기 조절기로 전압을 제한하고 복수 조절기를 둔다. 제너·애벌랜치 소자를 명시하지 않아 특정 반도체 기전을 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-097907-A1",
+      "source_fingerprint": "ef134ae196eacda4b95b47de49c9174a5552b73d27fbd75276d825721a5bcad0",
+      "content_hash": "6a32367e6b3a1e8800d4effe6195ef4924f55bc92940e93531e922905fd39fea",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "부직포 천공 후 필름을 붙이는 외피 제조 순서이다. 천공·접착의 에너지 전달 방식이 생략되어 있다."
+    },
+    {
+      "identifier": "AR-097917-A1",
+      "source_fingerprint": "7a0e472b3c284dc3c941a80890e1c35bf84184de3fe3911c38b32bafc03cfae4",
+      "content_hash": "44a61a8b0269a8ec84215722181518f5c3dfb46f125cd12f76325b681403fddf",
+      "decision": "LINK",
+      "keys": [
+        "differential-survival-selection",
+        "plant-cell-totipotency"
+      ],
+      "reason": "발근 배지의 선택제로 생식계열 형질전환체를 조기에 선발하고 식물로 재생한다."
+    },
+    {
+      "identifier": "AR-097925-A1",
+      "source_fingerprint": "d3891084fac5fbaa68d22eb24a3a07315d8bb3e71ae5cd4e652e293c676106bc",
+      "content_hash": "692bd32f405c7bc1c8f9d4eec82b10d8a0777b4e622e0f82f9a5a78947ebd888",
+      "decision": "LINK",
+      "keys": [
+        "bubble-leak-detection"
+      ],
+      "reason": "추출 치아의 밀봉 공동에 압축 기체를 넣고 물속 기포로 누설을 확인한다."
+    },
+    {
+      "identifier": "AR-097936-A1",
+      "source_fingerprint": "70fa441252286961365ca17185b370930ddc6bc3bc376b07c3316bd917d8764c",
+      "content_hash": "d927d64524da30530c07c61f0bea796a5f1ea2f3bd138f06e7b0fc7dfd44d9d8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피롤론 제초제의 구조 범위만 있어 생물 작용 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-097977-A1",
+      "source_fingerprint": "586fb3fd574b86b1f74f04037519075242299493c5d2dbb7707e9669fb44e55f",
+      "content_hash": "acf3b522dd3f5b1db179819ae301df0e812e0c91ec42c171b2a3901e68835b63",
+      "decision": "LINK",
+      "keys": [
+        "metabolic-flux-redistribution"
+      ],
+      "reason": "아세트산 유도성 조절로 표적 유전자 발현을 낮춰 아미노산 생산을 바꾼다. 프로모터 방향·전사 충돌·안티센스 경로는 구분할 근거가 부족하다."
+    },
+    {
+      "identifier": "AR-097997-A1",
+      "source_fingerprint": "bfadff05284876b41f4a9c35f260a0124e38b07e367636fb0a4f9beef3a7d13e",
+      "content_hash": "3d7549db563e511083d6cd59bbbdc0e302de29c5349569f4c25a1216ea43e858",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "명명된 이부프로펜·트라마돌의 기존 효소·수용체 조절 적용이다. 안과 제형의 효능은 검증된 결과로 취급하지 않는다."
+    },
+    {
+      "identifier": "AR-097999-A1",
+      "source_fingerprint": "769a41d34e1dc89293d575870a01154499ad7e8ca2dd8b16e8f4b5b454379d1b",
+      "content_hash": "bd67632671a5c81a8fa7ba6eb1588fa739afdf34f6077941b0460650fe3b6302",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "보이지 않는 구조식 번호와 종자·토양 해충 제어 용도뿐이다."
+    },
+    {
+      "identifier": "AR-098010-A1",
+      "source_fingerprint": "e680eaa5865d343b64eeb1f1e7d07dfe5bee3fb150265a3b51f13bb5b27e6b50",
+      "content_hash": "895fe9db18cb239da4ea5e3b7c78b9df7da0361e1410f8a80042556074c49f87",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "capillary-wicking",
+        "evaporative-concentration"
+      ],
+      "reason": "담지 촉매의 함침·건조와 수증기 개질 용도가 명시된다. 탄화수소·수증기 개질을 신규 후보로 검토하며 초록의 세륨 산화물 오기는 재현하지 않는다."
+    },
+    {
+      "identifier": "AR-098018-A1",
+      "source_fingerprint": "e1d73939e143681f78a6e4e41ad470c0aafb3a35e9ab1c85fc45bff2cdbab513",
+      "content_hash": "b0f48ba8fd03235c6f01479c2ab72202afc90a6c6fdddd4072f666ba3c47ac0b",
+      "decision": "LINK",
+      "keys": [
+        "impact-deagglomeration"
+      ],
+      "reason": "압축 광물섬유 다발을 기계적으로 풀어 밀도를 낮춘 후 수중 혼합한다. 실제 섬유 파쇄와 구분한다."
+    },
+    {
+      "identifier": "AR-098020-A1",
+      "source_fingerprint": "61241fd613a66d62dc39cc04f3997f1577af7f2c1c51e14e883f119d96465c93",
+      "content_hash": "9ca9704c0410c2389ce750012ac725bf0b0ca8b989f99419cbd6994712489bed",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "자율 농업 차량의 구동·장착·지능 제어 구성이다. 주행 계획이나 센서 원리는 생략되어 있다."
+    },
+    {
+      "identifier": "AR-098027-A1",
+      "source_fingerprint": "b64ee154ca93c4134831beeb171625f21cbab0d6e88987c3eb53302f12305d61",
+      "content_hash": "7829ed18804fdcadb4a008367d6d2299b1978c91118638872a7ccabd176be3ce",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "이미지 매칭 결과와 사용자 식별자를 대응하는 정보 조회이다. 특징 거리나 역색인 구조를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-098032-A1",
+      "source_fingerprint": "b53d2aae18a1daeb9940fb97feea0608932f1b36323aaa2fcb2618174d025bea",
+      "content_hash": "5f3b291d05ae296b2c645ebf21a55b824b03b508dfcfe3e50cdbe66f6ba31c0a",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "transcription-factor-regulation"
+      ],
+      "reason": "옥수수 유래 조절 요소와 프로모터로 식물 도입 유전자를 발현한다."
+    },
+    {
+      "identifier": "AR-098049-A1",
+      "source_fingerprint": "8d90a3d1a2e307be85a73204b54ddc994836b6df147910a769d189ae716b4223",
+      "content_hash": "59d1fe481f2d9150b6cc1aa57a2fd88c7f0299408418d455209fe0fd74cefcab",
+      "decision": "LINK",
+      "keys": [
+        "photovoltaic-conversion",
+        "fiber-matrix-load-transfer",
+        "barrier-coating"
+      ],
+      "reason": "태양전지 양면을 투명 유리섬유 보강 고분자로 보호한다. 가교 경로는 조성만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-098076-A1",
+      "source_fingerprint": "f03b4bef7ed723040278a21ce35d63af125213940c0eb994d95e0b9c6ca3333d",
+      "content_hash": "7f12eb75b65c1cc1440bd2e8dc77e23e6765eb4a941d9271a3be6f8f4c374102",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "캡 이동으로 바늘과 카트리지 격막을 상대 이동시켜 관통하는 주사기 구조이다."
+    },
+    {
+      "identifier": "AR-098099-A1",
+      "source_fingerprint": "3a5eaf010d79d2059299350993f1b449418d5d490a9541964dabba16739b481d",
+      "content_hash": "da33ac064d74427a8685f1903c5eeada3040f25afe5b4b9560b8b74f742b12df",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "키틴 생합성 저해 성분이 명시된다. 살충제 조합의 상승 효과를 독립 기전으로 세지 않는다."
+    },
+    {
+      "identifier": "AR-098113-A1",
+      "source_fingerprint": "2ab246b9b318503c886e6232da54a78bc6e17058a805f5b38c3397cebffed541",
+      "content_hash": "bb9e2ec7523fd5d5a5a02b1e5dfc1218cb0a27c444c91fe5eb3fccada83c99b2",
+      "decision": "LINK",
+      "keys": [
+        "hydrazine-pyrazolone-cyclocondensation",
+        "oxidative-dehydrogenation"
+      ],
+      "reason": "히드라진 고리화와 산화 방향족화가 명시된다. 치환 메틸의 산화 및 구리 산화물 보조 탈탄산은 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-098116-A1",
+      "source_fingerprint": "0527a5cae6c8d83efb00a3ddf6c180ac8c6963a0b40699efe2aeb9b08410187b",
+      "content_hash": "8aa1c58ed3071f60634bdfc9781e396b5d8dafdaf62b80c89cd4d1a8993f299f",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "rolling-contact-friction-reduction"
+      ],
+      "reason": "레일 위 바퀴와 수축 핀 잠금으로 짐 고정 프레임 위치를 정한다."
+    },
+    {
+      "identifier": "AR-098119-A1",
+      "source_fingerprint": "70f23117489ac5fbc06e1ff473dd038e9c16a7ea23303c18f88d809ac75aa274",
+      "content_hash": "89e65610c8044fb659f7f3f1e5ab0f5e5961be989746f8d79fcbbac9b1603189",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "grain-refinement"
+      ],
+      "reason": "냉각 이력과 후속 열간 가공으로 미세 조직을 형성하는 관 제조이다. 재결정·상변태의 세부 경로를 초록만으로 고정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:50:08.166440+00:00"
+}

@@ -1,0 +1,160 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "ee5331486a0425d0c447b6697c416c3dbdf5639874058ee0c7302a2045ff83bc",
+  "reviews": [
+    {
+      "identifier": "AR-082707-A1",
+      "source_fingerprint": "a905ac0a93407d5df74d1e142df06b68a1b42d6f998bc3e67923395d70494cdc",
+      "content_hash": "cc74d2203be8549f8f1f1bf851bbbe2aa9281401e3a029e10e4d12088d08991e",
+      "decision": "LINK",
+      "keys": [
+        "fluorescence-sensing",
+        "biomolecular-recognition",
+        "fluorescence-lifetime-discrimination"
+      ],
+      "reason": "기존 초록 검토: 아밀로이드 결합 표지의 형광 시간 감쇠로 결합 상태를 구분한다. 수명 기반 검출 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 형광 감쇠 시간에 의한 상태 식별: 여기 후 형광 세기가 감소하는 시간 특성이 분자 환경과 비복사 소멸 경로에 따라 달라져 물질이나 결합 상태의 식별에 이용될 수 있다. 기기 응답·복수 수명·소광·광자 수를 고려한다. 형광의 하위 측정법이며 밝기 자체와 다른 관측량이지만 모든 조건에서 농도 영향을 배제할 수는 없다."
+    },
+    {
+      "identifier": "AR-082959-A1",
+      "source_fingerprint": "e5947daee2e0ce405243ad850e699020cc5baeb24418223081b2b44180781de0",
+      "content_hash": "e117e9c05cbe6acad53f3d8963a58330059010ea091b919860a15154dd09f682",
+      "decision": "LINK",
+      "keys": [
+        "solidification",
+        "heat-capacity-buffer",
+        "quench-vitrification"
+      ],
+      "reason": "기존 초록 검토: 차가운 금속 입자에 열을 전달해 슬래그를 유리화·응고 후 분쇄한다. 유리화 후보도 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 결정 성장 억제 냉각에 의한 유리화: 용융체를 냉각할 때 결정 핵생성·성장이 충분히 진행되기 전에 분자 이동이 느려지면 비정질 고체로 고정될 수 있다. 조성·임계 냉각 속도·두께·열 전달에 의존한다. 일반 응고나 기존 유리의 잔류응력 강화와 달리 결정 질서의 형성을 억제한다."
+    },
+    {
+      "identifier": "AR-083047-A1",
+      "source_fingerprint": "34915d1a1c6e85144c6c32981df2a92504d07ee66bf37c7591c13aca2d6c9287",
+      "content_hash": "6e410a89183307d7144c859d7475e661ca68315b781b003e3f3472506901d5c4",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-hydration-heating"
+      ],
+      "reason": "기존 초록 검토: 금속산화물과 수분의 반응열로 젖은 사료 부산물을 가열한다. 산화물 수화 발열 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 금속산화물 수화 반응에 의한 발열: 산화칼슘 등 수화 시 반응 엔탈피가 음인 금속산화물이 물과 반응하면 열이 방출되어 주변 물질을 가열할 수 있다. 모든 금속산화물이 물과 강하게 발열하는 것은 아니다. 반응성·수분 공급·열 제거에 의존하며 가역 열화학 저장과 원리를 공유하는 직접 발열 응용이다."
+    },
+    {
+      "identifier": "AR-083098-A1",
+      "source_fingerprint": "632c76c38f3c5f1846b9389ae5398e2458c29ff352050df06da0dc007a48fba1",
+      "content_hash": "ab7dda330e2cb542826f78d61c1f389fdb366469e25bb15631700ff2a8486efc",
+      "decision": "LINK",
+      "keys": [
+        "collaborative-preference-prediction"
+      ],
+      "reason": "기존 초록 검토: 맥락별 사용자 선호를 서로 비교해 추천한다. 협업 선호 추정 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 공통 선호 패턴에 의한 미관측 선호 추정: 여러 사용자의 항목 평가·선택에 나타나는 공통 패턴을 이용하면 특정 사용자가 아직 평가하지 않은 항목의 선호를 추정할 수 있다. 관측 편향·희소성·새 사용자·시간 변화에 취약하다. 최근접 계산을 사용할 수 있으나 물리적 특징 유사도 검색과 달리 사용자·항목 상호작용을 예측한다."
+    },
+    {
+      "identifier": "AR-083139-A1",
+      "source_fingerprint": "88c93ba60c1a34a389eabd36566ca98c90ab6e30e12caa4c0d1a0caf07396684",
+      "content_hash": "24c40f21a6343c2f4dc115b3aec56f4de06e72ed0bd6bc0c3ce5f7f20e736400",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-insulation",
+        "mechanical-contact-switching",
+        "fusible-overcurrent-interruption"
+      ],
+      "reason": "기존 초록 검토: 절연 전면·부하 개폐와 퓨즈를 배치한다. 퓨즈 용융 차단 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 줄열 용융에 의한 과전류 차단: 전류가 퓨즈 요소를 가열하여 용융·분리를 일으키면 회로가 끊어져 전류 흐름을 차단할 수 있다. 시간·전류 특성, 차단 용량과 아크 소호 조건이 맞아야 한다. 줄열과 상변화의 보호 응용이며 재사용 기계 접점 차단과 구분한다."
+    },
+    {
+      "identifier": "AR-083301-A1",
+      "source_fingerprint": "a8463441c95beb21a3f346816c943f2a7d5f7bf4dd1ec7b01a5b52e70d2f316a",
+      "content_hash": "0d33e85bd819617e371904ca57942bddb47a11c473ea684e24e3c2951ea6ab98",
+      "decision": "LINK",
+      "keys": [
+        "mercury-halogenation-capture"
+      ],
+      "reason": "기존 초록 검토: 브롬 함유 성분으로 석탄 연소 수은 배출을 줄인다. 수은 산화·포집 후보의 경로를 확인한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 할로젠화에 의한 수은 포집성 변화: 기체 원소 수은을 브롬 등과 반응시켜 산화된 수은 종으로 전환하면 후단 흡착·세정 장치에서 포집하기 쉬워질 수 있다. 할로젠 종·기체 조성·온도·포집 재료에 의존한다. 화학 전환과 후단 분리가 함께 필요하며 할로젠 첨가만으로 수은이 제거되는 것은 아니다."
+    },
+    {
+      "identifier": "AR-083353-A1",
+      "source_fingerprint": "404380dceef8fb263469dbb6b9b3861b304a9ed8a02e47ee73eb542c37d3df86",
+      "content_hash": "2b799ae309b62ebbad4c4f8626e311235113ca7e75e5918ec8549807fbdeaa99",
+      "decision": "LINK",
+      "keys": [
+        "multicomponent-cocrystallization"
+      ],
+      "reason": "기존 초록 검토: CCR3 저해제의 공결정·염을 명시한다. 다성분 공결정 형성 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 복수 성분의 공결정 형성: 서로 다른 분자 성분이 비공유 상호작용으로 일정한 비율의 공통 결정 격자를 형성하면 각 성분 단독 결정과 다른 물성을 나타낼 수 있다. 조성·상호작용·용매·결정화 경로에 의존한다. 단일 성분 다형, 단순 혼합, 염 형성과 구분하며 공결정이 용해도를 항상 높이는 것은 아니다."
+    },
+    {
+      "identifier": "AR-083374-A1",
+      "source_fingerprint": "83a5925e00398b8d048653ec535e46a384efc6a1aa28a2004fd7644befeb46c8",
+      "content_hash": "12ec8a1a27a183604fba5594e3f6e0dcf18fa74f4fc276f5e16a94a61f5a5d72",
+      "decision": "LINK",
+      "keys": [
+        "zero-knowledge-proof"
+      ],
+      "reason": "기존 초록 검토: 영지식 증명으로 사용 상세 공개 없이 청구 계산을 검증한다. 별도 정보 원리 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 영지식 증명에 의한 비밀 비공개 검증: 증명자는 비밀 증인을 공개하지 않고도 공개 명제가 정해진 관계를 만족한다는 것을 검증자가 확인하게 할 수 있다. 완전성·건전성·영지식 성질과 암호학적 가정이 검증된 프로토콜이 필요하다. 암호화나 인증서와 목적이 다르며 일반적인 비공개 주장 자체는 증명이 아니다."
+    },
+    {
+      "identifier": "AR-083468-A1",
+      "source_fingerprint": "7ae222127e7f07894004125ec49d466cbc2fbeb2026a072a12f17db6a7d292d7",
+      "content_hash": "34abc935a42d6bfd99b69cd4cf7d2b16858fc46c8a6ace0c3e1b448b37610ab8",
+      "decision": "LINK",
+      "keys": [
+        "metabolic-flux-redistribution",
+        "fermentation",
+        "transhydrogenase-cofactor-conversion"
+      ],
+      "reason": "기존 초록 검토: 트랜스히드로게나아제 활성으로 NADPH 공급과 메티오닌 대사를 조절한다. 보조효소 환원력 전환 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 트랜스하이드로게나아제의 보조인자 환원력 교환: 트랜스하이드로게나아제가 NAD(H)와 NADP(H) 사이의 수소화물 전달을 촉매하여 두 보조인자 계열의 환원 상태를 연결한다. 막형 효소에서는 양성자 구동력과 결합할 수 있으며 방향은 에너지·농도 조건에 의존한다. 총 환원력을 새로 만드는 반응으로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-083647-A1",
+      "source_fingerprint": "d22a129bf2ded6cde87a882bd78a2d39352d59d5d30736bb796b3e7091ec3879",
+      "content_hash": "496d6a40831ade58a9263bc77e66ca0b24f3117c69c0785e02a9bffd86363b9b",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-film-atomization"
+      ],
+      "reason": "기존 초록 검토: 회전 컵 액막의 가장자리 방출로 연료를 분무한다. 원심 액막 분무 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 회전 액막의 가장자리 분열에 의한 분무: 회전 원판이나 컵 위의 액체가 바깥쪽으로 퍼져 얇은 막·액사를 만들고 불안정화되면 작은 액적으로 나뉜다. 회전 속도·공급량·점도·표면장력에 의존한다. 원심 분리와 달리 액적 생성이 목적이며 외부 기체 전단만으로 분열하는 방식과 구분한다."
+    },
+    {
+      "identifier": "AR-084041-A1",
+      "source_fingerprint": "cb197a5987abdd43150f8a8579fcd155288498be15a5ef14b20699ffbb044e71",
+      "content_hash": "08ed16dae9bcf67ea29828628196f0c7003e5d3a3da9250e504bac15c4f96d1e",
+      "decision": "LINK",
+      "keys": [
+        "confocal-axial-sectioning"
+      ],
+      "reason": "기존 초록 검토: 공초점 레이저로 비접촉 렌즈 두께를 측정한다. 공초점 축 방향 선택 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 공초점 공간 필터에 의한 광학 단층화: 초점 조명과 검출 경로의 공초점 핀홀이 함께 작용하여 초점 밖에서 오는 빛을 줄이면 깊이 방향으로 선택된 광학 단면을 얻을 수 있다. 개구·핀홀·파장·산란·정렬에 의존한다. 일반 집광과 구분하며 형광이 없어도 구현 가능하고 깊은 불투명 시료를 무제한 관찰하지는 못한다."
+    },
+    {
+      "identifier": "AR-084171-A1",
+      "source_fingerprint": "424c5ca852e737a2e508f448be2a5689906a88c37bf989ae9243e9895400d858",
+      "content_hash": "ce6faf2bac0c9bcca17d2689ee709d1666a5eee26ff7fb8f5923cff6b3753f84",
+      "decision": "LINK",
+      "keys": [
+        "positron-annihilation-imaging",
+        "scintillation-radiation-detection",
+        "secondary-electron-multiplication"
+      ],
+      "reason": "기존 초록 검토: 섬광 결정·광전자증배관·동시 검출을 명시한다. 섬광 변환과 2차전자 증배 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 섬광 발광에 의한 방사선 검출: 전리 방사선이 섬광체에 에너지를 전달하면 가시광·자외선 광자가 방출되어 광센서로 방사선 상호작용을 읽을 수 있다. 섬광 효율·감쇠 시간·광 수집·소광에 의존한다. 광센서 내부의 광전 변환과 별도 단계이며 모든 방사선 에너지가 검출광으로 바뀌지는 않는다.; 이차 전자 방출의 연쇄 증배: 가속된 전자가 적합한 표면에 충돌하여 여러 이차 전자를 방출하고 이 과정이 반복되면 전자 수가 증폭될 수 있다. 표면·충돌 에너지·전압·진공과 공간 전하에 의존한다. 반도체 내부 충돌 이온화나 광전자의 최초 방출과는 증배 위치·단계가 다르다."
+    },
+    {
+      "identifier": "AR-084181-A1",
+      "source_fingerprint": "e62fd9767f7419cd4e107cd469fdc5b983c9bcfa30e2894e6f37ec4e52711136",
+      "content_hash": "71c60d5653439ccdf8360be376755cd9c15c775385e9916084e35f787b19c092",
+      "decision": "LINK",
+      "keys": [
+        "cholesteric-selective-reflection"
+      ],
+      "reason": "기존 초록 검토: 키랄 액정의 선택 반사 대역을 첨가염으로 바꾼다. 나선 피치 반사 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 콜레스테릭 나선 구조의 선택 반사: 액정 분자 배향이 나선형으로 반복되면 나선 피치에 대응하는 파장대의 빛과 특정 손잡이성의 원편광이 선택적으로 반사될 수 있다. 피치·굴절률·입사각·배향 균일성에 의존한다. 브래그 반사의 나선 이방성 응용이며 단순 복굴절이나 안료 흡수색과 구분한다."
+    },
+    {
+      "identifier": "AR-084259-A1",
+      "source_fingerprint": "692a03daa5be35a9bb6bb7f5938a3ffee437b418c97427b5d026765b6eeed130",
+      "content_hash": "09f81c457d0a00f2f9fb0e559273cdffe662a304aed73655e7e0d25f660c0cc7",
+      "decision": "LINK",
+      "keys": [
+        "sintering",
+        "physical-foaming",
+        "sacrificial-porogen-leaching"
+      ],
+      "reason": "기존 초록 검토: 다공성 지지체의 소결·발포·선택 용해 대안을 제시한다. 희생 성분 용출에 의한 기공 형성 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 희생 입자 용출에 의한 공극 형성: 고체 매트릭스 안에 분산한 용해성 입자를 선택적으로 제거하면 입자가 차지하던 공간이 기공으로 남을 수 있다. 매트릭스 안정성·입자 연결성·용출 경로가 중요하다. 선택 용해의 구조 제조 응용이며 기체 발포나 동결 주형과 공극 생성 원인이 다르다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:50:11.181995+00:00"
+}

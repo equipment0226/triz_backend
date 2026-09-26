@@ -1,0 +1,94 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "5b8ec194762edfcd6d95b4f699250ee935fbb14638bf9f96aedf93c4320bc606",
+  "reviews": [
+    {
+      "identifier": "AR-094629-A1",
+      "source_fingerprint": "db85b12320dd0ea88820b9e050ec69c5adefa47e93e24ec59140a4316e503325",
+      "content_hash": "68e1a954fc61ce596f1151551858582994c66a170f8b7cea814e4aa12c0a1594",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 구조 목록과 용도만 있고 표적은 없다."
+    },
+    {
+      "identifier": "AR-094635-A1",
+      "source_fingerprint": "98a7442f990e0e65a1658b24ea01a7a33dbf4ad9f01b1bc532745474c5472046",
+      "content_hash": "9e034a6b243c462f6e15f9dbb8e655b62d33e0a65d8e29326892ae08f1e65748",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "ion-channel-modulation",
+        "receptor-ligand-modulation",
+        "oxidative-phosphorylation-uncoupling"
+      ],
+      "reason": "호흡·효소·이온 채널 등 명시된 계열을 기존 효과에 연결한다. 미세소관 조절·식물 전신 방어 유도는 별도 후보이며 잘린 목록을 확장하지 않는다."
+    },
+    {
+      "identifier": "AR-094645-A1",
+      "source_fingerprint": "eb63bf12764cd18e3689ac97482d2bce4658cddecef5e4f19701d6a1f5cc4193",
+      "content_hash": "a33d476f218bea0be7a504a47c13ff8b91f33363db724dfa9d89b446cb2e88ac",
+      "decision": "LINK",
+      "keys": [
+        "time-of-flight"
+      ],
+      "reason": "GPS 관측을 이용하는 착용 장치이다. 복수 거리 제약의 위치 해법은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-094647-A1",
+      "source_fingerprint": "8e2c43fab19f965a0f12325afada8eadf1f46cb93ba23da2a3351b3cda543088",
+      "content_hash": "2c0002d5dab87b6b277fee5f9b72ea60a9a3ebfb94860748b2bbb7d787ba8087",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "진통 용도와 모르피난 구조만으로 수용체 선택성·기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-094649-A1",
+      "source_fingerprint": "b236146f5965e1674ea997a2145cd06873f3bd16f4a0e601802ed04318310c86",
+      "content_hash": "0129e73b1209a0eccdbf810d10434a1a111da75187e2469f527f79ee487891ee",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "photosynthesis"
+      ],
+      "reason": "효소와 광합성 경로 저해가 명시된다. 미세소관 조직 억제는 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-094656-A1",
+      "source_fingerprint": "8e3d27ef884ad5666bdd20e62114baedab5a0dbcbd99a79deefead022487cffd",
+      "content_hash": "5ea6adc586ccd24207dea73fff271263f7eb5afcb78765400a7d47074d9505a1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "나타마이신·페닐피롤 조합이다. 스테롤 결합 작용을 문헌으로 확인하며 모든 폴리엔을 막 기공 형성으로 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-094658-A1",
+      "source_fingerprint": "abe9f9710f905aac5ad64689959664290e4dc2d1bfc506bc75c5c2c9af976759",
+      "content_hash": "dbe9e91dc290dc3c54c366b0e4e8454e68165d35142080154ee75f0838aec538",
+      "decision": "LINK",
+      "keys": [
+        "lipid-bilayer-self-assembly",
+        "ultrafiltration",
+        "osmosis"
+      ],
+      "reason": "리포솜 내부에 염을 담고 접선 유동 한외여과로 제형을 만든다."
+    },
+    {
+      "identifier": "AR-094662-A1",
+      "source_fingerprint": "8f97c1e782bb64297097e06bbce365db2fe67b6faec6259332a1f4372e0d2cd3",
+      "content_hash": "048fee47a4ed7b598e50838285a143a174c08240339f1ab51550c47f8a23d5ec",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구조식 참조와 질환 용도만 있으며 실제 구조·표적 정보가 없다."
+    },
+    {
+      "identifier": "AR-094663-A1",
+      "source_fingerprint": "c3eba4441e1966f030d5f4477748e3511bcaa470b735e23a241f4cf6eaf84cae",
+      "content_hash": "e85793230919a011164bbe585eaad3c562924961780991b32024fc0c07ac0033",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "표적 세균을 감염시키는 파지의 적용이다. 숙주 내 증식과 용균의 선택적 제거 기전을 신규 후보로 확인한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:35:11.384908+00:00"
+}

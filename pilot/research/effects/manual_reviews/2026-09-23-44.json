@@ -1,0 +1,256 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d872edf0afcf2b57e2e55121a2e129cc6982e568b630d8ad05ba3ea734c2ce1e",
+  "reviews": [
+    {
+      "identifier": "AR-084949-A1",
+      "source_fingerprint": "7395a444d143f2b461432f9a5da89ae2820ab36ed032d6fc0552404ff04875ed",
+      "content_hash": "f42691dca4e44e24fa9313385f0be10b23dfc284d91e9c034568fba66bb13883",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "암석 파쇄 압력을 넘는 유체 주입과 입자 일시 폐색. 수압 균열 후보의 직접 근거이다."
+    },
+    {
+      "identifier": "AR-084957-A1",
+      "source_fingerprint": "602d80226519d4138abf7fb548aca4b06a4f0a82e15046f8e083cd86ab32ef9f",
+      "content_hash": "5877b2bffbb0b24c321b36ee2b197524099b8c29efee6629d96b395194963034",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-membrane-actuation",
+        "vibration-isolation"
+      ],
+      "reason": "공압 주머니와 관절 지지가 노면 변위를 수용한다."
+    },
+    {
+      "identifier": "AR-084960-A1",
+      "source_fingerprint": "03b8e61ae5fa7ad9f4d93e7ee5617c3b0d680e832bc22a1513a018b4703cda61",
+      "content_hash": "51e62a92d3401ba6fa16e96ca6a7bcae39ab0e6033e4333fd523904dceb881b7",
+      "decision": "LINK",
+      "keys": [
+        "uv-absorber-photoprotection"
+      ],
+      "reason": "UV 흡수제로 이중결합 광이성질화를 억제한다. 광이성질화 자체는 신규 후보이다."
+    },
+    {
+      "identifier": "AR-084970-A1",
+      "source_fingerprint": "1cb4383ef012bece773da063430c11522ac3d2c5aca2a85944ea45da1c36bd3a",
+      "content_hash": "e9132ca0481327ca3b959b0531d44994b901f5131ba24db52d7233e8556f2e44",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PI3K 활성 조절을 위한 억제 화합물이다."
+    },
+    {
+      "identifier": "AR-085009-A1",
+      "source_fingerprint": "327e4f4f3c26c1300e0b6e76117f57f1d730fbcb870c07ba9377fb5f68144a54",
+      "content_hash": "52cf74f7d1dfadd96c9c0a15bed475e9e94893c98b8f9042bf993c31492d636f",
+      "decision": "LINK",
+      "keys": [
+        "pyrolysis",
+        "combustion-heating"
+      ],
+      "reason": "목재 탄화 가스를 연소해 열분해 열원으로 회수한다."
+    },
+    {
+      "identifier": "AR-085014-A1",
+      "source_fingerprint": "52cc5fadb7e9cb96aa7dd9d993254f1d0f9a86c283104cdea8c1b6d55e17a6dd",
+      "content_hash": "5acc9fa7f3d2f908d52f7f2d5e6fe89bcbf5c61c685921e8f83e83067f7ccd74",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "카텝신 A 프로테아제 억제를 명시한다."
+    },
+    {
+      "identifier": "AR-085024-A1",
+      "source_fingerprint": "ce6003c7b4238de5a0b80f86d085df2e59ed5edd02a9260335ad9590c2030df6",
+      "content_hash": "e3985c7856a608e18b86f8ea15885c9961e7c33d3f50be571613a6376322278e",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "FXR 핵수용체 결합으로 활성을 조절한다."
+    },
+    {
+      "identifier": "AR-085029-A1",
+      "source_fingerprint": "5db95250621a8c6a7f6e4122e26c859c65d37dc491cfce4d665aa3ba1f117b09",
+      "content_hash": "7c1c35ed75a55f9d3c38a0c4fe657a1dc678aadc9f683e223f9a6aad0c2aa74e",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "타워 세그먼트의 걸림과 해제 장치이다."
+    },
+    {
+      "identifier": "AR-085034-A1",
+      "source_fingerprint": "157a44d5fa2133091cf46079978d999d2615558bdea125c5a4380f361d51c72e",
+      "content_hash": "1be185326df38f6cc23dd7dd597c33ce63bf4d3d35ce692674b63337618a34c8",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "sintering"
+      ],
+      "reason": "그린 바디 압출·분할 후 소결한다."
+    },
+    {
+      "identifier": "AR-085035-A1",
+      "source_fingerprint": "cf49f35d4a8199117fe71e60b437483258f61b3bb9ceb44c42a303fc831b5857",
+      "content_hash": "a5b04aba30f439b0d1d49fd66dfd9614c47313682d0420a220424a33fe224f9f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수증기로 탄소를 활성화한다. 탄소 기체화에 의한 공극 발달 후보이다."
+    },
+    {
+      "identifier": "AR-085043-A1",
+      "source_fingerprint": "b5eb6037c3341a5eeebe4a080afb6204508a415af4018436e821b4a77db1e7b1",
+      "content_hash": "5b08aec65d02a8dbedcebc7d63e5535b2f50f8141fee712c76adb4cb2bf4519c",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "mechanical-interlocking"
+      ],
+      "reason": "경사진 고정면으로 슬라이드 판의 위치를 구속한다."
+    },
+    {
+      "identifier": "AR-085046-A1",
+      "source_fingerprint": "e37f7c21d2376b66126af774d53ec9308ed5a003d3843a81d5af67c2e6b4680d",
+      "content_hash": "e3db59fc3a7377952f4568c68ce19e0a4de1ac25973a14c394a2f1b7eac4c416",
+      "decision": "LINK",
+      "keys": [
+        "electroluminescence"
+      ],
+      "reason": "OLED 막을 거울에 겹친 설계. 발광막 배치만으로 눈부심 감소를 입증하지 않는다."
+    },
+    {
+      "identifier": "AR-085053-A1",
+      "source_fingerprint": "c2c37fff9559bac65f0e0d60a2583bc6952d485d410da6a4c64d942c9f3cd015",
+      "content_hash": "d0eb94abfd4d29c3743f69de1e24da3a90d076420248ca52d14a8cc9865a858c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 트리테르펜 구조만으로 표적 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-085082-A1",
+      "source_fingerprint": "f59cb093f62c170c8a790a7ecfe3816c6cd8e1d4852b805b69d4e4fd54ffca02",
+      "content_hash": "43ef54824a83afb62c32fba9a5a14cc9a50047b1337d22524484ffff7fda503e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "손가락 접근 공간을 둔 접지 휴지 용기이다."
+    },
+    {
+      "identifier": "AR-085093-A1",
+      "source_fingerprint": "7130d1d614bbd69d9da4bad3c2442a5d1ea5ab83891e3d908c7f77bf940ea679",
+      "content_hash": "1ede963d57c712a4658e0a1adb2f28615977d77bee8067e6ab6f257603286202",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 조성물 성분만으로 상승작용이나 분자 작용점을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-085099-A1",
+      "source_fingerprint": "738193fdaac7cd46f25a2a152dde99d9f37d7e8b390d5c66a7dbaa41312dc38e",
+      "content_hash": "d990fbd9210f8a77469201ac18eaf52390f62393514191a263a90753af535c2f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "포스포디에스테라제 2·10 억제제이다."
+    },
+    {
+      "identifier": "AR-085107-A1",
+      "source_fingerprint": "5bcee77de833fb0b2f03e657626e4f5e0f3f14b2665a70ba7f101168c7e5afac",
+      "content_hash": "a23ae714e8bb98e9496323d300c3399a2f93871b10388738220fddc86314c1e3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "채혈침과 반응 시험지를 한 용기에 배치한다. 검출 화학·전기 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-085109-A1",
+      "source_fingerprint": "b28d3ee077cffc3844a19137fc69038697cb55bf8e5c9f60ed7dc23eb5fb68c6",
+      "content_hash": "110ad71af14590997be7e64d4dd7e269fae39e992cecc2b41fb39ffc21c36839",
+      "decision": "LINK",
+      "keys": [
+        "capillary-wicking"
+      ],
+      "reason": "다공성 패드의 모세관 공급으로 치실에 액을 묻힌다."
+    },
+    {
+      "identifier": "AR-085117-A1",
+      "source_fingerprint": "735a0c025085d4408a8bc69b9f6a7a67bbde7448c7c5ce57762c99ad71f173e0",
+      "content_hash": "e51b0f1a68a7011c093525118b91e07210d753dd13203e1a167b607f7e5cd0ea",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "CrSiN 도구 피막. 세부 마모 저감·미세조직 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-085120-A1",
+      "source_fingerprint": "b6ccb58ee57e7d67937b378a216e0a516632d33cc90021cdd179901005ba617d",
+      "content_hash": "fec71c3c9d90acaa4c07860bcbe255d645bb70edd169ccc361b6f96e573c273d",
+      "decision": "LINK",
+      "keys": [
+        "spray-drying",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "분무 건조 입자에 수용체 작용 성분을 조합한다."
+    },
+    {
+      "identifier": "AR-085121-A1",
+      "source_fingerprint": "f424a88f29e8a44658b155971a315b9ccbd5f9bf5b696beb9fbf851ed1f78390",
+      "content_hash": "a7fb19aa82156a9400bdc1de7c1eb153ab85bda6b70f264a87a6782a49267748",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "음원별 처리를 합산하는 오디오 혼합. 선형 채널 혼합 후보와 통합 검토한다."
+    },
+    {
+      "identifier": "AR-085128-A1",
+      "source_fingerprint": "0b02bc54cf20e3f4ac1f7bf43f450cf5cb22ea228f038b14d89253442920f410",
+      "content_hash": "4a39721056fdc22e22027dbc96979ced7deb7e936bdc08314477a16ab1d1b2bb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "열처리 제형에서 아스코르빈산 유도체로 점탄성 유지. 라디칼 경로는 초록만으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-085141-A1",
+      "source_fingerprint": "dec6693ab0096d3d0b957cdd3522c4b74db317cb31aa088591b3c893834a6104",
+      "content_hash": "68a64823780e77ab08392d122820d3f1af12c55ec130d227a2b9b0776dbd3d1a",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "CD200 항체의 표적 인식. 임상 이식 생존 효과는 주장과 검증을 구별한다."
+    },
+    {
+      "identifier": "AR-085152-A1",
+      "source_fingerprint": "f4ccd30ab83ca63008e8ef51bfecd3cd5af5df8d00a68551eca9627cd9659f25",
+      "content_hash": "15dd2635df2e51d17edb40a7071a4dfc94a924c8eaab6389835004525be901a5",
+      "decision": "LINK",
+      "keys": [
+        "vapor-compression"
+      ],
+      "reason": "혼합 냉매의 단계 압축과 열교환 순환이다."
+    },
+    {
+      "identifier": "AR-085169-A1",
+      "source_fingerprint": "5a788c68bdbfd4f663d0bcb9103f089b638cc5b643358b7b7044b996cfd642f6",
+      "content_hash": "1fca6bae1c510ac65bb9c94f4d0ec5d78cbc530346fff6ffd036587ef9aa1ef9",
+      "decision": "LINK",
+      "keys": [
+        "oxygen-scavenging",
+        "barrier-coating"
+      ],
+      "reason": "산소 포집제와 투과 차단 용기를 조합한다. CO2 포집제 화학은 미상이다."
+    },
+    {
+      "identifier": "AR-085177-A1",
+      "source_fingerprint": "1cf8640457155abf7ca1873208c08a933c177c6ffae8eb73d07cbf03b987de4e",
+      "content_hash": "be1f3f81f42e53d6b31329bc0218727d34e40911b7f7c55463ce6d36d4c2f85c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 내성 작물에 조합을 적용하는 용도. 내성·제초 분자 경로는 특정되지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:31:12.069808+00:00"
+}

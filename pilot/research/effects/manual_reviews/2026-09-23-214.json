@@ -1,0 +1,201 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "75a6d877bc51b738e01c2adfc9f050350c57791f1d5656177ffed7cda85c21b5",
+  "reviews": [
+    {
+      "identifier": "AR-111615-A1",
+      "source_fingerprint": "a7db68a9604512b327f39f763d4e5dec4772ab9d35e0ca0bb2d21ceaf6e2e286",
+      "content_hash": "a4e991effc8fdc402966f6e73018132e09b0cddc1dc6682ba858786aeaec9999",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "복막투석 장치 로그를 모아 관계자에게 통지하는 시스템이며 검출·진단 알고리즘은 미상이다."
+    },
+    {
+      "identifier": "AR-111636-A1",
+      "source_fingerprint": "55e1e6ff211c360974130f1b4aa3fa0c3f673de9f8956dbd9c5543c94a8e90ce",
+      "content_hash": "c4e5024e96a9444c90449c8f0a2671ec758a9adf986202b2dfa5167f71eb5ab0",
+      "decision": "LINK",
+      "keys": [
+        "capillary-wicking"
+      ],
+      "reason": "흡수성 내부 천으로 수분을 받아들이는 층 구조이다. 낮은 흡수성 외피가 완전한 방수막임을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-111639-A1",
+      "source_fingerprint": "e9f00cc0add17aac4a1d1018bf5b25f3eb35ed35f026937404578adffd0702ed",
+      "content_hash": "461746ec4a91b2477ded2603429d255b5932a22e8eebe86e88746dfccb2cb8ec",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "목표 음량 범위와 평균 음량에 맞춘 압축 함수이다. 준비한 진폭 압축·지각 음량 정규화의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-111663-A1",
+      "source_fingerprint": "8cdbd3f7dd9d949e756d0f5270998fa0147b1059a1ef7462acfd997748ef0f3d",
+      "content_hash": "b79e62b23c18d7255e37514599e006899d4558a6035d96786b2f2739db814ffc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피콜린아미드의 작물 살균 용도만으로 작용 표적은 알 수 없다."
+    },
+    {
+      "identifier": "AR-111664-A1",
+      "source_fingerprint": "ff79c77200950db59d8bd795934c63f19c568659a01ba8e032c00c9cd6dcc2b8",
+      "content_hash": "6a5b5c5444d74f6c5777b9a795f5625e2e00257d82a3e7f39e02b0a2b7f494ff",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "스테롤 생합성·호흡 억제제를 가능한 병용 성분으로 명시한다. 혼합 상승효과는 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-111693-A1",
+      "source_fingerprint": "8f3f32ae0bd6fcf149c05712d9811544825f700f16e4f62120573cd14565a7fd",
+      "content_hash": "8e3c7b101557aceabda7bb133666994ec19da43f5dac143243b13cdefe4af78b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "OGA 저해 화합물이다. 질환 치료 유효성은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-111700-A1",
+      "source_fingerprint": "8b1477238de8364806c95154530b6b91f6aa461599be9d653a17e906398ae563",
+      "content_hash": "2896a9da5ba204e9a4f5b8acdc1b2cce58b33472e0dbc0ff4657421dbd47334b",
+      "decision": "LINK",
+      "keys": [
+        "check-valve-rectification"
+      ],
+      "reason": "일방향 공기 통과 장치와 투명 창으로 타이어 충전을 관찰한다. 기포·부표 등 표시 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-111711-A1",
+      "source_fingerprint": "fc5f37814eac68acfd9dfcd3e3c116dcdb309637488852d9d7c42fb77a452707",
+      "content_hash": "db7f5003c509963038a148347776b0dfab3ed68e14ab592ff188a8b78b4e4607",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "국소 강성 변화와 굴곡으로 포장의 초기 균열과 전파 경로를 유도한다."
+    },
+    {
+      "identifier": "AR-111730-A1",
+      "source_fingerprint": "0478e8c640a50dbcb34835c0ef3054283c280056da1cb6520423843a653128ee",
+      "content_hash": "e085a5a8ae687ce2f9e80b9bccc6c7060448a3c1d17161584c6c7bb7bdb38389",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion"
+      ],
+      "reason": "자석으로 차체에 붙이는 충격 보호 덮개이다. 폼의 가역·비가역 흡수 기여나 방호 성능은 미상이다."
+    },
+    {
+      "identifier": "AR-111731-A1",
+      "source_fingerprint": "c8869ee6329db653d333e1171dbe5d914bdddc5204a5b1d14b46c93c9b4c0773",
+      "content_hash": "16f433dd5d5004ef863e4d93189d4c8dd13d6530da14308716fe52ca7d92ccf4",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "360도 스크린·회전 좌석·분산 음향을 조합한 관람 공간이다."
+    },
+    {
+      "identifier": "AR-111745-A1",
+      "source_fingerprint": "a653a0be3b115b36e26ea61b0339c42282b074aa754aebfbe5b0b5b459952535",
+      "content_hash": "30821c7995bf02d0028ad6207fcf9fd55dd461a1a3a58fdb1ecec78141d266ec",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "채소용 피콜린아미드 살균 용도의 반복 사례이며 표적 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-111752-A1",
+      "source_fingerprint": "2425dc9d4255e16c2e144845b8005ad3c3c1c3ec77502dff8d2139796d75853d",
+      "content_hash": "c91a641327af1c9d5285761aec4963317f071b2b0e9588391369734ef5a896b8",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "BTLA에 결합하는 작용 항체이다. 억제성 수용체 활성화와 체크포인트 차단을 혼동하지 않는다."
+    },
+    {
+      "identifier": "AR-111761-A1",
+      "source_fingerprint": "bba4ca1268aef6c9dcc9b56cf9b49425d3e703336582647b03a18727ff8c2700",
+      "content_hash": "4107b814e2f3df74cdb443f8a0d639eb94e2b1b3a8ed13f5a5bf590ea0577d63",
+      "decision": "LINK",
+      "keys": [
+        "chromatography",
+        "biomolecular-recognition",
+        "acid-base-buffering"
+      ],
+      "reason": "중쇄 친화성 수지에 항체를 잡고 완충액으로 용출한다."
+    },
+    {
+      "identifier": "AR-111767-A1",
+      "source_fingerprint": "7318afa2ebffc09a6649a52c98b65f925c9471952268972544b44d2355b497bb",
+      "content_hash": "5cc37fd41d2535c6111820b08ebce51ecd9689b3a48f3b6ca2863c991f3cee95",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "Jagged1 결합 단백질이다. 결합만으로 Notch 신호 차단을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-111769-A1",
+      "source_fingerprint": "89e08ae074c5d5f9afc13bf684782421f780504511d7d5f611646a9b7c0d3af3",
+      "content_hash": "db8fa2cd5fd19f8535410a1e20021b7ee3ef5a691b5f808ea68ce0d7b3e62cc9",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction"
+      ],
+      "reason": "서로 다른 pH의 다가 카르복실산 제형을 순차 적용한다. 모발 공유결합 재형성은 초록에 없다."
+    },
+    {
+      "identifier": "AR-111793-A1",
+      "source_fingerprint": "7b66537042c9b96dcb6819d28c7c4a0a26b7069faccb7f207f556b276a32b6b0",
+      "content_hash": "79b531b1733368971940abd2345fc7af7880dc2809b092423bcf895275659672",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "부티레이트의 영아 수초화 촉진 주장만으로 표적·생리 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-111794-A1",
+      "source_fingerprint": "6268bf12e7636c9114bc2ee60e01e78daf3c0dc9592fd8500db848debf0be145",
+      "content_hash": "014b67212e6a0c03a29a3c47e7a02923491d37c9389dc084d676f5087dd397b7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "GOS·모유 올리고당의 장내 미생물·면역 변화 용도이며 구체 작용 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-111804-A1",
+      "source_fingerprint": "59003de88217558c21d792e13baf18fc79a186f07d8be7e8fdbc8edc3cbd2810",
+      "content_hash": "f38db7314e121556ccbb4e4c734acbcbfdec3024c3b24230722a4661fa7135e1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "배출 펌프형 다제 내성 균에 쓰는 화합물이나 해당 화합물이 수송체를 저해한다는 근거는 없다."
+    },
+    {
+      "identifier": "AR-111824-A1",
+      "source_fingerprint": "fd038717868bce0a9d1e9a14eb6e08fa99a938bc551788b89bbd75db238ad57f",
+      "content_hash": "f8840ea010571728690467c611ed4ece7a1d09f17ab44ddce2f499917c1b9192",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "폴리클로로프렌·실리카 층으로 묘목 표면을 보호한다. 안료의 산란 기여나 완전 방수를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-111828-A1",
+      "source_fingerprint": "a6cfad05cc2361c66e7eceed92b9f2287675646ec1664c6daabea0c200272b6a",
+      "content_hash": "e871deaba4f9dfadd8b654f0275ad7a63fce9c7bae2e2abaf36d6b15eaa39268",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "동물 다리에 무게를 부착하는 스트랩 구조이며 생리 적응 원리는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-111834-A1",
+      "source_fingerprint": "0cb3dcc293f0ee880d911339049999bb8cb8978a0e8341d2d829f07554a6ed35",
+      "content_hash": "be5ead0c60885b224f0e9e3e0ba0c60242f469cb8fb2f39cc5f051591fb14726",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "무수 비수용성 운반체가 미생물 안정성을 높인다는 제형이다. 대사 정지·수화·막 보호 기전을 특정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:57:51.198789+00:00"
+}

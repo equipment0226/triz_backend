@@ -1,0 +1,273 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "a9768ed35d2c9b179b673a406b06798b52457bcccf63cbbfd098a799e3210f50",
+  "reviews": [
+    {
+      "identifier": "AR-100360-A1",
+      "source_fingerprint": "6c8c28ed63f3d9dfa0ca3aa31cbe57de85e38cd7b6ac822f80e8fb4c50559b5a",
+      "content_hash": "3919c4e5ff773e03f0f9dd5b16e9c3938d0402ce09e978711a4fb8bf9f44b86b",
+      "decision": "LINK",
+      "keys": [
+        "allosteric-cooperativity",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GABAB 수용체의 양성 알로스테릭 조절이다. 직접 이온채널 수용체로 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-100381-A1",
+      "source_fingerprint": "3b39ab5dc3aa344301e4ef779b2d24dc39f2ac425ecaaf20e355e61af53e94f7",
+      "content_hash": "ff9fad28faf04727b97f8e603aaa397b3887e8d5413dc7ed4f96bc2367af266e",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "acid-base-buffering"
+      ],
+      "reason": "음이온 계면활성 세정과 탄산염·중탄산염 완충을 이용한다. 단일 전단률 점도만으로 전단박화를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-100407-A1",
+      "source_fingerprint": "34640f0bf6d0129f85e1164e3dd9d217b5da6e9a7c599a734eec8b4611a03da4",
+      "content_hash": "7adbe5bbd8a9d283fec62733e7a3147596ec12b2911c495cb0def2392d929e36",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "휘발성 항균 화합물을 기체로 접촉시키지만 항균의 분자 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-100426-A1",
+      "source_fingerprint": "c38c39c711b43eb7ba867356c05125d2a6c1596a831b8ec41ac4c6da9163b7f3",
+      "content_hash": "458b337b500afa9b9d2240c2f0bd729c5e013fff15ae8b00140e766289480e81",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "HER3의 특정 항원 부위를 항체가 인식한다. 결합만으로 이량체 억제·세포 사멸을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-100431-A1",
+      "source_fingerprint": "57479ced6ee04706645168ba0cadaeda7ccbcc524566c7df200054bad661ebfc",
+      "content_hash": "31d605cb44a53342c9379903cf7d6ed309785f4d8bb46837d42074c5af1637a7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "스플라이소솜 표적 플라디에놀리드 유도체이다. 전구 mRNA 스플라이싱 조절 원리를 신규 후보로 문헌 확인한다."
+    },
+    {
+      "identifier": "AR-100435-A1",
+      "source_fingerprint": "1d24033d151a2c970a12e09923d3946e507a1929eb2ec61f006fc17a5c25b724",
+      "content_hash": "c65b24f4b970f249e95fb681f196b7c2ea72ba2511615a0426748c3aebe5df69",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "역에멀션·글리콜에터 조성의 열 증점 제목이다. 상전환·회합·용해 중 원인 기전은 불명이다."
+    },
+    {
+      "identifier": "AR-100439-A1",
+      "source_fingerprint": "742c645acedc61b0a4a825462f8a67b184f4978321e7ab1f8f30fb1d57794f5b",
+      "content_hash": "b685d41008916db5873f8bbdde637a0e90ffd06b428f43563ae49445519408c1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "카르복스아미드 치환체 목록이다. 표적이나 합성 변환 정보가 없다."
+    },
+    {
+      "identifier": "AR-100449-A1",
+      "source_fingerprint": "c3a06fe06394524e3a677e566dbb758b687118920580cba138ead81c671fc02a",
+      "content_hash": "06462bc6f5f6d38f2489ca36fb5c9fc5feed9b91bc887dfea2ae259cbec9541e",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "spray-drying",
+        "freeze-drying"
+      ],
+      "reason": "면역한 닭의 난분말과 동결건조 유산균을 조합한다. 수동 면역의 실제 항체 함량·중화는 초록에 없다."
+    },
+    {
+      "identifier": "AR-100450-A1",
+      "source_fingerprint": "9dcdb50af0bc62186049d1c1d5104114f6381d70166fe57862f22a4701bc27c1",
+      "content_hash": "1597915685727b33a4c866fdf691c07d51177f2f315828cac4c7e72ec074adac",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "내화 골재·무수액·친유성 유변첨가제 구성뿐이다. 유변 기전은 불명이다."
+    },
+    {
+      "identifier": "AR-100455-A1",
+      "source_fingerprint": "631ea5199d4c92930f88155724ec640472bbbe9867aa1c0f3bec2a614c7555e4",
+      "content_hash": "95ee4e8572704cc945f431c06d8768bb83c5a60b77a381c949ed77a6e5114827",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal",
+        "yield-stress-suspension"
+      ],
+      "reason": "칼슘계 연마입자와 항복응력으로 정의한 치약 조성이다. 세정은 연마 기전으로 연결한다."
+    },
+    {
+      "identifier": "AR-100482-A1",
+      "source_fingerprint": "9be80d6ed6e233cd370d16c9a1a61898e511084adca08ac0440db6d1d39304f1",
+      "content_hash": "74a4c3d9c750176576e927ceadaf621cd0cb2791f41367504027a9965944227f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "랜덤 충전물을 구획에 담는 접촉기이다. 접촉 상·전달 구동력이 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-100487-A1",
+      "source_fingerprint": "9b109e3ffd9f380ff7259b6ab611d2360a0d89e15426e121ec50c6340a3b8c33",
+      "content_hash": "75ced4a254f72a1bf5da585e39478a73250548e68195c618006a7789a90b6c8a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "무선 링크 설정 메시지의 표시 유무에 따른 허용·거절 규칙이다. 별도 통신 물리 원리가 아니다."
+    },
+    {
+      "identifier": "AR-100491-A1",
+      "source_fingerprint": "47fb637e6b17b093cb70220a9512431c32ad05194e42d5bd71cfd6d00b5dfb13",
+      "content_hash": "d376cce3c95db222afc1858a0bc113646ba8005aa30ae1c1b9c0f6774fb273e3",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "fourier-conduction"
+      ],
+      "reason": "유압 구동으로 우물의 로드 하중을 들고 차체 일체형 라디에이터로 열을 방출한다. 냉각 측 유동 방식은 불명이다."
+    },
+    {
+      "identifier": "AR-100513-A1",
+      "source_fingerprint": "1f8288a616b6c6f4c3fabf4b7e8477666e083d6a6da99e39febe5afe157bc1fc",
+      "content_hash": "e11e71c7b38d1818f16cdabf0a6d271934555adaad87d78f510720ab96b632c2",
+      "decision": "LINK",
+      "keys": [
+        "supervised-learning"
+      ],
+      "reason": "기존 우물 구간의 입력·위험 정답으로 학습한 모델을 새 구간에 적용한다."
+    },
+    {
+      "identifier": "AR-100526-A1",
+      "source_fingerprint": "2b699ce698c84321fb85fc562ebd1f017273c9a961d4888469a7784c39d786df",
+      "content_hash": "2ab73dadcf6a2d01903012e225e94ecb8c487b4fb94c1e4017c979d7f9f182fd",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "벨트 장착부·연결 원통·신축 팔을 끼움 결합한다. 골프 자세 유도는 용도이다."
+    },
+    {
+      "identifier": "AR-100531-A1",
+      "source_fingerprint": "45b4f1bc459b90855e94fc3cd55e3818416b9d95efdba432d4e79ed464209f36",
+      "content_hash": "098507e784cf4e299b48439efcf4377166d2c25f8525e8ede1cb5d95e66d90fc",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission"
+      ],
+      "reason": "체중의 누름 운동을 랙과 기어열로 바퀴 회전에 전달한다. 보행 에너지의 무한 증폭 주장이 아니다."
+    },
+    {
+      "identifier": "AR-100549-A1",
+      "source_fingerprint": "7108e5531b12fc06912b19905dff3c8d770b2120c4fc27d5ec47ab6ef79cef79",
+      "content_hash": "6e004c5d6d5244df018cd96181ce858ede9ba00412c6dfcfaecc48d85ad95e5f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "fermentation"
+      ],
+      "reason": "리그노셀룰로오스를 가수분해하고 일부 가수분해액으로 효소 생산 미생물을 배양해 되돌린다."
+    },
+    {
+      "identifier": "AR-100584-A1",
+      "source_fingerprint": "0bb2fc150288312f1b71b1f9b03ecedb5a07a46f81a77756b5480756d1d6cf31",
+      "content_hash": "dae709793c82dd520d1a09039b2abe9c43fce25dcc16bcbde63d062e79341dd7",
+      "decision": "LINK",
+      "keys": [
+        "induction-heating"
+      ],
+      "reason": "고주파 코일이 서셉터를 가열하여 에어로졸 전구 물질에 열을 공급한다."
+    },
+    {
+      "identifier": "AR-100591-A1",
+      "source_fingerprint": "5f4e98acee400842bbe3bebf3c75651f7d9fb19a966ba57513fe999e16d9a7e8",
+      "content_hash": "6bc18fe76abb6ca70eb8c51234c1c3028122a818a3ee10686f95ea306d4ba600",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying",
+        "evaporative-cooling"
+      ],
+      "reason": "냉각 원통 주변의 회전 나선이 냉동 디저트를 축 방향으로 이송한다. 냉매 증발부를 명시한다."
+    },
+    {
+      "identifier": "AR-100598-A1",
+      "source_fingerprint": "82fa70a9d2eb5ab7c5523c69cc59d250037923a19e012c1b9f40039f0546f1dc",
+      "content_hash": "809ea58f0c3ec777ac59970424a66881d15073b1acd3507ad3fb58a132d3c311",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "파쇄용 카트리지 점화기의 분리 장착과 종이 누출 방지 구조이다. 혼합물 조제나 점화 회로 원리는 기재되지 않았다."
+    },
+    {
+      "identifier": "AR-100600-A1",
+      "source_fingerprint": "5ca0cb921e082dad551b4b00f91c9b08fc92f2033165982a248e817c63c9beea",
+      "content_hash": "f1c0582dcf5a2967aa1216e5ea5118f9d1c870c3b879be6145079f398e4a1e20",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching"
+      ],
+      "reason": "식물 입자의 수용성 성분을 추출해 섬유가 상대적으로 많은 식품 소재를 만든다."
+    },
+    {
+      "identifier": "AR-100614-A1",
+      "source_fingerprint": "65a767c0a26db9e22b140b0185ab54b385b62cdeaa3e15e00a4e2ca0e099fe46",
+      "content_hash": "4f5380c7f5c2c31028139f89abcad771e344308267e3dd9b64565b69527c8c7e",
+      "decision": "LINK",
+      "keys": [
+        "ionization-solubility"
+      ],
+      "reason": "산에 용해 가능한 키토산 조각의 필터케이크·마개이다. 이미 작성한 자기 형성 필터케이크 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-100626-A1",
+      "source_fingerprint": "7ba39ba7fd432b4b30e949f347cbe29b8a582c53a4d1ef1dd1d332709b255b5b",
+      "content_hash": "4dc49eab00fc7df19fac0eb362013141ecddeacdf32f453c478a41f04d0e8264",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "외래 유전자 발현 식물의 다양한 형질을 청구한다. 개별 생리 경로는 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-100638-A1",
+      "source_fingerprint": "06ce69be303a8c24bde5dbb7dcd854b2ad4c3a8c4c97b73b39e4c1926de3f04f",
+      "content_hash": "5cc7ed991a80e8a1cab3a205c8efd56e6d9f01c874ecc1516a817ea6bfdaad3f",
+      "decision": "LINK",
+      "keys": [
+        "fluid-dynamic-lift"
+      ],
+      "reason": "날개·리브의 공력 형상으로 양력을 만든다. 성능 증가 주장을 일반 보장으로 사용하지 않는다."
+    },
+    {
+      "identifier": "AR-100657-A1",
+      "source_fingerprint": "678ae9a1fb3207573775199b253c2474397e532f074d845f7c9f4dcdf8e59e1b",
+      "content_hash": "563698ca68bcb62176460fe658af8859f3bd92c76aca78e99d0b75a0792b628c",
+      "decision": "LINK",
+      "keys": [
+        "progenitor-cell-differentiation",
+        "immune-tolerance"
+      ],
+      "reason": "전구세포를 수지상세포로 분화시키고 사멸세포를 섭취시켜 관용성 항원 제시를 유도한다. 기존 관용 원리를 재사용한다."
+    },
+    {
+      "identifier": "AR-100682-A1",
+      "source_fingerprint": "80c227f2586ae160aa97d606b118a89799c0c86b4e18df98a2d7315772a7f04d",
+      "content_hash": "9cb3e3fa5b049b885965a1095e75f921c2bd8cb3e784c9dde57e59d4982cbec2",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "multivalent-avidity"
+      ],
+      "reason": "암 항원 2종과 면역세포 표면을 함께 결합한다. 새 초안의 면역세포 표적 가교와 동일하며 삼중특이성으로 추가 원리를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-100688-A1",
+      "source_fingerprint": "6d390678e310a54535faab2b44f114df198cdf77ea465841816e541a54dd2a96",
+      "content_hash": "d2e46ed1218e366134f91a33d6a1cb3799b269db634afa59df93c2497993c480",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "연속 금형·펀치로 금속 컵의 벽을 늘리고 얇게 성형한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:01:19.615918+00:00"
+}

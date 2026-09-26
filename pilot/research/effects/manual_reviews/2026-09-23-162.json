@@ -1,0 +1,201 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "2e8d671c05be26864d633908cc9acccdfdd3f63a56fd69f4a0a0c23cb39bf9d7",
+  "reviews": [
+    {
+      "identifier": "AR-101381-A1",
+      "source_fingerprint": "238bebf9af9ab3714832bd478efbc55b64341e62dc3f0cd8b2498b4a416ab93e",
+      "content_hash": "593a0eb23f10d02de1519d0b572364a32579422c3aa10a25b4121f4a2658d84d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "맞대는 원뿔 관통공으로 폼의 하중 응답을 조절하는 형상이다. 편안함 주장만으로 독립 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-101383-A1",
+      "source_fingerprint": "6c1a54c0314fd47aa86412f9055ae1f28078265359667797c82066063a55d4b8",
+      "content_hash": "e9ab6179e8a17b2fc0b9174de2c6291ec638c50ab793164ea3b6a6e5596353d9",
+      "decision": "LINK",
+      "keys": [
+        "natural-convection",
+        "combustion-heating",
+        "mechanical-interlocking"
+      ],
+      "reason": "종이 굴뚝이 연료 사이 공기 통로를 유지하고 연소에 따른 자연 통풍을 돕는다. 절곡 고리는 끼움으로 고정한다."
+    },
+    {
+      "identifier": "AR-101390-A1",
+      "source_fingerprint": "89c2b29df8bffd4039af263f2dd64c319e06c34fff663305165fdde354147d37",
+      "content_hash": "acef44c94bdc28acac68d9b5ef2a0f56954050836fb77f501dc6a153a61680e6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "탄수화물·단백질 코어를 포화 지방산으로 피복한 사료이다. 소화 우회나 확산 차단 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-101405-A1",
+      "source_fingerprint": "264859a792b7d4966d2ac56727920b6e6fed737ee40c6d61b3bbcf7b5b445419",
+      "content_hash": "fc7e7e0032fb5d0f4a17302c63e40758a7646f2f42eae290a3fdc6e556eb3faa",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "무선 버튼·전화 GPS·원격 알림의 조합이다. 타이머 절전의 실제 활성 주기는 불명이다."
+    },
+    {
+      "identifier": "AR-101408-A1",
+      "source_fingerprint": "eb1585a639ce9cf5a3a5e22012a342ac4b661c48d1dd59a3e5ba33359ff34df1",
+      "content_hash": "dfd797fe9458821823615c2a4767a9b3f2df069c7d78bae56fc484dd15e57eaf",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "비이온 계면활성제와 별도 유화제로 아미노실리콘을 분산한다."
+    },
+    {
+      "identifier": "AR-101457-A1",
+      "source_fingerprint": "05ad3b678312d4b31b8f46904a57865743de65eb3d34335cbcb4ddec07c65c41",
+      "content_hash": "014f6e5fb2d1d1c9961ddcd0a160afbc5f4631e4f08045299de59b60ecdf2eab",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "혼합물로 물의 연쇄 에너지·이온화 상태가 1년 지속하며 오염물을 없앤다는 주장은 근거가 없다. 성분만으로 이러한 효능을 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-101462-A1",
+      "source_fingerprint": "882e9ee977351854691dee96a524373615bce7d1fc606343e8737f516d41f731",
+      "content_hash": "3ecadd63b44d6afee3ebec2594c0c1780b4934208c639fe173175f4e8ea67786",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비활성 세균 포자와 발아 유도 성분을 함께 보관·사용한다. 포자 휴면 해제·발아 원리를 신규 후보로 문헌 확인한다."
+    },
+    {
+      "identifier": "AR-101473-A1",
+      "source_fingerprint": "1a825e8621e9ce1601ceaa25934dc00cc278dfb49667d596cf138312e88561f2",
+      "content_hash": "807b4607793c5465a9d7ee8534d57f334e6491b0351e2732a1b1322f0b81cd06",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction"
+      ],
+      "reason": "CO가 많은 기체로 환원철의 탄소량을 높인다. CO 불균등화·탄소 침투의 침탄 반응을 신규 후보로 기록한다."
+    },
+    {
+      "identifier": "AR-101488-A1",
+      "source_fingerprint": "21e17590b8146031dff2b5627004b1b030dc0fc698b599ed5b3248f1538728fa",
+      "content_hash": "fec62ed03d2d9df276f2331f8458527b39955f1a4de79bafe907fec7bdb1c673",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 성장 조절 설폰아미드의 치환체이며 수용체·효소 표적은 없다."
+    },
+    {
+      "identifier": "AR-101501-A1",
+      "source_fingerprint": "fd9b36a0acd31b8c6e88d159a0e697e8bdd746def552dcede4f0dbdc730baa95",
+      "content_hash": "904e5b27c4663f98fd7c74b34edc728547ff7fd25e312fe1c63dc6237fb7a073",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유막 흔적과 거리 기반 확률 지도를 시간별 결합한다. 베이즈 갱신·커널 함수 등 구체 연산은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-101505-A1",
+      "source_fingerprint": "085d08258d5de8958a898f4a8ad243d21ac83b18ef49521619bffc9934ba9fb7",
+      "content_hash": "2b119448fcb44499449ffa3b7e712b32c63554d8ef2ec85efbf808c411d835da",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "mitochondrial-apoptosis"
+      ],
+      "reason": "키나아제와 BCL2 억제를 조합한다. BCL2는 효소가 아니며 미토콘드리아 사멸 조절과 연결한다."
+    },
+    {
+      "identifier": "AR-101531-A1",
+      "source_fingerprint": "10c61671260e30b03fc547e7fbca23a6b4bb8e38ddcbf3133cc57269788396f6",
+      "content_hash": "b4f59a0a3ff0509691a97a0296e9c616bdddefd63397561ae0c14b2f18dab61b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "마취 업무 가구의 접근성과 장비 배치이다."
+    },
+    {
+      "identifier": "AR-101544-A1",
+      "source_fingerprint": "3f9c1c0dd8a92c743daefc42925d6821b95c926e542211fe7151c7d75af04cce",
+      "content_hash": "0691b8dace99779ebdd1a123df0c987694e95b21cec4b77de10c8092432df0de",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "TWEAKR 작용 항체와 Fc N297 당쇄 제거이다. Fc 당쇄별 친화도 초안과 같은 계열이고 낮은 독성 주장은 별도 검증 사항이다."
+    },
+    {
+      "identifier": "AR-101558-A1",
+      "source_fingerprint": "53fd0d9c46dc90e12ae366f1f55bdb24c106c04984ca8748caef9c8640628689",
+      "content_hash": "800325932565022afd65d2cbbe7a8cb33cfc270d85d676181bc1bd6a9f36a6bc",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "오렉신 수용체 조절제이다. 치환체 목록은 신규 원리가 아니다."
+    },
+    {
+      "identifier": "AR-101585-A1",
+      "source_fingerprint": "0c895fcb157999aa550ce64afb2398577b679c12150a693faaa9ab2bab146cfa",
+      "content_hash": "3f076afb1e7739d8c9e1eaaee98cc8664ae67f50692af1dae387fd5183995ee2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충·살균 성분 조합과 상승효과 주장만 있어 작용 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-101596-A4",
+      "source_fingerprint": "dd68e4e9edd852fc5b4252a1507ace59110f152c2890cf895f8b4369b670b54a",
+      "content_hash": "d4ea8aede94d08ca018b570621c70afc9547f00d6598b2d9e2aea56461f64858",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "코르크 내부 실과 하단 지지체의 걸림이 인출 힘을 전달한다."
+    },
+    {
+      "identifier": "AR-101612-A1",
+      "source_fingerprint": "227b47374014c8e7d939f5638e271b7f1ebaece9a1009927ac7b024e51d5642d",
+      "content_hash": "c18496bc2ef7b8561d9f1cad4747c76884ef691cfd434eb47c378c37e01da97e",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-particle-transport",
+        "pressure-driven-flow"
+      ],
+      "reason": "압축 공기의 운동량으로 모르타르를 노즐에서 이송·분사한다. 노즐 수는 설계이다."
+    },
+    {
+      "identifier": "AR-101623-A1",
+      "source_fingerprint": "c0fdc5372425a77aded90c861d2c3df913b984e633336079d9375e775e338c70",
+      "content_hash": "a3485b35bb6312f9a49d0a045228d8567e03225f5c2a8d23c228570bb3e5acab",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "동반 가스를 액상 유기물로 전환해 원유에 합친다는 구성이다. 전환 반응 종류가 없다."
+    },
+    {
+      "identifier": "AR-101641-A1",
+      "source_fingerprint": "195a041e6c821f1923235f609b19d9dc8fe3ad3e7820c23a7acc08ae8733b4e2",
+      "content_hash": "ae50ac7d3bc6387e8e974968e8d1daf16be7d31e8336c06b29b64d405cb24f10",
+      "decision": "LINK",
+      "keys": [
+        "diffraction"
+      ],
+      "reason": "분말 X선 회절 피크로 결정형을 구별한다. 피크 폭 분석·새 결정화 반응은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-101651-A1",
+      "source_fingerprint": "e86a4b917d880f25f1ab8f5418c251016ccc9bbed3de2ab05057096b0b31ea90",
+      "content_hash": "8e47f01e1dd1bc7defca3e25383800d190f085821e3d3face3beb899308d2074",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "점토·4차 암모늄·알콕실 지방알코올의 펄프 조성이다. 층간 삽입·전하 역전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-101687-A1",
+      "source_fingerprint": "58aa4be46111dcd2fd01c9d926ab4aefee17a775dca9019bb67268be4127273b",
+      "content_hash": "ac4024ca267f74244cf281b71d34747daa9095b05b52db780159403234963756",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 분자의 치환체 목록이다. 실제 생물 작용이나 합성 반응은 불명이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:06:34.385617+00:00"
+}

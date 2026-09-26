@@ -1,0 +1,509 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "036895c51758c8090da45a7828b00bbe49a250c320fba37cb25a244e25d8b415",
+  "reviews": [
+    {
+      "identifier": "AR-121519-A1",
+      "source_fingerprint": "310f36399bc1c8255c41ef415a9fbbd2c199c0b4248eb807f67ee08c5f155fd0",
+      "content_hash": "04aabab613f3efcfcc248f47e3d867da5d81a9cc8b69a8b72b554ddd7c1109e3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "페닐우라실 제초제 구조로 작용 효소가 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-121524-A1",
+      "source_fingerprint": "871c9a030a9f13d95f138a110058af5eec3457591e2b73d3af649d43e04e1307",
+      "content_hash": "b09b292410208f6451d6fad756c6850a2e7c9ce205b951e6a5e5f8b0d9a87150",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "엔진 부품의 형상만 제시되며 연비 개선의 인과 기전이 없다."
+    },
+    {
+      "identifier": "AR-121528-A1",
+      "source_fingerprint": "769998de8ef92dd4a9d0ec9df0c705aeea10722566825ac16f27c7bee9bb599d",
+      "content_hash": "2c2121c8b923cf26196ccdb6bc968d92ce087bc57445a333bef01408be747677",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "구역에서 장치 반출을 감시하는 안전 배치이다."
+    },
+    {
+      "identifier": "AR-121533-A1",
+      "source_fingerprint": "dd135736c6a1d885796f42d1d2a8737d84caad3afdfbbb51d51b936492c58b3c",
+      "content_hash": "f31baf7c240fee4f4ae6719e7730d566150e344e7af389bd5a895ca8bbee9436",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "음식 공급 자동화 배치이다. 사람 접촉 배제만으로 무균 상태가 보장되지는 않는다."
+    },
+    {
+      "identifier": "AR-121550-A1",
+      "source_fingerprint": "bf2ea2a339ba26f55bc33dffd12e260bd496b2d10d2d5a4f979b6486dfbc2a6e",
+      "content_hash": "fbfdc3aa130cb49f55bbba5f8cba6e2617f51ca75d450f7653685d6f41ab394c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고강도 섬유·공압·인장 조합의 교량 주장이나 하중 전달 상세가 부족하다."
+    },
+    {
+      "identifier": "AR-121576-A2",
+      "source_fingerprint": "93416cd77b8afafc7ab77f1412498b67a1f3f2008c234fa721978e4be01c3b5d",
+      "content_hash": "2e997de9c16b7ae890991fe823b09d90ee369bdec0eb462d655c6f177f9e1132",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "wetting-control"
+      ],
+      "reason": "물에 분산하는 과립의 습윤제이다. 현탁제 종류가 없어 항복응력 기전은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-121583-A2",
+      "source_fingerprint": "21eee7cb3dc0096910416f3c080f5ed2aefc68ca98f8c08024c38ea563c07e53",
+      "content_hash": "2c2f6bcf0837be608d7943797b23ffd1fafa1e48925ddc6ef82419412259bc19",
+      "decision": "LINK",
+      "keys": [
+        "amorphous-solid-dispersion",
+        "evaporative-concentration"
+      ],
+      "reason": "약물과 HPMC계 고분자의 분무 건조 비정질 분산이다."
+    },
+    {
+      "identifier": "AR-121614-A1",
+      "source_fingerprint": "475edd9e3c21d57938eabe806741cc95dcceac130e070210bf0fe67b2b0750a7",
+      "content_hash": "9b5ef61d0116b59b69127db36cac2fa9208dab5ea39f6eb4de2de4afcafa14f3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "탈곡 바의 두 면 각도와 면적 차이이다. 과학적 출력의 인과 근거가 없다."
+    },
+    {
+      "identifier": "AR-121627-A1",
+      "source_fingerprint": "f2307722edca3876d1a5f8a9f7d525fe0658f6cdf88e9dfca0af5d7a9f329514",
+      "content_hash": "a5c31f7e264aa44364d5216e8cb8e9e943f60fc29066f3aa50fa8b2a4ef28cf1",
+      "decision": "LINK",
+      "keys": [
+        "acoustic-resonator",
+        "wave-interference"
+      ],
+      "reason": "악기의 수동 공진기 및 위상 상호작용이다. 음향 품질 향상량은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-121650-A1",
+      "source_fingerprint": "95ea519e37caa7cc6af8480c4f00f9d140e72056df57ff523490faac667ae6c9",
+      "content_hash": "267862d76518883cd0d52cb40b3446b1d8d9141006330f335005aebdd2f34996",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GIP 수용체 작용제 펩타이드이다."
+    },
+    {
+      "identifier": "AR-121662-A1",
+      "source_fingerprint": "63344ac5bce7f1b4dd786e8950aa4aa5a5038bd462b5cc82c4fea110f35973de",
+      "content_hash": "099f63a0c649be4aa552c1d0af87a70a3bb6eae23bc468bd96afb040d1d9f6e7",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "PLXDC2 표적 리간드이다. 수용체 신호의 작용 방향은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-121671-A1",
+      "source_fingerprint": "02a04204aa15980f7760ba4d5cd8d5f1fbb316a379c972db4622376148697809",
+      "content_hash": "f63bd30a626da90fc3ac177e9b0ddfd2557dc118059721e530c010c57e4875f2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "투여 일정과 적응증이며 분자 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-121689-A1",
+      "source_fingerprint": "b1a0c2a4de9ce3487739ee1781062cf43a9b5ca0701287a6ec07a909132bcb0c",
+      "content_hash": "2b1c2e6dde67ab5d5a07a47bb029eeb42b6306b814f4cc512717cc3492d0b41f",
+      "decision": "LINK",
+      "keys": [
+        "brazing",
+        "nucleation-barrier"
+      ],
+      "reason": "입자 피막 파손으로 액체 금속이 노출되어 응고 접합한다. 과냉각 여부와 응고 개시는 원문 추가 검증 대상이다."
+    },
+    {
+      "identifier": "AR-121690-A1",
+      "source_fingerprint": "7693a424b1adee045bd0300341a798007c2733ae5ab35c4df4547d9c5084e5d6",
+      "content_hash": "0c64c9b736be2a707100c3c5948d11f9427986bb2af6a9bea7a031920c50ef31",
+      "decision": "LINK",
+      "keys": [
+        "grain-refinement"
+      ],
+      "reason": "이전 오스테나이트 결정립 크기와 강도를 관리하는 강관이다. 초록의 입도 단위 오류 가능성 때문에 수치는 전용하지 않는다."
+    },
+    {
+      "identifier": "AR-121734-A1",
+      "source_fingerprint": "efa3c69fb4b2eec846ba2cbce6ea3a0b6619c720d0ad671db2f36ef15651c382",
+      "content_hash": "7fb5aef3e27ca17dc2ba7566f4b072da3ab310cca97cc69bbd8da074f8ac786b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살진균제 구조이며 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-121735-A1",
+      "source_fingerprint": "7d2aed60851a4f478aecdb6373869abd5677af0be9e41c1bf740a8cb805714ab",
+      "content_hash": "0ef6d024ab00003d23ca30d297b255eea36d6c6c5fd0169722196408d2b6863c",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "wetting-control"
+      ],
+      "reason": "계면활성제·실록산의 농업용 분무 침착 조성이다. 제시된 개선 비율은 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-121749-A2",
+      "source_fingerprint": "f481473fc8de48a23d69d2357cf8117f597d7e3ede46978cd56c15010a9132a1",
+      "content_hash": "db73fdb3130118205f950740f0f4e9ff60ce7391b7b363d8bbdc1f94006a7740",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "EGFR 결합 항체와 약물 접합체이다. 내재화는 초록에 없다."
+    },
+    {
+      "identifier": "AR-121762-A1",
+      "source_fingerprint": "e8d5fa83c7a445fa386fe476c5eb4c314f93b91f20556fdacd13f3159a488a6a",
+      "content_hash": "c2c62b30a35d99914d218f66decf17deded1cd4294a77206a6b69e7e78d01b8f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "축방향 자속 모터와 펌프의 배치이다. 회전자 방식이 없어 개별 전자기 구동 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-121764-A1",
+      "source_fingerprint": "a60288d5efc473ba3eb8dc1d737a28863ee60d1dcdf777c3fa62d4bfe65277e1",
+      "content_hash": "3a5096fe12ecd1f1a6b93c740e9d7731853d13d6878fe2edb2c1ed2957efc246",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "동일 내용의 축방향 자속 모터 시스템이다. 별도 신규 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-121767-A1",
+      "source_fingerprint": "af8d5b1ccae57d8b50a9a48ca6c5990db6742f64a3ec34e0c13345fdfcb61316",
+      "content_hash": "382eda1d71a8053a1c52af72b5f153e5443f3a313a3d35fd7db5281a9fba89d6",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "J형 단면의 차대 보이다. 강성·강도는 단면 및 하중 조건에 의존한다."
+    },
+    {
+      "identifier": "AR-121772-A1",
+      "source_fingerprint": "ee0e988b937d1af659b1148a8ffbb8e85f6f73009091d5f5d7f6f5d330f4ba98",
+      "content_hash": "810f88315270802714e127fe0cfdd53917438ec3003fe9ed3fd32092fbf1ade1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "탈착 가능한 킹핀 고정부 구성이다. 결합 상세가 부족하다."
+    },
+    {
+      "identifier": "AR-121776-A1",
+      "source_fingerprint": "4d1582b3cbe698215915ff419aece790244f6372e890146cfd086df4106549a5",
+      "content_hash": "ec00f8c4ebc6402c0496c943beeef3bf5626733ceea150cdffef0d1659954c72",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "연결 품질 관측 및 AI 활용 제안이다. 학습 방식이나 알고리즘이 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-121780-A1",
+      "source_fingerprint": "62ed6628e6aef0dc2438ee9ac01f24def9b2324e347e5317a45df10251d4496c",
+      "content_hash": "0cf5f244a65c9811798c64b9ff4ad8444e6160d53ae8bfe5b37cf700f7df6e0a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "무수물과 일수화물 결정형이다. 용매 매개 전환 과정은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-121797-A1",
+      "source_fingerprint": "c21748b8c9105cd642cd94bd2e0e42261e4d332dd24d57cc95eeb2a55afd9bef",
+      "content_hash": "601c19d09ed792fc2bd8e2ff37047a06dbc21b7df74c66af5ddbc229cc632299",
+      "decision": "LINK",
+      "keys": [
+        "lipid-bilayer-self-assembly"
+      ],
+      "reason": "지질·콜레스테롤·고분자 결합 지질의 나노입자 조립이다. 실제 내부 구조가 모두 이중층임을 뜻하지 않는다."
+    },
+    {
+      "identifier": "AR-121798-A1",
+      "source_fingerprint": "c86f7321a3bf3e04bdce29cc7ca815179f3a7a49773b1b79df365a6947208f58",
+      "content_hash": "71af4588393b098d40b7b5f16681d08c3de455a4d6bc4ff6c342065cfb40cb9f",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "핵산 백신의 항원 특이 면역 유도이다. 구체 발현 경로·서열 설계는 다루지 않는다."
+    },
+    {
+      "identifier": "AR-121807-A1",
+      "source_fingerprint": "0f192ba289f5a9fed14547e1ae3a1e9d104e3909155618f221fdba4cdcc4b77b",
+      "content_hash": "ccf34d28b7799b8158ca915a0bdc7e72cfb394a8c32c4da0d628d5d71e6d7040",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "비이온 계면활성제와 양이온 고분자의 모발 조성이다. 표면 전하 역전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-121815-A1",
+      "source_fingerprint": "ce946ebbc92b065c63fc5d9e000dd867d833d98104227e67964d8348bf4b43aa",
+      "content_hash": "9e19ce4cadea034c97770e69d19c0e8b2680b0ac2a8a64ec737851a788cc6678",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "UV-C 살균의 광화학 손상 기전을 문헌과 비교한다. 전리 방사선과 같은 항목으로 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-121817-A1",
+      "source_fingerprint": "baeb11a774946b3c05f7f40421464c466b0bf56ff1d4024cf04456522b59f2be",
+      "content_hash": "8958049fd92a466d0964249be392d345bd263904da67279082992736898da5cf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살진균제 사용 및 혼합 조성만 제시되어 분자 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-121820-A1",
+      "source_fingerprint": "39f7b086422ac28faf06df713e2b3b137384524a0b63d12aedc371cb2b2bf6dc",
+      "content_hash": "7b29e174d737dc7bd68308b5310c335f88e85e03fd0ed0a47ee1f61abcb7c3ae",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조이며 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-121829-A1",
+      "source_fingerprint": "3455374bbe07e8d2b422683953efd17a43090f41f6470b319a4ef4188abe6ef2",
+      "content_hash": "b3c48d65ddef65bd6a3e564d1713e1493844de0ce878e9453295a587b95bc269",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "surfactant-action"
+      ],
+      "reason": "호흡사슬 복합체 억제제와 선택적 계면활성제 조성이다."
+    },
+    {
+      "identifier": "AR-121840-A1",
+      "source_fingerprint": "bafa686b258817975f2e42c321ae641b2108042d99c77476eb93a7aa7cfbc3cf",
+      "content_hash": "01e6555e0223d4c26e39e40d2748a5e1694f185ed3f82962e2a3cd306fe632a4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조이며 독립 기전이 없다."
+    },
+    {
+      "identifier": "AR-121848-A1",
+      "source_fingerprint": "ea09b0ec7cab40f73f7339ac878add761ada5c62e96f9e21a5ff3d670fd19837",
+      "content_hash": "9c65163f5197f72bf39dc9851a1d8eff774fc451f0e402b2491cd596ea5c77e0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "잔류량 제약을 고려한 구역별 투여량 계획이다. 구체 최적화 알고리즘은 없다."
+    },
+    {
+      "identifier": "AR-121857-A1",
+      "source_fingerprint": "dcee7a4e1b613cf9fc1e0ccba3f8e67a55e466bd06c25692e8e95efe87206596",
+      "content_hash": "d1ddc5e1b6e4f107ec734c19b2fbfffde8b06719d96836d0b4d5f135c58282ee",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "OX40 항체 결합 및 검출이다. Fc 변이만으로 작용 효과를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-121891-A1",
+      "source_fingerprint": "de5404357737270d3d6e112840bb970cca3e67956e93cda36fce2c06b6e4b3f3",
+      "content_hash": "e51b1934cf77965c34536e2b1c0fc0122d86de697a060893bf7ec4b6fe91aefb",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "IL2 수용체 복합체별 결합 편향이다. 고분자가 PEG라는 가정은 하지 않는다."
+    },
+    {
+      "identifier": "AR-121895-A1",
+      "source_fingerprint": "a75f987347565125c64618cc408d90a0efddab83daa11bf8437db1f52e02e54f",
+      "content_hash": "ce4ea531160a74f11a509018f12cf6d91cd516fefe7eca37c6ef0ac3df1a434d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "라미나린·폴리올의 안정 조성이다. 선택적 배제나 수분활성 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-121929-A1",
+      "source_fingerprint": "173792bba526b33d6637e280dc83abfdd1515dfb81b03dbba255f9c452aa7a42",
+      "content_hash": "0c9baf34f0a3abb2a0e506cd8fa4a2caf1956d91c9564b499bb5f56975080908",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "DGK제타 효소 억제이다. 단백질 키나아제와 지질 기질 키나아제는 구별한다."
+    },
+    {
+      "identifier": "AR-121963-A1",
+      "source_fingerprint": "10f13e30d177c2cedd251304662778441882e838afbc8d26af4378874b72226f",
+      "content_hash": "870798b813994cf0c31383fe305dbe5dba6156bc487e8b2c1835c2c3f7fc3d22",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "가위식 잠금과 자동 안전 잠금이 달린 접이식 탁자이다."
+    },
+    {
+      "identifier": "AR-121967-A1",
+      "source_fingerprint": "7389eed5ee41708d09575010bc684fc6e30cb7e38e759d8fe2b691d241d5ec19",
+      "content_hash": "2681ee205134adf9c48f08430582b135b6e982c847d548bfaf41b43be8c4758f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광섬유로 변형을 전달하여 감지하나 브래그·산란·간섭 중 판독 원리가 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-121977-A1",
+      "source_fingerprint": "8968f5ddda338f2d448a451592ab4e8155708e4386f40204c847e8715d0a70ac",
+      "content_hash": "d6a61d6959b6ea2d8ca917aca77e0e3d40591759d7d498ed1b84b7b7a2a51599",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "펩티딜아르기닌 탈이미노화 효소 억제이다. 기질 탈이미노화 원리는 별도 문헌 검토한다."
+    },
+    {
+      "identifier": "AR-121982-A1",
+      "source_fingerprint": "45c4059eb45fc96ea1bf7be4074bf659fb8ebb7df9e937092e78ad012065947d",
+      "content_hash": "093b69422fd02ec02dddf67e339a744ff9031705d90fb9b042ad9e8bdb65d283",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "CCR6 수용체 조절제이다. 초록의 끝이 잘려 세부 구조를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-121992-A1",
+      "source_fingerprint": "713a38a52e21465342ce6e7c84a32db125df71d3aa4270f02131178b4bd0497e",
+      "content_hash": "8c7144e7f575e1d3532dbf47de0a6bb0ac837395aaadd510a6b237ae173ff267",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "모터 상태를 받아 투여 롤러 속도를 변화시켜 맥동을 줄인다."
+    },
+    {
+      "identifier": "AR-122009-A1",
+      "source_fingerprint": "a6bc2e39b9292ed3bb0f8fad31c375f7ce1b8d3bede685f4ea7949c2e4ddb1f5",
+      "content_hash": "d388fa415c91dafb4c4612e378900fc4e10932dc2a7faa37163d5b8a37fd4fc2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "TIL 증식 제조법의 개선 주장이다. 구체 배양·신호 기전은 없다."
+    },
+    {
+      "identifier": "AR-122010-A1",
+      "source_fingerprint": "5d237f2c8f6481afbdb4ae6a4128716076996ffa34a9ff7c5b037b888759db5c",
+      "content_hash": "05a6998ac6fc201125a547586c7866d5654077436b8c5577b2097a6f2cff21fb",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "TREM2 수용체 활성화 작용제이다."
+    },
+    {
+      "identifier": "AR-122016-A1",
+      "source_fingerprint": "47721fabff1eab9a4d7de051b42c4f87bdf2390516fef4be94a1dfddaecd2b69",
+      "content_hash": "33efce509bb4b75c52382cf8b6aedc3c68964ff076354d062d210a6a41b3ddd1",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "rolling-contact-friction-reduction"
+      ],
+      "reason": "튜브 축 내부를 채운 사출 고분자로 모듈을 결속하고 롤러를 배치한다."
+    },
+    {
+      "identifier": "AR-122037-A2",
+      "source_fingerprint": "21a2dcedf79283779a9260a80bd73e3b610ae0ebda1f44ed8e00fda40dfedfba",
+      "content_hash": "bb2aea59381797d60ceeeb8ca10d29f5e33d3ae2cad010048b2d025949851beb",
+      "decision": "LINK",
+      "keys": [
+        "olefin-metathesis"
+      ],
+      "reason": "금속 촉매의 올레핀 결합 파트너 교환이다. 페로몬 용도로 별도 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-122042-A1",
+      "source_fingerprint": "688672ebfcce46ee17d1aeca0bf23208d3d72f469ce3d8eb39836b3c2e6b31e1",
+      "content_hash": "3cdf99e4c042d72d1a9c5da983100bc66fe05080723fef4bef3f969183ad60b8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알려진 기준 색과 측정 색의 관계로 카드 품질을 평가한다. 기준값 비교 기전을 기존 신호 차분과 비교 검토한다."
+    },
+    {
+      "identifier": "AR-122044-A1",
+      "source_fingerprint": "f660d30419d10352b4397bb33786e9ad5636fa679821ac0e242fe66615193aab",
+      "content_hash": "c9e24dbcdc8e4e98c8582be32b7b57bb34c6c0bc6dfb3ba9a802ac6d65644e74",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "바이러스 투여의 면역 보조 주장이다. 항원 특이 면역이나 선천성 경로를 특정할 근거가 없다."
+    },
+    {
+      "identifier": "AR-122049-A2",
+      "source_fingerprint": "72e1e175d7edffa397da6e5f0fed01b35dfde1a347ac85a024ebf62a6d887036",
+      "content_hash": "50837d347b557e0e7aad4f1536836ab9af6a5fef26cf7315de80350f6ab4d7e0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조이며 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-122062-A1",
+      "source_fingerprint": "7d1fdb9f138b5ea27a93a38260bdb765d620738a1bdb47691c1d79eec7cb41e1",
+      "content_hash": "417cae4cc476a330de5f3306396d68c6e9ec81d48a6962447e26cd8ae0a881da",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "heterologous-gene-expression"
+      ],
+      "reason": "외래 항원 유전자를 지닌 백신 벡터이다. 일반 발현·면역 원리만 연결한다."
+    },
+    {
+      "identifier": "AR-122070-A1",
+      "source_fingerprint": "61a722f28e21a6bdd7f5b34bfe4cb1a6ae898dde20e27b1dd3ff93535250a364",
+      "content_hash": "663118207acbd67878e6101aaaaeb892802527258c0f868c06ea682786c34b08",
+      "decision": "LINK",
+      "keys": [
+        "chromatography"
+      ],
+      "reason": "토양 평면 크로마토그래피 등 관측 절차이다. 무늬만으로 토양 전체 생물 활성을 정량한다는 주장은 검증되지 않았다."
+    },
+    {
+      "identifier": "AR-122078-A1",
+      "source_fingerprint": "cf86fc462b1cb64ba67925f7c71708ea538971422e2a83525537d166b9e4f08e",
+      "content_hash": "aeef3facdab270df3c39faad9dc3e227d9cc86cf7e60f0a4e6f1d27ababdf4ee",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "펜드린 암호화 유전자 발현 구성체이다."
+    },
+    {
+      "identifier": "AR-122079-A1",
+      "source_fingerprint": "53c2774cba8e9fd3efabd644389cb7faeccc0522af50e1a1aec396689376dd80",
+      "content_hash": "78f184b67c65a4d913e46fd0a950704b69d4e53a23bf6df83a37b1265a2d6494",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "KCNQ4 산물의 발현 또는 억제라는 선택적 주장이다. 억제 경로는 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-122095-A1",
+      "source_fingerprint": "ce10268a129dd151506d85db585cd975f3fad684309a482014eb107539cfa064",
+      "content_hash": "de1027eb1fac35ac1aa96678ff64a867ba6ab9019ca651e8e21c357055ca6dee",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture",
+        "lead-screw-motion"
+      ],
+      "reason": "롤러 이빨로 껍질을 파괴하며 나사로 판 위치를 조절한다."
+    },
+    {
+      "identifier": "AR-122104-A1",
+      "source_fingerprint": "e454231a516b0a88a1d3c93fbedb6256b66b0ac59c237bca50b35938215c4716",
+      "content_hash": "75270124524501c48e9787a44b2ebb3d4eb64a186a9de5b01a95ed6ff83682f2",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "VHH의 항원 결합·검출이다. 결합만으로 임상적 중화 효능을 보장하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:52:11.703775+00:00"
+}

@@ -1,0 +1,174 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "457f496e92fa51e7a3b9e0e77f0bc09fcaacd1520f87c45d25905baf4d1408db",
+  "reviews": [
+    {
+      "identifier": "AR-079290-A1",
+      "source_fingerprint": "1bb45974568be98a075933dc6cde0d59c339dfd716be96d88099f302c6806a7f",
+      "content_hash": "c44a838c2f337b140dc04dc38cd33c4ba068ccb261e30b8b4f5eae1d109f123e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제 혼합물의 화학 구조 범위이다. 반응·표적 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-079294-A1",
+      "source_fingerprint": "0bc685916d33a445192591eb787801fa6c6b24f687a46aa756eb314e731b0eb1",
+      "content_hash": "691fcdce80036a028af87e09ce9b2bb85a79f39b783e7759711c092febb0d47f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "동위원소 요오드 표지 화합물이다. 안정 동위원소도 포함하며 검출 방식은 초록에서 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-079295-A1",
+      "source_fingerprint": "378c6b3d6833b6d352122d427c0105e2be7412710ba6fa038d36ee56bf7e8798",
+      "content_hash": "ef2fafb0d3da7fd6431183672eeb14169f796bd95cc34584def42ed85ae9c8bd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "발아 전후 제초제 조합의 상승작용 주장이다. 원인 기전은 없다."
+    },
+    {
+      "identifier": "AR-079299-A1",
+      "source_fingerprint": "3450e04b815f20b422631fe0923525fe1f9e6da4a46308084b6a6147b1209c14",
+      "content_hash": "c059d572000a4b287c025d9ddd35d84a51f7959490e04b8063f571a1ae6450db",
+      "decision": "LINK",
+      "keys": [
+        "ionization-solubility",
+        "evaporative-concentration"
+      ],
+      "reason": "아민으로 산을 부분 중화한 뒤 물을 제거해 과립화한다."
+    },
+    {
+      "identifier": "AR-079330-A1",
+      "source_fingerprint": "676d2f8a027e12690b375406c31558c3beafecbdb400d9c8b153b729b0c1ba59",
+      "content_hash": "e3c2339be3452362a9e7255d9ed08fd1220f9e3dab0bbaada685b271fc1aa937",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "높이와 구멍이 다른 베개 형상이다. 스트레스 완화 기전은 입증되지 않는다."
+    },
+    {
+      "identifier": "AR-079334-A1",
+      "source_fingerprint": "ad8d0cfe262ea0bb2a819a37854ba6a0e8d1057e04444cb0868fa65024e46a00",
+      "content_hash": "ca6d3feb39267c69493cf628b9dffee35987030fa074877427c7e3e12484c948",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "BACE2 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-079340-A1",
+      "source_fingerprint": "013d28958380aab6dea8781c8ea4f4cc05b03f21059c89b033d67d702e7350ba",
+      "content_hash": "29ca91ce3b36a2efde7304e57f3f3c7da6f2d2a231e9d81c914d2497d92406ab",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "C4.4a 항체의 인식과 발현을 제시한다."
+    },
+    {
+      "identifier": "AR-079351-A1",
+      "source_fingerprint": "5a87fcbc858d72f8ad89e32226a043b27d2c5ebc7e626819209ed8978d9fcac8",
+      "content_hash": "a4e990bb4b7c781b6847d42aceba4705c6b1c7acc7b86ac8b1a2ea1decb7e371",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "항체가 프로락틴 수용체 신호를 막는다."
+    },
+    {
+      "identifier": "AR-079361-A1",
+      "source_fingerprint": "1f109f320303d33f470debff9ac9e8c755a212d84be5196d7528346106a1d84f",
+      "content_hash": "134623690dd58550cd24f655f23aed7977aeafba7a1b3d5e837169c48ccb2675",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "gear-ratio-transmission",
+        "rolling-contact-friction-reduction"
+      ],
+      "reason": "유압 실린더·랙 피니언·차륜으로 하중을 들어 이동한다. 무게 제한이 없다는 주장은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-079365-A1",
+      "source_fingerprint": "b426ce2e53ef5e8d97bc8041befddf5d8c45b175109a7c320d71cb26e1566bc9",
+      "content_hash": "12faa521a10e386f8a3c95c2473be4ac4439484fda10d66583bfeeb039f11a11",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수중 말뚝 항타·주입·하중 시험의 시공 조합이다. 모든 지반·하중에 해결된다는 주장은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-079366-A1",
+      "source_fingerprint": "a1360869723f13a15e3cea889d609adba0fff24ffe5e424b3afb98f41448f371",
+      "content_hash": "480bb2adf9371f4e9fa6007f86f60fa52ad8adf0e6d17ba807952d065a1cb0f9",
+      "decision": "LINK",
+      "keys": [
+        "elastomer-contact-sealing",
+        "hydraulic-force-transmission"
+      ],
+      "reason": "오링 압축 변형으로 유압 실린더를 밀봉한다."
+    },
+    {
+      "identifier": "AR-079371-A1",
+      "source_fingerprint": "14932acb965c36da85d995ed3acfd0e6412f58f891a6503102f8dc24951385c2",
+      "content_hash": "4d639825d8edbf0b9df12332b4aca828e15dec5b51e6f1f3411850e5423dd9eb",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction",
+        "forced-convection"
+      ],
+      "reason": "동축 관 사이로 냉매 열을 교환하고 낮은 전도도의 스페이서를 둔다."
+    },
+    {
+      "identifier": "AR-079372-A1",
+      "source_fingerprint": "8666579870f907f2e44a8a1f7926fac1bb4b2a7f5410f622837d6365acd15439",
+      "content_hash": "140655921217eb1f2535ea96b55e34b057b5ae6db0cfd121fae62ab846716f34",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "오토바이 지붕의 접힘·슬라이딩·수납 배치이다."
+    },
+    {
+      "identifier": "AR-079419-A1",
+      "source_fingerprint": "e371f806daf75ae5fbb0cd7092c501d16389815ccb6473171784a34cd2d4d67f",
+      "content_hash": "6497efcc3aeb2d7034d2ee516ed59e5d43212167dc17d20405b3392b86229846",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 병용의 상승작용 주장만 있고 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-079425-A1",
+      "source_fingerprint": "093af4c30fda20dc6804d731a016e07d912635a336853bdbc655ace7d0deb5c1",
+      "content_hash": "ecaf83612a18158a9193b007bf6147f0d6812c820dd7569a5e7bb021753f321b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피리딘 살충제의 구조 범위와 용도만 있어 표적을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-079433-A1",
+      "source_fingerprint": "d3a1b2f1b335c9fd8b505d1d3d39d883bcb20f435c3020e22d97f07132e1aa3d",
+      "content_hash": "907b83277a260c58b611a4411d48beedd11a7d9c5145759773cac4ca53c1cfbb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 성장 조절제 조합이다. 신호 경로와 상호작용은 미상이다."
+    },
+    {
+      "identifier": "AR-079439-A1",
+      "source_fingerprint": "913f6f18322d5db39c50e918edb70fdd0eaacc3908c3f1730049bc0cd50a2283",
+      "content_hash": "3001114b40c8275210e3bbdd6adb567e75ea5fbe11ab389c05bcc6008799e4cf",
+      "decision": "LINK",
+      "keys": [
+        "adsorption"
+      ],
+      "reason": "실리카 담체에 카르니틴 수용액을 담지해 과립을 얻는다. 흡착과 기공 모세관 보유의 분담은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-079446-A1",
+      "source_fingerprint": "3ba275776019ef5101b8a9879734de18d8898599e4e3762a19679c51e9f7ac0c",
+      "content_hash": "04b18269e3d06ece05ae2b0ea18edba0c2c7ec91d02ff43120603a8f7aa57c9b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피스톤으로 사료를 단계 압축해 고밀도 묶음을 만든다. 벌크 공극 감소의 압축 치밀화 후보를 보강한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:15:45.893497+00:00"
+}

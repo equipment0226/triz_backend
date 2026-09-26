@@ -1,0 +1,236 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e9d2d96363605da3eb20ad0478736b12a2ed1ab476370ee6e329ac807e291f4b",
+  "reviews": [
+    {
+      "identifier": "AR-092381-A1",
+      "source_fingerprint": "ee60e2a691af13bc29ca59bc89745f0c161cc05d566d15f42b16b9b45eabe21b",
+      "content_hash": "9da61ad10f9887e182e4eabef8c4342046703f1d0992c0f39021e83806517146",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구조 목록과 구충 용도는 있으나 생물학적 작용 표적이 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-092384-A1",
+      "source_fingerprint": "67682c7422e7e836648da6a660946f011925e2a4b4f5cc6dcb9ab1c873b62f02",
+      "content_hash": "e8bd1879383a7ba3fddca8126f72b3316d2e9b0a3c8b96b0ee7d5bf2eb352b7e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "제품 배출 장치의 플랫폼·가이드 배치이며 구체적인 소음 감소 기전은 없다."
+    },
+    {
+      "identifier": "AR-092393-A1",
+      "source_fingerprint": "55c53bc3ef21120b238640a215cd0ca5b724406825515ea5210ab3bc28dc673e",
+      "content_hash": "eeb21437f1b37641830524e1ba320b9db964987e98e0dc99c67348a78dd28338",
+      "decision": "LINK",
+      "keys": [
+        "cement-hydration",
+        "evaporative-concentration"
+      ],
+      "reason": "당류 잔류물을 농축하여 시멘트 수화 지연제로 사용한다. 지연의 분자 기전은 별도 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-092394-A1",
+      "source_fingerprint": "f2ac3549fffc1c069c49da9d8ef2419fa2c04b0d9622f408caee2356585e4087",
+      "content_hash": "8b293fa2fc8f6e66adb9301ddf5fd1d85c8bc3ed7e60c8fb6482083e973bdd6e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광택·건조·산화 저항의 성능 주장만으로 막 형성이나 산화 억제 기전을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-092396-A1",
+      "source_fingerprint": "63f00b47eb0cfdfa3d9c1f5ce38c8c10630c0e42283a3bd424323909801fab58",
+      "content_hash": "c4b1e9a83e34a27bf296af1554f2162a8eda38058a9d37b729068c9e10fa4cd3",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "DNA 중합효소 IIIE 억제에 의한 항균 작용이다."
+    },
+    {
+      "identifier": "AR-092418-A1",
+      "source_fingerprint": "f6779f83e56af7f6dab8fae45cab4fc3404dfa7a5a97dd1bfb75a382e9191ea7",
+      "content_hash": "3eb0df6ff52cbad48d91074398e2abb8bd118a2d848e0179d83e39dab403304f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미생물의 식물 스트레스 완화 효과는 기술하나 구체적인 물질·신호 경로는 없다."
+    },
+    {
+      "identifier": "AR-092425-A1",
+      "source_fingerprint": "80c9915b753a49807ee2f1f5068b9adc98a6ea2f237313b8dba1b2f88636f68b",
+      "content_hash": "7f30cc8bcc3fbb2515c9cca7b4bca9b2004e0f1d6bb00222dd8b9db423c35054",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "접이식 용기와 유연한 빨대의 형상 구성이다."
+    },
+    {
+      "identifier": "AR-092427-A1",
+      "source_fingerprint": "9838a8cb0a212f0101fbc2e59d835edbc0f9e34fc3e8cdc4477c159520e192fd",
+      "content_hash": "006c22abafd642ced7b5f6a5bf967314182faa40ecc06e4d97544d5b9045b014",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "사이리스터 증압 주장에 필요한 에너지 저장·전달 회로와 수지가 초록에 없어 작동 원리를 검증할 수 없다."
+    },
+    {
+      "identifier": "AR-092428-A1",
+      "source_fingerprint": "8ddd935c08b3291e99c1c8bb3ffb25132971bdb41120d92409d009f7f7654a65",
+      "content_hash": "ffeb7f2d909158f707cfb32bdcd30b5caca58bdaa2f0230fd216592b70cea6d0",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "barrier-coating"
+      ],
+      "reason": "수계 고분자 분산물을 표면 피막으로 사용하는 조성이다."
+    },
+    {
+      "identifier": "AR-092433-A1",
+      "source_fingerprint": "67b95a5dfd8fd6ff9484c87712e6d6d546ef0c0c835b8d82210111b38f0a097e",
+      "content_hash": "0341d15d2078f065e48e6e97621cdeccf79bfa002237f6a9760275be4feff47f",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "brazing"
+      ],
+      "reason": "금속 변형 체결과 용가재 접합을 결합한다. 브레이징 카드의 공통 젖음·응고 원리에 연결하며 고온 접합 조건은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-092445-A1",
+      "source_fingerprint": "20160c4046238363b8d9239d6f799b31957bb89c7f6f2e38dcf830de7b6e0551",
+      "content_hash": "95530473a290d2ae8c219615dd0fd9e87a53c113f51d509e495b80963e7e6322",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "결정화 억제 고분자가 명시되어 표면 흡착에 의한 결정 성장 억제 후보의 기전을 문헌과 대조한다."
+    },
+    {
+      "identifier": "AR-092453-A1",
+      "source_fingerprint": "0592253e96fe308af01f3193fb9b129f1e48b42243ef149be3a206b20b90133f",
+      "content_hash": "3458978c944fa84b5f3d3eae1791df86d36b00ae9d5c28eeaf14a1095ec86f21",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture",
+        "plastic-forming"
+      ],
+      "reason": "압력에 의해 막이 파단하고 소성 변형되어 비복귀 구멍이 생긴다."
+    },
+    {
+      "identifier": "AR-092456-A1",
+      "source_fingerprint": "96f2734963305492f285e44eef3f969557290b2c2466e7c4af5c3eb6f1da8e07",
+      "content_hash": "f3472de712d7bc89bd491ce9e86fb297a01734bdd107b02d98ad22156ec7501a",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "FGF21·GLP1 융합 단백질 발현과 수용체 작용이다."
+    },
+    {
+      "identifier": "AR-092459-A1",
+      "source_fingerprint": "4e4dd46fcafc619625c10458613433e1c0f78229752bf62c47124be696f30702",
+      "content_hash": "54c70602040d50cc7b4e39db30fccd6e8e994ec8defe40141eecfb5576a5ffd6",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching",
+        "wetting-control"
+      ],
+      "reason": "첨가제로 다이아몬드 집합체의 젖음과 침출액 접근을 조절한다."
+    },
+    {
+      "identifier": "AR-092472-A1",
+      "source_fingerprint": "8a062d2e1e27b24ceed55e4be89dda4ddd2387565097275f66c6440cc655e0dd",
+      "content_hash": "5b6ba63bcbd1d863e53c389c9b7374c2ad388a39fb7a942fd241ad1c5249bbf7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "배출 버튼과 측면 파지부의 힘·위치 설계이다."
+    },
+    {
+      "identifier": "AR-092477-A1",
+      "source_fingerprint": "00e0177d4ccde0ab54e3c1f61dbd222e04f3bc01621696b37eab7a96c804afa3",
+      "content_hash": "17af3f50a1f5dd8b2e43c57244a831da34d74ff5e0577fd53707bc1c960937c3",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation"
+      ],
+      "reason": "이중 기공 촉매의 수소화 반응이다. 기공 계층에 따른 물질 전달은 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-092517-A1",
+      "source_fingerprint": "4bd20cf69a892c2ed0a74ed75d9b842ff5843ac35c4e3206c8d76eb07d745ba7",
+      "content_hash": "aba4b57de1ca1f4e1d87bb9ee84e3d5ec1a9a4104e1a686afc7d08a28de03d4e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전자 사이클로트론 공명으로 마이크로파 에너지를 플라즈마 전자에 전달하는 원리를 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-092522-A1",
+      "source_fingerprint": "0cf4101f85b6ca87ac66bce8c3edd3ebae743e5467e9979423b878027aa08e64",
+      "content_hash": "085961c61787060cd34aa5f5c21dcbf8447b72e43c376c722957b3b448b22125",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "GCS 효소 억제이다. 절단된 구조 목록에서 개별 화합물 기전을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-092527-A1",
+      "source_fingerprint": "dfbff56e455ff0e06fa9d547de51c2090a1cd25850d6c900b09d371ab661cde1",
+      "content_hash": "162727d67104718de99ae967b74b036227157c22540f2499d36b375b22037998",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "해제 가능한 배관 클램프의 기계적 체결이다."
+    },
+    {
+      "identifier": "AR-092543-A1",
+      "source_fingerprint": "5ca2902915f41d82eb2cbd55a276a19412e6a7463247213c7af34d64820bb425",
+      "content_hash": "14cf115447cc46c58aae5c9d086d765d9660073ca14202610edcc1369b63a18f",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening",
+        "thermal-orientation-recovery"
+      ],
+      "reason": "수압 파쇄와 열수축 섬유의 변형으로 충전재 배치·유로를 조절한다."
+    },
+    {
+      "identifier": "AR-092559-A4",
+      "source_fingerprint": "32ebe249fd74fd8e55697a568752ed11fbeac8b0d6e12c3024e77ba1b6f6077f",
+      "content_hash": "afc974a21cf88c6e50f700c0f1e3f9d9a2fc0c0414638497cd8079059eb11db9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "폴리카보네이트 말단 봉쇄에 의한 열 안정화가 명시되어 말단 유래 해중합 억제의 독립 기전을 검토한다."
+    },
+    {
+      "identifier": "AR-092561-A1",
+      "source_fingerprint": "688b8f262641053ecd06001810367db0fc4386c3a97cc13761457aa9c0a6368f",
+      "content_hash": "6e7b659a2c3c8bffa752a697e26affd8ce78ea1e0eea6972c753f9c034c33cd7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "두 시점의 광학 신호 차이는 명시하지만 시간 정규화나 측정 광학의 구체 기전이 없어 변화율 측정으로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-092569-A1",
+      "source_fingerprint": "2853c70f03928efc78114348135cea5f52a34b2ec55d551354e3e309b2314db2",
+      "content_hash": "c453db9cebbce4c4967edb5a01505e96b88a6616fb7cb224bafa5d29d02fdd72",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying",
+        "blade-shear-cutting"
+      ],
+      "reason": "수직 스크루의 이송과 날의 절단을 결합한다."
+    },
+    {
+      "identifier": "AR-092588-A1",
+      "source_fingerprint": "b8b262663b101a1f4be5e881e9b93a3d47071eac3f4365631ee1520718dbb02f",
+      "content_hash": "d4a9ffc479dff50a99e6f34c5121a6163e9ed73cf9332b29ff8f3ae38c33e64b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "heterologous-gene-expression",
+        "chemical-glycosylation"
+      ],
+      "reason": "재조합 효소가 당 공여체의 글리코실기를 수용체로 전달한다. 촉매 종류만으로 결합 형성 효과를 분할하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:25:21.999613+00:00"
+}

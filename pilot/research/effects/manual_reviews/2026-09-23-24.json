@@ -1,0 +1,59 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d90bdccfcecbab4c7606873bb3ce3fd9d0f457b7f3b4bf6cc239ab5d8af8d106",
+  "reviews": [
+    {
+      "identifier": "AR-080676-A1",
+      "source_fingerprint": "5df8bbcb4fd9935d16dd9d9d594741aeb180bf414ee48d031c32f3c392a1ea03",
+      "content_hash": "cee374c41cf105346ce32f9edb42020216b76be6fc736c126e1991130b0c9ab4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "융합 고리 항바이러스 화합물의 치환기 목록이며 구체적인 표적은 미상이다. 저장 초록 끝이 잘려 있다."
+    },
+    {
+      "identifier": "AR-080683-A1",
+      "source_fingerprint": "34a9bb62ba9df533fd850f137da1c2a7e0bb47849dde49744acdff537cab015a",
+      "content_hash": "aefb03d4cc186bd6daa7b567623df92f9264fa4a2e53d4238c773755054ea75e",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "소수성 매질 현탁과 계면활성제를 이용한 알리스키렌 제형이다. 흡수 촉진 기전은 명확하지 않다."
+    },
+    {
+      "identifier": "AR-080698-A1",
+      "source_fingerprint": "23e5768e23c3a00a0d1de160ec906ef7323fa9f2f3eaf2af4aff08584ad85a2a",
+      "content_hash": "b91c949ee99d04fc5cdb77cf30a18ef57b0ec11200beb807df202fba7c1bb22d",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "receptor-mediated-endocytosis",
+        "target-induced-protein-degradation",
+        "antibody-dependent-cellular-cytotoxicity"
+      ],
+      "reason": "항체가 CSF1R 신호를 억제하고 내재화·분해·ADCC를 유도한다고 명시한다."
+    },
+    {
+      "identifier": "AR-080704-A1",
+      "source_fingerprint": "ff9d67443411257538e6c5511108676d01cecdd2026a3cb52380c05bb9dedc96",
+      "content_hash": "fe87d55261bb11492573eb2a1da69ae9c090e591e758a63948c3f3d15ac4778d",
+      "decision": "LINK",
+      "keys": [
+        "condensation-recovery",
+        "hydrostatic-liquid-seal",
+        "pressure-driven-flow"
+      ],
+      "reason": "Claus 장치의 황 응축·액봉·낙차 배출이다. Claus 황 회수 반응은 추가 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-080726-A1",
+      "source_fingerprint": "132f9e3beb71fa49772b6608b1bac5e7aec8a40fc41633dcaab1c9ce499ffa51",
+      "content_hash": "76523d3012046584738b1232ee1380f133b92d14da5818cf934e09071378ada3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 화합물의 넓은 구조 범위만 있고 작용 경로는 특정되지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:20:39.997140+00:00"
+}

@@ -1,0 +1,114 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "8be0670686b16aad38c91c2125f1d10357915cbb221b8f693c5cad8558a127f3",
+  "reviews": [
+    {
+      "identifier": "AR-092595-A1",
+      "source_fingerprint": "2d0fd7b9433768d7109c7e4df4dcb64ca6a988e0451146c2ae79df185f662410",
+      "content_hash": "d6b4510a20152b8b331d89a61b7ff933bef9702426308611608a817abb6340f2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PDE10A 억제가 명시된다. 저장 중 절단된 구조식 목록은 확장하지 않는다."
+    },
+    {
+      "identifier": "AR-092598-A1",
+      "source_fingerprint": "4ebe500f92558fe9395735479af491627921a20467e0b35f7d9a47bd4ad6d2e0",
+      "content_hash": "1007b787eb4352201aac7be73913926caff5d908b377d32acedacaedbc5c024c",
+      "decision": "LINK",
+      "keys": [
+        "fuel-cell",
+        "mechanical-interlocking"
+      ],
+      "reason": "연료전지 적층체를 타이로드로 압착·고정한다."
+    },
+    {
+      "identifier": "AR-092607-A1",
+      "source_fingerprint": "7080e4312ee40f6d7689ccc9d542eb38ae6899bbe15a11b1f76d03404cf28e5b",
+      "content_hash": "b31bcb57385894a71bcd46db15eb825daeb692801a9c184ce836dc3ea1a27a5b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항증식·혈관신생 용도만 있고 구체 표적은 없다."
+    },
+    {
+      "identifier": "AR-092630-A1",
+      "source_fingerprint": "54eb0424680a41ad5c78c2485ef3e310b29bdab26cb437aa97e77f3983cc19ff",
+      "content_hash": "967e9f0230845343750e0d25a68de382305bec84b02c9778bd74013fdb9a17c4",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "metabolic-flux-redistribution"
+      ],
+      "reason": "메티오닌 공급 증가로 재조합 단백질의 노르류신 오삽입을 줄인다. 번역 기질 선택 경쟁은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-092636-A1",
+      "source_fingerprint": "be73dbe365e6a9451d199bbc9e6d61b3f61080352577dd93cd0219dcbdf29a1a",
+      "content_hash": "0f883b97925e4adff49e728a60898483fd982acbf29a9e5621be19ccf54938e4",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "망상 프레임의 망원경식 펼침과 지하 공간 배치이다."
+    },
+    {
+      "identifier": "AR-092637-A1",
+      "source_fingerprint": "1fc762329033397c12525e20268b833a28143f62e6cae021db117d653a32e047",
+      "content_hash": "ef49e81a42deaf71ba25910a5d1671afa130a600516a7608fa0301e1fc7b7f74",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding"
+      ],
+      "reason": "열접착 가능한 섬유의 캘린더 접합이다. 결합 무늬와 첨가제에 따른 부드러움을 독립 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-092648-A1",
+      "source_fingerprint": "5852f73830757969cc7beb4e095030015cbcc184cbc6951a7b897a0f16860a9d",
+      "content_hash": "8faa4ffdb10dfad8b2a426b7901fb13879f4dd5a4abdffbb3c10a39a782b1503",
+      "decision": "LINK",
+      "keys": [
+        "fluidization",
+        "forced-convection"
+      ],
+      "reason": "유동화 공기의 조절로 고체 흐름과 층 내 열교환을 제어한다."
+    },
+    {
+      "identifier": "AR-092649-A1",
+      "source_fingerprint": "18feee149b30ba99a020ecfea428f2caea2c88676ae8577db53c029e60bcdcf9",
+      "content_hash": "8fa1573644a60b6637b38e8aca24074f7ebfd73d31aae1e1438dc212548e350a",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "가교 셀룰로오스 분말의 수중 분산·용해를 조절한다. 산에 의한 결합 절단 경로는 초록만으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-092663-A1",
+      "source_fingerprint": "c63b6aec99031d31af328635f3be337996a4469a42451ad7d616694ad3e06730",
+      "content_hash": "38e71b37b8ee8c04e16841d77ed9d732b98c75e5cbb3b3c18197dc8ea6e26b03",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초·살균 용도와 치환기 목록만 있으며 작용 표적이 없다."
+    },
+    {
+      "identifier": "AR-092680-A1",
+      "source_fingerprint": "4824f717013d5a1c00904239a915007b1ebbb071159a6196020bd8e7874ada1b",
+      "content_hash": "a0a0b0e42a2e92dfb82bac071fbde3b746b80655387307cd2a689851e520a7af",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "별도 유연 재료로 굴곡 구역을 만드는 모서리 테이프이다. 이미 검토 중인 유연 힌지와의 연결은 신규 설치 후 수행한다."
+    },
+    {
+      "identifier": "AR-092692-A1",
+      "source_fingerprint": "8728bbfc7832bee14f2f328a13e1c590c1b239924e23ec8f62e8d35776da9c49",
+      "content_hash": "35d076278f220d153b5625756c1f34686cd5d0bc4708ad257cd097c0fccac4cb",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "PPO 저해와 명시된 약제 계열의 표적 작용을 이용한다. 혼합 제형의 병용만으로 새 효과를 만들지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:25:50.645872+00:00"
+}

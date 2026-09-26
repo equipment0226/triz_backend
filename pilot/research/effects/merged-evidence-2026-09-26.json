@@ -1,0 +1,617 @@
+[
+  {
+    "source": "fuel-cell",
+    "target": "electrochemical-cell",
+    "reason": "연료의 연속 공급은 전극 산화환원·전자/이온 경로 분리라는 기존 원리의 운전 방식이다. 공급·수분 관리 조건과 출처를 사례로 보존한다.",
+    "original_card": [
+      "fuel-cell",
+      "연료전지",
+      "연속 공급되는 연료와 산화제의 전기화학 반응으로 전력을 만든다.",
+      "전극·전해질·반응물 공급 필요. 촉매 오염·수분·열 관리 필요.",
+      "fuel-cell"
+    ],
+    "original_metadata": {},
+    "original_evidence": {
+      "mechanism_key": "fuel-cell",
+      "name_en": "fuel cell",
+      "aliases": [
+        "연료전지",
+        "fuel cell"
+      ],
+      "sources": [
+        {
+          "identifier": "REF-fuel-cell",
+          "title": "US DOE · Fuel Cells",
+          "url": "https://www.energy.gov/cmei/fuels/fuel-cells",
+          "source_type": "REFERENCE",
+          "retrieval_scope": "reference_section"
+        },
+        {
+          "identifier": "AR-038112-A1",
+          "title": "Sistema de infusion medicinal con suministro de alimentacion integrada y bomba para esto",
+          "url": "https://patents.google.com/patent/AR038112A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "4dd659264875013ea0fd35bf9b3b31c9b92aec6279815a8a005ff6b44dcc84fb",
+          "review_note": "펌프에 장착할 때 장벽이 열려 활성화되는 전원 선택지 중 연료전지를 명시한 부분에 한정한다. 일반 배터리와 같은 것으로 취급하지 않는다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-047358-A1",
+          "title": "Administracion de agua en celdas de combustible",
+          "url": "https://patents.google.com/patent/AR047358A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "c0b703d01412023e053b11529162ad1aa25a82ccaee4898ec87e510130572973",
+          "review_note": "양극과 음극 및 이온 전달막을 갖는 연료전지의 작동 용도에 연결한다. 수분 투입 최적화의 제어 법칙이나 출력 증가량은 추정하지 않는다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-061770-A1",
+          "title": "Sistema y metodos para transportar o almacenar productos alimenticios degradables por oxidacion",
+          "url": "https://patents.google.com/patent/AR061770A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "11da9b38e49b742dcff4676c31de80c881e681f9efe8b5669323062f72c442c3",
+          "review_note": "연료전지로 식품 주변 산소를 소비하여 낮은 산소 농도를 유지한다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-087976-A1",
+          "title": "Ensamble de celdas de combustible",
+          "url": "https://patents.google.com/patent/AR087976A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "3113f41f24239b9792a7fbad34f1164325df1b92a22b466fba5a955be2024062",
+          "review_note": "막 전극 연료전지의 가스 유로와 주변 가스켓 밀봉 구성이다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-088896-A1",
+          "title": "Montaje de ventilador en disposiciones de pila de celdas de combustible",
+          "url": "https://patents.google.com/patent/AR088896A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "8b13f4fc6ee2d97fd0587222b58fa5b19a85d38e41e4ee15961c8d096a2cbe94",
+          "review_note": "회로판에 팬과 공기 분배실을 통합해 연료전지에 강제 통풍한다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-091179-A1",
+          "title": "Disposiciones de placas de celdas de combustible",
+          "url": "https://patents.google.com/patent/AR091179A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "1972691c2bca07fd157dd8434f99673093b8ca153327fe6b1eca8fdfb26bd66e",
+          "review_note": "연료전지 활성 전극으로 유체를 분배하는 판 구성이다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-092598-A1",
+          "title": "Montaje de pila de celdas de combustible",
+          "url": "https://patents.google.com/patent/AR092598A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "4ebe500f92558fe9395735479af491627921a20467e0b35f7d9a47bd4ad6d2e0",
+          "review_note": "연료전지 적층체를 타이로드로 압착·고정한다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AT-16015-U1",
+          "title": "Elektrode-Elektrolyt-Einheit",
+          "url": "https://patents.google.com/patent/AT16015U1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "bb857e6b05dc25a43e99c1e75d0bdb233998387780f0307081c1b572e127fd09",
+          "review_note": "SOFC 전극·전해질 모듈이다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AT-407589-B",
+          "title": "Fuel cell",
+          "url": "https://patents.google.com/patent/AT407589B/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "a4aaed2391ebedc5529263e5e80bf8d4be7d17c40dd9b1be0bd2418986c1cae1",
+          "review_note": "막 연료전지의 유로 단면을 조절한다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AT-412670-B",
+          "title": "Heating system uses a fuel cell heater that has a bypass line with a three way valve to regulate the temperature in the water return line",
+          "url": "https://patents.google.com/patent/AT412670B/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "fb75f58d4d0e745b2a6cae7299639a6400a0bb3a206540a1fbe89de08923d96b",
+          "review_note": "연료전지 발열과 온수 저장을 이용한다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AT-503138-A4",
+          "title": "Verfahren zum regeln des drucks in einer anode einer brennstoffzelle",
+          "url": "https://patents.google.com/patent/AT503138A4/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "1124b00ac03ce07b729c43fc8a62b82123696e05503fef57ce68946298279fee",
+          "review_note": "연료전지 양극 압력을 설정값으로 제어한다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AT-503941-B1",
+          "title": "Structural element for satellites comprises hollow tube struts aligned in different spatial directions and connected to each other cutting a common node chamber containing a reversible hydrogen fuel cell",
+          "url": "https://patents.google.com/patent/AT503941B1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "28fbe398aa1b5523b1dd01b26b8603dc202edc3adf21b8bcf034b1eda2dce81d",
+          "review_note": "가역 수소 연료전지를 구조 내부에 배치한다. 저장체의 수소 저장 기전은 불명확하다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        }
+      ],
+      "evidence_level": "참고 문헌과 편집 지식",
+      "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+    }
+  },
+  {
+    "source": "pressure-swing-adsorptive-separation",
+    "target": "adsorption",
+    "reason": "분압으로 흡착 평형을 바꾸는 재생 주기이다. 압력 순환 설계를 사례로 보존하고 흡착과 별도 효과로 계수하지 않는다.",
+    "original_card": [
+      "pressure-swing-adsorptive-separation",
+      "압력 순환에 의한 흡착 분리·재생",
+      "높은 분압에서 선택 성분을 흡착시키고 낮은 분압에서 탈착시키는 주기를 반복하여 혼합 기체를 분리하고 흡착제를 재생한다.",
+      "흡착 등온선·선택도·확산 속도·퍼지·압축 에너지를 함께 고려한다. 일반 흡착의 압력 재생 하위 기전이며 모사 이동층의 접촉 위치 순환과 다르다.",
+      "manual-final-pressure-swing-adsorptive-separation"
+    ],
+    "original_metadata": {
+      "aliases": [
+        "압력 순환에 의한 흡착 분리·재생",
+        "pressure swing adsorptive separation"
+      ]
+    },
+    "original_evidence": {
+      "mechanism_key": "pressure-swing-adsorptive-separation",
+      "name_en": "pressure swing adsorptive separation",
+      "aliases": [
+        "압력 순환에 의한 흡착 분리·재생",
+        "pressure swing adsorptive separation"
+      ],
+      "sources": [
+        {
+          "identifier": "REF-manual-final-pressure-swing-adsorptive-separation",
+          "title": "Method and apparatus for fractionating gaseous mixtures by adsorption, US2944627A",
+          "url": "https://patents.google.com/patent/US2944627A/en",
+          "source_type": "REFERENCE",
+          "retrieval_scope": "reference_section"
+        },
+        {
+          "identifier": "AR-092329-A1",
+          "title": "Integracion de la adsorcion por cambio de presion en una planta de energia para capturar co₂ y producir n₂",
+          "url": "https://patents.google.com/patent/AR092329A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "aed553f654baa575a20e2b88f2ba319738d95fecc5ef547578b332d1577c9176",
+          "review_note": "문헌·중복 검토 후 연결: pressure-swing-adsorptive-separation; 높은 분압에서 선택 성분을 흡착시키고 낮은 분압에서 탈착시키는 주기를 반복하여 혼합 기체를 분리하고 흡착제를 재생한다. 흡착 등온선·선택도·확산 속도·퍼지·압축 에너지를 함께 고려한다. 일반 흡착의 압력 재생 하위 기전이며 모사 이동층의 접촉 위치 순환과 다르다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        }
+      ],
+      "evidence_level": "참고 문헌과 편집 지식",
+      "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+    }
+  },
+  {
+    "source": "simulated-moving-bed-separation",
+    "target": "chromatography",
+    "reason": "같은 고정상 선택성을 사용하는 포트 전환 운전 방식이다. 이동층 모사·주기 정상상태 조건은 응용 사례로 보존한다.",
+    "original_card": [
+      "simulated-moving-bed-separation",
+      "유입·유출 위치 전환에 의한 모사 이동층 분리",
+      "고정된 흡착층을 두고 유입·유출 포트를 주기적으로 이동시키면 고체와 액체의 역류 접촉을 모사하여 연속 분리를 수행할 수 있다.",
+      "흡착 선택성·유량·포트 전환 주기와 주기 정상상태를 평가한다. 일반 크로마토그래피의 연속 접촉 방식이며 역류 세척처럼 고체를 실제 이동시키는 것은 아니다.",
+      "manual-final-simulated-moving-bed-separation"
+    ],
+    "original_metadata": {
+      "aliases": [
+        "유입·유출 위치 전환에 의한 모사 이동층 분리",
+        "simulated moving bed separation"
+      ]
+    },
+    "original_evidence": {
+      "mechanism_key": "simulated-moving-bed-separation",
+      "name_en": "simulated moving bed separation",
+      "aliases": [
+        "유입·유출 위치 전환에 의한 모사 이동층 분리",
+        "simulated moving bed separation"
+      ],
+      "sources": [
+        {
+          "identifier": "REF-manual-final-simulated-moving-bed-separation",
+          "title": "Experimental assessment of simulated moving bed and varicol processes using a single-column setup",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0021967306019583",
+          "source_type": "REFERENCE",
+          "retrieval_scope": "reference_section"
+        },
+        {
+          "identifier": "AR-089152-A1",
+          "title": "Sistema y proceso para recuperar productos usando adsorcion por lecho movil simulado",
+          "url": "https://patents.google.com/patent/AR089152A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "963e7a1e70fd9a3e2d9076bc41ac9a824b54eb19c7ca61ec579aecc731ed4cb9",
+          "review_note": "문헌·중복 검토 후 연결: simulated-moving-bed-separation; 고정된 흡착층을 두고 유입·유출 포트를 주기적으로 이동시키면 고체와 액체의 역류 접촉을 모사하여 연속 분리를 수행할 수 있다. 흡착 선택성·유량·포트 전환 주기와 주기 정상상태를 평가한다. 일반 크로마토그래피의 연속 접촉 방식이며 역류 세척처럼 고체를 실제 이동시키는 것은 아니다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        }
+      ],
+      "evidence_level": "참고 문헌과 편집 지식",
+      "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+    }
+  },
+  {
+    "source": "fluorescence-dequenching",
+    "target": "fluorescence-sensing",
+    "reason": "절단에 따른 소광 감소는 기존 형광 세기 검출의 자극·기질 선택이다. 모든 소광이 FRET라는 잘못된 동일시는 하지 않는다.",
+    "original_card": [
+      "fluorescence-dequenching",
+      "소광 해제에 의한 효소 반응 검출",
+      "서로 가까운 형광체와 소광체를 효소 절단 등으로 떼어 놓으면 소광이 줄어 형광이 증가하므로 반응 진행을 검출할 수 있다.",
+      "기질 선택성·표지 위치·배경 형광·스펙트럼을 확인한다. 모든 소광을 FRET로 단정하지 않으며 절단량과 신호의 검량이 필요하다.",
+      "manual500-fluorescence-dequenching"
+    ],
+    "original_metadata": {
+      "aliases": [
+        "fluorescence dequenching"
+      ]
+    },
+    "original_evidence": {
+      "mechanism_key": "fluorescence-dequenching",
+      "name_en": "fluorescence dequenching",
+      "aliases": [
+        "소광 해제에 의한 효소 반응 검출",
+        "fluorescence dequenching"
+      ],
+      "sources": [
+        {
+          "identifier": "REF-manual500-fluorescence-dequenching",
+          "title": "Highly sensitive and adaptable fluorescence-quenched pair discloses substrate specificity profiles in diverse protease families",
+          "url": "https://www.nature.com/articles/srep43135",
+          "source_type": "REFERENCE",
+          "retrieval_scope": "reference_section"
+        },
+        {
+          "identifier": "AR-066777-A1",
+          "title": "Metodos de ensayo para identificar agentes que modifican la enzima fosfolipasa d hidrolizante de la n-acilfosfatidiletanolamina (nape-pld) o la enzima alfa/beta-hidrolasa-4 (abh4)",
+          "url": "https://patents.google.com/patent/AR066777A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "f4f486a18d79a6e37dbd30e902952f39a6c2736d848dd9c6dda178505c3e72b9",
+          "review_note": "기존 검토: 효소 절단으로 근접 소광이 풀려 형광이 증가한다. 소광 해제 후보이며 FRET만의 증거로 단정하지 않는다. 문헌 대조 후 원리 연결: 소광 해제에 의한 효소 반응 검출: 서로 가까운 형광체와 소광체를 효소 절단 등으로 떼어 놓으면 소광이 줄어 형광이 증가하므로 반응 진행을 검출할 수 있다. 기질 선택성·표지 위치·배경 형광·스펙트럼을 확인한다. 모든 소광을 FRET로 단정하지 않으며 절단량과 신호의 검량이 필요하다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-108403-A2",
+          "title": "Evento 8264.44.06.1 de tolerancia apilada a los herbicidas, líneas de soja transgénicas relacionadas y su detección",
+          "url": "https://patents.google.com/patent/AR108403A2/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "54787cf0909b7ce3fa2fdac92877e227a4dc4ac42d7ed9246458d86a0978812c",
+          "review_note": "복합 형질 발현과 TaqMan PCR의 형광 신호를 이용한 삽입 사건·접합성 검출이다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-108567-A2",
+          "title": "Evento 8264.44.06.1 de tolerancia apilada a los herbicidas, líneas de soja transgénicas relacionadas y su detección",
+          "url": "https://patents.google.com/patent/AR108567A2/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "7bb4c3441d66f54766280d5beef81ab2c6b22da447cfc99b27fb7053c03d2029",
+          "review_note": "앞서 검토한 동일 대두 삽입 사건의 TaqMan 검출·형질 발현 사례다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-108757-A2",
+          "title": "Evento 8264.44.06.1 de tolerancia apilada a los herbicidas, líneas de soja transgénicas relacionadas y su detección",
+          "url": "https://patents.google.com/patent/AR108757A2/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "6fd47b36dcdc962734d90ba4816e9c9ef3a26f98603c0f846e10c5406ab44545",
+          "review_note": "동일 대두 삽입 사건의 TaqMan 검출과 접합성 판정의 추가 사례다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-124416-A1",
+          "title": "Método de pcr en tiempo real para detectar parvovirus bovino 3",
+          "url": "https://patents.google.com/patent/AR124416A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "d46512938d71167f17d110196700b199028588c4fc272b44a93d20dc6fa3fddb",
+          "review_note": "핵산 증폭과 표지·소광 프로브의 형광 검출이다. 표적 서열을 새 원리로 세지 않는다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        }
+      ],
+      "evidence_level": "참고 문헌과 편집 지식",
+      "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+    }
+  },
+  {
+    "source": "quartz-crystal-microbalance",
+    "target": "mechanical-resonance-property-sensing",
+    "reason": "기존 상위 카드가 이미 수정 미량저울을 포함한다고 명시한다. 질량 부하 공진 변화를 중복 계수하지 않고 강성막·액체 점성 조건을 보존한다.",
+    "original_card": [
+      "quartz-crystal-microbalance",
+      "수정진동자 미량저울(QCM)",
+      "수정 진동자 표면의 부착 질량이 공진 주파수를 바꾸는 현상으로 미량 질량을 측정한다.",
+      "단순 질량 환산은 얇고 단단한 균일 부착막에서 유효. 액체 점성·막 점탄성·온도 영향은 별도 보정.",
+      "qcm"
+    ],
+    "original_metadata": {},
+    "original_evidence": {
+      "mechanism_key": "quartz-crystal-microbalance",
+      "name_en": "quartz crystal microbalance",
+      "aliases": [
+        "수정진동자 미량저울(QCM)",
+        "quartz crystal microbalance"
+      ],
+      "sources": [
+        {
+          "identifier": "REF-qcm",
+          "title": "Stambaugh et al. · Linking mass measured by the quartz crystal microbalance to the SI",
+          "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=927952",
+          "source_type": "REFERENCE",
+          "retrieval_scope": "reference_section"
+        }
+      ],
+      "evidence_level": "참고 문헌과 편집 지식",
+      "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+    }
+  },
+  {
+    "source": "hydrostatic-level-sensing",
+    "target": "hydrostatic-pressure-compensation",
+    "reason": "동일한 밀도·가속도·액주 높이의 압력 관계를 계측으로 읽는 적용이다. 대표 제목을 정수압 관계로 확장하고 측정 조건을 보존한다.",
+    "original_card": [
+      "hydrostatic-level-sensing",
+      "정수압에 의한 액면 높이 측정",
+      "유효 중력장에서 액주 높이에 비례하는 압력차를 측정하여 액체의 높이를 추정한다.",
+      "밀도·중력·기준 압력을 알아야 한다. 밀폐 탱크의 상부 압력·기포·유동·온도 변화를 보상하며 기체 압력만을 액면으로 오인하지 않는다.",
+      "manual500-hydrostatic-level-sensing"
+    ],
+    "original_metadata": {
+      "aliases": [
+        "hydrostatic level sensing"
+      ]
+    },
+    "original_evidence": {
+      "mechanism_key": "hydrostatic-level-sensing",
+      "name_en": "hydrostatic level sensing",
+      "aliases": [
+        "정수압에 의한 액면 높이 측정",
+        "hydrostatic level sensing"
+      ],
+      "sources": [
+        {
+          "identifier": "REF-manual500-hydrostatic-level-sensing",
+          "title": "WIKA: Hydrostatic level measurement",
+          "url": "https://www.wika.com/en-ca/lp_hydrostatic_level_measurement.WIKA",
+          "source_type": "REFERENCE",
+          "retrieval_scope": "reference_section"
+        },
+        {
+          "identifier": "AR-075532-A1",
+          "title": "Camara de presion para control de nivel de agua en maquina de lavar ropa",
+          "url": "https://patents.google.com/patent/AR075532A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "48649edfe3d32734fabbc197e79c225e9ad99b1aa2a6ba754e0621c7da6190c2",
+          "review_note": "기존 검토: 액면에 따른 기체 압력으로 수위를 검출한다. 정수압 계측 후보이며 센서 내부 변환 방식은 미명시이다. 문헌 대조 후 원리 연결: 정수압에 의한 액면 높이 측정: 유효 중력장에서 액주 높이에 비례하는 압력차를 측정하여 액체의 높이를 추정한다. 밀도·중력·기준 압력을 알아야 한다. 밀폐 탱크의 상부 압력·기포·유동·온도 변화를 보상하며 기체 압력만을 액면으로 오인하지 않는다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AT-413000-B",
+          "title": "Verfahren zum bestimmen von längsprofilen und vorrichtung zum durchführen des verfahrens",
+          "url": "https://patents.google.com/patent/AT413000B/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "b556e6e46a0b4413409dbf54f08970f3c2a06aa3e369856f9e3e69e15865d68e",
+          "review_note": "액주 압력과 밀도를 보정해 높이 차를 계산한다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        }
+      ],
+      "evidence_level": "참고 문헌과 편집 지식",
+      "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+    }
+  },
+  {
+    "source": "hydrostatic-liquid-seal",
+    "target": "hydrostatic-pressure-compensation",
+    "reason": "동일 액주 압력을 기체 통과 문턱으로 쓰는 응용이다. 증발·사이펀으로 봉수가 없어지는 조건을 보존한다.",
+    "original_card": [
+      "hydrostatic-liquid-seal",
+      "액주에 의한 기체 통과 차단",
+      "굽은 유로에 남은 액체의 정수압이 기체의 통과에 필요한 압력 문턱을 만들어 배수관 등의 기체 역류를 억제한다.",
+      "유효 액주 높이·밀도·통기·급수를 유지한다. 증발·사이펀·압력 변동으로 봉수가 사라질 수 있으며 완전 기밀을 보장하지 않는다.",
+      "manual500-hydrostatic-liquid-seal"
+    ],
+    "original_metadata": {
+      "aliases": [
+        "hydrostatic liquid seal"
+      ]
+    },
+    "original_evidence": {
+      "mechanism_key": "hydrostatic-liquid-seal",
+      "name_en": "hydrostatic liquid seal",
+      "aliases": [
+        "액주에 의한 기체 통과 차단",
+        "hydrostatic liquid seal"
+      ],
+      "sources": [
+        {
+          "identifier": "REF-manual500-hydrostatic-liquid-seal",
+          "title": "US EPA: Energy Savings Plus Health, indoor air quality guidance",
+          "url": "https://www.epa.gov/sites/production/files/2014-10/documents/energy_savings_plus_health_guideline.pdf",
+          "source_type": "REFERENCE",
+          "retrieval_scope": "reference_section"
+        },
+        {
+          "identifier": "AR-068703-A6",
+          "title": "Pileta de patio con doble sifon sanitario para controlar el paso de las aguas en las rejillas y retener los olores",
+          "url": "https://patents.google.com/patent/AR068703A6/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "92d4f9f99da72c48158b7ec62bc2152ec478e584fe7f7b970dafe5e1a793f05c",
+          "review_note": "기존 검토: 잔류수 수봉과 수압 개폐 밸브로 하수 가스를 막는다. 수봉 및 체크밸브 후보. 문헌 대조 후 원리 연결: 액주에 의한 기체 통과 차단: 굽은 유로에 남은 액체의 정수압이 기체의 통과에 필요한 압력 문턱을 만들어 배수관 등의 기체 역류를 억제한다. 유효 액주 높이·밀도·통기·급수를 유지한다. 증발·사이펀·압력 변동으로 봉수가 사라질 수 있으며 완전 기밀을 보장하지 않는다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AR-080704-A1",
+          "title": "Dispositivo y proceso para la condensacion, separacion y almacenamiento de azufre liquido en una planta de claus",
+          "url": "https://patents.google.com/patent/AR080704A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "ff9d67443411257538e6c5511108676d01cecdd2026a3cb52380c05bb9dedc96",
+          "review_note": "기존 초록 검토: Claus 장치의 황 응축·액봉·낙차 배출이다. Claus 황 회수 반응은 추가 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 클라우스 반응에 의한 황 회수: 황화수소와 이산화황의 산화환원 반응으로 원소 황과 물을 생성하고 황을 응축하여 회수할 수 있다. 반응 평형·기체 조성·촉매와 응축 조건이 중요하다. 황의 상변화만으로 이루어지는 분리나 황화수소의 단순 흡착과 구분한다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AT-408359-B",
+          "title": "Gully",
+          "url": "https://patents.google.com/patent/AT408359B/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "878c4073f669a06f5b2798eb4b299bdca89570d1beb217f06d7a5de203e3816c",
+          "review_note": "수봉과 부표로 배수 가스 통과를 제한한다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        },
+        {
+          "identifier": "AT-408452-B",
+          "title": "Turmofen zur wärmebehandlung von metallbändern",
+          "url": "https://patents.google.com/patent/AT408452B/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "5b62fc555ce157d28bffc824f2d4477de1bce4d004c182886971adf3ce738358",
+          "review_note": "액체 밀봉으로 가열 구획 경계의 누설을 막는다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        }
+      ],
+      "evidence_level": "참고 문헌과 편집 지식",
+      "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+    }
+  },
+  {
+    "source": "derivative-feedback-braking",
+    "target": "negative-feedback",
+    "reason": "측정량 변화율에 따라 구동을 보정하는 피드백 구현이다. 미분 잡음·필터·문턱·지연 조건을 사례로 보존한다.",
+    "original_card": [
+      "derivative-feedback-braking",
+      "변화율 검출에 의한 제동 제어",
+      "측정량의 증가 속도를 구해 임계 증가를 감지하고 제동 입력을 조절하면 큰 값에 도달하기 전 급격한 변화를 억제할 수 있다.",
+      "표본 간격·미분 필터·임계값·지연·구동 한계를 맞춘다. 잡음 증폭·오검출을 고려하며 변화율 문턱 제어를 완전한 PID로 단정하지 않는다.",
+      "manual500-derivative-feedback-braking"
+    ],
+    "original_metadata": {
+      "aliases": [
+        "derivative feedback braking"
+      ]
+    },
+    "original_evidence": {
+      "mechanism_key": "derivative-feedback-braking",
+      "name_en": "derivative feedback braking",
+      "aliases": [
+        "변화율 검출에 의한 제동 제어",
+        "derivative feedback braking"
+      ],
+      "sources": [
+        {
+          "identifier": "REF-manual500-derivative-feedback-braking",
+          "title": "MathWorks: Derivative block and filtered approximation",
+          "url": "https://www.mathworks.com/help/simulink/slref/derivative.html",
+          "source_type": "REFERENCE",
+          "retrieval_scope": "reference_section"
+        },
+        {
+          "identifier": "AR-066256-A1",
+          "title": "Destornillador accionado por motor",
+          "url": "https://patents.google.com/patent/AR066256A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "b30b4a6b92b8d1c892fa53738be5d5694714f3c40055696e781103b403c846cb",
+          "review_note": "기존 검토: 토크와 토크 증가율에 따른 임계값으로 모터를 감속한다. 미분 동작의 선행 제동은 별도 후보이다. 문헌 대조 후 원리 연결: 변화율 검출에 의한 제동 제어: 측정량의 증가 속도를 구해 임계 증가를 감지하고 제동 입력을 조절하면 큰 값에 도달하기 전 급격한 변화를 억제할 수 있다. 표본 간격·미분 필터·임계값·지연·구동 한계를 맞춘다. 잡음 증폭·오검출을 고려하며 변화율 문턱 제어를 완전한 PID로 단정하지 않는다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        }
+      ],
+      "evidence_level": "참고 문헌과 편집 지식",
+      "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+    }
+  },
+  {
+    "source": "evanescent-wave-absorption",
+    "target": "absorption-spectroscopy",
+    "reason": "전반사 소멸장을 광경로로 쓰는 흡수 분광의 측정 구성이다. 계면 민감성과 침투 깊이를 사례로 보존하고 벌크 흡수와 별도 계수하지 않는다.",
+    "original_card": [
+      "evanescent-wave-absorption",
+      "소멸장 흡수에 의한 계면 분광",
+      "전반사 경계 밖으로 짧게 침투하는 소멸장이 인접 시료에 흡수되면 반사광의 스펙트럼 변화로 계면 근처 성분을 조사할 수 있다.",
+      "침투 깊이·굴절률·입사각·접촉 상태에 의존한다. 전반사와 흡수 분광을 결합한 하위 측정법이며 벌크 전체를 균일하게 측정하지 않는다.",
+      "manual600-evanescent-wave-absorption"
+    ],
+    "original_metadata": {
+      "aliases": [
+        "evanescent wave absorption"
+      ]
+    },
+    "original_evidence": {
+      "mechanism_key": "evanescent-wave-absorption",
+      "name_en": "evanescent wave absorption",
+      "aliases": [
+        "소멸장 흡수에 의한 계면 분광",
+        "evanescent wave absorption"
+      ],
+      "sources": [
+        {
+          "identifier": "REF-manual600-evanescent-wave-absorption",
+          "title": "Thermo Fisher: Introduction to Attenuated Total Reflection Spectroscopy",
+          "url": "https://knowledge1.thermofisher.com/Molecular_Spectroscopy/Fourier_Transform_FT_Infrared_IR_and_Near_Infrared_NIR/FT-IR_and_FT-NIR_Operator_Manuals/FT-IR_-_Introduction_to_Attenuated_Total_Reflection_%28ATR%29_Spectroscopy",
+          "source_type": "REFERENCE",
+          "retrieval_scope": "reference_section"
+        },
+        {
+          "identifier": "AR-079059-A1",
+          "title": "Acido ((3s)-3-(((1-(((2r)-2-carboxi-4-(1-naftil) butil) ciclopentil)-carbonil) amino )-2-oxo-2,3,4,5-tetrahidro-1h-1-benzazepin-1-il) acetico cristalino, su preparacion y uso",
+          "url": "https://patents.google.com/patent/AR079059A1/en",
+          "source_type": "PATENT",
+          "retrieval_scope": "stored_patent_abstract",
+          "review_method": "conversation_reasoning",
+          "source_fingerprint": "8c73b22e0f438915c51f482ceecef51d5917848e535885a877ca3e95ab95ea83",
+          "review_note": "기존 초록 검토: 회절·ATR 적외선·고체 NMR로 결정을 특성화한다. 소멸장 흡수 계측은 별도 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 소멸장 흡수에 의한 계면 분광: 전반사 경계 밖으로 짧게 침투하는 소멸장이 인접 시료에 흡수되면 반사광의 스펙트럼 변화로 계면 근처 성분을 조사할 수 있다. 침투 깊이·굴절률·입사각·접촉 상태에 의존한다. 전반사와 흡수 분광을 결합한 하위 측정법이며 벌크 전체를 균일하게 측정하지 않는다.",
+          "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+        }
+      ],
+      "evidence_level": "참고 문헌과 편집 지식",
+      "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+    }
+  }
+]

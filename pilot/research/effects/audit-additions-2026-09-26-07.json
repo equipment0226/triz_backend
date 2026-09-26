@@ -1,0 +1,233 @@
+{
+  "batch": "additions-2026-09-26-07.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1060,
+  "added": 20,
+  "after": 1080,
+  "target": 1200,
+  "source_sha256": "17698207a46417f125a39190db79380ebfc0697c268c653840de39e60d40a512",
+  "decisions": [
+    {
+      "key": "diels-alder-four-plus-two-cycloaddition",
+      "group": 15,
+      "related_keys": [
+        "photochemical-cycloaddition-crosslinking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 광여기 고리첨가와 달리 바닥상태에서 가능한 4+2 결합 위상을 명시한다.",
+      "source_url": "https://www.nature.com/articles/nature17429",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "azide-alkyne-triazole-cycloaddition",
+      "group": 15,
+      "related_keys": [
+        "diels-alder-four-plus-two-cycloaddition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "4+2 육원환과 달리 1,3쌍극자·알카인 결합의 질소 오원환이다. 모든 클릭 반응을 하나로 보지 않는다.",
+      "source_url": "https://www.nature.com/articles/nprot.2010.1",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "wittig-ylide-carbonyl-olefination",
+      "group": 15,
+      "related_keys": [
+        "diels-alder-four-plus-two-cycloaddition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고리첨가 생성물 유지가 아니라 인 산화물 방출을 동반한 카보닐의 올레핀 전환이다.",
+      "source_url": "https://www.nature.com/articles/s44160-024-00612-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "staudinger-phosphine-azide-reduction",
+      "group": 15,
+      "related_keys": [
+        "azide-alkyne-triazole-cycloaddition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "아자이드를 보존하는 연결 반응 대신 질소 방출·인 산화와 결합된 아민 전환이다.",
+      "source_url": "https://www.nature.com/articles/s41598-018-37023-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "baeyer-villiger-carbonyl-oxygen-insertion",
+      "group": 15,
+      "related_keys": [
+        "alkene-epoxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알켄에 산소 삼원환을 만드는 대신 카보닐 옆 탄소 결합 사이에 산소를 삽입한다.",
+      "source_url": "https://www.nature.com/articles/35086546",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "beckmann-oxime-nitrogen-insertion",
+      "group": 15,
+      "related_keys": [
+        "baeyer-villiger-carbonyl-oxygen-insertion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "과산화물의 산소 삽입과 달리 옥심 질소로의 이동을 통해 아미드를 만든다.",
+      "source_url": "https://www.nature.com/articles/s41467-024-53506-9",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "curtius-acyl-azide-isocyanate-rearrangement",
+      "group": 15,
+      "related_keys": [
+        "beckmann-oxime-nitrogen-insertion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "옥심의 이탈·가수분해와 달리 아실 아자이드의 탈질소·아이소사이아네이트 중간체 경로이다.",
+      "source_url": "https://pubs.acs.org/doi/10.1021/ol0622920",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "wolff-diazoketone-ketene-rearrangement",
+      "group": 15,
+      "related_keys": [
+        "curtius-acyl-azide-isocyanate-rearrangement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "아실 아자이드의 질소 중심 이동과 달리 디아조 탄소가 케텐 골격에 남는다.",
+      "source_url": "https://www.nature.com/articles/s41467-025-63848-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "semipinacol-one-two-carbon-migration",
+      "group": 15,
+      "related_keys": [
+        "claisen-rearrangement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "6전자 3,3 재배열 대신 인접 친전자성 중심의 1,2이동과 카보닐 형성이다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-30395-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "electrocyclic-conjugated-ring-switching",
+      "group": 15,
+      "related_keys": [
+        "photochemical-cycloaddition-crosslinking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "두 불포화체의 고리첨가 대신 하나의 공액 사슬 양끝의 결합 개폐이다.",
+      "source_url": "https://www.nature.com/articles/s41467-023-43405-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "alkene-borane-hydroboration",
+      "group": 15,
+      "related_keys": [
+        "alkene-epoxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산소 전달과 달리 B–H 부가로 탄소·붕소 결합을 만들며 후속 산화는 별도 단계이다.",
+      "source_url": "https://www.nature.com/articles/s41586-025-09209-2",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "osmate-ester-syn-dihydroxylation",
+      "group": 15,
+      "related_keys": [
+        "alkene-epoxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "에폭사이드 생성·후속 개환과 구별되는 고리형 오스메이트 경로이며 문헌의 광촉매 경로와도 구분한다.",
+      "source_url": "https://www.nature.com/articles/s41467-024-52461-9",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nef-nitro-to-carbonyl-conversion",
+      "group": 15,
+      "related_keys": [
+        "staudinger-phosphine-azide-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "질소 작용기를 아민으로 보존하는 환원과 달리 질소를 제거해 산소 카보닐로 바꾼다.",
+      "source_url": "https://doi.org/10.1021/acs.orglett.5c00954",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "enol-electrophilic-alpha-functionalization",
+      "group": 15,
+      "related_keys": [
+        "electrophilic-aromatic-nitration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "방향족성 회복의 고리 치환과 달리 카보닐 에놀화가 알파 탄소의 친핵성을 만든다.",
+      "source_url": "https://www.nature.com/articles/s41557-018-0165-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nhc-breslow-acyl-umpolung",
+      "group": 15,
+      "related_keys": [
+        "enol-electrophilic-alpha-functionalization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알파 탄소의 에놀화가 아니라 카보닐 탄소 자체의 반응 극성을 반전한다.",
+      "source_url": "https://www.nature.com/articles/ncomms4437",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "norrish-carbonyl-alpha-photocleavage",
+      "group": 15,
+      "related_keys": [
+        "thermal-homolytic-radical-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열 활성 개시와 구별되는 여기 카보닐의 특정 인접 결합 광절단이다.",
+      "source_url": "https://www.nature.com/articles/1381016a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "intramolecular-hydrogen-radical-translocation",
+      "group": 15,
+      "related_keys": [
+        "radical-alkane-halogenation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자유 할로젠 라디칼의 분자 간 공격 대신 연결된 라디칼의 기하학적 분자 내 이동이다.",
+      "source_url": "https://www.nature.com/articles/s41467-018-05193-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "carbene-transfer-cyclopropanation",
+      "group": 15,
+      "related_keys": [
+        "alkene-epoxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산소 원자가 아닌 탄소 한 개를 전달하여 탄소 삼원환을 만든다.",
+      "source_url": "https://www.nature.com/articles/s41929-025-01340-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "carbonyl-olefin-bond-metathesis",
+      "group": 15,
+      "related_keys": [
+        "wittig-ylide-carbonyl-olefination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "인 산화물 배출 올레핀화와 달리 알켄·카보닐 상대가 교환되며 금속 알킬리덴의 알켄 복분해와도 다르다.",
+      "source_url": "https://www.nature.com/articles/nature17432",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "sulfur-ylide-betaine-ring-closure",
+      "group": 15,
+      "related_keys": [
+        "alkene-epoxidation",
+        "carbene-transfer-cyclopropanation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알켄 산소 전달이나 카벤 전달과 달리 일리드 부가·내부 치환 순서로 고리를 형성한다.",
+      "source_url": "https://www.nature.com/articles/s41467-026-75499-3",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

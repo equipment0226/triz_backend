@@ -1,0 +1,34 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "c9a5cba88c8320c9afc5cb3173415f92e7efd8f0d6c568156b818922c0e09961",
+  "reviews": [
+    {
+      "identifier": "AR-093980-A1",
+      "source_fingerprint": "d3c4c85813592924664ade1dc3f215c6ba79dfd90b70df311806be0409da7b54",
+      "content_hash": "caccd62937ea0da6d6c9f8f5bc4b92177694bfaacab28cf564051a5849e42d65",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "재검토: ZFN 표적 삽입은 명시되나 상동 서열 수선은 특정하지 않아 상동 재조합 연결을 철회한다. 준비된 서열 지향 절단 카드에 연결할 수 있다."
+    },
+    {
+      "identifier": "AR-095585-A1",
+      "source_fingerprint": "8f3c1d54277a03469d935c13f8eb5d642f92dade12a7f4b3498a2342b3a32599",
+      "content_hash": "9037982a73d04a8b378f45db32296d46ac93238ff0e955825029f22ae8008665",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "재검토: 뚜껑 회전으로 링을 해제하는 맞물림은 명시되지만 탄성체 재질은 없어 탄성체 밀봉 연결을 철회한다."
+    },
+    {
+      "identifier": "AR-096292-A1",
+      "source_fingerprint": "fd52260685a034256150378584950b9a31af233b9b189dba8484bf64e1304600",
+      "content_hash": "966c51cf74db8040552b0cc6991d232eeb2cba4db3469e4882b6bc0491f9620b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "재검토: 공기 필터의 여과재를 둘러싼 형상·끝단만 설명하며 섬유 구조는 없어 섬유 여과 연결을 철회한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:41:42.132882+00:00"
+}

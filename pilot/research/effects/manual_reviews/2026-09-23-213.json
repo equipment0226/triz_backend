@@ -1,0 +1,177 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "414efe55d60a800854e9cbec52d645fb93aad826d980e10fa563d0eaa6faea84",
+  "reviews": [
+    {
+      "identifier": "AR-111359-A1",
+      "source_fingerprint": "fe6633d119a7ea04dc11edc8e68364800ddeff63bcb6b003c1bad0d090bf8721",
+      "content_hash": "26a7a5e6b2d1f8ef15e71d29b1da04f4f3d1b4b9044cee18311576bc30d21922",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "chromatin-accessibility-regulation"
+      ],
+      "reason": "KDM4 리신 탈메틸화효소 저해로 후성유전 수식을 조절한다. 직접 임상 유효성을 뜻하지 않는다."
+    },
+    {
+      "identifier": "AR-111363-A1",
+      "source_fingerprint": "06bf525977ab3acbe814e944c62bc3bb9d3a1cc00c15475e4c19be988eea3765",
+      "content_hash": "9b0829bfa5f73434bf0ed3fd078f5fcaf9b268c5fa507a5fe7143cee35e97045",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "PRLR 항체에 약물을 연결하는 표적 전달 사례이다. PBD 화물 제조나 절단 조건을 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-111367-A1",
+      "source_fingerprint": "1a17e6444ce85655fc40e3c4c9333a8e945e0b5e3f7e874ec12556abd543cc94",
+      "content_hash": "fb6f8992a673a34417be7b3fb08acd3457d3e88936aecc411b68321716837edf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아미노퀴놀린 카르복사미드 구조만으로 분자 표적을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-111379-A1",
+      "source_fingerprint": "2c0adf64e61e34c5788039adc2a1bee0470d3be3b5db24b21b661948433050ef",
+      "content_hash": "c0ea7401469d73a4e4a06eb388f58bf5914f941ff6fd47305ae6929c29954d1e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "프로티오코나졸·클로로탈로닐의 혼합 및 상승·약해 감소 주장이다. 작용 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-111406-A1",
+      "source_fingerprint": "58867dca9866c3b8c1117c5bc3bcf38aa4221c33fd94b279033d4e08df9cce78",
+      "content_hash": "fd402b4ee3f7ba91fc5c947eb28eb4a7c5f466d944eca8fa72ff66121fffc8ee",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "동물·식물 폐기물을 미생물 전환해 토양 개량재를 얻는다. 산소 조건과 안전성을 일괄 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-111416-A2",
+      "source_fingerprint": "a8491128194229cd166a1502c7f63cb72ec29010010fae2aadcb8f53df4a277d",
+      "content_hash": "4aaa2f8003fdac0a379d2b9a31d85ce9fd7ed990eeb90097a6697a1917321a67",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "진통 화합물의 구조 도식·분자 표적이 없다."
+    },
+    {
+      "identifier": "AR-111434-A2",
+      "source_fingerprint": "94ebaaed8012880739a3154656b468c264aca346f086ae620fd6197ae5373f8e",
+      "content_hash": "945e884ff5a53e968a4dd6fd7c22f22f3401c7e4796a658186c679ba148d9fc7",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "pressure-compaction"
+      ],
+      "reason": "불용성 혼합 금속 수산화물의 인산염 포집·정제 성형이다. 표면 흡착과 층간 교환의 기여를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-111469-A1",
+      "source_fingerprint": "dfcea04b8105ef19c3f5d8d07169bf6cf946cbf3b37c5c4605d3338d559a3087",
+      "content_hash": "ffd969f5343f3aa8009e0fa7cc3465b3a1703dd8a096e6c9a769df53474fe23f",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "crystallization"
+      ],
+      "reason": "아미노피리딘의 메실산염 결정이다."
+    },
+    {
+      "identifier": "AR-111478-A1",
+      "source_fingerprint": "44702d063f509d1e48936367532e265c703a199bd1b10b37270548090372d74d",
+      "content_hash": "47b4f95e3a36ed931553aaf4081d691925c074a195be5d6ff679bce438e3b64c",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "헵탄에 녹인 성분을 냉각해 석출·정제한다. 입도와 임상 흡수의 정량 관계는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-111485-A1",
+      "source_fingerprint": "d34f1f30c6bdb88533d671e8b0ffe39ecb7c3c235e6d70804b2ca91b2fcb5bae",
+      "content_hash": "03da191f0d880cd59386a4e95736c80c5d6b496f83d058a576cfa7622ee802b9",
+      "decision": "LINK",
+      "keys": [
+        "immune-checkpoint-blockade"
+      ],
+      "reason": "PD1·PDL1 상호작용 억제 화합물이다."
+    },
+    {
+      "identifier": "AR-111510-A1",
+      "source_fingerprint": "5e74c527e3ffe95797817153b604b9f5f042b7f082ecc8d137b0fdbf741af794",
+      "content_hash": "d8406da5207cb1326d9c88ef3490d8d68f56f81e374d408243b10e4a72db8d7b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "거래 자료를 주제별 저장소에 모으는 규칙이며 분류·검색 알고리즘은 미상이다."
+    },
+    {
+      "identifier": "AR-111523-A1",
+      "source_fingerprint": "b1e15fad9685cb824feeb875d76a52338bacc65e8d9b7bd9309563dbdfc35364",
+      "content_hash": "3d8834751a1cea892dc34f4954800f4b2d90621bc74b8b801245c50ab764e18a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "펌프 마모판의 환형 홈과 돌출부 형상이다. 밀봉 재질·유체막 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-111527-A1",
+      "source_fingerprint": "6df527b24a12347f169c09931d06a9a2e2caaa98342dc57f0cef0b3ce08e9aeb",
+      "content_hash": "fb112737c3301da7e248cef39e3b79b86d8ef1705c0fc394c2680de112a1e0a6",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "주조물에 밀리는 힘 전달부의 돌기가 밸브 피스톤 홈과 직접 결합한다. 전기식 힘 센서로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-111530-A1",
+      "source_fingerprint": "3890b1d3a51bc01defb1652938cc5b1bff216b6e8d7890d956fbb68b8a1d690d",
+      "content_hash": "0c32330b54c6ea5ef91eea4b104f7bfd34caa4eb5ebec50730065dc3a20967a4",
+      "decision": "LINK",
+      "keys": [
+        "sieve-size-separation",
+        "frictional-load-transmission"
+      ],
+      "reason": "체로 작물을 선별하고 롤러·벨트 접촉으로 이송한다."
+    },
+    {
+      "identifier": "AR-111545-A1",
+      "source_fingerprint": "973d54c118a68b0767ab836f52c879ce6555a78aff5ea7836f5ceb058ee9e8a0",
+      "content_hash": "7ee9ff0d4ff2505f2f0ba1b0fe4b1ac7e8c3759b24fea99bd5eb5b63d9d4aba0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "비면허 주파수의 반영구 상향링크 자원 할당 제어 규칙이다."
+    },
+    {
+      "identifier": "AR-111595-A1",
+      "source_fingerprint": "f957dc1024c83395a09f9581b7e66320aa2081460172e78ebc5d657cd376b3ce",
+      "content_hash": "050520b82b8140636e3ca9bcaf39f467804dc2d1fac4a67d94b017eae786f052",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "생물반응기로 생산수의 유기물을 제거하지만 호기·혐기·생물막 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-111597-A1",
+      "source_fingerprint": "91458a7095c0d31d5d640ea2b0cfc83b303697baa2601fd130df010f0828ebc0",
+      "content_hash": "7114cfa0f0b41357c544b701625a19b40e0982ed41e64b73794ebe5a96667f65",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비접힘 반복 펩타이드로 유체역학 반경을 키워 신장 제거를 줄인다. 준비한 크기 의존 사구체 제거의 추가 사례이며 PEG로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-111609-A1",
+      "source_fingerprint": "2546417e8f946d34f76f9c7a0c94d9bf1899dab40f582fe2854bc09f87bcd8b7",
+      "content_hash": "4729deef3282d117138413c353d72949be599319a95d45d2cc268a1fc95480d0",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "수확기 두 프레임 사이 세 회전 자유도를 허용하는 관절 연결이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:57:22.322262+00:00"
+}

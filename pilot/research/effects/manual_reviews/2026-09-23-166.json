@@ -1,0 +1,241 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f6cdb0433b797d02f43905632ad38a6ef8fd3bab0fdcd8dcf5a87767dbc01267",
+  "reviews": [
+    {
+      "identifier": "AR-102285-A1",
+      "source_fingerprint": "bd072493ae7cd720c7f293b71524148f7fc4ce1c5d61a751ba73d48fe6795de9",
+      "content_hash": "320d89d3a85b62d4ab9603e056a7dd13033455b69eb7f02b33ee3c3773604ccb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "확률적 도착·서비스·중단을 반영해 대기시간을 추정한다. 단순 큐 저장과 다른 대기행렬 성능 모델 후보이다."
+    },
+    {
+      "identifier": "AR-102293-A1",
+      "source_fingerprint": "5292a1d26bfcf06814e77f8607db993abe14592d623640df9f7c0729b00ad466",
+      "content_hash": "8d36ff9013cc3aa7a88d03c2496e375cc6a6f510da05d11473fa19e907e35502",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "살충 단백질 유전자를 식물·미생물에 발현한다. 단백질의 독성 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-102308-A1",
+      "source_fingerprint": "de26614b962caad4678c01176d99be239a880df4de0070ae54314b9b13e8590c",
+      "content_hash": "c5bdf5543bdacfe8fadaab3c32c0066ee1f89f35e4dd315a1e2831c7fb6361dc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "위우회 수술 후 영양 성분 투여 조성이다. 흡수 기전은 없고 특허 기재 용량을 임상 권고로 사용하지 않는다."
+    },
+    {
+      "identifier": "AR-102309-A1",
+      "source_fingerprint": "426ea194cca59a1fb634cf8b2d83c5879d5daf9d3c8595ab4b579eec74e510ea",
+      "content_hash": "46c1640e61e43e799db60a55dd925440aba635252a25a51bfc6df003f7e726fd",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution",
+        "nitro-group-reduction",
+        "oxidative-dehydrogenation"
+      ],
+      "reason": "헤테로고리 산화·니트로 환원·알킬화를 명시한다. 니트로기 도입은 신규 친전자 방향족 질산화 후보이다. 히드라진·아크릴레이트 반응을 β디카르보닐 고리축합으로 오분류하지 않는다."
+    },
+    {
+      "identifier": "AR-102319-A4",
+      "source_fingerprint": "6834c5125bd38cd26d18bfb665d1dcc42429e665aab462baf1ddce83dcdb19d4",
+      "content_hash": "a6894ccfeb0b897045482ca0536e7addc4a88f90458ff31443ac7842821db13d",
+      "decision": "LINK",
+      "keys": [
+        "archimedes-buoyancy",
+        "center-of-mass-static-stability"
+      ],
+      "reason": "낮은 좌석과 부유체의 배치로 안정성을 조절한다. 전복 불가능이라는 주장은 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-102322-A1",
+      "source_fingerprint": "7fdbb172a448372de22737e904c0390172b5899b84317124ceef72814ff87669",
+      "content_hash": "34d8e9b7e84aad26f845b7416d0ca7385fdb486f1f80688ea4d085e66780f5dc",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "P카드헤린과 CD3를 결합하는 이중항체이다. 면역세포 가교 초안과 같은 기전이다."
+    },
+    {
+      "identifier": "AR-102325-A1",
+      "source_fingerprint": "94d49f5ce266dce5e8aaf244711905cb173dc9b4311034513f780a036b193fbf",
+      "content_hash": "34f197baed41247c68a1df43f28c6441adc3555e37478053f608e3881528f8f5",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "두 신발 외피 사이에 가역 탄성 변형 부품을 넣는다. 점탄성 손실은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-102341-A1",
+      "source_fingerprint": "62b450c69530e090b78462d768673d2580f4bd593ca41e53b15797ba1e392030",
+      "content_hash": "02046c6131405e90e1517d0289001cc48583afe7862f6f749958d096996cc403",
+      "decision": "LINK",
+      "keys": [
+        "electrodeposition",
+        "barrier-coating"
+      ],
+      "reason": "Ni·Cr 나노적층 전착의 경도·내마모성을 이용한다. 계면에 의한 전위 이동 억제는 신규 강화 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-102344-A1",
+      "source_fingerprint": "233eceebbe72220770743a5a349e56afc72715bcab56536501cda23cf3fa8c20",
+      "content_hash": "a42992baf008c3ed42361a3481728b40397b0376bd867bab3d7c092afc933c1a",
+      "decision": "LINK",
+      "keys": [
+        "linear-frequency-filtering"
+      ],
+      "reason": "서로 다른 창의 이동평균을 비교하고 DBSCAN으로 시추 고착을 판정한다. 밀도 기반 군집화를 신규 후보로 기록한다."
+    },
+    {
+      "identifier": "AR-102346-A1",
+      "source_fingerprint": "2ca30d01a118d29a5cea3d899694f457218d7c351f9546864a4db7024a916da4",
+      "content_hash": "0196a81146fab773dffdedbcd3191bb528007de9d88ab4453ec38da4bdff8190",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "양친매성 그래프트·설폰산 고분자의 백색도 유지 조성이다. 실제 흡착·입체 안정화 작용이 없다."
+    },
+    {
+      "identifier": "AR-102352-A1",
+      "source_fingerprint": "fe713a73b3a2b19c4088445a2f19ee93cb296a6ad2fe8eecd36d12860182eb7f",
+      "content_hash": "321c68a748e4710af8491d14747157d5e60565adf7df989b75b28be7043de56b",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "용기 내부 스토퍼로 압축 배출 부피를 제한한다. 일정 체적을 정하는 기하학적 정량 설계이다."
+    },
+    {
+      "identifier": "AR-102355-A1",
+      "source_fingerprint": "90758b66d90a4a2c0ad9f3a076c88d15b979a724833f17414576d8b088ec1b85",
+      "content_hash": "dcdbe0f06de9ad6c84180d4be90c23ef6eea0b311c159aa586d5292be51fc3d9",
+      "decision": "LINK",
+      "keys": [
+        "solvent-extraction",
+        "supervised-learning"
+      ],
+      "reason": "평형 전 동일 시간 추출값과 기준 농도의 보정 관계를 학습해 정량한다. 속도 선택 분리 자체를 청구하지 않는다."
+    },
+    {
+      "identifier": "AR-102359-A1",
+      "source_fingerprint": "0915a5f105fbb9f3529838ec3b0aee3aa68d8a9e3f7358387acc0e912a631c20",
+      "content_hash": "6f4a1a5f40a29e04cda5b4f873401f029a9fc4bb1d7b137b59932e63916d7080",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "접착 파괴층을 넣어 포장 필름의 분리 경로를 정한다. 계면 파괴 에너지에 따른 박리 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-102363-A1",
+      "source_fingerprint": "66a79ff1fe58f8a1547e0c26a7ef0cd8424fcf12e08f9d1ae7c13efb3497bbfa",
+      "content_hash": "6aada4ac1313b4cc0dd31834e3f0c321b9397ce5e3abc3cce5ad6ff9078bfea9",
+      "decision": "LINK",
+      "keys": [
+        "osmosis",
+        "reverse-osmosis"
+      ],
+      "reason": "고삼투압 용액을 구동력으로 리튬 염수의 물을 이동시키고 역삼투 공정과 결합한다."
+    },
+    {
+      "identifier": "AR-102367-A1",
+      "source_fingerprint": "4b65a6db5cd5aa3157bf8ef6d350c4ccaec4dd061ac4e60c97c9bc908335a310",
+      "content_hash": "7c1948e55faeaedf817a1a3d7e857c5f0989be6dd03ddec67756b2d1796b454d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "왕복 작동부가 역류 방지 밸브를 개폐한다. 차압 자동 정류 방식은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-102379-A1",
+      "source_fingerprint": "837ab7b5969bcc4d8526139d6065dc71b6a04c99612954d156143cc513f0888b",
+      "content_hash": "46b9e88334d1e4e6060fcdacb1c2d3684676e5f280c550309b56451473dbefae",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "pressure-compaction",
+        "elastic-energy-recovery"
+      ],
+      "reason": "유압으로 지중 성형 공구 높이를 조절하고 구형 공구로 통로 벽을 다지며 스프링으로 원판을 누른다."
+    },
+    {
+      "identifier": "AR-102383-A1",
+      "source_fingerprint": "c46511604e10ff8f3d92cbcef0bc15f8dfd3e62f53ddd7b45da062a4e520d40f",
+      "content_hash": "e45b64c377aff3ccd5b0b1b961799bb091f9ffc1fa4d8cd772940bb8dcfaae5b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 혼합 성분·용도이며 분자 표적은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-102396-A1",
+      "source_fingerprint": "8473254ef4c5d7dc82d84f8494afbdac0f0c816a1cd67e2ad72f18349aef51fc",
+      "content_hash": "af09324d4cbe01fc2e5468e64cd538ed6186bdf0072d24851a042f5fef8cd81c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "용기 슬리브의 예정 제거부를 접선 이동 공구로 제거한다. 파괴·절단 기전은 부족하다."
+    },
+    {
+      "identifier": "AR-102422-A1",
+      "source_fingerprint": "e4ef6dfc2755b0c6847fe4254e541d356451d5dc45c60cf61bbe8cb9e6f43600",
+      "content_hash": "7465e94a8fe3d9e466106adbde347c256e37c67b1bf98fbd6441588d5dbf9305",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "트리펩티딜펩티다아제가 펩타이드 말단을 가수분해한다. 기질 서열 특이성은 효소 촉매의 적용 조건이다."
+    },
+    {
+      "identifier": "AR-102424-A1",
+      "source_fingerprint": "4e4eac015dd33d66f7e9a367199e97e34f8edd57a5718c7d2074929577ce6bf5",
+      "content_hash": "1ac2deb10d41174ca2a86ab2d271235f953cecf5c1fefe7d41dffba30c780bdb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고올레산 레시틴의 산화 안정성 개선 주장이다. 지방산 불포화도와 제형 효과를 초록만으로 분리하지 않는다."
+    },
+    {
+      "identifier": "AR-102429-A1",
+      "source_fingerprint": "5ddfe32fa9d9472fcf1d9b15db4213dd2f1b7ab6fbd032d108df06fd0a3bf469",
+      "content_hash": "83ba4583793dfc0e7217577748e2b0cb0f564996d282d3c2680f5db429a59264",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "인큐베이터 카세트의 다방향 인출구 배치이다."
+    },
+    {
+      "identifier": "AR-102440-A1",
+      "source_fingerprint": "9ce130df37324e2e1eac507f327173eb946a7613d8453f4575be1bb17b2cc867",
+      "content_hash": "5afaaba41726eea65badbd30192c2d47133111f84647df9caaccc4f154140657",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "고분자 전처리 후 계면활성제로 세탁한다. 색소 유지의 결합 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-102449-A1",
+      "source_fingerprint": "8ba211e41b101ea8e64fc4932246188c521aae6ce7f4db4fa289b9b79a6a93cf",
+      "content_hash": "033fdb24b1560b93ae100a75c2881f6480395959da1d7c79e01999e93446aac3",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "coagulation-flocculation"
+      ],
+      "reason": "응집된 수중 침전물을 펌프 흡입과 브러시로 모은다."
+    },
+    {
+      "identifier": "AR-102450-A1",
+      "source_fingerprint": "1ef2c27e915f162b4392a052472136d92af533569206d1adcbcde5878cebee5e",
+      "content_hash": "15b40ad25e9bcb905a089eb22142e38cc294d041d5175298448b465a232853fb",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절식 걸쇠를 구멍에 넣고 가로로 펼쳐 이탈을 막는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:08:51.416694+00:00"
+}

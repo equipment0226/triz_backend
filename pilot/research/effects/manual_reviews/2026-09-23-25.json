@@ -1,0 +1,138 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e2934709efbee7a602546c6a3b422046de0d940a727c4ea79e4a7e7299c35c8f",
+  "reviews": [
+    {
+      "identifier": "AR-080729-A1",
+      "source_fingerprint": "e6fdf4683590e0ceacc3a44ac9307e8d7924f6eab11bc3f3a2f516018a6560f9",
+      "content_hash": "54f4b65f264b8ff218e4907a2f37bc009683f084ac87fac88b4b046e53b2bc20",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제 치환기 목록과 용도이며 분자 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-080733-A1",
+      "source_fingerprint": "7ca9df5a3220bb5ca44502f95e948af8b7cd16a5c7628e5841465c269d44fbe6",
+      "content_hash": "ba1c572ebd989775cfcc9d4ed9148fe3ed3008449e2ee17206277c667acc9628",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "바소프레신 V1a 수용체 길항을 명시한다."
+    },
+    {
+      "identifier": "AR-080742-A1",
+      "source_fingerprint": "3e38677ceb89e3d2537811e67b3a19733bdc31517319325f0c44b6e97aa45058",
+      "content_hash": "ef2b0b75ededbacd707e7c056d1ffa0f50dbab1d1271b22b2dd9f8901d5c5fbf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "감마제인 결합 물질의 식물 세포 유입이다. 세포막 통과·내재화 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-080749-A1",
+      "source_fingerprint": "6782b91f24dacae951d82734a822c1423b8b9ea3f044511cd6362ade11ffb851",
+      "content_hash": "fe73e61e6f900c6aeb46c3b43e976e49275e533eee2d436d8f9667541ecf07eb",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "식물 세포벽 분해 효소로 식품 내 성분의 방출을 돕는다. 흡수 개선 정도는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-080760-A1",
+      "source_fingerprint": "fd7c98f45a33eff5f27bc5f6383cd5aff2350136b6894fa4647d38a5626b0239",
+      "content_hash": "5f13a83eba3602116f1a2b664340776b5cb42896deaa4741d724144593f72d09",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening"
+      ],
+      "reason": "아민기를 가진 염료를 에폭사이드 등 반응성 고분자에 공유결합한다. 이소시아네이트 아민 반응 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-080763-A1",
+      "source_fingerprint": "406047d31d087d6ee22ff887324b24c9723c25ce6e5501526152565b11648ae9",
+      "content_hash": "d721fdcfd51331c83f7ef281cd43a20ba1af97ae47f0b1aed22e107a0dcb7360",
+      "decision": "LINK",
+      "keys": [
+        "ion-exchange",
+        "catalytic-hydrocarbon-cracking"
+      ],
+      "reason": "제올라이트에 이트륨을 교환해 분해 촉매를 제조한다. 해교의 별도 인과는 미상이다."
+    },
+    {
+      "identifier": "AR-080766-A1",
+      "source_fingerprint": "a810307eda9eb5f0087715b0691a785dad33319463cdad2f891b8cd0b4a9bd48",
+      "content_hash": "118fb987ae829a4c3d44fa83e0ed102648c45b798665833874c2d566b62d879a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "약물 지지체와 집합 유로·출구를 연결하는 분배기이다."
+    },
+    {
+      "identifier": "AR-080782-A1",
+      "source_fingerprint": "51b11fcad12b45d342bd5870373d8161861c0ee061914a821d8a3ea67028cb9a",
+      "content_hash": "251415f9f88d65176f9334610b5d66c70adb3397e001bd4bc72dfc291383f614",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조와 용도만 있고 작용 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-080784-A1",
+      "source_fingerprint": "a0b5fabe78eff969d2b89aff1fb382b1c21fed36b616ca1e07402369c9b9914d",
+      "content_hash": "8303877ff323d72e82655207ff3d038060dc00f42b15c2b9bfe1514db1f650ab",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구충제 배합의 상승효과를 주장하지만 두 성분의 상호작용 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-080791-A1",
+      "source_fingerprint": "92ee88a2cac6ab16f56a2dc270ddf3271e4f32fdb7d63ee3937a6d43f0e4c1f6",
+      "content_hash": "a20e24efe2a7968416dfc19e9091d072fa603b2991c83c241ca8e77c4edf7825",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "해충 방제 에스터 화합물의 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-080793-A1",
+      "source_fingerprint": "52cd97fd7abf460abd2b4609539bc13e4aebd542045ea6ed633c37a80ee6624a",
+      "content_hash": "d8292ee015b772ddf05e03eb4fffdb64c9313f3bb84d84efe000bd7e53ce7543",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "두 항원을 인식하는 항체를 발현한다. 다중결합의 친화도 상승은 이 초록에서 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-080797-A1",
+      "source_fingerprint": "fca2398a276484bb226f5d02dded04e2d4fb2ec7fbbbe9726ca600519945dd7f",
+      "content_hash": "fa7383294c5ab076508a8283a0b821ffe758d54795af796c445f501c223bd04b",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "음이온·양쪽성 계면활성제를 조합한다."
+    },
+    {
+      "identifier": "AR-080825-A1",
+      "source_fingerprint": "56ae4d1a8f708e6d86ec21ebd9f2e15d08ba083b0b2a1a4e86b95c175e5b01f0",
+      "content_hash": "7ca24620133355120c6ab63ecf582255c01944409e5aab5221ad30e8d82fc5f3",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "feedforward"
+      ],
+      "reason": "유체의 실측 특성을 이용해 압력·밸브를 미리 조절하여 도포한다."
+    },
+    {
+      "identifier": "AR-080827-A1",
+      "source_fingerprint": "a4f86069a98481ad328d1b9c9235f6924cba2b1d857b3425879d27ea8f48c4c8",
+      "content_hash": "ae646f484a974a38b2b35e756accfabb64adb709dd2e5b848e77c3d3c045b68b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "페닐부티르산의 식물 스트레스 내성 증대 용도이다. 샤페론·후성유전 경로는 초록에 없다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:21:07.299361+00:00"
+}

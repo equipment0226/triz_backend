@@ -1,0 +1,216 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "3574c2c434dbaa3b3faa10094894e0a3a5f89148c8c251bca537b655c7677257",
+  "reviews": [
+    {
+      "identifier": "AR-086209-A1",
+      "source_fingerprint": "11b5e0b037472e155a0dc48449f4a60b5b2676816228554ac61a097eabbdd4ca",
+      "content_hash": "a65fba258b6226d987c5e983cfda64f6e039ef4a6cef64642d8dbbd5b686b591",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PI3K·mTOR 억제제이다."
+    },
+    {
+      "identifier": "AR-086235-A1",
+      "source_fingerprint": "8eac6567ab2d5f97e733208cdec7afc20d1eaadf95d0f5770775af0e482c2cd2",
+      "content_hash": "a26de6eb5cde3c56b46685334a994f84202007ad4224ea03a8f3542cdcd98c44",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "acid-base-reaction"
+      ],
+      "reason": "산성 제형과 습윤 성분을 조합한다. 농약 효능 증가는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-086237-A1",
+      "source_fingerprint": "1d05ddca743499f304a3aa6233a71e28ce6119c3130989749074ef18e908de03",
+      "content_hash": "98619d1faecd378625dd6ee89b8a855f9d87604a8c240e90d58dc619e80762e7",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "항인테그린 항체의 제형. 당의 안정화 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-086242-A1",
+      "source_fingerprint": "b5ecbb3da78d04864e5aad2d7266ae5cc96771f643d56c30e95740ccd7fa8cbe",
+      "content_hash": "da2c3f8c61ba0c0986e3a3cdbafad95e65d8c440181a71245feec24c8c75d695",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항암 화합물의 임상 용도만으로 세부 작용점을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-086263-A1",
+      "source_fingerprint": "4b6d6ebb3a249755d578a69e6b103c4cdbb5ef6222d3b98b77baefd4a54f2565",
+      "content_hash": "70cc7eaae410de6f131bd3cff5024db8f9ef4ad161b7771378055425368c6d9a",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "U형 단면과 보강 가장자리로 지지부의 굽힘 강성을 바꾼다."
+    },
+    {
+      "identifier": "AR-086282-A1",
+      "source_fingerprint": "bdc8cce03000db83b623968e407f1158ca9d383b0d3071db5e8137e471386651",
+      "content_hash": "ad9076bbabdeb1a2a99da8d31521fbfbe5cac19891b32609f0f3ddf095060862",
+      "decision": "LINK",
+      "keys": [
+        "gas-solution-diffusion"
+      ],
+      "reason": "비다공성 고분자의 공기 투과로 용기 압력을 보상한다."
+    },
+    {
+      "identifier": "AR-086286-A1",
+      "source_fingerprint": "f06be8e9be02b9ef3890f9cd5a62b176519a10dd17e8cc2d7271157bc3355bf2",
+      "content_hash": "033ebee74c4c985f51dabeaed08c8f58980f91d7e7abe900f2256b78118c4a79",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충제 배합 상승작용의 주장. 개별 표적과 조합 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-086290-A1",
+      "source_fingerprint": "aa6ffcc632402f7fa839f7548469b03a0cb977428935bc996c9a538af0a962ec",
+      "content_hash": "9504056230c451ec7231839d8a2525dfcceea1d2d386726078440f9cf0797fc0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 화합물 구조와 용도. 특정 표적 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-086294-A4",
+      "source_fingerprint": "98a1596fc1a56c49abef5d5131736e2b85f1a0d22147e6ff125ebb62d5a1f567",
+      "content_hash": "fb4d196718ff833fbdbaaa124c4eda53a5788bff7dffefff824583494cf3a165",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening",
+        "barrier-coating"
+      ],
+      "reason": "기둥형 지지 구조와 액체 차단 주머니를 조합한다."
+    },
+    {
+      "identifier": "AR-086301-A1",
+      "source_fingerprint": "fad166c9ab33d0bac7bfb11cc487962bae076b8e6a464343b3c6b8cf1c9b8347",
+      "content_hash": "3df06130d90c7dc0c7356899841cddd78b74fdbde05e3cb2a28fe7bec96294a0",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "압착 롤러 접촉과 가장자리 가이드로 띠의 이동을 구속한다."
+    },
+    {
+      "identifier": "AR-086318-A1",
+      "source_fingerprint": "83247e071541bcaebc5762a1d3be8fd5a4fe9d5468b00a19e70be1e99955213e",
+      "content_hash": "248475f7ff16c5df230a308e67c3f7ac93a3e4420ffbdd3ff4bdbe3dc571a8c4",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "SYK 키나아제 억제 화합물이다."
+    },
+    {
+      "identifier": "AR-086326-A1",
+      "source_fingerprint": "4d3ef4f1f8bbbf9b5db3b1679636e5a8aa87a04a4c78f7be695f8403bd5458eb",
+      "content_hash": "04fc3917155f9fc35e6d51c07d85255f722e071a03c9fd5e02943882f258c488",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 성장 촉진 화합물의 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-086341-A1",
+      "source_fingerprint": "ab821c25854d3c4d937169447d04c9aab6ffb09fba7352652debd0c807e47018",
+      "content_hash": "73247e315f9c278565325c3573272f918ea79c16bbad9a45aa519b932c462ed8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "TCP 연결을 유지해 인증 요청에 재사용하는 시스템 구성이다."
+    },
+    {
+      "identifier": "AR-086354-A1",
+      "source_fingerprint": "8289e5bad6a6054965815ed26efdd735878fb92c3adcce66df63b4ba0210a98f",
+      "content_hash": "017daa6a977069f3c89e852e1dc6d9960c8d458984bf6f1bad89bf007ecf98cc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "혼합 오디오를 채널 지표에 따라 재구성한다. 계수·위상 연산식은 미상이다."
+    },
+    {
+      "identifier": "AR-086355-A1",
+      "source_fingerprint": "c8bed1cc0109becf71e75019247cc085aec75896c4d848862d16a51f2553f3c5",
+      "content_hash": "0e34bf63b398a9a401db38438d30ecffbe0d3e7cf290e08d0912a3d2c340b12e",
+      "decision": "LINK",
+      "keys": [
+        "ion-exchange"
+      ],
+      "reason": "설폰산 기능화 수지에서 금속 이온을 분리·용출한다."
+    },
+    {
+      "identifier": "AR-086363-A1",
+      "source_fingerprint": "58c8ad00006e1536b15f10cafeb6153b54080005fb9f3218807097cc35724d14",
+      "content_hash": "cdd667f0ae9cadcdaca8fd0a13d1b379ab1d03b94cca788bf078d8377e7a2d7d",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "메소텔린 표적 항체와 약물의 접합체. 세포 유입·절단 단계는 초록에 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-086364-A1",
+      "source_fingerprint": "583b34812af13ba37978b89e0b1c7ecfd1cddc51f3cc25b00fe679347fffb726",
+      "content_hash": "8abb5cc3d56343e598452af5e3ddfbdd79b6d0e204fdea0f8f9ec53437f1ccb1",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "C4.4a 표적 항체와 약물의 접합체. 표적별로 효과를 나누지 않는다."
+    },
+    {
+      "identifier": "AR-086377-A1",
+      "source_fingerprint": "91185b854d4b4d20040dca7160ee8f0e8535461090811950fed0a86d750b26d3",
+      "content_hash": "10aedd19db4c43e108473008dd7d5fda7c3d703be573c28895bbdbb9a3d6a924",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "폐쇄 셀에 첨가제를 담는 구조. 방출 유발 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-086390-A1",
+      "source_fingerprint": "94f93229147afb817fb20453339469f8171315ae68c6e6037d63283bf68812cd",
+      "content_hash": "b100da618fa15ac363b91eda5afff91a8c6cdcbd054b0a556b82f3deb2acb0b5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "약물 투여 일정의 용도. 표적 기전은 초록에 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-086407-A1",
+      "source_fingerprint": "f4f0a497e058d4ce5fd78add75bf4c79a6266586821dc19e4cd5f1b2398fc29f",
+      "content_hash": "0d019bcb3bd9dc746aefe2b8457098faa8a226335c7139ea039926e2cc51dc54",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "plastic-forming"
+      ],
+      "reason": "비대칭 걸림으로 오삽입을 막고 돌출부를 소성 변형하여 장착한다."
+    },
+    {
+      "identifier": "AR-086420-A1",
+      "source_fingerprint": "ef159cbc17a93c476c2e4bc6e0ee8bb23e8508b849d428d2981659617a9bd626",
+      "content_hash": "8d9ea892ae6aea93b5febbed66a2d23f55903ee810b0697eb1df078b69072d7b",
+      "decision": "LINK",
+      "keys": [
+        "phased-array"
+      ],
+      "reason": "공간 신호 처리로 안테나 빔을 조향한다."
+    },
+    {
+      "identifier": "AR-086440-A1",
+      "source_fingerprint": "c794238b695845e4cac5bd96a64595476d48595bc84896530f4d98c1a0759b8b",
+      "content_hash": "7e365b58202d5228caf15950ff70849accd486dbe6b953a7b0a82b908ff903ff",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "stress-concentration-fracture"
+      ],
+      "reason": "쐐기 접촉부 구멍의 응력 집중. 용해 가능한 지지체의 반응은 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:32:59.311847+00:00"
+}

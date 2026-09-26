@@ -1,0 +1,300 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "ae457fc0e39a7d0c990eaeeb88661d84a2b46c2ac750f2668052f410a825cd22",
+  "reviews": [
+    {
+      "identifier": "AR-095640-A1",
+      "source_fingerprint": "c4a5453e598b99ef8d5a4d70169811f9e1eb1fa2d6948c8f70dfd4ba38ff5b67",
+      "content_hash": "59a983172bf17bb0a4d07440bd7242ae2a2b72299d7f346ae31e372d553903c5",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition"
+      ],
+      "reason": "아스카로사이드 신호에 따른 식물 방어 유도이다. 전신 방어 후보의 관련 사례이나 전신성은 초록만으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-095652-A1",
+      "source_fingerprint": "a93eac5fc8b490029ae82d768a2068f81781be62f6793e89cffeaf5c00e9bf72",
+      "content_hash": "f4c90f6024b9f7963934d59f6ee3e63b42dea2f6a4673177ac54cea53d2fc34c",
+      "decision": "LINK",
+      "keys": [
+        "capillary-wicking",
+        "pressure-driven-flow"
+      ],
+      "reason": "연결된 재배 매질과 투수 구역으로 수분을 공급·배수한다."
+    },
+    {
+      "identifier": "AR-095678-A1",
+      "source_fingerprint": "3cf00177d63eac57c8f7974820ace3d753a167e511a7d90710e25fe8f585e577",
+      "content_hash": "8e8748891e61b5800384524a3790f7f8d8ae65b8fce7cff612612aaa0a118b73",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "접힘선과 관통 핀을 가진 지지 발이다."
+    },
+    {
+      "identifier": "AR-095709-A1",
+      "source_fingerprint": "1c9c44d0531882c62e314d1f2bf2e9f852e674ecbd37801a08ca858c61611977",
+      "content_hash": "a54fed9e16e9fc0d35dabedded07cbbd62edc6600798e7ea7a9e88ace6577688",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "니트록사이드·퀴논계의 중합 억제이다. 니트록사이드의 탄소 라디칼 포획을 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-095726-A1",
+      "source_fingerprint": "85c9599bf4bd0d5e24c2e2b993476751c74e3899ad69575323f65d5e7c3df7f7",
+      "content_hash": "af7da5554efb3dd818996cc649fd77b4edfb84b7ed69169829224b5a2425df9b",
+      "decision": "LINK",
+      "keys": [
+        "hydrostatic-pressure-compensation",
+        "pressure-driven-flow"
+      ],
+      "reason": "출구 높이를 움직여 배출 가능한 수두·수량을 바꾼다."
+    },
+    {
+      "identifier": "AR-095753-A1",
+      "source_fingerprint": "ae462077acbfa95b2b9757915949ce4c11b245820c0984c0d1efde0eaad378c3",
+      "content_hash": "45442554c6ccb16d155b15548a9685a34f3d7a6c51c508adbfda6e66d2c9ad0d",
+      "decision": "LINK",
+      "keys": [
+        "pressure-accumulator",
+        "elastic-energy-recovery"
+      ],
+      "reason": "가압 충전물과 복귀 밸브의 배출 제어이다."
+    },
+    {
+      "identifier": "AR-095765-A1",
+      "source_fingerprint": "6e86e8182b10abd2acf57d7d65934cda5b5395f7d29287c85d9ab99d44c5f359",
+      "content_hash": "c10010e7db1c4f8c63d259c3baaf8670f54fde8580baf8133504f0b9080e78b9",
+      "decision": "LINK",
+      "keys": [
+        "gelation",
+        "polymer-molecular-weight-viscosity"
+      ],
+      "reason": "점토·고분자 조성으로 시추 유체 점도를 높인다. 특정 미세 구조는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-095776-A1",
+      "source_fingerprint": "035d19b8461ec2aac3d6eacd977ef0ef344bc64485e0d411693857b33a3434c1",
+      "content_hash": "7a40c8006eb6d393bba220f3826b2ee74c0a3f3f1a276a59b0b61a91af9cbe2f",
+      "decision": "LINK",
+      "keys": [
+        "anoxic-denitrification",
+        "microbial-sulfate-reduction"
+      ],
+      "reason": "질산염 환원계로 황화물 생성을 억제하는 공정이다. 자원 경쟁 후보를 검토하며 목록의 모든 균주가 질산염 환원균임을 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-095780-A1",
+      "source_fingerprint": "c5af9be6ff0b0f62df556d007c3537909c20fb79103e9ee4c2d543022311e97a",
+      "content_hash": "5665cd63b2db94f783fd16c4af48f8c50bfaf27af8d700bd0e68f194b1d9c40d",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "differential-survival-selection"
+      ],
+      "reason": "특정 위치 절단 후 도입·선발하는 유전자 편집이다. 서열 지향 절단·표적 내성 초안의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-095783-A1",
+      "source_fingerprint": "d438d63ee2e889bdb93fd3c149ed115facf4972b8c1b83ae2c4964d23a173eac",
+      "content_hash": "be4b58cb3c7715df4dd33e99b2e85f37c0abb245246c8675a1d2518d45ade9ff",
+      "decision": "LINK",
+      "keys": [
+        "ion-exchange",
+        "transporter-inhibition"
+      ],
+      "reason": "미세다공성 규산염의 칼륨 포집과 이뇨제의 수송 조절이다. 안전성 주장은 검증된 것으로 취급하지 않는다."
+    },
+    {
+      "identifier": "AR-095790-A1",
+      "source_fingerprint": "5742803ea6b96ba22eb6c541dd527025b3d3d1e41156e4f945278cbadbdb66b5",
+      "content_hash": "4fd4fc290c63f5e208d0a7ad1475c50deddff5693106ef65000d7e68971d4f1e",
+      "decision": "LINK",
+      "keys": [
+        "viscoelastic-response"
+      ],
+      "reason": "일정 힘·시간에 따른 조직 표면 변화를 측정한다. 초기 손상 진단 성능은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-095794-A1",
+      "source_fingerprint": "324a7ca043a7804b8a493839f4545c65ab06142576c67d74ed40bdc9347fdc8f",
+      "content_hash": "d30af12d9289a55513f02f57fdead385d87b61ab8ead5d4d0996961984d0e10d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "대형 포대의 지지·배출 장치 배치이다."
+    },
+    {
+      "identifier": "AR-095814-A1",
+      "source_fingerprint": "12c423621be15f1c6a2f4a663396890707bcfd523aee592c1d500d3f1bf6684c",
+      "content_hash": "f551eeb0e4e3397572ff0b94a314b23efad3c030db5971a6aeb5206599e74491",
+      "decision": "LINK",
+      "keys": [
+        "lead-screw-motion",
+        "elastic-energy-recovery"
+      ],
+      "reason": "나사 운동으로 표시 창을 이동하고 탄성 에너지로 주사한다."
+    },
+    {
+      "identifier": "AR-095826-A1",
+      "source_fingerprint": "a69a45e889b2fcd7da33370e5a2cce7c03c800b674bf606a228cddccc8588f3b",
+      "content_hash": "2e2b9422c75a7262c0c066ce6da9a98b85a4de6b7dda19d21a936d707b61ece4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "깊이별 영상·병리 판정 절차만 있고 OCT나 초음파 등 스캔 원리가 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-095837-A1",
+      "source_fingerprint": "98354df3d0b0ddc8779fc82c23927cc544c96f3dcd5b7ded94e376fd46a71797",
+      "content_hash": "b9df2a088f94e4b89fab4aebe8afb5ed3f5e7c5adea27c7e481582195f7004c5",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "barrier-coating"
+      ],
+      "reason": "광케이블 접속함의 체결·밀봉 구성이다."
+    },
+    {
+      "identifier": "AR-095841-A1",
+      "source_fingerprint": "fd158c3cc059d7da58cb13a90ef771f07ec8ec6f7d02d59ed2ae5155b564924f",
+      "content_hash": "8cfeb4c6005617969221c8fdda5da744c03a8f7d5ddf7cff753b212f9f117ee0",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "articulated-linkage-motion"
+      ],
+      "reason": "쐐기와 관절로 발판의 높이·상대 운동을 만든다."
+    },
+    {
+      "identifier": "AR-095861-A1",
+      "source_fingerprint": "9e0893dc7bd61437b9d67f4aa6f4d57630b8a997a1739e22471dd650d94bccaf",
+      "content_hash": "64b45bfce6a988a5189838d2e6da6eccde91305840acf0536b79deb6364d2800",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "유량관과 교차 홈·개구를 맞추어 조립하는 지지판이다."
+    },
+    {
+      "identifier": "AR-095862-A1",
+      "source_fingerprint": "c8e6b7e34526a928ba27caf3439b59fcca612eeff8a4a95cb67abb6917a43e8b",
+      "content_hash": "846ce5221403df560fa870e8aec4c73a1bdb88f8783da503f5b5043d2ac9a6a6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "기기 식별·드라이버 선택·설치의 소프트웨어 업무 흐름이다."
+    },
+    {
+      "identifier": "AR-095864-A4",
+      "source_fingerprint": "d003c0e64b8828e450896d6eeddda199c108999bfbcc9875627cf617a42ce9d2",
+      "content_hash": "6cfd187179ec15a50a9fffb2270311760aeef537be1b205511b08f3542dcb27f",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-heating",
+        "fusion-welding",
+        "heat-capacity-buffer"
+      ],
+      "reason": "고주파 가열로 필름을 접합하고 냉각된 겔의 열용량을 사용한다. 상변화는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-095869-A1",
+      "source_fingerprint": "fa59e08d67dd8a1f9631fb76e2413c09f512982260ed36ed33625dbd3d156504",
+      "content_hash": "bca2e333683acb0bcb04bcc5ad306a2790e3d2fee1fa0e4bb620c45dca22b0ee",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "RSV G 단백질 결합·중화 항체이다."
+    },
+    {
+      "identifier": "AR-095886-A1",
+      "source_fingerprint": "138ae942b2fc318f2f2db713152c29a1fffcd36f97f4932772a0982c7da20324",
+      "content_hash": "ea39af8a4fae3a28c8931e6b751ae09d64c080c76303c7a06b27f35e4280402a",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "catalysis",
+        "adsorption"
+      ],
+      "reason": "규산염 촉매의 침전·흡착과 여러 반응 용도이다. 명시된 Michael 부가는 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-095904-A1",
+      "source_fingerprint": "4b045ea3dbf3ebc8a623ddf34993bbb2140edc63ab015c81d7cea855eb056cbe",
+      "content_hash": "5bf48435059511fecdd27b24d0da48d664b2d9fde80aec3fec12c9a329aadfc2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "식물 지지 와이어의 고정·조절 목적만 있고 작동 원리는 없다."
+    },
+    {
+      "identifier": "AR-095914-A1",
+      "source_fingerprint": "d734c709168ffd860062888976953979ab6fe4301bda273e158920d241f18fcd",
+      "content_hash": "1c08d6e40c3400e6921d04805cd2e4d8c31314620afbd84e1f1dbb4dbe09050b",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "비율이 큰 평판 유로로 균열의 압력 유동을 실험한다."
+    },
+    {
+      "identifier": "AR-095953-A1",
+      "source_fingerprint": "37561554b7fe4c91847d2e8e19c554f7dcaf2893b2f0d186c128fab2a8ebbec7",
+      "content_hash": "a1b5479e04af6e535b102db1baeab57dc531ff0e16e8c0a5cd667dd71f44d73d",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "distillation",
+        "catalytic-hydrogenation"
+      ],
+      "reason": "니켈 촉매 에틸렌 올리고머화·분별·수소화이다. 배위 삽입 성장 기전은 문헌과 대조한다."
+    },
+    {
+      "identifier": "AR-095974-A1",
+      "source_fingerprint": "b50e1b7e568b2b126ef27e0313363763fa1d1d2cbd47d9df223a93e51f67771c",
+      "content_hash": "1141cf32701b4e7c9bfeb54e40e0966444158e54bb83c6ad6cf056299402455e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "암석 질감·조성 분류와 물성 추정만 있고 구체 학습·통계 원리가 없다."
+    },
+    {
+      "identifier": "AR-095988-A1",
+      "source_fingerprint": "daae0d7a4a30de929581c9b58e9a6360bc438126892ed578a0927d87ef6a0739",
+      "content_hash": "5119b8659c7e7f60b4fa21e380ebfcba634df9bf87c32df886a2350b034c7f2e",
+      "decision": "LINK",
+      "keys": [
+        "viscoelastic-response"
+      ],
+      "reason": "압축 후 일시 후퇴·대기로 렌즈의 점탄성 이완을 허용한다."
+    },
+    {
+      "identifier": "AR-095990-A1",
+      "source_fingerprint": "5e8b3dca4abdf0da8b5dd5bb4feed892ac54eb28674d41cd4a412d4f042ed783",
+      "content_hash": "a5bc6c98f774aeb68cfd8abfadede4322c4694908692b63a7e077294765f57c0",
+      "decision": "LINK",
+      "keys": [
+        "feedforward"
+      ],
+      "reason": "기상 임계값으로 가열을 미리 켜 결빙을 억제한다. 가열 방식이나 열팽창 작동은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-096006-A1",
+      "source_fingerprint": "918ca0b8846e5bd28d91debf1aca9627cf560c260f9038ec71f92f7bf3871a09",
+      "content_hash": "c5feff5b0533ebe48742a5bd6986585a3d76a06615889b4dc22462d77ddc64c2",
+      "decision": "LINK",
+      "keys": [
+        "sacrificial-energy-absorption"
+      ],
+      "reason": "인장 변형에 필요한 일로 충격 저항 피복을 규정한다."
+    },
+    {
+      "identifier": "AR-096021-A1",
+      "source_fingerprint": "cec510fd4e92b728b0221e7f3d13b615798e0aaf371573243158b28525ceb8af",
+      "content_hash": "18041d7e75818afa28156ab14f29d92bb61d2749a64104b57be01f730fba2975",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "서로 다른 열팽창에도 판이 자유 팽창하도록 지지하는 요구 조건이다. 구체 운동 구속 방식은 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:38:10.017008+00:00"
+}

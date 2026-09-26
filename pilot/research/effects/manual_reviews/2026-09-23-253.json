@@ -1,0 +1,198 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e7a5df0c65f00267887464c96758d11251586055b8ad290ec616a01f69e5ef05",
+  "reviews": [
+    {
+      "identifier": "AR-119197-A2",
+      "source_fingerprint": "1f483a2fa74736bc798e29a107d2e2cfa9707e4635d57d39f98cc40e218349d0",
+      "content_hash": "3edaf94e50998e16c0206e77f43b839ddc16ccc508c8f5e7dcaea6dcfb77802d",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis",
+        "crystallization"
+      ],
+      "reason": "교차 결합·산화·아민화·탈에스터화·결정화의 합성 조합이다. 교차 결합 초안과 통합한다."
+    },
+    {
+      "identifier": "AR-119207-A1",
+      "source_fingerprint": "b75e6ee2df67ca199a107f292f8fd97d0a3cf6f2fe7e049b487637dbe8da56b4",
+      "content_hash": "11b7d79162b5252b13066dce849d80db0e89a9087cee10a0dc88b5899f1af650",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "allosteric-cooperativity"
+      ],
+      "reason": "EGFR의 알로스테릭 저해이다. 표적이 달라도 같은 조절 원리이다."
+    },
+    {
+      "identifier": "AR-119212-A1",
+      "source_fingerprint": "0dc2946681683683733686c67658afa5e752776cfdb47475a5db9ed24e9d207f",
+      "content_hash": "2cf1fa39b4f780d4e93aee673c6ce95dcf5c81a68f33cc67407f1216a6acacd1",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption"
+      ],
+      "reason": "물·알코올의 저온 기체 흡수와 회수이다."
+    },
+    {
+      "identifier": "AR-119219-A1",
+      "source_fingerprint": "45493af32f3ab0cca8952a08274cc9c2acb59cef79a9b1d51aae60e9ad8d0597",
+      "content_hash": "ff9630618f163e861cd5e6a233d7f901361d895153847730633dfdf26843385b",
+      "decision": "LINK",
+      "keys": [
+        "urethane-addition"
+      ],
+      "reason": "폴리올 유래 반응물과 이소시아네트 조성이다. 결합 형성 원리의 제형 응용이다."
+    },
+    {
+      "identifier": "AR-119245-A1",
+      "source_fingerprint": "9ace10db77ceee76e5405e1f6984907478644e9438cf79c9c24e7761eda3a57b",
+      "content_hash": "4578fa81ca7f5903aadeaba5b698a5efd6daef77b777e2a6f7075c5d6720edc8",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission",
+        "differential-wheel-kinematics"
+      ],
+      "reason": "독립 구동 차륜이 지면과 힘을 전달한다."
+    },
+    {
+      "identifier": "AR-119249-A1",
+      "source_fingerprint": "77e93840bb6bb7ee3ba696ff60dcfe57cd4d404c48976cc33808e4f25b70f369",
+      "content_hash": "9ce53e2dc4f42a05751a4ed7a9e3256171ade90566f54525c493a46885979784",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "사슬 길이·에톡실화도가 다른 세제 조합이다. 혼합 상승효과는 초록에서 확인되지 않았다."
+    },
+    {
+      "identifier": "AR-119271-A1",
+      "source_fingerprint": "712f41c17af85cfc19752aa177f5b6309377a6609303f1db5d9fc514395cb208",
+      "content_hash": "41572a0150e4d07ee0f16bbfef31eda903fe1e864d5cd0a7427a9fdac054a383",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "enzyme-inhibition"
+      ],
+      "reason": "칼리크레인 억제 항체의 유전자 발현이다."
+    },
+    {
+      "identifier": "AR-119297-A1",
+      "source_fingerprint": "dcee5ab69ea8adcfd4c09ad9a790962ef92cc78ee80363e174aca104e68f2f59",
+      "content_hash": "d06b2f7380a608e5965eae19603aaf078e3dd364491cd607a678c8ce42fe643e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "BRAF 연관 질환용 화합물이며 구체 저해 방식은 미특정이다."
+    },
+    {
+      "identifier": "AR-119305-A1",
+      "source_fingerprint": "84e307dd76c1acee7fb18b56c0bb3476f41d10f5f8c06a7ea86970867feb8a1d",
+      "content_hash": "60492e5b8100013484363da619a525e88e7d6ae31fd220007799db74b7eece4b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "중추신경 약제 구조만 있고 표적·반응은 없다."
+    },
+    {
+      "identifier": "AR-119308-A1",
+      "source_fingerprint": "5b0c6378717290b64f4e24ed3e0a3f910f3134ddd7ba6a95c1d8d5e2ee401c91",
+      "content_hash": "f37e10a847412418ee20bc350e840cc917e11ab19b5fff5b53e8db550843c5c1",
+      "decision": "LINK",
+      "keys": [
+        "pressure-sensitive-adhesion"
+      ],
+      "reason": "손바닥 부착형 점착 보호판이다."
+    },
+    {
+      "identifier": "AR-119321-A1",
+      "source_fingerprint": "bc883940ae835041a36ba3e13f24d878bf8abf93338ca1bc342d7af827dc0917",
+      "content_hash": "534ee3859fa90928bd4474facd08ac96df6a8371077125fd86d87207fcda5145",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "ALS 저해제 등을 포함한 제초제 조합이다."
+    },
+    {
+      "identifier": "AR-119323-A1",
+      "source_fingerprint": "7a706eda5e7ae515fda04a7f673ceaad2197d772d949bfc38c3938c4a0990e95",
+      "content_hash": "82c7f9a819f88bb464e646ec676d4717759e63324e3ebff94fc0eff43feb0900",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrocarbon-cracking",
+        "fluidization"
+      ],
+      "reason": "유동층·상승관의 촉매 분해와 재생 통합이다."
+    },
+    {
+      "identifier": "AR-119365-A1",
+      "source_fingerprint": "6548e775611c233289b6411a3a9b5aa1ee997529a6c660effede5f5a33fa1bb3",
+      "content_hash": "d7c4e002a8ff2f3afa3e54836f4a6c9b471de80a4c12365d0c083513119d064d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유정 압력 보호라는 기능만 있고 구성·작용 기전이 없다."
+    },
+    {
+      "identifier": "AR-119383-A1",
+      "source_fingerprint": "da01cd9b9500d1521fbd623afda3f35071b424243d146e27166edc67991ee339",
+      "content_hash": "226a5c6337082c08249760f81ae0052039d5bfa261be867507881edd8fd972df",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "지면 대비 높이를 측정하여 파종기 개구부의 위치를 조절한다."
+    },
+    {
+      "identifier": "AR-119385-A1",
+      "source_fingerprint": "d2022b3970d707bcddf371e84135736833fdeb3156ad77de78a0d344b6096f9b",
+      "content_hash": "aa11a6a6593ced3ae4d727b65ced798f0af1ee228f779b910401ecc9698d740b",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation",
+        "cosolvent-solubilization"
+      ],
+      "reason": "미량 금속 EDTA 착물과 수혼화 용매 조합이다."
+    },
+    {
+      "identifier": "AR-119389-A1",
+      "source_fingerprint": "5512420e27f284831e071d3d6a28c4c72de2e186dde7f6a2ae275e7842607860",
+      "content_hash": "fb1aa66366db9af47640ca05cabc4f5c96512a8534e846f02c763cac44e3d2c7",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "IL23 수용체 결합 억제 펩타이드이다."
+    },
+    {
+      "identifier": "AR-119411-A1",
+      "source_fingerprint": "267fb7f771f3447cf6832d68f17132184eba9f6cfd92949ebf2fcf276c11dc17",
+      "content_hash": "68196bd66f9623f0152656ee1fff8d89fdb3ef5e201122a26d836de66654322b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 화학 구조 목록이다. 구체 표적이 없다."
+    },
+    {
+      "identifier": "AR-119437-A1",
+      "source_fingerprint": "39082ea3393ad9a267d46b1d076ae616e5f001d59c84b97aa6612f1bcd10b14d",
+      "content_hash": "5b8817fa824f3e26c88de3c0b08943b7886bb95fbd8c570f627ed514783c059b",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "state-estimation"
+      ],
+      "reason": "예측·측정 반응과 목표 반응의 오차로 구동 요구를 조절한다."
+    },
+    {
+      "identifier": "AR-119457-A1",
+      "source_fingerprint": "9e80fdcd4bfa2355180d316c904b3fcd4236f04b98d109bde6eef726ad70c4ad",
+      "content_hash": "96ab494e3f5b57ee24ceef66b14728c4a36f4c3380e598c50df2e6cf7f73bf69",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding",
+        "elastic-energy-recovery"
+      ],
+      "reason": "스프링 밸브와 용접 결합이다. 밀봉 재료는 미특정이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:36:42.846743+00:00"
+}

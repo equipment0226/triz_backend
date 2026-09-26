@@ -1,0 +1,123 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "ed32118dddcf96d088f3865923e8ab7d317e80f8c8079841fbee3b5e95e3b884",
+  "reviews": [
+    {
+      "identifier": "AR-118247-A1",
+      "source_fingerprint": "d8593fd56bea59d778f87e15d680376ab2acf4e9c2d62cdd55fcaec735d9af21",
+      "content_hash": "660577291f28b0b3c07132e7f343fe3bce167b11727263f33d8f3e62a05ba8d3",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "oxidative-phosphorylation-uncoupling"
+      ],
+      "reason": "살균제의 효소 저해·탈결합 등 기존 작용 조합이다. 구조 치환·제품 조합으로 수를 늘리지 않는다."
+    },
+    {
+      "identifier": "AR-118253-A2",
+      "source_fingerprint": "cc2aa571c69fc164e8833bf453adafb5c8cd3f21afdd86b7120099a7cfd4e447",
+      "content_hash": "c5b1c9f68a5436aababd122363cedd54059486982464b6f7969b591b2a1b02b6",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 재조합 유전자 발현 조절이다."
+    },
+    {
+      "identifier": "AR-118257-A2",
+      "source_fingerprint": "7e8e930937da6cf50cca9053e03661ac055bf6adfa4de164a92cc808fdec2df3",
+      "content_hash": "06d97f38a913aea4ca1b0703b5cdc784298bdba18d280495d47a4757cddb5db4",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "같은 식물 재조합 발현 계열이다."
+    },
+    {
+      "identifier": "AR-118277-A1",
+      "source_fingerprint": "1667a78b8ca711ef42683d9ec20bb373fa96383fa3167b426fe93a98758eee08",
+      "content_hash": "5152cfc4e60f73dcdb3ba0b8a312d1dcc61c8c239e120af1f0976190d452b717",
+      "decision": "LINK",
+      "keys": [
+        "chemical-cue-directed-behavior"
+      ],
+      "reason": "수컷 유래 페로몬의 행동 유도이다. 곰팡이 제제의 감염·사멸 세부 과정은 초록에 없다."
+    },
+    {
+      "identifier": "AR-118280-A1",
+      "source_fingerprint": "707ced2db2c747e1f7615a18cd0dbb678a05b3a8dd82e8df8ce2999407b76471",
+      "content_hash": "e6f5a49ea601a6cf4f15c16872bf7c3bafa5aa1e4fcb00e363c5f7b6d70e57cc",
+      "decision": "LINK",
+      "keys": [
+        "optical-reflectometry"
+      ],
+      "reason": "코드와 배경의 영상 명암비에 의한 인증이다. 무작위 물리 지문 생성은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-118285-A1",
+      "source_fingerprint": "a80ae823fbbc0898c897c18be1ff443dcead23363fc3a6e1e98b76975b5e391e",
+      "content_hash": "25221ab6baf0c31205a54a5dc76ed293671bf45c3df84a8c9deac18c86e209b9",
+      "decision": "LINK",
+      "keys": [
+        "solvent-extraction"
+      ],
+      "reason": "비혼화성 회수상으로 알코올이 분배된다. 반응 추출을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-118302-A1",
+      "source_fingerprint": "d95fa5d5199ee5f0ea16bfc850d473b2c4a8fa640f7e0345580e39943962c614",
+      "content_hash": "1729e0ff7e7af0f1420114383acd26ffd39e8cb47d2519b5aa7d649e11710609",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이황화물 약제 구조와 질환 용도만 있고 작용 기전이 없다."
+    },
+    {
+      "identifier": "AR-118319-A2",
+      "source_fingerprint": "674596e57445144d8ab4bd51e7891dfc32569554883cb36a1a93c35ed9e1d3f7",
+      "content_hash": "4c745d35c489880930b831acec0881704cf3c3de3a72c8b5ddd58f54a3ba0469",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 발현 조절 DNA이다."
+    },
+    {
+      "identifier": "AR-118346-A1",
+      "source_fingerprint": "0a04649c8d30dface6faaaad186a819fe8d8553502b1cb83710cad9ff7983181",
+      "content_hash": "3d1112858567d5f0453f905eb13232d57e372f522655fd19eeca09d14fc6e0e3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조 목록이고 생화학 표적은 없다."
+    },
+    {
+      "identifier": "AR-118350-A1",
+      "source_fingerprint": "b7465a3d1c3ccebb973bf930e76dbbb4d356ca6a1b9570d5ea946f36267c7e82",
+      "content_hash": "e44f79de6aa87aa1475ddb40aa96269cfc5ed771d5c3f89ac3015f61b80df325",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration"
+      ],
+      "reason": "찻잎의 혐기 보관·가열·건조 공정이다. 특정 대사산물 생성이나 효소 저해는 초록에 없다."
+    },
+    {
+      "identifier": "AR-118371-A2",
+      "source_fingerprint": "1bc96829091d2bed67711fb7fe180168dc74b259a7b8e67d1d2beaacc818ee87",
+      "content_hash": "b3208a40c130b40b06630cfc1f8551db979314f7fb37a76a04e9464cbdba8bc6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 화합물 제조 제목과 용도뿐이며 합성 반응·항바이러스 표적이 없다."
+    },
+    {
+      "identifier": "AR-118385-A1",
+      "source_fingerprint": "f19cd14527ca5faf3b61e912341003b305a87abe2b754f08c59aba482bd22860",
+      "content_hash": "a440b22313552a2ed6a2174192181b1cec213f3b5297d45613ea402477bc69a8",
+      "decision": "LINK",
+      "keys": [
+        "capacitive-energy-storage"
+      ],
+      "reason": "커패시터와 배터리의 전하 저장·전환 회로이다. 추가 에너지 생성·효율 향상은 입증되지 않았다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:34:41.741659+00:00"
+}

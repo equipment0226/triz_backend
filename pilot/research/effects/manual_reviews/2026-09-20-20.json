@@ -1,0 +1,353 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "28a134e66c9919ae83dd1589fc24de75d7ed3019919226c994ab08fe8249a363",
+  "reviews": [
+    {
+      "identifier": "AR-049493-A1",
+      "source_fingerprint": "1cf48407e24d19ab7839ddaaaeaf5a868dc4fc9cd5fcb8f4fe555ac12447b471",
+      "content_hash": "4bbfabbdc372a739670070b930f862f991d1d7c989c13da4d171319cff799be1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "난수 결과와 퀴즈 정답에 따라 보상하는 게임 절차이다. 난수 생성 알고리즘이나 새로운 정보 원리는 없다."
+    },
+    {
+      "identifier": "AR-049506-A1",
+      "source_fingerprint": "9cd872a9ba323fdd7c9c6fa4d18f3775891c698da4aaf9ec1c08bfa5e62d0143",
+      "content_hash": "595aca5cee87db462c9e7e82b6faacc8bf56e388cf037c02ae444536c7080095",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "혼합물을 펌프·압축공기로 분사구에 공급하는 경로를 명시한다. 압력차 이송만 연결하며 로터·스테이터가 있다는 이유로 전단 유화라고 판단하지 않는다."
+    },
+    {
+      "identifier": "AR-049522-A1",
+      "source_fingerprint": "e85adb75f7ddfaba265d07c53f7be9039be8d456646c1ed2cb28732c31b6ea81",
+      "content_hash": "6a13b75c760a938440864680196055b0aed6b28cb5510ca07acf027c4e9a33c7",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "adsorption"
+      ],
+      "reason": "철염에 염기를 넣어 수산화철 침전을 만들고 인산염 흡착제로 사용하는 과정을 명시한다. 침전 생성과 후속 흡착을 구분하며 의학적 효능은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-049529-A1",
+      "source_fingerprint": "b3df95333fd230dac85c52f65ccefcf610ebf64e5e5fe79cda6faabca3e755fd",
+      "content_hash": "8eca4eaf253e3c20b2fb9d627c1f998acf835b0f822ffcc85bdf28fa8a5845dc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자 적층체의 산소 차단 및 내열 성능을 주장하지만 투과·접합의 미시적 기전은 없다."
+    },
+    {
+      "identifier": "AR-049541-A1",
+      "source_fingerprint": "3441c636b0878f406ac0407eba61d87ca0150d0de7b7b4b528dcb7f9ec3fee15",
+      "content_hash": "21f24341f125fb1c17e8b2a010fbb6ccb861ba3e01bc604d55d385c56bbe6f79",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "가방 벽과 끈의 도선이 절단되면 경보하는 도통 감시 경로를 명시한다. 전기적 연속성 검출 후보를 검토하며 별도 근접 센서의 원리는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-049563-A1",
+      "source_fingerprint": "81613b9d9c79dbcd1b4798def9126b32f36839b7111ebcf03486fa93d06be6cf",
+      "content_hash": "2d1810aee684d16f40381455cf8d5df62afcc7a3f820fef818bcc438d9b0462e",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "polymerization"
+      ],
+      "reason": "메탈로센계 촉매 존재하의 에틸렌·알파올레핀 용액 중합을 명시한다. 중합·촉매 적용을 연결하며 고분자량·분포 성능 주장은 별도 검증 대상으로 남긴다."
+    },
+    {
+      "identifier": "AR-049569-A1",
+      "source_fingerprint": "dbc2d306e3b091a22ca7aa2025ae8072487c80f4d5b4d55eee1107ec7ec309c4",
+      "content_hash": "e064779ca2e070f5df591c4167848b8a33c57a9ee60dd0c82557515aee820df1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HIO 유전자와 QTL 또는 TILLING에 의한 고유지 식물 선발이다. 유전자 기능과 유지 증가의 대사 경로는 없다."
+    },
+    {
+      "identifier": "AR-049570-A1",
+      "source_fingerprint": "c7b508497e767537c0d447aed66754161f8933e41e02cb804d693ebb36649d3e",
+      "content_hash": "ec0265e782ed1d742ecacf556bccfe862cd8eaa47dade4bb31ecb30034af44d0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "발현 카세트와 항진균 펩티드를 제시하지만 분자 표적과 항진균 작동 경로는 없다. 제조·서열 설계로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-049572-A1",
+      "source_fingerprint": "606fcc9b69e63f7b9f8fe859b6563cb5c150e87867a0a9f5066f7a3a30df0cf0",
+      "content_hash": "135bfdf479fde3b4210b06a5e1fa6404779c0dad49e02fe584fe94a82bffe946",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GLP-1 수용체 조절과 인슐린 분비 자극을 명시한다. 수용체 조절 범위만 연결하며 안정성·경구 효능은 특허 주장으로 남긴다."
+    },
+    {
+      "identifier": "AR-049579-A1",
+      "source_fingerprint": "0c358208b2318ed9aa78aa947f4866cd54531fdf36c1e4eac70b9dceb34a2650",
+      "content_hash": "a60d84c391fb6c9c3d101739add806bc5710ff02b7ba669fc1f2216e9c587fe5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "얇은 가용성 캡슐과 계면활성제 함량 및 용해 시험 시간을 제시한다. 캡슐 재료와 계면 또는 용해의 지배 기전을 특정할 설명은 없다."
+    },
+    {
+      "identifier": "AR-049599-A1",
+      "source_fingerprint": "62b55ffc81b8471eec6a9532235fe9d9e50448fb5904ca2a2ba1f2b8fdbf4f24",
+      "content_hash": "21a298ed4998a2280fdccd7670e878fa3170ff813fc85391f43ebc72516de170",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "강철 케이블·자동 죔쇠·권취기·지지대의 비상 하강 장치이다. 일정 속도를 만드는 제동 기전과 안전 성능은 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-049665-A1",
+      "source_fingerprint": "654a820dbd95b124f1035d309269fa21050066a943c6fbc96b7fe8633ac86bf1",
+      "content_hash": "b40fd9284b31293b02771b05e6e878c2d155aa126a6e6855791ee18958732510",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수혼화 용매에 녹인 난용성 성분을 물로 희석하면 나노입자가 생기는 경로를 제시한다. 비용매 유도 입자 형성과 블록 공중합체 안정화의 기여를 확인할 후보이다."
+    },
+    {
+      "identifier": "AR-049677-A1",
+      "source_fingerprint": "007d2e9b2ddae6dd364c9866d4d5445d4d0b96624777b52cc4d89d997cc21d22",
+      "content_hash": "c209c2c57595a11f68b2988a0bf141f759a246fa24ea13aa5946497c7462317d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "액체 표지용 프탈로시아닌의 치환기 범위만 있다. 검출 파장과 흡수·형광·다른 측정 원리를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-049683-A4",
+      "source_fingerprint": "58ebfa7a96c1e20dcb699aa9070495504528063762ad1e5484b1885fb5e675f2",
+      "content_hash": "565f3d1aee7173930ede21e9841568309ed5f30c73107fbe36eeea9baa54b664",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "베벨 기어의 회전을 수직 나사봉으로 전달하여 받침 높이를 조절한다. 나사 운동 변환과 기어비 토크 변환 후보를 검증하며 열전달 방식은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-049686-A1",
+      "source_fingerprint": "f8c4496c8a09a05fabb715abd8c0072d251f89d8fcb14c73fc19c5b564db7a78",
+      "content_hash": "4d4d890bf9b344f5f060c117a844fe00199b811409a811cd0dc6be1a98b99fbc",
+      "decision": "LINK",
+      "keys": [
+        "archimedes-buoyancy"
+      ],
+      "reason": "액체 위로 뜨는 경량 비드를 순환 펌프로 다시 아래에 섞는 과정을 명시한다. 비드의 부력 거동만 연결하며 시멘트의 수화 반응은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-049711-A1",
+      "source_fingerprint": "859bf69466d19d866b329cca9dcd3ba8c862629dd853ac69daa6ecc3673dcf16",
+      "content_hash": "6ce62c65d726426bfb6214afb838817fd5a53e2fc633f3d272d4ba3fe3f0f0ac",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "알도스테론 합성효소 억제제로의 사용을 명시한다. 해당 효소 저해만 연결하며 코르티솔 방출의 직접 경로와 임상 효과는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-049716-A1",
+      "source_fingerprint": "a5e27f96c74f9fe5b65253fdc1e06d084727565845b0519ee44e31dcba1fe926",
+      "content_hash": "12fd23b4860cf4756d05ce15b930ddf2aeb9d66371e8997e0d70f83ad85eb976",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기름·당알코올·환원당 분말 조성의 안정성 주장이다. 캡슐화·산화 억제·유리화 등 기전은 없다."
+    },
+    {
+      "identifier": "AR-049727-A1",
+      "source_fingerprint": "1d438b1b785b8abe0c8de5e133093c54cb4813e9f046945cdcad0309a1529af3",
+      "content_hash": "5460bd8a6dff33f8675c1278ff26c0c81fd98b3cfe6ec81bd451fdfdcd7806fd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이전 프레임의 움직임 벡터와 보상 모드로 새 프레임을 보간하는 과정을 명시한다. 앞선 양방향 예측과 동일 운동 보상 원리의 통합 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-049728-A1",
+      "source_fingerprint": "331e293aee789abe2266a255278d5389f30425720402893f504a499c04336c82",
+      "content_hash": "090565df5f6f4eaa2f8e44decb9087c40af4a05e82ed7225051f7836abfe8880",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "띠와 가이드 및 두 수납 부분을 조합한 가방 구조이다. 독립 과학효과가 설명되지 않는다."
+    },
+    {
+      "identifier": "AR-049737-A1",
+      "source_fingerprint": "1759274cf761a1cc6c560a8ab9c79e4750de0a5a1efc3c7e2d9a08fced2130f7",
+      "content_hash": "1e8e7066df33ae55e4b1bbf3295d7792593be76315b6e592c460650d16de1d61",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "니켈·크롬 합금 조성과 고온 내식성을 제시한다. 보호막·고용·석출 등 지배 기전은 없다."
+    },
+    {
+      "identifier": "AR-049790-A1",
+      "source_fingerprint": "b1a9cb7999630cfc0f3cad261907af379aa0e7a7bc2e0ba8b6009fe5a07f1a36",
+      "content_hash": "a82d1be324789e77d85277e69ae75f98f04740a7bb4eaf53f7a1785bae25d3c2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "급이기·바닥·보호부를 배치한 분만 축사 구조이다. 별도 물리·생물 작용 원리는 없다."
+    },
+    {
+      "identifier": "AR-049794-A1",
+      "source_fingerprint": "17e3944912602540a551502a05ef35f37e48c2075c2cb43f1bf172c6bb74c107",
+      "content_hash": "992c85c4a5718a69bfa49f5ee5803edc5aaf748649b204e4ec9bafcaeb2f9982",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "U자 지지체와 회전 연결편 및 쿠션을 접는 의자 구조이다. 이완·명상 효능의 기전은 없다."
+    },
+    {
+      "identifier": "AR-049797-A1",
+      "source_fingerprint": "b22e7de8da4640bbe122aac43945efe476423e982d97300aea2a36ff8c60866e",
+      "content_hash": "589b7b4fcef7f97c553ef75b05edf3a203c76b0b4bb1237b61bbacb25f72a5b4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "슬래그·알루미노실리케이트·황산칼슘과 알칼리 활성제를 포함하는 결합재이다. 기존 포틀랜드 수화와 구분할 알칼리 활성 반응 후보를 추가 확인한다."
+    },
+    {
+      "identifier": "AR-049813-A1",
+      "source_fingerprint": "d40b57120804f77a15640d4b269ca2044230f6b44835db5ffda98bb255f4bf13",
+      "content_hash": "bceb22db4b3e0cf16eceb70777c7f92b8020f367ab67cf6f75704d3e57072f7e",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "두 반쪽 캡슐이 맞물려 닫히고 일체 힌지로 열리는 구성을 명시한다. 맞물림만 연결하며 쌍안정 에너지 장벽은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-049830-A1",
+      "source_fingerprint": "4c6ab05819a2b6539a4523fa71b0570b0d731581ff035912ecda6b09f1ab2d82",
+      "content_hash": "ad295cd18059e2bc85b831608235e56613b8e6ed56bd60419ed393f358620991",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "CCR5 수용체 활성 조절을 초록에 명시한다. 표적 조절의 적용만 연결하며 작용 방향과 세부 친화도는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-049833-A1",
+      "source_fingerprint": "d5af6441e961dab21fb04230a5f2a83197d545b6fb8b7b417908ed7338a9ccfc",
+      "content_hash": "fe8253e3fc6d9d1be30f4e8b15bacfc88ea05dd54c36ee5ce3f74d10d2706c97",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아릴아미노피롤 구조와 해충 방제 용도를 제시하지만 생물학적 표적은 없다."
+    },
+    {
+      "identifier": "AR-049850-A1",
+      "source_fingerprint": "fc869de9326dc5b3906183e567de2a3394e725bb9a4bbb246197ddc81447e914",
+      "content_hash": "715872a67834b4b7d5687f037608edf2637d8849ed12ec20b49184d0cba11a09",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "재사용 자원의 대역폭·부하·효율로 사용자 처리율을 추정하고 동일 서비스 제약하에 반복 최적화한다. 공정 자원 할당 후보이며 예측 제어로 대신 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-049856-A1",
+      "source_fingerprint": "ec7c48c7fa1fb3962dcb297d8a251eace6a699ecf76c3b5943f49b8bbd35cbb5",
+      "content_hash": "8d77e2c2e714928c1ec5e974dee26e6e84c40ceef957291071f49f816bce1eb5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "다양한 위치에서 들어오는 벌크 제품을 받는 기능 설명뿐이다. 이송 또는 분리의 실제 작동 원리는 없다."
+    },
+    {
+      "identifier": "AR-049857-A1",
+      "source_fingerprint": "39df6fda27050f472ac210166350aec19a5d0cb02b5671694b1b9b204f03954a",
+      "content_hash": "ec193527ae8d4ebad3ad180175f190efd786b227b6b5e30fde81cca007368f8d",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "양성자 조사와 전류를 이용한다면서 방출 장치 명칭이 상충하고 광범위 조성·압력·온도에서 고정 정확도를 주장한다. 검출 물리·교정·시험 근거 없이 보편 센싱 효과로 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-049877-A1",
+      "source_fingerprint": "9870e0fc8a8b97e35f861522e0dee3bab92c1c106d25482091050e8ae825e6ee",
+      "content_hash": "d7419524f79973908305c0a832df465b374ed971f3377f4e509c98ae80ccaee5",
+      "decision": "LINK",
+      "keys": [
+        "archimedes-buoyancy",
+        "negative-feedback"
+      ],
+      "reason": "수위가 높아지면 부자가 올라가고 수압으로 밸브가 닫혀 유입을 멈추는 경로를 명시한다. 부력과 수위 음의 피드백을 연결하며 완전 밀봉 성능은 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-049901-A1",
+      "source_fingerprint": "da7b61c0b2d335d9b120f540855e84aa0cc821311fc939c7351d63436c1f019e",
+      "content_hash": "85826cbb43f5396382de91acd4d4cbe0eaeb3bc4dc765f33be335161421b912f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "주 메시지의 변조 성상점 부분집합에 부 메시지를 넣는 전송을 명시한다. 계층적 변조 후보를 검증하며 시간 슬롯 분할이나 오류 정정으로 대신 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-049907-A1",
+      "source_fingerprint": "ba7a9c0125f7d0f503dab9b6db8993cf2f20e96402df9f33228e98005e847557",
+      "content_hash": "b685ed8022ab7d31d29d7eecebe18f7557632856b780650d56f7d51a15e82c19",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "겹치지 않는 섹터·공유 자원을 채널 간섭에 따라 배정한다. 셀간 자원 재사용에 의한 간섭 회피 후보로 남기고 언급된 OFDMA의 구체 처리 기전을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-049978-A1",
+      "source_fingerprint": "131bc0dd89090c208b1d2f6e20c9856e5a15f0de597d3d47ce94d3ea1634bc30",
+      "content_hash": "3d62e4e43b1d7986a9c03a2555b09e6000e8c38eef832fcc2ed80125db1c302e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "보툴리눔 독소 제형의 계면활성제 또는 결정성 첨가제 배합이다. 안정화와 분자 작용 기전을 설명하지 않아 제조나 사용 조건으로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-049979-A1",
+      "source_fingerprint": "b6c61c1f572d7d5e610187e832ded1659770aeeed70b6d6fba8aecb5b1d94b35",
+      "content_hash": "2d65ccf1ca1d4070eb05d3e213817ce26d1ca641cdc99315a62ceb0dd5130fa1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수혼화 용매가 빠져나가면 고분자 조성이 덜 유동적인 저장체가 되는 경로를 명시한다. 용매 교환 상분리 후보이며 가교 반응이나 용융 응고로 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-050003-A1",
+      "source_fingerprint": "cb516050f9210089c537f6dd361374fbc8a74d1bcc5b73b70e928bd8d4b1a6bf",
+      "content_hash": "68ac622efac7a118a48d8421bdab7c03282b2ca90cb2ee889852ad54176af81c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "작은 전자부품을 누르는 지지구와 접지 도선으로 정전기 손상을 막는 구성을 명시한다. 전하 배출 접지 후보를 검토하며 전자기 차폐와 구별한다."
+    },
+    {
+      "identifier": "AR-050005-A1",
+      "source_fingerprint": "ef748d8dae62c6b4698cd7455f7b0013f2b9e767be8ec1aceda2c23fcde2ef5b",
+      "content_hash": "0d434aacbc76c8d69d81443e82d0e3f09e6c46c401acb73def1b8f552a88fa5e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "친핵적으로 치환 가능한 이탈기와 알킬화 단계를 명시한다. 친핵성 치환 후보이며 누락 구조식으로 SN1·SN2 경로를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-050010-A1",
+      "source_fingerprint": "f8117ba317d7fb4dc47146312a7af1def665a66ac505621b15ab0c2a905655c5",
+      "content_hash": "5143c0d86d535d6da9244826521029ca4ccc087a7e8573dd1ec570475fb43e17",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "수용성 결합제와 촉매 존재하에 히알루론산과 다중 라이신 펩티드를 가교한다. 촉매 적용만 연결하며 가교 후 수용성이라는 설명을 무조건 겔화로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-050016-A1",
+      "source_fingerprint": "32e63ebac7d1cf087f562d554b12bc63191da6db1774764a08ce20302814d1d4",
+      "content_hash": "77417ea7dc6c3e591b1250ffacd309739906760de1f19b390980dcf757961a06",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "치환 트리아졸린계 화합물의 구조 정의가 중심이며 작용 표적·기전은 없다."
+    },
+    {
+      "identifier": "AR-050033-A1",
+      "source_fingerprint": "8d73c0a9edd8d87e00fdc0f24659aa36c3b3c4bd5fc71f7ebdd99dc0bc3e5a54",
+      "content_hash": "78fb81cd8551b16207d29eef0046d1554eef3c49efbc85ca7d61420656d543c6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "측정 전력·간섭으로 예상 SIR을 계산해 서비스별 기준과 비교하는 표시 절차이다. 독립 추정 모형이나 제어 법칙은 없다."
+    },
+    {
+      "identifier": "AR-050052-A4",
+      "source_fingerprint": "86f561a7abe12e5c599b55d70635244cd5cdec8e43fabfbe4e1fb6e9fc63ae78",
+      "content_hash": "bc0bdb3a271e3159188a1e29a0ddffb35da2e07a817f2e22788918b84e77a627",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "금속 모듈의 맞선 긴 구멍에 볼트·너트로 고정하는 경로를 명시한다. 형상 체결만 연결하며 구조 강도 성능은 확정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T06:56:36.277492+00:00"
+}

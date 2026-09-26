@@ -1,0 +1,433 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "ef51ce7b5fd009a18a546bfa053232b57646c0f17f5f713078216b5c7d6cdab6",
+  "reviews": [
+    {
+      "identifier": "AR-072596-A1",
+      "source_fingerprint": "0b5d44efb90286167d55d73811ffd7676d3424c9fa6cf9815f33b8288ad7f468",
+      "content_hash": "4c160eb56c0a73ee30888a3129809cd77166d87f7166e00654a1ef510b19609b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Fc와 분지형 비펩타이드 중합체로 반감기를 늘린다. Fc 재순환 및 입체 차폐는 별도 기전 근거를 확인할 후보이다."
+    },
+    {
+      "identifier": "AR-072605-A1",
+      "source_fingerprint": "a6b1fa05e4e6159dded9cc7abc35cb325b1e58d455803ea0221847dc0246ef0a",
+      "content_hash": "444e9b3525a3d4807ea60477be27bc9cc47b0b99afb2c2fe7dc08e97db33161a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "일몰·일출 시간표와 조명 제어 구성으로, 초록에 새로운 물리 효과는 제시되지 않는다."
+    },
+    {
+      "identifier": "AR-072608-A1",
+      "source_fingerprint": "c345a64a509203826caf1f356ff410149d9ae95e566184a98797a18764b13896",
+      "content_hash": "9f04d5341ea0b003d568a3fb4263137dfa60a47ac0e0c26c5bd124c039b00d53",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "속간 교잡과 유전형 선택을 제시한다. 특정 유전자형에서의 교잡 결과를 일반적인 유전 효과로 바로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-072611-A1",
+      "source_fingerprint": "7aaf48fe681e6dea6537944997491fbb73ac1dab3f2a580564670ec7e88b77ef",
+      "content_hash": "33ab9bfc137eae7ebfdb05e01b50119af4b6e381635c1d6c11adcb4a7fe7d98d",
+      "decision": "LINK",
+      "keys": [
+        "transporter-inhibition"
+      ],
+      "reason": "세로토닌·노르에피네프린 재흡수 억제가 명시되어 막수송체 억제에 연결한다."
+    },
+    {
+      "identifier": "AR-072613-A1",
+      "source_fingerprint": "3ce6c1a902350f727b17be1dfcdec2cabc5f2b32f5c91e38ea3046dc7182fef5",
+      "content_hash": "1e2955f6ba6aca62d9b4deb251b49ff3974a07d37a8319d34552bc10e8fc952f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "비선형 전달함수라는 표현만으로 변환 원리나 성능을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-072628-A1",
+      "source_fingerprint": "1b22e734c5eb9a5294758f87b27869616ff0a03a4c482fcaa13e3da61369a4b6",
+      "content_hash": "ea1e79bffbc5e734ddfca32554d33dcade373479fb0c487089d47a0f5a23b4fa",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrocarbon-cracking"
+      ],
+      "reason": "니켈 함유 ZSM5를 이용한 탄화수소 분해를 명시한다."
+    },
+    {
+      "identifier": "AR-072657-A1",
+      "source_fingerprint": "7ea31245a7e144ff5ce8a6168297e73b21fe6b41bda9ef9149a03df1083bb010",
+      "content_hash": "5f73f6e59365dc03515aa86b20fe26c2e7124956bbb780e50c216c4a62a77f77",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "Raf 효소 저해제를 명시한다."
+    },
+    {
+      "identifier": "AR-072672-A1",
+      "source_fingerprint": "d42e961bfd38439b4fa6112997aac94fcee4001cb2b82266c49c45cf6a3c65c6",
+      "content_hash": "833618174b00c21d7694565d01cc885f6618fd647b4434b2a0e1e30b664d5be9",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "surfactant-action"
+      ],
+      "reason": "산을 통한 알칼리금속 성분의 전환과 계면활성제 사용을 명시한다. 별도 피막 형성은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-072684-A1",
+      "source_fingerprint": "579086b26a85a77c780c5789a9f7091e1a9d479916fd63ee0355d2bf5233cc81",
+      "content_hash": "8b35f904bbf4ba70438ec997ad2cf755177bca66be39ed1bc1e45ada093327d7",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction"
+      ],
+      "reason": "용융 전해질에서 전압을 가해 금속 산화물의 산소를 제거한다. 전기화학적 경로는 추가 검토한다."
+    },
+    {
+      "identifier": "AR-072690-A1",
+      "source_fingerprint": "6e6bb409b197d90ebdb7248e9db27bc4ee8e461da63782935f128b0773552a79",
+      "content_hash": "0c5039ae2333fc25d7a51ad89e169314909c8e43d9eb8ae492253dc142050e10",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "pressure-driven-flow",
+        "elastic-energy-recovery"
+      ],
+      "reason": "관로 청소체의 우회 유량을 관성·유체력과 스프링의 균형으로 조절한다."
+    },
+    {
+      "identifier": "AR-072691-A4",
+      "source_fingerprint": "37a6191864c40dc9b8f8a483e966feb0b41ca4f30909c174d349851f7c056bd0",
+      "content_hash": "da5f19adbcaa5bd13a1443f25c1cbb24c2b5608ce22908062af8ef9e871dc55d",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "덮개와 용기의 결합 형상으로 위치를 유지한다."
+    },
+    {
+      "identifier": "AR-072693-A1",
+      "source_fingerprint": "6c31d52199f4f3eb9a164046ea9ff7c9499a5ec863bedcfe07a116653a235e9a",
+      "content_hash": "000ce23b33dabb5170f018323a5ef2c6b1d324dd243797bf5dc84f1033cabd06",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "압축·열교환·팽창 회로를 제시하나 상변화 여부가 불명확하여 증기압축 원리로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-072699-A1",
+      "source_fingerprint": "d3900ceb68b98b6375de6df5e30142361ee133dbe08c1884dceecbded96cef15",
+      "content_hash": "5a7932f05b8c0f4fe83ef815af3acaf8f5f31af4338919a1b57c3e7c93cfd09d",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "FGFR4 결합 항체에 의한 수용체 길항을 명시한다."
+    },
+    {
+      "identifier": "AR-072725-A1",
+      "source_fingerprint": "26e33ced9ebc0e8bd3b4edda0ba0251a762c42068ac154e7f89ba14d33324ad8",
+      "content_hash": "44e9ce1b35df0385426fae006f57e743c421cf0ba610d49edb15ff66ed44c461",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GPR119 작용제를 명시한다."
+    },
+    {
+      "identifier": "AR-072746-A1",
+      "source_fingerprint": "83399cce08467b7de136a7c931528bc8922221d84d0ac4220789f139a26bee81",
+      "content_hash": "35d22b27f7f7d7a6777625f1ba8691f8bf5b539ae63088fdbfde8f8ea45fb852",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "청색 색소와 엽록소의 조합은 감산 혼색 후보이며 흡수 원리와 연결을 별도 확인한다."
+    },
+    {
+      "identifier": "AR-072795-A1",
+      "source_fingerprint": "32fc704155c763ee27d18bfb1ab0d013cfd7823a719e62b6df763a05e0f22738",
+      "content_hash": "147b5cab64ab2b8f1672f9ef4056def053d32df8d0f21ea7a9bc8df8c6a17ca0",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "페노피브레이트 제형에 계면활성제를 사용한다."
+    },
+    {
+      "identifier": "AR-072808-A1",
+      "source_fingerprint": "face4ff40815a11387db15ab34b6ed1342fbcccd2dd749985bf70bd94dca56d4",
+      "content_hash": "fd4a815df6d508553df8ea2109c119a9b0be9c191f3d4d8013bd9e8fad831aec",
+      "decision": "LINK",
+      "keys": [
+        "feedforward",
+        "frictional-load-transmission"
+      ],
+      "reason": "온도 조건을 반영해 클러치 목표 토크를 조절하며 접촉 마찰로 토크를 전달한다."
+    },
+    {
+      "identifier": "AR-072814-A1",
+      "source_fingerprint": "5e2387c1aadfc466433139d9bc78d851d9aaa85c38892aa4d6ebf7c5a13ac49d",
+      "content_hash": "e6c24de7be207859460a09d5578f8902374b3958c29380ef4e3f7b74f2f99c98",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "가수분해 가능한 결합으로 연결된 니아신 유도체의 활성 성분 방출을 제시한다."
+    },
+    {
+      "identifier": "AR-072816-A1",
+      "source_fingerprint": "a4844cac6b62a1642300d333a789fbb474f03cb93c132750c2c8a66b4d37ea88",
+      "content_hash": "0a2e55e249448546758f98b514631693887cf848286873c53525726e4db4e8d8",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "SMO 신호 억제를 명시하며 효소 촉매 저해로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-072843-A1",
+      "source_fingerprint": "d0dba9105caa6718bdcd83fc371dac6b730943234717d1a94c6d22eeccd85fc0",
+      "content_hash": "f2ef31b1dc6b6509492c28d728278f9d0ac7a7cd1cd53daab3c980e81592b999",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "모듈식 콘크리트 부재를 맞물림과 볼트로 결합한다."
+    },
+    {
+      "identifier": "AR-072856-A4",
+      "source_fingerprint": "c9de48e62dc1720c2fdcb45d19ef9eeac8431ac934f2acf494aa221208fefc11",
+      "content_hash": "4ac1f1f36166fc02fee36f5c4ac33c57636b5c6ca1cc3a45926490c646ae3e73",
+      "decision": "LINK",
+      "keys": [
+        "heat-capacity-buffer",
+        "mechanical-interlocking"
+      ],
+      "reason": "액체층의 열 수용과 관성에 반응하는 끈 잠금 구조를 제시한다. 지속적인 능동 냉각 성능을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-072861-A1",
+      "source_fingerprint": "109ffb4fad569ebef5e630ff174a19b88b4ffbd2b120e66593be3aa5761bf274",
+      "content_hash": "cd32f5d0493a995fc60858f5f996dbf9638246acbcc0146efbf4ca55c011ac87",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "FAAH 저해제를 명시한다."
+    },
+    {
+      "identifier": "AR-072867-A1",
+      "source_fingerprint": "fda99b5c4d4ad1581994e1ac7b06452bc4e2023280507daf5c02cbcbd15eea9a",
+      "content_hash": "51502b8077d78554992505117a992764e56dccf921c8838504ac1dca01753876",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "바이오센서 지지·절연 구조이며 감지의 변환 원리는 초록에 없다."
+    },
+    {
+      "identifier": "AR-072883-A1",
+      "source_fingerprint": "585994f463d62bceec70e5aee04114c090b78d1b5175db9bee941f2883ad4af7",
+      "content_hash": "8a5af3feec75faa7c872a0ab773e4893c43096cca20d37637cf7deac25b68d60",
+      "decision": "LINK",
+      "keys": [
+        "ionization-solubility",
+        "acid-base-reaction"
+      ],
+      "reason": "고형 제형에서 pH를 조절해 약물의 용해 거동을 바꾼다."
+    },
+    {
+      "identifier": "AR-072928-A1",
+      "source_fingerprint": "387451e4faca489354366a7b01c4e6fa92e71749e7d48dd631d8b3671ca34f10",
+      "content_hash": "50c1e27ead4e3046772f1b6b18c201f6415c16b79bb9ac451a4d5832ded660e1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "알려진 구간 거리와 통과 시간으로 평균 속도를 계산한다. 구간 내 순간 속도는 알 수 없다."
+    },
+    {
+      "identifier": "AR-072964-A1",
+      "source_fingerprint": "03d37e187df941ac1e39fe631505603b929acbfbf0a91eef92a7f50691e1f642",
+      "content_hash": "a0b0cad0d0bd0845745d1e1b94e29e8eb1d2e2d8335b2777da1756b7b247842a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충제 조합만으로 상승작용이나 분자 표적을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-072973-A1",
+      "source_fingerprint": "4e03babab3ccc8348f701531ed059b0cfa385589ac22dbc7907242926c68e977",
+      "content_hash": "99c65c86e535cb2f524da3b2ed7e47d5350a6a4500d6f9cc372f093bddb0293d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제조자 인증서로 최초 신뢰를 구성한다. 공개키 서명 기반 인증 원리를 별도 검토한다."
+    },
+    {
+      "identifier": "AR-072987-A1",
+      "source_fingerprint": "156c5c583191e011971c429a7ff17f3a140ea08fcff21e5a29d9c1983e5a9d97",
+      "content_hash": "1966b78521fa54abf954f5c7e84e75eb083ae9120cf5c949ba14f0d136700900",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡수성 물품의 표면 구역 배치이며 독립적인 재료 효과를 식별할 근거가 부족하다."
+    },
+    {
+      "identifier": "AR-072997-A1",
+      "source_fingerprint": "11c259a1151a59f689796e977675cb2d7aa598017c2501be2eb370dfe8ea6424",
+      "content_hash": "8176d56c2229198b26409794429ce026ed1c8491bb74289e323edcecfdef89f8",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution",
+        "enzyme-inhibition"
+      ],
+      "reason": "치환 합성과 키나아제 저해 활성을 제시한다. 벤질 제거에 수소 기체 사용은 명시되지 않아 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-073019-A1",
+      "source_fingerprint": "45b570191d14a7dcfbe620d986a01a07d5a82dbb2d0c62077ff8bb82887f7317",
+      "content_hash": "d12486564886ea713515c7796874c3b899bc63dbabed6bbae960710fccd8bdaa",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "pressure-driven-flow"
+      ],
+      "reason": "펌프·밸브·복귀 유로를 통해 유압 구동을 제어한다."
+    },
+    {
+      "identifier": "AR-073075-A1",
+      "source_fingerprint": "80a385bc1b37f38e9c53a903cb404f20eb51939a5963da92b42778211aceccf3",
+      "content_hash": "6aca19499474f9b46634d1dae38a0855eb07d7939f5558c20a403365cc9a328d",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "phenolic-radical-termination",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "리나클로타이드 제형의 건조제·페놀계 항산화제와 표적 수용체 작용을 제시한다. 아민의 카르보닐 포집은 추가 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-073077-A1",
+      "source_fingerprint": "fda10444b789ad528103b0b9bc2d1472caa804034202a3421f4fc60ba2a8b94c",
+      "content_hash": "3c6daaa0d067f2ef44e054f587754dd36543cdab367faff58bbf89d5fbd7c710",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다비가트란의 카테터 관련 용도이며 초록만으로 새로운 과학 원리를 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-073085-A1",
+      "source_fingerprint": "7f3eed09bdb24c6f82df27887891792fe5f2ad02f46dd3f9bd0217ff8f3e5f9f",
+      "content_hash": "aaf55a0a3603a4d8645766fb4505fb2fe8e292ae1fe34e80c4f6a3ac9d618f58",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자를 이용한 작물 보호 조성이나 보호 기전은 초록에 구체화되지 않는다."
+    },
+    {
+      "identifier": "AR-073118-A1",
+      "source_fingerprint": "c454d15b6f5c82512ebffd0c9873b699e3578f1ae5083cb972cd4627bcef6408",
+      "content_hash": "074f5af49720f54b880009c2c82d4b7e7741c7c8775fce43c379bac385fcceb5",
+      "decision": "LINK",
+      "keys": [
+        "transporter-inhibition",
+        "crystallization",
+        "diffraction",
+        "differential-scanning-calorimetry"
+      ],
+      "reason": "SGLT 저해제의 결정·복합체를 회절과 열분석으로 특징짓는다."
+    },
+    {
+      "identifier": "AR-073128-A1",
+      "source_fingerprint": "909b41e84756110bb24923cac8aa64b7cf63723a726efe2acf73aa3f6c31704a",
+      "content_hash": "65c061f362601160efd5e142ef2eca4b5f688eb9829a95edeef1c5d5ca0e55aa",
+      "decision": "LINK",
+      "keys": [
+        "sampling-reconstruction",
+        "queue-buffering"
+      ],
+      "reason": "디지털 오실로스코프의 표본 수집·저장과 후속 파형 처리를 제시한다."
+    },
+    {
+      "identifier": "AR-073136-A1",
+      "source_fingerprint": "bbe3a194733499d0b181f7e4ff56a5a6e5e45683cd23166a66cb298d7dbdc199",
+      "content_hash": "8963caf3e12f1112a130e52d3ecbb93561746d207fd99d39c21cbc14d423d642",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "위산 분비 억제만 명시되어 구체적인 표적이나 반응 경로를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-073140-A1",
+      "source_fingerprint": "76bfd7eb83a91ecb853d775da8131a8b4574ae033e47e161a382bc8aa2c536a2",
+      "content_hash": "c2cf4dfd4271101efd51c8773e5352cf3a7d53423ccfd537fcd0b06ccfce928f",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "IL23 수용체 항체의 선택적 결합과 신호 조절을 명시한다."
+    },
+    {
+      "identifier": "AR-073145-A1",
+      "source_fingerprint": "574d66de7262327469634c1b45cdc94a0401de8f4e61b3f32cc172bc5084220c",
+      "content_hash": "3058d65ede964c3d3dfd07f115b8696ce085e6d9264b9bd7ada0721d430cb007",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "식품층을 뒤집어 온도·수분을 균일화하는 구성이다. 초록에 특정 열전달 모델은 없다."
+    },
+    {
+      "identifier": "AR-073158-A1",
+      "source_fingerprint": "e787d02b161ba47da34e5aa947c5c17fb63ba4b1480b268b70e3aa6d0de6b8c2",
+      "content_hash": "dd4fe0622c137ec70e71e61c5ae431b7fc139c7e72399ade0e5f77fcfc05b197",
+      "decision": "LINK",
+      "keys": [
+        "progenitor-cell-differentiation",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "프로스타글란딘 신호를 통한 전구세포 조절을 제시한다. 임상 재생 효능으로 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-073170-A1",
+      "source_fingerprint": "c38506016eee4e7dd5ab20737c85308bf62951a4e5d91cd0744069425c1c5c50",
+      "content_hash": "97b26b24b119a63f488d32c3c9fa5b5d2129b22c200a2b7c15aa68255aa4a725",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "리슈만편모충 항원 조합의 면역 유도 용도를 제시한다."
+    },
+    {
+      "identifier": "AR-073175-A1",
+      "source_fingerprint": "493456a5d0f1f1be9266ddd38c13105ae8dac8d1c0471e5a9a769b787c6de34e",
+      "content_hash": "1ae96a3be8cdd1e6505d6b08f7cd0bcf00258c7b77238dfb39c191c0479249e9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초성 디온 화합물 계열이나 초록만으로 분자 표적을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-073186-A1",
+      "source_fingerprint": "9c797645b95b9d7304745a446d02727862ec8ef981086c482b486a776eefa1f2",
+      "content_hash": "d8d6456998ef26f06d6edeb313b9a56f95799e09c1946efa8a5e75ff6dbd033a",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "cement-hydration"
+      ],
+      "reason": "중첩식 건축 모듈의 결합과 시멘트계 부재를 제시한다."
+    },
+    {
+      "identifier": "AR-073197-A1",
+      "source_fingerprint": "7827900a0dc28c0d1c423fc30f451fbfeb26e622492803357b1a703f8d156b61",
+      "content_hash": "4228a3e9ee69797abd4a8926efed6e713bb309428c5287427480001ddfc98aaf",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "균일 길이로 절단한 옥수수 수염을 영상 또는 단일 통과 검출로 계수한다. 센서 변환 원리는 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-073205-A1",
+      "source_fingerprint": "02295bd679afc43b15232d0432f5582cc4eb7ab40112d89caa244aafa158a77b",
+      "content_hash": "be24185ec13ab579361ec4d372417e1dab7a4a3532b4c0753515ca598e682924",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-membrane-actuation"
+      ],
+      "reason": "기체로 밀폐막을 팽창시켜 차량 덮개에 완충 공간을 만든다. 압력 제어 밸브가 포함된다."
+    }
+  ],
+  "recorded_at": "2026-09-21T23:10:11.860550+00:00"
+}

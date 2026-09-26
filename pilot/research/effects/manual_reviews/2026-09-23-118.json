@@ -1,0 +1,316 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "acbef3e4e2a3f7e92029dc9e12e910d8749900f7c1ba65ca37f653ffcf0c0fdc",
+  "reviews": [
+    {
+      "identifier": "AR-091154-A1",
+      "source_fingerprint": "a6bc2fb54eaa0bfed9e82c779a4fb93a90eabf0c6a0507aa56f989a99a3b1543",
+      "content_hash": "19bdaca6b8b3603ecb8b16f2284a680aaaf12026a4e37a581b8cf30cd28f953a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "방송과 앱의 동시 표시 허용을 메타데이터로 판정하는 정책이다."
+    },
+    {
+      "identifier": "AR-091169-A1",
+      "source_fingerprint": "92c6fd6bbf8b1160c63ca8a114c550c2dd1d6274d92f7be621c57d8d0620becd",
+      "content_hash": "ff2231bb9b99d5a46476d4d7afa46259e1194d6fc67eedccdc8d6b7ca9b5f62c",
+      "decision": "LINK",
+      "keys": [
+        "multicast-branch-replication"
+      ],
+      "reason": "광단말 관리 메시지를 멀티캐스트 채널로 공유한다."
+    },
+    {
+      "identifier": "AR-091179-A1",
+      "source_fingerprint": "1972691c2bca07fd157dd8434f99673093b8ca153327fe6b1eca8fdfb26bd66e",
+      "content_hash": "1872be9ba587a6ad19a017fa37c79ebd5c0df4c9113cff1d6b6cda459e46a102",
+      "decision": "LINK",
+      "keys": [
+        "fuel-cell"
+      ],
+      "reason": "연료전지 활성 전극으로 유체를 분배하는 판 구성이다."
+    },
+    {
+      "identifier": "AR-091186-A1",
+      "source_fingerprint": "585a6ad6e0cf3e5f9dde1d2e3624c1d2c384a71864063b94be5a7862140570df",
+      "content_hash": "7e1a1145f3a391f129aceefe30b080ddb2431c2b9834d78d101459e0578f40cc",
+      "decision": "LINK",
+      "keys": [
+        "diffraction"
+      ],
+      "reason": "고체 형태의 X선 회절 패턴 식별이다."
+    },
+    {
+      "identifier": "AR-091249-A1",
+      "source_fingerprint": "7032ccd00cb8896734b17fa1a3f14e836109f3868b74cf37a7573473efbb25c7",
+      "content_hash": "e88cbacaef0613953bb8cc546500ac587c6127bfa444eddbfe00323fba49ea8f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "사용자 유형과 콘텐츠 속성의 필터 규칙이며 학습·유사도 알고리즘은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-091274-A1",
+      "source_fingerprint": "184430373c3cb9297d545a3b455313242c33e9264ad5a14a953f833e190c16a3",
+      "content_hash": "cf68b1ce6272f080c6252cf6eb974f8fa83b6ff2d286401d97443a5852d30b45",
+      "decision": "LINK",
+      "keys": [
+        "lead-screw-motion",
+        "stress-concentration-fracture"
+      ],
+      "reason": "비대칭 나사산과 파단 나사를 이용한 전기 도체 체결이다."
+    },
+    {
+      "identifier": "AR-091276-A1",
+      "source_fingerprint": "c6cb11e6c562b62f9b3ce46110a36a339bb28da50a0487dda45b2ef93e44f845",
+      "content_hash": "6bb7cd226c72858cf7017373ea51689cdb9bea62baea58b88af08e10acdf9a86",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PPO 저해 방제제 조합이며 앞선 동일 작용군과 중복 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-091314-A1",
+      "source_fingerprint": "b6007cb7d9e9d4d6e9ebc9a41dba4621b8c7319e99ad4a330c2866813a04f76e",
+      "content_hash": "2c40942ff09f1a5f5a18173830ba4e49b4a092df6b4c8322607f27135dddec75",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "조절 부위와 전사인자에 의한 조건부 발현이다. 생식세포 설계 세부 사항은 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-091330-A1",
+      "source_fingerprint": "4f0baaa048f23339bff7475756265b9d12bb0786da7f51d02ea66cc3c86a693a",
+      "content_hash": "821b67a216b9333371acdf6a553526d73415a76efb3523d3f8052c695dd87909",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "differential-survival-selection"
+      ],
+      "reason": "산도 조절과 선택적 영양 공급에 따른 미생물 성장 차를 사용하는 제형이다."
+    },
+    {
+      "identifier": "AR-091331-A1",
+      "source_fingerprint": "3e9caf13125396d53d987572ebb2db48a10e9cd9ae4b1d18f31663ba24729142",
+      "content_hash": "db0573c419adbbd1dc4eb81dc3767c17c65f6872996ad20a0a160b6f471c67fb",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion"
+      ],
+      "reason": "바람을 집약하는 건물과 터빈의 구상이다. 에너지 증가·비용 절감 주장은 검증되지 않았다."
+    },
+    {
+      "identifier": "AR-091332-A1",
+      "source_fingerprint": "917dae2a626e9c419fbcc12279e0b8f0c12dcf523334cdd36a9c6a5e75f1194c",
+      "content_hash": "40ed87df25fd813b1618c1210a5660c82667fb36ba23229f126c621c2347c58d",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening",
+        "carboxylic-acid-esterification",
+        "polymerization",
+        "ionization-solubility"
+      ],
+      "reason": "고분자 합성과 산도 변화에 따른 침전이다. 열 개시 라디칼 생성은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-091366-A1",
+      "source_fingerprint": "3018b50ad267630bccac28bd6db5623503aaf83a0a1a0fbaa7a35b1f611f9294",
+      "content_hash": "51f6dfca8d424b7059a465da099b2e8a2e52a08ec20f0d062a87ba736b51d4d0",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastomer-contact-sealing"
+      ],
+      "reason": "탄성 변형을 허용한 밀기 부위와 주사기 밀봉 구조이다."
+    },
+    {
+      "identifier": "AR-091368-A1",
+      "source_fingerprint": "c76d0d0df0ef9de4f5d006b194f4412fc7b1e23fa2d6d9fa043dc645172e5c38",
+      "content_hash": "0e03f2d37f5f077f11c776b83124cacaa97b9c8d2a59332cf805f704bb914c44",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "EGFR 활성 조절 화합물이다. 결합 위치는 구조 목록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-091377-A1",
+      "source_fingerprint": "fe3e9a1a9a2e574e5e985117732f147c45f5ded0e761d72649693aad9793dc96",
+      "content_hash": "cba658f39a2b0bbd0e19d48e9b7d4cb36176340ab89f057fce4958865bcad163",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "식물 지지 케이블의 공간 배치로 햇빛과 통풍을 확보한다."
+    },
+    {
+      "identifier": "AR-091395-A1",
+      "source_fingerprint": "24c87b78695aae90d13b048f16395c29f65bc78b7f25171bf5ebd3c23faeb03c",
+      "content_hash": "954a1f276cb3679bfdc9b9bdbb232fd4d922ff16f11fe7cd997673020383e979",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "JAK 계열 효소 저해이다."
+    },
+    {
+      "identifier": "AR-091400-A2",
+      "source_fingerprint": "ebb743720800124120400969bb74cd45b5fb8e437328d5e9a49f5e0e9f85a56c",
+      "content_hash": "98155e0427b2876c121da61f76206cf0e83f1066df1673fc3dd1e9d9d67a5e76",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "약물 구조 범위와 조성만 있고 작용 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-091409-A1",
+      "source_fingerprint": "7ce6e12f3c2836abeae677f594f1f7b0e437827d90d9d276bc05f8161773beda",
+      "content_hash": "61fe7846efe7908cc2160e587224f412ad9ad55d7a740bcac6be26362cb6adb0",
+      "decision": "LINK",
+      "keys": [
+        "alcohol-oxidation-to-carbonyl",
+        "catalysis"
+      ],
+      "reason": "알코올의 산화가 카르복실산까지 진행되는 반응이다. 후속 산화 단계의 원리를 별도 비교한다."
+    },
+    {
+      "identifier": "AR-091415-A1",
+      "source_fingerprint": "5e68d22dcf2457026e4732ba5929304cec272d256183a4538c47f3b3720a4eb6",
+      "content_hash": "2a7ed371263ff0ca970c9b16a12a3c6a9f345f25a034137c9729fc7ac4d9eca7",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution"
+      ],
+      "reason": "암모니아 친핵체로 이탈기를 치환하여 아민을 형성한다."
+    },
+    {
+      "identifier": "AR-091417-A1",
+      "source_fingerprint": "6d38005d2aed60e3af4eb0e8c71549ffcfae86a535bb14d74601765d37c5fed7",
+      "content_hash": "2132a6d08e8d613d6ce9f7464de8ac30cf74212ab41160fcdd71488f19ae84aa",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "부분방전의 전자기 신호와 기준 안테나 잡음을 차분 검출한다. 두 작동 원리를 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-091433-A1",
+      "source_fingerprint": "8a4bcbd42af5621a63d0c6f2e2765cf161c314e8b18fdda3f561f44941010155",
+      "content_hash": "9d2a36d15741a5b46d5400556bbc41a294a775855c3b67d40420a316b0f5c73d",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "gelation"
+      ],
+      "reason": "양이온 계면활성제와 염·고분자의 증점 제형이다. 살균 기전은 초록에 없다."
+    },
+    {
+      "identifier": "AR-091441-A1",
+      "source_fingerprint": "acf8f41c6ae17bcf71afb077ff0ae9c86fdad27fa4cc1058a28c4f38cd4a16d9",
+      "content_hash": "b0fe9f735ae4645cc5cb42ca1bef8e2b6121d2dc4af2de64914e2491e8e8d345",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage",
+        "frictional-load-transmission"
+      ],
+      "reason": "레버로 걸림부를 벌려 채널과의 마찰 고정을 유지한다."
+    },
+    {
+      "identifier": "AR-091447-A1",
+      "source_fingerprint": "92fda02a095a101310b1bcc3be8457ffe9ce2c1121dde6a53ac021f5d723447f",
+      "content_hash": "1e9bbf44ed12441da162e696358c4738fd51d5dc945f1923f9763879d1c532e7",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "회전 관절과 연결봉으로 작업·운송 위치를 전환한다."
+    },
+    {
+      "identifier": "AR-091469-A1",
+      "source_fingerprint": "061579b804d906b514a6c3bf4f57d3203528033b521fee88b7e4dd0affe8b131",
+      "content_hash": "680ec06e10fe8edacd1e56e6d67099dc03f3b882cff39ef771cf1367a0950bcd",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation",
+        "solvent-extraction",
+        "absorption-spectroscopy"
+      ],
+      "reason": "착색 착물을 유기상으로 추출하고 흡수 스펙트럼으로 정량한다."
+    },
+    {
+      "identifier": "AR-091484-A1",
+      "source_fingerprint": "9cddd0eb334d9286f46c50d82389bba1c90baa532a444583d3f3a99e75fa2c6f",
+      "content_hash": "2105a138961d599a864c3f8dbf00298e84723598b0f937a178858ff7b9fe1964",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "환경 감지에 따른 자율 작동 구성이나 센서 변환 원리는 구체화되지 않는다."
+    },
+    {
+      "identifier": "AR-091488-A1",
+      "source_fingerprint": "e66656c0275f0faaa2e22d82dbf70bfe5ba11557ab947bb769e5830675012d3b",
+      "content_hash": "d0f2d11f94c8b567eaa39aa1aea122c2d62ba99f19ef6fb62d15b25cacf38500",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "시간에 따른 연신성 저하를 주장하지만 열화·가교 등의 기전을 구분하지 않는다."
+    },
+    {
+      "identifier": "AR-091507-A1",
+      "source_fingerprint": "b587be4b32e2fa7f392f3a744829e60d61b09a5117889dff4bce17a70fff5d38",
+      "content_hash": "ca7123370eb43b960741ef0c41078292ad8049ea0614cd838cff5c5f8bc3a649",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "crystallization"
+      ],
+      "reason": "산 부가염의 형성과 고체 분리이다."
+    },
+    {
+      "identifier": "AR-091527-A1",
+      "source_fingerprint": "5e5e8bf0c0364e67dc1ae9797167c14a6a98e8076affaa4333bc085ef5c2e8d2",
+      "content_hash": "e5bbeaf08a0417a43bc807fb0d4ee99192e47ffc0410b586a2556fc942f93348",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "분산제를 이용한 수중 유화이다. 광분해 억제를 곧 자외선 흡수로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-091539-A1",
+      "source_fingerprint": "bf5da4d4717795cb9b45e9868af004561cec25296b67b39e68323adc45933e6e",
+      "content_hash": "467ce623cb9efed8f775f5e78a94813a9ee7c04a2784d2f0333b811685cee207",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "microRNA에 대한 상보성 올리고뉴클레오타이드 억제이다."
+    },
+    {
+      "identifier": "AR-091569-A1",
+      "source_fingerprint": "df19e6fa8a8e811f1feff57d3bd3897de302910ba906b45f1199cc218bc02d32",
+      "content_hash": "29cb2cb8b835bf46070cb871f30597ac0ba84124f15bc7ea474a4040a477c4d9",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition"
+      ],
+      "reason": "Toll 계열 수용체의 핵산 패턴 인식이다."
+    },
+    {
+      "identifier": "AR-091579-A1",
+      "source_fingerprint": "1d345b902057eb686a2e06d6b18c77d51445c96e4473c54f5c453aba36c39fd4",
+      "content_hash": "9eec2bed1f77f616b61ee97c88b32d0a4cc62404a7c9c5f48a5e38028f326a7f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "균열 지지용 세라믹 입자의 원료 조성이며 소결·강화 원리는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-091590-A1",
+      "source_fingerprint": "4414168901ca1237f1516ee0db5b8524ea6d339a36fd04c571c354b33d2cef15",
+      "content_hash": "1a9e23f8046189a3762f7b0e5940468115d9179206bdc5a8450c6e49e01abf07",
+      "decision": "LINK",
+      "keys": [
+        "friction-damping",
+        "mechanical-interlocking"
+      ],
+      "reason": "디스크 브레이크의 마찰 제동과 패드 체결이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:13:11.325488+00:00"
+}

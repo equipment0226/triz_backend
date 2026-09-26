@@ -1,0 +1,156 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "45a06862bf299a7d53244827ec6f8b89c92ea18d8216de82fdcf38a64213b076",
+  "reviews": [
+    {
+      "identifier": "AR-093652-A1",
+      "source_fingerprint": "a6f764695b2bbbd7ea6eaf15d1d7db177150ced40dda229ab7382cc02be9ade0",
+      "content_hash": "1503262e73ba56cf7ff11ae159a08916b59cd8aa80a4ca30dd269de7ba9dc6cd",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "회전 캠의 압력으로 바퀴 고정을 잠그고 해제한다."
+    },
+    {
+      "identifier": "AR-093654-A1",
+      "source_fingerprint": "7d7faa7116e9bd10dccaef97fa5d434e796bf8a35b050fed795b5651447b139f",
+      "content_hash": "c5cbb5d9cc353dd9a0156de4ed8138c9e0fbfce854a201233150e8ca753a0cf8",
+      "decision": "LINK",
+      "keys": [
+        "projective-coordinate-mapping",
+        "geometric-optical-occlusion"
+      ],
+      "reason": "카메라 투영과 장애물 차폐를 계산하여 관찰 영역을 표시한다."
+    },
+    {
+      "identifier": "AR-093659-A1",
+      "source_fingerprint": "053116e9c5d4f9784d90fedbaab19a488954f301d83a0ee0138a4311bcd1ecd2",
+      "content_hash": "2f3a2c58044e0ccb63aa60717c8e2dcb31a2c54c6826de3b8609270db7ad37e4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 용도와 구조 범위만 있으며 표적과 반응 기전은 없다."
+    },
+    {
+      "identifier": "AR-093669-A1",
+      "source_fingerprint": "115c7f1a451fbafabdea95d9401e5d33b5af99c2df933e8da587fe43e3ebcd02",
+      "content_hash": "a774040b2813aac81a7a6b6ff00857c52f06e994a534d832d385d3a87ea72440",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균 성분 목록과 조성만으로 병용 상호작용이나 특정 표적을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-093696-A1",
+      "source_fingerprint": "1c362032049b6ac9e6af38d81cf808ffdb05025982e1c711a3995210580e8cfa",
+      "content_hash": "b659f7945f4be4a0787a642ea0edd60c1bddf9145421f3df4457ab60972fcbb6",
+      "decision": "LINK",
+      "keys": [
+        "refraction"
+      ],
+      "reason": "안내 렌즈 주변부의 곡면으로 빛의 경로를 바꾸는 형상 설계이다."
+    },
+    {
+      "identifier": "AR-093703-A1",
+      "source_fingerprint": "e2e2ec3adb6d52a4ffa946ec01f616b9dae7a9150bfcc57940c4fbc6b12a7618",
+      "content_hash": "27474e48c02266caf31543fb79d75580395e3d697f57cf56ced1218fac14a9a9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "질환 용도와 치환기 범위만 있으며 분자 표적은 없다."
+    },
+    {
+      "identifier": "AR-093717-A1",
+      "source_fingerprint": "dcb9464805f6a5dd274fa8a73c94b244649dde33290506c561bb49226545aace",
+      "content_hash": "8c6e7408c18f3d43bfe99eca04c19509298ac3444567fb41632492b842578550",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "염기성 아미노산·세스퀴테르펜 배합만 있고 충치 억제의 생화학 경로는 없다."
+    },
+    {
+      "identifier": "AR-093725-A1",
+      "source_fingerprint": "3bf963dda20e66e4883af440758faaf06578d49236f2754127ae2414e57d6279",
+      "content_hash": "e6dce9c171db3c20eecd190095d9a98d642ef0998a3513617b34f3e2a82d808b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구조 범위만 있고 기능·표적 기전이 없다."
+    },
+    {
+      "identifier": "AR-093762-A1",
+      "source_fingerprint": "76be95d2da95b8606bd2b51be4b03f45261015387b975ec80d8540e08c6deca8",
+      "content_hash": "890eaa3eeeebeccc6295e7a33f709b1b230bb27ef4f2838a666f628683293d43",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "미생물 배양으로 다당류·항균 성분을 얻는다. 항균 물질의 작용은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-093777-A1",
+      "source_fingerprint": "e6916f38045530749e8c235fbfd84f7f566e91e2f14dab79a1143bdfa21b661c",
+      "content_hash": "41cd4903a168def66052b613b2c86113c5e8494efc2c90e84254933671d2fc10",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "vacuum-gripping"
+      ],
+      "reason": "종자 계량부의 분리 결합과 진공 공급을 사용하는 파종 장치이다."
+    },
+    {
+      "identifier": "AR-093781-A1",
+      "source_fingerprint": "4450e9f7a8b3af627c5de3a302ff2b921e4bacdbc33fe063e6a622f5df0c1049",
+      "content_hash": "ba92f1a51f49f09cdbce3167070f9f10c33e8126f01c8240ad80c3274351248e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "균주 접종에 의한 인산 가용화 결과만으로 유기산 분비나 인산분해효소 경로를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-093811-A1",
+      "source_fingerprint": "d68055794f3dfc7516898025f5dfe90b660075a103d075ff4449868269a210bb",
+      "content_hash": "7261100aef3fa0dcfb0e0b5ddd54544e6c613636d75d898174d9963a596d51d5",
+      "decision": "LINK",
+      "keys": [
+        "adsorption"
+      ],
+      "reason": "DDR 제올라이트의 기체 분리와 불순물 저감이다. 미세 기공 통과의 크기 선택 확산을 문헌과 대조한다."
+    },
+    {
+      "identifier": "AR-093821-A1",
+      "source_fingerprint": "0d63fddfda26621aa5cc7a5f7e06405e41d4eb23ef0b96972bacccc0872510df",
+      "content_hash": "344e914add29d5de28c63ed0a7ae94be3f09f8672dfc2b89eb247e1f9b662870",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 스트레스 완화와 구조 범위만 있고 작용 경로는 없다."
+    },
+    {
+      "identifier": "AR-093824-A4",
+      "source_fingerprint": "90ff7d0e1476de20b09a219bf8ae480711214605df0b8bc60429e717e860fbe8",
+      "content_hash": "91e6a4165f1f6684a554999a306259230b7e52d5e015fcd6900aab9a3be4ed52",
+      "decision": "LINK",
+      "keys": [
+        "pressure-accumulator",
+        "articulated-linkage-motion"
+      ],
+      "reason": "압축 기체 스프링과 관절로 충돌 시 젖힘·복귀를 허용한다."
+    },
+    {
+      "identifier": "AR-093839-A1",
+      "source_fingerprint": "1e2c670a4242349b3dd5f8702fcb75a8a3d19e3f5d80a1f855af35dc1c2dc616",
+      "content_hash": "eb1ad71ea1dd534eb5665e24c8f069c426f3eb7118a2cd1e73c14915e86aff42",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "성형 용기의 바닥 돌기를 활용한 매달림 구성이다."
+    },
+    {
+      "identifier": "AR-093845-A1",
+      "source_fingerprint": "73b7140a02d2b0bd7ec514533f8b19b7077660d439de6be7da57dff348b989f6",
+      "content_hash": "22f5117643a52a2d339d05000fac545fa397bf83ee93230f1168998a78d8ddc4",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "약화선을 따라 보호 덮개를 제거하는 형상이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:28:22.293687+00:00"
+}

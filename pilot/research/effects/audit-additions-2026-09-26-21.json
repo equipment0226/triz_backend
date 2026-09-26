@@ -1,0 +1,253 @@
+{
+  "batch": "additions-2026-09-26-21.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1336,
+  "added": 20,
+  "after": 1356,
+  "target": 1500,
+  "source_sha256": "816de86e7d6da8bc9354d5eb7cce58acdda4a0860d361c3caf64d1ce7eea4b36",
+  "decisions": [
+    {
+      "key": "lyapunov-descent-stabilizing-control",
+      "group": 19,
+      "related_keys": [
+        "negative-feedback",
+        "linear-quadratic-optimal-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "오차 부호 반전이나 이차 비용 최소화 자체가 아니라 상태 함수의 궤적상 감소 조건으로 제어를 구성한다.",
+      "source_url": "https://underactuated.csail.mit.edu/lyapunov.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "sliding-surface-discontinuous-robust-control",
+      "group": 19,
+      "related_keys": [
+        "negative-feedback",
+        "lyapunov-descent-stabilizing-control"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 안정화 인증과 별도로 스위칭 면 위의 제한된 동역학을 형성하는 제어 구조이다.",
+      "source_url": "https://onlinelibrary.wiley.com/doi/10.1155/2013/927937",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "barrier-function-safe-set-invariance",
+      "group": 19,
+      "related_keys": [
+        "lyapunov-descent-stabilizing-control",
+        "model-predictive-control"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "목표점 수렴이나 미래 비용 최적화와 달리 허용 집합의 순방향 불변성을 제약한다.",
+      "source_url": "https://arxiv.org/abs/1609.06408",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "smith-delay-free-model-prediction-feedback",
+      "group": 19,
+      "related_keys": [
+        "model-predictive-control",
+        "feedforward"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "미래 입력열 최적화 대신 지연 없는 모형 경로와 지연을 포함한 오차 보정 경로를 결합한다.",
+      "source_url": "https://www.mathworks.com/help/control/ug/control-of-processes-with-long-dead-time-the-smith-predictor.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "saturation-aware-integrator-antiwindup",
+      "group": 19,
+      "related_keys": [
+        "negative-feedback",
+        "state-matched-bumpless-transfer",
+        "slew-rate-limiting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "운전 모드 전환 정합이나 출력 변화율 제한과 달리 포화 중 내부 적분 상태의 누적을 보정한다.",
+      "source_url": "https://www.mathworks.com/help/simulink/slref/anti-windup-control-using-a-pid-controller.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "weighted-particle-sequential-state-filtering",
+      "group": 19,
+      "related_keys": [
+        "state-estimation",
+        "detailed-balance-markov-sampling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가우스 모멘트 갱신이나 고정 목표의 정상 연쇄와 달리 시간별 상태 분포를 가중 표본으로 전파한다.",
+      "source_url": "https://www3.nd.edu/~lemmon/courses/ee67033/pubs/GordonSalmondSmith93.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "importance-density-ratio-sampling",
+      "group": 19,
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "weighted-particle-sequential-state-filtering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "직접 표집의 분산을 밀도비 보정으로 바꾸는 원리이며 시간 전파·재표집 필터 전체와 구별한다.",
+      "source_url": "https://artowen.su.domains/mc/Ch-var-is.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "low-discrepancy-quasi-monte-carlo-integration",
+      "group": 19,
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "deterministic-pseudorandom-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "난수처럼 보이는 수열 생성이 아니라 영역별 점 배치 불균형을 작게 하는 적분 설계이다.",
+      "source_url": "https://artowen.su.domains/mc/qmcstuff.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "random-projection-distance-preservation",
+      "group": 19,
+      "related_keys": [
+        "singular-spectrum-low-rank-projection",
+        "sparse-incoherent-measurement-recovery"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자료의 상위 주성분 선택이나 희소 원신호 복원 대신 유한 집합 거리의 확률적 보존을 목표로 한다.",
+      "source_url": "https://jmlr.org/papers/v19/18-264.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "locality-sensitive-hash-collision-retrieval",
+      "group": 19,
+      "related_keys": [
+        "nearest-neighbor-retrieval",
+        "consistent-hash-stable-partition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 근접 검색의 구현 경로이며 서버 변화에 안정적인 분할과 달리 유사도에 따른 충돌 확률을 설계한다.",
+      "source_url": "https://people.csail.mit.edu/nickle/pubs/pstable.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "intensity-constraint-phase-retrieval",
+      "group": 19,
+      "related_keys": [
+        "digital-holographic-wavefront-reconstruction",
+        "geophysical-inverse-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기준파 간섭으로 위상을 부호화하지 않고 강도와 추가 제약에서 위상을 역추정하는 경로이다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20396114/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "total-variation-edge-preserving-regularization",
+      "group": 19,
+      "related_keys": [
+        "linear-frequency-filtering",
+        "sparse-incoherent-measurement-recovery"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정 주파수 감쇠나 일반 희소 측정 복원과 달리 공간 기울기의 총량을 벌점으로 삼는다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/016727899290242F",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "sequential-likelihood-ratio-stopping",
+      "group": 19,
+      "related_keys": [
+        "threshold-crossing-event-sampling",
+        "bayesian-network-inference"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "원신호 문턱 사건 검출과 달리 가설 간 누적 통계 증거로 필요한 관측 길이를 정한다.",
+      "source_url": "https://www.stat.berkeley.edu/~stark/Seminars/foro14.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rank-adaptive-false-discovery-control",
+      "group": 19,
+      "related_keys": [
+        "sequential-likelihood-ratio-stopping",
+        "exchangeable-score-conformal-coverage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 검정의 관측 중단이나 예측집합 포함률과 달리 동시 발견 집합의 오류 비율을 제어한다.",
+      "source_url": "https://rss.onlinelibrary.wiley.com/doi/10.1111/j.2517-6161.1995.tb02031.x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "constraint-maximal-entropy-distribution",
+      "group": 19,
+      "related_keys": [
+        "variational-posterior-bound-optimization",
+        "bayesian-network-inference"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "주어진 사후분포를 근사하거나 조건부 확률을 전파하는 것과 달리 불완전한 모멘트 정보에서 분포를 정한다.",
+      "source_url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.106.620",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "invertible-jacobian-density-transformation",
+      "group": 19,
+      "related_keys": [
+        "variational-posterior-bound-optimization",
+        "adversarial-generative-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변분 목표 자체나 판별기 경쟁 대신 확률 보존 변수변환으로 분포를 구성하는 방법이다.",
+      "source_url": "https://proceedings.mlr.press/v37/rezende15.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "score-guided-reverse-diffusion-generation",
+      "group": 19,
+      "related_keys": [
+        "adversarial-generative-learning",
+        "invertible-jacobian-density-transformation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "판별기 경쟁이나 명시적 가역 사상 대신 잡음 분포들의 점수와 역시간 확률 동역학을 사용한다.",
+      "source_url": "https://research.google/pubs/score-based-generative-modeling-through-stochastic-differential-equations/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "filtration-persistent-topological-features",
+      "group": 19,
+      "related_keys": [
+        "density-based-clustering",
+        "hierarchical-spatial-partition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 척도의 군집이나 공간 분할을 넘어 여러 척도에서 위상 특징의 수명을 추적한다.",
+      "source_url": "https://pub.ista.ac.at/~edels/Papers/2002-J-04-TopologicalPersistence.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "random-minimal-consensus-robust-fitting",
+      "group": 19,
+      "related_keys": [
+        "ensemble-classification",
+        "empirical-bootstrap-resampling-distribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분류기 투표나 표집 변동 추정보다 구체적인 최소 표본 가설과 자료 합의로 이상치를 배제하는 경로이다.",
+      "source_url": "https://www.cs.ait.ac.th/~mdailey/cvreadings/Fischler-RANSAC.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "multigrid-scale-separated-error-correction",
+      "group": 19,
+      "related_keys": [
+        "krylov-subspace-residual-solution",
+        "multiscale-property-upscaling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "같은 선형계의 반복 부분공간 확장이나 유효 물성 계산 대신 격자별로 다른 오차 척도를 제거한다.",
+      "source_url": "https://web.stanford.edu/class/cme324/classics/brandt.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

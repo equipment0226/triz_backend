@@ -1,0 +1,152 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "bc62491136d7d55ccac15ac766e902399ea497019b40011b5107c5115449ac85",
+  "reviews": [
+    {
+      "identifier": "AR-076942-A1",
+      "source_fingerprint": "e385ead1a1162cd28c62187743288feaf9b904bd14cabb4ac6e47a9c2aef2be5",
+      "content_hash": "003fe5f9a13a5c65cd860b4a3b622cf2d267f4369fbf764dc4f582ddcd1dadeb",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "세포 접착분자와 백혈구 인테그린의 결합 차단이다. 결합에 의한 세포 접착·이동 조절을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-076944-A4",
+      "source_fingerprint": "f353351857e62ea6257daca8410962554285d274ef84cb1d520e2ed1a959fdbd",
+      "content_hash": "c61470ed3837165b0957bba08dcc173a8ff27ae97027f320f636f9c82eb298c3",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "브러시 머리 홈의 치형과 손잡이 내부 돌기가 맞물린다."
+    },
+    {
+      "identifier": "AR-076945-A1",
+      "source_fingerprint": "3332eda0bacc00e26f7db779c2796ba72ad4b6b464ba81b5c1d975a65b9fa2e7",
+      "content_hash": "85fc57ed3756dde92082dbe6c391863a20b57e2affa5b588f104c538dacac4be",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Bcl2 계열의 세포사멸 억제를 해제한다. 효소 저해로 오분류하지 않고 미토콘드리아 세포사멸 후보로 검토한다. 저장 말미가 잘려 있다."
+    },
+    {
+      "identifier": "AR-076947-A1",
+      "source_fingerprint": "1e1fae78d3fed7cf6dfa25e139814e9944d96d170b0a6a65e2ae2e90338d07cd",
+      "content_hash": "5bb2165fb9eed9823c6925554d3782b2c1d6021242a4cea1cab614340f172737",
+      "decision": "LINK",
+      "keys": [
+        "radioactive-decay"
+      ],
+      "reason": "방사성 탄소 자료로 화석·재생 탄소 비율을 구한다. 붕괴 자체와 동위원소 조성 기반 출처 추정을 구분해 검토한다."
+    },
+    {
+      "identifier": "AR-076982-A1",
+      "source_fingerprint": "2ed701b9609811a87e4429551e0fa55655fe04e898ca887d2a33c67d5ae1ecda",
+      "content_hash": "225524e334d4736ca81c967c04fc40b8998741a0804d09a0b1abbc1697b5af3a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "약물 구조와 염 형태만 제시하며 생물학적 표적이 없다."
+    },
+    {
+      "identifier": "AR-076989-A1",
+      "source_fingerprint": "10f261deccdb778f5232f51c6b7fd57b787c0b922d33a8d876ac48c0832bb956",
+      "content_hash": "91b43a4c7b105204a8d88eb3efdfb81f146ef0e2278a4ed017ab5cf60b509b19",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "enzyme-catalysis"
+      ],
+      "reason": "두 질소 대사 효소의 발현 증가를 제시한다. 특허의 생장 배수를 일반적 검증 결과로 사용하지 않는다."
+    },
+    {
+      "identifier": "AR-077067-A1",
+      "source_fingerprint": "523988ea36a824f9a6c19bdf09858e04ec2fa6d05713c375dd1dd8c755d3da49",
+      "content_hash": "458622a27cdc7455a692db0c80449b8f51c57ab2edcdc2d21e03011cc3deb8d6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "해충 방제 화합물의 구조 범위만 있어 작용 표적은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-077079-A1",
+      "source_fingerprint": "d0c262247c5004d48e71e9db8ae7c4b302dc8be9a829497b7ff0154d593c1e54",
+      "content_hash": "db6744999949310c96288fb14296a5102f5248e1ed3bbeba0eb64e3a18fcba15",
+      "decision": "LINK",
+      "keys": [
+        "distillation",
+        "condensation-recovery",
+        "gas-absorption"
+      ],
+      "reason": "응축·흡수·증류 조합의 탄화수소 회수이다. 앞선 유사 공정을 신규 효과로 중복 집계하지 않는다."
+    },
+    {
+      "identifier": "AR-077084-A1",
+      "source_fingerprint": "416dddec6c5ada4183af2f714539c5b03e42b69dea8508c987a0a8cf245e6a26",
+      "content_hash": "7b03f261d59319936e007b4f2b21632e693448ee684cf7ea556b7ada1855fbf8",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "CB1 수용체 관련 치료 용도를 제시한다. 작용 방향은 초록만으로 정하지 않는다."
+    },
+    {
+      "identifier": "AR-077097-A1",
+      "source_fingerprint": "f7041031a339ae61cfa2c6069eb2b662974871ed1de337382cf720b1c8833f29",
+      "content_hash": "d77dfd14e4a451c55ee79c8573789d8d68a288251f558e4e56bbcb2fc5b0cf73",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "압력 하중 방향에 맞춘 치형·홈·앵커로 하우징을 결합한다."
+    },
+    {
+      "identifier": "AR-077098-A1",
+      "source_fingerprint": "9c1aee242fa75b4fd0f7129ca235d62b488dc15c1b3dc1a4240947272905158d",
+      "content_hash": "2f1b191f820577323c5e76fd707820ca8bfdc8eb3e90ceddefa4f0a529411fd6",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "lead-screw-motion"
+      ],
+      "reason": "회전 나사 원추가 목재에 진입해 쐐기로 벌린다. 서로 다른 원리의 조합을 하나의 새 법칙으로 세지 않는다."
+    },
+    {
+      "identifier": "AR-077104-A1",
+      "source_fingerprint": "34717af75eeb6446886cd40a59f3b56ab436089e261da8b88b1e4fce84d2a561",
+      "content_hash": "06fbf4a6c2fb023377ba1623606e50fc0ee8f7c6014a384dfec1e476572119f0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "자동 이탈 용기·금속박·구체·무선 표지의 사고 위치 표시 장치이다. 특정 산란·부력 성능은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-077124-A1",
+      "source_fingerprint": "aea7721b07a220ae5d5fbf9188873c12a8b7130b047d2a746e6184a50f2a5766",
+      "content_hash": "97d0969625b345e2e3e45b5b6c2e71cb486db0000e8781055cb95d446214e62c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구충 약물 구조와 조성이다. 작용 표적이나 결합 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-077145-A1",
+      "source_fingerprint": "92e214d291d097acf9dc0877a84e81edc2cf08661dcb36c2b1fbce0262511516",
+      "content_hash": "936bf4cd855536e364279271074dc4d008fc1b4bef051dc38a8999fb369b3f39",
+      "decision": "LINK",
+      "keys": [
+        "rotary-positive-displacement"
+      ],
+      "reason": "진행 공동 펌프·모터와 회전자 연결 구조이다."
+    },
+    {
+      "identifier": "AR-077147-A1",
+      "source_fingerprint": "f38641126fb4c0e94f728375d8015ca1535416ecdfb40f39964bc7454066c1de",
+      "content_hash": "cf087ebf5ba130766decef4894de2c4ea1b4ce91586669786d2aa40992d90e9e",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "KAT II 저해를 명시한다. 저해 효소가 달라도 일반 저해 효과를 중복 추가하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:09:24.024513+00:00"
+}

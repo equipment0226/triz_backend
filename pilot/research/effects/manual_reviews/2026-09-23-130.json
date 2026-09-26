@@ -1,0 +1,257 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "951c9bd33f7d749f287f0ad559d0af29e46b5c072168d42062336044370b85ed",
+  "reviews": [
+    {
+      "identifier": "AR-094362-A1",
+      "source_fingerprint": "0b141e834bdbb1531a27016cf36c1b6b73625e2d8ff2029bde307ad7c95e5817",
+      "content_hash": "66f715161326c3d08ccd72ce1e8b14722792dc253f46b4d3eea6bd568cd16e54",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "자성 입자의 정렬과 각도별 외관은 확인되나 굴절로 연결할 근거는 부족하다. 앞 기록의 굴절 연결을 철회하고 반사·자기 토크 초안에 연결할 예정이다."
+    },
+    {
+      "identifier": "AR-094379-A1",
+      "source_fingerprint": "5a81aa259ee808ebd67d11a83844a94cdfdb1e51daac1b7605afbe8327d3aaf8",
+      "content_hash": "74eb0c13b7a3c3a77442b76b681f4cc4c2453212e1c338db8861cfcfaf19d86c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "PDGFRβ 결합 항체의 수용체 신호 조절이다."
+    },
+    {
+      "identifier": "AR-094396-A4",
+      "source_fingerprint": "11a1ee2e83c7d22482fbf2ff4f1aa7c77ed2744261ffa11f946406dd8275b0e5",
+      "content_hash": "6429d8c648ffde01862f13d51f39c3da13a3d031cb4d648ee0ff8808effd9a17",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "접히는 포장재의 상보 날개 체결과 개봉 구조이다."
+    },
+    {
+      "identifier": "AR-094403-A1",
+      "source_fingerprint": "e81b2e6140b119b26ec48de17601fe7b1f9f45313da4951a8e3db516de36ca84",
+      "content_hash": "97d98312890af295d420084bdee8498b57ea0c3d3a66717df772c9f18737e2f6",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "HER 수용체 항체의 병용이며 독립 상승 기전은 없다."
+    },
+    {
+      "identifier": "AR-094412-A1",
+      "source_fingerprint": "0c00dd228c9bf79d648fe0837f126dd2de6ac2c6d5387e3275a17e59c900a192",
+      "content_hash": "ba9dbbf947e0050e9d5115d3494c2e21b6499f0ed42f7fd1b4c34b91be09c32b",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation"
+      ],
+      "reason": "CRAC 칼슘 유입 전류를 억제한다."
+    },
+    {
+      "identifier": "AR-094426-A1",
+      "source_fingerprint": "9d51ed5643aa70c159434a2c81631dbf2c52c8ce1c006f78cf7ca2a4c33e1735",
+      "content_hash": "692ee8dd0e17a1a78ba4b39ffe2df70c64fb510490b64080a33ccc294614a0ad",
+      "decision": "LINK",
+      "keys": [
+        "photoinitiated-radical-generation",
+        "polymerization",
+        "electroluminescence"
+      ],
+      "reason": "LED 광으로 광경화 수지를 중합한다."
+    },
+    {
+      "identifier": "AR-094433-A1",
+      "source_fingerprint": "88731221680d922fc01678d9af2977b24f60ccc01925c632f827dd340db3cb78",
+      "content_hash": "4635f9f797e19acd62f9072adf8a5063bbd6e867209c279ba8c9ff158858c4c6",
+      "decision": "LINK",
+      "keys": [
+        "thermal-chemical-vapor-deposition",
+        "forced-convection"
+      ],
+      "reason": "증기 전구체를 이송하여 유리 표면의 산화물 피막을 형성한다."
+    },
+    {
+      "identifier": "AR-094478-A1",
+      "source_fingerprint": "f7246b8ed1049e4d17b276a44657ee5128e313da48cb7eb6edaca648f69e55ac",
+      "content_hash": "5f260db236e04e6217f524c3e1d6f6b41101e1d2bc0f8621d38324cd36583404",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "편심 관을 지지하는 분할 프레임과 조절 체결 구성이다."
+    },
+    {
+      "identifier": "AR-094479-A1",
+      "source_fingerprint": "fe54bfa8ec0f55d0bd1c5f9cb35d6ad7c580cadb3cce3cda1a0fee7f59dba599",
+      "content_hash": "df5f32cb1d7f0cebf7e5cb7d919d7f835a557a6e58c6de159235b78f7d995ab3",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "주사기 이동에 연동하여 덮개 잠금을 작동한다."
+    },
+    {
+      "identifier": "AR-094481-A1",
+      "source_fingerprint": "62f137067f86d60bce40e6cb4429af563698bf5f7ceb518f7fb259deb4dc0eaf",
+      "content_hash": "03d23cbacc1797c445eab6bf45cd14ca80f2165ea595d9c29c4c20da300f5276",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "acid-base-buffering",
+        "freeze-drying"
+      ],
+      "reason": "콜린에스터레이스 융합 단백질의 가수분해 작용과 완충·동결 건조 제형이다."
+    },
+    {
+      "identifier": "AR-094488-A1",
+      "source_fingerprint": "87ad004e72db2778f2e5821192d5bc79418cee42af1787ee719fb66ccbff6ab8",
+      "content_hash": "7c6104928e5d0474f3a9fa13a8d673db68de622dad42a18dddcca059bd51e1cc",
+      "decision": "LINK",
+      "keys": [
+        "hypochlorite-oxidative-inactivation",
+        "acid-base-buffering"
+      ],
+      "reason": "차아염소산염을 금속 수산화물계에 담지한다. 층간 저장·교환 방출 원리는 별도 확인한다."
+    },
+    {
+      "identifier": "AR-094500-A1",
+      "source_fingerprint": "b15fff60bdb95eaab67a63a9e29afd957182a4e1d172fd1431354f79fba91eaf",
+      "content_hash": "e559c7b529b8367e13f55128e292c7e05e1393bd1f24824f2545440473cbae9b",
+      "decision": "LINK",
+      "keys": [
+        "venturi-entrainment",
+        "hydraulic-force-transmission",
+        "negative-feedback"
+      ],
+      "reason": "벤투리 차압과 차동 피스톤으로 첨가제를 공급하고 압력 손실에 따라 통로를 조절한다."
+    },
+    {
+      "identifier": "AR-094503-A1",
+      "source_fingerprint": "e8ba1e35f461deef0686537492fa1957f1b6ca9b1988ab0c32b26af405b5dc35",
+      "content_hash": "8ff754fe529b3fbe4393b25239a4a817cc544cdc3eb8b7f32839bd08a8b11754",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "ion-channel-modulation"
+      ],
+      "reason": "추진제 분무와 피레스로이드의 이온 채널 작용이다. 임의 경험식을 독립 물리 법칙으로 만들지 않는다."
+    },
+    {
+      "identifier": "AR-094508-A1",
+      "source_fingerprint": "fb93c9660b5c539a6e7354bc9da45feba8285811f60ee65441fc22d41b4ced07",
+      "content_hash": "d72ce84aea6b4b80bcb0259de8c3b22a796f830e96da79ea0897807e0fa5ee96",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "프라이머로 종이 표면을 매끄럽고 비다공성으로 만든다. 에너지 경화 종류는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-094510-A1",
+      "source_fingerprint": "a7181a742b7933157e11dbad4862658ade20404970fc6557a0363b76e8e1e196",
+      "content_hash": "334ce0d7b42e7f57eb46639bae8942afe46c20f43140853f36737c670c0431f3",
+      "decision": "LINK",
+      "keys": [
+        "laser-ablation"
+      ],
+      "reason": "MALDI·LAESI 질량 분석이 명시된다. 연성 이온화와 질량 대 전하 분리를 각각 문헌 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-094523-A1",
+      "source_fingerprint": "5dadb016aeb6ffb51ac9ce83b48e38eb81f1c6e3f60311e86ce5d88bcda455ae",
+      "content_hash": "9c975f4489cdc7ff0bdedcc84a94275cfe458550fb5bf1634d5ded52a7db02bd",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption",
+        "coordination-complexation"
+      ],
+      "reason": "황계 용액과 반응시켜 기체의 수은을 수상에 포집한다. 명시되지 않은 침전 생성물은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-094527-A1",
+      "source_fingerprint": "131a4604923cf9ff828c5a4b1f956e539e4de5fe23fb85e6662ebd2c90c011f5",
+      "content_hash": "aa0a0f78b61e231847d458fb1ffc711e8b6de98bd34d0ef5b3b1443aee43efd8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "벤조푸라논계 안정제 구조만으로 라디칼 포획 단계를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-094533-A1",
+      "source_fingerprint": "6eb7da7c8f3288238caa1615d34d6f73671b1aa156d66cea44bb0dd374eb3f91",
+      "content_hash": "bf5eded88e1d510c8e25e628f6ddb9453150f6a991bbd3ca2bdaed4ddff7b912",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "frictional-load-transmission"
+      ],
+      "reason": "관절과 나사 장력으로 편자를 탈착·고정한다."
+    },
+    {
+      "identifier": "AR-094561-A1",
+      "source_fingerprint": "9b4581cdb39dc27de91b6ae48faa19e9b70f13a7133507b1e753c402e7538459",
+      "content_hash": "0a418ed11b106309e7ac4e11f0b5c7af1b833a72fb1523632c8ac0ed95e4420e",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration"
+      ],
+      "reason": "통풍 건조 공간을 덮개·측면 패널로 구성한다."
+    },
+    {
+      "identifier": "AR-094566-A1",
+      "source_fingerprint": "045bbc1305e3fba07224d1b0d60741a15907d61f827e06c784b330467d9ea9ae",
+      "content_hash": "8c32c45809e38c2ca520ce8db3388265f871705660087c83fe847cf37014e5a2",
+      "decision": "LINK",
+      "keys": [
+        "claisen-rearrangement",
+        "catalytic-hydrogenation"
+      ],
+      "reason": "알릴 아릴 에터의 열 재배열과 선택적 수소화이다."
+    },
+    {
+      "identifier": "AR-094567-A1",
+      "source_fingerprint": "f504ab99efdc159227be0ca0072ff8f5a9f7291321ba6c2db588a8d3926f3a09",
+      "content_hash": "b9b73f0c740b33430ecb412a8996a5f9fe9c68e13b5523798c26b5d74bec1ce3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "파종 계량부와 홈 절개 디스크의 배출 위치 배치이다."
+    },
+    {
+      "identifier": "AR-094605-A1",
+      "source_fingerprint": "10f290bb6260334bd1ae0456d3393fd4582dd636888c353b8fa841cc15beb4b0",
+      "content_hash": "986f7c4ac55610a7b1224b23a633eed3bd521de047b35a43843ecd7b0bbfee72",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "네트워크 상태 사이 토큰 이동과 하위망 복귀로 음성을 해독한다. 유한상태 변환의 순차 인식 원리를 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-094607-A1",
+      "source_fingerprint": "8514cbaab44c38ccf8594d35d2397186440fb784899db1a61c7b5106a87b98a4",
+      "content_hash": "20524cb44b8223007be1b4d5695f757d95a6c0de211159cd77ef95f8aca61c81",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "나선 스프링의 장력과 후크 체결로 망을 유지한다."
+    },
+    {
+      "identifier": "AR-094613-A1",
+      "source_fingerprint": "036f83952d9db7bbbc82015439ff5894fd7c80b1e2cfaf0a9dbf6a8346cac799",
+      "content_hash": "fdc0de3925a81017743b70ed7bd3a42a7c3f3119db746533a8efaeaf7759153f",
+      "decision": "LINK",
+      "keys": [
+        "anaerobic-digestion",
+        "centrifugal-pumping"
+      ],
+      "reason": "혐기성 소화의 단계별 구획과 슬러지 순환이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:34:40.950900+00:00"
+}

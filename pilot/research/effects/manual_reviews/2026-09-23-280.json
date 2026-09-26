@@ -1,0 +1,449 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d101b06f0a42eff1b793e431389fd8de9cc6150cb6685f0a635caad831b3a35d",
+  "reviews": [
+    {
+      "identifier": "AR-126884-A1",
+      "source_fingerprint": "250500c83d7e230601f65a5b8ffe959818776e83909c9f1de7370c1e8da7d9cd",
+      "content_hash": "d651f8b5082092dc317a6c00b5a4cf3b7b6046b026e830e79f600902a7d2de0d",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis",
+        "enzyme-catalysis"
+      ],
+      "reason": "펩티다아제에 의한 독소 가수분해이다. 특정 독소별 별도 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-126886-A1",
+      "source_fingerprint": "41104f0530d380d9b00be3f1839fce0130604f5e017a919d9d33307db875dd12",
+      "content_hash": "702eda0488882c3f401e36be42ae2e91afeb86da1b7f699d6a44fdf70a7cb56a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "receptor-ligand-modulation",
+        "ion-channel-modulation"
+      ],
+      "reason": "효소·수용체·칼슘 채널 조절의 병용이다. 약어 ARNi를 RNA 간섭으로 오인하지 않는다."
+    },
+    {
+      "identifier": "AR-126911-A1",
+      "source_fingerprint": "bafbbd8ea3d2d8af5ff70424153dad14907eb7e585eb9113ea8814b2f9f54aa1",
+      "content_hash": "2abd4733f406c6e6ee1d16bd80fb1d159aa3519e6d5efa56982b26a1fbe9fba1",
+      "decision": "LINK",
+      "keys": [
+        "carboxylic-acid-esterification",
+        "polymerization"
+      ],
+      "reason": "다관능 원료의 폴리에스터 형성과 말단 에스터화이다. 왁스 억제의 세부 경로는 없다."
+    },
+    {
+      "identifier": "AR-126916-A1",
+      "source_fingerprint": "3c1d9865bf0ead35a6197ea3fbbfbb5e05ca942b8e73e4fa8d2254496b518dba",
+      "content_hash": "a0fe23300f010fc9faaf9aa901c86de947acc50e2b8c84367e1845da71740fc1",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "배터리 주위 공기 유로의 열 관리이다. 실링 재료·기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-126918-A1",
+      "source_fingerprint": "34457f567acd1596be022a6fe371e334776ba78f11f1fbdb6703202e8fab7099",
+      "content_hash": "7ebf3a5a1e3008a4fc341d3171f84f480f1408e7651ddaea045a43fb33f9f8d9",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "광 커넥터의 맞물림·정렬 구성이다."
+    },
+    {
+      "identifier": "AR-126938-A1",
+      "source_fingerprint": "5964409a02388ebecfcfe38b52395ddede28ba1b43c7d9e7ea8c91a0c5e08389",
+      "content_hash": "4f5440105fda219c7737eb4f2f9a346b294ebe1ca05fcf3c00dfe5c7e03cd2c1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "MAX1 유전자 편집·식물 재생이다. 기존 헴 모노옥시게나아제 초안과 연결하고 편집이 항상 기능 상실이라고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-126939-A1",
+      "source_fingerprint": "58f0cd8a67f714fd41dc79372ae24e50d3e68953969d4c64405626b7510ba037",
+      "content_hash": "f60c51adf10c74bb6710477c76e1b39472941479a72abc136b4c8ed417ce8c17",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "화학 변형 RNA의 표적 발현 억제이다. 핵산 안정화는 기존 입체 차폐 등과 비교한다."
+    },
+    {
+      "identifier": "AR-126941-A1",
+      "source_fingerprint": "a7bf71136b6708059570199564cedb26edbdda414185096d1daa611290ae9c58",
+      "content_hash": "a34cdbd22a06b6a0836443fcbaeab76c9d84b0d4316ed740a96a231c25169e37",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조이며 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-126947-A1",
+      "source_fingerprint": "41629924e3fe80cbaeb583ceb9040f63bd36a1c2283dbb646100ad95bdc2a818",
+      "content_hash": "ff7bb7d0a4a316fa49278b80c85807e7c009342c39e8d968466128491d679872",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "회전 분산기 목적과 장점이다. 액막 분열이나 정확한 입자 가속 경로는 없다."
+    },
+    {
+      "identifier": "AR-126953-A1",
+      "source_fingerprint": "c572e6cb9ce0c3ec86b2a6420c5e351b9c529256dfb0b3e71e7201336433d025",
+      "content_hash": "c73f9084d90064dfc0b9b1595b6afe8e59f8667d7db2317e4742f0f4dad21d20",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "ACC의 식물 착과량 조절이다. 에틸렌 전구체 전환과 기존 호르몬 작용의 경계를 검토한다."
+    },
+    {
+      "identifier": "AR-126968-A1",
+      "source_fingerprint": "422d5949454840449bd4f43204e09f731e1692079de0c5638baf285c9bce6d63",
+      "content_hash": "c7005b7b27a9addc884493498beedf0e0b11b3d70c0a738fb348206619352786",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약의 과립 제형 조성이다. 과립 결합·증강 기전은 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-126975-A1",
+      "source_fingerprint": "c4a90d7553f94a2857589ba700492963ecc1309108e4b41ded26bfbc44f5e923",
+      "content_hash": "e56a372982c8cfecb31507b97344d6b299050000b8f4b065cdb88ec9f3c7a7da",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion"
+      ],
+      "reason": "공기 흐름으로 회전하는 로터가 연료 제트를 분산한다. 정량 유량·회전 관계는 별도 검증한다."
+    },
+    {
+      "identifier": "AR-126982-A2",
+      "source_fingerprint": "4394f0db0ff0a251dde4378826c6a5e78af9d01a72cbb4bac95fb829fee74545",
+      "content_hash": "8a4117064142d86104d15e3f7ab22421bd6f2dbc0aaa884b0d3af75e7df96273",
+      "decision": "LINK",
+      "keys": [
+        "distillation"
+      ],
+      "reason": "바이오디젤의 휘발도 차이 분리이다. 수소화 탈산소는 기존 초안에 통합한다."
+    },
+    {
+      "identifier": "AR-127006-A1",
+      "source_fingerprint": "346620ba690157d560dee0e7922bc84e6a0c4779f16386ab07a82ba0af731c85",
+      "content_hash": "f4072b5bc8c8123642ba7a144d12b63e5baec334f45847e02466720ce3b5b0bf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전기분무·질량 분석·내부 표준의 단백질 정량이다. 기존 이온화·질량 분석·참조 보정 초안과 비교한다."
+    },
+    {
+      "identifier": "AR-127010-A2",
+      "source_fingerprint": "ffa50e9f667d2e4a3f75767ca60b895a662faf37a3176b0a2ef8640e8f0dbb0b",
+      "content_hash": "3d7e1600b34b65647edd4b149f5360fcb3cf0d3bd51f258573974f0c9084008b",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "항체 결합·중화이다. 모든 개선 성능은 변이·측정별 검증 대상이다."
+    },
+    {
+      "identifier": "AR-127058-A1",
+      "source_fingerprint": "42bfc511279ef94b5ee20944178e284735ae48bcbd1c86fab1b59c96a3672b81",
+      "content_hash": "543af5ca6813049c46ee41422870e8e5c72098572fcb8b05f4293c81a11169be",
+      "decision": "LINK",
+      "keys": [
+        "thermal-biological-inactivation",
+        "distillation"
+      ],
+      "reason": "유기 폐기물의 열 처리·분별 회수이다. 불명확한 촉매·원소 수지 및 완전 살균 주장은 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-127081-A1",
+      "source_fingerprint": "7d75c4838a5eda55791507aa07ef1235180aa5a4caa3a6147efd94e67a5c4c62",
+      "content_hash": "adcba4eca9abea9c60138e0b44ef4620e20897364aa55e918d0a698386199ca7",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "프라탁신 유전자 발현이다."
+    },
+    {
+      "identifier": "AR-127091-A1",
+      "source_fingerprint": "1158854f531f4b8a1ea4d2a48b8300af90bcce553f9a8faedda167d3ecf6bc2a",
+      "content_hash": "210a5a98d5a3802bf9f0a71a3099977268aab75c2f58771c0f688cf24f5dbbbf",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "탄성 턱이 핀의 단차에 걸리고 회전으로 풀리는 고정이다."
+    },
+    {
+      "identifier": "AR-127101-A1",
+      "source_fingerprint": "e4ddc7c5984986d4162d90dc831363506137339b2029e59d6da9b2f9c4436365",
+      "content_hash": "ff05c67b4b19eb0bfb45d9bc5f8ebe1da01c119db1360d00a332a9223b67d62c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "PLGA 입도 조절 제형이다. 확산·분해·상전환 중 방출 지배 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-127108-A1",
+      "source_fingerprint": "f2c02c37855d26e521bcb96d4c8e8ffa1d4addcbe4bf4aeb1df6c0ba6536775c",
+      "content_hash": "9a83b009748c494f733590380e40458b04af8987a2851f5aaac5f3d82debc411",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "ALK5 수용체 키나아제 억제이다."
+    },
+    {
+      "identifier": "AR-127131-A1",
+      "source_fingerprint": "b6d0482eb4af289e668224c2b801651167bd50801ef756f9a9e8ced54c3be97a",
+      "content_hash": "5a3965359cd46b6b96207b320e74dadf670f2fba129642deb313ff21c6545b5c",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "미생물 글루탐산 생산이다. 미상 단백질의 기능 약화만으로 대사 유량 변경 경로를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-127143-A1",
+      "source_fingerprint": "22c1caca46bb336e98cf2f65a62a4ffddc8265aee4ec1ef0052da5002d903571",
+      "content_hash": "4e5d3a08f441a0d8973b75e1a7d8f59d5ca64011a1e88a9c941489630ed64973",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "농약 수송용 이동식 탱크 구성이다."
+    },
+    {
+      "identifier": "AR-127167-A1",
+      "source_fingerprint": "7fd9610b34ac0ee3281f1f137b208658865731acdd6591f63c8c9b5b5719c2cd",
+      "content_hash": "d11c2718601c467fe168459f8e992e41ad9232669da3158598080e5fe6bfaa4c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "나사 고리의 관 끝 체결·보호이다."
+    },
+    {
+      "identifier": "AR-127180-A1",
+      "source_fingerprint": "c36abad3743c5b4388d5ad650cfe3c05e6a3b9f57841b7bb2a0efbd0aad5d437",
+      "content_hash": "89679cbe71f05447c04baa6352cb15da24e2a0719b07fbfd7ddbf91dcbc5d584",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission"
+      ],
+      "reason": "유압 피스톤이 맨드릴을 이동시켜 역류 방지 밸브를 연다."
+    },
+    {
+      "identifier": "AR-127191-A1",
+      "source_fingerprint": "cefb63187bc330284af8c671fe802980b61628d451577d4c1999254a5ba392fe",
+      "content_hash": "c1cca4166d94134ca6d037c6aad903991305ba0f73b7df5dede92182bc24cb3f",
+      "decision": "LINK",
+      "keys": [
+        "pressure-compaction",
+        "bulk-comminution",
+        "sieve-size-separation"
+      ],
+      "reason": "체질·롤 압착·분쇄의 고체 제형 공정이다."
+    },
+    {
+      "identifier": "AR-127234-A1",
+      "source_fingerprint": "65b460a647c862aa7d556ae92b1a2bbbc5dbd5796e21ad1f3f8c8235a6d5a813",
+      "content_hash": "0621c0cb7dd15e33ef472d51722de430678e520c3692e467021c9bcfca5c3e26",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "다중 면역 수용체 항체의 결합이다. 표적 조합을 신규 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-127241-A1",
+      "source_fingerprint": "73955229739d832c4b297df68311f30ab5662ecd343f1d21ae629e0186ec70db",
+      "content_hash": "9ba5ce9b0f7804a0178715344c2a57e789cc6b0f3014a5367e2aa4a2c80d11c8",
+      "decision": "LINK",
+      "keys": [
+        "magnetophoresis"
+      ],
+      "reason": "자성 산화철을 전자석으로 포집·분리한다."
+    },
+    {
+      "identifier": "AR-127246-A1",
+      "source_fingerprint": "708d9f63e4a5fa0522e61553578b65e3140caa87984f020152fa52a896fb5b36",
+      "content_hash": "8305981ee3aafb1c53eb9db4b17642bd32269c31e509cc13f58137e82bdf39be",
+      "decision": "LINK",
+      "keys": [
+        "aerobic-nitrification"
+      ],
+      "reason": "질산화 억제 조성이다. 직접 효소 표적은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-127261-A1",
+      "source_fingerprint": "cecbc3dae1865d35de9820b80a34ebb1195006c6a9306d55dffbef350b83d8b5",
+      "content_hash": "c149f01df166236c622cb45ef46e03c5de3c0c593cdfef80c539d96fb11ddbd2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "원격 관측과 위치별 수확량의 비료 권고 구성이다. 구체 모형은 없다."
+    },
+    {
+      "identifier": "AR-127289-A4",
+      "source_fingerprint": "6471f6c8c8ff8baf6d7f65ffe9ee3cb28fc6e2b3f5efa275aaaf5a5ba8342371",
+      "content_hash": "531796f2461da214375a172a35de2cd17b6ed80c8e95f50fa4f2b9d7c741a12d",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "홈·턱과 클램프로 분산 노즐 높이를 고정한다."
+    },
+    {
+      "identifier": "AR-127291-A1",
+      "source_fingerprint": "2ca451dff9635b447a84ae1e1778cbd3757c7359308effadca7b278b089f85cc",
+      "content_hash": "84ea8d370c5ba1108fc7e4529a9abbe5c493f63c9dadc3df3a19e0292c1ac634",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "포장 양면의 차단·투과층 구성이다. 미시적 투과 방식은 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-127302-A1",
+      "source_fingerprint": "ce75f9a100abd663f41481b4af4b3e0ae54a7696a084794ac87d61f6485acf03",
+      "content_hash": "8bb588af7b87c98ab40a4697eaa6b95f7f213d688bb3d542a9d7700e822c760b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "흡수 의류의 직물·공극·장벽 배치이다. 흡수층 재료와 구동 기전은 없다."
+    },
+    {
+      "identifier": "AR-127320-A1",
+      "source_fingerprint": "bf74b07103f07ac9dd0bc25b9018e488246cfbf2ca2d2a1ede9275e75bbdfe4a",
+      "content_hash": "fa525a3c215a1e9fafee42c101b8b2f94c10e48e5eded50a828b334ddab80e3d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "환경 조건에 맞춘 측정 장치 전원 연결 제어이다."
+    },
+    {
+      "identifier": "AR-127341-A1",
+      "source_fingerprint": "8c4a573850d6c8f19a6874db85f8f7e8718ad4053dc1481e5dbc4945c40f0d43",
+      "content_hash": "6a0a61644ac5270ed10bdbf0df8bd7c97b89fd60497f548b915067a79e4360c2",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration",
+        "bulk-comminution",
+        "forced-convection"
+      ],
+      "reason": "점토의 건조·분쇄·열 활성화와 가스 열 회수이다. 탈수산화의 반응성 변화는 별도 검토한다."
+    },
+    {
+      "identifier": "AR-127342-A2",
+      "source_fingerprint": "6122a71fe3e0b62a94c59320081cffe042cc63cd11c5e9864c94e401dadbe749",
+      "content_hash": "a64c830b9ca802f72f1b3f7fc97badb554872a5f566c500c5dfa79679a8438d9",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis",
+        "evaporative-concentration",
+        "bulk-comminution"
+      ],
+      "reason": "케라틴의 물·열 가수분해 후 건조·분쇄이다. 소화율 수치는 조건별 결과이다."
+    },
+    {
+      "identifier": "AR-127352-A1",
+      "source_fingerprint": "d8ebb89159ec11ae9fe2ad9ff7c02039526fe7a8a24233f2b03e62122453bea6",
+      "content_hash": "18704fca684643114ab7063545d4cefe293cb8e6fa88a3f769a8570b837f845d",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism"
+      ],
+      "reason": "기울어진 디스크 옆 쐐기로 토양을 변위시킨다."
+    },
+    {
+      "identifier": "AR-127364-A1",
+      "source_fingerprint": "0f6fa85f00cfd9be3473b1db2b4d4443358ec8bf9412bdb74ccf9f118a84d7ed",
+      "content_hash": "54184d3a5bf8b2ed24776768918e017355bc6ce4656a15f8da54a70cd14b715f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "열분해유의 고분자 오염 억제 첨가제이다. 분산·표면 흡착 경로는 없다."
+    },
+    {
+      "identifier": "AR-127374-A1",
+      "source_fingerprint": "d74905b68dc6d5762cea4f596486a3d2d234918816e80147ed882ba4a7af65b8",
+      "content_hash": "9bb1551a5a7b40212684d65a1aff965aeed45c778daab41d31cf84399dd3a7d9",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "농기구 구조에 노즐 홀더를 빠르게 체결한다."
+    },
+    {
+      "identifier": "AR-127380-A2",
+      "source_fingerprint": "0fe36e211be6ccc93db72e0369ce57774e0391978bb2288eb352e2de29f265cf",
+      "content_hash": "36b314361d64e2bf3dfca5816b2dd3ed75553cfe08e0936245df168b4d329259",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "정제 유체와 접촉시켜 아민을 제거하나 정제상·물질 이동 방식은 없다."
+    },
+    {
+      "identifier": "AR-127397-A1",
+      "source_fingerprint": "09fad4d70de31163f3ecfd2bfaa8485f26bf0221a7f6547ccdffb8c7c7ac3251",
+      "content_hash": "17b7eaefe833a7af42853799cad965836a5966a2bbbe4d60059219a0015cf77e",
+      "decision": "LINK",
+      "keys": [
+        "rolling-contact-friction-reduction",
+        "mechanical-interlocking"
+      ],
+      "reason": "베어링 내륜을 통합한 관절축과 나사 고정이다. 평행 링크는 기존 구조와 통합한다."
+    },
+    {
+      "identifier": "AR-127406-A2",
+      "source_fingerprint": "569692e0755dd7a9963ba827d25ab8dce7a4209fa17dc337fa96fb7d19c84981",
+      "content_hash": "5e92ca9c2096df3ba20e1ed2e93a3c4bb7e2195c0e6b8ece91d63637a4974e39",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control"
+      ],
+      "reason": "표면 처리와 소수성 코팅으로 금속 망의 젖음을 바꾼다. 초소수성 상태의 미세구조는 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-127445-A1",
+      "source_fingerprint": "2d60b9c4a251fd5ff3ac542ae003c0c86afe707bd580ed6799cebd15504b29ea",
+      "content_hash": "dd3248960038d3ad66132552ad15679be230c2ff445741324d9bf1638f9ab77c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "클라우딘 항체의 결합·생산이다."
+    },
+    {
+      "identifier": "AR-127466-A1",
+      "source_fingerprint": "03ebf037f930643228b4061dc67f8144afba5c6b748032e75f73bdcc4ab07eb8",
+      "content_hash": "2bc364f1aba8fd48286702f132893f8d16cb162a187050f110efdd70e81b738c",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation",
+        "radioactive-decay"
+      ],
+      "reason": "금속 착체와 방사성 표지의 결합이다. 핵종 취급·제조 조건은 다루지 않는다."
+    },
+    {
+      "identifier": "AR-127469-A1",
+      "source_fingerprint": "c3d330025c1269cda459f0b8266c6d62ecc667259312fb2975213ed41286301c",
+      "content_hash": "12a70d481775f17e1754bed31f0289c2a48bc6174ac816f625e2a39432b821dc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "혼합 순서·속도 등을 탐색하는 LNP 제조 최적화이다. 이중층 형성이나 특정 탐색 알고리즘은 없다."
+    },
+    {
+      "identifier": "AR-127474-A1",
+      "source_fingerprint": "0be69432b1b69b727ff6577df29a87e5fdc21a696e4f9d247d3198b324207450",
+      "content_hash": "a2933fc0d1209c83b90844eb7d9cd327efe13faccb3e9f9855441d291ea54b6a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "식물유·농약·물의 현탁 조성이다. 안정화 기전은 없다."
+    },
+    {
+      "identifier": "AR-127502-A1",
+      "source_fingerprint": "a579285aa9573cd72b52fb16332b0e0d41570ebd1ce918a823e3786dccc3a37f",
+      "content_hash": "c42db2c8983d2c352485d7cd9f4c1a74a06f855251df5d774e061c19d25558a3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "셀룰로오스 캡슐 돌출면의 밀착 밀봉이다. 탄성체 씰로 단정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T03:11:49.765871+00:00"
+}

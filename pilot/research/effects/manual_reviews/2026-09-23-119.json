@@ -1,0 +1,117 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e4038c8ecc49dd325769dafb61140c0b8cd43d963420f13c8529c67ee59fa8f6",
+  "reviews": [
+    {
+      "identifier": "AR-091595-A2",
+      "source_fingerprint": "9daa68c4655a3782c2a48b7fefd36b5c47ffb07ad0210ba6f3f530320c15fc59",
+      "content_hash": "c3844e594fdf872cb5216f57f9d4a47908bba3f3ccd8b4bb80fa3763f13b74bb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "약물 성분과 염 형태 목록이며 수용체·제형 작동 원리는 없다."
+    },
+    {
+      "identifier": "AR-091599-A1",
+      "source_fingerprint": "2192933540e3e1dfe3e6906df3b72d05cccf02442deb7760ebe83020ea561077",
+      "content_hash": "3dbbdc2f97fdec996809b6c0b5656556e79829b97c5bfcbb7d9f453dc0cff269",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "젖으면 해조 유래 점질 성분을 방출하는 섬유층이다. 피부 보호 효능은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-091603-A1",
+      "source_fingerprint": "38551b8fb8199d05e88207dc9c9d2995a577a7d654dc0e7a74734483b5ce372a",
+      "content_hash": "2b55ab9bc98d4d10df8bedff4a3adadb199e0d60b48f71e49cb7180d694701e6",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "항균제와 베타락타마아제 저해제 조합이다. 구체적 항균 표적 경로를 추가 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-091617-A1",
+      "source_fingerprint": "996cd6d0a69fe9e30c0c83aac34092007a6c3086f4307d237f359ea1b9d3aa45",
+      "content_hash": "ee42682bb50a650e3b82cb8288d2e94d6a20b4e9184f462601ef60a6c65e1a42",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "골판지 셀 방향과 층 배치로 곡면 구조를 형성한다."
+    },
+    {
+      "identifier": "AR-091635-A1",
+      "source_fingerprint": "f514ccf4fc96b297da1784298c0c7a863c99561ac590fac8d5057297800593b1",
+      "content_hash": "f6008649d3d1c894e3da6b82f19e96036abc917c1294f987bb492f768a38af80",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "제품 표시 방향에서 보이는 요철의 배치이다."
+    },
+    {
+      "identifier": "AR-091641-A1",
+      "source_fingerprint": "1208a89b8c42d34419c6855a686cfd46b2b8aca98144fbc38be42578cfda0e55",
+      "content_hash": "f766ca144fbab094d37a7101acaedfa54646cf1907518a0b85c326f0f834ebcf",
+      "decision": "LINK",
+      "keys": [
+        "elastomer-contact-sealing",
+        "mechanical-interlocking"
+      ],
+      "reason": "압축 밀봉부를 유지하면서 케이스를 재개방하는 체결 구조이다."
+    },
+    {
+      "identifier": "AR-091643-A1",
+      "source_fingerprint": "2a2ae5b523ab26d804e3906a6770555ad6e76237b7f5d786ab7e846880233443",
+      "content_hash": "22b5fd1a26d4bbc8ce99b47795083c0635ab5319546ebbac2f71871a9fec0fe5",
+      "decision": "LINK",
+      "keys": [
+        "gelation"
+      ],
+      "reason": "저에스터 펙틴과 칼슘의 겔 형성이다. 다가 이온의 사슬 연결 기전은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-091657-A1",
+      "source_fingerprint": "1ba61031f7c290acf102c327594af7c2e3dcb8f576dcb8596c6f97482d240a23",
+      "content_hash": "4304838e3d091b233550ee021744006fba8788ac72a68194652b51b1efc41909",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal"
+      ],
+      "reason": "결합재에 고정된 연마 입자가 금속을 제거한다."
+    },
+    {
+      "identifier": "AR-091697-A1",
+      "source_fingerprint": "04c3e1157271b33e6af3fbcb3b4823858b87a09e4cf9edf13f389f083cecefc4",
+      "content_hash": "fb53581437497aa5ec595d8362012805be179a4d7e5f3ae186c975a92c401674",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "MCH 수용체 길항 작용이다."
+    },
+    {
+      "identifier": "AR-091702-A1",
+      "source_fingerprint": "852652c1cd477cca536e43468a6389991d8ab54eacf42e5b039951ee3f268bdf",
+      "content_hash": "d7611c1052fa5cd7b2c940c7bd7921560a7cf8d4ac4aa7d99f686cce404f6142",
+      "decision": "LINK",
+      "keys": [
+        "antigen-targeted-payload-delivery",
+        "biomolecular-recognition"
+      ],
+      "reason": "CD79b 항체의 선택적 결합과 연결 화물 전달이다."
+    },
+    {
+      "identifier": "AR-091709-A1",
+      "source_fingerprint": "5ac1c0128998b88e09f336ec2689ea28839da7e1add848b8d8834a461294e6a3",
+      "content_hash": "8dd3a8ff284f2cabf4ef389ecbec75bdb82cc87469cce1d1d872fcbdbe962e63",
+      "decision": "LINK",
+      "keys": [
+        "viscous-damping",
+        "mechanical-interlocking"
+      ],
+      "reason": "오일 공급·배출 공간으로 핀 종단 충격을 완화하고 로커를 결합한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:13:37.404475+00:00"
+}

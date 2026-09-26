@@ -1,0 +1,243 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "6932d18c16fb75f06053b1d9f1990e11c570bc5c64b933f368cdeb85a3c1f6f9",
+  "reviews": [
+    {
+      "identifier": "AR-081460-A1",
+      "source_fingerprint": "9c179cbec6bf481b011d83078bba81e7c87449bd3018e41ec48fa1c7b01ce870",
+      "content_hash": "2523dd05936439515c86a4e256343f7add7b81187fc15c5cc1fc4253416a53fe",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "pneumatic-particle-transport"
+      ],
+      "reason": "웹 가이드의 흡입 구멍으로 공기와 먼지를 함께 제거한다."
+    },
+    {
+      "identifier": "AR-081479-A1",
+      "source_fingerprint": "58ae81c32c263dbe98eb5e963c712731295986c827401f8f2ec5f47f05e38db5",
+      "content_hash": "a8547d6b26504868e2533309c9e724b3748fe19046c79c39924eea0c02243629",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약의 배꼽썩음 감소 용도만 있고 생리 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-081504-A4",
+      "source_fingerprint": "c7ec9db3e96497f591910108569f036ef4f8103b705d853b0268ce1050a0fbc8",
+      "content_hash": "5ac85696914c6ea3ad98c155d27503f8d8e20407078ae861cf36644a9618b705",
+      "decision": "LINK",
+      "keys": [
+        "joule-heating",
+        "dielectric-insulation"
+      ],
+      "reason": "절연판 내부 저항선의 통전 발열로 의복을 가열한다."
+    },
+    {
+      "identifier": "AR-081507-A1",
+      "source_fingerprint": "d3c2976c46f5dc236f36cc6c355422eeebc7ae31bc18ba720154bb38410de080",
+      "content_hash": "8843ec5c3095bc546a073ffb76521af5c339cd67a3a3a75ac576688f7c9a42d6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항증식 화합물의 구조만 있고 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-081520-A1",
+      "source_fingerprint": "02f61b06625fb9d2e57b657ac822debbd7d95a96f928e5fe5aa35ae4e7276622",
+      "content_hash": "9200c2207dfd55e4ea881a8cce4dda6be52901526fefe688202da60ea5fecec2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "산성화로 타크로리무스 에피머화·분해를 줄인다. 산·염기 촉매 반응의 정확한 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-081547-A1",
+      "source_fingerprint": "77ffeabd1f0c350467adbbde2e4ace9a4b923a4bba67d660da5f91d3a7a19113",
+      "content_hash": "80114baf6acca91ab08d2c5ed49dd7b382d54cdab988ba76570e13fb09c7697b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "공중합체의 스케일 억제 용도이다. 결정면 흡착 여부는 직접 확인되지 않는다."
+    },
+    {
+      "identifier": "AR-081551-A1",
+      "source_fingerprint": "6f9d10bf2bad71671b8c03ed1cc87ee3f44526275f7711bc3ab7e7472e02dcfa",
+      "content_hash": "7576cae497e4009e82881a0e291bdf6debd1ca6399a55d96b4d023b09a1af6fa",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "영양소 배합만 있고 물질 변환 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-081565-A1",
+      "source_fingerprint": "3b2f70e4072295d48c7aac0bb62116012e93d0681b3c4a130c11436e85307b2a",
+      "content_hash": "43e4521c4f173de0e6e5778bdf311c5c8daba1c1f5b50dcdc821d409c6d13390",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항암 병용 용도만 있으며 상승작용의 직접 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-081574-A1",
+      "source_fingerprint": "a0c3c7d50302bc9c2ad4a8da29af0cbd0544564f106a19d186b179d1c53fec3d",
+      "content_hash": "f95c0b7557b23ccffc3ba944c0c6dfe20d24ebeaafb0f840beb73ea080f31c8f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "프리온 질환용 화합물의 용도만 있다. 구조만으로 표적·치료 기전을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-081581-A1",
+      "source_fingerprint": "6a86d28934155df1b79f434bfab10c6bd83b6463147255147a076f2df8e1f494",
+      "content_hash": "a8c1e0f58bdadf4fc9936a435ed5c133fad0e0d8f7341afb9dcfb3328823fcaf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "찻잎의 무산소 처리로 향을 바꾸지만 관여 대사 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-081588-A1",
+      "source_fingerprint": "3f0743b7bc6d4469092504bdf6b7d169af02743007aafd0edb0c723edfa6c9f1",
+      "content_hash": "c2b63d1090db042968b43e5339f6d82b2ce44d93e17718a5d41d9dec02cbc4d0",
+      "decision": "LINK",
+      "keys": [
+        "swelling-actuation"
+      ],
+      "reason": "물 접촉으로 보레이트 입자 플러그를 팽창시키고 추가 용해로 제거한다."
+    },
+    {
+      "identifier": "AR-081590-A1",
+      "source_fingerprint": "9b621cbf617d5652119f06dc4c6886835f57f100109b5ba5e360a64a029b94b3",
+      "content_hash": "48932bc515fb4d08bf3df9c4e6966231f377ddb8fbf40085e2be58065b5a38f2",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "PEG와 비이온성 계면활성제를 넣는 약물 제형이다."
+    },
+    {
+      "identifier": "AR-081610-A1",
+      "source_fingerprint": "f6a12bb099dea81b9e340bc1fc74d4f1b5bba808dce2002fd87a340902e1eaf4",
+      "content_hash": "3e1ffc582a414b2eeb33dcd5a690b28da6c2f7136fb9cb243b2cc92d74a42f84",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration"
+      ],
+      "reason": "폐기물 압축·가열로 물을 증발시킨다. 처리 후 무독성·무오염 주장은 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-081618-A1",
+      "source_fingerprint": "3a788a6291b31096402290c86c3ae9cf778d4a84b1e1534ae45510fec1110ac4",
+      "content_hash": "2f6cc52438c042ca815f2d42068ade8634fd7c5669cdbeac815aa69e33d90a94",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 배합의 상승효과만 제시하며 직접 인과는 미상이다."
+    },
+    {
+      "identifier": "AR-081626-A1",
+      "source_fingerprint": "e30654cacec9327505303957a987816acdb41bb4ba227ba57b0535397b86d0e2",
+      "content_hash": "409e77ca9b17a63f0a3246a76c50d48d58a72394c8dab5032fe9514d1ff883b9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "근육 질환용 화합물의 치환기 목록이며 분자 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-081630-A1",
+      "source_fingerprint": "24dcbc1a3c2fde269bcb0b3c2c1c52be20a5aae91772171d938366e18134b36c",
+      "content_hash": "5aee8d54c51751dfc8754077346d2491a875a9f1a6dba29d7d420494a94d57db",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "내열 교차결합 헤모글로빈을 남기고 열에 약한 단백질을 제거한다. 열변성 차이에 의한 분리 후보이며 안전성·치료 주장은 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-081639-A1",
+      "source_fingerprint": "c3f177521636992e586857d1ce970fe0a9668325c3212aaa3d9eb8cbb56934c4",
+      "content_hash": "7ff40afe4a9a0509a54771fd31809e40e42db59b198cc3f4b7761412addc2c40",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "티로피반의 혈소판 감소 위험 저감 용도만 있다. 수용체 결합 경로는 초록에 없다."
+    },
+    {
+      "identifier": "AR-081640-A1",
+      "source_fingerprint": "22c5805f93def6732f3913ca15c2f3a850d65e43e9f2efbd82dbe6fb55ba6487",
+      "content_hash": "cc868b35b4bd9215844f24b3f9131f0f6f1767854f4b3c5860ce8c3708d070f0",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "측정 차압과 목표 차압의 차이에 따라 각 분기 밸브를 조절한다."
+    },
+    {
+      "identifier": "AR-081645-A1",
+      "source_fingerprint": "1c3deeea54f8236f747552e6e1a775f800af57192ca15e399b6e38469697dd4c",
+      "content_hash": "150c707338b1451564a4d762fec26b561907336e205d918219ac9c6fe5fb2b1c",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "두께가 다른 다이어프램의 비선형 복원력으로 밸브를 닫는다. 나선 안내의 세부 형상은 미상이다."
+    },
+    {
+      "identifier": "AR-081648-A1",
+      "source_fingerprint": "af4a4ec239a356504ef663901961af8b372107448170e9c62526a6dac4cfb80b",
+      "content_hash": "caed3f1336b83d104aec7da7853d813bad18a29e6efc4f329bbbf1d25fc0ef5b",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "경화 고분자 입자 안에 시클로프로펜 복합체를 넣어 안정화한다. 포접 분자 종류는 미상이다."
+    },
+    {
+      "identifier": "AR-081665-A1",
+      "source_fingerprint": "92a4b81fbc29a58cb2a7dd27a430d1b1bd02e7612fa9fbdaccb26e305530269c",
+      "content_hash": "842f80b5fae4dbecf25f31c8ae4c69ace2572f6164e0144cd108025c9877cb3a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 분말 계량실의 입출구를 교대로 개폐한다."
+    },
+    {
+      "identifier": "AR-081699-A1",
+      "source_fingerprint": "548f0f9ebac1db0cc6586f143677da6360c78de81422df224ab614b558d365a5",
+      "content_hash": "297b04a04aea0748c9614757fb0aab6532d988f6800dae9cf3be72ec9828a70e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "손 라벨러의 무게를 관절 플랫폼에 지지한다. 구체 하중 보상 기구는 미상이다."
+    },
+    {
+      "identifier": "AR-081704-A1",
+      "source_fingerprint": "e8682dc7279d2e83556a45d90d411a3628666eba41a2f4b3ffccfa2b29017ebc",
+      "content_hash": "5cb8127cccf440491348c386e02dc9fe00c8b2c1fe920ca546db6b7b5110c847",
+      "decision": "LINK",
+      "keys": [
+        "gravity-settling",
+        "coagulation-flocculation"
+      ],
+      "reason": "침전조 표면을 이동 스크레이퍼로 청소하며 플록 침강을 유지한다."
+    },
+    {
+      "identifier": "AR-081712-A1",
+      "source_fingerprint": "66d5b6b21ea44d9abc6fa1d259078fde2914b23e4fc092fb80e175f7926cadc1",
+      "content_hash": "705364a74a0e8c0758b05af7bbfc6906d2f5ff3e323ed5421e69a866f30ee602",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating"
+      ],
+      "reason": "유기 폐기물을 고온 소각한다. 모든 생물학적 위험 제거를 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-081762-A1",
+      "source_fingerprint": "4ef0d3ecee29e04ba557019b8411d1757198c419274b61a41f74ccbf10ad12ec",
+      "content_hash": "d39ad99fcad2e6f554fc86d6da160d20c21c13d973cf824d391e810419914f4f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전과 축 이동으로 루어 연결 통로를 개폐한다. 나사·캠 종류는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-081786-A1",
+      "source_fingerprint": "3a519334ac42221bd1ff112fc0a7c0e1dd28ec0a5ac788df43732a3424108927",
+      "content_hash": "879c41596e7b277371fc9e1d99d945bf3316ca4efeffc4125c17b6966b811066",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "fluid-turbine-conversion",
+        "heat-capacity-buffer"
+      ],
+      "reason": "재순환 가스와 연소·팽창을 결합해 동력을 얻는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:22:46.937487+00:00"
+}

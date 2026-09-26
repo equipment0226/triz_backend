@@ -23,6 +23,7 @@ def build(directory, knowledge):
     authored=runpy.run_path(str(ROOT/'scripts/build_curated_effects.py'))
     base={e['mechanism_key']:e for g in authored['groups'].values() for e in g}
     refs={**authored['SOURCES'],**read(directory/'references.json',{})}
+    reference_observations=read(directory/'reference_observations.json',{})
     registry=read(directory/'identifiers.json',{})
     literature={**{e.get('id'):e for g in read(ROOT/'data/effects_review/reviewed-catalog.json',[]) for e in g['effects']},
                 **read(directory/'accepted_literature_sources.json',{})}
@@ -49,7 +50,9 @@ def build(directory, knowledge):
         if key in {'ion-exchange','surfactant-action','gelation','anodization','electrodeposition','cathodic-protection','passivation','thermochemical-heat-storage'}:actual_domain='CHEMICAL'
         actual_domain=metadata.get(key,{}).get('domain',actual_domain)
         if actual_domain not in DOMAINS:raise ValueError('Invalid domain: '+key)
-        group['effects'].append({'id':identifier,'name':name,'domain':actual_domain,'principle':principle,'conditions':conditions})
+        legacy_ids=metadata.get(key,{}).get('legacy_ids',[])
+        group['effects'].append({'id':identifier,'name':name,'domain':actual_domain,'principle':principle,'conditions':conditions,
+                                **({'legacy_ids':legacy_ids,'aliases':metadata.get(key,{}).get('aliases',[])} if legacy_ids else {})})
         sources=list(prior.get('sources',[]))
         if key in {'acoustic-streaming','hydrodynamic-lubrication'}:
             sources=[]  # Earlier broad analogies are replaced by dedicated references below.
@@ -57,7 +60,10 @@ def build(directory, knowledge):
         for ref in filter(None,reference_keys.split(',')):
             if ref in refs:
                 title,url=refs[ref]
-                sources.append({'identifier':'REF-'+ref,'title':title,'url':url,'source_type':'REFERENCE','retrieval_scope':'reference_section'})
+                observation=reference_observations.get(ref,{})
+                sources.append({'identifier':'REF-'+ref,'title':title,'url':url,'source_type':'REFERENCE',
+                                'retrieval_scope':observation.get('retrieval_scope','reference_section'),
+                                **{k:observation[k] for k in ('accessed_at','review_method','supports') if k in observation}})
             else:unresolved.append(ref)
         for lid in links.get(key,[]):
             candidate=literature.get(lid)
@@ -68,6 +74,7 @@ def build(directory, knowledge):
         sources=list({s['url']:s for s in sources if s.get('url')}.values())
         status='참고 문헌과 편집 지식' if sources else '편집 지식; 연결 문헌 없음'
         evidence[identifier]={'mechanism_key':key,'name_en':prior.get('name_en',key.replace('-',' ')),
+            **({'legacy_ids':legacy_ids} if legacy_ids else {}),
             'aliases':list(dict.fromkeys([name,key.replace('-',' '),*prior.get('aliases',[]),*metadata.get(key,{}).get('aliases',[])])),
             'sources':sources,'evidence_level':status,
             'verification_scope':'원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음.'}
@@ -76,6 +83,8 @@ def build(directory, knowledge):
     ids=[e['id'] for g in groups for e in g['effects']]
     if metadata.keys()-keys:raise ValueError('Metadata without a canonical mechanism: '+str(metadata.keys()-keys))
     if len(ids)!=len(set(ids)):raise ValueError('Duplicate stable identifier')
+    legacy=[v for g in groups for e in g['effects'] for v in e.get('legacy_ids',[])]
+    if len(legacy)!=len(set(legacy)) or set(legacy)&set(ids):raise ValueError('Ambiguous legacy identifier')
     if any(len(e['principle'])>160 or len(e['conditions'])>180 for g in groups for e in g['effects']):raise ValueError('Editorial entry is not concise')
     return groups,evidence,registry,dict(counts),unsupported
 
@@ -92,7 +101,8 @@ def main():
         atomic_json(knowledge/'effects.json',groups)
         atomic_json(directory/'reference_followups.json',topics)
         atomic_json(directory/'publication.json',dict(summary,at=datetime.now(timezone.utc).isoformat(),
-            editorial_sha256=hashlib.sha256((directory/'catalog.tsv').read_bytes()).hexdigest(),
+            editorial_sha256=hashlib.sha256((directory/'catalog.tsv').read_text(encoding='utf-8').encode('utf-8')).hexdigest(),
+            editorial_hash_basis='UTF-8 text with LF newlines',
             scope='산업 공통의 대표 메커니즘을 기능별로 직접 편집. 전체 산업기술 또는 전체 특허를 망라한 목록이 아님.'))
     print(json.dumps(summary,ensure_ascii=False))
 

@@ -1,0 +1,276 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "dd84ded7f4d5ed0ed8ca4a0eacaf0a72becefd08cff3765dd814289eacf8b5c3",
+  "reviews": [
+    {
+      "identifier": "AR-070140-A1",
+      "source_fingerprint": "6f78ce25fea3fc9e45b33e77e5ce71a11b651df5943976a58c07f2ee2c09f75e",
+      "content_hash": "9cb943e727b9d21f7b19a37b6dd5c4ac31d3a2bf0849cc9d7a05a2144ddf882c",
+      "decision": "LINK",
+      "keys": [
+        "nitric-oxide-signaling"
+      ],
+      "reason": "기존 검토: NO 방출 paracetamol과 항경련제 조합이다. NO 신호 전달 후보이며 임상 상승효과는 검증하지 않는다. 문헌 대조 후 원리 연결: 일산화질소의 가용성 구아닐산고리화효소 신호: 일산화질소가 적합한 헤임 수용 단백질에 결합해 가용성 구아닐산고리화효소 활성을 높이면 cGMP 신호가 변한다. NO의 국소 생성·수명·산화환원 상태와 표적 세포에 의존한다. 특허 NO 공여체의 모든 작용을 이 경로 하나로 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-070173-A1",
+      "source_fingerprint": "fe5e21cc0e4f23bdef58136545d50a2799f7bd3b7c20206f660d34894143161c",
+      "content_hash": "b2122c5052dfd7060ffb5c7d98f6f267da79d1a422f2f7abae7a60eb5d8be12b",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "barrier-coating",
+        "crosslink-mesh-diffusion"
+      ],
+      "reason": "기존 검토: 여러 다기능 단량체로 가교한 capsule 벽이 향 방출을 늦춘다. 가교 mesh 수송 제약 후보. 문헌 대조 후 원리 연결: 고분자 망 크기에 따른 확산 조절: 가교 고분자의 망 구조가 이동 분자의 크기·상호작용과 결합해 침투·확산 속도를 바꾼다. 망을 조절하여 캡슐의 물질 교환을 제어할 수 있다. 가교 밀도·팽윤·분자 크기·결합·망의 동역학을 함께 확인한다. 가교 증가가 항상 확산 감소로 이어지지는 않으며 실제 투과성 측정이 필요하다."
+    },
+    {
+      "identifier": "AR-070249-A1",
+      "source_fingerprint": "a8da2e02b006ae37d2cb99fb6bcf384658e0a34234920141da49a991178f4365",
+      "content_hash": "e3bf5b4b45756d2bd3baaed4d0af323b9c1c038b6b5bac7dd60ff9285e824788",
+      "decision": "LINK",
+      "keys": [
+        "impact-deagglomeration"
+      ],
+      "reason": "기존 검토: 기류에 실린 분말을 충돌면·진동·와류로 해응집한다. 충돌 해응집 후보. 문헌 대조 후 원리 연결: 충돌 관성에 의한 응집체 분산: 응집체가 벽 등에 충돌해 급감속할 때 구성 입자의 관성 하중이 접착력을 넘으면 입자가 떨어져 분산된다. 충돌 속도·각도·응집체 구조·접착력에 의존한다. 파쇄·재부착·입자 손실을 고려하며 분산 증가를 실제 전달량 증가와 동일시하지 않는다."
+    },
+    {
+      "identifier": "AR-070260-A1",
+      "source_fingerprint": "3f0a73a29ab5e36266e14b03fe4fa72d1442fad79ffbadce44fc473a9c6fb127",
+      "content_hash": "924db0a42774ab5a253f12764e02061225c7bb98acb01d7def9cfd966f93bcf2",
+      "decision": "LINK",
+      "keys": [
+        "sumoylation",
+        "glutaredoxin-thiol-redox"
+      ],
+      "reason": "기존 검토: PRE·SCE1·Grx 등 발현 조절이다. SUMO 공유결합 수식·glutaredoxin 산화환원 후보를 분리 검토한다. 문헌 대조 후 원리 연결: SUMO 공유결합 수식에 의한 단백질 조절: 효소계가 작은 SUMO 단백질을 표적에 공유결합시켜 상호작용·위치·활성·안정성을 바꿀 수 있다. E1·E2 등 효소와 표적 부위·탈수식 균형이 필요하다. 유비퀴틴화나 자동 분해 신호와 동일하지 않으며 식물 형질 효과는 별도 검증한다.; 글루타레독신의 티올 산화환원 조절: 글루타레독신이 글루타티온계와 결합한 티올 교환을 매개하여 단백질의 이황화·글루타티온화 상태와 기능을 바꾼다. 효소 종류·기질·환원력·세포 구획에 의존한다. 발현 증가가 항상 스트레스 내성 증가로 이어지지 않으며 반응 방향을 확인한다."
+    },
+    {
+      "identifier": "AR-070427-A1",
+      "source_fingerprint": "7ce1aaa9745981afdeb7081f7563938c9665da34649610d0d7b016dc7f485f14",
+      "content_hash": "dbbbfab4d0633a9eff432be8811bafb2dc0f3ca89a59043a594e0a6845e1f856",
+      "decision": "LINK",
+      "keys": [
+        "hydroxyl-acetylation"
+      ],
+      "reason": "기존 검토: 목재 압력 함침·acetylation으로 내구성을 바꾼다. 수산기 acetyl 치환의 흡습 감소 후보. 문헌 대조 후 원리 연결: 수산기 아세틸화에 의한 흡습성 변경: 수산기를 아세틸기로 치환하면 수소결합 가능한 부위와 재료의 자유 부피가 바뀌어 목재 등의 수분 흡착·팽윤을 줄일 수 있다. 치환 정도·세포벽 접근성·부피 증가·미반응 잔류물을 확인한다. 흡습 감소를 방수나 모든 생물 열화 방지로 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-070996-A1",
+      "source_fingerprint": "4ccdecee22d1a0e249c3d6c2dc10030db70038773f97a24a5714eb4c3a069ffa",
+      "content_hash": "d912f9a656224c1c18d8938bba7cdf9acfbdf259853df93eb5db60dc42234c81",
+      "decision": "LINK",
+      "keys": [
+        "coriolis-mass-flow-sensing"
+      ],
+      "reason": "기존 검토: 두 진동 관과 구동기로 유량을 측정한다. Coriolis 유량 검출 후보이며 초록에 위상 검출 상세는 없다. 문헌 대조 후 원리 연결: 코리올리 힘에 의한 질량 유량 측정: 진동하는 관을 흐르는 유체가 만드는 코리올리 반응이 관의 진동 위상·비틀림을 바꾸므로 이를 검량하여 질량 유량을 구한다. 관의 진동 모드·밀도·온도·지지와 영점 보정이 필요하다. 다상 유동·외부 진동·응력의 영향을 확인하며 진동관만으로 원리를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-071043-A1",
+      "source_fingerprint": "e5bba4fb7183daeaefa184291d5500aed61ed82dab6cbf7fff3a80f040b41c69",
+      "content_hash": "0fedcd71e4440182e425e493c44aa62e943e7164989b5d1e9a67abf02f41e395",
+      "decision": "LINK",
+      "keys": [
+        "radioactive-decay",
+        "positron-annihilation-imaging"
+      ],
+      "reason": "기존 검토: F18 표지 아미노산을 PET 진단에 사용한다. 양전자 소멸 동시 검출 후보. 문헌 대조 후 원리 연결: 양전자 소멸 광자의 동시 검출 영상: 양전자와 전자의 소멸에서 나오는 거의 반대 방향의 광자 쌍을 동시 검출해 발생 가능한 선을 정하고 분포 영상을 재구성한다. 양전자 방출 추적자·검출기·보정·재구성이 필요하다. 산란·우연 동시계수·감쇠·양전자 이동거리를 고려하며 추적자 분포를 질환 자체와 동일시하지 않는다."
+    },
+    {
+      "identifier": "AR-071053-A1",
+      "source_fingerprint": "4f04f70eb2dbc8d7f49459f5d4fcd2aa82cf07b13ff6a71c51c1a3eb58b1553f",
+      "content_hash": "1d5b9e92c74c05fd4fe3e905d283740c3d6c0f32384b04d96b3cde2f39f88ff9",
+      "decision": "LINK",
+      "keys": [
+        "acetal-carbonyl-protection",
+        "crystallization",
+        "ester-hydride-reduction"
+      ],
+      "reason": "기존 검토: 산 촉매 acetal 보호·해제와 재결정이며 LiBH4의 ester→alcohol 환원이 명시된다. ester hydride reduction 후보. 문헌 대조 후 원리 연결: 수소화물에 의한 에스터 환원: 반응성 수소화물이 에스터 카르보닐에 전자를 포함한 수소를 전달하고 결합 재편·추가 환원을 거쳐 알코올을 형성한다. 환원제·기질·용매·다른 작용기와의 선택성을 확인한다. 에스터와 아미드의 생성물이 다르며 모든 붕수소화물이 같은 조건에서 반응하지 않는다."
+    },
+    {
+      "identifier": "AR-071234-A1",
+      "source_fingerprint": "fa5197793e949101bcc70c68e7e7debeca39b8451d0b9a6b4a1e03091abd22a4",
+      "content_hash": "5df2ca09741da808fb62b732b9eb2bdb77dbc60b732beed29f30e146aa6c9384",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-shielding",
+        "twisted-pair-interference-cancellation"
+      ],
+      "reason": "기존 검토: 금속 laminate 격벽으로 twisted pair 묶음을 분리한다. 꼬임에 의한 유도 간섭 상쇄 후보. 문헌 대조 후 원리 연결: 연선의 루프 교대에 의한 간섭 저감: 두 도선을 꼬아 인접 구간의 루프 방향을 교대로 만들면 외부 자계가 유도하는 차동 전압이 부분적으로 상쇄된다. 꼬임 간격·배선 대칭·종단·외부장의 공간 변화가 중요하다. 차폐와 함께 쓸 수 있으나 모든 공통모드 잡음이나 고주파 간섭을 제거하지 않는다."
+    },
+    {
+      "identifier": "AR-071331-A1",
+      "source_fingerprint": "b28f5c887f64a673a4ac2a0a1355aef6babceab1451458504c07be274cc52784",
+      "content_hash": "327afa359ef7bd9641ce53da8f5bafbc771a46a3ce058ced03b65c5b82e55271",
+      "decision": "LINK",
+      "keys": [
+        "projective-coordinate-mapping"
+      ],
+      "reason": "기존 검토: 태양 좌표의 행렬 회전과 중심 투영으로 그림자 위치를 구한다. 기하 투영 후보이며 실제 UV 측정과 다르다. 문헌 대조 후 원리 연결: 좌표 변환과 투영에 의한 위치 대응: 3차원 점을 회전·이동한 뒤 정해진 투영 중심·평면으로 사상하여 영상이나 그림자의 위치를 계산한다. 좌표계·투영 기하·보정·스케일을 맞춘다. 가림·퇴화 배치·원근을 고려하며 태양 그림자에는 평행 광선 근사를 별도 적용한다."
+    },
+    {
+      "identifier": "AR-071358-A1",
+      "source_fingerprint": "85349a3d65870bdf5e081004ff66636a0dde73921f43266aeb100353e02afa7b",
+      "content_hash": "bb4f33e243b6342c12a4b5de55b6d8663b5e97196451cb514c7ba9cc15cbd667",
+      "decision": "LINK",
+      "keys": [
+        "slew-rate-limiting"
+      ],
+      "reason": "기존 검토: DSL 송신 전력을 계단적으로 올려 인접선 교란을 완화한다. 변화율 제한 후보. 문헌 대조 후 원리 연결: 변화율 제한에 의한 과도 억제: 출력이나 명령이 단위 시간에 변할 수 있는 양을 제한하여 급격한 전이로 유발되는 충격·간섭·전류 피크를 줄일 수 있다. 상승·하강 한계·표본 간격·부하·전이 시간을 맞춘다. 응답이 느려지며 변화율 제한만으로 최종값·안정성·대역 간 간섭을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-071378-A1",
+      "source_fingerprint": "c0b61d9d64e2bbd474f302ad3bf312af3589a9b060b87e179c110cc7783e7fa3",
+      "content_hash": "3936df79eacbcd809f67370ecfe4669f6a0fcedce489ad5f9e09dd67449cebee",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction",
+        "dielectric-insulation",
+        "lamination-eddy-current-suppression"
+      ],
+      "reason": "기존 검토: 금속 rotor 고정 밴드를 서로 절연한 얇은 적층으로 만든다. 와전류 경로 분할 후보. 문헌 대조 후 원리 연결: 절연 적층에 의한 와전류 손실 저감: 도전성 자성체를 전기적으로 분리된 얇은 층으로 나누면 변화하는 자속에 의한 큰 순환 전류 경로가 제한되어 와전류 손실을 줄일 수 있다. 층 두께·절연·자속 방향·주파수·자기 포화를 고려한다. 층간 단락은 효과를 낮추며 히스테리시스 손실까지 없어지는 것은 아니다."
+    },
+    {
+      "identifier": "AR-071479-A1",
+      "source_fingerprint": "1145829b33ea7d1a4251bb476bfeded5f6fd608cb24e62317cfe11c88d75d081",
+      "content_hash": "4e55f0d47ef9365a99e8b021c9941de9572c7ca8fcb368eb05ca93f4638716cf",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "terminal-sialylation"
+      ],
+      "reason": "기존 검토: sialyltransferase로 rFSH 말단 sialic acid 결합 형태를 바꾼다. glycosylation에 따른 소실 속도 조절 후보. 문헌 대조 후 원리 연결: 말단 시알산에 따른 당단백질 제거 조절: 당사슬 말단의 시알산은 하위 당 잔기의 노출과 수용체 인식을 바꾸어 당단백질의 순환 제거·분포에 영향을 줄 수 있다. 시알산 양·결합 방식·당사슬·종·단백질을 확인한다. 반감기와 생물학적 활성은 각각 평가하며 모든 시알산 증가를 유리하다고 보지 않는다."
+    },
+    {
+      "identifier": "AR-071683-A1",
+      "source_fingerprint": "5472039111004709628a2a3635fd45b0aca389bfd68768e66eea0f4375ebd52d",
+      "content_hash": "1d358067dd001b1b08d9e5038d8f1fac55dd6560c1de72ecca597544177fa554",
+      "decision": "LINK",
+      "keys": [
+        "inertial-impaction-separation"
+      ],
+      "reason": "기존 검토: 큰 aerosol 방울과 작은 방울을 편향 통로로 분리한다. 관성 충돌 분리 후보. 문헌 대조 후 원리 연결: 관성 충돌에 의한 액적·입자 분리: 유로가 굽을 때 관성이 큰 입자·액적은 유선의 방향 변화를 따라가지 못하고 충돌면에 부딪혀 기체 흐름에서 분리된다. 입경·밀도·유속·곡률에 따른 응답 시간과 충돌 후 포집을 확인한다. 작은 입자의 통과·튀김·재비산·압력 손실을 고려한다."
+    },
+    {
+      "identifier": "AR-071757-A1",
+      "source_fingerprint": "9d91f05d98113784f4949ab3f82564500a15041871a2e9922ecfd605d2d7dd92",
+      "content_hash": "7b54ac4015bb7fcf00afe64f733751ba5ea2c0e89762a272ec67f07bdf8d6d2d",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction",
+        "oxidative-decarburization"
+      ],
+      "reason": "기존 검토: CO로 광석을 환원하고 용탕에 산소를 불어 탄소를 제거한다. 산화 탈탄 후보. 문헌 대조 후 원리 연결: 산화에 의한 용융 금속 탈탄: 용융 철 등에 녹은 탄소를 산소와 반응시켜 기체 탄소산화물로 제거하여 탄소 함량을 낮춘다. 산소 공급·혼합·온도·탄소 농도와 슬래그를 제어한다. 다른 원소의 동시 산화·비산·기체 발생을 고려하며 단순 열분해와 구별한다."
+    },
+    {
+      "identifier": "AR-071923-A1",
+      "source_fingerprint": "db8612ed8e118474896a7c5ab33f0d194bf7a5d19a344e16d5ba5f472170eb58",
+      "content_hash": "43a936612abf48c070995ab7685971e5e8ae74067dc01a7b2ffda5b0939846d9",
+      "decision": "LINK",
+      "keys": [
+        "plasma-enhanced-chemical-vapor-deposition"
+      ],
+      "reason": "기존 검토: plasma enhanced CVD로 관 표면에 박막을 증착한다. PECVD 후보이며 ALD와 구분한다. 문헌 대조 후 원리 연결: 플라스마 활성화 기상 화학 증착: 플라스마가 기상 전구체를 활성종으로 바꾸고 표면에서 반응·성장하도록 하여 박막을 형성한다. 가스·플라스마 에너지·기판 온도·압력·체류 시간을 맞춘다. 이온 손상·불순물·응력·두께 균일성을 확인하며 표면 세정이나 스퍼터링과 구별한다."
+    },
+    {
+      "identifier": "AR-072000-A1",
+      "source_fingerprint": "3b249613e9161432d313719a778d80f0e1c9d52e200bcac46820d552c17dc306",
+      "content_hash": "9adf1b27cc3bef237d0ed09dba4d6864d404af1d94b30c1d47e82586714f060e",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "multivalent-avidity"
+      ],
+      "reason": "기존 검토: 하나의 결합 단백질이 여러 항원을 결합한다. 다가 결합 avidity 후보이며 배열·표적 접근 조건이 필요하다. 문헌 대조 후 원리 연결: 다중 결합에 의한 유효 결합력 증가: 한 구조가 여러 결합 부위를 동시에 연결하면 일부 결합이 끊겨도 국소 재결합이 쉬워져 전체 해리 속도가 낮아질 수 있다. 표적 밀도·간격·유연성·결합 부위의 동시 접근을 확인한다. 다특이성만으로 다가 결합이 성립하지 않으며 단일 부위 친화도와 구별한다."
+    },
+    {
+      "identifier": "AR-072015-A1",
+      "source_fingerprint": "13d9b3072ad050adb65309ea1f5ac7a7c0988bbc94a65c0d7b5c0de685d64bf4",
+      "content_hash": "e6c503743bd537fcf64404535fb6d3cb6d97b1f1d92fb5bab9f774575769e757",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption",
+        "catalysis",
+        "pressure-driven-flow",
+        "labyrinth-seal-throttling",
+        "positive-pressure-purge-barrier"
+      ],
+      "reason": "기존 검토: 질산 공정 축에 labyrinth seal을 두고 고압 purge gas를 공급한다. 미로 압력손실·양압 장벽 후보. 문헌 대조 후 원리 연결: 미로 유로의 반복 압력 손실 밀봉: 좁은 틈과 확장 공간을 잇따라 통과하는 유체가 수축·팽창·혼합 손실을 겪어 같은 전체 압력차에서 누설 유량이 줄어든다. 틈·단수·압력비·회전·열 변형을 확인한다. 비접촉 구조라도 누설은 남으며 기체 압축성과 초크 가능성을 고려한다.; 양압 퍼지에 의한 오염 유입 억제: 보호 공간에 청정 유체를 공급해 외부보다 높은 압력을 유지하면 틈의 흐름이 바깥으로 향하여 오염물의 유입을 줄인다. 청정 공급원·압력 여유·배출 경로·유량을 유지한다. 공급 상실·역압·확산·혼합을 고려하며 접촉 밀봉이나 완전 격리와 구별한다."
+    },
+    {
+      "identifier": "AR-072083-A1",
+      "source_fingerprint": "7110dc94038ca5a29e6e0aefb10f5ca09dcae9ffe625da4ac57d81de079fdf9b",
+      "content_hash": "7760265224cef598db70004b6a41a221f4ef0029d8da3babc0b11963ba6b1304",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "enzyme-electron-transfer"
+      ],
+      "reason": "기존 검토: P450 reductase가 합성 효소에 전자를 공급해 carotenoid 전환을 돕는다. 효소 전자전달 후보. 문헌 대조 후 원리 연결: 효소 사이 전자 전달의 반응 구동: 환원효소 등의 전자 전달체가 보조인자에서 받은 전자를 반응 효소로 전달해 산소 활성화·산화환원 촉매 순환을 유지한다. 전자공여체·산화환원 전위·단백질 접촉·보조인자를 맞춘다. 비결합 전자 소모와 활성산소를 고려하며 효소 발현량만으로 전달 효율을 정하지 않는다."
+    },
+    {
+      "identifier": "AR-072391-A1",
+      "source_fingerprint": "bae30ac4a6f21a089f6fd4d1fc8c95e2838fb8d9b760dd46acfa0b7c1af06074",
+      "content_hash": "8c13abb6ac22052cd5c3daf3f2efa7ae44fa82b53be22b147c73cb01759174d5",
+      "decision": "LINK",
+      "keys": [
+        "signal-directed-protein-localization"
+      ],
+      "reason": "기존 검토: seed에서 이종 단백질을 발현하고 ER 신호·체류 서열로 축적한다. 단백질 소기관 표적화 후보. 문헌 대조 후 원리 연결: 표적 신호에 따른 단백질 위치 지정: 단백질의 이동·보유 신호를 세포 수송 장치가 인식하여 특정 구획으로 보내거나 회수해 해당 위치의 단백질 농도를 바꾼다. 숙주·신호 노출·막 통과·보유 경로의 적합성이 필요하다. 소포체 보유와 세포 밖 분비를 구별하며 전체 생산량 증가를 자동 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-072481-A1",
+      "source_fingerprint": "02df04dcf2fd613ff58bfbf4e717fc59104a9483681cd449537087773194065b",
+      "content_hash": "03a925b77b2ecf757e2aad3809a015b1b30ca33657b321f928eaaa656a2b1b60",
+      "decision": "LINK",
+      "keys": [
+        "parametric-bandwidth-extension"
+      ],
+      "reason": "기존 검토: 저대역 신호·BWE 매개변수로 고대역을 확장하고 codec별 교차 주파수를 바꾼다. 매개변수 대역 확장 후보. 문헌 대조 후 원리 연결: 부대 정보에 의한 고주파 대역 합성: 전달된 저주파 성분과 고주파 포락선 등의 매개변수로 빠진 대역을 합성하여 적은 전송량으로 지각상 대역을 넓힌다. 분석·합성 규칙·매개변수·시간·주파수 해상도가 필요하다. 원래 파형의 정확한 복구가 아니며 잡음·음색 왜곡·지연을 평가한다."
+    },
+    {
+      "identifier": "AR-072570-A1",
+      "source_fingerprint": "154674b36c20fa3f2e86b94dafb2d87279cd26d6096cf64a6b01d430e8159e46",
+      "content_hash": "c5a8c1898351a882e08b8d8cd2fdd35af1098d2726780e17df799668cd9299e5",
+      "decision": "LINK",
+      "keys": [
+        "genetic-loss-of-function"
+      ],
+      "reason": "기존 검토: IND의 부분 기능상실 변이로 종자 탈립을 지연한다. 유전자 기능상실 후보를 식물 사례로 보강한다. 문헌 대조 후 원리 연결: 유전자 기능 상실에 의한 형질 변경: 유전자의 서열·구조를 바꾸어 기능성 산물의 생성이나 작동을 줄이면 해당 유전자가 담당하는 경로와 형질이 바뀔 수 있다. 대립유전자·중복 유전자·잔여 기능·생존·유전 배경을 확인한다. 식물 열매 열개 억제 사례이며 RNA 억제나 표지 선발과 구별한다."
+    },
+    {
+      "identifier": "AR-072684-A1",
+      "source_fingerprint": "579086b26a85a77c780c5789a9f7091e1a9d479916fd63ee0355d2bf5233cc81",
+      "content_hash": "8b35f904bbf4ba70438ec997ad2cf755177bca66be39ed1bc1e45ada093327d7",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction",
+        "electrochemical-oxide-deoxygenation"
+      ],
+      "reason": "기존 검토: 용융 전해질에서 전압을 가해 금속 산화물의 산소를 제거한다. 전기화학적 경로는 추가 검토한다. 문헌 대조 후 원리 연결: 전기화학적 산소 제거에 의한 산화물 환원: 산화물 음극에 전자를 공급하여 산소를 이온 형태로 용융 전해질에 이동시키고 금속 성분을 남긴다. 산소는 양극 반응으로 배출된다. 전해질·전위 창·온도·전극 접촉·산소 이온 이동이 필요하다. 잔류 산소·부반응·양극 소모를 확인하며 기체 환원제 방식과 구별한다."
+    },
+    {
+      "identifier": "AR-072746-A1",
+      "source_fingerprint": "83399cce08467b7de136a7c931528bc8922221d84d0ac4220789f139a26bee81",
+      "content_hash": "35d22b27f7f7d7a6777625f1ba8691f8bf5b539ae63088fdbfde8f8ea45fb852",
+      "decision": "LINK",
+      "keys": [
+        "subtractive-color-mixing"
+      ],
+      "reason": "기존 검토: 청색 색소와 엽록소의 조합은 감산 혼색 후보이며 흡수 원리와 연결을 별도 확인한다. 문헌 대조 후 원리 연결: 선택 흡수의 조합에 의한 감산 혼색: 색소·필터가 각각 특정 파장의 빛을 흡수하므로 조합 후 남은 스펙트럼을 바꾸어 투과·반사 색을 조절한다. 광원·관찰자·색소 농도·층 두께·산란에 의존한다. 빛을 더하는 가산 혼색과 구별하며 혼합 색을 이름만으로 예측하지 않는다."
+    },
+    {
+      "identifier": "AR-072973-A1",
+      "source_fingerprint": "4e03babab3ccc8348f701531ed059b0cfa385589ac22dbc7907242926c68e977",
+      "content_hash": "99c65c86e535cb2f524da3b2ed7e47d5350a6a4500d6f9cc372f093bddb0293d",
+      "decision": "LINK",
+      "keys": [
+        "digital-certificate-trust"
+      ],
+      "reason": "기존 검토: 제조자 인증서로 최초 신뢰를 구성한다. 공개키 서명 기반 인증 원리를 별도 검토한다. 문헌 대조 후 원리 연결: 인증서 서명에 의한 공개키 신원 결합: 발급자가 신원·공개키 정보를 서명하고 검증자가 신뢰된 키로 서명과 인증 경로를 확인하여 키 소유 주체를 판단한다. 신뢰점·유효기간·용도·이름·폐기 여부와 키 보호를 확인한다. 유효한 서명만으로 모든 주장·권한·장치 상태가 참인 것은 아니다."
+    }
+  ],
+  "recorded_at": "2026-09-21T23:28:02.374711+00:00"
+}

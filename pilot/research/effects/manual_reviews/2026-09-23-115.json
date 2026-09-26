@@ -1,0 +1,215 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "3d525f9869a6f4f51f7f0c5d1bd32f2848427c7786aeb8afb50e47db438c6a39",
+  "reviews": [
+    {
+      "identifier": "AR-090365-A1",
+      "source_fingerprint": "8a56c4e68cb6357b9b476dcd201735fa29b41940807b5944fee4c0829b15d634",
+      "content_hash": "10a42520e1fb9e0ab19ab5953c7954a26065b1039dba67bb3a4e9ac7c2aba55d",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "입체구조를 유지한 항원 제시이다. 일반 단백질 초나선 조립만 신규 후보로 검토하며 서열·병원체 설계는 다루지 않는다."
+    },
+    {
+      "identifier": "AR-090383-A1",
+      "source_fingerprint": "18c5b0c9ed87c13c7fb5e6cf410ee01cb153d58abb953a0638c9809e7f19250c",
+      "content_hash": "8614b578bf3964c8e7e87c988d8145d3a24e5f52be535c02c048de5ab5c50699",
+      "decision": "LINK",
+      "keys": [
+        "elastomer-contact-sealing"
+      ],
+      "reason": "축·반경 방향 상대 이동을 허용하며 밀봉을 유지하는 텐셔너 구성이다."
+    },
+    {
+      "identifier": "AR-090390-A1",
+      "source_fingerprint": "8309c38158c3ba2154a1939ea4bedfd0b2f87a34ff5164ac79e5aff6def881b4",
+      "content_hash": "a775aab5cb1b6e3efd8a8f93387bb828d17159938d72b1da7734ce5508dd9589",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수확량 감시라는 기능만 있고 측정 원리가 없다."
+    },
+    {
+      "identifier": "AR-090400-A1",
+      "source_fingerprint": "0b6806f8f762a9e462f64450daffcef33c5f141c95ca0124927f96257fda86f1",
+      "content_hash": "cd9a40f254d0d5b44b79947fcd637507fa34f2be66e59203d594c51511ea4214",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분기 배관용 차단 밸브의 연결 배치이다."
+    },
+    {
+      "identifier": "AR-090406-A1",
+      "source_fingerprint": "4cdf990d8b5e64477810a12946ddf6df0a88031e5cd4d16471abfeb3f0184fe7",
+      "content_hash": "94dbbe0ccbbda51a520b78034f601d3f467eeafbc7f0316df23d50d577c39fe0",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "부직포와 석고 계면의 거칠기에 따른 기계적 고정이다. 초록의 거칠기 단위는 원문 검증 전 사용하지 않는다."
+    },
+    {
+      "identifier": "AR-090421-A1",
+      "source_fingerprint": "52d6f0a36db8d6e1f06e20e45aac018a4fe7d661847f9aa0577427c67bce4dbf",
+      "content_hash": "895781d8992bc9acf92a0451ff777eda888210f8795876c289e7f0cb8f1f543c",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating"
+      ],
+      "reason": "코크스 가스와 연소 공기의 공간적 혼합을 개선하는 구성이다."
+    },
+    {
+      "identifier": "AR-090429-A1",
+      "source_fingerprint": "8b6469f6f0ae69cd7a221f0155d4d00793b304be59e136f1ef40f815917b0f33",
+      "content_hash": "232ea47f9637b3487c30b5db857b7d51fb4f2c7d5cd0e6768c5770f476818530",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "고강성·저강성 부위의 패턴 배치로 비틀림 변형을 제한한다."
+    },
+    {
+      "identifier": "AR-090460-A1",
+      "source_fingerprint": "63304b64a7c99062d214d8bbb900a6c416ce507e110e90f4c7cb070af4efb650",
+      "content_hash": "fa11cd2ca052cfa95b7484cf8d6713acdf5cb6a598b9e689656be6919f753691",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution",
+        "barrier-coating"
+      ],
+      "reason": "수용성 고분자 부분의 용출과 다층 피막으로 성분 방출을 조절한다."
+    },
+    {
+      "identifier": "AR-090479-A1",
+      "source_fingerprint": "29363ed95a5ba5c07f06360c4732a2da490dae5fa111025ef5c168b6f1b05632",
+      "content_hash": "dd2543a6ad9afb0cb3bd952cd336f0e6647dd93b2bc6d23fa69db0568e08a850",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "계면활성제와 지방산 에스터에 의한 유화 제형이다. 비산 감소의 별도 기전은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-090504-A1",
+      "source_fingerprint": "b1120741f68a10bcbcd345ddf21bf0d4b8cbcaacd581296c366581629c7621c2",
+      "content_hash": "d11cfb1b5a0b8b13eeb05ac4f31b476d35717399d78d70f7260bc47576652cd3",
+      "decision": "LINK",
+      "keys": [
+        "twisted-pair-interference-cancellation",
+        "dielectric-insulation"
+      ],
+      "reason": "연선과 기체 주머니 분리재를 가진 케이블이다. 기체 포함률의 유효 유전율 기여는 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-090511-A1",
+      "source_fingerprint": "52deedd30b3447e0494f6280b241bd99817270b90b36c9bf40e61875d3d83e9a",
+      "content_hash": "f360572aa527d98116cb649fb06664197d265fbfdd8e84252cb82608a514d26e",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating"
+      ],
+      "reason": "연소실에 비가연 유체를 주입하는 배치이며 열·화학적 작용 기여는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-090524-A1",
+      "source_fingerprint": "8d9b2fb2e4eb5dc0017d1cf732fc0e72bfe1a8e2f6875f581466bfc47d55a169",
+      "content_hash": "1cc1f62f74b790684551ccc65e4e49dba9def6ada34ffbc8ec34542e8445d5f7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡수체의 굽힘 강성을 영역별로 배치하는 구성이다."
+    },
+    {
+      "identifier": "AR-090538-A1",
+      "source_fingerprint": "eebd56f2c3c8576fc1755a72980984997ef80138c6d0018698fad4fee6aaf213",
+      "content_hash": "e4f3342ff34c81364ee17c052a47e855e736c42f6b49230ecb4e258e6d3c250a",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "막소포체 항원에 의한 면역 유도이다. 특정 교차 보호 효과는 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-090541-A1",
+      "source_fingerprint": "c3d1c14fdac4a81543ad87b3b7a892dfe58086793c35f4f9f24e55f1e6501e5b",
+      "content_hash": "1bb82b54fcaf7e1c213494433883e140ee344fb5575d0678189c19b2345366f3",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "duty-cycled-power-saving"
+      ],
+      "reason": "클러치 압력을 밸브로 유지하고 펌프를 멈춘다. 밀폐 유체의 하중 유지 원리는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-090542-A1",
+      "source_fingerprint": "7abdb7d29a2703cceafa459a320b15380a79e982ad2f8155334b3a243a02207e",
+      "content_hash": "5ff57bd8b8faba099a2d01828a33a227592b3c9a396cc32b4a0a4a38612338e0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "점화 플러그와 구동기의 간섭을 피하는 공간 배치이다."
+    },
+    {
+      "identifier": "AR-090573-A1",
+      "source_fingerprint": "e88facfe37a0e80e8d514afad480307189a186c2da01571d6bf816faefa80c87",
+      "content_hash": "010d1d93ddbbe219883c11d76491a25a4895864a0b4096665bbcdb76d649043c",
+      "decision": "LINK",
+      "keys": [
+        "photothermal-conversion",
+        "fluidization",
+        "heat-capacity-buffer"
+      ],
+      "reason": "집광 복사열을 유동화 입자에 저장하고 작업 유체로 전달한다."
+    },
+    {
+      "identifier": "AR-090582-A1",
+      "source_fingerprint": "00405c3a43a396f432bf783e3ddfc3d6dfad26b4457b7f0b083b20e5f22c68dc",
+      "content_hash": "89d53b5cd251f2d540e879088951028102d5cccbba05b1353fc3e7f42a6e6527",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "RNA 간섭에 의한 표적 발현 억제이다. 절단 유무로 같은 원리를 중복 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-090602-A1",
+      "source_fingerprint": "81f7d62dd2628eaa3e84f8d76d16e55a14a38818ca0a9869f2ea03a1b3d7d9d5",
+      "content_hash": "c1d28bb30f7fef90e34ed46ce3fa51c5672411627db15e6cedcb5955582d7a74",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "메티오닌 아미노펩티다아제 저해 화합물이다."
+    },
+    {
+      "identifier": "AR-090613-A1",
+      "source_fingerprint": "1d8b853bcf1a44b6a9648fd041161fc515d1e879e3a60dd5856ab64e6b496b76",
+      "content_hash": "28f402f1345a144e8d71024b8cabb474e61f7c3b2470c8bf273394c38f5067e2",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "biomolecular-recognition"
+      ],
+      "reason": "외막 단백질 항원과 진단 인식이며 감염 실험이나 추출 세부 조건은 다루지 않는다."
+    },
+    {
+      "identifier": "AR-090618-A1",
+      "source_fingerprint": "783defc7b3b768a6de9e28cd91ac95c848e8805aad9fe16b2e8ce4b6a9795b81",
+      "content_hash": "5eae451bba6b2ee584f18df481d046760af9e7970810380a878e590f158d951d",
+      "decision": "LINK",
+      "keys": [
+        "transporter-inhibition"
+      ],
+      "reason": "SGLT2 저해제 합성이다. 유기마그네슘을 이용한 중간체 형성은 반응식 검증 후 판정한다."
+    },
+    {
+      "identifier": "AR-090620-A1",
+      "source_fingerprint": "9bbc8b62dbe6b23e52224418b0b9b313e92a1461f075d1508fc523ff45d480a0",
+      "content_hash": "d47a374c309af4d7f8dd831e1a068bbcf0b91030b3046361677e6de9d4c0896b",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "gravity-settling"
+      ],
+      "reason": "붕사를 석출시키고 침강 및 월류로 분리한다. 폭기만으로 화학 반응 경로를 단정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:11:18.280281+00:00"
+}

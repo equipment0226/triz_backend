@@ -1,0 +1,37 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "1d567cb27f6cafb942abfb8aa06f539c44c97bba73772dfb35854691018070ce",
+  "reviews": [
+    {
+      "identifier": "AR-098113-A1",
+      "source_fingerprint": "2ab246b9b318503c886e6232da54a78bc6e17058a805f5b38c3397cebffed541",
+      "content_hash": "bb9e2ec7523fd5d5a5a02b1e5dfc1218cb0a27c444c91fe5eb3fccada83c99b2",
+      "decision": "LINK",
+      "keys": [
+        "oxidative-dehydrogenation"
+      ],
+      "reason": "재검토: 메타크릴레이트와 히드라진의 첫 생성물은 피라졸리디논으로 기존 β디카보닐·피라졸론 고리축합과 달라 그 연결을 철회한다. 뒤의 산화 방향족화는 유지한다."
+    },
+    {
+      "identifier": "AR-098462-A1",
+      "source_fingerprint": "8931c462a4611a0503c3899f5b6a9f074a7d360d6806fe0d673626f2dbe8c3a4",
+      "content_hash": "ab0eefa39c283a5694097e0b908b2c4390c6a7049c48239c343a679f39f24ad5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "재검토: 헬멧 유무 기준 특징의 비교는 있으나 표지 자료로 모형을 학습한다는 내용이 없어 지도학습 연결을 철회한다."
+    },
+    {
+      "identifier": "AR-098842-A1",
+      "source_fingerprint": "fe204cef4ec89035be42c72773ef0805bb97b3a28acd389beb4c80ce1379d950",
+      "content_hash": "18af8eb20fe0bd9c55a32c6840bd6bf027123c04859cc1b5017823648f2a079a",
+      "decision": "LINK",
+      "keys": [
+        "photothermal-conversion",
+        "fiber-matrix-load-transfer"
+      ],
+      "reason": "재검토: 검은 필름의 광열 변환과 망 보강은 유지한다. 거시적 공기 주머니를 미세 기공의 대류 억제와 같다고 볼 수 없어 다공 단열 연결을 철회한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:41:43.318406+00:00"
+}

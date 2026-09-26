@@ -1,0 +1,233 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e6b4a2b8d3461479933300e8ed4f2d9c9d5b20721c24e1ed59bb12f78aec49b4",
+  "reviews": [
+    {
+      "identifier": "AR-048851-A1",
+      "source_fingerprint": "2df51778e7c9566e29e0958ae22fb18792949098a1bc5832dfc15dded6af030d",
+      "content_hash": "2e7753a999f472051afbaac966e41d3756ab7bc8010a6701ae5dcd70590a3102",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "cam-follower-motion"
+      ],
+      "reason": "기존 공압 피스톤 연결을 유지한다. 캠이 포텐셔미터 위치를 바꾸어 권취 속도를 조절하는 설명을 NPTEL의 캠·종동자 운동 원리와 대조하여 추가 연결한다."
+    },
+    {
+      "identifier": "AR-049074-A1",
+      "source_fingerprint": "92a1f4053bcd0b7bc4da95b7bac7157ff8df292cec5ed26bbe7d512ab6051b99",
+      "content_hash": "f6e919489ec9e0bd7d133ca2bc7ecfeb8b33b5feb9d0b7e3b7810b6ccf126dca",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-mechanical-actuation",
+        "cam-follower-motion"
+      ],
+      "reason": "원심력으로 방사 방향 이동한 캠 부재가 압력판을 축 방향으로 미는 경로를 명시한다. NPTEL의 속도 의존 원심 구동과 캠 접촉 운동 변환에 각각 대응한다. 판의 상세 마찰 구조는 없어 마찰 링크를 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-049166-A1",
+      "source_fingerprint": "b2b3a521a1bb9a1d51e662f358ece4fb283c9296a1a8f1dcbe3e0170ca8629a6",
+      "content_hash": "bb85fde031fd00a75eec9e09a0f2a747303301e18d0d0c3d2143ce535f6b33a8",
+      "decision": "LINK",
+      "keys": [
+        "motion-compensated-prediction"
+      ],
+      "reason": "두 참조 영상의 영역을 움직임 보상하여 양방향 예측값을 만드는 경로가 H.264의 참조 영상 기반 예측과 대응한다. 저장 순서는 별도 효과로 나누지 않는다."
+    },
+    {
+      "identifier": "AR-049329-A1",
+      "source_fingerprint": "20eb016e063bc3fec1093aa0650ba9d0f48118cf44d00744406e02c7093974df",
+      "content_hash": "7d9f31dc2aef11baa76929f66bab9fdc7182d21f83e49aa814e7e8edda72c1e1",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission",
+        "centrifugal-mechanical-actuation"
+      ],
+      "reason": "원심 클러치와 감속 기어박스를 명시한다. KHK의 잇수·속도 비와 NPTEL의 원심 클러치 작동 범주를 대조했다. 세부 기어비나 효율은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-049488-A1",
+      "source_fingerprint": "20261ac0c1266f2372adf906a0ae37dca1137cba46bcf54361b207a830bc9e12",
+      "content_hash": "844c7078196fd411628c6dce663cdf6d739fdcf0e9964fb6af3adb0005a5fe80",
+      "decision": "LINK",
+      "keys": [
+        "host-guest-inclusion"
+      ],
+      "reason": "난용성 분자가 호스트 안에 포함되는 포접과 사이클로덱스트린 복합체를 명시한다. NMR로 공동 내 게스트를 확인한 원논문과 대응한다. 분자 확산을 별도 신규 항목으로 나누거나 포접 약효를 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-049541-A1",
+      "source_fingerprint": "3441c636b0878f406ac0407eba61d87ca0150d0de7b7b4b528dcb7f9ec3fee15",
+      "content_hash": "21f24341f125fb1c17e8b2a010fbb6ccb861ba3e01bc604d55d385c56bbe6f79",
+      "decision": "LINK",
+      "keys": [
+        "electrical-continuity-sensing"
+      ],
+      "reason": "도전선 망이나 끈 내부 도선의 절단으로 경보한다. Fluke의 연결·단절에 따른 도통 판정 원리에 대응하며 근접 센서는 별도 원리를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-049665-A1",
+      "source_fingerprint": "654a820dbd95b124f1035d309269fa21050066a943c6fbc96b7fe8633ac86bf1",
+      "content_hash": "b40fd9284b31293b02771b05e6e878c2d155aa126a6e6855791ee18958732510",
+      "decision": "LINK",
+      "keys": [
+        "solvent-exchange-phase-separation"
+      ],
+      "reason": "난용성 성분의 용매 용액을 물로 희석해 입자를 형성한다. 용매 교환에 의한 용해 조건 변화로 해석해 연결하며 결정성이나 반응 침전은 단정하지 않는다. 입자 안정화는 형성과 구분한다."
+    },
+    {
+      "identifier": "AR-049683-A4",
+      "source_fingerprint": "58ebfa7a96c1e20dcb699aa9070495504528063762ad1e5484b1885fb5e675f2",
+      "content_hash": "565f3d1aee7173930ede21e9841568309ed5f30c73107fbe36eeea9baa54b664",
+      "decision": "LINK",
+      "keys": [
+        "lead-screw-motion",
+        "gear-ratio-transmission"
+      ],
+      "reason": "베벨 기어로 회전을 전달하고 나사봉 회전으로 받침을 승강한다. Thomson의 회전·직선 변환과 KHK의 기어 운동 구속을 대조했다. 기어비가 1보다 크다는 주장은 하지 않는다."
+    },
+    {
+      "identifier": "AR-049727-A1",
+      "source_fingerprint": "1d438b1b785b8abe0c8de5e133093c54cb4813e9f046945cdcad0309a1529af3",
+      "content_hash": "5460bd8a6dff33f8675c1278ff26c0c81fd98b3cfe6ec81bd451fdfdcd7806fd",
+      "decision": "LINK",
+      "keys": [
+        "motion-compensated-prediction"
+      ],
+      "reason": "이전 프레임 움직임 벡터로 보간 영상을 생성한다. 양방향 예측과 같은 참조 영역 정렬 원리로 통합하며 별도 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-049979-A1",
+      "source_fingerprint": "b6c61c1f572d7d5e610187e832ded1659770aeeed70b6d6fba8aecb5b1d94b35",
+      "content_hash": "2d65ccf1ca1d4070eb05d3e213817ce26d1ca641cdc99315a62ceb0dd5130fa1",
+      "decision": "LINK",
+      "keys": [
+        "solvent-exchange-phase-separation"
+      ],
+      "reason": "용매가 조성물에서 빠져나가 고분자 저장체를 형성하는 경로를 명시한다. 용매 전달에 따른 상분리 연구와 대조한 기구 해석이며 주사 안전성·치료 효과는 검증하지 않는다."
+    },
+    {
+      "identifier": "AR-050003-A1",
+      "source_fingerprint": "cb516050f9210089c537f6dd361374fbc8a74d1bcc5b73b70e928bd8d4b1a6bf",
+      "content_hash": "68ac622efac7a118a48d8421bdab7c03282b2ca90cb2ee889852ad54176af81c",
+      "decision": "LINK",
+      "keys": [
+        "electrostatic-charge-drainage"
+      ],
+      "reason": "지지 장치의 도전 부품을 접지선으로 연결해 정전하를 배출한다. ESDA의 도전 경로 소산과 대응하며 전자기 차폐와 구분한다."
+    },
+    {
+      "identifier": "AR-050005-A1",
+      "source_fingerprint": "ef748d8dae62c6b4698cd7455f7b0013f2b9e767be8ec1aceda2c23fcde2ef5b",
+      "content_hash": "0d434aacbc76c8d69d81443e82d0e3f09e6c46c401acb73def1b8f552a88fa5e",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution"
+      ],
+      "reason": "친핵적으로 이탈 가능한 작용기와 치환·알킬화 과정을 명시한다. IUPAC 정의에 맞는 치환 범주만 연결하며 개별 단계의 SN1·SN2 속도론은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-050175-A1",
+      "source_fingerprint": "09cb494d315141e09900069e1e447e5fbab2abd0d1375d3da0d5ff993d236bec",
+      "content_hash": "589db0c8f9b857ec6f20736f6ba279811d9de41385554b7f166e3bdcedac0692",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion"
+      ],
+      "reason": "회전 뚜껑의 캠과 종동자가 축 방향 이동을 만드는 경로이다. 캠 윤곽 운동 변환에 통합하며 원통형·뚜껑형으로 추가 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-050339-A1",
+      "source_fingerprint": "e222b50a5aae0506ee2656fbed9bd02db803011968478a20be3b8b05f490bc5f",
+      "content_hash": "1ef9d25725add155ea21d60c63f0f6ae633c08868ae9567858a624a80e7dddb9",
+      "decision": "LINK",
+      "keys": [
+        "alkene-epoxidation",
+        "oxidative-desilylation"
+      ],
+      "reason": "입체선택적 에폭시화와 탄소·규소 산화 경로를 각각 명시한다. 산소 도입 삼원환 형성과 탄소·규소의 탄소·산소 전환을 원논문과 대조했다. 누락된 구조식에서 수율·입체배치·정확한 시약을 복원하지 않는다."
+    },
+    {
+      "identifier": "AR-050359-A1",
+      "source_fingerprint": "92b4bfb8292c196ca73a6b46d9335f6746413540ecd14a212494ca2ae8438903",
+      "content_hash": "21cd1dd6b030662e4820457f0148d66cc59e97f47b63e3ec72c811d8bfbd2165",
+      "decision": "LINK",
+      "keys": [
+        "crystal-desolvation"
+      ],
+      "reason": "물·THF 혼합 용매화 결정을 감압·온도 제어로 탈용매화한다. 올란자핀 용매화물의 열·회절 연구와 대조하여 연결한다. 용매별 결과가 달라 특정 결정형의 보편적 획득을 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-050615-A1",
+      "source_fingerprint": "86a290dc9870b86c3daba7abce4d2c0af2c3f0b0b168f0793fa6a005ad654c41",
+      "content_hash": "eb2ac2907e330afd6a33928fe6c90da51c9e4dc2a60907a86176d3fa4b7e8447",
+      "decision": "LINK",
+      "keys": [
+        "melt-binder-agglomeration"
+      ],
+      "reason": "소수성 용융 성분과 입자를 가열·전단 과립화 후 냉각한다. 지질 결합제의 연화·유변학과 과립 성장 실험에 대응하며 실제 약효·보호율은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-050705-A1",
+      "source_fingerprint": "9d800f8d6dbb89fe6f147b46876befe2f7fcd052e0fb7f1dd7afb4172d48dbfc",
+      "content_hash": "13328490af16081b059b09ed704196dbfb44da6dc2d0ddcdef53e3856ad5c97b",
+      "decision": "LINK",
+      "keys": [
+        "reluctance-actuation"
+      ],
+      "reason": "코일과 고정·가동 철심을 갖는 선형 솔레노이드이다. TLX의 공극·자기저항 감소 구동과 대조한 기구 해석이다. 고정 접촉면의 자기 부착과 가동 코일 구동은 별도 범주로 구분한다."
+    },
+    {
+      "identifier": "AR-050770-A1",
+      "source_fingerprint": "b876e8b52d5dfbcc669b3c6106c7d88ca54f7e18984b2e533046ab1c44d31666",
+      "content_hash": "6d55628efa20017d88e6410e735b060edc0897e3dc8b1f8184b7fa3dba30166a",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "덮개가 제품에 마찰 접촉해 빠지는 것을 억제한다. 수직 접촉 하중으로 상대 미끄럼을 막는 정지 마찰 모델과 대응하며 마찰 감쇠로 중복 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-050781-A1",
+      "source_fingerprint": "abeb25c50b8a67909c986791684b4e3d757a650444f1e3d5e2dbff9f5c47c685",
+      "content_hash": "bc1c08d3472bc1efbf3bec035735ff9cf3e0a180e94b6791a288c4bee221b005",
+      "decision": "LINK",
+      "keys": [
+        "elastic-light-scattering-sensing"
+      ],
+      "reason": "종이 표면의 여러 위치에서 산란 신호를 읽어 구조 지문을 얻는다. NIST의 표면 구조·산란 분포 관계와 대조한다. 금속 표면 연구의 수치 범위를 종이에 적용하거나 코히런트 스펙클을 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-050983-A1",
+      "source_fingerprint": "eb327f1ab5402b7281fed41dc2925b5bff9593fa56aae19622f5b9d34f04a1a0",
+      "content_hash": "4625d3004baf912b717d5320ed97f230f2c707c5a95f23895344980ecc9bffdc",
+      "decision": "LINK",
+      "keys": [
+        "lead-screw-motion"
+      ],
+      "reason": "나사 축과 피니언으로 날의 높이를 조절한다. 나사 리드에 의한 직선 위치 변환에 연결하며 날의 절삭 기구는 별도 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-051064-A1",
+      "source_fingerprint": "b18d7771ddfd2bc8cc3a600054b30835e38aea9983d6d6e767ca655d75cbc0f1",
+      "content_hash": "1bf908946010d63de5e088516d2215b9972dd796f39046f8824e557640c5ff93",
+      "decision": "LINK",
+      "keys": [
+        "capillary-entry-barrier"
+      ],
+      "reason": "소수성 미세공이 액체 역류를 막고 공기를 통과시키는 구성을 Gore의 액체 진입 압력 자료와 대조했다. 막이 액체에 완전히 덮인 상태에서도 통기한다고 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-051263-A1",
+      "source_fingerprint": "fa3a377f431e3c9e11340ef7a1531f9a2d4dab916cc9d1d57c40ee503abb1094",
+      "content_hash": "be1ac743399779c17e3a71155367a8b506eecf46beccb07da735d87adae523df",
+      "decision": "LINK",
+      "keys": [
+        "solvent-exchange-phase-separation"
+      ],
+      "reason": "에멀전에 비용매를 투입해 분산상 용질을 고화시킨다. 용매 조성 변화에 의한 상분리에 통합하며 결정화와 동일시하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T07:08:01.089439+00:00"
+}

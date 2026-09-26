@@ -1,0 +1,324 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "015b1406c9cd8392ad1b6f17e2f9b3cc71999bd67ed7505c6ad2a082309290fa",
+  "reviews": [
+    {
+      "identifier": "AR-055048-A1",
+      "source_fingerprint": "fd9e3d785f0d73f43ae81324d9bc666a63a6e0778ca84a62dc0c1882be46097c",
+      "content_hash": "43300d556c32a08832a44030feef0241f9162cb199f3f312dfdfdcb7472e613b",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding",
+        "elastic-energy-recovery"
+      ],
+      "reason": "용융 상태의 고분자 섬유 접점을 열로 붙여 굽은 고리망을 만든다. 용융 접합과 고리의 탄성 변형을 연결하며 감쇠 성능 수치를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-055073-A1",
+      "source_fingerprint": "f680fece6c1dde9e2bb9e3801ef68dc365473bdd130df3f9e2ba8f1fd78e2184",
+      "content_hash": "5676e1cbefcc6d3fe60a9cc7c89286b8f92df48a1c95d4ae74c21818311287de",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유리산과 아민염의 제제 조합만 제시한다. 표적 작용이나 방출·용해 기구를 확인할 수 없다."
+    },
+    {
+      "identifier": "AR-055078-A1",
+      "source_fingerprint": "9e0ebbc640a2e6b74e6c06a794f879d2278fc2acf814fcaf1285417b2dcb784c",
+      "content_hash": "4fced9f11134bca06088918a0b701139f14dc8097a779f3fd1bf580522e46b72",
+      "decision": "LINK",
+      "keys": [
+        "gravity-settling"
+      ],
+      "reason": "활성 슬러지의 침강 구역을 명시한다. 호기성 질산화와 탄소원·무산소 탈질은 별도 생물학적 산화환원 후보로 기록해 문헌 대조한다."
+    },
+    {
+      "identifier": "AR-055093-A1",
+      "source_fingerprint": "15cd0ff2c6b8d32333689cf4f5eb21d9bedc2671db6f24fa52d4e7b305b00e56",
+      "content_hash": "cccf8abee91cc88a146e6904495d9184fc93cbef949c110e6033eb538a521107",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "금속·비금속 코팅 적층을 제시하나 마모가 신호로 변환되는 경로가 없다."
+    },
+    {
+      "identifier": "AR-055162-A1",
+      "source_fingerprint": "d9bb44e10ab37010569bb535c961195a447a0d62b326d2500cf79ed250972ff8",
+      "content_hash": "e6d543df773938d6243a7f158916806d2185e5fb90cec0e7a46ce97687996139",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "피타아제 함유 사료 과립과 pH 범위를 명시한다. 효소 촉매 적용만 연결하며 생체이용률·내열성을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-055165-A1",
+      "source_fingerprint": "f44f313ffd92b3d412012606fae0cd0584d1be7ae99ffb5fddd748d263f744e4",
+      "content_hash": "1a4326173cb0a114fc6acdbca19e3ddc26e708fce0a72c4dccd1d789cf55c07d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "제목에 HCV NS5B 저해제를 명시한다. 효소 표적 범주만 연결하고 치료 효능은 별도 검증 사항으로 남긴다."
+    },
+    {
+      "identifier": "AR-055193-A1",
+      "source_fingerprint": "090fb84f46bb1a9a20ce7223edaaac4e52a153bcacd55f03c487f327df40e086",
+      "content_hash": "2e41881bbbc2ccf2ae603dd61dac33d7fc9b0792853f86027396080d8b5babd9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "TFF2 양성 조절 용도와 광범위한 치환기만 있다. 조절 표적·전사 경로가 없어 단백질 발현 효과를 새로 만들지 않는다."
+    },
+    {
+      "identifier": "AR-055212-A1",
+      "source_fingerprint": "35fff2672b55ea7ad5d161885434877292391ae574b898a8c20dd8adb770a4e0",
+      "content_hash": "cb9fff18433c3b23beaefdb61ecc04d1b3575b9255221678113ce98fee4fdaf3",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation"
+      ],
+      "reason": "P2X7 이온 채널 차단을 명시한다. 이온 통과 조절 범주만 연결하며 질환별 효능은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-055254-A1",
+      "source_fingerprint": "fd94b5690756ada2e99bfa6517eadb9bf138b54fdcd88c686bc73027cdb6c759",
+      "content_hash": "d836280dcd4650f065a5d9ae98df9709ba80fdbd077ea1aad4ebfcc31f696ccf",
+      "decision": "LINK",
+      "keys": [
+        "feedforward"
+      ],
+      "reason": "앞쪽 가열 구간 후 액온으로 다음 구간의 필요 열량을 정해 히터를 구동한다. 하류 출력 센서 피드백이 아닌 상류 측정 기반 피드포워드 보상으로 연결한다."
+    },
+    {
+      "identifier": "AR-055260-A1",
+      "source_fingerprint": "8d30cfe8e2f1d99ade1b8e0bb72c44e1cfac8dc8daa164bf720d9eb1e22a35cc",
+      "content_hash": "52e308aeac6772dcbd355278551205b43c18929b1a88929f2c396c6857a5080d",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "차체 덮개의 걸림 요소가 구멍과 맞물려 고정되는 기하 구속을 설명한다."
+    },
+    {
+      "identifier": "AR-055263-A4",
+      "source_fingerprint": "fd19e7f2c3edfc55adda3d7eb16f61312b8948caf1b212344673cdd1c2977b24",
+      "content_hash": "bb2cb03f3f60b02aef92c9d68f58871cedd584ec62f17d6897973bf189e65096",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage",
+        "gear-ratio-transmission"
+      ],
+      "reason": "손 지레와 체인·스프로킷으로 앞바퀴를 구동한다. 힘·변위 및 회전 전달 범주만 연결한다."
+    },
+    {
+      "identifier": "AR-055267-A1",
+      "source_fingerprint": "c0e2bd409b4aafe7159cf4fc24d34338d53f5f133b312f29cdbc2b2e1ac86aaf",
+      "content_hash": "3ef3d1e49824aed1c9bfe1fdf88b5711796c35765b39f88c824ca52cbf53cb45",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "pH 처리로 펄프 중합도를 낮춘다고 하나 산화·가수분해 중 어느 절단 경로인지 구체 반응물이 부족하다."
+    },
+    {
+      "identifier": "AR-055285-A1",
+      "source_fingerprint": "93deca69d41f7996e219d6cc1a5f3669db2321ffb92085612c0bb959d24b880d",
+      "content_hash": "cc89b57bb8aab4b61bbe8ec67ba6ef02252806ad41326438a81e6b92e5db2cc7",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation"
+      ],
+      "reason": "금속 양이온과 아미노산의 배위 공유 결합을 명시한다. 배위 착물 형성만 연결하며 흡수율 향상 주장은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-055286-A1",
+      "source_fingerprint": "918b65c25a5a26aa98b87d0cf1fc50b68d619e53664f4d8c3e98f866b1d441f9",
+      "content_hash": "abe00dc988cfc523c6b23466c5e0562100d292cf9b4851597fee2576b434d5ee",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "특정 약물의 벤젠설폰산염과 치료 용도만 제시한다. 염 제조 반응이나 생물학적 표적이 없다."
+    },
+    {
+      "identifier": "AR-055297-A1",
+      "source_fingerprint": "ad5c1fb9d316c634b5b1faa07c2348f4154da746d3ae68934a36850002f809c0",
+      "content_hash": "853305c591585c2acd7f5f8a43234a55f8afe5cdb7268d465181ff4c3972ad81",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "제목에서 RAR 수용체 조절 리간드를 명시한다. 수용체 조절만 연결하고 화장품·의약 효능을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-055329-A1",
+      "source_fingerprint": "33960b4471ed6c02a4533b62112120166bf20eb71dfe121ba7bd68dd5c535962",
+      "content_hash": "f3d1f2bddfac4f3e9b1b4a381b85f512c2a15c8b0116fa88737a8dbb2e613129",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "감미 증강 화합물과 적용 농도를 설명하지만 결합 수용체와 작용 경로를 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-055370-A1",
+      "source_fingerprint": "e77e78dfe333d74d8877f660a7955e268f716eb24225971e7ee00c6e9869be6d",
+      "content_hash": "2214481c5961ec1f5d8705175969eca399096f75da961df66bf31a06dc5af148",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "감마 세크레타제 저해를 명시한다. 저해 범주만 연결하며 질환 치료 효과와는 구별한다."
+    },
+    {
+      "identifier": "AR-055378-A1",
+      "source_fingerprint": "f1db16de321212736dd8ecf18e38c6584134764e2dbae4155952cb50a32bd413",
+      "content_hash": "2c19bd570bf0cc03020de3fcf3174ef34c1e351509ef6014d90c137e8ef68cd9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "가동부가 RF 통신을 방해·허용한다고 하나 차폐 재료·접점·안테나 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-055380-A1",
+      "source_fingerprint": "d35b94a94b9a14e2a595e3e9b4f6b2336cc546b297d49410fbe52dfee68aa1fd",
+      "content_hash": "94a8d1d041c733110b37198d99f3a34828e98cb059fcecf5f85288954b19f1a6",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding"
+      ],
+      "reason": "불활성 분위기의 아크·미세플라스마·레이저 용접으로 연료봉 단부와 격자를 접합한다. 용융 접합 범주를 연결한다."
+    },
+    {
+      "identifier": "AR-055382-A1",
+      "source_fingerprint": "219db68ffef5d2d6ce6a1712fa9daa1fecd90381d22d5d79e53336911bf75238",
+      "content_hash": "97a86b94d31c86a4f48eb28cdf2c105ccc26f5de120c4e99c0727b4ae1fd68a0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "물리 안테나의 가상 매핑을 비교하고 채널 품질로 선택한다. 공간 다중화와 단일 빔 조향을 구별할 상세가 부족하여 보류한다."
+    },
+    {
+      "identifier": "AR-055384-A1",
+      "source_fingerprint": "176c694b628d84427bb0353fdc10c632a021f60820571bacced16c25836a14b4",
+      "content_hash": "cf131fb028ddbbd8e9021954c7ae1c6cf9cdc797dbf2c202d333c63f75acd5db",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "진통용 인돌 유도체의 치환기 범위만 있고 분자 표적을 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-055392-A1",
+      "source_fingerprint": "45eb125adf8a6908b142b991b307b6e3be2d5276f9d8d7718a20d2c621d93368",
+      "content_hash": "e162fa17c99076de8bf1a14f86dcb850c4e2b0426db010b0391f2cfde6f3f7af",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "엔트로피 시드와 내부 상태의 비선형 갱신으로 의사난수를 생성한다. 결정적 난수 생성 원리 후보로 문헌 대조하되 암호 안전성 주장을 보증하지 않는다."
+    },
+    {
+      "identifier": "AR-055428-A1",
+      "source_fingerprint": "4c24d8862f118d31b9a52f5d43808db242c3463817c5b27a6d3fe1d746928a27",
+      "content_hash": "142f7cb829fec0b316ea3cc2f64a9057c6b58d343501752b39465f180acfd077",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "트립신 변이체로 인슐린 전구체를 절단하며 아르기닌·라이신 기질 선택성을 논한다. 효소 촉매로 연결한다."
+    },
+    {
+      "identifier": "AR-055431-A1",
+      "source_fingerprint": "1a7ba39495c32acbcb094241c48503ff9f40fbe02046c5794e2179c7dc8088c6",
+      "content_hash": "0063cd70b2703aafdff617219f1797adbc5b851ea12512c359ddfd36ea7fce11",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "Raf 키나아제 저해를 명시한다. 효소 저해 범주만 연결한다."
+    },
+    {
+      "identifier": "AR-055450-A1",
+      "source_fingerprint": "7d1148a3fb8fdfd26bee5cfd0ed0eba2e5157fade3cfb990f57b414e692077c8",
+      "content_hash": "ae477f567cf2b8287e6ee9694dff24d96992579f025ebd1b0528b1111985e4d3",
+      "decision": "LINK",
+      "keys": [
+        "motion-compensated-prediction"
+      ],
+      "reason": "움직임 보상기와 인접 영상의 양방향 운동·휘도 차이로 장면 전환을 검출해 인코딩한다. 운동 정보 기반 영상 처리만 연결하고 학습 모델로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-055452-A1",
+      "source_fingerprint": "0f43139a189a1a5e01595c517c620a7fa37e1dd3d3ed584675166483f34bfae1",
+      "content_hash": "067a6205734e7a7627418310a875cc4e101bc5ab9b59dfba651172be5ce6c632",
+      "decision": "LINK",
+      "keys": [
+        "converse-piezoelectricity",
+        "direct-piezoelectricity",
+        "pressure-driven-flow"
+      ],
+      "reason": "가압 액체를 내보내며 압전 소자로 검출 공간을 진동시키고 자유진동 응답을 읽는다. 압전 가진·검출을 연결하고 유체 부하 진동 센싱을 추가 대조 후보로 둔다."
+    },
+    {
+      "identifier": "AR-055462-A1",
+      "source_fingerprint": "6177b4dc68777412c2a35838e0f1d5805550ad857a4a6cdcfc022151f79a249b",
+      "content_hash": "2a035781b2e8bbc291db3d8ff2b36119f5e74a70069b9ad68490ce23a8c0b1dc",
+      "decision": "LINK",
+      "keys": [
+        "vapor-compression"
+      ],
+      "reason": "원심 압축기를 사용하는 냉동·공조 냉매 조성물을 명시한다. 증기 압축 냉동 범주만 연결하며 공비성과 성능을 검증된 수치로 취급하지 않는다."
+    },
+    {
+      "identifier": "AR-055518-A1",
+      "source_fingerprint": "b11afd354c5c8d5ff966c0947d40d6d2c3728f42349f309c452b3e2f7edbde49",
+      "content_hash": "68cc6a058b26dcf1204743747341eb86a0d8834b169a19c87e61644d76bd4f57",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "척추 보철 고정 플랜지의 상대적 편심 배치로 공간을 확보하는 구조다."
+    },
+    {
+      "identifier": "AR-055520-A1",
+      "source_fingerprint": "5c326847ff26ab19bba946645a40fe1b5f6dfff746b7cf5f9f2bd02fbf6ba275",
+      "content_hash": "ad20d7aff8fb3159d43a8ea43e36b33889be396e2b8dd74790cd2b59c67ade3c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "서로 다른 셀 깊이를 수열로 정한 수동 음향 확산기다. 위상 지연을 분산시키는 음향 확산 원리를 원문 문헌과 대조할 후보로 둔다."
+    },
+    {
+      "identifier": "AR-055524-A1",
+      "source_fingerprint": "a9ac40f40c4356b22b84666bc39d8fba18a8c6598a8363dc39b2da791e1f17c1",
+      "content_hash": "950cd303500ec543bacd6ecb8daeec126bccabad31661ae293eca26fa4458127",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "색상·문구가 붙은 회전 표식으로 연료 주입구를 구분한다. 정보 표시 구조이며 독립 과학 원리는 없다."
+    },
+    {
+      "identifier": "AR-055540-A1",
+      "source_fingerprint": "d9f9d7e237667bb4a079818da463657909073732bf831987e7fe0c389a117cad",
+      "content_hash": "a05658bf3e060dbc6f57d02fbb6172585750ee9cdc3f99d49a77383a14c9165c",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "fibrous-filtration"
+      ],
+      "reason": "공기 유입을 허용하며 용기의 물을 배출하고 공기 입구에 펠트·면 필터를 둔다. 유동과 섬유 여과만 연결하며 무균 주장은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-055553-A1",
+      "source_fingerprint": "05dbf7af4cc32498ef730fe32610391fd6facffef9e1ce8604f38d9b2af57d79",
+      "content_hash": "e28d601dde98ece85146f0da4610f11dd0dc7980e79979a8c081211e2a2d0084",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "약물 결정형·무정형과 용도만 제시한다. 결정화 조건이나 작용 표적은 불충분하다."
+    },
+    {
+      "identifier": "AR-055570-A1",
+      "source_fingerprint": "503c9b32a4cddad79935301a6cd18b5d74a2ec88158b53ab1daa38c91050033f",
+      "content_hash": "b2af5914d7de541f8c6a056b5f9a16ed3972d268e0e461c06069d1861f09f322",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "특정 약물 메실레이트의 구조만 확인된다. 생성 반응과 결정형 전이의 원리는 제시되지 않는다."
+    },
+    {
+      "identifier": "AR-055580-A1",
+      "source_fingerprint": "1b1da0b1d2fa99d77a912b64ff008909ad9ff5dc5aec5f9cdc4530d1b4207a63",
+      "content_hash": "520a76e80222ee5566c9287216eb2dc606fb41e0e15f9348898b0a8c84671ffd",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antigen-specific-immunization"
+      ],
+      "reason": "PVL 항원 특이 항체 결합과 항원 백신을 설명한다. 인식과 면역 유도 범주만 연결하며 감염 치료 성능은 검증된 결과로 해석하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T21:24:27.788543+00:00"
+}

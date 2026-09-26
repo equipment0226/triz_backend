@@ -1,0 +1,361 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "786a6ae915165a371f79d0eb55573a098d95a9052c44d90506ee51cdb6675e3e",
+  "reviews": [
+    {
+      "identifier": "AR-040928-A1",
+      "source_fingerprint": "0c80c8c836ba2c753862cd4dec51da303e2e3b4a7d084abff51e0ee3a48e2c8d",
+      "content_hash": "a4f1c183b54524364979eb70f1c567a79f37a64b46a3a9f212234a989cd933b3",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "기질 메탈로프로테아제 및 아그레카나아제 활성 억제를 명시한다. 효소별 억제 성능은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-040950-A1",
+      "source_fingerprint": "a75057e3dfea95a196bf82dd9140b521cf134783cdc300683465dbb3823228ea",
+      "content_hash": "e7312ebfb28ddf363b345031bf1bcdf4b4a9bf2097ba010f8bfc51143278a5c4",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "특이적 엔도프로테아제를 음료에 첨가해 혼탁을 줄이는 효소 처리를 기술한다. 번역된 기질 명칭 일부는 불명확하여 세부 선택성은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-040963-A1",
+      "source_fingerprint": "ae34335ca660191062d1665bb6f27ec96efae377aae2277bccb9f82dd07833c8",
+      "content_hash": "4d5f733b8c7675b59dd49c8a797b7fb062194615a11d27c37aa749359b5317d7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알파4 매개 세포 부착 억제를 명시하지만 직접 결합 표적과 억제 경로는 구체적으로 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-040973-A2",
+      "source_fingerprint": "47497ca52b23ab51a3731f515a72149c719c4fcb01ee60b08cd68bd38dd70c8f",
+      "content_hash": "d0bd28bfc8b6d46762b060ae271de301c8c44e263bdf9e336ecf3fef41e5d43c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "직경 측정값이 허용 범위를 벗어나면 포장기를 정지하는 검사 및 인터록이다. 오차를 줄이는 연속 제어 법칙으로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-040989-A1",
+      "source_fingerprint": "1f0c39e86ec2f7a12d8accde7d8f79ea7f265b53a7b69569c8d0849baf78c502",
+      "content_hash": "cda103705d130210f870ec70ce69105dd69165cf2295278b33020e164ab12694",
+      "decision": "LINK",
+      "keys": [
+        "shear-thinning"
+      ],
+      "reason": "영전단 점도보다 지정된 전단률에서의 점도가 낮음을 명시하여 전단박화에 연결한다. 시간 의존적 점도 회복은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-040998-A1",
+      "source_fingerprint": "0f452f063431b3877bd45bdf99b27f4c86582b086915f8836c25fbfb465a8459",
+      "content_hash": "4bd116fca29c72447f5a35167ee0d871e759cc60edb29729018b7bb20c53e607",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "선불 전력 구매와 암호화된 영수증 코드로 계량기를 활성화하는 서비스 구성이다."
+    },
+    {
+      "identifier": "AR-041020-A1",
+      "source_fingerprint": "73f4708b8ba730a798fbc2a13b73ee0d92afcc82ec0f66fd1d20c55be0e4331e",
+      "content_hash": "172817801976108bd6d542caf1e1abbe5274829e0ecfb6b4e85f3ed6c9bcf6a3",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "알파2 아드레날린 수용체 길항을 명시한 부분에 연결한다. 함께 기재한 세로토닌 재흡수 억제를 같은 수용체 기전으로 묶지 않는다."
+    },
+    {
+      "identifier": "AR-041029-A1",
+      "source_fingerprint": "873965137dccd190132dad97fdbc740c5a87065e42b740b50ad3018ed327d3af",
+      "content_hash": "1111323548adaa30451afd033824b2ad35a412e374af5d691eed449100dfacf5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "GnRH 길항을 명시하지만 수용체의 직접 작용과 다른 호르몬 억제 경로를 구별할 본문 근거는 부족하다."
+    },
+    {
+      "identifier": "AR-041038-A1",
+      "source_fingerprint": "56175e1f639d72ff4b68a113d7ecd2164699ae88cb43ad916dd9858b8a47b61d",
+      "content_hash": "7b438e63ab554876c8ea0ed60ee05903dadbfa6a462d0245b7b5e462da8f765e",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "정해진 염산염 화학량론의 결정성 고체와 단계별 결정화 방법을 명시한다. 흡습성 및 임상 용도 주장은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-041065-A1",
+      "source_fingerprint": "3894d8a42b247e21c502f53d8ab29d5a0973efe4fbb8db04121ed14a71dcd24e",
+      "content_hash": "a8ae09bad7a58bb25dd1d95f4826a8482c82131d3524195dbbd710e65acc75ee",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "위장 및 장 효소로 단백질을 시험관 내 소화하고 아미노산 프로필을 확인하는 효소 분해 분석이다."
+    },
+    {
+      "identifier": "AR-041080-A1",
+      "source_fingerprint": "174f2dcf619b6bf4c0ebc923d8d98e5fc8feeebaf3524441f53e900267d1fb13",
+      "content_hash": "dcc68c9369d0a137576db8df05ab9af8d58fbdce192e02c4583e6f3d91677669",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "안압 조절 용도와 구조 정의만 있고 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-041094-A1",
+      "source_fingerprint": "8e6ce886ac474bcd77acfb141f24950b2b0a0c3b5d861311e17a53435380a424",
+      "content_hash": "3a6f9f0a9ecced63501db5d62af8db413caeb647d82180d4e003b5a1815b3b8f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "돌출 혀와 홈의 겹침으로 이탈을 막는 체결 형상이다."
+    },
+    {
+      "identifier": "AR-041115-A1",
+      "source_fingerprint": "a84663974eb7e88287e9054ec08ce75ff5eb312fea08ffb6d3f040f5386ce5f8",
+      "content_hash": "c083f29ba66f5a9f3daa4b926097cfca94aeb181ff2090f6d6998127f8ca531e",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "두 냉각 유체 제트를 피스톤의 서로 다른 영역으로 보내는 강제 유동 냉각을 명시한다. 냉각 성능의 수치는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-041120-A1",
+      "source_fingerprint": "710dcfd08bb4499fd94b1928f367e821c773b583f1b014bfd9a8fe7e70d0be5c",
+      "content_hash": "aebc5ad0a90c099efc2df626319312602506e4fae5f07ac2c80bdd6b0a1382bd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "윤곽만 방사선 불투과성으로 만들어 X선에서 보이도록 하나 재료와 감쇠 조건을 확인해야 하며 회절 효과로 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-041122-A1",
+      "source_fingerprint": "684225dd2468738ba2772cdacf3ec1d009622d4d33f0ce021edcfcf98531ab89",
+      "content_hash": "a3f0c567ed04b2dfd60aa9fd4ac7ae637689315a4b7f301ee04b9e97b9e3b54b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "부표 기울기로 스위치가 닫혀 표시등이 켜지는 감지 회로 배치이다. 발광소자 표기가 불명확하여 특정 발광 원리는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-041135-A1",
+      "source_fingerprint": "35233d2a2f8a1ed8346fe9b611366a802293b8286390586176f0d4b5109bc721",
+      "content_hash": "1c4827bfb01dc7754507009b03ee8bbf35047f46bf2c9d8a233f5a028562385d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "사이클린 의존성 키나아제 억제를 명시하고 CDK2를 구체적으로 지칭한다. 열거된 암종의 치료 성능은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-041161-A1",
+      "source_fingerprint": "4e7d5d9fdd7794af8a72960c60828df3b7511078ff49140d9c5500a741bca6f2",
+      "content_hash": "e93b782e89dd6a0a4ff29c8e9ff668807729369846f2cbe943284504a27e2a0c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "바이오매스 연료의 배합만 설명하고 연소 성능 및 상 안정화 기전은 없다."
+    },
+    {
+      "identifier": "AR-041172-A1",
+      "source_fingerprint": "f857b714e1040f100a79a7b65ff1a864f96c3f59a16936cbb6976ab20ffa902e",
+      "content_hash": "f71e7706747f14afa40efcb3f645c6c41703c0bac34d59bf1fbe3005a5fa4fff",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "포스포디에스테라아제4 억제제로서의 사용을 초록에 명시한다."
+    },
+    {
+      "identifier": "AR-041185-A1",
+      "source_fingerprint": "f9540a15ecc78b83c4e5ae4f5ccd302166378c914d08c133533ea41424ac330e",
+      "content_hash": "1bc7c3ebc1b7e918de016bd5170e1a58759448b079a3c80c8557d9490c913016",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "콜레스테롤 흡수 억제를 기술하지만 수송체나 분자 표적이 없고 저장 초록도 후반이 잘려 있다."
+    },
+    {
+      "identifier": "AR-041189-A1",
+      "source_fingerprint": "f5f8526c6eae745f9c60d7f525a5994b1443e7913d8f7560609bf5aa08689dbc",
+      "content_hash": "2b79ca9943ff4061b819144b88a416511ee9570a07df7c95438437f7cc0069ca",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제목은 티로신 키나아제 수용체 작용이나 초록은 항혈관신생 용도와 구조 정의 중심이고 후반이 잘려 억제 방향을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-041224-A1",
+      "source_fingerprint": "945d5efddec93c67469a851c5c00fb0b38e03cfe8f96814c89dabe5872e0391c",
+      "content_hash": "85314adaef6d111d548ab7647c5df2132466b9bd24c369109b09b1bf0e6f4f7b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "링크와 결합부로 나선 경로를 지나는 컨베이어 구조이다."
+    },
+    {
+      "identifier": "AR-041249-A2",
+      "source_fingerprint": "54ee0f56339ffa10019ee8163e523d72891a559720ac437a9d3ac6a5a2a8806f",
+      "content_hash": "8fbb7dc4e96b59741be30be40149cecff673bb721b0e189081c59ab9fa8962e4",
+      "decision": "LINK",
+      "keys": [
+        "adsorption"
+      ],
+      "reason": "항원 또는 보조제를 알루미늄염에 미리 흡착시키는 부분만 연결한다. 면역 반응 및 보호 효능은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-041271-A1",
+      "source_fingerprint": "5956d91195dee8508b5e7501984a0933b786fcb20fc69a487ce3245487e18016",
+      "content_hash": "6dfd95f04b8a7448a7ae9f828ed4007d9e705e16d405ef0b8f457f09c19def9a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "스피로 퀴나졸리논의 포스포디에스테라아제 억제 용도를 명시한다."
+    },
+    {
+      "identifier": "AR-041290-A1",
+      "source_fingerprint": "0ff5506cb323968b0f87894e052cd8d3fc74f45009452d7a653a8e97337e1cee",
+      "content_hash": "df2821a14b5ad38347b1bd78b7fe333384270192699da04692e96560b1a078d6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 성능과 저독성을 주장하나 표적 기전은 없고 저장 구조 설명이 잘려 있어 추가 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-041311-A1",
+      "source_fingerprint": "677b219c8e3e19cae4f9b4fb531614553df2859999f28cb5456104aa3256492d",
+      "content_hash": "b15d03d8b82f695144909705760e587014d8145040464f33060b1b377855e73c",
+      "decision": "LINK",
+      "keys": [
+        "photodiode"
+      ],
+      "reason": "입사광에 따라 광다이오드 전류를 만들고 증폭하여 릴레이를 구동하는 과정을 명시한다. 래치 동작은 음의 피드백으로 취급하지 않는다."
+    },
+    {
+      "identifier": "AR-041329-A1",
+      "source_fingerprint": "f8b79027bbeea0448a999996eaf7daf673596614c52bb1e7b386b81398da04e6",
+      "content_hash": "a5012d29264291eb539c7c3d044d735cb184c5b7948b4ce5ceb8e816635774ed",
+      "decision": "LINK",
+      "keys": [
+        "time-division-multiplexing"
+      ],
+      "reason": "이웃 셀의 비콘 시간 슬롯을 엇갈리게 배치해 동시 간섭을 줄이는 시간 자원 분리를 명시한다. 획득 성능의 크기는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-041330-A1",
+      "source_fingerprint": "4f5927269b8e30338ff29061d0e54676c28f2536a793937e8b574f1607dded4b",
+      "content_hash": "26880d037de177923d5680a7a9a39212937440003c2680cbcba94171c0207407",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "산과 탄산염 및 건조제의 발포 과립을 제시하나 습윤 환경에서 안정성을 유지하는 기전은 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-041350-A1",
+      "source_fingerprint": "4e298d5d5372015ace3280e86a1afd38084d7f6953179110ae1082ea9cb74d55",
+      "content_hash": "d66129c1603a63cfc196dd36b1427f440bda985b652a832a8e407ce3909587c9",
+      "decision": "LINK",
+      "keys": [
+        "chromatography",
+        "ion-exchange"
+      ],
+      "reason": "음이온교환 수지를 이용한 크로마토그래피로 PEG 단백질의 응집체와 이형체를 분리한다. 다른 분석법 열거 전체를 검증된 공정으로 확장하지 않는다."
+    },
+    {
+      "identifier": "AR-041359-A1",
+      "source_fingerprint": "9b671f947d06a863472ba86d878489552f2c8a814453397eafbace54cdbba662",
+      "content_hash": "9b3eac09050587eb8e40de512b584fed8464a48e21da28e5d92e3f9f508f10c8",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control"
+      ],
+      "reason": "차 정제의 붕해 후 입자 젖음을 촉진하는 성분을 명시한 부분에 연결한다. 성분 종류와 접촉각은 초록에 없다."
+    },
+    {
+      "identifier": "AR-041366-A1",
+      "source_fingerprint": "7030eb0def22e6bad0a7963cfb5ab8c84f3dd458274dfa4e1900795e4200638e",
+      "content_hash": "51648d14f44da86e084fa39bf488d661c53a6618357774ca9955e839a107ac49",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "분기류의 시험 결과로 본류 시약량을 정하지만 외란 모델과 보상 계산 관계가 없어 피드포워드 효과로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-041397-A1",
+      "source_fingerprint": "59450edcfe4e226002f4d71632f0e091e01b0166822fa0712de9a10dc4fdf3c8",
+      "content_hash": "d4ae928789479b93ba28cbf616dee5088de433e06c2a33bcbcfd1c9aafaebd7e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "엔진 회전수에 따라 두 유량 조절부의 스토퍼 위치를 바꾸는 기계적 연동이다."
+    },
+    {
+      "identifier": "AR-041432-A1",
+      "source_fingerprint": "f05ea75c3ce33574ba6ff603121c9f3db79bb9b99f8cc9ea36c0d25ff1338928",
+      "content_hash": "bc67cd33714082b5c10a25ce92a23af79e813e5249f2e543b288681f7a38c3dd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "나선형 섬유와 접합 및 비접합 영역으로 루프 체결재를 구성하는 부직포 설계이다."
+    },
+    {
+      "identifier": "AR-041441-A1",
+      "source_fingerprint": "d6446dfa88635b821738bd7404ec1df498133f1f8ae83222fdef88f1538d2d14",
+      "content_hash": "4154b701ed188da845e15b19b9f08e919e903c58c83871f8df21e974c87b7660",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "사용자가 선택한 데이터 목록 순서대로 멀티미디어를 재생하는 정보 표시 절차이다."
+    },
+    {
+      "identifier": "AR-041452-A1",
+      "source_fingerprint": "31ca7655431ce6914fb635e604ff90dfcf9752c121a7d496e155bb59ef5e025a",
+      "content_hash": "aa0436f49f94be7c84cc591cf63b57f761770acab3c7c499a38b3933ecbe7407",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "염기성 촉매 존재하에 유지와 알코올을 반응시켜 지방산 에스터를 얻는 알코올분해를 명시한다. 수율 우위는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-041471-A1",
+      "source_fingerprint": "3dc0b1a2e20fcc25f6f7b5522030b1d6f029757586b4d2a4ce57ed70c0b5d39d",
+      "content_hash": "badfdda944ae903d1956c25f5805fcdc98fba213cd09789852b751f609e15997",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "주름 고분자층과 탄성체층을 공압출하는 다층 필름 구성이다."
+    },
+    {
+      "identifier": "AR-041485-A1",
+      "source_fingerprint": "b8c6102454c4afa9434ab4ba54e570361415b45edfd1e33393e689166a0ef93d",
+      "content_hash": "bbeff9b921713d8e40bcf5c98c9ecfddad5317b25caf6e3aafefdb2dc38ba1a3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "통행 하중의 일을 압축공기로 저장해 사용하는 에너지 회수 구성이다. 외부 일이 공급되므로 무연료라는 제목을 무입력 발전으로 해석하지 않으며 회수 효율을 추가 확인한다."
+    },
+    {
+      "identifier": "AR-041501-A4",
+      "source_fingerprint": "d8ac5f36c73326c614fc6f0e04b03cd42a9b314dda8f88d2d2a989b6f1f0d9c4",
+      "content_hash": "2552f4602c857a5bd957fe837678160e33d9574e5cd41c5b54ccd7b7902fb8d0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "원통형 끼움 부재를 쌓아 벽체와 모형을 만드는 조립 구조이다."
+    },
+    {
+      "identifier": "AR-041506-A1",
+      "source_fingerprint": "9cc60b6c04590e57a656ed68116ecc446df791ea229d5ee1b58b96650141afc9",
+      "content_hash": "b533c04aa74993d39185c07edaa4b33755f565649ced50e1e1c180822157bc77",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유입 압력으로 유연한 슬리브를 변형시켜 밀봉하는 밸브 구조이다. 별도 재료 효과나 성능 수치는 없다."
+    },
+    {
+      "identifier": "AR-041509-A1",
+      "source_fingerprint": "df0a041390a9dabfe412d353ba41ba708686d366a3048024fd069186f025ad1f",
+      "content_hash": "4881bea1521a6493b005c40abc548211065902aac21a9da6c4302d81c7e384c6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "S형과 U형 부품으로 칸막이 패널을 고정하는 체결 구조이다."
+    },
+    {
+      "identifier": "AR-041513-A1",
+      "source_fingerprint": "d5f96bdd5ba00ebcb65a33d84e374e40843b4295ceaa20d3b32fb808c41efab7",
+      "content_hash": "5db2f955301e92b8d77a0c5af23bbe198715880669a6af963b7f1bcb7e041c08",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "선형 액추에이터가 강체에 가하는 힘을 기준값과 비교하는 교정 절차이다. 압력 센서의 변환 원리는 설명하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T05:31:28.924631+00:00"
+}

@@ -1,0 +1,252 @@
+{
+  "batch": "additions-2026-09-26-20.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1316,
+  "added": 20,
+  "after": 1336,
+  "target": 1500,
+  "source_sha256": "971a0466cb115a5d7c510ea468a7cca810129bfe796c7ce271e6f7581b8e0fd9",
+  "decisions": [
+    {
+      "key": "orbital-exchange-dexter-energy-transfer",
+      "group": 13,
+      "related_keys": [
+        "forster-resonance-energy-transfer",
+        "enzyme-electron-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "쌍극자 결합의 포스터 전달이나 순전하 전자 전달 대신 교환 결합에 의한 여기 이동이다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4961191/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "singlet-triplet-pair-interconversion",
+      "group": 13,
+      "related_keys": [
+        "photoluminescent-wavelength-conversion",
+        "simultaneous-two-photon-absorption"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개별 광자 흡수나 방출과 달리 하나와 둘의 여기 수가 바뀐다. 분열과 역방향 소멸을 별도 카드로 세지 않는다.",
+      "source_url": "https://www.nature.com/articles/nchem.2926",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "excited-donor-acceptor-exciplex-emission",
+      "group": 13,
+      "related_keys": [
+        "electron-hole-coulomb-exciton-binding",
+        "photoluminescent-wavelength-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 고체 엑시톤이나 개별 형광체의 파장 변환과 구분되는 분자 간 여기 복합체 경로이다.",
+      "source_url": "https://www.nature.com/articles/s41467-018-05527-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "conical-intersection-internal-conversion",
+      "group": 13,
+      "related_keys": [
+        "landau-zener-avoided-crossing-transfer",
+        "auger-nonradiative-carrier-recombination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 좌표의 유한 갭 통과나 다른 전하로의 에너지 전달 대신 다차원 핵 좌표의 전자 면 교차를 다룬다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20459164/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "spin-vibronic-intersystem-conversion",
+      "group": 13,
+      "related_keys": [
+        "persistent-luminescence",
+        "conical-intersection-internal-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결함 트랩의 장시간 방출이나 같은 다중도 내부 전환과 구별되는 스핀 다중도 변경 경로이다.",
+      "source_url": "https://www.nature.com/articles/s41586-023-06233-y",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "reorganization-marcus-inverted-transfer",
+      "group": 15,
+      "related_keys": [
+        "enzyme-electron-transfer",
+        "le-chatelier-equilibrium-shift"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평형 이동이나 일반 전자 전달과 달리 재배열 장벽이 만드는 비단조 속도 의존성에 한정한다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-26705-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "concerted-proton-electron-transfer",
+      "group": 15,
+      "related_keys": [
+        "acid-base-reaction",
+        "enzyme-electron-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산염기 반응과 전자 전달의 단순 병렬 나열이 아니라 협동 단계 여부를 판별하는 반응 경로이다.",
+      "source_url": "https://www.nature.com/articles/s41557-025-01772-5",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "frustrated-lewis-pair-hydrogen-splitting",
+      "group": 15,
+      "related_keys": [
+        "lewis-acid-catalysis",
+        "catalytic-hydrogenation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 루이스 산 활성화와 달리 산·염기 두 자리가 중화되지 않은 채 H–H 결합을 협동 분할한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33000622/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ligand-aromaticity-cooperative-bond-activation",
+      "group": 15,
+      "related_keys": [
+        "coordination-complexation",
+        "frustrated-lewis-pair-hydrogen-splitting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "리간드가 고정된 배위 틀이 아니라 자신의 결합·방향족성을 바꾸며 반응에 참여한다.",
+      "source_url": "https://pubs.acs.org/doi/10.1021/ja905073s",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "solvent-cage-geminate-radical-recombination",
+      "group": 15,
+      "related_keys": [
+        "thermal-homolytic-radical-generation",
+        "phenolic-radical-termination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "라디칼 생성이나 외부 소거제 포획과 달리 생성 순간의 근접 쌍과 탈출 경쟁이 반응을 결정한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27430611/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "mass-dependent-kinetic-isotope-effect",
+      "group": 15,
+      "related_keys": [
+        "radiocarbon-source-apportionment",
+        "temporary-chiral-auxiliary-stereodirection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "방사성 연대 표지나 입체 보조제의 기하 효과와 달리 핵 질량이 반응 동역학을 바꾼다.",
+      "source_url": "https://www.nature.com/articles/s41467-019-13976-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "radical-pair-spin-selective-reaction-yield",
+      "group": 15,
+      "related_keys": [
+        "magnetic-moment-zeeman-splitting",
+        "solvent-cage-geminate-radical-recombination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 준위 분리나 케이지 체류와 달리 스핀 혼합이 스핀 선택적 화학 반응과 경쟁한다.",
+      "source_url": "https://www.nature.com/articles/323240a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "parahydrogen-singlet-spin-order-transfer",
+      "group": 14,
+      "related_keys": [
+        "driven-electron-nuclear-polarization-transfer",
+        "nuclear-magnetic-resonance"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "구동 전자 스핀이 아니라 분자 수소의 핵 단일항 질서가 편극 자원이다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19929058/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "anodic-amine-iminium-functionalization",
+      "group": 15,
+      "related_keys": [
+        "oxidative-n-dealkylation",
+        "reductive-amination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이미늄 가수분해로 사슬을 제거하거나 환원으로 아민을 만드는 대신 전극 생성 이미늄을 포획한다.",
+      "source_url": "https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/celc.202500202",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "thiocarbonyl-radical-deoxygenative-fragmentation",
+      "group": 15,
+      "related_keys": [
+        "hydrodeoxygenation-carbon-oxygen-cleavage",
+        "hydrazone-denitrogenative-deoxygenation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표면 수소화나 하이드라존 질소 방출과 달리 티오카보닐 유도체의 라디칼 분해 경로이다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlepdf/1975/p1/p19750001574",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "diimide-concerted-hydrogen-transfer",
+      "group": 15,
+      "related_keys": [
+        "catalytic-hydrogenation",
+        "chiral-organocatalytic-hydrogen-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "금속 표면의 수소 해리·흡착 대신 질소 방출에 결합된 분자 내 협동 수소 전달이다.",
+      "source_url": "https://www.chem.iitb.ac.in/~kpk/Reduction.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nucleophilic-alkene-enolate-catalytic-coupling",
+      "group": 15,
+      "related_keys": [
+        "conjugate-nucleophilic-addition",
+        "nhc-breslow-acyl-umpolung"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매가 알켄에 일시 부가해 탄소 친핵체를 만드는 경로이며 영구 마이클 부가나 아실 음극성 전환과 다르다.",
+      "source_url": "https://pubs.acs.org/orlef7/article/9/23/4873/3530909/Ab-Initio-and-Density-Functional-Theory-Evidence",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "pi-allyl-metal-mediated-substitution",
+      "group": 15,
+      "related_keys": [
+        "transition-metal-cross-coupling",
+        "nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 결합 교환 이름이 아니라 파이 알릴의 다중 탄소 배위와 친핵체 전달 경로에 한정한다.",
+      "source_url": "https://www.nature.com/articles/ncomms11806",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nucleophile-induced-heteroarene-opening-reclosure",
+      "group": 15,
+      "related_keys": [
+        "nucleophilic-substitution",
+        "electrocyclic-conjugated-ring-switching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "방향족 고리를 유지하는 직접 치환과 달리 개환 중간체를 거친다. 단순 빛·열 전자고리화와도 다르다.",
+      "source_url": "https://www.nature.com/articles/s41467-024-50139-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ammonium-ylide-radical-pair-migration",
+      "group": 15,
+      "related_keys": [
+        "semipinacol-one-two-carbon-migration",
+        "solvent-cage-geminate-radical-recombination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "양이온 세미피나콜 이동과 구별되는 일리드 결합 절단·라디칼 재결합의 구체 경로이다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlelanding/1983/p1/p19830001009",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "8cc4eb2c0c00b8175505e726838e65756d2feadab4d6d972f5046db3eecfb856",
+  "reviews": [
+    {
+      "identifier": "AR-090934-A1",
+      "source_fingerprint": "c99437aa52c4de5a08ca8aaaa8dec2c854fab59aebf5059cccceab1da2ea507d",
+      "content_hash": "07d30e846cd962528e46f7dceb97fad6d02caed7021b5674cd8c6fd67c74a4b4",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "stress-concentration-fracture"
+      ],
+      "reason": "걸림 링과 절단 가능한 봉인부로 용기를 고정·개봉한다."
+    },
+    {
+      "identifier": "AR-090939-A1",
+      "source_fingerprint": "c6e5902b8c7829ccd404c465729e1ccde83bb5fd59cc97cab63053f8207134d6",
+      "content_hash": "a23b1e6139102e56de59ee0bdf6d384bac8c56d6dd0ee71c25fc719fc93b2190",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 화합물의 구조 목록이며 표적 작용은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-090948-A1",
+      "source_fingerprint": "a7f04be435a9b6defb789b2d63408590b2a1e8f5f748300d2aefdc1f5fc02c59",
+      "content_hash": "2bfb1f3cd10572afbd64e3ec5f647b2ca995be5a25efcb4026754ea72762559a",
+      "decision": "LINK",
+      "keys": [
+        "silane-coupling",
+        "sol-gel"
+      ],
+      "reason": "유리 표면과 실록산 결합을 만들고 표면 결함을 일부 메우는 피복이다."
+    },
+    {
+      "identifier": "AR-090954-A1",
+      "source_fingerprint": "371ae83bfbe76f55f4c2d09ddee567b96beda259849b95dd3fae513df02b55b2",
+      "content_hash": "a5eb257896dcfecfc2a305d6cd48ebca27192ab0fb9de63dadd454cf373a546c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "용해형 캡슐이라는 제형만 제시되어 가용화 원리가 없다."
+    },
+    {
+      "identifier": "AR-090961-A1",
+      "source_fingerprint": "51c7e16d24a003f8e4f164b7543504ce327addbdc5ec5c53fc9b893a1afc0936",
+      "content_hash": "583999a09fa7ed58325161edb4bad2e8b29ce29f49fb9240dafb47b66c668bd3",
+      "decision": "LINK",
+      "keys": [
+        "distillation"
+      ],
+      "reason": "감압 단거리 증류로 휘발도 차에 따라 성분을 분리한다. 제목만으로 자유분자 유동 조건을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-090962-A1",
+      "source_fingerprint": "62d1f976114dc0c0dac13fc81bd177dd69f8490d1bc062433077b172e4cea9a9",
+      "content_hash": "884bca38db4a808be2031fa15d702bf4e509684d2b6bf56753d8be02eab11977",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "stress-concentration-fracture"
+      ],
+      "reason": "용기 걸림 링과 얇은 연결부를 이용한 봉인 개봉이다."
+    },
+    {
+      "identifier": "AR-090963-A1",
+      "source_fingerprint": "c3f31d6968d774f9e807b115387bb8b1cb8f72a05ad3927ecba7fd3e19ea3fbe",
+      "content_hash": "033e3e83153944b851882ca1b281797b134cbe37ad9b973afb4ef4dc3d39c343",
+      "decision": "LINK",
+      "keys": [
+        "refraction"
+      ],
+      "reason": "분산성을 가진 광학계로 다른 파장 빔을 공간 결합한다. 파장 의존 분산은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-090975-A1",
+      "source_fingerprint": "cbe085f4671b73a7600bb126ba7b561134f1c59ff6f2b751cc72013d31cbd529",
+      "content_hash": "771411c7539c6ea08185a8253c34867f87301aef5708eb1d34063ae7572ead28",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "분리 화합물과 조성물의 이름만 있고 작용·제조 원리가 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-091020-A1",
+      "source_fingerprint": "b557bee7284f7e25b79f1f04f4c346a46cd37e106a545e948af6c63cffaf28da",
+      "content_hash": "8d9f029ce91c137d73997a6e097b6036ff96d4def2f8cede47830274dc2a176b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "응력 다각형을 이용한 지반 응력 제약 추정이다. 마찰 파괴 조건 기반 허용 영역을 문헌 대조한다."
+    },
+    {
+      "identifier": "AR-091021-A1",
+      "source_fingerprint": "c8a28b0b45438939fb541059084dbe3553a4b2c0838f33ca2f2770f78d5ad5c7",
+      "content_hash": "829b510cd839d136fa0a15fd855f0c0972f58333d2764b6e9ecd20c7cd564930",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "음료 캡슐의 봉인막과 당김 탭 구성이다."
+    },
+    {
+      "identifier": "AR-091025-A1",
+      "source_fingerprint": "d882bbfcc8e9c9fd3e64270f5917e9b7b3d1676dd58b9937498610865f5a2187",
+      "content_hash": "1df2c5ea268c735995994e38d7b0e5b50e97a326251cce73ed824bfba8c5be6c",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "촉매 활성을 유지하는 HPPD 변이의 저해 감수성 변화를 명시한다. 표적 저항성 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-091043-A1",
+      "source_fingerprint": "78adc5ba9a440391fad845dc9c537741a39ed85328109ff6d378199bc6e5a9b5",
+      "content_hash": "02ee6a776fd495cfc21e354965691e1aa39533fabcb69c9a5cafd690a7e97627",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation"
+      ],
+      "reason": "수소화 탈산소 반응이 명시된다. 기존 후보의 추가 근거이며 새 효과 수로 중복 계산하지 않는다."
+    },
+    {
+      "identifier": "AR-091045-A1",
+      "source_fingerprint": "fb660c8fce1d1b8bd9db4f5f8ccc5d108d339c18657e0ab03eff91ae3a8819af",
+      "content_hash": "218b200a275a33375634ef605216f69c7d1a7339c698523a9c5a7be1618a9af1",
+      "decision": "LINK",
+      "keys": [
+        "pressure-compaction"
+      ],
+      "reason": "가열된 팝콘의 가압 치밀화와 포장 공정이다."
+    },
+    {
+      "identifier": "AR-091050-A1",
+      "source_fingerprint": "c6b6d70079df799ec9ce77b06202990aca1bd2d7a534e385a4832e368e063c78",
+      "content_hash": "041beb9ffc945548814241cc51d7b66dfaefc010bd96ded22dce74a9f31b71b7",
+      "decision": "LINK",
+      "keys": [
+        "chemical-cue-directed-behavior"
+      ],
+      "reason": "화학 유인 물질을 방출하여 곤충의 이동을 유도한다."
+    },
+    {
+      "identifier": "AR-091064-A1",
+      "source_fingerprint": "e9642b845a44db08f7b31f4310a6f8a8b58db15de7af24e982c009ef37ee18b8",
+      "content_hash": "dcd019d4f6f1906b113954a959c5c8c812bc4da9645d500662fa11e5b891d990",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "진위 검증 목적만 있고 식별 알고리즘이나 물리 표지가 없다."
+    },
+    {
+      "identifier": "AR-091067-A1",
+      "source_fingerprint": "cc55b332e09dd22c27a6925fe226ffb1a6558140b2b0a78bd33fd6c6d263ade4",
+      "content_hash": "1e399fe7950c80dbd59ab333ef755244679abcafa4a3d2b7376b0e9445fe89b2",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "주변 걸림 돌기와 수 핀의 결합으로 표지를 잠근다."
+    },
+    {
+      "identifier": "AR-091084-A1",
+      "source_fingerprint": "25df66ac3e2e864da12140f408bc5a3efc95496d6d2e810a0da1c2cf3fab18f4",
+      "content_hash": "cb7d4b8412556e4f2b8c7df9a2436c1cff98e88b68787743bea09d38c052d852",
+      "decision": "LINK",
+      "keys": [
+        "cement-hydration",
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "일반 재료 원리인 용해성 봉합부와 시멘트계 경화만 연결하며 발파 운용·성능은 다루지 않는다."
+    },
+    {
+      "identifier": "AR-091095-A1",
+      "source_fingerprint": "84db19f6e719bcb68ba854316de3419d571af90dfe38e13fcbaf683a7f05a945",
+      "content_hash": "c2f7c8540b17be4e5c4caa4c031c62b9177c953549483786298a742d9c506d70",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion"
+      ],
+      "reason": "곡면 유동 요소를 사용하는 수력 에너지 변환 구성이다."
+    },
+    {
+      "identifier": "AR-091134-A1",
+      "source_fingerprint": "b8eec968881355285e99d0cc44b45a697c4212fb01e712a4f8685542a9fb3f35",
+      "content_hash": "c3d879f3b220ba9046ae5eda359afd5e54e7d7c6596792ae08700285dbb42ec3",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "CXCR3 수용체 길항 작용이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:12:28.866745+00:00"
+}

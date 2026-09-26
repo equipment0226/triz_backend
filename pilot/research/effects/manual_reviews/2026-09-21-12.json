@@ -1,0 +1,467 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "1ae73ef2811025e8fb2f46ddf0ba824bbfda26835ee887a3364c695745425a5e",
+  "reviews": [
+    {
+      "identifier": "AR-058291-A1",
+      "source_fingerprint": "a5d8775bbaafc10a430a76314f4b1cd834da326806acc83b95f19a213fe61655",
+      "content_hash": "efaf19d16ad9d4bc2dbb45787b47bb146b63e9017a58f811992556f9f450d4cb",
+      "decision": "LINK",
+      "keys": [
+        "differential-wheel-kinematics"
+      ],
+      "reason": "같은 각속도·다른 지름의 차륜이 이동거리 차로 곡선 주행한다는 저장 초록과 구름 기하를 연결한다. 차축 기울기·접촉 조건을 명시하며 평행 수평 차축 공식을 그대로 대입하지 않는다."
+    },
+    {
+      "identifier": "AR-058570-A1",
+      "source_fingerprint": "1cc3ad669ddaf6a62090cc469bc22306f2e4bcfcd7cc828c2e1863fe1f74fb5e",
+      "content_hash": "760196c29bfa151b2f5d3165732abcd1341a36998d48ecbbd2a73d20c63ae715",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation",
+        "nucleophilic-substitution",
+        "precipitation-reaction",
+        "benzimidazole-cyclocondensation"
+      ],
+      "reason": "기존 수소화·치환·염 침전 연결을 유지한다. 페닐렌디아민과 카복실산에서 벤즈이미다졸을 만드는 단계는 검증된 고리축합 문헌과 대조하여 추가한다."
+    },
+    {
+      "identifier": "AR-058588-A1",
+      "source_fingerprint": "7f99b3ea83068ef2092f6077c95d0399780e4e6080945b4948b2acc672af5a6b",
+      "content_hash": "dea9877bacffcd6906c5e3a36668b99c74b3a1232dc053217187309e0a915530",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution",
+        "salting-out"
+      ],
+      "reason": "고염도에서 불용성인 PVOH 필터 케이크를 염도 감소로 용해한다. 고분자 용액의 염 의존 용해도 문헌과 연결하며 염 종류에 따른 반대 효과도 제한 조건으로 둔다."
+    },
+    {
+      "identifier": "AR-058990-A3",
+      "source_fingerprint": "a3c4960146dd66a04bfcc61656f6c1b280eb73da4726ac459faf1f591671ad26",
+      "content_hash": "fdb7bb3319c9c6823e3f4b41d02af941d1da21c1c0907567180ce1e1b5db25fc",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "고정 혀 위 노치로 파열선을 형성한다. 노치 응력 집중 원리로 해석하며 실제 파단 하중은 초록만으로 산출하지 않는다."
+    },
+    {
+      "identifier": "AR-059058-A1",
+      "source_fingerprint": "b329fb716f074dc03ff7f99bd0f614324a73da6caf21909f6a8fb0afb31e759a",
+      "content_hash": "e218dae5f9f840ef523f53705e36e4d3c2507d7d358ce42c9d31c35046ffc3de",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "hydrodesulfurization"
+      ],
+      "reason": "CoMo 촉매의 선택적 수소화 탈황을 명시한다. 유기 황 결합을 수소 반응으로 제거하는 원리와 올레핀 동반 수소화의 선택성 한계를 연결한다."
+    },
+    {
+      "identifier": "AR-059060-A1",
+      "source_fingerprint": "34396d46d88bf0245f6837efdc73fd73069e0487946fe0ca2daca19a73b463a1",
+      "content_hash": "77afdb89256d979937f04886137de264a416cb8c83a0695ed27997348f5c5f44",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "hydrodesulfurization"
+      ],
+      "reason": "실리카 담체 CoMo 촉매로 올레핀 수소화를 억제하면서 탈황한다. 기존 촉매 연결과 수소화 탈황의 구체적 반응 원리를 함께 보존한다."
+    },
+    {
+      "identifier": "AR-059875-A1",
+      "source_fingerprint": "759ddff21b6fa3b500a721f3b4e64a39c159506954d0c93ccca7531fb892a142",
+      "content_hash": "63a538e932cb305ba895946e8b117d2d864fb1468feecb57426ede148499f9ce",
+      "decision": "LINK",
+      "keys": [
+        "timer-response-suppression"
+      ],
+      "reason": "신호 세기별 응답 지연 후 다른 노드 응답 수가 충분하면 취소한다. 타이머 억제 원리만 연결하며 RFC 6206 구현이나 무작위 백오프라는 주장은 하지 않는다."
+    },
+    {
+      "identifier": "AR-059975-A1",
+      "source_fingerprint": "a885679b1dbeb54ebe0f5b0345221652c5d1857531d8f5d2d62411e154d94a88",
+      "content_hash": "2db4980d158fc623dde56ffc2ea0230debc9e2b1ace87705ebb968e398490e9a",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "절단·약화 선을 따라 정보 패널을 분리한다. 단면 약화와 국부 응력 집중으로 파단 위치를 유도하는 적용 사례로 연결한다."
+    },
+    {
+      "identifier": "AR-060293-A1",
+      "source_fingerprint": "9effde2c768f0b2a6dc50757c7742917c3e75c3c1bdbcb69d803c3fd79f1f2aa",
+      "content_hash": "0741d02a367a7953a35f7b01444c660a15df49eac684df0bcf9acea855c074fd",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening"
+      ],
+      "reason": "에폭시 관능 바인더와 아미노 관능 경화제를 명시한다. 친핵성 아민의 에폭사이드 개환이 경화 결합을 만드는 것으로 문헌에 근거해 해석한다."
+    },
+    {
+      "identifier": "AR-060306-A1",
+      "source_fingerprint": "5aa17f73281f3b5d7f7a3a50d022355d5c8e49d620893c05f322c78999afe38e",
+      "content_hash": "36f762d4bd553cc5a41654819d9d1d97425dbbab5454ee2a1880abc46f805c2a",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "immune-checkpoint-blockade"
+      ],
+      "reason": "CTLA-4 표적 항체 CP675206 또는 ipilimumab 병용을 명시한다. CTLA-4 억제 신호 차단은 원 논문과 표적을 대조한 기전 해석이며 환자별 임상 효과를 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-060347-A1",
+      "source_fingerprint": "a42a41a4323d7ff9ba5ad3872ee0242eec6cca5e8f6762e19e9af7237a474b80",
+      "content_hash": "88e4fa45d7bce0fca6fe5b2163d2e5e30861f0db9c1395fb7e8618a026fe05ce",
+      "decision": "LINK",
+      "keys": [
+        "photothermal-conversion"
+      ],
+      "reason": "적외선 흡수 염료를 넣은 바인더의 적외선 경화를 명시한다. 흡수체의 광열 변환 문헌에 따른 가열 기전 해석이며 초록이 비복사 수율이나 세부 경화 경로를 측정한 것은 아니다."
+    },
+    {
+      "identifier": "AR-060414-A1",
+      "source_fingerprint": "2977a1001f249abad142fc65aaa0bda18f0b49bcac4b3b075896a97d6c815aed",
+      "content_hash": "f29e9c04fa60fa7b484c73618841bec868e8022926b636e3a17ab6c4436b8b1b",
+      "decision": "LINK",
+      "keys": [
+        "urethane-addition"
+      ],
+      "reason": "폴리올과 폴리이소시아네이트를 반응시켜 접착 촉진 수지를 만든다. 알코올·이소시아네이트의 우레탄 결합 형성으로 연결한다."
+    },
+    {
+      "identifier": "AR-060665-A1",
+      "source_fingerprint": "22d28939b5c09fe6d0b06e406b7a9658d717ef3015bcb46067cc14a53923f666",
+      "content_hash": "ef72580ca0acedb8351f1fd1a137c09c47a4778897a88e9a2d6d10285e68b442",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "acid-base-buffering"
+      ],
+      "reason": "단백질 접합체 제형에 폴리소르베이트와 숙신산 완충액을 적용하고 pH 및 pKa 범위를 명시한다. 계면활성 작용과 별도로 산·염기 완충을 연결한다."
+    },
+    {
+      "identifier": "AR-060803-A1",
+      "source_fingerprint": "620ff2bd5aee8046d4db1a5613e951e9ae9ae3e6a89d6047f9c36f52c3facb81",
+      "content_hash": "381da2bd3e71da43e8bedf7131b5a8f2bed491196b39e5736a6bc2f054f9299c",
+      "decision": "LINK",
+      "keys": [
+        "genetic-linkage-selection"
+      ],
+      "reason": "Brassica 교배 후 저항성 유전자와 연관된 DNA 표지로 후대를 선발한다. 표지의 공동 유전 가능성을 이용하며 표지가 원인 유전자라는 주장은 하지 않는다."
+    },
+    {
+      "identifier": "AR-060844-A1",
+      "source_fingerprint": "f0ad615f2e1be33e3c5fc3f71d2e1847c02232d4bc79340697b950ec6d1cd68f",
+      "content_hash": "2e8189a13c140faa94810d8f68201c076eaa0074f49dc179e0df12b6daebf44d",
+      "decision": "LINK",
+      "keys": [
+        "bit-interleaving"
+      ],
+      "reason": "두 비트 이상을 클록당 처리하는 인터리버 메모리 매핑을 명시한다. 비트 순열의 오류 분산은 일반 원리로 연결하고 초록에서 특정 오류정정 성능을 측정했다고 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-060870-A1",
+      "source_fingerprint": "ce80a3053c43851b4330317eee0e25555bd189986ced03c123fa3c6c06d5360f",
+      "content_hash": "38b1a26b72ca2ee09101b31e3ab0aa0b3f7ed8ae6ec62831367ebec2ee5402fb",
+      "decision": "LINK",
+      "keys": [
+        "yield-stress-suspension"
+      ],
+      "reason": "중화 카보머가 분말 현탁을 유지하고 재교반 필요를 줄인다고 명시한다. 카보머계 항복응력 유체의 입자 지지 문헌으로 해석하며 특허 제형의 항복응력 수치나 영구 안정성은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-061049-A1",
+      "source_fingerprint": "376dcb3dc345c01e04b377510062d82614891182be72e6e978bbf9e56f1d5abc",
+      "content_hash": "c4791a1505e080eb8d05c171e9c960a96c153378bab70b7a0828ce8937fa232c",
+      "decision": "LINK",
+      "keys": [
+        "magnetophoresis",
+        "sieve-size-separation"
+      ],
+      "reason": "완두콩 가공 중 체 분리와 후속 자석 분리를 명시한다. 개구 통과에 따른 크기 분급과 자기 이물 분리를 구별해 연결한다."
+    },
+    {
+      "identifier": "AR-061052-A1",
+      "source_fingerprint": "ce3132a9d8ff5428573d2709b860f870bae743ddb9415b7708e90bdd578339f4",
+      "content_hash": "e81ce0b9a5c09ffaa64779af7229996fee50a9126b0da9460d76083ffa6b36f3",
+      "decision": "LINK",
+      "keys": [
+        "alkene-epoxidation",
+        "crystal-desolvation",
+        "acetal-carbonyl-protection",
+        "carbon-nucleophile-carbonyl-addition"
+      ],
+      "reason": "기존 에폭시화·탈용매화 연결을 유지한다. 에틸렌글리콜 케탈 보호 및 초기 17-케톤에 대한 아세틸라이드 부가를 새로 연결한다. 뒤의 그리냐르 에폭시 개환을 카보닐 부가로 오인하지 않는다."
+    },
+    {
+      "identifier": "AR-061075-A1",
+      "source_fingerprint": "62a5687d211641f812958c174f0584cb7cd4ea38700e44aea095d88fbcfc7dbb",
+      "content_hash": "35ff178538ba399f9354d65606f362033551b8b544528d258197a3e6fee3386c",
+      "decision": "LINK",
+      "keys": [
+        "draw-induced-orientation"
+      ],
+      "reason": "이축 배향 폴리프로필렌을 추가 연신하여 강성·강도·차단 성질을 바꾼다. 연신 시 사슬·결정 조직 재배열 원리로 연결하며 열수축 회복과 구별한다."
+    },
+    {
+      "identifier": "AR-061095-A1",
+      "source_fingerprint": "105bd0c4e380ed5504dae30267c1aa1a43780e995e1515615b9db5278cf60c82",
+      "content_hash": "1203c9b82089f44f96cee54d5cbca5085414c2bf9e1b8dedb929a3405f06c21f",
+      "decision": "LINK",
+      "keys": [
+        "maillard-browning"
+      ],
+      "reason": "환원당 함유 케이싱이 가열 육제품의 황금갈색을 유도한다. 아미노기가 있는 육제품과 환원당의 마이야르 반응이라는 문헌 기반 해석이며 세부 생성물이나 다른 갈변 경로의 배제는 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-061300-A1",
+      "source_fingerprint": "4be47eb289dff638dadfe8ece9dd9832d2b3012ce4b359138b5f15b213cf6c5d",
+      "content_hash": "3fc4060b2470e54f0070eec52857bd22f6826d8e87ef687e606c968b1022e2bf",
+      "decision": "LINK",
+      "keys": [
+        "diffraction",
+        "crystallization",
+        "differential-scanning-calorimetry"
+      ],
+      "reason": "결정형을 분말 회절과 DSC 흡열 피크로 구별한다. DSC 열유속 차에 따른 전이 검출을 추가하며 피크만으로 결정 구조를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-061784-A1",
+      "source_fingerprint": "cf045917f6eb6d5375724cbf4cdb0d86e9a3cfd8f3106760685f86f1c02fb31d",
+      "content_hash": "b7d36dc442be9eceea0d58713894401ad7a736d28ee62b2d90d95adc237a1a6f",
+      "decision": "LINK",
+      "keys": [
+        "binary-phase-shift-keying"
+      ],
+      "reason": "사용자 식별 비트에 따라 변조 심벌 위상을 0도 또는 180도 회전한다. 반대 위상 상태로 이진 값을 표현하는 원리이며 암호화 효과를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-061901-A1",
+      "source_fingerprint": "7bbb761e2b64f614bc49ee21b7130d55576ebc3d1df58db87e3e1ea066d07f45",
+      "content_hash": "6cd0ada68bdf2a1f45ec2455a2fc8f5cad64090b95a72d411b1d862fcf119e32",
+      "decision": "LINK",
+      "keys": [
+        "spray-drying"
+      ],
+      "reason": "인산염 용액을 뜨거운 반응기에 분무하고 용매를 증발시켜 미세 분말을 얻는다. 액적 내 고형분이 남는 분무 건조 원리만 연결하며 모든 입자 형상을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-061991-A1",
+      "source_fingerprint": "784add05af67a49493edcb7cd09ffd7ce01d5a9921667e2161abcb23150fc650",
+      "content_hash": "fe98af7e05f8475b288eb61907ad3a28b3d9f2e86f38bb022d3c7c7b942b53d1",
+      "decision": "LINK",
+      "keys": [
+        "spray-drying"
+      ],
+      "reason": "살생물제·수용성 담체를 분무 건조해 재분산 가능한 분말을 만든다. 액적 증발에 의한 분말 형성과 이후 재분산을 구별한다."
+    },
+    {
+      "identifier": "AR-062106-A1",
+      "source_fingerprint": "fd5020af8aca817d3f1135fcb7202aa5024b9da57b1e15a39c5f5a91c4117660",
+      "content_hash": "8755fe488a4026bbf86ef178efd512c6a458fbb596207693fd446c219c34d1f9",
+      "decision": "LINK",
+      "keys": [
+        "ice-templating"
+      ],
+      "reason": "물·콜라겐계에서 방향성 얼음 결정을 성장시키며 겔화한 뒤 물을 제거해 기공을 만든다. 동결 주형 원리이며 초록에 없는 승화 제거 경로를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-062175-A1",
+      "source_fingerprint": "4e2e7ada4be523c53dda93442bc6d04c4233f494d30e1192faa6d9545ff6313e",
+      "content_hash": "e46bec54e2449bd648c96544ae8eae4334599ea8cc6773f42b6a620f734f58e7",
+      "decision": "LINK",
+      "keys": [
+        "phenolic-radical-termination"
+      ],
+      "reason": "PE·PEG 조성의 octadecyl 3-(3,5-di-tert-butyl-4-hydroxyphenyl)propionate를 원 제조사 자료로 장애 페놀 산화방지제와 대조했다. 라디칼 연쇄 정지는 성분 기전 해석이며 색 지표로 직접 증명했다는 주장은 하지 않는다."
+    },
+    {
+      "identifier": "AR-062321-A1",
+      "source_fingerprint": "c60e218723fe2b73cc5e5f531f20c00f3bc2cfd118c8c49cad26a82b98d3b216",
+      "content_hash": "55538360b27a7659413f4dd36ce82c96906023f22709c0fe3cd408cc04d1e609",
+      "decision": "LINK",
+      "keys": [
+        "ionization-solubility"
+      ],
+      "reason": "pH 조절 코어와 pH 의존 용해도를 가진 flibanserin을 층으로 구성한다. 국소 이온화 평형에 따른 용해도 조절로 해석하며 모든 방출 거동을 단일 평형식으로 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-062429-A1",
+      "source_fingerprint": "d0df296348cad860aa06d9b7fceb9cefe133e0a7bb939bfcd2ba5f6a6264f0e8",
+      "content_hash": "15f6a643e3062b733cab0f8c2f5dee2a70ab5ffc4d27daa6a64ca6e75dd1e4c9",
+      "decision": "LINK",
+      "keys": [
+        "orthogonal-frequency-multiplexing",
+        "cyclic-prefix-guard"
+      ],
+      "reason": "DFT·파일럿 삽입·IFFT 뒤 순환 접두부를 삽입한다. 지연 확산을 수용하는 보호 구간 기전을 추가하며 접두부 길이·채널 조건의 제약을 둔다."
+    },
+    {
+      "identifier": "AR-062664-A1",
+      "source_fingerprint": "6c996b84fc248a933393de4619f15837e6fab4d1df76c2aee98a69133af1aa9e",
+      "content_hash": "0b5a726bb4b9a7960b73148542332b5d425f8b42c42bdd8fcbf41ddb59d73e56",
+      "decision": "LINK",
+      "keys": [
+        "metamerism"
+      ],
+      "reason": "가시광 조건등색과 적외선·자외선 반응 잉크를 명시한다. 가시 색이 같아도 분광 분포가 다를 수 있는 원리만 연결하며 조건등색과 형광을 혼동하지 않는다."
+    },
+    {
+      "identifier": "AR-062673-A1",
+      "source_fingerprint": "57c1feb837a0c7b4696b6982496b8d3570b916e12657f0f86a6e101f21588449",
+      "content_hash": "546794b822ae790a60287819432effad424f94d8a76e80a9f0b9f2c4455de1ec",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction",
+        "josephson-effect",
+        "gravity-gradient-sensing"
+      ],
+      "reason": "직교 막대와 시험 질량의 중력 구배 응답을 코일·변압기·SQUID로 읽는다. 기존 판독 원리와 시험 질량의 차등 중력 응답을 구별해 추가한다."
+    },
+    {
+      "identifier": "AR-062690-A1",
+      "source_fingerprint": "93b9d6e139d1fe0c488a2b75d90ff5e6c673bf41e02d3fdc0837490481b5890d",
+      "content_hash": "7504f577811e2beb9daf058b6a1889305d33be99aad1827cfcecfff46ea0ca65",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "condensation-recovery",
+        "amide-dehydration"
+      ],
+      "reason": "포름아미드의 촉매 탈수로 HCN과 물을 만들고 응축물을 회수한다. 일차 아미드 탈수의 작용기 전환과 기존 촉매·응축 연결을 유지한다."
+    },
+    {
+      "identifier": "AR-062724-A2",
+      "source_fingerprint": "a8c4e228cb5b568a4eed569e327355b726f0ee8409c1ad72f66a5095f351b0f5",
+      "content_hash": "a7a67c6468fc38dbb1754b71a321105cc1f7ecffb8c8b60421590d9ca1b11225",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "fourier-spectral-decomposition"
+      ],
+      "reason": "관 벽 두께 분포의 복소 푸리에 계수 크기·위상으로 결함 양상과 위치를 구하고 제조 조건을 수정한다. 주파수 분해와 후속 피드백을 구별한다."
+    },
+    {
+      "identifier": "AR-063130-A1",
+      "source_fingerprint": "51f0fddad030545278430b7b3e5dd73878ab38f8d428ef7c2a6e13d5f8f70e3d",
+      "content_hash": "ce100cec164b59db7a24d2a39878ffbb92ce35febae1fcf84b3157645e0b319a",
+      "decision": "LINK",
+      "keys": [
+        "fluid-dynamic-lift"
+      ],
+      "reason": "유동 중 선체 안정판의 각도를 바꾸어 하중·횡동요를 보정한다. 유체 양력의 일반 원리로 해석하며 정지 상태에서도 같은 힘이 난다고 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-063364-A1",
+      "source_fingerprint": "cce8dc666d97f756b33c79c0528fc8b8b50cb1ca37c5db0033a861f1c426af98",
+      "content_hash": "6071621ce3aa0901106a77d5bbc3d08f3fdb0c7c19caba651a077714c34ea6f9",
+      "decision": "LINK",
+      "keys": [
+        "osmosis",
+        "reverse-osmosis",
+        "density-stratification"
+      ],
+      "reason": "하부 염 농도·온도가 높은 태양열 연못과 삼투 구동 막 분리를 명시한다. 염도에 따른 안정 밀도 성층의 대류 억제를 문헌으로 보강하며 열확산·혼합을 무시하지 않는다."
+    },
+    {
+      "identifier": "AR-063400-A1",
+      "source_fingerprint": "7a7b981bf9c74a230e6b912bd357f882bafb11257b55d019f8af3a5b12f8131e",
+      "content_hash": "5fbda926b5cfcdf163c64bcb578d90f1b52c5205ef003f7301891b91a542a20a",
+      "decision": "LINK",
+      "keys": [
+        "spectral-windowing"
+      ],
+      "reason": "시간 프레임에 분석 창 계수를 곱한 뒤 오디오 서브밴드를 계산한다. 누설·분해능 절충의 일반 원리이며 창 종류나 구체적 성능 수치를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-063485-A1",
+      "source_fingerprint": "25907a1788b4a3679752336ab32365333fe7c95cae56c072933c740b5b70dea6",
+      "content_hash": "1e948e7a3ce898252a6902c6721c3b95cc322e91333e3ed69e77335bf7840d02",
+      "decision": "LINK",
+      "keys": [
+        "gas-discharge-luminescence"
+      ],
+      "reason": "불활성 기체 튜브 양끝의 전극과 전원으로 발광한다. 기체의 전자 충돌 여기·방출 원리로 연결하며 반도체 발광으로 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-063510-A1",
+      "source_fingerprint": "acffe05535dc7f6adff59f8eb1fded7d0fc86baa31253f21a0c638a0b5d8d7d3",
+      "content_hash": "a9b12294c35fa117abfb7ba7432eeca4b462f878dc49583db4caa443efdd1480",
+      "decision": "LINK",
+      "keys": [
+        "cross-ply-laminate"
+      ],
+      "reason": "목재의 결 방향을 교차한 적층 보호판을 명시한다. 층별 방향 강성·치수 변형의 결합으로 해석하며 완전 등방성 또는 층간 박리 방지를 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-063554-A1",
+      "source_fingerprint": "4b338f3c0d361d5961d7c78189fd9bad7fd9e55067af3cb16968665f8e0e9255",
+      "content_hash": "0a8196bd141fb2688c60ce909c003323305dcff835bb7f231b90925c0599ce4d",
+      "decision": "LINK",
+      "keys": [
+        "compressible-shock-wave"
+      ],
+      "reason": "소화용 가스 분사에서 충격파 전면과 충격파 다이아몬드 형성을 명시한다. 압축성 유동의 불연속과 총압 손실을 연결하며 모든 분무 노즐에 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-064035-A1",
+      "source_fingerprint": "1793f4292aae4eead7514297e7b5a41c3cb62d0424c9455aeb2fb4b7939ff23a",
+      "content_hash": "c68c5cf5f8bc133c2619d66b673a2edf848d3a3ef747f08f336192f31edf35e3",
+      "decision": "LINK",
+      "keys": [
+        "diffraction",
+        "raman-spectroscopy",
+        "absorption-spectroscopy",
+        "differential-scanning-calorimetry"
+      ],
+      "reason": "회절·라만·적외선·DSC로 다형을 식별한다. DSC의 흡열 전이 신호를 별도 측정 원리로 연결한다."
+    },
+    {
+      "identifier": "AR-064093-A1",
+      "source_fingerprint": "f393c4ceec4401d1674cb3dfd54ea17ada5e5ceca072b3d6723f710efa90e87e",
+      "content_hash": "37cba5dd417cd328c2a432d6ffd2472395401a94d14ca42e768ad6ca23927aa6",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "double-layer-repulsion"
+      ],
+      "reason": "이온성 단량체를 포함한 높은 표면 전하의 입자와 배열을 명시한다. 동종 전하 입자 사이의 이중층 반발을 문헌 기반으로 연결하며 규칙 배열의 유일한 원인이라고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-064109-A1",
+      "source_fingerprint": "2719a4d2c7f770418b0140c704575292e72aaf7443536776853e3523c234ca01",
+      "content_hash": "2ca7eea46976d590ab588d819c2bfe1709fac897f8c13ded28c7bd4507fbc50c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antibody-dependent-cellular-cytotoxicity",
+        "receptor-mediated-endocytosis"
+      ],
+      "reason": "CD22 양성 세포에서 항체 내재화와 세포독성 접합체·ADCC를 명시한다. CD22 결합체 유입의 원 실험 문헌을 연결하며 특정 소낭 경로나 세포질 방출을 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-064134-A1",
+      "source_fingerprint": "a574cfcdc0fe1415c4001802be5d39e79ce7ed14b1afff6bda51218be820404f",
+      "content_hash": "a370842e5f2b78ba29852ad08b491f769d81271f9b7a53d4f49242db18082e8f",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "oxime-formation"
+      ],
+      "reason": "5HT5A 길항과 별도로 케톤을 NH2OR과 반응시켜 옥심으로 전환하는 합성 단계를 명시한다. 하이드록실아민계 카보닐 축합 원리를 연결한다."
+    },
+    {
+      "identifier": "AR-064233-A1",
+      "source_fingerprint": "c78e155983e3f0631cc9a99eb6e6c032135f7a183da39e05ebbd62aed67c9617",
+      "content_hash": "76ccf381b0ada7e2850b7b14989ad76ae7aefefef09de9f5127656bd9f5821fb",
+      "decision": "LINK",
+      "keys": [
+        "phosphite-peroxide-decomposition"
+      ],
+      "reason": "혼합 아릴 아인산에스터로 열가소성 수지·고무를 안정화한다. 원 제조사 자료의 아인산에스터 하이드로퍼옥사이드 분해 기전으로 해석하며 동일 상표·성능을 주장하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T22:20:39.648826+00:00"
+}

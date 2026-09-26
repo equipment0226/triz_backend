@@ -1,0 +1,183 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "197381e46e3e176a2e3650592e9a482d44822659bf9da60b211125005d8a6e08",
+  "reviews": [
+    {
+      "identifier": "AR-096740-A1",
+      "source_fingerprint": "3b22fc6d2a3a90a083440ebfcc98dbf23c407848fe6830b8c5dd6fe08e02ad2e",
+      "content_hash": "33a87db7cf245d0b8a6a17f1e6015f625ee37e45cfc956dc833c7a3443e18c39",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "서로 다른 축의 관절 회전으로 수직·횡 이동을 독립화하는 링크 구성이다."
+    },
+    {
+      "identifier": "AR-096744-A1",
+      "source_fingerprint": "bd76bdea6aea1f2e46f421d9d16daa3bbe79b8972234a08dce6af31c5a3dbc67",
+      "content_hash": "d36a4b05f38bff2054440b0dfc49244f2238b9c283f2b003c61acdc171b25110",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating",
+        "polymer-glass-transition"
+      ],
+      "reason": "수분 차단 다층막과 인접 고분자의 유리전이·결정화 온도 관계가 명시된다. 구속 결정화의 상세 형태와 기전은 추가 근거 없이 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-096754-A1",
+      "source_fingerprint": "ca79ea924c1050cfc7cc7e12f4db5f8d7a3be76706a8ddaf268e8432ba914a77",
+      "content_hash": "450e843025e232c167086c1eb6f87274f43dfc0d4aa7e5ddff44d6b4f5cbddf6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "프로바이오틱스 포함 경구 수분 보충 조성이다. 나트륨·포도당 공동수송이나 특정 미생물 기전이 직접 설명되지 않는다."
+    },
+    {
+      "identifier": "AR-096767-A1",
+      "source_fingerprint": "414e12baffecbd8ea18c1d62dcdd8afc6f9fdeeabb3efe87cdd2437289269b2a",
+      "content_hash": "3b02881a0e6f07964934ebe9637f92b7a0774174c7bfe97803cdf0ffb9759e95",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "다공성 필터 막대를 담는 구획 트레이의 형상·가변 선반이다."
+    },
+    {
+      "identifier": "AR-096779-A1",
+      "source_fingerprint": "e93b44b86d8815af87b9627f431e93a371e2560c0855adf5fad3cf0df17a8804",
+      "content_hash": "e16b4a546797a2bbf30cb9226cdcce700dc7382c38d2b3a8716806ec8b2699a0",
+      "decision": "LINK",
+      "keys": [
+        "boiling-heat-transfer",
+        "fourier-conduction"
+      ],
+      "reason": "서로 분리한 열교환 회로를 통해 저품질 물을 끓여 증기를 만든다. 오염 분리의 설계 이점은 별도 효과 수량에 넣지 않는다."
+    },
+    {
+      "identifier": "AR-096790-A1",
+      "source_fingerprint": "18d3a5be5f3a886210f63c5cdacbb4d1af3bd10c309d40dc421e0b773370084a",
+      "content_hash": "ead63740f21e5111c2c648a11d99bda40af12a231b28df91770fb078399bbd01",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "오토바이 카울·방향등·흡기구의 상대 위치 구성이다. 유체역학적 성능을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-096805-A1",
+      "source_fingerprint": "df33e3d267b929d3b2f0b31ae29a0a963e0abe95d0e9ed892707946585c48409",
+      "content_hash": "dde0c696d1001a47b6e52a8beec3b91d6e4eae72ed6d94f42111e319368d4565",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "인계 첨가제의 마찰 저감 용도만 있다. 흡착 경계막·화학 반응막·유체윤활의 구분 근거가 부족하다."
+    },
+    {
+      "identifier": "AR-096824-A1",
+      "source_fingerprint": "c0f8990e6dcf105464317a72f2ea8e2a1675a8f9b67c74c345620fa8ebc5d0ab",
+      "content_hash": "0ad761af5ad0f9d2633295bd069e46387b89da2acf768ec55c1e29a99bbc2cc3",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "allosteric-cooperativity"
+      ],
+      "reason": "대사성 글루타메이트 수용체의 음성 알로스테릭 조절이 명시된다."
+    },
+    {
+      "identifier": "AR-096827-A1",
+      "source_fingerprint": "41d82b7bf2fefee6d64651a6cb15c84ef0222fd23054e1cfef28cf59e123d3a6",
+      "content_hash": "7adde4dc55b097e6b5924b33ef31a7fd596b35ab0e6220918142cffd1664357b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 비생물 스트레스 내성 용도의 치환체 목록이며 작동 경로가 없다."
+    },
+    {
+      "identifier": "AR-096849-A1",
+      "source_fingerprint": "502fda11acac421dd39f33ce8ab8486fdfe387bb5f592e78edd065cc9cc0b19e",
+      "content_hash": "b786d46e6763bf1c7e3a5b3207da3e0c1c625b39df16c6b989a2f8f593e006ce",
+      "decision": "LINK",
+      "keys": [
+        "sintering",
+        "fluorescence-sensing"
+      ],
+      "reason": "접촉점 소결된 다공체와 형광 보안 표지를 사용한다. 원소 표지의 측정 방식은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-096850-A1",
+      "source_fingerprint": "1f2a11bb81184c2499d0e35eae75f6869b122b40ebf05fb707bca4394e847750",
+      "content_hash": "14563517ae0de9b188a0f6ef6087841519c7e5056a7a7dc16fa48898232155f0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "상부 덮개·뚜껑·환기구 연결 구조이다. 재료와 압력 작동 방식이 불명확하다."
+    },
+    {
+      "identifier": "AR-096874-A1",
+      "source_fingerprint": "9ac724edd2e10898a0d4e9bebda9dfc19317439c216e1f490cdbd258179141f2",
+      "content_hash": "a6dfd7a6ad6172cb52e2ff2766dce363a8df8dad77027f91b32cddf35ea4cfa0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "환기 부재를 선택적으로 포함하는 병목 조립체이다. 밀봉 재료의 탄성을 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-096890-A1",
+      "source_fingerprint": "9df95ae9b0084731f43aa9463f7ec93b538df6c97debcf2cf149e5b94ccd96f4",
+      "content_hash": "70ba8ae4a061fa424659665abc1f76e3a39261d1eed9e0327bf4556082153963",
+      "decision": "LINK",
+      "keys": [
+        "fcrn-recycling",
+        "biomolecular-recognition"
+      ],
+      "reason": "산성·중성 pH 사이 FcRn 결합비를 유지한 Fc 접합체이다. 기존 재순환 원리의 설계 사례이다."
+    },
+    {
+      "identifier": "AR-096897-A1",
+      "source_fingerprint": "3a15c375150d2eca87fa7adc1780225dd6e53948b03d663e85ce1307e7a5a013",
+      "content_hash": "2d7e7c8864082b83cac263885419f9ebbf787c13e3fe4fc254312f46526f1afe",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "적재물이 소모되면서 피드백으로 하중 분배를 조절한다. 액추에이터 상세는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-096905-A1",
+      "source_fingerprint": "6d563962d3dd6add39fcd6c6332941e042ce2351af36d8021382281a0c7eecf7",
+      "content_hash": "384c6be548098f04a2a8c17ed8886e3a78807f84afe503351c56de0390cdde3e",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GnRH 수용체 길항제이다. 적응증별로 효과를 분할하지 않는다."
+    },
+    {
+      "identifier": "AR-096915-A1",
+      "source_fingerprint": "8fcb829322c56c8f0c8ddf029c16eee542d8a2d36c98045b8595b39e9eb0167f",
+      "content_hash": "0011b61e86ed3526fd939faa105d8f893fbdb7d511b046f9b6d869a12a1b1d5f",
+      "decision": "LINK",
+      "keys": [
+        "venturi-entrainment",
+        "shear-droplet-breakup"
+      ],
+      "reason": "압축 공기와 노즐 사이 유로를 통한 약액 유입·분무이다. 노즐 교환 구조는 설계 차이이다."
+    },
+    {
+      "identifier": "AR-096917-A1",
+      "source_fingerprint": "d51843b89cdd2fad9d7cf2cd349bc7195b6ef777eb077a00a0305f9da1bf4c72",
+      "content_hash": "f5fddb438d8e1afb876d5bb51f5e99444844d0aea1f967032c5efbee4a172a0f",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "centrifugal-separation",
+        "evaporative-concentration"
+      ],
+      "reason": "카복실산 중화로 염을 만들고 원심분리·건조로 회수한다."
+    },
+    {
+      "identifier": "AR-096922-A1",
+      "source_fingerprint": "64e9c296b4edef68d00b9526b652656c0f5d2bede81cd63fdd3356a20a52cfe7",
+      "content_hash": "fc6c0495be7b196189c50f3e85e95d6a5c44f9e9e8ca46ca66809ec2f749ad30",
+      "decision": "LINK",
+      "keys": [
+        "fluorescence-sensing",
+        "biomolecular-recognition"
+      ],
+      "reason": "인식체로 표적을 연결한 발광 검출이다. 국소 가열에 의한 발광 변조를 신규 후보로 검토하며 초록만으로 가열 방식을 지정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:47:41.069467+00:00"
+}

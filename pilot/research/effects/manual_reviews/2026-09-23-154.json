@@ -1,0 +1,185 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "2222ffd79b41cf6e1fd87b47c4bd22aa15ceb0da3c7931881a9a6e0206a16919",
+  "reviews": [
+    {
+      "identifier": "AR-099731-A1",
+      "source_fingerprint": "f1c13aa16f9cb7f49bd866ebda9d62ced1ce50d980597d083dab55135fffad1b",
+      "content_hash": "f3c6f95b3e593d4a69c3e00ca62dba41f1bf60bad86666c7e01ac8c6fe094bd7",
+      "decision": "LINK",
+      "keys": [
+        "time-division-multiplexing"
+      ],
+      "reason": "두 가입 회선의 상향 트래픽에 단일 송신 체인을 시간 분할한다."
+    },
+    {
+      "identifier": "AR-099759-A1",
+      "source_fingerprint": "066126ff9ae6951b47ed4f39a0f276e9298e4c25060421777012b869a39bba36",
+      "content_hash": "3149b24d15084eaa8355d90f73dc95b6683399e05a523ff4d7ecacae6a966f88",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal"
+      ],
+      "reason": "구형 실리카 입자의 마찰 연마로 치아 표면 오염을 제거한다. 표백 화학 반응이 아니다."
+    },
+    {
+      "identifier": "AR-099764-A4",
+      "source_fingerprint": "a288de2a7167243a9f920b2efd094dec58f89cc8274d5aa8fd34ae4a58af14bd",
+      "content_hash": "6f81c780ae04a9aa994873709349491b6638a101231c4abe6b6714f104f3c120",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "판지 삽과 봉투의 결합·폐기 구조이다."
+    },
+    {
+      "identifier": "AR-099770-A4",
+      "source_fingerprint": "f771cb3240e1a41a55dee3ac49384ad2d1fce9e2840ec768c35708e5238a09d1",
+      "content_hash": "463222772b512da7670375bebbe25bc9004bf0925df3190aed6e9becf3f661c0",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion",
+        "mechanical-interlocking"
+      ],
+      "reason": "자석과 고리·클립으로 지팡이를 부착한다. 장애 관련 법적 주장은 효과 근거에 포함하지 않는다."
+    },
+    {
+      "identifier": "AR-099774-A1",
+      "source_fingerprint": "2d72fa4356f612e56126f0542dca8b4172ab87c61deb8ad173904d9c9cb2c0ba",
+      "content_hash": "995ff69203dbdf9088ca503e0fd00549410e40a508cd736a5cf3211c0f2ec35b",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "팬의 기류와 가습·UV 조사 배치이다. 해양 기후 건강 효능이나 살균을 초록만으로 입증하지 않는다."
+    },
+    {
+      "identifier": "AR-099788-A1",
+      "source_fingerprint": "eda59cac330a6ade695db1e9ed3a6880eda09f81c807f26718a947430bf03799",
+      "content_hash": "199f7184ed747efea0cb37cf592fb340ae2223f3d7f1c35af7006f475d0ac4b1",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "뉴클레오시드 유도체로 HIV 역전사효소를 저해한다. 사슬 종결 방식은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099791-A1",
+      "source_fingerprint": "5c441d632d125fffb9482046437241ff16442f409b0e99901abef9a761c8e91a",
+      "content_hash": "3e6f134e39797cd3f00a32f8d2263f53ef576ff9cee7a80d98bfc405334d24cc",
+      "decision": "LINK",
+      "keys": [
+        "check-valve-rectification",
+        "elastic-energy-recovery"
+      ],
+      "reason": "탄성 슬릿 밸브가 차압에 의해 열리고 복원되어 닫힌다. 개폐 압력차 조절은 형상 설계이다."
+    },
+    {
+      "identifier": "AR-099822-A1",
+      "source_fingerprint": "5ad36d1403bc58115a375986c14f519f5751f04786655c35610603e473052155",
+      "content_hash": "e972c9de861a34b2a54241d03545214e71e7c811c8460f60335c815df971ad89",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "경사 추력면과 복수 베어링으로 하중을 나누고 축 기울기를 수용한다. 구름체·윤활 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099825-A1",
+      "source_fingerprint": "810f18c2efbf5ddb4c1dc93363696aef8cdec9ed1d00a60452030470c0946620",
+      "content_hash": "3d1b8c9bd697d9cdf78368361c4093240db49b6414ab28f7e695c3c04404f989",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "모노박탐 항생제의 치환체·염 목록이다. 초록에 표적 단백질이나 반응 경로가 없다."
+    },
+    {
+      "identifier": "AR-099869-A4",
+      "source_fingerprint": "1d99b0021e1f0af24f2bf865ece87e0704701a5f510d634c6da2618affef66fb",
+      "content_hash": "c8955f8e33649aae6f239ceab9fba23320374d4081b6bec02c4de46d4a925134",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "미리 절단·표시한 선에서 상자를 분리해 작은 상자와 받침을 만든다."
+    },
+    {
+      "identifier": "AR-099878-A1",
+      "source_fingerprint": "32e27c1a7dcff980c364e8249c0f37cf4ba1730a4703a6826f4d2df5aab15f52",
+      "content_hash": "bdf89f923f75f9b5943719ff904d18ede90109eda5c1f06f9286e79010a4af5e",
+      "decision": "LINK",
+      "keys": [
+        "fluorescence-sensing"
+      ],
+      "reason": "형광 염료 입자로 목질 재료를 표지·식별한다. 증백 기능과 달리 기존 형광 검출에 해당한다."
+    },
+    {
+      "identifier": "AR-099894-A3",
+      "source_fingerprint": "2ea76f3f8af888b47f3848212ea30bac41181ef634543d0a89965fef432de4ff",
+      "content_hash": "a8aa68dc3537a63b6d45fb5cbbbb651229a094cc6021be59db38011969307b62",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "acid-base-reaction",
+        "ionization-solubility"
+      ],
+      "reason": "글리포세이트산·탄산나트륨과 계면활성제의 수용성 조성이다. 염 형성 및 젖음 기전을 연결한다."
+    },
+    {
+      "identifier": "AR-099901-A1",
+      "source_fingerprint": "e10a00e060174450fbc9f6dd143c0b744d05cfb32a91cb425f2fc064e438df09",
+      "content_hash": "f569be09ad7b5e83571b58736ae165de3b90afdb53cb0c7703cb8748140df5a4",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "휘발성 방충제 지지체의 접이 힌지 배치이다. 방출 속도 제어 원리는 불명이다."
+    },
+    {
+      "identifier": "AR-099904-A1",
+      "source_fingerprint": "311f43a4a6ced42e1558e33af139fbdb43f0282777a14dea17334cc7b460eab5",
+      "content_hash": "7056553976d4411e058cbc522e0cedea3adf3d00430795bde64cb55fad3a8bc7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "염층 내 시멘트 슬러리의 조성 설계 목적만 있어 반응·첨가제 작용을 특정하기 어렵다."
+    },
+    {
+      "identifier": "AR-099911-A4",
+      "source_fingerprint": "dfac3921eb02704e5e535c581bd150caaae77547d20bbebf4f7643d441963299",
+      "content_hash": "0f9d7a492267f831ff27e2f5bc35331644779035215d431338c14ce688d22428",
+      "decision": "LINK",
+      "keys": [
+        "porous-gas-trapping-insulation",
+        "pressure-sensitive-adhesion"
+      ],
+      "reason": "유리솜 공극의 단열과 접착 겹침 연결을 이용한다. 단일 알루미늄 피복을 다층 복사 단열로 세지 않는다."
+    },
+    {
+      "identifier": "AR-099923-A1",
+      "source_fingerprint": "46929848897b95b5d7f608065969838bc918b2b0ceb30828d241feb017e93ac8",
+      "content_hash": "87163360cff1de93c79898b3d2f9e052a5c412accbcfbe0af49c8beff988b29f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "surfactant-action"
+      ],
+      "reason": "알칼리 아밀라아제의 전분 가수분해와 계면활성 세정을 이용한다. 표백제 종류는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099933-A1",
+      "source_fingerprint": "c027c045cc0154283c5fc854dfd8b5105736c3188a60ce54f658380ca18ca01e",
+      "content_hash": "a38053d7d9da17bd6de2e30a10399e0c28f405757351a54a852cea14eeb8667c",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "CB2 작용제이다. 치환체·표적별로 원리를 늘리지 않는다."
+    },
+    {
+      "identifier": "AR-099937-A1",
+      "source_fingerprint": "eb548a09f7b1cfdb49d34d7b75faa1971f029e575a6c0eea86decf291c177231",
+      "content_hash": "90b4d7306ae9ea167a2dbe3e5c1782ffeaff7cb850dcd95b32265ead2eae4d52",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GPR119 신호 조절제이다. 질환 용도는 별도 과학효과가 아니다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:59:58.440612+00:00"
+}

@@ -1,0 +1,93 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "751ccd2fc219965ac81ad6ec077826422c4bbb95109755cf5ec93d326657322a",
+  "reviews": [
+    {
+      "identifier": "AR-110488-A1",
+      "source_fingerprint": "fcff7e793368a8e4951fe2f767142cf3b6f6999a2d7400bbfd5fac69768fc7b8",
+      "content_hash": "b73a23911970db3bdf24f7fbc3667a9fc1dae7fde0071d9395a853c4aff8128a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "GPS 로그와 웹 시스템으로 농약 살포 이력을 보고하는 서비스 규칙이다."
+    },
+    {
+      "identifier": "AR-110511-A1",
+      "source_fingerprint": "84eb08e52662726d0a1b28dff18b4741930f6baef118e42ccee3b83537c544db",
+      "content_hash": "57d863e3cfda76167c82c4011bb3d744a59dbb30281d2f5bf21a45633dba70bb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "휴대용 분무기라는 목적만 제시되어 분무 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-110512-A1",
+      "source_fingerprint": "cdd7667b4c74c4bec8e5f02c8a0dcace831bcf69e8bcef9f9d9127d420861ecd",
+      "content_hash": "7b0f9f09fe20d70c71910779d80323b201f24808eeb76b075d67b58027a761bc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "낮은 수분 활성의 지방·염·식물 조미 조성이다. 준비한 수분 활성 생육 제한의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-110515-A1",
+      "source_fingerprint": "74bcde3bc20f057ec22b1f772540591dd2c1dfe69aaf41716f8f64183aa8b62c",
+      "content_hash": "295d603f5225a7180bdaf23697a1f9021e6ad934d26a67fe01c7f0a1e0c460c0",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation",
+        "pressure-compaction"
+      ],
+      "reason": "압축 촉매체의 카르보닐 수소화 사례이다. 준비한 카르보닐 환원의 추가 근거이며 내산성 수치는 미상이다."
+    },
+    {
+      "identifier": "AR-110519-A1",
+      "source_fingerprint": "9e69166fdb683155a2efc57282fa5a40421a07a6492265b463f99f0c9e307ef9",
+      "content_hash": "ee668d6e074ee3e7b49ff3e67f4e77c49a246871a32dac513944a63ff58d4546",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "이송 슬랫의 웨브와 돌출 전후 벽으로 단면을 구성해 강성을 높인다."
+    },
+    {
+      "identifier": "AR-110533-A1",
+      "source_fingerprint": "77485e2fe19927548963ccaea6412d9e198d03f91365941fd13fb419834a390f",
+      "content_hash": "38f0045d0e5f038b17fe6bdf0cc4b388bd824a5751aa84750c0c056439f8ed73",
+      "decision": "LINK",
+      "keys": [
+        "laser-ablation",
+        "geometric-optical-occlusion"
+      ],
+      "reason": "불투명 금속막을 레이저로 부분 제거해 투과 창과 부호 영상을 만든다. 광학 복호 알고리즘은 미상이다."
+    },
+    {
+      "identifier": "AR-110539-A1",
+      "source_fingerprint": "e102a9e81277924f610fa3910b1a73286a9e3c56dadf365d07485b8220922d75",
+      "content_hash": "1c532bbe09358f9832b963d10b5a7541f41a60dfba039156ddea5fef3f63027a",
+      "decision": "LINK",
+      "keys": [
+        "genetic-loss-of-function"
+      ],
+      "reason": "TFL1 발현·활성을 낮춰 개화 시기를 앞당기는 형질이다. 특정 경쟁 단백질 경로는 초록에 없다."
+    },
+    {
+      "identifier": "AR-110555-A1",
+      "source_fingerprint": "7e236a05f64f9126ad430b3cbbe29a6e45b19b9f42b4b5be1248404a0c66b02c",
+      "content_hash": "2ba7cdf20014ce6f694d9a2c2bf1685f187e4ec105208be0ff9c2dab8c5c7c97",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "니트릴로 할로젠 함유 올리고머화 촉매를 비활성화하나 배위·가수분해 중 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-110562-A1",
+      "source_fingerprint": "74d05d55a5ea5d0ad75457d31606ed71e0b4b948f17770b3bb27c8431ae691af",
+      "content_hash": "3cfb89345771d7db05641cf7b96449e0d132ebe8c74409f4a4cb60f3bb47e55e",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration",
+        "negative-feedback"
+      ],
+      "reason": "건조기의 수분 제거량을 연속 관측하고 PID 제어에 반영한다. 센서의 물리 변환 방식은 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:52:30.460382+00:00"
+}

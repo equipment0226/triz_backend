@@ -1,0 +1,268 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "c8a04961a4d6f132cb44a1c75f6a9284c2b9bee27181400dd548003106542b9f",
+  "reviews": [
+    {
+      "identifier": "AR-115823-A2",
+      "source_fingerprint": "f9ba98b72cde0eee8bab2fb0b2a27510ce9f0968b32230bbe73dfb7f62485bed",
+      "content_hash": "389fb936e79a5851f219d41009493f9377c3266ce96a434dc6c803e33a8b8b0c",
+      "decision": "LINK",
+      "keys": [
+        "parametric-bandwidth-extension"
+      ],
+      "reason": "전달된 대역 확장 매개변수의 유무에 따라 복원 방식을 고른다. 무매개변수 합성의 정확한 모델은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-115824-A1",
+      "source_fingerprint": "43870f2f81dbd36044920d6224186e782239255c4dba4fbc921d8f901356435a",
+      "content_hash": "46e0d5dfe99fdb0a29db58a9c4cb58303b1c4320b3d45f363ac63292b3bf1cc6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "접이식 사일로와 중복 컨베이어 배치이다."
+    },
+    {
+      "identifier": "AR-115832-A1",
+      "source_fingerprint": "d6ba23a8057726ec0aab0e705b728fca37fca3a9e91a884e0502d52fabcbf77e",
+      "content_hash": "040fdfc63905c4fc48c0d60a6abddc83a273203ebeafa42c026feff8bb560f32",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "목재 판과 금속 브래킷으로 팔레트 하중 구조를 연결한다."
+    },
+    {
+      "identifier": "AR-115869-A1",
+      "source_fingerprint": "037127c3ea84c99e382136d7a19c40c1a0ec09c8626590f91c1d1f0a93396cd2",
+      "content_hash": "fcb381d98f3c01b15d0ba33d9ddb13c9fc4c83f4a5c7418ae74f0f5634891fb7",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "비이온성·음이온성 계면활성제의 제초제 분산 조성이다."
+    },
+    {
+      "identifier": "AR-115881-A1",
+      "source_fingerprint": "4dcc76a6e1dffc97abee254397e1e2100d09d130cc6c49cb36f8d40b37ddf940",
+      "content_hash": "4db9caaaf399a59e5d73cb8746facb422adadfe1bba72ddd3b094a3bdf9a1146",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "biomolecular-recognition"
+      ],
+      "reason": "MHC 결합 펩타이드의 T세포 자극이다. 항원 제시 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-115910-A2",
+      "source_fingerprint": "fa67ed685e2004df2935f1bdf83c3443479f2d33428938bd2665e64fbdab0838",
+      "content_hash": "9c89a6b55fc17e5dfc4e2adc64559cea867dda78eac723c767d48a380067fd85",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "분할 슬리브와 회전 커플러로 광섬유 단부 정렬을 유지한다."
+    },
+    {
+      "identifier": "AR-115913-A1",
+      "source_fingerprint": "13e47979c6fa815e57eda5ec573b6fae836d34ea70886873e30a91b82dc9566c",
+      "content_hash": "12985b7153f083c36400ecdbe922c9c8dd744af6a6757aaca61df79e045a04d6",
+      "decision": "LINK",
+      "keys": [
+        "spray-drying",
+        "amorphous-solid-dispersion"
+      ],
+      "reason": "친수성 고분자와 약물의 분무 건조 비정질 분산이다."
+    },
+    {
+      "identifier": "AR-115931-A1",
+      "source_fingerprint": "02a50500266be66fc59cccfeaeed7e688e6d93e58dd5079b3d138a3ff247f7b8",
+      "content_hash": "e2de4f8dec9d0b08f88265bdcad3b7837e97fa38af25f2fc85b013b10db4c614",
+      "decision": "LINK",
+      "keys": [
+        "gelation"
+      ],
+      "reason": "탄수화물계 겔화제로 개인 관리 제형을 증점한다. 특정 가교 결합은 없다."
+    },
+    {
+      "identifier": "AR-115932-A1",
+      "source_fingerprint": "2d8c43f8831d40a909714ae029d7b2773a6f9503831ea1655690f98a8c36a2fb",
+      "content_hash": "6b1facb487469a2e819ecf20c492c1a95d796268b2079d7d7aa0d71a9ee5480d",
+      "decision": "LINK",
+      "keys": [
+        "fluidization",
+        "heat-capacity-buffer",
+        "thermal-radiation",
+        "photovoltaic-conversion"
+      ],
+      "reason": "고온 입자층의 저장열을 복사 방출·광기전력 변환에 연결한다. 열원 변경만으로 새 광전 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-115953-A1",
+      "source_fingerprint": "2e89aff683f7e478a4026b76cc7a0c4b309bf5d8be65ffcc83075272da252c3f",
+      "content_hash": "f8b60d6512bc090017fad3783abc142c1a1d65187c179aaf17d2c46b53bf8224",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "광섬유 리본의 부분 결합 배치이다."
+    },
+    {
+      "identifier": "AR-115988-A1",
+      "source_fingerprint": "3e62c22be22586a494fa71306e53bd4a17051f7fe202da2776e051220b252d43",
+      "content_hash": "85f6a8c4c34fc82d765361f74f8759f638fa9d504371b1a240bada811b162d0e",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "biomolecular-recognition"
+      ],
+      "reason": "KEAP1·Nrf2 상호작용을 막아 전사 조절을 바꾼다. 단백질 분해 방지에 의한 안정화 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-115998-A1",
+      "source_fingerprint": "c9bca6558f2a10d6ab71aac1653c86178d6a475ef61eb9752c6afc906fb4174b",
+      "content_hash": "6f3cc6b20ce5f224d8545cae2bf4b2522390aad98271ea2b5e81b9ad686ae457",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항체 융합체의 혈액뇌장벽 통과이다. 세포 횡단 수송과 단순 내재화를 구분해 확인한다."
+    },
+    {
+      "identifier": "AR-115999-A1",
+      "source_fingerprint": "ba75d1da28a64b5411e95615d4b2bec1b1cbc68a88f900af2d8bb83c7a70c6c1",
+      "content_hash": "eab016ac16558f17e924e38ca8c2c8c025037f72e939d0e85c139d3cd28f79cc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "히알루로난의 N염소화 아미드가 항미생물 작용을 낸다는 내용이다. N할라민의 활성 염소 전달을 신규 검토한다."
+    },
+    {
+      "identifier": "AR-116021-A1",
+      "source_fingerprint": "091d3dc0b76084081d67bdf09e2f248e85123a96596b5b1bd8bff13430b277e5",
+      "content_hash": "eef273e1d4c13ed4661d0fb7a644298a526c50875ea8d2e6fd70168536756443",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "클로피도그렐·테고프라잔 조합의 조성만으로 새로운 상호작용을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-116052-A2",
+      "source_fingerprint": "65abaad85d1ab12cf0ac12db2c42341e3de5628c73cb97efa01e7bf5b10b2b87",
+      "content_hash": "6dbb557389ff8a6811227e96162c80fb19dbabab6ab0f8660fc5c138833f3e62",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "특정 약물 염의 결정 형태이다. 형성 기전은 없다."
+    },
+    {
+      "identifier": "AR-116064-A1",
+      "source_fingerprint": "2010ded269dad487ac49d4dba0dcffe6c5d378b1f4bf942a501baac90a14f60d",
+      "content_hash": "41175b92fee886ebe448950c84f65a0d68f85ce7dc50cb3ebd066c9a40a8019a",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying",
+        "articulated-linkage-motion"
+      ],
+      "reason": "회전 나선과 관절 트레이로 제품을 이송·접는다."
+    },
+    {
+      "identifier": "AR-116082-A1",
+      "source_fingerprint": "1faea4a42226ffeb2d09ff3cd68705d92870a77c83361ce84329c947bd785ab5",
+      "content_hash": "09e8883551473263a41b6cfc7c706a0e819e8d6fd2385c452ed430972bc49b50",
+      "decision": "LINK",
+      "keys": [
+        "check-valve-rectification",
+        "negative-feedback"
+      ],
+      "reason": "볼의 차압 작동과 배출 유로로 압력 균형을 자동 조절한다."
+    },
+    {
+      "identifier": "AR-116086-A1",
+      "source_fingerprint": "31ac133afe8ae1bb4e0efca97c8cbc1fecb9a17ce3fce195c2974e2a76a9f66f",
+      "content_hash": "5b737e219243bed1931a2868af209844138f558f32d6bd7fcdbe51f9aa7bda41",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "서로 다른 깊이의 오목부가 용기 뚜껑 형상에 맞물린다."
+    },
+    {
+      "identifier": "AR-116088-A1",
+      "source_fingerprint": "e4589e10a6ebb9d751af880f2df59ec9e42ac5d9b2370d56bf317f0b5fbfc6db",
+      "content_hash": "3b93715a0991b544b91dbc562145a7eba73c11fb3d28f0096a5e6462c9282879",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "계단 수직면의 여러 화면에 영상을 분할 표시한다."
+    },
+    {
+      "identifier": "AR-116147-A1",
+      "source_fingerprint": "1a4245e882d89360904c92278f6cf483d7792c01af9f175034fdcf5b33f43b42",
+      "content_hash": "b2d7f44634f731f76bb302281b0d472d8d8d518d821881789c72f9d27793b589",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "abrasive-material-removal",
+        "barrier-coating"
+      ],
+      "reason": "나사 연결부를 연마하고 합금·윤활층을 형성한다. 도금 방식과 윤활제 종류는 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-116148-A1",
+      "source_fingerprint": "96e86a08efed6614b7c9d36649b5673ad8bd158330b8a93a1c30eb3ca5456b28",
+      "content_hash": "ddbb6c571362796a72f85463814b7fff9c762bae9d392f4a80fcea8dcb900c80",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피부용 성분 조합의 생물막 파괴·재생 주장이다. 생물막으로 오염물을 분해하는 효과와 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-116158-A1",
+      "source_fingerprint": "29fd5a38f017f83c065f7f72b8972f182b58fe586b6a3d040ae69fbb09c1c201",
+      "content_hash": "e6d6a2215927ecaff69d397c61e6a2c6d793af8d3651337348c802b1cea133ca",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "이동식 이식기의 집게 개폐·관입 순서이다. 지면과 상대 속도 상쇄는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-116173-A1",
+      "source_fingerprint": "1ccb1afe9fbb4cee80c75ad90279b26c9fa5ec114980e169984fb6d85c006635",
+      "content_hash": "8229f0a2081b044dd0e634c6be258c126c4c70d617130bf6046723ecb6c33672",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "PSMA 또는 PSMA·CD3 결합 항체이다. 면역세포 연결 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-116211-A1",
+      "source_fingerprint": "195c572e2dd4aa5dfa823adeea80625f61275fae9f53009cffec6203825cc2e2",
+      "content_hash": "25c65d29cf7d1291ece4b3bb6e67c8dba5b81f7bf2f656b97c32b32c69745516",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening",
+        "negative-feedback"
+      ],
+      "reason": "균열면의 영상을 관찰해 파쇄 유체·기계 조건을 수정한다."
+    },
+    {
+      "identifier": "AR-116213-A1",
+      "source_fingerprint": "9fa2ad82d67f56874bd1760be8a3a3f48b7bfe5dd00e26c1e3503d14576a034d",
+      "content_hash": "4ac7dd3ed6b68db5062590d140cae1d7acd14ce3e8d3f82bceaa457318d1f7b7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아미노산 분말의 맛 개선 목적만 제시한다."
+    },
+    {
+      "identifier": "AR-116215-A1",
+      "source_fingerprint": "c14ac081fa6156537e2dbf6a23525a7ad938cb8f4f6bab81aa5d142ce45df5cd",
+      "content_hash": "9514df38a435fa059a5e43f97e286f121ebc40057119db89214f22dc56071801",
+      "decision": "LINK",
+      "keys": [
+        "fluorescence-sensing",
+        "refraction"
+      ],
+      "reason": "두 여기·수광 렌즈의 파장·거리 배치이다. 공초점이나 형광 공명 에너지 전달은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-116221-A1",
+      "source_fingerprint": "b0a1e3f64ccc756f2e3770c7ae3dcd0a7829a9cb9231ec72a19799eca4598215",
+      "content_hash": "392fef1b500d95533baa041f10c0adfccc22f601a77cad0bead5f0ee89dcee8a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 공급용 미생물의 대기 질소 고정이다. 기존 생물학적 질소 고정 후보의 추가 근거이며 무손실 비료 대체 주장은 확정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:22:51.482250+00:00"
+}

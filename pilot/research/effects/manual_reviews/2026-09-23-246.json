@@ -1,0 +1,169 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "be1ae305c3e77e3339ccec68401402474674af371642b634525d36a4b4e791c1",
+  "reviews": [
+    {
+      "identifier": "AR-118074-A1",
+      "source_fingerprint": "d0ea610e52e9e9e27b5802ab58ebd546c06381f2ad30bf4e1ce0434aed112af2",
+      "content_hash": "4bd4ed43caa121593b18bc2f9f9b5b53392895ff2d69c79dea7bd60662b2523c",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "명시된 HPPD·ACC 효소 저해와 합성 옥신 작용이다. 서로 다른 약제 조합을 새 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-118097-A1",
+      "source_fingerprint": "20abc6e48344335527cb04ba899c928847514cbf07a42948ad697b5dfd675488",
+      "content_hash": "6ce0d0d8b5f63fa3b14c2095371ebeb188de75b7922eef935dc3b8020f5a1852",
+      "decision": "LINK",
+      "keys": [
+        "pressure-sensitive-adhesion"
+      ],
+      "reason": "위생용품의 접착·비접착 영역 배치이다. 투과성 표면의 운송 경로는 미특정이다."
+    },
+    {
+      "identifier": "AR-118099-A1",
+      "source_fingerprint": "be1749ea2d764e31bff3f96b51d7b58ca45dce9fbb3eca7fd7c14e9c1ecb49d6",
+      "content_hash": "29d403bd9218e6c5d9a19c23e8499e81d632d87584f380a262e8c8900d00e634",
+      "decision": "LINK",
+      "keys": [
+        "diffraction"
+      ],
+      "reason": "분말 X선 회절 피크로 결정형을 규정한다. 새로운 회절 효과는 아니다."
+    },
+    {
+      "identifier": "AR-118105-A1",
+      "source_fingerprint": "db469d18cf975aa8d40a9d3dc93182af031e87c721f00a24f09694b74853b82a",
+      "content_hash": "452ffad2da889cdf3c713e89d1dcfb92d6cedf876f89eca62c32338d17fd859c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약 조합의 상승효과 주장이다. 초록에 정량 비교·세부 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-118110-A1",
+      "source_fingerprint": "d9b99dba3511f488ed5eeb5119e42791802a8b1da81b2c4e9a16eec01e2705b4",
+      "content_hash": "370ff6ae721919c7bac8b283be7788dc06231972fc9cd46ffb95d17c0da2448c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "PVC와 폴리카보네이트 적층 구조이다. 접합 계면의 물리·화학 원리가 미특정이다."
+    },
+    {
+      "identifier": "AR-118120-A2",
+      "source_fingerprint": "bdbaa83682fedbe310a3736ee2731d6777968f16db3f4aa485e43714ba4f6f6b",
+      "content_hash": "fafe82c6c541147f9f9b1d955c5cc16775d50690a466704224194c9ba2849c5d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "acid-base-reaction"
+      ],
+      "reason": "JAK 저해제의 인산염이다."
+    },
+    {
+      "identifier": "AR-118161-A1",
+      "source_fingerprint": "9dd01580f9ce8e0d4d9b4deee8c3b56bd612286db221dffe16f4576826aadf01",
+      "content_hash": "f569576070d31d0edd66156f604a4e5adb15260ef547fd45e5ceb615a62ed243",
+      "decision": "LINK",
+      "keys": [
+        "solidification"
+      ],
+      "reason": "용융 질산칼슘과 몰리브덴 성분을 고체 입자로 만든다. 비료 성능을 별도 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-118170-A1",
+      "source_fingerprint": "513242984856602b7e8bbf0dc05e798a5d70462e3b6ea6d4c43c68e426df703a",
+      "content_hash": "9854d324e7b5ba7f4f765c04729804f32b0513453ef0c9719d36b4f773ccddde",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알루미늄 합금 조성과 제품 종류이며 강화·성형 기전은 없다."
+    },
+    {
+      "identifier": "AR-118171-A1",
+      "source_fingerprint": "7772fde38ea1f62fd9ed76e7cc990f86fab7ee8c660d2dc65f9a29243c130038",
+      "content_hash": "200f10c623b9fab028c2251b9176f0bde9579818e2f558f4b65ae5cbfe3e0bfb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "세균 막 제제의 치료 용도만 있고 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-118196-A1",
+      "source_fingerprint": "8dbf91a87f758729b0369d1325bda08220461ab8dc399f11162997bcdf64efd2",
+      "content_hash": "109129e22effb35ad202636ca085fb2fb68bda285b43a9f09e6c7b7519d136a0",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "동물 위치에 따라 경계·자극을 조정한다. 학습 방식·자극 종류는 미특정이다."
+    },
+    {
+      "identifier": "AR-118208-A1",
+      "source_fingerprint": "d3f4bb3e9301006ea019d8888008e11f4c7e089a650bff9b69d7ed3f8a6ad3be",
+      "content_hash": "1e2c860a83d56b3eb2d49e4a0a4d19baa9e9e768fde5f90f87f3ccfe57e90a18",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HAPLN1의 연골 재생 용도 주장이다. 결합·조직 변화의 인과 경로를 초록만으로 분리하지 않는다."
+    },
+    {
+      "identifier": "AR-118209-A1",
+      "source_fingerprint": "539b0755e56eb42491f2ab6441ad90776f8fb579898b2a6533407293d5b9555d",
+      "content_hash": "caa6d14626103b133a49a6b4117778a16b6832f1c159b1d90d2aa739f23feb07",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "재조합 성선자극호르몬 발현과 수용체 작용이다. 당화 양상만으로 특정 제거 경로를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-118210-A1",
+      "source_fingerprint": "ec6b76ce19b9029888e8e325bf78454e8f3b2dbaf479a63bc565e31c4542f631",
+      "content_hash": "f81f1096c4c17b2e742525f4e223cbedb4ee633630ab78c78d7135a92735a8ea",
+      "decision": "LINK",
+      "keys": [
+        "elastomer-contact-sealing",
+        "negative-feedback"
+      ],
+      "reason": "압력에 따라 접촉하는 밀봉 립과 감압 밸브이다. 밀봉 구조 응용을 새 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-118218-A1",
+      "source_fingerprint": "fae9b2bd92a48950bd5823d08e9a4b50e43d3209ab25892af4e3cc3cd07b2629",
+      "content_hash": "97c0a82273d0613b3e768805c3baff01791fccbd84ad6e50417a1fe221f18b8b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구강 관리제의 항균·항염 조합 주장이다. 개별 분자 경로와 상승효과는 미확인이다."
+    },
+    {
+      "identifier": "AR-118231-A2",
+      "source_fingerprint": "809527e2720688cbabfa6d6ef860b8fad226f17536bf1ebd825ad9b072ad5a40",
+      "content_hash": "0b321b308147551e2416a9a89d40a82f7b1e3f4af2d68c7b0df06eafe88c11cf",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 유전자 발현 조절용 재조합 DNA이다."
+    },
+    {
+      "identifier": "AR-118238-A1",
+      "source_fingerprint": "bb21c9466299b9a7f094dc857a3735f459886d09cc357dde302b00257e97be98",
+      "content_hash": "6b35b28204e2c0382a8edad978ef86fa90a0cd628bd006ab9ef8c9386e61a62e",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "stress-concentration-fracture"
+      ],
+      "reason": "조직이 고정공을 통과하는 앵커와 분리용 파단선이다. 형상·재료 응용으로 정리한다."
+    },
+    {
+      "identifier": "AR-118242-A1",
+      "source_fingerprint": "03656e4ef0f7a6c05de72354076668d887d130472dafd2c0b8c0adff5065e839",
+      "content_hash": "a681e22cef6a3162b105f05227e12757b4e6b72029e7b6416711f85e29af00ff",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "종이·수지 적층 스포츠 보호대의 구멍 배치이다. 에너지 흡수·투습 특성은 수치로 검증되지 않았다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:34:21.090414+00:00"
+}

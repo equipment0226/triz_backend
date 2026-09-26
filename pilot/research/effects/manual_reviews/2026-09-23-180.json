@@ -1,0 +1,147 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "2485d08425653fa0938523a2015f4993e046dd302147edfc149d3d1ca6f1b4d3",
+  "reviews": [
+    {
+      "identifier": "AR-105137-A1",
+      "source_fingerprint": "191a1857d32d21377178a05a0f61c8e4d8c60d023a132457d9681deac6f6ffb1",
+      "content_hash": "05e2d094422ebc7f8545863816cdb5ddf7a0d8559875654bc607323e555c22fd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "간섭 지도를 바탕으로 후보 무선 링크의 측정 시점·파라미터를 배정한다. 구체 탐색·최적화 기전은 없다."
+    },
+    {
+      "identifier": "AR-105152-A1",
+      "source_fingerprint": "9e8a90faaafd4873cc000273964a11232640018303e83eab1902694af84fe13f",
+      "content_hash": "ddb29465b9ea5f0bc58d86a73b766caab8ebb9fa411f8326ebbfc60250285161",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-separation"
+      ],
+      "reason": "원심 분리·희석 뒤 보정곡선으로 코르티솔을 정량한다. 검출법이 없어 항체 분석으로 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-105155-A1",
+      "source_fingerprint": "ae1752e533d9638f2abd0649cc8f47ba09df2d81f9e5e48e46206985fafc0ca6",
+      "content_hash": "220fe360654e504bdc4641be5ac372014278fa31e33adc0c73d59aca3bc99918",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "숙주에 맞춘 코돈 최적화로 살충 단백질을 발현한다. 동의 코돈에 따른 번역 동역학 후보를 확인한다."
+    },
+    {
+      "identifier": "AR-105158-A1",
+      "source_fingerprint": "d68ec31f1446aa52c3bef8ab1f0b1c2090d30569e8cfe22f7c5c75df504a6ed3",
+      "content_hash": "df690a06f64e154612248602b75ac6167064b7e13393f91001730585e87fdcdc",
+      "decision": "LINK",
+      "keys": [
+        "natural-convection",
+        "fourier-conduction"
+      ],
+      "reason": "냄비 주위의 고온 공기 경로와 금속 덮개로 열 전달을 조절한다. 주장된 연료 절감량은 검증 없이 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-105171-A1",
+      "source_fingerprint": "f97ff851d71f5f9151780cd548ba2bb4e1ae12fcd3d734c2db8ca995e60b0746",
+      "content_hash": "167c29c6c916d5e5d858f27b6dd95d6049cda6e146f20d72d377e76c6f474950",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "biomolecular-recognition"
+      ],
+      "reason": "CD40 작용 항체와 FcγRIIb 친화도를 조절한다. 당쇄 변경은 명시되지 않아 Fc 당쇄 효과와 구별한다."
+    },
+    {
+      "identifier": "AR-105186-A1",
+      "source_fingerprint": "23e21e0aad3e6f67b21c69753cbe7536d048c77c23c71bebb304b82dd694270d",
+      "content_hash": "ac788cf1d19edb4a5e12e14cc51588659bc33561f55ef9c1428b06160802f15d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "필터 공동에 타는 끝을 넣어 끄는 구조이다. 산소 차단과 열 손실의 기여를 분리할 근거가 없다."
+    },
+    {
+      "identifier": "AR-105189-A1",
+      "source_fingerprint": "e4345f6ecb7ab29a4c0f18d6002ab33cd7aeedb04bfdf4730f863a0376bbdb10",
+      "content_hash": "a243eef185a7414a797382dec58adf2b3cb52f33cc3a1b31f705b552e8faa00e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "중금속 회수 결정을 수지에 넣은 지지재 코팅이다. 흡착·침전·이온교환 중 어느 기전인지 없다."
+    },
+    {
+      "identifier": "AR-105192-A1",
+      "source_fingerprint": "8992a6ca51de41c9dac6098edb46e5b780691cb4bbfac015b9fdec465d288cd3",
+      "content_hash": "6c431e973b1eea5ef9ee4dac6153d859b2ee435c46a4b1150d1bd5e541204a79",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "pressure-driven-flow",
+        "elastic-energy-recovery"
+      ],
+      "reason": "유압 균형으로 닫히는 피스톤 밸브의 보조 배수와 스프링 복귀를 이용한다."
+    },
+    {
+      "identifier": "AR-105201-A4",
+      "source_fingerprint": "0c9a14adcd9a87f4439a567de8d4f586e59f7590df6c519d75e7ecb22ffd5be4",
+      "content_hash": "14581d44b9f94a97ac01470a8fe7d982d731c9c710c22eb0f5e46ad875bb4808",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "서로 다른 지름의 두 내강과 가이드 와이어를 가진 영양 공급관이다."
+    },
+    {
+      "identifier": "AR-105218-A1",
+      "source_fingerprint": "de6ab193999ed9fc99589cb648ef7b4386533c202aea4fddda619c2d208b97d2",
+      "content_hash": "d8b1f2a596417044a0b0fc806117f819c0f3980249a6bacb528a85da88530a51",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-film-atomization",
+        "negative-feedback"
+      ],
+      "reason": "모터 속도를 측정·보정해 회전 분무기의 액적 생성을 제어한다."
+    },
+    {
+      "identifier": "AR-105257-A1",
+      "source_fingerprint": "cb0337eee8524c5debb87850d6fe20e216382c905522a44ff97d9450546987d3",
+      "content_hash": "9831e08039f2b18cdf1516931adffee4c4a884b289868205c972e071a142d0d8",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "피오베르딘·피오켈린 결합으로 세균 성장을 줄인다. 철 운반체 포획에 의한 영양 철 제한 후보를 확인한다."
+    },
+    {
+      "identifier": "AR-105274-A1",
+      "source_fingerprint": "6247d8fb215299bee4532ac5f948d600254a13e03e4560f11cf41e4f5e8a9b16",
+      "content_hash": "7c1a69661013b96e40bb9614dd28e55069e60e83802939c88fdc5c1daff1600d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "글리세롤 아세탈·케탈을 넣어 옥탄가를 높이는 조성이다. 말단 가스의 자기착화 지연 후보이며 정확한 혼합물 효과를 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-105278-A1",
+      "source_fingerprint": "02df2a9cd7618b9cbff523e54654b1399e8a50577c6ab323f533dddd6c2d3892",
+      "content_hash": "e403801570fa2e163e3d5df91457cbdd4d32d728d82e13da637d9f1dd0a374d2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "티아디아졸 살충제의 구조와 중간체로 분자 표적은 없다."
+    },
+    {
+      "identifier": "AR-105303-A1",
+      "source_fingerprint": "9f37e9d80255fc032b6bfa01a81e42cea613694585b5a38adf8711ed9702ee1e",
+      "content_hash": "4dd7473b9dd9dd06e40780246ea2857314a1f77edf67ad269738cf249f3b4bf1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "구명복의 독립 얼굴·출입 개구와 펼침 덮개 배치이다. 단열 소재의 기전은 없다."
+    },
+    {
+      "identifier": "AR-105324-A1",
+      "source_fingerprint": "7d305cdc73995732c375c316d961a140074414fe3885a3e3facb5799b5eb3403",
+      "content_hash": "f5d8b66cc3b30949277b40965fe1d22c7d1d9a353b367ab7d0e3b73cb8b86484",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 스트레스 내성 증가 화합물의 긴 치환기 목록이며 작용 기전은 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:27:16.530243+00:00"
+}

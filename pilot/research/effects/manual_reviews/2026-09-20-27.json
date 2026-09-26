@@ -1,0 +1,150 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "3d509639773ef003f75917aa23c47f87371618358487d171a7ddd7cfac3c7790",
+  "reviews": [
+    {
+      "identifier": "AR-054121-A1",
+      "source_fingerprint": "8e0390ed623b40d4cf907d09ba2035b5b40068c762e0212fbce380711abb34c1",
+      "content_hash": "54dc546e42e1c04a5944ec11d2e68e2df7b3aa7d9ddc44521724a082e7b129ab",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "히스타민 H3 수용체 길항제를 명시한다. 수용체 조절만 연결하며 임상 효능은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-054126-A1",
+      "source_fingerprint": "582d9bc68b2653f598cc20dd7eaa235de45a61fd9fbe9474fa5d306b02dd63d3",
+      "content_hash": "af19100dff86695aed755d5faff2088ec9e222cee5e1e625ac8ec5784a7d736d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "PGE2 생산 관련 질환의 치료 용도와 화합물 목록이다. 구체 효소·수용체 표적은 없다."
+    },
+    {
+      "identifier": "AR-054133-A1",
+      "source_fingerprint": "47fcb4e179b16c43f0fecd6edbbbfd33e3d5b9a5214df239b637a6db4b5db797",
+      "content_hash": "9df230d9b00b29dbc312d99a7a254a6dd240542e031bc98d211642cad1c5ddfb",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "산소에 불안정한 성분을 당알코올·결합제 피막으로 보호한다. 산소 접촉 차단으로 해석하여 연결하며 보호 정도는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-054152-A1",
+      "source_fingerprint": "13595be624aa041ae5a8eb465eca77d8f82aeeb67b8211e2bc6907673db3ece7",
+      "content_hash": "5f04bba0bdd31da59f2090ba173382d361fb4736f61d121a4ba22705ae810cc5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "당화된 인터페론의 생산과 당화 양상이라는 목적만 있다. 실제 생화학 반응 경로는 없다."
+    },
+    {
+      "identifier": "AR-054196-A2",
+      "source_fingerprint": "e54b9d44fa839f7e01cecd8d5057bdf543a9dd5f05846387cbcad8256e38ce52",
+      "content_hash": "68f03baefb5b42f7bce51803c0f214ba561cb54495ce2b782edb40d60399c89b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균·살충 성분 조합의 긴 목록이다. 개별 표적이나 상승 반응 경로가 없다."
+    },
+    {
+      "identifier": "AR-054227-A1",
+      "source_fingerprint": "9df4681e153963293601e0372f226c1138019a45dc6c1add067d48ccaaf1794e",
+      "content_hash": "22c9d0717791d2983a7653a53e9edcadc69bca9f1a830aa7d96a9a68faa7e631",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "난용성 성분과 초분지 고분자의 조합이다. 포접·입체 안정화·용해 중 실제 기구는 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-054228-A1",
+      "source_fingerprint": "defa9736260de27245909853d9127f1f9ba5b9f92727081ded48a341833e0564",
+      "content_hash": "1952b36f46a139ff7a3174a5c9feb1af85d5122a26b86a2bf79649012d872015",
+      "decision": "LINK",
+      "keys": [
+        "gelation"
+      ],
+      "reason": "수용액에 겔화 고분자를 혼합해 겔을 만드는 과정을 명시한다. 기존 겔화에 연결하며 안정성 수치는 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-054233-A1",
+      "source_fingerprint": "442c87a28b0d3615e4ab02141f9785ad40c36b938eb0a550ebf67e0187b75c61",
+      "content_hash": "3a1eb7e4159e134daa597bb288ed474e6d0bda600366940d70071a0e96296e82",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation"
+      ],
+      "reason": "IgG2 조성물의 킬레이트제를 명시한다. 금속 배위 포집 범주만 연결하며 항체 안정화의 구체 경로나 치료 효능은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-054256-A1",
+      "source_fingerprint": "43be56b84bf74a33816a4b1a03ad6aedf05fb32997ad170ff2651b336f55cd8e",
+      "content_hash": "167543fd043b9232f7b74bba63ae42ec609e3abd5bb990fc290bed01b68a9445",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "올리고당의 특정 환자군 영양·치료 용도이다. 분자 작용이나 임상 검증 근거가 없어 효과를 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-054267-A1",
+      "source_fingerprint": "0386471f04cf8892b974d9d2abc7833bb8e7b1a4cce8ff4253df2df57545e6e8",
+      "content_hash": "d8af53b38dc9dd612db7bde597d4c8cb04998b5b9a73b4774879cde77105dd70",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "성형품의 인라인 치수를 측정해 장비 문제를 찾는 구성이다. 센서 원리나 진단 알고리즘은 없다."
+    },
+    {
+      "identifier": "AR-054278-A1",
+      "source_fingerprint": "391eb64c2cd19f1f1eddbee32c9b7c83ef1979591fb73e1bb4fca3953ab6572a",
+      "content_hash": "e943162cd541ffe19d687be20bdd2c5cf69d7dd1a07023eae33cdd681da858cc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "활성 성분의 다형체와 제조·용도이다. 결정 전환 경로와 조건은 없다."
+    },
+    {
+      "identifier": "AR-054279-A1",
+      "source_fingerprint": "103f116e18d62e76c06d72c3628e9508152e3ce7b29920adc6d6cba8c1f75ddf",
+      "content_hash": "e6688cb2adcc7c20b7e13ae823fab796b9d4bb0bdfd75fc022e2b9197f5e85a1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충제와 고분자 결합제로 섬유를 처리한다. 결합제의 접합·방출 기구와 살충 표적은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-054349-A1",
+      "source_fingerprint": "6d818e86af472fbf369b3fdd4f2ce94e654cbe2cecabc7925f553f74325a382d",
+      "content_hash": "1a1f614a2ffe8f018f071abbb822a6ae3da42c22276100e8cd8e7a9d0d655ec3",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "fluidization"
+      ],
+      "reason": "FCC의 제올라이트·귀금속 촉매와 순환 입자를 명시한다. 촉매·유동화만 연결하며 NOx 환원의 상세 반응물·생성물은 보류한다. 촉매 분해 후보의 추가 근거로 기록한다."
+    },
+    {
+      "identifier": "AR-054357-A1",
+      "source_fingerprint": "8302720382b5bf0944b4cb9092d4ab5c14b7a107ee1918e5c790b05e4e78531c",
+      "content_hash": "3f6e029260141a8aafd1cc3fc9ed3283d717d5b6d0f41b086ed4de1a64e81e24",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "혈청 표지자 농도로 치료 반응을 평가한다. 표지자의 검출 물리·생화학 원리는 없다."
+    },
+    {
+      "identifier": "AR-054377-A1",
+      "source_fingerprint": "be40791ab4448714395a8490959c6e41855be8784b7c328ce0dcade2c61da3de",
+      "content_hash": "8e0488d146073840828cebd0ba26ce09ccef355ef3c2992361ff817feaf29327",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미분화 약물과 붕해제의 용출 시험 결과이다. 표면적·팽윤·모세관 기여가 구분되지 않아 특정 방출 기구를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-054424-A1",
+      "source_fingerprint": "c262259890e7e0707ab2b0dfc65039e133718e6436e7fc0a634f6b742c08cd67",
+      "content_hash": "643987a109625cae3dbba6abb533393b35459302f9029d4f94391eba16d8a407",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "lead-screw-motion"
+      ],
+      "reason": "힌지형 반관의 나사 핀과 너트가 부품을 닫고 고정한다. 맞물림과 나사 축 방향 변환에 연결한다."
+    }
+  ],
+  "recorded_at": "2026-09-20T07:14:56.743495+00:00"
+}

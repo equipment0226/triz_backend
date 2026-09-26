@@ -1,0 +1,179 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "532fe413150d706b5cba57537afcc879f48d424820369e593bd37efc2b8ea2cc",
+  "reviews": [
+    {
+      "identifier": "AR-115507-A1",
+      "source_fingerprint": "2f06273c19233b685a59246afb1ca44b5c9d827ebef673546fb3a23ce99eb5fa",
+      "content_hash": "b0632c9f19da80b4e559da4493cb6294d46bc248f575220813c5b63168f85faa",
+      "decision": "LINK",
+      "keys": [
+        "reverse-osmosis",
+        "nanofiltration",
+        "negative-feedback"
+      ],
+      "reason": "막 담수화 공정의 센서 값을 감독 제어기에 전달하고 운전 명령을 조정한다. 최적화 기반 MPC로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-115509-A1",
+      "source_fingerprint": "8c374998f63f60e588eb7689d3a9b662e8b97d1225650db0262425abb7de0607",
+      "content_hash": "c09f1e6392e722e5331eaa1e458de3bc3151e0f131e0fcd70750d1a0e3634bc5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "베타락탐·프로베네시드의 조합이다. 초록에 상호작용과 수송체 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-115519-A1",
+      "source_fingerprint": "ceac425e78a5af60423977f2e0ad757bcb66b6ecf676ffbc6464785586de367e",
+      "content_hash": "f73cf79693df0ed1ae212be87ff71e8e30e7547ccb2aff5bbeada6c7eb0fd8ce",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion",
+        "electromagnetic-induction",
+        "combustion-heating",
+        "condensation-recovery"
+      ],
+      "reason": "증기 터빈·발전기의 랭킨 사이클이다. 폐회로 열·동력 변환 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-115531-A1",
+      "source_fingerprint": "99ac1422e5481305bf24abbb1a45272ce439a66509ac61c84b2bf4d3c716f1cc",
+      "content_hash": "4b7832b0cf818cc946b4ada31c294ed6754326d2cef565f94945e9dccb6c4845",
+      "decision": "LINK",
+      "keys": [
+        "sol-gel"
+      ],
+      "reason": "약산·다가 양이온 경화 촉진층과 알칼리 규산염 결합층이다. 구체 생성상은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-115532-A1",
+      "source_fingerprint": "933f573f61eab599be0af9a38d296cc5ba494248ffdaccecf777266d38c9e909",
+      "content_hash": "599b17f68b324fab2590f184169126bb9d2af86ae80ff9e3417159ca6805ee99",
+      "decision": "LINK",
+      "keys": [
+        "projective-coordinate-mapping"
+      ],
+      "reason": "카메라 위치와 2차원 결함 좌표를 3차원 표면 위치에 대응시킨다."
+    },
+    {
+      "identifier": "AR-115538-A1",
+      "source_fingerprint": "9a94707d315235cf6701a16917328b2b4ec4afe57eeaa09ad4b60c6901468714",
+      "content_hash": "afde8ae907ce53c4b907e0e02dff0ec4936a7ade886f2e571cca41a54372ecaf",
+      "decision": "LINK",
+      "keys": [
+        "soluble-receptor-ligand-trap",
+        "biomolecular-recognition"
+      ],
+      "reason": "TGF 베타 수용체 포획부와 PD L1 항체 융합이다. 용량·치료 경과 주장은 처방으로 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-115541-A1",
+      "source_fingerprint": "b9396ee69cd9f93cf4ba50cb7cd149a67d65d62a631d813168c718f5e51439dd",
+      "content_hash": "0369143c55d53d6571b0df1e9744f824dd3ff78603348f0674860fb30144fd7b",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "국소 압력 펄스로 지층 균열을 시작한다. 펄스 발생 기구는 미특정이다."
+    },
+    {
+      "identifier": "AR-115583-A1",
+      "source_fingerprint": "630c1c550de410a42579afeebcf5e230c2c069a52cb9d75aca77e0f59af301d0",
+      "content_hash": "b93c8fd0bc2e4c9852b4f9e3ce175a428289ff684dc638976a98a90a8e5e20c5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "간 기능 개선이라는 목적 외에 조성·작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-115599-A1",
+      "source_fingerprint": "de2981dceb133bee178f1c41684dcd954fce2ed7603ed4ae5b4fbb2349a7ea9b",
+      "content_hash": "db259e88a7b858e213da00af4e55170981ab1385f3fe210c5ff91ea53aaba949",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "사일리지 준비·품질 개선이라는 목적만 제시한다."
+    },
+    {
+      "identifier": "AR-115622-A1",
+      "source_fingerprint": "655055a649e40189911602274950364b092cc21954924e2008fbdb5bc26179c6",
+      "content_hash": "4232a60339755e135ea67c7b7bdad27057c179da5c1922bdca731ee2879dd926",
+      "decision": "LINK",
+      "keys": [
+        "electroluminescence"
+      ],
+      "reason": "이동 검출에 따라 인쇄·LED 표시를 제어한다. 센싱·잉크 분출 원리는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-115643-A1",
+      "source_fingerprint": "85ff4bb734cfb2354f12937d085508636509f5c6ac85042980519efe4f5140a9",
+      "content_hash": "17628f202085ea37b8e0e7d14e3b25be9e1a0692246ff00ef5f9d561999e5f54",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "biomolecular-recognition"
+      ],
+      "reason": "MHC 결합 펩타이드의 T세포 항원 제시 후보 추가 사례이다."
+    },
+    {
+      "identifier": "AR-115646-A1",
+      "source_fingerprint": "73057ad9f7233c8a87d6d13cee83c3167f800ab3fa81b597ce9e239acee9c87a",
+      "content_hash": "8d7dac73fce4b52efe84fa4e9048fdb252b0b3932854cf9a70d3cf857c622cdb",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "사이클린 의존성 키나아제 저해 화합물이다."
+    },
+    {
+      "identifier": "AR-115647-A1",
+      "source_fingerprint": "c5b97817e856e05b94ebe31369763c318049ab1883830a847128c97890c94a50",
+      "content_hash": "085d79389c6467304bd1d19b64413b343839082dd663e4068078b7e1aaa861e6",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "치료용 벡터로 단백질 암호화 정보를 전달하는 수준으로만 연결한다. 벡터 제작·성능 개선 절차는 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-115656-A2",
+      "source_fingerprint": "921d3d4e46f8ea14c4e21a5b864ce0db8621e25bcd6bd2a2f188779c6a38b643",
+      "content_hash": "a3fdfe31d4ba9e6e314123d33b931aa13bd6dcbb463bfb2c1cbf08e37405576d",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping"
+      ],
+      "reason": "진공으로 종자를 회전 원판 구멍에 포획·유지한다."
+    },
+    {
+      "identifier": "AR-115659-A1",
+      "source_fingerprint": "dd4bd1f0eac37fea9e7d1956141157b3e769b4b07ba9427ee66aae2dce1f4ce7",
+      "content_hash": "adeed13a821cc43d96ae8d9421711c45d126044bc76108e18b0d8ac31e6eb5d9",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "풀리 전달과 관절 팔로 분무 노즐의 위치·각도를 함께 바꾼다."
+    },
+    {
+      "identifier": "AR-115660-A1",
+      "source_fingerprint": "b23330e1b1ad70cb6146dce0378d801d6e7bd9ec6fa8ef448086d8e8c7d54a8f",
+      "content_hash": "ae38911f86ae2de4d3d8b9a13feaa642d81aada5738021169b7616f5b4cf97e2",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "공동·돌출부로 인조 모발 연장부를 연결한다."
+    },
+    {
+      "identifier": "AR-115673-A1",
+      "source_fingerprint": "a0e6d866426699d423ee71f95b99574ddc8d6e08bd88e1d50bc66c24e8def08a",
+      "content_hash": "00579b802f8f29265543c542c5a6a97852f1a3313a0bc6cb43a29d0a0cf36746",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "날개 각도를 감지하여 수확기 폭 방향 하중 균형을 조정한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:21:52.127280+00:00"
+}

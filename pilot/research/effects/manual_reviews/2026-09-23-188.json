@@ -1,0 +1,206 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "18c6cc9c7d28957f88ef133899ddd71fca141232a5d1d875dd56280f01d7f5a4",
+  "reviews": [
+    {
+      "identifier": "AR-107209-A1",
+      "source_fingerprint": "57214a06bd3699ae4bcd3d869a8e1c6b5272bf58d0a373943720334859b6b506",
+      "content_hash": "b09aba6767950a8d60bec8ffc2fcb8e8c2c4a0e1413a0911e077f40eb6e11fc0",
+      "decision": "LINK",
+      "keys": [
+        "crosslink-mesh-diffusion",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "가교 실리콘에 포함된 프로게스테론의 지속 전달을 이용한다. 목표 혈중 농도·수태율은 특허의 주장으로 별도 검증이 필요하다."
+    },
+    {
+      "identifier": "AR-107231-A1",
+      "source_fingerprint": "97376c9cf4535bcc0011cfd7afc053fea5fd41e99c0a618b06f0163ccba08226",
+      "content_hash": "36ac94335d7ca13cd49a0f1c17fb9f11287b233384c23919d914fdbe296ee7a4",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating",
+        "mechanical-interlocking"
+      ],
+      "reason": "폐타이어 피복과 케이블 결속으로 사면 구조를 구성한다. 환경 보전·안정성 성능을 자동 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-107236-A1",
+      "source_fingerprint": "28d9f4264b877f051343a93313cc865d199ca155712bfefd0016c0fb2c6a09ed",
+      "content_hash": "f38ed75b525c0b718ccfa65ec85d5c3bfe545a1c654409cc8931ecec28a3284b",
+      "decision": "LINK",
+      "keys": [
+        "uv-absorber-photoprotection",
+        "surfactant-action"
+      ],
+      "reason": "UV 흡수 성분을 양친매성 고분자 코어·껍질 구조에 담는다. 지질 이중층 형성으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-107281-A1",
+      "source_fingerprint": "ff19cd1daab6a3234bb46c5812715e22605e1494b71dbbbb72ddb3916e0e8813",
+      "content_hash": "e77c6e8ccfb4f1963432cfacc2bd966e02caefeec8c3abb62eb5462f04ea2416",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "글루카곤·GLP1·GIP 수용체를 조절한다. 반감기 연장 물질 F가 특정되지 않아 FcRn·알부민 기전을 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-107294-A4",
+      "source_fingerprint": "5ae9b07a6a42df205de70f2f9c4f14f8ce8d21606c39b71b8e4719196c27bf6d",
+      "content_hash": "e1de1c3cba22aada6576945e8e6f15d1ff25c3b2c22bafa7567416d85e3b7864",
+      "decision": "LINK",
+      "keys": [
+        "photovoltaic-conversion"
+      ],
+      "reason": "태양전지로 벤치 광고 조명의 전원을 공급한다. 패널 방향 조절은 광기전력 변환의 적용 구성이다."
+    },
+    {
+      "identifier": "AR-107296-A1",
+      "source_fingerprint": "d467a3d7ffab64a92f0277386f6c275cae1f70ba8c612c14921f80e862e2220c",
+      "content_hash": "1c0dd3dfa57d0f0a6cb2c7770bae2fd7d4f6f968cd233998ee2d44ea59f8097c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알루미늄염의 열 활성화와 유중수 에멀션 조성이며 발한 억제의 도관 기전은 직접 제시되지 않는다."
+    },
+    {
+      "identifier": "AR-107304-A1",
+      "source_fingerprint": "ddf2609930d8ed443115ab8d49c4a12d92cb650f5cb26509924dfd1c8c443144",
+      "content_hash": "477483e5eac3ea897164ef2e2a8a72174490daa1ca0435667ef73153585cc1b7",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "슬리브 돌기가 원주 홈에 걸려 고정된다. 탄성 예압은 있지만 탄성체 재료가 명시되지 않아 탄성체 밀봉은 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-107323-A2",
+      "source_fingerprint": "b9aeb7a3d5148c7bfa8da256b328cf9019388dbd7bcd5f4c30a66c85cfe24e98",
+      "content_hash": "a86e5f8c6ae8d580f0ff0bc4812324d86c302a8bd70e9a2c2597a0994beeaa5c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "여러 서버의 프로그램 정보를 수집해 녹화 지시를 갱신하는 업무 절차이다."
+    },
+    {
+      "identifier": "AR-107366-A1",
+      "source_fingerprint": "d58d212179d4b2ab6ee258d0c5deac8dfcaf5fcfec151f5bb531fbeeba4d3168",
+      "content_hash": "4404b3cd2ecc10ce20993d109bc20c2fff9c2fd34d68aa54a1ecc34efc59c5ce",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "DMSO·당류와 제어 냉각으로 세포를 동결 보존한다. 세포 탈수·세포 내 얼음 억제의 결합 조건을 검토하며 초록의 표지 발현 모순은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-107375-A1",
+      "source_fingerprint": "29849c143652589cbe9bc8e2d72f7a205a52bfc0300bd58c5035a3188f538236",
+      "content_hash": "57b2678aee9e4380baa18eb0cf7158dac8651fdd3140d3b165180cf5e58e2dc1",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "유연 포장면에 강성 판을 추가해 굽힘 저항을 높인다. 자동 부착 순서는 신규 원리가 아니다."
+    },
+    {
+      "identifier": "AR-107381-A3",
+      "source_fingerprint": "a3e0507fadaf1ccb43340d3b8aaaa302524fccfa85058615bf457f22ae339e80",
+      "content_hash": "a06b2f92c643b6e99f016e1325e4543a76ca4b117b00dedb605007b5fcd51810",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "금속관 내부의 부식·마모 보호 피막을 만든다. 온도 단계만으로 피막 반응이나 확산을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-107383-A1",
+      "source_fingerprint": "61e94bbd4f955da67bdc155f10b0a0ba4b24c62f1a63d3cfda1285bc792f4088",
+      "content_hash": "b7274da9162af41d76421c10e0fb9f8220fd8bdeb8c65f7eae8e6e9a7dce5c29",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption"
+      ],
+      "reason": "탄화수소 액체로 무거운 성분을 선택 흡수하고 용매·가스를 회수한다. 후속 분리 장치가 명시되지 않아 증류로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-107385-A1",
+      "source_fingerprint": "2257390b0b9440135afa957bcc50431625e2c94b4f99ea8efa2a4897678efb06",
+      "content_hash": "e2ce7f86cd93dd89bd5dfa5057cc5c76f305cf5f5fd9806e52e4c4bf72fe23c2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "제초제 가수분해 효소로 내성을 부여한다. 표적 결합 저항성 변이와 달리 제초제를 분해하는 경로다."
+    },
+    {
+      "identifier": "AR-107392-A1",
+      "source_fingerprint": "9f22898bc80b418fe5c6277f82901ba59d9835050f76ce7c0abe846e33b238bb",
+      "content_hash": "b956efba792323c3c725797ff77fc0fa8983e44124d7975a9e04a6614b3e8959",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "liquid-bridge-agglomeration"
+      ],
+      "reason": "BTK 저해제의 습식 과립화 조성이 명시된다."
+    },
+    {
+      "identifier": "AR-107402-A1",
+      "source_fingerprint": "e8602bf8026372194270ce9c15023453f995f2969d95cb9e3767b1c9e0413701",
+      "content_hash": "1e99a9d8c7820509495628de7dd718994c842185603780f73880331b5c54a5be",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "금속 유기 시약·할로아세트산염·에스터 반응 뒤 탈탄산으로 할로케톤을 만든다. 탄소 친핵체의 친핵성 아실 치환 후보와 탈탄산의 추가 사례를 검토한다."
+    },
+    {
+      "identifier": "AR-107435-A2",
+      "source_fingerprint": "95d9c8d2c183bebda5ce683ab0c38aa8cc6ff3b4856d3fd3bd00b2bc97463f10",
+      "content_hash": "7c3ddb7737b936e0087d35bb587ba6063b628fcfd0f3fb3b03015c0c8fce8457",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 유래 단백질의 이종 발현으로 병원체 저항성을 부여한다. 막공 형성 등 구체적 단백질 작용은 미상이다."
+    },
+    {
+      "identifier": "AR-107467-A1",
+      "source_fingerprint": "f7d7f2524c225aabc1f3a980bcecfa9ed4a10ff4c099b18da7fe916eb0538c0c",
+      "content_hash": "e58064a752fdefe0db7e9d6f475c3bce227c89c3a52af529d15c561448e04969",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "wetting-control"
+      ],
+      "reason": "수성 피막에 계면활성제를 넣어 평활한 도포를 유도한다. 경화 반응 종류는 초록에서 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-107468-A1",
+      "source_fingerprint": "c6c18ef3a888b91cdc21ec27be87732baff2c1a51fc99f37cc814a125ba0ba1d",
+      "content_hash": "24248e5820008f3da6390134fe11c6d243ff477cf61c63bc94622fc6ba49e8b1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "시간별 단일 주파수를 일정·의사난수 패턴으로 바꾸는 주파수 도약 전송이다. 직접 확산 CDMA·공간 다이버시티와 원리 경계를 확인한다."
+    },
+    {
+      "identifier": "AR-107473-A1",
+      "source_fingerprint": "ae5be0f638f8e3715db1dd5f3421514ebc8b1794f3e27f0df4ec1d0d5f1e3c52",
+      "content_hash": "6237b29401b1ae1100bffa70312cfcbdc5dac9232af7e946fb33118dc163f896",
+      "decision": "LINK",
+      "keys": [
+        "photocatalysis",
+        "adsorption"
+      ],
+      "reason": "UV·광촉매로 고분자 착색을 줄이고 고상 포집제로 금속 촉매를 제거한다. 포집의 정확한 배위·이온교환 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-107480-A1",
+      "source_fingerprint": "7d8696436e08cbb58166f6e5386afba5624f7e85d2a7e57a7df797dce4cf1caa",
+      "content_hash": "d09121fe49989f8f826cc9159e800a2c27ee20476ada2ea41b2a57f0ff9ac7cb",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "capillary-wicking"
+      ],
+      "reason": "멤브레인 이동과 항체·항원 경쟁 반응을 이용한 검출이다. 준비 중인 경쟁 결합 분석의 추가 사례다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:38:17.646870+00:00"
+}

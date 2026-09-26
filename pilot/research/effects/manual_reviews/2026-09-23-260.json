@@ -1,0 +1,119 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "7875b1951180ed42056ca9fd4c474473f64be3ec19949b0fe12d20b78ef173b8",
+  "reviews": [
+    {
+      "identifier": "AR-120338-A1",
+      "source_fingerprint": "c497620f3cc3241274713a1308953484324f09132a617a0300f7df3bbb980ef8",
+      "content_hash": "340ebbd63a8c122cb3ca4a4d495234c95a210821e37600ea7ef81a7d748ef8de",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PARP7 저해이다. ADP리보스 전달의 일반 생화학 반응은 문헌 대조 후보이며 새로운 저해제마다 따로 세지 않는다."
+    },
+    {
+      "identifier": "AR-120342-A1",
+      "source_fingerprint": "5872b5f73a4df597fb5414e081b75d392de4307fdb29b963510432812b044da5",
+      "content_hash": "4e116654ac902abbed275e9ebb1d67c627b287e5f0b2604acdbd572e1646caf9",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "pcr"
+      ],
+      "reason": "Cry 단백질 발현과 사건 특이 증폭 검출이다. 명시된 단백질 계열은 막공 형성 초안의 추가 문헌 대조 사례이다."
+    },
+    {
+      "identifier": "AR-120354-A1",
+      "source_fingerprint": "284e1930e4aa811f3fbd2663cc06ab0700cfcb1ab8b35ded8190a0f7b65c71f2",
+      "content_hash": "047e16a84839b4b12c8ae6f9020b38e80785553781cc742726d9c14b1f588e5e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "제어 평면이 사용자 평면에 복원 상태와 주소 풀 식별자를 전송한다. 저장 상태 복원의 일반 정보 원리를 대조한다."
+    },
+    {
+      "identifier": "AR-120355-A1",
+      "source_fingerprint": "08204790979f8d0f34994a4d4879289c9691d88bd84a47bea2e5eb0c32b0da05",
+      "content_hash": "de9b671c5ea19cb2b0e013ee48804870f9832598ed82608239afd9cff7e79d60",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "광미와 결합제의 혼합·펠릿화이다. 결합제 경화 방식은 미특정이다."
+    },
+    {
+      "identifier": "AR-120364-A1",
+      "source_fingerprint": "53412d224dbfc2104d713bb114d453cd531ba288445da9b18ed70fcca9340b82",
+      "content_hash": "e29b60bd16fc1cf84bfc3161ffd8f1bc54ead0c0c20910d13b535f62d16f57bb",
+      "decision": "LINK",
+      "keys": [
+        "genetic-linkage-selection"
+      ],
+      "reason": "SNP 표지를 이용한 계통 식별·교배 선발이다."
+    },
+    {
+      "identifier": "AR-120373-A1",
+      "source_fingerprint": "f8601154a13aa7cad434ef49b239e2289d6f6bc4f0dd6b6b128eb530c94fd5fc",
+      "content_hash": "c9f68fd2b92ef4162f2e2fade9225f4b49301344b7bbddd2fcdd1ca6c81c1dcb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Siglec9 세포외 도메인 융합체의 용도이다. 리간드 포획이나 수용체 활성 결과는 초록에 없다."
+    },
+    {
+      "identifier": "AR-120380-A1",
+      "source_fingerprint": "dc4b2fddc51acc7ce45f2e45d07de1f85edc5a0a9edb8147ca24ab82adb7ccc1",
+      "content_hash": "2e92ca2dc0ada5b7a5e21209c52e23312a9ff962c05a070e980260c2123adc3e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "뎅기 억제 화합물의 효능 주장이다. 바이러스·숙주 작용 표적은 미특정이다."
+    },
+    {
+      "identifier": "AR-120388-A1",
+      "source_fingerprint": "f2a8d399167f888b92755c74d2cbc1152cdf49574744dd01e14b7b962cef44ba",
+      "content_hash": "7406a2694aa6756201fa8f3e00f6b35a7bba15ee45b1350fcf1655fe31877767",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "전정 지지세포 프로모터의 조직 선택 외래 발현이다."
+    },
+    {
+      "identifier": "AR-120401-A1",
+      "source_fingerprint": "978b3d2c99f26e13cf07a219d0b2e06864dbcf69421c5ed549c0d3951bdb74a2",
+      "content_hash": "78a7b86e8603dfc446d0ccac7bd28dc2f0923ffadb62e360867588f10da56776",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "SOS1 조절제이다. GDP·GTP 교환 초안의 관련 표적이나 초록만으로 억제 방향을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-120412-A1",
+      "source_fingerprint": "11c1e8d09bdf44c197defd7d83dbdd7ebebd1f218c1bdf3c91a519322f62553d",
+      "content_hash": "e16e52c29866cfa8a59af7a486de85d2a929a6f1d15609bc82a41494c77a40f2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "RIP1 키나아제 저해이다. 일반 인산기 전달 반응을 별도로 문헌 대조한다."
+    },
+    {
+      "identifier": "AR-120418-A1",
+      "source_fingerprint": "251943a90507de3c04c37219256ce88124d34a16815c90696c5edc50c753f65a",
+      "content_hash": "85e48c68fc2edeef5ea6e4f030db212e61e5521d3234366e05e823e042e14039",
+      "decision": "LINK",
+      "keys": [
+        "redundant-path-fault-tolerance"
+      ],
+      "reason": "전환 실패 때 여전히 유효한 원래 무선 경로로 복귀한다."
+    },
+    {
+      "identifier": "AR-120429-A1",
+      "source_fingerprint": "10dd4804fe67299cf15f0ea39758d399f7724fa91e29535dc9866ed43d1e9962",
+      "content_hash": "6f49b2cd057fcd0f287d2f818e1336149e1c5b64c1f0c1012193426acf368da0",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "두 종양 항원·CD3의 다중 표적 결합이다. 기존 이중특이 세포 연결 초안의 확장 사례로 별도 집계하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:45:07.435690+00:00"
+}

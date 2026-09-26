@@ -1,0 +1,266 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f5c952018fbd423f42ee425bea0a82b39f2b528aad767ea8883af053f044aa45",
+  "reviews": [
+    {
+      "identifier": "AR-093393-A1",
+      "source_fingerprint": "36061faf04e755d7d00bbabee966c40456d7a2a21737dd6daa8b388334a0e166",
+      "content_hash": "05edc00e3314cb9e2436ff0b370feda6b7a807ae697ffcfeacee72f6e1394f7d",
+      "decision": "LINK",
+      "keys": [
+        "sieve-size-separation",
+        "bulk-comminution",
+        "hydrolysis"
+      ],
+      "reason": "대입자 분리·분쇄와 전분 분해 공정을 조합한다."
+    },
+    {
+      "identifier": "AR-093427-A1",
+      "source_fingerprint": "aaa1b336270bf2fc901e22c4e78fedf91271d343cc465b189196ced985e8dac5",
+      "content_hash": "36907f8c30290dc05710d8eb5c60ed1a7f94453640925755f62b376f67b3c731",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "서로 다른 결합 강도로 덮개와 본체의 해제 순서를 조절한다."
+    },
+    {
+      "identifier": "AR-093432-A1",
+      "source_fingerprint": "be5ffd3096fb752606abfb3a6936f1c94d899c6434f82ac507464e8eb973240e",
+      "content_hash": "67ad5c3384b3c8c20914051d6724cf0e13aab64bb0abcf8c24364f0c90152f7a",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism"
+      ],
+      "reason": "이동 슬리브가 집게 끝의 벌어짐을 압축·구속한다."
+    },
+    {
+      "identifier": "AR-093444-A1",
+      "source_fingerprint": "ea262cacb9094461aabcae67faa99595a63c79f4774d46b87cf8f84b480f1268",
+      "content_hash": "92a936c552620192fd5d2d83cac11bce4c38832560ed373c44d2851d06554436",
+      "decision": "LINK",
+      "keys": [
+        "swelling-actuation"
+      ],
+      "reason": "팽창 코팅 입자가 투과 구역의 유로를 막는다."
+    },
+    {
+      "identifier": "AR-093466-A1",
+      "source_fingerprint": "92a40d516836ab10f29fc40297c1580d0c9d1f4e214b3792d3422a486d8965ff",
+      "content_hash": "98777da8986fef46f7fe05dcae8db8029746da017d51f7c9fce97ef9b6ece543",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "질환 지표의 정량·기준값 비교이나 측정 원리와 진단 타당성 근거는 초록에 없다."
+    },
+    {
+      "identifier": "AR-093475-A1",
+      "source_fingerprint": "c5ad8211e43906647add998f51d2f69a4ec860f2d3e794584b69d7d4c1801554",
+      "content_hash": "1e22331870d9b88cfd1ea76484012fd545a611b717b5bf9820f8bfe7c3b5210b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "갱신되는 3차원 시각화 구성만 있고 보간·추정식은 없다."
+    },
+    {
+      "identifier": "AR-093477-A1",
+      "source_fingerprint": "c51d35b1d243ad4dff82385206d3a81dd729c08fb7f0ffb4482d694cb3934567",
+      "content_hash": "5c132cb3763a7b28f09926a7314e1aaf3acfda9ad8ad1cd7be06a635e1a0512d",
+      "decision": "LINK",
+      "keys": [
+        "vapor-compression",
+        "forced-convection",
+        "solidification"
+      ],
+      "reason": "냉동 사이클과 강제 공기 순환으로 혈장을 동결한다."
+    },
+    {
+      "identifier": "AR-093486-A1",
+      "source_fingerprint": "df4bd9120ff36bcd68c4c2bdb4bdef96eaff89e8a8b8a54152202b0be183413c",
+      "content_hash": "85e767917ce573eb090121d496ebd76833a441bd9c91355980f9be41400d8857",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "신발 갑피의 관형 편물 구역과 삽입 실 배치이다."
+    },
+    {
+      "identifier": "AR-093502-A1",
+      "source_fingerprint": "e5eb71b58fb66c7008bdf154714a70e10881a7a587e0a0f8164d4b1d8aef9ea9",
+      "content_hash": "eee44a81d2da943ec0880be13b412fad8a8b212860ab53dbc7adf7aa8037ec2f",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "블레이드 팁의 분리 가능한 기계적 고정이다."
+    },
+    {
+      "identifier": "AR-093523-A1",
+      "source_fingerprint": "44b2977c91383a2b1755c0d65a6e3c9b065f7a0f72531871bac7f63a489f3012",
+      "content_hash": "57b9fb7901b7452ebdf1bd8b996f47f090c763318b37370bb50d1b78a0d8d30f",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "음이온·비이온 계면활성제를 포함한 세탁 제형이다."
+    },
+    {
+      "identifier": "AR-093527-A1",
+      "source_fingerprint": "796d6cb7dd5720980b83e020ceca9a44c6c231db3d1c2f3bcb1ecee9eb33f7e8",
+      "content_hash": "05bddac0214e6e7dbde0929c7a28d7687d04f84d32970645fc8f95c02a80836c",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "제목에 명시된 AMPA 수용체 길항이다. 구조식만 있는 본문에서 추가 기전을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-093530-A1",
+      "source_fingerprint": "03de2f3c487792972c9f08251b8b2e7210f8ba87a3da58a65957b6a2b07a5e30",
+      "content_hash": "4024aa3cfda864ae41d8b325d1eba00300e53ac3885c187668f3d505c15eb7fb",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "항원 특이 반응을 보조하는 면역 제형이다. 사포닌의 상세 세포 경로는 보류한다."
+    },
+    {
+      "identifier": "AR-093533-A1",
+      "source_fingerprint": "9fbd5bcf68d7a8c997f78e685b48c4abbbc257b41ca1e1ce8a146f58f1b023ed",
+      "content_hash": "b18460347a4c63d7920b10fc6d5dcbb2b8fb767ddc1e4453897d64a440a5f4f2",
+      "decision": "LINK",
+      "keys": [
+        "plasticization",
+        "barrier-coating"
+      ],
+      "reason": "가소화 피복에 수산화알루미늄과 팽창성 성분을 넣는다. 흡열 탈수와 팽창 탄화층을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-093535-A1",
+      "source_fingerprint": "7c536e7ddee44c8a7fab35e0893735748f2188b73112f554c18f220f490a4a23",
+      "content_hash": "80eaa3a7761f20c0f5804aaef8eb5518d06abbabb6dced4792b064052d370c3a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "일체형 편물의 칼라·발등·커버 구획이다."
+    },
+    {
+      "identifier": "AR-093543-A1",
+      "source_fingerprint": "2ab87ed67cfa70697608f1fb9cce8989dd0f81fcc770d2e755a01e88f528e8e0",
+      "content_hash": "b9799905b28437a560adf9d1c6df05b19e6a351751c9f22a52505edf52ec7322",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "반코마이신 흡입 분말이다. 세포벽 전구체 결합 기전은 원문 문헌 대조 후 연결하며 의심스러운 mm 단위를 수정하지 않는다."
+    },
+    {
+      "identifier": "AR-093563-A1",
+      "source_fingerprint": "691568b102a2dfdbe448558d29979c06b8492475a5e6a90bb94f547a6136875d",
+      "content_hash": "be99879d7df7f3ce70efe880130a47e06ea2e4cbd051729f1c61b89a44047922",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "carboxylic-acid-esterification"
+      ],
+      "reason": "폴리올 에스터화와 계면활성 침투 보조제이다."
+    },
+    {
+      "identifier": "AR-093577-A1",
+      "source_fingerprint": "475c1d67b5a79bc15083d8011aebc18689083157d804aade88b1a73e5bcf5f4d",
+      "content_hash": "cbd0134810a4201d645081c2fdc25cb8235eb744b0249696f5bf648c6a115a04",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다공체 함침과 방출률만 있으며 지배적인 확산·증발 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-093579-A1",
+      "source_fingerprint": "7125b154010f3f54a24c8d7099a30797aae5dd395c12aacf4db870615ca745ea",
+      "content_hash": "458b0d86f16485cd01de87fcd3addb54831f2ceaf331aa2054507eb05d629493",
+      "decision": "LINK",
+      "keys": [
+        "chromatin-accessibility-regulation"
+      ],
+      "reason": "BMI1 단백질의 기능·수준을 낮추어 염색질 조절에 개입한다. 분해 유도 기전을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-093594-A1",
+      "source_fingerprint": "1dc953fe65a23703a4259938c6d0b88f8980c5b66be856c22308e89d8b803ab6",
+      "content_hash": "df631b972114f6a07ef27df64135c2f6a05d229686f1508cb4165fff34b31b49",
+      "decision": "LINK",
+      "keys": [
+        "dynamic-system-identification"
+      ],
+      "reason": "직교 진동 모드의 응답으로 관 강성을 추정한다. 기계 공진의 물성 감지는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-093604-A1",
+      "source_fingerprint": "56dd3e53243f781fc29395a7c79628c50199e4282d45835f72d53fa99d48f137",
+      "content_hash": "0e4dd429c3ec94bfaa1bced4db553d65d9bcd525ff2c905e43113a54df47a53d",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-membrane-actuation",
+        "solidification"
+      ],
+      "reason": "압축 기체로 고분자 관을 팽창 성형하고 냉각하여 형상을 고정한다."
+    },
+    {
+      "identifier": "AR-093619-A1",
+      "source_fingerprint": "b00a8c00a8bf8052ec962bcaa8167038a4e509130d5e0716c047b4134757e83a",
+      "content_hash": "9e61d86a8065469961d4c8a7ab3bf978f1bfa585602cbd0b962dd342cffade19",
+      "decision": "LINK",
+      "keys": [
+        "solvent-exchange-phase-separation"
+      ],
+      "reason": "응고욕에서 습식 방사 용액을 상분리하여 연속 섬유를 형성한다."
+    },
+    {
+      "identifier": "AR-093620-A1",
+      "source_fingerprint": "a5d26f7908fa9041392fe46693218d14b348ec9af1062fdf372a6bb65f80fb68",
+      "content_hash": "91bf75b238f25b6e4e0bb1fb56ddf44e41475f92c82c2cf73d2d572db65833ab",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "BMP6 항원을 인식하는 항체이다. 치료 효과를 별도 자연 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-093624-A1",
+      "source_fingerprint": "5aca094754efb0414bb6f32f3328095e1e1eb691fc46c51cfbb6fca8c4e573fc",
+      "content_hash": "73dab241380d13379159016dbb2252424369f88101419bbd152c0032d27b6ad3",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution",
+        "subtractive-color-mixing"
+      ],
+      "reason": "수용성 막이 용해되며 가려진 색소가 방출되어 색이 변한다."
+    },
+    {
+      "identifier": "AR-093637-A1",
+      "source_fingerprint": "6628f06b47f813913674cced6acd9ee856974862787370faed84b95351beb7a7",
+      "content_hash": "8111b16fb402b6f6d18245ac0fc23c14469a3604dd9b0a9c7dd8865d44831217",
+      "decision": "LINK",
+      "keys": [
+        "fiber-matrix-load-transfer",
+        "sacrificial-energy-absorption"
+      ],
+      "reason": "섬유·수지·세라믹 적층의 하중 전달과 충격 에너지 흡수이다."
+    },
+    {
+      "identifier": "AR-093638-A4",
+      "source_fingerprint": "785f60922ce15f0927b5045e9964e407c238cb0f0c45c45044499b67add3dd32",
+      "content_hash": "8c1d623c1c794f196e50396895f06940832898f7a56e700909652a41b6163492",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "장루 주머니의 외관 은폐 목적만 설명한다."
+    },
+    {
+      "identifier": "AR-093649-A1",
+      "source_fingerprint": "498ba229d6b3ed10d3e763e346ac73ae3fa3d9ef8ecfc03e94835a9f3bbce633",
+      "content_hash": "905c8ee420688f827bb50b99ddbc89d98cf8766402e73bb672e36fa9df6d7116",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening",
+        "cement-hydration",
+        "gelation"
+      ],
+      "reason": "수압 파쇄·시멘트 경화와 임시 겔 차단을 결합한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:27:57.780105+00:00"
+}

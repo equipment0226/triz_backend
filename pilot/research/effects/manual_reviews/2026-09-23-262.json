@@ -1,0 +1,103 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "63d0a78bbf4d25de0ca5e0e2004f6b7bb6400de7976d6e63f3aaf68d37266f25",
+  "reviews": [
+    {
+      "identifier": "AR-120567-A2",
+      "source_fingerprint": "a2202fa4bc6a0276cc15d7b2448f2a691bb284be99150510328c623e8167f8cd",
+      "content_hash": "fc8017a52c892b034fda01741e1525ec730e602203491a08dfd70df76564f3d3",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "비료 표면의 고분자·왁스 피복이다. 초록만으로 특정 방출 속도 경로를 정하지 않는다."
+    },
+    {
+      "identifier": "AR-120571-A1",
+      "source_fingerprint": "48d0a08abdea1b8f866ca7b196d0f7e5c2cca426aa895a7a77534314aaec7af3",
+      "content_hash": "73e5dac8abf8ca4a5569b77ed613734d04b67ede691b8be3b091861cb22c39b2",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-pumping"
+      ],
+      "reason": "원심 펌프와 축방향 분포 센서이다. 센서의 물리 변환 원리는 미특정이다."
+    },
+    {
+      "identifier": "AR-120578-A1",
+      "source_fingerprint": "f4cb7509cf1062c0e34aa70bb24a6f7ee7814016f8699aa27fb4b0304a82f0fb",
+      "content_hash": "83b010356c4c9d5893084a00813604f72dd98a386f84d156a3a2227c7c27c1ed",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "TGFβ 수용체 ALK5 저해이다."
+    },
+    {
+      "identifier": "AR-120580-A1",
+      "source_fingerprint": "2f0a37544773adf669509d3b4c4e6b245d20ee89377c418f6906b21b0a1dcab5",
+      "content_hash": "b31ca6e91013894381ecb16f69f77e494e57ed0d41ebe906762ae08f3686de8b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비활성 세포·젤라틴·세포외기질의 재생 주장이다. 살아 있는 세포 분화나 특정 성장 신호를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-120588-A1",
+      "source_fingerprint": "e75e7176355ebe1911f39cb3eca7c4a81395210e3ec50f57a856e1cb050bbda6",
+      "content_hash": "08f8bf4c83c9b9adbc20c05681578bd6bbef0122f98f5138a57023fbe79471f9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "영역별 가열에 의한 에어로졸 공급이다. 히터의 에너지 변환 방식은 미특정이다."
+    },
+    {
+      "identifier": "AR-120589-A1",
+      "source_fingerprint": "3a51fc6f74cfe494a21fc44c1951ae3e90611fb8c9afe750e3e091acf3a851a3",
+      "content_hash": "ae1ecb7106f151143914adc63d9aa9f328cc9a69f54f496c12f14ab7daca0317",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "DGKα 저해이다. 약물 구조별로 같은 저해를 중복 계수하지 않는다."
+    },
+    {
+      "identifier": "AR-120603-A1",
+      "source_fingerprint": "1af3a3e6eb08cfaa13d1953ef7265e141f768aab9c7f400c965e7aac8605eecd",
+      "content_hash": "f70cad9f6653318d3c6618f66f9c52fbf8a0495c0a1dce3149fb3498b62a5052",
+      "decision": "LINK",
+      "keys": [
+        "pressure-compaction"
+      ],
+      "reason": "주형을 통해 내화재에 하중을 가해 형성한다. 와류 저감의 구체 유로 효과는 미특정이다."
+    },
+    {
+      "identifier": "AR-120618-A4",
+      "source_fingerprint": "3710d8b706a9cf00a9f8d1f0ff59605d657a64360558ff745c5735bd9f2a2159",
+      "content_hash": "f9db63e06c2e53ba9da6e0cc3485a6aec6baeb84965811d929d46b40b0a23e40",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "후크로 장막 억제 부재를 매달고 아래 무게로 장력을 준다. 별도 물리 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-120620-A1",
+      "source_fingerprint": "ad60d34a2be0415b9c7765a7d08ee576e156241c8529f72be90ff71f4eb5e8d8",
+      "content_hash": "a2185b36c44b22405de632668fa052d0b928251cac6ebbb6f21575a4520934c8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "실내 물체·시점에 따른 AR 콘텐츠 위치 지정이다. 특정 추정·투영 알고리즘은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-120623-A4",
+      "source_fingerprint": "3518d5f6057181819e2004f85ae8ad50da057f0e4231fde3d40a0ca372358b1c",
+      "content_hash": "3c65a730f18b38c3420f89302487d5c6a8efdf9d3755ef88de666f3e72a1b506",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절과 롤러 가이드의 기하 구속으로 경사를 바꾼다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:45:41.108895+00:00"
+}

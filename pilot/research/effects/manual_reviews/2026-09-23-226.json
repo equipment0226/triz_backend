@@ -1,0 +1,44 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "77a27d63507212e571fd38c9158144ecb7510635746b9946cf66a346be542472",
+  "reviews": [
+    {
+      "identifier": "AR-114040-A1",
+      "source_fingerprint": "8ec8210f8f5a0571dd9663edc156e8689329e0784e2017271475fd7f1fdb50ba",
+      "content_hash": "f74bca0656e5b003aee70d4dd659260ca19b43d9bb59fedce1069407b9288666",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "벤즈아미드 제초 화합물의 치환기 목록이며 분자 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-114065-A1",
+      "source_fingerprint": "b779cb94d640c3afbde8ae42faebf92c2a386c235b890eca04f9c60d4eecb519",
+      "content_hash": "d35172d7c9eebba72c19c6155651305cc5a8c9e807a3b15a212f2920aeb96b2a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "글리콜레이트 산화효소를 억제한다."
+    },
+    {
+      "identifier": "AR-114074-A1",
+      "source_fingerprint": "cd7fc5c3d72fe16e1d916673054a5bbf3c006f681312a52a3919d546e584de96",
+      "content_hash": "3e25848f90ddd6768e69870d0406bdb45d286506178aae88abfca2eb2d2e1ee6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "서방성·즉방성 약물의 조합이다. 방출 지연 기전은 초록에서 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-114075-A1",
+      "source_fingerprint": "957537fd24efc4924344c952aa701863b1111e6895649e46a07c65c69a0f56fd",
+      "content_hash": "a1549ae5304a00a655137bbbe0d30ca98aeb35bd6e2b00a01f22e2defdf31511",
+      "decision": "LINK",
+      "keys": [
+        "transporter-inhibition"
+      ],
+      "reason": "미토콘드리아 피루브산 운반체를 억제한다. 모발 성장의 임상성을 확정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:09:59.309358+00:00"
+}

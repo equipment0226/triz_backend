@@ -1,0 +1,233 @@
+{
+  "batch": "additions-2026-09-26-09.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1100,
+  "added": 20,
+  "after": 1120,
+  "target": 1200,
+  "source_sha256": "28aa838296554f84c29916ca1276e7719c17b5b6822fb1e05f6f26440cc2a8f1",
+  "decisions": [
+    {
+      "key": "sparse-incoherent-measurement-recovery",
+      "group": 19,
+      "related_keys": [
+        "sampling-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "대역 제한만을 이용하는 복원과 달리 희소 사전구조와 관측 행렬 조건이 필요하다.",
+      "source_url": "https://arxiv.org/abs/math/0409186",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "low-rank-matrix-completion",
+      "group": 19,
+      "related_keys": [
+        "collaborative-preference-prediction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "선호 예측 응용 일반론 중 저랭크 행렬이라는 명시적 구조 제약의 복원을 분리한다.",
+      "source_url": "https://arxiv.org/abs/0805.4471",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "non-gaussian-independent-source-separation",
+      "group": 19,
+      "related_keys": [
+        "linear-channel-downmixing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알려진 가중합의 채널 축소와 달리 독립성 가정으로 미지 혼합의 원천을 추론한다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0893608000000265",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "wavelet-localized-multiresolution-decomposition",
+      "group": 19,
+      "related_keys": [
+        "fourier-spectral-decomposition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전 구간 정현파 계수와 달리 국소 위치·척도의 중첩 부분공간을 쓴다.",
+      "source_url": "https://www.di.ens.fr/~mallat/papiers/MallatTheory89.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dictionary-reference-lossless-compression",
+      "group": 19,
+      "related_keys": [
+        "arithmetic-entropy-coding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기호 확률 구간 부호화와 달리 반복 부분문자열을 참조로 대체한다.",
+      "source_url": "https://doi.org/10.1109/TIT.1977.1055714",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "bloom-probabilistic-set-membership",
+      "group": 19,
+      "related_keys": [
+        "nearest-neighbor-retrieval"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "거리 기반 유사 검색 대신 제한된 거짓 양성을 허용하는 집합 포함 검사이다.",
+      "source_url": "https://sigmod.org/publications/dblp/db/journals/cacm/Bloom70.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "consistent-hash-stable-partition",
+      "group": 19,
+      "related_keys": [
+        "cache-reuse-validation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "캐시 내용 유효성 판단과 달리 노드 수 변화에 따른 키 재배치를 제한한다.",
+      "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/consistent-hashing.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "sensitivity-calibrated-differential-privacy",
+      "group": 19,
+      "related_keys": [
+        "deterministic-pseudorandom-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "난수 생성 자체와 달리 개별 기록 변화에 대한 출력분포의 정량적 제한이다.",
+      "source_url": "https://www.microsoft.com/en-us/research/publication/calibrating-noise-to-sensitivity-in-private-data-analysis/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "secret-shared-multiparty-computation",
+      "group": 19,
+      "related_keys": [
+        "visual-secret-sharing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "비밀을 겹쳐 복원하는 단계가 아니라 비밀을 열지 않은 상태의 공동 함수 평가이다.",
+      "source_url": "https://doi.org/10.1145/62212.62213",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "homomorphic-ciphertext-computation",
+      "group": 19,
+      "related_keys": [
+        "keyed-encryption",
+        "secret-shared-multiparty-computation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 저장 암호화나 참여자 간 몫 연산 대신 암호문 자체의 대수적 연산 보존이다.",
+      "source_url": "https://research.ibm.com/publications/fully-homomorphic-encryption-using-ideal-lattices",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "byzantine-quorum-state-machine-agreement",
+      "group": 19,
+      "related_keys": [
+        "redundant-path-fault-tolerance"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 경로 중복과 달리 모순된 악의적 응답 속의 상태 일치를 다룬다.",
+      "source_url": "https://www.usenix.org/legacy/events/osdi99/full_papers/castro/castro_html/castro.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "commutative-replica-merge-convergence",
+      "group": 19,
+      "related_keys": [
+        "byzantine-quorum-state-machine-agreement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전체 명령 순서 합의 대신 제한된 갱신 대수 성질로 비동기 병합을 수렴시킨다.",
+      "source_url": "https://dsf.berkeley.edu/cs286/papers/crdt-tr2011.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "vector-clock-causal-partial-order",
+      "group": 19,
+      "related_keys": [
+        "sequence-number-ordering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 송신열 순번과 달리 여러 노드 사건의 부분순서·동시성을 보존한다.",
+      "source_url": "https://fileadmin.cs.lth.se/cs/Personal/Amr_Ergawy/dist-algos-papers/4.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "hash-extreme-statistic-cardinality",
+      "group": 19,
+      "related_keys": [
+        "bloom-probabilistic-set-membership"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개별 포함 검사가 아니라 해시 통계로 전체 고유 개수를 추정한다.",
+      "source_url": "https://dmtcs.episciences.org/articles/3545",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "reservoir-stream-uniform-sampling",
+      "group": 19,
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확률모형 시뮬레이션과 달리 유한 메모리에서 실제 입력열의 균등 포함 확률을 유지한다.",
+      "source_url": "https://doi.org/10.1145/3147.3165",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "temporal-difference-action-value-learning",
+      "group": 19,
+      "related_keys": [
+        "supervised-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정답 표지 예측 대신 행동이 바꾸는 미래 보상과 상태 전이를 학습한다.",
+      "source_url": "https://doi.org/10.1007/BF00992698",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "contrastive-view-representation-learning",
+      "group": 19,
+      "related_keys": [
+        "pseudo-label-self-training"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "예측 범주를 재사용하는 대신 입력 변형 사이 대응 관계가 학습 신호이다.",
+      "source_url": "https://arxiv.org/abs/2002.05709",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "reverse-mode-chain-rule-gradient",
+      "group": 19,
+      "related_keys": [
+        "parameter-sensitivity-measurement-prioritization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "민감도 이용 전략과 달리 합성함수의 기울기를 계산하는 연산 기전이다.",
+      "source_url": "https://doi.org/10.1038/323533a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "annealed-uphill-stochastic-search",
+      "group": 19,
+      "related_keys": [
+        "coordinatewise-local-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개선 방향만 따르는 국소 탐색과 달리 온도 조절의 일시적 악화 수락을 사용한다.",
+      "source_url": "https://doi.org/10.1126/science.220.4598.671",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "branch-bound-relaxation-pruning",
+      "group": 19,
+      "related_keys": [
+        "coordinatewise-local-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이웃 개선과 달리 증명 가능한 경계로 아직 보지 않은 해 영역을 배제한다.",
+      "source_url": "https://doi.org/10.2307/1910129",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

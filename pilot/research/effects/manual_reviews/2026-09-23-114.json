@@ -1,0 +1,259 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "61461a10901fc304a30d6bd777379cfe05d11358d62f6c09212cc6508bc44340",
+  "reviews": [
+    {
+      "identifier": "AR-090055-A1",
+      "source_fingerprint": "e4b50f07c2cd655aa3382caecaf6cc9cf934fc69a1289d3daaf5caa79a0a474b",
+      "content_hash": "c7ba694a8d6e7f5d21476ffabf53f192fd88606f6f69e84daed69b0d0bf62ed9",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-particle-transport",
+        "mechanical-interlocking"
+      ],
+      "reason": "흡입 공기로 분말을 이송하고 일회 동작 기구로 용량을 분리한다."
+    },
+    {
+      "identifier": "AR-090063-A1",
+      "source_fingerprint": "2bb8cbbe3128da6178a61f128f04efe50e12a4453c5ceac1385215c952ac6c50",
+      "content_hash": "12b8fd2a9ff6ef3c12a1e2f4a6e59e02cc09643ff913c47e14a5cd7a1bbbbeff",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "여과 케이크 두께를 단계적으로 조절한다. 케이크 자체의 포집 원리를 기존 여과 항목과 비교한다."
+    },
+    {
+      "identifier": "AR-090064-A1",
+      "source_fingerprint": "615338df5f78d3bb4ccc21381cb4953672bcb401e4976606aa60fc85e1ab19e1",
+      "content_hash": "4e1c180376d23877665c85d318a85489e0c199fe412717bd759cb9961aa1ada3",
+      "decision": "LINK",
+      "keys": [
+        "fluid-jet-deposit-removal"
+      ],
+      "reason": "회전 방향 전환과 액체 제트로 필터의 침착층을 제거한다."
+    },
+    {
+      "identifier": "AR-090110-A1",
+      "source_fingerprint": "c3b6e7043e01e145c7b6cfa1e110734924fc8454f7b0f87bcc827aaf45b8a6cb",
+      "content_hash": "508018c7996b7b5227318a5b1ab5c79833023e9c57d3e18ed859935c6da7c3f8",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "변이 전사인자 발현으로 식물 유전자 조절을 바꾼다."
+    },
+    {
+      "identifier": "AR-090112-A1",
+      "source_fingerprint": "c974fd91af0be8629148f14c5c80351e5c8bf633c550c0bf6cb6614484ae9588",
+      "content_hash": "176bad18ecdf3dbb5de94ee17c68cb4a0ce30fb359ef78ba03080fa42517af1d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 화합물의 구조 목록이며 생물학적 표적은 명시되지 않는다. 저장 내용은 목록 중 절단되어 있다."
+    },
+    {
+      "identifier": "AR-090129-A1",
+      "source_fingerprint": "cd1215bf2711f5072e972811faec4c752b79c883cb92b8655ca86943360e8e4b",
+      "content_hash": "608dbbdbadfa12ae4d1631f07d30c98d8ede8eeeb3655a7c6c8d1f3ea034fb71",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "표적 유전자에 대응하는 올리고뉴클레오타이드로 발현을 조절한다."
+    },
+    {
+      "identifier": "AR-090135-A1",
+      "source_fingerprint": "ee3e2f447e333e4a472125da62ace36c822816adf3070ff7fa7350f662b35623",
+      "content_hash": "e9bcac7ac9ee89ec631c0d3da82360dbab75e7db59cd4bfae5e0189c7990b475",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "칼슘 감지 수용체의 조절 화합물이다."
+    },
+    {
+      "identifier": "AR-090136-A1",
+      "source_fingerprint": "6c2ee294fce9ac0b306532520a479bbe4ad2caef3928b6d0559f526960965b84",
+      "content_hash": "a16590df5dca688b49026ee76da97f6d8094704c3b28a540f88e5a311c58e99c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "진열 공급 장치의 다층 바닥과 걸림 배치이다."
+    },
+    {
+      "identifier": "AR-090139-A1",
+      "source_fingerprint": "a3ff36a637b93ad136fd310705b9ce2825c4b5cd7f8903e3d731a50120cf1749",
+      "content_hash": "871a19ce4bbd2fd43aa1bc67112e747ffff7b03637775a5fd8303679773665cb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "나노셀룰로스의 건조 균열 감소를 주장하나 하중 전달과 수분 이동의 기여를 구분하지 않는다."
+    },
+    {
+      "identifier": "AR-090151-A1",
+      "source_fingerprint": "78c151f850a444e9a791b158a083e201f3da80fc4b83785bb379d7499b32866f",
+      "content_hash": "7520feba5f424cb75d7ea7e19b905499c633ef2021ab5febee7be9fd2eb9d04e",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "diffraction"
+      ],
+      "reason": "Raf 저해와 결정의 X선 회절 식별이다."
+    },
+    {
+      "identifier": "AR-090157-A1",
+      "source_fingerprint": "bab494c3e22463aa2fdb6c738ad82082757dfd8678bcd5d5ab12840b1d1a9409",
+      "content_hash": "855e6a219c5c2f246b3d124cea02bcefd2bd37bc290018bf21243e6327ad8775",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "oxidative-phosphorylation-uncoupling"
+      ],
+      "reason": "여러 방제제 작용군의 혼합이다. 명시된 일반 작용만 연결하며 군별 새로운 세부 경로를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-090194-A1",
+      "source_fingerprint": "2cad0de5960733c2e7969564b7275368e31175d02f3606ff7018407238ff745b",
+      "content_hash": "39f990e958079c1672d99f714b0bef0c4743c5afab44a1ad98f000d57d28eda3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "주름 구조를 가진 흡수 제품 표면의 배치이다."
+    },
+    {
+      "identifier": "AR-090213-A1",
+      "source_fingerprint": "5b0f7f6f7d2ee1b3dec816d459b8f0c5454cc4792a78446a872d20e78d519d3f",
+      "content_hash": "4859dcdcd02d394a56cd2b91b2ae3cfc122be8edf2352dcd9502005c37118029",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "배기가스 유해물 제거라는 목표만 있고 원리가 설명되지 않는다."
+    },
+    {
+      "identifier": "AR-090224-A1",
+      "source_fingerprint": "6ce250bcbe498843e49d6ff783204570801043ecfaaaa00c612923d26687c694",
+      "content_hash": "b539c5e3c30bf8f1b3ccf107c440b06552ede5ffa1f94e605ac48c42ef1b9e93",
+      "decision": "LINK",
+      "keys": [
+        "solid-oxide-oxygen-pumping"
+      ],
+      "reason": "고체 산화물 셀로 이산화탄소를 전해한다. CO 생성의 환원 원리는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-090250-A1",
+      "source_fingerprint": "6137e1a83cbe7434b9567ebdb91fa8d4db59090d45293e7d7de8e2e3a098f44a",
+      "content_hash": "3c401ec827aeb18eab97e65cecdb919b895c05d9d25df427c3899b6f697f5a43",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation"
+      ],
+      "reason": "식물 질소 반응의 전사 조절이다."
+    },
+    {
+      "identifier": "AR-090268-A1",
+      "source_fingerprint": "2519f7050f7e97bce57b5ca9ae2c026dde5feb168eb812da086de848254c19a7",
+      "content_hash": "26a8344cb7eea4a7ce5557575504d63f1a43dff9c58c408c53838a365d0a0401",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "영상·통신·운영 장치의 시스템 구성이며 구체적 추론 알고리즘이 없다."
+    },
+    {
+      "identifier": "AR-090279-A1",
+      "source_fingerprint": "58946b501b81f7c0b30dac3b0596fb5ff43659e8779dcad8714782f3c20687e0",
+      "content_hash": "0cf2aff4fd059d5387c4ed22d5b88d861cba1a038b4eba41e0ac0486021d95e7",
+      "decision": "LINK",
+      "keys": [
+        "condensation-recovery"
+      ],
+      "reason": "응축기와 냉매 필터의 연결 구성이다. 필터 내부 작용은 구체화되지 않는다."
+    },
+    {
+      "identifier": "AR-090292-A1",
+      "source_fingerprint": "80ff79821c814fd8f4fac5c27eac5d31943ecf387f9b3e1344a2b8f5653103ed",
+      "content_hash": "8b842484cd0c19a125d9ab92f325a00bf265402cef3a109bc5608b1800a3281a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "AAK1 효소 저해 화합물이다."
+    },
+    {
+      "identifier": "AR-090294-A1",
+      "source_fingerprint": "dc21b48c3297613875f1dfcfdd69e65169281345f0f5a37f935d7cd11f70ac6c",
+      "content_hash": "51894b94fe8a63967c1d44f5a4ad60983a77297f0e1c103ac137a4358806c0ec",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "단백질과 결합 다당류 항원의 면역 유도이다. 담체의 연결 인식은 문헌 확인 후보이다."
+    },
+    {
+      "identifier": "AR-090315-A1",
+      "source_fingerprint": "9c28f37391173160594d1bebd55facf8d2a93a80926daa83fdcba3d09ce428dc",
+      "content_hash": "a991f4f52957f442fd033f11c5cbd5726f3c5a38136695b222d4733574331834",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "항트롬빈의 일반적 단백질분해효소 억제와 연결한다. 특정 질환 치료 효과는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-090322-A1",
+      "source_fingerprint": "665c6d2e31211226ae2e8b45666da8a5d7a44df31ea4707af723a28fcf0437c6",
+      "content_hash": "3eb1478d04f8f4818f6f5c141fd58a7d386d71b1e1c15ab5410993c011d12a5b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분진 분리 후 토양에 되돌리는 파종 시스템이며 분리 원리는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-090330-A1",
+      "source_fingerprint": "73569a883fb7f31a341d5beec6822d4fd476d4f8532484cba76435d690503c5b",
+      "content_hash": "cf78cf23319e22ad4b3e13ce68fb26805ff334b64e87cd910c068297b5261bd2",
+      "decision": "LINK",
+      "keys": [
+        "olefin-metathesis",
+        "surfactant-action"
+      ],
+      "reason": "지방산 원료 메타세시스와 계면활성 유도체 제조이다. 알코올 황산화는 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-090332-A1",
+      "source_fingerprint": "1dd25b0a2257a33a20bdc42d7bd05cb99c6913114a976b4d69401e167d9d0a5e",
+      "content_hash": "f3e8fcd10fd1012ff0e9e8bf3d8d8cf31a96929beff0d6077b85142b14682990",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastomer-contact-sealing"
+      ],
+      "reason": "관 연결부의 걸림과 밀봉 구성이다."
+    },
+    {
+      "identifier": "AR-090344-A1",
+      "source_fingerprint": "b82320dc8a4a2cde79a8ebf92be8639f26c6cb2623d0808d9ddfc3b44d610cfd",
+      "content_hash": "2b8883b8fc6980b3046207ba25ba3e1e633bead981346e2ab123b9b2ad7e04d2",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "mechanical-interlocking"
+      ],
+      "reason": "차량 속도 신호에 따라 공압 피스톤으로 밸브를 잠근다."
+    },
+    {
+      "identifier": "AR-090351-A1",
+      "source_fingerprint": "62e93240460fe2e2cc3a774faf1a77c1ab94cd196843c4c38a52e67454016a0b",
+      "content_hash": "1e569d16d3741be90a08e9a200e44fbf500445f04b56e222a58c9ec475a5d3d6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "정렬 블록과 교정 구멍의 위치 기준 구조이다."
+    },
+    {
+      "identifier": "AR-090358-A1",
+      "source_fingerprint": "3b103a87587d99ba3199c9dca4803ff71e4f6c9184dc5b4fc56fec164ec99708",
+      "content_hash": "a4d261653228ba4e9c149f0752b07bc68912f1f60532942a48da5d2544f4afd6",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating",
+        "surfactant-action",
+        "pressure-driven-flow"
+      ],
+      "reason": "피복 용기에서 계면활성 수용액을 압축 기체로 분사한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:10:22.191453+00:00"
+}

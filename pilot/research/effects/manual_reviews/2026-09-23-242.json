@@ -1,0 +1,146 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "7cd8d98e4c8b81fa37e1f01685d880b8b7f65e234561e040feac95b01ebf4585",
+  "reviews": [
+    {
+      "identifier": "AR-117424-A1",
+      "source_fingerprint": "b3a0b647112c0d045e9f396f7334d1f7e42f7ac3c188497e6ff95ed72d2c400b",
+      "content_hash": "83d0a7192c1bcadd43c82428f34fba58c1bc3ffcd37af01f2a9f2f7d1972fc51",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "ErbB·HER2 수용체 저해 화합물이다. 개별 화합물의 결합 방식·효능은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-117447-A1",
+      "source_fingerprint": "7746d5c52175353f9207f2738082ae3202622b292c499a43e359406e08d1a370",
+      "content_hash": "f6b85680081d191a890b804fc7f794d3ffca0dd7de40b7a43b6e62c595fbc623",
+      "decision": "LINK",
+      "keys": [
+        "photovoltaic-conversion"
+      ],
+      "reason": "태양광 전원과 이동식 동물 계량이다. 하중 센서 변환 방식은 미특정이다."
+    },
+    {
+      "identifier": "AR-117450-A1",
+      "source_fingerprint": "f28a8dcf1ceaad1642a1b5cf18689d7fc09222ad713333ead63bfcb2d6da87ad",
+      "content_hash": "a0def6f2e539a1b5dad9a80d44d3749a9ec0bc903d02dcf9f3c496a4027fca11",
+      "decision": "LINK",
+      "keys": [
+        "thermal-expansion-actuation",
+        "stress-concentration-fracture"
+      ],
+      "reason": "양극 내부 금속의 열팽창과 얇은 부분의 선택적 파단을 이용한다."
+    },
+    {
+      "identifier": "AR-117471-A1",
+      "source_fingerprint": "4682c028643a288df52a1b91b22b3c1b6433dc19ad26f0a8e16a36bdadf2a51b",
+      "content_hash": "583feca65b8a5b167ea102f3896ba7a5ca1771d2473cb57ba7680c0246ae97e3",
+      "decision": "LINK",
+      "keys": [
+        "state-estimation",
+        "feedforward"
+      ],
+      "reason": "계측 하중으로 경사 컨베이어 신장을 추정하여 구동을 보상한다."
+    },
+    {
+      "identifier": "AR-117503-A1",
+      "source_fingerprint": "a52d7f8b6ba6e2de80a3510423888d057eccd7c308bfabcd7ed44465ab4da62a",
+      "content_hash": "0c4aec4ecd3c84f25fb87edf96850aafc0e53c0be7aaa9c76d5745a76aff7578",
+      "decision": "LINK",
+      "keys": [
+        "duty-cycled-power-saving"
+      ],
+      "reason": "기상 신호에 따라 다음 수신 구간을 생략한다."
+    },
+    {
+      "identifier": "AR-117556-A1",
+      "source_fingerprint": "4560b8cb07b15f8e4f448847c2ede13d459435fc385195f98270cf421a52d776",
+      "content_hash": "ac18b19a3363f6af1a2cb523d0e3a87b5089046faacf0caeee94c071c172a2ae",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction",
+        "forced-convection",
+        "negative-feedback"
+      ],
+      "reason": "선체 외부 관의 냉각수를 펌프로 순환하고 온도로 제어한다."
+    },
+    {
+      "identifier": "AR-117562-A1",
+      "source_fingerprint": "7b952ea1a04d2a667b79a5b004eb34fa7c0642889280bf2062db5156d9191625",
+      "content_hash": "00d766cceddf228569fd4af947c85263681cda78fa2548f1ee8081ddee1ad852",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "폴리다이아세틸렌의 땀 반응 색 변화이다. 공액 사슬 구조 변화의 원문 근거를 추가 확인한다."
+    },
+    {
+      "identifier": "AR-117567-A1",
+      "source_fingerprint": "d61055ccbaa30a2f55ca930aae8a2658fdf0b2509a421aa5289b791a9eee6871",
+      "content_hash": "e1b393f60533ace20d6de84f99ab35c290e9986b42dffc3670d8ca694f9d2442",
+      "decision": "LINK",
+      "keys": [
+        "signal-correlation",
+        "fourier-spectral-decomposition"
+      ],
+      "reason": "가중 교차 스펙트럼으로 채널 지연을 구한다."
+    },
+    {
+      "identifier": "AR-117573-A1",
+      "source_fingerprint": "0e94d48f5d8fbabaec3b429eec6174ed7c9705e91b151d213eb9ddd37556c6f2",
+      "content_hash": "a6214801d245228c19d3399e0b6db077c8169b359dbc2a0c8c832c107214afa2",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition"
+      ],
+      "reason": "TLR7·8 억제제의 결정형이다. 결정형만으로 새로운 결정 전이 효과를 세지 않는다."
+    },
+    {
+      "identifier": "AR-117612-A1",
+      "source_fingerprint": "3141f0f48f32f8aa378283559e7157c7b0c9c595a1494e1b55ddd9f758ce999a",
+      "content_hash": "9d1241e3a6c816d648f4e70272d7ca7b78a0b89b56891ac0f2b02abd4cd0c086",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미분화 디오스민 정제이다. 초록만으로 분쇄 공정·용출 증가를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-117614-A1",
+      "source_fingerprint": "1709f4b60930b617ef30e1ab2929e41a47c393b5c705c13476c02251cea6d07e",
+      "content_hash": "8861332ed16a94b180150905046f884db26b3d9a8eb99195a3a70f219e53ebfe",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "경구 방출 조절 제형이라는 제목만으로 확산·침식 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-117633-A1",
+      "source_fingerprint": "bbe3e4891f669410f5c0c3f968cdcf1fc749a9150fb49247bd36fc420f4940f6",
+      "content_hash": "b535ee68b0baf135be4ced5fd0b9bfa9a30e994a94bd286b8dfa8025302e72bb",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition"
+      ],
+      "reason": "RIG-I 경로 활성화이다. 세부 결합 방식은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-117637-A2",
+      "source_fingerprint": "0a52023b867427744ba49ae23b35d42f3e948245364e843797ad98e6abf08704",
+      "content_hash": "816c4e503c90b569aca90cb226b014345de08ef1b234383ca1daa6f60b62d9e1",
+      "decision": "LINK",
+      "keys": [
+        "pcr",
+        "biomolecular-recognition"
+      ],
+      "reason": "목화 형질전환 삽입 부위 서열에 대한 PCR 식별이다."
+    },
+    {
+      "identifier": "AR-117650-A1",
+      "source_fingerprint": "645c8384284ea63e5dc7a8fa4f12337bee45eb52534db1a2167cc6bafe9b4d12",
+      "content_hash": "7bc26b3fd1ee71fea7214b1ef9a59c49b64f0a6ed526f5476f402faba42524ad",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "산화환원 완충액과 변성제를 이용한 이중 특이 항체 재접힘이다. 산화적 이황화 결합 형성의 별도 후보를 검토한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:28:43.721119+00:00"
+}

@@ -119,6 +119,9 @@ def merge_explicit_links(pages, snapshots, directory):
         path = directory/name
         return json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
     sources = read('accepted_literature_sources.json'); links = read('literature_links.json')
+    redirects = read('mechanism_redirects.json')
+    for old, new in redirects.items():
+        links[new] = list(dict.fromkeys([*links.get(new, []), *links.pop(old, [])]))
     documents = {d['identifier']: d for p in pages for d in p['documents']}
     _, records = coverage(pages, snapshots)
     for row in records:
@@ -130,6 +133,10 @@ def merge_explicit_links(pages, snapshots, directory):
             retrieval_scope='stored_patent_abstract', review_method='conversation_reasoning',
             source_fingerprint=row['source_fingerprint'], review_note=row['reason'])])
         for key in row['keys']:
+            key = redirects.get(key, key)
             links[key] = list(dict.fromkeys([*links.get(key, []), source_id]))
+    for withdrawal in read('withdrawn_manual_bindings.json') or []:
+        key = redirects.get(withdrawal['effect'], withdrawal['effect'])
+        links[key] = [sid for sid in links.get(key, []) if sid != withdrawal['source']]
     atomic_json(directory/'accepted_literature_sources.json', sources)
     atomic_json(directory/'literature_links.json', links)

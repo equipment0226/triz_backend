@@ -1,0 +1,249 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e419291323354bcde2591176a9c747ceefa01098f781f9d8caff47f23d0ed6a7",
+  "reviews": [
+    {
+      "identifier": "AR-102670-A1",
+      "source_fingerprint": "c5bf2c7836c2ef7b1279212bf07e697bf02b22248badd68e0d8feb4c5ece3a06",
+      "content_hash": "a34222c292ba6e7979d68901595baef3c2ddafa51ffe4f47129ec49d596c48d1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "흡입 공기와 중력에서 곡립의 이동 경로 차이를 이용한다. 사이클론 회전 없이 공기력·중력의 비에 따른 공기 선별 후보이다."
+    },
+    {
+      "identifier": "AR-102691-A1",
+      "source_fingerprint": "317d56f84919bbfcca7c4a14454dbc778daf7cfb2d8c5820ce2ee28592970d53",
+      "content_hash": "ba048691a01e5b80fc189761c59345c02d52d3a5bde5e4066c8732afe8fd3c03",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "α1 아드레날린 수용체 작용제를 명시한다. 수술용 투여 조성을 임상 권고로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-102692-A1",
+      "source_fingerprint": "e0365591f0c3263f371155058e9616395b6be71c40b42d19f67e78ce4092b7a4",
+      "content_hash": "74f6c4606951e0efd742c62e3a33acd42e946b644bc4493a2570029cd9eb12c2",
+      "decision": "LINK",
+      "keys": [
+        "chemical-glycosylation",
+        "biomolecular-recognition"
+      ],
+      "reason": "O당화 부위를 가진 펩타이드와 항체 인식을 이용한다. 약동학 변화의 제거 경로는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-102738-A1",
+      "source_fingerprint": "e4b40bb02ad47c7b11f58dc848c79d643c46776be3e74be60025f6d6ebab907e",
+      "content_hash": "e095422bfd3fa36ec02b03dffa782657dadddc22b68d5413f00b96e1b7367b77",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "복합 제초제와 적용 대상이며 각각의 분자 기전은 초록에 없다."
+    },
+    {
+      "identifier": "AR-102740-A1",
+      "source_fingerprint": "383643e4609babba1682368e054b03619e9254f4116aa61b17449c9aa61c8c34",
+      "content_hash": "038aec1d1689bea146c2fcff0490d1eb9467d869d827867c00ed4a6ab498d2fd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "생장 촉진 성분의 긴 목록으로 구체적 작용 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-102742-A1",
+      "source_fingerprint": "3ad97aef4e499db180d4b5a4185bbfa178c4349a3d5b724df256eae03faaec58",
+      "content_hash": "ce4c03c1e363e87293279941d97e6ccb91f68741302cb96806f7fcaf7fcc0f6e",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "서로 보완적인 계단 단면과 덮개를 겹쳐 지붕 패널을 결합한다. 다공성 여부가 없어 기체 공극 단열로 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-102745-A1",
+      "source_fingerprint": "3aacc4a9b9ca46d9ff04956cb0b08d6e7aaf9d9956dfc89ec2309b9e11dec6f4",
+      "content_hash": "40f7b97e75f5a5020b8e661101b31a5f5099cf67d5e3904101ac5ee3d1f6c58d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "석고와 실리콘 오일의 내화 후 구조 유지 조성이다. 첨가제가 구조를 유지하는 기전은 부족하다."
+    },
+    {
+      "identifier": "AR-102759-A1",
+      "source_fingerprint": "6dcb443b545a5b2651a171d20668f0595df72ead07e5df7acaa976436f56e133",
+      "content_hash": "12fdbcd3691133a278844fd371d9d945701f94bfad04be4d243b3086b738d9aa",
+      "decision": "LINK",
+      "keys": [
+        "photothermal-conversion",
+        "thermal-orientation-recovery"
+      ],
+      "reason": "근적외선 흡수재를 넣은 폴리에틸렌 열수축 필름이다."
+    },
+    {
+      "identifier": "AR-102765-A1",
+      "source_fingerprint": "c5b66eeb7360316e1204905ceb743c20a5c8558e272d9615d65a9daa99061dde",
+      "content_hash": "c19ddedcb68d563a424050bfcf76c0820592a78796aecf92b46c4b0b74531cf7",
+      "decision": "LINK",
+      "keys": [
+        "solidification"
+      ],
+      "reason": "회전 금형의 플라스틱을 가열 용융 후 냉각해 성형하며 인쇄 라벨을 함께 고정한다."
+    },
+    {
+      "identifier": "AR-102766-A1",
+      "source_fingerprint": "e50e88daf4d9017e961d2822e8e7ca33ffb640eeafefeeabf2e00754e2d6dba1",
+      "content_hash": "eb327d49c1f797e19c7379f2cce6bf046abb7134ff31f6db087f1df483642350",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "와인을 막는 철사 고정·비틀기 기구로 철사에 영구 형상을 만든다."
+    },
+    {
+      "identifier": "AR-102771-A1",
+      "source_fingerprint": "5c32c33a45ad78573461313361fd53d62984e95eebb50274aec2137412c34b9d",
+      "content_hash": "4f91c553b465c08a700ba744f3d713fe1960d7cca7d92e28066cc60ef2d7c785",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "흡수성 제품의 부분 절단선으로 손가락 탭의 분리 형상을 정한다."
+    },
+    {
+      "identifier": "AR-102781-A1",
+      "source_fingerprint": "a1870f58998e6e89b3f4695aff4c3af191c45cbb401eb507deb278202cd5f5c9",
+      "content_hash": "6cf7c199e62ce219351ff76efb7f551800d5d611c591c8d327c42146eff85fef",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "서로 다른 표면 전하의 나노입자가 약효를 높인다는 조성이다. 전하 차만으로 분산 안정화 또는 세포 유입의 원인을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-102801-A1",
+      "source_fingerprint": "490339973418cc679156c802e8117021b18a0a6153307d6e774cd782451a8fed",
+      "content_hash": "37c54eb7960659f671eb7dd122d70e99acf81aba87d3137ac9a32eef8d8018bb",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "barrier-coating"
+      ],
+      "reason": "후크루프 고정과 둘레 PVC 보호층을 사용한다. 탄도 패키지의 충격 흡수 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-102805-A1",
+      "source_fingerprint": "9ffe1f0c34c733ba9593452a0b52c94dd9281926ce212ca8eefec9a127aff50e",
+      "content_hash": "bd2120a805eba7bd67b38d0d9205e88d13968dc64d1387104f110524a7c0f240",
+      "decision": "LINK",
+      "keys": [
+        "condensation-recovery",
+        "adsorption",
+        "acid-base-reaction"
+      ],
+      "reason": "응축·분자체 황화수소 분리·황산과 암모니아 중화를 명시한다. 황화수소 가열·물 급랭만으로 황산이 생성된다는 생략된 산화 경로는 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-102839-A1",
+      "source_fingerprint": "4c8272e4e2f3016755dfc87800bf6f1a4ea0fe676f03f3b2b7b53cd6e4d9c051",
+      "content_hash": "1d478e7ad83bbac313258eff9e53dbb18c54ac97fd751fd12c37d1df1eddd507",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "종자용 살균제 조합과 효능 주장으로 분자 기전은 없다."
+    },
+    {
+      "identifier": "AR-102858-A1",
+      "source_fingerprint": "549513dbf5f1574282aeaac02061be3150bbd4b239249c64b83119bb0dc71c39",
+      "content_hash": "43fdce6c127a73ced99ac4def33be6b798f31b4c60e369311bf9359fd58a3e68",
+      "decision": "LINK",
+      "keys": [
+        "genetic-linkage-selection"
+      ],
+      "reason": "저항성 유전자와 연관된 표지를 이용해 해바라기를 선발한다."
+    },
+    {
+      "identifier": "AR-102866-A1",
+      "source_fingerprint": "cf17bde92dc01ac94efef2ab656920f6da28d312d8988b43a53e5dde8554c555",
+      "content_hash": "c02fb06641a3e8fc6e978561a997916a197ecf5de7d669ad483621fecbed38b1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "리간드·비료 조성이나 미량원소 착물 형성의 구체적 근거가 부족하다."
+    },
+    {
+      "identifier": "AR-102870-A1",
+      "source_fingerprint": "e6462017529ac8d863c96f6828ce6b77353eb054b181ed88358ce6210bb84753",
+      "content_hash": "fb3b7b376568e50a9409b2528187dc394edd7d217cd29121cb86dc6b49a88306",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "분리 구간과 당김 라벨로 포장 개봉 경로를 정한다."
+    },
+    {
+      "identifier": "AR-102882-A1",
+      "source_fingerprint": "3b0bfd73fd04c0910e4795ab19aa2027fc11a3c99113eb134bce0c68009d9498",
+      "content_hash": "5559110562b40eed9b50b3fac7b2a45b35cb4e8e98edfddd519d135a654621de",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "Cry 단백질 유전자의 재조합 발현을 명시한다. 구체 독소 종류 없이 모든 단백질을 동일 공극 생성으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-102886-A1",
+      "source_fingerprint": "75908a3139060c2b629f39d8eec9e0b41f8832e86d00f2b57ee1f098af9f0f86",
+      "content_hash": "bed5332ef6dd0045605c369c417ce84810519d0f5d8581441cd167eb9ffbb398",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "왁스 억제제·유동점 강하제를 지지재에 코팅한다. 결정 성장 흡착 억제의 여부는 조성 이상의 근거가 필요하다."
+    },
+    {
+      "identifier": "AR-102894-A1",
+      "source_fingerprint": "e273cf369af85e01d01b1150b1b10b7feee3b240a9bd7ae0d78926c96e5763bc",
+      "content_hash": "45d3cb66a56ff6018803eda579c4d37fa220fef50360f4883c2dab093b7abb70",
+      "decision": "LINK",
+      "keys": [
+        "sieve-size-separation",
+        "pressure-driven-flow"
+      ],
+      "reason": "순환 배양액에서 큰 스피룰리나를 제거 가능한 체로 포집한다."
+    },
+    {
+      "identifier": "AR-102907-A1",
+      "source_fingerprint": "00b43de387d2ddee0421d06b0cd8d74f365dcbb21f6f7f8d204dcff72066d3e4",
+      "content_hash": "16731b033c9b8b4548899fcfde2b0f7cbae190dfa66f39ed8f7766ca1b085367",
+      "decision": "LINK",
+      "keys": [
+        "fluorescence-sensing"
+      ],
+      "reason": "응집시킨 반도체 고분자 입자의 여기 발광으로 액체의 출처 표지를 검출한다."
+    },
+    {
+      "identifier": "AR-102916-A1",
+      "source_fingerprint": "b52b85661065b4187c6998019648f40f2e448c40c01997bfdd65e99f07aafd2f",
+      "content_hash": "1848169ef5d7c0e10b38fd8338ee962a558b52f01c39951a9c400327b6c71f76",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "spontaneous-emulsification"
+      ],
+      "reason": "양친매성 지질 농축액을 희석해 나노에멀션을 형성한다. 모든 조성의 장기 안정성을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-102922-A1",
+      "source_fingerprint": "80e75f9ba36c14ab28161a0dd88ed471b969a2269ffe0288a75e47ceb70ab458",
+      "content_hash": "426d5a5e3ba04e7610f4f1072dec194c2d80782cda1fa4cc9358679396ad3624",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절 팔과 길이 조절 차량을 이용한 유리판 포장 이송 구조이다."
+    },
+    {
+      "identifier": "AR-102930-A1",
+      "source_fingerprint": "cbd02356d2cc35accd89c7b6571ea2838f55647f7114eaa21df9bff171ad05bb",
+      "content_hash": "ae3a8c8db7ea8e6d450ed0770a1ff51056fa8b8876fcb5152dc62c326a137457",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "포장 절단부에서 시작하는 찢김 경로를 이용해 개봉구를 만든다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:12:02.557819+00:00"
+}

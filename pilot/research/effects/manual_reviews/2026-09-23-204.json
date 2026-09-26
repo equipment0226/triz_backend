@@ -1,0 +1,224 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "794c1acbbf4c6343d9760706c1f190c869b59ea0e6520646fd4f08426a06f3c7",
+  "reviews": [
+    {
+      "identifier": "AR-109614-A1",
+      "source_fingerprint": "b3e057c507b853b7537b1b915b9cdc3a50b31338887e371fdd716990b204770b",
+      "content_hash": "6921bfab79a1f1327654735150dc418e75a948962a78f4bfe80495f5f9a29b04",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "파라핀과 억제제의 저온 석출 억제 조성이다. 흡착 결정 성장 억제인지 용매화 변화인지 구분할 근거가 부족하다."
+    },
+    {
+      "identifier": "AR-109621-A1",
+      "source_fingerprint": "42e9dde13dba1c147584e02db2312d812014a74ea0bddff6f9be7c32a82055eb",
+      "content_hash": "15a19ff79b818cb89b0156e673225a674af77d838b6cf05d4e8d042a96f2eea6",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "acid-base-buffering",
+        "surfactant-action"
+      ],
+      "reason": "당·단백질 접합 항원과 완충·계면활성 제형이다. 준비한 운반체 항원 인식의 추가 사례이며 병원체 생산 조건을 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-109626-A1",
+      "source_fingerprint": "73b5c374ea02589a1c843b0eb0bc7c7552ee12151f98dca071c0e0d0c468cc14",
+      "content_hash": "5864756ac4ae17fbfad296c23cd6e92f001e17b95b06803ad2b2bde572f0cf71",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "FLT3 인식 키메라 수용체·면역세포이다. 준비한 키메라 수용체 신호 연결의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-109628-A1",
+      "source_fingerprint": "7715f968f99c98a1dc312fe82c0af815591716c4184aa953a08b15a61ca34d5d",
+      "content_hash": "6a8489dcef3b2053f3e4f3e7b60d8897417e4172903b9846cd845a17fb6bbd66",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "지리 위치별 처방량에 맞춰 여러 투입기를 제어하는 규칙이다. 위치 추정·피드백 알고리즘은 미상이다."
+    },
+    {
+      "identifier": "AR-109654-A1",
+      "source_fingerprint": "e6b1f55ed41db4ac797feae9baf5617b06592b046d8c240f04c4d6e3a10ed651",
+      "content_hash": "7eb66fa07a8a8161570646156daa1bf5202568fb016b0de1aecb45088836b58e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "나프티리딘 카르복사미드 구조만 제시되어 약리 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-109673-A1",
+      "source_fingerprint": "df2a7c40fc5213074753c5b0e1da7743f7f48123530a5059a890626105c1e7af",
+      "content_hash": "cd04a52da842298bf9b30dcbd40cce2194ab08c779e6c29c8d2bc480540f940b",
+      "decision": "LINK",
+      "keys": [
+        "converse-piezoelectricity",
+        "direct-piezoelectricity",
+        "acoustic-impedance-reflection"
+      ],
+      "reason": "압전 변환기로 음향 펄스를 보내고 벽 반사를 전기 신호로 읽는다."
+    },
+    {
+      "identifier": "AR-109676-A1",
+      "source_fingerprint": "e4456199eecf514fe230799eb9b9b6fd0886dc1edefcb0c104c4140c77dfab51",
+      "content_hash": "aeab5ce26e023171fe6acbf611b1dff6f7fc6024fa54262b4e1d547d0fc31429",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion",
+        "mechanical-interlocking",
+        "venturi-entrainment"
+      ],
+      "reason": "회전 캠 잠금과 좁은 액체 유로에 연결된 외기 유입 통로로 공기를 혼입한다."
+    },
+    {
+      "identifier": "AR-109680-A1",
+      "source_fingerprint": "19f9e2bca3efd225b6702b001d9cbe853dcbc86482c7e9ea9ba340e450c83ccf",
+      "content_hash": "016e9b0dcad9c2b328bb6c0fdf81531aa56d95c3a70a105a12766e2f4264c06e",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "albumin-binding-half-life-extension"
+      ],
+      "reason": "혈청 알부민 결합 앵키린 반복 도메인을 포함한다. 결합을 보존할 때의 잔류 조절 원리이며 체내 수치를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-109713-A1",
+      "source_fingerprint": "c7ec62ab597f868922801af77834bb156c31b20eda7d6026688f681f1e678030",
+      "content_hash": "41ea5174e0eb9e066e3c24bcfbd4c0f9f06f7e85c391216e73049bce700d8aad",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "풍력 타워 기초의 방사형 리브로 단면과 하중 지지 구조를 구성한다."
+    },
+    {
+      "identifier": "AR-109714-A1",
+      "source_fingerprint": "69be5bf01fa2800a554f23716eb858cc9d2d644fc54aca4b28997641fdd6e3dd",
+      "content_hash": "466f3df6ed4793e56715a48331ce95b7a8c76bcf3d9760f61f501861c14ba6c4",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "allosteric-cooperativity"
+      ],
+      "reason": "mGluR2의 비경쟁적 음성 알로스테릭 조절이다."
+    },
+    {
+      "identifier": "AR-109715-A1",
+      "source_fingerprint": "1b30e942ce13cb88282b3d8d335ac1fcae812d28ccf16f2ef8f793bdafc8e484",
+      "content_hash": "74af1e1862e6fa177af32418b59241575d598016e6763e9ab0ab7d94c1ecd88e",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "CD27 결합 항체이며 초록에 작용 방향이 없어 수용체 활성화·차단을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-109732-A1",
+      "source_fingerprint": "d0e6d94e28d36c507374c7087a2e61760a34f61c23192b5a1b640e54ca0a6c69",
+      "content_hash": "8e80d1a4b6e43ce22521d97b4257f7ea20ff0496efc732e988236aa0cbb23f17",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "서로 다른 담배 제품 소비량을 비교해 표시하는 데이터 처리 규칙이다."
+    },
+    {
+      "identifier": "AR-109736-A1",
+      "source_fingerprint": "5076b412c41f5a9a08b23ada98b7c24c781f45d9bd854fb5903a3348ed302f50",
+      "content_hash": "84743b55d38604cb07de43efb67753303ccf6a4e6986501f18c0057f8a23d592",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "단말의 송신 전력 여유를 기지국으로 보내 전력 제어에 반영한다. 특정 제어식이나 안정성을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-109737-A1",
+      "source_fingerprint": "10eec5145bd3d356bade0c9c678f683388b004f33276d7987f50a96adee808ea",
+      "content_hash": "6bf1808326c835ce48b7a8b763ace3c6d07450e9aa12b514af6123acb431fcc0",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "베타락타마아제 저해로 항생제 분해를 억제하는 병용 사례이다."
+    },
+    {
+      "identifier": "AR-109759-A1",
+      "source_fingerprint": "bceee52dc8808804c08e78e216be27d15df9601d36628242f2708e399f659354",
+      "content_hash": "1efba3c512895317cbd97673e8664f157453c1f93123853c6b38e73581b0f61a",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "에스트라디올·프로게스틴을 포함하는 호르몬 병용 제형이다. 용량·개별 환자 치료 효과를 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-109792-A1",
+      "source_fingerprint": "12bd317c5a5f0859c55a1614c374e6e46952e13428b2f5824df46dcc4fdf9df4",
+      "content_hash": "0bf2af50b323a0d8991e0be070b95d1883547f233349f237fa355ac4a34fd11c",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "배아 조직 선호 프로모터가 이종 코딩 서열의 발현 위치를 제한한다."
+    },
+    {
+      "identifier": "AR-109796-A2",
+      "source_fingerprint": "b7e0cc0707ef46fcb42714fc92d10b3b0ea1155571fb4d4f839ae8a98e69d05f",
+      "content_hash": "5666aafa95ac5a1e482908c6e42d7aea6668e78014465488d19cabd1b74cb9d3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "변조 방지 오피오이드 제형의 목적만으로 겔화·파쇄 저항 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-109807-A1",
+      "source_fingerprint": "e7a72bef41b72a42a0b8684b4e91f814f534e894dd8b5a492ebf9a10897c343a",
+      "content_hash": "b6b2045cfaaf86823ff317f700a5da34538cc6bf5113b69536e33a0eac70e25a",
+      "decision": "LINK",
+      "keys": [
+        "first-pass-metabolism-bypass"
+      ],
+      "reason": "경피 흡수 경로의 약물 패치이다. 초록만으로 고분자 망 크기나 확산 방출 속도를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-109810-A1",
+      "source_fingerprint": "7f787c655c1080a8467d46fa9880ee0f013abdb6806df97089fdd749636d33e3",
+      "content_hash": "e608ae4ba07a5e0d9c00f431e1fc7b314568b957abb7c02b775693d271f08548",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GluN2B 수용체 조절 화합물이다. 특정 결합 부위나 작용 방향은 미상이다."
+    },
+    {
+      "identifier": "AR-109819-A1",
+      "source_fingerprint": "3776d9a8dc4ecdf7faa5732b61d8fac185774acde5f65796cf4e7c3f527b4080",
+      "content_hash": "3af1257288e9dcbfed1150a24755488d0ef936c77cdcb3d9bccb3202bf7a2daa",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알룰로스·염의 맛 개선만으로 쓴맛 억제 등 지각 변화를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-109820-A1",
+      "source_fingerprint": "e929a72f15e75e145a60ebcf8981cd4800da1551511057c32f8fd49ea80fc8fa",
+      "content_hash": "5f986a59813e7b27bdf6fdd815365d303eeaacba7f89d2e0de5045415928fde9",
+      "decision": "LINK",
+      "keys": [
+        "polymerization"
+      ],
+      "reason": "기능화 스티렌의 탄성 공중합체와 고무 가교 공정이다. 가황제 종류가 없어 황 가교로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-109830-A1",
+      "source_fingerprint": "8e255bd521d540a0b8701c12b666f16d0b065bf9a1ac99166441e78bad0cc134",
+      "content_hash": "220d6f9d1b860ac699748e17dcc5c45e40630130c0d976eedacccd9229c30f14",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "가열하지 않는 식품 배합과 비율이다. 구체 생리 기능이나 단백질 변성 제어 기전은 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:50:34.351144+00:00"
+}

@@ -1,0 +1,62 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d6fd4b16a098533b7215a250a0d221bd2c49a2ca2f154bfd3c056d68de3240d8",
+  "reviews": [
+    {
+      "identifier": "AR-099455-A1",
+      "source_fingerprint": "26bd47c89544980bcc3516fd213302420f759c8be8eb53bdcd8a7ffc4db8a633",
+      "content_hash": "9a9d71d2a7a8f810e2a9bab965cddd4bdd462eab4c76b53a25453dc0472887fc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충성 시클로펜텐·디엔의 긴 치환체 목록이다. 저장 초록이 치환체 도중 끝나며 표적이나 합성 반응은 확인되지 않는다."
+    },
+    {
+      "identifier": "AR-099474-A1",
+      "source_fingerprint": "fc9f1ba4bd8491debb5c619d9f872eed40bc3942b1e86a5a9e1364fc17fab410",
+      "content_hash": "c4042c0b838ea91cc0b12bdc2223cdf401b6e79dda3341042c61bb7529477ab1",
+      "decision": "LINK",
+      "keys": [
+        "nuclear-magnetic-resonance"
+      ],
+      "reason": "사전 자화 구간과 RF 여기 후 핵스핀 신호로 다상 유동을 측정한다. 자화 회복·체류시간 대비는 문헌 확인 후보이다."
+    },
+    {
+      "identifier": "AR-099484-A1",
+      "source_fingerprint": "6822f603d728af6b77900cdccfde0047b642b60be16e3ee628c6aa919bf20201",
+      "content_hash": "68a75704424aa413ec3297b04bec1cc8c357b02923a907e5230be31f9c2dc142",
+      "decision": "LINK",
+      "keys": [
+        "finite-difference-rate-estimation"
+      ],
+      "reason": "시간 간격이 알려진 두 영상의 표면 특징 이동거리로 유속·유량을 추정한다. 상관 계산 알고리즘은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099495-A1",
+      "source_fingerprint": "3e25847239f753b7582e86c2a94e8cac9a9aa9e77398a68fc16a2015048f6c25",
+      "content_hash": "790892376c08b1977bae51a047a5c18caea58f9858d05176d12cc7b92b2f9fbb",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "오렉신 길항제이다. 치환체와 수용체 표적 변경은 신규 원리가 아니다."
+    },
+    {
+      "identifier": "AR-099496-A1",
+      "source_fingerprint": "0c9acede13769cd3adf521ce6e5c383a346410f38aa8938ef2d895a3e175daab",
+      "content_hash": "87e94bf50086d04f78a3d01fa5afc796c1778ba778626cb749c593d899db361a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "젖꼭지의 공기 통로와 밸브 배치이다. 일방향·압력 작동 특성은 초록에 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099510-A1",
+      "source_fingerprint": "9ae31c0263f4b671d51eaa5e280fa5866db52cf63d69c567b2c2e3841aa0c1eb",
+      "content_hash": "592e9f5f29b713b9fb53137d5e852d4bf19cac3ad81f7c29e171bbf82bc7bea9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "FGF18의 관절 투여 일정·용량이다. 구체적 수용체나 세포 경로를 초록에서 확인할 수 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:59:14.173191+00:00"
+}

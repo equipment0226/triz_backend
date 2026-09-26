@@ -1,0 +1,271 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "71ccb893d47e76243491d779f2326724aed65819ebad9b4b96bb40d657102c9f",
+  "reviews": [
+    {
+      "identifier": "AR-126408-A1",
+      "source_fingerprint": "be9041bf4e9e8bb662548c8a0b538011aede5eb935ccc05158237cf3eef2e11a",
+      "content_hash": "4b9c1a6449e536b64f1250ef562ed407673d5d86f5a227512a684666443b38e8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "발판으로 변기 좌석을 여는 장치이나 전달 기구는 없다."
+    },
+    {
+      "identifier": "AR-126431-A1",
+      "source_fingerprint": "f5aa87f3bf0e7b1eeca1ab20317be35b11a628c82bfa4ef504f87fb7b70b76ce",
+      "content_hash": "89d25cf9e3603538cd06b7c050ac303132247c0f869dc23fc91d7ee0b3b2d32a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "heterologous-gene-expression"
+      ],
+      "reason": "피타아제 발현·피트산 분해이다. 기존 인산 모노에스터 절단 초안에 통합한다."
+    },
+    {
+      "identifier": "AR-126442-A1",
+      "source_fingerprint": "cd767e618cf7ea9f600274ed547a2fe383fad79c2af88a30faf61c7c3d40bb2d",
+      "content_hash": "c4ff92f5d79acba5bf79e9c30545b8b4e8419b2c1da71ea3c2db48b16ddba96f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "MAP4K1 키나아제 저해이다."
+    },
+    {
+      "identifier": "AR-126446-A1",
+      "source_fingerprint": "35b2d5e785a06ed57ea204c848ed25e9309e1f6a7af7fe390548e666504d1f87",
+      "content_hash": "4c53a82f984bc496faf9cdea6c7797be3aec32afe4d8640eaa07b65a103fc77c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "CCR8 항체 결합이다. 특정 세포 감소의 실행 경로는 없다."
+    },
+    {
+      "identifier": "AR-126457-A1",
+      "source_fingerprint": "7161674fb15dbf4617a7d804b5445c4b8b5d620a2bdc2d191f3556d15e18a55b",
+      "content_hash": "8ddedd06d025c7ef493d4578ccb4e3e05b09f737dd9d7afb56ca6adbd7cc4a35",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "IL23 수용체 억제 펩타이드이다."
+    },
+    {
+      "identifier": "AR-126460-A1",
+      "source_fingerprint": "b4b410721d27deb6ceeb74ad63bd2eb065e097c4f38196b8139ce152be292acf",
+      "content_hash": "92ac73ebc0f89de4742d5924ae394bc2a83d3fe95c9ce2bf33aab447d4b1d51f",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "계면활성 세정 조성이다. 증강제의 구체 기전은 없다."
+    },
+    {
+      "identifier": "AR-126465-A1",
+      "source_fingerprint": "1598f663848f0315701c585ca04d8753bb9f5da86f4ae2d1aa68537daa687057",
+      "content_hash": "7b0557ed8af105eea3c88780c2a144eb9798695abdcc42fedf4654b4ebdd4237",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약 병용 효능·저독성 주장이다. 상승·저항성 지연의 기전은 없다."
+    },
+    {
+      "identifier": "AR-126480-A1",
+      "source_fingerprint": "ee0567ac741c86153fe478c78ff36066edefb8eae1a87b50cb2ab7166e6022f5",
+      "content_hash": "0df567e4c65eee33fa78d02e6a43ed50a8a6c61b8b664b57bca1df711aaba07a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구조식이 빠진 글루포시네이트 합성이다. 시약 목록으로 결합 변화를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-126494-A1",
+      "source_fingerprint": "f16e36dab3b1158b82664667ee3bcd77a14ced52d24a5fcfdb9bc184ea0a457b",
+      "content_hash": "36452abacd748c3775db701e87fade40c7025ea04709885df2e6e0e1004c996d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "다목적 타일의 상호 결합 시스템이며 결합 구조는 없다."
+    },
+    {
+      "identifier": "AR-126498-A1",
+      "source_fingerprint": "7804b53d2d9033068bfc2055e8956750322ed1b9554661dd0c7844a9e61031ae",
+      "content_hash": "a62807bc83e84c0f510aa6c8f2a648f4385f33a7ca6ae1e87077bf22165af075",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "입증 자료 없이 기존 치료 중단과 단기 완치를 주장한다. 과학효과 근거나 치료 지침으로 사용하지 않는다."
+    },
+    {
+      "identifier": "AR-126564-A1",
+      "source_fingerprint": "8bc365020f9fb9575b37b71df0781651616cc1a05e4d9fb30fcf3c5701dc9370",
+      "content_hash": "7719c77e76cf5ceb5d160a9950fd367b8bc017a51dc026dc50e161e76fc17f0f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "chemical-glycosylation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "UDP 당 공여체를 이용한 글리코시드 결합 생성이다. 동일한 당 전달을 원료별로 분할하지 않는다."
+    },
+    {
+      "identifier": "AR-126572-A1",
+      "source_fingerprint": "7d3c0c222889f97dffb2f5a488e6f4a6f734af46d69bd9eba16f7f3d43ebdb47",
+      "content_hash": "6fff759c17f3d1baa99bf99b589ebdf3a4922f0b8423811d00b6e3c559196a0a",
+      "decision": "LINK",
+      "keys": [
+        "urethane-addition",
+        "hydrolysis"
+      ],
+      "reason": "폴리올·이소시아네이트 경화와 실란 가수분해물의 접착 조성이다. 난연 성능 등급을 원리로 오인하지 않는다."
+    },
+    {
+      "identifier": "AR-126618-A1",
+      "source_fingerprint": "5176635e7941b28c151e71eeb60450ee6bf11b7d42e9395af3ac9a9207a3eebb",
+      "content_hash": "bffc8dde44ef4ef84044b7934065bf55122c0430f632f00527066ae1700c3e9c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "미끼 수용체의 경쟁 결합이다. 생물별 방제 범위는 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-126638-A4",
+      "source_fingerprint": "d56f66fc13ca599542cbec455f8bb6915d59b6bd69172baf52418ddbe9315c32",
+      "content_hash": "8f10ca5bdddb697b85635e37bc105767faff5dc067471d6b79a539b26e4df5ce",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "용기 돌기로 고형물을 유지하는 구조이다. 거품 파괴 기전은 없다."
+    },
+    {
+      "identifier": "AR-126678-A1",
+      "source_fingerprint": "fe38e7866c4535d7645bfc527eeae4f61739999eb4f75eaea4c0a413d5b63240",
+      "content_hash": "4f804035ac8ef5597493edd406c7f51eca441956623db0ba91f2d7ba81ebd4ba",
+      "decision": "LINK",
+      "keys": [
+        "ionization-solubility"
+      ],
+      "reason": "산성에서 용해되는 키토산 제형이다. 가교 구조·완전 용해 범위는 별도 확인 대상이다."
+    },
+    {
+      "identifier": "AR-126706-A1",
+      "source_fingerprint": "aee23d3bb3a88cd6cb74010bde345f90175fd4d05a7784dc256b535bb28669d1",
+      "content_hash": "0f2ff46b93a1811191a728b893dfbce4aa440d6239741f57f8b85f5312106cc2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 지지대로 농기구 종류를 전환하는 구성이다."
+    },
+    {
+      "identifier": "AR-126718-A1",
+      "source_fingerprint": "b48a5a7cf15d89d6111f6f0e9169eb607baf2a91243983a6b69665735b55200e",
+      "content_hash": "20cc95c3998ef9ed0065c3487d42e088f2d434e566143d27c1df6d651afc83a2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "분해 도메인과 약물에 의한 단백질 제거이다. 유비퀴틴·리소좀 경로가 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-126727-A1",
+      "source_fingerprint": "014e4706562a0b8c84c1ae9b68350c344cc43717a44abc18b8f420999b9cac9e",
+      "content_hash": "f47dce45ff9f49eda4b588ae634c7a055e579c953c650a97003a9833c1ce439a",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "signal-directed-protein-localization"
+      ],
+      "reason": "미토콘드리아 단백질 발현과 위치 신호이다. 실제 기관 내 기능 회복은 별도 검증한다."
+    },
+    {
+      "identifier": "AR-126741-A1",
+      "source_fingerprint": "7302b69d4dcd9d2bde530e07c16bb11fa8c853cd241983c90858723630084c90",
+      "content_hash": "980c5e62e113da9bf8b30e8a3f773d9e07e7696f86e4ea090531044c1e9014f9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "폐기물 교환·보상 플랫폼이다."
+    },
+    {
+      "identifier": "AR-126769-A1",
+      "source_fingerprint": "55874a56f590b90d924243dc8c0225aa4f94ef6ddf2b49b653a99f0bbe78f483",
+      "content_hash": "a4a1f5ecd61d2db39bde82b3bac346f44502a9fef4db15038ec5236bb3255df7",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "surfactant-action"
+      ],
+      "reason": "고농도 항체의 완충·계면활성제 제형이다. 아미노산 혼합에 따른 점도 감소의 원인은 추가 검증한다."
+    },
+    {
+      "identifier": "AR-126778-A1",
+      "source_fingerprint": "433005fc1389f770617998916b70d506689c7462eb57b8c3394cd7068e1835fc",
+      "content_hash": "524016597791e0c0dc535fd7998a2bccac5eb065e281856dd67a2e8de2fb2113",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "중수소 치환 PPAR 작용제이다. 치환만으로 대사 속도 변화가 입증되지는 않는다."
+    },
+    {
+      "identifier": "AR-126801-A1",
+      "source_fingerprint": "20b35834cb24da9c4f27e8130965b7f43a46aa983bccd93ddd94cd3c439a5ce6",
+      "content_hash": "9910c8cd61391a71b5b716ae2da0d014f55ba0b119c83accee66fca95876878c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "회수부의 걸림 연결이다. 파열판의 응력 집중 형상은 없다."
+    },
+    {
+      "identifier": "AR-126808-A2",
+      "source_fingerprint": "8c509c60656382d888f8a04b6051bf6dc88413a7cf806366fd1f11c9445ecaa0",
+      "content_hash": "be9389fa91a8dbedc0c18d53d944be9a1a928af7d646e7b7ee7573272e35f694",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection",
+        "fourier-conduction"
+      ],
+      "reason": "흐르는 배기가스에서 유체로 열을 회수한다."
+    },
+    {
+      "identifier": "AR-126811-A1",
+      "source_fingerprint": "3872643bdd9eca9bd54fa3d9876275860e961d0fc2e9faefb417fbe78dc556c4",
+      "content_hash": "f6201b92bb2acf7a2cd01931e47f8298bb3d23b02df895fdbd2fa79a8619f1e0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "서로 다른 시간 구간·표본화 속도의 특징으로 고장을 분류한다. 학습 방식·라벨이 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-126818-A1",
+      "source_fingerprint": "576703a7a8e2944a9b0626eb6fbf911d409c1222e8986b2644dbab53b33c942d",
+      "content_hash": "1f3d82bdd15bbd8f8161d3058adf09697135f6f31924c1af9f3774b48265c68d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회수·재사용 가능한 앵커 모듈 목적이다. 고정력 발생 구조는 없다."
+    },
+    {
+      "identifier": "AR-126847-A1",
+      "source_fingerprint": "ff5ded9a9f4e128a6ec91f2ed10298f7d99d22e56dd79fbe2ed3df3f19083cb6",
+      "content_hash": "ad7f5bf1f950be0e52a02f0a4a5f62745a41e93f333cf0c7a2d36f300d505746",
+      "decision": "LINK",
+      "keys": [
+        "chromatography",
+        "ion-exchange"
+      ],
+      "reason": "양이온 교환 크로마토그래피의 항체 접합체 정제이다."
+    },
+    {
+      "identifier": "AR-126857-A1",
+      "source_fingerprint": "a2e887b3df54e2bd65bd0f55cd0f34c92ae328f7ca49e97b9bb144b1a326a494",
+      "content_hash": "ddf3221cfb48f5c0cc5a149502e6bf3c64f942ee1cf55649bb24742e6933f5ec",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "신체·의복 장착 스마트폰 고정부 구성이다."
+    },
+    {
+      "identifier": "AR-126869-A1",
+      "source_fingerprint": "292ead10fdd94647335bca5e39a1ad2a3c3223df692cadaafef10ba6ee20260f",
+      "content_hash": "69c49bb62f9209d85da680984a7a1aa343d55730218be9b59826247ee153d2a2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고농도 살균제 현탁액과 적용 순서이다. 안정화·상승 기전은 특정되지 않았다."
+    }
+  ],
+  "recorded_at": "2026-09-23T03:07:52.762970+00:00"
+}

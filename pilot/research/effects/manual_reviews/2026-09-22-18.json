@@ -1,0 +1,255 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "030db004a858ec9aad24c6ccfc219afa1d55bd69f7584c30638cedd64ec1ed42",
+  "reviews": [
+    {
+      "identifier": "AR-067508-A1",
+      "source_fingerprint": "79912dd24504d71223db2cc9530b71f005fcefef230c1c89a3a1bb9f2ab55422",
+      "content_hash": "46ad2306243c0f612110deca14c6b56f374627d76d826b3072e4c81309fc2ce2",
+      "decision": "LINK",
+      "keys": [
+        "ionizing-radiation-inactivation"
+      ],
+      "reason": "기존 검토: 전자빔으로 상온 용기 충전 구역을 살균한다. 전리 방사선 생물 불활성화 후보. 문헌 대조 후 원리 연결: 전리 방사선에 의한 생물 불활성화: 고에너지 전자·광자 등이 직접 전리하거나 반응성 종을 만들어 생체분자의 기능을 손상시켜 미생물의 증식 능력을 낮춘다. 흡수 선량·침투 깊이·대상 저항성과 재료 적합성을 검증한다. 비균일 조사·차폐·재오염을 고려하며 조사 자체만으로 멸균 보증을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-067541-A1",
+      "source_fingerprint": "b25012bfe6ab21c2ef62f791afa432e448476920120492aec9c10c7916c4a7f1",
+      "content_hash": "8d6c69c5629aeb4eab41ebb31649220633788aa377cd698e959d8fc490ee7915",
+      "decision": "LINK",
+      "keys": [
+        "acoustic-impedance-reflection"
+      ],
+      "reason": "기존 검토: 다공관과 팽창실로 소음을 낮춘다. 음향 임피던스 불연속 반사 후보이며 흡음재나 공명 주파수는 단정하지 않는다. 문헌 대조 후 원리 연결: 음향 임피던스 불연속에 의한 반사: 관로 단면·매질의 음향 임피던스가 달라지는 경계에서 음파가 일부 반사되어 전달 음압의 주파수 응답을 바꾼다. 단면비·길이·주파수·종단 조건·유동을 고려한다. 특정 대역에서는 전달이 커질 수 있으며 다공 재료의 흡음과 구별한다."
+    },
+    {
+      "identifier": "AR-067567-A1",
+      "source_fingerprint": "77a69538fa9767fa0f44e7e59057382ac1860d52cbce87fee364bb3c500a227f",
+      "content_hash": "a0515043c61d75a8c54cb2bca14e7eceb59ecd135730168d7944de182c6fca8f",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control",
+        "adsorption",
+        "hydrophobic-association"
+      ],
+      "reason": "기존 검토: 물속 혼합물 중 소수성 성분을 소수성 고체 표면에 붙여 분리한다. 소수성 결합 후보. 문헌 대조 후 원리 연결: 수중 소수성 면의 회합: 물과 접촉하는 비극성 표면들이 모여 물에 노출되는 면적과 계면의 자유에너지를 줄이는 경향을 이용해 입자·분자를 회합시킨다. 표면 화학·젖음·염·계면활성제·크기를 확인한다. 공유결합 형성이 아니며 분산력·정전기·기포의 기여를 분리해 평가한다."
+    },
+    {
+      "identifier": "AR-067621-A1",
+      "source_fingerprint": "68ae32398f4cd90a2824c653e101dd60770249b8b3be0f227feee7b6e6d0e183",
+      "content_hash": "ddf0f887c900c1b900a7e5a1326d01409c758698df7cc0b0fe8d08afa63ad64b",
+      "decision": "LINK",
+      "keys": [
+        "phase-change-storage",
+        "crystallization",
+        "nucleation-barrier"
+      ],
+      "reason": "기존 검토: 과냉각 금속염의 결정화를 시작시켜 저장 잠열을 방출한다. 핵생성 장벽 후보. 문헌 대조 후 원리 연결: 핵생성 장벽에 의한 과냉각·결정화 개시: 새 결정 표면을 만드는 에너지 비용 때문에 열역학적으로 유리한 결정화도 지연될 수 있다. 유효한 핵·자극으로 장벽을 낮추면 결정화가 시작된다. 과냉각·과포화도·불순물·표면·시간에 의존한다. 자극마다 핵생성 경로를 확인하며 잠열 저장량이나 재현성을 자동 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-067734-A1",
+      "source_fingerprint": "03feacfbf25e633a199710df4f21314fa51910fb9d38c0917c32eda9ff22540e",
+      "content_hash": "b788391cc1c4e75804aa10058559e0bc730c78420c639f26dae92b720dbb1333",
+      "decision": "LINK",
+      "keys": [
+        "transporter-membrane-trafficking"
+      ],
+      "reason": "기존 검토: AS160 계열 단백질에 따른 GLUT4 막 이동과 포도당 흡수를 측정한다. 수송체 막 삽입 조절 후보. 문헌 대조 후 원리 연결: 막수송체의 표면 이동에 의한 수송 조절: 세포내 소낭과 세포막 사이에서 수송체의 위치를 바꾸면 표면의 유효 수송체 수가 변하여 물질 유입·유출 능력이 달라진다. 수송체·소낭 이동 신호·재순환·분해와 기질 구배를 확인한다. GLUT4의 사례를 모든 수송체로 일반화하지 않으며 발현량 변화와 구별한다."
+    },
+    {
+      "identifier": "AR-067986-A1",
+      "source_fingerprint": "65716a5e65beef9bd68a2825207396c33dd2deb89bace74ca0f10d2f75330af3",
+      "content_hash": "b57ee2f3f80ae1d463b6840cdb11be9c93e09d036fcb8a4966ff9bb9ad09e475",
+      "decision": "LINK",
+      "keys": [
+        "refraction",
+        "spherical-aberration-control"
+      ],
+      "reason": "기존 검토: 중앙 양의 굴절력과 주변 음의 구면수차를 결합해 초점 깊이를 조절한다. 구면수차 제어 후보. 문헌 대조 후 원리 연결: 구면수차 조절에 의한 초점 분포 변경: 동공의 중심과 주변을 지난 광선의 초점 위치 차이를 설계하여 축 방향 초점 분포와 허용 초점 깊이를 바꾼다. 동공 크기·다른 수차·허용 흐림 기준·파장을 정한다. 초점 깊이와 대비·선명도 사이의 교환을 확인하며 음의 수차가 항상 유리하지는 않다."
+    },
+    {
+      "identifier": "AR-068170-A1",
+      "source_fingerprint": "46c8b3f2b84f868af3edfbd562a491cb45d6af52a6e7164f0dab757473b01a47",
+      "content_hash": "64865c8b3b546825748bd56836fa1fd6bf0df066bfea131ccbef2d05e0fc8895",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion",
+        "electromagnetic-induction",
+        "gravitational-energy-storage"
+      ],
+      "reason": "기존 검토: 풍력 전기로 물을 높은 저장소에 펌프하고 수차로 회수한다. 중력 위치에너지 저장 후보. 문헌 대조 후 원리 연결: 높이차를 이용한 중력 에너지 저장: 질량을 높은 위치로 올려 중력 위치 에너지를 저장하고 낮아질 때 일을 회수한다. 양수 저장은 물의 높이차와 유량을 이용한다. 사용 가능한 질량·유효 높이차·저장 용량이 필요하다. 펌프·터빈·유로 손실과 누설을 고려하며 왕복 효율은 100%보다 낮다."
+    },
+    {
+      "identifier": "AR-068202-A4",
+      "source_fingerprint": "c71be0ba95fb3f145ce1a19b09f577ba34dd4de35458dfd3a81e0fac8240ddbe",
+      "content_hash": "a147f69012572ea89ac594b31a024bc3a56de2f2aba436f165a5bf57613e3d00",
+      "decision": "LINK",
+      "keys": [
+        "one-way-clutch"
+      ],
+      "reason": "기존 검토: 한 방향으로만 잠기는 freewheel bearing으로 역회전 여유각을 줄인다. 일방향 클러치 후보. 문헌 대조 후 원리 연결: 일방향 클러치의 선택적 토크 전달: 상대 회전 방향에 따라 접촉 요소가 끼이거나 풀려 한 방향에서는 토크를 전달하고 반대 방향에서는 공회전을 허용한다. 캠·롤러 등의 형상과 마찰·회전 방향을 맞춘다. 전달 토크·윤활·과속·마모를 확인하며 기어비 변환과 구별한다."
+    },
+    {
+      "identifier": "AR-068271-A1",
+      "source_fingerprint": "b561b032fbf8e0bc58ecd7c6ed7fb6c2ae66e520f459bed6f3c7e3db502585ca",
+      "content_hash": "be31af0a5de297431880d3d1a61c6aac539ad2dace11cd625ea6219c7b09d4ca",
+      "decision": "LINK",
+      "keys": [
+        "mannich-aminomethylation"
+      ],
+      "reason": "기존 검토: aldehyde·polyamine·phenol의 Mannich 반응 생성물을 연료 첨가제로 쓴다. Mannich aminomethylation 후보. 문헌 대조 후 원리 연결: 만니히 반응의 아미노메틸화: 알데하이드와 아민에서 생긴 친전자성 종에 활성 탄소 부위가 반응하여 탄소 골격에 아미노알킬 결합을 도입한다. 페놀의 활성 위치나 enol화 가능한 기질·아민 종류를 확인한다. 위치 선택성·다중 치환·축합 부반응을 고려하며 환원적 아민화와 구별한다."
+    },
+    {
+      "identifier": "AR-068427-A1",
+      "source_fingerprint": "d242e522745d0f285eb34dcab15bdcb6e7d1798d302105f5eaf5019210bd6d60",
+      "content_hash": "8bf3180e6849a02add03c5d78f29e5e860bd326d99642342a776dc29f93c50f0",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "centrifugal-pumping"
+      ],
+      "reason": "기존 검토: 다단 원심펌프로 현탁액 압력을 높여 지층으로 주입한다. 원심펌프 에너지 전달 후보. 문헌 대조 후 원리 연결: 회전 임펠러의 유체 에너지 전달: 회전 날개가 유체의 각운동량을 바꾸어 일을 가하고 유로에서 속도 에너지의 일부를 압력으로 바꾸어 유체를 이송한다. 임펠러 형상·회전수·유량·양정·흡입 조건이 필요하다. 캐비테이션·역류·운전점과 다단 손실을 고려하며 용적식 펌핑과 구별한다."
+    },
+    {
+      "identifier": "AR-068483-A1",
+      "source_fingerprint": "e078fbe3f0b880c715a495ea71142624c2b9507d6942c1ac361431b027f95d10",
+      "content_hash": "31d17d33c3151d8866dbbfe2b78d6eac801dd243a72d9acb76feb71ebb80a072",
+      "decision": "LINK",
+      "keys": [
+        "absorption-spectroscopy",
+        "atomic-emission-spectroscopy"
+      ],
+      "reason": "기존 검토: 용융 전처리 후 원자 흡광 또는 ICP 원자 방출로 귀금속을 정량한다. 원자 방출 분광 후보. 문헌 대조 후 원리 연결: 원자 방출선에 의한 원소 분석: 여기된 원자·이온이 낮은 에너지 상태로 전이하며 내는 고유 파장의 빛으로 원소를 식별하고 세기로 함량을 추정한다. 시료 도입·여기원·분광 분해능·검량이 필요하다. 선 중첩·자기흡수·매질 효과를 고려하며 흡수 분광과 구별한다."
+    },
+    {
+      "identifier": "AR-068494-A1",
+      "source_fingerprint": "61acb3abff6c886cdabb0e6e5f5777e075262c73e1e467e16d3c3c278fe49ad7",
+      "content_hash": "e4a31991499c27e5d369ebe69c58f3ecc0bd2e5622fc5b60927d5407813abc99",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation",
+        "water-gas-shift"
+      ],
+      "reason": "기존 검토: 재생 지방 원료 수소화·탈산소와 CO+물→수소+CO2 반응을 명시한다. 수성가스 전환 후보. 문헌 대조 후 원리 연결: 수성가스 전환 반응: 일산화탄소와 수증기를 반응시켜 이산화탄소와 수소로 전환하고 합성가스의 수소 대 일산화탄소 비를 조절한다. 촉매·온도·증기 비·접촉 시간에 따른 평형과 속도를 확인한다. 발열·촉매 오염·응축을 고려하며 물만으로 수소가 생기는 반응이 아니다."
+    },
+    {
+      "identifier": "AR-068510-A1",
+      "source_fingerprint": "f5a6cb2391325ff5135d0379b41b0c553784df82d2a2b22de2b6c975171df576",
+      "content_hash": "b510c2c9a6782bfabfb71e17edf80a93f240b3b0b74e93c46bb6eb87bf8db9ed",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "allosteric-cooperativity"
+      ],
+      "reason": "기존 검토: mGluR2 양성 알로스테릭 조절제이다. 다른 자리 결합의 협동성 후보. 문헌 대조 후 원리 연결: 알로스테릭 결합에 의한 반응 조절: 주 결합 부위와 다른 위치의 결합이 단백질의 상태 분포를 바꾸어 주 리간드의 친화도·효능·반응 곡선을 변화시킨다. 결합 부위·리간드·조직·농도·협동성을 확인한다. 양성 조절제가 단독 작용제인 것은 아니며 경쟁적 길항과 구별한다."
+    },
+    {
+      "identifier": "AR-068682-A1",
+      "source_fingerprint": "5b52ef29b976c93e13f8c8bfbee913eef51f3f426d852111740dbe9f3b7f0059",
+      "content_hash": "e39c8c62ffb176dabf9e5d643a473e24b7508370331a29ad4ac9c6e8d4202a1b",
+      "decision": "LINK",
+      "keys": [
+        "keyed-encryption"
+      ],
+      "reason": "기존 검토: UICC·단말·서버가 앱별 로컬 키로 인증·암복호화한다. 키 기반 암호 변환 후보이며 특정 cipher는 미제시이다. 문헌 대조 후 원리 연결: 키에 따른 가역 암호 변환: 키로 선택되는 변환으로 평문을 암호문으로 바꾸고 올바른 복호 절차로 복원하여 키가 없는 관찰자의 내용 해석을 어렵게 한다. 검증된 알고리즘·키·논스·운용 모드·키 수명 관리가 필요하다. 특허가 특정 AES 구현을 사용한다고 가정하지 않으며 암호화만으로 무결성이 보장되지 않는다."
+    },
+    {
+      "identifier": "AR-068703-A6",
+      "source_fingerprint": "92d4f9f99da72c48158b7ec62bc2152ec478e584fe7f7b970dafe5e1a793f05c",
+      "content_hash": "089b6defd8a361dbbbd96ebe240a8b4dd40251e924f2bbfb772f63514a843cc7",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "hydrostatic-liquid-seal"
+      ],
+      "reason": "기존 검토: 잔류수 수봉과 수압 개폐 밸브로 하수 가스를 막는다. 수봉 및 체크밸브 후보. 문헌 대조 후 원리 연결: 액주에 의한 기체 통과 차단: 굽은 유로에 남은 액체의 정수압이 기체의 통과에 필요한 압력 문턱을 만들어 배수관 등의 기체 역류를 억제한다. 유효 액주 높이·밀도·통기·급수를 유지한다. 증발·사이펀·압력 변동으로 봉수가 사라질 수 있으며 완전 기밀을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-068722-A1",
+      "source_fingerprint": "0ce8705e83c77cd145d906e944a8bd10c7d1c2f104157763f6c34c17bb2f9a60",
+      "content_hash": "4432ee08f59e4b81efe4ce8d06fa1ce67f50d5c2f249948163d5caebf97a7cc7",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "metabolic-flux-redistribution"
+      ],
+      "reason": "기존 검토: 전구체 소비·경쟁 대사·성장 제한을 바꿔 탄소원의 methionine 전환을 높인다. 대사 흐름 재분배 후보. 문헌 대조 후 원리 연결: 경쟁 경로 조절에 의한 대사 흐름 재분배: 공통 전구체·보조인자를 소비하는 경쟁 경로를 줄이거나 목표 경로를 강화하면 대사 자원이 원하는 생성물로 더 흐를 수 있다. 물질 수지·에너지·보조인자·성장·독성과 조절망을 확인한다. 경로 하나를 억제하는 것만으로 생산량 증가를 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-068790-A1",
+      "source_fingerprint": "e60879d7e599f3cf80f6ae7a9c69d3b632ad9e5084ad81dde4d9d356c4639b2b",
+      "content_hash": "ba835c9e3dc34926d6d8e38d6c6cc549d19d3f18f7d5ee8552d0c8df21b43dca",
+      "decision": "LINK",
+      "keys": [
+        "chemical-cue-directed-behavior"
+      ],
+      "reason": "기존 검토: CO2 화학 유인과 곤충 방제 조합이다. 화학 감각 유인 원리 후보만 검토하며 병원체 증식·살포 지침은 추출하지 않는다. 문헌 대조 후 원리 연결: 화학 신호에 따른 행동 방향 조절: 생물이 감지한 냄새·화학 성분이 이동·탐색·접근 행동을 바꾸므로 유인 또는 기피 신호로 이용할 수 있다. 종·생리 상태·농도·기류·시각·열 신호의 상호작용에 의존한다. CO2 감지만으로 모든 곤충의 유인을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-069132-A1",
+      "source_fingerprint": "9c182b1c6d49dfa72b32ffe1aefd182798e267a8c50c91b530d85f3b60f58bf3",
+      "content_hash": "59e081947bb3ef5a9df5f074bf87b0d3a84e8e971ebf156cb94f083cc0b4381a",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening",
+        "polymerization",
+        "polymer-glass-transition"
+      ],
+      "reason": "기존 검토: epoxy·isocyanate계 열경화 수지의 가교와 유리전이 온도를 명시한다. 고분자 유리전이 후보. 문헌 대조 후 원리 연결: 고분자 유리전이에 따른 운동성 변화: 비정질 고분자 영역의 협동적 분절 운동이 관측 시간 규모에서 활발해지는 온도 구간을 지나면 강성·이완 속도·성형성이 크게 달라진다. 측정 시간·수분·가교·조성에 따라 전이 온도가 달라진다. 결정 용융과 구별하며 유리전이만으로 유동·완전 용융을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-069287-A1",
+      "source_fingerprint": "7fe409c2da07a953c3b97c0463fc052f4c81075843970b3faf952d48c475c9d4",
+      "content_hash": "41adbc3aafb2256f5ee6b4cd7084d255ca4cc59d2f5959cb2bf741a07b6a5c20",
+      "decision": "LINK",
+      "keys": [
+        "capacitive-deionization"
+      ],
+      "reason": "기존 검토: flow-through capacitor 전극으로 물을 정제한다. 전기이중층 이온 흡착에 의한 용량성 탈염 후보. 문헌 대조 후 원리 연결: 전극 충전에 의한 용존 이온 제거: 다공성 전극을 충전하면 전기 이중층에 이온이 축적되어 통과하는 물의 염 농도가 낮아진다. 방전으로 이온을 방출해 전극을 재생한다. 전극 표면적·공극·전압·유량·급수 농도가 중요하다. 공이온 배출·부반응·용량·오염을 확인하며 막 전기투석과 구별한다."
+    },
+    {
+      "identifier": "AR-069570-A1",
+      "source_fingerprint": "163afb5f8e5987664d4c03668d7c40cb3e10c69576edb3c0e75525608560051a",
+      "content_hash": "b9deb8d145d5128cba888d250edbcc3cda71a3e7d9896ffa094710bc9e5e3a6c",
+      "decision": "LINK",
+      "keys": [
+        "liquid-bridge-agglomeration"
+      ],
+      "reason": "기존 검토: 염수로 전분을 혼합하고 건조해 응집체를 만든다. 액체 가교 과립화 후보이며 염 결정 가교의 기여는 별도 확인한다. 문헌 대조 후 원리 연결: 액체 다리의 응집에 의한 습식 과립화: 젖은 입자 사이 액체 다리의 표면장력·모세관 압력이 입자를 묶고 건조 후 결합제가 남아 과립을 유지할 수 있다. 액량·젖음성·점도·혼합·건조와 결합제가 중요하다. 과습·전단 파괴·건조 수축을 고려하며 용융 결합제 과립화와 구별한다."
+    },
+    {
+      "identifier": "AR-069572-A1",
+      "source_fingerprint": "a62b9ffbf47fc224575570721cac232f0c2b7b670ed3405563b0a8065d4a051e",
+      "content_hash": "3b802bc607ab5d577554f2b4f3d5e078a8e8f0f56d84bcb8f97c9b6b437194b0",
+      "decision": "LINK",
+      "keys": [
+        "first-pass-metabolism-bypass"
+      ],
+      "reason": "기존 검토: 구강 점막 흡수로 초회통과 대사를 우회한다. 투여 경로와 생체이용률의 생리 원리 후보. 문헌 대조 후 원리 연결: 흡수 경로에 따른 초회 통과 대사 감소: 구강 점막 등에서 전신 순환으로 흡수되는 분율은 장·간을 먼저 통과하는 경구 경로와 달라 초기 대사의 영향을 줄일 수 있다. 실제 점막 투과·삼켜지는 분율·제형·국소 대사를 확인한다. 대사가 없어지는 것이 아니며 흡수 개선이 임상 효능을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-069747-A1",
+      "source_fingerprint": "9c5bc82327d008b4fe619c7fa0e5c3d925c7e40df021180dbb3033e650311894",
+      "content_hash": "855428322d68b8f9b9bcf072de77a8d57f05db14cb0180c1d2b34d3421b0eb90",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "기존 검토: B7H4 결합 항체에 cytotoxin을 접합한다. 항원 표적 화물 전달 후보이며 내재화는 초록에 없다. 문헌 대조 후 원리 연결: 항원 표적 결합에 의한 화물 전달: 항원을 인식하는 항체에 화물을 연결하면 결합 선택성을 이용해 표적 부근의 화물 분포·체류를 바꿀 수 있다. 항원 분포·항체·연결자·화물 방출·비표적 노출을 확인한다. 내부 유입·세포질 도달·효능은 별도이며 항체 결합만으로 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-069947-A1",
+      "source_fingerprint": "d5ad3a45934c413df278794a8388eee7295f577f7f1623188ebfc7843ce5f653",
+      "content_hash": "36b4f6e2a9287e8588eb939a21fd6c0c112e5f04971ea2670baa6623972e2cea",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "pneumatic-particle-transport"
+      ],
+      "reason": "기존 검토: 관의 차압을 만들어 폐기물을 공기와 함께 운반한다. 입자 항력 수송 후보. 문헌 대조 후 원리 연결: 공기 항력에 의한 고체 이송: 움직이는 기체가 입자에 항력을 가해 중력·마찰을 이기고 입자를 관로를 따라 운반한다. 입도·밀도·농도·유속·관로 형상에 맞춘 압력원이 필요하다. 침적·마모·분급·입자 파손과 막힘을 고려하며 최소 운반 조건을 확인한다."
+    }
+  ],
+  "recorded_at": "2026-09-21T23:28:00.990814+00:00"
+}

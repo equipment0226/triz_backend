@@ -1,0 +1,74 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d3685b6d04ca3ce49f413bed4224acf7b93b020003223802f5b183366c8d7dda",
+  "reviews": [
+    {
+      "identifier": "AR-120315-A1",
+      "source_fingerprint": "187c456b6435414373ae5ca54ae3ce822a79322df4f05cf5cd0bb1001dd6eaf8",
+      "content_hash": "e92811621199778d59b22804159347060bedb3b2b1f2ed9fb714379591209a36",
+      "decision": "LINK",
+      "keys": [
+        "pickering-stabilization",
+        "spontaneous-emulsification"
+      ],
+      "reason": "명시된 피커링·자발 유화 첨가제이다. 비산 감소를 별도 원리로 세지 않으며 입경 단위의 원문 오류 가능성이 있다."
+    },
+    {
+      "identifier": "AR-120320-A1",
+      "source_fingerprint": "d6d706e54a83ab7a8a9413e6852b4f475f59c011496e0ccd6536ad1ba21fbb8d",
+      "content_hash": "47cf4feb5939911d4f0dd126100060ba06f42b10f7443324ce1181848b3d318f",
+      "decision": "LINK",
+      "keys": [
+        "gelation"
+      ],
+      "reason": "셀룰로스계 겔화제 하이드로겔이다. 조직 재생·성형의 세부 경로는 없다."
+    },
+    {
+      "identifier": "AR-120322-A1",
+      "source_fingerprint": "f0a8dbc6bced9e617aad93c0dc92529372930f74223627035984f8c0d02b7306",
+      "content_hash": "42fb6553ef095616485bbfb76749957a150a3e5b73e8ece3f462e11f41f3a978",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "광섬유 페룰의 모듈식 연결 구조이다. 잠금 형상·광학 결합 기전은 미특정이다."
+    },
+    {
+      "identifier": "AR-120325-A1",
+      "source_fingerprint": "cf284f8628a22db78856796e2132201d2fe2dbd5ec0ecfbfaec0814c36991ad5",
+      "content_hash": "ae109799cd4ecee46e0a8d05ef7a373f24210f859408a40d2137f7945328c85e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조와 효능 주장이다. 생물 표적은 없다."
+    },
+    {
+      "identifier": "AR-120328-A1",
+      "source_fingerprint": "fd3f0a96dc89b5002cb3ddc6135cb9aa3d5d85bae3cb44bf00b2b9aeb60e1838",
+      "content_hash": "22b45b4d63abe7726a11da820609d2f4bad414f941231173a1224b7ac08b415b",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding"
+      ],
+      "reason": "플라스틱 내층끼리의 용접 접합이다. 중공 성형 방식은 기존 변형·형성 작용의 적용이다."
+    },
+    {
+      "identifier": "AR-120330-A1",
+      "source_fingerprint": "67f85d6c721be50fe99b149eee4fd626b237fb5db4680e6d4575509008dedef4",
+      "content_hash": "cd1ecfa5e4d84e008f19494167318f953d98af6177d52ff71f22fee9d97b8fd6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충·살균 화합물의 구조 범위이다. 표적·반응 경로는 없다."
+    },
+    {
+      "identifier": "AR-120332-A1",
+      "source_fingerprint": "e5727f14551402c603b6ad440c2fe4ead468d864a054cf4a2b6699c231c0a9f5",
+      "content_hash": "83a7e832f17e0ea6b5a25cb55662cc1f01c40e30503d43bc7823260b0cc21383",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching",
+        "evaporative-concentration"
+      ],
+      "reason": "염소화 잔류물에서 LiCl을 침출·농축한다. 산화물의 선택적 염소화는 문헌 대조 후보이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:44:36.611698+00:00"
+}

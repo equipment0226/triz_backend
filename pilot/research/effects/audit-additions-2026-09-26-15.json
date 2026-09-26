@@ -1,0 +1,247 @@
+{
+  "batch": "additions-2026-09-26-15.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1218,
+  "added": 20,
+  "after": 1238,
+  "target": 1500,
+  "source_sha256": "3a263f21db1987a4b379644a23522d49c6b25e4af72c1070ef479803dbf5c5ab",
+  "decisions": [
+    {
+      "key": "finite-rate-kibble-zurek-defect-freezing",
+      "group": 16,
+      "related_keys": [
+        "spinodal-composition-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "조성 요동의 자발 성장과 달리 임계 이완시간과 구동 속도의 경쟁이 결함 밀도를 정한다.",
+      "source_url": "https://www.nature.com/articles/ncomms3290",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "critical-fluctuation-opalescence",
+      "group": 13,
+      "related_keys": [
+        "elastic-light-scattering-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산란을 읽는 계측 구성과 달리 열역학적 요동·상관 길이 증가가 불균일의 생성 원인이다.",
+      "source_url": "https://www.nature.com/articles/s42005-024-01622-9",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "lattice-dressing-polaron-self-trapping",
+      "group": 14,
+      "related_keys": [
+        "mott-interaction-charge-localization",
+        "localized-state-hopping-conduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전자 간 반발이나 기존 결함 포획 대신 운반자 자신이 만든 격자 변형이 포획을 안정화한다.",
+      "source_url": "https://www.nature.com/articles/s41467-019-11767-9",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "radiative-self-energy-lamb-shift",
+      "group": 13,
+      "related_keys": [
+        "stark-electric-field-level-shift",
+        "casimir-fluctuation-force"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가해진 정전기장의 이동이나 물체 사이 힘과 달리 결합 입자의 방사 자기 에너지 보정이다.",
+      "source_url": "https://www.nature.com/articles/162143b0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "counter-rotating-bloch-siegert-shift",
+      "group": 13,
+      "related_keys": [
+        "autler-townes-dressed-state-splitting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "회전파 근사 안의 공명 분열과 달리 그 근사 밖의 반회전항이 만드는 보정이다.",
+      "source_url": "https://www.nature.com/articles/srep26720",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "electron-hole-andreev-conversion",
+      "group": 14,
+      "related_keys": [
+        "josephson-effect",
+        "electron-tunneling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "두 초전도체 위상차의 전류와 달리 정상–초전도 계면에서 전자와 정공의 변환이 일어난다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-30732-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "noise-matched-stochastic-resonance",
+      "group": 19,
+      "related_keys": [
+        "bistable-structure",
+        "annealed-uphill-stochastic-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "쌍안정성 자체나 탐색 수락률 대신 잡음 유발 전이시간과 입력 주기의 정합을 이용한다.",
+      "source_url": "https://www.nature.com/articles/ncomms15141",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "magnetic-moment-zeeman-splitting",
+      "group": 13,
+      "related_keys": [
+        "stark-electric-field-level-shift",
+        "nuclear-magnetic-resonance"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전기 쌍극자 응답과 다른 자기 에너지 이동이며 NMR은 이를 사용하는 공명 계측이다.",
+      "source_url": "https://www.nature.com/articles/s41467-017-00927-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "spin-gradient-stern-gerlach-separation",
+      "group": 9,
+      "related_keys": [
+        "magnetic-moment-zeeman-splitting",
+        "lorentz-actuation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "균일장 에너지 분열을 공간 구배로 운동에 결합하며 전하 속도에 작용하는 로런츠 힘과 다르다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-22094-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "discrete-spectrum-wavepacket-revival",
+      "group": 13,
+      "related_keys": [
+        "spin-echo-coherent-refocusing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 반전 펄스로 되돌리는 에코와 달리 이산 스펙트럼의 자유 진화 자체가 재정렬을 만든다.",
+      "source_url": "https://www.nature.com/articles/nature00968",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "frustrated-spin-glass-aging",
+      "group": 14,
+      "related_keys": [
+        "remanent-magnetic-recording",
+        "interfacial-exchange-bias-pinning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "잔류 자화 방향의 저장과 달리 다중 시간척도의 비평형 완화·온도 이력 기억이다.",
+      "source_url": "https://www.nature.com/articles/s41567-023-02014-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "vortex-pair-bkt-unbinding",
+      "group": 14,
+      "related_keys": [
+        "bose-einstein-macroscopic-occupation",
+        "finite-rate-kibble-zurek-defect-freezing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 상태의 거시 점유나 구동 결함 동결과 달리 위상 결함 쌍의 결합·해리가 전이 기전이다.",
+      "source_url": "https://www.nature.com/articles/nature04851",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rashba-edelstein-current-spin-accumulation",
+      "group": 14,
+      "related_keys": [
+        "spin-hall-current-conversion",
+        "rashba-inversion-asymmetric-spin-splitting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "밴드 분열 자체나 횡방향 스핀 흐름과 달리 비평형 점유 변화로 국소 순스핀이 쌓인다.",
+      "source_url": "https://www.nature.com/articles/srep04844",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "time-reversal-helical-edge-transport",
+      "group": 14,
+      "related_keys": [
+        "quantum-hall",
+        "spin-hall-current-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "강한 자기장으로 시간반전을 깨는 양자 홀과 달리 시간반전 대칭 보호의 나선 경계이다.",
+      "source_url": "https://www.nature.com/articles/s41563-022-01304-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "weyl-chirality-charge-pumping",
+      "group": 14,
+      "related_keys": [
+        "magnetoresistance",
+        "intrinsic-berry-curvature-hall-current"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기저항의 한 원인인 노드 간 전하 펌핑이며 횡방향 홀 속도와 구분한다.",
+      "source_url": "https://www.nature.com/articles/s41467-020-14749-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dynamic-texture-spin-motive-voltage",
+      "group": 8,
+      "related_keys": [
+        "spin-transfer-torque",
+        "precessing-magnetization-spin-pumping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전류가 자화를 움직이는 토크의 역에너지 변환이며 균일 자화의 계면 펌핑과 구분한다.",
+      "source_url": "https://www.nature.com/articles/ncomms1824",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "conduction-mediated-rkky-exchange",
+      "group": 14,
+      "related_keys": [
+        "interfacial-exchange-bias-pinning",
+        "antisymmetric-exchange-magnetic-chirality"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "교환으로 생기는 고정·키랄성 현상 대신 전도전자 응답이 교환을 매개하는 경로이다.",
+      "source_url": "https://www.nature.com/articles/s44306-025-00090-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "landau-level-fermi-crossing-oscillation",
+      "group": 12,
+      "related_keys": [
+        "quantum-hall",
+        "cyclotron-orbital-resonant-absorption"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "홀 평탄값이나 교류 공명 대신 장 변화에 따른 페르미면의 준위 통과를 검출한다.",
+      "source_url": "https://www.nature.com/articles/s41535-024-00622-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "resonant-three-body-efimov-binding",
+      "group": 14,
+      "related_keys": [
+        "feshbach-bound-channel-scattering-tuning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이체 산란을 조절하는 공명과 구별되는 삼체 상관의 결합 상태이며 공명은 조절 수단이다.",
+      "source_url": "https://www.nature.com/articles/nature04626",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "virtual-hopping-superexchange",
+      "group": 14,
+      "related_keys": [
+        "conduction-mediated-rkky-exchange",
+        "mott-interaction-charge-localization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이동 가능한 전도전자 바다 대신 국소 전자의 가상 전하 이동이 교환을 매개한다.",
+      "source_url": "https://www.nature.com/articles/ncomms11015",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

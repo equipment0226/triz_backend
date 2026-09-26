@@ -1,0 +1,221 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "bb7e7b6229675a727968ef85d69e4007e1d829a146831d33f15f397a0353c6e7",
+  "reviews": [
+    {
+      "identifier": "AR-083487-A1",
+      "source_fingerprint": "ee3dcdf347df6e3541848ac8a621833212241b8b93779fd73efb793629dbd395",
+      "content_hash": "e96b0a891ba79b809746c2384e09e04eef6dc0dbf29fc9ec7a2c7edcd1f37ba2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "진해용 화합물 구조만 있고 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-083495-A1",
+      "source_fingerprint": "cb5313e0cb7f8adb18b2f92186fa78803cab199a7dedc0b2e19bc7f66c89cc05",
+      "content_hash": "ef7a87a625a1c65d19f51df621f0376a278c368ead3776e176b8ef9253f0b6b2",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "TNF 결합 항체의 발현·안정화이다. 응집 감소의 세부 원인은 미상이다."
+    },
+    {
+      "identifier": "AR-083503-A1",
+      "source_fingerprint": "a9451e8a70575f8a2d1f3d95ee1efdcae6f42dd63ec1e232128c63a7e842cb21",
+      "content_hash": "8fbcec8d19fa00693e4813e400b989e20a798b11dfff7f90471a9f3c10534162",
+      "decision": "LINK",
+      "keys": [
+        "subtractive-color-mixing"
+      ],
+      "reason": "청색 염료로 직물의 황색 지각을 줄인다. 화학적 표백과 구분한다."
+    },
+    {
+      "identifier": "AR-083567-A1",
+      "source_fingerprint": "903619db7960e84a8862034b1df9ca9c51c55a5de01df21f907f9ef036ce6e67",
+      "content_hash": "45724ea76630e9220cace15aa26aab7b5d37b92229dfdfcb3bb087ab8f10c48d",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage"
+      ],
+      "reason": "회전 조임 공구의 반작용 토크를 지지 암으로 전달한다."
+    },
+    {
+      "identifier": "AR-083569-A1",
+      "source_fingerprint": "1cea1c949d53db29f6a7ced7b6c3113a220130a7827b9bf2c2db7dcfc9156800",
+      "content_hash": "4bf8cca2160ab713d2fb203ca3db4704709c1f9ecad3e45ebb211b234d26f79d",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "transcription-factor-regulation"
+      ],
+      "reason": "발현 조절과 선택 배양으로 응고인자를 생산한다. 구체 생산 최적화는 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-083580-A1",
+      "source_fingerprint": "2e4e115329c147a0e7c97ebc8b6712ab75ce46c613ab6f56a792c4f4dc0a01ab",
+      "content_hash": "63ecf95aa47f2f8f91b7ce306fa1bab3c0a1f150825fba0bdfceec7e8738a199",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "crystallization"
+      ],
+      "reason": "KCl 첨가로 마그네슘을 복염 결정으로 제거한다."
+    },
+    {
+      "identifier": "AR-083586-A1",
+      "source_fingerprint": "7ad94138cad54c1f470fa4e2f6ac1011f0124723344138a4482c6c1ce26ceb7e",
+      "content_hash": "52f4cc3d8b697e4a8da34873cc21de4cefd96ed9b54217b088661bfaa1b27926",
+      "decision": "LINK",
+      "keys": [
+        "immune-tolerance",
+        "biomolecular-recognition"
+      ],
+      "reason": "FVIII 펩타이드로 항원 특이 관용·진단을 유도한다."
+    },
+    {
+      "identifier": "AR-083603-A1",
+      "source_fingerprint": "d3f921a1c8fda8693d12576b0db936adf0fec04aa43676801a21623b1e811c31",
+      "content_hash": "026e9e169c125249c5d4c0411ec8c922598f4891c1fe88d49f6f17517061e48b",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion"
+      ],
+      "reason": "덮개 설치 시 경사진 면을 따라 커넥터를 움직여 액체 공급기를 결합한다."
+    },
+    {
+      "identifier": "AR-083604-A1",
+      "source_fingerprint": "e24595eddc01e4790161abd8e3ec4d5d06cf15545bc2d6bac8baf0be59f12c41",
+      "content_hash": "95a3fea54fecabbc0240c68fd127d945c9b66ff0cb2e7c8c91b5e4063dd458b1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "면도액 도포기의 유연 전면판·출구 배치를 정한다."
+    },
+    {
+      "identifier": "AR-083605-A1",
+      "source_fingerprint": "65c49f92657de152604e8ec18322bd9566e6b1d8590eedb18e7cd579732ca1fa",
+      "content_hash": "afd9ce8973e8bfff1aee8d58e1da9a2f0eb03ed5548f61def1eb1e4deb29132d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "개인 위생 용기의 위·아래 벽 두께를 다르게 한다."
+    },
+    {
+      "identifier": "AR-083608-A1",
+      "source_fingerprint": "5e9f470fb52b5cd4ffddf35a4cb6b27a95a25f6147379609de9235063a9948ef",
+      "content_hash": "9107840163137a76d351901d91b948d54afaef6fc9a63c8d5d1f281cd70cea6f",
+      "decision": "LINK",
+      "keys": [
+        "shear-droplet-breakup"
+      ],
+      "reason": "축·반경 방향 유입으로 비혼화 액체를 회전 혼합한다. 원심 분리 장치로 오분류하지 않는다."
+    },
+    {
+      "identifier": "AR-083614-A1",
+      "source_fingerprint": "7cd6855852915aafeb02db972faa91f37ec8348379127d69b5291b9f9772c941",
+      "content_hash": "90a4deb98db247d943db70e83842b4b38206bcc8bcad0a0d6b66662b6e0d1211",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "유기산 내성 미생물로 유기산 발효를 한다. 균주·조건 최적화는 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-083638-A1",
+      "source_fingerprint": "1bc7f5e57da75b94907db033402bf5e0f1eb01428980ce476722209f5f8ed254",
+      "content_hash": "68dfe32611daa330213e687cf8bf050977cf1350858b19eb112d47c051fd6cf6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "밸브 접촉면 일부에만 항균 재료를 둔다. 항균 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-083643-A1",
+      "source_fingerprint": "e08d2d60b90e0fa532737a90cf7759ba1c202da8512faf30b9b33672ae3dfd6d",
+      "content_hash": "d4ac03584d76794a45f19aeeb78ca56e50d1bbf910709f4255d0c95a5d437f09",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "sieve-size-separation"
+      ],
+      "reason": "연소·철망 입자 여과이다. 철망의 NOx 환원·오존 효율 주장은 반응 근거가 없어 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-083647-A1",
+      "source_fingerprint": "d22a129bf2ded6cde87a882bd78a2d39352d59d5d30736bb796b3e7091ec3879",
+      "content_hash": "496d6a40831ade58a9263bc77e66ca0b24f3117c69c0785e02a9bffd86363b9b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "회전 컵 액막의 가장자리 방출로 연료를 분무한다. 원심 액막 분무 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-083660-A1",
+      "source_fingerprint": "57919e40a73d1e8d1eeadc0310972c5c518f86ea17682e9a10a1fe7ed321f664",
+      "content_hash": "c5d0cc5212559c4826238fa93ffd620dafd1e7e1b1a19b3d2a5250ea4683bb1d",
+      "decision": "LINK",
+      "keys": [
+        "wet-chemical-etching"
+      ],
+      "reason": "산성 유체로 침착물을 화학 제거한다. 실리카 용해 성분·경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-083708-A1",
+      "source_fingerprint": "b5a4938e2d6ab88335bb3e2fb8e13d95bef7b74e549edada0424387b0c4a785c",
+      "content_hash": "c669cbf249d7029cea7492a853942eca6957d965c88c3d9c2834e4aee0e876cf",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물벽 에스터 절단 효소로 아세틸화를 줄인다."
+    },
+    {
+      "identifier": "AR-083722-A1",
+      "source_fingerprint": "b559b08a6b0f6bf98f0fb8000b30b239391ad0286dbcd69f69f3ec6ad0638dad",
+      "content_hash": "99681a0db83e35c8bc0f782e8afd25d7ce729466825ef2b8169bcf8c93e4b550",
+      "decision": "LINK",
+      "keys": [
+        "diffraction"
+      ],
+      "reason": "결정형의 X선 회절 피크로 구조를 식별한다."
+    },
+    {
+      "identifier": "AR-083729-A1",
+      "source_fingerprint": "cdb1507836a94d3382587863818de9660cd04b6b848af90d6e6f1f1e40dbe271",
+      "content_hash": "0fbf0a7b4a712bf2fc361aa2f0cdefdb5ce2c431f917acba9b724d9cf10f1534",
+      "decision": "LINK",
+      "keys": [
+        "polymer-turbulent-drag-reduction"
+      ],
+      "reason": "고분자 마찰 저감제를 비수성 유정 유체에 넣는다."
+    },
+    {
+      "identifier": "AR-083744-A1",
+      "source_fingerprint": "b13c46ae0d2048a0159b343dd2c1aecada4f99331dca56fd7a01b8c705d0b690",
+      "content_hash": "310e61fc9e448adaa6bdf315147bbb60e1ff44c1be12e2c070b6f9be44ba64d2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충제의 방대한 구조 변수 목록이며 작용점은 미상이다. 저장 말미가 잘려 있다."
+    },
+    {
+      "identifier": "AR-083755-A1",
+      "source_fingerprint": "77be80d231f9bf7002ea1722c6fcd56d94703975d33a5390a004cb768f5a9705",
+      "content_hash": "70e22d9e0e5198ba5f4e8065f79d044da0ee7751c55bc4f1f9b43f1da6a7b325",
+      "decision": "LINK",
+      "keys": [
+        "differential-scanning-calorimetry"
+      ],
+      "reason": "약물 고체 형태를 열전이 피크로 구분한다."
+    },
+    {
+      "identifier": "AR-083793-A1",
+      "source_fingerprint": "7e26ec0a16a5bd3496fc15f9840193af22049a88e261f6f357f35aad525bd0ce",
+      "content_hash": "92e858628f29752fffa3a0834445e5e2628b86e03092b3f101e0476bd5075ed8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "멸균 식품 용기를 회전시켜 운송과 배출을 전환한다. 멸균 방식은 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:26:32.190521+00:00"
+}

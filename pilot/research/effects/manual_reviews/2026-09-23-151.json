@@ -1,0 +1,92 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e2efbf567f9a1a80bf130b067f68a1907ba6804c5932a67b821a7db9fcaee23b",
+  "reviews": [
+    {
+      "identifier": "AR-099357-A1",
+      "source_fingerprint": "97b6656f10d5e3cf67676eba3f5c0f07e174073d3451b195e5b2727ac6b50652",
+      "content_hash": "f397c3a35517e8adb3a79a2cf830ad7adb16062c71fcaed09784557507c9775d",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "chromatin-accessibility-regulation"
+      ],
+      "reason": "BET 브로모도메인 결합을 저해한다. 효소가 아닌 염색질 표지 인식 단백질이며 일반 효소 저해로 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-099370-A1",
+      "source_fingerprint": "486cf17a177e34704c698bc52587858c52de8127b8837db545a7fff13c7feee6",
+      "content_hash": "6703117fe6faae6babf6d7add2db0c6d9d9fab240995556977a73b35a34b7c94",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수중 저장탱크의 설치·주입·회수 순서이다. 주입 구동 및 압력 보상 기전은 불명이다."
+    },
+    {
+      "identifier": "AR-099375-A1",
+      "source_fingerprint": "664bae51ab63e9bfe9ab85382c48dc2820f19c794641407909ea4909dee3db11",
+      "content_hash": "b5b50d2b302cf63e2575ae5cdeae8197d56593f51500d900aea275ecf0a3bb69",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "밀폐된 음료 분말 혼합 장치에서 지정 공기 입구와 배기로 공기 흐름을 만든다. 벤투리 구조는 없다."
+    },
+    {
+      "identifier": "AR-099398-A1",
+      "source_fingerprint": "648b0365aef95ddb6bb674e3439baa39af3c805a8516598091527031c4340179",
+      "content_hash": "d7b17ec4ab232d8fdfdce5af2c46352460cb8883e2c9547a449e0a4429187cda",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "제거 가능한 플러그를 가늘고 파단 가능한 연결부로 붙인다. 광섬유의 광학 원리는 본 청구의 핵심이 아니다."
+    },
+    {
+      "identifier": "AR-099400-A1",
+      "source_fingerprint": "eb7525258700c60b053056de8d861fbcd1de1e0272246a04e5e881443bd59d4e",
+      "content_hash": "a7c5bafe8ef992a0b35783573aa50178c4820d06d9c296089852740c41146e6a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "헤테로고리 화합물의 치환체와 염을 제시할 뿐 변환·표적 기전이 없다."
+    },
+    {
+      "identifier": "AR-099419-A1",
+      "source_fingerprint": "76acfc6bc519de3dd805b63467e202b43519c22882a997435e6b62e63e186a2e",
+      "content_hash": "4b9a4cc5b31272a1524746a5b9e219ace99323955c3a3b8d6aa2cd92c65fd292",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "acid-base-reaction"
+      ],
+      "reason": "규산염을 산으로 처리하여 실리카를 침전시키고 여과한다. 케이크 첨가제의 작용은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-099428-A1",
+      "source_fingerprint": "abb6fc31c15b1b977b0381b24b18988f41ea2d8da87c3cc150234eb18d6dc9ca",
+      "content_hash": "eb2ddcdea565f3a670f2f43cd1925e06246e9a013551e0f0139370add146ace0",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "역전사효소·프로테아제·인테그레이스 저해제의 항바이러스 조합이다. 조합 상승효과는 입증하지 않는다."
+    },
+    {
+      "identifier": "AR-099431-A1",
+      "source_fingerprint": "2d265578699b9550a602ab611f67d91cd12fa7bfe96e24769d75a96cec4899cf",
+      "content_hash": "992935b363f79471fe9560de41870ad17d08d990e88b08165a7351cf723b088e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "영상을 영역 이동 순서로 색인·검색한다. 계층 분할·서열 최적 정렬·특정 인덱스 자료구조는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099437-A2",
+      "source_fingerprint": "c78f43af5c5230acecf3592f59126afa683e529637abdb4905f9d4be488e5d0f",
+      "content_hash": "03576e69b9cdc18fbb3e528e9ad848041de2aa7e55873b0a102c993b8166387b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비팽윤·비침식 에틸셀룰로스 확산 매트릭스로 방출을 제어한다. 가교 망 크기 제어와 구별되는 매트릭스 확산 후보로 보류한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:58:56.678597+00:00"
+}

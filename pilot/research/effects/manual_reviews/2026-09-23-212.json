@@ -1,0 +1,168 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "b4528578d22defa6af710262cb3a47c566c3e94afcf9420affd937ac812b7e04",
+  "reviews": [
+    {
+      "identifier": "AR-111137-A1",
+      "source_fingerprint": "f4f37dd7afc3e4e981c6c4d10ef5d8c1a033c21d7c55dd872ef4055519fc16e9",
+      "content_hash": "78c95305e0f4bb32c722a8cf456923c7ad0b2c4e5770ffc6f53d93f31eacbec6",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression",
+        "heterologous-gene-expression"
+      ],
+      "reason": "PRP19 관련 표적 핵산과 식물 발현의 해충 방제 원리이다. 서열·전달 조건을 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-111144-A1",
+      "source_fingerprint": "33c766d492d0188d29539d60ce2c25724a55311719c112f281d457266a337ce2",
+      "content_hash": "6395dbc1058cdf476c184f7cc2825408159da3bc6c85d5b1741bfd0d0d3a4990",
+      "decision": "LINK",
+      "keys": [
+        "geometric-optical-occlusion"
+      ],
+      "reason": "불투명 착색부와 투과부로 헤드램프의 보이는 영역을 구성한다. 광가이드 내부의 전반사 조건은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-111172-A2",
+      "source_fingerprint": "8e5397e9de91b06e3e1902b7f05152d2fa8b6ae139e312b3ba0422571dd005f3",
+      "content_hash": "5df17c094b21f3f7a2cc64af2f93b459a74f0b6957a740949b2f4a1686fa1864",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption"
+      ],
+      "reason": "기체를 액상 산화 반응기에 분배한다. 준비한 방향족 측쇄 산화의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-111182-A1",
+      "source_fingerprint": "600cc0a544c3852af9f51c83234b32828b603edbc70243e0d87ef8b369f4d440",
+      "content_hash": "11cc921cc0013f852af47ee898968993563273272b25be3f9d5c12f9a08963ef",
+      "decision": "LINK",
+      "keys": [
+        "chromatography"
+      ],
+      "reason": "HPLC로 약물과 불순물을 분리 정량한다. 중수소 존재만으로 동위원소 속도 효과를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-111204-A1",
+      "source_fingerprint": "8694cd15bbb33c46c62083bf83738ab32a5b22d36e0109a75051bc07f60ff273",
+      "content_hash": "178fbd1e8a1083e337562049811bf6b8e43c2e86a8c0381559fa6ca4872da9ec",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "삼투 보호제·증산 억제제의 식물 제형이다. 적합성 용질의 세포 삼투 조절을 후보로 검토하되 성분별 기전을 일괄 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-111210-A2",
+      "source_fingerprint": "cce7d680fec9bd0e54c07970b517a26cbdef5488012c0f0bb0461acd5fa2f037",
+      "content_hash": "b888ba925d7e371f906d174b19b90bff1cde5d35bdaef2738a680144063d8692",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "fluid-turbine-conversion",
+        "electromagnetic-induction",
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "가스 발전·전기 펌프의 파쇄 시스템이다. 기존 동일 시스템의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-111217-A1",
+      "source_fingerprint": "86daf9f7bc5b415981488ece9f77805c7a7d2489df0df6023679944166f3f3d2",
+      "content_hash": "f6c8f8ac23b0be4ac99216c4537552c7ca2ef6e39a20214645c9adfbad8bd777",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "biomolecular-recognition"
+      ],
+      "reason": "비복제 벡터로 항체를 발현해 수동 면역을 제공하는 개념이다. 항원 접종에 따른 능동 면역 유도와 구별하며 벡터 제조를 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-111223-A1",
+      "source_fingerprint": "fd5d1521b6111f835e7599313ba8773df4fa06c39ce68ddf76497276cca2a918",
+      "content_hash": "55ebd66474f0acd22e0370750f7693c57830b3d5edb3a072894fc1a3d500be07",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "multicomponent-cocrystallization",
+        "diffraction"
+      ],
+      "reason": "ACC 저해제의 콜린 염·공결정과 XRPD 식별이다. 염과 중성 공결정의 동일성을 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-111228-A1",
+      "source_fingerprint": "9bc3a990454a088f92a32c0e17ba27461df75ec895eb4ae9901949b789e22c8e",
+      "content_hash": "a6822f3da058d468054f995ea194246a5ef9a9e7b366b8c0a08be25e4d387a11",
+      "decision": "LINK",
+      "keys": [
+        "methanol-carbonylation",
+        "distillation",
+        "ion-exchange"
+      ],
+      "reason": "메탄올 카르보닐화 뒤 증류·이온교환 정제로 아세트산을 얻는다."
+    },
+    {
+      "identifier": "AR-111232-A1",
+      "source_fingerprint": "d44be4aa092a9ba307e3cc70b00dd3f0d4c6aed1f8aa60bc21adaae8755f8fde",
+      "content_hash": "27ec8dc6b6023a6118d1a7efd18a22233f6ef44c294b19f5eee26003b1b67d8d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "박리 뚜껑의 가장자리·당김 탭 형상이며 접착 계면 파괴 기전은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-111250-A1",
+      "source_fingerprint": "2c6157f25da89725d3577e3d1c810c70d094f0697c62c099e0075db9a7e4e96b",
+      "content_hash": "5b4e8a1c50a0030452b360ee99e3d15963cabbe4a53ea9b268a6c5c8bf1fa3ab",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 성분과 약해 경감제의 혼합 목록이다. 표적·해독 경로와 상승작용은 초록에 없다."
+    },
+    {
+      "identifier": "AR-111255-A1",
+      "source_fingerprint": "2af5167f3f254570c4471910daba5401b7853bba597ebdea82682410e188f5e8",
+      "content_hash": "c688acc43fa3f0db39419a2e7bb9dea9a9ebef48b9072e857ef0afc62b9e5f9c",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation"
+      ],
+      "reason": "나트륨 채널 억제 화합물이다."
+    },
+    {
+      "identifier": "AR-111269-A1",
+      "source_fingerprint": "6ada77ed57e55263f8ca20e24338c04ba9f15dc3e4fd28b8d64ef72d152d861e",
+      "content_hash": "b5897798ed95ec0beb9d7de247df96079d20c718c4db7ca5843f60ca6a45a996",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아릴피롤 합성·브로민화·N 치환 단계이다. 도식이 없어 고리 생성 반응은 특정하지 않고 피롤 친전자 브로민화를 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-111317-A1",
+      "source_fingerprint": "c6d6b1b9303fae05f3b61f0b43893c7dfe14c0f001472c8635246271312bc4cc",
+      "content_hash": "570007f192a5b973a0825cedcda27d5e70ae4de0bdc30c8f81aff5c2c9e060a7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피리미디늄의 광학 이성질체 구조와 방제 용도만으로 작용 표적은 알 수 없다."
+    },
+    {
+      "identifier": "AR-111337-A1",
+      "source_fingerprint": "43e450d68931c99ad1e8d8793da96270101986d1d9d8e12fec6d0d31f1fe23b8",
+      "content_hash": "cc8186d55ef7ee253d0e51b05bdd88231aad0e71f6767bcddc31f2e3a45b24f9",
+      "decision": "LINK",
+      "keys": [
+        "signal-correlation",
+        "pilot-aided-synchronization"
+      ],
+      "reason": "낮은 비영 지연 자기상관의 시퀀스로 동기·접속 설정 정보를 전달한다."
+    },
+    {
+      "identifier": "AR-111341-A1",
+      "source_fingerprint": "dcaefe752999f1d409292839eb5cff66e9c17cddbfb8b4f195ab09dcbcec5b66",
+      "content_hash": "aac27c1bc342c1131d7164f723a43eee66b9b81d317dd98c7d75008965dfaff4",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "수용체 친화도가 낮은 인슐린과 잔류 연장 성분의 접합체이다. 잔류 연장 성분 종류가 없어 FcRn·알부민 결합을 지정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:57:00.611953+00:00"
+}

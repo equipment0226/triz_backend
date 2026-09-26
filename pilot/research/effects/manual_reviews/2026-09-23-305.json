@@ -1,0 +1,1920 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e93162b4f26767b073da46863130b0470dbc3d1aafefa2571b8503a9386abb0a",
+  "reviews": [
+    {
+      "identifier": "AT-510429-A4",
+      "source_fingerprint": "9e595e78be6cf8d14b9e8d9f8a2428e8d5ec4336a0b022110225e006b2c57e36",
+      "content_hash": "6d9c4e295837db7d60a9dd38b93e8a5677563bf7ca63d42d8505b295dcfd1dfc",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510432-A4",
+      "source_fingerprint": "5d7d4715fdaf88e96b32702670e0e2c8e99236dddc1ae03ff5719957c774304c",
+      "content_hash": "3dafdb47291689ce6c17fbd51c5870483f91101750422b3830940002828d1cba",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-510435-B1",
+      "source_fingerprint": "469af91e440fc0ba0cd44b70882b7f801729a41ceab7dd105c00fa85cfaedf6c",
+      "content_hash": "b9f8add78a9e2117c66df680d3f225efde30eb8499286e1d36943c07361968c1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "예연소실의 대향 기체 유입이며 구체 혼합 유동·반응 조건은 불명확하다."
+    },
+    {
+      "identifier": "AT-510443-B1",
+      "source_fingerprint": "deb6eb0551d7a24d464c2bc620359bb8b6ad129405d090744cb841dc3dc6579a",
+      "content_hash": "a2c5527327f2f2287e68164af8f3657c4cfc684e92070ae59bf9ff7076429ad9",
+      "decision": "LINK",
+      "keys": [
+        "piezoresistive-sensing"
+      ],
+      "reason": "변형 저항 센서의 브리지 출력을 결합해 힘을 역산한다."
+    },
+    {
+      "identifier": "AT-510452-A2",
+      "source_fingerprint": "2f563a8fa80d4fd85da836d853395311a3f00393fff9e81376e1d0a7f2134106",
+      "content_hash": "3eaa9a808e3621291eaf8fed481930cb21d869aee257ce2982893fa21e18cd30",
+      "decision": "LINK",
+      "keys": [
+        "feedforward"
+      ],
+      "reason": "기관 상태로 가용 전력을 계산해 전동기 출력을 미리 제한한다."
+    },
+    {
+      "identifier": "AT-510462-B1",
+      "source_fingerprint": "641c1c318400ac78cda7b60635b369e562d0ddc50178308e34d16a4bf2a9f0a5",
+      "content_hash": "0c92f6e84c94973da47edc39f061ee6245e725d1ce2c2c3a1baef488f7497284",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분리한 분사기 모듈을 시험대에 연결하는 정비 절차이다."
+    },
+    {
+      "identifier": "AT-510466-A1",
+      "source_fingerprint": "e1ef551521adfc778ac6c43f86b22b0e43a7750f88766f8e5e0792aeaaa9aa7f",
+      "content_hash": "d07f3ae17e5ee82b8ca53df668ec4f5872d79d7a8da6ea793ce19f4dcfb0d4e3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "탁한 유리를 지난 빛의 색 변화이나 입자·흡수 조건이 없어 선택 산란을 단정하지 않는다."
+    },
+    {
+      "identifier": "AT-510468-B1",
+      "source_fingerprint": "f0dddf5454e43d841631825026627c92f1972963fdc04cbb5542b8511c289124",
+      "content_hash": "87680e748c6cffcb04fa6c6f59a350dc208e4390ff619883a30f796a1ea5fd0f",
+      "decision": "LINK",
+      "keys": [
+        "rolling-contact-friction-reduction"
+      ],
+      "reason": "웹 이동 방향으로 구르는 보호 롤러를 배치한다."
+    },
+    {
+      "identifier": "AT-510473-A1",
+      "source_fingerprint": "61a31b026dd74779410afaaa12bee8769b9d9795c6908cdd79f9f90da288f75c",
+      "content_hash": "6df80e41e605656f104e1f572b0ea04c65a5f0374cfef2d00b97bf2051c967bc",
+      "decision": "LINK",
+      "keys": [
+        "seebeck-generation"
+      ],
+      "reason": "열전 요소를 전기적으로 연결해 발전한다. 접합재의 별도 작용은 특정하지 않는다."
+    },
+    {
+      "identifier": "AT-510473-B1",
+      "source_fingerprint": "e779afc95978f152bdb968b6d23efb615214e373cd80d3b05357e7e3be088f48",
+      "content_hash": "320bbea36fb2158b2620279dd1c46c93bd31eb4e75a55ad2d704dc9b44ddbf86",
+      "decision": "LINK",
+      "keys": [
+        "seebeck-generation"
+      ],
+      "reason": "열전 요소를 전기적으로 연결해 발전한다. 접합재의 별도 작용은 특정하지 않는다."
+    },
+    {
+      "identifier": "AT-510489-A1",
+      "source_fingerprint": "59567c16a56b06f34d344b3668d8fb32a9a54931bd4fc9e37719ad59e37a7b3c",
+      "content_hash": "17eb1b4f0d56024ea95d17838f91533f9aca706e18898e40b6b601c7523e4e11",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510497-A1",
+      "source_fingerprint": "af8d8faa776109399fdb89572448107f5eda8534daa6d6a584c08e3da6e9ca50",
+      "content_hash": "19d85dd6d17daee5ebf4d12f3c50812cc8f1f696e2e15c6f83b3aebbd4caeec7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "모듈형 목조 공간의 모서리 연결 배치이다."
+    },
+    {
+      "identifier": "AT-510499-A1",
+      "source_fingerprint": "d37b961f9dcf9fc60ce866f3e15d7a8393f9c34e3ec6e49fdb430a64dc0b8749",
+      "content_hash": "2fbcaf3a961cfbffc223cc5063cfde73eabd248bbaed482548fbdb3ce296968e",
+      "decision": "LINK",
+      "keys": [
+        "cross-ply-laminate",
+        "fourier-conduction"
+      ],
+      "reason": "교차 목재층의 홈과 열전도 도막으로 난방 배관을 배치한다."
+    },
+    {
+      "identifier": "AT-510508-A1",
+      "source_fingerprint": "0d9ca67839fc004e8aa5bcb2b9acc6c353367c7c0057b00559b9ccf6202fda38",
+      "content_hash": "e811aaeb1321cb074335d56e9a1a5d92c9b4e1a2da0f979cb0ee639bf70d3d8a",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-heating"
+      ],
+      "reason": "마이크로파로 물유리 혼합물을 가열한다. 당 첨가의 강화 경로는 불명확하다."
+    },
+    {
+      "identifier": "AT-510515-B1",
+      "source_fingerprint": "41ffd26664afba106dc31cc16c805df8efb4ad26f09d1c3c694cbca42a14ea7c",
+      "content_hash": "b0507f7d00ea88c91c4113d8a7ed62269daa90c88ff1c022bf5dbecff892bf35",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "외부 가압 유체로 공작물을 지지한다. 정압 베어링의 액체 범위를 보완한다."
+    },
+    {
+      "identifier": "AT-510518-B1",
+      "source_fingerprint": "b5f4638f4364e5458dd2272ad88f19edf9101f05872b93628e4092a0dcb4349d",
+      "content_hash": "ec7f5a969d2c4ec3e941b5e11f6b6a906eb9b56c20ee9e22613e9aacc7830d2a",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-510522-A2",
+      "source_fingerprint": "5439ebf72fdcd3fe6455a859eeeeb6c3daafa5a7f7cd14b4346c55fd64c73ca4",
+      "content_hash": "3332304b1a89d98e76553ed3b43bca3145f4e7eef4e7991c79228cabde969179",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "기울어진 교반기와 수직 교반기의 배치이다."
+    },
+    {
+      "identifier": "AT-510525-A1",
+      "source_fingerprint": "39620c84ae5a92c3603dbd78c799b989a23544a982d265a4e59895b9a62e9217",
+      "content_hash": "66255b20746e7c71a774021d943e56d61d05f851b506bd202a28f2685e1edd9f",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510535-A2",
+      "source_fingerprint": "14ff66d3e7b5f056a2d47419bb565d90857421bab0079d5b3769202fa04fbaae",
+      "content_hash": "f8eaa0f1672f8844f14dd201ae7ae5cb533bdd14bdeb8d00fb08d2e38e94d682",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "주변광과 자체 광원을 합치는 광학 배치이다. 자세한 결합 소자는 불명확하다."
+    },
+    {
+      "identifier": "AT-510546-A4",
+      "source_fingerprint": "b5ee666a87cd84c2cef69f5e2c67a519561526c7b58ca26cfbfe90bfd46cc1a5",
+      "content_hash": "f91e0ee1c05346a88a79cb641ffb858dcd353e228feff3df27c39702e38fdcf5",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "긴 보강 부재로 신발 밑창의 굽힘 강성을 조절한다."
+    },
+    {
+      "identifier": "AT-510546-B1",
+      "source_fingerprint": "479c0d70da64c764572f154750ea5f4177ad43019ec96014f376b70d64f19ee8",
+      "content_hash": "1f91d2b6824f4da23ed78f0c8525e28d68af66f35c382e5185db25194f1f830a",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "긴 보강 부재로 신발 밑창의 굽힘 강성을 조절한다."
+    },
+    {
+      "identifier": "AT-510552-B1",
+      "source_fingerprint": "32882897f84f11cbde9a8782671dc8f7a8011a7b2cabef628269391b5d99fcf7",
+      "content_hash": "fe68bb40d9c6199f38561c0d518f720c6cfdd6a88acea3ec03042a0c1c0b82c3",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "반경이 바뀌는 슬롯을 따라 그릴 높이를 조절해 잠근다."
+    },
+    {
+      "identifier": "AT-510557-B1",
+      "source_fingerprint": "d22a4d3e60d3fb21c6bdd1e13def8493b9caa596c31a4e126f12b7080afd7310",
+      "content_hash": "5e0798a760fe67da46be0d69f0fc54a909282e0f721ec5856cab788954431db5",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "압착·조임 접촉으로 줄·축·부품의 미끄럼을 억제한다."
+    },
+    {
+      "identifier": "AT-510574-B1",
+      "source_fingerprint": "ca690a9682172e1cdbb5543ba1028fc86c21fe78f5da84d14a7f560c1122459a",
+      "content_hash": "8174938e09dcfc4fb0e992c349c275614ef4f08560935ed24af32129d3eca82e",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission",
+        "frictional-load-transmission"
+      ],
+      "reason": "접촉 반경과 마찰 전달로 연속 속도비를 바꾼다. 기어 운동비와의 공통 범위를 보완한다."
+    },
+    {
+      "identifier": "AT-510580-A4",
+      "source_fingerprint": "fdb9f7758247f4a020e2dd116ef3e75e0267e4485bfe9c779708362a8ecdbd0c",
+      "content_hash": "61400e5ffd2e0b4222df08050beb29baad840bcded38c3fad32cfa51bd0b8e29",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510583-B1",
+      "source_fingerprint": "2f8a5b707e8652a82aa9d995a25fb267140717aa4d9d604b5ff0c89ec8b4f86c",
+      "content_hash": "c772fa002e1008783a5814948f0615d71edc132cdab0ce4d79b541b09a3f2ac3",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510586-A4",
+      "source_fingerprint": "fc5349b2146d31434cfe3107891a3458bedeab70dc4af43c02cc0f1a1d70383f",
+      "content_hash": "9313c2ef5d340ee0e835902f000e1de95d28eabe4ae1ce8326e3bebfd42f0494",
+      "decision": "LINK",
+      "keys": [
+        "wet-scrubbing"
+      ],
+      "reason": "가스와 함께 유입한 먼지를 액체로 씻어 회수한다."
+    },
+    {
+      "identifier": "AT-510590-B1",
+      "source_fingerprint": "65166793b1ed2c0d4ecaadf1f41b5c06f16fa70523ef87209541e6dfea8a33de",
+      "content_hash": "3a328c18f10e40a3081954e501f4d50fab62eb269ec9ef85efa3304d0379d1b2",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510595-A4",
+      "source_fingerprint": "2d8cbdc3bfccb9a6451784879b77639ca689c789bef93ed4e9e237ed0996d81a",
+      "content_hash": "f7f3b3b1b89ae5387179e84904df8f143e84a582b13a81a39d346135330fa2f1",
+      "decision": "LINK",
+      "keys": [
+        "sieve-size-separation"
+      ],
+      "reason": "체 간격으로 자갈·폐기물의 통과 여부를 구분한다."
+    },
+    {
+      "identifier": "AT-510599-A4",
+      "source_fingerprint": "64538636513942e3776607bfbb69255b73f032e681f66d2ad8e5ac4878d88666",
+      "content_hash": "a8e676de61aaf57fab920713362ae4e6ee9c9faefe5df00457208a4918415fae",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion"
+      ],
+      "reason": "유량별 터빈 경로를 선택한다."
+    },
+    {
+      "identifier": "AT-510603-A4",
+      "source_fingerprint": "930542a35b5265882bec577cd9002c9744adae5be073f32aa364f92727424759",
+      "content_hash": "26906732072678359035aea1c6a0390bed915bfef575d13292a297e9f2616296",
+      "decision": "LINK",
+      "keys": [
+        "acoustic-resonator"
+      ],
+      "reason": "흡기 경로에 공진기를 연결한다."
+    },
+    {
+      "identifier": "AT-510604-B1",
+      "source_fingerprint": "7d7f96d285b283d425f420de7154c178ed6691a8c1f6171c220a64b6b883d4ce",
+      "content_hash": "7c4d9e261ae249a1eb02667a3c6fe70882cae682560b750fbe14ecc9efcdefd5",
+      "decision": "LINK",
+      "keys": [
+        "phase-change-storage",
+        "forced-convection"
+      ],
+      "reason": "간헐적으로 가열해 얼음을 녹이고 열교환 유량을 조절한다."
+    },
+    {
+      "identifier": "AT-510608-A4",
+      "source_fingerprint": "4fa6821c56abf942bc2e8993b51b54652838a92f0fb404c6784cfab3d52d5eec",
+      "content_hash": "92e27451888eb73fcbaa1e8aa7d2d4ee9b7a9bf8f9cbcaacaf9e15f49909e39a",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510610-B1",
+      "source_fingerprint": "e5450e9ee8491952ce0aad49d7a934e48672931ba81430270f589345eb1d4cc9",
+      "content_hash": "ae12a39497ccd97bd1f1bd2ab3b866209ae1f03a34718be7d2956ce542f3530b",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "탄성 받침으로 달걀을 지지한다."
+    },
+    {
+      "identifier": "AT-510612-A1",
+      "source_fingerprint": "12544a2c70c16d89fdbe5f28314b75490c5831d427df439d7b4fd6f49f0f52a6",
+      "content_hash": "ee9fe01b35248cc8197a1d74a2d9ce9a398562b51e23d9c6de020e2869062ea3",
+      "decision": "LINK",
+      "keys": [
+        "pyrolysis"
+      ],
+      "reason": "무산소 열분해로 복합 포장의 유기 성분을 분리한다."
+    },
+    {
+      "identifier": "AT-510621-A1",
+      "source_fingerprint": "13f569921f54a3f5b70f584e653e41f3353cd839d3369fae73b109bd9cafbe36",
+      "content_hash": "66fc6b76ddf284641472fb71b8758139a1b90c10e67fc8a2a51b875a0b6fe62b",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission"
+      ],
+      "reason": "톱니 맞물림으로 회전 속도·방향을 변환한다."
+    },
+    {
+      "identifier": "AT-510622-A1",
+      "source_fingerprint": "bd3cfaa7e2333fe3236b74aff699a869259b85ad89e30d51558e9120ed63a9e0",
+      "content_hash": "fa9f7185c777901bebe63407bbc5202343141c25db2400e853d4ac97fe767770",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-510631-A1",
+      "source_fingerprint": "e8ac7a93d5ad72b0919db0a31bdb8f70cdbb9a034454d516c6d045f006797e98",
+      "content_hash": "945b2fcbaf0b3cba5875d0b860ac6a982f38e4492fe9571f08c4eb0f13c7852e",
+      "decision": "LINK",
+      "keys": [
+        "absorption-spectroscopy"
+      ],
+      "reason": "여러 파장 LED와 기준 검출기로 유체 투과 스펙트럼을 비교한다."
+    },
+    {
+      "identifier": "AT-510633-A1",
+      "source_fingerprint": "86eb5829cb66211dee0daa95b1153611b9bb505e4b3d462841c3e87850cea02d",
+      "content_hash": "172d279e59328ac425c59b273c85e679400b3cc2a27afa3ece3ab84dc533dc67",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "차량 프레임 내부를 가로지르는 고정 부품 배치이다."
+    },
+    {
+      "identifier": "AT-510634-B1",
+      "source_fingerprint": "b4f33f099686d2bc90c56954e438958c8bbbaafbc794e4a5ce3ca068c9865f5d",
+      "content_hash": "babbfec0e200ed04d97f54383f3b95cccf63943eb892c51b6a0ebba6bd4d3ba6",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "날이나 절삭 공구로 재료를 분리한다."
+    },
+    {
+      "identifier": "AT-510635-B1",
+      "source_fingerprint": "5c374f07c3c68b34598209ed3b21602c15b02dcbe0373783736d37428484317f",
+      "content_hash": "ef0386aad17aebadda1320568662a5c2a4a5dc94192428ad579fc975ab12165a",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control",
+        "adsorption"
+      ],
+      "reason": "실란 처리로 액체 젖음을 줄인 제올라이트의 흡착을 이용한다."
+    },
+    {
+      "identifier": "AT-510642-B1",
+      "source_fingerprint": "a04bf2a041a9abce154da9b7ecef745ff2939a149d7bc623456cde3559850ab5",
+      "content_hash": "c0eefc96696f300b5dc98b60b1aa3898ee491d6e5339b8dc9bca9184146d4aa6",
+      "decision": "LINK",
+      "keys": [
+        "projective-coordinate-mapping"
+      ],
+      "reason": "기준 좌표와 센서 자세·거리·영상 기하를 결합해 위치를 대응시킨다."
+    },
+    {
+      "identifier": "AT-510645-A1",
+      "source_fingerprint": "6cfe3092a01c85506d2d942c3374d9e2c71f965cea672d7c0c57d65136e76511",
+      "content_hash": "02d41f36213d512444f722980c52f5f49e82c933a8dc95bc1d15839b3e989a59",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "바닥 아래 배선과 벽 모서리 마감재 배치이다."
+    },
+    {
+      "identifier": "AT-510654-B1",
+      "source_fingerprint": "0b71e1a08dda7469f0691bbadac5b99a0ef8ac6f44a1b5271ebd656fe0c38baf",
+      "content_hash": "2c6e730eb53df0b0ef6e37f6758c2b698eaae8bec698d6bf8876d088bb11412c",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "문 아래 밀봉 장치를 클램프로 붙인다."
+    },
+    {
+      "identifier": "AT-510657-B1",
+      "source_fingerprint": "f143294f294091d7254f7ccd58e176a1a44e268e8f837b2e792cc285cdf64964",
+      "content_hash": "1b16dc59e4c2e8003fc4ac05659009ad1fd267539ae0e91e911b596b886c828a",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "날이나 절삭 공구로 재료를 분리한다."
+    },
+    {
+      "identifier": "AT-510659-A1",
+      "source_fingerprint": "a01f0be4603c69128920f19fc769dd3e57e1550535d7c630b93b02809a9acd65",
+      "content_hash": "2252f935e34c3fa3efac1b7706f52b2adaebcecac1e59e7bd86f836fc7a020ec",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "공기 항력 차로 식물 조각을 분리한다. 공기 분급 초안과 연결한다."
+    },
+    {
+      "identifier": "AT-510663-B1",
+      "source_fingerprint": "713dc2ed6674d513246e807f92e2f760b1cfee4664c04107dc406362b5cc138d",
+      "content_hash": "e4d57b7da36de959047c0005013ca0116546c53b680a5d2ae52126f1660e0b2b",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "solidification",
+        "forced-convection"
+      ],
+      "reason": "압력으로 용탕을 채우고 냉각해 주조한다."
+    },
+    {
+      "identifier": "AT-510666-A3",
+      "source_fingerprint": "9ad6f011bf9c753bda54420bf857d2df7df12497134f17f62cafe4d83a9e4998",
+      "content_hash": "60d7c1785361799e959f4703879415c115dd3573149cb9835f539f4e52739829",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "병 상자와 종이 운반대의 배치이다."
+    },
+    {
+      "identifier": "AT-510671-A1",
+      "source_fingerprint": "3e1cae1b6b58ae26aac6a1dda1ed14a6e028119a079417c26b2ce72cd0dd5116",
+      "content_hash": "bb77ecc7cccd486e3917f09ef7f5647492ad973b5a4fdc31d05480faffd2404c",
+      "decision": "LINK",
+      "keys": [
+        "pressure-accumulator"
+      ],
+      "reason": "변형 가능한 축적 매체로 요소 용액을 환류시킨다. SCR은 기존 신규 초안에 연결한다."
+    },
+    {
+      "identifier": "AT-510675-B1",
+      "source_fingerprint": "30402e768c9971a2236bb78badbf82ad0311cb93eedd0d86b0c8ab6d9c2b0d5a",
+      "content_hash": "9aa40074642fc04f2db71d637ff6e8b7dc5b718287d09088da88423f31e402ba",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광대역 시험 신호로 전달 모델을 적합한다. 시스템 식별 초안에 통합한다."
+    },
+    {
+      "identifier": "AT-510679-A2",
+      "source_fingerprint": "3491bf6fd12603d4c5d9cada346c6d9ccc96bbf004193863ec42a0ee447872e3",
+      "content_hash": "e6a0ada5275950b615fbc791308831b4d322b0e58839967912f608462c905e01",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "열 잡음·빛·자기장·진동의 결합이 세포 회복·명상을 높인다는 광범위한 효능을 초록만으로 검증할 수 없어 효과 근거로 채택하지 않는다."
+    },
+    {
+      "identifier": "AT-510684-A4",
+      "source_fingerprint": "351887b426db49653c0b7fe60e73316482c68f0d8c138578ee829d7a3c155165",
+      "content_hash": "441442b6e614511690828666f4ffc646291f2a9d047cd8c12dcfd2c716c35d4d",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission"
+      ],
+      "reason": "서로 다른 기어비 경로로 저장장치를 연결한다. 저장 매체는 불명확하다."
+    },
+    {
+      "identifier": "AT-510685-B1",
+      "source_fingerprint": "afd716fc4ab8ad7ad42d4f5b939f20114b89153fb645f88de227338225d0d41b",
+      "content_hash": "65279f8b7693978d52d0da1f36ff533c0ea38fa0ae98d3731718dcf9114b8b91",
+      "decision": "LINK",
+      "keys": [
+        "density-stratification"
+      ],
+      "reason": "높이가 다른 저장조 연결과 온도별 유량을 조절한다."
+    },
+    {
+      "identifier": "AT-510688-A4",
+      "source_fingerprint": "4ebffb5da48af165600e7d80146a2040783bb44e5d6099beee07cee5618e14fc",
+      "content_hash": "6c357d85f24bd1a4f4785cfcc400ecbfced68a9e5b24e531f9c94ed33fda6235",
+      "decision": "LINK",
+      "keys": [
+        "phase-change-storage",
+        "fluid-turbine-conversion"
+      ],
+      "reason": "증기 저장과 과열·열 저장 후 터빈을 구동한다."
+    },
+    {
+      "identifier": "AT-510689-B1",
+      "source_fingerprint": "2fb17c089e6ae6fd0b43d0f5e0357691a283d79c3202e8108bb3398b6b4de432",
+      "content_hash": "67422ad965923272b9d4078b5bd2906e84a3b9c6e30520ffa3277b372714269e",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "공구와 공작물 위치를 정해 소성 굽힘을 수행한다."
+    },
+    {
+      "identifier": "AT-510698-A4",
+      "source_fingerprint": "199282b71f0206bf28f43215980b62678d8c7edd3ee0d8af439cffb0682db39e",
+      "content_hash": "68a1d7396f15c74e460a81e0d2b3002c04dfc08c6eda297f1c4b975bae7b407d",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "압착·조임 접촉으로 줄·축·부품의 미끄럼을 억제한다."
+    },
+    {
+      "identifier": "AT-510699-A5",
+      "source_fingerprint": "4784a95dd89f79a00384b70d03d950929373c50185b07f5f7e36dfa96225f7c8",
+      "content_hash": "68c2291d0c54b76f1c75c3d76b6151938f26be05614a0a8786f9b0ea44067cb3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 겹 용기 벽에 접힘 구역을 배치한다."
+    },
+    {
+      "identifier": "AT-510701-B1",
+      "source_fingerprint": "598f82b3682e90ce9eae542cdade30bc0531787f271e8587790ff17481cceb26",
+      "content_hash": "5077831f7be20051d46917447077020a75b918b85ae6ce5e85ef89cacb4da3df",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion"
+      ],
+      "reason": "상대 자기 회로를 코일로 바꾸어 자석 부착을 해제한다."
+    },
+    {
+      "identifier": "AT-510709-B1",
+      "source_fingerprint": "e27188298e188503c348756d6dd7d0bd1a6c75bd75715d6319b4a73a5cc6e868",
+      "content_hash": "9e6db530e1e1a72ffe256b95727d87ece76732e9081eb1bc76ea5d4575ccd1a9",
+      "decision": "LINK",
+      "keys": [
+        "pressure-sensitive-adhesion"
+      ],
+      "reason": "자가 점착층으로 등반 장치에 방설 부품을 붙인다."
+    },
+    {
+      "identifier": "AT-510711-A4",
+      "source_fingerprint": "b9fa4a295dda453a279c7a8afa131e35590c4c53357b9651f2278e689361c595",
+      "content_hash": "dbed7f5e571201a40686d9c02d2520234b224e8ab2901f90ff4a9792cb9d3703",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "공구와 공작물 위치를 정해 소성 굽힘을 수행한다."
+    },
+    {
+      "identifier": "AT-510715-B1",
+      "source_fingerprint": "4741ac094bc28b91380c4b2bb14703334b180896c1267e45baf27e400ca0c5ea",
+      "content_hash": "30ff8be81d152689606fa704d1036315f0dd933a52b6e026df2da7a4acedcf42",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating"
+      ],
+      "reason": "연료를 연소시키고 가동 화격자로 재를 배출한다."
+    },
+    {
+      "identifier": "AT-510731-A1",
+      "source_fingerprint": "9a907103c09b7fc55baf8452f6daf5720dde4d90b69b5183f39f93dcbd1fc15c",
+      "content_hash": "4be2774b7b7daa3ccfdd1204657c8641b15191914985714b61087db799eb7372",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "압출재를 유동 냉각한다. 유체 흐름에 에너지 구동력이 전혀 필요 없다는 뜻으로 해석하지 않는다."
+    },
+    {
+      "identifier": "AT-510736-B1",
+      "source_fingerprint": "3efda11c9354bfb5a6327d6de209001c7153778d8e5244bd5f6b5a8973ec5097",
+      "content_hash": "c82b7a84d70fab39af8a56c9759ac557f42f06502c2ce1cc5399d71f944396b5",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "회전체 관로의 유체 이동으로 냉각한다. 원심 이송 초안 범위이다."
+    },
+    {
+      "identifier": "AT-510740-A2",
+      "source_fingerprint": "c0ecdc0722d4ed9294f512956e190e05c3e758d141ebfa895d392d4104cec119",
+      "content_hash": "3ca69b9fa3032a20ba670942ca2ea710a4e22ecef22d3d2f25206ef3e7d8b5a7",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "압착·조임 접촉으로 줄·축·부품의 미끄럼을 억제한다."
+    },
+    {
+      "identifier": "AT-510742-A1",
+      "source_fingerprint": "53bc046c4fab8ba031a987bb6d2ee6db68edcfc29995b75d5c5ce1ba5fc4851d",
+      "content_hash": "bb0dac23e8642b8a36b520c775661149eeecf031d2b9a7d099e2421325074d75",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "기관 축과 발전기를 결합한다."
+    },
+    {
+      "identifier": "AT-510744-A3",
+      "source_fingerprint": "f2b145809d4df467eebea12fe0e572d35d4c815616f850b5a2ce287da86e5645",
+      "content_hash": "bda1c6796cd3c44c47b9493c7fb515f0a5bd6ac93e6087269d6b6b1df37e8fe7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "철도 물류·창고의 위치 정보와 이송 계획 구성이다."
+    },
+    {
+      "identifier": "AT-510758-A1",
+      "source_fingerprint": "750b4481793741bd78673eb5a84a6ace8c8f4de3f54a23ccff842c05da894db7",
+      "content_hash": "46ce63d3356df71b735b5ff67bb1e63468a31e417ab1ce99847b33cf9c6e75f8",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "공기 또는 물 흐름으로 발생 열을 제거한다."
+    },
+    {
+      "identifier": "AT-510774-A1",
+      "source_fingerprint": "543d1979f8bd8b34b626612fcdfe703de446609e842aee9a746d431c0553682f",
+      "content_hash": "7363765aa85ea128252e902d78f0e0249738aeb961a68ded158cdb6a8302bf5d",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510779-B1",
+      "source_fingerprint": "dd8e4f225f01b738c6b190edca87524919a8df3edffadb84248914e950394348",
+      "content_hash": "ac8f913e8dbc4c9fb8034d9bb4241301eb0f29bb1ff6ddf0c91960f3f5145ffd",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510785-A3",
+      "source_fingerprint": "4bd954c96fb5c84204e803867d151dfae7cc6a81d9a766df2fe2ac0e8c813f7e",
+      "content_hash": "9db9b8df47b85e14bb8df2b3c6693c24b76c2a5bd6849ba3e057fd5333521f65",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "날이나 절삭 공구로 재료를 분리한다."
+    },
+    {
+      "identifier": "AT-510799-B1",
+      "source_fingerprint": "5814b10f5987cdfc2d79f1a774221195bc21de76d7b82121648b597cf1225982",
+      "content_hash": "5c64e97f03df053b4163c8fc35b1048e7ec03ee2dfaa85ac594080188dd872ed",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "압착·조임 접촉으로 줄·축·부품의 미끄럼을 억제한다."
+    },
+    {
+      "identifier": "AT-510801-B1",
+      "source_fingerprint": "fae78883c1ca97f2879508acd26b97b9087244443affac54abff25ee38a9b5c6",
+      "content_hash": "3756530fe9ca86afa563db260d6be62d06e1897de490c877b0fd8a0e6f01c765",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening",
+        "mechanical-interlocking"
+      ],
+      "reason": "중공 지지체와 관통 고정부로 전지를 지지한다."
+    },
+    {
+      "identifier": "AT-510807-B1",
+      "source_fingerprint": "0b7942d6e92cc6f8ed057de1c79d40e97156d4b2b935fb9919ba8786dc6af836",
+      "content_hash": "819a388778793cd20bde7af7fb2e0f9cb83f912e7fe187ada759b27c2ec55a6b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이동 자기장과 횡방향 자기력으로 영구자석·철심을 움직인다. 모터 형상만으로 별도 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "AT-510816-A2",
+      "source_fingerprint": "5047c94f05d1a01c70e9ed34ae7779a071594ed6af688f70e00d40dea2fcca4d",
+      "content_hash": "d6ef479c7f26ffe6fe25e393d6608e65d791fbc53850a874a16f2707bd0ac59f",
+      "decision": "LINK",
+      "keys": [
+        "cement-hydration",
+        "pressure-compaction"
+      ],
+      "reason": "모르타르 결합제가 유제 수분과 반응하고 압밀한다."
+    },
+    {
+      "identifier": "AT-510820-B1",
+      "source_fingerprint": "7e3eb5a6a91a33fce45805b9dff392ee05ff8a2bdab42350173ee823656d06b3",
+      "content_hash": "f54fa3f7b69c4f754ec82ac72763c09b29629928c6aa23893633966eaf4bfa97",
+      "decision": "LINK",
+      "keys": [
+        "incremental-position-encoding",
+        "finite-difference-rate-estimation"
+      ],
+      "reason": "회전 펄스 간격에서 속도를 추정해 다음 에지 시간을 보정한다."
+    },
+    {
+      "identifier": "AT-510828-A1",
+      "source_fingerprint": "544fcc5ec67f2403c74aa799420fac6a39327eebaba66d2c5ce63a723084f251",
+      "content_hash": "ed0e3b625fe580103a60b56bd2de8c558fb86d48430b4e5c8cd8147efd9b34e4",
+      "decision": "LINK",
+      "keys": [
+        "acoustic-resonator",
+        "blade-shear-cutting"
+      ],
+      "reason": "두 음의 호루라기와 절단 도구를 결합한다."
+    },
+    {
+      "identifier": "AT-510836-B1",
+      "source_fingerprint": "06fd5b80924d671b2408c396637ce69b7e04924f4cfbab8c3dcc9d5a154ab6c3",
+      "content_hash": "988e86594adba92110fbceb81883be456b50f81c762d2bf84f0bb08a202866d8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "경질 보강부와 유연 수지의 신발 쉘 배치이다."
+    },
+    {
+      "identifier": "AT-510839-B1",
+      "source_fingerprint": "38831e1900230b141f917583ad03ba6ce83a4b1a9c30ede74048c0af6386075a",
+      "content_hash": "a0e466990701b1096b0589c2a65d38bafcc971b846de8b9d0df62a374b402d02",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage"
+      ],
+      "reason": "건반 지레와 해머 운동을 읽는다. 비접촉 변환 소자는 불명확하다."
+    },
+    {
+      "identifier": "AT-510841-A4",
+      "source_fingerprint": "660e1e885159a5cc49f3c52bf1ac14d231edc3bcb67cf1b8b2b5d78271b38235",
+      "content_hash": "63cd33459b66c32b6b048f08c0f6674507bfc04c0c95abfb8e1efe9d539c5da4",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510841-B1",
+      "source_fingerprint": "1d45b31fe84be217af48e856a6aea5c9b10da380b0f7c1504e19c2b535c12aed",
+      "content_hash": "83408d86e79c76b318710830c6495c8cf0f67ca8a0d7e82bffe061a09889dcb5",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510842-A4",
+      "source_fingerprint": "19b9cc430beb9c3ccab1319ae993080e4b0d205eca67808b53e68ea210df64f9",
+      "content_hash": "9db04d7bd31153d1b667356a1d33bb1333a4b108ad0f794a7af67ea1371b94db",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "단열층과 동물용 문의 평면 배치이다."
+    },
+    {
+      "identifier": "AT-510849-A4",
+      "source_fingerprint": "2d916279ad8de21e0a0601912bfa730cf361f5d15f7ed874a3a6a4f68f97df27",
+      "content_hash": "a7d893b963dd9b2f9c7f7903d418c661cf521d6d276fcd74d7f4c86521661033",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "반사 횟수의 홀짝과 광경로를 맞춘다. 정반사 경로 초안에 통합한다."
+    },
+    {
+      "identifier": "AT-510872-B1",
+      "source_fingerprint": "c450ee5c7035aecb7e563c883d55e845cf8079894feb0fa99607e5669a196e8f",
+      "content_hash": "44a9345694c665c15b5bf9bc59ea3bcaa5a80707bcbd64c17c4a5f72084065fb",
+      "decision": "LINK",
+      "keys": [
+        "rolling-contact-friction-reduction"
+      ],
+      "reason": "크랭크 축에 구름 베어링과 미끄럼 베어링을 배치한다."
+    },
+    {
+      "identifier": "AT-510875-B1",
+      "source_fingerprint": "d7c69e5f5c1f4121150bd185c757968bb1b8fc1eedeb514a1eb2686e81c391da",
+      "content_hash": "89f9ece21138ed1f30e6013e90203c17d459b249a51a7aa37bddb1e13a8c7cac",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "화재 시 단열층을 만드는 재료를 쓰지만 구체 팽창 화학은 불명확하다."
+    },
+    {
+      "identifier": "AT-510880-B1",
+      "source_fingerprint": "737a9b2d1b25839a548a204a7de91fd911d32812ade5bcf8f70b68020a2070a8",
+      "content_hash": "5b07f70a3ae30447815c392a00ebd3bd97bfc4ee97e678bd186c518de94862a6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "가구 모서리의 접착·맞댐 면 형상이다."
+    },
+    {
+      "identifier": "AT-510890-A1",
+      "source_fingerprint": "4470b44d2c7784968f9969fbf49a588d550fe776c693e9c900eaa3bdca8b3bc6",
+      "content_hash": "641c0f8e8861607cb809afb8aa73a1236eb904e909f512375bc0325077a12f56",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510902-A2",
+      "source_fingerprint": "32da5ea0d87c2b204b322d6ad7b987658fd2dd8ab2db8afc76926f3d538f0eeb",
+      "content_hash": "e42e504396e6597d855f9c085a0c4d1c298b5016ed88d58812df895d6a7a82b8",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting",
+        "cam-follower-motion"
+      ],
+      "reason": "곡선 안내를 따라 띠톱으로 목재를 자른다."
+    },
+    {
+      "identifier": "AT-510903-A3",
+      "source_fingerprint": "28a9a1c0e6e9b0d09bb41bbfa3fa4e2e50b2a7f14dafcc5377d3c61e87d63053",
+      "content_hash": "cce09277c77bdf096fcbd4b89dfa133d9fa67581f66c4709d18436513f4ee15d",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-510904-A2",
+      "source_fingerprint": "4cf5760f68bb636f28b11224436d34f6dd7aeefa0661979d5dd8f645acb23166",
+      "content_hash": "eb27fd80fde8a200ec9afbc7999889f9055f6673ce28ce2f5208f1ed44677f82",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-510912-A2",
+      "source_fingerprint": "54dfc3c1bca88e617a14abca469ea9387d37588f4dacf29770ff06ecbd8dfa3d",
+      "content_hash": "d2e93b78abf831fc6ea90fc1aa97da486e8789e1e5f55dcdd96b6061f199c131",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "모델 기반 시험계획과 엔진 보정 최적화이나 구체 실험 선택 기준은 제시하지 않는다."
+    },
+    {
+      "identifier": "AT-510912-B1",
+      "source_fingerprint": "dcedf335b884001e92f95954767b2d7115d63d3ccd645dfd4269544b5d80ff1f",
+      "content_hash": "324128a4021d488d9d5f88a5eaa5ab135c2969c5dfe77cf309e4eab36d705039",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "모델 기반 시험계획과 엔진 보정 최적화이나 구체 실험 선택 기준은 제시하지 않는다."
+    },
+    {
+      "identifier": "AT-510933-B1",
+      "source_fingerprint": "3c62778bf8d71ae85c54ddde9b0f3947d1519b4db944941f9a56eec89c806560",
+      "content_hash": "ce220d62fc9fc076d30a43ee79bdb413bbe0628592b3a8721eb6f98690085bb9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수확물 분리 단계만 제시하고 선택 분리 원리는 명시하지 않는다."
+    },
+    {
+      "identifier": "AT-510934-A1",
+      "source_fingerprint": "c0055679d9d47960ed2d6addeb8641b829710cea2e45263904b10c5a701d0639",
+      "content_hash": "e805f6833b10067e3f2eb675cf9fc98e0b632f899940030ccc2b9304cc5d5849",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510937-A1",
+      "source_fingerprint": "5b63ac3fe32c509e78de676d45a6f46d8d7c2071dca2f05d616d71d2df0c26ec",
+      "content_hash": "cb4c5d0453822d6b8d0124a5cf4fe5df99851e959c10f6d7b394459f4357772e",
+      "decision": "LINK",
+      "keys": [
+        "refraction"
+      ],
+      "reason": "대물·접안 렌즈의 초점·줌을 조절한다."
+    },
+    {
+      "identifier": "AT-510941-A4",
+      "source_fingerprint": "ced663f06c2c1b5701269206044e014165ff213c7324246368d9f63bb93b6dd1",
+      "content_hash": "b3384141dae4111973431236ed2a47b187e5bdc1438737197ea7f9cfdd302f61",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "자기 구동부의 최소 간격을 제어하지만 재료·자계 방식은 불명확하다."
+    },
+    {
+      "identifier": "AT-510946-B1",
+      "source_fingerprint": "c68ab8300bf7d7e577c05305b566cace693ec471c2669ca81bc3048ea2b4a6e5",
+      "content_hash": "5a546eb7f1684135b4410123100753b1979d1ba9ffe0f43fa3b132ba60761653",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유기산 혼합 사료 첨가제의 구체 생물학적 표적은 불명확하다."
+    },
+    {
+      "identifier": "AT-510950-A3",
+      "source_fingerprint": "0d56009cd837afb40628b7b5e8d26538f7d95aafd7f2c890b2c6d46370cfe9d9",
+      "content_hash": "430f602693624930ab413acd34a9056b7d9e91352d52f731e77711104269413a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "센서 프로파일을 기준과 비교하지만 센서 물성과 비교법은 제시하지 않는다."
+    },
+    {
+      "identifier": "AT-510959-A4",
+      "source_fingerprint": "64f5e189dca2e1cd49a4cc5f8feb1c47ea36945dfaaa4d05fc231e1ef244cdc1",
+      "content_hash": "4bc52c68be6ac67387344478bb9c80537043395a3174ca0ae1abd8b1965e6db0",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-510959-B1",
+      "source_fingerprint": "eace9bb30301f187525c1e3c9dbb53a3290134d37e8109bdec80082da19e2005",
+      "content_hash": "d7aad171eb0806b6ea7f31d1a4da2625aaf8b1d0f3fc26ec9b1666c210349765",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-510960-A4",
+      "source_fingerprint": "649cea2e78991424cb3816334212d642c8f5a2cb1fdba952edcdc785aafa279d",
+      "content_hash": "cc74f98e52624488dcf4cdc3fa617899c9a4becb52203c5b6a3f2c90154dc5e7",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-510961-A4",
+      "source_fingerprint": "f5474a5c53d27fed445a5cf3dc08842b31d9d81bec00ac6f2d494bd1669182f4",
+      "content_hash": "5fffcd45b62d62fc86e776289574da41942938379dcdb2ffafeada15abf6f845",
+      "decision": "LINK",
+      "keys": [
+        "phase-change-storage",
+        "fourier-conduction"
+      ],
+      "reason": "상변화 매체에 열교환기를 넣어 축열한다."
+    },
+    {
+      "identifier": "AT-510970-A4",
+      "source_fingerprint": "e9be16787600a732a7dd7662b1de33dc01f5dd34382b71af8737dc0bbd86a670",
+      "content_hash": "cd1bff960121be0eb91600ec62a3a4b05f92bd3d16dfe494efc2d3fd1f3642f0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "탄성 젖꼭지 성형과 맞은편 벽 연결 과정이다."
+    },
+    {
+      "identifier": "AT-510972-A4",
+      "source_fingerprint": "311f923ac978b42ec73222a2b1e1633f3113b8c8fe0a33497de89780f82de989",
+      "content_hash": "47b8effc5fd2ae5397ebf367ae27ed51ea31b267151e0e0629b0e5af25acd7a3",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission",
+        "articulated-linkage-motion"
+      ],
+      "reason": "톱니 연결로 못 안내부를 함께 회전시킨다."
+    },
+    {
+      "identifier": "AT-510976-A4",
+      "source_fingerprint": "46f1550883192f86675e765b034cf7652f2914ead28d0480833797551124b065",
+      "content_hash": "add85cf4f1d718e2bfac51173d661b490c3535c7304f4727a4e15590b6154d82",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "압착·조임 접촉으로 줄·축·부품의 미끄럼을 억제한다."
+    },
+    {
+      "identifier": "AT-510977-A4",
+      "source_fingerprint": "884f54dc131c4a2015a4f211be9b211bf379a3756ed002032c65677d6abe7d69",
+      "content_hash": "675d7a1709ffa59aeed852edcb5f7781d87a46109bab96e23cc10954456c4308",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "흡음·반사층 조합이며 흡수 재료는 불명확하다."
+    },
+    {
+      "identifier": "AT-510978-A4",
+      "source_fingerprint": "600d6bc6e9518bfecf2f5e6b87a2b34401ef306b0a0f3de43cca91fb68d974eb",
+      "content_hash": "747c397428d569e83048e8543a71f21d0b96bf71625a11e333f549747cdea4e7",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-510981-A4",
+      "source_fingerprint": "7da14bd1b41f0ba3f77c95881bfe743c1e631651c9909276dbcc5cf033d2819d",
+      "content_hash": "1c0ce1fa4fd876eb8118741715e19ac17270596a66259501ffc638efc59de286",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "질화물·산질화물 다층으로 표면을 보호한다. 강화의 세부 경로는 추가 확인한다."
+    },
+    {
+      "identifier": "AT-510983-B1",
+      "source_fingerprint": "544cc66ddc6b27e7f6ac5f9e1f8bf2861bafcb60557b466eeaccb91c006cbec5",
+      "content_hash": "3c184e41812e4d43c11af85bbbc7eb1339487995f8d4954dc7e7e4498a864a06",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "열매체 분배실 사이의 완충실·틈새 배치이다."
+    },
+    {
+      "identifier": "AT-510988-A4",
+      "source_fingerprint": "4ae69cbb5d911936cf10b4d0cdc460a1f3f1505b8ae55e6ec57edd181abe6766",
+      "content_hash": "b3b22dc5bc2df253ea5ea166b76c36a1aad2b93b93b7a09d696839832935a7f6",
+      "decision": "LINK",
+      "keys": [
+        "electrodynamic-suspension",
+        "electromagnetic-induction"
+      ],
+      "reason": "유도형 자기 지지와 발전·구동 기능을 결합한다."
+    },
+    {
+      "identifier": "AT-510989-B1",
+      "source_fingerprint": "6261b41adadc12422d9ab3d95f6beb0edf7d7b38a65c6e54e2a3fda3caad3b3b",
+      "content_hash": "aa4834bd0eb0ac170486b22867d85417609b4f3094500a6da2379f0a4b93c927",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "elastic-energy-recovery"
+      ],
+      "reason": "스프링 밸브와 유로 축소·우회로로 유량을 제한한다."
+    },
+    {
+      "identifier": "AT-510998-B1",
+      "source_fingerprint": "a32af49573f1b9a5d651dab89e43386ae7bf6dd8c0de6c20e24f36095e819cc8",
+      "content_hash": "b926190c41825b5630a5d5469f868b6333779f075af43dbe7e11e7d9638d21f7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "전지 모델로 전원 출력을 재현하는 시험기 구성이다."
+    },
+    {
+      "identifier": "AT-511000-A1",
+      "source_fingerprint": "0347116c37444677bce68a322ef2e874353bc6c89741239a43c2a92601dea380",
+      "content_hash": "5ad3af0c5e52783a285f6d69ebc6c82d27f9830c3a08d6b00753c9815300f116",
+      "decision": "LINK",
+      "keys": [
+        "photovoltaic-conversion"
+      ],
+      "reason": "태양전지 가장자리의 절곡·밀봉 구조이다."
+    },
+    {
+      "identifier": "AT-511013-A1",
+      "source_fingerprint": "25cfdbfb8fae9917bd70ff685c68d0cbfd532c025e5de8403ec9b6256c903557",
+      "content_hash": "d071c3046382d79c88095bfc6d647d4c32b7811ac56927be3ac6bbdc7605972d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기타의 기준 전위를 접지한다. 실제 잡음 감소는 접지 루프와 임피던스에 의존한다."
+    },
+    {
+      "identifier": "AT-511018-A1",
+      "source_fingerprint": "6e0cdaf161d1ec556e9c410b26482644aa7879255c2947538e42304ce1a66972",
+      "content_hash": "525888f78c72a511318ce19c23b4888ce31238b4865caf9a657eedd59b1384e5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "케이블 외피 요철로 권취 상태를 조절한다."
+    },
+    {
+      "identifier": "AT-511021-A1",
+      "source_fingerprint": "c3b1f288b53d6119899f4e7b284295200651ef284a02f1c407b3d88d117bb5c3",
+      "content_hash": "2f5cb097ac18820d144b570c5e63488a1040df6219633d473256d4f0c6203308",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "날이나 절삭 공구로 재료를 분리한다."
+    },
+    {
+      "identifier": "AT-511026-A2",
+      "source_fingerprint": "2fe1fa9f967633149a2a15b8d014649cf19ed60145f3407f8fcc3c1e8bd966ec",
+      "content_hash": "fd477f41667b43e497b82a6d2e50dfd9c25ee81c8824e0d366379aa784e529eb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "웹 권취 롤과 절단부의 높이·배치 조절이다."
+    },
+    {
+      "identifier": "AT-511026-B1",
+      "source_fingerprint": "1c7f02b2313e39434827d53894cf672f34ae676887c3df24d072402588eac17f",
+      "content_hash": "6b81828d20e891ff906e125c35e294da7b69d32c11f7ba4f4eb4e8de028d0193",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "웹 권취 롤과 절단부의 높이·배치 조절이다."
+    },
+    {
+      "identifier": "AT-511039-A1",
+      "source_fingerprint": "14dc2aae17cfb44960704bdfd2862e06594d3bd66839099be652d9132744e038",
+      "content_hash": "328640fe5a36c1055ec780995334d51247d7d487df70800b0cb58b14b765f4ec",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다상 전원의 상 순서로 회전장 방향을 바꾼다. 전자기 모터 원리의 적용으로 검토한다."
+    },
+    {
+      "identifier": "AT-511060-A4",
+      "source_fingerprint": "dab2cc833f0a22f99824ccf199ae8e73bd8c3dead7843f781d398bde0c1c493a",
+      "content_hash": "1843e142717d13149a750b751fe84d030c4a7b84bf567982a209368a8fcbf5d2",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage"
+      ],
+      "reason": "굴레 연결 부재가 줄 힘을 턱 압력으로 전달한다."
+    },
+    {
+      "identifier": "AT-511070-A4",
+      "source_fingerprint": "b872f0e0b5c65541db8b1ce09a8bf17e4cc3c0267acaf165b976eaadb116e0cb",
+      "content_hash": "4270a4787ff4a722448fefaac1eb93043b2ae23648cbf6b665f21230926b9c27",
+      "decision": "LINK",
+      "keys": [
+        "venturi-entrainment",
+        "pressure-accumulator"
+      ],
+      "reason": "저장 압축 공기로 벤투리 재순환을 돕는다."
+    },
+    {
+      "identifier": "AT-511072-B1",
+      "source_fingerprint": "d0e26314757fcbf5b1a2c9b2478499c7a3ecfc5766e7544fa12c0937f7f179e8",
+      "content_hash": "bafdcbdc9a374ee979ad2ea44c9ff730f11b88bd8f71b237ac4535bff65dbe9a",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion"
+      ],
+      "reason": "배기 터빈 통로를 엔진 몸체에 통합한다."
+    },
+    {
+      "identifier": "AT-511079-B1",
+      "source_fingerprint": "8b13e7d3788b6445345f2486a6d624314c0f06cc9c248182bced9327384141d4",
+      "content_hash": "ab92b8914f4fc7cacaf1774f7f88b7ba11e5891756704a8682d2871d189caade",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유연 태양광 지지면을 콘크리트에 매립한다."
+    },
+    {
+      "identifier": "AT-511080-A4",
+      "source_fingerprint": "0048c971d41b81c2fc8511cfe081879de09b0f1118609edeb7e0d4a4777eac05",
+      "content_hash": "3e7bc7410828d4d342662385cc1fbe8ba29423212eacdef6234c554020d78317",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal",
+        "thermal-orientation-recovery"
+      ],
+      "reason": "연마 비드 로프를 열수축 튜브로 보호한다."
+    },
+    {
+      "identifier": "AT-511094-A4",
+      "source_fingerprint": "609fbd7188c1d10da71e63cb54730709c289ff966aefc7c8c3b86d65871586c1",
+      "content_hash": "056561a53fa1ccf2f3269823cb8d3974fca4808174c7b0c154dc2dcb4bda2738",
+      "decision": "LINK",
+      "keys": [
+        "electrical-continuity-sensing"
+      ],
+      "reason": "LED의 단선·단락·정상 상태를 감시한다."
+    },
+    {
+      "identifier": "AT-511099-A4",
+      "source_fingerprint": "fae180627c207bf483ffc96df24a0b8e0c0e1e56b238cfba98f7a9705d26eebc",
+      "content_hash": "e8fbe7e1fe68e3b951ebd42ff40d7b16421f083f6780cae9ec55f2bdd8cdc888",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-511112-B1",
+      "source_fingerprint": "701457f3f1f11faf3017cb84b3c1ce0b39ddfb68ba12b5a3aa92633e95bf455f",
+      "content_hash": "8e1962cb4fef635268aaecd6e4ad27c0f1a58fb2f6ca09a331787c93b4005036",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-511119-A1",
+      "source_fingerprint": "28493e3d24a47ac714c46861d07f742a98924eafc8d7cb4d776f0b3f1627ff3e",
+      "content_hash": "6864feb8eb6831a39caf9e79272697732209317e80c8a297883f183a9384d7b3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "전지 모듈에 전자 기판을 직접 꽂는 조립 구조이다."
+    },
+    {
+      "identifier": "AT-511119-B1",
+      "source_fingerprint": "df8de926e2cfc34404dc492efb1e80946501838530844cdf3f0d82c9edffa457",
+      "content_hash": "c4ce13c9dfa97a0d7829dd5bf9bec8f3f03279fcd539ef1f729fec845ecfdffc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "전지 모듈에 전자 기판을 직접 꽂는 조립 구조이다."
+    },
+    {
+      "identifier": "AT-511123-A1",
+      "source_fingerprint": "8e13a12ca818f5d6a8bb31aaa2b52fc049507fcb8d8a034ce66db91a1cce3631",
+      "content_hash": "2a2aa3ad081b64267db9816ef9c55556591cb3b46dc1d0e2f80ed6da18d17ad1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기체와 금속의 반응을 이용하지만 기체와 반응종은 특정하지 않는다."
+    },
+    {
+      "identifier": "AT-511129-A2",
+      "source_fingerprint": "c5b42bd97bddbe277f827ea2d83b450ea48010fa8b128808020849315269a0e7",
+      "content_hash": "284a2ea162e4a4caca0452fc81e32552b4ed907a649d051ddfa61e30962c3f12",
+      "decision": "LINK",
+      "keys": [
+        "hydrodynamic-lubrication"
+      ],
+      "reason": "유체동압 축 베어링의 예압을 조절한다."
+    },
+    {
+      "identifier": "AT-511131-A3",
+      "source_fingerprint": "ff77a38447d3fb850b911dccc00e954851f3271592ffc93e4251aa7029b425d1",
+      "content_hash": "9d7248c1e29bcfff336d40c8f9189851daf37c29bd33b8f4de7b43c8fa0019c8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "가상 차량 환경을 실제 시험장 구동부에 재현하는 구성이다."
+    },
+    {
+      "identifier": "AT-511131-B1",
+      "source_fingerprint": "0ad4e32ab1bbb7b80fd8a210b1e7ab9e4a3182464b73a14e6e8810e0b762f22e",
+      "content_hash": "a987c3cc49dd1fdd4fa5034591b06c0e7c8e3dbb8735905bfa0537f6e0ff9e71",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "가상 차량 환경을 실제 시험장 구동부에 재현하는 구성이다."
+    },
+    {
+      "identifier": "AT-511134-A3",
+      "source_fingerprint": "063b42869fcae974c867eec88e3e19dd87a671a67972735c1fd4dc169ddfece6",
+      "content_hash": "56f5921cb5807d175a8e200ab94af080e40284f336eb0c1d465eae35458c0950",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유도기 자속의 다음 상태를 계산해 토크를 제어한다. 유도 전류 토크 원리의 범위를 검토한다."
+    },
+    {
+      "identifier": "AT-511135-B1",
+      "source_fingerprint": "7812a822b3f30ceaff85ab610aa84c1f4b20bc3ccf27ce54a19ea576b53f496f",
+      "content_hash": "d295e33880e14458f12e4fed8d97d45ded2c9e71971ac96c3f27d1eede28db2e",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-511137-B1",
+      "source_fingerprint": "b7960e08d1f95758fd7a708115e117caccf030eac90cc933967dabac80d708a3",
+      "content_hash": "b4f880b1ab5d5365a5812437ddf07dcee0bca7ca19957576ad565d00915c6557",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "창고 이송차와 화물 승강 장치의 작업을 분리한다."
+    },
+    {
+      "identifier": "AT-511139-B1",
+      "source_fingerprint": "df589df8e4a7f79d0cce1d810dfd9940ab46cdfecc10dd68153d170999dd729e",
+      "content_hash": "e623071618777221ed0db16d9f29d54a18bfa568681aae59f4529466d397a253",
+      "decision": "LINK",
+      "keys": [
+        "thermal-radiation"
+      ],
+      "reason": "동물에 적외선 열을 조사한다. 회복 효능은 별도 입증이 필요하다."
+    },
+    {
+      "identifier": "AT-511143-A1",
+      "source_fingerprint": "58d202388cfc766c16ed76cc6ea9e78239b7e261fe6810c783fba66b6cb78770",
+      "content_hash": "4e5dada4f90961872c5c2685f693d310c57979e673222bb253bf753d54bc443b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "인접 전지에 공통 통기 경로를 둔다."
+    },
+    {
+      "identifier": "AT-511154-A1",
+      "source_fingerprint": "180ca22539977606a838516258dee9d5c27a31e0009ceef30dd9e276217bd9a6",
+      "content_hash": "c74f46a46b3cf29c8481ca98710a6d230328b19e8de1af18bd821327a4f6d0a6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "꼰 도체의 모서리 반경을 달리하는 제조 형상이다."
+    },
+    {
+      "identifier": "AT-511191-B1",
+      "source_fingerprint": "0936d9e7ccb40cccf26774b6aa677bb1bfe4679aac4776dce14bbdb94974e856",
+      "content_hash": "0dc46dc71024fe07ae413c07817f6e45f9973a9e4a9c09b0b27caa75c7a1c7b3",
+      "decision": "LINK",
+      "keys": [
+        "projective-coordinate-mapping"
+      ],
+      "reason": "기준 좌표와 센서 자세·거리·영상 기하를 결합해 위치를 대응시킨다."
+    },
+    {
+      "identifier": "AT-511194-A4",
+      "source_fingerprint": "4280ff14d1f36c18a7c40aa3803c9ad8870df395d8e3efe2cf88008ae54b438a",
+      "content_hash": "49d57675d741dd708d74945707637bacabbd124b7e2a4f4c4e9026d21054eefd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "연결된 여러 밀봉 프로파일로 신축 이음부를 덮는다."
+    },
+    {
+      "identifier": "AT-511209-A4",
+      "source_fingerprint": "b9e38fa28b0831faadd9af4c58f14bd67cdaee057d1a8a16ca52343d50e807e9",
+      "content_hash": "5796792ac1e01a6d6ee551f9b596e2499b0f5a7e43e86d3231c5b965744740ac",
+      "decision": "LINK",
+      "keys": [
+        "swelling-actuation",
+        "stress-concentration-fracture"
+      ],
+      "reason": "급건조의 불균일 수축으로 균열을 만들고 색을 채운다. 습윤 팽윤의 역방향 범위를 보완한다."
+    },
+    {
+      "identifier": "AT-511221-A1",
+      "source_fingerprint": "285a2fa430f713468f96d42fce99eea107b7f320c27c1d4338b304d50f8a2427",
+      "content_hash": "2654bd19e7ec719e95bfbbd488643982f8bd967a58b9e9ee8bb8033874598eeb",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-511225-B1",
+      "source_fingerprint": "cd3931195a6c2be27be97081b92f568fd51e2b44d9d3e56456725e1f457804a3",
+      "content_hash": "d272ffaafafffb1bbc578c9f20ae8db8e32f4d60892dee1d447a36441b23bf5e",
+      "decision": "LINK",
+      "keys": [
+        "active-vibration-control"
+      ],
+      "reason": "경계 진동을 측정하고 모드별 반대 가진을 준다."
+    },
+    {
+      "identifier": "AT-511231-A1",
+      "source_fingerprint": "9fca06e33ea98cce14a94410016cca31ffab8992dba27c41706b214ee5dc9a18",
+      "content_hash": "94bdb17880745c8b2bab067107de4d990129d156644f4c0bec2357d6cb906c77",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "서로 겹쳐 여는 안전문 배치이다."
+    },
+    {
+      "identifier": "AT-511234-A1",
+      "source_fingerprint": "827706a4720f5318902023f476711ab09209bef3f6ced1513991482802d72fb7",
+      "content_hash": "6cd120474732fb37ae401b1edc69b057fb895e7ede8eec1bcb0dd1f057e521e8",
+      "decision": "LINK",
+      "keys": [
+        "center-of-mass-static-stability"
+      ],
+      "reason": "차륜과 지지대가 분담하는 지지 상태를 합쳐 전도 안정성을 평가한다."
+    },
+    {
+      "identifier": "AT-511236-A1",
+      "source_fingerprint": "f1517a1b438a656f97808105b8842a202d9c67f56edcbcaea3dc0f487d65094c",
+      "content_hash": "0ecc4aa82adb67e4eb221324ddc2bf367b5e701cbedcb160a505079f0144a4d0",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "회전·왕복 변환 기구이다. 전반적 효율 개선은 주장만으로 인정하지 않는다."
+    },
+    {
+      "identifier": "AT-511242-A1",
+      "source_fingerprint": "50a9fe632c475ea549da1af807b90b0095431fac2076c7988994b03055cca754",
+      "content_hash": "1fe9708c63cdd54257b787d657a13fac3a46e2375cc208b19ae923ce842a2e93",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "경도 시험기 조작부 구조이며 하중·자국 판독법은 불명확하다."
+    },
+    {
+      "identifier": "AT-511248-B1",
+      "source_fingerprint": "3f8cbd235edadc942e12cd6b3a301f7a9cc419d70b906b0e2a1a9eb6358e0a9e",
+      "content_hash": "622f0345a3edba88e655e80b819330de92be337897aba46f1b8f4d5bd3a7e63e",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction",
+        "forced-convection"
+      ],
+      "reason": "여러 유체 회로 사이에서 열을 전달한다."
+    },
+    {
+      "identifier": "AT-511258-A3",
+      "source_fingerprint": "04a56bc77f111be5566db17bed3c4c2a55e344455fcd5ce83632d19700973ba6",
+      "content_hash": "cbaf621bbb17380211faf106f8e170726c39a2fedddb0ba41bcbe7930d5f8c23",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "optical-reflectometry"
+      ],
+      "reason": "인쇄 위치와 색을 읽어 오차를 감시·제어한다."
+    },
+    {
+      "identifier": "AT-511268-A2",
+      "source_fingerprint": "c29fccba03d9ede6beeca728f292a85fc84fa1999348bdf852837f9219954256",
+      "content_hash": "eae287f8115fe1ce3b341632811dd1296e33e493f87182463262556af4d5cf06",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "목재 손잡이로 재료를 대체하는 제안이다. 플라스틱 일반의 위해 주장은 채택하지 않는다."
+    },
+    {
+      "identifier": "AT-511284-A1",
+      "source_fingerprint": "f3cffb785eba8818026cf287acff29ee4f92cab27f72d13f8567a5b3e4e738cd",
+      "content_hash": "3a6960c854e21e8d59e9f5ed6ccb58b0aa114db105563960f9b58eb280bb2347",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "공기 또는 물 흐름으로 발생 열을 제거한다."
+    },
+    {
+      "identifier": "AT-511294-B1",
+      "source_fingerprint": "e867b974d4c9b9d4a73c1bdd2b69024a68cef62b4b246f640df8af096b914260",
+      "content_hash": "72b0818955cdcbea94f88120ed8370d27f29348f608a4aacb833467bb869f63c",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion"
+      ],
+      "reason": "기울어진 안내 경로를 따라 높이를 조절한다."
+    },
+    {
+      "identifier": "AT-511309-B1",
+      "source_fingerprint": "618471bcb5d80b07f54c04029a84aabdae100fa0381b78575f0f72775f3cb119",
+      "content_hash": "6a7fb270145bde889f2091060c31b6db1e1d34e9a543c1d39251cf9c11c8908f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HPMC가 유지 흡수를 줄인다는 설명만으로 열겔화·막 형성 경로를 단정하지 않는다. 대체 감미료의 무해성 일반 주장도 채택하지 않는다."
+    },
+    {
+      "identifier": "AT-511312-A1",
+      "source_fingerprint": "1d645c2f9eceffa3aa89d8242881e82a503462b340bbebf00e3a8ea03179938a",
+      "content_hash": "6b6489a3d4e513976298894fcc53b7c7dcb8ea3831c74c80f0fb4ec0274239d1",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "보조 영상에서 초점을 정해 서보를 구동한다."
+    },
+    {
+      "identifier": "AT-511317-B1",
+      "source_fingerprint": "d0a8ef16906777f2d6f6ed604dbf26ce650ffc545027ab38d82be89bc89b4a2e",
+      "content_hash": "2de7bb8e16c52bd3aed7a603fc9b36f6f8744f838f942e848a500aceda795454",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-511318-B1",
+      "source_fingerprint": "a77dacb24060b7a81261375cfb9af34ca6c5eb89cad76cb4494e23c726b3a6e5",
+      "content_hash": "691a52c676c46de96106d9a2479e743b47609114d27ae1c3e67dc080598d98ac",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "표적 거리·기하 보정의 응용 절차이며 신규 효과로 채택하지 않는다."
+    },
+    {
+      "identifier": "AT-511338-A4",
+      "source_fingerprint": "6bed2b356bd03dd870c397d3fa1567f3c7f220f64740dcb0a6e0e84551bc7ef4",
+      "content_hash": "58d336f7fd9f3b4f92ca1fcd135fa1ffea1328c63c359e5d3f837d16b46e3c0a",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating"
+      ],
+      "reason": "개질 기체를 예연소실 연료에 혼합한다. 개질 화학은 불명확하다."
+    },
+    {
+      "identifier": "AT-511352-B1",
+      "source_fingerprint": "9f16c715c52feda54f8ad811608480edc6ea80b37b00e82d048a0ca71ad27476",
+      "content_hash": "c5e92fb8353d5f785038aa759b04c1d1a626fda5b2a86451da138d2265adf112",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission"
+      ],
+      "reason": "톱니 맞물림으로 회전 속도·방향을 변환한다."
+    },
+    {
+      "identifier": "AT-511353-B1",
+      "source_fingerprint": "6ffc2e3912f03e8cd795e232126f98365ccc9c9d29151b3fa40a9621ecf15cdf",
+      "content_hash": "fb6f770287d9ac5b2c9b362d0f401c0a5e8e3f69891d07586905ebdb2661b3ca",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission"
+      ],
+      "reason": "톱니 맞물림으로 회전 속도·방향을 변환한다."
+    },
+    {
+      "identifier": "AT-511364-A1",
+      "source_fingerprint": "a2c5c517e707f82f338d76dc05ecdc4f65aee3d9e7a5df958cafe33ca8be28fe",
+      "content_hash": "10936fc63eb6b3b4401ddbb4769512365121a62731fb7fe643ae21191c5c1d03",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission"
+      ],
+      "reason": "유압 공구로 시험체에 하중을 가한다."
+    },
+    {
+      "identifier": "AT-511367-B1",
+      "source_fingerprint": "be8c5c888f81857eaf892cead0687a0b14fd09712487eed8f02ab6abe7c1f7e0",
+      "content_hash": "b17982f4531ac8246db8fd20e4fbbfd8e59b2805b0730650015c9b783944c762",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "펄프 해리·세척·농축 장치 배치이며 세부 분리 수단은 불명확하다."
+    },
+    {
+      "identifier": "AT-511373-B1",
+      "source_fingerprint": "15e57db804e40b3b13a5774fb62246588ab78898763f3a4a04e4a322e19fe92c",
+      "content_hash": "f461b426b9942bc6249f2c4f63b0c211ab0d87d72da0e68ce7887dcbc996dfd0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유리와 프레임의 접착부·이형층 배치이다."
+    },
+    {
+      "identifier": "AT-511385-A1",
+      "source_fingerprint": "e64329427cc720593d2d0dab43a32d9a9d0a7fdb75250e424ab38af1e353f115",
+      "content_hash": "828e10a0b675c684bb54042e138dcf1e9f3ffeab2f2c7ab80148128f99467bbb",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-511396-A1",
+      "source_fingerprint": "68edd9581e1a82d6ae929e5f1eea36409d8223fb9175695ef0ef15d7dfe0e632",
+      "content_hash": "78cb388fa2cb8592922dd8164907877d70cd2134e34da7d72677bb1671801f71",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "탄성 이격재가 목재의 팽윤·수축 변위를 수용한다."
+    },
+    {
+      "identifier": "AT-511402-B1",
+      "source_fingerprint": "2947688e1d61a427e8aa126104391cfb20eb34c7a22dd11ea6453e72be11a75c",
+      "content_hash": "e4f0b18e016ae24181db0b8c4e1eb4f4bbbc48a801095fcd394b5ad0cfa9ca57",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction",
+        "linear-frequency-filtering"
+      ],
+      "reason": "PWM 출력을 변압기와 저역 필터로 고전압 신호로 만든다."
+    },
+    {
+      "identifier": "AT-511409-A1",
+      "source_fingerprint": "7b7e0de6d12a7b4e344710abb997ea6f02bc72ba0b998bf24b3b71989f57925a",
+      "content_hash": "47f4bdaee95418df89e90e5d94a2868e6900d8f53684debd8ad5a13408b237e1",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction"
+      ],
+      "reason": "가열판의 열을 제품에 전달한다. 온도·압력 센서 변환 원리는 불명확하다."
+    },
+    {
+      "identifier": "AT-511409-B1",
+      "source_fingerprint": "b21947e0694a06099be7d944f07e7e684755535d67943efa6df923db3f1fb6aa",
+      "content_hash": "b82677ff7c8be17d4a6a4d97fb369b88b1919ab141a1660753dd9837f34bd1a2",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction"
+      ],
+      "reason": "가열판의 열을 제품에 전달한다. 온도·압력 센서 변환 원리는 불명확하다."
+    },
+    {
+      "identifier": "AT-511416-A3",
+      "source_fingerprint": "c61fef4e2000c798543bb784f35bbc19f7471f2844f460a84cd662b71bb81071",
+      "content_hash": "a64a895f181d9d7f86b4ab613e55be9fd8777aa528350ded2c8324fb8990d94f",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-511417-A1",
+      "source_fingerprint": "7bbab00b4d3477f47a0680c1b0def818b5a68c246ab147c1f7b87a35314be03a",
+      "content_hash": "1e35e93b058283f3f8e40780b7fcf014386a82451245ebc8810434087effd97f",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding"
+      ],
+      "reason": "서랍 전면 지지부를 내부 벽에 용접한다."
+    },
+    {
+      "identifier": "AT-511423-A3",
+      "source_fingerprint": "a8179ff8d77cd898a3dce27651386bd85c2f74ef50a7bfc022720b3231ec1892",
+      "content_hash": "aafc8b41054f0fbfccfbdea193eeb88f750aab10500c773f1b38ddd4f51f8bef",
+      "decision": "LINK",
+      "keys": [
+        "elastomer-contact-sealing"
+      ],
+      "reason": "막이 케이블 주위를 접촉 밀봉한다."
+    },
+    {
+      "identifier": "AT-511437-A4",
+      "source_fingerprint": "bd071365c1346081b84cb6268c558a0584766e761493f8fffa012aba58e48baa",
+      "content_hash": "bce9b0df79c4f75d368054fe8b3366a6f0fd88f5e5deb4cde3cb57b4b9f47385",
+      "decision": "LINK",
+      "keys": [
+        "sieve-size-separation"
+      ],
+      "reason": "체 간격으로 자갈·폐기물의 통과 여부를 구분한다."
+    },
+    {
+      "identifier": "AT-511437-B1",
+      "source_fingerprint": "984c87b13f7eb518e3c9c06ae32f0c865f92db4ad481e62df343b722934ef36c",
+      "content_hash": "0e1a7ea948e007b4a84dbf134f60fa29726aa907e7562371cfb266713728be6e",
+      "decision": "LINK",
+      "keys": [
+        "sieve-size-separation"
+      ],
+      "reason": "체 간격으로 자갈·폐기물의 통과 여부를 구분한다."
+    },
+    {
+      "identifier": "AT-511448-A4",
+      "source_fingerprint": "df5f961062cd932c03866b2dca1007a217fee2de312c4b37e463fd08c2bb92a0",
+      "content_hash": "4b2b029958e18c8a685dd8f31b5d697fa8fe4a7b13638753539fc2eaa40a03c2",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-511453-A4",
+      "source_fingerprint": "6ef06de1ceaa68154d95fa56623a9b2097ff8bfa9f3199ae49c2bf51148dc7c1",
+      "content_hash": "a6b36b8c87c5767ddf6a2c69edfe71041dc8c40d9e82d83804012e0f5d0c1898",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion"
+      ],
+      "reason": "핀과 홈으로 스탬프 판의 회전 경로를 정한다."
+    },
+    {
+      "identifier": "AT-511453-B1",
+      "source_fingerprint": "1b78aa49c08bbcd51ab9096a388624abf691b0a134730a4d15bb62b88d0cce2a",
+      "content_hash": "58f81f26e5957b64aec78e36f1a780d194543aed384d696bd5551991b788fdcd",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion"
+      ],
+      "reason": "핀과 홈으로 스탬프 판의 회전 경로를 정한다."
+    },
+    {
+      "identifier": "AT-511456-B1",
+      "source_fingerprint": "501c2226da2ccfd50c4560e966747de4a36dd0161a4fce865566f195f8d62dd4",
+      "content_hash": "372d73117817d75ce79a0d854eb6ded0ebc88a348ded497cc5cfb203e39fb1fc",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "벌크 하중의 마찰 저항 때문에 상부 원판이 구동 로터보다 지연된다."
+    },
+    {
+      "identifier": "AT-511462-A4",
+      "source_fingerprint": "4535b4c8080f662db6a9fb1eb00c8fbdb25db6c0cd9fffc759924e5d92bfeb0b",
+      "content_hash": "e9fbc8b8f7537eb9878a5e10148dacffd5fd770f43e810c7438fb2afb8814f56",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "공구와 공작물 위치를 정해 소성 굽힘을 수행한다."
+    },
+    {
+      "identifier": "AT-511469-A4",
+      "source_fingerprint": "34313440d6a7fa50aea2a2459ca681667ccdb2cc286cdc8374f1a7d2317b8c3e",
+      "content_hash": "34c71e3a9883526dbb7e9e730c0907ec37ef07c75ee9d58fa630e008a3a5abad",
+      "decision": "LINK",
+      "keys": [
+        "fluid-jet-deposit-removal",
+        "lead-screw-motion"
+      ],
+      "reason": "이동 스크레이퍼와 분사로 열교환기 부착물을 제거한다."
+    },
+    {
+      "identifier": "AT-511472-B1",
+      "source_fingerprint": "ec952756520d2f9a98ecfbdc642eb37e82d31cd1faecfbe0407a9b348b094749",
+      "content_hash": "6030a356e7c9e391a18e7f159db482a54e812d4004c103403da6564599a9b3a8",
+      "decision": "LINK",
+      "keys": [
+        "sieve-size-separation"
+      ],
+      "reason": "체 간격으로 자갈·폐기물의 통과 여부를 구분한다."
+    },
+    {
+      "identifier": "AT-511474-A4",
+      "source_fingerprint": "564818bf30c6401e719ff9600ff31c76347adb4d7504856e1e9b39324c7b0aa5",
+      "content_hash": "f916031cdfe59c888ed0701a9d1d0f453ceaae094d2b4a376474f683fd58568a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 스캐너와 함께 도는 보호 캡의 슬롯 배치이다."
+    },
+    {
+      "identifier": "AT-511474-B1",
+      "source_fingerprint": "53819b34502363964e361602b3858145305f41de741817bc5be23f064593383c",
+      "content_hash": "8fd8f799ca008418a043963b1b59bbfb93f64dc3b0f318881e6581891748bdbe",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 스캐너와 함께 도는 보호 캡의 슬롯 배치이다."
+    },
+    {
+      "identifier": "AT-511478-B1",
+      "source_fingerprint": "89732476e861fe230ae8636b5109a8d6538ec2b45e59ada09527b026e1c0dbd0",
+      "content_hash": "9d45ff6ed846c00accaee7fe9de527d1020b36796f2fe588521549a58a737d64",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion"
+      ],
+      "reason": "가변 안내 날개로 터빈 유입을 조절한다."
+    },
+    {
+      "identifier": "AT-511479-A4",
+      "source_fingerprint": "a99f06c7169cf7cc5974c04c4a26d99f3661e18490a062b5ffbe35de44bf4c59",
+      "content_hash": "49a435504f237a5d4ec7c16484c625efccd33246ab973e779c6bee417ac08ce1",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "공구와 공작물 위치를 정해 소성 굽힘을 수행한다."
+    },
+    {
+      "identifier": "AT-511482-A2",
+      "source_fingerprint": "5d39efe1606873b060a7e99490d94ef08e0a19bfcdc5c9249b53938427839033",
+      "content_hash": "74f3c9d819f9cce6aa527840df85b0b8c608935619ed9f723dad6d070fb3a5dd",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절·회전축·연결 부재로 상대 위치나 이동 경로를 구속한다."
+    },
+    {
+      "identifier": "AT-511486-A1",
+      "source_fingerprint": "9b80c103afed77096bd73f9d8c524508b5e75253fdc77b0c966e18b999428e12",
+      "content_hash": "38f2694517b0512c15c5ccbde0a800bdd5ba71d03fea3bef2eb0b68ff7e65725",
+      "decision": "LINK",
+      "keys": [
+        "hydrodynamic-lubrication"
+      ],
+      "reason": "상대 운동과 나선 홈으로 윤활유를 안쪽으로 펌핑한다. 유체동압 윤활 범위에 통합한다."
+    },
+    {
+      "identifier": "AT-511491-B1",
+      "source_fingerprint": "2042fbf7fd07727fa52a0a34bf3074e33acf1fcf0fa441b79f63bb16c6a38470",
+      "content_hash": "1b288dd69a4bc0765f8f0a673371cc142cd8c6d564a4b29b490ea1356b842604",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "웹 인입 줄과 안정화 지지체 배치이다."
+    },
+    {
+      "identifier": "AT-511496-A2",
+      "source_fingerprint": "52c93309ed5fa3cbcc2a9829b6d210c4b6322b6716ce37881cf564dfffe29811",
+      "content_hash": "762644eeec196f150813b58d869dee01bf7ef1caabc11e7bb9e38183b96f20bd",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying",
+        "negative-feedback"
+      ],
+      "reason": "나사 회전·축 이동·용융 압력을 단계별 제어한다."
+    },
+    {
+      "identifier": "AT-511498-A3",
+      "source_fingerprint": "f35f7d116960b1967c5774988fda456811f22f97e8dcc89827f8ee89357a8d68",
+      "content_hash": "c9599914d7fd763b70c7358057048ec7380fb2a6b35f3dfa3d905960cae4c649",
+      "decision": "LINK",
+      "keys": [
+        "resistance-thermometry",
+        "brazing"
+      ],
+      "reason": "백금 온도 감지 구조를 접합한다."
+    },
+    {
+      "identifier": "AT-511499-A1",
+      "source_fingerprint": "d9fd05a5b195131bfd60e15db0c7e9e48e5e879aab7adbeb0b1a57df0c5e212b",
+      "content_hash": "093c3a93ab19710a1ec0637d193d78265f12678871fd1614c7b4ab42e706d814",
+      "decision": "LINK",
+      "keys": [
+        "electroluminescence",
+        "refraction"
+      ],
+      "reason": "LED 배열과 렌즈로 배광을 형성한다."
+    },
+    {
+      "identifier": "AT-511502-A1",
+      "source_fingerprint": "0644b5791b76246dbc817cbfeabb33d400b1a7295632af645a73c35df6c1789a",
+      "content_hash": "32896d7ef22a2f95324785f3fc81efe9fb561485df2012f894b148cdaecd6342",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-membrane-actuation",
+        "cement-hydration"
+      ],
+      "reason": "압력으로 변형되는 거푸집에 콘크리트를 경화한다."
+    },
+    {
+      "identifier": "AT-511508-A1",
+      "source_fingerprint": "1c818acce5881564494de43a73537820c8afbbea53ef33c21fe4042e0eb4a11c",
+      "content_hash": "03fdfd087b70b118cff8950de08ad5cb2ad6a592073cc33cacfc9b64b43b513d",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "elastic-energy-recovery"
+      ],
+      "reason": "평행 링크와 스프링으로 소파를 침대로 전환한다."
+    },
+    {
+      "identifier": "AT-511527-A2",
+      "source_fingerprint": "5321f6a93f02c0553d6179f39dac8d45d8f9c1f9ccb9c6e0badd3435da4fcf05",
+      "content_hash": "b57f1fc46f8a2ef937d13b7433ec804bbd49e84609c2a81040c3f51218608897",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "가압 기체를 밀봉 틈에 공급한다. 정압 유체막 지지·밀봉 범위에 통합한다."
+    },
+    {
+      "identifier": "AT-511540-B1",
+      "source_fingerprint": "fff22707bd10a36c7c5abc70cf4a0c8f0ac59dfdab4505fecd695a40af8d95ff",
+      "content_hash": "042f7f69d6d1dab54877d91ca4f2a51d1d71c920c2e2614cccac9d18d0d946f5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "스위치·인덕터·커패시터로 전압을 변환한다. 기존 자기·정전 에너지 저장 초안의 적용이다."
+    },
+    {
+      "identifier": "AT-511541-A1",
+      "source_fingerprint": "6fc28b02066b5f33512d6c885cd03825a403cd2f58ec9d2eb6461097af123f4e",
+      "content_hash": "54771adbeaae8abc298409ddf6a822e74a3203c816a7f347f9c78c3ef07f3b94",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction"
+      ],
+      "reason": "전지에서 바닥판으로 열을 전달한다."
+    },
+    {
+      "identifier": "AT-511550-B1",
+      "source_fingerprint": "7e01c655bd4103cbee5f8228a7dcbd54a7ffac47beb2e9db4a27c815edfa163a",
+      "content_hash": "7628e0fa6a7491d663ff5ff81cd29f278cc1c522466a8a823a63bd96a61bc29a",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "pressure-driven-flow"
+      ],
+      "reason": "진공 밸브와 수위를 제어해 물·기체 경로를 분리한다."
+    },
+    {
+      "identifier": "AT-511551-B1",
+      "source_fingerprint": "51aaffa092c248fc0764b314094f583dbbf37f00d9724f44d2b670379bf634e5",
+      "content_hash": "a478585e6acb224705bf6ad88d747cb657aa37fc99918dfa9182854d7aa53324",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "가진체와 반대 방향 보상 질량을 사용한다. 동기 질량 상쇄 범위로 통합한다."
+    },
+    {
+      "identifier": "AT-511564-A1",
+      "source_fingerprint": "9c6043bf979fceca4ef31085cc4b33e1c5b48075564ba7cfa07c6c0dbc3edeba",
+      "content_hash": "1ff3e1b35a3e121fc415226b97b5d6c31c06f818818f57c1879fc67243556c2e",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying",
+        "pressure-compaction"
+      ],
+      "reason": "전단·이송 부재와 압축 구역으로 벌크·페이스트를 처리한다."
+    },
+    {
+      "identifier": "AT-511571-A3",
+      "source_fingerprint": "b2de29eb3ce92b1d91b60b7408ba6a19ad28104ca1478ad843e5979233eef1fb",
+      "content_hash": "2f937a1cae1d94b956c3f95171a37bc6835153e999b445377a739fcddce5fae9",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-511571-B1",
+      "source_fingerprint": "f8b6cdabc90001cb2f8b7374366946a8b41bb56bb478d1e02dbe54478610ccc5",
+      "content_hash": "9aad63be0e1ae42e40bed0f511357c20298941bfa01283ee18e52dcd8ac60176",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "초록에 명시된 걸림·홈·핀·맞물림으로 부품을 결합하거나 운동을 제한한다. 장치 배치 차이는 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AT-511578-A1",
+      "source_fingerprint": "45bf9a93f2c9e77ee9d5f881b73840d8856c97d3562358fde1a316d41957176b",
+      "content_hash": "db2578a537eda823f1a61d2ebae91b75b1260369e3e2d73b77e7a0ab36725eee",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "mechanical-interlocking"
+      ],
+      "reason": "쐐기와 걸쇠로 기어를 잠근다."
+    }
+  ],
+  "recorded_at": "2026-09-23T04:34:14.713221+00:00"
+}

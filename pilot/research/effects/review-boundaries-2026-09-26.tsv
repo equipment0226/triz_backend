@@ -1,0 +1,31 @@
+# first|second|decision|causal boundary
+thermosiphon|natural-convection|NARROW_SCOPE|단상 밀도 순환은 자연대류에 포함. 열사이펀 카드는 증발·응축과 중력 액체 귀환의 두상 방식으로 한정한다.
+thermosiphon|capillary-heat-pipe|KEEP_RELATED|잠열 수송은 같으나 응축액 귀환 구동력이 중력과 심지 모세관력으로 다르다.
+direct-piezoelectricity|converse-piezoelectricity|KEEP_RECIPROCAL|응력→전하 계측과 전계→변형 구동은 역관계이나 입력·출력이 다르다.
+magnetostriction|villari-effect|KEEP_RECIPROCAL|자계→변형과 응력→자기 상태 변화의 반대 변환을 구분한다.
+seebeck-generation|peltier-cooling|KEEP_RECIPROCAL|온도차→전압과 전류→접합 열수송을 구분한다.
+electroosmotic-flow|pressure-driven-streaming-potential|KEEP_RECIPROCAL|전계가 유체를 구동하는 경우와 압력 유동이 전하를 이동시키는 경우다.
+electrostatic-chuck|electrostatic-mems-actuation|KEEP_RELATED|공통 정전기력이나 접촉 유지와 자유 변위 구동·풀인 안정성의 조건이 다르다.
+hydrostatic-gas-bearing|hydrodynamic-lubrication|KEEP_DISTINCT|외부 공급압과 상대 운동에 의한 점성 연행이 압력의 다른 생성 경로다.
+electromagnetic-suspension|electrodynamic-suspension|KEEP_DISTINCT|철심 흡인 폐루프 지지와 도체 유도 전류 반작용 지지다.
+joule-heating|induction-heating|KEEP_RELATED|후자는 비접촉 교류 자속 결합과 표피 깊이를 포함하는 전류 생성 단계가 추가된다.
+photovoltaic-conversion|photodiode|KEEP_RELATED|공통 광전하 분리 계열. 발전 운전점과 검출 바이어스·잡음 조건이 다르며 독립 자연법칙으로 주장하지 않는다.
+shear-thinning|thixotropy|KEEP_DISTINCT|전단률 의존 점도와 일정 전단 아래 시간 의존 구조 변화다.
+shear-thickening|granular-jamming|KEEP_RELATED|유동 곡선의 점도 증가와 구속·충전으로 자유도가 막히는 정적 지지 상태를 구분한다.
+polymerization|ring-opening-polymerization|KEEP_PARENT_RELATION|상위 중합과 고리 결합 개방을 통한 단량체 편입. 반응 기전의 층위 차이를 명시한다.
+polymerization|coordination-insertion-chain-growth|KEEP_PARENT_RELATION|금속 배위·삽입이 반응 경로를 특정한다. 중합의 독립 상위 원리는 아니다.
+enzyme-catalysis|enzyme-inhibition|KEEP_RELATED|촉매 활성화와 저해제 점유·반응에 따른 활성 억제다. 효소 표적 이름만 다른 신규 효과는 세지 않는다.
+mitochondrial-apoptosis|death-receptor-caspase-recruitment|KEEP_DISTINCT|미토콘드리아 막 투과 경로와 세포표면 사멸 수용체 복합체 경로의 개시 단계가 다르다.
+homologous-recombination|ku-ligase-mediated-end-joining|KEEP_DISTINCT|상동 주형을 이용하는 복구와 Ku 인식·말단 연결 경로다.
+ku-ligase-mediated-end-joining|polymerase-theta-mediated-end-joining|KEEP_DISTINCT|Ku·리가아제 경로와 짧은 상동성·중합효소 세타 의존 경로다.
+forster-resonance-energy-transfer|fluorescence-sensing|KEEP_DISTINCT|근접 쌍극자 사이 비복사 에너지 전달 자체와 발광의 측정 기능을 구분한다.
+thermal-glass-tempering|differential-thermal-contraction-prestress|KEEP_RELATED|유리의 냉각 중 점탄성 동결과 이종 물체 열수축 불일치의 응력 생성 경로가 다르다.
+precipitation-hardening|solid-solution-strengthening|KEEP_DISTINCT|석출 제2상의 전위 방해와 고용 원자의 격자 왜곡이다.
+fiber-bridging|fiber-matrix-load-transfer|KEEP_RELATED|균열면을 잇는 섬유의 파괴 에너지 소산과 건전 복합재의 계면 전단 하중 분담이다.
+gelation|polymer-glass-transition|KEEP_DISTINCT|연결망 형성과 비정질 분절 운동의 시간척도 변화다.
+capillary-wicking|capillary-entry-barrier|KEEP_RELATED|공통 계면 곡률 압력이나 자발 침투와 비젖음 진입 저항의 경계 조건이 반대다.
+thermal-radiation|photothermal-conversion|KEEP_RELATED|온도에 따른 방사·교환과 입사광의 비복사 열화는 에너지 방향과 구동이 다르다.
+reverse-osmosis|osmosis|KEEP_RELATED|용매 화학퍼텐셜 구배의 공통 원리. 외압이 삼투압을 넘는 운전 방향을 구분한다.
+electrodialysis|reverse-electrodialysis-generation|KEEP_RECIPROCAL|외부 전계로 이온 분리와 농도차로 전력 회수다.
+error-correcting-code|automatic-repeat-request|KEEP_DISTINCT|부호 중복에 의한 국소 복원과 피드백 재전송이다.
+state-estimation|dynamic-system-identification|KEEP_DISTINCT|주어진 동역학의 현재 상태 추정과 동역학 매개변수·구조 식별이다.

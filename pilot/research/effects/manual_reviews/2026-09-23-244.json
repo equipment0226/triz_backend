@@ -1,0 +1,92 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "0f1f21f13cc9a96448f3f0c5c761ab0d95b504cff89c778b5b353312ad61153d",
+  "reviews": [
+    {
+      "identifier": "AR-117837-A1",
+      "source_fingerprint": "21164a2ca554e8274453b55540559abbf61be42d40ff84a6729794f988d3c627",
+      "content_hash": "3bf995f588e21ba659caac49c9e0ef4341406025808005f2608aad6a87e065e7",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition"
+      ],
+      "reason": "STING 신호 억제 화합물이다. 복잡한 치환기 목록을 각각 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-117845-A1",
+      "source_fingerprint": "6e0e24781ec352ef0af0aec01f1727127283003b0b5168b6a89d88cacf3bc2a8",
+      "content_hash": "cacdb40e4a58c5d66efc9d4694bdd8798acf7512bbcc5e49be2093e96e667205",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "교체 가능한 사이펀 헤드 밸브 조립 구조이다."
+    },
+    {
+      "identifier": "AR-117847-A1",
+      "source_fingerprint": "552fd3b801e92f830646c4b196b98c19f2aea9e325c168223979ccdfc2349ad8",
+      "content_hash": "5ae80a8f72b6f70633cd6f07e7a7054996cc9cf62db38b226e78ea85085a122f",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "gear-ratio-transmission"
+      ],
+      "reason": "유압 유동의 방향 변경과 기어 상자 구동으로 칼날을 구동·역전한다. 유압 모터의 내부 구조는 미특정이다."
+    },
+    {
+      "identifier": "AR-117852-A1",
+      "source_fingerprint": "154f213dabbfdaa1a98da6114a311a7c029c60e1b1cd054ccbf51e087af42fd0",
+      "content_hash": "40068ad44b018e2212615e6078ec7bfacc0b2d24f65ac2f1e735f87aed065adb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "에어로졸 배출 유로의 구간 길이 규격이다. 분무의 세부 분열 기전은 없다."
+    },
+    {
+      "identifier": "AR-117859-A1",
+      "source_fingerprint": "043007c3eb66c81488396d4e59b0e224b1dab794352064513033098eba4ef38f",
+      "content_hash": "e220f71c374954042ab70a2371fb5bc114cc32131a212657a0c3adff158641a0",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping",
+        "elastic-energy-recovery"
+      ],
+      "reason": "흡인식 종자 계량판과 스프링으로 접촉을 유지하는 정렬부이다."
+    },
+    {
+      "identifier": "AR-117882-A1",
+      "source_fingerprint": "fbdbe608669836ce3b885350c48f0e8934651213c4c16940795acc74fed5f635",
+      "content_hash": "9b8173700c40b4f9cbf95d973945666087e5833db97fa3192f079b7db4a32e43",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미세섬유 셀룰로스의 유변 조절과 캡슐 제형이다. 항복응력·가교·벽 생성 방식은 미특정이다."
+    },
+    {
+      "identifier": "AR-117887-A1",
+      "source_fingerprint": "cfe9bd8583159e1592f683634c29436971a9b5adf288c0e6b07cb29889d09728",
+      "content_hash": "43b1ebce252cc4fcd6e5f656c51c12932a1276d76346a99faa3b7c1af695d9fe",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "선택된 메모리 비트를 아날로그 단선에 나타낸다. 전압 합산·저항 가중 방식은 없다."
+    },
+    {
+      "identifier": "AR-117890-A1",
+      "source_fingerprint": "ac6e06cbbfe93bf6dc1b8466da1a2f0aa6562cc88948f894a59ffa930f71ad64",
+      "content_hash": "1cf9fb9c709f722dcbea7508335fa16efe0cfd2c3de10a27332b6aaef58df8fb",
+      "decision": "LINK",
+      "keys": [
+        "time-division-multiplexing"
+      ],
+      "reason": "클록 상승·하강 에지에 서로 다른 블록을 적재하는 시간 구분 전송이다. 같은 원리를 별도 수로 늘리지 않는다."
+    },
+    {
+      "identifier": "AR-117904-A2",
+      "source_fingerprint": "c89500a9e8261690da65535f7253f5e68f81d3756a787a5d1047d9f8618d7d66",
+      "content_hash": "f05a336d27938753730f1ce23dd96725034440b0057c074d2c1e62e0b6d6ca86",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "아연 핑거의 표적 DNA 결합이다. 초록에서 특정하지 않은 절단·복구 경로는 추가하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:33:39.616005+00:00"
+}

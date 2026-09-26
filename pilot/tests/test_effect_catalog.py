@@ -57,6 +57,18 @@ def test_bracketed_effect_id_keeps_canonical_source_and_limits():
         assert app['source_effect_id'] is None and app['catalog_sources']==[]
 
 
+def test_merged_effect_legacy_identity_uses_representative_conditions():
+    from triz.catalog_binding import bind_effect
+    catalog=knowledge.effect_candidates(['형광 감쇠 시간'],limit=30)
+    canonical=next(e for e in catalog if e['id']=='12.15')
+    assert '12.48' in canonical['legacy_ids']
+    assert not any(e['id']=='12.48' for g in knowledge.effects() for e in g['effects'])
+    app=bind_effect({'applications':[{'source_effect_id':'[12.48]','effect_name':'old'}]},catalog)['applications'][0]
+    assert app['source_effect_id']=='12.15'
+    assert app['catalog_conditions']==canonical['conditions']
+    assert app['catalog_sources']==canonical['sources']
+
+
 def extraction():
     return {'effects':[{'name':'모세관 이동','name_en':'capillary transport','mechanism_key':'capillary-transport','aliases':['모세관'],
         'function_ko':'유체를 이동·분배한다','domain':'PHYSICAL','principle':'젖음성에 의한 압력차로 이동한다.',
@@ -116,7 +128,10 @@ def test_compact_editorial_catalog_and_agent_references_agree():
     entries=[e for g in groups for e in g['effects']]
     assert len({e['id'] for e in entries})==len(entries)
     assert len({e['name'] for e in entries})==len(entries)
-    assert all(set(e)=={'id','name','domain','principle','conditions'} for e in entries)
+    required={'id','name','domain','principle','conditions'}
+    assert all(required <= set(e) <= required|{'legacy_ids','aliases'} for e in entries)
+    legacy=[v for e in entries for v in e.get('legacy_ids',[])]
+    assert len(legacy)==len(set(legacy)) and not set(legacy)&{e['id'] for e in entries}
     assert all(e['conditions'] and len(e['principle'])<=160 for e in entries)
     esc=next(e for e in entries if e['id']=='1.4')
     assert esc['name']=='정전기척(ESC)' and '밀착' in esc['principle']

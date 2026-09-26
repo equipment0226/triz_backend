@@ -1,0 +1,60 @@
+# Direct Astra comparison of the 500-entry baseline. Not an automated semantic classifier.
+# keys|relationship|decision|boundary
+electromagnetic-suspension,magnetic-adhesion,reluctance-actuation|shared_force|KEEP_DISTINCT|공극을 피드백 유지하는 부상, 접촉 고정, 구속된 철심 행정은 출력·안정 조건이 다르다.
+electrostatic-chuck,electrostatic-mems-actuation|shared_force|KEEP_DISTINCT|척의 접촉 유지·탈착과 가동 전극의 변위·풀인 조건이 다르다.
+acoustic-levitation,acoustophoresis,acoustic-streaming|related_field|KEEP_DISTINCT|정적 포획·입자 상대 이동·유체 평균 유동은 대상과 운동량 전달 경로가 다르다.
+wedge-mechanism,cam-follower-motion,lead-screw-motion,one-way-clutch|related_geometry|KEEP_DISTINCT|경사면 힘 변환·윤곽 추종·나선 리드·방향 선택 토크 전달은 서로 대체되는 입력·출력 관계가 아니다.
+lever-mechanical-advantage,articulated-linkage-motion,gear-ratio-transmission,cable-drum-linear-drive,bowden-cable-transmission|related_transmission|KEEP_DISTINCT|모멘트팔·관절 기하·잇수·드럼 반경·외피 반력이라는 서로 다른 전달 조건을 가진다.
+frictional-load-transmission,friction-damping,rolling-contact-friction-reduction|related_friction|KEEP_DISTINCT|정지 마찰의 하중 지지, 미끄럼 소산, 구름에 의한 미끄럼 감소를 구분한다.
+hydrostatic-pressure-compensation,hydrostatic-level-sensing,hydrostatic-liquid-seal|shared_law_different_function|KEEP_DISTINCT|같은 정수압 법칙의 응용이다. 보상 압력 생성·높이 역산·기체 통과 문턱은 입력·출력과 조건이 다르며 독립된 세 자연법칙으로 세지 않는다.
+fluidization,pneumatic-particle-transport|shared_drag|KEEP_DISTINCT|층 무게 지지·유동화와 관로를 따라 입자를 운반하는 목적 및 운전 조건이 다르다.
+resonant-absorber,vibration-isolation,active-vibration-control,rotor-mass-balancing|same_goal_different_mechanism|KEEP_DISTINCT|동조 보조계·전달률 절연·보상력 제어·가진원 제거를 구분한다.
+shear-thinning,thixotropy,polymer-molecular-weight-viscosity|related_rheology|KEEP_DISTINCT|전단률, 시간 이력, 분자량을 각각 변화시키는 실험·설계 변수다.
+gelation,starch-gelatinization,polymer-glass-transition,plasticization|related_polymer_state|KEEP_DISTINCT|연결망 형성·전분 질서 붕괴·분절 이완·첨가제에 의한 이동을 구분한다.
+fibrous-filtration,inertial-impaction-separation,cyclone-separation,centrifugal-separation|partial_mechanism_overlap|KEEP_DISTINCT|섬유 여과에 관성 충돌이 포함되지만 확산·차단도 작용한다. 굽은 유로 충돌과 지속 회전장 분리는 필요 조건이 다르다.
+hydrodynamic-lubrication,elastohydrodynamic-lubrication,hydrostatic-gas-bearing,air-lubrication-drag-reduction|parent_child_and_related|KEEP_DISTINCT|동압 윤활의 고압 탄성·점도 결합 하위형, 외부 압력 지지, 수중 벽 항력 저감이다. 공통 유체막만으로 합치지 않는다.
+dlc-low-friction,tribochemical-lubrication,mos2-solid-lubrication|partial_mechanism_overlap|KEEP_DISTINCT|DLC는 전이막·표면 반응을 포함할 수 있으나 층상 전단과 첨가제 반응막은 서로 다른 재료·환경 조건을 요구한다.
+thermal-expansion-actuation,bimetal,thermal-expansion-compensation,invar|parent_child_and_related|KEEP_DISTINCT|일반 팽창·접합층의 굽힘·경로별 팽창 상쇄·자기 부피 효과 상쇄를 구분한다. 세부형을 일반 항목의 별칭으로 오인하지 않는다.
+converse-piezoelectricity,direct-piezoelectricity,piezoelectric-shunt-damping|reciprocal_and_composite|KEEP_DISTINCT|전기 입력의 변형, 기계 입력의 전하, 전기 회로에서 에너지를 소산하는 결합 기능이다.
+magnetostriction,villari-effect|reciprocal|KEEP_DISTINCT|자계에서 변형으로, 응력에서 자화 변화로 입력·출력 방향이 반대다.
+thermal-orientation-recovery,draw-induced-orientation|process_and_recovery|KEEP_DISTINCT|연신에 의한 배향 생성과 가열에 의한 배향 완화·수축은 반대 변환이다.
+natural-convection,thermosiphon,capillary-heat-pipe|partial_mechanism_overlap|KEEP_DISTINCT|단상 열사이펀은 자연대류를 이용한 순환계이다. 상변화 열사이펀의 중력 귀환과 히트파이프의 심지 귀환은 구별하며 완전히 독립된 기본 효과라고 주장하지 않는다.
+evaporative-cooling,boiling-heat-transfer,evaporative-concentration,spray-drying|shared_phase_change_different_process|KEEP_DISTINCT|표면 증발 냉각·가열면 기포 열전달·용매 제거 농축·분무 입자 형성은 요구 출력과 한계 조건이 다르다.
+sublimation-cooling,freeze-drying,ice-templating|shared_phase_change_different_process|KEEP_DISTINCT|승화 냉각·용매 제거·동결 전면에 의한 기공 주형을 구분한다.
+phase-change-storage,nucleation-barrier,crystallization,solidification|coupled_mechanisms|KEEP_DISTINCT|잠열 용량·핵생성 속도 장벽·조성 분리·형상 고체화는 서로 다른 설계 질문에 답한다.
+thermal-radiation,multilayer-insulation,thermal-isolation-gap|parent_child_and_related|KEEP_DISTINCT|복사 법칙과 복사 차단 적층, 기체 전도·대류 차단을 구분한다.
+electromagnetic-induction,induction-heating,eddy-current-damping,eddy-current-sensing,lamination-eddy-current-suppression|shared_law_different_function|KEEP_DISTINCT|유도 기전력에서 가열·제동·계측·손실 억제로 이어지는 서로 다른 경로다. 다섯 독립 법칙이라는 의미는 아니다.
+photovoltaic-conversion,photodiode,photoelectric-emission|partial_mechanism_overlap|KEEP_DISTINCT|내부 광전하 수집의 발전·광계측과 물질 밖 전자 방출은 동작점·출력이 다르다.
+electrochemical-cell,fuel-cell,lithium-intercalation|parent_child_and_component|KEEP_DISTINCT|연속 반응물 공급 전지와 삽입형 전극 저장 기전을 일반 전지 원리와 구분해 탐색한다.
+capacitive-energy-storage,capacitive-sensing,capacitive-deionization|shared_electrical_property|KEEP_DISTINCT|에너지 보존·용량 변화 판독·전해질 이온 제거는 입력·출력이 다르다.
+reverse-osmosis,osmosis,nanofiltration,ultrafiltration,dialysis|related_membrane_transport|KEEP_DISTINCT|물 화학퍼텐셜·인가 압력·용질 크기·전하·확산이 지배하는 조건과 분리 대상이 다르다.
+electrostatic-precipitation,electrophoresis,isoelectric-focusing,electrodialysis|parent_child_and_related|KEEP_DISTINCT|전하 이동을 공유하나 기체 입자 집진·액상 이동·pH 구배 집속·선택막 이온 분리는 다른 운전 조건을 갖는다.
+adsorption,chromatography,ion-exchange,hydrophobic-association|partial_mechanism_overlap|KEEP_DISTINCT|크로마토그래피는 이동상 체류 차를 포함하며 이온교환은 고정 전하의 이온 교환이다. 소수성 회합을 모든 흡착의 원인으로 삼지 않는다.
+gas-solution-diffusion,pervaporation,crosslink-mesh-diffusion,barrier-coating|partial_mechanism_overlap|KEEP_DISTINCT|기체막 용해·액체 공급 후 증기 회수·가교 망 제한·보호막의 총 투과 기능은 경계조건이 다르다.
+wetting-control,lotus-superhydrophobicity,lubricant-infused-surface,electrowetting|parent_child|KEEP_DISTINCT|상위 젖음성 아래 공기 포획·윤활액 계면·전압 제어의 안정 조건이 다르다.
+surfactant-action,lipid-bilayer-self-assembly,spontaneous-emulsification,pickering-stabilization,shear-droplet-breakup|related_interfaces|KEEP_DISTINCT|계면 흡착·이중층 형성·희석 유화·고체 입자 안정화·기계적 파쇄를 구분한다.
+electrodeposition,underpotential-deposition|parent_child|KEEP_DISTINCT|일반 환원 석출과 기판 상호작용으로 벌크 평형보다 양의 전위에서 단층이 안정해지는 조건은 구분할 가치가 있다.
+pressure-driven-flow,centrifugal-pumping,rotary-positive-displacement,peristaltic-pumping,labyrinth-seal-throttling,positive-pressure-purge-barrier|parent_and_composite|KEEP_DISTINCT|일반 유동 법칙과 압력 생성 방식·누설 제한·오염 유입 억제의 경계조건을 구분한다.
+capillary-wicking,capillary-entry-barrier,liquid-bridge-agglomeration|shared_capillarity|KEEP_DISTINCT|젖는 유로의 침투·비젖는 공극의 진입 차단·입자 사이 액교 결합은 곡률·접촉각·출력이 다르다.
+fluorescence-sensing,fluorescence-dequenching|parent_child|KEEP_DISTINCT|형광 판독의 일반 항목과 절단에 의한 소광 해제를 사용하는 변환 단계를 구분한다.
+absorption-spectroscopy,cavity-ringdown-spectroscopy,xray-attenuation-imaging|parent_child_and_related|KEEP_DISTINCT|일반 흡수와 시간 감쇠 판독·공간 감쇠 영상은 관측량·역산 조건이 다르다.
+wave-interference,interferometric-sensing,phased-array,schroeder-acoustic-diffusion|parent_and_application|KEEP_DISTINCT|파동 중첩·상대 위상 계측·능동 위상 조향·수동 깊이 배열을 구분한다.
+diffraction,photonic-bandgap,bragg-sensing,acousto-optic-modulation|parent_and_application|KEEP_DISTINCT|공간 파동 분산을 공유하되 금지 대역·격자 파장 이동·움직이는 음향 격자의 주파수 변환은 조건이 다르다.
+elastic-light-scattering-sensing,rough-surface-diffuse-reflection,optical-reflectometry|shared_scattering_different_function|KEEP_DISTINCT|산란 구조 판별·반사 분포 설계·반사율 판독을 구분한다.
+superconductivity,meissner-effect,josephson-effect|related_quantum_state|KEEP_DISTINCT|영저항·자속 배제·약결합 위상 전류는 하나의 상태에서 나타나도 서로 다른 관측 효과다.
+catalysis,enzyme-catalysis,lewis-acid-catalysis,photocatalysis,phase-transfer-catalysis|parent_child|KEEP_DISTINCT|일반 촉매 아래 생체 활성부위·전자쌍 배위·광전하·상간 운반의 반응 촉진 방식을 구분한다.
+polymerization,urethane-addition,epoxide-ring-opening,sulfur-vulcanization,oxidative-drying-crosslinking,photoinitiated-radical-generation,polymer-chain-transfer|parent_and_steps|KEEP_DISTINCT|고분자 형성 전체와 서로 다른 결합 생성·가교·개시·사슬 종료/이전 단계를 구분한다.
+nucleophilic-substitution,epoxide-ring-opening,transesterification,peptide-bond-coupling,hydroxyl-acetylation|reaction_family|KEEP_DISTINCT|친핵 반응군을 공유하되 고리 긴장·아실 치환·입체 보존·재료 흡습 변경이라는 별도 기질·출력을 갖는다.
+acid-base-reaction,acid-base-buffering,ionization-solubility|parent_child_and_application|KEEP_DISTINCT|양성자 전달·완충쌍의 저항·이온화에 따른 용해도 변화를 구분한다.
+metal-oxide-reduction,electrochemical-oxide-deoxygenation|different_driving_route|KEEP_DISTINCT|환원제·산소퍼텐셜 방식과 외부 전자 공급·용융염 이온 이동은 공정 조건이 다르다.
+plastic-forming,work-hardening,shot-peening,sacrificial-energy-absorption|shared_plasticity_different_output|KEEP_DISTINCT|영구 형상·전위 강화·잔류 압축응력·에너지 소산의 목적과 하중 이력이 다르다.
+fiber-bridging,fiber-matrix-load-transfer,cross-ply-laminate|related_composites|KEEP_DISTINCT|균열 인성·계면 전단 하중 전달·방향 물성 배분은 분리하여 평가한다.
+biomolecular-recognition,receptor-ligand-modulation,soluble-receptor-ligand-trap,antigen-targeted-payload-delivery,multivalent-avidity,binding-residence-time|parent_and_coupled_steps|KEEP_DISTINCT|선택적 결합·활성 상태·리간드 격리·화물 분포·다중 접촉·단일 해리 동역학은 같은 결합 실험으로 전부 입증되지 않는다.
+receptor-mediated-endocytosis,fcrn-recycling,target-induced-protein-degradation,signal-directed-protein-localization|distinct_trafficking_outcomes|KEEP_DISTINCT|유입·재순환 회수·분해·구획 지정의 최종 상태가 다르다.
+ion-channel-modulation,ionophore-transport,atp-driven-membrane-transport,secondary-active-transport,transporter-inhibition,transporter-membrane-trafficking|distinct_transport_controls|KEEP_DISTINCT|통로 개폐·운반체 확산·ATP·이온구배·억제·표면 수 조절을 구분한다.
+antisense-gene-suppression,genetic-loss-of-function,transcription-factor-regulation,heterologous-gene-expression,homologous-recombination,genetic-linkage-selection|different_genetic_operations|KEEP_DISTINCT|RNA 억제·DNA 기능 변화·전사 조절·외래 생산·서열 교환·표지 추적은 동일한 효과가 아니다.
+antigen-specific-immunization,innate-pattern-recognition,immune-tolerance,immune-checkpoint-blockade,antibody-dependent-cellular-cytotoxicity|different_immune_steps|KEEP_DISTINCT|적응면역 유도·선천 신호·관용·억제 신호 해제·효과기 살해는 표적 결합만으로 서로 대체되지 않는다.
+negative-feedback,active-vibration-control,derivative-feedback-braking,model-predictive-control,slew-rate-limiting|parent_and_related_control|KEEP_DISTINCT|오차 되먹임·진동 보상·변화율 문턱·제약 예측 최적화·출력 변화율 제한의 연산과 정보 요구가 다르다.
+signal-correlation,pilot-aided-synchronization,lock-in-detection,fourier-spectral-decomposition,transform-domain-convolution|shared_operations_different_outputs|KEEP_DISTINCT|지연별 유사도·수신 기준 보정·기준 주파수 추출·전 스펙트럼·합성곱 계산을 구분한다.
+error-correcting-code,automatic-repeat-request,bit-interleaving,sequence-number-ordering,packet-fragmentation-reassembly|distinct_protocol_steps|KEEP_DISTINCT|중복 부호 복구·재전송·오류 분산·순서 판정·크기 분할은 별도 단계이며 서로의 성공을 보장하지 않는다.
+keyed-encryption,digital-certificate-trust,physical-random-fingerprint,deterministic-pseudorandom-generation|different_security_functions|KEEP_DISTINCT|기밀성 변환·서명 신뢰·개체 식별·결정론적 수열은 동일 기능이 아니다.

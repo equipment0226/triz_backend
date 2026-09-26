@@ -1,0 +1,96 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "720168c02b7c38408676764660926c194bb54fe74aca7f17c5919c057a5734b4",
+  "reviews": [
+    {
+      "identifier": "AR-119141-A1",
+      "source_fingerprint": "79b4f95d8676d53e605fb298cc99a030d252e8dc72f3ade04120895ed9cbbdb9",
+      "content_hash": "c97f5a6cc42ef78fe4f58f4886a6864982d9e5c4e3e6609147ac3f9f781c728d",
+      "decision": "LINK",
+      "keys": [
+        "ionizing-radiation-inactivation",
+        "radioactive-decay"
+      ],
+      "reason": "감마선 조사와 대각 인장 지지 구조이다. 인장 삼각 보강 초안의 추가 사례이며 재집계하지 않는다."
+    },
+    {
+      "identifier": "AR-119146-A1",
+      "source_fingerprint": "2763323d7c1fa8b1ab05d6d9cf8cc279dde6a84642a2c825b7185e04aa853dfc",
+      "content_hash": "c20102a7275113492472c8d63966d37d0dd453e7b2ea1ec7c53d346be8b063e0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "물리 채널 속성에 우선순위를 대응하는 스케줄링 규칙이다."
+    },
+    {
+      "identifier": "AR-119148-A1",
+      "source_fingerprint": "7a96f9bc94aa8932ecee4332514ad2912460d1711bfe1889d55bd12e0e8c2f02",
+      "content_hash": "ea8e501db8e69dd91fd536ca3e6152d078d8f13ee6eb31bd8825dbf65498a0e3",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition"
+      ],
+      "reason": "STING 억제제의 구조 변형이다."
+    },
+    {
+      "identifier": "AR-119149-A1",
+      "source_fingerprint": "ed7b739fbce0bc743ff88cd56466307900aa85172fa0bee51de86fc7f305fe2c",
+      "content_hash": "814eacd049e1636bc2069fc892a43e896f561d1d43c94c72a80cab00bd3bff3d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "프로그라눌린 분비 증가 약제이다. 분비를 바꾸는 분자 경로가 없다."
+    },
+    {
+      "identifier": "AR-119165-A1",
+      "source_fingerprint": "bd8ece8a101b6f990cc7a6d8b0375a4e33501654bb67a1d2deea1f1c747f1691",
+      "content_hash": "906f8e29c84303bd66fe78ad0053e4ee6341113042888aa9bf3f7de2d6d1889d",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "생체량 기준으로 관류 속도를 조절하는 공정이다."
+    },
+    {
+      "identifier": "AR-119171-A1",
+      "source_fingerprint": "794b6b4719f18182e63c1e5a6dc52cdd36caf2b3f1057f60d522a9f52854941a",
+      "content_hash": "aa4713a257e60af330c07dae7a21a81eb65944792f38c8f8167a6217dc78200c",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "PPO 단백질 발현에 의한 제초 내성이다. 표적 부위 결합 저항 초안과 대조하며 세부 기전은 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-119175-A1",
+      "source_fingerprint": "9c9acd2b1a11895419199e3dd85186d807af666c45b19c5b082f4a88582ef7dd",
+      "content_hash": "f97f1b0dd1bd73a004f920f2144c3d241c30ff9d23711dd34710bafaf99ff752",
+      "decision": "LINK",
+      "keys": [
+        "joule-heating",
+        "catalysis"
+      ],
+      "reason": "전기로 가열한 증기 개질과 합성가스의 메탄올 전환이다. 개질 초안과 연결하고 메탄올 생성의 별도 반응을 검토한다."
+    },
+    {
+      "identifier": "AR-119179-A1",
+      "source_fingerprint": "ad08ddb2e4372c2a97b0f4a64aa82cf25f2f096625efdb2ee8e42ed7a078ed58",
+      "content_hash": "08c20e691fe84135b80bc43e48c35349147bcdcfcb3b920ac74609744a40ad96",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "배관 로봇 투입용 밸브·밀봉 배열이다. 밀봉 재료·압력 제어 세부 기전은 없다."
+    },
+    {
+      "identifier": "AR-119183-A1",
+      "source_fingerprint": "e614ffdc02decca99567586c101ae30cf637e7861f3bcde6a0f96892a7a49337",
+      "content_hash": "05770e68a53fb23cdaede3dc0ca1a3a07a9f36f085ab3746d36c2093fd527e0f",
+      "decision": "LINK",
+      "keys": [
+        "solvent-extraction",
+        "flotation",
+        "coordination-complexation"
+      ],
+      "reason": "막 분리·용매 추출·착물 해리·부상의 조합이다. 공정 조합을 새 독립 원리로 세지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:36:22.393801+00:00"
+}

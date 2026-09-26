@@ -1,0 +1,295 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "fb68806ac225fe57c0f8fa4523ee5ccde4972f1509bb9a9ef15ce5e4dc097032",
+  "reviews": [
+    {
+      "identifier": "AR-081107-A1",
+      "source_fingerprint": "02c54fb2b25784984793165d57504ce5f4aad5c3afcb5207ba41e29762344c72",
+      "content_hash": "13d3ff590be125c1dd84ec18dcb02df6b83f8917af197b186880252fa3019178",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "시클로파민 유도체의 항종양 용도와 구조만 있고 신호 표적은 초록에 없다."
+    },
+    {
+      "identifier": "AR-081119-A1",
+      "source_fingerprint": "03c2620f030e17a0abc08349d83a0c483d8fe2dae9a0771c1c43ccedbd291c68",
+      "content_hash": "b5a8021b82a8bafa934b9ec0d16a40849429a55ba1be39b05989c4214338845a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "펌프 로드 식별 표지를 이용한 이력 관리이다. 식별의 물리적 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-081158-A1",
+      "source_fingerprint": "a32bc928a06cd1ce09de64e6b539fbaae0cb15a3d4447a46934f4893f30d86cd",
+      "content_hash": "e19039dda2e653a9905181f2148717817bd4873dca2782eec0cf27c6467491f4",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "독립 스프링 복귀 기구를 선택적으로 잠그는 매립 자물쇠이다."
+    },
+    {
+      "identifier": "AR-081166-A1",
+      "source_fingerprint": "a30eb2c6656a545e62aafb95d86e656f4a95a360052747fe5b7b3fbd9fce4622",
+      "content_hash": "bd554bbbd246cc6a68a680c6a4d526a86b62d706c9af25c12807e231c0133798",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "태반 세포의 내피 증식·이동 촉진이다. 분비 신호와 직접 분화의 기여가 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-081191-A2",
+      "source_fingerprint": "b7ed1a69328b69d2d18aa855c6d4ae2917449757f2584b6a867d5cac64a19c95",
+      "content_hash": "7d3ccf85ca50ff9d201827d892b481bdf0aea014744acd9eb55cb8a3c315055a",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "enzyme-catalysis"
+      ],
+      "reason": "식물에서 합성효소를 발현해 라이신 양을 높인다."
+    },
+    {
+      "identifier": "AR-081193-A1",
+      "source_fingerprint": "551470fc58dc7d99bae57a73facdc4e9a08be6d1eeafff85943950c1a246a7f4",
+      "content_hash": "e6ab49607bd50ed3abbc4a4e39c7dd486f5300ef863525309d56ac1356c9ec00",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "암석 파괴 압력 이상의 유체와 지지재로 균열을 만든다. 수압 균열 개방 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-081207-A1",
+      "source_fingerprint": "032e94353607e82fdd880797d522b8186ac581888816ddffef428e39f3696163",
+      "content_hash": "f2241ae456318b2e5099e779d2f07ddff5df0033bd5a05beac19293dc0838b1a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "저압 유체용 얇은 벽 측면 연결구이다. 상세 밀봉 방식은 미상이다."
+    },
+    {
+      "identifier": "AR-081213-A1",
+      "source_fingerprint": "c0b0969a1abc55bc7db6d13c7b41e507f538524888fb0580d5eaab7d85a34fab",
+      "content_hash": "4757f0211ac520fee58912a75dfd1dc735405377a2825896dea9b75135b7394e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "선박 사이 LNG 충전·냉각 유로를 연결한다. 상변화 기여는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-081220-A1",
+      "source_fingerprint": "177ca341c49a925c64bddf822c09bd905e4b30fc10d4e59ff7d001d6f27a96f5",
+      "content_hash": "46cc8a92490bacaa7a5e72260aab576ab4774cec7b75f9a2a911a789d95b49e0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "테리플루노마이드의 뇌위축 치료 용도만 있다."
+    },
+    {
+      "identifier": "AR-081225-A1",
+      "source_fingerprint": "ee2120c3b9679d9bd7169aa71b049c7eb732dfd883e893dbb5f9ec909eb61c94",
+      "content_hash": "7014352dd125860d160096a788447b61b4bf2bc3b3db4c91cfc5581659fb7a46",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "differential-wheel-kinematics"
+      ],
+      "reason": "독립 유압 궤도 구동·승강과 나선 브러시 과일 이송이다."
+    },
+    {
+      "identifier": "AR-081260-A1",
+      "source_fingerprint": "dc12719a0e3c1905d52971f7af5a2d40e212ef7b8259080d0ff2fde438be0c0d",
+      "content_hash": "986c7f2c970e385ca0c93e0dfa375df49d2ddf205f2bc2bf79f3634fc451cf59",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "지역 식별자를 사용한 호출 전달 구조이다. 최단 경로 계산은 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-081266-A1",
+      "source_fingerprint": "c4bf2aa162ca202c2089cd09830cf0eb36de82cfd1e79d1f2d37a91c2c82b74b",
+      "content_hash": "b851a2ce333faec5c8bbc0a0c8c07f588aee03c0529a958e5a2396899c6e6acd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "강의 복합 개재물 구조로 균열 저항을 높인다는 주장이다. 수소 포획·핵생성 등의 세부 인과는 미상이다."
+    },
+    {
+      "identifier": "AR-081281-A1",
+      "source_fingerprint": "e0294e107c1be7ccc30dde0af38960bb018cf4c7413528456a3c87a5e5cfd0c1",
+      "content_hash": "152b4ad7a363e561514cafb18479257617bbc92db1797a03a27190dd03b5098b",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "작업·접이용 두 회전축을 구분해 지면 추종과 운반을 전환한다."
+    },
+    {
+      "identifier": "AR-081289-A1",
+      "source_fingerprint": "e7892d314412e78c09e90ef2765adb2b2fc4a0a276c21ed1c98fd3ceaa77d8e2",
+      "content_hash": "da1308c15df541cddb293f805a8e0f194ac44a58151d08ae1e988b3134538b07",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기폭 장치의 변조 신호 생성이며 변조 방식은 특정되지 않는다. 기폭 성능 향상으로 전환하지 않는다."
+    },
+    {
+      "identifier": "AR-081304-A1",
+      "source_fingerprint": "7ea17d68d4d3179b4a91d23e0de1a7bb720c692fe7ee8c7a7e348eeecf27c50d",
+      "content_hash": "dbae57f2e8a77716fc82892527733dd3478fa189139148c7575616b5e8ef7d87",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "fluid-turbine-conversion",
+        "heat-capacity-buffer"
+      ],
+      "reason": "배기가스 재순환의 열용량으로 연소 온도를 낮추고 팽창 가스로 동력을 회수한다."
+    },
+    {
+      "identifier": "AR-081325-A1",
+      "source_fingerprint": "b4292623731a17baa2e782aa8e7332207aae69574567b18ee1317b71af1d633f",
+      "content_hash": "18085bc02c1698b6571fa8990d9797910d98482b99170565b2f825d5b67034e9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "식품 포장 상단과 몸체의 연결 윤곽을 정한다."
+    },
+    {
+      "identifier": "AR-081330-A1",
+      "source_fingerprint": "b6339372eed0774a070fc651091752b441566c2241da22e9b154bd0bd20d71b7",
+      "content_hash": "cee0122c93f4334d487707fbb2e661a88e01b5e2d84f5096052bb16f27357173",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "금속판을 굽혀 중공 오토바이 프레임을 만든다. 용접의 세부 열원은 미상이다."
+    },
+    {
+      "identifier": "AR-081332-A1",
+      "source_fingerprint": "2a9929cc1925eb5921fe8115aa867e9f93ed3b959e22b14503407efec16c0f21",
+      "content_hash": "bb0e878d1720b219f02bc0f9edb9537a07eedab07c66b87488bd4a5737be8d1d",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "Winsor III 미세유화상으로 원유 회수를 돕는다. 미세유화상 평형 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-081337-A1",
+      "source_fingerprint": "f1d38fad0255b3d14f912e4cc1f2925739b31397eb5e88bda563645eec9d31bc",
+      "content_hash": "8663d8e92eecbecfa278151a9c7d99630251319c7beb773239bca8d1c93be9b6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "대사질환용 화합물 구조만 있고 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-081348-A1",
+      "source_fingerprint": "6f70078183bbc15462c875d99c0f7a7d4badc62175c3aa970124d47d48dae7b4",
+      "content_hash": "a0ce1f43e05ba1132eeec34c2431a682a192238775ce617feaf6c5b42b2402c4",
+      "decision": "LINK",
+      "keys": [
+        "pressure-accumulator",
+        "check-valve-rectification",
+        "reluctance-actuation"
+      ],
+      "reason": "스프링 축압기·체크밸브·솔레노이드 밸브로 시동 전 윤활유를 공급한다."
+    },
+    {
+      "identifier": "AR-081355-A1",
+      "source_fingerprint": "bb7d52eea1d1e3dfaf38f0fa591f3b444468efb9f6e71f18295e6974fa498e5a",
+      "content_hash": "b38213fa840ded92cdca6d06526ede43bdf91ef41965a15a8460eb1ede7b2ed5",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "치과 나사 형상으로 초기 고정과 치유 공간을 제공한다. 골형성의 세포 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-081356-A1",
+      "source_fingerprint": "3f249fea1962cc4f7b9ce8810a6d4df0b68aef1a2428c7398c1ff09c3a85cad5",
+      "content_hash": "34f249610ee10f185ccc62939376e75f00b3857fccd122830c04c07dfbb4bd17",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "곤충 탈피 호르몬 수용체 작용제를 포함한다. 배합 상승효과는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-081375-A1",
+      "source_fingerprint": "200d4138c4bd71fbdfbb0a790b24969e148a78387bbeee8b33ddf078a84f26a9",
+      "content_hash": "ffefe9e44b4b76a2d14276922a061e20831efe90c64db9d1e210745f4d9645c9",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "잔틴 산화효소와 HMG CoA 환원효소를 각각 저해한다."
+    },
+    {
+      "identifier": "AR-081387-A1",
+      "source_fingerprint": "f0d320d8e504d8b255182a7cff68316ce5c5cecd484e6e759458c86d8e05a8ab",
+      "content_hash": "e951d112e6f9a44e364a713a3423d1653bdd9bc3af8937acf9432deaa4c54d40",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "베타2 작용과 M3 길항을 명시한다."
+    },
+    {
+      "identifier": "AR-081407-A1",
+      "source_fingerprint": "2311eaf02e365a20788b0e8a488d05214cd1ecebba2696830ff0a8c985b79372",
+      "content_hash": "a9995f3b7ecd039258aab69854705a6c83acbc8f5cb9015b0b882e1462313a06",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "독소 절단 부위·키메라 설계와 생산을 다룬다. 독소 설계·생산 개선 카드로 전환하지 않는다."
+    },
+    {
+      "identifier": "AR-081408-A1",
+      "source_fingerprint": "8a5747a5c0bfe4f1b612aad4f4ef8ca2987c4db2f5236bdcf289a404afb182eb",
+      "content_hash": "743b50fe6b7b81d8ed4d61ce495c4d245fdc5983676241c105d95ff5e7bb0f92",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "인장봉·압착판·이동 막으로 코일 운송 상자를 구성한다."
+    },
+    {
+      "identifier": "AR-081409-A1",
+      "source_fingerprint": "74de2f9fb98194d34e5f53e0541666355355eb6a3beb104f7cab55e298cfc32a",
+      "content_hash": "ebfa9b1115bfa73d319aac3e8961e249ea0114673a4584224609aad8179a4ce6",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "항원 특이 면역 유도라는 일반 원리만 연결한다. 재조합 바이러스 제작 조건은 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-081435-A1",
+      "source_fingerprint": "8d33e49643683b2e2bfc6437a5c67c7378e4d1fd5ab0d7624c7f5b53d0f87461",
+      "content_hash": "cbdb323aa6473ef8aa31104e43779bf3d0d1c1451e42cc485ad07a262b6eda24",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "광고 서버와 매체의 공통 요청 프로토콜이다. 별도 계산 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-081441-A1",
+      "source_fingerprint": "ea176c55a5fb74a5fc147e10caeb411e1e7b6394cc739bf649a389bb9a9fec65",
+      "content_hash": "d63382eff80e9a46d30b6704564ab095971ab91a1a3481914c488c6469af7bc4",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "탄성 끝단이 변형 후 복원되어 누관 보철을 고정한다."
+    },
+    {
+      "identifier": "AR-081444-A1",
+      "source_fingerprint": "ace429f42ca9b39ff78239e07c7fd6396a6f203f5207ff3583d20fe71a7cec09",
+      "content_hash": "48a401e6d029c766b684c019f12e23dc3d6b6d01e998d4509ab53e5ad3833e3a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광감응 염료와 빛으로 항균 작용을 유도한다. 광역학 산소 활성화 후보의 기전을 문헌과 대조한다."
+    },
+    {
+      "identifier": "AR-081457-A1",
+      "source_fingerprint": "630a668b4c194bc3a5d1561d0696580287d8a6fa5cfd987f78cf6fd05c12b0ad",
+      "content_hash": "3c1cf0d8d06a5f6d4e5201036406d7be95428ebba2ac7ed94e838ae39d62e401",
+      "decision": "LINK",
+      "keys": [
+        "martensitic-hardening",
+        "passivation"
+      ],
+      "reason": "마르텐사이트 포함 스테인리스 조직과 크롬으로 강도·부식 저항을 조절한다. 모든 조성의 성능은 일반화하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:22:15.145233+00:00"
+}

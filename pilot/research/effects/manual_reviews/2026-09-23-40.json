@@ -1,0 +1,157 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "106df678c6e829a03bef2602893ea48f88ce929971f9e038e02424ac5844f5a9",
+  "reviews": [
+    {
+      "identifier": "AR-084322-A1",
+      "source_fingerprint": "9824ad81df32e6dd90da4a6326fd30a162a8c329f97841ac1820c46db0544eba",
+      "content_hash": "9f6df41e545e7aa6af67e819f29144f73e925b9dc22882207089f3a25d852450",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분말 계량·혼합·포장 공정을 이동식 구조에 통합한다. 금속 검출의 센서 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-084332-A1",
+      "source_fingerprint": "72cc774737b15f8a4f8c5908290e8498eaab64f81854968315a43cb5066df9b5",
+      "content_hash": "88eec275185f2a80fcb476a97ebc88448752d26b0c161f397481c31d9e3522e0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "miRNA 표지와 관절병의 연관성·표적 용도만 있다. 인과 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-084343-A1",
+      "source_fingerprint": "65d79adc724c3a53a93b0005d32be515bbb4ec68e9102376f5ace2de82ae82d2",
+      "content_hash": "1996f10d301538bdecb0ecf04d10056c9fac04ae80a11525a8823ac9e976f3b7",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping"
+      ],
+      "reason": "내부 진공 실린더 위치를 바꿔 회전 롤러의 흡착 구간을 조절한다."
+    },
+    {
+      "identifier": "AR-084368-A1",
+      "source_fingerprint": "bb3e0c6c228ad9c97affd01adbd706083eee4ad99b87aad6bb6316fe4cac5c67",
+      "content_hash": "30bc350efa9ebcc19045811e8c5439e0e379fea819935cafe1a6b31f0f2e800c",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "mechanical-interlocking"
+      ],
+      "reason": "차압으로 밀봉된 조립체·슬리브를 이동시켜 유정 포트를 연다."
+    },
+    {
+      "identifier": "AR-084369-A1",
+      "source_fingerprint": "e5d17fe4ef46cd82d117c40cd51a81508072513d791ea564c790eab12cba418d",
+      "content_hash": "7160e3deafec9c7edcd4dbeb290097795c48a16c16588bce419cc58e4ed8cbe5",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "enzyme-catalysis",
+        "gelation"
+      ],
+      "reason": "우유 발효·응고로 치즈를 만든다. 열처리 불활성화 후보의 식품 사례이기도 하다."
+    },
+    {
+      "identifier": "AR-084376-A1",
+      "source_fingerprint": "598ed7f7afaa3f1808c667c6cd10048d1c80f6921e106ab2b32f17d4e2259226",
+      "content_hash": "735670890166f425278fadbf2e7f53954ae3e0b059edec1bafb697a7c78c747c",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening",
+        "plastic-forming"
+      ],
+      "reason": "냉간 성형한 상하 현과 웨브로 보의 단면 강성을 구성한다."
+    },
+    {
+      "identifier": "AR-084382-A1",
+      "source_fingerprint": "e5ee8bcb6874e7eeb1f6eb42919dad387c10d6348b80ad8215488150e2fa3403",
+      "content_hash": "375042910f0e01df0ae51eedab1ff15e5214eaaf2adc477acbfa7c09ef8bda82",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "담배 포장의 패치로 발화 경향을 낮추지만 산소 확산·열손실 기여는 미상이다."
+    },
+    {
+      "identifier": "AR-084384-A1",
+      "source_fingerprint": "983f9f5c9be913fab4bdf463176194d59b35506a37209f410e0a03280fa5eb11",
+      "content_hash": "0001f76a0a47893db9450728a09feb2f3e3d55a9ffb8c083a61f14f86ef15eb3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물유·살균제 병용 용도이며 상승 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-084385-A1",
+      "source_fingerprint": "c9e1f7fc4e9cd53eca711701b8e488ed7b1cfff67852474753b4be2149359d94",
+      "content_hash": "fb52498bcc7269f523e92fb31a2db41616db0c7c2d98fd65df9d8f4938c0f9b1",
+      "decision": "LINK",
+      "keys": [
+        "photothermal-conversion",
+        "mechanical-interlocking"
+      ],
+      "reason": "어두운 판의 태양광 흡수열로 공기를 가열하고 패널을 맞물려 연결한다."
+    },
+    {
+      "identifier": "AR-084390-A1",
+      "source_fingerprint": "c9506fe5fec5802aa7df8751c6fa340a2e43fb2b6b372cbf7b7c2cd9a6653a35",
+      "content_hash": "57e30e7d9b4ac7c55e29d419ae53e55364c9786af324ad1eedd583fb41022571",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-hardening"
+      ],
+      "reason": "미세 탄질화물로 강관을 보강한다. 입계 고정·전위 방해의 기여는 재료별 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-084394-A1",
+      "source_fingerprint": "2ccdb1ff29e898c99f4ce58fd490a2beb9b3d0746598592e08cc8093296a4091",
+      "content_hash": "65369eeac10e179e6c5ba0cd791402fbfa26111c4bd0ea928c24a72a40858aa7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약 혼합의 방대한 구조 변수 목록이며 상승 기전은 미상이다. 저장 말미가 잘려 있다."
+    },
+    {
+      "identifier": "AR-084398-A1",
+      "source_fingerprint": "1764dcde4fd72df2793ebb55a7e1fac95d1f50134cf2a68caa6902c90e8cab4b",
+      "content_hash": "0104b58a8ce694302143c650e39a074623d3264768111bd5cae94922f7809f3f",
+      "decision": "LINK",
+      "keys": [
+        "solidification"
+      ],
+      "reason": "녹는점이 다른 두 조성을 회전 혼합 후 차례로 응고해 무늬를 고정한다."
+    },
+    {
+      "identifier": "AR-084400-A1",
+      "source_fingerprint": "cb9519491f27268a5e4a87ca4e0de54fe69fe57686ea81581a7f7d4824e9992f",
+      "content_hash": "254dc321d7adf6e8b00e1b6d9925c8e7f06d87df1904d5a6582df17bc8b8de91",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 화합물의 치환기 목록만 있으며 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-084425-A1",
+      "source_fingerprint": "8b2f94b94e27cab01dc76471814ea3ba7c5def07ea60991646db771bfb152c98",
+      "content_hash": "f5bac3c7b5aa6c12b9185d51739f689669f32bc04d1cc01d4fa470c1c9b5990c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "간질환용 화합물 구조만 있고 작용 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-084426-A1",
+      "source_fingerprint": "0f6024399ca9d10ae39dea2d6ad1d6da00cdf6e97a11d6b80acd2a33f597b935",
+      "content_hash": "7b7232ea1ee261dc967b49e53459e9d7af73fd135611152ecdf24c205dbf4d41",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자·기름의 화장품 피막 조성이다. 장시간 유지의 결합 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-084428-A1",
+      "source_fingerprint": "c931b83495576b6a5c183d6c949b6338fa24f87000f1a37517d2f565ca84c974",
+      "content_hash": "8bd6053ba4c8876dfb283301d6912451ea4f2cc5d4a86030479a5685462a01fe",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "수용성 고분자 막을 물로 풀어 화장품을 재구성한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:27:45.829322+00:00"
+}

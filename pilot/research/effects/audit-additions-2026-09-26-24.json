@@ -1,0 +1,374 @@
+{
+  "batch": "additions-2026-09-26-24.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1406,
+  "added": 30,
+  "after": 1436,
+  "target": 1500,
+  "source_sha256": "2942cd24ab8ff5e104869ff544f233ebca18137ae935a9be77d7d56dd46f1683",
+  "decisions": [
+    {
+      "key": "enzyme-free-toehold-branch-migration",
+      "group": 18,
+      "related_keys": [
+        "nucleic-acid-duplex-melting",
+        "loop-mediated-strand-displacement-amplification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열로 두 가닥을 분리하거나 중합효소가 새 가닥을 합성하는 과정과 달리 기존 가닥 사이 염기쌍을 교환한다.",
+      "source_url": "https://www.nature.com/articles/ncomms6324",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "guanine-quartet-cation-stabilized-folding",
+      "group": 18,
+      "related_keys": [
+        "nucleic-acid-duplex-melting",
+        "biomolecular-recognition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상보적인 두 가닥의 결합과 구별되는 구아닌 사중판 적층·중심 이온 배위의 구조 형성이다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S002228360200428X",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ribonucleotide-thiyl-radical-deoxygenation",
+      "group": 18,
+      "related_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "thiocarbonyl-radical-deoxygenative-fragmentation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "라디칼 개시만을 다루지 않고 효소 내 당 환원 순환을 다룬다. 티오카보닐 유도체를 만드는 화학적 탈산소와 다르다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11482829/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "biotin-carrier-atp-coupled-carboxylation",
+      "group": 18,
+      "related_keys": [
+        "rubisco-carbon-fixation",
+        "enzyme-internal-metabolite-channeling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "비오틴에 공유결합한 카르복실기를 운반하는 이단계 반응으로, RuBisCO의 직접 고정이나 통로 내 자유 중간체 이동과 구분한다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-33987-2",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "cobalamin-cobalt-carbon-radical-rearrangement",
+      "group": 18,
+      "related_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "intramolecular-hydrogen-radical-translocation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "철황 클러스터에 의한 SAM 환원 절단과 다른 코발트·탄소 결합 개시이며 단순 수소 이동을 넘어 골격을 재배열한다.",
+      "source_url": "https://www.nature.com/articles/s41467-023-40077-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rnase-p-rna-metal-catalyzed-hydrolysis",
+      "group": 18,
+      "related_keys": [
+        "group-i-ribozyme-self-splicing",
+        "argonaute-guide-directed-rna-slicing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "구아노신 참여 에스터 교환이나 단백질 핵산분해 중심과 달리 RNA가 물·금속을 배치하는 가수분해 촉매이다.",
+      "source_url": "https://www.nature.com/articles/s41467-026-71597-4",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "lov-cysteinyl-flavin-photoadduct-switch",
+      "group": 18,
+      "related_keys": [
+        "retinal-photocycle-proton-pumping",
+        "photolyase-light-driven-dimer-repair"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "레티날 이성질화의 펌핑이나 손상 DNA로의 전자 전달과 다른 가역적 플라빈·단백질 공유결합 신호 경로이다.",
+      "source_url": "https://www.nature.com/articles/nchembio.210",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "force-unfolding-cryptic-binding-site-exposure",
+      "group": 18,
+      "related_keys": [
+        "force-stabilized-catch-bond",
+        "integrin-mediated-cell-adhesion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이미 형성된 결합의 힘 의존 수명 변화와 달리 접힘 내부의 결합자리 접근성을 기계적으로 만든다.",
+      "source_url": "https://www.nature.com/articles/ncomms11966",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dna-binding-one-three-dimensional-target-search",
+      "group": 18,
+      "related_keys": [
+        "biomolecular-recognition",
+        "muts-mutl-strand-specific-mismatch-repair"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표적 결합 후 절단·복구 반응과 구분되는 표적 도달 전의 차원 교대 탐색 기전이다.",
+      "source_url": "https://www.nature.com/articles/ncomms10607",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "methylation-protected-restriction-discrimination",
+      "group": 18,
+      "related_keys": [
+        "dna-cytosine-covalent-methylation",
+        "sequence-directed-dna-cleavage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "메틸기 부착이나 서열 절단 단독이 아니라 수식 상태가 대응 절단의 허용 여부를 결정하는 보호·판별 결합이다.",
+      "source_url": "https://www.neb.com/en/tools-and-resources/selection-charts/dam-dcm-and-cpg-methylation",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "bilayer-tension-mechanosensitive-channel-gating",
+      "group": 18,
+      "related_keys": [
+        "ion-channel-modulation",
+        "biological-tactile-mechanotransduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉각 반응 일반에서 분리한 지질층의 직접 힘 전달 경로이며 신생 막공 형성이나 전기천공과 구분한다.",
+      "source_url": "https://www.nature.com/articles/ncomms11984",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "alkyltransferase-stoichiometric-dna-damage-reversal",
+      "group": 18,
+      "related_keys": [
+        "glycosylase-damaged-base-excision",
+        "photolyase-light-driven-dimer-repair"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "손상 염기를 떼거나 광에너지를 쓰지 않고 알킬기를 단백질에 옮겨 염기를 직접 되돌리는 일회성 반응이다.",
+      "source_url": "https://academic.oup.com/nar/article/28/19/3710/1082957",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "sortase-thioester-mediated-transpeptidation",
+      "group": 18,
+      "related_keys": [
+        "intein-autocatalytic-protein-splicing",
+        "carrier-thioester-nonribosomal-peptide-synthesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기 절제 인테인이나 ATP로 장전된 운반체 합성과 달리 외부 효소가 기존 펩타이드 결합을 절단·전이한다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC22937/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "sirtuin-nad-coupled-lysine-deacetylation",
+      "group": 18,
+      "related_keys": [
+        "lysine-acetyltransferase-protein-modification",
+        "nad-dependent-protein-adp-ribosylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "아세틸기의 단순 부착 역반응이나 ADP리보스의 단백질 부착과 달리 NAD 소비로 아세틸기를 제거한다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC14600/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dna-activated-cgas-cyclic-dinucleotide-synthesis",
+      "group": 18,
+      "related_keys": [
+        "innate-pattern-recognition",
+        "nitric-oxide-signaling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "패턴 결합 일반에서 분리한 선형 이뉴클레오타이드 생성·고리화 경로이며 단일 뉴클레오타이드 고리화와도 다르다.",
+      "source_url": "https://www.nature.com/articles/nature12306",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "iron-sulfur-cluster-rna-binding-functional-switch",
+      "group": 18,
+      "related_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "riboswitch-ligand-responsive-regulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "철황 클러스터를 반응 촉매로 쓰는 경우와 달리 점유 상태가 효소와 RNA 결합 단백질 사이 기능을 바꾼다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17185597/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ferritin-ferroxidation-cavity-mineral-storage",
+      "group": 18,
+      "related_keys": [
+        "biomolecular-recognition",
+        "nucleation-barrier"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "철의 가역 결합만으로 저장하지 않고 촉매 산화와 단백질 공동 내 광물화를 결합한다. 외부 광물 탄산화와 다르다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3663513/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "sec-translocon-lateral-membrane-partition",
+      "group": 18,
+      "related_keys": [
+        "signal-directed-protein-localization",
+        "lipid-bilayer-self-assembly"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "주소 신호 인식 이후 단백질 통로에서 지질층으로 옆 방향 분배가 일어나는 실제 삽입 단계이다.",
+      "source_url": "https://www.nature.com/articles/nature12950",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "channel-carbonyl-coordination-ion-selectivity",
+      "group": 18,
+      "related_keys": [
+        "ion-channel-modulation",
+        "ionophore-transport"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기공을 여닫거나 이동성 운반체가 이온을 나르는 과정과 달리 고정 필터의 수화수 대체 배위가 통과 종을 고른다.",
+      "source_url": "https://www.nature.com/articles/35102009",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "voltage-sensor-gating-charge-displacement",
+      "group": 18,
+      "related_keys": [
+        "electrical-membrane-excitation",
+        "ion-channel-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "재생성 활동전위 전체보다 앞선 분자 전압 감지 단계이며 리간드 결합이나 막 장력 입력과 구분한다.",
+      "source_url": "https://www.nature.com/articles/nature01581",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "quinone-q-cycle-vectorial-proton-translocation",
+      "group": 18,
+      "related_keys": [
+        "flavin-coupled-electron-bifurcation",
+        "rotary-chemiosmotic-atp-synthesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "플라빈의 서로 다른 전위 수용체 결합과 달리 막 양면의 퀴논 화학·전자 재순환으로 양성자 구배를 만든다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5955396/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "remodeler-atp-nucleosomal-dna-sliding",
+      "group": 18,
+      "related_keys": [
+        "chromatin-accessibility-regulation",
+        "smc-atp-driven-dna-loop-extrusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "접근성 변화 일반에서 분리한 히스톤 둘레 DNA 이동 기전으로, SMC의 큰 DNA 고리 확장과 구분한다.",
+      "source_url": "https://www.nature.com/articles/s41467-019-09657-1",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "small-ribozyme-two-prime-transesterification",
+      "group": 18,
+      "related_keys": [
+        "group-i-ribozyme-self-splicing",
+        "rtcb-three-prime-phosphate-rna-ligation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 구아노신의 공격·엑손 연결과 달리 내부 2′ 산소가 공격해 고리 인산을 만든다. 작은 리보자임 변종은 나누지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41467-024-50892-y",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "pseudouridine-glycosidic-bond-rearrangement",
+      "group": 18,
+      "related_keys": [
+        "adar-adenosine-rna-editing",
+        "glycosylase-damaged-base-excision"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탈아미노화나 염기 제거와 달리 염기를 유지한 채 당과 연결되는 원자를 바꾸는 이성질화이다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3919597/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "microtubule-protofilament-curling-work",
+      "group": 18,
+      "related_keys": [
+        "microtubule-dynamic-instability-modulation",
+        "microtubule-motor-processive-stepping",
+        "elastic-energy-recovery"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "성장·붕괴 확률 조절이나 ATP 모터 보행과 구별되는 해체 말단의 곡률 변형 에너지 회수이다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5515574/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "thiamine-lipoyl-oxidative-decarboxylation",
+      "group": 18,
+      "related_keys": [
+        "protodecarboxylation",
+        "enzyme-internal-metabolite-channeling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탈탄산 후 수소로 치환하는 반응과 달리 탄소 단위를 산화해 공유 운반체를 거쳐 아실CoA로 보존한다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-25570-y",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "hydrophobic-pore-dewetting-ion-gating",
+      "group": 18,
+      "related_keys": [
+        "ion-channel-modulation",
+        "molecular-hydration-layer-repulsion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "필터가 이온 수화수를 배위로 대체하는 선택성과 달리 기공 공동 전체의 물 부족이 전도 장벽을 만든다.",
+      "source_url": "https://www.nature.com/articles/s41467-023-37531-8",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "folate-methylene-hydride-reductive-methylation",
+      "group": 18,
+      "related_keys": [
+        "dna-cytosine-covalent-methylation",
+        "carbonyl-reduction-to-alcohol"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "SAM에서 완성된 메틸기를 옮기는 반응과 달리 탄소 단위 도입 뒤 엽산의 환원력으로 메틸기를 완성한다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6605054/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "atp-acyl-phosphate-amide-synthesis",
+      "group": 18,
+      "related_keys": [
+        "adenylate-activated-trna-aminoacylation",
+        "carrier-thioester-nonribosomal-peptide-synthesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "아데닐산이나 티오에스터 운반체 대신 아실인산을 거쳐 암모니아를 결합하는 활성화 경로이다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3861631/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "complex-i-redox-coupled-proton-pumping",
+      "group": 18,
+      "related_keys": [
+        "enzyme-electron-transfer",
+        "atp-driven-membrane-transport",
+        "rotary-chemiosmotic-atp-synthesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "ATP 가수분해나 광색소 대신 산화환원 자유에너지가 막의 펌프를 구동하며 Q순환의 양면 퀴논 재순환과도 구분한다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-30506-1",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

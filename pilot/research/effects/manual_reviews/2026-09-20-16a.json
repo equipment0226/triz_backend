@@ -1,0 +1,48 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "7820e508b6a215b94c77d5ad79d5bf67acb061774b1f3f33fa39ccc2cc718f3f",
+  "reviews": [
+    {
+      "identifier": "AR-044158-A1",
+      "source_fingerprint": "1c63e055bb212a4cd1b8051153468139933b028ff41ff2d88fe616b660261035",
+      "content_hash": "5b90237b4fe90bac9ff892e823e760ebb086cd59303214af9eac04b932045a26",
+      "decision": "LINK",
+      "keys": [
+        "lc-electrical-resonance"
+      ],
+      "reason": "저장 초록에서 전기적으로 결합한 인덕터·커패시터가 중심 주파수 부근의 전자기 여기로 공진함을 직접 확인. 기계 진동 감쇠와 구분되는 LC 전기 공진 항목을 신설하여 연결한다. 인접 차폐체의 증폭 수치나 에너지 이득은 검증된 사실로 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-047485-A1",
+      "source_fingerprint": "827b0451b8586a73d1020d8cb61873a55195c717ea8d5b6b39e7b9829fbe107d",
+      "content_hash": "9a18ae2df64084c0af4be926e7e6143ad2a91d301d413fb0fd145a9aa833577b",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion"
+      ],
+      "reason": "저장 초록의 상·하부 자성 판과 베이스 사이 자기 부착을 직접 확인. 피드백으로 공극을 유지하는 자기부상이 아니라 접촉면을 밀착하는 자기 인력 부착이다. 자화 상태와 하중 성능은 초록에 없으므로 자성 입자가 있다는 이유만으로 모든 재료가 스스로 부착한다고 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-045937-A1",
+      "source_fingerprint": "ecf3ca9ffc80609c0bb93349d7649706fb8a3549ee0441c1e4a2d824ba902636",
+      "content_hash": "e4b9b5831f47c65e5e83a559bf1e81713a683a398217fabb9cc2ed3283773470",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "저장 초록에서 eIF4E를 표적으로 하는 안티센스 부분과 발현 조절·억제 용도를 직접 확인. 상보적 핵산에 의한 발현 억제 항목으로 연결하되 단일·이중 가닥을 모두 언급하는 초록만으로 RNase H 또는 RNA 간섭의 개별 경로를 단정하지 않는다. 청구된 억제율과 치료 효능은 검증 결과로 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-044842-A1",
+      "source_fingerprint": "838ce3d752d45692081916bb0ca995a85c63f52afea66e2171ff569a9e58b214",
+      "content_hash": "b0376d77571dd67b840ca34d72b70ff2333d73223c195208e339e9ef0f36c95e",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "저장 초록에서 식물 eIF5A 및 DHS의 안티센스 전사와 내인성 발현 억제를 직접 확인하여 연결한다. 성장형 eIF5A의 발현 증가 부분은 이 억제 효과에 포함하지 않는다. 식물 안티센스 RNA의 후속 분해 경로와 갈변 지연 정도는 초록만으로 확정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T06:02:10.916754+00:00"
+}

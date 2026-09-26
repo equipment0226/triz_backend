@@ -1,0 +1,116 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "a28edb694edf02ac8502dd9da875b2353458f5ee7a7f6b0f12e176667a2407e8",
+  "reviews": [
+    {
+      "identifier": "AR-104025-A1",
+      "source_fingerprint": "77693a484352a4edb4ea19dc8961d61fbfdd396818c0d3b2066013514c669487",
+      "content_hash": "43d09b708e628d463410832f0fc26832e77d4fca40ec6ac7784844d7ad586802",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "MAGL·ABHD6 조절을 명시하나 초록에서 억제 방향과 결합 기전은 확정되지 않았다."
+    },
+    {
+      "identifier": "AR-104049-A1",
+      "source_fingerprint": "b297fb21274e8de816fa702fc94c678fca075ba93e811729ea5d27522ca6cfcf",
+      "content_hash": "02d8a812848b9ca3fe5533df8eba1de7a01c1d54117625a508964e4c86506b4c",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution"
+      ],
+      "reason": "보호된 뉴클레오사이드의 인산화 시약 치환 반응이다. 유기금속 시약 사용만으로 탄소 친핵 첨가로 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-104068-A1",
+      "source_fingerprint": "38f35fcb6324562a488611828fd1dabbeeacaaeba5254a226c90429d3e3a261b",
+      "content_hash": "4a9b879fbba1cf6edeebe3362ae583698d84bce18e3a8c1b7feac99825696d88",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PI3K·CDK4/6 저해제 조합이다. 변이 상태 변화의 임상 예측 주장은 독립 검증 없이 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-104090-A1",
+      "source_fingerprint": "f8e1d1f5edc1deef46c4bbdc8af094b72e73cb72d4c7375d596d3aeb809b4f9a",
+      "content_hash": "4e65c7f2d67c953f63bd043f3731340122616b9e4ef75a0e3c6f6ae6f65bf9fc",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "frictional-load-transmission",
+        "mechanical-interlocking"
+      ],
+      "reason": "외부 구속을 제거하면 임플란트가 팽창하고 홈·마찰로 전달부를 고정한다. 형상기억 합금 소재는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-104093-A1",
+      "source_fingerprint": "72c86abb48593fb73533cf2a46d8fd8557eb36c45780876219b1e5407d04cf0e",
+      "content_hash": "5cd2927bdcaec082f7652a39f0c3cbfdd8f5ba5ecda094c8345edf0eedc52504",
+      "decision": "LINK",
+      "keys": [
+        "geometric-optical-occlusion",
+        "xray-attenuation-imaging"
+      ],
+      "reason": "차폐 개구와 방사선 감쇠로 감마선 검출 방향을 한정한다. 섬광체 또는 반도체 센서 방식은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-104097-A1",
+      "source_fingerprint": "bc5ced3c8100b885bf9bc696780e7b5d8b39e4330ea79b6d8d3562f777010881",
+      "content_hash": "6a447256a73742c798d77581b89e4dabab864568dd15bf1f74682c82c5c4992b",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "비트와 리세스의 접촉 면적을 넓혀 표면 응력을 낮춘다. 하중 분산에 의한 접촉 응력 저감 후보이다."
+    },
+    {
+      "identifier": "AR-104112-A1",
+      "source_fingerprint": "a4f6112292ee175bd378b79c333604047a4b20fff0b23b9cf34afa72168757eb",
+      "content_hash": "0412bfa7d3617c226a00fd972a68882a2e115818876728e1396094390e786f8f",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "miPEP가 miRNA 축적을 조절하고 miRNA가 결절 형성 유전자 발현을 조절한다. 작은 펩타이드의 일차 전사 조절은 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-104124-A4",
+      "source_fingerprint": "e7c61cd92a165b16cfd4964abbf13269d3a32460f993e871b3274682acb73c71",
+      "content_hash": "cb5cdb069e9c0062348f0c3bc1dcf34aea57485bf09ee16ab9669a34299dbd25",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "TV 연결 단자와 전원을 외부 모듈로 모은다. 단일 케이블의 다중화 방식은 없다."
+    },
+    {
+      "identifier": "AR-104128-A1",
+      "source_fingerprint": "09328a30de5ee1527cad7ca5b273d6135c432838b6856ab45e97a6f4d6728b16",
+      "content_hash": "b27ba3cae9147413ef2e98627372c3e5cf6284c03b7f094519f0145307770f5c",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "β락타마아제 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-104137-A1",
+      "source_fingerprint": "afd26c7323bfe1cd402c9e75c92ba22e38103399c62c356dad4b3094e6483029",
+      "content_hash": "6fcc0462fb14702a265ada15d0571e201327c7f0e7c0752c08a5c0db57bb0b00",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "시멘팅 장치의 초기화·유량 보정·펌핑 자동 실행 구성이다. 제어 알고리즘은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-104139-A1",
+      "source_fingerprint": "8c6bda47911311889054f9eb35e4b60dd05168ccc5ceb66231795fbbe8c72bad",
+      "content_hash": "5255482ab4fe2e922c5df94f5f6a8b1a510dfd7a6ba18194f8bd932b04e98951",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "cosolvent-solubilization"
+      ],
+      "reason": "혼합 용매·유화제로 살균제 제형을 구성한다. 개별 살균 성분의 작용 기전은 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:24:08.865455+00:00"
+}

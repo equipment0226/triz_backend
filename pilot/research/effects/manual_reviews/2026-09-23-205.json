@@ -1,0 +1,97 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "4062973c02899b4e8a7a3c18411ce62e830d44741cbad837cbeaf34715ac3c80",
+  "reviews": [
+    {
+      "identifier": "AR-109857-A1",
+      "source_fingerprint": "7f646b7ca927224f188728472869cc6b03eb11418da421b506017ccc2113f022",
+      "content_hash": "0f68da1b4161d473578bb8c64c59728f11cd99306b4ccdcfa54c754a6b548e56",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "CHIKV 결합 항체의 생산 사례이다. Fc 변이의 기능은 초록에 명시되지 않아 구체 반감기를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-109864-A1",
+      "source_fingerprint": "275d5fd2cf7d63b64c968ebd063493dcde0ee274d3580a21e8ea351726e256f0",
+      "content_hash": "12bab9f1002cbd1a7fcbbbeef7d682c122bee8e69f466b2214f4157572c98038",
+      "decision": "LINK",
+      "keys": [
+        "automatic-repeat-request"
+      ],
+      "reason": "복수 HARQ 프로세스의 수신 확인을 비트맵으로 돌려준다. 연성 결합 방식은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-109869-A1",
+      "source_fingerprint": "9621834e30ae794320cef3e2415c34be7532cf676400f551319316c7f32d1ee8",
+      "content_hash": "9e89e2391ff6979d9247d78ec09b70ad82e2f1f3fc698714db9fc3b71ebc5947",
+      "decision": "LINK",
+      "keys": [
+        "martensitic-hardening",
+        "passivation"
+      ],
+      "reason": "마르텐사이트계 스테인리스 강관이다. 조성만으로 특정 석출물이나 황화물 균열 저항 수치를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-109885-A1",
+      "source_fingerprint": "e67984c58f00d2e5120788e95c790a1637e511d5a3239e1ede8c20cb6d2d3230",
+      "content_hash": "d7e110c71a13f71fdec61936c3f5a0a5798312d68f0adf8d90c81c62d09a86d6",
+      "decision": "LINK",
+      "keys": [
+        "fluidization"
+      ],
+      "reason": "유동 촉매 반응기의 라이저 전이부에서 유동 안내체로 속도 분포를 바꾼다. 형상에 따른 혼합 증가량은 미상이다."
+    },
+    {
+      "identifier": "AR-109886-A1",
+      "source_fingerprint": "45079b4d7ede5af8841d61019f7799246ccebf55d0ec82bb4175a6f9f63b6b94",
+      "content_hash": "e352c539e746ac739e31254d2cfd0ef5b1a15187bb3b7b5d540d7c8c901cfbd5",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction",
+        "capacitive-energy-storage"
+      ],
+      "reason": "전자석을 교대로 켜고 역기전력을 회수하는 구동·발전 구조이다. 코일 자기장 에너지 저장을 후보로 검토하며 입력 없는 순에너지 생성은 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-109896-A1",
+      "source_fingerprint": "f36ab347ff70af44f0f849756d3716d850f3b57c6c44e0f879e2eeae61afc946",
+      "content_hash": "c1407fd4a9ebeefb001accd4738f443f18d6ce0a5fdd829296c21c6105926158",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기유·공중합체·세정제의 윤활 조성이다. 유체동압막이나 점도 온도 보상 기전은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-109920-A1",
+      "source_fingerprint": "5f5aa47745ea2b396391ec280d863223b02cd711d9b8b6953756a34f9b06c955",
+      "content_hash": "1a8e79aece057a110d818417ec8ce658b282fd5c7bd8d089b857164da2e2751a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "RET 키나아제 저해 화합물이다."
+    },
+    {
+      "identifier": "AR-109949-A1",
+      "source_fingerprint": "605407b2fdd741efe0ccef1f9701c5bde6b78011252e0c6fbc650f2925f426a4",
+      "content_hash": "0b134db572a3e6ae8b6fbb36f15c5c6be532125df27ff4490971a6fc348123ec",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "페닐아민 유도체의 식물병원균 방제 용도만으로 생물 표적을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-109955-A1",
+      "source_fingerprint": "361fdc1bc84fe5f4c52b4c5116dce2181ee9f28dde9ffdc9314c0e9bebbb6817",
+      "content_hash": "0a6e49bbb00b55f9d72f8ae112e725938b9ef4d09437c97125011f59536a46bf",
+      "decision": "LINK",
+      "keys": [
+        "fiber-matrix-load-transfer"
+      ],
+      "reason": "3차원 스페이서 직물이 PU 복합체를 보강한다. 기계 물성 증가 정도는 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:50:51.416109+00:00"
+}

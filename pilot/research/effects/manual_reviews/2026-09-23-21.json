@@ -1,0 +1,200 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "89162aeb3ae1db0f7107ba1b64d5fab54ac9b3477221d7d4098327b1de81013d",
+  "reviews": [
+    {
+      "identifier": "AR-080001-A1",
+      "source_fingerprint": "81e48d861661777282319e28de7f413ad3f2868e6705b549ad51698d43a49345",
+      "content_hash": "264429b90a3ed57e2b16d22699013b2111260c58ea389bd272ea9e059d361fc3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 화합물 치환기만 제시하며 표적을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-080005-A1",
+      "source_fingerprint": "258991bac62b016155461743ff6372faf4074a0ddc6089c495f3c6d7113ffdbb",
+      "content_hash": "e70bcb8b2aff905927414e71a312dc3e037d3ec00d3fa6b095db14f904b4dafa",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "frictional-load-transmission"
+      ],
+      "reason": "도로의 측면 홈과 충전물이 케이블 관의 이탈을 억제한다."
+    },
+    {
+      "identifier": "AR-080034-A1",
+      "source_fingerprint": "18fbae6e92dfce2df918689476e7e4e55bfbdbfedc12d4b6f8fa48dd0e6bd8f7",
+      "content_hash": "04e431c88b1f335fc2b3fc5c68bcb829dff4ca21fff3554516394d89b85c5edd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "잔류 전류 차단기의 보조 접점 상태 검출이다. 왕복 전류 차이 검출 후보의 추가 근거로 검토한다."
+    },
+    {
+      "identifier": "AR-080042-A4",
+      "source_fingerprint": "eaf04cd6f4da60bbfb5ff6c8047391012a8c26fd376f2ebdaa8b5b15e16de5d6",
+      "content_hash": "aa8e4bd4fbabc6e65ecf932a41c3d73b0adcc9863fdb28299b3ca919e4b9ebd6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "데이터 카드와 유연 연결 케이블을 수납하는 케이스이다."
+    },
+    {
+      "identifier": "AR-080059-A1",
+      "source_fingerprint": "8d9d7bcdccac53f329a1074c83f0d8e6fb2685359f07a1667833aeef95811b3e",
+      "content_hash": "f70365f9a0fab34d60f2a2562041632ac13e9974557a7f20bc839247a40fce97",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유리의 서냉·강화 온도 구역을 연결한다. 유리 급랭 잔류 압축응력 및 서냉 응력 완화 후보를 구분해 검토한다."
+    },
+    {
+      "identifier": "AR-080068-A1",
+      "source_fingerprint": "8b2c178dcdc6076acf3550164426bd0cb23b4554fc68e5360c7680bc3322625c",
+      "content_hash": "d6cf4af7b326085b2efb42df0c9da8714352b94a96466ad6ce931962c382e327",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 배합의 상승작용 주장만으로 작용 경로를 특정할 수 없다."
+    },
+    {
+      "identifier": "AR-080072-A1",
+      "source_fingerprint": "9e74153d97fd2aef88451bdfe84434a5d3713583d6478c53c205994efb85cdf3",
+      "content_hash": "161fbc329fd11c11b54f3ef6407a1b186281dd876fe56dd4eba872a64d577fef",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "장용 비스포스포네이트에 카프르산염 흡수 촉진제를 넣는다. 막·접합부 투과 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-080079-A1",
+      "source_fingerprint": "8805f584bf15e6558b238e8d540d88ef593d339a292c96b266cc2d1ed7c4b030",
+      "content_hash": "65ae46ece701ba0e133a61e48700586a9639a89553da865bf8ffcf254874e3ff",
+      "decision": "LINK",
+      "keys": [
+        "optical-reflectometry"
+      ],
+      "reason": "다중 조명과 영상의 반사 신호로 관 나사산 결함을 검사한다."
+    },
+    {
+      "identifier": "AR-080166-A1",
+      "source_fingerprint": "c5e47e2604bbaed42c464f804f4e866dc2007a1fddd9f080ba293fb56ad44e53",
+      "content_hash": "ba2e53210cac732aa99c2e27546265c4fb98df4149c21cf1985d1fd2b2f87b7d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "파우치 헤드와 모서리의 접합 구조이다. 용접 열원·상변화는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-080176-A1",
+      "source_fingerprint": "689aa96e6c6bb60528d7f432ccc6c4682a8987d0df9e1242ed6d7b64fdeacde3",
+      "content_hash": "0db575cacbaa2dce77ddd0b5f9619c13ee9759fe0f480535e7ed9a56a45e0ce7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "키나아제 매개 신호 저해 용도를 제시하지만 직접 결합 표적과 단계는 불명확하다."
+    },
+    {
+      "identifier": "AR-080178-A1",
+      "source_fingerprint": "a8e0c9ace91ef6aeb502eab95cd1c920f7602d29dd3640d5dd2fd8fa667b8c6e",
+      "content_hash": "103601fc77747d2734bd12abfd56df4dc94aba53b9e738b673c78841dfb5d5f8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "티올과 카르보닐의 헤미티오아세탈 형성을 거쳐 고리화·환원한다. 황 친핵성 첨가 후보이다."
+    },
+    {
+      "identifier": "AR-080182-A1",
+      "source_fingerprint": "b14684bf072bd2702855ace8a21d875bb574c756d0bf37257eb8349165cafb1c",
+      "content_hash": "57ddf58c2b2cf5c812d0f4c47654a25753e5eca3d7685719f3963e85f2e18c90",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "조명을 임의 시각에 켜 재실을 모사한다. 난수 생성 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-080183-A1",
+      "source_fingerprint": "d820846d0ecdd24ecf91e6d83e982c998a4c7889d3aebb472fcdbe129d0a3523",
+      "content_hash": "97bc92113a6e1394ad8caa07744e4b9da7c0f64e78592dd895a23f0573335a10",
+      "decision": "LINK",
+      "keys": [
+        "fourier-spectral-decomposition"
+      ],
+      "reason": "역이산 푸리에 변환과 계수로 오디오 채널을 다운믹스한다. 선형 채널 혼합 후보도 검토한다."
+    },
+    {
+      "identifier": "AR-080201-A1",
+      "source_fingerprint": "219aed6466ef6c599ffef1c84041a315d738a78e83c9deaa4c72aec177a3098f",
+      "content_hash": "ace91ce10262bd362c75e1f8a1178ef42d0de5f1b477197d4bf2dab9196e4887",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "독소 발현을 다루는 식물 특허이다. 독성 생산 향상이나 구체 유전자 설계로 전환하지 않는다."
+    },
+    {
+      "identifier": "AR-080215-A1",
+      "source_fingerprint": "dca2ad6a68dc072e95e953ccfcfbb2ce2807b18977043f87dad16b6e16e1b9db",
+      "content_hash": "3639ebdb04844cac1d8f414085ad649cc3ae22524c250524ff03ad6a8cf3aa2a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고온 카본블랙 공급물의 오염 억제를 다루며 탄소 생성 반응은 명확하지 않다."
+    },
+    {
+      "identifier": "AR-080217-A1",
+      "source_fingerprint": "8091a90baee8ebb28e6b150c7a232c18c3a416ad11ee81378e802845efbc3609",
+      "content_hash": "8d8e12ef8914afca98994679c5f0f670a26f669b8af4538be6f742e31124a9a7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡기 온도 센서의 장착 위치를 정한다."
+    },
+    {
+      "identifier": "AR-080238-A1",
+      "source_fingerprint": "48c3725a6e2a26acffd6aa0c98f8a5dc945038b7416449924a56b8b0eb9d1ea8",
+      "content_hash": "bda9a143b2d653808756f19a1e23161d1a98aa758a7b2c37dff16ef57255e592",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 추출물 의약 조성으로 구체적인 작용 경로는 확인되지 않는다."
+    },
+    {
+      "identifier": "AR-080242-A1",
+      "source_fingerprint": "8c1c7b1180cd8f4fe4a4ce50df1a9bd640db84f76a8ce6476d8e587a97ffa653",
+      "content_hash": "c6457d2e6f01264dacc132da5210070b7346e78abb98c7962aa0c4173c2fceaf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "친수성 고분자와 붕해제를 조합한다. 팽윤에 따른 붕괴 경로가 직접 확인되면 별도 검토한다."
+    },
+    {
+      "identifier": "AR-080266-A1",
+      "source_fingerprint": "efb20d68bc49a80831cfdb9e4c4cc8bb960da3294bc314fd9f16b80461ca6738",
+      "content_hash": "77a901e44c7596ac230415a4931d05b27e862b27a8f9c9000866f151bba25b8a",
+      "decision": "LINK",
+      "keys": [
+        "bowden-cable-transmission"
+      ],
+      "reason": "도관 내부 줄을 당겨 카테터의 보유 구조를 전환한다."
+    },
+    {
+      "identifier": "AR-080305-A1",
+      "source_fingerprint": "ae25353e5aeba10849a567aadc3688c5b80ef6fcbaddbf95b4b185a4c46fa669",
+      "content_hash": "17d8f0871b8a0b3d975b996a988b1bb215d7e06326ee94f86667ac1daf3fec22",
+      "decision": "LINK",
+      "keys": [
+        "time-division-multiplexing"
+      ],
+      "reason": "시간·주파수 구역을 나누어 제어 정보와 전달 데이터를 배치한다."
+    },
+    {
+      "identifier": "AR-080309-A1",
+      "source_fingerprint": "ce6af8529f8e72b43d30b319cf3074aa6101abfccbe4c5e01b386d1d8751ddd8",
+      "content_hash": "734d8c9904466ca6291e8d03e66ccad00151d575f223c490e4b70ba0ef78ee88",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-shielding",
+        "dielectric-heating"
+      ],
+      "reason": "전자레인지용 차폐 구획으로 식품별 마이크로파 가열량을 조절한다."
+    },
+    {
+      "identifier": "AR-080312-A1",
+      "source_fingerprint": "4932f963ee4a9584feaa2b454de0b908bb27d9a758878de7472568ec11a117ff",
+      "content_hash": "4daacf61c1c6bd7af80ffcade4492fd5ef802d49ed21d966f05c068eb52fd08a",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "CFTR 관련 항체 인식으로 세포를 구분한다. 유전적 질환 선별의 임상적 유효성은 일반화하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:19:37.089459+00:00"
+}

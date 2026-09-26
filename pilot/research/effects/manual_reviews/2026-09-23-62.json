@@ -1,0 +1,367 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "48e70f0ec8dcc84b06b9198cb3ba8ffa98ad8cc6259aeb8a44f09ffa5557eaad",
+  "reviews": [
+    {
+      "identifier": "AR-077840-A1",
+      "source_fingerprint": "8de41d90f1f118025ac0d17b2637b266e77b1c594f75f7a9c2399ee55df4006b",
+      "content_hash": "3d00be065d67974e9e9b64affb606ab08cdff74aa65e9b493585552af7e74c0e",
+      "decision": "LINK",
+      "keys": [
+        "pcr",
+        "biomolecular-recognition",
+        "nucleic-acid-duplex-melting"
+      ],
+      "reason": "기존 초록 검토: 핵산 증폭과 탐침 결합으로 미생물을 검출하는 일반 원리이다. 온도 의존 결합 해리는 진단의 물리 원리 후보이며 병원체 조작·증폭 최적화는 추가하지 않는다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 핵산 이중가닥의 열적 해리: 온도 상승으로 상보적 핵산 가닥 사이 결합의 안정성이 낮아지면 이중가닥 분율이 감소하며 이 변화를 신호로 측정할 수 있다. 서열·길이·염·농도·불일치에 따라 전이 범위가 달라진다. 상보적 결합의 온도 의존 하위 현상이며 특정 검체의 진단 정확도를 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-077882-A1",
+      "source_fingerprint": "0d705eaded971c0077e3f8531732dadc59509e4189364658dc89e1f71c7f8539",
+      "content_hash": "3be130026c90811c9a5e86cd8d9901b45124a1d7384dbd15591c788eb8f2d2ad",
+      "decision": "LINK",
+      "keys": [
+        "microbial-sulfide-bioleaching",
+        "gas-lift-circulation"
+      ],
+      "reason": "기존 초록 검토: 철·황 산화 미생물의 광물 침출이다. 기포 주입에 의한 무펌프 순환은 기체 리프트 후보로 구분한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 기포 혼합물의 밀도차에 의한 순환: 기포가 포함된 상승부의 평균 밀도가 하강부보다 낮으면 정수압 차이가 생겨 액체 순환을 구동한다. 기포율·유로 저항·기체 분리에 의존한다. 온도차에 의한 단상 자연 대류와 부력 원리를 공유하지만 밀도차의 원인이 기체 혼입이다."
+    },
+    {
+      "identifier": "AR-077956-A1",
+      "source_fingerprint": "1a8e30e935c189d67beca172ad3b911ec2a16f8b5e60ff8369e461ba9e624ef7",
+      "content_hash": "b8eeb845f72b032783823333654b383cd7383f91fb80446c42e73a586501d78f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "oxidative-phosphorylation-uncoupling"
+      ],
+      "reason": "기존 초록 검토: 여러 효소·대사 경로 저해제군을 나열한다. 산화적 인산화 탈결합의 일반 원리는 별도 검토하되 혼합물별 상승작용은 추정하지 않는다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 산화적 인산화의 탈결합: 미토콘드리아 내막의 양성자 구동력이 ATP 합성과 별도 경로로 소산되면 전자 전달과 ATP 생산의 결합 효율이 낮아질 수 있다. 막 상태·농도·대사 보상에 의존한다. 전자 전달 효소의 직접 저해와 다르며 열 발생이나 호흡 변화만으로 탈결합을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-078022-A1",
+      "source_fingerprint": "6afd98f802628840ba6ca2092aebd0769b168c78f532e6446cacfa9af7d66986",
+      "content_hash": "1144e7ecd7653f19f0e50a19f4df7cba4bad1efcbc8f46236d599d07d8f96dd5",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "hydroentanglement"
+      ],
+      "reason": "기존 초록 검토: 물 제트로 섬유 층을 서로 얽어 일체화한다. 섬유 웹 형성의 유체 운동량 이용은 별도 경계를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 섬유 얽힘에 의한 부직포 결속: 물 제트나 바늘이 섬유를 재배열해 서로 얽히게 하면 마찰과 기계적 걸림으로 섬유 집합체의 결속이 증가한다. 섬유 길이·강성·배열과 처리 강도에 의존한다. 기계적 맞물림의 섬유 공정 응용이며 수류 결합과 니들 펀칭을 별도 효과로 중복 계산하지 않는다."
+    },
+    {
+      "identifier": "AR-078227-A1",
+      "source_fingerprint": "b11bb87a35e52295c39a4cd2692f2c4a6ac9f2fc51c966a101c75de20890af65",
+      "content_hash": "c787aff04b73eb0d8918c14e0209772633fba68427c2644dfdc4e8f2d3c5e9c4",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "alcohol-dehydration-to-alkene"
+      ],
+      "reason": "기존 초록 검토: 산 촉매로 에탄올을 에틸렌으로 바꾼다. 알코올 탈수의 결합 변화를 별도 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 알코올 탈수에 의한 알켄 형성: 알코올에서 수산기와 인접 수소가 물로 제거되면 탄소 사이 이중결합이 형성될 수 있다. 기질 구조·촉매·경쟁 치환·재배열에 따라 산물이 달라진다. 아미드 탈수나 알코올의 카보닐 산화와 결합 변화가 다르다."
+    },
+    {
+      "identifier": "AR-078332-A1",
+      "source_fingerprint": "24b08080fe16100e6d3eb16c81967b96fbba0f568c433f82f1cb42e07d652fad",
+      "content_hash": "41e31bc3ef8fdbc6d6aec63b1e457f9734f94690ca74e832f46ef9b84b192b02",
+      "decision": "LINK",
+      "keys": [
+        "electrical-continuity-sensing",
+        "time-of-flight",
+        "photovoltaic-conversion",
+        "time-domain-reflectometry"
+      ],
+      "reason": "기존 초록 검토: 도전 띠의 단선과 시간영역 반사로 손상 위치를 찾고 태양전지로 전원 공급한다. 임피던스 불연속 반사 계측 후보로 기록한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 시간 영역 반사에 의한 전송선 결함 위치 추정: 전송선에 보낸 신호가 임피던스 불연속에서 반사되어 돌아오는 시간을 측정하면 전파 속도를 이용해 불연속 위치를 추정할 수 있다. 전파 속도·분산·다중 반사·대역폭 보정이 필요하다. 비행시간 측정의 전송선 응용이며 반사 크기·극성은 결함 성질의 보조 정보다."
+    },
+    {
+      "identifier": "AR-078429-A1",
+      "source_fingerprint": "643769d58a3613298e746d34a9da563a80f09cd8ddc2804862c56e2cefd75e6c",
+      "content_hash": "2561f5d71070c00673befeeeac1da5ef0fed826ac44c170ea46e73420af23baf",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation",
+        "nitro-group-reduction"
+      ],
+      "reason": "기존 초록 검토: 백금 촉매로 방향족 니트로기를 아민으로 환원한다. 니트로기 산소 제거의 결합 변화는 후보로 구분한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 니트로기의 아민 환원: 니트로기의 산소가 단계적으로 제거되고 질소가 환원되면 해당 유기 골격의 아민을 얻을 수 있다. 환원제·촉매·기질에 따라 중간체와 부반응이 달라진다. 촉매 수소화와 겹칠 수 있지만 수소 기체를 쓰지 않는 경로도 포함하는 작용기 전환이다."
+    },
+    {
+      "identifier": "AR-078451-A1",
+      "source_fingerprint": "82dfb2e8df6f5533a9a0df3cd11590d9e289067c2e6ddda1a84d2d8892712a1f",
+      "content_hash": "e8c9fcb814c138a3d602ccd74907b1971b9cc58a0967da63db4c114bc07baf39",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "somatic-cell-fusion"
+      ],
+      "reason": "기존 초록 검토: HLA 결합 항체와 세포사멸을 제시한다. 사멸 경로는 미상이며 세포 융합의 생산 원리는 별도 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 세포 융합에 의한 성질 결합: 두 세포의 막을 융합하여 세포 내용물과 유전적 성분이 함께 존재하게 하면 서로 다른 세포 성질을 조합할 수 있다. 융합·선별·유전적 안정성에 의존하고 모든 융합체가 원하는 형질을 유지하지 않는다. 유전자 한 조각의 도입과 달리 세포 수준의 결합이다."
+    },
+    {
+      "identifier": "AR-078490-A1",
+      "source_fingerprint": "91464ac8d74ec835043daff864320bb125d76bd85e463c4575280c1e2847b2d4",
+      "content_hash": "019b969c226fb78f262a8020fda80756b266bc4b49afccc79574cc62ce7a1175",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "integrin-mediated-cell-adhesion"
+      ],
+      "reason": "기존 초록 검토: 피브리노겐과 Mac1 결합·미세아교세포 부착을 차단한다. 인테그린 접착 후보의 추가 근거이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 인테그린 매개 세포 부착: 세포 표면 인테그린이 적합한 리간드에 결합하고 세포골격과 연결되면 세포 부착·힘 전달·이동 신호를 매개한다. 수용체 활성 상태·리간드·세포골격 연결에 의존한다. 생체 분자 인식의 하위 기전이며, 단순 결합 검출보다 세포의 기계적 연결을 대상으로 한다."
+    },
+    {
+      "identifier": "AR-078545-A1",
+      "source_fingerprint": "c4f5d1a19ac05254cc1716657bd25994dba8db7db4eb3eaa7111f00822170d99",
+      "content_hash": "c50bd3fb308f50a7d01f48008556e3979cd9ce1b85bd22486ce9322385819e05",
+      "decision": "LINK",
+      "keys": [
+        "transmit-diversity"
+      ],
+      "reason": "기존 초록 검토: 여러 기지국 안테나 중 신호가 강한 집합을 골라 공동 수신한다. 다이버시티와 공간 다중화를 구별해 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 공간 다이버시티에 의한 페이딩 저감: 같은 정보를 서로 다른 공간 전파 경로로 보내거나 받아 선택·결합하면 한 경로의 깊은 페이딩이 통신 실패로 이어질 확률을 줄일 수 있다. 경로 상관이 낮아야 이득이 크다. 독립 데이터 흐름을 늘리는 공간 다중화와 목적이 다르며, 송신·수신 다이버시티를 하나로 묶는다."
+    },
+    {
+      "identifier": "AR-078551-A1",
+      "source_fingerprint": "bd086cb3cf93d851eec147f26352a9042b00aea56f1f1c9dae1b38ab6a1ed015",
+      "content_hash": "651fea18d89da7166ffbd12f98f270d0f03207a08309fa2e0b9129aed9e6fd79",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "fischer-tropsch-chain-growth"
+      ],
+      "reason": "기존 초록 검토: 합성가스를 피셔트롭슈 촉매로 탄화수소로 바꾼다. CO 수소화 사슬 성장 반응을 후보로 기록한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 피셔·트롭슈 반응의 탄화수소 사슬 성장: 일산화탄소와 수소가 촉매 표면에서 반응하며 탄소 단위의 사슬 성장과 종결을 거쳐 여러 길이의 탄화수소를 형성한다. 촉매·온도·조성에 따라 생성물 분포가 달라진다. 불포화 분자의 단순 수소화나 메탄 중심의 단일 탄소 생성과 구분한다."
+    },
+    {
+      "identifier": "AR-078628-A1",
+      "source_fingerprint": "fbdbd57cb7a4f1b14a96e3c5e2c3448be2097ea3e2b91b9bc93ec43e999ecf38",
+      "content_hash": "adec6ce4d39e325288d4c5abab371955091f053b989c4a256f9154839a282f76",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "microemulsion-phase-equilibrium"
+      ],
+      "reason": "기존 초록 검토: Winsor III 미세유화상으로 오일 회수를 돕는다. 초저계면장력 평형을 별도 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 미세에멀션의 평형 상분배: 물·기름·계면활성제의 조성과 친화성이 맞으면 열역학적으로 안정한 미세 구조가 형성되며, 조건에 따라 중간 미세에멀션상이 공존할 수 있다. 온도·염도·조성에 민감하다. 계면활성의 하위 평형 현상이며 모든 조성에서 초저 계면장력이나 Winsor III 삼상 상태가 나타나는 것은 아니다."
+    },
+    {
+      "identifier": "AR-078695-A1",
+      "source_fingerprint": "9487cae034f62c5b1e154e9406f237764c4eff1205fd64e96720b93ca9855422",
+      "content_hash": "f0cd60f3436b9fc6e1174b07026833e00185f9ddc62ee12c3dd2fe90dabd8232",
+      "decision": "LINK",
+      "keys": [
+        "nearest-neighbor-retrieval"
+      ],
+      "reason": "기존 초록 검토: 다차원 물성 공간의 거리순으로 유사 성분을 찾는다. 최근접 이웃 검색을 지도 학습과 구분해 후보로 기록한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 특징 거리 기반 최근접 항목 검색: 항목을 특징 공간에 표현하고 거리나 유사도를 비교하면 질의에 가까운 항목을 순서대로 검색할 수 있다. 특징·척도·정규화가 결과를 좌우한다. 근사 검색에는 누락 가능성이 있으며 지도 학습 분류나 그래프 최단 경로와 계산 목적이 다르다."
+    },
+    {
+      "identifier": "AR-078707-A1",
+      "source_fingerprint": "4135a1e0355e9086f6699cd7ddba1d5ea985717bc114149af7094e493548d221",
+      "content_hash": "aa119218544caf113e1eed15781f58dd2ec9f39fba7b97bd5d423b68fa04062e",
+      "decision": "LINK",
+      "keys": [
+        "arithmetic-entropy-coding"
+      ],
+      "reason": "기존 초록 검토: 문맥 확률에 따른 산술 부호화와 구간 축소 테이블 검색이다. 오류 정정 부호·푸리에 변환과 구별해 두 계산 원리를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 확률 구간 축소에 의한 산술 부호화: 기호 확률에 따라 수치 구간을 반복 분할하고 기호열에 해당하는 최종 구간을 표현하면 확률적 중복을 줄여 데이터를 부호화할 수 있다. 송수신 확률 모델과 정밀도 규칙이 일치해야 한다. 오류 정정과 달리 중복을 줄이는 무손실 압축이며 예측·변환 부호화와 결합할 수 있다."
+    },
+    {
+      "identifier": "AR-078883-A1",
+      "source_fingerprint": "477bf1d8b6d84455c5c2c7bf1ea04499f9573925753da1791322348538db57b5",
+      "content_hash": "ef77e3309c53f92c89e82b86d133ec2fca2993e219a5506b4259947469d29985",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "lewis-acid-catalysis",
+        "hydrolysis",
+        "guanidine-pyrimidine-cyclocondensation"
+      ],
+      "reason": "기존 초록 검토: 인산화효소 저해제 합성에서 루이스산 반응과 에스터 가수분해를 명시한다. 구아니딘 고리축합은 별도 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 구아니딘 축합에 의한 피리미딘 고리 형성: 구아니딘 계열 질소 반응물과 적합한 탄소 사슬 반응물이 축합·고리화를 거쳐 피리미딘 골격을 형성할 수 있다. 에나미논 등 반응물의 구조와 치환기가 중요하다. 질소 고리 축합의 하위 반응이며 모든 구아니딘 혼합물이 피리미딘을 만드는 것은 아니다."
+    },
+    {
+      "identifier": "AR-078943-A1",
+      "source_fingerprint": "f0ca5804626b808084d5f7b4ea3c02fc028561e3ff023ddec66a60892db3fc65",
+      "content_hash": "d1de39f0497de89fc98f9a9954969e8c0b31d0c4425d49598ec2221bf8d58f32",
+      "decision": "LINK",
+      "keys": [
+        "geophysical-inverse-reconstruction"
+      ],
+      "reason": "기존 초록 검토: 지표 탄성파·전자기 자료로 지하 속도·비저항 분포를 추정한다. 역문제 공간 복원의 원리를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 지구물리 관측의 공간 물성 역산: 파동·전자기 관측과 순방향 모델의 차이를 줄이도록 공간 물성 분포를 조정하면 지하 구조를 추정할 수 있다. 해가 유일하지 않을 수 있어 정규화·사전 정보·관측 범위가 중요하다. 시간적 상태 추정과 구별되며 지층 경계의 직접 관측을 뜻하지 않는다."
+    },
+    {
+      "identifier": "AR-079028-A1",
+      "source_fingerprint": "159f4b9e0fdb75941f67b92a577cca38e3bc000f55ea8ab24ea725c123d75880",
+      "content_hash": "767a538924d246eac84b0f3fcea1e283d8efdc971b2d74f38ed10360416a39da",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration",
+        "nucleation-barrier",
+        "amorphous-solid-dispersion"
+      ],
+      "reason": "기존 초록 검토: 고분자 약물 막을 가열·건조해 결정화를 막는다. 고체 분산 후보의 명시적 결정 억제 근거이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 고체 분산에 의한 비정질 상태 유지: 물질을 적합한 고분자 안에 분산시키면 분자 이동과 결정 핵생성·성장이 억제되어 비정질 상태를 유지할 수 있다. 혼화성·수분·유리전이·저장 조건에 의존한다. 용출을 개선할 수 있으나 과포화 후 재결정이 가능하며 단순 액체 용해와 구분한다."
+    },
+    {
+      "identifier": "AR-079059-A1",
+      "source_fingerprint": "8c73b22e0f438915c51f482ceecef51d5917848e535885a877ca3e95ab95ea83",
+      "content_hash": "d38416abb14de5f18b767c3352d38cb6c037b10ea6315c92dfd6ee0bc0748e31",
+      "decision": "LINK",
+      "keys": [
+        "diffraction",
+        "absorption-spectroscopy",
+        "nuclear-magnetic-resonance",
+        "evanescent-wave-absorption"
+      ],
+      "reason": "기존 초록 검토: 회절·ATR 적외선·고체 NMR로 결정을 특성화한다. 소멸장 흡수 계측은 별도 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 소멸장 흡수에 의한 계면 분광: 전반사 경계 밖으로 짧게 침투하는 소멸장이 인접 시료에 흡수되면 반사광의 스펙트럼 변화로 계면 근처 성분을 조사할 수 있다. 침투 깊이·굴절률·입사각·접촉 상태에 의존한다. 전반사와 흡수 분광을 결합한 하위 측정법이며 벌크 전체를 균일하게 측정하지 않는다."
+    },
+    {
+      "identifier": "AR-079070-A1",
+      "source_fingerprint": "831f2784fe79c79e1841bc65382d10c7c9a6d574a359c1c6f72338ae28276da0",
+      "content_hash": "3d1b7e1261a54bdda85258808dd2ac2c9b7bba09975391823a76e7ca03e88e19",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "abrasive-material-removal",
+        "peroxide-oxidative-bleaching"
+      ],
+      "reason": "기존 초록 검토: 포도당 산화효소·기질과 연마제를 포함한 치약이다. 과산화물 생성·산화 표백은 추가 근거로 확인한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 과산화물 산화에 의한 발색 구조 변화: 과산화물과 그 유래 반응종이 발색 분자의 결합·전자 구조를 바꾸면 가시광 흡수가 달라져 표백으로 이어질 수 있다. 색소·매질·활성화 조건에 따라 효과와 재료 손상이 달라진다. 산화환원 일반의 하위 응용이며 살균이나 특정 치아 미백 성능을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-079089-A1",
+      "source_fingerprint": "d3c551549e0d50d8e1a39f3c42f3fff2b7b1b379745182352bccf14930148924",
+      "content_hash": "38ba298435d5f0ecb2c222aa45e74ab8da3b5bf814b92ca58e1621619655d783",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "ionizing-radiation-radical-generation"
+      ],
+      "reason": "기존 초록 검토: 전리 방사선 처리 바이오매스를 발효한다. 방사선의 라디칼 생성은 물질 변환 후보이며 소거제 종류는 미상이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 전리 방사선에 의한 라디칼 생성: 전리 방사선과 이차 전자가 물질에 에너지를 전달하여 이온화·여기·결합 절단을 일으키면 반응성 라디칼이 생성될 수 있다. 매질·산소·선량·소거 반응에 따라 종과 수명이 달라진다. 광개시제 여기와 구별되며 가교·분해·불활성화는 라디칼의 후속 반응이다."
+    },
+    {
+      "identifier": "AR-079145-A1",
+      "source_fingerprint": "3c2220ad4a9ef44a7a4198559b3f2ca6a84e877af032e3493148299f5c7f188d",
+      "content_hash": "64838c13d7f1856fb1e9dd4eabc47d322d9d0854c5338e4f1146fab8560e87b5",
+      "decision": "LINK",
+      "keys": [
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "reason": "기존 초록 검토: 입력 분포에서 표본을 뽑아 여러 파괴 시뮬레이션의 출력 분포를 계산한다. 몬테카를로 불확실성 전파 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 몬테카를로 표본화에 의한 불확실성 전파: 입력의 확률 분포에서 표본을 뽑아 모델을 반복 계산하면 출력 분포와 불확실성을 근사할 수 있다. 입력 분포·상관·모델 타당성과 표본 수에 의존한다. 난수 생성 자체나 관측으로 사후 확률을 갱신하는 베이지안 추론과 목적이 다르다."
+    },
+    {
+      "identifier": "AR-079182-A1",
+      "source_fingerprint": "81215b178967d662ccb57b8a4a02441f6b54873cc659dd16a55331350dd0de79",
+      "content_hash": "8670f2e38d9ec3546f90aab30bd9a6ae06311b36f821a8eab2eb2b6e15cfa6a5",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "double-layer-repulsion",
+        "adsorption-induced-charge-reversal"
+      ],
+      "reason": "기존 초록 검토: 표면 흡착으로 음전하 입자를 양전하로 바꿔 양이온 성분과의 반응을 줄인다. 전하 역전 후보로 기록한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 흡착에 의한 표면 전하 역전: 반대 전하를 띤 이온이나 고분자가 표면에 충분히 흡착하면 계면의 유효 전하 부호가 원래 표면과 반대로 바뀔 수 있다. 흡착량·이온 강도·전하 측정면에 의존한다. 제타 전위 부호와 실제 표면 전하를 구별하며 단순 전기 이중층 차폐와는 다른 전하 조절이다."
+    },
+    {
+      "identifier": "AR-079213-A1",
+      "source_fingerprint": "925d1d56e8f6994b2b50de965f0f1b29def345adabe635b10174957ebd3d78d1",
+      "content_hash": "850cb83c7f3ecae681729bc03e642c3360665095e211a4b7d4658844b57552d0",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-heating",
+        "emulsion-film-destabilization"
+      ],
+      "reason": "기존 초록 검토: 이온성 액체와 마이크로파 가열로 유수 에멀션을 분리한다. 계면막 불안정화·액적 합일의 직접 경로는 추가 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 액적 계면막 불안정화에 의한 탈유화: 액적 사이의 계면막이 배수·파열되어 합일이 쉬워지면 액적이 커지고 연속상에서 분리될 수 있다. 계면활성제·입자·온도·전단에 따라 달라진다. 응집만으로 합일을 뜻하지 않으며, 분산 안정화와 반대 방향의 과정이다."
+    },
+    {
+      "identifier": "AR-079258-A1",
+      "source_fingerprint": "057c8fba175a598a40f04b65cc121bdcb39b1254abd9615e9b686aafd73aedcd",
+      "content_hash": "a49ba49abd988588a3f6f80c12f87d38fac2d6b48a5842b7bfb514ea80274dd5",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "gelation",
+        "acid-base-buffering",
+        "borate-diol-reversible-crosslinking",
+        "polymer-mucin-mucoadhesion"
+      ],
+      "reason": "기존 초록 검토: 붕산염·갈락토만난이 겔을 형성하는 안과 에멀션이다. 붕산염 디올 가교와 점막 접착을 별도 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 붕산염·디올의 가역 가교: 붕산염과 적합한 디올 부위의 가역 결합이 고분자 사슬을 연결하면 시간에 따라 재배열 가능한 망상 구조가 형성될 수 있다. pH·작용기 배치·농도·경쟁 리간드에 의존한다. 겔화의 특정 결합 기전이며 영구 공유결합 가교와 완화 거동이 다르다.; 고분자·점액층 상호작용에 의한 점막 부착: 수화된 고분자가 점액층과 접촉하면 사슬 상호 침투와 수소결합·정전기적 상호작용 등이 접촉 유지에 기여할 수 있다. 고분자·점액 조성·수화·점액 교체에 의존하며 지배 기전은 제형마다 다르다. 일반 감압 접착과 달리 수화된 생체 계면의 체류를 대상으로 한다."
+    },
+    {
+      "identifier": "AR-079261-A1",
+      "source_fingerprint": "0e32f7126259f01cda16eb09b494e91291cb77e9f896700ce2bbeb480e15a3f4",
+      "content_hash": "c9acfc88b425d01107b946ce82b97be22824ad5fc84ddfbbceb68f851a90953a",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "fluid-jet-deposit-removal"
+      ],
+      "reason": "기존 초록 검토: 고압 기체를 순간 공급해 열교환기 침착물을 떼어낸다. 유체 전단·충격 세정의 경계를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 유체 제트의 힘에 의한 침착물 제거: 표면에 가해지는 유체 제트의 충격과 전단이 침착물의 부착·응집 저항을 넘으면 침착물이 탈리되어 이동한다. 기재 손상·노즐 거리·제트 방향·부착 강도를 고려한다. 벌크 입자 미세화나 화학 용해와 다르며 공동화가 필수인 것은 아니다."
+    },
+    {
+      "identifier": "AR-079446-A1",
+      "source_fingerprint": "3ba275776019ef5101b8a9879734de18d8898599e4e3762a19679c51e9f7ac0c",
+      "content_hash": "04b18269e3d06ece05ae2b0ea18edba0c2c7ec91d02ff43120603a8f7aa57c9b",
+      "decision": "LINK",
+      "keys": [
+        "pressure-compaction"
+      ],
+      "reason": "기존 초록 검토: 피스톤으로 사료를 단계 압축해 고밀도 묶음을 만든다. 벌크 공극 감소의 압축 치밀화 후보를 보강한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 가압에 의한 분말·벌크 치밀화: 분말이나 입자층을 누르면 입자 재배열과 변형·파쇄로 공극이 줄어 벌크 밀도가 증가한다. 재료·입도·압력·마찰에 의존하며 압력 제거 후 복원이 가능하다. 가역 재밍에 의한 강성 전환과 달리 치밀화가 주된 출력이다."
+    },
+    {
+      "identifier": "AR-079586-A1",
+      "source_fingerprint": "f87f304f0f1c0791acb6d71ab7be6c5eea7a13488c373e8af001106286bcb32b",
+      "content_hash": "7c927c0461df4c795e630b86f61e29b4ac9d76871f4720926ca06ffb3a05de02",
+      "decision": "LINK",
+      "keys": [
+        "water-gas-shift",
+        "carbon-oxide-methanation"
+      ],
+      "reason": "기존 초록 검토: 합성가스 조성을 수성가스 전환으로 조절한 후 메탄화한다. 단일 탄소 메탄 생성은 사슬 성장과 별도 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 탄소 산화물의 메탄화: 일산화탄소나 이산화탄소가 수소와 촉매 반응하면 메탄과 물을 생성할 수 있다. 평형·촉매·열 제거와 경쟁 반응에 의존한다. 수소화 반응의 하위 유형으로, 여러 탄소 길이로 사슬이 성장하는 피셔·트롭슈 합성과 목적이 다르다."
+    },
+    {
+      "identifier": "AR-079589-A1",
+      "source_fingerprint": "4b2320f63783af0fb4863e345223dd89522a65d72a040a017f46260c4d00cce7",
+      "content_hash": "cabdfb2fc36a7570cdaaf521606285987675bdf9969b203289e343e2ef919d57",
+      "decision": "LINK",
+      "keys": [
+        "photoinitiated-radical-generation",
+        "barrier-coating",
+        "adsorptive-corrosion-inhibition"
+      ],
+      "reason": "기존 초록 검토: 광개시 아크릴레이트 코팅으로 금속 부식을 막는다. 벤조트리아졸의 흡착 부식 억제는 추가 근거가 필요하다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 흡착 보호층에 의한 부식 억제: 억제제 분자가 금속 계면에 흡착하거나 표면 복합층을 형성하여 부식 반응 부위와 물질·전하 이동을 제한할 수 있다. 금속·용액·억제제 농도와 층의 안정성에 의존한다. 흡착의 보호 응용이며 산화막 형성에 의한 부동태화나 희생 양극 방식과 구분한다."
+    },
+    {
+      "identifier": "AR-079614-A1",
+      "source_fingerprint": "6e970eded2da3c0905a5107a03dcdb1d8419e415840a26134f18b243e9da62ec",
+      "content_hash": "1b90b4fb53d3143a28f83986816d5646a9f45b2a38c4f247dc0450c5dad62d50",
+      "decision": "LINK",
+      "keys": [
+        "center-of-mass-static-stability"
+      ],
+      "reason": "기존 초록 검토: 곡면 받침 위에서 사용자의 무게중심 이동으로 기울어진다. 중력 모멘트와 지지 안정성의 경계를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 무게중심과 지지 영역에 따른 정적 안정: 중력 작용선과 지지 영역의 위치 관계가 전도 모멘트를 결정하며, 평형에서의 작은 변위에 대한 중력 모멘트가 복원 여부를 좌우한다. 접촉·마찰·외력·구속 조건을 함께 고려한다. 동적 안정성을 보장하지 않으며 회전 불균형 보정과 달리 중력 아래 정지 자세를 대상으로 한다."
+    },
+    {
+      "identifier": "AR-079623-A1",
+      "source_fingerprint": "885acb41ee135407392384add309ae1a44bc86a32d888f1ad08eba912b0778f4",
+      "content_hash": "3685b355f49ca142e5e2fc4f7c26872eee1c84dacea5e262945a25498b826058",
+      "decision": "LINK",
+      "keys": [
+        "pitch-synchronous-speech-resynthesis"
+      ],
+      "reason": "기존 초록 검토: 기본 주기에 맞춘 프레임 선택·합성으로 음높이·길이를 바꾼다. 피치 동기 음성 합성의 직접 근거이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 주기 동기 재합성에 의한 음성 변환: 유성음의 기본 주기에 맞춘 신호 구간을 시간축에서 재배치하고 겹쳐 합성하면 음높이나 발화 길이를 바꿀 수 있다. 주기 추정 오류·무성음·위상 불연속으로 왜곡이 생길 수 있다. 주파수 분석이나 고주파 대역 보완과 달리 시간 구조의 재합성이 목적이다."
+    },
+    {
+      "identifier": "AR-079754-A1",
+      "source_fingerprint": "b4a27d291cd8930161733fd860a431546cab830a219c23eb6432bc1264d2304a",
+      "content_hash": "b76829e71763730a79ea975cc0770e755a022e571b49243abf3a33d8df803090",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying",
+        "thermal-biological-inactivation"
+      ],
+      "reason": "기존 초록 검토: 나선 날개가 폐기물을 왕복 이송하고 증기로 가열 불활성화한다. 나선 벌크 이송과 열 불활성화 후보를 보강한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 회전 나선에 의한 벌크 고체 이송: 회전하는 나선 날개가 입자에 힘을 전달하고 케이싱과의 마찰이 함께 작용하여 벌크 고체를 축 방향으로 이동시킨다. 충전율·경사·입자 마찰·미끄럼에 따라 이송량이 달라진다. 나사 너트의 구속된 변위 변환이나 밀폐 용적식 액체 펌핑과 구분한다.; 가열에 의한 생물학적 활성 저감: 열에 의해 단백질·막 등 생물 구성 요소가 손상되면 미생물의 증식 능력이나 생물학적 활성이 감소할 수 있다. 대상·매질·온도 분포·노출 시간에 따라 다르며 가열만으로 완전 멸균을 뜻하지 않는다. 방사선 불활성화와 에너지 전달·손상 과정이 다르다."
+    },
+    {
+      "identifier": "AR-079787-A1",
+      "source_fingerprint": "9e1092cf0542df64622c9600cd6c4c654a0ee1179399b05305877d517c38488d",
+      "content_hash": "3675424eba4b24b9cec473ca9863886e9c3f6c846146a5aa0226c26c35a009b2",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "alkene-double-bond-isomerization",
+        "olefin-metathesis"
+      ],
+      "reason": "기존 초록 검토: 알파올레핀의 이성질화와 에틸렌 분해를 조합한다. 이중결합 이동·복분해는 서로 다른 결합 변환 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 알켄 이중결합 위치 이성질화: 수소와 결합의 재배치를 통해 같은 탄소 골격에서 이중결합 위치가 이동할 수 있다. 촉매·기질·평형에 따라 위치와 입체 이성질체 분포가 달라진다. 순수 위치 이성질화는 탄소 골격 교환을 수반하는 메타세시스와 구분한다.; 올레핀 메타세시스에 의한 결합 파트너 교환: 적합한 촉매 작용으로 알켄의 탄소 이중결합 파트너가 교환되어 새로운 알켄 조합을 만든다. 촉매 적합성·평형·경쟁 반응에 의존한다. 이중결합 위치 이동이나 단순 수소 첨가와 결합 재배열 방식이 다르다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:50:09.008930+00:00"
+}

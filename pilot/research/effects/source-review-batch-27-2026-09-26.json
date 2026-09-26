@@ -1,0 +1,540 @@
+{
+  "task": "research1500 chemistry followup 27",
+  "authored_at": "2026-09-26",
+  "catalog_comparison": "Canonical catalog and additions-2026-09-26-23.tsv through -26.tsv; keys and mechanisms manually compared. Shared catalog was being updated by root; this agent did not edit catalog or metadata.",
+  "inference_mode": "conversation_only",
+  "external_llm_calls": false,
+  "authorship": "Mechanism selection, Korean wording and boundary judgments authored by direct conversation reasoning; tools used only for public literature retrieval, file serialization and format validation.",
+  "output": "pilot/research/effects/additions-2026-09-26-27.tsv",
+  "count": 15,
+  "scope_notes": "publisher_abstract denotes an author abstract actually opened on publisher or PubMed. stored_search_excerpt denotes text returned in public search, including indexed primary-paper body sections; it does not imply full-text access. Failed opens are recorded below.",
+  "entries": [
+    {
+      "key": "donor-antibond-orbital-hyperconjugation",
+      "group": 15,
+      "name_ko": "주개·반결합 궤도 정렬의 초공액 안정화",
+      "source_title": "Journal of the Chemical Society, Perkin Transactions 2 · Is hyperconjugation responsible for the “gauche effect” in 1-fluoropropane and other 2-substituted-1-fluoroethanes?",
+      "url": "https://pubs.rsc.org/en/content/articlelanding/1999/p2/a901974j",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "hyperconjugative electron donation into the C–F σ* orbital contributing to the conformational preferences of these 1-fluoroethanes.",
+      "support_and_limits_ko": "1999년 MP2 회전 에너지·기하·용매 민감도 계산. 초공액 기여를 지지하면서도 전체 형태 선호를 초공액만으로 설명하지 못함을 같은 초록이 명시한다.",
+      "retrieval_trace": "chemSearch5 / turn661search2",
+      "supplementary_sources": [
+        {
+          "url": "https://pubs.rsc.org/en/content/articlelanding/2021/cp/d1cp02806e",
+          "scope": "stored_search_excerpt",
+          "note": "NBO 분석의 초공액·입체 경쟁. 에너지 분해 해석이 모형 의존적이라는 한계 확인."
+        },
+        {
+          "url": "https://www.nature.com/articles/nchem.721",
+          "scope": "stored_search_excerpt",
+          "note": "아노머 효과를 초공액 단독 원인으로 일반화하지 않는 반대 계산 결과를 확인. 추가 계수하지 않음."
+        }
+      ],
+      "access_limit": null,
+      "related_keys": [
+        "cyclic-pi-delocalization-aromatic-stabilization"
+      ],
+      "boundary_ko": "고리 전체의 파이 방향족성 대신 국소 주개와 반결합 궤도의 방향성 혼합을 다룬다. 고슈·아노머·치환기별 효과를 별도 계수하지 않는다."
+    },
+    {
+      "key": "trans-ligand-kinetic-substitution-labilization",
+      "group": 15,
+      "name_ko": "맞은편 리간드의 운동학적 트랜스 효과",
+      "source_title": "Journal of Computational Chemistry · The trans effect in square-planar platinum(II) complexes—a density functional study",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18442081/",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "The trans effect is explained in terms of sigma-donation and pi-back-donation",
+      "support_and_limits_ko": "Pt(II) 물 교환을 계산한 1차 연구 초록. 트랜스 영향의 결합 길이와 운동학적 트랜스 효과를 구분하고 리간드에 따른 I(d), A, I(a) 경로 차이를 설명한다.",
+      "retrieval_trace": "chemSearch2 / turn653search0",
+      "supplementary_sources": [],
+      "access_limit": "PubMed open returned reCAPTCHA; source remains stored_search_excerpt.",
+      "related_keys": [
+        "coordination-complexation",
+        "lewis-acid-catalysis"
+      ],
+      "boundary_ko": "착물 형성 자체가 아니라 기존 리간드가 맞은편 자리의 치환 장벽을 바꾸는 위치 선택적 전자 효과다."
+    },
+    {
+      "key": "neighboring-group-bridged-intermediate-participation",
+      "group": 15,
+      "name_ko": "분자 내 참여기의 가교 중간체 형성",
+      "source_title": "Nature Communications · Characterization of glycosyl dioxolenium ions and their role in glycosylation reactions",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32471982/",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "It has been exceedingly difficult to study the bridging dioxolenium ion intermediates because of their high reactivity and fleeting nature.",
+      "support_and_limits_ko": "IR 이온 분광·DFT·용액 글리코실화 실험을 결합한 1차 연구. 가교 dioxolenium 구조와 입체선택 관계를 지지한다. 기체상 구조가 모든 용액의 지배 중간체라는 주장은 하지 않는다.",
+      "retrieval_trace": "chemSearch11 / turn670search2",
+      "supplementary_sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2669227/",
+          "scope": "stored_search_excerpt",
+          "note": "원격 에스터 참여를 중간체 포획으로 조사한 별도 1차 연구. 모든 원격기가 참여하는 것은 아님을 확인."
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7260182/",
+          "scope": "stored_search_excerpt",
+          "note": "본 논문 본문 검색 발췌의 위치별 참여 강도·기체 및 용액 비교를 확인."
+        }
+      ],
+      "access_limit": "Nature full page redirected to inaccessible identity endpoint; no full-text access claimed.",
+      "related_keys": [
+        "nucleophilic-substitution",
+        "chemical-glycosylation"
+      ],
+      "boundary_ko": "일반 치환이나 당 결합 생성 대신 내부 주개가 먼저 결합해 가교 중간체를 만드는 이웃기 참여 경로를 분리한다."
+    },
+    {
+      "key": "rapid-interconversion-transition-state-product-selection",
+      "group": 15,
+      "name_ko": "빠른 이성질체 교환의 커틴·해밋 생성물 선택",
+      "source_title": "Advanced Synthesis & Catalysis · A Mechanistic Probe into 1,2-cis Glycoside Formation Catalyzed by Phenanthroline and Further Expansion of Scope",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35431716/",
+      "scope": "publisher_abstract",
+      "source_type": "primary_research",
+      "evidence_excerpt": "interconversion of the 4C1 chair-like β-conformer and B2,5 boat-like α-conformer is more rapid than nucleophilic addition.",
+      "support_and_limits_ko": "PubMed에서 읽은 저자 초록은 NMR 중간체 검출과 Curtin–Hammett 시나리오를 제안한다. 관찰만으로 빠른 교환이 확정되었다고 쓰지 않고 일반 원리의 적용 조건을 명시했다.",
+      "retrieval_trace": "chemRead1 / turn647view1 lines 235–240",
+      "supplementary_sources": [
+        {
+          "url": "https://old.goldbook.iupac.org/html/C/C01480.html",
+          "scope": "stored_search_excerpt",
+          "note": "IUPAC 공식 정의: 빠른 이성질체 교환, 생성물 비상호전환, 전이상태 표준 자유에너지 차에 따른 생성물 비율을 확인. open은 timeout; 검색 정의만 사용."
+        }
+      ],
+      "access_limit": null,
+      "related_keys": [
+        "le-chatelier-equilibrium-shift",
+        "enantioselective-kinetic-resolution"
+      ],
+      "boundary_ko": "평형 조성 이동이나 서로 교환하지 않는 거울상체의 속도 분할과 달리 빠른 내부 교환 중 경쟁 생성물 통로의 선택을 설명한다."
+    },
+    {
+      "key": "autocatalytic-delayed-inhibition-chemical-oscillation",
+      "group": 15,
+      "name_ko": "자기촉진·지연 억제의 화학 농도 진동",
+      "source_title": "The Journal of Physical Chemistry B · Concentration-Dependent Evolution of the Belousov–Zhabotinsky Reaction as Determined by X-ray Absorption and UV–Vis Spectroscopies",
+      "url": "https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.5c04472",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "the decarboxylative oxidation of the organic substrate, which leads to the reduction of the metal catalyst and new bromide production",
+      "support_and_limits_ko": "X선 흡수·UV–Vis로 BZ 반응을 조사한 1차 연구의 검색 저장 본문. 자기촉진과 촉매 산화, 기질 산화와 브로마이드 재생의 결합 및 비평형 진동을 설명한다. 모든 BZ 상태의 세부 기구 확정을 주장하지 않는다.",
+      "retrieval_trace": "chemSearch1 / turn649search4",
+      "supplementary_sources": [
+        {
+          "url": "https://doi.org/10.1021/ja00780a001",
+          "scope": "stored_search_excerpt",
+          "note": "Field–Körös–Noyes 1972 원논문 서지와 시간 진동 주제만 확인. 본문 내용의 직접 근거로 확대하지 않음."
+        }
+      ],
+      "access_limit": null,
+      "related_keys": [
+        "product-autocatalysis",
+        "turing-reaction-diffusion-patterning"
+      ],
+      "boundary_ko": "양의 피드백만 있는 자기촉매와 구분되는 지연 억제의 시간 진동이다. 성분별 확산이 공간 무늬를 만드는 튜링 불안정성을 요구하지 않는다."
+    },
+    {
+      "key": "concerted-one-five-hydrogen-sigmatropic-migration",
+      "group": 15,
+      "name_ko": "공액계의 협동 1,5 수소 시그마 이동",
+      "source_title": "Faraday Discussions · The unusual electronic mechanism of the [1,5] hydrogen shift in (Z)-1,3-pentadiene predicted by modern valence bond theory",
+      "url": "https://pubs.rsc.org/en/content/articlelanding/2007/fd/b605100f",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "involving the simultaneous movements of three well-defined orbital pairs",
+      "support_and_limits_ko": "현대 원자가결합·IRC 계산의 1차 연구가 (Z)-1,3-pentadiene의 같은 면 1,5 수소 이동에서 시그마 결합과 두 파이 전자쌍의 동시 재배열을 설명한다. 기체상 모형을 모든 기질의 실험 경로로 일반화하지 않는다.",
+      "retrieval_trace": "chemSearch13 / turn672search0",
+      "supplementary_sources": [],
+      "access_limit": "RSC landing-page open returned 403; stored search abstract only.",
+      "related_keys": [
+        "intramolecular-hydrogen-radical-translocation",
+        "claisen-rearrangement"
+      ],
+      "boundary_ko": "열린 껍질의 수소 원자 포획과 달리 닫힌 껍질 공액계의 결합 전자 재배열이다. 클라이젠의 두 삼원자 조각 3,3 교환과 연결 변화가 다르다."
+    },
+    {
+      "key": "allylic-ylide-concerted-two-three-rearrangement",
+      "group": 15,
+      "name_ko": "알릴 일리드의 협동 2,3 시그마 재배열",
+      "source_title": "Journal of the American Chemical Society · Catalytic Enantioselective [2,3]-Rearrangements of Allylic Ammonium Ylides: A Mechanistic and Computational Study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5374492/",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "A concerted thermally allowed sigmatropic process is thought to be operative in the [2,3]-rearrangement",
+      "support_and_limits_ko": "알릴 암모늄 일리드의 촉매 반응에 대해 NMR 속도론·동위원소·교차실험·DFT를 수행한 1차 연구. 도입부의 협동 2,3 경로를 사용하며 모든 일리드의 2,3 생성물을 일률적으로 협동 반응으로 단정하지 않는다.",
+      "retrieval_trace": "chemSearch2 / turn653search2",
+      "supplementary_sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3971961/",
+          "scope": "stored_search_excerpt",
+          "note": "궤적 계산과 실험에서 형식적 2,3 전이상태를 지난 뒤 결합 절단으로 분기할 수 있음을 보고한 별도 1차 연구. 조건에 분기 가능성을 반영."
+        },
+        {
+          "url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/32881458/20170224_Lloyd_Jones_ja_2016_11851w.R2.pdf",
+          "scope": "stored_search_excerpt",
+          "note": "저자 원문 사본의 JACS 서지·연구 방법 확인. 본 PDF를 전체 열람했다고 주장하지 않음."
+        }
+      ],
+      "access_limit": null,
+      "related_keys": [
+        "ammonium-ylide-radical-pair-migration",
+        "sulfur-ylide-betaine-ring-closure",
+        "claisen-rearrangement"
+      ],
+      "boundary_ko": "라디칼 쌍 재결합의 1,2 이동 및 외부 카보닐 부가·소환 닫힘과 달리 일리드 내부의 협동 2,3 결합 교환이다."
+    },
+    {
+      "key": "brook-silyl-migration-anion-relocation",
+      "group": 15,
+      "name_ko": "브루크 실릴 이동의 산소·탄소 음이온 재배치",
+      "source_title": "Angewandte Chemie International Edition · Anion Relay Chemistry: Access to the Type II ARC Reaction Manifold through a Fundamentally Different Reaction Pathway Exploiting 1-Oxa-2-silacyclopentanes and Related Congeners",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3178891/",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "charge transfer from the initially derived oxyanion to carbon proceeds through a silicon ate intermediate.",
+      "support_and_limits_ko": "1차 ARC 연구 도입부·연구 설명의 저장 검색 본문. 기존 Brook 전하 이동과 실릴 ate 모형을 설명하고 관련 전구체의 경로를 비교한다. 그 논문의 새 ARC 경로 자체를 Brook과 동일시하지 않는다.",
+      "retrieval_trace": "chemSearch11 / turn670search3",
+      "supplementary_sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5558205/",
+          "scope": "stored_search_excerpt",
+          "note": "2017년 원논문의 가역 Brook 산소→탄소 전하 이동 및 [1,4]/[1,5] 기하 조건을 확인. open은 reCAPTCHA."
+        }
+      ],
+      "access_limit": null,
+      "related_keys": [
+        "oxidative-desilylation",
+        "nhc-breslow-acyl-umpolung"
+      ],
+      "boundary_ko": "산화적 C–Si의 C–O 전환이나 카벤 부가체 형성과 달리 실릴기의 C→O 이동 자체가 탄소 음이온을 드러낸다."
+    },
+    {
+      "key": "dithiane-deprotonation-acyl-anion-equivalent",
+      "group": 15,
+      "name_ko": "디티안 탈양성자화의 아실 음이온 등가체",
+      "source_title": "The Journal of Organic Chemistry · Pot-Economy Autooxidative Condensation of 2-Aryl-2-lithio-1,3-dithianes",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6150673/",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "transformation of aldehydes to 2-substituted 1,3-dithianes and subsequent formation of the lithiated acyl anion equivalent",
+      "support_and_limits_ko": "2018년 1차 합성 연구 도입부의 디티안 극성 반전 설명. 카드는 그 논문의 후속 자동산화 축합을 새 원리로 세지 않고 황 보호기 기반 음이온 생성에 한정한다.",
+      "retrieval_trace": "chemSearch3 / turn657search8",
+      "supplementary_sources": [
+        {
+          "url": "https://www.orgsyn.org/demo.aspx?prep=CV8P0309",
+          "scope": "stored_search_excerpt",
+          "note": "검증된 Organic Syntheses 절차에서 디티안의 리튬화와 후속 카보닐 부가를 확인. 수치 조건은 카드로 이식하지 않음."
+        },
+        {
+          "url": "https://trepo.tuni.fi/bitstream/10024/214719/1/acs.joc.7b02896.pdf",
+          "scope": "stored_search_excerpt",
+          "note": "저자 공개 원논문 사본의 J. Org. Chem. 2018, 83, 1948–1958 서지 확인."
+        }
+      ],
+      "access_limit": null,
+      "related_keys": [
+        "nhc-breslow-acyl-umpolung",
+        "acetal-carbonyl-protection",
+        "carbon-nucleophile-carbonyl-addition"
+      ],
+      "boundary_ko": "카벤·브레슬로 중간체의 촉매적 극성 반전과 달리 황 보호기의 탄소 탈양성자화로 유기금속 친핵체를 만든다. 보호만 하는 아세탈 카드와도 구분한다."
+    },
+    {
+      "key": "persistent-radical-accumulation-cross-reaction-selection",
+      "group": 15,
+      "name_ko": "지속성 라디칼 축적의 교차 반응 선택",
+      "source_title": "Journal of the Chemical Society, Perkin Transactions 2 · Radical reaction kinetics during homolysis of N-alkoxyamines: verification of the persistent radical effect",
+      "url": "https://pubs.rsc.org/en/content/articlelanding/1998/p2/a802773k",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "the alkyl species self-terminate, and this causes a continuous build-up of excess aminoxyl",
+      "support_and_limits_ko": "알콕시아민 해리 후 개별 속도상수를 격리 조건에서 측정하고 결합계의 시간 거동을 검증한 1차 논문 초록. 개별 포획 단계가 아니라 비대칭 자기종결에 의한 농도 피드백을 새 카드의 경계로 삼았다.",
+      "retrieval_trace": "chemSearch10 / turn668search2",
+      "supplementary_sources": [
+        {
+          "url": "https://pubs.rsc.org/en/Content/ArticleLanding/1998/P2/A708191J",
+          "scope": "stored_search_excerpt",
+          "note": "decatungstate 광반응에서 EPR·속도 분광으로 지속성/일시성 라디칼 농도 시간 변화를 검증한 별도 1차 사례."
+        }
+      ],
+      "access_limit": null,
+      "related_keys": [
+        "nitroxide-radical-trapping",
+        "solvent-cage-geminate-radical-recombination"
+      ],
+      "boundary_ko": "한 번의 니트록사이드 포획이나 같은 케이지 쌍의 재결합이 아니라 자기종결의 비대칭이 농도를 바꿔 벌크 반응 선택성을 스스로 조절하는 동역학이다."
+    },
+    {
+      "key": "four-center-sigma-bond-metathesis",
+      "group": 15,
+      "name_ko": "네 중심 시그마 결합 교환",
+      "source_title": "International Journal of Mass Spectrometry · Sigma-bond metathesis reactions of Sc(OCD3)2+ with water, ethanol, and 1-propanol: measurements of equilibrium constants, relative bond strengths, and absolute bond strengths",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S1387380698142501",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "A mechanism involving a four-center transition state is generally invoked for these metathesis reactions",
+      "support_and_limits_ko": "Sc 착물의 이온-분자 교환 평형·결합 세기를 측정한 1차 연구 도입부가 C–H/Sc–C 교환과 네 중심 기구를 명시한다. 카드는 전형적 산화수 보존 교환을 정의하며 모든 금속의 유사 기구를 강제로 합치지 않는다.",
+      "retrieval_trace": "chemSearch7 / turn665search0",
+      "supplementary_sources": [
+        {
+          "url": "https://pubs.acs.org/jacsat/article/109/1/203/561670/sigma-Bond-metathesis-for-carbon-hydrogen-bonds-of",
+          "scope": "stored_search_excerpt",
+          "note": "Thompson·Bercaw 등 1987년 원논문의 서지·정확한 제목만 확인; 유료 본문 열람 주장 없음."
+        },
+        {
+          "url": "https://publications.iupac.org/publications/pac/1990/pdf/6206x1151.pdf",
+          "scope": "stored_search_excerpt",
+          "note": "연구진의 IUPAC Pure and Applied Chemistry 논문 발췌에서 Cp*2Sc–R + R′–H → Cp*2Sc–R′ + R–H와 d0 Sc 중심을 확인."
+        }
+      ],
+      "access_limit": "ScienceDirect open returned 403; stored introduction excerpt only.",
+      "related_keys": [
+        "transition-metal-cross-coupling",
+        "transmetalation",
+        "frustrated-lewis-pair-hydrogen-splitting"
+      ],
+      "boundary_ko": "산화적 부가·환원적 제거 주기나 두 금속 사이 유기기 전달 대신 금속 결합과 기질 결합의 네 중심 교환 단계를 다룬다."
+    },
+    {
+      "key": "trigonal-bipyramid-berry-pseudorotation",
+      "group": 15,
+      "name_ko": "삼각쌍뿔의 베리 의사회전",
+      "source_title": "Organometallics · Structure and Dynamics of Iron Pentacarbonyl",
+      "url": "https://pubs.acs.org/doi/10.1021/acs.organomet.9b00559",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "intramolecular interchange of CO ligands in Fe(CO)5 according to the Berry pseudorotation mechanism",
+      "support_and_limits_ko": "초임계 Xe 속 FTIR 선모양과 계산으로 Fe(CO)5 내부 교환 장벽을 조사한 1차 논문. 이상화된 삼각쌍뿔→사각뿔형 전이배치의 자리 교환을 정의하며 용매에서의 모든 정지 구조가 D3h라고 단정하지 않는다.",
+      "retrieval_trace": "chemSearch13 / turn672search1 and turn672search2",
+      "supplementary_sources": [
+        {
+          "url": "https://research-repository.st-andrews.ac.uk/bitstream/handle/10023/18904/Portius_2019_Organometallics_Structure_VoR.pdf?sequence=1",
+          "scope": "stored_search_excerpt",
+          "note": "공개 저자 사본 초록에서 IR로 얻은 장벽과 계산 비교를 확인."
+        },
+        {
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/0009261475801199",
+          "scope": "stored_search_excerpt",
+          "note": "PF5의 축·적도 F 자리 교환에 대한 별도 1차 계산 연구. PF5 카드로 추가 분할하지 않음."
+        }
+      ],
+      "access_limit": null,
+      "related_keys": [
+        "coordination-complexation",
+        "photoinduced-geometric-isomerization"
+      ],
+      "boundary_ko": "리간드 출입이나 이중결합 E/Z 변화 없이 배위 다면체의 연속 변형으로 분자 내부 자리만 교환한다."
+    },
+    {
+      "key": "ligand-centered-redox-electron-reservoir",
+      "group": 15,
+      "name_ko": "리간드 중심 산화환원의 전자 저장·공급",
+      "source_title": "Inorganic Chemistry · Redox Routes to Substitution of Aluminum(III): Synthesis and Characterization of (IP−)2AlX",
+      "url": "https://pubs.acs.org/doi/abs/10.1021/ic301128m",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Redox active ligands are shown to facilitate a variety of group transfer reactions at redox inert aluminum(III).",
+      "support_and_limits_ko": "Al(III)를 유지하면서 iminopyridine 리간드가 IP2−에서 IP−로 산화되고 이황화물 등의 기질에서 새 치환기가 도입되는 1차 실험 연구 초록. 금속만 산화환원한다고 배정할 수 없는 리간드 전자 저장·공급 경로를 직접 지지한다. 모든 redox noninnocence가 완전히 리간드에 국소화되거나 가역적이라는 주장은 하지 않는다.",
+      "retrieval_trace": "chemSearch17 / turn677search0",
+      "supplementary_sources": [
+        {
+          "url": "https://depts.washington.edu/stollgrp/publication/2011_myers_et_al/2011_myers_et_al.pdf",
+          "scope": "reference_section",
+          "title": "A Redox Series of Aluminum Complexes: Characterization of Four Oxidation States Including a Ligand Biradical State Stabilized via Exchange Coupling",
+          "note": "1차 JACS 원문 공개 사본을 직접 열람. 첫 페이지 초록 및 pp8663–8664의 본문에서 구조·EPR·자기·CV로 리간드 전자 상태를 배정하고 IP의 여러 전자수 상태를 분리한 근거 확인. 전자 반응 중심이 리간드임을 보이는 핵심 근거; 불안정한 mixed-valent 상태의 C–C 결합 부반응도 조건에 반영.",
+          "evidence_excerpt": "the reduction events involved in preparation of the complexes are localized on the ligands rather than the metal;",
+          "retrieval_trace": "chemOpen4 / turn678view0 lines 49–66, 105–122, 211–219"
+        }
+      ],
+      "access_limit": "2012 paper used as stored search abstract; 2011 public full paper actually opened.",
+      "related_keys": [
+        "ligand-aromaticity-cooperative-bond-activation",
+        "coordination-complexation",
+        "transition-metal-cross-coupling"
+      ],
+      "boundary_ko": "양성자 이동에 결합된 탈·재방향족화 대신 리간드 자체의 전자수 변화가 환원·산화 당량을 담당한다. 단순 리간드 전자주개 세기 조절과도 구분한다."
+    },
+    {
+      "key": "halogen-sigma-hole-directional-association",
+      "group": 15,
+      "name_ko": "할로젠 시그마 홀의 방향성 분자 결합",
+      "source_title": "Journal of Molecular Modeling · Halogen bonding: the σ-hole",
+      "url": "https://link.springer.com/article/10.1007/s00894-006-0130-2",
+      "scope": "publisher_abstract",
+      "source_type": "primary_research",
+      "evidence_excerpt": "a region of positive electrostatic potential, the σ-hole",
+      "support_and_limits_ko": "출판사에서 공개 저자 초록을 직접 읽음. CF3X 계산은 결합축 바깥 양의 퍼텐셜과 주변 음의 띠, 할로젠·치환기 의존성을 보여준다. 모든 할로젠 결합의 에너지 기여를 정전기만으로 단정하지 않는다.",
+      "retrieval_trace": "chemOpen2 / turn669view0 lines 42–45",
+      "supplementary_sources": [],
+      "access_limit": null,
+      "related_keys": [
+        "coordination-complexation",
+        "host-guest-inclusion"
+      ],
+      "boundary_ko": "금속 배위나 공동 포접이 아니라 공유 결합된 할로젠 표면의 비등방 퍼텐셜이 방향성 결합을 유도한다. 할로젠 종류별로 따로 세지 않는다."
+    },
+    {
+      "key": "favorskii-cyclopropanone-formation-ring-opening",
+      "group": 15,
+      "name_ko": "사이클로프로파논 경로의 파보르스키 재배열",
+      "source_title": "Organic & Biomolecular Chemistry · A new mechanism for the Favorskii rearrangement",
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2008/ob/b806577b",
+      "scope": "stored_search_excerpt",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Two reaction channels, the semibenzilic acid mechanism (A) and cyclopropanone mechanism (B), were compared.",
+      "support_and_limits_ko": "알파 chlorocyclohexanone·메톡사이드·메탄올 모형의 1차 ONIOM 연구. cyclopropanone 경로와 경쟁 직접 이동을 비교하며 이탈 chloride가 개환에 참여하는 경로도 제안한다. 카드는 삼원환 경로를 거치는 경우에 명시적으로 한정한다. 'A new mechanism'은 cyclopropanone을 부정하는 제목이 아니다. 초록은 B=cyclopropanone이 A=semibenzilic보다 유리하다고 명시하며, 새로운 통로는 방출 chloride의 cyclopropanone 친핵 공격→cyclopentanecarbonyl chloride 생성이다. 따라서 직접 중간체 관측 자료가 아닌 특정 모형의 계산 지지로 엄격히 제한한다.",
+      "retrieval_trace": "chemSearch12 / turn671search0",
+      "supplementary_sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3586294/",
+          "scope": "stored_search_excerpt",
+          "note": "입체화학적 1차 광파보르스키 연구의 도입부가 바닥상태 cyclopropanone 형성의 협동 및 zwitterion 극한 경로를 구분함. 광경로를 별도 추가하지 않음."
+        },
+        {
+          "url": "https://www.sciencedirect.com/science/article/pii/S0166128097003308",
+          "scope": "stored_search_excerpt",
+          "note": "다른 고리 크기에서는 semibenzilic 계산 경로가 유리하다는 별도 1차 결과. 모든 기질의 Favorskii를 동일 기구로 묶지 않도록 조건에 반영."
+        }
+      ],
+      "access_limit": "RSC full-page open returned 403; stored abstract only.",
+      "related_keys": [
+        "acyloin-ring-contraction-isomerization",
+        "semipinacol-one-two-carbon-migration",
+        "enol-electrophilic-alpha-functionalization"
+      ],
+      "boundary_ko": "직접 1,2 탄소 이동의 아실로인·세미피나콜 경로와 달리 사이클로프로파논 생성 후 다른 결합의 개환으로 골격을 재구성하는 경우에 한정한다."
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "candidate": "Hock hydroperoxide rearrangement",
+      "related_keys": [
+        "baeyer-villiger-carbonyl-oxygen-insertion"
+      ],
+      "decision": "exclude",
+      "reason_ko": "과산화물 활성화·인접기 산소 이동의 핵심 전자 이동이 기존 바이어·빌리거와 가깝다. 산소 삽입 대상/출발물질 차이만으로 추가 계수하지 않았다."
+    },
+    {
+      "candidate": "Benzilic acid rearrangement",
+      "related_keys": [
+        "acyloin-ring-contraction-isomerization",
+        "semipinacol-one-two-carbon-migration"
+      ],
+      "decision": "exclude",
+      "reason_ko": "양이온 세미피나콜과는 다르지만 기존 아실로인의 알콕사이드 인접 카보닐 1,2 골격 이동과 핵심 단계가 겹친다. 처음 OH 부가로 이동 가능한 중간체를 얻는 차이만으로 분할하지 않았다.",
+      "consulted": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3628910/",
+          "scope": "stored_search_excerpt",
+          "note": "1,2-dione의 OH 부가체가 이동/절단으로 분기하는 1차 계산 연구."
+        }
+      ]
+    },
+    {
+      "candidate": "Dynamic kinetic resolution",
+      "related_keys": [
+        "enantioselective-kinetic-resolution",
+        "rapid-interconversion-transition-state-product-selection"
+      ],
+      "decision": "exclude",
+      "reason_ko": "실제 유용하고 인정된 과정이지만 기존 광학분할에 라세미화를 결합한 구성이고 이번 빠른 교환·비가역 포획 동역학과도 가깝다. 수율 한계 개선을 별도 원리로 세지 않았다.",
+      "consulted": [
+        {
+          "url": "https://pubs.rsc.org/en/content/articlehtml/2020/gc/c9gc02615k",
+          "scope": "reference_section",
+          "note": "초록·도입부 직접 열람. racemization과 kinetic resolution을 결합한 1차 실험, 50% 한계 초과를 확인."
+        }
+      ]
+    },
+    {
+      "candidate": "Kinetic product trapping by cooling",
+      "related_keys": [
+        "thermal-reaction-quenching"
+      ],
+      "decision": "exclude",
+      "reason_ko": "후속 열반응 억제의 기존 카드와 같은 원리."
+    },
+    {
+      "candidate": "Nonclassical 2-norbornyl cation bridging",
+      "related_keys": [
+        "donor-antibond-orbital-hyperconjugation",
+        "neighboring-group-bridged-intermediate-participation"
+      ],
+      "decision": "exclude",
+      "reason_ko": "다중중심 결합 자체는 중요한 현상이지만 이번 초공액·분자 내 가교 참여 후보와 경계가 가까워 수량 보충용으로 채택하지 않았다.",
+      "consulted": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23828938/",
+          "scope": "stored_search_excerpt",
+          "note": "2013년 Science 단결정 구조 1차 논문 초록 확인."
+        }
+      ]
+    },
+    {
+      "candidate": "Separate anomeric/gauche and multiple onium-ylde substrate variants",
+      "decision": "merge_not_add",
+      "reason_ko": "초공액 정렬 기여 한 카드, 협동 2,3 일리드 재배열 한 카드로 통합. 기질·헤테로원자 종류에 따라 추가하지 않았다."
+    },
+    {
+      "candidate": "Oriented electric-field reaction barrier control",
+      "decision": "exclude_after_root_cross_review",
+      "related_keys": [
+        "stark-electric-field-level-shift"
+      ],
+      "reason_ko": "기존 Stark 카드와 동일한 장-전하 분포 상호작용의 관측량 변경(분광→화학 속도)에 가까워 엄격한 원리 기준상 제외하고 ligand-centered redox electron reservoir로 대체.",
+      "reviewed_evidence": {
+        "key": "oriented-electric-field-reaction-barrier-control",
+        "group": 15,
+        "name_ko": "방향성 전기장의 반응 장벽 조절",
+        "source_title": "Nature · Electrostatic catalysis of a Diels–Alder reaction",
+        "url": "https://www.nature.com/articles/nature16989",
+        "scope": "stored_search_excerpt",
+        "source_type": "primary_research",
+        "evidence_excerpt": "the overall stabilization of the molecule or transition state",
+        "support_and_limits_ko": "STM 단일분자 접합 실험·양자계산의 1차 연구 초록. 장 방향이 전하 분리 성분과 전이상태 안정화에 영향을 주는 비산화환원 촉진을 설명한다. 관측량은 접합 형성 빈도이므로 이를 보편적인 벌크 반응 속도 상수로 바꾸지 않았다.",
+        "retrieval_trace": "chemSearch8 / turn666search0",
+        "supplementary_sources": [
+          {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/6588380/",
+            "scope": "stored_search_excerpt",
+            "note": "2019년 1차 연구의 방향 선택성: 방향이 맞는 방향족화는 촉진되고 직교하는 Diels–Alder 반응은 변하지 않는 결과를 확인."
+          }
+        ],
+        "access_limit": null,
+        "related_keys": [
+          "stark-electric-field-level-shift",
+          "diels-alder-four-plus-two-cycloaddition",
+          "catalysis"
+        ],
+        "boundary_ko": "슈타르크 광학 준위 이동의 화학적 경계 사례로, 반응 좌표 양쪽 상태의 차등 안정화와 속도 변화를 다룬다. 딜스·알더 생성물의 응용별 변형으로 세지 않는다."
+      }
+    }
+  ],
+  "boundary_concerns": [
+    {
+      "key": "persistent-radical-accumulation-cross-reaction-selection",
+      "assessment_ko": "기존 nitroxide 포획의 기본 결합 단계는 공유하지만 비대칭 자기종결로 지속성 종이 시간에 따라 축적되는 농도 피드백을 명시해야 별도 의미가 있다."
+    },
+    {
+      "key": "concerted-one-five-hydrogen-sigmatropic-migration",
+      "assessment_ko": "기존 Claisen과 넓은 pericyclic 계열은 공유하나 수소 시그마 결합 이동과 다이엔 π 결합 재배열의 연결 변화가 구분된다. 단순 사슬길이·기질별 분할은 하지 않았다."
+    },
+    {
+      "key": "ligand-centered-redox-electron-reservoir",
+      "assessment_ko": "기존 리간드 탈·재방향족화 카드의 양성자 결합 협동 반응과 비교. 본 카드는 리간드 자체의 전자수 변화 및 전자 당량 공급을 정의한다. AlIII를 유지한 실제 IP2−→IP− 치환 실험과 독립 전자구조 분석을 근거로 채택."
+    }
+  ],
+  "validation": {
+    "row_count": 15,
+    "columns_per_row": 10,
+    "max_principle_chars": 95,
+    "max_conditions_chars": 91,
+    "duplicate_keys": [],
+    "related_keys_missing": [],
+    "notes": "Initial PowerShell verification against current canonical catalog passed. Final file/evidence correspondence is checked after writing."
+  }
+}

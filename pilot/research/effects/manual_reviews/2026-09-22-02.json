@@ -1,0 +1,264 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "2f0c6d2f08bae1253a604a0d1ec40d49f9bb8d9c4752f9a154f3b0f03eb16bfa",
+  "reviews": [
+    {
+      "identifier": "AR-065261-A1",
+      "source_fingerprint": "941cc169dff2c020577b5b4de290da9d0099cf8178da5d325dcfc49216a93ce0",
+      "content_hash": "cb2b27df6bc369b313bbc81ae42eb9b63ba3d47e25e98f08590321fb5937fca7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "무선 장치의 네트워크·라디오 능력을 메시지로 교환하는 절차이다."
+    },
+    {
+      "identifier": "AR-065263-A1",
+      "source_fingerprint": "47c29b0aedae5f7a357fc379d366486cbd749ff6cda3a39e8f1beca1971a2b9e",
+      "content_hash": "bf29b14f66c1de6a39391baa6377c48704560da11441ea9975c53cb0c026e97c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "편직 루프 구조가 여러 방향의 신장을 허용한다. 루프의 기하학적 변형은 별도 문헌 대조 후보이다."
+    },
+    {
+      "identifier": "AR-065269-A1",
+      "source_fingerprint": "6e2cd1fedb094bad5eb43c5cbbb0c080faf9b3ee27f57ba0de06b6e6a57d4c10",
+      "content_hash": "49ddbc2b093d0ec33fa398877ff2f9293d672596fbcd25aa6f32cb28d79a10ca",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "절삭 헤드와 축의 지지·고정면이 맞물려 교체형 헤드를 유지한다."
+    },
+    {
+      "identifier": "AR-065296-A1",
+      "source_fingerprint": "f5266bf48468d1f41c1387bb53061fb250c63533dc5e3555644547134738192b",
+      "content_hash": "01b8c41dd692490c7dd6a4a25bb20cf24763f56bbfee261f84c03bdf7c0a95b9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "터프팅 중 분할되는 섬유로 고정력을 높인다. 얽힘과 마찰의 기여를 초록만으로 구분하기 어렵다."
+    },
+    {
+      "identifier": "AR-065306-A1",
+      "source_fingerprint": "dd97fea414cfa07793fe5e12ddeafb2aca8d6827058952f2dc2875d2bcb48026",
+      "content_hash": "106653a336d0ff58ac61b481e3f8a178963a899967227b361827c3c6027c4fd1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수평 금형·삽입봉으로 맞물림 블록과 관 구멍을 성형하는 장치 배치이다."
+    },
+    {
+      "identifier": "AR-065327-A1",
+      "source_fingerprint": "01cf341206ff8d39efe6c16c1f96a4a4dad53b00651f14bee17550edefdd24f8",
+      "content_hash": "1b2fdd7b6db6dc9180dc00c3963e0baee4e30b63973aa6fe8542efa5b09db531",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "발현 벡터를 도입한 식물이 단백질을 생산한다. 이종 유전자 발현은 후보이며 선충 방제 단백질의 표적은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-065328-A1",
+      "source_fingerprint": "2ab22cea4a3aa0babf64e4f4cf2c4c572c191f842b6ed6db2a80623fac1c26a0",
+      "content_hash": "47c13105b9c2c1621eb10ab7d86a06f790828efd73649778af88ee699c5a709e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "헤파린과 비오틴의 공유 결합 구조만으로 후속 생체 작용을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-065333-A1",
+      "source_fingerprint": "c6d9fada17a4496879eb41d04e6d3b9036d89664e98783cec9d2ffdd9dade61c",
+      "content_hash": "5abea4bddf97560ed178b0c045aa2de75bcf34b80fc14fe99ea225ce54d4f967",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "빠른 해리의 D2 길항제를 명시한다. 결합 체류시간·해리 속도의 동역학적 제어는 별도 후보이며 부작용 부재를 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-065349-A1",
+      "source_fingerprint": "ee3bcafdb9e7bfa9122b579ce1d747769fd35c6e47d79b900f138c98877701d9",
+      "content_hash": "f9ba464a6e2cfe6fa8b0f916ed1d08c64bc2333522eb4f072a3e891111b83702",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "glucagon·GLP1 수용체 공동 작용을 명시한다. PEG 결합의 수화·입체 차폐는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-065353-A1",
+      "source_fingerprint": "0f9e08a50502f9c758bdd8722b588552b523ec882c4e6176020dc061a8a1065b",
+      "content_hash": "c3aafaca170514ffacfa431af1eec7deee935a64194a45f073d73e61a4324c40",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 화합물 구조와 용도만 있고 특정 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-065355-A1",
+      "source_fingerprint": "ca948c6fec70705624fc96e4c36716dc8ea72070f0072099c00c819191821799",
+      "content_hash": "1430aa867efb7d0e0f9c76f1f3d0c167da686e039fc1f55b93c4baeeb1feb0e1",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "LTA4 hydrolase 억제를 명시한다. 저장 구조 열거가 잘린 이후 내용은 검토 범위가 아니다."
+    },
+    {
+      "identifier": "AR-065361-A1",
+      "source_fingerprint": "9aad73e3bbf8f3306420861aa75a4099db2061f981270bb69f6897d79d6fd61c",
+      "content_hash": "2091fa8efa13c6ef410e65c2bae600865facb478e0cb8cb072d51fc865bb191a",
+      "decision": "LINK",
+      "keys": [
+        "elastomer-contact-sealing"
+      ],
+      "reason": "고무계 밸브 씰 조성을 명시한다. 황 함유 EPDM계 조성의 황 가교는 별도 후보이며 번역문 금속 피복 표현을 그대로 믿지 않는다."
+    },
+    {
+      "identifier": "AR-065363-A4",
+      "source_fingerprint": "f4bacea3649818d0c3f7f04dcd6adbe6e85fac43cf66a9257b07502f0cf43a0e",
+      "content_hash": "cb65c95b3a80ae75916a07c7cd5328ca4d6f894d45ef87ef63abd01b79efd719",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "흡입·관류 경로를 분리한 이중 관이다. 유체 구동 범위로 연결한다."
+    },
+    {
+      "identifier": "AR-065368-A1",
+      "source_fingerprint": "700cd63377401e649765ec840ce31a451777caf8483ed645a3416e8da4f6d5b8",
+      "content_hash": "e98182687da2ffdb9411e1412da3bdde83ae84c60f4fcda540dcf709f0d844f1",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "IgE 결합과 세포 칼슘 신호 억제를 명시한다. 모든 알레르기 치료 효과를 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-065377-A1",
+      "source_fingerprint": "f9419e3f077fb1bb8d4be9429f44be8532eadb55b1d07f3e891beb6e476c0b84",
+      "content_hash": "3eb7c1a14b05876e2f9bc566eaa1f917322f19ac50c1b7e5b7456a1d40c6566b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "cathepsin S 조절을 표적으로 한 화합물이다. 표적 억제의 범위로만 연결한다."
+    },
+    {
+      "identifier": "AR-065424-A1",
+      "source_fingerprint": "736cab08b81996a84340b45f1900e2dbf6b20abfadf251819b43c371dd5f3f2b",
+      "content_hash": "16cee041a9a07432842a77ff202c3e6d940729003069ed5249af6a2e8eba7af8",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "스프링으로 조직을 견인하고 구멍·고리·나비너트로 고정한다."
+    },
+    {
+      "identifier": "AR-065453-A1",
+      "source_fingerprint": "13457b7e3426a5250bb79a149c7ecd0474ac8039891bc857db24d819437731e6",
+      "content_hash": "df28270453f178036ce52bb9ef1dfa31426695e66b85178918be4a04b60c5b60",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "glucocorticoid 및 beta2 수용체 작용제 병용을 명시한다."
+    },
+    {
+      "identifier": "AR-065456-A1",
+      "source_fingerprint": "69c4f86130a7b428b036d6f49afc30517e20a0486b1971ce5cd63084874b94ff",
+      "content_hash": "a12a74b46a3e080144fcc09c331de91d0bde90daab9ce93b43ded929b03b839c",
+      "decision": "LINK",
+      "keys": [
+        "gelation"
+      ],
+      "reason": "잔탄·카시아 검으로 고염도 식품 농축물을 젤화한다."
+    },
+    {
+      "identifier": "AR-065471-A1",
+      "source_fingerprint": "51ff14a82a33cd8a0fb73474fb9b458fc4bcc0a55ff33205a9775658a94661ca",
+      "content_hash": "c57a7afcf3464af2e5fe563508a0b2f4a43a801081d064edebfc86ef1e68180a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "황화물을 cyanamide·hypochlorite와 반응시켜 sulfilimine을 만든다. 황의 산화적 이미노화 후보이다."
+    },
+    {
+      "identifier": "AR-065482-A1",
+      "source_fingerprint": "59c33504efac8e9486c657fac6e27a636faf94f8e3095663c644dcd3b233b6e4",
+      "content_hash": "cb4379e43adf33b975531b0e364b0f9499bc16351b5b52a9de47a6b58cfe3895",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "같은 경기 결과를 단말별 다른 영상에 표시하는 콘텐츠 배포 절차이다."
+    },
+    {
+      "identifier": "AR-065496-A1",
+      "source_fingerprint": "d615fa640329561a82e88561e29eba5c097698f5d774ce9ff68ce61cd8486b20",
+      "content_hash": "65f604d26884c82d05280eece9855f82138b914389ce802bc1425f4457589b78",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "IL23R 표적 항체 결합을 명시한다."
+    },
+    {
+      "identifier": "AR-065532-A1",
+      "source_fingerprint": "d5fe36c326f81706f78da0cff127143829b784f65c213bd220be6d4672940db7",
+      "content_hash": "81b37bf22a9a6095067b4c8458d3434de26dd2351522fefe6de71f233d4ac581",
+      "decision": "LINK",
+      "keys": [
+        "polarization-control"
+      ],
+      "reason": "원편광 반사 입자의 무작위 분포를 광학 판독해 표식을 식별한다. 무작위 물리 분포의 지문 식별은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-065533-A1",
+      "source_fingerprint": "0a2891be34c066a829aa48c0c266b06bf7a24f868630626e70327a753de2aadf",
+      "content_hash": "c5eb8d7abf204960f5bc9545a0b370b55ab143e25b39b068a65e85ddf6d99425",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation",
+        "transcription-factor-regulation"
+      ],
+      "reason": "Zn 결합 경쟁으로 바이러스 zinc finger를 교란하고 유도성 프로모터 발현을 이용한다. 식용 안전성 일반화는 하지 않는다."
+    },
+    {
+      "identifier": "AR-065580-A1",
+      "source_fingerprint": "5249c8625dea37ff141cade6ad7974937d34a7bfaa1d694582f77321cac89190",
+      "content_hash": "8d58f3177c952c4b2aae3febf9762ff835628c2f7618a565336bd9509ef94b6b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "buprenorphine·naltrexone 저용량 병용의 진통 증강 주장이다. 복합 효과의 신호 기전은 초록에 없다."
+    },
+    {
+      "identifier": "AR-065588-A1",
+      "source_fingerprint": "13300eae1ddd0843fad8023a50f08cf2889a7f81cfe2572250c4bc26f6be6338",
+      "content_hash": "cca764b69ae791bc1947af4620bdd19315e8b0ce555cbd918de82940a3a8f711",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "carbostyril 유도체·probucol 병용의 용도만으로 작용 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-065613-A1",
+      "source_fingerprint": "97bead860905320074b35099cbe22be26f6c3dc0b19bdc95d00a9c519dcb7e88",
+      "content_hash": "cf20f1cd94ed007d3afb45953dceba103df7107f7530d4eae1d491c0bba892c4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "EPO의 이식 장기 보호 용도이며 재관류 손상 억제의 분자 경로는 제시되지 않는다."
+    },
+    {
+      "identifier": "AR-065626-A1",
+      "source_fingerprint": "a27268ca07c4ef173ddd084577b2e76d8d9d6b38df2101260e720a15d661433a",
+      "content_hash": "f43a41dc5200947e8a446395a5f2ba87bc084524640bba0629521ae00fc6275d",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution"
+      ],
+      "reason": "glycerol·monochloropropanediol의 염소화로 dichloropropanol을 만든다. 개별 중간체나 촉매는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-065639-A1",
+      "source_fingerprint": "ae42e44a3166e6ebe840901b0f1eb8eea41641cccec1463b3fc5d075ef496ded",
+      "content_hash": "04d82a90952898318b93229533b9ea5a15b3f65c488f6319d3a9663bfb413a2b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "인슐린 분비 펩타이드에 비펩타이드 고분자·Fc를 연결해 반감기를 연장한다. PEG 차폐 및 Fc 재순환은 별도 문헌 대조 후보이다."
+    }
+  ],
+  "recorded_at": "2026-09-21T22:54:26.759468+00:00"
+}

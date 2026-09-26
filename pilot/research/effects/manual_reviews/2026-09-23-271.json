@@ -1,0 +1,359 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "1422af5c209b3f840319fa63e048f638f143cdb470bdcfc051b1048609bb13ca",
+  "reviews": [
+    {
+      "identifier": "AR-122706-A1",
+      "source_fingerprint": "795a71d734b6042fdf7a0af7d442b7fe0671d4a1904fe7494e02ea2e9db54eed",
+      "content_hash": "9cd8206141fd671422312e2f58cf4bbe191f9f1908941f2d557ddf43d419baba",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "충전 풍선의 혈관 차단과 기계 지지체이다. 충전제가 기체인지 액체인지 없어 공압으로 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-122712-A2",
+      "source_fingerprint": "a76e8f410fce848e996ab612f1ce9513416d7f8387a88d4088a8a1fa56ca99ba",
+      "content_hash": "5be0c26dadcbaed2eb12385f98050340d4afd0c9c8a5c5d26e27e9218bc1a8a1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제·프로필렌글리콜 조성으로 작용 원인이 없다."
+    },
+    {
+      "identifier": "AR-122717-A1",
+      "source_fingerprint": "31e50ab432f0e48d320c1e0ac97f3f861abe99ffd78026ab98d7bcfbb220d2c6",
+      "content_hash": "ad2130090361b92f9d0b85a71a30f53de0bb05d76a8a77235c350bceb896d225",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "보호·탈보호와 중간체 단계 번호만 제시되어 구조 없는 결합 변화를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-122729-A1",
+      "source_fingerprint": "e89cf2fb6076e95ab1d8c07dbb4d3b3e24ece87d680c1b620b4f79a5454be418",
+      "content_hash": "d6d0ddb95be69db3126cec36ee467ddd5196bf467c92008246b460a08b77a347",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "직물 패턴과 스트랩의 지지 배치이다."
+    },
+    {
+      "identifier": "AR-122733-A1",
+      "source_fingerprint": "a669237acfeddee02332b03672c15a2df62914424e2908ee9d081b87172b5b6c",
+      "content_hash": "c228d0dd074a29a33265a4fc11a141d642e1dc16d29e864461ae2e5bcbcd075b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "신경활성 스테로이드의 구조·적응증만 있다."
+    },
+    {
+      "identifier": "AR-122753-A2",
+      "source_fingerprint": "12433bf7aeafefb996d943261210fd84331ef69da53f6acbaad3014489560d16",
+      "content_hash": "ea26eaaa7939632dd718bc975547c76ef3cdd67f74cfd43592374ca1285541df",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PI3K델타 저해이다. 지질 인산화 효소를 단백질 인산화로 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-122758-A1",
+      "source_fingerprint": "895cc0d7d59a1131d68cfee50f0abf0f492a19e02a4a5374f2dae01ff10a21e6",
+      "content_hash": "197a712dbaa23c1788a6a7eb77638bd576ed3f9cfe720bc6f1bf77394214cb45",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "파종 경로에서 종자와 처리제를 합류시키는 배치이다."
+    },
+    {
+      "identifier": "AR-122761-A1",
+      "source_fingerprint": "ce161b0e03973ef25357c053dd3720b9dd1f1f42b02366bb3c95bf79070302f9",
+      "content_hash": "578de519a5064c26ba138e34b30af5cfe0fe0e6f712d5e63176847d4789af8ac",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "CD3·CD28 결합과 CD28 작용 및 생산이다. 서로 다른 두 세포 연결을 자동 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-122763-A1",
+      "source_fingerprint": "f7707cc20fe0515c1198b7b17926e137e9e4017f6ec05bb8d2389312dcf8c4d2",
+      "content_hash": "86d4ef817328250f4c1a77699a8e08aa2333a24f118a91426e773d4c57b4e806",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antibody-dependent-cellular-cytotoxicity"
+      ],
+      "reason": "CCR8 항체 결합과 명시된 ADCC이다. ADCP는 기존 초안으로 통합한다."
+    },
+    {
+      "identifier": "AR-122781-A1",
+      "source_fingerprint": "2d5b36481e865b1061b4d2b5a03dbf1c8848f7ad6da5e7be8850a911075d8c98",
+      "content_hash": "d5ec8560affd9f929c184c58f9704afad451ce09f14e7995cf94056e0ca92216",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation"
+      ],
+      "reason": "합성 중간체의 수소화가 명시되었다. 생략된 반응식의 나머지 단계를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-122785-A2",
+      "source_fingerprint": "bb7b63ae6bfeb557f07c2f252fb1b658f6de6bfe949f12f7304966f41c6d62a7",
+      "content_hash": "8ac32ac26183130a84e8e0ed59bb1bc26db10b29c540bbf99a1ce49dcdb93ff0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "KRAS G12C 저해제 중간체이다. 공유 결합이나 뉴클레오타이드 상태를 초록만으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-122790-A2",
+      "source_fingerprint": "1df14fa5a5f39e44a679a04691c0d3ab7420c9cc0c7a261bcf64b57699d1da20",
+      "content_hash": "1fd98023edc0fa72312c1577eefd04fa06a40634593fb720a0f2a4c7f616a7ca",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "같은 내용의 KRAS 중간체로 독립적인 원리가 없다."
+    },
+    {
+      "identifier": "AR-122809-A1",
+      "source_fingerprint": "153be8f169f47bf6eb826074388ce925ae044297349c9b98c6e3dda62ca36622",
+      "content_hash": "158fdd831b91a876caaa63149f26e42111870833e46866e1f64fb9c0d6acf9a0",
+      "decision": "LINK",
+      "keys": [
+        "check-valve-rectification",
+        "mechanical-interlocking"
+      ],
+      "reason": "벨로즈 계량 챔버의 입출구 체크밸브와 잠금부이다."
+    },
+    {
+      "identifier": "AR-122817-A1",
+      "source_fingerprint": "cd9a50bb43eefeaaae197c77dd098838ec1ca3c18134e80da7bb9a55f57c2e97",
+      "content_hash": "52a42f7e95bbe7469690240202c05d713898a68f56fdcf83525ca4cb60ccbcb9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조이며 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-122821-A1",
+      "source_fingerprint": "9ff602159b5675d576c6b6583067520da61babd06ac2c232b2afa4d9ad9a0bb3",
+      "content_hash": "b16623f4adcf4cdedf6d3127072260f23203fc12e542c2f09a15c438ce50c0e2",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "스텐트와 내관의 마찰 접촉으로 회전력을 전달한다. 명목 면적 증가만으로 마찰계수가 커지는 것은 아니다."
+    },
+    {
+      "identifier": "AR-122827-A1",
+      "source_fingerprint": "483f34eed3d36cae65aed38556ba04cca46810ba3c43cfcde8f332ad9574832e",
+      "content_hash": "2218dd642e171076f3cdefb18cd9ddd5a920882e138d311c3c26e931668256e4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "자전거 운동 에너지 회수 장치이나 저장·전환 방식이 없다."
+    },
+    {
+      "identifier": "AR-122832-A2",
+      "source_fingerprint": "9017e2e8a5ef464e157ba354c1c14aa0abb41bfcfd488c37b7b1ce22730b3167",
+      "content_hash": "ea2d75286c4938e8ce790eef88b041682d439077bb4558be197b7c6a42f242d3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "줄기세포 증식 화합물 구조이며 신호 경로가 없다."
+    },
+    {
+      "identifier": "AR-122852-A1",
+      "source_fingerprint": "427ab1301312a55a2c619c5d61bfd6d3854208cff4f90045922e4bb866828fbc",
+      "content_hash": "0f598d6f0a34557868ad2668a51f60e0070fb630cb00a34e13142689729b37a2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유리섬유 탱크 덮개라는 짧은 설명으로 매트릭스·하중 전달을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-122872-A1",
+      "source_fingerprint": "9075cb9990721d1796f8fc2cb1848909d34c43785385d095fcf2e85761c0efae",
+      "content_hash": "bebc3a25beecb5767c942858fadebaf64534cd5dd826f3d6e497c16cdd046219",
+      "decision": "LINK",
+      "keys": [
+        "nuclear-magnetic-resonance"
+      ],
+      "reason": "분자 확인에 사용하는 수소·탄소 NMR 데이터이다. 살진균 기전은 없다."
+    },
+    {
+      "identifier": "AR-122875-A1",
+      "source_fingerprint": "c9b27fa1410e47e749f325766d86cb739d76539acc4b8e5ee2f376e141590d16",
+      "content_hash": "635fa83ff0c87436e86759684dd35499eecada02bd31a97f1adcea63bb7af238",
+      "decision": "LINK",
+      "keys": [
+        "state-estimation"
+      ],
+      "reason": "영상·별도 센서의 위치 정보를 결합한다. 특정 칼만 필터를 사용한다고 보지 않는다."
+    },
+    {
+      "identifier": "AR-122877-A1",
+      "source_fingerprint": "739f6fe17703fc3dbd91eaf0247d33e0e227bebd75590e5eee73fbd775b9967a",
+      "content_hash": "79ba0fd4604d7d1635b6750375379356038a61f0a40e0caccc0e5574c002e6b7",
+      "decision": "LINK",
+      "keys": [
+        "martensitic-hardening"
+      ],
+      "reason": "마르텐사이트를 포함한 복상 강의 강도 조절이다. 탄소 함량·냉각 조건별 적용 범위를 구별한다."
+    },
+    {
+      "identifier": "AR-122896-A1",
+      "source_fingerprint": "5540a5f1dfee86a883a43c528e959498cd824b87e19993610b5ac9b0a1675860",
+      "content_hash": "9d2025435f35820a25e9da46c4083909f06c6696dab70aa1fe85dddf9b42dce2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "테더링 트래픽에 구독 정책을 적용하는 정보 처리 규칙이다."
+    },
+    {
+      "identifier": "AR-122951-A1",
+      "source_fingerprint": "0b29fa172841c0ae33a6aa3c8bf5e325a0b1cb3cf87c738394f2dc1ba3dc9223",
+      "content_hash": "51b3aed8c1f0ba23fb326ca726bb878338f76adc792be24020a6571d0ffb1a7c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "원거리 UV-C 소독 장치이다. 작용 대역만으로 모든 생물의 단일 손상 경로를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-122957-A1",
+      "source_fingerprint": "cf8c35c58dcfeb2c07c47dfca7721c0dafe2e468875e50565774414e78d556c5",
+      "content_hash": "9e56183b4678e2d1cfe0f810003397e0cf6b4f101c19cb47909d6262108a5ad8",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "antisense-gene-suppression"
+      ],
+      "reason": "미토퓨신 발현과 miRNA 억제 조합이다. 미토콘드리아 융합의 일반 기전은 별도 문헌 검토한다."
+    },
+    {
+      "identifier": "AR-122960-A1",
+      "source_fingerprint": "d89358a1c66ba96b1453c65bafbe651e5004a661398a9016ef540d8ee6b37b6d",
+      "content_hash": "f94dc56e092d338e16f88c034cb4c46ba8a45738013c435152cccf4915b989a7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "과거 운전값으로 훈련한 연료 공급 제어 모델이다. 학습 유형과 최적화 방식이 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-122985-A1",
+      "source_fingerprint": "bcb96071af2fcec63ada66d05128ebd23e5cb5443a4be58e39782e1ebed4eaba",
+      "content_hash": "d09cb2565ab6c91d548366c66c99dc29999421bf806cde4890378aa97fe10126",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "wetting-control"
+      ],
+      "reason": "미생물 계면활성제로 분리와 토양 유동을 바꾼다. 응집·분해 경로는 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-122997-A1",
+      "source_fingerprint": "e87ac8a852955221b2357be1ef5caa5c120f8a34c898b88c149fe0121d49fce2",
+      "content_hash": "8d0310934470e8d485560123496d3880c44945fd4fbebd366e5d6d0716b36ef4",
+      "decision": "LINK",
+      "keys": [
+        "bulk-comminution",
+        "flotation",
+        "solid-liquid-leaching"
+      ],
+      "reason": "광석 파쇄·부유 선별·퇴적 침출을 결합한다."
+    },
+    {
+      "identifier": "AR-122999-A2",
+      "source_fingerprint": "2a0705e30fa5c135ef4dc6ce9d15918b692a41895c9fd9d632bbc2589ecc95e0",
+      "content_hash": "94ec81a8eae60e2237147db75b779e89dd4c538540186137c5dc6eca8225940f",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "Fc 효과기 기능을 줄인 CD40 항체이다. 단백질 서열별 별도 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-123004-A1",
+      "source_fingerprint": "2e46bef0c82400109d371f2c222c36c3008b7ced6e3e2353a263c6b5dd4b876f",
+      "content_hash": "0bfaac4cd3d2b02974f375e4731fa515d49d55d3362c8b2d9d07c85150835687",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항원 결합과 공자극 신호 도메인의 인공 수용체이다. 기존 수용체 신호 결합 초안과 통합한다."
+    },
+    {
+      "identifier": "AR-123009-A1",
+      "source_fingerprint": "3e2c16093e2a50af4899127b51b132a6561bd9b49e445743a5da71d56404c698",
+      "content_hash": "d3bc9298dbaa263c10ebea7ed30a8a0d261eabbc11d5e0d835357037192371bf",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "evaporative-concentration"
+      ],
+      "reason": "탄산칼슘 표면의 산 반응과 미생물 혼합물 분무 건조이다. 안정화 원인을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-123010-A1",
+      "source_fingerprint": "d12fc2bce868d4a117d6b8ab1bbd89f4db6d8a896af5ce676e19302da6a1424d",
+      "content_hash": "6731a94099abde8a2d1ebe89306c121ced616c17b0d30cfd13111c8c40b47a3c",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "CDK 효소 저해 조합이다."
+    },
+    {
+      "identifier": "AR-123051-A1",
+      "source_fingerprint": "8badcdc0482867b9686a945258febb3c61f45474f1221e60b616db6d4adeeabd",
+      "content_hash": "ea802c3c05db7cb1993adbc0daadab5463b01ca25625ecb9dd55c3c0cd494db3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "디지털 형상에서 마모 치수를 구하나 형상 취득 원리는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-123055-A2",
+      "source_fingerprint": "563c1a2f7b44c47b254294a640cc2807c04eb772ee1c5a5fc6f827514c680ad2",
+      "content_hash": "78ecabe515c9cfee0b5f3899cf0806e44832429ebec61d875e79b35d7d5f920a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "탄성 폴리올레핀 복합 부직포의 감촉 제안이다. 정량적인 변형 기전이 없다."
+    },
+    {
+      "identifier": "AR-123079-A1",
+      "source_fingerprint": "e6995cde041a1fa621970f7b87f9b28dd0f9e9cd3ca06d7b6d67c9befc006140",
+      "content_hash": "d9f3697ae33920237451256be427eed9309d6491cacbfc286052f4499d29d006",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "접은 시트와 곡면 바닥을 지닌 포장 배치이다."
+    },
+    {
+      "identifier": "AR-123080-A1",
+      "source_fingerprint": "030451ea89c91d81b73d01a37551197d557fa06f78e6d182959334c85308d5a1",
+      "content_hash": "4bbccd6616a902ec856f00977e99c14d01afb25ff8d9eb0b4652fb755a1868fa",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "동일 계열 포장 형상으로 별도 신규 효과가 없다."
+    },
+    {
+      "identifier": "AR-123092-A1",
+      "source_fingerprint": "d8f58ec8dceeb4753dec5ec91b3e3c29f365918b542f7a22e912fc1d3191af1e",
+      "content_hash": "019c1fb4ae5c3a41267a75fbe898b8fb166bf273a2f6ff3e6472cfe6b3b19970",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "반복 제어 채널의 상태와 관측 시점 대응이다. 번역문의 상관은 정합 필터를 뜻하지 않는다."
+    },
+    {
+      "identifier": "AR-123099-A1",
+      "source_fingerprint": "e70eeac94d76a97f1710062ef5b0a16b17486b1cd4b154aa73f07df6d5e132b5",
+      "content_hash": "a326161251be68fb265d035fc5f6999dabb617a98fe66e502a987d7b323e5869",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "동물 초기 배아 분할 후 발달이다. 세포 재프로그래밍과 구별되는 발생 조절성을 문헌 검토한다."
+    },
+    {
+      "identifier": "AR-123104-A2",
+      "source_fingerprint": "57f85bc5e47d490459a7f6472aba22e290d515e77a103d4229a34c4ffea1cfba",
+      "content_hash": "28e63731a71100268c17f7947d8af5cf944e6be729d9327430517b94ecbe1e6a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유동에 밀봉체를 투입하는 다중 저장열 배치이다. 기체 이송이라고 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-123107-A1",
+      "source_fingerprint": "2590a4fa8dba4d337f1c01effda9ca9743be7e7be5c3e9abb2502202f99d886f",
+      "content_hash": "bbf58efc807655c10d1d3210914e5b26be3ffd5e4cddc67f526683a952f0e12c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 알칼로이드 살충제 목록이며 작용 경로가 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:56:12.141742+00:00"
+}

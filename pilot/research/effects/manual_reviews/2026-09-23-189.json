@@ -1,0 +1,220 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "c83f1c59576afd277ec3ac6b6d7b074b852d10d05930330d52a66e28dc0c1cae",
+  "reviews": [
+    {
+      "identifier": "AR-107490-A1",
+      "source_fingerprint": "2982d1a5e519b6ba8262718c84ba7a21c97e777db2ee48950fe43b675e91ea55",
+      "content_hash": "7fdb8632b73eed7fb0041c5cddc73d5e59d3763d29cc89fe8a4158433cfdc71a",
+      "decision": "LINK",
+      "keys": [
+        "transporter-inhibition"
+      ],
+      "reason": "EAAT3 수송체 저해가 제목에 명시된다. 구조와 정신질환 용도는 신규 원리를 더하지 않는다."
+    },
+    {
+      "identifier": "AR-107499-A1",
+      "source_fingerprint": "01acac98b96f08d61f1b577085b7545e593e7e47a3938e2516fe7449540adcfb",
+      "content_hash": "cc8a2a98858dc291f9fd91b70347c06df3aafd6a4e5239c358473e5b0257f153",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "EDCA 매개변수에 따라 공유 채널의 전송 기회를 경쟁한다. 무작위 백오프와 충돌 회피의 시간 분산 원리를 검토한다."
+    },
+    {
+      "identifier": "AR-107510-A2",
+      "source_fingerprint": "0a37d537d123764734c72d007c6f3fec56f6e985c663a506ae271d252eee9836",
+      "content_hash": "5e2d54dd9090e5f9953fc48cf0969810c5e1a88a9c5c0f5adb5c1e9a38da9f1e",
+      "decision": "LINK",
+      "keys": [
+        "diffraction",
+        "absorption-spectroscopy"
+      ],
+      "reason": "결정형을 분말 X선 회절과 적외선 스펙트럼으로 특징짓는다."
+    },
+    {
+      "identifier": "AR-107515-A1",
+      "source_fingerprint": "3d6e9bf63dee7e78bd2650cddb28ffea8effa7ca032043ff2473a80126ab1bea",
+      "content_hash": "71d553e328ea9681b725769c79a896b3a2c86fc592c3af905b4c82f7442a2899",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "부직포 재료의 재결정 중 환경 조건을 제어한다. 가교 반응 방식은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-107516-A1",
+      "source_fingerprint": "088ad1863bd4b94111438ce79fc5dea714a9be567d803187db9baae733f6aa5c",
+      "content_hash": "2a96ed20da86d19fa7b1526996be060fb9d7377f10ffad003383ac9f61711b4a",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction"
+      ],
+      "reason": "산을 넣어 실록산계 미립자 고정제의 pH를 중화한다. 붕산 가교 자체보다 유체 적합성 조절이 초점이다."
+    },
+    {
+      "identifier": "AR-107517-A1",
+      "source_fingerprint": "db26ddd02e16d1a2c2dac7e366cf6949e239f9e2c614d7eb786ba2989884e065",
+      "content_hash": "40b6c72c3196fa285f9ca42b7fc5ad644a869061a128040440a4e3b98ba724cb",
+      "decision": "LINK",
+      "keys": [
+        "water-gas-shift"
+      ],
+      "reason": "탄화수소 개질 뒤 CO 전환을 고온 촉매로 수행한다. 개질은 준비 중인 수증기 개질 카드의 추가 사례다."
+    },
+    {
+      "identifier": "AR-107532-A1",
+      "source_fingerprint": "8f9ed7a64fd46be1b69c2f4fd9d3e5f5c9982acd05082f6979c54181e105a124",
+      "content_hash": "a0d626e1bd23ad35c36648e675882e320b53db6dc14afd4e3a5d91319a9979d9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수성 제거 가능 밀봉제의 기능만 제시되며 박리·접착의 구체적 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-107552-A1",
+      "source_fingerprint": "6371e920d838be4d6e4fa38c9513abb0ecd3038f43d1bcbb50255efb2841ea33",
+      "content_hash": "2f60881438f0ccf4593b440da4747ef8c8825d976485f8f5c1c29d8bcfc5bf2e",
+      "decision": "LINK",
+      "keys": [
+        "peltier-cooling",
+        "fourier-conduction"
+      ],
+      "reason": "Peltier 냉각과 전도판이 명시되며 면적·접촉압으로 온도를 조절한다. 접촉 열전도도 조절을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-107563-A1",
+      "source_fingerprint": "cb1fcc80715f701fb3c38bfcfb7f986c265577381c60da6035498c794361bfcb",
+      "content_hash": "5e661a1357cbaaf66da43d23e1b851d8b447151be6567108725097276c013127",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Paenibacillus·푸사리시딘·생물농약 조합의 방제 용도로 막 손상 등 구체적 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-107567-A1",
+      "source_fingerprint": "2631f79647656eb5d9ac494b86c09fa795916e3b18d44450244517ecc64f90d7",
+      "content_hash": "ac232d2d912dcd042c5c427b399645ef133960cba3e6209d9a7433a5fd5c1b2e",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage",
+        "articulated-linkage-motion",
+        "elastic-energy-recovery"
+      ],
+      "reason": "레버·링크·탄성부재로 농기구 깊이 유지력을 조절한다."
+    },
+    {
+      "identifier": "AR-107568-A1",
+      "source_fingerprint": "283b778d5256fc02fccfedaefd1231c7e716d55204e7a2400fe28f11e3ad20ed",
+      "content_hash": "0cfb7babb6b4801b7efd43f4ecb17b0b0681237439828d789613f87d9d31fa22",
+      "decision": "LINK",
+      "keys": [
+        "joule-heating",
+        "plastic-forming"
+      ],
+      "reason": "금속판 전기 접촉 가열과 열간 스탬핑이 명시된다. 원재료가 불명확해 마르텐사이트 경화는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-107573-A1",
+      "source_fingerprint": "eb5829ae8cb94066d6862831af3bafd4f1f665c5395bf4ffc2fe685a5c45c635",
+      "content_hash": "a60348fa242bc9d71d4bec0d03f35993aa7542d951ea8b8c198e173d7da9383c",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-particle-transport"
+      ],
+      "reason": "분말 배관의 분기부에 압력·유량을 정한 공기를 공급해 고밀도 이송한다."
+    },
+    {
+      "identifier": "AR-107607-A1",
+      "source_fingerprint": "a9c5f7db821320ef5979d3a635010af3264b80130a10d300759096ba84bf8e1b",
+      "content_hash": "0ccbe8c17396423755b363b69d85d6a5992cbd3f1ee9d22cbfb725d176795ce6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "약물 용기·바늘·캐뉼라·무균 유로를 결합한 착용형 투약 구성이다."
+    },
+    {
+      "identifier": "AR-107610-A1",
+      "source_fingerprint": "172e47a62eebcb91feae489cd72a399b0478e78008345d40e3e3b00ad814f707",
+      "content_hash": "42b82644a31f1b6499e96ce9eb802ce72d70ab166a234764f6cb5b60cbf08a00",
+      "decision": "LINK",
+      "keys": [
+        "capacitive-energy-storage"
+      ],
+      "reason": "커패시터 저장과 DC 전압 변환부의 결합이다. 변환 회로 토폴로지는 미상이다."
+    },
+    {
+      "identifier": "AR-107618-A2",
+      "source_fingerprint": "093137ea43437abf9eb3813499a6cf66ec5d6691aa3bf63f3f8aa3355db263df",
+      "content_hash": "dc5595e4704daa33774395143c9aa01dae85f2d71bd4e9e58eb5dd396aac4349",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "카르바뉴클레오시드 유도체의 구조와 항바이러스 용도만으로 중합효소 저해나 사슬 종결을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-107635-A1",
+      "source_fingerprint": "4cca4f8435253d26503cbe86b8e08e3c71486ea118813219824f76c63e3e9f4f",
+      "content_hash": "48f5907bda51fddee3350172956d23c2f85bbdfa5c281911c8254b7c1577a9c9",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "테이퍼 나사와 금속 접촉면으로 관을 결합한다. 탄성체 밀봉은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-107636-A1",
+      "source_fingerprint": "2146c001a4bda303932372bc7c6225704111bd2fd2535be782bb274956a5bfcf",
+      "content_hash": "f2671c92e9c34ad0a758c44f0706d166d0d0f7892de3b4bc60a006e8551f12f3",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration"
+      ],
+      "reason": "채소 퓌레의 드럼 건조가 명시된다. 전분에 의한 향미 보존의 결합·확산 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-107663-A1",
+      "source_fingerprint": "6f82220510a093439d654606d3e417c61a2225cbeb03f64cd1902c493fd455e6",
+      "content_hash": "225650e94719f554be8aacc0a2af9e87ed42fc98e22aa2f399dd1ca6ebd14ca3",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "MHC 결합 펩타이드와 T세포 반응을 이용한다. 준비 중인 MHC 항원 제시의 추가 사례다."
+    },
+    {
+      "identifier": "AR-107665-A1",
+      "source_fingerprint": "15f604f4408c64744f17bdcff2e3b910e78da660f250bdc26d9d378bd52ab324",
+      "content_hash": "9703adcaf185400b755aa45860584a7c173102e69e4d0b4f585c75ea90c2336d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "chromatin-accessibility-regulation"
+      ],
+      "reason": "히스톤 메틸전달효소 저해로 염색질 수식을 조절한다. 효소 표적 변경만으로 새 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-107684-A1",
+      "source_fingerprint": "efd33413226c34e34bf38b5dedbc9746299a2acc9cca30e6d093ee48b4933392",
+      "content_hash": "bfba16f19b057eecae1f23cbc760373a7e3df6bb018d4c4c884deecc493a1e81",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "미세 홈과 약화 플라스틱 피복이 개봉 위치를 지정한다. 유연 힌지는 준비 중인 카드이므로 설치 후 연결한다."
+    },
+    {
+      "identifier": "AR-107689-A1",
+      "source_fingerprint": "5d120a4311f346eb154a507e39a347fe7726c47d0f96fb7a1354e8acb4e44719",
+      "content_hash": "36d3224b8fd41283f932fb2e6a679c3079a43e4a1a98e894ddb949d173b765b9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "위치·간격으로 조리 매개변수를 표현하는 광학 코드 형식이며 물리 감지 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-107692-A1",
+      "source_fingerprint": "6e2ae169fdb87f0406a8371c4c973796b611e0d1bbfb20735878eeb7cd63a9ff",
+      "content_hash": "c172be9c85d8d8f4ed9ecf3bd553f6dccb48415706d6160fedcb4e64fdd56b6b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "원호 구간별 데이터 위치로 조리 정보를 표현하는 코드 배치 규칙이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:38:48.444036+00:00"
+}

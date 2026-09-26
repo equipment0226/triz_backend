@@ -1,0 +1,171 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "6c13612ea7d1aacc9c8ca5db0bcd1cf713b637959dbaef2d9847eedcbc8d76bd",
+  "reviews": [
+    {
+      "identifier": "AR-116526-A1",
+      "source_fingerprint": "69c3241139f960e82c1f719b5a2875b4cab3d651d80e7f4250fc12b6262525a0",
+      "content_hash": "b49a9146bcb8f8bd36f577e4cfbfbe71816b2dfad3fb81494b089d7b15356ecb",
+      "decision": "LINK",
+      "keys": [
+        "immune-checkpoint-blockade",
+        "biomolecular-recognition"
+      ],
+      "reason": "HLA G의 면역 억제 수용체 상호작용 차단이다. 항체 작용 수준으로만 연결하며 벡터 제작은 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-116532-A1",
+      "source_fingerprint": "43e49fe2d518fed3eb1d379713478de6229b5a853e6f1ab6be9998ad8c7ffe21",
+      "content_hash": "372a0a123ee0ea30882e5b4369fc1ff9e4d9724f1d091451fd7952fa24bcd9ed",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "극값 통계로 최대 개재물 크기를 예측한다. 꼬리 분포 추정 후보로 검토하며 조성만으로 수소 균열 저항 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-116562-A1",
+      "source_fingerprint": "02d5742715616989f7408b1a673b6036f39c7344965220a52b055270ff8edb44",
+      "content_hash": "72f1fd3a7f72281807e615e16becc17458bfa4d497d9bf297296353f23440e9a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Trichoderma 고체 배양물의 방제·생장 조절 주장이다. 경쟁·항생물질·기생 중 지배 경로는 없다."
+    },
+    {
+      "identifier": "AR-116564-A1",
+      "source_fingerprint": "8067717359c9248c6298ff2ad58ded60564ff19aa0969c78e89aa3cc4ad2d408",
+      "content_hash": "acb4bbb8e34fb5f6fbfa725a9cb4a8172ac1027cbf4111ae00f50fbcb3860b73",
+      "decision": "LINK",
+      "keys": [
+        "multivalent-avidity",
+        "biomolecular-recognition"
+      ],
+      "reason": "CD40 삼가 결합과 표적 항원 단가 결합의 항체 구조이다. 수용체 활성화 성능은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-116570-A1",
+      "source_fingerprint": "668a17ca2feb2ed99f3eb723af47ec2ecef9e821a25a2b59da351dd03e28f552",
+      "content_hash": "0bb3c19321fab6fd7db7aa1d9737d5767db1c4ceaa92c2c69b914b8881efda56",
+      "decision": "LINK",
+      "keys": [
+        "rough-surface-diffuse-reflection",
+        "wetting-control",
+        "evaporative-concentration"
+      ],
+      "reason": "아크릴 미소구의 무광 피막을 도포·건조한다. 첨가제의 개별 반응은 미특정이다."
+    },
+    {
+      "identifier": "AR-116573-A1",
+      "source_fingerprint": "9fe05c746277a182c63fbb3ec85623adc485d29fb926cd3dc77db0775ad7be03",
+      "content_hash": "fbf724e7ec236159f0e33460431585264fde09ca5a86194195911f07cab0a615",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution",
+        "surfactant-action"
+      ],
+      "reason": "수용성 섬유 구조와 계면활성제 입자의 단위 제형이다."
+    },
+    {
+      "identifier": "AR-116582-A1",
+      "source_fingerprint": "0dcce0b6ae3a8fc909b6d6bf03db8949ab65e16d4e58edaac7d3afee7c345688",
+      "content_hash": "01009658bbcdb70499b8f36bc5c19b43cdb0468466d2fcf9fa7286ff9f1bf321",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "종자 유래 조성에서 특정 성분을 줄인다는 목적만 제시한다."
+    },
+    {
+      "identifier": "AR-116587-A1",
+      "source_fingerprint": "5bc9ad0df31324ed6b8e45abadff59769d388c08407e392d7130c2be2dc1f3a0",
+      "content_hash": "1ed433e5c5064f3c18348674df844d84bfd8c26b7ed839b1e1a747363618a215",
+      "decision": "LINK",
+      "keys": [
+        "motion-compensated-prediction",
+        "projective-coordinate-mapping"
+      ],
+      "reason": "아핀 움직임 벡터로 휘도·색차 하위 블록을 예측한다."
+    },
+    {
+      "identifier": "AR-116600-A1",
+      "source_fingerprint": "bde4c31aae0b87d116afd712a21db6c78786cb5427e737a1a35521d66602b519",
+      "content_hash": "bdee1e02d21bbbf4d0584139efa76819de7535cc6ed2e3ffd8c858a660c655ef",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "우물 내 고정 표지 신호로 이동체 위치를 파악한다. 거리 측정·부호 방식은 없다."
+    },
+    {
+      "identifier": "AR-116608-A2",
+      "source_fingerprint": "8526a6e303155c56c019ce00713b0daa67035ec809ec9ae1ccca329faa857086",
+      "content_hash": "6e802a42bf6925db8ca0c1021d2a91e04ed61a95a5d942b2dab9b8ec500fb754",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-pumping",
+        "hydrodynamic-lubrication",
+        "negative-feedback"
+      ],
+      "reason": "회전 혈액 펌프의 유체동압 지지와 유량 피드백이다. 지속 전단 응력에 따른 혈관 재형성은 신규 검토하며 치료 효과는 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-116626-A1",
+      "source_fingerprint": "f6c2b0e74135b40de65c46bea4d66001145eaf4bf4dd99cd3fe6bfa16b481b57",
+      "content_hash": "ca3789cc865223ad24c7a8b81e9ed734689e7d7e3a247b5355b065fb23586660",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "지방산 합성효소 FASN 저해이다."
+    },
+    {
+      "identifier": "AR-116630-A1",
+      "source_fingerprint": "84251a60cfdbe95968b121093606c4ed0208ebc4217d6f6934749d65094a1244",
+      "content_hash": "b9ab65d85b3834c783ea0074f3a55190d32c72a5788b99f34ab16caf5e8f1f42",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "가스 배출로 우물 내부 압력을 낮춰 유체 추출을 유도한다."
+    },
+    {
+      "identifier": "AR-116665-A1",
+      "source_fingerprint": "32265db97283912c674806cff01b4fb16beca09526e3dd92243b54299c1b59cf",
+      "content_hash": "2d35c6a9f7d5c609d4cdf7a43971cfb463c623c3fe250673a49a9b0b4fe9ef38",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "오디오 신호를 백색화한 뒤 공동 처리·부호화한다. 스펙트럼 평탄화와 단순 대역 선택을 구분해 검토한다."
+    },
+    {
+      "identifier": "AR-116696-A1",
+      "source_fingerprint": "8233221c72f45d75c9f876be3a93705aeb53cd78b3cfe4dd8fa7f1550d02e972",
+      "content_hash": "851cb1fe3da7b6393bf4ee9bdb7d7d3595d6a003b8c2087a9171a91bc33bd328",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "회전 드럼 내부로 중력 공급한다. 입상체 중력 배출 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-116705-A1",
+      "source_fingerprint": "fd782b0e5f491b8d6994c714e437255f5704d532f0feee97edb8f6663b380905",
+      "content_hash": "666dc160202ed87a89b9ad2b14d5c9f03a2ee998772431b377d373fa00b1b7f2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "프로피온산·염의 균 증식 억제이다. 약산 세포 내 산성화 후보의 추가 사례로 검토한다."
+    },
+    {
+      "identifier": "AR-116720-A1",
+      "source_fingerprint": "9a170238eb18d68662fcf6909846330a29afca87b281fc28f82a2555454727ef",
+      "content_hash": "f85fa89506e25923e3c61e914ce06c6e80dd302a2b4f13f44fba2e0ca8306240",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "인조잔디의 비대칭 PVC 입자 충전재이다."
+    },
+    {
+      "identifier": "AR-116740-A1",
+      "source_fingerprint": "91740734f0c2ea088273ec1a889706d5728a9d70351757bc89b5a14d3d38ec62",
+      "content_hash": "4b9595a09020d9108e8ca507dbe2d8d2805e379b473d8c83f84edacb228e34f2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "니트릴라아제로 아크릴로니트릴을 아크릴산염으로 전환한다. 니트릴 가수분해의 결합별 하위 작용을 신규 검토한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:23:48.469483+00:00"
+}

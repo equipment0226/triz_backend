@@ -1,0 +1,241 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "8461e27c306c941745572df32b63928f5904d78965a5a89e1c67246f7db08d31",
+  "reviews": [
+    {
+      "identifier": "AR-082096-A1",
+      "source_fingerprint": "d031c6d2d8f201844e22d595229d6d1bf15de938fba14e02b7c0cf49c31dd4f9",
+      "content_hash": "3c8d53c2b80d019ec14f840984730d81ccdc041cb0772ca99ec5d5599dd538ff",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "방제 화합물의 거울상 이성질체 비율이다. 입체 선택적 표적 결합을 직접 보여주지는 않는다."
+    },
+    {
+      "identifier": "AR-082145-A1",
+      "source_fingerprint": "acd3d37448219b809061490ebded64260348c756f27afeede4158b3db8cba63b",
+      "content_hash": "8a3eddc233b4ddf776df65a1eb0cfb413bb33aa83538ac25b4292bbdb38e5a3f",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal",
+        "pneumatic-particle-transport"
+      ],
+      "reason": "압축 공기로 연마 입자를 분사해 표면을 조각한다."
+    },
+    {
+      "identifier": "AR-082168-A1",
+      "source_fingerprint": "0d7285d9e10c7dc8d007f50e03313b81233779e4638e884563248ba0e1fe454a",
+      "content_hash": "bf0f797a8da4846e26acf76ef9d3b3a86142340394633f111a34f536532c8390",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "히스타민 H1·H4 길항제를 조합한다."
+    },
+    {
+      "identifier": "AR-082177-A1",
+      "source_fingerprint": "7d5bcccce95ee23f549f3e7395430ea194030eb74002215a4aca34d2329a88c0",
+      "content_hash": "46e9363bb2bcca0054d3025f0cdde255ee11790c1d87ed03ea41f53a6b27e3a6",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "두 회전 지지점과 U자 암으로 덮개를 접는다."
+    },
+    {
+      "identifier": "AR-082178-A1",
+      "source_fingerprint": "8c9a813ea155d1f52fc2dd1021a47c6e9404033f471c8dd6fc6f99cd9110058f",
+      "content_hash": "a363367784f76e62b13206db393fcdbb24dad120e64593e6ee8368e287d9adb1",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration",
+        "forced-convection"
+      ],
+      "reason": "안료·결합제로 모래를 코팅한 뒤 가열 공기로 건조한다."
+    },
+    {
+      "identifier": "AR-082198-A1",
+      "source_fingerprint": "9b3e6fdbc428dc4995e1b74485c366a94235ace7d4b0ecb57dcf528678cb55c7",
+      "content_hash": "f70e1481a4e925bfbe890ac254572de8bc9459d438a33db5b9b82bcb08533a60",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation",
+        "methanol-carbonylation"
+      ],
+      "reason": "아세트산 수소화로 에탄올을 만들며 메탄올 카르보닐화를 원료 경로로 명시한다."
+    },
+    {
+      "identifier": "AR-082209-A1",
+      "source_fingerprint": "aa06344d8fb8920b5d62b1de05a796441c735edf83c263b17096c9da354818f2",
+      "content_hash": "9e0d84936dcd17aa89ae0065c2ef88a097e7f9ba7cd875fee49c630607faba92",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "벤토나이트·모래 층의 낮은 투수성으로 매립지 누출을 억제한다. 팽윤의 기여는 초록에 없다."
+    },
+    {
+      "identifier": "AR-082212-A1",
+      "source_fingerprint": "c4e17798e268c923b1eb86f340078d7e6435195b18f04182104796fc62ca0ef9",
+      "content_hash": "1414e21f6cfb29a3cf10768369dec2d133c9c190e1db720983a2110d63049344",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "urethane-addition"
+      ],
+      "reason": "단계 성장 껍질과 사슬 성장 내부를 순서대로 형성한다. 요소 형성 후보의 보조 사례이다."
+    },
+    {
+      "identifier": "AR-082217-A1",
+      "source_fingerprint": "e0bc27219a0371df865b2079f858cb0f9bcc1aff79c211b3dc95ee3de6bf9f88",
+      "content_hash": "ae1c24bc65e51f198e0b83d3f86d78ff9727e1f46bbb58583cbd9fbea5431b57",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "타마린드 다당류의 항염 용도이며 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-082256-A1",
+      "source_fingerprint": "d5c2bd54f008cc17dec27b7ace1549350f83fa616d3febddf7737656e0c01dfa",
+      "content_hash": "9e808d09a2694299d9d090ea35c89d7395973cd39129aaab8a51d581c7b38917",
+      "decision": "LINK",
+      "keys": [
+        "venturi-entrainment"
+      ],
+      "reason": "이젝터로 재순환 가스의 압력 손실을 보상한다. 합성가스 메탄화 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-082270-A1",
+      "source_fingerprint": "e3ee6f21ac21b028e9921568d7ee010b2f0c1cc4fef3ed6b54903572cd0e81f9",
+      "content_hash": "f5b87de51155e9b31c5a3c1d43d8ce727c465b5aaf2afd79cf9eba61fefcc5f9",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "acid-base-reaction"
+      ],
+      "reason": "칼슘 침전제와 pH 조절제를 포함한다. 복합 항균 상승효과는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-082278-A1",
+      "source_fingerprint": "140cd8c76ff3281c9edd5524fddff756e016ed193e893e8ce1d3e0af5721ca93",
+      "content_hash": "8542161ea39719e78b5558ac5365836e606a03d16a6d3d6332f00c13359e39af",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "항원 특이 면역 유도의 일반 원리이다. 당뇨 예방 효과는 이 초록만으로 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-082296-A1",
+      "source_fingerprint": "2dac6f82183ab4055fdee1f49c9f284647545a4b18bc4916b02061f692008751",
+      "content_hash": "247d6fb8846d4de91a4b0783f335b74b2d6f75dfecf53259ba25c2450b8e5af7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아실기를 선택적으로 절단하지만 물·촉매 등 반응 방식은 미상이다."
+    },
+    {
+      "identifier": "AR-082314-A1",
+      "source_fingerprint": "d92e3cda0582d6e5b2256e61079eb022d5418bfd2e119a306218a779f05aff63",
+      "content_hash": "40ce85574d1b96f5119e22b0964cea3d799b3abdb9e9b8af51d8387d28b7f42d",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "극고희석 동종요법 항체의 효능 주장을 검증된 분자 작용으로 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-082325-A1",
+      "source_fingerprint": "5aea24648c0b786cf5abdaffdc0ef9f30873ad30f3998229bc834767b489afd7",
+      "content_hash": "78b01960ffedaa59cb5d44077ddb8da75a8e33ae165b7d4d51c8705855e9cf35",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "콘크리트 탑 구간을 받치는 탈착 보호 받침이다."
+    },
+    {
+      "identifier": "AR-082336-A1",
+      "source_fingerprint": "c99f35d9d558d8468de80432244eb9082e2b3940e0e16977f131cf8c4f672ec9",
+      "content_hash": "38c2ee9fbbafb408bddd8f97659c264fa1d2f8095cee82f1da93f612a7b35e6e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "집속 초음파로 콜라겐을 변형한다. 흡수열과 공동의 기여를 구분할 근거가 필요하다."
+    },
+    {
+      "identifier": "AR-082376-A1",
+      "source_fingerprint": "1d2a3a7b1f8e5b3023bc3033e1ae3b105acae43b2df19f83302847f0199e3cae",
+      "content_hash": "5c0af0d26fd250336bb70ed6accf109f595ba2f632604e90bcac21ed2ec2558f",
+      "decision": "LINK",
+      "keys": [
+        "chromatography",
+        "ion-exchange",
+        "solvent-extraction",
+        "centrifugal-separation"
+      ],
+      "reason": "원심력으로 고정 액상을 유지하는 분배 크로마토그래피와 이온 교환이다."
+    },
+    {
+      "identifier": "AR-082377-A1",
+      "source_fingerprint": "3039e2fac123548e2db16c36fb993cb4f87cf4fb3cc96fdd2ac6d925e2ebd664",
+      "content_hash": "0de82e2e9b2f9bccebdbca2d2a681f20a8b5523bb2a6efcc927a8dd0f9734788",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "전기 특성이 다른 부품으로 액체 카트리지를 식별한다. 측정 특성은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-082385-A1",
+      "source_fingerprint": "ca15496de77c9ed06917ff24cf1c2aa604c97acd27436a063c814294be50cb64",
+      "content_hash": "09fa668126f39f31a17db3b752b9d37ea074e3090f33079fe1dcf1353a4be466",
+      "decision": "LINK",
+      "keys": [
+        "thermal-orientation-recovery"
+      ],
+      "reason": "열수축 슬리브로 병목을 감싼다."
+    },
+    {
+      "identifier": "AR-082414-A1",
+      "source_fingerprint": "8b34e1f47b859f627bec80022f80898fdf7eefda8d49a0d115b9a23652662be5",
+      "content_hash": "1fafa4218a137ef122310a4235481c69d791e23c8235b78acf0f99040c54c74c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항증식·항염 화합물의 구조만 있고 분자 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-082421-A1",
+      "source_fingerprint": "0fed31fbe7eac60a0d60eda84356be94469ccd7b851b8454c611b69d65cb8b60",
+      "content_hash": "9dabefe8a883d14b5312bb705d67e30fd10f9ea0341bea0314fc42ffaf16a1df",
+      "decision": "LINK",
+      "keys": [
+        "check-valve-rectification"
+      ],
+      "reason": "밸브로 액체 역류를 막고 복귀 공기는 여과한다. 필터 기공·재료는 미상이다."
+    },
+    {
+      "identifier": "AR-082429-A1",
+      "source_fingerprint": "c4c8c4412dc40f84990ba12c9cc36111e39527bfa24d63b19be83cecb362f28d",
+      "content_hash": "e2a7b5f32dc83dc69ce3754cc26b3d41c5fd2de48ec682ebad7a1ecdf210d3d9",
+      "decision": "LINK",
+      "keys": [
+        "electrostatic-charge-drainage"
+      ],
+      "reason": "도전성 플라스틱과 접지로 정전하를 배출한다."
+    },
+    {
+      "identifier": "AR-082432-A2",
+      "source_fingerprint": "ac655213654e5f6a0116648473710a5aa092d9489c987992eaec8b7593d71895",
+      "content_hash": "0e9cc567c16c9bedb2125502cc5751f54c6a9779a8eded61eafa0c18cddde751",
+      "decision": "LINK",
+      "keys": [
+        "physical-foaming",
+        "surfactant-action"
+      ],
+      "reason": "추진제의 압력 해제로 거품 제형을 만든다."
+    },
+    {
+      "identifier": "AR-082441-A1",
+      "source_fingerprint": "391f256368c42de95356b031886938ff2fecddabc1d82c1f5fac77d0621e9889",
+      "content_hash": "44a41880e072404a05ff67db85cf132682f2f5dedad896800cdc2c2c1e30cb33",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "시그마 리간드의 수용체 조절 용도이다. 임상 결과는 일반화하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:24:06.041207+00:00"
+}

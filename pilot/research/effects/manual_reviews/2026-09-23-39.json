@@ -1,0 +1,298 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "1c38ed3f637838eff79798c95f9c7fbe0071af87eda3d43b34a43f9487df226e",
+  "reviews": [
+    {
+      "identifier": "AR-083957-A1",
+      "source_fingerprint": "cde273cca92b453cb9e7c5e56362140d4d8e1fca6000939ba01eabf1cb105509",
+      "content_hash": "cae943be99904185ce3528870e61b76e2fb0bbeb0d22e34cbd8976ccefb2696b",
+      "decision": "LINK",
+      "keys": [
+        "immune-checkpoint-blockade"
+      ],
+      "reason": "NK 억제 수용체 신호를 차단해 표적 세포 반응을 높인다."
+    },
+    {
+      "identifier": "AR-083959-A1",
+      "source_fingerprint": "10c8c0922311a9fabf986d3c02414d042c66a62eca2cbb52ed607a13c9829405",
+      "content_hash": "762880395e999aa38a77c587b23e97509e8f4249a9bbff999352072fcfbe55f1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고온 배기가스 CO2 포집 목적만 있으며 흡수제·반응은 미상이다."
+    },
+    {
+      "identifier": "AR-083963-A1",
+      "source_fingerprint": "e82203796322162470fad4ad7a829f9992572bc4d1d10ec91f5a6e409c54b48f",
+      "content_hash": "fe969067b5e216c4454c721d3f3587fce0c17639ba0cf7e54b38c1847a4c62f6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "무풍 회전 시 알려진 중력 하중으로 센서를 교정한다. 센서 변환 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-084011-A1",
+      "source_fingerprint": "0a75b6b4874c0596f37031f5a4c3ef0e29565e78823a25391e9757f660a0fef2",
+      "content_hash": "2e78b2ba19469e8f2441cebf4ef580bd8ce5c7bc3d676aeac1807c7828ace38f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 화합물 구조만 있으며 분자 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-084029-A1",
+      "source_fingerprint": "4876025b275147e9dce730d60d5563a497bdd7571309669ca13a0261bebaa2b8",
+      "content_hash": "61f05c53362f466d1e58c757dffbb3c24984407e65a2d7837a6bc1eef2296d9f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "동일 연결구를 쓰는 탈착 윤활유 저장통과 충전기이다."
+    },
+    {
+      "identifier": "AR-084041-A1",
+      "source_fingerprint": "cb197a5987abdd43150f8a8579fcd155288498be15a5ef14b20699ffbb044e71",
+      "content_hash": "08ed16dae9bcf67ea29828628196f0c7003e5d3a3da9250e504bac15c4f96d1e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "공초점 레이저로 비접촉 렌즈 두께를 측정한다. 공초점 축 방향 선택 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-084052-A1",
+      "source_fingerprint": "3ad22eef15e95e26f5600fcc6df2f091cffbf328def20188ba52de48d83d963e",
+      "content_hash": "ef0f8327cef72789742e4a338c53ffc0577ce95f61522569ef8c51de1aa3482a",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion",
+        "mechanical-interlocking"
+      ],
+      "reason": "자석 척과 위치 핀으로 가공물을 지지·고정한다."
+    },
+    {
+      "identifier": "AR-084078-A4",
+      "source_fingerprint": "99c392c6fdab4b7ce66c189a7f5ad08581095cc6abe42c05fbc34f63ac23bc00",
+      "content_hash": "6b4b5120560982395861c396d120f0969aa94c8f906abab4b010d81a2dbce212",
+      "decision": "LINK",
+      "keys": [
+        "electroluminescence"
+      ],
+      "reason": "컵 내부 LED 조명이다. 별도 신규 효과가 아니다."
+    },
+    {
+      "identifier": "AR-084090-A1",
+      "source_fingerprint": "7d8cce4bbc47b20142a2e6e8c8f9e44dde9ac0aff1d467b65037fb83fa1fa71a",
+      "content_hash": "16d66020d4ac087dd546a5b9abcb5027ae387bb28a1ce6b320eb3537a5881828",
+      "decision": "LINK",
+      "keys": [
+        "phased-array"
+      ],
+      "reason": "서로 다른 방향의 음향 빔 형성 신호를 조합해 목표 위치를 강조한다."
+    },
+    {
+      "identifier": "AR-084105-A4",
+      "source_fingerprint": "06c6f011c654b86686dd4d6ed9aa761dc112ba487f00f4046dc3bdb0e31c4cb1",
+      "content_hash": "773bf8cd0615a87c191cdb7cbcfe9bb366b3bfa8a34903264c158b0c19697a0d",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "스프링 변형·복원으로 충돌 후 표지 기둥을 세운다. 무상해 주장은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-084118-A1",
+      "source_fingerprint": "59d9b55dc7b9d5545da4c746277c9f3afcab3dbc834282bd627974f3653fe96c",
+      "content_hash": "28eac7e3e9aacc7816898b76434fac981213589c62f9d35bf08b99506f2ded63",
+      "decision": "LINK",
+      "keys": [
+        "chemical-cue-directed-behavior"
+      ],
+      "reason": "냄새 조합으로 꿀벌의 작물 접근을 유도한다."
+    },
+    {
+      "identifier": "AR-084132-A1",
+      "source_fingerprint": "01f649441cc63bf2c704b40a356cdf35905798313b4c775c5b612dfdf9a96534",
+      "content_hash": "bd3653d2e89fc2085d991e7a06c62d6516e6f0e0ad6ce98aa7e5bc443bdb7f09",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비금속 무두질 반응제 구조이다. 콜라겐 결합 위치·가교 방식은 미상이다."
+    },
+    {
+      "identifier": "AR-084137-A1",
+      "source_fingerprint": "bd4589fc773537129a7d733e6b9e56e34149d3536a473becb2252f864d99461e",
+      "content_hash": "bce839ed849b7903dca75037eb97318e1fa7c28fe8286076cefcb6a8043d0368",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비금속 무두질제 구조와 pH 조건이며 반응 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-084146-A1",
+      "source_fingerprint": "e311d8798a1804c6da5df22980c977f9b70729ac570a431cd2e104b72060184a",
+      "content_hash": "b1e65aa7f1f16752c01ffcae92602c1b1e050f13d1463bcb8d915b9053dea5f6",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "피스톤으로 지층 유체를 흡입하고 격리 후 압력을 측정한다. 압력 센서 종류는 미상이다."
+    },
+    {
+      "identifier": "AR-084156-A1",
+      "source_fingerprint": "cad8e8cde0214f00a1162df2ae6d96695a3b94307c147edf7250b76b03f86279",
+      "content_hash": "db3d212a80c89a205b14a2549df8dfcb8ba286070498880786aaa5b1ce7963a2",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "금속박 장벽·탄성 공중합체로 용기 내충격성을 조절한다. 고무상 공동·전단 항복 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-084157-A1",
+      "source_fingerprint": "a7036347e3ab4b105a09dfa1a7e72b1448ba4b723e3d72fd6b17adedbb382f0a",
+      "content_hash": "a2298c208fb303faf649865a316c3b09443a18293e1d5dadf2c9cfc48655d2ba",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미생물 배양의 전기화학 변화를 감지하지만 측정량은 특정되지 않는다. 병원체 배양 최적화로 전환하지 않는다."
+    },
+    {
+      "identifier": "AR-084171-A1",
+      "source_fingerprint": "424c5ca852e737a2e508f448be2a5689906a88c37bf989ae9243e9895400d858",
+      "content_hash": "ce6faf2bac0c9bcca17d2689ee709d1666a5eee26ff7fb8f5923cff6b3753f84",
+      "decision": "LINK",
+      "keys": [
+        "positron-annihilation-imaging"
+      ],
+      "reason": "섬광 결정·광전자증배관·동시 검출을 명시한다. 섬광 변환과 2차전자 증배 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-084181-A1",
+      "source_fingerprint": "e62fd9767f7419cd4e107cd469fdc5b983c9bcfa30e2894e6f37ec4e52711136",
+      "content_hash": "71c60d5653439ccdf8360be376755cd9c15c775385e9916084e35f787b19c092",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "키랄 액정의 선택 반사 대역을 첨가염으로 바꾼다. 나선 피치 반사 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-084200-A1",
+      "source_fingerprint": "3e7b2b6117f5527a5162987c039d23de05a3478084ade3edcd2e409883ddae14",
+      "content_hash": "0baebc52738675874983f9e2156104909f46042992eea818b3005cf6b065eacd",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "저울 정보와 펌프 제어로 종자 처리량을 맞춘다. 재고 통신 자체는 신규 효과가 아니다."
+    },
+    {
+      "identifier": "AR-084202-A1",
+      "source_fingerprint": "de1cb39b1781e7673d028447903279fb410edee6af7d435333c559f1eda7c4ac",
+      "content_hash": "d73019a4442d89fac8ee1ed113cfa4e238e908f049e562bd7bd57c1c8b85cecc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "이송 방향과 교차하는 진동 롤러로 테이프를 곡선 배치한다."
+    },
+    {
+      "identifier": "AR-084206-A1",
+      "source_fingerprint": "a9d07eb0f0baf98aa538ba8a7dc761cdbb92a726e87a5f77051aedd5b07db452",
+      "content_hash": "3fdeeca6480b3267b57dc9e5c7a637c3ff3ca8f568613abb34ef8381516c7024",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약 혼합의 작용 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-084208-A1",
+      "source_fingerprint": "8dd08a60283823b9fd06a24e1dcd19cbd5e279febddf9edf32e744e6c9adcc70",
+      "content_hash": "0bb7ce4a3235e83409749abef96c7e02a919a24062a0a08023184d927939c4b2",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "에프린 결합 항체로 신호를 조절한다."
+    },
+    {
+      "identifier": "AR-084215-A1",
+      "source_fingerprint": "71ba4b492d8d3575bbbaf65b99afb692f7ab3c318e32fbacb9bb2a37c1e49162",
+      "content_hash": "bece1190e35dd25c3d0b5111caaf3d9c5805bafc0af5dffa34763d1020d3f236",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "장내 미생물의 대사질환 개선 용도이며 관련 분자 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-084223-A1",
+      "source_fingerprint": "b240754601c531877079c9313e687c42221496eaf2cd384126a1f226aac2a426",
+      "content_hash": "f592ca0357976a090766ea0dfb5909faea333af365c1c9067d57bfa0d24ba67d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "아밀라아제로 전분을 가수분해하며 섬유질 분해는 피한다."
+    },
+    {
+      "identifier": "AR-084247-A1",
+      "source_fingerprint": "729b5a8fff0a9dbb7860c310f91d9a3a5ad043f11e72c491b7be22ff38f896b8",
+      "content_hash": "d73b8ab02bee3e335f658e7be1c1d389c7bfb8fe1ef45e3f741cb00f47abc915",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미생물 처리로 식물 휘발성 물질을 늘리지만 유도 신호는 미상이다."
+    },
+    {
+      "identifier": "AR-084250-A1",
+      "source_fingerprint": "3cf42a4b2dcba7f36428ccf227cda51e04cf96e4a7ea0b0e218555c33509dd7b",
+      "content_hash": "d57bf456b4b314b7b943eaf8884a7b69238809de8a3a1401badde33244a90e5b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "조명 모드를 사용자 인터페이스에서 바꾼다."
+    },
+    {
+      "identifier": "AR-084259-A1",
+      "source_fingerprint": "692a03daa5be35a9bb6bb7f5938a3ffee437b418c97427b5d026765b6eeed130",
+      "content_hash": "09f81c457d0a00f2f9fb0e559273cdffe662a304aed73655e7e0d25f660c0cc7",
+      "decision": "LINK",
+      "keys": [
+        "sintering",
+        "physical-foaming"
+      ],
+      "reason": "다공성 지지체의 소결·발포·선택 용해 대안을 제시한다. 희생 성분 용출에 의한 기공 형성 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-084265-A1",
+      "source_fingerprint": "9d572c1319763a4fb6aa886c0ed71615f26866b652d786c151ce885151b1197c",
+      "content_hash": "d5ab854f2d753b09c8ac2f9afa2e36551f634814168d876f5ae219b8fbeb65a8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "치약 액상에서 고분자 필름으로 향료가 이동한다. 고분자 분배 흡수 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-084270-A1",
+      "source_fingerprint": "8ad293012eb56d2681dc75e4f2db061a2b8838c1d05e464efbb0945d8c18daf9",
+      "content_hash": "61ba958bc12a2d17ab14bfa6405bded3f8af7bc48f579fca12af6eadc014a730",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "탱크 무게에 따른 위치 변화로 잔량 스위치를 작동한다. 중량 임계 감지 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-084275-A1",
+      "source_fingerprint": "5bb50653f4941f5f2dbfad4ed0fa50d7e370f8608eacc140b4958745c5d2ebcc",
+      "content_hash": "204d5a96fd3da53a97ec9407fbc69b67b1d9bf60d1f78088005955c5143f0045",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-insulation"
+      ],
+      "reason": "불소케톤 혼합 기체의 절연 강도를 이용한다. 비선형 상승의 미시 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-084296-A1",
+      "source_fingerprint": "62a60ba940177354b7b4c5f2da643a8b660dace3b7780d70f735d4f2bc291c4e",
+      "content_hash": "0fdcb8371998c2b58316ebfbfbaa878660beeb07adc0caddf4134dbbb5ccc2e2",
+      "decision": "LINK",
+      "keys": [
+        "hydrophobic-association"
+      ],
+      "reason": "소수성 가지를 가진 수용성 다당류의 부착 조성이다. 구체 증착량 증대는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-084321-A1",
+      "source_fingerprint": "c000bc7b6cd82badc58774796dd1609a2e9ce61ad7de7780e04fdadb227da00e",
+      "content_hash": "5d7d635d8ad7de75b28ff3dcc387a02c813f4d246aa740e7ea8fea5da68c7bea",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "여행 가방 내부 옷걸이·밴드·접힘 배치이다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:27:28.009865+00:00"
+}

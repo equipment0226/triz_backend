@@ -1,0 +1,271 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "acbcfca5973ae800ab9b1a638e2e77ffc7ef37e55cdc14c6e8db8b8372cfaf08",
+  "reviews": [
+    {
+      "identifier": "AR-104349-A1",
+      "source_fingerprint": "762e17755c9c1c015c8bdb16b2c029207113c212b6e8fbfde510d84be6aea2de",
+      "content_hash": "a6eb6ea8a789c70863f92e8b2aac474e86aa97eea6fec6ffc6fcb94acfd7f97a",
+      "decision": "LINK",
+      "keys": [
+        "swelling-actuation",
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "팽창 입자로 기존 균열 유로를 막아 다음 구간으로 유동을 우회한다. 분해 입자의 반응 경로는 없다."
+    },
+    {
+      "identifier": "AR-104363-A1",
+      "source_fingerprint": "5b05ff92c748d927bf6e4210fec0f25ff0d30ddab311967e4ebca729efd1c1fc",
+      "content_hash": "3a2c3d8b5c707cd7da3ac6201856d92b7c034ab66cc6eaf99259bd151c2ecaf2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "강도가 다른 섬유를 조합한 방탄복 외피이며 하중 전달 방식은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-104376-A1",
+      "source_fingerprint": "b682650e219f90aadc1241d691a4250edb14fa91948ab6972e666304a1675e09",
+      "content_hash": "4fefc68c274b0d803f54ffb9ba77e0fd08064c6eff8daeb364b43e0f7307d9c6",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration",
+        "forced-convection"
+      ],
+      "reason": "폐기물을 폭기하며 생물학적으로 건조한다. 호기성 분해 초안과 관련되며 막의 선택 투과 기전은 불명확하다."
+    },
+    {
+      "identifier": "AR-104390-A1",
+      "source_fingerprint": "3b83d0be76d3738e19d221d2333d17c7c5f54bbb8fb7faf8b0a7cabbd45d7934",
+      "content_hash": "e4bdd11ec934b43add651a20d432e0bd62c150ff65d19de6c1b2027150ad5bfe",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "viral-fusion-inhibition"
+      ],
+      "reason": "CD4·gp41 결합 부위 및 HIV 융합 억제 펩타이드이다."
+    },
+    {
+      "identifier": "AR-104394-A1",
+      "source_fingerprint": "bbdc9ec5bbe33fd86348d2641df9a0ccfe01fa12b0546d88864c28256d0f16b9",
+      "content_hash": "e88fe5f2143d56ebcaa9407ef66720deea71f8b9989e6ba26308001e13f709d6",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption",
+        "combustion-heating"
+      ],
+      "reason": "지열 유체를 탈기하고 분리 가스를 연소시켜 이용한다. CO₂ 재주입만으로 전 과정 무배출을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-104398-A1",
+      "source_fingerprint": "2230ec349fc5251d8a0f8c73357627f7391aa964e09f51fde9282473d96f4295",
+      "content_hash": "a1c58cf91801e2ab3acdb6d05b3f614f1cb39a1835a50a227cc0beaec197b4a8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항기생충 성분 조합과 용도이며 표적 기전은 없다."
+    },
+    {
+      "identifier": "AR-104400-A2",
+      "source_fingerprint": "96af65de64572f66b9824f40f665d45ac22c942e83e375e70fc289bb50097b48",
+      "content_hash": "1284a2f783ae26708fdf5196ca9e4fd8463d532cbb23b2782156ffcb8359e12e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제·온습도 처리 뒤 생존하는 내생균 조합이다. 대사산물 방어나 구체 내성 기전은 없다."
+    },
+    {
+      "identifier": "AR-104414-A1",
+      "source_fingerprint": "2217771b23cf46f6cb1b0ed631a723c165658b3c00fbca8200dcf310a2008459",
+      "content_hash": "0faccec47581f5457df839e9cf263ef0f8e1b3693ca4a7cc56c4c76be9b1a9d1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "공기 흐름으로 방사 필라멘트를 연신 후 적층한다. 공기 항력에 의한 섬유 가늘기 제어 후보를 확인한다."
+    },
+    {
+      "identifier": "AR-104421-A1",
+      "source_fingerprint": "ac1b8d27f31a5623f4e92bfc4a0dc5fb8c2ac5817eae56602581ef52bf6844ea",
+      "content_hash": "ce5cffce3bbfdc802323c07877b02f213237cd27a14fc9b5aa47f2b2670718e0",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "비이온·음이온 계면활성제로 CO₂·물 거품을 안정화한다. 다공질 내 유동 저항 변화는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-104448-A2",
+      "source_fingerprint": "0b25455e2049fff2cb4e20a8758825620a5f0ed455c04877eaad78b0f0965170",
+      "content_hash": "1afa7c2a14a5fb28ecb8624237d1619ecb8946d66335a58472725acb7e38131f",
+      "decision": "LINK",
+      "keys": [
+        "genetic-loss-of-function"
+      ],
+      "reason": "바이러스 RNase와 Npro 기능을 결실로 없애 약독화한다."
+    },
+    {
+      "identifier": "AR-104454-A1",
+      "source_fingerprint": "c2b420b3ae921946ca4c3645ef34d6971973f018a7a1da59e578de01f14c9838",
+      "content_hash": "27f97ce4cdffd033fba56289091ab72245e241c8f6d65ace0a5f760f0674ad94",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "압연기 공급 장치라는 한 문장만 저장되어 기전이 없다."
+    },
+    {
+      "identifier": "AR-104459-A1",
+      "source_fingerprint": "d038b5f36a302a7074f1a32c5c8ddd83ca212959df4157f0acfa3a0a12ea224a",
+      "content_hash": "e858b1d742a9153a368849074b0c9ade02523a558dbcd9dd7f85135f1d749f52",
+      "decision": "LINK",
+      "keys": [
+        "hydrodynamic-lubrication"
+      ],
+      "reason": "저점도 윤활유 제형이며 빗살 고분자의 온도 보상 기전은 초록에 없다. 연비 향상 크기는 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-104468-A1",
+      "source_fingerprint": "08a09d107dced6f1239de098c5232e2530dc8d5ae5baadbe4ec345015e968afb",
+      "content_hash": "ddad66903ae39714358478cf11cdf5f965ee4ab18546a796610c4883d9206e2c",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding"
+      ],
+      "reason": "용접 풀 뒷면의 차폐 가스 압력으로 용입 형상을 제한한다. 새로운 압력 법칙으로 분리하지 않는다."
+    },
+    {
+      "identifier": "AR-104483-A1",
+      "source_fingerprint": "c4299aab2eb364f7155abfd68fd3b3d2e30fd059c5fe470d429c8c5f66c13379",
+      "content_hash": "a77e3d81c0f74b8e6379dae88555b60c7ddbcc623893f111eea538fd12388351",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction"
+      ],
+      "reason": "산성 잉크와 염 형성 가능한 표면 성분으로 숨은 문양을 만든다."
+    },
+    {
+      "identifier": "AR-104508-A1",
+      "source_fingerprint": "9f3cede9247f0deba829e02d0fed8efad29555d21e7816cb6988f8c6d866004e",
+      "content_hash": "82d0184abc4d58613b2c014ddd215e3f45aeb5ab39fef1045b8eed78df61d558",
+      "decision": "LINK",
+      "keys": [
+        "sol-gel"
+      ],
+      "reason": "계면활성제 자기조립 주형을 소성 제거해 메조기공 산화막을 만든다. 항균 부착 저감의 기전은 별도 검증하고 주형 기공 형성 후보를 기록한다."
+    },
+    {
+      "identifier": "AR-104510-A1",
+      "source_fingerprint": "6234654c5b79c42c38d31d154e8d64269827338a127f91b80834c88daf1af466",
+      "content_hash": "66dbf484dd40ba8f90565d05b3e6f205a989b06c59d4b0b97fb439e8c3813e01",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction"
+      ],
+      "reason": "산으로 조절한 티오트로피움 수용액이다. 안정화 반응 경로와 효능은 별도 확인 대상이다."
+    },
+    {
+      "identifier": "AR-104519-A2",
+      "source_fingerprint": "186cbc09c4d1eed8b623a53fab065f0672235acfe305915bb6755ac77e6b97e7",
+      "content_hash": "259b0d588866e84572d3c198e316737facec02f3aaf8c00666fac50000e64537",
+      "decision": "LINK",
+      "keys": [
+        "urethane-addition",
+        "gas-solution-diffusion"
+      ],
+      "reason": "폴리올·이소시아네이트로 수증기 투과성 폴리우레탄 필름을 만든다. 다공성 여과라고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-104551-A1",
+      "source_fingerprint": "c66747b085578c3f4c0a0719f7a00e7081223421c90dfaecb6197c3ed778aa97",
+      "content_hash": "c4e03d61cd3ec7c00607cb3b01377f7f2dba7a315c039f0b42129fbff14829eb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "진공 음극 아크의 금속 증기 플라스마를 기판 코팅에 사용한다. 스퍼터·화학 증착과 다른 아크 증발 증착 후보이다."
+    },
+    {
+      "identifier": "AR-104558-A1",
+      "source_fingerprint": "9c3874c6752e691956eea95f97509588aa5633d53d961b31264268ea68d56f14",
+      "content_hash": "445360f424c3a28e5fd963ddd9d6a4be315748b8c470351174384b988504341e",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "acid-base-reaction",
+        "cosolvent-solubilization"
+      ],
+      "reason": "산성 세정과 알칼리 세정을 순차 적용한다. 제시 조건을 보편 소독 기준으로 사용하지 않는다."
+    },
+    {
+      "identifier": "AR-104568-A1",
+      "source_fingerprint": "54896389683e484b40a219af7d6baa74e8fca490774494372a6ab03f717e0f5e",
+      "content_hash": "e5ae4d2ed6d9ef1e97c18969961b661d5b9e658bb76094be384a020d75bf204a",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "sieve-size-separation"
+      ],
+      "reason": "실리카겔·활성탄으로 수분·성분을 흡착하고 금속 망으로 여과한다. 연료 에너지 증가라는 해석은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-104582-A1",
+      "source_fingerprint": "3cd9ee83d7d3d76da9eced1f06ddb108f422db49c3608afbadc94c1b4b87373d",
+      "content_hash": "d32e1215828a9122911577c3081de6c15728f5f028288dbbb31495e48e69f4f0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 혼합 조성과 용도로 분자 기전은 없다."
+    },
+    {
+      "identifier": "AR-104597-A1",
+      "source_fingerprint": "9f3e5cf0c3d6ccab77be0b1f4f440d652052f051f371bfeb9ac30e754e6764a9",
+      "content_hash": "6761ff1ee219816b789577988118af7b68f6261f3a71b2d90796296f9e39f975",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "삼환 항종양 화합물의 치환기 목록이며 표적 기전은 없다."
+    },
+    {
+      "identifier": "AR-104608-A1",
+      "source_fingerprint": "3a9932ac38d65b0671e87f9851f9ce4c81c2ae09dc9d04ce181450463b538859",
+      "content_hash": "de1836bb314c821041baff620636a944fc98f8fa08985010729b355d85dccfe2",
+      "decision": "LINK",
+      "keys": [
+        "porous-gas-trapping-insulation",
+        "thermal-radiation"
+      ],
+      "reason": "발포 폴리에틸렌과 저방사율 금속막으로 열 전달을 줄인다. 큰 공기실은 발포 미세 공극과 구별한다."
+    },
+    {
+      "identifier": "AR-104611-A1",
+      "source_fingerprint": "3140764d423b5ef8549eea2d7a65a15dac031bf6fa88d5b50a3b98d2cbc66203",
+      "content_hash": "f27458b55b7d7343c5a16ddf962bb37ce74da31992aa6903fa165de8ce46ddbf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광석의 균일 과립화와 반응·침출 개선으로 결합 방식과 화학 반응이 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-104616-A1",
+      "source_fingerprint": "807bce2a667d4b907f2db10c680afd8b79753e390d4a0804d5543871b9be163a",
+      "content_hash": "b15169480503951e23b235803d2b0f15d1aeccc00b93a832937f7013914b0b73",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction",
+        "feedforward"
+      ],
+      "reason": "플라스마 이동 전 반대 전류를 유도해 이후 와전류를 상쇄한다. 절연 적층과 다른 피드포워드 전류 보상 적용이다."
+    },
+    {
+      "identifier": "AR-104619-A1",
+      "source_fingerprint": "60ba55dbe778cfa68d9a57b85317df89ab70bf492f7dd09401ec30659fb7eece",
+      "content_hash": "5d769bfdc97a520d80a4aa09d8c43cb36757a395061dcb6863b56840d4e50836",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "회전 해제 잠금과 별도 밀봉 부재의 압착 구조이다. 밀봉 부재가 탄성중합체라는 근거는 없다."
+    },
+    {
+      "identifier": "AR-104632-A1",
+      "source_fingerprint": "f65ea870b622dd30f9cf380a30caf2ad0d01fc42a341b19592187cc8f080fa76",
+      "content_hash": "7529f8df6fd2be1c543b0af374fd05c865d7cde59e01e4ff169bd5c25ab78f63",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "articulated-linkage-motion"
+      ],
+      "reason": "바닥 접촉 탄성 부품과 링크로 의자의 기울기를 허용·복원한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:25:33.611625+00:00"
+}

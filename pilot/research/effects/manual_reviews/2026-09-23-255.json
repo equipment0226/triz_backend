@@ -1,0 +1,151 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "0e6d86d71c890dc9a2d6b89a6ca2657cfe10999ff6b39751c7d6b7a48a0c4fb6",
+  "reviews": [
+    {
+      "identifier": "AR-119759-A1",
+      "source_fingerprint": "9f191df95d35a8f1b93a0c06a01a872e716c422a6bb9e4305ee7ff42a495058f",
+      "content_hash": "b2db4a66b4985bb6836cc07d70cdcaf387155b45908515947480bfad714d6ba4",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "double-layer-repulsion"
+      ],
+      "reason": "극성 폴리올레핀의 산성기를 중화해 수분산성을 높인다."
+    },
+    {
+      "identifier": "AR-119767-A1",
+      "source_fingerprint": "e6f4462d2c8aa69187d7b9091735cfbc18dd61b22cd338782ddad5ccde7bbf74",
+      "content_hash": "7a8f9526e2c9e3250f20c078a95f9dbacfa3e1635e2977ab795ff6f72dce1c80",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "두 미생물 공배양의 식물 병원체 억제 주장이다. 경쟁·대사물·직접 길항의 기여는 미특정이다."
+    },
+    {
+      "identifier": "AR-119774-A1",
+      "source_fingerprint": "71c54aff3cc4418a8ba5af0072ebd39292ee3334d78b7a64bf7ebe5e14c22d18",
+      "content_hash": "3e73f377445437ac73b13fc64dffba085d37d06ec700e96f7fb1ac3538e700c8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제 구조 목록이며 표적·작용 경로는 없다."
+    },
+    {
+      "identifier": "AR-119778-A1",
+      "source_fingerprint": "b4f4b7e38d8096beabe99228868bd20c7dc41b5ad9f2ccba1b684ced7889d09e",
+      "content_hash": "347020119de0d973d3c4591c89a82812e8a85498fa0d3b2426675cd139a26188",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "프리즘의 좌절 전반사로 지문을 영상화한다. 기존 전반사·소멸장 흡수와 결합 경로 차이를 검토한다."
+    },
+    {
+      "identifier": "AR-119781-A1",
+      "source_fingerprint": "ab8d2c28a8466dfe54d770e13ec02d06c64d9e90c5a4619857ee57f6f359a903",
+      "content_hash": "f76981ecfe5d196cd972ed34137e535f1bf0698baba512390b3e65926eaa2fd1",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "일부 당을 완전히 발효하지 못하는 효모를 이용한 저알코올 음료이다. 반응속도 초안과 발효 항목의 적용 경계를 검토한다."
+    },
+    {
+      "identifier": "AR-119784-A1",
+      "source_fingerprint": "4b08dda540c227d36ae4187dbc64f62c8a4602afe0f54d53ad1780d5c7f12565",
+      "content_hash": "cffe3d1597313a8b6e4a078c090f47bb0e303eae09e13686183d0a83228446fa",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "말라리아 플라스멥신 저해제이다."
+    },
+    {
+      "identifier": "AR-119801-A1",
+      "source_fingerprint": "ed46f73ea62b007971769a462ec7366c53104cc6158af51511aaa61406260928",
+      "content_hash": "adf1919f7d829780a7e1b2305e0f927eaee19a4300aa8109e8d90b18940fa05d",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "아미노산 실록산 계면활성제이다. 재료 변형을 새 계면 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-119803-A1",
+      "source_fingerprint": "6bba44cb6aba5bbeed3071642c8208909edeb357582a4b27e26a1827faacd3d4",
+      "content_hash": "64e080a43c58a50408505dbb6345fbc0c5bf031145f22963f8144a90c099e8e4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충제 구조 목록이며 생물 표적은 없다."
+    },
+    {
+      "identifier": "AR-119815-A2",
+      "source_fingerprint": "d51a87c92f48481f64942d3dc28acfb11a760480bc0a5b178754596215732d40",
+      "content_hash": "736100cd486a89904e80b3a75d256f310db342c8f92267b4febee3a31806353e",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "plant-cell-totipotency"
+      ],
+      "reason": "외래 단백질 발현과 식물 재생이다."
+    },
+    {
+      "identifier": "AR-119822-A1",
+      "source_fingerprint": "b4ffa9382f77597b579b4fe32314a9787d89e28369ca25abd1e9e9c174e2941c",
+      "content_hash": "f584143f406f6466c661177b2f9c370f75f78358f19cc05b30004e3984077ee1",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "아데노신 A2A·A2B 수용체 길항이다."
+    },
+    {
+      "identifier": "AR-119839-A1",
+      "source_fingerprint": "c5e4864a0ebc977f7bb7c5cc35ba28f692c9be0645d7693a81ed257858d6f8e1",
+      "content_hash": "9da46fe6697ac5ed411a1be30d802ba7eedbdc462c77e09912f2794ef3c0da19",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "재조합 EPO의 당화 분포와 등전점 조성이다. 특정 체내 제거 경로는 초록에 없다."
+    },
+    {
+      "identifier": "AR-119848-A1",
+      "source_fingerprint": "0ae4c530e5a6339dec5b411c9b8ec3fbc0818b66e8cd5ecdfb6495834097ad25",
+      "content_hash": "fcee59ee9a595cceebf70ad426281c69d6db5c59237eacc4e31b6c9563c9dc75",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "명시된 효소 저해·옥신 작용의 조합이다. 미세소관·광계 저해 초안의 추가 사례이며 각각 재집계하지 않는다."
+    },
+    {
+      "identifier": "AR-119859-A1",
+      "source_fingerprint": "61afa310f4e11b2613e33aae1bf2a8d0c3c572be067d144279c39186f95d0c65",
+      "content_hash": "c78737776ed0d096d5f6717ad5f9f27631b0a313442600d5125c193f385b2b70",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "뿌리 특이 외래 발현 프로모터이다. 같은 발현 원리의 조직 적용이다."
+    },
+    {
+      "identifier": "AR-119865-A1",
+      "source_fingerprint": "c1852a26c25f4a1790b24b1889b60ce5c5b6d3eb3ac1a8ac234e7664ac05b92b",
+      "content_hash": "bb962e24f45a281de64ba3e9829a4467f8e7babaaeae2a86c9e78089ad287488",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "CR2 결합 단백질의 용도이다. 세부 면역 조절 경로는 미특정이다."
+    },
+    {
+      "identifier": "AR-119869-A1",
+      "source_fingerprint": "de44b0b0c5b1ec975925e3161303954931ef29377b4c7326c0af749378e023a8",
+      "content_hash": "d48a5a1860ddfaabedddffdb3038a0db2be7ff8b87a2971f4d40c8013e83b43d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "AAV5 캡시드 변형의 형질도입 증가 주장이다. 결합·수송·탈피 중 어느 단계인지 미특정이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:39:50.788854+00:00"
+}

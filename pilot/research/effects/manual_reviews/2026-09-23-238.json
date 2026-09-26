@@ -1,0 +1,148 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "631cd84beae50a1523a42bdd01bbbbe9ad6b42878c7556cdfa94f22594b21663",
+  "reviews": [
+    {
+      "identifier": "AR-116746-A1",
+      "source_fingerprint": "1f367099148d9326bc7c2e7045d21242d45ed50e5c5bc7287af3985e55f58114",
+      "content_hash": "a72e712ec7fc322c8f81ef01117d00c90ef8445165eac132352219b27f0bedea",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균성 헤테로아릴 화합물의 구조 범위이다. 생물학적 표적은 미특정이다."
+    },
+    {
+      "identifier": "AR-116758-A1",
+      "source_fingerprint": "47e4e183aafce1d2d8f60f92891fffad204125ba9be89000ae21b9b57dfc698b",
+      "content_hash": "44d3bb5e0f381975d2c03096051caeadeaad54a875c2d8412489b5ca7ff9f102",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "철도 차축의 센서·원격 전송 배치이다. 측정 원리가 없다."
+    },
+    {
+      "identifier": "AR-116766-A1",
+      "source_fingerprint": "ec7ed47f3a8709fa547c4f4fe453d27f49b547517554f5a4c96049cffe8848db",
+      "content_hash": "58ba19f625f8d8b90bd8dfd9e6c7170e1682dd3a0270233482b06309eb0a7fe7",
+      "decision": "LINK",
+      "keys": [
+        "supervised-learning"
+      ],
+      "reason": "구름 픽셀 정답 표지와 위성 영상으로 모델을 학습한다."
+    },
+    {
+      "identifier": "AR-116778-A2",
+      "source_fingerprint": "c5a984251db72911b7e1f231747ca9c1ae5d011c9b8b66534158df0e7df59a7d",
+      "content_hash": "93b5aa448ec64e5f974721251e56463b40629433957ed296f89286f54005d63e",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "외래 유전자 발현으로 식물 형질을 바꾸는 사례이다. 열거된 서열의 개별 원리는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-116782-A2",
+      "source_fingerprint": "b55ff6eeb3e50050bdcadba818845f9f237e91dbd15d8dfa12d209d1f9815459",
+      "content_hash": "42c7cd2cbe9c26b888b9c2d4134b90989864ca0f570f4cbb86216bec924c3e2d",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 내 외래 유전자 발현의 다른 서열 범위이다. 같은 효과로 연결한다."
+    },
+    {
+      "identifier": "AR-116803-A1",
+      "source_fingerprint": "bca3b061eb40f711ee7f9110d5f82278bbdb9388147745025829427be0a2f93d",
+      "content_hash": "2cc8920c2f71791eb2e69013584c6a05f10801b0775fff7f26177afbf30a63a7",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "PYY 유사체의 NPY2 수용체 선택성 조절이다. 반감기 연장 방식은 미특정이다."
+    },
+    {
+      "identifier": "AR-116809-A2",
+      "source_fingerprint": "0d22fa2ca0584de23b259df75e68aa7d02c58507063e973003bd56ade365ff31",
+      "content_hash": "d259343020fb2c5489a9b938c0f77113a7a7f96cad6c723b8de6a8b770b769df",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "외래 유전자 발현의 식물 형질 변경이다. 생장 향상 주장을 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-116839-A2",
+      "source_fingerprint": "c667ba77765c61f487e2d070fe932d1339c8cc200342178c95df9e29e350266a",
+      "content_hash": "15f257117fa72abc2ebd64b12b4db3e65a8afd5e51cdb32745c47e4e5b65fb1d",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "조절 DNA 요소를 외래 전사 서열에 연결하여 발현을 조절한다."
+    },
+    {
+      "identifier": "AR-116859-A2",
+      "source_fingerprint": "15d25ab1287fba798f44eb0a9f31c6d1ac54620cb91a28deb814fd049a141818",
+      "content_hash": "403e2ed5888b03929eab23cf1826e8e195a9ceb49a19241f138e78b5e8cec141",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "CD20 표적 항체 사례이다. 환자 선정·용량·치료 성능은 과학효과로 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-116863-A1",
+      "source_fingerprint": "2e92233479e798d3d0727a4aaca38d9c95f3a3899d86de6ce3abab6440748c78",
+      "content_hash": "2dbd3d59a7ad2202e9fabc42b4d5cdf428f99409b2428dc329beab628cdd8b6d",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "분해식 가구의 판·다리·외곽 시트를 탈착 연결해 안정화한다. 시트의 구체 하중 경로는 미특정이다."
+    },
+    {
+      "identifier": "AR-116868-A1",
+      "source_fingerprint": "0d4265361d2381c37ec78ad10f2628148346d8cdf09712a9b00709f27781e196",
+      "content_hash": "1a175761f5b5f97b39b46e46d20ebf4d6b3227c7bc6fabef144d0ef038a946ea",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "테이블 높이와 흔들림 조절이라는 기능만 제시한다."
+    },
+    {
+      "identifier": "AR-116878-A1",
+      "source_fingerprint": "40ae7ea9da99d3a65c8dfba97ac596815fe5076b9bf4ebb5ae6295a3bb5b630e",
+      "content_hash": "174c36925c68fee502ac5205513edeac4642df8d60c199d0571c1ca7dc7c0ebc",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "백신의 항원 특이 면역 유도 수준만 연결한다. 병원체 서열·개량·제작 절차는 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-116882-A2",
+      "source_fingerprint": "81b9d457412ce94ad64e77026e6576535a6d7a00e47fa1dc03d58c906118f580",
+      "content_hash": "889635f5bf52449c3139339aaa887180a169b30ba8a42d9e038aa64c603821dc",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물의 외래 유전자 발현 사례이다. 개별 서열 기능을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-116896-A1",
+      "source_fingerprint": "6be00f61e0d4c89a1e7f28357883ad3c73f399a56b31e58adce1e903e96c39ae",
+      "content_hash": "381b2501a6ed0a5e72c0e9e5d56597339279c22c50835a6adacc0a3bfeacd039",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "현장 제어실의 두 반쪽 하우징 결합 구조이다."
+    },
+    {
+      "identifier": "AR-116903-A1",
+      "source_fingerprint": "59821e4d2394eb2d7ca2bd5f163815a6ac430cc1a3919cdd9df537b6f04596f5",
+      "content_hash": "5d312d7e5399a433504c394647c3281f0c3f366028689a819d0edd7069c47830",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "배전 전선·계량기·기둥의 설치 배치이다. 새로운 전기 작용 원리는 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:24:07.641217+00:00"
+}

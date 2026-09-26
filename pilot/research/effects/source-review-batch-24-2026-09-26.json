@@ -1,0 +1,581 @@
+{
+  "task": "New scientific effects: bio/biochemical pathways",
+  "file": "pilot/research/effects/additions-2026-09-26-24.tsv",
+  "count": 30,
+  "inference_mode": "conversation_only",
+  "external_llm_calls_used": false,
+  "authoring": "Mechanism selection, Korean prose and overlap boundaries directly authored in conversation. Code only serializes authored rows and checks format.",
+  "catalog_review": "Read group 18 catalog names and mechanisms; additionally searched cross-domain chemical, hydration, radical, transport, force and assembly keys. Broad generic enzyme-catalysis/ion-channel-modulation parents are retained; species/substrate-only duplicates were excluded.",
+  "retrieval_policy": "stored_search_excerpt means the relevant text came through web search results, even when a long publisher body fragment was returned. reference_section means the publisher page section was opened and read. Direct open errors/CAPTCHA never upgrade scope.",
+  "entries": [
+    {
+      "key": "enzyme-free-toehold-branch-migration",
+      "title": "Nature Communications · Programmable energy landscapes for kinetic control of DNA strand displacement",
+      "url": "https://www.nature.com/articles/ncomms6324",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Displacement can be initiated by binding of the invader to the toehold followed by a branch migration process",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "search1: Nature Communications ncomms6324 Figure 1",
+      "support_and_limits": "Retrieved Figure 1 explanation describes invader binding to a single-stranded toehold followed by branch migration; no enzyme needed in the described strand exchange.",
+      "related_existing_keys": [
+        "nucleic-acid-duplex-melting",
+        "loop-mediated-strand-displacement-amplification"
+      ],
+      "boundary_ko": "열로 두 가닥을 분리하거나 중합효소가 새 가닥을 합성하는 과정과 달리 기존 가닥 사이 염기쌍을 교환한다."
+    },
+    {
+      "key": "guanine-quartet-cation-stabilized-folding",
+      "title": "Journal of Molecular Biology · Crystal Structure of the Potassium Form of an Oxytricha nova G-quadruplex",
+      "url": "https://www.sciencedirect.com/science/article/pii/S002228360200428X",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Each quadruplex has five potassium ions organised in a linear channel",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch11: Journal of Molecular Biology abstract/introduction",
+      "support_and_limits": "Retrieved abstract and introduction report G-quartet stacking, four guanines per plane, cation requirement and potassium coordination. DNA topology and strand-number variants are kept in one mechanism.",
+      "related_existing_keys": [
+        "nucleic-acid-duplex-melting",
+        "biomolecular-recognition"
+      ],
+      "boundary_ko": "상보적인 두 가닥의 결합과 구별되는 구아닌 사중판 적층·중심 이온 배위의 구조 형성이다."
+    },
+    {
+      "key": "ribonucleotide-thiyl-radical-deoxygenation",
+      "title": "PMC · 2.6-Å resolution cryo-EM structure of a class Ia ribonucleotide reductase trapped with mechanism-based inhibitor N3CDP",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11482829/",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "The 2′ hydroxyl group is lost in the form of water",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch13: PMC11482829 introduction",
+      "support_and_limits": "Retrieved primary-study introduction states nucleotide to deoxynucleotide conversion, hydroxyl loss as water and cysteine-pair reducing equivalents. Earlier R1 publisher abstract was also read and confirms cysteine-based radical catalysis.",
+      "related_existing_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "thiocarbonyl-radical-deoxygenative-fragmentation"
+      ],
+      "boundary_ko": "라디칼 개시만을 다루지 않고 효소 내 당 환원 순환을 다룬다. 티오카보닐 유도체를 만드는 화학적 탈산소와 다르다."
+    },
+    {
+      "key": "biotin-carrier-atp-coupled-carboxylation",
+      "title": "Nature Communications · CryoEM structural exploration of catalytically active enzyme pyruvate carboxylase",
+      "url": "https://www.nature.com/articles/s41467-022-33987-2",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "A mobile domain with an attached prosthetic biotin links both reactions",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "search1 and biosearch7: Nature Communications s41467-022-33987-2",
+      "support_and_limits": "Retrieved primary article search text covers biotin carboxylation using MgATP/bicarbonate, carrier movement and carboxyl transfer; pyruvate is the illustrative acceptor, not a distinct-effect split.",
+      "related_existing_keys": [
+        "rubisco-carbon-fixation",
+        "enzyme-internal-metabolite-channeling"
+      ],
+      "boundary_ko": "비오틴에 공유결합한 카르복실기를 운반하는 이단계 반응으로, RuBisCO의 직접 고정이나 통로 내 자유 중간체 이동과 구분한다."
+    },
+    {
+      "key": "cobalamin-cobalt-carbon-radical-rearrangement",
+      "title": "Nature Communications · Architecture of the human G-protein-methylmalonyl-CoA mutase nanoassembly for B12 delivery and repair",
+      "url": "https://www.nature.com/articles/s41467-023-40077-4",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "MMUT initiates substrate isomerization by homolytic cleavage of the cobalt-carbon bond in AdoCbl",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch2: Nature Communications s41467-023-40077-4",
+      "support_and_limits": "Retrieved primary-study introduction identifies Co-C homolysis, cob(II)alamin and deoxyadenosyl radical in methylmalonyl-CoA to succinyl-CoA conversion.",
+      "related_existing_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "intramolecular-hydrogen-radical-translocation"
+      ],
+      "boundary_ko": "철황 클러스터에 의한 SAM 환원 절단과 다른 코발트·탄소 결합 개시이며 단순 수소 이동을 넘어 골격을 재배열한다."
+    },
+    {
+      "key": "rnase-p-rna-metal-catalyzed-hydrolysis",
+      "title": "Nature Communications · Structural basis for protein-free catalysis by ribonuclease P ribozyme",
+      "url": "https://www.nature.com/articles/s41467-026-71597-4",
+      "retrieval_scope": "reference_section",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "the catalytic metal ions of the trans-activating RNase P ribozyme play a direct role in the nucleophilic substitution reaction",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "bioopen2: Nature Communications s41467-026-71597-4 Results",
+      "support_and_limits": "Opened publisher article, Results: catalytic mechanism, lines 146-150. Direct RNA metal-catalyzed phosphodiester hydrolysis is distinguished from internal transesterification. Water positioning is discussed as a mechanistic proposal rather than every microscopic step being observed.",
+      "related_existing_keys": [
+        "group-i-ribozyme-self-splicing",
+        "argonaute-guide-directed-rna-slicing"
+      ],
+      "boundary_ko": "구아노신 참여 에스터 교환이나 단백질 핵산분해 중심과 달리 RNA가 물·금속을 배치하는 가수분해 촉매이다."
+    },
+    {
+      "key": "lov-cysteinyl-flavin-photoadduct-switch",
+      "title": "Nature Chemical Biology · Mechanism-based tuning of a LOV domain photoreceptor",
+      "url": "https://www.nature.com/articles/nchembio.210",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Phototropin-like LOV domains form a cysteinyl-flavin adduct in response to blue light",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch2: Nature Chemical Biology nchembio.210 abstract",
+      "support_and_limits": "Retrieved publisher abstract describes blue-light cysteinyl-flavin adduct and thermal reversion; particular mutations and lifetimes are not generalized.",
+      "related_existing_keys": [
+        "retinal-photocycle-proton-pumping",
+        "photolyase-light-driven-dimer-repair"
+      ],
+      "boundary_ko": "레티날 이성질화의 펌핑이나 손상 DNA로의 전자 전달과 다른 가역적 플라빈·단백질 공유결합 신호 경로이다."
+    },
+    {
+      "key": "force-unfolding-cryptic-binding-site-exposure",
+      "title": "Nature Communications · The mechanical response of talin",
+      "url": "https://www.nature.com/articles/ncomms11966",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "force-induced exposure of five cryptic vinculin-binding sites (VBS)",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch2: Nature Communications ncomms11966 introduction",
+      "support_and_limits": "Retrieved primary study introduction explicitly describes unfolding exposing buried vinculin sites; selected phenomenon concerns creation of binding accessibility, not the catch-bond lifetime.",
+      "related_existing_keys": [
+        "force-stabilized-catch-bond",
+        "integrin-mediated-cell-adhesion"
+      ],
+      "boundary_ko": "이미 형성된 결합의 힘 의존 수명 변화와 달리 접힘 내부의 결합자리 접근성을 기계적으로 만든다."
+    },
+    {
+      "key": "dna-binding-one-three-dimensional-target-search",
+      "title": "Nature Communications · Dynamic DNA binding licenses a repair factor to bypass roadblocks in search of DNA lesions",
+      "url": "https://www.nature.com/articles/ncomms10607",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Msh2–Msh3 scans DNA via a facilitated diffusion mechanism comprised of both 1D sliding and microscopic hopping",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch3: Nature Communications ncomms10607",
+      "support_and_limits": "Retrieved primary-study text and abstract demonstrate sliding/hopping and roadblock bypass. Faster search is conditional, not universally asserted.",
+      "related_existing_keys": [
+        "biomolecular-recognition",
+        "muts-mutl-strand-specific-mismatch-repair"
+      ],
+      "boundary_ko": "표적 결합 후 절단·복구 반응과 구분되는 표적 도달 전의 차원 교대 탐색 기전이다."
+    },
+    {
+      "key": "methylation-protected-restriction-discrimination",
+      "title": "NEB · Dam-Dcm and CpG Methylation",
+      "url": "https://www.neb.com/en/tools-and-resources/selection-charts/dam-dcm-and-cpg-methylation",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "official_reference",
+      "evidence_excerpt": "protect host DNA from cleavage by the corresponding restriction endonuclease",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch7: official NEB reference",
+      "support_and_limits": "Official NEB reference, prokaryotic methylation and methylation-sensitivity sections, describes protection from corresponding restriction endonuclease. Unmethylated/methylated cleavage is not universal across all enzymes.",
+      "related_existing_keys": [
+        "dna-cytosine-covalent-methylation",
+        "sequence-directed-dna-cleavage"
+      ],
+      "boundary_ko": "메틸기 부착이나 서열 절단 단독이 아니라 수식 상태가 대응 절단의 허용 여부를 결정하는 보호·판별 결합이다."
+    },
+    {
+      "key": "bilayer-tension-mechanosensitive-channel-gating",
+      "title": "Nature Communications · The role of MscL amphipathic N terminus indicates a blueprint for bilayer-mediated gating of mechanosensitive channels",
+      "url": "https://www.nature.com/articles/ncomms11984",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "The bacterial mechanosensitive channel MscL gates in response to membrane tension",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch3: Nature Communications ncomms11984 abstract",
+      "support_and_limits": "Retrieved primary-study abstract says mechanical force is transmitted directly from lipid bilayer, with N-terminal helix involved in coupling.",
+      "related_existing_keys": [
+        "ion-channel-modulation",
+        "biological-tactile-mechanotransduction"
+      ],
+      "boundary_ko": "촉각 반응 일반에서 분리한 지질층의 직접 힘 전달 경로이며 신생 막공 형성이나 전기천공과 구분한다."
+    },
+    {
+      "key": "alkyltransferase-stoichiometric-dna-damage-reversal",
+      "title": "Nucleic Acids Research · DNA-binding mechanism of the Escherichia coli Ada O6-alkylguanine–DNA alkyltransferase",
+      "url": "https://academic.oup.com/nar/article/28/19/3710/1082957",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "This transfer is stoichiometric, irreversible, and results in protein inactivation together with a regenerated guanine base.",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch11: NAR 28/19/3710",
+      "support_and_limits": "Retrieved NAR primary-study text says O6 alkyl group transfer to cysteine is irreversible and stoichiometric, restoring guanine.",
+      "related_existing_keys": [
+        "glycosylase-damaged-base-excision",
+        "photolyase-light-driven-dimer-repair"
+      ],
+      "boundary_ko": "손상 염기를 떼거나 광에너지를 쓰지 않고 알킬기를 단백질에 옮겨 염기를 직접 되돌리는 일회성 반응이다."
+    },
+    {
+      "key": "sortase-thioester-mediated-transpeptidation",
+      "title": "PMC · Purification and characterization of sortase, the transpeptidase that cleaves surface proteins of Staphylococcus aureus at the LPXTG motif",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC22937/",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Sortase (SrtA) cleaves polypeptides between the threonine and the glycine of the LPXTG motif",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch5: PMC22937 discussion",
+      "support_and_limits": "Retrieved primary-study discussion describes peptide cleavage, hydroxylamine-sensitive enzyme thioester, and amino-group attack. Detailed motif and experimental conditions are not provided in catalog text.",
+      "related_existing_keys": [
+        "intein-autocatalytic-protein-splicing",
+        "carrier-thioester-nonribosomal-peptide-synthesis"
+      ],
+      "boundary_ko": "자기 절제 인테인이나 ATP로 장전된 운반체 합성과 달리 외부 효소가 기존 펩타이드 결합을 절단·전이한다."
+    },
+    {
+      "key": "sirtuin-nad-coupled-lysine-deacetylation",
+      "title": "PMC · Coupling of histone deacetylation to NAD breakdown by the yeast silencing protein Sir2: Evidence for acetyl transfer from substrate to an NAD breakdown product",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC14600/",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "supported a direct, mechanistic coupling of NAD cleavage and histone deacetylation",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch8: PMC14600",
+      "support_and_limits": "Retrieved original Sir2 study reports acetyl-containing ADP-ribose derivative and direct coupling of NAD cleavage with deacetylation.",
+      "related_existing_keys": [
+        "lysine-acetyltransferase-protein-modification",
+        "nad-dependent-protein-adp-ribosylation"
+      ],
+      "boundary_ko": "아세틸기의 단순 부착 역반응이나 ADP리보스의 단백질 부착과 달리 NAD 소비로 아세틸기를 제거한다."
+    },
+    {
+      "key": "dna-activated-cgas-cyclic-dinucleotide-synthesis",
+      "title": "Nature · cGAS produces a 2′-5′-linked cyclic dinucleotide second messenger that activates STING",
+      "url": "https://www.nature.com/articles/nature12306",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "cGAS first catalyses the synthesis of a linear 2′-5′-linked dinucleotide",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch6: Nature nature12306 abstract",
+      "support_and_limits": "Retrieved original Nature study shows DNA-dependent production and sequential linear dinucleotide synthesis followed by cyclization; native 2′-5′ and 3′-5′ chemistry supports a distinct enzymatic path.",
+      "related_existing_keys": [
+        "innate-pattern-recognition",
+        "nitric-oxide-signaling"
+      ],
+      "boundary_ko": "패턴 결합 일반에서 분리한 선형 이뉴클레오타이드 생성·고리화 경로이며 단일 뉴클레오타이드 고리화와도 다르다."
+    },
+    {
+      "key": "iron-sulfur-cluster-rna-binding-functional-switch",
+      "title": "Science · Structure of dual function iron regulatory protein 1 complexed with ferritin IRE-RNA",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17185597/",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "or binds an iron-sulfur cluster, to become a cytosolic aconitase enzyme.",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch8: PubMed17185597 abstract",
+      "support_and_limits": "Retrieved PubMed abstract of original Science structure compares RNA-bound open conformation with FeS-bound aconitase; references support functional switching, not direct proof that iron concentration is the sole controller.",
+      "related_existing_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "riboswitch-ligand-responsive-regulation"
+      ],
+      "boundary_ko": "철황 클러스터를 반응 촉매로 쓰는 경우와 달리 점유 상태가 효소와 RNA 결합 단백질 사이 기능을 바꾼다."
+    },
+    {
+      "key": "ferritin-ferroxidation-cavity-mineral-storage",
+      "title": "PMC · Mechanism of Ferrous Iron Binding and Oxidation by Ferritin from a Pennate Diatom",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3663513/",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Ferritin stores iron by ferroxidation to form a mineral core",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch13: PMC3663513 summary/abstract",
+      "support_and_limits": "Retrieved original iron-binding/oxidation study separates rapid ferroxidation and slower core formation. Failed Nature ferritin open was not treated as a full-text read; selected accessible citation is this primary PMC article.",
+      "related_existing_keys": [
+        "biomolecular-recognition",
+        "nucleation-barrier"
+      ],
+      "boundary_ko": "철의 가역 결합만으로 저장하지 않고 촉매 산화와 단백질 공동 내 광물화를 결합한다. 외부 광물 탄산화와 다르다."
+    },
+    {
+      "key": "sec-translocon-lateral-membrane-partition",
+      "title": "Nature · Structures of the Sec61 complex engaged in nascent peptide translocation or membrane insertion",
+      "url": "https://www.nature.com/articles/nature12950",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Membrane insertion of a hydrophobic domain seems to occur with the Sec complex opening the proposed lateral gate",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch6: Nature nature12950 abstract",
+      "support_and_limits": "Retrieved publisher abstract provides nascent membrane-helix lateral insertion model. A later native Sec61 paper was also retrieved and indicates lateral gate timing differs; catalog deliberately avoids a universal open/closed sequence.",
+      "related_existing_keys": [
+        "signal-directed-protein-localization",
+        "lipid-bilayer-self-assembly"
+      ],
+      "boundary_ko": "주소 신호 인식 이후 단백질 통로에서 지질층으로 옆 방향 분배가 일어나는 실제 삽입 단계이다."
+    },
+    {
+      "key": "channel-carbonyl-coordination-ion-selectivity",
+      "title": "Nature · Chemistry of ion coordination and hydration revealed by a K+ channel–Fab complex at 2.0 Å resolution",
+      "url": "https://www.nature.com/articles/35102009",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Carbonyl oxygen atoms within the selectivity filter form a very similar square antiprism around each K+ binding site",
+      "evidence_excerpt_note": "Unicode superscripts/subscripts normalized in excerpt.",
+      "retrieval_trace": "biosearch6: Nature 35102009 abstract",
+      "support_and_limits": "Retrieved original structural abstract describes hydration water displacement and selectivity-filter carbonyl coordination. Mechanism is not reduced to a rigid radius-only sieve.",
+      "related_existing_keys": [
+        "ion-channel-modulation",
+        "ionophore-transport"
+      ],
+      "boundary_ko": "기공을 여닫거나 이동성 운반체가 이온을 나르는 과정과 달리 고정 필터의 수화수 대체 배위가 통과 종을 고른다."
+    },
+    {
+      "key": "voltage-sensor-gating-charge-displacement",
+      "title": "Nature · The principle of gating charge movement in a voltage-dependent K+ channel",
+      "url": "https://www.nature.com/articles/nature01581",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Opening is driven by the movement of gating charges that originate from arginine residues on helical S4 segments of the protein.",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch6: Nature nature01581 abstract",
+      "support_and_limits": "Retrieved original KvAP paper links S4 arginine gating charge movement to channel opening. The controversial precise paddle displacement geometry is omitted.",
+      "related_existing_keys": [
+        "electrical-membrane-excitation",
+        "ion-channel-modulation"
+      ],
+      "boundary_ko": "재생성 활동전위 전체보다 앞선 분자 전압 감지 단계이며 리간드 결합이나 막 장력 입력과 구분한다."
+    },
+    {
+      "key": "quinone-q-cycle-vectorial-proton-translocation",
+      "title": "PMC · Dissecting the pattern of proton release from partial process involved in ubihydroquinone oxidation in the Q-cycle",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5955396/",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "a bifurcation of QH2 oxidation involving electron transfer to two different acceptor chains, each coupled to proton release",
+      "evidence_excerpt_note": "Unicode superscripts/subscripts normalized in excerpt.",
+      "retrieval_trace": "biosearch9: PMC5955396 abstract",
+      "support_and_limits": "Retrieved primary Q-cycle kinetics study describes bifurcated electron pathways and proton release; membrane vectorial cycle is separated from soluble flavin bifurcation.",
+      "related_existing_keys": [
+        "flavin-coupled-electron-bifurcation",
+        "rotary-chemiosmotic-atp-synthesis"
+      ],
+      "boundary_ko": "플라빈의 서로 다른 전위 수용체 결합과 달리 막 양면의 퀴논 화학·전자 재순환으로 양성자 구배를 만든다."
+    },
+    {
+      "key": "remodeler-atp-nucleosomal-dna-sliding",
+      "title": "Nature Communications · Direct observation of coordinated DNA movements on the nucleosome during chromatin remodelling",
+      "url": "https://www.nature.com/articles/s41467-019-09657-1",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "the entry side preceding the exit side",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch9: Nature Communications s41467-019-09657-1 Results",
+      "support_and_limits": "Retrieved primary single-molecule study reports entry-before-exit DNA movement under ATP-dependent remodeling; twist-defect location is model-based and catalog does not claim direct visualization of every intermediate.",
+      "related_existing_keys": [
+        "chromatin-accessibility-regulation",
+        "smc-atp-driven-dna-loop-extrusion"
+      ],
+      "boundary_ko": "접근성 변화 일반에서 분리한 히스톤 둘레 DNA 이동 기전으로, SMC의 큰 DNA 고리 확장과 구분한다."
+    },
+    {
+      "key": "small-ribozyme-two-prime-transesterification",
+      "title": "Nature Communications · The structure and catalytic mechanism of a pseudoknot-containing hammerhead ribozyme",
+      "url": "https://www.nature.com/articles/s41467-024-50892-y",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "As a group the nucleolytic ribozymes all employ general acid-base catalysis for the cleavage and ligation of phosphodiester linkages.",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch4: Nature Communications s41467-024-50892-y",
+      "support_and_limits": "Retrieved primary hammerhead study introduction and discussion explain 2′OH nucleophile and 5′ leaving group. Multiple small ribozyme species/subclasses are intentionally grouped; generic cleavage products are not split by acid donor.",
+      "related_existing_keys": [
+        "group-i-ribozyme-self-splicing",
+        "rtcb-three-prime-phosphate-rna-ligation"
+      ],
+      "boundary_ko": "외부 구아노신의 공격·엑손 연결과 달리 내부 2′ 산소가 공격해 고리 인산을 만든다. 작은 리보자임 변종은 나누지 않는다."
+    },
+    {
+      "key": "pseudouridine-glycosidic-bond-rearrangement",
+      "title": "Nucleic Acids Research · The mechanism of pseudouridine synthases from a covalent complex with RNA, and alternate specificity for U2605 versus U2604 between close homologs",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3919597/",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Isomerization of uridine to its C-glycoside isomer, pseudouridine (Ψ), is the most prevalent RNA modification",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch13: PMC3919597 introduction",
+      "support_and_limits": "Retrieved original covalent-complex paper introduction gives minimal N-glycosidic cleavage/reorientation/C1′-C5 bond-formation mechanism. Catalog avoids deciding disputed microscopic pathways.",
+      "related_existing_keys": [
+        "adar-adenosine-rna-editing",
+        "glycosylase-damaged-base-excision"
+      ],
+      "boundary_ko": "탈아미노화나 염기 제거와 달리 염기를 유지한 채 당과 연결되는 원자를 바꾸는 이성질화이다."
+    },
+    {
+      "key": "microtubule-protofilament-curling-work",
+      "title": "eLife · Direct measurement of conformational strain energy in protofilaments curling outward from disassembling microtubule tips",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5515574/",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "the conformational wave carries considerable strain energy that can be harnessed to perform mechanical work",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch10: PMC5515574 Results/Discussion",
+      "support_and_limits": "Retrieved direct optical-trap measurement study reports work output from protofilament curvature strain. Catalog separates this physical output from growth/catastrophe modulation and ATP motor stepping.",
+      "related_existing_keys": [
+        "microtubule-dynamic-instability-modulation",
+        "microtubule-motor-processive-stepping",
+        "elastic-energy-recovery"
+      ],
+      "boundary_ko": "성장·붕괴 확률 조절이나 ATP 모터 보행과 구별되는 해체 말단의 곡률 변형 에너지 회수이다."
+    },
+    {
+      "key": "thiamine-lipoyl-oxidative-decarboxylation",
+      "title": "Nature Communications · Structure of the native pyruvate dehydrogenase complex reveals the mechanism of substrate insertion",
+      "url": "https://www.nature.com/articles/s41467-021-25570-y",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "pyruvate is decarboxylated using thiamine pyrophosphate",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch9: Nature Communications s41467-021-25570-y introduction",
+      "support_and_limits": "Retrieved primary native complex study introduction gives TPP decarboxylation, lipoyl redox acyl transfer, CoA acylation and FAD/NAD regeneration.",
+      "related_existing_keys": [
+        "protodecarboxylation",
+        "enzyme-internal-metabolite-channeling"
+      ],
+      "boundary_ko": "탈탄산 후 수소로 치환하는 반응과 달리 탄소 단위를 산화해 공유 운반체를 거쳐 아실CoA로 보존한다."
+    },
+    {
+      "key": "hydrophobic-pore-dewetting-ion-gating",
+      "title": "Nature Communications · Central cavity dehydration as a gating mechanism of potassium channels",
+      "url": "https://www.nature.com/articles/s41467-023-37531-8",
+      "retrieval_scope": "reference_section",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "Our simulations find channel activities (ion currents) highly correlated with cavity hydration level",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "bioopen3: Nature Communications s41467-023-37531-8",
+      "support_and_limits": "Opened publisher abstract and Introduction/Results, lines 38-40, 59-84, 99-106. Main evidence is molecular dynamics; catalog explicitly requires evaluating simulations against measured currents.",
+      "related_existing_keys": [
+        "ion-channel-modulation",
+        "molecular-hydration-layer-repulsion"
+      ],
+      "boundary_ko": "필터가 이온 수화수를 배위로 대체하는 선택성과 달리 기공 공동 전체의 물 부족이 전도 장벽을 만든다."
+    },
+    {
+      "key": "folate-methylene-hydride-reductive-methylation",
+      "title": "PMC · Experimental and Computational Studies Delineate the Role of Asparagine 177 in Hydride Transfer for E. coli Thymidylate Synthase",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6605054/",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "with the latter serving as both methylene and hydride donor",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch10: PMC6605054 introduction",
+      "support_and_limits": "Retrieved primary experimental/computational study identifies methylene and hydride donation by the same folate substrate. No ThyX alternative pathway is merged.",
+      "related_existing_keys": [
+        "dna-cytosine-covalent-methylation",
+        "carbonyl-reduction-to-alcohol"
+      ],
+      "boundary_ko": "SAM에서 완성된 메틸기를 옮기는 반응과 달리 탄소 단위 도입 뒤 엽산의 환원력으로 메틸기를 완성한다."
+    },
+    {
+      "key": "atp-acyl-phosphate-amide-synthesis",
+      "title": "Journal of Biological Chemistry · Structures of the Bacillus subtilis Glutamine Synthetase Dodecamer Reveal Large Intersubunit Catalytic Conformational Changes Linked to a Unique Feedback Inhibition Mechanism",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3861631/",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "The ammonia then reacts with the γ-glutamyl phosphate to form the tetrahedral transition state.",
+      "evidence_excerpt_note": "",
+      "retrieval_trace": "biosearch10: PMC3861631; bioopen2 CAPTCHA failure",
+      "support_and_limits": "Retrieved primary glutamine synthetase structure article shows γ-glutamyl phosphate and ammonia attack with Mg/ATP. PMC direct open returned CAPTCHA and was not represented as full-text access.",
+      "related_existing_keys": [
+        "adenylate-activated-trna-aminoacylation",
+        "carrier-thioester-nonribosomal-peptide-synthesis"
+      ],
+      "boundary_ko": "아데닐산이나 티오에스터 운반체 대신 아실인산을 거쳐 암모니아를 결합하는 활성화 경로이다."
+    },
+    {
+      "key": "complex-i-redox-coupled-proton-pumping",
+      "title": "Nature Communications · Cryo-EM structures define ubiquinone-10 binding to mitochondrial complex I and conformational transitions accompanying Q-site occupancy",
+      "url": "https://www.nature.com/articles/s41467-022-30506-1",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_at": "2026-09-26",
+      "source_type": "primary_research",
+      "evidence_excerpt": "uses the reducing potential of NADH to reduce ubiquinone-10 (Q10) and drive four protons across the inner mitochondrial membrane",
+      "evidence_excerpt_note": "Unicode superscripts/subscripts normalized in excerpt.",
+      "retrieval_trace": "biosearch12: Nature Communications s41467-022-30506-1 abstract",
+      "support_and_limits": "Retrieved primary nanodisc cryo-EM study abstract supports redox-driven proton pumping and explicitly states coupling controversy. No particular domino-wave or quinone-site proposal is promoted to settled fact.",
+      "related_existing_keys": [
+        "enzyme-electron-transfer",
+        "atp-driven-membrane-transport",
+        "rotary-chemiosmotic-atp-synthesis"
+      ],
+      "boundary_ko": "ATP 가수분해나 광색소 대신 산화환원 자유에너지가 막의 펌프를 구동하며 Q순환의 양면 퀴논 재순환과도 구분한다."
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "candidate": "transglutaminase-isoprotein-crosslink",
+      "reason": "Shares cysteine-acyl thioester and subsequent amine attack with retained sortase transamidation; side-chain versus backbone substrate distinction alone was not enough.",
+      "url": "https://www.nature.com/articles/s41467-023-42004-z",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "candidate": "SUMO versus ubiquitin conjugation",
+      "reason": "Same E1/E2-related conjugation machinery and user specifically warned against gratuitous family splitting.",
+      "related_existing_keys": [
+        "sumoylation"
+      ]
+    },
+    {
+      "candidate": "ferroptosis as an extra effect",
+      "reason": "Cell outcome risks relabeling generic lipid peroxidation without a sufficiently isolated new mechanism."
+    },
+    {
+      "candidate": "pistol versus hammerhead versus hairpin ribozyme rows",
+      "reason": "Kept small internal 2′OH transesterification as one mechanism despite varying acid/base residues; avoided species/class proliferation.",
+      "url": "https://www.nature.com/articles/s41467-024-50892-y",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "candidate": "phytochrome bilin photoconversion",
+      "reason": "Potential substrate/protein implementation variant of existing geometric photoisomerization."
+    },
+    {
+      "candidate": "RNA thermometer",
+      "reason": "Temperature-dependent hairpin melting and accessibility largely reuses nucleic-acid-duplex-melting."
+    },
+    {
+      "candidate": "telomerase repeat extension",
+      "reason": "RNA-templated reverse transcription already exists; substrate and repeat-appending output insufficient alone."
+    },
+    {
+      "candidate": "protein disulfide isomerization",
+      "reason": "Overlaps glutaredoxin thiol exchange plus existing intramolecular disulfide refolding/stabilization."
+    },
+    {
+      "candidate": "PLP amino-acid racemization",
+      "reason": "Proton abstraction/readdition stereocenter inversion closely parallels retained metal-assisted sugar epimerization unless a deeper cofactor mechanism is separately justified."
+    },
+    {
+      "candidate": "photochemical Grotthuss or chemiluminescence",
+      "reason": "Reserved to root agent; not researched as additions here."
+    }
+  ],
+  "review_flags": [
+    "methylation-protected-restriction-discrimination combines two already cataloged reactions through protective state-dependent recognition; functional mechanistic coupling is the justification.",
+    "voltage-sensor-gating-charge-displacement and bilayer-tension-mechanosensitive-channel-gating have broad ion-channel-modulation parent overlap; distinct work input and coupling are explicit.",
+    "hydrophobic-pore-dewetting-ion-gating has direct computational primary evidence and needs cautious interpretation; it is distinct from selectivity-filter coordination and from geometric closure.",
+    "complex-i-redox-coupled-proton-pumping retains only settled net coupling and explicitly marks molecular coupling mechanism disputed.",
+    "sortase-thioester-mediated-transpeptidation shares acyl-transfer chemistry with intein/NRPS but uses external enzyme cleavage of existing peptide and re-ligation; transglutaminase was omitted as a closer duplicate."
+  ],
+  "final_acceptance_note": "Consult campaign-merge-decisions-2026-09-26.json and the canonical catalog. Authored candidate counts here precede final cross-review."
+}

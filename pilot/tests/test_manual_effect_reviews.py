@@ -52,6 +52,20 @@ def test_only_explicit_valid_links_can_be_published(tmp_path):
     assert json.loads((tmp_path/'literature_links.json').read_text()) == {}
 
 
+def test_redirected_and_withdrawn_links_stay_correct_on_replay(tmp_path):
+    decisions=tmp_path/'decisions.tsv'
+    decisions.write_text('A-1|LINK|old|historical decision\n',encoding='utf-8')
+    snapshot=record_decisions(decisions,pages(),{'old'},tmp_path/'review.json')
+    (tmp_path/'mechanism_redirects.json').write_text(json.dumps({'old':'new'}))
+    merge_explicit_links(pages(),[snapshot],tmp_path)
+    links=json.loads((tmp_path/'literature_links.json').read_text())
+    assert 'old' not in links and len(links['new'])==1
+    (tmp_path/'withdrawn_manual_bindings.json').write_text(json.dumps([{'effect':'old','source':links['new'][0]}]))
+    for _ in range(2):
+        merge_explicit_links(pages(),[snapshot],tmp_path)
+        assert json.loads((tmp_path/'literature_links.json').read_text())=={'new':[]}
+
+
 def test_missing_page_cannot_advance_checkpoint(tmp_path):
     page = pages()[0]; page['inventory']['cursor'] = 'A-0'
     path = tmp_path/'page.json'; path.write_text(json.dumps(page))

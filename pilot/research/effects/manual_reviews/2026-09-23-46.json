@@ -1,0 +1,254 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "ee1d5bf7db69fc4d7e1698b03961a5487f89a574dead0fb303aecf1bf25f8889",
+  "reviews": [
+    {
+      "identifier": "AR-085371-A1",
+      "source_fingerprint": "92acfab8330bbe83837391934d43eb6d89ecb45b96516049167427c59425bd1c",
+      "content_hash": "c145de565c96a77021685c904c34f38bedeb068317eaae4822b53c22877f9c7a",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "분쇄 롤러의 마모 세그먼트를 서로 고정한다. 벌크 분쇄 후보의 보조 사례이다."
+    },
+    {
+      "identifier": "AR-085378-A1",
+      "source_fingerprint": "ffebfcfc7074bf17d12a10b9ca8c4733d43c08588f2bcca1d7ffc708b885a609",
+      "content_hash": "1b70982a5027afd59c37663401a8b2dbf54a8958b6b18aedc3130f136d8cbd45",
+      "decision": "LINK",
+      "keys": [
+        "elastic-light-scattering-sensing"
+      ],
+      "reason": "입자 크기·굴절률로 투명도와 불투명도를 바꾼다. 산란 자체는 기존 원리이며 원문 단위 모순은 보류한다."
+    },
+    {
+      "identifier": "AR-085390-A1",
+      "source_fingerprint": "dfec53c067e018f5f59a716dfb84fcbf17a8ce9c74312d7c562ccdb6037d8fa6",
+      "content_hash": "e9143990205d3c6334c106be6f155bac6080c19c08fe3358c5879b5467b40e28",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "운반차의 물·약제 탱크와 계량 혼합기 배치이다."
+    },
+    {
+      "identifier": "AR-085402-A1",
+      "source_fingerprint": "7568f16808dec7ab24eb6344b98cb3173d3206bec673177ad554143519160108",
+      "content_hash": "42751d1637e0938ec0d569f084c5e6d5084c2b08322db15e90b00363095bb541",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control",
+        "capillary-wicking",
+        "evaporative-cooling"
+      ],
+      "reason": "친수화 섬유의 흡수와 수분 증발을 이용한다."
+    },
+    {
+      "identifier": "AR-085431-A1",
+      "source_fingerprint": "2d06849b02d333d3f2440a6500b8e835e697b9a55cc9d33b9bd1e57790816186",
+      "content_hash": "536f0eb9652641205e1697b085dde9a7eb02b061498658ddeebfcd1f85bdc232",
+      "decision": "LINK",
+      "keys": [
+        "ion-exchange"
+      ],
+      "reason": "약물 양이온을 약산성 교환 수지에 결합한다."
+    },
+    {
+      "identifier": "AR-085439-A1",
+      "source_fingerprint": "d5b288adf0b30147f32447f22bb793a4965bac93a7df8c611cb9032e7927eb17",
+      "content_hash": "6f92c0fdc604da39fc346d7a389d2ba16266b0907df966881e0e0df7bac65e32",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "microRNA 발현의 진단 상관. 측정법과 인과 기전은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-085445-A1",
+      "source_fingerprint": "890a7a9b51045e1e47aed7167cebc7c9d6e684b3485dc560542ee42171f44fe1",
+      "content_hash": "0e4530f045b18fcf3e14d00cdc6f6deac3e42fa4a0063e018f3245421fd98f80",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "채널별 구성 데이터를 읽어 디코더를 설정하는 포맷이다."
+    },
+    {
+      "identifier": "AR-085446-A1",
+      "source_fingerprint": "3cf20792712bf4bf74e866a557ccc0ee3d5360a5c914d2d7908f33f83d8e040b",
+      "content_hash": "e4dfdc23d35bb6b40fae0bbeff75d2e2b4f634069cf7ecdada3584c49c02905d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "프레임 원소의 타입·순서를 설정 블록으로 공유하는 포맷이다."
+    },
+    {
+      "identifier": "AR-085455-A1",
+      "source_fingerprint": "d38d15b586833ed9aaa52d4dd26654cfbad4e162c3fc1bcc467fbe5ab1f1622d",
+      "content_hash": "1d948f92503d33fed3c5536f1fe6042ed9a73178452f14196d6efe98c39d35e6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "배기가스 순환과 액적 부식 방지 목적만으로 분리 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-085457-A1",
+      "source_fingerprint": "5f3acc101f0094bc4e94c325ccf9414de8e492f3d8b2984ab4c998ebe88a1308",
+      "content_hash": "ce59eed1420b27344c6194920896c906587120393ba56fc87317016ef1926d49",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "주사기 지지와 측면 개폐 하우징이다."
+    },
+    {
+      "identifier": "AR-085477-A1",
+      "source_fingerprint": "3d9fc9702ad0a1c32707851f42f5b44f2a210d85e5b49d7098c38ea3458051de",
+      "content_hash": "c72902eae59eb4363d2749c7131235267d8ae53d493b6dd204e6e382d9280366",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "산화방지제·냉유동 개선 고분자 배합. 종류와 결정 저해 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-085502-A1",
+      "source_fingerprint": "c5f4ae76c287be407b6cc86b06ce8a83cc20d76633b5bd99e73e3f75344379f1",
+      "content_hash": "49b28f8e7b831386e059a88fe451ed53bb378c347c86ca4e84afec4b1a39778b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "삼환계 키나아제 억제 화합물이다."
+    },
+    {
+      "identifier": "AR-085512-A1",
+      "source_fingerprint": "b04ffb58af9b80c5de5bc92fd341e39cec212430d70f43404ec1f6e7ea51c586",
+      "content_hash": "71e8a3485ac60c20d1f41e2592c20f703648348a0c20c87b28fc8d0b04dbaf91",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "시멘트의 포획 공기를 줄이는 소포제. 거품 액막 파괴 후보이다."
+    },
+    {
+      "identifier": "AR-085515-A1",
+      "source_fingerprint": "0088bd1126b04a60d1f0a89b3ed9c76a293fcc9799ed1c66493bd4b40d57def3",
+      "content_hash": "4234b58b98932b64790cdeddf7a0a0964de02f3792cdc202e496a45bf026a771",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "효소와 희석 입자의 크기를 맞춘 배합. 편석 기전·성능 근거는 추가 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-085517-A1",
+      "source_fingerprint": "d13f8ba7ab3d855193c81a33ded0c2850368bc7c1db853f035fdafca9815d687",
+      "content_hash": "f8d550596c995081014677610ec452ec7d4838fc774613d72bfcaa584ab7e4cd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "주 화면 주변에 확장 영상을 투사하는 표시 배치이다."
+    },
+    {
+      "identifier": "AR-085523-A1",
+      "source_fingerprint": "fabf6532d10580e865ec001f78d37ebc5682050dac15829035fd4c0b4ee2650c",
+      "content_hash": "1bf2856e201097b5c6de4f034a5df3a59c4e1c606a3d20d5c9d12cd769cd6ce5",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "클러치 결합으로 투여 설정 부재의 회전을 전달·구속한다."
+    },
+    {
+      "identifier": "AR-085525-A1",
+      "source_fingerprint": "e18d4a0e88dddf601eee3b0334f9a9f340136173f0057df37c2fa310e10a4458",
+      "content_hash": "a2f1cb6a68c54e8a9691cbe78793045dde46fd64e1476a2d7443a318220ca34e",
+      "decision": "LINK",
+      "keys": [
+        "adsorption"
+      ],
+      "reason": "필터 재생 전에 황 성분을 탈착한다. 재생의 열·촉매 경로는 상세 미상이다."
+    },
+    {
+      "identifier": "AR-085534-A1",
+      "source_fingerprint": "18d36dcb831a3afa332982b4bcf86011fcbec735b883a8c3fbb42d2facd756c6",
+      "content_hash": "4ebe0ebe7a5ad83ee15100f8220bfa733f8f90a9f691ae681f741e81b774aa4d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "터치 선택에 따라 메뉴를 펼치는 인터페이스이다."
+    },
+    {
+      "identifier": "AR-085550-A1",
+      "source_fingerprint": "945c6f908f092e0635c5e6aa3c73cb306fce5fcdf857aebbd463b8aa85836ea1",
+      "content_hash": "4c698a16f7c2a6e7d5aaf76973ade0a819612987e3172b4646b3b6ecb11b6796",
+      "decision": "LINK",
+      "keys": [
+        "host-guest-inclusion",
+        "polymerization"
+      ],
+      "reason": "사이클로덱스트린 포접체를 방사선 경화 피막에 넣는다."
+    },
+    {
+      "identifier": "AR-085561-A1",
+      "source_fingerprint": "9ce616a3d1d572d17e23640b85f3a539a7ede25f76368827d549e87acf882d45",
+      "content_hash": "f17c27db923416ec21f1fbfaacbc6c388bd53ae8d952ec2a2fdba6cdd28fcfd3",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "evaporative-concentration"
+      ],
+      "reason": "라디칼 중합 및 탈수로 흡수성 수지를 제조한다."
+    },
+    {
+      "identifier": "AR-085565-A1",
+      "source_fingerprint": "dc795e052fbafd3e423dba25879bd168bc30c1623d8863a469ab37fe6705c9b0",
+      "content_hash": "7146015907d7fedf1c7b5092fe674aa553c9d8565f8a7e30d32690f19b4d7dae",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "칸막이 간격과 선반 높이를 조정하는 정리함이다."
+    },
+    {
+      "identifier": "AR-085570-A1",
+      "source_fingerprint": "1f15014c7ac6ccef9472a9216de6012e075f18148bb9f82b164c4db1054071e3",
+      "content_hash": "c0e98a9d2469448cc951e79d8704bb02866d215e3ffff0b29daeaaaa9af29660",
+      "decision": "LINK",
+      "keys": [
+        "optical-reflectometry"
+      ],
+      "reason": "용기 바닥에서 반사한 빛을 입구를 통해 검출한다."
+    },
+    {
+      "identifier": "AR-085571-A1",
+      "source_fingerprint": "201b4bbe510a0d1d662ae85a0cc2834261912fad5dce379af8abf77b63522f6f",
+      "content_hash": "7331d6f12fdd3c4b3cec55b5f40e8633347cd8af5e5b06737221e16f1f8c23d4",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 조절 서열과 외래 전사 대상을 연결한다."
+    },
+    {
+      "identifier": "AR-085588-A1",
+      "source_fingerprint": "85bafafe07b4e5d8e6c038656bade70bd0b3cb2682cb50c7c24d176a2c776a56",
+      "content_hash": "e986f7812e747e43e8c0cc8e84932481c7db40ce119048db17dee4150586b0fd",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "에르고스테롤 생합성·호흡사슬 억제제를 조합한다. 상승효과는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-085595-A1",
+      "source_fingerprint": "74a95dd1cea571f7d1e3efbf3a42479c745e726ab2f0561e82ca8f32ef5a90b2",
+      "content_hash": "de2facbbe7014098cfdbe7a6d3fa4f8be917ff3c62b343db2e5f935f539e6423",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "산성·열처리 후 식물 성분 분리. 선택적 용해·변성 경로의 직접 근거가 부족하다."
+    },
+    {
+      "identifier": "AR-085615-A1",
+      "source_fingerprint": "f804ad687a0db9fc56f16cb7c18c59f553d008dfbc26d022ebce0c813f0e490d",
+      "content_hash": "71d57c498e2b335919d3d449333882c424d8a0b240553113d6218e93a41ea480",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항균 플루오로피리디논의 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-085620-A1",
+      "source_fingerprint": "7d3e4e7f8142c82cdc65622ba26860f92ee1f8aef6dd7b2e4b4d5fc33e6574a1",
+      "content_hash": "16a50c635c86cc4558413351e2b404cfdaf46a73416a85c32b2a30cc0c58c47b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "pH·전도도에 따른 유단백 분리. 실제 분리 장치·고정상은 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:31:57.316410+00:00"
+}

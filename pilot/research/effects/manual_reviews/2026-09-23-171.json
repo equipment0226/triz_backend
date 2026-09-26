@@ -1,0 +1,92 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "6393931615956940a8b6ca1aec510a8a485253343d3998762c848ff514a019d2",
+  "reviews": [
+    {
+      "identifier": "AR-103407-A1",
+      "source_fingerprint": "7aee92aa9e94be5e074c754010866a0318fa2bd4e04ac3b56bfee117f32fabaf",
+      "content_hash": "a0d3e7e747d245692ca268cfbf0c3d708e83807f9289e07005e0ac61c0dfa431",
+      "decision": "LINK",
+      "keys": [
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "항체·벤조디아제핀 이량체 접합체와 자기분해 연결기를 명시한다. 자기분해 연결기 초안의 추가 근거이며 DNA 가교는 초록에 없어 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-103415-A1",
+      "source_fingerprint": "47149fc30a70f7a6fd55e86df423a088fd7af2b40b39bdb328e6556dc6be8c72",
+      "content_hash": "0d1ab88504784a47c587209dbe29e890397ae0401dea9a60910e84547af6c8a4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "소아 당뇨 치료의 투여 대상 조정이며 새로운 기전은 없다."
+    },
+    {
+      "identifier": "AR-103417-A2",
+      "source_fingerprint": "86264c24f037887be3b1401e00be4f8e4fb747986c79dadcb01dd5da5fd924cd",
+      "content_hash": "94d1e19044dbfd1bd664c02f2b69e524d7d1b96be9b477a0f3321df77314cd91",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지방산염·지방산으로 광물 충전재를 순차 처리하나 젖음·분산 작용의 근거는 부족하다."
+    },
+    {
+      "identifier": "AR-103434-A1",
+      "source_fingerprint": "3aa22b6cc2553d8a25f968c77f8647192f2ef858e769204b3c97b8a4236ef028",
+      "content_hash": "f9c9be9710bb28a5ebf142662377f60394c16a5fa1dd5c571f2c07e0394edf69",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "신발 갑피 연장부의 위치별 고정으로 착용감을 조절한다."
+    },
+    {
+      "identifier": "AR-103456-A1",
+      "source_fingerprint": "3e3d447dca8ee854b90131ef8d15e6b6c6ad75ac1e7ed79749e55d27d4805f01",
+      "content_hash": "12a8e5439a40c6a0fd9223a131c304d0cb7498fa84cd2d71d793ce707f96f949",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "wetting-control"
+      ],
+      "reason": "계면활성제 혼합물로 비수성 시추액을 제거하고 케이싱의 수젖음성을 높인다."
+    },
+    {
+      "identifier": "AR-103483-A1",
+      "source_fingerprint": "cb8eff68d1f77c707bc6e42799953860a9823a362d7337c6f329adb8ce5efc2b",
+      "content_hash": "d5568f1424af11a7a5de368fb7d1d10b9511243af488aa9e9db57c1bd9e89220",
+      "decision": "LINK",
+      "keys": [
+        "cement-hydration"
+      ],
+      "reason": "부석·수산화칼슘 시멘트를 분무·경화한다. 포졸란 수화물 생성 초안의 추가 사례이며 지연제의 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-103488-A1",
+      "source_fingerprint": "ca09fe589a0406b8f4a678434167a949fc56ae5d8ea9a13838d98573cf142f3c",
+      "content_hash": "a750d86a113d3347569ecaffef5ab32091a730e3404107f0f4800a359d2308f9",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "CD3·CD123 이중항체 및 재조합 발현이다. 면역세포 가교 초안과 같은 기전이다."
+    },
+    {
+      "identifier": "AR-103515-A1",
+      "source_fingerprint": "92b984fd5f504925b36d0a8b1e14bb623c08f05bcf19c830e93926f2e82f1086",
+      "content_hash": "ff5409f5ee70828be6ec93ec134d9c8a3220f064b571ba6149376655ed7ce3f1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "컵 수취·인출을 위한 이동 지지체와 원뿔대 공동의 배치이다."
+    },
+    {
+      "identifier": "AR-103521-A1",
+      "source_fingerprint": "07c8995bd3cab442c00d39fcd0e491b014782eece72fd0e8cdf78b77953120e4",
+      "content_hash": "f4fcd65e24ffb5e7e191f1aac61138af622c91d9c712ad49444f1c5e6aa3feec",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "혼합 균주의 CO→아세트산·에탄올→긴 사슬 산→알코올 전환이다. 아세트산 생성 경로와 역 β산화 사슬 연장 후보를 문헌으로 확인한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:18:36.436818+00:00"
+}

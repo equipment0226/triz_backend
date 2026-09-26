@@ -1,0 +1,238 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "18bd97a570e230deafca12945c90ee7e0e45d130615f5c296121c90cce5fa1d9",
+  "reviews": [
+    {
+      "identifier": "AR-075916-A1",
+      "source_fingerprint": "9b5e4c4d71091f396f58feb12d839248e88694ed91feefc70af9f4b5677924fa",
+      "content_hash": "9277183b243673ae15e2f6a724e59415d4623981579d856ea536668d542784a4",
+      "decision": "LINK",
+      "keys": [
+        "plant-cell-totipotency"
+      ],
+      "reason": "기존 초록 검토: 자트로파 자엽에서 캘러스·새싹·뿌리를 거쳐 식물을 재생한다. 성숙 조직의 탈분화·전형성 후보를 기존 전구세포 분화와 대조한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 식물 세포의 재프로그래밍·기관 재생: 식물 조직의 일부 세포가 배양 환경에 반응해 발생 프로그램을 바꾸면 캘러스나 기관 형성을 거쳐 식물체 재생에 기여할 수 있다. 모든 세포가 전능성을 갖거나 항상 재생하는 것은 아니다. 종·조직·세포 상태에 따라 달라지며, 이미 정해진 전구세포의 분화와 구분한다."
+    },
+    {
+      "identifier": "AR-075939-A1",
+      "source_fingerprint": "7c78d0c8df69b1a48de7f52f392706f40f47cc6d0edba3a9d7cb09d6cd98aa35",
+      "content_hash": "dcbcaf482159ede2ac7dc25e1fdf448bdef270b67c8e4b197975b624756b467f",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "antibody-dependent-cellular-cytotoxicity",
+        "receptor-dimerization-signaling"
+      ],
+      "reason": "기존 초록 검토: FGFR3 이량체화를 막는 길항 작용과 ADCC를 명시한다. 이량체화 신호는 독립 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 수용체 이량체화에 의한 신호 조절: 막 수용체 두 분자의 결합이나 상대 배치 변화가 세포 내 효소 부위의 상호작용을 바꿔 하위 신호를 조절한다. 해당 수용체의 이량체 구조와 활성화 방식이 확인되어야 한다. 리간드 결합 일반의 하위 단계이며, 이량체 형성이 항상 활성화를 뜻하지 않는다."
+    },
+    {
+      "identifier": "AR-076028-A1",
+      "source_fingerprint": "2de734d3d7f801cb19e4100db01b2f8721a2d9aeba45f559205b62153881acb6",
+      "content_hash": "1686a0d6c5657f21cb6f861f89e6683f6e7b590508256fe45e7eb4b66afae525",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "chaperone-assisted-folding"
+      ],
+      "reason": "기존 초록 검토: Hsp90 저해를 명시한다. 샤페론 접힘 조절은 추가 근거가 필요한 후보로 남긴다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 분자 샤페론에 의한 단백질 접힘 보조: 샤페론이 접힘 중인 단백질의 노출 부위와 일시적으로 상호작용하여 부적절한 응집을 억제하고 접힘 가능한 상태를 유지한다. 샤페론별 기질·보조 인자·에너지 의존성이 다르다. Hsp90 저해 특허는 이 경로의 조절 사례이며 모든 단백질의 재접힘을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-076044-A1",
+      "source_fingerprint": "ac16a146e1595bdb03fc3c9bc8ee90b1c1571d8c3c57c884d209901fcc3bdccd",
+      "content_hash": "2f945441d3137a137034baeb724efc4c6c156b35528e2d6dfe7418b01ce5cb04",
+      "decision": "LINK",
+      "keys": [
+        "silane-coupling"
+      ],
+      "reason": "기존 초록 검토: 양이온 중합체·실란으로 변성한 규산염의 치아 표면 침착이다. 표면 결합과 광물 생성 단계를 구별할 근거가 더 필요하다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 실란 연결제에 의한 유무기 계면 결합: 가수분해 가능한 실란 부위와 유기 반응성 부위를 가진 분자가 무기 표면과 유기 재료 사이의 결합 형성을 도울 수 있다. 표면 작용기·수분·경화 반응의 적합성이 필요하다. 일반 접착의 하위 화학 기전이며 모든 기재에서 공유결합이 형성되는 것은 아니다."
+    },
+    {
+      "identifier": "AR-076081-A1",
+      "source_fingerprint": "68c0763d7935ab0ea85c0889d9684ae890b34d3b5e9fa9e1e5f7287cfcaeb07e",
+      "content_hash": "01d175e8ea63a2f0d53c83d39117e810fd7612b9195daeef7226cce82d7098a0",
+      "decision": "LINK",
+      "keys": [
+        "ultrasonic-absorption-heating"
+      ],
+      "reason": "기존 초록 검토: 초음파에 의한 지방 손상과 콜라겐 수축을 제시한다. 열 흡수와 공동화의 기여는 초록에서 구분되지 않는다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 초음파 흡수에 의한 국소 가열: 매질이 초음파의 기계적 진동 에너지를 흡수·소산하면 열이 발생하며 음장을 집속하면 가열 영역을 국소화할 수 있다. 흡수율·주파수·음장·열 확산에 의존한다. 공동화와 별개이지만 함께 발생할 수 있으며, 조직 수축·손상은 열 이력에 따른 후속 현상이다."
+    },
+    {
+      "identifier": "AR-076240-A1",
+      "source_fingerprint": "dd70082bf600aa2345366a1f0482ef07f4afb6b7da56ed12a8cc9e14f8e7297b",
+      "content_hash": "6c4582039142fbcf2cdfe5a6c0d9ae27f5c1d277d57216b7fd69700df39d847c",
+      "decision": "LINK",
+      "keys": [
+        "oxygen-scavenging",
+        "catalysis",
+        "metal-hydride-hydrolysis"
+      ],
+      "reason": "기존 초록 검토: 수분으로 발생한 수소가 촉매 존재하에 산소를 제거한다. 수소 발생 단계인 수소화물 가수분해는 별도 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 수소화물의 물 반응에 의한 수소 생성: 반응성이 있는 수소화물의 수소와 물의 수소가 결합하여 수소 기체를 만들고 수산화물·산화물 계열 산물을 남긴다. 수소화물 종류별 반응성과 부생성물이 다르며 모든 수소화물이 물과 쉽게 반응하지 않는다. 유기 결합 절단 가수분해와 생성물이 다르다."
+    },
+    {
+      "identifier": "AR-076384-A1",
+      "source_fingerprint": "7bbe8eb873c6ca5bd89dcef9b4cbb2e5fd14b1a0759f747f1b2cdffd771f5e8e",
+      "content_hash": "685cf67c57f61a0daf70c8e8262e047e0de787930d30474d7b76515aa71204b3",
+      "decision": "LINK",
+      "keys": [
+        "crystallization",
+        "nucleation-barrier",
+        "solvent-mediated-polymorph-transition"
+      ],
+      "reason": "기존 초록 검토: 종정과 용매 슬러리로 결정형을 전환한다. 용매 매개 다형 전이는 별도 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 용매 매개 결정 다형 전환: 용매 중 준안정 결정이 용해되고 더 안정한 결정형이 핵생성·성장하면 고체의 결정형 구성이 바뀔 수 있다. 온도·용해도 차이·핵생성 장벽과 체류 시간에 의존한다. 결정화의 하위 과정으로, 단순 용매 제거나 고체 내 직접 상전이와 구분한다."
+    },
+    {
+      "identifier": "AR-076403-A1",
+      "source_fingerprint": "02b6a6bd1939071e912d88074bed466c2750d27fe3977d70f1a8512c7d8e2f9a",
+      "content_hash": "64850b86ccd1d5b96ddb0234d4469fdf5b91ae67509522db49f036d15f889c6b",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection",
+        "turbulent-transport-enhancement"
+      ],
+      "reason": "기존 초록 검토: 홈이 난 냉각 유로에서 난류·이차 유동으로 열전달을 촉진한다. 난류 수송의 독립 경계를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 난류 혼합에 의한 열·물질 수송 증대: 난류의 속도 요동과 와류가 유체 덩어리를 이동시켜 분자 확산만으로 전달될 때보다 열과 물질의 교환을 높일 수 있다. 유동 형상·레이놀즈수·경계층에 의존하며 압력 손실이 커질 수 있다. 강제 대류의 하위 기전이고 홈이 있다는 이유만으로 난류를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-076418-A1",
+      "source_fingerprint": "62297a78ea426daa6c9fb79d3561f7f02622fa40d8132a0580eea82215423e24",
+      "content_hash": "4d926971b73f195b5c4028a59340950a6687aa1bd0d669c80e81bd97a9df4487",
+      "decision": "LINK",
+      "keys": [
+        "lewis-acid-catalysis",
+        "chemical-glycosylation"
+      ],
+      "reason": "기존 초록 검토: 루이스산을 사용한 핵염기·당 유도체 결합을 제시한다. 글리코시드 결합 형성과 보호기 제거를 추가 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 글리코시드 결합 형성: 당 공여체의 아노머 탄소와 적합한 친핵성 수용체 사이에 결합을 만들어 당을 다른 분자에 연결한다. 공여체·수용체·활성화 방식에 따라 입체 선택성과 결합 원자가 달라진다. 친핵 치환과 원리를 공유하되 당의 아노머 결합 형성을 대상으로 한다."
+    },
+    {
+      "identifier": "AR-076455-A1",
+      "source_fingerprint": "679fce69e5067e0a0335a3f801c7e42cb6cf6d50275ddcf579aeb1d861b3991c",
+      "content_hash": "b3ca19fac2ea7b37d6db4b7ab5f0eaef54e9c232eec3f58626e719216c289dab",
+      "decision": "LINK",
+      "keys": [
+        "sieve-size-separation",
+        "centrifugal-separation",
+        "solvent-extraction",
+        "distillation",
+        "bulk-comminution"
+      ],
+      "reason": "기존 초록 검토: 체분리·가열 원심분리·용매 세정·증류의 재활용 공정이다. 벌크 분쇄 후보의 두 번째 근거이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 벌크 파괴에 의한 입자 미세화: 충격·압축·전단으로 입자 내부에 균열을 만들고 전파시키면 벌크 고체가 작은 조각으로 나뉜다. 투입 에너지와 파괴 강도·인성·결함에 의존한다. 표면만 제거하는 연마와 구분하며, 미세화만으로 성분 분리가 보장되지는 않는다."
+    },
+    {
+      "identifier": "AR-076582-A1",
+      "source_fingerprint": "f05dc3f9026f8eef7d3ade4b4ef2148600e517b7eab756bbf5123c2855b52448",
+      "content_hash": "0dbd5368981c673e517471cc66b286a538fc518ae5e8f43da23087bf3927ec95",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "molten-phase-metal-partition"
+      ],
+      "reason": "기존 초록 검토: 유기 잔류물 연소열로 용융 공정을 구동한다. 금속·매트·슬래그 간 귀금속 분배는 별도 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 용융 상 사이 금속 분배: 서로 공존하는 용융 금속·매트·슬래그 상에서 원소의 화학적 친화도와 활동도 차이로 금속 성분의 분배가 달라진다. 산화 상태·조성·온도와 상 접촉이 중요하다. 용매 추출과 분배 원리를 공유하지만 고온 산화환원·슬래그 화학 조건을 별도로 다룬다."
+    },
+    {
+      "identifier": "AR-076615-A1",
+      "source_fingerprint": "6e9e9bf15b0bf23f868f5eddf058086ead36478d7524173427b0e0b90b1599fc",
+      "content_hash": "cbecdcd24e67b07b9a32ad8dc3b8b025567955eddfa03269dad097355c12b7c0",
+      "decision": "LINK",
+      "keys": [
+        "urethane-addition",
+        "interfacial-polymerization",
+        "isocyanate-amine-urea-formation"
+      ],
+      "reason": "기존 초록 검토: 이소시아네이트와 폴리올의 반응으로 액적 주위 막을 만든다. 계면 중합 및 아민의 요소 결합 형성은 후보로 구분한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 상 경계에서의 고분자 막 형성: 서로 다른 상에 있는 반응물이 경계에서 만나 중합하면 계면에 막이나 캡슐 벽이 성장한다. 반응 속도와 계면으로의 물질 이동이 막 두께·결함을 좌우한다. 특정 결합 반응과 독립적인 공간적 공정 원리로, 요소·우레탄 결합 형성과 겹칠 수 있다.; 이소시아네이트·아민의 요소 결합 형성: 이소시아네이트와 아민의 부가 반응이 요소 결합을 만들며 다관능 반응물을 사용하면 사슬 연결이나 가교로 이어질 수 있다. 반응물 관능기와 수분·경쟁 반응을 고려해야 한다. 알코올과의 우레탄 형성과 생성 결합이 다르며, 계면 중합에서는 함께 기술될 수 있다."
+    },
+    {
+      "identifier": "AR-076644-A1",
+      "source_fingerprint": "0d30ebfbf904d06f6f721b5301dd1cbcd420e11f0bcdfe28ba9de718fb89b89f",
+      "content_hash": "10ce15cc238dbcdeea5aed9c1d86a8ff800c44f0237d7938ce4088d3cb55e7d6",
+      "decision": "LINK",
+      "keys": [
+        "thermal-chemical-vapor-deposition"
+      ],
+      "reason": "기존 초록 검토: 열분해 증착으로 p·n·i 반도체 층을 만든다. 열 구동 기상 증착을 기존 플라스마 증착·ALD와 대조한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 열 활성 화학 기상 증착: 기체 전구체가 가열된 환경에서 분해되거나 표면 반응을 일으켜 고체 막을 형성하고 휘발성 산물을 방출한다. 전구체·온도·물질 전달에 의존한다. 열이 주된 활성화 수단이며, 플라스마 보조 증착이나 순차 자기 제한 반응인 ALD와 운전 원리를 구분한다."
+    },
+    {
+      "identifier": "AR-076774-A1",
+      "source_fingerprint": "a7ade4a3c11c69433c3f61e15be6cb2d5252d6e8a210088a06b13e89d9cbd9cb",
+      "content_hash": "7c8ecac6040b4df8915972db5eb18ad37bc7780c8070938ec50d50a1668ab0ab",
+      "decision": "LINK",
+      "keys": [
+        "chromatin-accessibility-regulation"
+      ],
+      "reason": "기존 초록 검토: TIP5·핵소체 리모델링 감소로 리보솜 RNA와 단백질 생산을 늘린다. 염색질 접근성 조절 후보이며 제목의 RNA 메틸화 표현은 원문 검증이 필요하다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 염색질 접근성에 의한 유전자 발현 조절: 뉴클레오솜의 배치·상태 변화가 DNA에 대한 조절 인자의 접근을 바꾸어 유전자 발현을 조절한다. 세포 맥락과 표적 위치에 따라 결과가 달라진다. 전사 인자의 직접 DNA 인식과는 조절 단계가 다르며 모든 후성유전 변화가 접근성 변화인 것은 아니다."
+    },
+    {
+      "identifier": "AR-076945-A1",
+      "source_fingerprint": "3332eda0bacc00e26f7db779c2796ba72ad4b6b464ba81b5c1d975a65b9fa2e7",
+      "content_hash": "85fc57ed3756dde92082dbe6c391863a20b57e2affa5b588f104c538dacac4be",
+      "decision": "LINK",
+      "keys": [
+        "mitochondrial-apoptosis"
+      ],
+      "reason": "기존 초록 검토: Bcl2 계열의 세포사멸 억제를 해제한다. 효소 저해로 오분류하지 않고 미토콘드리아 세포사멸 후보로 검토한다. 저장 말미가 잘려 있다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 미토콘드리아 경로의 세포 자멸사: 미토콘드리아 외막 투과성 증가로 방출된 인자가 세포 내 자멸사 경로를 활성화하여 조절된 세포 사멸로 이어질 수 있다. Bcl-2 계열 조절과 세포 상태에 의존한다. 항체 의존 외부 세포 독성·단백질 분해와 다른 경로이며 특정 저해제의 임상 효과를 뜻하지 않는다."
+    },
+    {
+      "identifier": "AR-076947-A1",
+      "source_fingerprint": "1e1fae78d3fed7cf6dfa25e139814e9944d96d170b0a6a65e2ae2e90338d07cd",
+      "content_hash": "5bb2165fb9eed9823c6925554d3782b2c1d6021242a4cea1cab614340f172737",
+      "decision": "LINK",
+      "keys": [
+        "radioactive-decay",
+        "radiocarbon-source-apportionment"
+      ],
+      "reason": "기존 초록 검토: 방사성 탄소 자료로 화석·재생 탄소 비율을 구한다. 붕괴 자체와 동위원소 조성 기반 출처 추정을 구분해 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 방사성 탄소비에 의한 탄소 기원 추정: 화석 탄소와 최근 생물 기원 탄소의 탄소-14 상대량 차이를 측정하면 혼합물의 탄소 기원 비율을 추정할 수 있다. 기준 조성·오염·동위원소 보정이 필요하다. 방사성 붕괴를 바탕으로 한 측정 응용이며, 탄소 연령이나 총 원소 농도 측정과 출력이 다르다."
+    },
+    {
+      "identifier": "AR-077471-A1",
+      "source_fingerprint": "f4581d0b6b967cc3b6bb80a387e0e05cc07a1cc679fba031f35bd5bda99e4804",
+      "content_hash": "600c71190f0f2f35cc0acf40c52a742753bd8c83985e5382e57b64aca834dd44",
+      "decision": "LINK",
+      "keys": [
+        "finite-difference-rate-estimation"
+      ],
+      "reason": "기존 초록 검토: 두 관측의 새 조각 수를 시간 차로 나눠 전송률을 추정한다. 유한 차분 추정 후보이며 제어 작용과 구분한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 누적량 차분에 의한 변화율 추정: 두 시점의 누적량 차이를 시간 간격으로 나누면 해당 구간의 평균 유량·전송률 등 변화율을 구할 수 있다. 표본 간격·계수기 초기화·양자화·측정 잡음을 고려한다. 순간값의 정확한 미분이 아니며, 변화율을 이용한 피드백 제어와는 측정 목적이 다르다."
+    },
+    {
+      "identifier": "AR-077562-A1",
+      "source_fingerprint": "ee219b09ebb19d0c509a94d1cab9a445008045aeb30b0728d5145bec94729700",
+      "content_hash": "922eee65108736f98f135fee3c45f144ec3e34191fad5b4c2abbfb65007803c3",
+      "decision": "LINK",
+      "keys": [
+        "discrete-static-equilibrium-solving"
+      ],
+      "reason": "기존 초록 검토: 블록 삼대각 행렬로 드릴 관의 힘·모멘트 평형을 계산한다. 이산 정적 평형 해석 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 이산 평형 방정식에 의한 정적 변형 해석: 구조를 자유도와 요소로 표현하고 힘·모멘트 평형 및 재료 관계를 결합해 하중에 대한 변위·응력을 계산한다. 경계 조건과 재료 모델이 적합해야 한다. 비선형·좌굴에서는 추가 해석이 필요하며 시간에 따른 상태 추정과 구분한다."
+    },
+    {
+      "identifier": "AR-077619-A4",
+      "source_fingerprint": "d609a5e1307cd701477437505c976a4e44b03ca9a14db562b6e6c787e1daab23",
+      "content_hash": "af54844941b7ecabaefa1700aa6b4f19c6c507134d119be7b6e1902d3e976e0d",
+      "decision": "LINK",
+      "keys": [
+        "elastomer-contact-sealing",
+        "pressure-driven-flow",
+        "bubble-leak-detection"
+      ],
+      "reason": "기존 초록 검토: 오링 접합부에 압력 공기를 넣어 누설을 검사한다. 기포 형성을 이용한 누설 검출의 기능 경계를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 기포 발생에 의한 기체 누설 가시화: 압력차로 결함을 통과한 기체가 액체에서 기포를 만들면 누설의 존재나 위치를 관찰할 수 있다. 압력차·젖음·표면장력·결함 크기에 따라 검출 한계가 달라진다. 기포 부재가 완전한 기밀을 보장하지 않으며 압력 구동 유동의 측정 응용이다."
+    },
+    {
+      "identifier": "AR-077623-A1",
+      "source_fingerprint": "dd2a65351e01c771754fd66d2d9c30e7d098ac41bc44ca6d261d6b68043c4dbc",
+      "content_hash": "9ac2e727241f7318aba011d1465a1607c2b0ac99985402c7861c51492c98c188",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction",
+        "porous-gas-trapping-insulation"
+      ],
+      "reason": "기존 초록 검토: 유리섬유·공기층으로 열 흐름을 줄인다. 다공성 기체 포획 단열과 진공 단열을 별도 후보로 대조한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 미세 공극의 정체 기체에 의한 단열: 섬유 사이 또는 작은 기공에 기체를 머물게 하면 큰 대류 순환을 억제하고 낮은 기체 열전도성을 이용하여 열 전달을 줄일 수 있다. 기공 크기·함수율·고체 열교·복사·기체 이동에 영향을 받는다. 진공 단열과 달리 기체가 남아 있으며 압축이 항상 단열성을 높이지는 않는다."
+    },
+    {
+      "identifier": "AR-077711-A1",
+      "source_fingerprint": "dee7962ae3756483b3aef7ed3ffc0f8bee9fea2c59f34ccfa2ecf19f384ccb9d",
+      "content_hash": "cd5a4164735d50c5c8f59bb457e7d202c11819b754653152f7c852fab83b8424",
+      "decision": "LINK",
+      "keys": [
+        "impact-momentum-flow-sensing"
+      ],
+      "reason": "기존 초록 검토: 입자 충돌 힘과 속도로 질량 유량을 구한다. 운동량 전달 계측을 코리올리 유량계와 구분해 후보로 기록한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 충돌 운동량 변화에 의한 유량 측정: 흐르는 입자가 검출판에 부딪혀 방향이나 속도를 바꿀 때 발생하는 힘은 단위 시간당 운동량 변화와 관련되어 질량 유량 추정에 이용된다. 입자 속도·충돌 각도·반발·마찰에 대한 보정이 필요하다. 단순 중량 측정이나 회전에 따른 코리올리 힘 측정과 구별한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:50:07.870264+00:00"
+}

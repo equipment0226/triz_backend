@@ -1,0 +1,246 @@
+{
+  "batch": "additions-2026-09-26-12.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1160,
+  "added": 20,
+  "after": 1180,
+  "target": 1200,
+  "source_sha256": "caf8e30878590792921f4c9743bd29189f8bc3c05cdd6b2784bd4d9e6825716f",
+  "decisions": [
+    {
+      "key": "nuclear-fission-binding-energy-release",
+      "group": 8,
+      "related_keys": [
+        "radioactive-decay"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "붕괴 일반 중 핵 분열이라는 별도 반응 경로이며 화학 연소와 에너지의 기원이 다르다.",
+      "source_url": "https://www-pub.iaea.org/MTCD/Publications/PDF/Pub1617web-1294055.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nuclear-fusion-binding-energy-release",
+      "group": 8,
+      "related_keys": [
+        "nuclear-fission-binding-energy-release",
+        "magnetic-plasma-confinement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "무거운 핵의 분리와 달리 가벼운 핵의 결합이며 구속 장치는 반응 자체가 아니다.",
+      "source_url": "https://www-pub.iaea.org/MTCD/Publications/PDF/Pub1617web-1294055.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "collapse-heated-bubble-sonoluminescence",
+      "group": 13,
+      "related_keys": [
+        "cavitation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기포 붕괴 계열의 발광 하위 기전으로 충격·미세 제트의 기계 작용과 출력 및 열적 조건을 구별한다.",
+      "source_url": "https://www.nature.com/articles/18842",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "plasma-wakefield-electron-acceleration",
+      "group": 1,
+      "related_keys": [
+        "landau-resonant-wave-particle-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "파동·입자 결합 계열이지만 비선형 후류의 포획·주입·가속 위상 선택을 명시하는 장치 작동기전이다.",
+      "source_url": "https://www.nature.com/articles/nature05393",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "debye-mobile-charge-screening",
+      "group": 14,
+      "related_keys": [
+        "electromagnetic-shielding",
+        "kondo-local-moment-screening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정전 전하의 열적 재배치이며 전자기파 차폐나 국소 스핀의 콘도 차폐와 다르다.",
+      "source_url": "https://www.nature.com/articles/ncomms7839",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "self-field-ambipolar-diffusion",
+      "group": 9,
+      "related_keys": [
+        "coupled-multicomponent-uphill-diffusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전하 분리로 생긴 전기장이 이동도를 결합하며 중성 혼합물의 교차 확산과 구분한다.",
+      "source_url": "https://www.nature.com/articles/srep04304",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "magnetic-tension-alfven-wave",
+      "group": 13,
+      "related_keys": [
+        "magnetic-plasma-confinement",
+        "acoustic-resonator"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "압축성 음향의 압력 복원력 대신 자기 장력이 복원력을 제공하는 결합 파동이다.",
+      "source_url": "https://www.nature.com/articles/150405d0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "incommensurate-interface-superlubricity",
+      "group": 5,
+      "related_keys": [
+        "mos2-solid-lubrication",
+        "dlc-low-friction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "층간 결합이 약한 재료 사용과 달리 접촉 격자 비정합에 의한 힘 상쇄가 핵심 조건이다.",
+      "source_url": "https://www.nature.com/articles/ncomms12055",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "velocity-weakening-stick-slip-instability",
+      "group": 2,
+      "related_keys": [
+        "friction-damping",
+        "frictional-failure-stress-constraint"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정적 미끄럼 한계나 소산량과 달리 구동계와 마찰 법칙의 결합이 진동을 성장시키는 안정성 기전이다.",
+      "source_url": "https://www.nature.com/articles/ncomms11104",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "logical-erasure-entropy-heat-bound",
+      "group": 7,
+      "related_keys": [
+        "joule-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "저항 전류의 손실 법칙이 아니라 논리적으로 비가역적인 상태 초기화의 엔트로피 제약이다.",
+      "source_url": "https://www.nature.com/articles/nature10872",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "photon-electron-positron-pair-creation",
+      "group": 13,
+      "related_keys": [
+        "positron-annihilation-imaging",
+        "compton-photon-electron-energy-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 전자에 에너지를 주는 산란이나 쌍소멸과 달리 입자·반입자 쌍을 새로 생성한다.",
+      "source_url": "https://www.nature.com/articles/135066a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "charged-particle-bragg-energy-deposition",
+      "group": 8,
+      "related_keys": [
+        "high-atomic-number-radiation-dose-enhancement",
+        "xray-attenuation-imaging"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "재료 첨가의 국소 증감이나 광자 감쇠와 달리 하전입자 정지능의 속도 의존성이 깊이 분포를 만든다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-30982-5",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "oscillatory-field-ponderomotive-force",
+      "group": 1,
+      "related_keys": [
+        "dielectrophoresis",
+        "plasma-wakefield-electron-acceleration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유전체 입자 분극과 구별되는 자유 전하 진동의 평균 힘이며 플라스마 후류를 구동할 수 있으나 후류 자체는 아니다.",
+      "source_url": "https://www.nature.com/articles/s41567-026-03352-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "cyclotron-orbital-resonant-absorption",
+      "group": 12,
+      "related_keys": [
+        "nuclear-magnetic-resonance",
+        "lorentz-actuation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "핵스핀 전이가 아닌 하전입자의 궤도 운동 공명이며 정적인 힘 구동과도 구별한다.",
+      "source_url": "https://www.nature.com/articles/180087b0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "coulomb-ordered-wigner-crystallization",
+      "group": 14,
+      "related_keys": [
+        "mott-interaction-charge-localization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 원자 격자의 점유에 묶이는 모트 절연과 달리 전자 자체의 공간 배열 질서가 중심이다.",
+      "source_url": "https://www.nature.com/articles/s41586-021-03590-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "peierls-electron-lattice-dimerization",
+      "group": 14,
+      "related_keys": [
+        "jahn-teller-orbital-lattice-distortion",
+        "mott-interaction-charge-localization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "국소 궤도 축퇴 해소와 구별되는 확장 전자계의 주기 변형·밴드 에너지 감소이다.",
+      "source_url": "https://www.nature.com/articles/ncomms7636",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "electron-hole-coulomb-exciton-binding",
+      "group": 13,
+      "related_keys": [
+        "photoluminescent-wavelength-conversion",
+        "size-quantized-electronic-confinement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "발광 일반이나 외부 공간 구속과 달리 전자·정공 사이 상호 인력이 결합 상태를 만든다.",
+      "source_url": "https://www.nature.com/articles/ncomms2498",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "pauli-degeneracy-quantum-pressure",
+      "group": 8,
+      "related_keys": [
+        "bose-einstein-macroscopic-occupation",
+        "closed-gas-regenerative-heat-engine"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "보스 응축과 다른 입자 통계이며 고전적 열운동만으로 생기는 압력과 구별한다.",
+      "source_url": "https://www.nature.com/articles/s41586-023-06469-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "moving-scatterer-fermi-acceleration",
+      "group": 8,
+      "related_keys": [
+        "magnetic-reconnection-energy-release",
+        "plasma-wakefield-electron-acceleration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기장 연결 재편이나 한 후류의 위상 가속과 달리 이동 산란 중심과 반복 운동량 교환이 핵심이다.",
+      "source_url": "https://www.nature.com/articles/356582a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "feshbach-bound-channel-scattering-tuning",
+      "group": 14,
+      "related_keys": [
+        "fano-discrete-continuum-interference",
+        "bose-einstein-macroscopic-occupation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이산·연속 결합 계열의 산란 상호작용 제어 하위 기전이며 광학 선형상이나 응축 자체와 구별한다.",
+      "source_url": "https://www.nature.com/articles/32354",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

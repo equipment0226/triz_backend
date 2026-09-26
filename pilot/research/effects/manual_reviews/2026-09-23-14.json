@@ -1,0 +1,228 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "76351bf020a97364d29c90da4a82682a84675267a4a253d5be954921daf3f535",
+  "reviews": [
+    {
+      "identifier": "AR-078744-A1",
+      "source_fingerprint": "cf4e6363fc2e6773cd8c4fba454be1b066f9552138b05a704a8fd052cd7a3021",
+      "content_hash": "f022fcd6c5aea30bb40d6ce3db66e632bdec52bba83ca9c654d7f510ef3d768a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "mPGES1 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-078754-A1",
+      "source_fingerprint": "fe5e265caa739ce73540b7eb41428f6246ea84633deb84f36ec51fb221f92833",
+      "content_hash": "0c7e4c3e1751f74c416b5deb265728cd50be4ade2e1ca982d35d03e4bbf57efc",
+      "decision": "LINK",
+      "keys": [
+        "fluorescence-sensing"
+      ],
+      "reason": "자외선으로 여기한 발광 색으로 지폐 권종을 판별한다."
+    },
+    {
+      "identifier": "AR-078768-A1",
+      "source_fingerprint": "233663395a05b0556c54f71c448b502ae4f5bc0c1feecdca5a4a659dae4f2876",
+      "content_hash": "341e74809c35416764e129a34a3a1034a8b589e3f868ebf8e37a81b7b8c4fea4",
+      "decision": "LINK",
+      "keys": [
+        "projective-coordinate-mapping",
+        "negative-feedback"
+      ],
+      "reason": "카메라 영상 위의 실제·목표 위치를 맞추며 운전한다. 폐루프 보정은 운전자 포함 해석이다."
+    },
+    {
+      "identifier": "AR-078784-A1",
+      "source_fingerprint": "903d66b0b603c72a4260a85eec3f30b9f427ce29d1849b87e3c5e9ff32249852",
+      "content_hash": "4cd8f25667afa1caf85b373a6d0b3675d8bfd8b0accf6b1253601c53b7f8a7e3",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "다층 플라스틱을 영구 절곡해 구조물 형상을 만든다. 기능층의 상세 물리는 미상이다."
+    },
+    {
+      "identifier": "AR-078800-A1",
+      "source_fingerprint": "88caeadd4ecc8806a7f2dcf951a15b9f6d569540b44a99a6e94ac787414b1bd1",
+      "content_hash": "5c502be6457c7cceefbcda6f2bbe33226e418d73750d10e4b5d58d9134443c87",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "바늘로 부직포 섬유를 얽고 가장자리를 고정한다. 물 제트 얽힘과 같은 섬유 결합 후보에 통합 검토한다."
+    },
+    {
+      "identifier": "AR-078801-A1",
+      "source_fingerprint": "d62a2195ef76c34ee9ab4078391e76085911075b470f7c55ee18add0a977a601",
+      "content_hash": "461e8425b5454b2f0e54dc235ae081e04c3e6f9ff653f6cb9269444c61f0495e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡수체 포장의 선택적 개방 구조이다."
+    },
+    {
+      "identifier": "AR-078802-A1",
+      "source_fingerprint": "1f64916f249dd077d34fc88b390f5603b484119727745401e1d2b3411bacfbb9",
+      "content_hash": "68e316d38bd519eb7bd7554c7b4162321d5fd6bd8fcd9af23a5e91a6f770bf37",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡수체 포장 개방과 속옷 부착 순서이다. 유사 선행 초록과 별도 효과로 집계하지 않는다."
+    },
+    {
+      "identifier": "AR-078810-A1",
+      "source_fingerprint": "49772a12ceab2e1c4deb86f58e7604c829fd96fe79a0e575f7c90b4de268022f",
+      "content_hash": "1336ca4da25dc10d66ffd869034cdf3afe7c6036c9d95db257ffa357557f50ad",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-pumping"
+      ],
+      "reason": "전동 회전자로 급수압을 높이는 장치이다. 임펠러 펌핑은 구조에 근거한 해석이다."
+    },
+    {
+      "identifier": "AR-078823-A1",
+      "source_fingerprint": "4eb4f94d4baef0b399cd52f6936156d35354db6b3d0c09529e5b48ce330f90b8",
+      "content_hash": "755ec029bb220f2f309d7f80e4f4c4b3ab47934dd5ed1a0a009a57d4f3118712",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "패킷 분류용 메타데이터와 트래픽 집계를 분리하는 시스템 구성이다. 분류 알고리즘은 미상이다."
+    },
+    {
+      "identifier": "AR-078825-A1",
+      "source_fingerprint": "a81457e744bfcb47678139b6b7281a6f5e6ff04c70ec17b4bdbc90ac89137a09",
+      "content_hash": "bc1964a2fb5d40f698b8528c03c16d92a33cd486f0ba72199091c06252256819",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항말라리아 약물의 환자·생활사 단계별 용도이다. 약물 작용 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-078838-A1",
+      "source_fingerprint": "a6389e5b49420c4c74e946634d463175e2c0a7cef4a9efa4e598a0a258e1d79c",
+      "content_hash": "12d2a2cd12dbfd4d5cafc724b82bd0d3fa9c87383f4130e15f10c5f268935dd1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "게임 칩 저장통·분리 휠·배출 손가락의 배치이다."
+    },
+    {
+      "identifier": "AR-078857-A1",
+      "source_fingerprint": "cdd4e5e869d071e588c3e2cfe79be799800c7c6d9a939a79c6c9caf33f7ed945",
+      "content_hash": "07e32a27c065cd36feb03bf20dfef7387b83b5f495703c7f61d620c6a3d667a9",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 전사인자를 발현해 플라보노이드 생산을 바꾼다."
+    },
+    {
+      "identifier": "AR-078873-A1",
+      "source_fingerprint": "8a74d67a6e017214ef78f06fc4fec32277ec0977e412f11f74e3e7e4a06d20bf",
+      "content_hash": "22c10e043354a4d5743718d3738516326ac34f26613396fa5bdf8ff06eb47b86",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다층 필름의 인열 에너지·연신 요구값이다. 균열 진행을 조절하는 미세 구조는 미상이다."
+    },
+    {
+      "identifier": "AR-078883-A1",
+      "source_fingerprint": "477bf1d8b6d84455c5c2c7bf1ea04499f9573925753da1791322348538db57b5",
+      "content_hash": "ef77e3309c53f92c89e82b86d133ec2fca2993e219a5506b4259947469d29985",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "lewis-acid-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "인산화효소 저해제 합성에서 루이스산 반응과 에스터 가수분해를 명시한다. 구아니딘 고리축합은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-078891-A1",
+      "source_fingerprint": "44eb41f9061905fa43f3d4966db02ccbd183ac16979ff60f966f0d58c5db323e",
+      "content_hash": "dfa43e162f16461f85f67d08efdc945028dde2b940637b93c887c3b00da0e939",
+      "decision": "LINK",
+      "keys": [
+        "rolling-contact-friction-reduction",
+        "section-moment-stiffening"
+      ],
+      "reason": "롤러로 창문을 이동하고 프로파일로 유리의 휨을 억제한다."
+    },
+    {
+      "identifier": "AR-078902-A1",
+      "source_fingerprint": "7ee67115b452fee46e5b267a7d2d47691d808bdece9cf311fc4c209f5688346e",
+      "content_hash": "362f3042c65574e819faa1b80631609f28ec871e13019da4db6354ec89848d9b",
+      "decision": "LINK",
+      "keys": [
+        "vapor-compression"
+      ],
+      "reason": "서로 다른 온도 냉동 회로를 열교환기로 연결한다. 캐스케이드를 독립 상변화 원리로 중복하지 않는다."
+    },
+    {
+      "identifier": "AR-078914-A1",
+      "source_fingerprint": "cef4f9846bab44df3f563580d9a7f9c7345c8adb33cd5f341a404cc3c13a43a6",
+      "content_hash": "4625fee7c3d9f5eb35ca502a300f6970474c69f79f0895f3dd998c577c91bbb3",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "독소에 대한 방어용 항체 인식의 일반 원리만 연결한다. 독소 생산·강화 내용은 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-078935-A1",
+      "source_fingerprint": "c944734461562cfd985b36b8e89e9ec79527d326141d255dd135a92a17cab346",
+      "content_hash": "1b42ed87f83ac79ac122a50fe0af0962e1764177982b163701243d9c631f986f",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening",
+        "plastic-forming"
+      ],
+      "reason": "길이 방향 리브·홈과 블로 성형으로 용기를 보강한다."
+    },
+    {
+      "identifier": "AR-078936-A4",
+      "source_fingerprint": "19804c456ddbb2f63ebb77637393a9429cf02c591652b824a4d3ba939dc5c4a1",
+      "content_hash": "f6b6f81bc84e853a8c0df73798c359c769e8ccaed716d034536ca7c6f15650e7",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "콘크리트 모듈의 홈·돌기·기계 체결로 벽체를 연결한다."
+    },
+    {
+      "identifier": "AR-078943-A1",
+      "source_fingerprint": "f0ca5804626b808084d5f7b4ea3c02fc028561e3ff023ddec66a60892db3fc65",
+      "content_hash": "d1de39f0497de89fc98f9a9954969e8c0b31d0c4425d49598ec2221bf8d58f32",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지표 탄성파·전자기 자료로 지하 속도·비저항 분포를 추정한다. 역문제 공간 복원의 원리를 검토한다."
+    },
+    {
+      "identifier": "AR-078951-A1",
+      "source_fingerprint": "becf8078c98f85b2d6988279f1df28dfa7ead978113550e04a884540c3ca9d1a",
+      "content_hash": "e3dfcb5aa453ea9b0bd05fc09bd60731852f1ffcd909ab97712e2522c5df9c1e",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "인산화효소 저해제의 장용 코팅 조성이다. 산도 선택 용해를 직접 확인할 근거가 더 필요하다."
+    },
+    {
+      "identifier": "AR-078954-A1",
+      "source_fingerprint": "a466b4bb31248c65dbd58b44b5d5501a5d25e774ea4a332cbaf566574dc50c83",
+      "content_hash": "39c65c0cf27ed332ff0d69c6d1a15ac5c368af4f6e4fb619a9d9eefdbf2941c8",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "자기 가열기의 정화·용해력·살균 향상 주장을 뒷받침하는 작동 조건이나 검증이 없다. 자기장 자체의 보편 수질 개선 효과로 등록하지 않는다."
+    },
+    {
+      "identifier": "AR-078972-A1",
+      "source_fingerprint": "62a89627e38b66f887f2f8513501d9ebc633274adf36697325df334f07b8b4d3",
+      "content_hash": "40928ec94db794d9a7b4eabcd98fde834547546d6bd016b083a33483dc708106",
+      "decision": "LINK",
+      "keys": [
+        "graph-shortest-path"
+      ],
+      "reason": "고정 경로 탐색 실패 시 같은 위치의 대체 끝점으로 탐색 범위를 넓힌다. 최단 경로 여부는 목적에 따른 연결이며 별도 법칙은 아니다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:14:06.455759+00:00"
+}

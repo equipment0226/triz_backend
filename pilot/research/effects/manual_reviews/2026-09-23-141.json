@@ -1,0 +1,248 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "b0a733eb810cad6802b419479595f5e8ae80d9a7233ed73f5f4064ab9a1f0e8c",
+  "reviews": [
+    {
+      "identifier": "AR-096923-A1",
+      "source_fingerprint": "f6f75f83bc89432eb8b6e8f1a06be4435742a31f98b82f758037b88b527ead3d",
+      "content_hash": "8f73e22bcb27430d59796e3a07ff99ef1c6d6f4c171db0086dd898ad0ee5db2f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아진 치환체와 제초 용도만 명시되어 생물 표적을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-096937-A1",
+      "source_fingerprint": "56c556a34aeae21408b942f7bf41279fc48454c9d1f9d8421e9812353d45737e",
+      "content_hash": "3a6400b02e7b78cf03af8774e35e58a07bea263045b78106df8d42fd390eca9c",
+      "decision": "LINK",
+      "keys": [
+        "geometric-optical-occlusion"
+      ],
+      "reason": "회전 마스크가 창에서 보이는 표시 영역을 제한한다. 표시 기구의 조합은 설계 차이이다."
+    },
+    {
+      "identifier": "AR-096974-A1",
+      "source_fingerprint": "35db1cab858fdb04c0bdf0644a8840d4f2461f44bdfcc9e73b6d621e2b6519a4",
+      "content_hash": "6456880be0ca62890176b366e7cbe178d74e26518a8627dc43dc8fc40a0b4dd2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "가열 기화·에어로졸 발생은 명시되지만 열원·응축·핵생성 조건이 생략되어 있다."
+    },
+    {
+      "identifier": "AR-096976-A1",
+      "source_fingerprint": "a8d7ac3d428138c65a5469f48ff6f4e44e18c9cccc0a6bedf9c8381b5d9c0d67",
+      "content_hash": "a2ee8dbca5885757dd2689a2e59b0ec8af6e3ba0cd897ba9449386a389344e07",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "Tau 전사체와 단백질 발현을 낮추는 안티센스 적용이다."
+    },
+    {
+      "identifier": "AR-096980-A1",
+      "source_fingerprint": "8f2100c737956ac52631b25410ca1c7083242c639b1ee897cd8450f9500de8e6",
+      "content_hash": "2287bf632abcec2f7664f74923ebc837c07af5590d2dc22cf8d548c6392c5a1e",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "APJ 수용체 작용제의 고리형 펩타이드이다. 고리화에 따른 안정성 향상은 직접 설명되지 않는다."
+    },
+    {
+      "identifier": "AR-096982-A1",
+      "source_fingerprint": "f6faa748120e3649b502cf0d71e3f724788579bd9f5f4d7740d33c94cce46d58",
+      "content_hash": "260a3b67bab76b7768b35c0f344fff04c840cee8870de7587c4de0b77b2a9249",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis",
+        "carboxylic-acid-esterification"
+      ],
+      "reason": "지방을 물로 가수분해한 뒤 지방산과 알코올을 에스터화한다. 직접 에스터 교환과 구분한다."
+    },
+    {
+      "identifier": "AR-097001-A1",
+      "source_fingerprint": "de4cfe66a308fec201139a918026fef0c1921349bb85b6268a9f5d38a8ee9eb5",
+      "content_hash": "173c703051307a358d4bf2860ce7c12c6d865c0426e0012584eb9820cecd744e",
+      "decision": "LINK",
+      "keys": [
+        "wave-interference",
+        "linear-channel-downmixing"
+      ],
+      "reason": "채널 의존성에 따라 위상을 맞춰 합산 시 상쇄와 콤 필터 흔적을 줄인다."
+    },
+    {
+      "identifier": "AR-097053-A1",
+      "source_fingerprint": "a8c3a109fb618142c79a2cc3a1ee24316001e0236bd18cc3952cb67926e06c5f",
+      "content_hash": "6b92a2a650c19265638e1cde70fcbc7298c9dc655059d216336849b4c4c3ef34",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "입구 단면 제한으로 흡입 유동 저항을 조절한다. 상세 유동 영역을 지정하지 않는다."
+    },
+    {
+      "identifier": "AR-097061-A1",
+      "source_fingerprint": "903ac510e7353eb976599a88081dace8e767cb4f7330e0a0dff630e21abe8d32",
+      "content_hash": "c01084b59e89ed630285397834e23e209d8847fa6667fd72e0d586b5e0ec6b16",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "다중 평면 회전이 가능한 인형 관절의 운동 구속이다."
+    },
+    {
+      "identifier": "AR-097064-A4",
+      "source_fingerprint": "39be967ef3dde3cf6445b9af50d8054fdb18a25aff875733eb6e504774362604",
+      "content_hash": "405dead768a539bd522c86bcc77ecca406d26f6eff396908e8da5c5d8be9eb3f",
+      "decision": "LINK",
+      "keys": [
+        "pressure-sensitive-adhesion"
+      ],
+      "reason": "자착 보안 라벨과 박리 지지체이다. 표지의 특정 발광 기전은 명시되지 않았으며 전사 패턴은 설계이다."
+    },
+    {
+      "identifier": "AR-097071-A1",
+      "source_fingerprint": "94265e45030c10e4744d9d17c918dc094b65f1e00618397bf7dd434a6d954448",
+      "content_hash": "eb2a9bb5f359616c1f17367ab6fa271d9b7b20447aebcb2c1806ee17c9870744",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "세린·트레오닌 키나아제 저해제이다."
+    },
+    {
+      "identifier": "AR-097078-A1",
+      "source_fingerprint": "8001b7c7a53810737c3fcabf15bd7c6e03ab7bb7b4171a4da0fcef3e5ad7cf66",
+      "content_hash": "e5ef86785edafa05efce866429af1c3e0fad2c3e9f1a167754056334170c36be",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "enzyme-inhibition"
+      ],
+      "reason": "명시된 무스카린·베타2 수용체 조절과 선택적 효소 저해제의 조합이다. 병용 시너지 자체를 신규 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-097082-A1",
+      "source_fingerprint": "5cdabe6db9e83309a0a321fc5b2b4e503a2dc053032fbbc344833f5603935c97",
+      "content_hash": "0f1b54a8c1f234b6a9ae07536fed8508da367f0821b192ceff450d64f35e19c1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항암 용도와 치환체만 있고 표적·반응 경로가 없다."
+    },
+    {
+      "identifier": "AR-097099-A1",
+      "source_fingerprint": "ff3b6f3aec4b3bb2d2f70f95235e54bb359d0f1c10cfb304e2e07010dbe147b9",
+      "content_hash": "c960f153ad137f236d9ce108c77e23b26fc285061920b168ea56d34878d69e12",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "Activin A 특이 항체와 GDF8 결합 단백질이다. 수용체 자체가 아니므로 가용성 수용체 효과를 붙이지 않는다."
+    },
+    {
+      "identifier": "AR-097101-A1",
+      "source_fingerprint": "acfee308397f5e3de17497772ab6e737a8b56b57dc0e98f3fc1bd2c1ae73ffb2",
+      "content_hash": "9b192911c82598eaf71a991f82678284e3a972f56046c20f08b153c3ec8e1a4b",
+      "decision": "LINK",
+      "keys": [
+        "geophysical-inverse-reconstruction"
+      ],
+      "reason": "여러 회전 위치의 자기장 측정에서 다른 시추공의 상대 위치를 역산한다. 센서가 홀 방식인지 등은 불명확하다."
+    },
+    {
+      "identifier": "AR-097103-A1",
+      "source_fingerprint": "618230abf2c166a9e3e541b1d614c170bd66d4bb517bf6c657811dbe2b8b102c",
+      "content_hash": "5b88847add3896c59ee30d8f8e327c7affdbecd3c3a8040de1129fd321ad3045",
+      "decision": "LINK",
+      "keys": [
+        "bulk-comminution"
+      ],
+      "reason": "유기 폐기물 분쇄 장치가 명시된다. 통기된 퇴비화의 호기성 분해·발열을 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-097106-A1",
+      "source_fingerprint": "adb74dd285d9f3f707a1cfb4c75742a8617b8168e6c4648d2e8cc13483573bfc",
+      "content_hash": "61a9d00d4c0f6ab764aa91821df5fa9126458593b61758bf69416cee9a8c4a4b",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "나사 관 이음과 간섭 밀봉 형상을 이용한다. 금속 간 접촉 압력에 의한 밀봉을 탄성체 밀봉과 구분해 검토한다."
+    },
+    {
+      "identifier": "AR-097109-A1",
+      "source_fingerprint": "f88d356ba3a03b0a5ec8567c041daa6a0778e7a4a933cc5e22dc1debaf841e67",
+      "content_hash": "cba436b6927e86a24188476d888e24ecb5584585ddba15f3c68582309aa7fb2d",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis",
+        "evaporative-concentration"
+      ],
+      "reason": "열·압력과 산 또는 염기로 케라틴을 가수분해하고 필요시 건조한다."
+    },
+    {
+      "identifier": "AR-097118-A1",
+      "source_fingerprint": "fc3540c11f8bbfa79243d26a6b7aec8c0e42c9e0577ff66eb2035c80050ab006",
+      "content_hash": "a339902707f87488ea71ba65643ae86e460e78519c54b42c9694fa637a8b0109",
+      "decision": "LINK",
+      "keys": [
+        "natural-convection"
+      ],
+      "reason": "가열된 공극 유체의 대류와 그 흐름을 방해하는 장벽이 명시된다."
+    },
+    {
+      "identifier": "AR-097145-A1",
+      "source_fingerprint": "2d5fd4f550366052da78dc69d22108dd0ce3a9468071f1e6642331611b1fefb8",
+      "content_hash": "3b32be8c705b4ec0e304237752ed58fd81b2da8423ad4f6fbe098682ffe84bf4",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "포화 지방산과 운반체로 이루어진 반추동물 사료 페이스트이다. 반추위 우회나 특정 대사 기전을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-097175-A1",
+      "source_fingerprint": "90af2b52bcba974ac80e3aebd281f5315fa0f8236f1d20ad22b0eccbc728172e",
+      "content_hash": "057852645c72ec9b423f169627f6e8cf2820f05c345f935eace5d9e1f9817196",
+      "decision": "LINK",
+      "keys": [
+        "bulk-comminution",
+        "sieve-size-separation"
+      ],
+      "reason": "혼합 염 분쇄·분급은 명시되나 후속 칼륨염 분리·전환 반응 상세는 생략된다."
+    },
+    {
+      "identifier": "AR-097191-A1",
+      "source_fingerprint": "e99fa5a2cb1975d4481744924c3d0b1f341b7836b1fb3fcd7c1d7aa85ec491df",
+      "content_hash": "d242247e14a31f3e2d948ad4e63b75ac2a02a521cfaf82f7112f10957a0a6ce7",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission",
+        "lead-screw-motion"
+      ],
+      "reason": "비평행 롤러와 돌출 나사부가 벽에 접촉해 회전에서 축방향 추진을 만든다. 자세한 접촉 모형은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-097219-A1",
+      "source_fingerprint": "2a3a2685bfeb29ccf9f798b786f2da7ec9258d8f0d8f785b732e01f84ed197af",
+      "content_hash": "9c92f6654cfbc0ce192ebeb51dd50c767f202896d3c922f79ad68ab11015d632",
+      "decision": "LINK",
+      "keys": [
+        "cement-hydration",
+        "mechanical-interlocking"
+      ],
+      "reason": "조립 거푸집과 콘크리트 경화 적용이다. 모듈 조합을 신규 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-097239-A1",
+      "source_fingerprint": "ef1bb3769ac12d2af6e5cd586b4b151a01a220f1f2c6d068ef8f094acec8e020",
+      "content_hash": "5e189a02db8c3c44f17b247353603097181926766858f22bb7b3a455beca089e",
+      "decision": "LINK",
+      "keys": [
+        "feedforward",
+        "fluid-turbine-conversion"
+      ],
+      "reason": "예측 풍속에서 무효전력 투입량을 계산하는 선행 제어이다. 교류 무효전력·위상 관계를 별도 전기 원리 후보로 검토한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:48:16.694283+00:00"
+}

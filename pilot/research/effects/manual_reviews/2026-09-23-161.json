@@ -1,0 +1,96 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e8705dfb9ef9cc6801733725e9345bd282c9cae002cb463f048735fa8b71c7eb",
+  "reviews": [
+    {
+      "identifier": "AR-101228-A1",
+      "source_fingerprint": "12728096d1124cf5406f2f6270906d29dfc98702935a5b8cf79723d182003d9c",
+      "content_hash": "126eff773b29e25ca9d60184cc305dc38a20d210f8cd57077e2ab7ed13275e14",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying",
+        "blade-shear-cutting",
+        "plastic-forming"
+      ],
+      "reason": "나선 회전으로 사료를 이송·혼합하고 칼날로 자른다. 나선 강판은 냉간 성형한다."
+    },
+    {
+      "identifier": "AR-101240-A1",
+      "source_fingerprint": "daeecc0314d0c51b851cfb8f1b8862aaa9e5a01c5d210f2baee6affb751a9f1d",
+      "content_hash": "845a523e98f0a11c0feeeeef4d538d522afe0b7dea6645fe40fb5b888e72e978",
+      "decision": "LINK",
+      "keys": [
+        "multicomponent-cocrystallization"
+      ],
+      "reason": "결정형과 공결정 제형을 명시한다. 특정 약물 결정마다 신규 원리를 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-101281-A1",
+      "source_fingerprint": "7dd24ac0aefd372cc3f5f2a7fedfeafc70f611506f44f632284da7e5d72f8462",
+      "content_hash": "a3f6862f569e341b17cfdbdfd2150411b4bc1008af71ffed8087228701dda655",
+      "decision": "LINK",
+      "keys": [
+        "discrete-static-equilibrium-solving",
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "유한요소 해석과 손상 모델로 수압파쇄를 예측한다. 연속체 손상 변수에 따른 강성 저하는 신규 모델 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-101282-A1",
+      "source_fingerprint": "349c7d8a053a75f34a4ce9511a8dff832f4a108889e4599dab824b983978463e",
+      "content_hash": "286ec1b56550e83425ec5e5619d1f5fce69f131d9c1b932d9ea0925e1d640d8a",
+      "decision": "LINK",
+      "keys": [
+        "converse-piezoelectricity"
+      ],
+      "reason": "압전 요소 등의 구동으로 시추축을 축 방향 진동시킨다. 초음파 주파수라고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-101322-A1",
+      "source_fingerprint": "621478fd9d36754d37c3eb0c985a73fd84812f75dfcfbc07c4f0779cdf06e0f1",
+      "content_hash": "632193699f4e5dfa404ddc5f481e96e9a6f230515194d60b6a4fe30d7a28c9b2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "음료 기기의 저장탱크 접근을 위한 분리 가능한 외장 구조이다."
+    },
+    {
+      "identifier": "AR-101327-A1",
+      "source_fingerprint": "77f389c2be1b979bacb878b33c7ae68cecc9e1a0b4df975622520bd350c92bd0",
+      "content_hash": "a4d564ca34d2a166ff5e069af7814446857c2764421266532c41e00883416cd6",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "plastic-forming"
+      ],
+      "reason": "유압 실린더·캡슐로 압연 롤의 예압과 위치를 제어한다."
+    },
+    {
+      "identifier": "AR-101332-A1",
+      "source_fingerprint": "56b56d4cfff2211697d5dfe4a225c251fc3b885ed620bacacbd382146654e46f",
+      "content_hash": "e1abddc00926156eb7d8af96445c38980f30084b990edb920566510ca4f9d91f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피라미드 벡터 양자화 검색의 누적 에너지를 손실 없이 표현하도록 필요한 비트폭을 예측한다. 적응 정밀도 연산 후보이며 양자화 자체는 기존 초안과 중복이다."
+    },
+    {
+      "identifier": "AR-101336-A1",
+      "source_fingerprint": "ccd69fa937a30028cfc8942b91209beda54de63dc2d9036d088bdeab3959edac",
+      "content_hash": "deecab99c5e320f2755a7f5a77f7261d98b06dc55ef042c17a8b05a97601629a",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "확장 플러그의 날개와 외피가 고정에 기여한다. 힘 변환의 상세는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-101363-A1",
+      "source_fingerprint": "39f2a09c377f907253723d4f78adefcb083834b964800932a970443602a53412",
+      "content_hash": "6787b60692fd4bc8d97c4a63d5eba11ba71846b42bbfdce0f31f1cf3d38fb60a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "특정 약물의 결정 A형 청구만 있어 제조·전이 작용의 근거는 부족하다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:03:05.315551+00:00"
+}

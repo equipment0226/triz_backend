@@ -1,0 +1,99 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "66c82c6f3bf1862ec8eba96e2d67408070d127a22e0b03fde50bbf8a6a01a9bb",
+  "reviews": [
+    {
+      "identifier": "AR-096292-A1",
+      "source_fingerprint": "fd52260685a034256150378584950b9a31af233b9b189dba8484bf64e1304600",
+      "content_hash": "966c51cf74db8040552b0cc6991d232eeb2cba4db3469e4882b6bc0491f9620b",
+      "decision": "LINK",
+      "keys": [
+        "fibrous-filtration"
+      ],
+      "reason": "원통형 여과재와 양단 밀봉의 공기 필터이다. 구체 여과재 구조는 추가 확인 대상이다."
+    },
+    {
+      "identifier": "AR-096316-A1",
+      "source_fingerprint": "35bbfb2b51c75222db73d587c79cad104a6f02926ed8b2c5880aac991e6b3178",
+      "content_hash": "1d3ebbf0f63f4a97198aa7854468bf15b18f34d1aa582ad9b33fa3a48c3ace64",
+      "decision": "LINK",
+      "keys": [
+        "cavitation",
+        "pressure-driven-flow"
+      ],
+      "reason": "밸브 내부 유로로 캐비테이션·소음을 억제하려는 구성이다. 실제 압력 분포는 초록에 없다."
+    },
+    {
+      "identifier": "AR-096336-A1",
+      "source_fingerprint": "e0b882d79e42473d35734de74983183722671e89fd3a1e628cae83ebc9026277",
+      "content_hash": "4c7bf99fec47c963c1379a62b231fcfab55c243f602d40e40eeb1a0afcde739b",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "핀과 분기 홈의 상대 운동으로 장치 상태를 전환한다."
+    },
+    {
+      "identifier": "AR-096357-A1",
+      "source_fingerprint": "c7c36705b4ca83712f79b9150efc8717d431188cea75c92ee975643736d9ef82",
+      "content_hash": "9a1356ea4b90b7a204afc98b3cefd749d2e4af9d8c80ddad1cc8bdb7d1c17c5f",
+      "decision": "LINK",
+      "keys": [
+        "bulk-comminution"
+      ],
+      "reason": "편심 간극의 회전 분쇄기이다."
+    },
+    {
+      "identifier": "AR-096379-A1",
+      "source_fingerprint": "0074925ff33c31f1c3c01ac54b2142fa43661c0eabe523c462e33aba3b20ec14",
+      "content_hash": "b0d6e12ccfd916911ff2fe08977981daff213dad69f8e9e0fd6d0a141fcaa0f8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 구조 목록만 있으며 표적은 없다."
+    },
+    {
+      "identifier": "AR-096380-A1",
+      "source_fingerprint": "00798872d6431fab2dc8b57f23d1aea27c5d776c0cbb9c5ccff76c6cdad437a6",
+      "content_hash": "8c8479a5561c828df1a5cfcdb495c19051cffada4d5be54727834b425c8bf91c",
+      "decision": "LINK",
+      "keys": [
+        "hydrostatic-pressure-compensation"
+      ],
+      "reason": "광물 입자로 시추 유체 밀도와 정수압을 조절한다. 입자 결합 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-096382-A4",
+      "source_fingerprint": "5d5f529ab6a7c056ca55422db8c10114fed7111c3a9ee7534a1e263b00e135c7",
+      "content_hash": "30ebd71a47b6010baab94ac5fbd5efdd799a6fbb6e0d3768cf6a877aae1fdb4a",
+      "decision": "LINK",
+      "keys": [
+        "phase-change-storage"
+      ],
+      "reason": "얼음의 동결·융해 축냉을 전력 수요 시간과 분리한다. 절감액은 운전 조건에 달려 있다."
+    },
+    {
+      "identifier": "AR-096386-A1",
+      "source_fingerprint": "9641ab097dd11f526a4c85ae35a3c12bc0615beb9bdcd59a0098f8edaa3b8c77",
+      "content_hash": "2c1678df9cfbd1bd30e1b3aacfd2e79d5fe5a657692708504592962b16327b83",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "enzyme-inhibition"
+      ],
+      "reason": "EP2 수용체 길항과 COX 효소 억제의 병용이다."
+    },
+    {
+      "identifier": "AR-096389-A1",
+      "source_fingerprint": "f1104094a5e0da58e4ab462d696f19b2bfa8364aa62ead3435d9ce4880d2eba4",
+      "content_hash": "8c4f38608318f9792af1067640cc92e9cd98db70e9864efa3467ef70fbcfd2db",
+      "decision": "LINK",
+      "keys": [
+        "thermochemical-heat-storage"
+      ],
+      "reason": "수화 황산칼슘의 열적 탈수와 수화 반응 범위에 연결한다. 점토별 성능 차이만으로 새 효과를 만들지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:39:27.981089+00:00"
+}

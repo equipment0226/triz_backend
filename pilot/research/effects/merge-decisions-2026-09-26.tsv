@@ -1,0 +1,10 @@
+# source|representative|reason; explicit conversation decisions, not string-similarity inference
+fuel-cell|electrochemical-cell|연료의 연속 공급은 전극 산화환원·전자/이온 경로 분리라는 기존 원리의 운전 방식이다. 공급·수분 관리 조건과 출처를 사례로 보존한다.
+pressure-swing-adsorptive-separation|adsorption|분압으로 흡착 평형을 바꾸는 재생 주기이다. 압력 순환 설계를 사례로 보존하고 흡착과 별도 효과로 계수하지 않는다.
+simulated-moving-bed-separation|chromatography|같은 고정상 선택성을 사용하는 포트 전환 운전 방식이다. 이동층 모사·주기 정상상태 조건은 응용 사례로 보존한다.
+fluorescence-dequenching|fluorescence-sensing|절단에 따른 소광 감소는 기존 형광 세기 검출의 자극·기질 선택이다. 모든 소광이 FRET라는 잘못된 동일시는 하지 않는다.
+quartz-crystal-microbalance|mechanical-resonance-property-sensing|기존 상위 카드가 이미 수정 미량저울을 포함한다고 명시한다. 질량 부하 공진 변화를 중복 계수하지 않고 강성막·액체 점성 조건을 보존한다.
+hydrostatic-level-sensing|hydrostatic-pressure-compensation|동일한 밀도·가속도·액주 높이의 압력 관계를 계측으로 읽는 적용이다. 대표 제목을 정수압 관계로 확장하고 측정 조건을 보존한다.
+hydrostatic-liquid-seal|hydrostatic-pressure-compensation|동일 액주 압력을 기체 통과 문턱으로 쓰는 응용이다. 증발·사이펀으로 봉수가 없어지는 조건을 보존한다.
+derivative-feedback-braking|negative-feedback|측정량 변화율에 따라 구동을 보정하는 피드백 구현이다. 미분 잡음·필터·문턱·지연 조건을 사례로 보존한다.
+evanescent-wave-absorption|absorption-spectroscopy|전반사 소멸장을 광경로로 쓰는 흡수 분광의 측정 구성이다. 계면 민감성과 침투 깊이를 사례로 보존하고 벌크 흡수와 별도 계수하지 않는다.

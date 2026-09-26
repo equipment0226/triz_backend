@@ -1,0 +1,244 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "371469ca1f48868907c7a0353ae8c51829a3115e8ecc4689f946fa32b5ff9066",
+  "reviews": [
+    {
+      "identifier": "AR-086445-A1",
+      "source_fingerprint": "1cc25e8cce87616380165f4e8fe624970f97678092acd0b7b3398eccffccc153",
+      "content_hash": "991f099aacfa87effcd2bf6929487ea52b52d27ee0401afb679ac5fae9ac87df",
+      "decision": "LINK",
+      "keys": [
+        "chromatography",
+        "ion-exchange",
+        "hydrophobic-association"
+      ],
+      "reason": "음·양이온 교환과 소수성 상호작용의 연속 크로마토그래피이다."
+    },
+    {
+      "identifier": "AR-086450-A1",
+      "source_fingerprint": "fab46d31115e0d0a1235aea437a612a0412eff7627b8e061ff90c9b87ba5a65e",
+      "content_hash": "0a971ae47e9b690e8b9e59748e6d0351e8eb6f878b072e0a41f20594a6ff7f08",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-insulation",
+        "electrostatic-charge-drainage"
+      ],
+      "reason": "케이블 절연과 접지 도전 부재를 조합한다."
+    },
+    {
+      "identifier": "AR-086466-A1",
+      "source_fingerprint": "8892b7ca3f5b9b8b337ebebf6dd5e0c64e365bb2b8d7c5ce5e84026dc8a68b70",
+      "content_hash": "f924eebcbe80927001bb008309fc252bbde0489d86a417c6ed586fdb948369b9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약 혼합물의 분자 표적과 상승작용 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-086471-A1",
+      "source_fingerprint": "b6d1b14633db294c7868cf6c1c9929a454330fcd751e562e10d935f474615380",
+      "content_hash": "9340b7f103704d44369cd4ccce56cd576751daff47c86e7fa6abb0ff2f58f303",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "fermentation"
+      ],
+      "reason": "외래 당 대사 유전자와 적응 진화 효모. 검토 중인 차등 생존 선발 후보의 보조 사례이다."
+    },
+    {
+      "identifier": "AR-086478-A1",
+      "source_fingerprint": "bf9afd21da70c68f7a8dc43b33998ec75fb380bf19c64036c47bbfc6ddfd229d",
+      "content_hash": "c925ba2f13495373073d226fa430b82065296bad7040ed1055a736c872c994d4",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control"
+      ],
+      "reason": "친수화로 응축 물방울의 젖음 형태를 바꾼다. 초록의 물방울 반발 설명은 친수성과 구별해 해석한다."
+    },
+    {
+      "identifier": "AR-086495-A1",
+      "source_fingerprint": "a2d712af05007b64bf28ef8176aa8faecc2e7325137ad2777c4df12dc56f73e6",
+      "content_hash": "9662ac2cbecf8e03b306b17836cd88cfd6c7eba7ca5d430da7b21b2499869151",
+      "decision": "LINK",
+      "keys": [
+        "laser-ablation",
+        "stress-concentration-fracture"
+      ],
+      "reason": "레이저 절개로 국부 취약선을 만든다."
+    },
+    {
+      "identifier": "AR-086500-A1",
+      "source_fingerprint": "611c1d70ab8f4141a79d36e94d99300462880ec9246a39919f41c0d06c645955",
+      "content_hash": "4eeca7d1d25368b5ef5e053aee652751ea96a9c84ffc64064eabc234e6d6de90",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "레닌 억제 화합물이다."
+    },
+    {
+      "identifier": "AR-086504-A1",
+      "source_fingerprint": "5a2d1a2f24753096a05b746e46f53bcd3285ee27420f8201bd6e0201ae7e16c7",
+      "content_hash": "278f320dc6199713184d0950bdf7bfd7254c9775b136d68f7535ee3bc76ea79a",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "frictional-load-transmission"
+      ],
+      "reason": "롤러 견인과 반복 굽힘으로 금속관을 교정한다."
+    },
+    {
+      "identifier": "AR-086523-A1",
+      "source_fingerprint": "e85121c0daf5ec9ae911c781f3c15474a107bf1c3d2d43c3ed0a0f722f398997",
+      "content_hash": "492a22f7d2a7b3d580fd2d2d3f7024c627a7a32a41e7972b9983f0c5376e283d",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "관절 구조와 액추에이터로 용기를 들어 뒤집는다."
+    },
+    {
+      "identifier": "AR-086554-A1",
+      "source_fingerprint": "9d0d292b419ae142765455c3de89351bfea917ef641793eda6f24dca6ed201ec",
+      "content_hash": "29479329ac2d624230e4bf436d1209c0a583c1ad79373727a173dffb20169462",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "그렐린 수용체 작용제이다."
+    },
+    {
+      "identifier": "AR-086565-A1",
+      "source_fingerprint": "4a82f3a02d9ed22dbefed146dd1c900b78bc62f86bff90d4732203e7c0d575c1",
+      "content_hash": "ea3f5ed4e515cc08fd1198eb7641eb3c84b7f4cc0cfeaeafe8047d13d8ca46f7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제 배합의 효능 주장. 성분명만으로 경로를 새로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-086578-A1",
+      "source_fingerprint": "98663f02ce4fe1d65703baf51b008fabea144df22625bf4cd0f16cb57c4754cf",
+      "content_hash": "680819dfca7aae3ebecdfe30b5624074f76b22f0b0864ad1c266aa5c2855485f",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "acid-base-reaction"
+      ],
+      "reason": "탄산화 후 리튬 탄산염 고체를 침전·회수한다."
+    },
+    {
+      "identifier": "AR-086582-A1",
+      "source_fingerprint": "0bf3f8cf6ec4a602dff7c0effb6064ed18152f23da16d2fc8887c037ca540871",
+      "content_hash": "8e5137b512a32d8b2765197f38966319de2943fc3d96dda99727ba7f1310ca0a",
+      "decision": "LINK",
+      "keys": [
+        "immune-checkpoint-blockade"
+      ],
+      "reason": "NK 세포의 억제성 KIR 수용체를 중화한다. 치료 결과는 별도 평가한다."
+    },
+    {
+      "identifier": "AR-086583-A1",
+      "source_fingerprint": "5246c646ef9e9eaa9d6cc4b07e330312c472495977e3ab89c3a15fb2d4c6a3de",
+      "content_hash": "7876a07ad4a3522effc0bd7cb4de9a5c8ec2481f2f4e9b92f1394a95292682b2",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching",
+        "pressure-driven-flow"
+      ],
+      "reason": "가압 액체가 캡슐 원료와 접촉해 음료를 추출한다."
+    },
+    {
+      "identifier": "AR-086588-A1",
+      "source_fingerprint": "e502be3cb6d1411b79735f2699da681d363ccad6b7d093bed19102612088c78d",
+      "content_hash": "09ceec1525c7b403779f6c5ffa3d6d7515535973069f35a9a4645dc43789aa8c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광범위 농약 성분 조합. 분자 표적과 상승작용을 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-086592-A1",
+      "source_fingerprint": "7f41aa58741db08dc1827c6c85c4fd25fd9b978fb10d43f5c9229d3f27aebd27",
+      "content_hash": "cf66dd5ba71d8b29cbf8ed7389ea6599924c9b48b6c623fc899f334de8142f4d",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "cement-hydration",
+        "section-moment-stiffening"
+      ],
+      "reason": "철근 걸림과 콘크리트 경화 및 보강 단면을 조합한다."
+    },
+    {
+      "identifier": "AR-086596-A1",
+      "source_fingerprint": "40821516138bf20eef57dcdd544da197656f42ba178e3952bd3dcc3b01ad9e3a",
+      "content_hash": "45185bd4e11db9dfa354e277454b572f3fef42f0bbca696979d6af05aebbaa33",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage",
+        "mechanical-interlocking"
+      ],
+      "reason": "지레 도구로 암수 구조를 결합·해제한다."
+    },
+    {
+      "identifier": "AR-086631-A1",
+      "source_fingerprint": "7a1780b7643d271f49ffa54965aa033ee3f2b21532ba3c4c374418aa95c4fd2f",
+      "content_hash": "7d70dfc28c19ed00713d1b381118a5db0a71af35a3c2efbce04f0a5ed3eda341",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "프로락틴 수용체 항체가 신호를 차단한다."
+    },
+    {
+      "identifier": "AR-086647-A1",
+      "source_fingerprint": "fff26e8b73f2af570da4adcd376777f578e90fa04d4f1d7ad1b7c2d2b590a411",
+      "content_hash": "6ae8832ef10520a53446e01aff347f3b10057b107490c32035a03e4609349877",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PI3K 억제제의 치료 용도이다."
+    },
+    {
+      "identifier": "AR-086687-A1",
+      "source_fingerprint": "064111a98dea28b2b7871f8b5894ee1a3b1846797f143eda8ad3bb68ef67012b",
+      "content_hash": "dd9f1542fa14bacb40fa8a151cb1211caf18dd50e43d67ff4dbfc4fdae3f00a3",
+      "decision": "LINK",
+      "keys": [
+        "linear-frequency-filtering"
+      ],
+      "reason": "피스톤 센서 신호를 필터링해 동작을 판별한다. 센서 물성은 미상이다."
+    },
+    {
+      "identifier": "AR-086688-A2",
+      "source_fingerprint": "ec2cd1beb4c898f39732713f7ad5e7cb07bf70f00ae7f0f2a04e095f09c91416",
+      "content_hash": "cf8b84f0149c24d7cb694c5786848dfbcb8f186e72dbf4456959bebd4d3ddd22",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "변형 기름 부형제의 지속 방출 주장. 분배·확산의 정량 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-086725-A1",
+      "source_fingerprint": "ff9c09d238960bfa71de9575829be28502e619f302fefa143667a68a1808207d",
+      "content_hash": "d63190ad636a8cea0f853e55ac3624545c53fe9deaf681ca9ffdfc37b701036b",
+      "decision": "LINK",
+      "keys": [
+        "water-electrolysis",
+        "catalysis",
+        "barrier-coating"
+      ],
+      "reason": "산소 발생 전극의 산화물 촉매와 보호층이다."
+    },
+    {
+      "identifier": "AR-086727-A1",
+      "source_fingerprint": "de50e495079ecf6866db33bc93065548c1d880cdf889b30cefb1dbdec379eb3a",
+      "content_hash": "13517ac89d3f12dae1301c15f5d0f9e36b74b976394c91472609ce868dbeb723",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "수용성 담체·습윤제를 포함한 제초 과립이다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:33:21.604747+00:00"
+}

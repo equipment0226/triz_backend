@@ -1,0 +1,172 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "849881fcc93ca5ff036ef8c38a33847aaadc55e592488483488f4fcc9a8d1476",
+  "reviews": [
+    {
+      "identifier": "AR-078307-A1",
+      "source_fingerprint": "b16cc4e8b7b23517950839e8347a5e2a30021ab9b81c182b3a340a545014b78b",
+      "content_hash": "acb962cd4104c5bc0e66df358648cb94ec60e957aa3e18d434ea00f7c2d79b78",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "ion-channel-modulation",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "효소·채널·수용체 약물군을 명시한다. 조합의 상승작용은 초록 주장으로만 취급한다."
+    },
+    {
+      "identifier": "AR-078324-A1",
+      "source_fingerprint": "66817077100e560d9e6a0c41c315152c4bf1c9d6f2b06e3631a79a2c96b83e00",
+      "content_hash": "a6e805fb152a587efc7894a2db31d72a57f926d8238b301dbac81273c18659bd",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "evaporative-concentration"
+      ],
+      "reason": "EOPO 계면활성 고분자와 수성 운반체를 사용해 코팅 후 건조한다."
+    },
+    {
+      "identifier": "AR-078332-A1",
+      "source_fingerprint": "24b08080fe16100e6d3eb16c81967b96fbba0f568c433f82f1cb42e07d652fad",
+      "content_hash": "41e31bc3ef8fdbc6d6aec63b1e457f9734f94690ca74e832f46ef9b84b192b02",
+      "decision": "LINK",
+      "keys": [
+        "electrical-continuity-sensing",
+        "time-of-flight",
+        "photovoltaic-conversion"
+      ],
+      "reason": "도전 띠의 단선과 시간영역 반사로 손상 위치를 찾고 태양전지로 전원 공급한다. 임피던스 불연속 반사 계측 후보로 기록한다."
+    },
+    {
+      "identifier": "AR-078354-A1",
+      "source_fingerprint": "f0a2a1707ab7af920e4e415c0d52ac65f080d3de35653ab2619ed4391f007daa",
+      "content_hash": "402417db7edef1fd37965bb6fdb8cdf382de4f9184ae020d26f42b01f8e578fa",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제의 방대한 치환기 범위이다. 저장 끝이 잘려 있으며 작용 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-078355-A4",
+      "source_fingerprint": "c6902bd12b5b5392e2ce4508d00be18b9dd07e6d24f507f7c42d87fa06155e75",
+      "content_hash": "2823d1bad3cac6fb7074e0d56b220fb3b0d6a31b3c3e9c98f0fc65ed5f794ed7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "방수 직물과 탄성 개구부로 구성한 재사용 수영 기저귀이다. 초록의 흡수성·소수성 표현이 모호하다."
+    },
+    {
+      "identifier": "AR-078358-A1",
+      "source_fingerprint": "398ea07fe3a21ce73359926007a312b99bdfcd5b7f2b6352ddf702765d7ee41d",
+      "content_hash": "2800b35dd8110d63d98d946039eadb39bbb93dd4e73913c48abc070c24558df4",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "Nurr1 활성화 약물을 제시한다."
+    },
+    {
+      "identifier": "AR-078363-A1",
+      "source_fingerprint": "0bef201aa6a3440fe7cdd157b525e57b0ad9b7f21d1bfd7a5066c8f0c1d42afb",
+      "content_hash": "0310953a24a1122a530b220c4d60ac9ec06aa84dbcf552f5eefa73cf3bb3708c",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "농축 세정제의 계면활성 성분이다. 고분자·결정 구조화제의 상분리 억제 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-078378-A4",
+      "source_fingerprint": "656b31f7b087d9298ba347b94a6cd89b87ac1bee2ccb71d464d5a671e1211801",
+      "content_hash": "1ca9a908585ab3f1219b250c8388119046ca486cf7094df3c3e897d2fa5f4f74",
+      "decision": "LINK",
+      "keys": [
+        "electroluminescence"
+      ],
+      "reason": "LED로 투명 방풍판 가장자리와 각인부를 비춘다. 전반사 전파는 추가 근거 없이 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-078379-A4",
+      "source_fingerprint": "8f3ffe6badc5a991abd3fb72e2d4d0c2c64d3048aef7d8ef136f96bdadf8602b",
+      "content_hash": "448ba1958cf065a90023af3608f8d5a3fd68f1289c28a71c65fa03e642e7ecb9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "탁상 베틀에 추가하는 지지 홈·종광 구조이다."
+    },
+    {
+      "identifier": "AR-078382-A1",
+      "source_fingerprint": "5474b8e22c82466feb56176deaad9279b6cfd2957dc1d404bea0d58f2d2760ca",
+      "content_hash": "e73a4142ae1ba10989c11734730c505e21c3a586c3c096505fe1fe5dd539c970",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "여과와 살생물제 정량 공급 장치이다. 여과 매질과 살균 반응은 미상이다."
+    },
+    {
+      "identifier": "AR-078387-A1",
+      "source_fingerprint": "29748026c194254c7f966fceb5a7d3eaf6e5933e258f768bec8caba57e60b31a",
+      "content_hash": "c33f1cf3c0c230141701753c02da34e92d3c67f735a13fd2de52bf20fcd4107d",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "날 가장자리로 벨트 부착물을 긁어 제거한다. 홈이 만드는 유연성의 상세 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-078403-A1",
+      "source_fingerprint": "9ef9f6cb5b068fdd3f8d03ce09c8c270b551cba91d23f3103c389141162197e4",
+      "content_hash": "e241ee11a8dd603c85d2187d81c3a8ebe17c247c0447aadbc502655e6f7619df",
+      "decision": "LINK",
+      "keys": [
+        "distillation",
+        "condensation-recovery"
+      ],
+      "reason": "탄화수소 냉각·응축·분별 공정이다."
+    },
+    {
+      "identifier": "AR-078406-A1",
+      "source_fingerprint": "bc1a460cbf02ccd57b7f495c33e5cd1c04939035a7db092e9129beba11d8d3f6",
+      "content_hash": "69261ddf5339ce339941a2b266360446a1762a3760bb2399581b8369975762bd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광물 충전재를 함침한 발포 고분자 차음재이다. 질량 법칙·다공 흡음·점탄성 손실의 기여는 구분되지 않는다."
+    },
+    {
+      "identifier": "AR-078427-A1",
+      "source_fingerprint": "405476cc9fb1f9863b8fe65d808ecc52a9434145f82a6651553362bd6988219d",
+      "content_hash": "0cc2c79dfa73c80b0093fed1caf1def82e3d84f75ea375db941f6c728943183d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유체 속 배아를 검출하고 표면에 개별 배치한다. 검출·분리의 작동 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-078429-A1",
+      "source_fingerprint": "643769d58a3613298e746d34a9da563a80f09cd8ddc2804862c56e2cefd75e6c",
+      "content_hash": "2561f5d71070c00673befeeeac1da5ef0fed826ac44c170ea46e73420af23baf",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation"
+      ],
+      "reason": "백금 촉매로 방향족 니트로기를 아민으로 환원한다. 니트로기 산소 제거의 결합 변화는 후보로 구분한다."
+    },
+    {
+      "identifier": "AR-078431-A4",
+      "source_fingerprint": "44c80b234dcc7faceabb110609fc92b81ad9f2eaa7ec8017cbbf657ace827c6a",
+      "content_hash": "8da2e5e872b741dc27e4d86100ceb02e9e2707bfe9dfe8190d8a50238c2dfe0d",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "한 공구의 절삭 날로 드릴링과 나사 가공을 연속 수행한다."
+    },
+    {
+      "identifier": "AR-078432-A1",
+      "source_fingerprint": "217ec3d8f285283093ff9e7960b8fd94fb4504d66449d8c43c5ca6ae5082d1b8",
+      "content_hash": "b1516dd4ae3831c8dfd05ec9950e0e83860fa6305bc039e4b6dd58e291f0d21d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "효소로 식물 세포벽을 분해하는 일반 원리만 연결한다. 병원체 항원 생산·회수 최적화는 추가하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:12:49.972417+00:00"
+}

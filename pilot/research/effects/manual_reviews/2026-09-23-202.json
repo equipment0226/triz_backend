@@ -1,0 +1,138 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "2191463530f6aeff9ba3c02003950283cb7e37bc86e15530e3bedfe2e373febc",
+  "reviews": [
+    {
+      "identifier": "AR-109205-A1",
+      "source_fingerprint": "ccd7c95d82bd25e61084fa8b0887c536bae0d979f5ebb2d6623fcebe0aa1d45c",
+      "content_hash": "db5f162efb4148501941a077d7707fdcae29d21f84a33cb84b17dc9f142e16ac",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression",
+        "heterologous-gene-expression"
+      ],
+      "reason": "상보적 이중가닥 RNA로 해충 표적 유전자 발현을 억제하는 사례다. 서열·생산 조건을 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-109212-A1",
+      "source_fingerprint": "38eab6b9cded2e20692d3313ca6a9cfb660302df40475288969dbabe19f233cc",
+      "content_hash": "bbe560819ec4dc4342dd4ab8dcf98387dc862b045da8327f5be60abbef0df008",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "gelation"
+      ],
+      "reason": "알코올 에톡실레이트와 글루카미드의 수성 세정 겔이다. 겔의 특정 미세구조는 미상이다."
+    },
+    {
+      "identifier": "AR-109218-A1",
+      "source_fingerprint": "02849e480231e45c774eb512aebff16f01f367e97514a16b1c3d0ff63382d839",
+      "content_hash": "2642f5afb64fc63910f275f1d617c014daa5faef70498f821140b7c3e18e719a",
+      "decision": "LINK",
+      "keys": [
+        "redundant-path-fault-tolerance",
+        "queue-buffering"
+      ],
+      "reason": "중복 경로 패킷의 수신 확인으로 다른 송신 큐의 불필요한 복제본을 제거한다."
+    },
+    {
+      "identifier": "AR-109223-A1",
+      "source_fingerprint": "f308f2a8300edded009c5da082898d4aef438bf52ab52d5e3c7465d4457ffbcc",
+      "content_hash": "aadbf3f0aef3fa07d4a14628fd86002218ba0516aba266a937c003977ef7457b",
+      "decision": "LINK",
+      "keys": [
+        "supervised-learning"
+      ],
+      "reason": "학습 자료로 다중·초분광 영상과 식물 질소 변수의 대응 함수를 학습해 새 영상에 적용한다."
+    },
+    {
+      "identifier": "AR-109230-A1",
+      "source_fingerprint": "25093aae35dc11c5c5d773e4f1e7202c0259c65fa3db986a5174a3d156ddef4c",
+      "content_hash": "76d52750d48c4d83f4fb75fa57e84a31d55f0b1d893dceb9639ef9022d4eba24",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "광분배함의 받침·뚜껑·가스켓·트레이 구조이며 밀봉 재질의 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-109239-A1",
+      "source_fingerprint": "38999549a56f0bceafedddae414ba96e6be4086d6b03376d83047ee8b314c72b",
+      "content_hash": "30e9ea0c59accbc218fa0f40246d3a102502e64c68252178352482247b9ac915",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "미생물 배양으로 식물 자극 성분을 얻는다. 성분과 식물 수용체 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-109257-A2",
+      "source_fingerprint": "918949295a7d146d2ed3ecc1866644e73a33a51203481187eefccda941e001bc",
+      "content_hash": "a645952f2aca22ec8a181e9c89c48af4f55ced0ec8114dbcbe53272602d1b350",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "효소 저해제·옥신 계열을 선택 가능한 추가 제초 성분으로 열거한다. 혼합 효능이나 모든 성분의 동일 표적은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-109290-A1",
+      "source_fingerprint": "1c7b14788fe32c2bcb3cdf49839e916e25e493a859c7e536c2ae237d7f4171de",
+      "content_hash": "fd1cd4d860231242681b77c6ac3adb20817eab1d22e9757a9cd02c37fb085e2e",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "다당류·운반체 단백질 결합 백신이다. 준비한 운반체 연결 항원 인식의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-109298-A1",
+      "source_fingerprint": "cc08615132dbcabfabdb8e15addb4ac054f57b9348b0614bdb0351f8784d25dc",
+      "content_hash": "1c24f4d94160817070dc535d3e19609706d00b0b53f0a9b24c0ed89a52f1e4c9",
+      "decision": "LINK",
+      "keys": [
+        "multivalent-avidity",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "서로 다른 OX40 에피토프를 인식하는 사가 결합체가 수용체를 활성화한다. 정확한 올리고머 수를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-109306-A1",
+      "source_fingerprint": "272653a52b77771f8beb484eb3b552a78d19f7404a418de7dc25ee1ab5c2e5c7",
+      "content_hash": "d2516f5938e1117ce8bd6185413174adc915b1032147933739172dac1fcf5d98",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "Protox 변이에 의한 제초제 저항성과 다른 화합물의 억제를 구별한다. 준비한 표적 부위 저항성의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-109310-A1",
+      "source_fingerprint": "9bb65243ab932f38c5e953b7b952da094e5db5c5d3cb681704d6450e33758311",
+      "content_hash": "6357db8024eb45b2c5bc72b98833a1f69f4e28bc27cf04a78c5d692be53822ab",
+      "decision": "LINK",
+      "keys": [
+        "rolling-contact-friction-reduction",
+        "elastic-energy-recovery"
+      ],
+      "reason": "텔레스코픽 공구 지지부에서 마찰 부싱을 롤러로 바꾸고 스프링으로 하중을 전달한다."
+    },
+    {
+      "identifier": "AR-109318-A1",
+      "source_fingerprint": "fea52ddd857de9580467ff30ecedd38091b9c49ffed419d6ac5a727884fd7ac0",
+      "content_hash": "f921be73cfc37c0260e134be9ea010ed2e2239355e43118f2e0bb7284431d2d6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피라졸리닐 유도체의 구조·식물 조절 용도만으로 표적 작용을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-109320-A1",
+      "source_fingerprint": "8908b07df7a32975ff81b40802c4b728de590634e16c9dc5fa69f67922293d6d",
+      "content_hash": "5637d2d6e0b8b722c4c94360f54d50487db8c010c95579e912631560c6b40428",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이미다졸릴 카르복사미드 살충제의 구조만 제시하여 작용 표적은 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:49:40.761695+00:00"
+}

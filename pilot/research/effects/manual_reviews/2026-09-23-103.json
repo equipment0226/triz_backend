@@ -1,0 +1,237 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f3e79439a36bd3279709b00d02c08f79a6e486bcc10b67f59f353b381c8c41ff",
+  "reviews": [
+    {
+      "identifier": "AR-087278-A1",
+      "source_fingerprint": "d398be5559f39a6de0cf3e6931e81595d679fd7a4bba411b72423d899981c4ef",
+      "content_hash": "485b5b8c85aaa6ecbb959ad68ebb1c3449c953958858a25c0e8add32ed5ade07",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "발달 단계별 교육 메시지 제공 방법이다. 독립된 물리·생물 기전이나 임상 효과 실증은 없다."
+    },
+    {
+      "identifier": "AR-087294-A1",
+      "source_fingerprint": "0125e81e03d9f1eb94937f0e13d37f79f2ec3d6cf14864597e4d5200e95471e5",
+      "content_hash": "cce54e3c5f0d57aeb342f43aea57b4fb89ed19818ffc2a1b581e93a0b5c94c47",
+      "decision": "LINK",
+      "keys": [
+        "gas-solution-diffusion"
+      ],
+      "reason": "산소 투과성 내막과 천공 외막으로 기체 교환을 허용한다. 두께 단위는 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-087303-A1",
+      "source_fingerprint": "37c46d06495785c533cf67d209372999ef76d6731a0960aa87dc66f09dacc381",
+      "content_hash": "926c906c568250a8cae4c66fa3e50afb288a94b5934d6246582fb6b7f55f7cef",
+      "decision": "LINK",
+      "keys": [
+        "geophysical-inverse-reconstruction"
+      ],
+      "reason": "측정 로그에 맞춰 지층 모델 기울기를 바꾸고 예측 로그를 다시 계산한다."
+    },
+    {
+      "identifier": "AR-087327-A1",
+      "source_fingerprint": "3fc9159e4e941d0c6edfc3b6c63fdebfa628a38cc7c1663eb8f86e37c1e1abd1",
+      "content_hash": "8e4dc3939b0556f630bb2bbf1ba373de69eeb71d8bc91151659f27b72aece6d2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "반응성 고분자와 생체 매트릭스 지혈 스펀지다. 어떤 작용기가 어느 조직 분자와 결합하는지는 미상이다."
+    },
+    {
+      "identifier": "AR-087342-A1",
+      "source_fingerprint": "0fb99f2f09edeea820bebd78fb700688e243c3fcb7d62b30ee92688f5c7bb135",
+      "content_hash": "bdf54663d14a9e0f6af051617e50d567e886b60bf4e0e082c0a8436e1746679e",
+      "decision": "LINK",
+      "keys": [
+        "signal-directed-protein-localization"
+      ],
+      "reason": "CRM1 핵외 수송 억제를 명시한다. 핵공 선택 수송의 Ran 구배 결합을 별도 후보로 대조한다."
+    },
+    {
+      "identifier": "AR-087352-A1",
+      "source_fingerprint": "d34a294ab575b73c2ac948c8f4d90b890a8e44342d12c125d9c692bd67454e21",
+      "content_hash": "6a1913f1e8068b94ec3ffbe3ffd100f492dca08f41fe76db7b1e42df22bd1d8c",
+      "decision": "LINK",
+      "keys": [
+        "doppler-sensing",
+        "hilbert-quadrature",
+        "linear-frequency-filtering"
+      ],
+      "reason": "연속 도플러와 직교 분석으로 이동 방향 성분을 나누어 청취한다."
+    },
+    {
+      "identifier": "AR-087354-A1",
+      "source_fingerprint": "0123be801498dfc0a539a3814b5144b523b40a4b883989e54908333ab19f07a9",
+      "content_hash": "d7b911c372a17ab1b21bf7481378128cc8e34962a412e1afb27419453a7bcdd4",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "c-kit 키나아제 저해를 명시한다. 질환별 효능과 변이별 선택성은 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-087360-A1",
+      "source_fingerprint": "d337a52453216f78a0ef656e3a40df98014d260240b7cbe34a962ca56c613bcc",
+      "content_hash": "f9e052da23c6f770323678584673e30e5121d58a0621113c32bfb3ed1bac755a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자 매트릭스 속 코팅 입자의 조작 저항·즉시 방출 제형이다. 지배 기전은 불명확하다."
+    },
+    {
+      "identifier": "AR-087370-A1",
+      "source_fingerprint": "0cf9f34b81d791bd066f8452cfdeeda290a6a9c445ab4617be86b9a0bf8d765e",
+      "content_hash": "401f5b01b56c3356858921b163810e18cd7da4cbcfe57e671578e46bf3cfedc5",
+      "decision": "LINK",
+      "keys": [
+        "capillary-wicking",
+        "joule-heating",
+        "condensation-recovery"
+      ],
+      "reason": "심지 모세관 공급, 전기 가열 증발과 응축을 결합한다."
+    },
+    {
+      "identifier": "AR-087378-A1",
+      "source_fingerprint": "7ac69a7b4d7b6b5a704ee1dcc4223b19afb25d2681256ed6f96d0bf2d4e3f79d",
+      "content_hash": "5a8b8a8eb4765729c3f6fdafe69f6c162267a2411edeaa019f25d12473e29fa1",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation",
+        "acid-base-reaction"
+      ],
+      "reason": "산성 유체와 킬레이트제를 사용한다. 특정 광물 제거율이나 황산염 침전 억제 성능은 미상이다."
+    },
+    {
+      "identifier": "AR-087392-A1",
+      "source_fingerprint": "08de21c8d292bb4064a168e3b45d7f0b6c13d9e485bf26b4b0d91fdfa8956f20",
+      "content_hash": "793a904446449b73cdab266647a6af50a2ea24776621a424392f44b75a9b41b1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "항암제와 방사선의 병용 구성이다. 상승작용이나 구체 기전을 초록에서 입증하지 않는다."
+    },
+    {
+      "identifier": "AR-087414-A1",
+      "source_fingerprint": "815513156dc2649877f7b4af5eee36797ed03ef100baf39a925c896cbd5e437f",
+      "content_hash": "58c79e044bdf31105be752228d1ffa1eb51464a58d9f3395c36ceba51556df1c",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "주입 압력으로 균열을 형성·확대한다. 광학 분석의 상세 신호 종류는 미상이라 별도 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-087416-A1",
+      "source_fingerprint": "93a2822d8195ec2c0767da0270293863ee05b338bb39662ab20ee645485dd5cd",
+      "content_hash": "b5cfb5b32d8c17c6005a3bdff8eb71edf121d64d928f571702bb77557fa1d424",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "경운 조건에 맞춰 그룹과 하향 힘을 반복 조정한다. 센서와 제어식의 세부는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-087432-A1",
+      "source_fingerprint": "ad1e3b6a8fbfe19f1fc586b7499525a5dbbb8328baabed01f7bb79bf6cb01d7b",
+      "content_hash": "d79ed14b8e0d68aa1dfa4897aaa71c241cbe1239e05716b38817e06f083a97ea",
+      "decision": "LINK",
+      "keys": [
+        "olefin-metathesis",
+        "catalytic-hydrogenation"
+      ],
+      "reason": "교차 메타세시스 후 니트릴을 수소화한다. 니트릴의 아민 전환을 작용기 반응 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-087435-A1",
+      "source_fingerprint": "2a690ec5abe15b57eadea6a096eddc8cf5af3e08fa8483af6a025408d7eef52c",
+      "content_hash": "30edd80f223e05dc2245e85b978bbd8a2908b6e6754c6206f202f8b5ef6adbad",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation",
+        "distillation"
+      ],
+      "reason": "산·에스터 수소화로 만든 조제품을 환류 증류하여 에탄올을 회수한다."
+    },
+    {
+      "identifier": "AR-087438-A1",
+      "source_fingerprint": "e829c04199cfb10c698d841f8b3d17fbe0fc611cb3359893fd7b6bf0456d0d30",
+      "content_hash": "42e6339d7933693333691b17727b62323093ff9dd2e59f46eb4eb67ea7d24576",
+      "decision": "LINK",
+      "keys": [
+        "pyrolysis",
+        "condensation-recovery"
+      ],
+      "reason": "바이오매스 수첨 열분해 후 응축·촉매 산화를 사용한다. 황화수소의 황산염 전환은 화학 종 보존과 선택성 추가 대조가 필요하다."
+    },
+    {
+      "identifier": "AR-087439-A1",
+      "source_fingerprint": "36bda53ac5709ba49746feb297b0bce43896c8f43936955f554a1e82ffeab34d",
+      "content_hash": "d0ec852877f802a0393c2e19a3376ae3edb269c97df207a72ccc46a6ecbade3e",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "판재를 홈에 맞물려 고정한다. 종이 면을 남긴 절곡 힌지는 탄성 굽힘 구속 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-087453-A1",
+      "source_fingerprint": "47ad0f0e472bf2c4a9b555b21da0a2dfb710a795267ef24b3951431f697b3cf7",
+      "content_hash": "1ba37025318db0ed012f779a6c739becfa08442af9c6063dc95845ccc4331eb9",
+      "decision": "LINK",
+      "keys": [
+        "mannich-aminomethylation",
+        "nucleophilic-substitution"
+      ],
+      "reason": "만니히 반응과 아민 사차화로 첨가제를 만든다. 연료 성능 개선 기전은 별도다."
+    },
+    {
+      "identifier": "AR-087455-A1",
+      "source_fingerprint": "400fbd23921fbcff61ef73f66b507a9d10c5cc5acad104b55ec2df60c674a980",
+      "content_hash": "6d4b135b13efa003027db4c5ddeca01a22b68c9b8252526aca26efba3c9e68c9",
+      "decision": "LINK",
+      "keys": [
+        "bowden-cable-transmission",
+        "elastic-energy-recovery",
+        "total-internal-reflection"
+      ],
+      "reason": "인장선으로 탄성 슬롯 팁을 굽히고 광섬유로 빛을 전달한다. 탄성 굽힘 관절의 범용 원리 후보다."
+    },
+    {
+      "identifier": "AR-087468-A1",
+      "source_fingerprint": "d5afd58d8c8e8532e84d0e9451fe0c4ee61c6c370efbf77a0d7fe47fc8ae69dd",
+      "content_hash": "8070a75f82a497b2e0d6438d348a6fb8319bf32b77c81c7905718a13b8e0def7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "질환 치료용 구조식만 있고 표적·신호 기전이 없다."
+    },
+    {
+      "identifier": "AR-087477-A4",
+      "source_fingerprint": "eef689963541e30c3c7c40e47e03a19a237af72ee642cbdeec5cef155e6b431d",
+      "content_hash": "d0874d771f1c1303018201aecb94191f07bd82c06a5109b92010506acfeb4ddd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "의류에 QR 코드를 인쇄하는 제품 구성이다. 코드 부호화 규칙이나 오류 복원 알고리즘을 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-087508-A1",
+      "source_fingerprint": "9e2f53a3fa270b0f29981aaef8e3e112c7ccfb2526e96fe838e976664dddade4",
+      "content_hash": "c4b403f43d5dc5297e5175d3a26b1908586039a6e14609bf31c351b4046590cf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항균 화합물 구조와 염만 있고 작용 표적은 불명확하다."
+    },
+    {
+      "identifier": "AR-087568-A1",
+      "source_fingerprint": "a1e2534adac7b75b3b2bf1cd2170e97b1da4f320aa6885613f0a251bbfa21966",
+      "content_hash": "56f8fb2273a13e9f89d515884c521d3bcc57ca34ac3cc3248a6fcc6e2190964b",
+      "decision": "LINK",
+      "keys": [
+        "interferometric-sensing",
+        "fourier-spectral-decomposition",
+        "signal-correlation"
+      ],
+      "reason": "기준·측정 간섭무늬 위상차로 주파수 축 드리프트를 보정한다. 구체 변환식은 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:01:36.142059+00:00"
+}

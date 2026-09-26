@@ -1,0 +1,351 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "9025f4693ee16c40387c460ec0b673f10ca59811f1160b064b2b2eb7026704e4",
+  "reviews": [
+    {
+      "identifier": "AR-032691-A1",
+      "source_fingerprint": "6ef6d472f62b399095d51ed5ba74a3f40cdc60ff762b95f2704d2a39e36038a3",
+      "content_hash": "14bb3c925259229af40de70a709a5ea0a4c75b7f4da2eac2d4f1a2c5324aa8ce",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수상과 유상의 안정 미세유화 제형을 제시하지만 계면활성제와 안정화 기구가 초록에 없어 피커링·계면활성 원리에 임의 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-032710-A1",
+      "source_fingerprint": "0ba8f9ce06f320c2c450cae4954d36f867e10a54506867526bc93f2f40af71a0",
+      "content_hash": "c5cba23892ff35a654366007d71a1ded414b5b8392e3aaec69f0e94687cdbb04",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "PVC 안정화 조합과 화학구조를 제시하지만 열화 억제의 구체적 반응 경로가 부족하다."
+    },
+    {
+      "identifier": "AR-032718-A4",
+      "source_fingerprint": "0656253a8a9725ab08c2159747e0064252f48fa35ee9f3067cafac29c2c95bb8",
+      "content_hash": "08f1891885094f0f8e38a851bc531425e737af124d5ef47afdbc50d7e4e4f781",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "나사봉·너트형 캡·압출 원판의 조합으로 용기를 비우는 장치 구성이다. 제품 조합 자체를 새 효과로 등록하지 않는다."
+    },
+    {
+      "identifier": "AR-032739-A1",
+      "source_fingerprint": "07b52ebe0561d6aa19b3576689c23e7b90423918fd75734f7df3b84bdfb2be30",
+      "content_hash": "5cbe6601873982e5b3ae6c915ca66636668a0db96fab2a84060fb01b34145d69",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "민감층과 흡습층의 공간 분리는 명확하지만 흡습 재료와 흡착·흡수·반응 중 지배 기구가 미상이다."
+    },
+    {
+      "identifier": "AR-032743-A1",
+      "source_fingerprint": "eb12f626b24bbfadb1bd587ba11e159aa0141ecedefd072bce8044f836cb8535",
+      "content_hash": "57a5ce396f615dafd0bd477ff5ec908ef2c268d3ee4bc83a9e346e42863d8898",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "종양 단백질을 발현하는 세포에 특이적인 T세포와 항원 인식을 기술한다. 암 치료 효과와 진단 성능은 검증된 것으로 처리하지 않는다."
+    },
+    {
+      "identifier": "AR-032787-A1",
+      "source_fingerprint": "dd9e76967b2b7c5fb1c5731bfd58e1cda43c318dbef06bcead34bb72549a942e",
+      "content_hash": "9bc11f818608738f7e5f3ddefb487ea6cecbb87928c1f417ef6b536c30173322",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "미끄럼 부품의 반원형 홈과 캠으로 작동하는 걸쇠가 맞물려 문을 잠그는 구조다. 솔레노이드의 구체적 힘 기구는 별도로 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-032815-A1",
+      "source_fingerprint": "e3938f8792c576c7599c1925c8c9eddc687e4dba3e7da3fe74f0c32e7a8c1b87",
+      "content_hash": "4fe64558231898546856a2f017baae920b78c673a5eb937f20ed3c2d47fc81ce",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아스팔트 개질제의 적용 온도와 포장 두께만 제시하며 조성과 점도 변화 원리는 없다."
+    },
+    {
+      "identifier": "AR-032851-A1",
+      "source_fingerprint": "d4a10172d2af6149f59a05972aaff1000109a4e8c53fb55855e7b4c5371dcf5b",
+      "content_hash": "dbcee0fc9e25be337a5d7b4060557a436873dec1689e8b2049526775107a5645",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "복호화 영상 일부를 식별 신호로 치환해 배포 출처를 추적한다. 정보 삽입 원리 후보이나 정본의 부호화·상관 검출과 동등하다고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-032901-A1",
+      "source_fingerprint": "97979bd75f4829fb680576db31906f92e9a73cfa5cde09480e132bf35cf6613a",
+      "content_hash": "4b037d6390d40fab0e1dff4134ab106e70096bdd3d8d870c15bbabea428c1321",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "분말야금 공구강의 조성과 청정도 조건을 제시하나 강화·내열 기구를 고용·석출 중 하나로 특정할 수 없다."
+    },
+    {
+      "identifier": "AR-032916-A1",
+      "source_fingerprint": "bb1958e91c3da4c65ab2b5106d99fff210e7724a5b65e1f12c0f162a1678b60e",
+      "content_hash": "3df01bbfce2ed5c0832d70a8d45e1c9e6afe52c6fa735fbe767f04da85c436dd",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-separation",
+        "gelation"
+      ],
+      "reason": "완만한 원심분리로 혈액을 분획하고 칼슘 첨가로 겔을 형성한다고 명시한다. 이식성·증식 속도는 별도의 주장으로 둔다."
+    },
+    {
+      "identifier": "AR-032926-A1",
+      "source_fingerprint": "b711d5bbb5924ed25df0131b0f3c66e5b85bb70e28b5e07eb70150c33a97173a",
+      "content_hash": "73d643e04c11838817972c331b548f2f1ec110cae5fe581349a6f5b18304e2ac",
+      "decision": "LINK",
+      "keys": [
+        "water-electrolysis",
+        "gas-absorption"
+      ],
+      "reason": "전극을 통과하는 물에서 수소·산소를 만들고 후단 체류시간을 통해 산소를 용해한다. 오염물 제거 성능과 특정 활성종은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-032938-A1",
+      "source_fingerprint": "04b8824836640eaba2638246ab675fe0b63b9301511a07afb1b912cc6b352785",
+      "content_hash": "03c538b5398704217310f50d9672ddc8cf01aa437088e62533eedad0c182f18b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Fischer-Tropsch 왁스 혼합에 따른 용융 흐름 개선을 주장하지만 미세구조·윤활·점도 기구가 부족하다."
+    },
+    {
+      "identifier": "AR-032942-A1",
+      "source_fingerprint": "bc920f47eafefa32d85b558bcedf33475e6e96c31fcc7f5f7b6a1a150fb65d76",
+      "content_hash": "c072307732cc482ed623c604c15f4f4c4fcbc9babdee5a2c9851a6dc3bbe0e05",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "전단·압축으로 찻잎 세포를 파괴하고 발효·가열·건조하는 공정이다. 홍차의 발효 표현만으로 미생물 발효 효과에 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-032948-A1",
+      "source_fingerprint": "ee50ec44624aab46274183602dfb2c27497daf9d8cbb0f6d95b93efcfda17951",
+      "content_hash": "0006425279f1cbfc4640c8eeabcba68152d96fe68287f13006e77efe560fb006",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "로터·스테이터 간극과 회전속도로 유화하는 기구를 제시한다. 전단에 의한 액적 파쇄를 계면활성 또는 피커링 안정화로 오분류하지 않고 후보로 보류한다."
+    },
+    {
+      "identifier": "AR-032957-A1",
+      "source_fingerprint": "822ad4edec3d8c5cd3f4f3eea33b522e7b100950f66ce3fc62b0bb1b4f6d0aca",
+      "content_hash": "05cbc4317141bdb6dc0ebe5a34b7e60e3bcd4f4c5e6fb176407c83e4fc21acf1",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "CRF2 수용체 결합·활성화와 작용제 반응을 기준으로 후보를 선별한다. 근육량 증가나 치료 유효성은 확인되지 않았다."
+    },
+    {
+      "identifier": "AR-032959-A1",
+      "source_fingerprint": "39d918f9c23fc2ea1ef0a87de07c408901dee83efd5643249a26b4bce4fb7789",
+      "content_hash": "4a52cf4d3be69800a7dcab259d85882f312937a844d58d670319cabcdabb8d44",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "무게·색 분류 후 컨베이어와 충전기를 연결하는 포장 설비 구성이다. 특정 센싱·학습 알고리즘은 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-032987-A1",
+      "source_fingerprint": "28a9a3d50c0946319c0b18677c137a768577a6ace39806f2eeca6aecefa18c53",
+      "content_hash": "474a479c7e3bf20741c8a2c8a0446bdb89edc9df8b4613618908a702e8c5a486",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "상별 고장 검출과 타이머를 조합한 차단 상태 로직이다. 안정성 분석 없는 단순 감시를 음의 피드백 원리로 승계하지 않는다."
+    },
+    {
+      "identifier": "AR-033048-A1",
+      "source_fingerprint": "1fa7291bdda9d7f70a501a859e300f10f75bd0e295610b3dc53f0edf459ab57f",
+      "content_hash": "98e5365169b5c7534fe43f5f079e64e2be74bb4fd702b59e49894f34ad12e3ba",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "알코올·물 혼합 용매에서 목적물을 결정화하고 불순물을 모액에 남겨 정제한다. 수율·생산성 주장은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-033060-A1",
+      "source_fingerprint": "aeca079c00b38366d508a6d2a3981798389b8b68489d4c5c65ba01095e419f7c",
+      "content_hash": "a3d6f1d46bea78fa5be15f19ea012b51cc390734bf114a9385e3102fc7369120",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "접힌 압출 부재의 구속을 풀어 직선으로 복원시키는 소형 적용기 구성이다. 재료·하중 정보 없는 복원을 형상기억이나 점탄성 감쇠로 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-033069-A1",
+      "source_fingerprint": "bb2effc71068836e35ee12e4696e268c3fd95c790d1c7b070bacce1956af4473",
+      "content_hash": "d935fe9ef8d386f1eea57ba113d69b3c6b68a382770028561da2b4a632fb964b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "오토바이 수납함·배터리 공간·프레임의 배치 최적화 구성으로 새 과학효과를 확인할 수 없다."
+    },
+    {
+      "identifier": "AR-033113-A1",
+      "source_fingerprint": "f424977f91040cbfc92c6910916471a8f6a97fa46878cb14183be76945862108",
+      "content_hash": "190602128c0c2d17110b426b3062d547608824333b11ae50363b9579237ae6c5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광학활성 제초제 조합의 상승효과를 주장하나 표적·상호작용 기구와 실측 근거가 없다."
+    },
+    {
+      "identifier": "AR-033139-A1",
+      "source_fingerprint": "d5ec1f255e6621cc145231144784d7023a838820d8a34c72674e233e2ae9ab70",
+      "content_hash": "ea370090d2c9bfcb909bfca5d2dfa5052bb9c57a51c304d3f615d3acb1ce4438",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "타일 절단기의 지지판을 회전축으로 접는 운반·사용 자세 구성이다."
+    },
+    {
+      "identifier": "AR-033160-A1",
+      "source_fingerprint": "a85cb34deabe45f2439782b2888d673fbb46eaccd3e8c64da092a2e5439f6df1",
+      "content_hash": "33851dc64c1dbe1244d877a000d3320ec02c4204381881cf6ce8d1cbce147326",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡수 제품의 보강판과 탄성 융기 부재를 인체 치수에 맞추는 형상 설계다. 흡수·팽윤 기구는 서술하지 않는다."
+    },
+    {
+      "identifier": "AR-033225-A1",
+      "source_fingerprint": "5d59c29c65824ef144119370809c6ad7f393a06e5e5b274fd73a9def7039bfe1",
+      "content_hash": "c88f383fa888f5bde115f1c6ee1cbd6835ac83befe7f6233ec598256ba55c0d3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "진동 체의 장력 조절·교체 장치를 제안하지만 힘 전달부의 실제 작동 설명이 부족하다."
+    },
+    {
+      "identifier": "AR-033241-A4",
+      "source_fingerprint": "96d532740b6ff1cfb413c17ad3cd77818bd1e74d12228510750d0faa8698092c",
+      "content_hash": "a213d5e2a0293ad770e245eb55ad0657c9e972ab5be73b0dd05c4e5518a1521f",
+      "decision": "LINK",
+      "keys": [
+        "archimedes-buoyancy"
+      ],
+      "reason": "유입된 물이 고무 구를 띄워 흡기 통로를 닫는 부력 작동을 명시한다. 모든 엔진에서의 밀봉·안전 성능으로 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-033258-A1",
+      "source_fingerprint": "a22c21fe78480c056608a781a335a6eb5f46b8a542332cedc29e6581b6458f2a",
+      "content_hash": "653c009d309f9fba6cfb0e408c4bf55c487b20edba2f58d8cc2cd7b8b99f3b76",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "연마 롤러와 분리 가능한 플랜지 베어링·구동기의 배치로 유지보수를 용이하게 하는 설계다."
+    },
+    {
+      "identifier": "AR-033270-A1",
+      "source_fingerprint": "4b6935e5f8fd139b09097d765701d2321b5a8e121e89626819d3554d879e04e8",
+      "content_hash": "ddbcfb7c7790e84c6978da5c82dbaf3abd50a2b697cbf72ca7b2f0582d625ce0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "나선형 골수강 고정 장치의 형상만 기술하며 하중 전달·조직 반응 기구는 없다."
+    },
+    {
+      "identifier": "AR-033284-A1",
+      "source_fingerprint": "4a044d90dfb016cc361b58bdb332acb72496ba5c8f55e5aec1b2c57406f3e6dc",
+      "content_hash": "281b89ce8b95054bc09017d29ef9420f254d2d04e460b6087c051fc7ac0c005f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "압축 오디오 프레임의 미사용 비트에 부가 정보를 넣는 정보처리 기구다. 시간 슬롯 다중화와 동등하지 않으므로 신규 원리 후보로 보류한다."
+    },
+    {
+      "identifier": "AR-033308-A1",
+      "source_fingerprint": "d07adb27fc84cab6b4f68d174eb8f5868890deecef01ac64ee16d0a4e748d443",
+      "content_hash": "2bc6a737f83698311d0af70aed9fedd93a0ecc1dfb7d9ed93af86207f7705106",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광학순도와 저용량 사용 용도를 열거하지만 전달체·수용체 등 분자 작용 기구는 서술하지 않는다."
+    },
+    {
+      "identifier": "AR-033313-A1",
+      "source_fingerprint": "49c1dce8570bd06e2d656a82b408ff9484aa70c961262eeaf5852126a26a70e0",
+      "content_hash": "ee4954bfa8631313123b781a3a3e16ec3d42a4a2a042b83d48d9916a170caa43",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "낮은 탄성률의 복합 고무·폴리아미드 코드 벨트 구성과 장력 유지 목적이다. 균열 가교나 감쇠 기구로 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-033355-A1",
+      "source_fingerprint": "c9872a4576b0ca6cb1ce40732d54feb424e65f8c154428cc89b34773a729420a",
+      "content_hash": "fd81fe473ec47846ae31fe7ca21aadcad8c13d6b084bc2fd1193b2cc8cfb9009",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "격벽·포트·경사면으로 나눈 우회 밸브 하우징 형상이다. 압력·혼합·유동 분리 효과의 조건은 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-033360-A1",
+      "source_fingerprint": "33e2429eccf990968468a8d70b3891c8fd08bc4de6bcdeba7c5e735ec98da66a",
+      "content_hash": "e914a28265ed1529289038425be422ca08b6f1928c52fe04a07f76fa4d77a95d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "로피나비르의 수화·용매화·비용매화 결정형을 제시하지만 제조·상변태·분리 조건은 없다. 결정형 존재만으로 결정화 분리 실증으로 삼지 않는다."
+    },
+    {
+      "identifier": "AR-033361-A1",
+      "source_fingerprint": "7da29fea41b15e48c2e22423287573a2886a60ee0cf8615494371826e81930d6",
+      "content_hash": "11d1addaf49bc909a4607b6723b7c698ebdf060995924ffd30b3deef5422f588",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "치환 테트라사이클린 구조·합성·용도를 열거하지만 항균 표적과 저해 기구는 미제시다."
+    },
+    {
+      "identifier": "AR-033365-A1",
+      "source_fingerprint": "e8481ae397245cd08d5b5292f7aec5949e63b9bb105520bc686fcac840ccc9f2",
+      "content_hash": "37081cec2133e17ae8362544a1dc43cc877b1033ee1124c1a6e290e8e1065bfe",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "헤테로고리 제초제 조성과 용도만 있으며 생물학적 표적·작용 과정은 없다."
+    },
+    {
+      "identifier": "AR-033371-A1",
+      "source_fingerprint": "ebf371c7eb6f456258cfd6ada67390e373850811f5ec5189e9eb70bae892b328",
+      "content_hash": "9f6bbd276e04ab3625a5d3a51fbb7a9adbb83ce9e8975b46f888d6c834987177",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "올리브 분쇄·물 첨가·혼련·기름 분리를 기술한다. decantacion 표현만으로 중력 침강 또는 원심분리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-033381-A1",
+      "source_fingerprint": "e7e0e37b41f27aa38d710c3448558446e83133e6e2c4946a343c0daf7875eeae",
+      "content_hash": "9bc724a675aa4d90ba431e92f6b9b9729c05893d5295ba7990a90ef6ca5b1c75",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "편심 구동축과 구멍의 맞물림으로 칫솔 헤드에 입체 왕복 운동을 주는 기구 배치다."
+    },
+    {
+      "identifier": "AR-033387-A1",
+      "source_fingerprint": "e382a438ef786798a6fb93a00998a7af4fd57c4156773072a0a5763cf2285c80",
+      "content_hash": "7b230ab553986540f6b8799f24903d7d09fa5ec46fcc5b6815751212b33c6b2e",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PDE5 효소 저해를 명시한 유도체 군이다. 선택성·효력·치료효과의 실증 여부와 저해의 세부 유형은 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-033421-A1",
+      "source_fingerprint": "9829c25f0ffa4468b2f3d1a5addc964cadfb6f1ae3f157121a683dfd519c0052",
+      "content_hash": "770b22bff84822a9556ad6bac64e5d44bcb9671f7c25b6319db4729d0133ce1c",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "거품성 계면활성제와 오일·고분자 조합으로 세정·헹굼 특성을 조절한다. 비누 같은 헹굼 성능은 제안 수준이다."
+    },
+    {
+      "identifier": "AR-033458-A1",
+      "source_fingerprint": "cd9d2b175519a6c14e4d7281ae57a4aec38c9967634d46291a4487dda7ed82d9",
+      "content_hash": "da891655b71f57e8d0facefce1b02b4287e6a7dc421eff8aca2d6c0023271437",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "초임계 유체를 포함하는 혼상 연속 반응기에서 불균일 촉매 수소화를 수행한다. 초임계 추출로 분류하지 않으며 전환율·선택도는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-033498-A1",
+      "source_fingerprint": "62605f2a8b69d63328acf744d13d198bd964eef610a102743ddee6f139f584f4",
+      "content_hash": "6d1e44006da2becee16fbf7e6d18be0dddf1dd8738f2195ad161fc124c75d9af",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "바퀴·힌지로 연결한 운반 케이지와 통로 안내 롤러의 조합이다. 이동 설계 자체를 새로운 원리로 등록하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-16T02:22:55.697102+00:00"
+}

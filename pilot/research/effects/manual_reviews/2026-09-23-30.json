@@ -1,0 +1,96 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "5934a8f3d82690e8321c23bb0aa73b8db584f7f29abcb63392604d060955b389",
+  "reviews": [
+    {
+      "identifier": "AR-082002-A1",
+      "source_fingerprint": "4a3f0441b521e949ce0c235b68374b90b360de5aeb949a521154ccfd99068cd6",
+      "content_hash": "a59c0811a39c537fd271e02c29d503cff5b925e581f7d9fddeeb8cfba45343ce",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "생식 기능 개선 영양제 배합이며 작용 경로·임상 근거는 미상이다."
+    },
+    {
+      "identifier": "AR-082025-A1",
+      "source_fingerprint": "f55b49864246bdb8d297a094189fe6369cae439b2f8a73dad3b186fe4b4e448a",
+      "content_hash": "37ab1aa35dc870a7d92b9141a67c6d64addeb50436e0c3a126425393917732b2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "결핍 리소좀 효소를 보충한다. 투여법·용량의 임상 적합성은 판단하지 않는다."
+    },
+    {
+      "identifier": "AR-082033-A1",
+      "source_fingerprint": "a7454f85129ef4b35bc142ea6c053622984924332abe7b2c06de8a1fd600172e",
+      "content_hash": "0f730317e89a506cf34dadef2af17ea9cbf2f2ec2b53be6408feb28268a6fd03",
+      "decision": "LINK",
+      "keys": [
+        "fiber-matrix-load-transfer"
+      ],
+      "reason": "섬유·수지 복합재를 구조 요소로 사용한다."
+    },
+    {
+      "identifier": "AR-082034-A1",
+      "source_fingerprint": "75d690a9b93084a9bb6bbe4cfbfe6fecb68cfc2a395732a074222007a670bfd7",
+      "content_hash": "0d903fe1d1eb36ddd3412b3ace5fcddfaeecde795649955dd019186e5193e0e9",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution"
+      ],
+      "reason": "활성화된 고분자 말단을 다중 친핵체 연결기로 치환해 가지 구조를 만든다."
+    },
+    {
+      "identifier": "AR-082047-A1",
+      "source_fingerprint": "e4c1058834c3b192ff6c29c41f6773909098e58d7888b1d9a787cbc6c2f4ffd8",
+      "content_hash": "dd4ab7d39eb259bd8aa12ec0afa548ccf94fcead4994c135ff9095add910ecb1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "프레임 통계와 시간 집계 특징으로 영상을 분류한다. 학습법·분류식은 미상이다."
+    },
+    {
+      "identifier": "AR-082049-A1",
+      "source_fingerprint": "438dbbb5bc643a36f789710c0c3f41a9828eda52e140b4589f517ac3b98f3cde",
+      "content_hash": "1cb2aae9e1caee39ac1b1b4215c2b27ab8832d0173e6a0805121f25bf98527c9",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "chromatography"
+      ],
+      "reason": "공용매 용해·완충 제형·HPLC 정량을 명시한다. 공용매 용해도 증가를 추가 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-082053-A1",
+      "source_fingerprint": "3376aaf8581a873b5de0612d6174c030b78a11306eef42f7ccc321800a937eeb",
+      "content_hash": "7b51f783eef2a036c6e29babec2e46549968057df494afb3070d1488a0c09543",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion",
+        "elastic-energy-recovery"
+      ],
+      "reason": "가이드 홈을 따르는 핀이 유연 암을 측면으로 변형시켜 주사기 보호 덮개를 안내한다."
+    },
+    {
+      "identifier": "AR-082060-A1",
+      "source_fingerprint": "8fe3fb91dbf9c223b777d824b87fbf2a0090f635f1aef2dc4aa58ff3377cad72",
+      "content_hash": "383ffa4c7f5033b0ea821f3547b035b60db777b3ffd12ee5a46f934a47a5c7d9",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "마찰 끼워맞춤으로 전기 스위치의 임시 보호 덮개를 유지한다."
+    },
+    {
+      "identifier": "AR-082088-A1",
+      "source_fingerprint": "e3492e688764e1c3a8b1d65906a17501d4839b6ed74bf8f63cecf2a424f05bdd",
+      "content_hash": "d6b16d55fe6fd2be1de661134ba6856efd0bd5b753ace8e726320f8c20d0b284",
+      "decision": "LINK",
+      "keys": [
+        "cavitation"
+      ],
+      "reason": "액중 공동과 회전자 작용으로 바이오매스 구조를 분해한다. 산 가수분해 기여는 초록에서 확정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:23:28.594414+00:00"
+}

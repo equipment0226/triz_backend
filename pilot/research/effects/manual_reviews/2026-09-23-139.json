@@ -1,0 +1,109 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f1011a3e9cc3999c929fca3bc044777bf420202f1f18f45a304e6146a0047291",
+  "reviews": [
+    {
+      "identifier": "AR-096573-A1",
+      "source_fingerprint": "272bb5e6619c52a573035f72c592c576a253ea342fb9e07cdec43992d88744df",
+      "content_hash": "3a66d06c35fdfaac6341a2cd10b073a55204c34224650cc896cea33a110f9a3c",
+      "decision": "LINK",
+      "keys": [
+        "duty-cycled-power-saving"
+      ],
+      "reason": "수신 헤더로 대상이 아닌 블록을 판정한 뒤 수신부를 끄는 활성 시간 축소이다."
+    },
+    {
+      "identifier": "AR-096574-A1",
+      "source_fingerprint": "a8e5acbf25b02f27356fcafa3152ccb950cd5c5bf82e900f2d1c441126880cbd",
+      "content_hash": "4a137b3b4973249418299bc42b8fdf70ac179fd6397f2bdf3a1ddbd8b9a1e39a",
+      "decision": "LINK",
+      "keys": [
+        "feedforward"
+      ],
+      "reason": "참조 음량 메타데이터와 사용자 목표에서 이득을 정하는 선행 보상이다. 청각 가중 모형은 명시되지 않아 별도 원리로 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-096605-A1",
+      "source_fingerprint": "44bd2cf00ba6d9a24b5aba6cd5a675f91a25232323dffc65c56ff75a1fafb4ec",
+      "content_hash": "8adb020b0dd1ae238698c01827fbcb496711014520dd56ec496bc9810e2d6e95",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction"
+      ],
+      "reason": "CO를 환원제로 고로에 재공급한다. CO2를 CO로 바꾸는 에너지원·반응제가 불명확해 전기화학 환원이나 역수성가스 반응으로 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-096620-A1",
+      "source_fingerprint": "9cb7aed82fdaaa050c1e4f3561f36115aec4aecdc602d14e468d88e9d7b318a6",
+      "content_hash": "9fcd3c6e188da683dead11587c1f194a1e23b1b88a1c5355caae081f8d24c478",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation"
+      ],
+      "reason": "P2X3 및 P2X2/3 이온성 수용체 길항 작용이다. 치환체별로 신규 원리를 나누지 않는다."
+    },
+    {
+      "identifier": "AR-096634-A1",
+      "source_fingerprint": "2fedc9e797b75103ff5a7a21e37772b55ca47ebb15491c42b82f0e7762cd7dd3",
+      "content_hash": "531621768cef46e8c055ba11b7c963671490dea452ad3122fe2b5679b7420a43",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "chemical-cue-directed-behavior"
+      ],
+      "reason": "명시된 효소 저해제와 페로몬 성분의 일반 원리만 연결한다. 미생물 목록의 종 이름에서 각 대사 기능을 자동 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-096682-A1",
+      "source_fingerprint": "849564668a61ab64b9a4470d4dbede5fa3160f977df747df36efcda656be1e06",
+      "content_hash": "6af513d2325c3419c22317e0a6966f0b19ce1371514576756e4627df4f4f8f5d",
+      "decision": "LINK",
+      "keys": [
+        "pressure-compaction",
+        "dielectric-heating"
+      ],
+      "reason": "음료 분말 압축과 RF 가열이 직접 명시된다."
+    },
+    {
+      "identifier": "AR-096695-A1",
+      "source_fingerprint": "10b62d941d41bd9b647ec0547302c9cc2f1b0b0b6158f8f1ee56f00a32ee2a82",
+      "content_hash": "206c16c84be2a98665979360ce79f985633b111f0857190f1e730d7ca41c3d01",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "손실·손상 프레임에 대해 변형 스펙트럼을 목표 잡음 스펙트럼으로 점차 바꾸는 오류 은폐이다. 재전송·오류 정정과 다른 추정 대체 원리를 신규 검토한다."
+    },
+    {
+      "identifier": "AR-096701-A1",
+      "source_fingerprint": "3fcdc3c2bf499b6c5096c6dc796f980aede3decf7e2a4129f0499d3de3d4f4a9",
+      "content_hash": "49c7c83adcefbb77efffd51321b07a97668f75ef7df5d2f8a6a5c0f2bf2cc0f8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "커드·배양액·고단백 분말 혼합과 pH 조절 공정이다. 이미 형성된 커드의 생성 기전이나 단백질 안정화를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-096706-A1",
+      "source_fingerprint": "36772874908350c9c0b02a152dc1fef877702e899486341b7670f9c0ed98b4b5",
+      "content_hash": "bce1f105d637fc1d93e327fc066e9ee4816d0a9cc611bb96a63c9f19c5dd186b",
+      "decision": "LINK",
+      "keys": [
+        "capacitive-sensing",
+        "dielectric-insulation"
+      ],
+      "reason": "내부 도체와 외측 검출 전극이 절연층 사이에서 검출 커패시터를 형성한다."
+    },
+    {
+      "identifier": "AR-096712-A1",
+      "source_fingerprint": "8f7b53e9c0aa11e13bc8d9982efcca34c425608817f3623e175d7b5a8bfcb686",
+      "content_hash": "af505ab85483cac46346d054eaf972689a5d9ba0c01e3c00e67823f453199cb5",
+      "decision": "LINK",
+      "keys": [
+        "starch-gelatinization",
+        "enzyme-catalysis",
+        "fermentation"
+      ],
+      "reason": "전분 호화 온도 이상에서 효소 액화·당화 후 발효하며 단백질 분해효소가 포함된다. 기름 회수 장치의 분리 원리는 생략되어 있다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:47:13.320175+00:00"
+}

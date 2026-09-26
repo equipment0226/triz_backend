@@ -1,0 +1,111 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f96785f43f6bda24937660cf0b38105da07d8d15c57b027cc4cf2eaef53ae72b",
+  "reviews": [
+    {
+      "identifier": "AR-122570-A1",
+      "source_fingerprint": "ac1a66a84fce06f7f5960794865439da33397b9be3c81565fbe5f96b9cbbfc87",
+      "content_hash": "20b4b99cdfcb9a4c20e27294759f298c0459a215818de2e3328aae757e3a85cf",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "멜라노코르틴4 수용체 길항제이다."
+    },
+    {
+      "identifier": "AR-122578-A1",
+      "source_fingerprint": "1fe0a4075a2a566504aab3bbc2f4b7e455cd89735c655ea595f2ca52b4b7ed54",
+      "content_hash": "c9d2c201493e1a27072d87aed58746ea39d1eb980185de600ba74eb6bac78058",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "가용성 ENPP 효소 단백질이다. 뉴클레오타이드 분해와 무기화 조절의 경계를 문헌으로 검토한다."
+    },
+    {
+      "identifier": "AR-122623-A1",
+      "source_fingerprint": "7f5db5ce2d1aa125d03a2841046e7feb5c7d11c724ab474e2014d2fb3a333e79",
+      "content_hash": "4c72ff1e260b79d31ef6f2d3f0f90a09935f404f84f6d56d59443d90d1343da1",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "section-moment-stiffening"
+      ],
+      "reason": "동물 태그 체결과 홈에 따른 굽힘 강성 감소이다. 강성 증가의 역방향 적용으로 별도 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-122633-A1",
+      "source_fingerprint": "d9bef3aa21678503a7663441b4ebc8b17e9ac3710fdf247e3a62f66aecca1c81",
+      "content_hash": "424f5c06a5b1f9760d5cd366d02c8078ce6a8805da151cfb93b59954d8e035af",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "우레아제 또는 질산화 억제 성분의 안정 제형이다."
+    },
+    {
+      "identifier": "AR-122634-A1",
+      "source_fingerprint": "7f85214054bb09271ae5187a9bb16b7fdb9b477e8e0911b213c9e5e88d748205",
+      "content_hash": "0020217ab1bf258c8e0215cf828c470ab5d215ac7941414425f758ec7fb1212b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "키랄 인산 촉매와 Hantzsch 에스터의 비대칭 환원이다. 전달 수소화 및 키랄 촉매 원리를 기존 항목과 비교한다."
+    },
+    {
+      "identifier": "AR-122642-A1",
+      "source_fingerprint": "d259f4822b75dc3856be35dc50a6b02175d9262c5f14c44941d64c9b4599ecaa",
+      "content_hash": "912f6e214947c166723fba185afced62916ec6fa1aeae757adc465de786f8e3d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 위치에 따라 관·고정부·마개를 정렬하는 연결부이다."
+    },
+    {
+      "identifier": "AR-122653-A1",
+      "source_fingerprint": "50600eb9330d6d150a8304ac104a9d9781c2305aac5355007c46b2003b2ff1a1",
+      "content_hash": "4aa073277b95ae464881e12d767db710a38cdb1029c6a7b8a97ee2a45d407144",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "heterologous-gene-expression"
+      ],
+      "reason": "백신 항원의 발현·면역 유도 일반 원리이다. 바이러스 구성 세부는 신규 원리로 전용하지 않는다."
+    },
+    {
+      "identifier": "AR-122690-A1",
+      "source_fingerprint": "7868b47162ca5ab95400e6bccd18310a9b78acf99ecbd3aba87e86fb9f0abd9d",
+      "content_hash": "0a4e3263ea5ede757f272318fa74a51e3eba4e13c5de383f1ffbb01cdecf3581",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살진균제 화합물 구조만 있다."
+    },
+    {
+      "identifier": "AR-122692-A1",
+      "source_fingerprint": "20d75879bb962aea99ed488bf3326f5198660b35ae28619cd8cc0b25569ce0d5",
+      "content_hash": "44d78302f320ada578b5995def9449a4fb5ceb0bf0896b8dcf28b3a06add0677",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "surfactant-action"
+      ],
+      "reason": "효소 저해 성분을 포함할 수 있는 넓은 혼합물 목록이다. 모든 열거 경로가 동시에 구현된다고 보지 않는다."
+    },
+    {
+      "identifier": "AR-122693-A1",
+      "source_fingerprint": "0aeb3b578a46af42500b8309c9aa721007b8f634c9272892ada70b7ce067fd4a",
+      "content_hash": "d534bb0d1944386c509927a5bb9f15855fbb7596cee4545ac104b2fe8c4afd8a",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "단백질 항원에 의한 면역 유도이다. 분자 내 가교 안정화는 기존 초안과 통합한다."
+    },
+    {
+      "identifier": "AR-122705-A1",
+      "source_fingerprint": "a0015f151318ae1703d66ba0b011c36e904fb0c2684c63c4786f9ccc7c210ba5",
+      "content_hash": "534c6be3385233e28240eca2e457147282c503954676236bfb7418f20efec47d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "설폰 화합물 구조만 있으며 작용 경로가 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:55:15.229199+00:00"
+}

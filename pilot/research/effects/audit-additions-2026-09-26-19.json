@@ -1,0 +1,255 @@
+{
+  "batch": "additions-2026-09-26-19.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1296,
+  "added": 20,
+  "after": 1316,
+  "target": 1500,
+  "source_sha256": "696c3b44775a2e223e54164ab68369d1aaa786ed74ccaefbc401de006ca445ce",
+  "decisions": [
+    {
+      "key": "coherent-emitter-cavity-excitation-exchange",
+      "group": 13,
+      "related_keys": [
+        "stimulated-emission",
+        "autler-townes-dressed-state-splitting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유도방출의 일방향 증폭이나 외부 강한 구동에 의한 분리와 달리 방출체와 공진기 사이 가역 여기 교환을 다룬다.",
+      "source_url": "https://www.nature.com/articles/nphoton.2014.224",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "anharmonic-cavity-photon-blockade",
+      "group": 13,
+      "related_keys": [
+        "coulomb-charging-blockade",
+        "state-filling-saturable-absorption",
+        "coherent-emitter-cavity-excitation-exchange"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전하 축적 장벽이나 단순 흡수 포화 대신 결합계의 비등간격 여기 사다리가 다광자 전이를 억제한다.",
+      "source_url": "https://www.nature.com/articles/nature03804",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "defect-energy-superconducting-vortex-pinning",
+      "group": 14,
+      "related_keys": [
+        "meissner-effect",
+        "superconductivity",
+        "particle-pinning-grain-boundary-migration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기장 배제나 결정립 경계 고정과 달리 혼합 상태 내부 자속 와류의 이동을 결함으로 억제한다.",
+      "source_url": "https://www.nature.com/articles/35088021",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "chiral-dirac-klein-transmission",
+      "group": 14,
+      "related_keys": [
+        "electron-tunneling",
+        "time-reversal-helical-edge-transport"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 감쇠 장벽 투과나 위상 경계 채널과 달리 장벽 양쪽 디랙 스피너의 카이랄 정합이 핵심이다.",
+      "source_url": "https://www.nature.com/articles/nphys384",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dirac-branch-interference-trembling-motion",
+      "group": 1,
+      "related_keys": [
+        "discrete-spectrum-wavepacket-revival",
+        "periodic-band-bloch-oscillation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "장시간 이산 준위 재위상화나 외력에 따른 밴드 순환 대신 양·음 에너지 가지 간 간섭 운동이다.",
+      "source_url": "https://www.nature.com/articles/nature08688",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nonlinear-asymmetric-thermal-rectification",
+      "group": 7,
+      "related_keys": [
+        "fourier-conduction",
+        "kapitza-interfacial-thermal-resistance"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일정한 선형 열저항 연결과 구별되는 비선형 온도 의존성과 공간 비대칭의 결합이다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.93.184301",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ballistic-channel-thermal-conductance-quantum",
+      "group": 7,
+      "related_keys": [
+        "fourier-conduction",
+        "ballistic-channel-conductance-quantization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확산 열전도와 다르며 전하 전도 양자와 달리 중성 포논도 운반하는 열류의 채널 한계를 다룬다.",
+      "source_url": "https://www.nature.com/articles/35010065.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "evanescent-near-field-radiative-transfer",
+      "group": 7,
+      "related_keys": [
+        "thermal-radiation",
+        "surface-plasmon"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "원거리 복사의 면적 확대가 아니라 간극을 가로지르는 비전파장 채널이 추가된다.",
+      "source_url": "https://www.nature.com/articles/nphoton.2009.144",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "elastic-nuclear-collision-neutron-moderation",
+      "group": 7,
+      "related_keys": [
+        "neutron-activation-radionuclide-production",
+        "compton-photon-electron-energy-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "핵 포획이나 광자·전자 산란과 달리 중성자 수를 소모하지 않는 핵 반동의 운동량 교환이다.",
+      "source_url": "https://www-pub.iaea.org/MTCD/Publications/PDF/TCS-16.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "driven-electron-nuclear-polarization-transfer",
+      "group": 14,
+      "related_keys": [
+        "nuclear-magnetic-resonance",
+        "spin-transfer-torque"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "핵 공명을 읽거나 전류로 자화 토크를 주는 경로와 달리 구동 전자계의 비평형 점유를 핵계에 전달한다.",
+      "source_url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.102.975",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rapid-fluctuation-motional-line-narrowing",
+      "group": 13,
+      "related_keys": [
+        "spin-echo-coherent-refocusing",
+        "ensemble-averaging-noise-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "측정 후 평균이나 반전 펄스와 달리 측정 대상의 빠른 실제 환경 변동이 위상 확산률을 바꾼다.",
+      "source_url": "https://www.nature.com/articles/ncomms2383",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "fermi-contact-electron-nuclear-coupling",
+      "group": 13,
+      "related_keys": [
+        "magnetic-moment-zeeman-splitting",
+        "nuclear-magnetic-resonance"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 자기장에 대한 제만 이동과 달리 핵 위치의 전자 밀도에 의한 내부 결합이다.",
+      "source_url": "https://www.nature.com/articles/s41524-021-00556-y",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "metastable-collision-penning-ionization",
+      "group": 14,
+      "related_keys": [
+        "photoelectric-emission",
+        "semiconductor-impact-ionization-multiplication"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "흡수 광자나 빠른 전자의 운동에너지 대신 충돌 원자의 내부 여기 에너지가 이온화를 구동한다.",
+      "source_url": "https://www.nature.com/articles/s41467-020-17393-0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "resonant-electron-attachment-bond-dissociation",
+      "group": 15,
+      "related_keys": [
+        "ionizing-radiation-radical-generation",
+        "electron-chain-radical-nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이온화 문턱 이상의 에너지 전달이나 연쇄 친핵 치환과 달리 전자 포획 음이온의 해리 공명을 이용한다.",
+      "source_url": "https://www.nature.com/articles/s41467-018-08005-z",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rapid-ionization-coulomb-explosion",
+      "group": 16,
+      "related_keys": [
+        "laser-ablation",
+        "thermal-homolytic-radical-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가열·증발이나 중성 결합 균일 분해와 달리 다중 양전하 사이 반발이 분리 에너지를 제공한다.",
+      "source_url": "https://www.nature.com/articles/s41567-022-01507-0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "magnetic-tension-differential-rotation-instability",
+      "group": 11,
+      "related_keys": [
+        "taylor-couette-centrifugal-vortex-instability",
+        "magnetic-tension-alfven-wave"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기 장력이 회전 에너지 추출을 매개하므로 비자성 원심 불안정이나 단순 알프벤파와 다르다.",
+      "source_url": "https://articles.adsabs.harvard.edu/pdf/1991ApJ...376..214B",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "anisotropic-plasma-weibel-magnetization",
+      "group": 14,
+      "related_keys": [
+        "magnetic-reconnection-energy-release",
+        "electromagnetic-induction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 장의 연결 변경이나 외부 자속 변화가 아니라 비등방 입자 분포의 집단 불안정이 장을 증폭시킨다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897480/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "relative-stream-electrostatic-plasma-instability",
+      "group": 13,
+      "related_keys": [
+        "landau-resonant-wave-particle-transfer",
+        "anisotropic-plasma-weibel-magnetization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열적 감쇠와 반대의 자유에너지를 가진 다중 흐름이 종방향 정전기 모드를 키우며 횡방향 자기 모드와 구분한다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.94.155001",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nonlinear-phase-mixing-plasma-echo",
+      "group": 13,
+      "related_keys": [
+        "landau-resonant-wave-particle-transfer",
+        "spin-echo-coherent-refocusing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "스핀 반전 펄스의 자기공명 재집속과 달리 플라스마 분포의 위상 혼합·비선형 모드 결합으로 에코가 생성된다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.94.025005",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "time-interface-frequency-refraction",
+      "group": 13,
+      "related_keys": [
+        "refraction",
+        "nonlinear-optical-frequency-conversion",
+        "dynamic-casimir-parametric-photon-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정지한 공간 경계나 다파 혼합 대신 시간 경계가 기존 파동의 주파수를 변환하며 진공 광자 생성으로 단정하지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41567-023-01975-y",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

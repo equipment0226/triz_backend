@@ -1,0 +1,134 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f72e5bab0509ab7df115d19ed95fc9a1fea1cc04913e296d1d7a82fa68e02d4a",
+  "reviews": [
+    {
+      "identifier": "AR-099513-A1",
+      "source_fingerprint": "1ca92c4d88b479e7f9e8a66653db071e1894b8b43529b2e849022bad29914aa1",
+      "content_hash": "044344269cd661de8b0faae688ce977dfbc6aa02ef0931e3227ae1002ce22ffe",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "통신 전자파의 생물 위해를 별도 교정 신호로 제거한다는 주장이다. 작동 근거·검증 자료 없이 과학효과로 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-099527-A1",
+      "source_fingerprint": "0a1fbdde5ec294f8472af9df035ce033c45a5e8719a0549cb9a962e5f39cb306",
+      "content_hash": "65076bdb87400b9ec84e6650126bf428f55becf6309610f28cbcd2e9e13b6b6b",
+      "decision": "LINK",
+      "keys": [
+        "gelation"
+      ],
+      "reason": "가교로 점도를 높인 뒤 알데히드의 산 전환으로 가교를 끊는다. 신규 초안의 알데히드 산화와 연결할 후보이며 가교의 화학 종류는 불명이다."
+    },
+    {
+      "identifier": "AR-099546-A1",
+      "source_fingerprint": "827e22096a85c446d67e25cd72acac61b469bbe1a77acd7946841488cb67eb74",
+      "content_hash": "863ec6a75c33c6e119391a5a6a8fbc0ff2f2bf9c4c9d2aa4482e6d7207851341",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 혼합비·성분의 용도 청구이다. 초록에 표적 기전과 상승작용 근거가 없다."
+    },
+    {
+      "identifier": "AR-099586-A1",
+      "source_fingerprint": "1b5b4504529aedf4622dc95312b13486d30b978ba36427f9462b2e078541347b",
+      "content_hash": "1eb77437c5621c3c04e2774af682f936d10547b4b01f37f9ef3d66d50467d689",
+      "decision": "LINK",
+      "keys": [
+        "solidification",
+        "nuclear-magnetic-resonance"
+      ],
+      "reason": "에틸렌 공중합체 용융 성형과 NMR 비닐기 정량을 명시한다. 가교 개시 반응은 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-099591-A1",
+      "source_fingerprint": "26b0d98bb7beff0735cd94c487b6e36721e7fe74deebb092ac227f4317b5904a",
+      "content_hash": "8d082cf45b059a5cce82b98ade19c635eac5a45e0384b3ef6a753ae2a2ad1cfb",
+      "decision": "LINK",
+      "keys": [
+        "cement-hydration"
+      ],
+      "reason": "물·시멘트 조성이 경화한다. 가속제의 부동태 처리 방식은 불명이라 금속 부동태 효과에 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-099602-A1",
+      "source_fingerprint": "3dea6cbee85553bece0ca1401d0c80b2f11c43e8ce5c94cf34021907891814bb",
+      "content_hash": "fc794850e0607beb6f897694b0dd4a254a0f4e832a55ff607187ff268fe0c5bb",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "transcription-factor-regulation"
+      ],
+      "reason": "RORγ 핵수용체 활성을 저해한다. 효소 저해로 잘못 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-099607-A1",
+      "source_fingerprint": "bdba3880ccd3d20e005b9a407750af02385a696240997a120280afaf6cf59adb",
+      "content_hash": "e770533d3a868eefff51001768b2dd86374ae6b8a934fd4b02c4e73e149dfeed",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "부석·수산화칼슘·물의 지연 경화 조성이다. 일반 시멘트 수화와 구별되는 포졸란 반응 후보의 문헌을 확인한다."
+    },
+    {
+      "identifier": "AR-099649-A1",
+      "source_fingerprint": "460e8c6421eeddf483fdc3682daccd11e916f1cced3b99a0d3a81fbaf2f93b89",
+      "content_hash": "46add14cc8b53a3d33aba9b1fb165ce09c1d32ccb5564ed03065b76f218a3420",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "archimedes-buoyancy"
+      ],
+      "reason": "선체 모듈을 끼움 연결해 부유 선박을 구성한다. 모듈 선택 순서는 설계이다."
+    },
+    {
+      "identifier": "AR-099655-A1",
+      "source_fingerprint": "15d722bee4e236f83d322ac3b6b083ac3c127879f264978fbd23bc84c099b651",
+      "content_hash": "1264e3fe7a2b990bfbe52d4c0452bcdd8073d444578ae967013e3f656f08e4cd",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion"
+      ],
+      "reason": "고정 가이드와 굽은 슬롯이 회전 롤러의 핑거를 왕복 운동시킨다."
+    },
+    {
+      "identifier": "AR-099670-A1",
+      "source_fingerprint": "b9c27c8cd5bf028a7df938ce5e2467eea7160e34a2a56464f1b6cb919a28c182",
+      "content_hash": "7249b274f21e00b8c2f30d4975a314d9564407434edc6da3b592f708ba849d13",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "파종기 깊이 조절판·선택·확장 수단의 구성만 있으며 구체적인 힘 변환은 불명이다."
+    },
+    {
+      "identifier": "AR-099693-A1",
+      "source_fingerprint": "5e6b1fc5e8867d56696c927b43c66916660d182cf29a5bf69d32b6805ee64811",
+      "content_hash": "06d6a9afc3bb32b6b46d909d86386ac004c8f47be37c3e0a7876a1f796ca3e3f",
+      "decision": "LINK",
+      "keys": [
+        "distillation",
+        "evaporative-concentration",
+        "condensation-recovery"
+      ],
+      "reason": "가열·증기 동반·박막 비등으로 유류와 물을 분리하고 응축한다. 별도 열역학 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-099714-A1",
+      "source_fingerprint": "f515378912b0cd30d1381940aa585f392f542d276a1fc2ca2a4548f0db2defc5",
+      "content_hash": "8bf6afccabc0c8f96814afb69ccc126cfd7c753cb046a02f75e1e55d955b9652",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "폴리믹신 유도체 항생제의 치환체 목록이다. 막 결합이나 투과화는 초록에 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099725-A4",
+      "source_fingerprint": "d0183104b9c14883300a1cf6f9e657e074469bced2edb3a61a279a7d8d334e09",
+      "content_hash": "6c55da03a2f5dd4cc562d31cb513253a279be39c87d303cc0c42b0286a3f0a4e",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "fourier-conduction"
+      ],
+      "reason": "숯 연소 열과 손잡이·벽의 열 전달 저감을 이용한다. 큰 공기층을 미세 공극 단열로 같은 것처럼 연결하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:59:38.168631+00:00"
+}

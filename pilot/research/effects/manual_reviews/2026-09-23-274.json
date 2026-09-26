@@ -1,0 +1,341 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "72d2f4177d90d230e59fb425bb4d1a44b35e2dc737f7882ad6b859653d3c245c",
+  "reviews": [
+    {
+      "identifier": "AR-124456-A1",
+      "source_fingerprint": "0f3bec5c364af80a51300a9f763dabe59fe9190e8fe7068563de0cb4e03ed82d",
+      "content_hash": "218221bf3c2bb7e8caea2f5de095f01a17bec5ba896c86c7293b6b08e51a28ad",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "사강 용적을 줄인 바늘 연결부 형상이다."
+    },
+    {
+      "identifier": "AR-124461-A1",
+      "source_fingerprint": "1cc8391a04622cc9bb0d204c805b20163220903f41c2c28862f6eab006c5b507",
+      "content_hash": "b693bfa5646fa94b252252bc7ee748f4f0ec592e4fb8b771496dfdb3b243c652",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "heterologous-gene-expression"
+      ],
+      "reason": "항원 발현과 면역 유도 사례이다. 병원체 서열·제작 조건을 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-124465-A1",
+      "source_fingerprint": "5129e8dec6619ea86aaa10e454b997f384ff71c7d7275d5edd069e51f9e6e551",
+      "content_hash": "b031dbbac77fec29b64f8fa41c46e4964107e3fc468c7fec9fd1d28f626b6b47",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "변형 감미 단백질의 성능 주장이다. 수용체 결합 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-124479-A1",
+      "source_fingerprint": "0f834e5fd94dd53d360fb63d8267f8d73311cd51f3c626e6028a8453ddc56c73",
+      "content_hash": "af637416305da0803479edfb76c9f17ff42dfab37810aefae32aa15eb3276f8e",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "측정 혈중 농도에 따라 투여를 조절하는 피드백 구성이다. 임상 투여법은 제공하지 않는다."
+    },
+    {
+      "identifier": "AR-124495-A2",
+      "source_fingerprint": "fd06a4135fa20b0e48955d0e60f36f3046fbb63b895e19c59aae92d9378ff2e5",
+      "content_hash": "b4e68469669541e7ca8d8e19b6990fe0fd68a28d90ec04ff4fb90a80ddbf19dc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "매몰 체인을 당기는 저항으로 토양 피복 상태를 추정한다. 정지 마찰 하중 전달과 같지 않으며 측정 모델을 검토한다."
+    },
+    {
+      "identifier": "AR-124508-A1",
+      "source_fingerprint": "77188d8470d3a71708cd04563f0b9a422facb8a416dadd707d640e4db9313f69",
+      "content_hash": "ab556324dc905606898c87bd03503670d25878c95f3f07353d066c14cdcde981",
+      "decision": "LINK",
+      "keys": [
+        "advanced-oxidation"
+      ],
+      "reason": "붕소 도핑 다이아몬드 전극을 이용한 유기산 산화 무기화이다."
+    },
+    {
+      "identifier": "AR-124523-A1",
+      "source_fingerprint": "fff450a47ec87871be4511ef66773876bfdffa41e9bb657f5a3140f8c897788f",
+      "content_hash": "64966d8d98e4e244276df9abbcc96a0e861d44a3dbae4e53af9abe55b3f536c0",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "양이온 고분자와 계면활성 성분의 모발 제형이다. 특정 침착 상승 원리는 불명이다."
+    },
+    {
+      "identifier": "AR-124533-A1",
+      "source_fingerprint": "a727da522ddc7855701d5924a1b52ee33d6ef37ccad5f3a8b5c65657a27d643b",
+      "content_hash": "9b8230bb9455d298e609bb73575ed50033066f769ef4b1918480b79bf2955159",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "biomolecular-recognition"
+      ],
+      "reason": "단백질 발현과 상보성·항체 검출이다. 살충 막공 형성을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-124542-A1",
+      "source_fingerprint": "c6552bb206edf1c82b27ac7d94b4d301f108d603fb36409ed4328b4d1bf46af8",
+      "content_hash": "3caa0e027a8bce8df453da3392ebab45ffde7330151fad777173649de09ab98a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "비경구·경구 투여 순서와 제형 농도이다. 전달 향상 원리는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-124543-A1",
+      "source_fingerprint": "b6fadf8d94e85e38df028e7615d184806010fc97c6179dabb5fa17f2213dc4a4",
+      "content_hash": "1506db6a7bec5a0bff5766270219ded658173a30cd265b90d880fcd35cf216cc",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "polyelectrolyte-complexation"
+      ],
+      "reason": "양이온 운반체와 음이온 화물의 정전기 결합·미셀 자기조립이다."
+    },
+    {
+      "identifier": "AR-124555-A1",
+      "source_fingerprint": "5b177040ba98fb66a4e5e83abb357b68b4c07c3a3cca5168ca7ec22231bbda64",
+      "content_hash": "e86e8d47c13cf9c72fee657cca77ca0c673392f44b7f56d70cf29f653e8fa599",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "표적 유전자 편집으로 종자 수 형질을 바꾸나 표적·변경 유형은 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-124566-A1",
+      "source_fingerprint": "bde6b62f60adb04d273d0356ac8ec534b6e2446014b28288fa33ae53f9ba04cc",
+      "content_hash": "c2c10ce651ca6ff7d4cfb60aeaf12bcc9856d2b97e4d067de5ecccce2fbcbac1",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "genetic-loss-of-function"
+      ],
+      "reason": "단백질 발현·유전자 교란을 결합한 세포이다. 보편적 이식 적합성을 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-124573-A1",
+      "source_fingerprint": "a3e385dc9ca5087c5a8e89c77d051c22ae1c01a0c6c80335536661391c67f3a6",
+      "content_hash": "51acffc98f76b0e2cd773a8e40c07794dc90b545c319a9465868c43a5e319f3d",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "항체가 표적 항원을 인식하는 약물 접합체이다. 방출 경로는 없다."
+    },
+    {
+      "identifier": "AR-124576-A1",
+      "source_fingerprint": "b339a7cf6d8a77e52c49c5fb0bead79eba1adaccd0c98fa90dcebd12ddf0b2dc",
+      "content_hash": "fec85e6e8e969629d2334e3c8869d89f49c8f1eeef728eda5f1a7a90aebdb53a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "IP 오류 응답의 마킹·라우팅 규칙이다."
+    },
+    {
+      "identifier": "AR-124607-A2",
+      "source_fingerprint": "f905765e61318866b12bef231ec70263dd87235d603f4df1c2d21c8862ca110c",
+      "content_hash": "edd95c87398fb1ccd5173788a9116deee1b91b2f8fe80b5d77e78b58453d09c5",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "세린·트레오닌 키나아제 억제이다."
+    },
+    {
+      "identifier": "AR-124633-A1",
+      "source_fingerprint": "5f48be72e02d2c976035377db1299e2316c9419ef9b3c95adb249d5e1c78c113",
+      "content_hash": "c80edc0f7d74f3824e5cf49f2c8d45bfde149b669ef30ab0c90c25ede902c29c",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "heterologous-gene-expression",
+        "signal-directed-protein-localization"
+      ],
+      "reason": "세린 프로테아제의 발현과 펩타이드 가수분해 및 표면 위치 지정이다."
+    },
+    {
+      "identifier": "AR-124639-A1",
+      "source_fingerprint": "8128aeea6990a343d933a12955d6348e33ade44bf95d806b225cd0ef2627ec01",
+      "content_hash": "908fc97fb7afc8d17c4da0dc76b8cdd6c38b6fde95bb61c38e324854d3918e3c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "카리오필렌의 치료·피부 개선 주장이며 작용 경로는 없다."
+    },
+    {
+      "identifier": "AR-124658-A1",
+      "source_fingerprint": "3d9f0c4b8f741724fd7adfb58b3be64b0b645db9e53d4bfbe15302a31edee97f",
+      "content_hash": "e98d7136a4dbac5772614f36d72b9cd525f5eacf00fc3b60908baf9a0cc129c2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "등온 LAMP와 pH 지시약의 검출이다. 기존 등온 증폭·산도 검출 항목과 대조한다."
+    },
+    {
+      "identifier": "AR-124673-A2",
+      "source_fingerprint": "a5997fc52c707680e0794f010764f6c706cd8194ef621704d01b4f7b0592fbb0",
+      "content_hash": "83374c00b22c8e61a454bd379741905f6d47fd39c5f5edb2f46c1e1fc6be222d",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction"
+      ],
+      "reason": "중공 스크루 내부 열매체가 벽을 통해 재료를 간접 가열한다."
+    },
+    {
+      "identifier": "AR-124685-A1",
+      "source_fingerprint": "9d13c8b5965b7ca1247098412997e59e732969cd36728a2c1d4ee0de9280e741",
+      "content_hash": "ccb70b8a68d4aea0f66aac80b0fb90dbf3b05e9ef438cfc0da4dd48ddf3e5d69",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초·살충 화합물 구조이며 기전은 없다."
+    },
+    {
+      "identifier": "AR-124693-A2",
+      "source_fingerprint": "eb750776461ad4da18b4d72a8314c31d857b76aeea1163fa3dd204a734969341",
+      "content_hash": "f14241cd0829c02d290682422e535773a15028be82a11f8535a6cc3660f03e86",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지베렐린의 시기별 작물 처리이며 가뭄 저항 기전은 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-124702-A1",
+      "source_fingerprint": "97ae672b2ede0dd46fbb7283b8aed8b290119727ce1c2be6f95424b56bcfc3cd",
+      "content_hash": "fa219bc7b19fbea2da60c95c7ed4e9745af2e42c09bd4f5c89403a1064d5acf2",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction"
+      ],
+      "reason": "알칼리성 세정 조성이다. 특정 오염물 가수분해를 직접 입증하지 않는다."
+    },
+    {
+      "identifier": "AR-124711-A1",
+      "source_fingerprint": "5e5199b05cd02bbd14f4192fba29384583b567d1aed5dd092150b18ffd1c911b",
+      "content_hash": "a5cecf83c0435239263ff1dd002338877e6336846140406c7f86abb50b0ab8e5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구충 화합물 구조이며 기전은 없다."
+    },
+    {
+      "identifier": "AR-124713-A1",
+      "source_fingerprint": "e26739242ad0e081211ab9927b1f2e427b185d813186ab7693da8db500d2e242",
+      "content_hash": "dcaea5dd10dbea2fd5b34f5ea09137a3785e94639b82967658ca06e2a289d025",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "상보성 핵산의 표적 RNA 억제이다."
+    },
+    {
+      "identifier": "AR-124742-A1",
+      "source_fingerprint": "328437821dd035c2324a48327db044d9f07626234a8e82768495d9166e4b742f",
+      "content_hash": "c8525991776e2be9d02bd0d97f4132ed232a1bcd8a9be596790e1dac21e80527",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "신호 세기에 맞춘 안테나 방향·편광 제어이다. 구동 원리는 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-124752-A1",
+      "source_fingerprint": "91db374a3c82a82aa7c8808e84a6957fbe735466affcfef83975faeb4e15d5c3",
+      "content_hash": "9a9d01bb9350eb12aca33d457b750f3fd01705d0a89ce88f4a71216cc586fc33",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction",
+        "catalysis"
+      ],
+      "reason": "배기 전환의 열을 벽으로 전달하여 연료 개질에 사용한다. 개질 반응식은 없다."
+    },
+    {
+      "identifier": "AR-124757-A1",
+      "source_fingerprint": "ec657406406a5060217dce086b45821005f0d9c71766399aac3c040d791dabec",
+      "content_hash": "0117a46180b01c56d228f0e5faf2f3bd8712a105d4a0809117d2b7c6a466f7f6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비로이드 유래 식물 변형 핵산이라는 범위만 명시됐다."
+    },
+    {
+      "identifier": "AR-124763-A1",
+      "source_fingerprint": "c34ae8f43c73a5ccecc00ab3fe9c9d5d33139a542c1f5e440b0a83ad30c452c6",
+      "content_hash": "f9f66ce3a6beeec0fcf32d6831b7c3deb514f2afdc21050957936d1cd1416347",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "모터를 발전기로 전환하는 회생 제동이다. 클러치의 구체 체결 기전은 없다."
+    },
+    {
+      "identifier": "AR-124769-A1",
+      "source_fingerprint": "772e77a0483f70f522ea9676ae9860fe545944749a2072ef7d5ae8d65ed6ca7a",
+      "content_hash": "d74027507796156d2ebaf49b846df4393086d09fb93a4989035859ff097c3e35",
+      "decision": "LINK",
+      "keys": [
+        "host-guest-inclusion",
+        "surfactant-action"
+      ],
+      "reason": "시클로덱스트린 포접·계면활성제 가용화이다. 무독성·치료 주장까지 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-124782-A1",
+      "source_fingerprint": "af603b1335c1e7539e8dc0579b5421f682c460999ecb4bb17412cdc8a3ba6756",
+      "content_hash": "e9e3bb96654d5b745f8f81e277db722ff4a508af6353e61c57465210772768d3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "연료 열화 문제 설명이며 이를 방지하는 구조나 작용은 없다."
+    },
+    {
+      "identifier": "AR-124829-A1",
+      "source_fingerprint": "b21176fb7ffc8eccdf513be8b1e2769e433f20b9c0c6b2358c3dd4e950aebd5f",
+      "content_hash": "6d0dac06bb449225f067140d0004cc4e94526bc9f870bcab02a2e51154d50149",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피루브산 키나아제 활성화이다. ATP 생성 반응과 기존 인산전달 효과의 경계를 검토한다."
+    },
+    {
+      "identifier": "AR-124834-A1",
+      "source_fingerprint": "f3aeef55683aaa956c2b82367becae5979f3cc54b91722e0781f16bce86106ec",
+      "content_hash": "5da3a1e2391ff516602dd3b7f56112587789572b1ba30970fdd0d2fe64c0acc4",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "생분해성 이층 포장재 구성이다. 분해·차단 작용은 구체적이지 않다."
+    },
+    {
+      "identifier": "AR-124844-A1",
+      "source_fingerprint": "06b5191a3b2933cf7ce1551a5bbe2d98d0a49be3b973c45cfefbda77d8fbd3e3",
+      "content_hash": "319bd4fb4ab73a4530286f7836249f3209ce02f57cd0a56291a133ce445bb3f0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "음성 장비와 문진표를 결합한 평가 지원 시스템이다."
+    },
+    {
+      "identifier": "AR-124848-A1",
+      "source_fingerprint": "78e3d7a1d1bc5702656a517b11d3966c54250e56d94d6b9d1e4a8596393ba2b8",
+      "content_hash": "376efc44aa61f3f57d8095039140e3f52bb40aa78ac86cb2269d0c9c6142d7bf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "위상이 다른 두 인코더 신호와 문턱을 조합한 계수이다. 이동 방향 판별·히스테리시스와 비교한다."
+    },
+    {
+      "identifier": "AR-124851-A1",
+      "source_fingerprint": "649901463cf2ef92add144bc81bc6eadb267ec2f25f079017c04cb4643f48f5e",
+      "content_hash": "844b3647cf814dacdfe66a55820d9dc612dd70e23849fd60deab587885f1e667",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "난류 발생으로 건식 흡착 접촉을 높인다. 기존 난류 수송 초안과 통합한다."
+    },
+    {
+      "identifier": "AR-124871-A2",
+      "source_fingerprint": "6b9fbc4732f509ca434f6d588ef7ae04c5704daa1d4ac1d2e1de53e68e6616e6",
+      "content_hash": "45ec784ca224fa4fb0397230f38dbbead9da1b6813ca986c2205cdf418cff94f",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "아연 농도를 조절하는 항체 생산이다. 말단 절단·당화 조절의 구체 경로는 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T03:02:59.174458+00:00"
+}

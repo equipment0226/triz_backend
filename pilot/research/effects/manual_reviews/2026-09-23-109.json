@@ -1,0 +1,153 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "efdcf98fa7a6ea43db0ca5b0a43d1ab64b52bd03c04156fe43b2f79390a2372d",
+  "reviews": [
+    {
+      "identifier": "AR-088741-A1",
+      "source_fingerprint": "38c1ae97f3fb40db6f4457182c2dcd30b286df41cc6d3a782f4c1e481ba7854c",
+      "content_hash": "534712618c115919ce78afe2b7d9b69eb93c071c7ae0833e49b738675c5e729a",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "TAAR1 등 미량 아민 수용체에 대한 친화도를 명시한다. 여러 질환의 치료 효과는 주장 범위로 둔다."
+    },
+    {
+      "identifier": "AR-088742-A1",
+      "source_fingerprint": "4b6873f32653f0a85105c24daafd7a319d66799c5a5ade527e264e81a3b60515",
+      "content_hash": "1fd368a8b938218f72b7b62d1b6c32e68d36dabab898a45f2452a3808f1d51f8",
+      "decision": "LINK",
+      "keys": [
+        "photovoltaic-conversion",
+        "fluid-turbine-conversion"
+      ],
+      "reason": "태양광 또는 풍력 전원을 이동식 주유 구조에 통합한다. 제품 조합을 새 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-088760-A1",
+      "source_fingerprint": "6833dd3fb7423ee9f10b707e7747e7e2638c348ea3eecd185cc75e6f4f2d3c6e",
+      "content_hash": "f6691f3154245607bf438eb82694bd3bba26d35e07dbce6a3d17b992480babbf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항암 화합물 구조와 용도만 있고 작용 표적은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-088766-A1",
+      "source_fingerprint": "3b2f1534ac29195582de0f446be830185d78102842531765fd7ef2ab8b62a41a",
+      "content_hash": "cff2a60475f558918617a40685b5fd098b90c80c11c5e9abcc74a213fde52f3b",
+      "decision": "LINK",
+      "keys": [
+        "chromatography"
+      ],
+      "reason": "제형 내 성분 비율을 HPLC로 정량한다. 제형 안정화의 구체 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-088768-A1",
+      "source_fingerprint": "6271deac2170eafbcafb2bf7e7f711f6908d751b2d67406b0762cf25a80c4eef",
+      "content_hash": "82fc0fcf9ce49312017127f4c84177b718683ad90b4b3733b9c88196fdc98cee",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 구조 나열이며 표적 기전은 불명확하고 저장 범위 끝이 잘렸다."
+    },
+    {
+      "identifier": "AR-088792-A1",
+      "source_fingerprint": "74aff4863b76228a2a5573693158713da316eedde6b82672b503ce92a6a24662",
+      "content_hash": "ecf0436d3847239552267eedb5ca38b5c3fdbec21a70a3ad19d30dffbeca039a",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening",
+        "fusion-welding"
+      ],
+      "reason": "중공 프로파일을 용접하여 이중벽 판 구조를 형성한다."
+    },
+    {
+      "identifier": "AR-088825-A1",
+      "source_fingerprint": "3c52fe0c1b0ee532fe6f9e8a9971b59412d1aa759604730dd247d50219be6bc4",
+      "content_hash": "730925681688a6714b9a4dc9ea90318108a3d3f3f361c13e7a1c090f80cf58d2",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "강화된 말단과 평행 막대로 릴의 하중을 나눈다. 별도 축력 구조 원리를 세분화하지 않는다."
+    },
+    {
+      "identifier": "AR-088857-A1",
+      "source_fingerprint": "ad48cfc33253104b8c0c38a4c48b74f1fb93363abed716f322e76d15ac502e56",
+      "content_hash": "22c94e5cc2e189121fa6517125db7cfd0133a3b476afd50317f19efd1f919093",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조와 용도만 있고 작용 기전이 없다."
+    },
+    {
+      "identifier": "AR-088889-A1",
+      "source_fingerprint": "580c3a9ca3b79f0c94c24b149f41a0cd845fcb806c3bb7dc8c0d88b503a9509d",
+      "content_hash": "44038e3b64dae2152fb5513e65b7dd4bf7fc1e9ea972631da1857d283df288b0",
+      "decision": "LINK",
+      "keys": [
+        "cross-ply-laminate",
+        "fiber-matrix-load-transfer"
+      ],
+      "reason": "반대 방향 나선 섬유층과 매트릭스로 유연관 하중을 분산한다."
+    },
+    {
+      "identifier": "AR-088896-A1",
+      "source_fingerprint": "8b13f4fc6ee2d97fd0587222b58fa5b19a85d38e41e4ee15961c8d096a2cbe94",
+      "content_hash": "653b07ff8cf2ee8ac75ec134d2e2ffe4e9aec348548fa7b710f2e9e59950eb0b",
+      "decision": "LINK",
+      "keys": [
+        "fuel-cell",
+        "forced-convection"
+      ],
+      "reason": "회로판에 팬과 공기 분배실을 통합해 연료전지에 강제 통풍한다."
+    },
+    {
+      "identifier": "AR-088926-A1",
+      "source_fingerprint": "18d57248a6462f6114bb8bf06fb877d6ab0b6e1d1ee9393ec2f1ada5bacde8df",
+      "content_hash": "62cf1acf5f4ff5e3f6e81f088e774ea5d68d2f06481a76f14e01aaa8863cdd05",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "반사판으로 햇빛을 하층 재배면에 유도한다. 정반사에 의한 광선 방향 전환을 센싱·확산 반사와 구분해 신규 후보로 대조한다."
+    },
+    {
+      "identifier": "AR-088945-A1",
+      "source_fingerprint": "c3b04958ffac5cf1de6a517ea8360411dbf029335d7042dc727df5a60f57005e",
+      "content_hash": "c7324e45d0c987fee258c7677d61813182872b1e6bdffd2263072da1433fe979",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening",
+        "polymerization"
+      ],
+      "reason": "아민의 에폭시 경화와 과산화물·전이금속의 수지 경화를 결합한다. 산화환원 라디칼 개시 후보로 대조한다."
+    },
+    {
+      "identifier": "AR-088951-A1",
+      "source_fingerprint": "d1785734d04a1f31f1ebd7ef74483e2644ba178d407fb5c9ce355e9afc2106f8",
+      "content_hash": "86c7b8c7038b95dc1455fbde2886f46ef00f4088fdc81b20c077c388b749fc04",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이상지질혈증 용도와 구조식만 있고 작용 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-088963-A1",
+      "source_fingerprint": "a65f71e8001a42867740d5af65256f93374cc23f900716f6098b926db3e3c0cd",
+      "content_hash": "4533db4abc1e45e7f6a6235576f7e092b6707cae2bd81bb48136cdaead44f88b",
+      "decision": "LINK",
+      "keys": [
+        "spray-drying"
+      ],
+      "reason": "히알루론산·콘드로이틴 수용액을 분무 건조한다. 둘 다 음이온성일 수 있어 단순히 전해질 복합화로 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-088991-A1",
+      "source_fingerprint": "c65dd2eb51eb274f834011f695a388064a4c2931d17eb56e54eb5fa776f52036",
+      "content_hash": "8ca42e0bd0a45fc4c081c7c6a30bc7141b66c0addfee6df9ddd19828d3428492",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "평행사변형 4절 링크로 이동 중 장치 방향을 유지한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:05:23.507328+00:00"
+}

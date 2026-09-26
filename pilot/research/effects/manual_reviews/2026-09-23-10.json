@@ -1,0 +1,209 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "ea6bdd5e07f21399ac8495d6ab34c62d18a521a7650ae0ebf557a8881875ba29",
+  "reviews": [
+    {
+      "identifier": "AR-077797-A1",
+      "source_fingerprint": "ce08306b42320b47e103490d6694afb7375a9fc060ae2515a5668a1b1b0fd477",
+      "content_hash": "70d557e99d1bf97faa75b300eebd949fcc24128e2d45939705726462376aaea3",
+      "decision": "LINK",
+      "keys": [
+        "acetal-carbonyl-protection"
+      ],
+      "reason": "에틸렌 케탈과 보호기 제거를 쓰는 입체선택 합성이다. 구조식 누락으로 선택성 발생 단계를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-077799-A3",
+      "source_fingerprint": "980c59cabc8461d1a912eddce920c16f10a851ed2cf2ecd4f7760b18dc71b245",
+      "content_hash": "c3958997e49b11200ec137b65d742ea920eacc245f8527ac961ebcd417a20318",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "하중 셀과 회전량으로 벌크 이송량을 측정한다. 충돌력과 정적 무게의 기여를 구별할 추가 근거가 필요하다."
+    },
+    {
+      "identifier": "AR-077814-A1",
+      "source_fingerprint": "2abf06dc7e6c21bbd1ffffb1d2fce40475ee730173a49d63888802aa8848bff2",
+      "content_hash": "a08495bcea1bec4cfd0adb0808175de6fc262f7759366fd800d94807340111dc",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "칼날·받침 롤러로 의류용 연속 재료를 절단한다."
+    },
+    {
+      "identifier": "AR-077824-A1",
+      "source_fingerprint": "939736d5284309d843660501d5895305bf6149749331a230e99461d22c24bef3",
+      "content_hash": "12d32dc79f75a63dce23417e15cebc53788d72e7137728b3607424a5ba89ccff",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "팬으로 휘발 성분을 외부로 운반한다. 기피 성분의 감각 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-077828-A4",
+      "source_fingerprint": "dca849f732f421f7262a068e706227f0ead9f9cbd0dd3f7744deb64b906d33d0",
+      "content_hash": "a5a00d227f2b0457e2c40aac8a869cd85c5330eab8a942f41a571128d48700b5",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal",
+        "vacuum-gripping"
+      ],
+      "reason": "연마체로 각질을 제거하고 흡착컵으로 바닥에 고정한다."
+    },
+    {
+      "identifier": "AR-077830-A4",
+      "source_fingerprint": "c5fcbb604d967dba88027855fbb72a9c905439ece0d33be475606b2850dadb44",
+      "content_hash": "45a899881577b6c76df2b3e3a558f6171671b0d0f5e6597169fc418f5629b959",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "헬멧·고정 바이저·목 받침·환기창의 형상이다. 충돌 에너지 소산의 재료 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-077840-A1",
+      "source_fingerprint": "8de41d90f1f118025ac0d17b2637b266e77b1c594f75f7a9c2399ee55df4006b",
+      "content_hash": "3d00be065d67974e9e9b64affb606ab08cdff74aa65e9b493585552af7e74c0e",
+      "decision": "LINK",
+      "keys": [
+        "pcr",
+        "biomolecular-recognition"
+      ],
+      "reason": "핵산 증폭과 탐침 결합으로 미생물을 검출하는 일반 원리이다. 온도 의존 결합 해리는 진단의 물리 원리 후보이며 병원체 조작·증폭 최적화는 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-077853-A1",
+      "source_fingerprint": "62485ff6f1decd73f630adbb26a42e6c49b3236d2e2aa15886b571101c5e136e",
+      "content_hash": "40b80816f7c7f16f52de72ecc0729350253110080c2388f1dedfde80525db8b9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "카르복사미드 살충제 구조 범위이다. 긴 치환기 목록만으로 표적을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-077855-A1",
+      "source_fingerprint": "4ebd93f5c5c33e9bf5317c9aa76412dad4ca91b893bc89d02dd79724e780b5ba",
+      "content_hash": "2d4b09b21053aa4ab36f3ec976f45cc70073c913384f3cf2f18dfd5703aeb2d2",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "세 롤러의 가압 위치를 조절해 관을 압연한다."
+    },
+    {
+      "identifier": "AR-077873-A1",
+      "source_fingerprint": "534a8a004cb09a747cf0b45f393633ce6a7f2c214bf78a776b4a650e7c50ebc8",
+      "content_hash": "2a493657d15743c49b94944a34974d669dbe67c0953ca67d1399dbb58fc1cea7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "약물과 당알코올의 공동 미분화이다. 입도 감소와 용해 속도 향상의 직접 근거가 추가로 필요하다."
+    },
+    {
+      "identifier": "AR-077879-A1",
+      "source_fingerprint": "560279f4c3d7bfd7487562af86a4e1c4569443269560bd646384e37a5fcb6d29",
+      "content_hash": "70e2b2262ed0c895961024ced8c645446d60a179f506510c485d87643a35e670",
+      "decision": "LINK",
+      "keys": [
+        "antigen-targeted-payload-delivery",
+        "heterologous-gene-expression"
+      ],
+      "reason": "항원 결합부와 효과기를 접합해 숙주에서 발현한다."
+    },
+    {
+      "identifier": "AR-077881-A1",
+      "source_fingerprint": "4e081a5a39637ccd50a87493d60e68071ea7c873372a2e53618f49e91c3f8e3c",
+      "content_hash": "d9798a06336ae923055dbc595d73f2daa7d8772abe177e308630c82236f241e0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "작물 수확량의 자동 측정·예측 목표만 있고 계산 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-077882-A1",
+      "source_fingerprint": "0d705eaded971c0077e3f8531732dadc59509e4189364658dc89e1f71c7f8539",
+      "content_hash": "3be130026c90811c9a5e86cd8d9901b45124a1d7384dbd15591c788eb8f2d2ad",
+      "decision": "LINK",
+      "keys": [
+        "microbial-sulfide-bioleaching"
+      ],
+      "reason": "철·황 산화 미생물의 광물 침출이다. 기포 주입에 의한 무펌프 순환은 기체 리프트 후보로 구분한다."
+    },
+    {
+      "identifier": "AR-077885-A1",
+      "source_fingerprint": "736e228927e303e42cdd2797582657f5f4a8c3959523877f0e1b8fa3f723d101",
+      "content_hash": "aabb581cc69e7cbee7b9925d4cdabcc033949ede138af3f9f64d1758fa9396d5",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "저류층 주입 유체로 탄화수소를 밀어내고 장벽으로 유로를 바꾼다. 다공질 유동 저항과 포화도 전선은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-077916-A1",
+      "source_fingerprint": "8d3793ca4219afaec5ec2f9305abdf2935666626191a053f402ee8fb04c53372",
+      "content_hash": "3f0b29a0bc699951a73517101ad78d794d1a600e8bf34c49785acf631f496229",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미생물 유래 지방산 생산과 분리 조성이다. 대사 경로의 변화는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-077919-A1",
+      "source_fingerprint": "440821c8658e929e3f890e9dd6a771fe909203cc913d01df7b8637959d95bfe0",
+      "content_hash": "01cf4a379fb125aa98b6c0d623a0ac81277bbf2c4059534b7eae7490c1a5f938",
+      "decision": "LINK",
+      "keys": [
+        "urethane-addition"
+      ],
+      "reason": "이소시아네이트·폴리올 반응의 복합 단열 재료이다. 발포와 방수의 작동 조건은 미상이다."
+    },
+    {
+      "identifier": "AR-077939-A1",
+      "source_fingerprint": "ed533230975726aa790463280aa8b511ac34aab944628a3df182d620885fb6c1",
+      "content_hash": "1b90192f89303d75e0b674f46939a7e0bf3eef60192f8acd354960d287724ee5",
+      "decision": "LINK",
+      "keys": [
+        "lotus-superhydrophobicity"
+      ],
+      "reason": "미세 입자 군집으로 큰 접촉각과 작은 미끄럼각의 코팅을 만든다. 제시 각도만으로 모든 표면이 통상 초발수 기준을 충족한다고 보지 않는다."
+    },
+    {
+      "identifier": "AR-077945-A4",
+      "source_fingerprint": "cd7f40df7fecd55769585bc49734aef06d6e7e7947465208ae8623ffc6272687",
+      "content_hash": "0c64e972dfc9c633e152b55f31a7cf1fd3ffd07bfe4a935687f7ac6bd8ece1d2",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction",
+        "shear-droplet-breakup"
+      ],
+      "reason": "폐열로 액체를 가열하고 기류로 안개를 만든다. 농약 분무 장치의 운용·최적화 지침은 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-077956-A1",
+      "source_fingerprint": "1a8e30e935c189d67beca172ad3b911ec2a16f8b5e60ff8369e461ba9e624ef7",
+      "content_hash": "b8eeb845f72b032783823333654b383cd7383f91fb80446c42e73a586501d78f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "여러 효소·대사 경로 저해제군을 나열한다. 산화적 인산화 탈결합의 일반 원리는 별도 검토하되 혼합물별 상승작용은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-077961-A1",
+      "source_fingerprint": "64c8629a6d8fcc609c204fc0334f5b5c9844a75cc48dc9692cf993a38d37bba4",
+      "content_hash": "2d7bd6a2bed012b4e55d7933d8d0fab95c5903718ebb9470c594559a658876ef",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "긴 직선 흡기 덕트로 소음을 줄인다. 공진·점성 감쇠·반사 중 지배 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-077967-A1",
+      "source_fingerprint": "a2acb91a12e0490333005c8cfa576eb5880ad0b539a64e64763399e9bbd80c25",
+      "content_hash": "98e9c1da39df8804464c68da1eda407c1efb7610454a8bcc7a24f179cdcf3869",
+      "decision": "LINK",
+      "keys": [
+        "fiber-matrix-load-transfer",
+        "sacrificial-energy-absorption"
+      ],
+      "reason": "적층 섬유와 변형 가능한 층으로 충격 하중을 분산·흡수한다. 방호 장치의 고수준 원리만 연결한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:11:50.051756+00:00"
+}

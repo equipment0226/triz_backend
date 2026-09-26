@@ -1,0 +1,259 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "b5e4c0b86d73bae960bf515b884a4fdc32f29b91690c7248669227991cc89e28",
+  "reviews": [
+    {
+      "identifier": "AR-115279-A1",
+      "source_fingerprint": "36ef521744139ddc2680884f67f2c5237a18978b1361257ec19e137c47c1dde7",
+      "content_hash": "076584ca3624b885a7cc496bddd9f84ae03062dac985a8ed7d0e72422383e263",
+      "decision": "LINK",
+      "keys": [
+        "ozone-generation",
+        "fibrous-filtration",
+        "forced-convection"
+      ],
+      "reason": "오존 발생기와 HEPA 여과를 이용한 공기 처리이다. 완전 멸균·감염 차단 성능은 초록의 주장만으로 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-115281-A1",
+      "source_fingerprint": "d87e452df26bc24fd3d850ad7b499008e08ce5e597b03bb007dd8a68f2edcf08",
+      "content_hash": "6f7eb60376c9c77a99f847da06ec9dcd47c8dd420483d9e55fa600295358861f",
+      "decision": "LINK",
+      "keys": [
+        "distillation"
+      ],
+      "reason": "바이오디젤 휘발도 차이 분리이다. 잔류물 수소화 탈산소 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-115286-A1",
+      "source_fingerprint": "42489e0bb68dad578c73034db3f5bdb7cba51b897b0f3fe59fe8bfd36373f2b5",
+      "content_hash": "1825378b53e26b46052215c93f54fa6a779bc7b5aae6550930ef1b924200acc8",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "펌프·밸브로 잉크 순환과 모듈의 음압을 제어한다."
+    },
+    {
+      "identifier": "AR-115291-A1",
+      "source_fingerprint": "e89c32c0bfdcdc5d08b73108106ed5491574f7c753eaf1a31ae7320b0757c81a",
+      "content_hash": "4eccbec3829a6cdd025c8187398a8193e263f014a3acda47820c180e7a240446",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "중간체 제조 방법의 제목과 용도만으로 결합 변화를 알 수 없다."
+    },
+    {
+      "identifier": "AR-115298-A1",
+      "source_fingerprint": "3e771e09c7e024a7d74c5069945691e4a6a2aca3ae1b3cbca622278c33e65450",
+      "content_hash": "3f1c8e636d6f858f56605c73df1c4657b6a517a7cd1a7fdb1eaa69e4673a3f0a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "압자기 변압기라는 명칭과 성능 주장만 있고 에너지 전달 구조는 없다. 기존 전자기 변압기가 높은 전압을 다룰 수 없다는 주장은 받아들이지 않는다."
+    },
+    {
+      "identifier": "AR-115299-A1",
+      "source_fingerprint": "605b9aa659f0983639b4e41b5d6c307cd753285245c9db50ea8ac8aea6aec155",
+      "content_hash": "b1cb44ffb1ad53dcc73917c5a5599960b9572fedaf4cdaabfc14437608eab4d6",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "barrier-coating"
+      ],
+      "reason": "나사 연결부에 윤활 피막을 형성한다. 산화크롬·비누·왁스의 지배 윤활 기전은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-115300-A1",
+      "source_fingerprint": "d49e44ef0b23adfa0123559743a3f7fa4ec667acd84b9827037f99dd2877221c",
+      "content_hash": "e0925d8c48fb0850c5a366ccf71cfc3bcc9ae1e5d7e60e3de6331ee39094b9b0",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction"
+      ],
+      "reason": "산·염기를 포함한 경구 제형이다. 경점막 흡수 향상의 세부 기전·임상 효과는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-115304-A1",
+      "source_fingerprint": "7ff5a84971ce5d374ce3f24465734752cd3c4f7f353bfa1ab6b1fdad8467c5f8",
+      "content_hash": "0ce3458aa00d98b04a160de755559646b1f7a55ff4820d40741c1af07bb9ffd4",
+      "decision": "LINK",
+      "keys": [
+        "progenitor-cell-differentiation"
+      ],
+      "reason": "십이지장 유래 전구세포의 간·췌장 계통 분화이다."
+    },
+    {
+      "identifier": "AR-115318-A1",
+      "source_fingerprint": "93a932c97d64b03555b8dca51c7aba9d2bbd5bc7f63e401130840fce8f93dae4",
+      "content_hash": "081284627b802402579519bac12fe4dd679bd2c7693d82aa5b0be82309ec7b2d",
+      "decision": "LINK",
+      "keys": [
+        "metabolic-flux-redistribution",
+        "heterologous-gene-expression"
+      ],
+      "reason": "피루브산 키나아제 발현을 바꿔 젖산 생성 흐름과 재조합 생산을 조절한다."
+    },
+    {
+      "identifier": "AR-115323-A1",
+      "source_fingerprint": "732c5613dee85c57e6b9d649b51f094d48a957a9227646e2d1c72cc5f435c367",
+      "content_hash": "1bf21e5a0c767c0f76d3deedb2c68a853eaadef347fcfb4f80f7ea07915631b8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "말레산 무수물 접목 폴리올레핀과 브뢴스테드산의 접착층 조성이다. 상대층과 실제 결합 반응은 추가 확인한다."
+    },
+    {
+      "identifier": "AR-115324-A1",
+      "source_fingerprint": "e4271da34b4c0cec7ccf30a1d80ab01b55ac36c87957bd217bfd919ddc4326fd",
+      "content_hash": "bb357cc87de4256d453d0fe2694da3b3260a51cb55ae8c835ed191b7ad8bb798",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "AIE 기계변색 염료의 필름 신장 반응이다. 응집·분자 운동과 발광 변화의 관계를 신규 검토한다."
+    },
+    {
+      "identifier": "AR-115327-A1",
+      "source_fingerprint": "58f679f02cdccbc53e01159c631180a958d18fda4baa1a36665025555e4dd81a",
+      "content_hash": "2c62a2e1c283b79eb192b21fd9017d20aaef17051116d3153bc0d08cba83eaee",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "항미생물 성분을 포함한 열접착 피막이다. 성분이 없어 미생물 저해 경로는 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-115348-A1",
+      "source_fingerprint": "462e02b456de531819bf083a1b1e9d91b24dcb1d7404a01afe7a7ed3088ad461",
+      "content_hash": "7e837db12ef250333629124f75da0b2fb5c324577f37349c857749ce783bda36",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "포장 제품을 누르고 가이드로 이송하는 적층·상자 넣기 장치이다."
+    },
+    {
+      "identifier": "AR-115362-A1",
+      "source_fingerprint": "0281b66607f9bda17fc66dbd3df946e4ed77bd54a120a6939bcaa1b7e25f2b33",
+      "content_hash": "b6e71ec26acef17f1a37f2fd08cc28edc95aedd75c48fdfb937bb44169a8ab32",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "alcohol-dehydration-to-alkene",
+        "polymerization"
+      ],
+      "reason": "발효 에탄올의 탈수로 에틸렌을 얻어 비닐아세테이트와 공중합한다."
+    },
+    {
+      "identifier": "AR-115363-A1",
+      "source_fingerprint": "5a1d05ac73c28d2c6fe96c8b9ef826e50503615c8d153b8e16a7bbd59a0f8ef0",
+      "content_hash": "b5507fed74a55e4438e815845526b94acceae7cad316ef3c57a94015fe2c378f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "전자기기 보관 구조를 갖춘 팔레트이다."
+    },
+    {
+      "identifier": "AR-115383-A1",
+      "source_fingerprint": "8129f455ce6f3907166dec8018753186d86fdb2d617e0083c2b8bea8d69726bf",
+      "content_hash": "38c9802bb2f3e37803d84a67e661cde7d5942acb72d6d647929510fbe766e23c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농축 단백질 점도 관련 영역을 찾는다는 목적만 제시한다."
+    },
+    {
+      "identifier": "AR-115395-A1",
+      "source_fingerprint": "83cba24fbae22539df6e084674a172e40c5eddf713c62c67296a6f9e04d2eef5",
+      "content_hash": "389dc0cb7614ee506d808559c97b603faf716aa375ff63c08f62125fda345424",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "합성가스의 에폭사이드 카르보닐화 및 수소·질소의 암모니아 합성 통합이다. 각 결합 반응을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-115417-A1",
+      "source_fingerprint": "51cc6069bdf7c6e53309a986a4b20ec2b3ae08f2baf3a6cdbaa95cfaf0c0e105",
+      "content_hash": "db1f6d693fd1b5cafd761c5060519106b26102be71284a1a6fdb4925a9d48d67",
+      "decision": "LINK",
+      "keys": [
+        "pcr",
+        "genetic-linkage-selection"
+      ],
+      "reason": "불임 관련 표지의 핵산 증폭 결과를 알려진 유전적 출처와 비교한다."
+    },
+    {
+      "identifier": "AR-115418-A1",
+      "source_fingerprint": "c04131745899ce2239c75641f706436e7a520a02f0fd5c20dd2e6d883cdf0aa0",
+      "content_hash": "008cad20d4da7e620eec462fa17cb5f353b0271cc346bee8b8800db682447cc9",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "SIRPA 결합 항체이다. 결합만으로 체크포인트 차단 방향을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-115421-A1",
+      "source_fingerprint": "19a1f41cae3d8023e78aa35c516cce41199a3ac7097bfc5a72ec84fe546c3d95",
+      "content_hash": "c38df1eb8e5abba38b893ebf459aab492d43c486a05f6d69d4bad425c9b5e00f",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "sieve-size-separation",
+        "screw-conveying"
+      ],
+      "reason": "기체 주입과 펌프로 포도 혼합물을 이송하고 체·프레스에서 액상을 분리한다. 압착 탈액 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-115438-A1",
+      "source_fingerprint": "016e8863bca45bddee9ec6670b02f974dd19b673bebb44fab6ecf2ec17d0476b",
+      "content_hash": "8eb7310e500a8cec04a31b5a8e0e829733895f923aaa9dd987a4a9a6e972c816",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다중 반송파 포락선을 주파수 이동·결합·분할한다. 대역 변경 알고리즘과 전력 증폭 원리는 추가 확인한다."
+    },
+    {
+      "identifier": "AR-115469-A1",
+      "source_fingerprint": "c9556584c0d48f19cf56a063efc541e40a85d7678d0317224689515d3e2690cf",
+      "content_hash": "b04345007c680a90faea80de5eee99016b560a517b63f6570fdeef310e58a116",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이타콘산·벤조산 보존 조성이다. 비해리 약산 후보의 추가 사례이나 상승효과는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-115475-A2",
+      "source_fingerprint": "ee89a3faf18a9f25fb11132f09647b0de04694998161a0e70c0eacf0d99dd9cf",
+      "content_hash": "c0e4b789ab7e5e7213907938a0822c1aa6537986ecb0855849a647735d1462ad",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening",
+        "nucleophilic-substitution",
+        "hydrolysis",
+        "acid-base-reaction"
+      ],
+      "reason": "에폭사이드 개환·치환·보호기 가수분해·염 형성 경로이다. 락톤의 아민 개환은 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-115480-A1",
+      "source_fingerprint": "c213bfc48c8996497bf4c33b357b629f7a14005132e07344e6e7da1b987aeccb",
+      "content_hash": "7b27813c298e2dd52cb73bb27100022faaa9a5043e7f5423a729ce25fd51518f",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "enzyme-inhibition"
+      ],
+      "reason": "서로 섞이지 않는 비수성 상을 분산하고 HPPD·PPO 저해 제초제 등을 담는다."
+    },
+    {
+      "identifier": "AR-115501-A1",
+      "source_fingerprint": "6b4b717644b91e5a8360b61fc2f8d8fe5e7ed6954ea8c2c5abcd13c110e931e9",
+      "content_hash": "a273c10978ee85eef28c19d899ba54fa0c4c174c5366dfa4fe44d73a9e3a8a84",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "여러 분류기로 분류체계 병합을 결정한다. 앙상블 판단 방식과 학습 근거는 추가 확인한다."
+    },
+    {
+      "identifier": "AR-115506-A1",
+      "source_fingerprint": "dcd3ecbd93e5d48bf144424d7af537e85920678229f454b47c2e7c572dbb9ea9",
+      "content_hash": "4e204ee3a0d13a0ad0f4cd838a657dca3b7e2bf0ea9c486a22b35bc2fcf4be6f",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "DLL3·CD3 다중 결합 단백질이다. 면역세포·표적 세포 연결 후보의 추가 사례이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:21:29.734160+00:00"
+}

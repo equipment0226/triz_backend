@@ -1,0 +1,156 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "b935b00c6c9ec515fb78c700bb078cffeb01c4f3ede59957ca8c15f53cfe9a08",
+  "reviews": [
+    {
+      "identifier": "AR-102163-A1",
+      "source_fingerprint": "88607669593e43a38125205ad9226407dc4994df7b78fb0a5cc6a5dfa1cb952d",
+      "content_hash": "9f806a8832d343938d6ae943bb9604cd6ae831c1f14f2f9e65573ed3a4d9edf4",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "signal-directed-protein-localization",
+        "hydrolysis"
+      ],
+      "reason": "아연집게 전사인자·핵 위치 신호·엔도솜 프로테아제 절단 부위를 결합한다. 세포 구획별 단백질 절단 가공은 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-102167-A1",
+      "source_fingerprint": "0c55c78f298196ae1053a1e5f2ade93a01f2e75f480387b829eef0b5d53d15a5",
+      "content_hash": "34d9c5fa178c40dfe9c89668582c7541ec8db8476a14c8516767f544d2078ce8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "후드 옆면에 투명 창을 넣는 시야 확보 구조이다."
+    },
+    {
+      "identifier": "AR-102180-A1",
+      "source_fingerprint": "6efa81350343505b820248fef7a51fef39edbd4c5aa87d18869881085117813f",
+      "content_hash": "848fb0098ce3bbab2af911c43af982f240e74b4990f8ca3425e8d9e9184f1cb8",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation"
+      ],
+      "reason": "CFTR 조절 화합물이다. 개폐·운반·접힘 중 직접 표적 과정은 더 확인해야 한다."
+    },
+    {
+      "identifier": "AR-102181-A1",
+      "source_fingerprint": "723a8987a64aa8fcb3a2b2a93a1d55828622c687be05ce6309fc2f0178f7afd8",
+      "content_hash": "61c3057aac47424b4b3a22f1c5ccbbb48581af979f56f07ccaaea0c42d665e3a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "RSV 억제 화합물 치환체 목록이며 바이러스의 어떤 과정을 억제하는지 없다."
+    },
+    {
+      "identifier": "AR-102187-A1",
+      "source_fingerprint": "9b93c158ffae2ae878ea09f6a03d9b89217ff24caa03abf3ea41bfc2c862e60a",
+      "content_hash": "2e9192b586a7675e449f103a8d1cfb1165ec9ff3074ab959a611ece690133ad9",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "spontaneous-emulsification"
+      ],
+      "reason": "폴리글리세린에스터·유화제의 자가유화 조성이다. 비산 억제 기전은 분리 검증이 필요하다."
+    },
+    {
+      "identifier": "AR-102206-A1",
+      "source_fingerprint": "0ebb22a6acf9cf0c6e79aad108cfe6fdd8bc41871789158b41a612e9ecdd024e",
+      "content_hash": "1cddccdd6e29524c3091c2952e5156412bbb11e43d13b4a0a86045b468a551e4",
+      "decision": "LINK",
+      "keys": [
+        "seebeck-generation",
+        "combustion-heating"
+      ],
+      "reason": "파일럿 화염과 열전대의 배치이다. 점화 플러그 상세 회로는 없다."
+    },
+    {
+      "identifier": "AR-102223-A1",
+      "source_fingerprint": "9d65ca60a302e4c5d67d323a9589e85e82d3b299620ec6b3dc8f6eb11fae8ff9",
+      "content_hash": "519c336573296ab20d89ef5b91bd99eb0cd78257e1748f07446c0ee4f46e3858",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "carboxylic-acid-esterification"
+      ],
+      "reason": "4차 유기실리콘 계면활성제 및 카르복실산 에스터 유래 성분이다. 긴 치환체 목록을 별도 원리로 늘리지 않는다."
+    },
+    {
+      "identifier": "AR-102238-A1",
+      "source_fingerprint": "05a663d4007e2d89d9d545cc93d4e10195388d5df5efb6316e6cd6c00bb02f5a",
+      "content_hash": "0e8e3ca2a83e5ed92351cb1c1b9c13c50cab967f561195994b5f86aa0bad9539",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "genetic-loss-of-function",
+        "metabolic-flux-redistribution",
+        "fermentation"
+      ],
+      "reason": "젖산탈수소효소를 발현하고 피루브산 탈탄산 경로를 낮추어 젖산 발효로 흐름을 보낸다."
+    },
+    {
+      "identifier": "AR-102241-A4",
+      "source_fingerprint": "c42fed3b62c2f7a221b24c04788808b794dc37c666e6843958c67b03ff66aaf7",
+      "content_hash": "2ffbf1b32877d47ba6344379c29ebd4f94bad60cf2cb3cf13cdfd6fa4223a5d2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "고정 매듭 넥타이의 끈·슬라이더 배치이다."
+    },
+    {
+      "identifier": "AR-102245-A1",
+      "source_fingerprint": "48a96fe4e6ec0f1c2378b8d2c6d773ded6db8d6af431a380b2f9d6f21a453aba",
+      "content_hash": "d42db4e418304d54d6c21a6db830a5c21f182b7e6f5ed42e1ea9cbc99d314584",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "맞물리는 드럼이 과일을 압착하여 액을 짠다. 다공 고체의 압착 배액 후보로 문헌 확인한다."
+    },
+    {
+      "identifier": "AR-102257-A1",
+      "source_fingerprint": "de0bb7cccb3fda32ca78168710d54b3e9d5ef5cd63737c74d2f9a755967414c4",
+      "content_hash": "3b4797623b3926a0a1a317f2e9b5027e2854609b69b1383c05db4700b8b1261c",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "HAO1 전사체를 상보 RNA로 분해·억제한다. 표적 변경으로 새로운 RNAi 효과를 세지 않는다."
+    },
+    {
+      "identifier": "AR-102268-A1",
+      "source_fingerprint": "684d056897b7dac8c6f917cca25c380cd3496354cc3cd34009ecf89f819c9e8b",
+      "content_hash": "1b0cfb0b541cc16e0770226ab54425ddb75e75031556d10683b49c95e9e5253f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "컴퓨터 명령을 휠체어 조이스틱 신호로 변환하는 인터페이스이다. 부호·변환 방식은 미상이다."
+    },
+    {
+      "identifier": "AR-102270-A1",
+      "source_fingerprint": "e42f6614d75c974e812f812c4c2aca0e02930c6458e8d0e23624cfcc414a7ca0",
+      "content_hash": "96466e1db08bcb11a0a3075cc76a36cf116f4ed1bc94ec869557394ea368ec72",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "코일로 연자성 재료의 히스테리시스·투자율을 측정한다. 자기 이력 곡선의 특성 판별은 별도 후보로 기록한다."
+    },
+    {
+      "identifier": "AR-102271-A1",
+      "source_fingerprint": "5b2d57c05eed714fa2b7e6307bb11d4d0a017f1c936243314e172db646597dcd",
+      "content_hash": "c91be3de56c3c871b6dc06447878779967ee3cdda3ccd2e51a7b7feae9bde888",
+      "decision": "LINK",
+      "keys": [
+        "thermal-biological-inactivation",
+        "freeze-drying",
+        "bulk-comminution"
+      ],
+      "reason": "갑각류 원료의 가열·여과·동결건조·분쇄로 조미분말을 만든다. 식품 처리 수치를 일반 안전 지침으로 사용하지 않는다."
+    },
+    {
+      "identifier": "AR-102281-A4",
+      "source_fingerprint": "524127586cfa2c089416750b830f882236f9dcddf6354c6c14bcb9e8b96d670e",
+      "content_hash": "830324b471e5e2248179c4c8726f2562f81b0bba6a71bafdc11224e377337c2f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분리·이동 가능한 세면대와 접이 테이블 구조이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:08:13.458208+00:00"
+}

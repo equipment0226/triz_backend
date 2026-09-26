@@ -1,0 +1,162 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "89cbcba6ff90a9d329c61991b03f985a6804a494b79a01058085842c84c26383",
+  "reviews": [
+    {
+      "identifier": "AR-079830-A1",
+      "source_fingerprint": "89c33c0053e830083f41d81653e1b7a3961446f3d66ffaffee716dadcfa237a0",
+      "content_hash": "e3140599061710751754dab8615ec4e5a9a3d846f692415a8ccc1b965279d336",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "비교 가능한 미술품 가격을 정리해 지수를 만드는 절차이다. 통계 추정식은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-079831-A1",
+      "source_fingerprint": "5b0ddb49db19e65186781958145769bb74dc3f204117eaf8afd0ac30844cfb26",
+      "content_hash": "fc26ce1ab8bd175320a49b7668d361de370d66e107a9fd72d3a978391856e796",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항말라리아 피페라진 구조와 용도만 있으며 분자 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-079839-A1",
+      "source_fingerprint": "8fc464f83f4f2090547b5a37082fc0f9efd5af7520f3aee8437eb432d1fc67e7",
+      "content_hash": "80a83da440e089637e6cfc706fe3b3b88ee6390724bc9392093c0c0e197ac755",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "조향 링크 지지점을 차체 중심 쪽에 배치해 간섭을 줄인다."
+    },
+    {
+      "identifier": "AR-079852-A1",
+      "source_fingerprint": "fdc423dbff04e6232f428c5a7a63fc4a5d2a8cb3788ed5bd2b59b6e165263464",
+      "content_hash": "7addfc756d70c216a93e64ed977d66c97afecda58d85f66c5bccb146be69cddd",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "enzyme-catalysis"
+      ],
+      "reason": "식물에서 P450을 발현해 제초제 내성을 얻는다. 상세 산화 산물은 미상이다."
+    },
+    {
+      "identifier": "AR-079865-A1",
+      "source_fingerprint": "24643086c8a3f559b7315ea86960b6d22b2d6da21d09f16d07e568a4c915e0ad",
+      "content_hash": "e76c0be403ba745f6a8c5c980593e335a7b4f2c413da1e9a6c734d30646b73e6",
+      "decision": "LINK",
+      "keys": [
+        "automatic-repeat-request"
+      ],
+      "reason": "다중 반송파 HARQ 응답 자원 충돌을 피하는 할당 방법이다."
+    },
+    {
+      "identifier": "AR-079890-A1",
+      "source_fingerprint": "993d7dd7ffc60a06656676f86f5d054d882444d4b85becc00a261a6e6664170c",
+      "content_hash": "791d8f3116ad77d2de39bbf4bbf1e6b954f3e8635d6aa64be0adee0fbba432d6",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "산화아연 필름과 두 계면활성제를 포함한 구강 조성이다. 안정화의 세부 인과는 미상이다."
+    },
+    {
+      "identifier": "AR-079899-A1",
+      "source_fingerprint": "de78897ba65550ea736be4cb30cff85969eb4bc4e6e16175b409715ab1e7cc7a",
+      "content_hash": "87eac2df986e7388097701554ecfdd711f7ddb1cabb6a259181f0132ce0652e1",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "카르복시펩티다아제와 아연염을 포함한다. 금속 보조인자 활성화는 가능하지만 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-079906-A1",
+      "source_fingerprint": "deeb01861bea753efb182a2da578d62bfb9041c1ce64c5d58c1a74e2ef4e4bcc",
+      "content_hash": "aaad3f46135fb2d21229ba05f68a2636ada48e1c46b2b7ff5a95391f998422eb",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation"
+      ],
+      "reason": "전압 의존 나트륨 채널 차단을 명시한다."
+    },
+    {
+      "identifier": "AR-079909-A1",
+      "source_fingerprint": "d961698ffb196f35cccbedd7e934672abf660456cbff1c6a83630d811e69b4d5",
+      "content_hash": "f382a6e89221b468af20cb77987da96f803befe1f461241b7d3eb2f6ed9b1d1a",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "signal-directed-protein-localization",
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 유전자 발현 조절 요소와 단백질 위치 지정 신호를 제시한다."
+    },
+    {
+      "identifier": "AR-079919-A1",
+      "source_fingerprint": "e6541a22b7c3159d3a9b3b1d696f20becf95122c239eb3dd3da8e110f46206ba",
+      "content_hash": "6060ae803a439fb12076683ba02f6c64b85699c4abd582b8bfdc8d64b55d565a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 분말 용량 지지대를 교대 결합하는 분배 기구이다."
+    },
+    {
+      "identifier": "AR-079937-A1",
+      "source_fingerprint": "bd3f76b53ec841859ef91be0678e289d681985dd7dcf0829ff5cfe7c7cf00158",
+      "content_hash": "319d830202ee725d240cc43403a9e5e12bf8d321bae2c2580e4b453b75ad0723",
+      "decision": "LINK",
+      "keys": [
+        "biofilm-treatment"
+      ],
+      "reason": "생물 여과층과 통기 장치로 폐수 유기물을 처리한다. 구체 미생물 경로는 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-079942-A1",
+      "source_fingerprint": "75fd7216ee95f3a3aca4f2a268717f6d5910499472c0765b5a401963b112453e",
+      "content_hash": "d47b3ffba37a01780217b6f6b2610eb2e4e2a1bacc83f9f4fb87adf8f4e440fe",
+      "decision": "LINK",
+      "keys": [
+        "seebeck-generation",
+        "reluctance-actuation",
+        "pressure-driven-flow"
+      ],
+      "reason": "열전대 신호로 자기 밸브의 가스 안전 차단을 구동한다."
+    },
+    {
+      "identifier": "AR-079946-A1",
+      "source_fingerprint": "e8111c678923fb540ddab69743cda8434a61f1f33adafedf38ecda19137aa048",
+      "content_hash": "dff7f026db45422e5a08d81818f8b4f236393ec3044e359be95e36af91cb8b22",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "surfactant-action"
+      ],
+      "reason": "완충제·폴리올·계면활성제로 EPO 접합체를 제형화한다. 무위험·보편 안정성 주장은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-079970-A1",
+      "source_fingerprint": "bcc39b4e012e9fab69338aa2c362c7ebc7b677785f6f94bf183df27413ccd298",
+      "content_hash": "e94856dcc56cca94dde7ec4048a96a41581370c0e28274677f0d29c09753e054",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "병원체 증식 향상과 적응 변이를 다루는 생산 특허이다. 증식·적응 최적화나 관련 효과 카드로 전환하지 않는다."
+    },
+    {
+      "identifier": "AR-079986-A1",
+      "source_fingerprint": "48ed17368c831c3c561463ae7ce0ee29c9bcdf8a9c6370cc18772e03bd62ca2e",
+      "content_hash": "d9206ff1433f5c8571248c592e8148089e227b780ce5bb4952881cbbc46ed1b1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알콕시아민 처리로 폴리에틸렌 용융 강도와 신장 점도 특성을 바꾼다. 분지·얽힘에 의한 신장 경화 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-079993-A1",
+      "source_fingerprint": "eb7b4ca058cbc3102174d9d4c84c474e710602022d2973d5970b62b2a87b1890",
+      "content_hash": "ced6fbb620ee8233ce071adc356c998ebf1f4933ff3024fd7b5df014db320398",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "FLT3·SYK 인산화효소 저해를 명시한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:17:28.236245+00:00"
+}

@@ -1,0 +1,372 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "cde6b65ffc87881ce817ad5ff43fd4cc6db91f9deb5f03b613412b8ab93a7942",
+  "reviews": [
+    {
+      "identifier": "AR-045497-A1",
+      "source_fingerprint": "5ddcc0d3b1d40a88d1863ef2effede23ec4203569357146c37f76cc5d60cc836",
+      "content_hash": "ab0fb5ba3d26e183a73352900857cebf561414e6e14ec62bca74bf372a354b1b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "NS3 세린 단백분해효소 억제제라고 명시한 범위에 연결한다. 치료 성능이나 억제 강도는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-045503-A1",
+      "source_fingerprint": "c512b4ad54af25d41421fad96cdedc5f955813caf1a52f2e855502134c75bf4c",
+      "content_hash": "97599dac66498ec72d91cb802e61f1dc7076552e9bd9445daae0e43edd15147a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "카스파아제 억제를 명시한다. 염증 및 세포사멸 제어의 치료 성능은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-045506-A1",
+      "source_fingerprint": "4a57ffbd28f50238449dfb1077aa657f8036baa21a1576f0187e209a8cbac7d7",
+      "content_hash": "425f8eab43d52852644f4b3f1e24422cf7507b05c81aa3c733e15473b8f23fd7",
+      "decision": "LINK",
+      "keys": [
+        "distillation"
+      ],
+      "reason": "조생성물을 감압 단거리 증류하여 정제하는 단계를 명시한다. 의약품 순도와 열분해 정도는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-045521-A1",
+      "source_fingerprint": "6b15706b1b62829c7e85c6a7468e00e1b1e40fcafa21a276e17c00b32cb9c709",
+      "content_hash": "b6ed170d5b848b833d7517f86d39fc5d3aa49b0541c21496f0ffbe8c0ede9fb6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "프로모터에 의존하는 발현 조절 물질의 선별 방법이다. 직접 작용 분자와 전사 조절 경로의 근거가 더 필요하다."
+    },
+    {
+      "identifier": "AR-045536-A1",
+      "source_fingerprint": "586c36168657ee7236d1227e8bfbe2815f508e1d0fc0a049598bebe1c4afea3f",
+      "content_hash": "9811128290cf658f6c43dbfeb3d6cb08c999c2d752d9a58a4472dca8b83f3db7",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "제4형 포스포디에스테라아제 억제를 명시한다. 열거된 질환의 치료 효능은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-045543-A1",
+      "source_fingerprint": "2749ec424930f6e4265454157c3b2044daa0c327437132e63dbd3e7100e1e1c5",
+      "content_hash": "d8e18e4caa1eb9d8d075ff18e94b9a3b76ee23313a58d3eddb61c1f1eddf19a3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유전자 발현 패턴으로 암 상태를 평가하는 방법이다. 발현량의 물리적 측정 원리와 임상 분류 성능은 없다."
+    },
+    {
+      "identifier": "AR-045552-A1",
+      "source_fingerprint": "36f49d4bf69301e3bbb5d2af7602bfdd8306def63d262a22989f4cafdcad09b0",
+      "content_hash": "b1531f84198929fd8d9f17ee2e8926b2b7a265c51b49cf5f6d4e0294dd29878e",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "5-HT4 수용체 작용제임을 명시한다. 열거된 질환 전체의 효능으로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-045560-A1",
+      "source_fingerprint": "60264ea70a76cd2148bccd86983043635b30f41854b8cc31ca29444a2e52177a",
+      "content_hash": "12a382cb118ac29f2a403d0ee5ac946bdc430e0fabaa37b1b70d0137a5ed76b7",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "세정 조성의 선택 성분으로 명시된 계면활성제 사용 범위에 연결한다. 염기성 염의 반응 및 부식 억제 경로는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-045631-A1",
+      "source_fingerprint": "b68ffded1568ec4ec3641c8b8d94dc2d695bae44525f9c02d96e4f8342b7a78e",
+      "content_hash": "586993c81d0a48eb6c72adf6594cd0772939f61d277e9b7928cc041943458d90",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "catalysis"
+      ],
+      "reason": "이금속 촉매와 조절제 존재하의 중합으로 분자량 성분의 비율을 바꾼다고 명시한다. 특정 조절제의 분자 기전은 추가 확인 대상이다."
+    },
+    {
+      "identifier": "AR-045671-A1",
+      "source_fingerprint": "584cc2d792a4faed0161ec10258f56f21e7b171f779f2d2ad9554dc048acfd9d",
+      "content_hash": "15af48d0512e41ff9477fc1c27710f46ee3207f258bca3da5d5f6e8a4c14b8be",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "NogoA 유래 표적 폴리펩타이드에 결합하는 분자를 명시한다. 해리 상수의 주장과 신경 회복 효능은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-045691-A1",
+      "source_fingerprint": "7ca93f506227c0d39d39b6bbcecc5b87f0e05c906fc21085e7038bf533bf7bb5",
+      "content_hash": "4948c9794a2c2989397c89b2ce5407bb5d185562f29cac0ffbec87b1fe60a0e8",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "P2X7 수용체 길항제라고 명시한 범위에 연결한다. 채널 전류의 정량 변화와 치료 성능은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-045695-A1",
+      "source_fingerprint": "80d5312a9ddfe58adf33fa5e78145eaad5fafecd66cb85e81de1795b98d404aa",
+      "content_hash": "0845377491a8040bccff1522dae71bf203a1cb752069217f3100833c37d664b4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항암 용도와 화합물 구조만 있고 분자 표적은 없다."
+    },
+    {
+      "identifier": "AR-045698-A1",
+      "source_fingerprint": "00e72533c4aac15487c7fa2c65758664d7660f5f591ac741b4d1f301606de862",
+      "content_hash": "169ba8b0fa76c9209b85e0189143e3953ce824563ed567fc6ee183a5702a1783",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "글리코겐 합성효소 키나아제 3 억제제라고 명시한다. 구조 정의만으로 결합 부위를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-045703-A1",
+      "source_fingerprint": "0bae7c32cf0159c9ad02c7e6d8c60ac7e53e511106014e484b074074f979c3e7",
+      "content_hash": "d93c0beb59936a5593bdbf6180ebedb114d67cf569f8042fdef58ff8cdd4a74a",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "벌통의 통로에 조절된 온풍을 흘려 열을 전달하는 원리를 명시한다. 해충 제거율과 벌의 생존 범위는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-045707-A1",
+      "source_fingerprint": "4a1044e74142363b7800640df86434293729812d3ebf0a1e0b23c4a6ffec247b",
+      "content_hash": "3b500a4858dd2f801196b2480eb28e95e1e4f322865b8d5266b0e27df25ae53c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기공 크기 분포와 감압 처리에 의한 시멘트 물성 개선을 제시한다. 탈기 및 동결 팽창 제어의 세부 기전은 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-045708-A1",
+      "source_fingerprint": "1104f5aed2485297de47e231077c1cf99a68fee6ad40284d6383fbbb3b130fec",
+      "content_hash": "22f6ad5537715bd329f4b75cea3be82424bf76ed27c1dd6a396d620dc5572641",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "지연과 변조를 적용하여 상하 계층 신호를 전송하는 통신 구성이다. 오류 정정 부호나 시간 슬롯 분할을 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-045735-A1",
+      "source_fingerprint": "055ff260ae4467f5833d6658e14e017a3812ec5ca5df5da8c5f8d71098f99ace",
+      "content_hash": "e29dc01f63c17905ecefc7523f0734c4975454ca4563bd631a98727b90182951",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "부드러운 친수성 고분자 피복으로 흡수 입자의 기계적 손상을 줄인다고 한다. 감쇠 또는 가소화의 기전은 없다."
+    },
+    {
+      "identifier": "AR-045738-A1",
+      "source_fingerprint": "b169b993de7cc72ef9551402f5f58159aaf81395bd73b695105ae8c54a21b677",
+      "content_hash": "6bf17c47a2d04a3e19691232b771b682cbdf0b561e863f6506c2dd961c315515",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "MEK 활성 억제를 명시한다. 전구약물의 전환 기전과 치료 성능은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-045766-A1",
+      "source_fingerprint": "cdbe5f2c27d9c0dc2244bc30b12f2316e4943772f3a1410ddae9833b32a0161e",
+      "content_hash": "49fb15b28b78a1cce4738a5306b2ae5c63e62f5bb11da17c9e94a76e0807cd39",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "성장호르몬과 유리지방산 조절제의 병용 용도만 있고 부작용 감소의 작용 경로는 없다."
+    },
+    {
+      "identifier": "AR-045778-A1",
+      "source_fingerprint": "9710fad089f1a7da92e61c4dcc625b3944132c3edbc382c0687d884cb0e64d96",
+      "content_hash": "d22a6a90235ac4a726c6a932e98eb159d19613abcd6063608eaf72b57159f137",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "압출 직전에 향료를 주입해 열 노출을 줄이는 식품 압출기 배치이다. 팽창 기전이나 정적 혼합기의 유동 원리는 구체적으로 없다."
+    },
+    {
+      "identifier": "AR-045789-A1",
+      "source_fingerprint": "29647b6cc2bae596336cf2b43c0937f60348d5061f31d328dcfecc4c18e45cd8",
+      "content_hash": "66cb9fc2ee95b8d6999a35ee66a10f6dad7f369e35e9f24f1d3bf8e4fc10dd73",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "혼합 살균제의 상승 효과를 주장하지만 분자 표적과 상호작용 기전은 없다."
+    },
+    {
+      "identifier": "AR-045815-A1",
+      "source_fingerprint": "d469180fb43cc299c2d283850cc79d9a160e10bb92517affad96a35f238fa0af",
+      "content_hash": "4cafe5c2df82aa7aea42d2c7e1a9297ceac6af81b7b05e9829c67f95917e3edc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항원과 단백질 및 지질 복합체의 조합으로 세포성 면역 반응을 유도하는 용도이다. 인식 수용체 및 항원 제시 경로는 구체적으로 없다."
+    },
+    {
+      "identifier": "AR-045829-A1",
+      "source_fingerprint": "1b45e12521667c511fdf593c909806c38a8d6c4b442414ab7dab19f4fb116656",
+      "content_hash": "2e4619178512acb3a63329d5c30147f8754ccb12779ac2f46db4831b0b9cf9e7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "용융조의 온도 및 조성을 측정하는 검출기이나 센서의 변환 원리는 없다."
+    },
+    {
+      "identifier": "AR-045852-A1",
+      "source_fingerprint": "2ecf321f93a0b6681818992f785d5da6fe02ec90cdf7b51d77400bf5be544a90",
+      "content_hash": "493a6e298b3ac3b96ccf4f20ec9d870e11e2fe4434288794bca727e6d62c6022",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "세제용 건조 과립에 피복을 입히는 공정이다. 피복의 시각적 및 물성 개선 기전은 없다."
+    },
+    {
+      "identifier": "AR-045908-A1",
+      "source_fingerprint": "cf859ce7224a029b39fcb52591ea524f9cdacbc46285ee0188ad3ada566dc500",
+      "content_hash": "388b34e2b44d07c80dd640218e43f21b687e915b6635d5b3d0bf6f7b9ff8b485",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "solvent-extraction"
+      ],
+      "reason": "고분자 수지에 성분을 흡착 및 탈착하고, 이액상 용출물의 수상을 분리하여 성분을 얻는 단계를 명시한다. 단일상 실시형태까지 액액 추출로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-045913-A1",
+      "source_fingerprint": "79eff6b548360bf28e2a81c693b279c2746b1e3f2476797a666fd3d581f13d71",
+      "content_hash": "0641a8b2fb826f2a4b7dc94906883367fe59e8afe8bf6a5f16c3ca322f0a0778",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "무스카린성 아세틸콜린 수용체 길항제를 명시한다. 호흡기 질환 효능은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-045925-A1",
+      "source_fingerprint": "d1cecf2fa17a619eb37c3bfe4554e5669b2f1280fbbc317aa3032623ee9ef3da",
+      "content_hash": "dbef7cac5eb470d76e78c1ca40510223459d0cb0f98ac9447b3595404dc7a13a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "염증과 대사 질환 용도 및 화합물 구조만 있고 분자 표적은 없다."
+    },
+    {
+      "identifier": "AR-045937-A1",
+      "source_fingerprint": "ecf3ca9ffc80609c0bb93349d7649706fb8a3549ee0441c1e4a2d824ba902636",
+      "content_hash": "e4b9b5831f47c65e5e83a559bf1e81713a683a398217fabb9cc2ed3283773470",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "안티센스 핵산으로 eIF4E 발현을 조절하는 원리를 제시한다. 단백질 효소 억제와 구별하여 핵산 기반 발현 조절의 후속 검토를 남긴다."
+    },
+    {
+      "identifier": "AR-045993-A1",
+      "source_fingerprint": "e1e2448b584ac799b3f0f79b188799ffc616ad3eb1f806a7b126dd3adf157b6e",
+      "content_hash": "618a834950eddc2ec17cc5bcddad8c6105b9f10ebe3dbf6497231ac40c799ca0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "신경병성 통증 치료 용도만 있고 표적이나 작용 경로는 없다."
+    },
+    {
+      "identifier": "AR-046022-A1",
+      "source_fingerprint": "bee4cebefb29a0e2f7d3dbac62e9e1d9c86fcc043d646247715c3651b5a1ee31",
+      "content_hash": "5e621d11f66a5af80fdee17de46f02ef7563203986e26a7216ddbb16b21d7ab9",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "칼슘 채널의 알파2델타 소단위 결합을 명시한다. 결합이 채널 개폐에 미치는 방향과 정도는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-046033-A1",
+      "source_fingerprint": "09f9737c9f63a59b6ee40716b86a0fcba1dfdc8f56d78d2e095eda7a09550848",
+      "content_hash": "101e52a3aa397eb5bc1cf17c22fc0b57e985faceae261edf97b43703d28fc624",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "첨가제 혼합물의 구조와 선택적 윤활제 성분만 있고 기능의 인과 기전은 없다."
+    },
+    {
+      "identifier": "AR-046099-A1",
+      "source_fingerprint": "18fce29a6b7938b110d5b0540c39b5dc509555430fb5467e5296c99ec2d44fc2",
+      "content_hash": "0887bde9b620b0adf2733bb591825fad2b53152591fd9c6f3beb008731fa6acb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제의 상승 작용을 주장하지만 각 성분의 표적과 상승 기전은 없다."
+    },
+    {
+      "identifier": "AR-046108-A1",
+      "source_fingerprint": "956672b4c8d5d860db122d8ffb7f6b246debab6db85077d0a9ba4e1370a7bbca",
+      "content_hash": "5b252244e9d98c9744919cc01a5b690614d335c9cb06c144a01821f851bae86b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기류로 섬유를 연신 및 감속하고 대전시켜 수집하는 과정이다. 섬유 간 반발 및 수집 전기장의 역할을 확정할 설명이 더 필요하다."
+    },
+    {
+      "identifier": "AR-046116-A1",
+      "source_fingerprint": "32871696e45f8b2de28aec0faf379e5a241e7dc48beef11dfbf23c856ee1b6b7",
+      "content_hash": "677a89c001c1aff305f855e229de5f7972b5cf6f37258a7a21d31746e4d3c871",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "화합물 구조와 치료 용도만 있고 분자 표적은 없다."
+    },
+    {
+      "identifier": "AR-046128-A1",
+      "source_fingerprint": "e07320a0a1b6127aff63dcb765dc467c62ccbe571abbde5c118f0f03f52329dd",
+      "content_hash": "12c165f81ef99fa66573ca31cc405f43477a9471a916154699f7800df32e0013",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항미생물 용도와 화합물 구조만으로 생물학적 작용 기전을 확인할 수 없다."
+    },
+    {
+      "identifier": "AR-046165-A1",
+      "source_fingerprint": "12d0dfdf9e14bbba1ca087616b60a5829bce7a8f14b33c3ffedc545abbbdb49b",
+      "content_hash": "731f4f370752d4786d55021d9efb3a07522a9560d26f8c85b9b3a71916c097ac",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "hydrolysis",
+        "chromatography"
+      ],
+      "reason": "기질 금속단백분해효소 억제 용도와 제조 중 에스터 가수분해 및 키랄 고정상 분리를 명시한다. 질환별 효능은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-046170-A1",
+      "source_fingerprint": "cc92a250632c23593dec11c5506752e410b5136d7e9acccf81aff078236cb0ae",
+      "content_hash": "ad1ec8a6f09d4e2c49cf1469f6d289937945e4f7d3fc15f004a38db890d62f90",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "아데노신 A2B 수용체 길항제라고 명시한다. 아형 선택성과 치료 성능은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-046191-A1",
+      "source_fingerprint": "f059b21efa10c8a7e3d6102a71528cefbca8ff0b77a5c6ba1b0340b8a0ca3a7e",
+      "content_hash": "e3d967580dc1fda56b40e80b4d5be47dd8bacc55046acd4c9e788c0decd90308",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "hydrolysis",
+        "crystallization"
+      ],
+      "reason": "HMGCoA 환원효소 억제 용도와 제조 중 보호기 및 에스터의 가수분해, 선택적 재결정을 명시한다."
+    },
+    {
+      "identifier": "AR-046194-A1",
+      "source_fingerprint": "4fc3a8dd96994cda3becab26b6c1a04679d2064159c8184cfaf4ff0c2f6926a8",
+      "content_hash": "08186505bb9a50e66ebfee64fe446c397fbb2343c153fd360187d8d039944488",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "라파마이신 유도체의 림프종 치료 용도만 있고 분자 표적은 없다."
+    },
+    {
+      "identifier": "AR-046207-A1",
+      "source_fingerprint": "e76653265f9e8415c9d4899fad2c2f5dd6327d609789456b5b6ae383ca39bec0",
+      "content_hash": "bee65cac322ba3d7f39de557064f39db43aeb4b6059b5ba12f9750c84acf8fa3",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction"
+      ],
+      "reason": "키랄 아미노산과 아미노니트릴로 염을 만드는 광학 분할 단계에 연결한다. 결정화 조건이나 이성질체 순도는 제시되지 않아 추정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T05:55:45.072360+00:00"
+}

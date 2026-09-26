@@ -1,0 +1,16 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "6db354de614397577b066fbbd2a3046d2e78e59c9fe78a795f492244c165a3f2",
+  "reviews": [
+    {
+      "identifier": "AR-106742-A1",
+      "source_fingerprint": "6654c2e7f012c0e266a3d33395494122347dffed247241e7076475c9c68eeb63",
+      "content_hash": "bd00b6718e9d9ef7dd9b5819ec35899b1bb0bbe4e1017e3226a090b24097b58a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "재검토: 일반 확산 스펙트럼 선택만으로 사용자별 부호 중첩·분리를 확인할 수 없어 CDMA 연결을 철회한다. 음향·전자기 중계와 손실 모델은 구체 변환 원리가 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:41:45.829397+00:00"
+}

@@ -1,0 +1,157 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e56996908e6a6b1b15d68b7702c63c685924e41fa1bd4ecc483262b84cd9762d",
+  "reviews": [
+    {
+      "identifier": "AR-094145-A1",
+      "source_fingerprint": "c712a004436c822a0c2264a9a5589c5d6e97557b0c6526aed71ae3665f15de23",
+      "content_hash": "d2c4503e5bea447a80d7f129b8869a47354cb45df882e1c1765eca6615c86f94",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "표시 시각·문자열의 데이터베이스 대조 인증 절차이다. 암호학적 보증으로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-094149-A1",
+      "source_fingerprint": "49c682995f22543ca6da1a4f5ef010267600f3ee7f67ac2ada07455a77e2c4c9",
+      "content_hash": "3528b1975e10287a4508ad3791aa35cc7ea8300294c98a5d43854d975dd5e9f5",
+      "decision": "LINK",
+      "keys": [
+        "multivalent-avidity",
+        "biomolecular-recognition",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "항원 표적과 복수 제시 도메인을 결합한다. 사슬 내 이황화 연결의 형태 안정화는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-094168-A1",
+      "source_fingerprint": "88ec8cf83a4cad5a8e9f22d5a5ff5800651950b626b7241ba59f857fc4512590",
+      "content_hash": "8541addc79d24b473ed6fdaaf8b48943054bb1f9af6fd248474b12519b5ade34",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 구조 목록이 저장 말미에서 절단되어 있으며 분자 표적은 없다."
+    },
+    {
+      "identifier": "AR-094190-A1",
+      "source_fingerprint": "413e46136441f7efea440c4df491b3acecefb77a3c14bd1fa93c0b2044331c23",
+      "content_hash": "0c4f4d3fbfb6e9fc5efae93700277edc4d41d85ecc6e1ff96a54bcf109ff2409",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "plant-cell-totipotency"
+      ],
+      "reason": "아그로박테리움 전달과 식물 재생이다. 세균의 DNA 전달 장치 원리를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-094205-A1",
+      "source_fingerprint": "980fec0e56be155ebbdf9b98dc576c9249b21d3ecfed982d838aa6f159e9f5d5",
+      "content_hash": "28e3976eb5f83e6b571ec399053b168af7fed2405db3c4767b21ccc535d62cc7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Sn2+ 용액과 용기 재료 조합만으로 산화 안정화·흡착 억제 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-094223-A1",
+      "source_fingerprint": "55ff14cbf81cd78b2176a2a50d873e0e4b5bec599eacf2a7fd89cf2f3efefef8",
+      "content_hash": "82bbb05925a992414c7c6ef6a8a46aaae01acb29905960b2a6534255eb7e830b",
+      "decision": "LINK",
+      "keys": [
+        "brazing",
+        "fourier-conduction",
+        "fusion-welding"
+      ],
+      "reason": "용가재 접합과 점용접으로 냉매관의 열적 접촉을 확보한다. 납땜 온도 사례는 공통 젖음·응고 범위로 한정한다."
+    },
+    {
+      "identifier": "AR-094246-A1",
+      "source_fingerprint": "de0c5314ea865d65a866a2879c3cdf596d4d934a7446663452056b94a10e86c3",
+      "content_hash": "aed5c99b108234104c4abd0aa5c4c0f4cc037954ae2a84119b7a596366769e57",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "유동 저항이 다른 구역을 배치하여 흡입 유로를 정한다."
+    },
+    {
+      "identifier": "AR-094249-A1",
+      "source_fingerprint": "2dfbb53eae18f0fc2d2a6d210311e65fcdfbfcea4c0ed2fa18c4d84aa5dade94",
+      "content_hash": "e6a0da67ca5cf99b157c669cdd69d96446bbb86e1f88130def8ec6e26ba0a635",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "wetting-control"
+      ],
+      "reason": "유기실리콘 계면활성제로 젖음과 농약 제형을 조절한다."
+    },
+    {
+      "identifier": "AR-094280-A1",
+      "source_fingerprint": "563f54dd01f1aa8ae4515d893d446e5abb30444983fb3385c3442bbf4a777dbf",
+      "content_hash": "1540d3c3b022bbc39755368516cb887f8314537e006a9e46dd71ab4b22754922",
+      "decision": "LINK",
+      "keys": [
+        "antigen-targeted-payload-delivery",
+        "hydrolysis"
+      ],
+      "reason": "표적 전달과 절단 가능한 펩타이드 연결체이다. 최초 절단 후 자기붕괴하는 연결체의 연쇄 방출은 신규 후보이다."
+    },
+    {
+      "identifier": "AR-094288-A1",
+      "source_fingerprint": "9132c2aadfed09803f16e104ce8e9a335c28cbf4097af2e08c384261b50dee99",
+      "content_hash": "4316e36d41e94e91178faa4b17be9b0dcccfc6b42e722805462a5e136c46dc79",
+      "decision": "LINK",
+      "keys": [
+        "plasticization"
+      ],
+      "reason": "폴리에스터에 가소제를 넣는 조성이다."
+    },
+    {
+      "identifier": "AR-094312-A1",
+      "source_fingerprint": "ddf750e26d1ae33159d7bfe266f06117be5f626aeed15fa06330d22d7efea948",
+      "content_hash": "8538bde5ead5db5ad7dddcc4c7f6dcebb0d29a3743108e5280eeca3a478f8c80",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "친핵체와 공유 결합하는 작용기를 가진 FGFR 저해제이다. 구체 부가 반응식은 없다."
+    },
+    {
+      "identifier": "AR-094317-A1",
+      "source_fingerprint": "2626717f6acdd9e7db630e4982afc0bbba0ce611c0b433553924883c800d64db",
+      "content_hash": "c210ba3f3f4de304ae49b56a9003c1f3e770b63d1a0270dc8f76ddd5b333f11f",
+      "decision": "LINK",
+      "keys": [
+        "terminal-sialylation"
+      ],
+      "reason": "시알산 변화로 Factor VII의 제거 시간을 조절한다. 응고 효소 전구체의 절단 활성화는 별도 문헌 후보이다."
+    },
+    {
+      "identifier": "AR-094322-A1",
+      "source_fingerprint": "74c1d5c9aa0d6cc8f6dee55a45ec47ede6c96ec35c029351781ef2c87bd0b225",
+      "content_hash": "71af46d04fa1362de60f7777cf048972917e7af5750cc39e92c9733e3124d7da",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "질소·인·황·칼륨원과 충전재의 비료 조성이다."
+    },
+    {
+      "identifier": "AR-094346-A1",
+      "source_fingerprint": "e5ee3c6f2f97a59a51ca1f139652588fd421e4c4e768984386568f6860903738",
+      "content_hash": "7cd6848273a03e3167b625fde6e503d443b804671c69cfbe2024632f926a41d3",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "단백질 키나아제 억제가 명시된다."
+    },
+    {
+      "identifier": "AR-094362-A1",
+      "source_fingerprint": "0b141e834bdbb1531a27016cf36c1b6b73625e2d8ff2029bde307ad7c95e5817",
+      "content_hash": "66f715161326c3d08ccd72ce1e8b14722792dc253f46b4d3eea6bd568cd16e54",
+      "decision": "LINK",
+      "keys": [
+        "refraction"
+      ],
+      "reason": "비구형 자성 입자의 방향 배열로 보는 각도에 따른 외관을 만든다. 신규 초안의 자기 토크·반사 경로와 연결하며 센싱 효과로 취급하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:33:49.963197+00:00"
+}

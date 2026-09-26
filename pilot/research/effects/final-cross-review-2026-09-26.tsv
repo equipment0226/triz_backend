@@ -1,0 +1,26 @@
+# first|second|decision|causal boundary
+norrish-carbonyl-alpha-photocleavage|photoinitiated-radical-generation|KEEP_SUBMECHANISM|중합 광개시의 한 경로와 겹친다. 노리시 카드는 카보닐 알파 절단·후속 분해의 반응 경로이고 광개시는 전자·수소 이동까지 포함하는 기능 카드이다. 독립 상위 법칙으로 세지 않는다.
+electrocyclic-conjugated-ring-switching|photoinduced-geometric-isomerization|KEEP_DISTINCT|전자고리화는 원자 연결 관계를 바꾸고 E/Z 광이성질화는 연결 관계를 유지한다.
+enol-electrophilic-alpha-functionalization|carbon-nucleophile-carbonyl-addition|KEEP_DISTINCT|카보닐을 친전자체로 소비하는 부가와 달리 에놀화된 알파 탄소가 친핵 부위이며 치환 뒤 카보닐이 유지된다.
+optical-kerr-intensity-phase-modulation|electric-kerr-effect|KEEP_RELATED|굴절률의 비선형 응답 계열이나 광장 자체의 세기와 외부 저주파 전기장이 각각 제어 입력이다.
+dicke-collective-radiative-decay|photonic-density-spontaneous-emission-control|KEEP_DISTINCT|방출체 사이 집단 결맞음과 주변 광학 상태 밀도는 방출률을 바꾸는 다른 제어 변수이다.
+sisyphus-optical-pumping-cooling|doppler-laser-cooling|KEEP_DISTINCT|상태별 퍼텐셜 등반·광펌핑과 속도에 따른 흡수 비대칭의 에너지 제거 경로를 구분한다.
+resolved-sideband-motional-cooling|anti-stokes-fluorescence-refrigeration|KEEP_RELATED|높은 에너지 광자로 에너지를 빼내는 계열이나 개별 포획 운동 준위 분해와 벌크 형광의 순열수지가 다르다.
+dark-state-adiabatic-population-transfer|landau-zener-avoided-crossing-transfer|KEEP_DISTINCT|중간 상태 점유를 줄이는 다준위 암상태 경로와 회피 교차의 비단열 전이 확률을 구분한다.
+kelvin-curvature-capillary-condensation|capillary-wicking|KEEP_DISTINCT|액체가 이미 존재하는 침투 압력과 증기·액체 상평형 조건의 곡률 의존성을 구분한다.
+solid-temperature-gradient-thermomigration|thermophoresis|KEEP_RELATED|온도 구배 물질 이동 계열이나 고체 내부 원자·결함의 이동과 매질 속 입자에 전달되는 비대칭 운동량을 구분한다.
+magnetic-relaxation-loss-heating|induction-heating|KEEP_SUBMECHANISM|교류 자기장 가열 계열이며 나노입자 자화·회전 이완 손실의 조건을 명시하는 세부 카드이다. 모든 자기장 가열을 와전류로 설명하지 않는다.
+film-substrate-wrinkling-instability|compressive-euler-buckling|KEEP_RELATED|압축 불안정 계열이나 탄성 기초와 박막 굽힘 경쟁이 공간 파장을 선택한다.
+ferroelastic-variant-switching|jahn-teller-orbital-lattice-distortion|KEEP_DISTINCT|기존 변형 변종 사이 전환과 전자 궤도 축퇴 해소를 위한 격자 변형의 원인을 구분한다.
+peierls-electron-lattice-dimerization|jahn-teller-orbital-lattice-distortion|KEEP_RELATED|전자·격자 결합 계열이나 확장 밴드의 주기 변조와 국소 궤도 축퇴 해소를 구분한다.
+debye-mobile-charge-screening|double-layer-repulsion|KEEP_SUBMECHANISM|디바이 차폐는 이중층 상호작용을 구성하는 요소이다. 단일 전하 주위의 퍼텐셜 감쇠와 두 대전면의 분산 안정성 조건을 구분하며 독립 계열로 단정하지 않는다.
+plasma-wakefield-electron-acceleration|oscillatory-field-ponderomotive-force|KEEP_CAUSAL_CHAIN|평균 장 구배 힘이 전하를 밀어 후류를 만들 수 있다. 후류의 전기장 위상에서 가속되는 단계는 구동 힘 발생과 다르다.
+collapse-heated-bubble-sonoluminescence|cavitation|KEEP_SUBMECHANISM|캐비테이션 계열의 압축가열·복사 경로이다. 기포 충격의 세정 응용과 구분하지만 기포 붕괴에서 독립된 상위 법칙으로 주장하지 않는다.
+feshbach-bound-channel-scattering-tuning|fano-discrete-continuum-interference|KEEP_SUBMECHANISM|이산·연속 채널 결합이라는 공통 계열이다. 산란 길이 제어의 결합 채널 경로와 두 경로 간섭의 선형상 조건을 구분한다.
+group-i-ribozyme-self-splicing|spliceosome-mediated-rna-processing|KEEP_RELATED|RNA 절단·연결의 기능은 같지만 그룹 I RNA 접힘과 구아노신 참여 경로를 스플라이소솜 조립 경로와 구분한다.
+muts-mutl-strand-specific-mismatch-repair|dual-incision-nucleotide-excision-repair|KEEP_DISTINCT|복제 오배열의 가닥 식별·절제와 부피 큰 손상 양옆의 국소 이중 절단은 인식 대상과 복구 개시가 다르다.
+autophagosomal-sequestration-lysosomal-degradation|target-induced-protein-degradation|KEEP_SUBMECHANISM|표적 분해의 가능한 경로 중 하나지만 기존 기능 카드는 특정 분해 경로를 단정하지 않는다. 새 카드는 자가포식막 격리와 리소좀 전달에 한정한다.
+secis-directed-selenocysteine-recoding|programmed-ribosomal-reading-frame-shift|KEEP_DISTINCT|같은 읽기틀의 UGA 해독 변경과 읽기틀 자체의 이동을 구분한다.
+carrier-thioester-nonribosomal-peptide-synthesis|ribosomal-peptidyl-transfer|KEEP_RELATED|아미드 결합 형성 기능은 같지만 단백질 모듈·티오에스터 운반체와 mRNA·tRNA 해독 경로를 구분한다.
+enzyme-internal-metabolite-channeling|metabolic-flux-redistribution|KEEP_DISTINCT|중간체의 국소 이동 통로와 효소량·경쟁 경로 조절은 다른 조절 변수이다.
+# Rejected candidate families: underpotential deposition already exists; bulk plasma oscillation kept within related plasma-wave family; Argonaute RNAi left within the existing antisense scope; ATP-dependent chromatin remodeling left within chromatin-accessibility-regulation. No extra count assigned.

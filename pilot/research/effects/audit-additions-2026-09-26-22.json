@@ -1,0 +1,255 @@
+{
+  "batch": "additions-2026-09-26-22.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1356,
+  "added": 20,
+  "after": 1376,
+  "target": 1500,
+  "source_sha256": "44d466d08514b24e7564158f0336bd3b0470da07cdf9fb942c2d5e5ed15d4e01",
+  "decisions": [
+    {
+      "key": "granular-rearrangement-shear-dilatancy",
+      "group": 3,
+      "related_keys": [
+        "granular-jamming",
+        "shear-thickening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "흐름 정지나 점도 증가와 동일시하지 않고 전단 재배열에 따른 체적·구속압 결합에 한정한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19658906/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "normal-approach-squeeze-film-support",
+      "group": 5,
+      "related_keys": [
+        "hydrodynamic-lubrication",
+        "viscous-damping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "접선 운동의 쐐기 연행과 달리 틈 두께의 시간 변화가 압력을 만든다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/0043164873900173",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "soft-wall-deformation-asymmetric-lift",
+      "group": 5,
+      "related_keys": [
+        "elastohydrodynamic-lubrication",
+        "inertial-lift-cross-stream-migration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고압 점도 상승의 구름 접촉 EHL이나 관성 양력과 구분되는 연성 벽의 앞뒤 비대칭 형성 경로이다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4889378/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "bending-tube-brazier-ovalization",
+      "group": 6,
+      "related_keys": [
+        "compressive-euler-buckling",
+        "section-moment-stiffening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "축압축 기둥의 횡변위와 달리 굽힘 중 단면 자체의 타원화가 강성을 낮춘다.",
+      "source_url": "https://www.jstage.jst.go.jp/article/nctam/55/0/55_0_31/_pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "finite-torsion-poynting-axial-response",
+      "group": 6,
+      "related_keys": [
+        "viscoelastic-normal-stress-rod-climbing",
+        "auxetic-geometry"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유동 중 정상응력에 의한 자유수면 상승과 구별되는 고체의 유한 비틀림·축변형 결합이다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S002250962600116X",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "poroelastic-out-of-phase-slow-wave",
+      "group": 13,
+      "related_keys": [
+        "poroelastic-fluid-network-relaxation",
+        "gas-liquid-mixture-acoustic-compressibility"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "배수에 따른 준정적 완화나 혼합 압축률 변화와 달리 두 상의 상대 운동을 가진 전파 모드이다.",
+      "source_url": "https://academic.oup.com/gji/article/175/1/301/718388",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "flame-expansion-darrieus-landau-instability",
+      "group": 11,
+      "related_keys": [
+        "diffusion-flame-reaction-sheet",
+        "rayleigh-taylor-density-acceleration-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "비예혼합 확산 반응대나 중력 가속도 불안정 대신 전파 화염의 팽창 유동이 교란을 증폭한다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.80.3867",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "potential-vorticity-gradient-rossby-wave",
+      "group": 11,
+      "related_keys": [
+        "coriolis-mass-flow-sensing",
+        "density-stratification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "국소 코리올리 반응 측정이나 단순 층상 분리와 달리 잠재와도 기울기가 만드는 집단 복원파이다.",
+      "source_url": "https://www.nature.com/articles/s41598-024-80293-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rapid-rotation-taylor-proudman-columnarity",
+      "group": 11,
+      "related_keys": [
+        "ekman-rotating-boundary-pumping",
+        "coriolis-mass-flow-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "점성 경계층의 수직 펌핑과 달리 회전 유체 내부 속도장의 축방향 제약이다.",
+      "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0997754621000807",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "wave-orbit-stokes-lagrangian-drift",
+      "group": 11,
+      "related_keys": [
+        "acoustic-streaming",
+        "chaotic-advection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "흡수·점성 소산으로 생기는 평균 흐름과 달리 이동 입자의 궤적을 따라 평균할 때 나타나는 운동학적 표류이다.",
+      "source_url": "https://www.nature.com/articles/ncomms14325",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "wave-current-vortex-force-langmuir-circulation",
+      "group": 11,
+      "related_keys": [
+        "wave-orbit-stokes-lagrangian-drift",
+        "counter-rotating-vortex-interaction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표류 자체나 기존 반대 와류의 중첩과 달리 파동·평균 전단의 결합이 새로운 순환 불안정을 만든다.",
+      "source_url": "https://doi.org/10.1017/s0022112076001420",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dispersive-nonlinear-modulational-instability",
+      "group": 13,
+      "related_keys": [
+        "dispersion-nonlinearity-soliton-balance",
+        "faraday-parametric-surface-wave"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "형태가 유지되는 균형 해나 외부 수직 가진과 달리 운반파의 작은 측대역 교란이 스스로 성장한다.",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/experimental-study-of-the-stability-of-deepwater-wave-trains-including-wind-effects/8DE5B4EFD78087339C92C2894DE934B4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "viscous-boundary-layer-tollmien-schlichting-growth",
+      "group": 11,
+      "related_keys": [
+        "kelvin-helmholtz-shear-instability",
+        "turbulent-transport-enhancement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자유 전단층의 비점성 불안정과 달리 벽면 점성 경계층의 고유 불안정 모드이다.",
+      "source_url": "https://authors.library.caltech.edu/records/0vn5b-ky245",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "elliptic-strain-inertial-wave-instability",
+      "group": 11,
+      "related_keys": [
+        "faraday-parametric-surface-wave",
+        "taylor-couette-centrifugal-vortex-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자유수면 중력파나 원심 불안정이 아니라 회전 유체 내부 관성파의 타원 변형 공명이다.",
+      "source_url": "https://arxiv.org/abs/1907.10907",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "two-dimensional-inverse-energy-cascade",
+      "group": 11,
+      "related_keys": [
+        "turbulent-transport-enhancement",
+        "polymer-elastic-turbulence"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "난류 혼합 증가나 탄성 난류 발생과 달리 공간 척도 사이 운동에너지 전달 방향을 다룬다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.79.4162",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "correlated-lattice-shear-deformation-twinning",
+      "group": 17,
+      "related_keys": [
+        "plastic-forming",
+        "ferroelastic-variant-switching",
+        "martensitic-hardening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "독립 전위 미끄럼이나 새 상 형성 대신 같은 결정 구조 안의 상관 전단과 방위 관계에 한정한다.",
+      "source_url": "https://www.nature.com/articles/nature08692",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "polymer-void-fibril-craze-formation",
+      "group": 17,
+      "related_keys": [
+        "fiber-bridging",
+        "draw-induced-orientation",
+        "griffith-energy-release-fracture"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "미리 넣은 강화 섬유의 가교와 달리 변형 중 공동과 하중 지지 섬유가 함께 생성된다.",
+      "source_url": "https://www.nature.com/articles/s41586-019-1299-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "plastic-heating-thermal-localization-feedback",
+      "group": 17,
+      "related_keys": [
+        "plastic-forming",
+        "thermal-stress-relaxation-annealing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 성형이나 외부 가열 완화와 달리 자체 발열·강도 저하·변형 집중의 불안정한 되먹임을 다룬다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/0749641992900236",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "screw-dislocation-cross-slip-plane-switching",
+      "group": 16,
+      "related_keys": [
+        "vacancy-assisted-dislocation-climb",
+        "work-hardening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공공 흡수·방출로 면 밖을 오르는 클라임과 달리 나사 전위의 허용 미끄럼면이 바뀐다.",
+      "source_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.90.064102",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "stored-defect-energy-recrystallization",
+      "group": 16,
+      "related_keys": [
+        "thermal-stress-relaxation-annealing",
+        "grain-refinement",
+        "particle-pinning-grain-boundary-migration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "응력 완화나 작은 결정립의 강도 효과 자체가 아니라 결함 에너지를 줄이는 조직 교체 경로이다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30689247/",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

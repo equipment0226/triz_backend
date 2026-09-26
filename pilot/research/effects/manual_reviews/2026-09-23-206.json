@@ -1,0 +1,117 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "5c0843b27c751b5c11322fd772311ed39e7ade3ff42482b5cb2ca4018a475590",
+  "reviews": [
+    {
+      "identifier": "AR-109965-A1",
+      "source_fingerprint": "63ed31908ae7858a32caaaa3d239baf923fd457b2fa7dad5c798ac3d0a39c0f5",
+      "content_hash": "9ad3f9665336f634983654dbe896653ee51ba366c83e3f0094b1ff90137925ac",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "TYK2 저해 화합물이며 동위원소 치환만으로 별도 동역학 효과를 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-109989-A1",
+      "source_fingerprint": "171628a097fc5d00bc976164383ccecc3fb13a97c787d3d82b040c0bd26e7768",
+      "content_hash": "230545d1472dc143523bd248e45b216ba7cca1a9fbf75cf690f628d6e4154349",
+      "decision": "LINK",
+      "keys": [
+        "residual-current-detection"
+      ],
+      "reason": "상전류와 영상·지락 전류를 별도 모듈로 읽는다. 검출기 구성이 없어 홀 센서 등은 지정하지 않는다."
+    },
+    {
+      "identifier": "AR-109992-A1",
+      "source_fingerprint": "357fd4026189beb6d52d3690db7f90161d72390f4d9f661e937d599d8135768e",
+      "content_hash": "4a2d149d9b18106f824b13bf574f39b1b372949d75ab3d92f9421bbe7bb24599",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control",
+        "cement-hydration",
+        "fiber-matrix-load-transfer"
+      ],
+      "reason": "실리콘 수지의 소수성으로 섬유 시멘트의 물 침투를 줄인다. 초발수 접촉각이나 완전 방수를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-110004-A1",
+      "source_fingerprint": "1c67016b0173919dd24db6c087c513e136cfdb7906a3ab03925f26852e76155a",
+      "content_hash": "9ca7fe0cceabe01ef47caf15d40fcb9229810cb4fb7a4d814fb2f02cf93e6f78",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "올리브를 집는 포크와 씨를 담는 숟가락을 결합한 형상이다."
+    },
+    {
+      "identifier": "AR-110010-A2",
+      "source_fingerprint": "9e3d62f104f73e23e277632da52c2ac1d0ff24509e7e9705a915178e080dd99f",
+      "content_hash": "13007d5d5a6ab4d85e7c8f055dc995184c760f3e602d2c41092c6dd388bca21c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "주 1회 고체 약물 제형의 성분·용량이며 반감기 연장 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-110023-A1",
+      "source_fingerprint": "a63b4b7168e2e8eae89a26d342a6a029e41d795291d9a3f75e1fe2bbb45634a4",
+      "content_hash": "b5b2b983df85a53c7a4242a5a0621a0ca354920e1c5329e74a8df2d91791955c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "일부 식물을 웅성 불임화해 다른 식물의 꽃가루로 교잡 종자를 얻는다. 자가수분 배제 원리를 별도 후보로 검토하며 불임 유도 화학 표적을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-110039-A1",
+      "source_fingerprint": "4457cec0ba4b92b295a417b4ea43a15f60717f7f88235fb27fa6c02d929ac1da",
+      "content_hash": "fa8ad95c8ceada4d65d2b14500b8a61884a8d685111975c76721ae88bed2303b",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "biomolecular-recognition"
+      ],
+      "reason": "종양 펩타이드·MHC의 T 세포 면역 인식 사례이다. 준비한 MHC 항원 제시의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-110084-A1",
+      "source_fingerprint": "50eefe11770297420d7f04f998c3334b27190f41391cea441c92b58330a5bf4b",
+      "content_hash": "c5718047ff1e729c87f522a083983bf253a00a54015c1a0d1608f3342c774924",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "모바일 금융 계정·위치 이력·청구 처리 서비스 규칙이다. 암호·인증 알고리즘은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-110086-A1",
+      "source_fingerprint": "0f252877e7262270c578704a80852aab744817b30df1ef162cab704e816db511",
+      "content_hash": "d9d93b8dccaf4c8e541afdd214ff6c8542f0661f4490a34e745cf8ab6a56727b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "EGFR T790M·CDK 저해제의 병용 사례이다. 상승효과는 특허 주장으로 두며 새 일반 법칙으로 삼지 않는다."
+    },
+    {
+      "identifier": "AR-110092-A1",
+      "source_fingerprint": "138ec3bbb103b5bcd9935c4ac31e72044c8cc8497a17700911397568b488f075",
+      "content_hash": "078955d233871c7174ec92cc66f12a206a5635cd5536ad7b876dc4e496bfc57a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "골판지를 주 구조 재료로 쓰는 접이식 휠체어이며 구조 보강 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-110125-A1",
+      "source_fingerprint": "6a339765d89f297c951c173eb096eeb7d52e93e5a8d048f14b585da5cd1cf4f8",
+      "content_hash": "7fc160c9fac002b2abf852a205ae6c960a136c9324276ef0378ae3a2e42f4569",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "H2S 방출 고분자의 측쇄 구조 도식이 본문에 없어 절단·방출 반응을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-110128-A2",
+      "source_fingerprint": "d34827a822bf186598ddcb30498a8f7fe6414fee30c3578346760f3ca8b4ecac",
+      "content_hash": "919d8a58bce6f8e79c563f0711ebbd3497289d45dbb565fb6819bb6beea661f4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "화합물 구조 도식과 약리 표적 정보가 초록에 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:51:13.751061+00:00"
+}

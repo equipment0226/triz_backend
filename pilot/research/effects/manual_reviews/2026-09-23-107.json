@@ -1,0 +1,232 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f09c073e26042d69f65deaf3f7657935ed233cada91d80c8c0110d794bf6c9ea",
+  "reviews": [
+    {
+      "identifier": "AR-088202-A1",
+      "source_fingerprint": "321ae2fe2210534a3cc182615560251d4d8cb1c5873e259e4ca31a8f53a58f24",
+      "content_hash": "f958eda96bda962452eebc041faf62c2a0757581cbf9636f2e8bdce739e3893b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "티로신 키나아제 저해를 명시한다. 구조식 나열이 잘려 있어 세부 선택성은 판단하지 않는다."
+    },
+    {
+      "identifier": "AR-088220-A1",
+      "source_fingerprint": "23b3898c80ef32614cc3375be7a6e0a24786de12404b6d19cbdbdc5720fb8a11",
+      "content_hash": "0b64499519cf33464d68f292f8fe4b3944ae14df8d365376639854b230793639",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition",
+        "antigen-specific-immunization"
+      ],
+      "reason": "Dectin-1·TLR2 신호와 항원 특이 면역 반응을 조절한다. 치료 성능이나 구체 생물 제작 조건은 다루지 않는다."
+    },
+    {
+      "identifier": "AR-088239-A1",
+      "source_fingerprint": "1536738dbb6b26ea28c79300da3d2e60ecdb1b0a2ab45469bddb860b846c0885",
+      "content_hash": "fb4c4788aae6b42be2f74d82f9e5d893c44dbca6165952d7c5a389a7209fc7a0",
+      "decision": "LINK",
+      "keys": [
+        "elastomer-contact-sealing"
+      ],
+      "reason": "탄성 압축 부재로 두 문 사이 틈을 밀봉한다."
+    },
+    {
+      "identifier": "AR-088244-A1",
+      "source_fingerprint": "b61e6d997eed9399c505b6c563a6747660b8bdc19b9c978cba7a06a20d678cd7",
+      "content_hash": "feadc17cf7d8d60dd0890dd4e5d3c7842fd2f6cb0ec1d69541fc0b9319b79996",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "산화 상태별 MIF에 대한 차등 항체 결합을 이용한다. 임상 진단 유효성은 별도다."
+    },
+    {
+      "identifier": "AR-088263-A1",
+      "source_fingerprint": "6ecbc6fa86cd7f016a4d45b9436099a90dd7e554c726e09a6322c5f06afb1301",
+      "content_hash": "f7a32502f0ab759e28f2761ef6d65e6ffc5de12f68ddbe9c6c4d589866186b6f",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "상보적 RNA 기반 전사후 억제로 해충 유전자 발현을 줄인다. 표적별 분자 설계는 다루지 않는다."
+    },
+    {
+      "identifier": "AR-088275-A1",
+      "source_fingerprint": "f77e12f6fee74bc1b75b61e38babdb21347a597ca1fc03725665a0ae0b2ef1ee",
+      "content_hash": "0533efcacf795133d52bfc3f61eabe68d3e738db27c8b9881fe24479b95b5f4c",
+      "decision": "LINK",
+      "keys": [
+        "rotary-positive-displacement"
+      ],
+      "reason": "서로 반대로 도는 회전 피스톤으로 유체를 이송하고 마찰 부품을 교체하도록 한다."
+    },
+    {
+      "identifier": "AR-088289-A1",
+      "source_fingerprint": "d520f68c427c0386d9c41ec771949c0a295f75bd33d802856b9803084c517ef4",
+      "content_hash": "8055384f8e32d17828a558d432ab049690f2a06b77c4975f4c58c0dca7112dd0",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "biomolecular-recognition"
+      ],
+      "reason": "IL-6 수용체 특이 항체를 사용한다. 약제 병용의 임상 효과를 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-088291-A1",
+      "source_fingerprint": "7b252aa2358f56f2c8dd640db10bbd3d171cf9ded30f2482503e2640868e41c8",
+      "content_hash": "dfda7c445b118c712dfb0a7772308e61aab01b11a12e38cd325ded7d79386c9c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Rac1과 GEF의 상호작용을 막는다. GDP/GTP 교환에 따른 분자 스위치 기전을 신규 후보로 대조한다."
+    },
+    {
+      "identifier": "AR-088295-A1",
+      "source_fingerprint": "9a2820bfc7d02891a6d95fe6b581e869df46fbacaba32cde07e59e8af834943e",
+      "content_hash": "8839277795d23c96bf0acf5b20eb844ac471bd659fd6c50589859d7d8dd5717e",
+      "decision": "LINK",
+      "keys": [
+        "spray-drying",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "지방산을 포함한 현탁액을 분무 건조하여 수용체 작용제 미립자를 코팅한다."
+    },
+    {
+      "identifier": "AR-088298-A1",
+      "source_fingerprint": "d091218f82366214d328387c9d53221688c627f6ae5bc939e99c0cfec6a6d656",
+      "content_hash": "0e623b56aba4fb2858b81149e53fc4434fe25efb9942508c66861b8f7598cda1",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "centrifugal-separation",
+        "radioactive-decay"
+      ],
+      "reason": "표지·비표지 비타민의 경쟁 결합과 방사성 계수로 정량한다. 경쟁 결합 정량 원리는 후보로 검토하고 초록의 실험 조건·성능 수치는 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-088310-A1",
+      "source_fingerprint": "df6b1f85fa479f77525b46af45af720bcc6e771369a787cc9ba3df09ce3b8fb9",
+      "content_hash": "75667cf1de38560a4c5b59e18d590fed04e8f0bc2b3d9261cb24e1ce018dc571",
+      "decision": "LINK",
+      "keys": [
+        "genetic-loss-of-function",
+        "hydrolysis"
+      ],
+      "reason": "전분 인산 제거 효소의 활성을 유전적으로 낮춰 변형 전분을 얻는다. 특정 물성 변화는 미상이다."
+    },
+    {
+      "identifier": "AR-088316-A1",
+      "source_fingerprint": "d29f7dd80f6a46477efdccce960ac088b7009cb8599a963e167c32c52be355b1",
+      "content_hash": "92e00e07e6b604c837a8f7d286f3a5204eafeb57922043d942ab09862a30142c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "슬롯 게임 규칙과 보상표다. 실제 난수 생성 알고리즘이 없어 의사난수 효과로 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-088329-A1",
+      "source_fingerprint": "93bcf0a04cf66d7d999c95cea9b75b7ae4c378c86de6f479ef87531a6f92fd19",
+      "content_hash": "f75303405579355f5bafce89fa23ffc50ce6474467e06f7150d91942b563fe8b",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "barrier-coating"
+      ],
+      "reason": "교체식 나사 결합 브러시와 보호 피복의 채취 도구다. 멸균 불필요 주장은 검증하지 않는다."
+    },
+    {
+      "identifier": "AR-088336-A1",
+      "source_fingerprint": "ec08186a88d3ca4d03c459e0f405e6658bc53a4e0d514957718f7096c1abba3a",
+      "content_hash": "2976495401b78ffc4936bc9fa8b7eec873943e226e91f9a95fa9c3b2a047ab3c",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "불순물 제거로 불소화 촉매 수명을 개선하고 후단에서 탈염화수소화한다. 촉매 열화 경로와 HX 제거 반응을 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-088340-A1",
+      "source_fingerprint": "3ab2551ff6ea87ad403659841ebc1777aef5c73a3ddf72447259b6b7784eac30",
+      "content_hash": "107d1321f96457be9dba468133f50dae467028319b2bf8eafab16861b011a500",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "표적 결합 센서와 신호 발생기의 나노 탐침 구성이다. 인식·신호 변환의 세부 기전이 없다."
+    },
+    {
+      "identifier": "AR-088347-A1",
+      "source_fingerprint": "e412a5f68340ecadd1f4118794d19db9bb0786351a094139db78b419e223798c",
+      "content_hash": "74153568049372bc321ee3d1a9ea917d3cebe76e69914da740ae696a39756aa0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유기산·알데하이드 항균 혼합물이다. 막 손상·단백질 반응 등 어느 기전인지 미상이다."
+    },
+    {
+      "identifier": "AR-088350-A1",
+      "source_fingerprint": "4c4f498c9fb9ef7b3dbdd1e206d17fbbb565865483573686ed8b3276537a99e4",
+      "content_hash": "fde3d830293ca3afecec2d261d07f6bf0518d3ba5bdae390bd10bbe7875cc1c3",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "사이클로옥시게나아제·리폭시게나아제 저해 약물을 점도 조절 페이스트로 만든다."
+    },
+    {
+      "identifier": "AR-088353-A1",
+      "source_fingerprint": "b3741f65c3d0661531e4ce1da367033888980e11d519438bb87728704e5e7386",
+      "content_hash": "8e011139aed9d80a34a47ab46bd98c4f3c674c41e0c4f19d9bc31092d17c0a6a",
+      "decision": "LINK",
+      "keys": [
+        "hydrostatic-pressure-compensation"
+      ],
+      "reason": "고밀도 염수로 지층 압력에 대응한다. 염 종류만으로 새 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-088365-A1",
+      "source_fingerprint": "d9bf41f0649a806b619854b130c52645c4a1c8ee48d47b3b06f33dd95d9dd7d0",
+      "content_hash": "3e9fb7bace8a8a35ec65e2e6a5ff6ac152f5ba517fb65e9e8ea6d2846f62c0e3",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "다당 항원과 보조제를 이용한 면역 유도 구성이다. 보조제별 세부 기전은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-088381-A1",
+      "source_fingerprint": "8e9bcc28c2d6fc8228f8b96e53480b5569f34ab7ee9c14b189a24edab4171c56",
+      "content_hash": "61148963add1663c84d8cdb928015f209e5f792faf828d2b002d478405a30c7c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "메글루민 등으로 단백질 응집·분해를 줄이는 제형이다. 선호 수화·pH·이온 효과 중 원인을 분리할 근거가 부족하다."
+    },
+    {
+      "identifier": "AR-088394-A1",
+      "source_fingerprint": "48336a9a4329be88dda9205cddd8f23fd647cd15cce1fa8513d1025960eb1465",
+      "content_hash": "25e16025ddc6338c4a2b5b11b1a9d23f99715da8177cfe21ebe98f42e482e562",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "저농축 핵연료 코어와 피복의 재료 구성이다. 원리나 성능 평가 없이 구체 조성·제작 방법을 추가 분석하지 않는다."
+    },
+    {
+      "identifier": "AR-088403-A1",
+      "source_fingerprint": "b68a03ef51a0b92eb1bed0a61da52523d15e9207c51613f68d7cf8547cfe9e2d",
+      "content_hash": "70dae18aaa04ba52979a398ce6bb314d2e5ffa9409ba82a3cd81091e9fef7317",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "multivalent-avidity"
+      ],
+      "reason": "다중 항원을 인식하는 항체 구조다. 항원 사이 가교 효과나 안정성 성능을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-088412-A1",
+      "source_fingerprint": "e62ac648b1a3a2714380f9857c6112f9236509446b1bc4dcc310165936bf55be",
+      "content_hash": "c36e7dfd1fc75d1f84b05f503cc8620fd554a164e54ec391f5d3dce30ba41132",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "익단 와류와 반대 회전 프로펠러 유동의 상호작용을 제안한다. 유도 항력 완전 소멸 주장은 일반화하지 않고 와도 상쇄 조건을 대조한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:04:03.240484+00:00"
+}

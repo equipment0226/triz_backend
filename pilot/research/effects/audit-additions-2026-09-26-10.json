@@ -1,0 +1,238 @@
+{
+  "batch": "additions-2026-09-26-10.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1120,
+  "added": 20,
+  "after": 1140,
+  "target": 1200,
+  "source_sha256": "87cd13a6c94fe293516e20e2d18b416c6b7457914cc623fa050bbff52e37b103",
+  "decisions": [
+    {
+      "key": "anti-stokes-fluorescence-refrigeration",
+      "group": 7,
+      "related_keys": [
+        "doppler-laser-cooling",
+        "photoluminescent-wavelength-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "원자 운동의 도플러 선택과 달리 고체 열에너지의 순 형광 배출이 냉각 원인이다.",
+      "source_url": "https://www.nature.com/articles/s41377-018-0028-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "simultaneous-two-photon-absorption",
+      "group": 13,
+      "related_keys": [
+        "nonlinear-optical-frequency-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "새 광자를 내보내는 주파수 혼합과 달리 물질의 실제 여기로 에너지가 흡수된다.",
+      "source_url": "https://www.nature.com/articles/nmeth.2098",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "optical-kerr-intensity-phase-modulation",
+      "group": 13,
+      "related_keys": [
+        "electric-kerr-effect"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 저주파 전계로 조절하는 전기광학 커 효과와 달리 전파 광장 자체의 세기가 구동한다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-27933-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dispersion-nonlinearity-soliton-balance",
+      "group": 13,
+      "related_keys": [
+        "optical-kerr-intensity-phase-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "비선형 위상 변화 하나가 아니라 분산과의 동역학적 균형 상태이다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-21331-z",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "stimulated-raman-inelastic-gain",
+      "group": 13,
+      "related_keys": [
+        "raman-spectroscopy",
+        "stimulated-brillouin-acoustic-scattering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자발 산란의 검출과 달리 이득을 이용하며 브릴루앙의 음향 밀도파와 매개 전이가 다르다.",
+      "source_url": "https://www.nature.com/articles/s41598-017-06266-0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "franz-keldysh-band-edge-electroabsorption",
+      "group": 13,
+      "related_keys": [
+        "stark-electric-field-level-shift"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "국소 이산 준위 이동과 구별되는 벌크 밴드 연속 상태의 전계 보조 흡수이다.",
+      "source_url": "https://www.nature.com/articles/srep01227",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "intensity-correlation-photon-statistics",
+      "group": 12,
+      "related_keys": [
+        "signal-correlation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 상관 처리의 광학 하위 기전으로 광 검출의 2차 통계와 광자 상태 판별을 명시한다.",
+      "source_url": "https://www.nature.com/articles/nphys1218",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "hong-ou-mandel-two-photon-interference",
+      "group": 13,
+      "related_keys": [
+        "wave-interference",
+        "intensity-correlation-photon-statistics"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평균 전기장의 간섭이나 단순 뭉침 통계와 달리 두 입자 교환 진폭의 간섭이다.",
+      "source_url": "https://www.nature.com/articles/nphoton.2016.74",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "quantum-quadrature-noise-squeezing",
+      "group": 13,
+      "related_keys": [
+        "ensemble-averaging-noise-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "반복 평균 대신 측정 전 양자 상태의 공액 잡음 분포 자체를 바꾼다.",
+      "source_url": "https://www.nature.com/articles/s41467-024-47906-0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "entanglement-assisted-state-teleportation",
+      "group": 19,
+      "related_keys": [
+        "quantum-disturbance-key-distribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "비밀키 공유와 달리 알려지지 않은 양자 상태를 소모성 측정과 조건부 보정으로 이전한다.",
+      "source_url": "https://www.nature.com/articles/nature02570",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dark-state-adiabatic-population-transfer",
+      "group": 19,
+      "related_keys": [
+        "electromagnetically-induced-transparency",
+        "landau-zener-avoided-crossing-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정상 광 투명창과 달리 결합비의 시간 변조로 암상태 자체를 이동시킨다.",
+      "source_url": "https://www.nature.com/articles/ncomms10628",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ramsey-separated-pulse-phase-interrogation",
+      "group": 12,
+      "related_keys": [
+        "spin-echo-coherent-refocusing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "중간 반전으로 불균일 위상을 되돌리는 스핀 에코와 달리 자유 누적 위상을 판독한다.",
+      "source_url": "https://www.nature.com/articles/s42005-018-0030-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "goos-hanchen-reflection-beam-shift",
+      "group": 13,
+      "related_keys": [
+        "total-internal-reflection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전반사 여부 자체와 구별되는 유한 빔의 위상 미분·공간 이동이다.",
+      "source_url": "https://www.nature.com/articles/s41598-020-76111-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "inverse-faraday-optical-magnetization",
+      "group": 14,
+      "related_keys": [
+        "faraday-rotation",
+        "barnett-rotation-induced-magnetization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기장이 빛을 회전시키는 방향과 반대이며 강체 회전 대신 광의 편광이 입력이다.",
+      "source_url": "https://www.nature.com/articles/ncomms15085",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "magnetic-circular-differential-absorption",
+      "group": 12,
+      "related_keys": [
+        "faraday-rotation",
+        "absorption-spectroscopy"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "굴절 위상차의 편광 회전 대신 두 원편광의 소산 흡수 차이를 읽는다.",
+      "source_url": "https://www.nature.com/articles/241193a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "scattered-field-optical-binding",
+      "group": 1,
+      "related_keys": [
+        "optical-tweezers"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 집광장에서 단일 입자를 포획하는 것과 달리 입자 사이 산란장 되먹임의 상호 힘이다.",
+      "source_url": "https://www.nature.com/articles/srep38883",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dynamic-casimir-parametric-photon-generation",
+      "group": 13,
+      "related_keys": [
+        "casimir-fluctuation-force"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정적 경계의 힘과 달리 시간 변조의 외부 일을 광자 쌍으로 변환한다.",
+      "source_url": "https://www.nature.com/articles/nature10561",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "photon-momentum-drag-current",
+      "group": 14,
+      "related_keys": [
+        "photovoltaic-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "내부 전기장에 의한 광전하 분리와 달리 광자의 유한 운동량이 전류 방향을 구동한다.",
+      "source_url": "https://www.nature.com/articles/srep04007",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "quantum-syndrome-error-correction",
+      "group": 19,
+      "related_keys": [
+        "error-correcting-code"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고전 중복 비트와 달리 복제 불가·측정 교란을 피하며 비트와 위상 오류를 함께 다룬다.",
+      "source_url": "https://www.nature.com/articles/s41567-018-0414-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "coherent-input-controlled-perfect-absorption",
+      "group": 13,
+      "related_keys": [
+        "fano-discrete-continuum-interference"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 입사 공명선 모양과 달리 여러 입력의 위상 관계로 모든 출력 채널 소멸을 맞춘다.",
+      "source_url": "https://www.nature.com/articles/ncomms8031",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

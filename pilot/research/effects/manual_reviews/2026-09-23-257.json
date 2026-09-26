@@ -1,0 +1,142 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "9f21f16f9e372ad2ece30a8a6e2982067fbb82017f761794cf1b1b8f0d193aab",
+  "reviews": [
+    {
+      "identifier": "AR-119876-A1",
+      "source_fingerprint": "b5e419144fc015c1b6265488f8485dee358d6df842e4d31224fa6e48299dd2b1",
+      "content_hash": "b8e3051ab4ca19a3f539e376e459efdb32e2dd18d145beeb0b6422ae9de60957",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 화합물 구조이며 작용 표적은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-119894-A2",
+      "source_fingerprint": "519a13ec17bcf06ab6a4d224f82ee4de5cde73a5d18e9d15270b2887aee80493",
+      "content_hash": "f5922ecb0bab4f4276ccba694842bac98ef54d098188925d8125e47169e38571",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "plant-cell-totipotency"
+      ],
+      "reason": "외래 단백질 발현 및 세포로부터 식물 재생이다. 수량 향상의 세부 생화학 경로는 미특정이다."
+    },
+    {
+      "identifier": "AR-119907-A1",
+      "source_fingerprint": "187393337d82d8116b6cce4f4e641bbc1a295380e7357e7a6f723ce9824d9fe7",
+      "content_hash": "89b071dada6eb3d10a714ad388303edd5a9cac8148a6273b720654448b408bec",
+      "decision": "LINK",
+      "keys": [
+        "lead-screw-motion"
+      ],
+      "reason": "서로 다른 나사 리드의 연결·분리 이동을 이용한 밀봉이다. 리드 차이를 별도 운동 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-119934-A1",
+      "source_fingerprint": "00ca397065288694b4039e160bada7b333f159516f99d037948befed92fcbd01",
+      "content_hash": "9ef3572df0a36ac662225291c2596391d553048b1730dface4e1ea3d65e01732",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PIKfyve 저해 및 MET·RAS 경로의 병용이다."
+    },
+    {
+      "identifier": "AR-119949-A1",
+      "source_fingerprint": "7aacd9cc0e4e7e79fc849948dbd58028ca873d84f6d3250fa0dd214addb7b5a0",
+      "content_hash": "6cf74dd81a465c30393cd279ca3c71b1d67cae977020201fb783161898c67115",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "J형 후크·고리의 형상 맞물림으로 관을 고정한다."
+    },
+    {
+      "identifier": "AR-119977-A1",
+      "source_fingerprint": "4ec1cb8964c6e2d69518d59c90840ba1b43dc5e1086abc71499675ad1d51e3da",
+      "content_hash": "97a98a3a311fe77a921a99772d0314043b07078bc83323912331160ae8d869b7",
+      "decision": "LINK",
+      "keys": [
+        "pressure-sensitive-adhesion",
+        "polymer-glass-transition"
+      ],
+      "reason": "낮은 유리전이 아크릴 고분자의 감압 점착이다."
+    },
+    {
+      "identifier": "AR-119981-A1",
+      "source_fingerprint": "8060e0da81954aa60e54a8ddfa7a4a6bff5ea7447d2d47bbb1002deac84bca5f",
+      "content_hash": "1964266833faffa188862fbbe6f3e8c4647e25d1525f23a67339c61251be8390",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "관의 단면을 바꾸는 회전 배치 장치이다. 변형의 탄성·소성 및 실제 롤러 작용은 미특정이다."
+    },
+    {
+      "identifier": "AR-119998-A1",
+      "source_fingerprint": "df4c53e9ef787a7c6934302ab60fd5034a629f40d078181f538e794167b66009",
+      "content_hash": "185507596170e12b6ddeda6c91386eb8ccec085e54cbe1ec6e34c91eaf3b0d03",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 화합물의 구조 목록이며 생물학적 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-120018-A1",
+      "source_fingerprint": "076de6712bee19c077309ea63c28665e1e188a4fea753443a876adf693d53134",
+      "content_hash": "e4db0f10f0b425db636a14600437430ddb4a5e371e7fac70b9f6a9bf6977c038",
+      "decision": "LINK",
+      "keys": [
+        "sampling-reconstruction"
+      ],
+      "reason": "다중 영상 시점의 부분 표본화와 복원 메타데이터이다. 새로운 광학 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-120025-A2",
+      "source_fingerprint": "9e779f63ba81715f79ce0ffea5166db2a00ba608c80acf48ac0ec45a79ede85f",
+      "content_hash": "754b65415fff2a3384a266fefa781fbeb8a3a4bd2a0bbd058e44e849ca09b634",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "barrier-coating"
+      ],
+      "reason": "알루미늄 보조제에 흡착한 항원과 용기 표면 피복이다. 안정성 향상의 세부 원인은 미특정이다."
+    },
+    {
+      "identifier": "AR-120030-A1",
+      "source_fingerprint": "75b205a14fe5116620b538cbae4f4a1488169079f28d9b120ae6fff503579d6a",
+      "content_hash": "c7636bde4762d057248af07f640c8c26b8655c10544532dd095785e87b214a28",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "헤테로고리 화합물 구조이며 표적·전환 경로는 없다."
+    },
+    {
+      "identifier": "AR-120048-A1",
+      "source_fingerprint": "0826a708526ff37de17ac5ef913f4ff203e08f0ccf47db1aeaf76567188a0ebf",
+      "content_hash": "a3c720570cc0a98fff29954f0f6a9e7a21f82e66e07ca8776c09502211b4ded8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "종양용해 바이러스의 용도만 제시한다. 종양 선택성과 용해 과정의 구체 기전은 미특정이다."
+    },
+    {
+      "identifier": "AR-120054-A1",
+      "source_fingerprint": "d5812088da323ee6cbc2028ffc4a84854f0f71f53d9525f2fb37ae43fbc411a1",
+      "content_hash": "437744dbc4e6d847dfb2ba2eef2a54ec2363c25cb8151b1edfa38eb56f6f0cdf",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "항CD38 항체 결합이다. 병용 약물 전체의 세포독성 경로를 초록만으로 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-120100-A1",
+      "source_fingerprint": "eb09d51a4fb467bf0dac012b38d98b7ecac8ef352037033fee7a84cd30e78f0f",
+      "content_hash": "fb57ad87cf98d2266925199afbad6cfbca0227ea7d9ffd0b8d9679dac0d02986",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction",
+        "negative-feedback"
+      ],
+      "reason": "기체 환원제를 이용한 광석 환원과 공급 유량 조절이다. 수증기 개질 초안의 추가 사례이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:43:59.397993+00:00"
+}

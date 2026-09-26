@@ -1,0 +1,236 @@
+{
+  "batch": "additions-2026-09-26-08.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1080,
+  "added": 20,
+  "after": 1100,
+  "target": 1200,
+  "source_sha256": "0a87732efdc722c2e14609ea0e08cc9905b34686dc3cd056e9654577b998d0d1",
+  "decisions": [
+    {
+      "key": "protein-condensate-liquid-phase-partition",
+      "group": 18,
+      "related_keys": [
+        "polyelectrolyte-complexation",
+        "spinodal-composition-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "반대 전하 고분자 쌍이 필수는 아니며 스피노달 외의 핵생성 경로도 가능한 단백질 액상 구획이다.",
+      "source_url": "https://www.nature.com/articles/s41467-026-69024-9",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "force-stabilized-catch-bond",
+      "group": 18,
+      "related_keys": [
+        "binding-residence-time"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정된 해리 속도 설명과 달리 외력이 해리 경로를 바꿔 비단조 수명 응답을 만든다.",
+      "source_url": "https://www.nature.com/articles/nature01605",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ion-gradient-flagellar-rotation",
+      "group": 18,
+      "related_keys": [
+        "secondary-active-transport"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "다른 용질의 막 수송 대신 이온 흐름이 기계 회전을 출력한다.",
+      "source_url": "https://www.nature.com/articles/nature04003",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "microtubule-motor-processive-stepping",
+      "group": 18,
+      "related_keys": [
+        "actomyosin-atp-mechanical-transduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "액틴·미오신 수축계와 구별되는 미세소관 격자의 연속 화물 보행이다.",
+      "source_url": "https://www.nature.com/articles/nature03528",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rotary-chemiosmotic-atp-synthesis",
+      "group": 18,
+      "related_keys": [
+        "substrate-level-atp-formation",
+        "atp-driven-membrane-transport"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고에너지 기질의 직접 인산기 전달 대신 회전 결합의 화학삼투 에너지 전환이다.",
+      "source_url": "https://www.nature.com/articles/35013148",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "actin-polymerization-brownian-ratchet",
+      "group": 18,
+      "related_keys": [
+        "actomyosin-atp-mechanical-transduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "미오신의 사슬 사이 미끄럼 대신 필라멘트 길이 증가가 직접 힘을 만든다.",
+      "source_url": "https://www.nature.com/articles/ncb1299_493",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "helicase-nucleotide-driven-unwinding",
+      "group": 18,
+      "related_keys": [
+        "nucleic-acid-duplex-melting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가열 평형 해리와 달리 화학 에너지를 쓰는 방향성 모터의 비평형 가닥 분리이다.",
+      "source_url": "https://www.nature.com/articles/35012652",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "topoisomerase-transient-strand-passage",
+      "group": 18,
+      "related_keys": [
+        "sequence-directed-dna-cleavage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "서열 표적 절단 자체가 아니라 재봉합을 포함하는 DNA 위상 변경이다.",
+      "source_url": "https://www.nature.com/articles/35009144",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ribosomal-peptidyl-transfer",
+      "group": 18,
+      "related_keys": [
+        "heterologous-gene-expression"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유전자 발현 운용 전체와 구별되는 리보솜의 펩타이드 결합 형성 화학 단계이다.",
+      "source_url": "https://www.nature.com/articles/nature10248",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "programmed-ribosomal-reading-frame-shift",
+      "group": 18,
+      "related_keys": [
+        "nascent-peptide-induced-translation-skipping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "펩타이드 결합을 한 번 건너뛰는 사슬 분리와 달리 후속 코돈 읽기 경계가 변한다.",
+      "source_url": "https://www.nature.com/articles/s41467-020-16961-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dna-cytosine-covalent-methylation",
+      "group": 18,
+      "related_keys": [
+        "chromatin-accessibility-regulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "접근성 변화 일반론과 구별되는 DNA 염기의 직접 공유결합 수식이다.",
+      "source_url": "https://www.nature.com/articles/nchembio.172",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "adar-adenosine-rna-editing",
+      "group": 18,
+      "related_keys": [
+        "spliceosome-mediated-rna-processing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "RNA 구간의 제거·연결 대신 이미 존재하는 염기의 화학적 전환이다.",
+      "source_url": "https://www.nature.com/articles/s41467-017-01458-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "glycosylase-damaged-base-excision",
+      "group": 18,
+      "related_keys": [
+        "sequence-directed-dna-cleavage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "DNA 인산 골격의 서열 절단과 달리 손상 염기의 N-글리코시드 결합을 제거한다.",
+      "source_url": "https://www.nature.com/articles/373487a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "photolyase-light-driven-dimer-repair",
+      "group": 18,
+      "related_keys": [
+        "glycosylase-damaged-base-excision"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "손상 염기를 도려내고 재합성하는 대신 광에너지로 손상 공유결합을 직접 되돌린다.",
+      "source_url": "https://www.nature.com/articles/ncomms8302",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "energy-driven-kinetic-proofreading",
+      "group": 18,
+      "related_keys": [
+        "biomolecular-recognition",
+        "binding-residence-time"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평형 친화도나 단일 체류시간과 달리 비평형 에너지 소비가 반복 판별을 가능하게 한다.",
+      "source_url": "https://www.nature.com/articles/s41467-025-66833-2",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "turing-reaction-diffusion-patterning",
+      "group": 16,
+      "related_keys": [
+        "spinodal-composition-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자유에너지 상분리 대신 지속되는 반응망과 확산의 비평형 불안정이다.",
+      "source_url": "https://www.nature.com/articles/s42004-022-00800-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "autoinducer-quorum-dependent-regulation",
+      "group": 18,
+      "related_keys": [
+        "receptor-ligand-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개별 수용체 자극의 상위 조직 원리로, 집단의 신호 생산·환경 축적 되먹임을 명시한다.",
+      "source_url": "https://www.nature.com/articles/s41467-017-00903-y",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "templated-protein-conformation-propagation",
+      "group": 18,
+      "related_keys": [
+        "chaperone-assisted-folding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반적인 접힘 보조와 달리 산물 상태가 다음 분자의 같은 상태를 주형화한다.",
+      "source_url": "https://www.nature.com/articles/s41589-024-01672-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "snare-zippering-membrane-fusion",
+      "group": 18,
+      "related_keys": [
+        "mitofusin-driven-membrane-fusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "미토퓨신의 GTP 구동과 구별되는 SNARE 복합체의 조립 자유에너지 결합이다.",
+      "source_url": "https://www.nature.com/articles/nsmb1310",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dynamin-gtp-membrane-fission",
+      "group": 18,
+      "related_keys": [
+        "receptor-mediated-endocytosis",
+        "snare-zippering-membrane-fusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수용체 인식이나 막 융합과 구별되는 소포 목의 기계적 분리 단계이다.",
+      "source_url": "https://www.nature.com/articles/nature04718",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

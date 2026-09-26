@@ -1,0 +1,238 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "778e582df0059b979cdc48bcfa7c3c7975e4c0a10118cec43f2e1b8c6e0b7e17",
+  "reviews": [
+    {
+      "identifier": "AR-080828-A1",
+      "source_fingerprint": "769efecca96cea9c2517ef03db08b794f99fffc95262eaf189915a800c57f85b",
+      "content_hash": "1872c4ec38940d2672506b9fc86e0613685798b0f0e808f6b5ea559916ee0dac",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding",
+        "mechanical-interlocking"
+      ],
+      "reason": "열융착 플라스틱 삽입물과 금속 홈의 맞물림으로 가스 배관을 접합한다."
+    },
+    {
+      "identifier": "AR-080842-A1",
+      "source_fingerprint": "39e906eb8808114fe35391ecc7d8d381ddd0a1da8cf8d4b3707f04e5b05c2238",
+      "content_hash": "1fc411a229b3ebd19b85735f9217daa2d6d31b675e07aa75c56fd658c05250a4",
+      "decision": "LINK",
+      "keys": [
+        "hilbert-quadrature"
+      ],
+      "reason": "실수·허수 성분과 복소 예측 계수로 채널을 예측하고 잔차를 부호화한다. 채널 간 예측 부호화 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-080843-A1",
+      "source_fingerprint": "c14c536286ff06d47c49ca9149142438d37e8e02ff1b7088eeeec461bb295d62",
+      "content_hash": "c996d2f31c735df5a133e9b7b7ef35ddb22dab74f49251c379263f34f0a75812",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation",
+        "transesterification"
+      ],
+      "reason": "유지의 올레핀 복분해 후 수소화·에스터 교환을 명시한다. 복분해 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-080853-A4",
+      "source_fingerprint": "e5d4085390575b7eee3113128d25ebfcf2985be6d3d1ad260ab8caf7fcf2b554",
+      "content_hash": "d3206ac4dc0198957f86d869b8f7752de3dd8ee66b1bba0dae2edd8a82a67c96",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration"
+      ],
+      "reason": "가열로 정유의 기화를 촉진한다. 전열 방식은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-080862-A1",
+      "source_fingerprint": "1f853c493b227b27d793ccd5a733aeec7109c09eb9951453d724fc0f74efc74a",
+      "content_hash": "cc50b909aa602bf6809123a77cd1b9d6fdab200453229d2868bd0af2e4a8cfe5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "상자 측면의 통기구·손잡이 위치와 크기를 맞춘다."
+    },
+    {
+      "identifier": "AR-080876-A1",
+      "source_fingerprint": "e1dc5cb15d348e837e56181a951b9ddf10ca6730d1228f4de816515b4f6150a7",
+      "content_hash": "05c76112a894033207346e1ffe6dc914fb7d5ea6734ae56ee20b3923e1746585",
+      "decision": "LINK",
+      "keys": [
+        "plasticization"
+      ],
+      "reason": "키토산 필름에 글리세롤을 넣는다. 탄닌산의 세부 결합 방식은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-080893-A1",
+      "source_fingerprint": "4e62fe56189ce20376c623b4f52540b7f486d6a95990d44ce922f8734260052f",
+      "content_hash": "08339b84ce4c3045adca3658f25f235578d491a196e74a7cf1716b095d7c0129",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "키네신 방추 단백질 저해를 표적으로 한다."
+    },
+    {
+      "identifier": "AR-080903-A4",
+      "source_fingerprint": "f32909a55ff3aa753b1dc53e718701dcb0ae260a972690e44b1c299821954bfc",
+      "content_hash": "eeea5a27cc434d5bfb4c5a226e5d488e5a26164de7440b33f354ce97237845ba",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 USB 포트·화면·배터리를 통합한 메모리 장치이다."
+    },
+    {
+      "identifier": "AR-080910-A1",
+      "source_fingerprint": "8d0685e92c08c5f65ac87f2c4ae8c2f1b570b0b91eae00000ca573da38dd424e",
+      "content_hash": "ee32190ced2bddb15c32c1ca146e64f5cb0fcce97acc75c2e0cf956c3b9054dc",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion",
+        "electromagnetic-induction"
+      ],
+      "reason": "바람에 대한 날개 양면 압력차로 발전기 축을 돌린다."
+    },
+    {
+      "identifier": "AR-080933-A1",
+      "source_fingerprint": "bf577bef909102809a1b56f8a6aa3594a55a6aa5ddcb53c1cf363525523fe717",
+      "content_hash": "29a11d32847031a7257fbbcd3738142a1d84f3357cfb21ef7f502a3538456e9e",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "티로신 키나아제 저해제의 용도를 제시한다. 임상 효능은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-080934-A1",
+      "source_fingerprint": "e9ffe1a9b095804f4569675b2943ca5c8efb6af7558cd8ff6fcccc3f69027ac0",
+      "content_hash": "c361bc00c2d727e97bbabf9a9f2abeb1d9cf814daa664461e15ff7aeae90ff27",
+      "decision": "LINK",
+      "keys": [
+        "melt-binder-agglomeration",
+        "liquid-bridge-agglomeration",
+        "barrier-coating"
+      ],
+      "reason": "용융·액상 결합제로 과립화 후 지방성 코팅을 응고해 쓴맛 성분의 접촉을 줄인다."
+    },
+    {
+      "identifier": "AR-080950-A1",
+      "source_fingerprint": "bc9566d40a80d331bda6c685970e6825bd4a2e4687b36eb9cebec8f44838bddb",
+      "content_hash": "2184d146667c0b92a16cde6fbb2cea2aa8c09d1b2121f8d4a2fd91055c393028",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "후미등·펜더의 지지 및 덮개 배치를 정한다."
+    },
+    {
+      "identifier": "AR-080959-A1",
+      "source_fingerprint": "09ed4f7cf29a5a06bf0099949a2641ae4e66d11ed9855f81180e54de9a6c2eb5",
+      "content_hash": "7e41cf150d5f022de94220d397b0598c1cb14a8196d92110a99e4b235638264b",
+      "decision": "LINK",
+      "keys": [
+        "starch-gelatinization",
+        "surfactant-action",
+        "porous-sound-absorption"
+      ],
+      "reason": "전분 겔과 광물 섬유의 발포 다공체로 흡음한다."
+    },
+    {
+      "identifier": "AR-080961-A1",
+      "source_fingerprint": "67969013961022127dc46ba3674b4f71ffd0d7be24f782ae58b2a0e987f1e79a",
+      "content_hash": "31fd9327647c195d02835bb8d5e29acf12fee45cae701d330bf2342c409669a2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "실리콘의 히드로실릴화 가교를 명시한다. Si-H 부가 반응의 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-080970-A1",
+      "source_fingerprint": "cfc56a3dd22c75149d85a8a92d2b8409bcc97b9dcff48675c216428a09058d98",
+      "content_hash": "439e18009cfe13180fa0b2807cfb98cdb003e0cba00490d9967501f73cca4156",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피하지방 제거용 인지질 배합의 실제 세포 작용 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-080996-A1",
+      "source_fingerprint": "68de10a26afdcf9eb5d5d019f2a853f625ac7aa68aca9aa2aa4f1532a0f58843",
+      "content_hash": "8a97c402736806c4d8a04b07b0b867183d869f49de104b3bfb7c6d6485ef7d1e",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "articulated-linkage-motion"
+      ],
+      "reason": "곡면 프로파일의 맞물림으로 힌지 회전과 이동 한계를 정한다."
+    },
+    {
+      "identifier": "AR-081002-A1",
+      "source_fingerprint": "bda8dd0d9694eceb31e8a5e3db4c36a48e0a81bf956052132e266f86c2c8cb58",
+      "content_hash": "5329b3576081d04b86bc17f4ad37d1f6126842c652efbf9f88749ec8ace12e0a",
+      "decision": "LINK",
+      "keys": [
+        "interferometric-sensing"
+      ],
+      "reason": "분석물 굴절률 변화가 다층 광학 공동의 투과 공명 각도를 바꾸는 것을 측정한다."
+    },
+    {
+      "identifier": "AR-081006-A1",
+      "source_fingerprint": "25d3a047a50ec2ca8648b1788e10916bc063535034859a2ec212d2fdb8deff22",
+      "content_hash": "dd147ad0efeb8c239e6f08d41a43dfa7b7e12c5376b1369855d5b32b5d9270ff",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "순환 유체를 수중 펌프 모터 주변으로 이동시켜 냉각한다."
+    },
+    {
+      "identifier": "AR-081028-A1",
+      "source_fingerprint": "20364596e02e3658fcf14b11528a4baa05bf287bc92cdbefd1317616872abdaa",
+      "content_hash": "fd0ca5358abe851f84fc60fd4d91580de2c8887dfed0293b0d80e761abf586a9",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "스프링 플랜지로 이동하는 포장 웹을 고정 기준 쪽으로 누른다."
+    },
+    {
+      "identifier": "AR-081030-A3",
+      "source_fingerprint": "54ad41951b6135a6f87ae8d02518b4a25a6decaeefcfa822f7f1a4f994d60239",
+      "content_hash": "2a3a952f34aade0c6a449adcd1f547450025796c4057e7fce0880327cfcef000",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding"
+      ],
+      "reason": "복합 배관의 플라스틱 층을 열융착한다."
+    },
+    {
+      "identifier": "AR-081034-A1",
+      "source_fingerprint": "04e4c0f0caeb8c90e6d43cf345c2b1bdb019d57e3639ff3bfe6345d3bafa5ae6",
+      "content_hash": "e4c81916997193050451ff267afb5754e2525e39c59b263ac4bbba039b94b053",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "신경계용 화합물 구조만 있고 분자 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-081051-A1",
+      "source_fingerprint": "cbca3c97715bcce34e252427e507caaf8aa80a75636624b8bf650a7f0fc3e735",
+      "content_hash": "00e06fde8eda7e5093aa6363bc2c1b9ac356fa38d8af154a95a165a574b96932",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "치과 보철의 유연 고정부와 고리형 자동 잠금 연결이다. 잠금의 상세 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-081064-A1",
+      "source_fingerprint": "cec305f23479bcc47ade841a1905150ddd15f27cfeb95935b8fca508cd63f15e",
+      "content_hash": "e0b9e4b4246364b4b67cabc11a7c040ba7ed565b2733b530a9e503e3318f15f3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "테트라사이클린 유도체의 항균 용도와 치환기이다. 해당 유도체의 작용 경로를 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-081084-A1",
+      "source_fingerprint": "8c181c2631ae5f155472cc2dd479b1aecd7ea0142061640950d47f33041d4384",
+      "content_hash": "475984baa5fa8b5562480cd93bff8b51b9938f3ccb8c0a2b246afd338d0ca886",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "도르래 크기 차로 입력보다 많은 발전 에너지를 얻는 주장은 에너지 수지 근거가 없으므로 채택하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:21:40.086385+00:00"
+}

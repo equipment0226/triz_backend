@@ -1,0 +1,233 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "7030b7ee4f96a0b45af791c9bab79143dd9186cc5506f71f9415a3dcf82745b0",
+  "reviews": [
+    {
+      "identifier": "AR-119462-A1",
+      "source_fingerprint": "cc0e8f46b7371c9a9970110fc8cc9262281b88731e4d87cccdcda530ec3f88f6",
+      "content_hash": "6a27b905a7087191e5fe31426711393bdc80b8a3ccd8ea256718e2e4748ac2a6",
+      "decision": "LINK",
+      "keys": [
+        "solidification",
+        "thermal-expansion-compensation"
+      ],
+      "reason": "빨대 사출 금형이 코어 열팽창을 수용한다. 금형 해체 순서의 지지 구조는 설계이다."
+    },
+    {
+      "identifier": "AR-119477-A2",
+      "source_fingerprint": "713b1b1929294c0b4d712285b4c877cc3dd272f7e411db49bffdd3958809fce3",
+      "content_hash": "fcc5bb3277da2745ccc08455c5236c3529f5615fb7e2d817c03941747294620d",
+      "decision": "LINK",
+      "keys": [
+        "polymer-glass-transition"
+      ],
+      "reason": "비정질 고체의 유리전이 규격이다. 분자 유리는 고분자 항목과 범위가 달라 최종 정리에서 상위 표현을 확인한다."
+    },
+    {
+      "identifier": "AR-119512-A1",
+      "source_fingerprint": "2b92b90439a4d057a1a30b4d70acf2686729302cd73cf3bdbd8fdc9b0e2e7955",
+      "content_hash": "f64f6488c8689d139392ab6924148ebf5b19f84cb8a04dd255800601f4a2d47c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "multivalent-avidity"
+      ],
+      "reason": "EphA2와 CD137 결합 펩타이드의 다중 연결이다. 세포 표적 연결 초안과 중복 검토한다."
+    },
+    {
+      "identifier": "AR-119516-A1",
+      "source_fingerprint": "74f6eb3c93a3b0a0a545eb3980228253a0cbc0d080a9294029707ca6f0142643",
+      "content_hash": "b259c127f8a6a5b412db6313b1c5f71909c057e92a88560aa54fccdc406bc3d2",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "pressure-compaction"
+      ],
+      "reason": "흡인과 예비 압착을 이용한 부직포 형성이다. 권축 생성 원리는 미특정이다."
+    },
+    {
+      "identifier": "AR-119538-A1",
+      "source_fingerprint": "597024e73b8659aec3e00194835586248753134d01432b76abb4782a1d6f32c3",
+      "content_hash": "c4180d5505b10293d38fb31d5048edf057be09bd249db3507024f713601e4364",
+      "decision": "LINK",
+      "keys": [
+        "genetic-linkage-selection"
+      ],
+      "reason": "콩 질환 저항성 유전 표지 선발이다."
+    },
+    {
+      "identifier": "AR-119551-A1",
+      "source_fingerprint": "7bb915d5a404d0e71b64d339d3da86b3b813920409914db1c23021e91eae8f76",
+      "content_hash": "c41a02e1e4ea8da69902add6d1247f04fd94eabef7b763ecb3b0a4c7b134f4af",
+      "decision": "LINK",
+      "keys": [
+        "genetic-linkage-selection"
+      ],
+      "reason": "같은 저항성 유전자 선발 계열이다."
+    },
+    {
+      "identifier": "AR-119556-A1",
+      "source_fingerprint": "8314542bfa12df3864cedb7b605c3a2a9ca66cb6b4b83a0d616cb8c0bec46801",
+      "content_hash": "a9d00326cd218c9b3e92f749d13a9a23a8180df104247a5682007f1f9efe615f",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "pIgR 결합과 세포 횡단 전달이다. 수용체 매개 횡단 수송 초안의 추가 사례로 통합한다."
+    },
+    {
+      "identifier": "AR-119564-A2",
+      "source_fingerprint": "171106eb3d5748a4e9ea8a7d94a6fde01fc3a66076955fe529f88ac782bc637d",
+      "content_hash": "472fa53720cd2942d668047efe5f28423fd49dc7c2f0517a010f33cdc8c155e3",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 외래 단백질 발현에 의한 형질 조절이다."
+    },
+    {
+      "identifier": "AR-119569-A2",
+      "source_fingerprint": "5ad3dd1da49873076f40954857ec338fde82145c9068b58005725ea56a7f1692",
+      "content_hash": "76cf21729eba9a73343a1cc420ddcc4da9ab28b0e24f788d52567e2635e16670",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "같은 과발현 원리의 유전자 변형 사례이다."
+    },
+    {
+      "identifier": "AR-119575-A2",
+      "source_fingerprint": "da77fe0f8ddd4b99713937aa0d3a81fe3608306f4b81ca9e132ed1d3576ac4b7",
+      "content_hash": "7645374bc162bf62e4061a736830bebb50305e8746c974f4b792403aecc45784",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "동일한 과발현 계열의 또 다른 서열 변형이다."
+    },
+    {
+      "identifier": "AR-119591-A1",
+      "source_fingerprint": "b4965686e95b74bb8afbb7a40f6735afbad7abf1a1edd53dcc0c23c4b25821d7",
+      "content_hash": "86fec3af846acda1468990e4bee877d143b1ef74251576465beb4dd94eb74133",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "차단층을 포함한 다층 포장 필름이다. 열 단열층으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-119592-A1",
+      "source_fingerprint": "2f0978971c1cb76eafc55120b2ed67dd43175b2ee8c52b439d43b80d68678cea",
+      "content_hash": "6031940d197b527e556b675df3cc6281cb13d2a6a8a8d5caf621d1b06a76adbc",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "coordination-complexation"
+      ],
+      "reason": "pH로 엽면 음전하·금속 착물화를 바꾸려는 조성이다. 제시된 범위에서의 성능은 특허 주장이다."
+    },
+    {
+      "identifier": "AR-119618-A1",
+      "source_fingerprint": "13edbc81c4302f604e8e4d6097b3a99d5e68ecc4cc6355bec910dd2e3c83a786",
+      "content_hash": "1fda56689ca34b459b50682364dfdd709947c5ba42d896b07d46dcb79534d495",
+      "decision": "LINK",
+      "keys": [
+        "joule-heating"
+      ],
+      "reason": "줄열을 이용한 폼 절단이다. 가열의 응용을 새 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-119620-A1",
+      "source_fingerprint": "b338d08c0ca3cca3eac9cd90a7a6baa95e1ee112fd39badec518a954b5aa6996",
+      "content_hash": "6fd3390d56259248b86add75daefa74dd773fafab145476dbdba14d8eb082435",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "멸균 관 사이의 자동 흡인·주입이다. 무오염 보장은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-119625-A1",
+      "source_fingerprint": "e84eb1f65e5a6f9d5ff0f1755840c94bd99abba71e432d1f98515519ee5d0f46",
+      "content_hash": "243c2be1effc0af647409d62545ec68df634ae1bfc0dad704650c5d70b144494",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "JAK 저해 화합물이다."
+    },
+    {
+      "identifier": "AR-119647-A1",
+      "source_fingerprint": "5b4c0ecd11410939b53b2ce82733a05dac5d8d4fb3b4bc92b58cec932811aca4",
+      "content_hash": "ccff29f2af5b478914362b31c115c973ddc1259980177e87077944b81afa188e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "종양 침윤 림프구 배양·편집의 성능 주장이다. 구체 증식 신호·편집 경로가 없다."
+    },
+    {
+      "identifier": "AR-119665-A4",
+      "source_fingerprint": "fcad6d1bfa0db6817b39ddc7959eb18f6398b5e95ac7790822c4f5816062880b",
+      "content_hash": "8881ce1d53b9e0fb9f186f8a6c70c7b53520a63225965fd02c1443c599b47ec4",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "cable-drum-linear-drive"
+      ],
+      "reason": "예비 타이어 윈치와 기계적 보호 덮개이다."
+    },
+    {
+      "identifier": "AR-119669-A1",
+      "source_fingerprint": "8791c29668f60e23f21762921b4d9bb3d92d667c38092124674e9c6823afca2c",
+      "content_hash": "3ceddee99e85f63ae6db464d0337c92985c3b9762adf6c0aa71a67b08c011644",
+      "decision": "LINK",
+      "keys": [
+        "nitric-oxide-signaling"
+      ],
+      "reason": "흡입 일산화질소의 폐혈관 응용이다. 투약·임상 효과는 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-119671-A2",
+      "source_fingerprint": "86b5907bf61813ef94573454e6fab4a28c152aa3e79ff366cff598bb57a9113a",
+      "content_hash": "f473cb3133f77fc55eabec6bff7e85ef57dc055e69e3d2cb7fd83e102921255e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "림프구 확장·치료 용도이며 배양 자극 경로가 없다."
+    },
+    {
+      "identifier": "AR-119686-A1",
+      "source_fingerprint": "8b1d0c2f28e66704c54c4dc43c40d613d3b564fcad9009ec6f0527460be64cd7",
+      "content_hash": "b99b21fefac204703a83469ac6c4cc6eab7156cda8c66c41e96cba4fdd88e985",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "APP RNA 감소 목표만 있고 안티센스·RNA 간섭 여부는 초록에 없다."
+    },
+    {
+      "identifier": "AR-119689-A1",
+      "source_fingerprint": "8a72a2d6a1d458b0b583ce1ae38187ca86e4858ec9ea39ecfc01ce5400777d34",
+      "content_hash": "9719a94b680c83198c78c737a608a2fa6624861fb86d1ae1386efbe0b51bf5a9",
+      "decision": "LINK",
+      "keys": [
+        "state-estimation"
+      ],
+      "reason": "해상도가 다른 지층 기록을 결합한 모델이다. 창 분석의 구체 추정식은 미특정이다."
+    },
+    {
+      "identifier": "AR-119712-A1",
+      "source_fingerprint": "c475155129bd67cd92428e3a3eaee7fb0ea829b6c8d0de639f9b3b845045badf",
+      "content_hash": "93858fbe4a0cc0edc15a5cd1539e36939651fe6be26d3e6c98178217317ce098",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고올레산 에멀션 식품의 산·아미노산 조성이다. 개별 보존 기전은 미특정이다."
+    },
+    {
+      "identifier": "AR-119714-A1",
+      "source_fingerprint": "b850906f0b5518b1105349ee0e4018a7999346eaf79653649b123815b90b3a61",
+      "content_hash": "d35e071c1350996567c2afd203bb3d3f6926d0f921166c7fea4992bb520c1fd4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약 혼합 성분 목록이며 새로운 작용 기전·상승효과 근거는 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:37:06.977074+00:00"
+}

@@ -1,0 +1,176 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "8701db6670bd23b8801ba8072a261f49868f500833aec45310dabf454264525d",
+  "reviews": [
+    {
+      "identifier": "AR-085192-A1",
+      "source_fingerprint": "440b18ea1a430962b947439e464a6d570b61c3cb116aca5ce42ab5d4cb4e2b28",
+      "content_hash": "36110eb0e06cfd81bbdc14223136becf700acfb69a229a877d67f7f3d22d2143",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "선택 게임의 기대 지급액을 조정하는 규칙이다."
+    },
+    {
+      "identifier": "AR-085193-A1",
+      "source_fingerprint": "cca279d117114bd7af7ef91bc101eae09ac05e464287b31a7384029632dc927b",
+      "content_hash": "2284a82c55beae5c0a7f60f03c6e87444f8402002e76dc290d6134740c587295",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastic-energy-recovery"
+      ],
+      "reason": "스프링 토크로 칼라가 자동 회전해 홈에 걸린다."
+    },
+    {
+      "identifier": "AR-085195-A1",
+      "source_fingerprint": "779e7ad802be2fef01076cd2abea30adf0995ab7ab7f6d5793aeb7bb89046d2f",
+      "content_hash": "e3d8faca539f9b84191f6d2f0409548d0de03cad33b24edf6f2b7a015f9960f2",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "MET·VEGF 경로의 이중 조절. 치료 효능을 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-085220-A1",
+      "source_fingerprint": "91aa4752b93388d197c0d18bb1a01cf7a4ed19d8968050c6d900f824fb3761e0",
+      "content_hash": "6186145a3f79aa521a2723bacb171b8ab115ee5c42c3818958a38577e2b63dff",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "단말 활동 정보에 따라 측위 자원을 배정한다."
+    },
+    {
+      "identifier": "AR-085222-A1",
+      "source_fingerprint": "5084ca019b45251a08b7e3153969dc595416f5dd871d39973e4e2d8a49aee1c0",
+      "content_hash": "2edd446ce5b408f724211a332a24d135ed249fc5ccaa217dda67936a1935e1c9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "겹친 변환 블록의 앨리어싱을 상쇄해 복원한다. 창 함수 자체와 구분되는 시간영역 앨리어싱 상쇄 후보이다."
+    },
+    {
+      "identifier": "AR-085224-A1",
+      "source_fingerprint": "206c45aac2e5a9cc3976409d5bd73a264381d5d41fac4468dc5b4d5f1bdcf271",
+      "content_hash": "3db0a3bd99566a039457716168b9809fc2772a89951002818e0f6cc06d82b17d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "배경 잡음의 스펙트럼 매개변수를 보내 비활성 구간 잡음을 합성한다. 편의 잡음 합성 후보이다."
+    },
+    {
+      "identifier": "AR-085232-A1",
+      "source_fingerprint": "bfc568a792d648fa426cc7cf4d19c82b21c2e4d4efc617b77e408a93c238e87e",
+      "content_hash": "4aef8abd26e5cac0662de0f409cddfb9490e08ca4ff2e56e7a6adfb183212743",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "숙신산 탈수소효소 억제 살균제이다."
+    },
+    {
+      "identifier": "AR-085237-A1",
+      "source_fingerprint": "7e24219ee32dfd162d52608efaca227969fb314d9c8691e7b3d7efe9235e7584",
+      "content_hash": "3271eae2bfa2ab399a7149c132040fe4f8290d840d4ab33b374edcc46c3642e4",
+      "decision": "LINK",
+      "keys": [
+        "check-valve-rectification"
+      ],
+      "reason": "힌지식 덮개가 역류를 차단한다."
+    },
+    {
+      "identifier": "AR-085244-A1",
+      "source_fingerprint": "e023835d2146afdd027d4744c0c76130f8269696c721edb17c77ab94fb4c088c",
+      "content_hash": "dcced32316020398062e832b9394df0b25313d5be5b152f886fbe9e416caec5d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "화산암 입자와 고분자 결합제의 장식판 배합. 계면 결합 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-085245-A1",
+      "source_fingerprint": "1d4f5efafcfc40fefb649e9be641c51fb60742d1939f2a7b029de50e1e6d374c",
+      "content_hash": "03ec7aff71e2e07ba292e03a53b5d20b1f0c1e42e1405d455718284453569086",
+      "decision": "LINK",
+      "keys": [
+        "lead-screw-motion",
+        "articulated-linkage-motion"
+      ],
+      "reason": "나사로 교차 팔의 간격을 바꾸어 클램프를 조인다."
+    },
+    {
+      "identifier": "AR-085283-A1",
+      "source_fingerprint": "d315dcc0f42e92e1d30a113cff720a1ec36d371c3ade7a692275648787eee9bf",
+      "content_hash": "c52ee93f58e860255880cf0900aa7e23492da805f5c1e5ec76ba0a5a9bee3dd6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "헵시딘 길항 용도만 있고 직접 결합·억제 단계는 미상이다."
+    },
+    {
+      "identifier": "AR-085295-A1",
+      "source_fingerprint": "12f137521d8025e97f8a35665975e2975db53bbf051ff32fa0fc88fcf2260f7b",
+      "content_hash": "1ca156be84846175116ffce54f42f7125bcd71d3ab08b36fd4410c94a94a9865",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "coordination-complexation"
+      ],
+      "reason": "활성탄 및 아민 킬레이트 수지의 포집. 건강 위해 감소는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-085309-A1",
+      "source_fingerprint": "40474f19bce3e38ee85e985d008352a1b04420c052ad75a2e1298b3ea8fedadf",
+      "content_hash": "e81da9bd8d3664401e9bd531fedc2459755ac6dca1cf32503f46684757e72707",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물에 도입한 유전자의 발현을 조절한다."
+    },
+    {
+      "identifier": "AR-085316-A1",
+      "source_fingerprint": "15a15c9e9a22a78ee9d86b078e2f1e52e45eef53ba1643c1b946aa6123ee8170",
+      "content_hash": "59b590655a4738406259d56b0274ca70cd46e0accdfbd94882cd41692d520d55",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "키나아제 조절용 화합물이다. 세부 억제 양식은 미상이다."
+    },
+    {
+      "identifier": "AR-085320-A1",
+      "source_fingerprint": "835a67b45bed16a25142be9927e2d66ce606aa594221691515d39094b5190efa",
+      "content_hash": "83e9479210d78ab672e1708ef22300ff0048b8480268596c362f632a8969bc8f",
+      "decision": "LINK",
+      "keys": [
+        "refraction",
+        "polymerization"
+      ],
+      "reason": "고굴절률 아크릴 안과 재료. 첨가제의 점착 저하 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-085330-A1",
+      "source_fingerprint": "ccdf6dbb9e1bf0fd60ea0afe6a1256da43ff7f9cf05eef7fe9fef5e0b407c60b",
+      "content_hash": "da0bee1d4b284bb8aae1bf9972e2e6bd908e32d308f0d75a5485883956263d5a",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "슬리브로 유로 개구를 바꾸어 주입 유량을 분배한다."
+    },
+    {
+      "identifier": "AR-085333-A1",
+      "source_fingerprint": "3a9b663c37f2864093515d12d93139ec9d0e7990fcc6ec1ad8c9370cf32aa93e",
+      "content_hash": "abd5282f46906ce5fa1839e4d60d8261f5cc1bd5a1f2e46b3ce5ea0a9c3c6408",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피라졸 살균제의 분자 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-085369-A1",
+      "source_fingerprint": "7a5d4dc9776f0c86f2c77e03d1d4c1744c3ba5b245288156c4b9f5c1120338ea",
+      "content_hash": "99d353feab37bb47ca0b6905ec99d208629be99d8558192a059876ccde6b0c98",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "콜린 염의 식물 침투 증가 주장. 막·계면 경로는 특정되지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:31:32.144216+00:00"
+}

@@ -1,0 +1,215 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "92fe55191c38dc35284ebb5272ce55f7bb867e5f276421450938a819f79febb0",
+  "reviews": [
+    {
+      "identifier": "AR-082885-A1",
+      "source_fingerprint": "7ea4e6eee468a2a016d81f13847d8890de493b14a77de4a5223ddb18a05a0139",
+      "content_hash": "da0ca9d94601b4e27fdb6fd0f9d4cd928ce44ec7845dc97ba2198166bee05095",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "NAMPT 효소 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-082933-A1",
+      "source_fingerprint": "aa6dc835beaf6f805c7035b7389ddd3da527db94c59c0d01585df061340970b2",
+      "content_hash": "6e4c2981eb850541194b0a4c225c3a9b05d8a90294977e367599f1a7c0a37d28",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "회전 스로틀로 통기 유로 저항을 바꾼다."
+    },
+    {
+      "identifier": "AR-082946-A1",
+      "source_fingerprint": "b7eee6d01e52b8745dc5d99d3d964066ac6d9330dc69973ee3ea7a1067b2e355",
+      "content_hash": "0a152229819e7c6091d807d70689c5ef13588dd33f1adac58d09552e27c06b91",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항증식 화합물의 넓은 구조 목록이며 구체 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-082959-A1",
+      "source_fingerprint": "e5947daee2e0ce405243ad850e699020cc5baeb24418223081b2b44180781de0",
+      "content_hash": "e117e9c05cbe6acad53f3d8963a58330059010ea091b919860a15154dd09f682",
+      "decision": "LINK",
+      "keys": [
+        "solidification",
+        "heat-capacity-buffer"
+      ],
+      "reason": "차가운 금속 입자에 열을 전달해 슬래그를 유리화·응고 후 분쇄한다. 유리화 후보도 검토한다."
+    },
+    {
+      "identifier": "AR-082962-A1",
+      "source_fingerprint": "eea0d5cc43626a266cb83d2dcea74ba758bddac2c569ff92f6f0b1f369533e6d",
+      "content_hash": "3b7f038415ac593df01c6483a938cf2a4eb6225cd21be5c982252e380a8a96a5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "퀴녹살린계 의약 구조만 있고 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-082968-A1",
+      "source_fingerprint": "dab74ead7f68e8d1c9eaeba25e3969235df6d3ef5c7b797ca1a36fbbff769183",
+      "content_hash": "00302602ec0264324b04f920d387b54aae6f987d4f49484e132afaa0fac76686",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "Notum 효소 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-082970-A1",
+      "source_fingerprint": "1abec50ac04df4874378153f3771a357fe5ca1da997dc5ca6443a50700a7645a",
+      "content_hash": "926f9d26cee6d50934750e522c34b40cc01f8996d5c64833abffc0d51cb5a208",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "성형 프리폼의 외부 돌기로 금형 내부 방향을 유지한다."
+    },
+    {
+      "identifier": "AR-082979-A1",
+      "source_fingerprint": "bf4394066e0c6d17aee7d3c87ce88c11c7714f45a393c1b9d4b897ffc8dd6a3c",
+      "content_hash": "3c607664e5e6d3142032cd7eb52576947273305ec26dd5e50404d322e12a9b19",
+      "decision": "LINK",
+      "keys": [
+        "liquid-bridge-agglomeration"
+      ],
+      "reason": "종자 입자에 요소 용액을 분무해 과립을 성장시킨다. 흡습성 감소의 상평형은 미상이다."
+    },
+    {
+      "identifier": "AR-083028-A1",
+      "source_fingerprint": "192410f63ab93ff6c5d87d445b33be16b5f0c1e49d6eb9e82a6c34c2ab67ce16",
+      "content_hash": "fc0a880437616cd113961e73abb466c1a4ccfcdf17fc2ce3c809f1af68991876",
+      "decision": "LINK",
+      "keys": [
+        "positron-annihilation-imaging"
+      ],
+      "reason": "감마선 동시 검출과 연속 회전·이동으로 PET 영상을 획득한다. 초해상도 알고리즘은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-083030-A1",
+      "source_fingerprint": "20c988f93366a8a735cd7f234c6b0f0389ddccdb007a533de76eb072410140cf",
+      "content_hash": "c2d99659df3a7d0859ff9f4f4a14fb4d897e23bcaaf4baac7a19239a87e46d1c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "키토산으로 건축재 결합·탈수를 개선하지만 분자 상호작용은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-083032-A1",
+      "source_fingerprint": "7365d3e1e1b1913721d37e6067ba3a911e4ba6fb7212bea4abd174e9f71017f8",
+      "content_hash": "db6855374b88336b81e4551690e830c7492a946d852dbd881380ceb357c10120",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "구멍에 붙인 씨앗을 기계식 전달기로 옮긴다. 차압 부착 여부는 초록에 없다."
+    },
+    {
+      "identifier": "AR-083037-A4",
+      "source_fingerprint": "1be0ac69e7284eb851d7d4b80209360e863093d7d02ef7d280daa1f86aceab87",
+      "content_hash": "0dc21c92b4b43c4dda9b0139209dbbb9198914e068b3c8ce7612736f2a344bf1",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion",
+        "articulated-linkage-motion"
+      ],
+      "reason": "영구자석과 평행사변형 링크로 전시 구조의 두 위치를 유지한다."
+    },
+    {
+      "identifier": "AR-083047-A1",
+      "source_fingerprint": "34915d1a1c6e85144c6c32981df2a92504d07ee66bf37c7591c13aca2d6c9287",
+      "content_hash": "6e410a89183307d7144c859d7475e661ca68315b781b003e3f3472506901d5c4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "금속산화물과 수분의 반응열로 젖은 사료 부산물을 가열한다. 산화물 수화 발열 후보이다."
+    },
+    {
+      "identifier": "AR-083060-A1",
+      "source_fingerprint": "767580bc1b35c92fe510bf80761ff18d4b7deb71c7bb0164fc3bf956e16ad65d",
+      "content_hash": "93ffa044ec69500e1a01fb857bd42a295572f6451f83eb8f7f245c6ae8a4614c",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "오렉신 수용체 길항을 명시한다."
+    },
+    {
+      "identifier": "AR-083082-A1",
+      "source_fingerprint": "8a221b5830e62fa7aa30abd4b9c38e76a9eb0af19d2cf0fb613869d1d65eb072",
+      "content_hash": "137f3ebe4e4fca77ebb424fd2f9aea8186d4bbed3b329331ff1be596c2155226",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "fusion-welding"
+      ],
+      "reason": "투과성 용기에 흡착제를 넣고 막을 융착한다."
+    },
+    {
+      "identifier": "AR-083083-A1",
+      "source_fingerprint": "53fc264bc9e39ed1871a084459ea022e05b09ad34e1310a0e21244afb77a9a2b",
+      "content_hash": "44d583ef88518380ae00a7c93c04791624fe97cfc5db2f6cae305e2092551f2e",
+      "decision": "LINK",
+      "keys": [
+        "projective-coordinate-mapping"
+      ],
+      "reason": "레이저 기준선과 표시기 상대 위치로 광산 기계의 자세를 정한다."
+    },
+    {
+      "identifier": "AR-083090-A1",
+      "source_fingerprint": "667b477255fc2c7ed0f6d7e31a2613a1eb21a9f61c4173f540ffd2e2b2c2fc04",
+      "content_hash": "e47e3362d0b423b4a78c51890251d7939f73ff063a1bb4a2d57f01bafef8fad4",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "강판의 C·U·O 프레스 성형 전에 모서리 형상을 확인한다."
+    },
+    {
+      "identifier": "AR-083093-A1",
+      "source_fingerprint": "869c84bd23b4533329bd51fd785b6f7c52e5a1c18a7a0d9e07145a9540e44937",
+      "content_hash": "eab1c60c879162b1409f7fd60a58bd5d43d4ff30efc71bbc947952941baaebf9",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "탄수화물계 지방 대체제에 유화제·안정제를 배합한다."
+    },
+    {
+      "identifier": "AR-083094-A1",
+      "source_fingerprint": "88a74c169a9e3fdf0b9a0480bf64496353cb4e364d3bbb9ccf30e0f3651aa129",
+      "content_hash": "ee4cf28e88db7a07ce9d67fc592e18ed99a2aaed12a168c92b1d48be3dff450f",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "흙 속 보강재의 계면 하중 전달로 전면부를 지지한다. 구체 마찰·맞물림 기여는 별도 검증이 필요하다."
+    },
+    {
+      "identifier": "AR-083098-A1",
+      "source_fingerprint": "632c76c38f3c5f1846b9389ae5398e2458c29ff352050df06da0dc007a48fba1",
+      "content_hash": "ab7dda330e2cb542826f78d61c1f389fdb366469e25bb15631700ff2a8486efc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "맥락별 사용자 선호를 서로 비교해 추천한다. 협업 선호 추정 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-083118-A4",
+      "source_fingerprint": "bce58279630c2e22db5c8cdb56d239d4ef24dc884c72fabe766043467c641753",
+      "content_hash": "b50e31d4c014a90944ed8d1279c8739776ed919685787c79d00d7e8da61b6063",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission"
+      ],
+      "reason": "펌프와 유압 실린더로 차량을 들어 올린다."
+    },
+    {
+      "identifier": "AR-083138-A1",
+      "source_fingerprint": "21cf522a6a977b35b793d7d119d49dc05663937bdacb76580ea639aa5852a190",
+      "content_hash": "4290a8a800d21ab3aea32e01dd7fd047d1c12f7fc78787f88d7511f98bd47801",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "격리 가능한 측정실과 원격 장치를 밸브로 연결한다. 측정 변수·센서 원리는 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:25:15.607488+00:00"
+}

@@ -1,0 +1,134 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "5bbb9ef93851f590551b102333425566d62a52d34d87ef64a6b917b4482ccd65",
+  "reviews": [
+    {
+      "identifier": "AR-086095-A1",
+      "source_fingerprint": "8337aa4f744c52132bd8925067ea1b7b846cac004eec3ee75284242bceee1eac",
+      "content_hash": "4e3122bdc5620d91a5112b14a40b1177aa8a8369c832151bb7a2f658cf3e5131",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 뉴클레오사이드 구조. 분자 표적이나 사슬 종결을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-086113-A1",
+      "source_fingerprint": "be8a86af53231a8db1fffc40af81149c7dc5c7a4437db2800234bab470781071",
+      "content_hash": "bc2f035b8b9ad98899a66bfc718930b55cdf2db7763f8bb0070f1f45d9869961",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "면역 질환용 이속사졸린의 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-086116-A1",
+      "source_fingerprint": "78f10a3a273f9da455f1d268bf4ace5e99a41269f92438769af7fe9cbb0c714c",
+      "content_hash": "69292856df017397ad3e68bac0a0af6b4f5a4d1a37bb8c92d0c7d257d27bd65f",
+      "decision": "LINK",
+      "keys": [
+        "magnetoresistance"
+      ],
+      "reason": "자기저항 센서 원리만 연결하며 무기 제어 구현으로 확장하지 않는다."
+    },
+    {
+      "identifier": "AR-086129-A1",
+      "source_fingerprint": "08329cccd95a24475dc3a84223e9551230b0514764df3b734e01b1e6288bcc25",
+      "content_hash": "9b9e0707208f3a2df61ef13878c22c991481e42e6d0e8f08130946646fca1bd8",
+      "decision": "LINK",
+      "keys": [
+        "distillation",
+        "catalytic-hydrogenation"
+      ],
+      "reason": "아세트산 수소화 생성물의 추출 증류이다."
+    },
+    {
+      "identifier": "AR-086132-A1",
+      "source_fingerprint": "bedec1595385347bc6b0603e78abf0bf6a19b246225c3ee8b81b3415d41a5752",
+      "content_hash": "00c85baafc7c6bb306461ea27b3540560c936a0cfea87ab3a062134985a87027",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrogenation",
+        "hydrolysis",
+        "distillation"
+      ],
+      "reason": "수소화·아세탈 가수분해·증류를 결합한다."
+    },
+    {
+      "identifier": "AR-086136-A1",
+      "source_fingerprint": "59b5ea64db3eab285357005ce3330851f5ff502f9897c2f04764994c562342ba",
+      "content_hash": "dc6605944f60dc9492508f64272e2866205afae3b623638734ed2674b3643be9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아세트산과 에탄올의 에스터화로 잔류 산을 제거한다. 산-알코올 탈수 에스터화 후보이다."
+    },
+    {
+      "identifier": "AR-086138-A4",
+      "source_fingerprint": "41ef775293595925763ca9fc1f19a5b9b2a0e912821753632013625b688eb83d",
+      "content_hash": "30bd7959e7b97f18e9a1ad3b499974a3c04df613a452b0c0ef3b6a332b0be235",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "칸막이와 분리 용기를 둔 폐기물 수거함이다."
+    },
+    {
+      "identifier": "AR-086143-A1",
+      "source_fingerprint": "995c130464b3fe93f37eca0aa3e98e78d59cbb39495f98581c4eb18cf359d73f",
+      "content_hash": "360c4d426d0d39b89c122976120ce6d432cedc4051fcf86fec712378a5cbf734",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PI3K 억제제를 명시한다."
+    },
+    {
+      "identifier": "AR-086145-A1",
+      "source_fingerprint": "7a64a0731d68bea697e50edea3806e99ab9098a84ba57d516a023b8822f83300",
+      "content_hash": "a46e9d1fdd232d2cc39197aaffa969a82079039b8735f1c4c3f7bb21732e7b4e",
+      "decision": "LINK",
+      "keys": [
+        "physical-random-fingerprint"
+      ],
+      "reason": "물리 구조 지문과 복수 영상 조각을 결합한다. 단독 조각 비공개성을 갖는 비밀 분산 후보이다."
+    },
+    {
+      "identifier": "AR-086163-A1",
+      "source_fingerprint": "cc526f0a26c0071d02ede7fdba424be6085ba392581cb7217049ce69ea3112ae",
+      "content_hash": "b85171311ba518c0947ab0cfba241aab7784b475ae631106a1ae0ad689438a4b",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "양이온성·양쪽성 계면 성분의 항균 피막. 독소 중화·혈전 방지 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-086171-A1",
+      "source_fingerprint": "cae8a401fd921c0c3ec44b5137f3ff626f3bfd1d458520af3f37f8a1a12b124c",
+      "content_hash": "ad2ec99ded0dd332617a8415c482a3769e8e377ea9d368fca3f9777c8c3fd6bf",
+      "decision": "LINK",
+      "keys": [
+        "transesterification",
+        "gravity-settling",
+        "acid-base-reaction",
+        "distillation",
+        "centrifugal-separation",
+        "sieve-size-separation"
+      ],
+      "reason": "에스터 교환 이후 상분리·중화·증류·원심·여과로 연료를 정제한다."
+    },
+    {
+      "identifier": "AR-086197-A1",
+      "source_fingerprint": "25a70c1a17c29256ea4b4a049fa000070a0e77d69bd5f17d57e706ebde4e5960",
+      "content_hash": "a97a4345f0191b0d2c8b6ed81f43d892eb516310a2ed92bacda5c2c0e169e14e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "방송 수신과 예약 기록의 장치 구성이다."
+    },
+    {
+      "identifier": "AR-086202-A1",
+      "source_fingerprint": "f394be6cdd2614019bd6e359377092066160358812979212c9032c5128e0882d",
+      "content_hash": "c18f2b95b0d4bbb0c86a5e3ccf760b74c9b3218d36327480bcac555f4cc958a1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "잔류 아세트산을 알코올과 에스터화하여 분리한다. 동일 탈수 에스터화 후보에 통합한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:32:39.058292+00:00"
+}

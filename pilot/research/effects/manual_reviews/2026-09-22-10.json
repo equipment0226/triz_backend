@@ -1,0 +1,421 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "84c10cdbdafe2ce1d9d4c88c2a3c3ef6671097fbaff5818885d9ce6dadfa1f8b",
+  "reviews": [
+    {
+      "identifier": "AR-069486-A1",
+      "source_fingerprint": "52b3a4907283dcea364f58a7086f4592b43534cf021d11b8a693bc2ec188b8ed",
+      "content_hash": "406eb3ca0889d3bda796b836fc07e01b9924c9b6b6910c8cc042d27fe9bcd27f",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation"
+      ],
+      "reason": "promoter AT 반복 길이로 연결 유전자 발현 수준을 바꾸는 cis 조절이다."
+    },
+    {
+      "identifier": "AR-069492-A1",
+      "source_fingerprint": "3b9dc68a9552bd49973c2b8b44c55957b302e456531420ed76b8671fc0d1f99b",
+      "content_hash": "7d1a7e9188060feda00bd97c4cea7c679199bf4998649affb7a0123fcc2e6e86",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "cyclopropylcarbinol의 고리 열림으로 E bromopropylidene을 만든다. 작은 고리 strain 해소·재배열 후보."
+    },
+    {
+      "identifier": "AR-069501-A1",
+      "source_fingerprint": "41972bd9a124196d2272255927eb0c8300be4b3c13fecb736a6e8e36f5ece233",
+      "content_hash": "ecb2699f2ab5de9d48b0c1b79cc34fd51a3f250fbaed39d8736dc5447e26be0a",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "VEGF 특이 항체로 성장인자 관련 신호를 조절한다."
+    },
+    {
+      "identifier": "AR-069502-A1",
+      "source_fingerprint": "07e7503a318ca36ff1835c9ac6e6c2d1e44259a92b6527db3e1fc1292c38f9d8",
+      "content_hash": "a88e9f13c0846ecdb4a36b05d743bc7cd885d4a55eb626ae22e5c68df5e8f80f",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "슬래브 절삭기의 금속 몸체에 concrete를 채워 진동을 줄인다. 감쇠 메커니즘과 강성·질량 효과는 분리되지 않는다."
+    },
+    {
+      "identifier": "AR-069570-A1",
+      "source_fingerprint": "163afb5f8e5987664d4c03668d7c40cb3e10c69576edb3c0e75525608560051a",
+      "content_hash": "b9deb8d145d5128cba888d250edbcc3cda71a3e7d9896ffa094710bc9e5e3a6c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "염수로 전분을 혼합하고 건조해 응집체를 만든다. 액체 가교 과립화 후보이며 염 결정 가교의 기여는 별도 확인한다."
+    },
+    {
+      "identifier": "AR-069572-A1",
+      "source_fingerprint": "a62b9ffbf47fc224575570721cac232f0c2b7b670ed3405563b0a8065d4a051e",
+      "content_hash": "3b802bc607ab5d577554f2b4f3d5e078a8e8f0f56d84bcb8f97c9b6b437194b0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구강 점막 흡수로 초회통과 대사를 우회한다. 투여 경로와 생체이용률의 생리 원리 후보."
+    },
+    {
+      "identifier": "AR-069575-A1",
+      "source_fingerprint": "49e14ec99045cf59c4deef9715652a92d95e93921e2040b1615c6197bc98854e",
+      "content_hash": "8b6e8ac1bcebb75a24d2f40577b4983ece95067d7ed00e67a94caca9f23692eb",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "solidification"
+      ],
+      "reason": "PP 혼합물의 용융 취입 필름을 공기 냉각하여 seal 층을 만든다."
+    },
+    {
+      "identifier": "AR-069596-A1",
+      "source_fingerprint": "711462ff71683a82b6803bbfbbaf8b4ed5f329e2448193ad5102461446a126aa",
+      "content_hash": "2e6090b2b8c1ced81f20ac6584c2ef28f0ffe7b9139e0d13f34c59f25c6eefdc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "보호제 화합물의 뿌리·싹 성장 조절 주장이나 분자 경로는 없다."
+    },
+    {
+      "identifier": "AR-069600-A2",
+      "source_fingerprint": "d3e04ca22bcb930202c118ffc8930fbfe6d9ca1bf11cf1679f2293cf1e25f374",
+      "content_hash": "5aeea9e5459edcf3214133968f18e97c1dad7ef4c6795a3f7ef00ded3d041168",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "Chlamydia 항원과 특이 항체·핵산 혼성화의 진단 원리이다. 제작 조건은 효과 설명에 넣지 않는다."
+    },
+    {
+      "identifier": "AR-069618-A1",
+      "source_fingerprint": "9422fc1b336ef7ecb6b90f3d7235d2cf0934597e27be66fa1e16f4e48ce41990",
+      "content_hash": "74664e0bfe959f96981c50fe94ee7ec9edc7c3f8183118c37ad096d50ceb6459",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "theanine에 항산화제를 더하나 항산화제 종류와 반응은 미제시이다."
+    },
+    {
+      "identifier": "AR-069622-A1",
+      "source_fingerprint": "518a007cdcffbabe5ef650ff0be5161b87f0c41ede0e2e06fe1c14dbdde9554d",
+      "content_hash": "88084ac70e748e1721f07969755f8068eb340cde3b3bb0060299bc9832db11fc",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "pneumatic-membrane-actuation"
+      ],
+      "reason": "외부 변위 매질이 유연 내측 용기를 눌러 액체를 토출한다."
+    },
+    {
+      "identifier": "AR-069656-A1",
+      "source_fingerprint": "7fc8ce1580fb30f0df4046b11655675addd11a3bf5f68a3652cd84936cdada72",
+      "content_hash": "d85a0eaec4626b8633f9f731bfc7287875e821971f41b07ad29e386205e3c2b4",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "rolling-contact-friction-reduction"
+      ],
+      "reason": "탁자 상판·다리의 접힘과 바퀴 이동 구조이다."
+    },
+    {
+      "identifier": "AR-069679-A1",
+      "source_fingerprint": "22c2168f4c74b4ab0839a8594d6a50bb273d284db0000299540beaf36df0e3ff",
+      "content_hash": "bbfb6acc403c0fc512d660c112b0a810ce35f79ed79f099335a86aac23a013ba",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "고분자 결합제로 유기 섬유에 carbonate 미립자를 붙인다. 인장 보강 수치는 없다."
+    },
+    {
+      "identifier": "AR-069694-A1",
+      "source_fingerprint": "9efb0403572bf3e5e075ef8ed5ee173f754cdaa5076e452e23ca13410b89c5d8",
+      "content_hash": "0bddcad7822ec8c9a761ae7b50be24b56871ba914ef1a88ef79cde0390d7aecd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "차체에 붙이는 구동식 부착 장치이나 흡착·자석·접착 중 무엇인지 불명확하다."
+    },
+    {
+      "identifier": "AR-069706-A1",
+      "source_fingerprint": "6fefe53f9345e2a25a7e9fb0fbe625d0b8c452a17e2526b3c8b3e47c599e2611",
+      "content_hash": "15d00e6221f50153b54cd85470d4dfb39e4b31df76e52cdafe160314a45516d6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충·살균제 혼합의 용도만 있어 별도 상승 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-069712-A1",
+      "source_fingerprint": "c176c2c7a5061be10625691543381d621de12fce89df7887ff563123b1538e5e",
+      "content_hash": "bac34c02f110ffae773e30c73aa1d829508ff9c3644010e23d25beb68e4a1885",
+      "decision": "LINK",
+      "keys": [
+        "fluidization",
+        "catalysis"
+      ],
+      "reason": "유동층에서 chromium 산화 상태를 바꾸며 촉매를 활성화한다."
+    },
+    {
+      "identifier": "AR-069713-A1",
+      "source_fingerprint": "3ac0dbdcc7e3ee4fcf496ea32053b4d555262068506a32d81b0c3ca52ae44910",
+      "content_hash": "33125d2e37a81f782b735150e3770e8801074766b1341551c539054231b7d879",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "polymerization"
+      ],
+      "reason": "silica 지지체를 알칼리 처리하고 chromium 촉매로 olefin을 중합한다. 면적 감소의 세부 경로는 미확인이다."
+    },
+    {
+      "identifier": "AR-069725-A1",
+      "source_fingerprint": "3988af691f82b724ccc558a53161ad75429c5c32bc948a3a1cc5b40832eb1244",
+      "content_hash": "5eacd99a49888a592d1319d8cc22ba3d170992bfe824665b8643951e3890b0a0",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening",
+        "polymerization"
+      ],
+      "reason": "활성 수소 화합물에 PO·EO 등을 순차 부가하는 alkoxylation이다."
+    },
+    {
+      "identifier": "AR-069728-A1",
+      "source_fingerprint": "3e0d2f6096c4dd29485ed82fa3fd33d7e6992e852d4f63189f5dad28ca88ceb1",
+      "content_hash": "c53fe7d3b9282964d14f91bbf98100cf13dd97873e7428472c3c236f4989acba",
+      "decision": "LINK",
+      "keys": [
+        "alkene-epoxidation",
+        "gas-absorption",
+        "hydrolysis"
+      ],
+      "reason": "alkene을 oxide로 산화하고 흡수 중 carboxylation·가수분해로 glycol을 얻는다."
+    },
+    {
+      "identifier": "AR-069735-A1",
+      "source_fingerprint": "fa55818b45fdc46d9d15e6f9679182103359c58c3733a289c3921ec569d02a8e",
+      "content_hash": "936f342201c29e0d1eb1d31a91526b1201cafc31a2fb849fe63a7c53d13be206",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "β2 adrenergic 수용체 agonist이다."
+    },
+    {
+      "identifier": "AR-069747-A1",
+      "source_fingerprint": "9c5bc82327d008b4fe619c7fa0e5c3d925c7e40df021180dbb3033e650311894",
+      "content_hash": "855428322d68b8f9b9bcf072de77a8d57f05db14cb0180c1d2b34d3421b0eb90",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "B7H4 결합 항체에 cytotoxin을 접합한다. 항원 표적 화물 전달 후보이며 내재화는 초록에 없다."
+    },
+    {
+      "identifier": "AR-069762-A1",
+      "source_fingerprint": "eae7b5f40bd3f512606ecd971420151c97c9b20290f6bae6d6de2901040ba359",
+      "content_hash": "5c1cf4ca7cdfffddeac612a625c3d45064b6cc022a146b495bb83b354b89ad84",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction",
+        "articulated-linkage-motion"
+      ],
+      "reason": "개폐 팔의 가열판이 모발에 접촉하고 처리 물질을 배급한다."
+    },
+    {
+      "identifier": "AR-069812-A1",
+      "source_fingerprint": "d3d19f2e98c2b399356dd3e2b2f804dee5eb1a8439c5291fe6b9efcc249f87d0",
+      "content_hash": "78fea22ca6b1a265f6c8aea262325909dac17984a517642f0e73f54af32fc662",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "물과 acyltransferase로 유지 gum을 처리·분리하며 선택적 phospholipase를 사용한다."
+    },
+    {
+      "identifier": "AR-069813-A1",
+      "source_fingerprint": "002f2d528c5a1f94476be5e90c14711de7d3627ffe3050c4b22d44d4f9cac2ef",
+      "content_hash": "c56e0c28f34959f48667cfac42fdc91b30523bc2b6df76ba73f806469ad3d0c3",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "histamine H4 길항제를 명시한다."
+    },
+    {
+      "identifier": "AR-069819-A1",
+      "source_fingerprint": "c930cd0b1eef4362493e14db5cf072ec509c4ea1816e5c905791602ddb2a02cf",
+      "content_hash": "7e67b11a8fc2745b3eeded212bfb3c6ba7530ed0e6d9225244ccc7e7fb04cdc9",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching",
+        "pressure-driven-flow",
+        "mechanical-interlocking"
+      ],
+      "reason": "캡슐에 액체를 주입해 음료를 추출하며 주입부를 탈착한다."
+    },
+    {
+      "identifier": "AR-069821-A1",
+      "source_fingerprint": "abc7e03b1c2527eafdc4e0554dab102baad349eaef3c15629874cd8b13edb11e",
+      "content_hash": "bf677ff9b6f64db37e8843a76a05dc81a62459f1aa8fbb521c8f59fddeee467a",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "상보 RNA 기반 표적 유전자 억제이며 기존 RNA 억제 원리로 연결한다."
+    },
+    {
+      "identifier": "AR-069838-A1",
+      "source_fingerprint": "ed71ed578fd2e97864b30bb10c2334159eaaffb2a01d42ab4b968b762457a2b0",
+      "content_hash": "fd129bff606c002f3fcf8a63ee530bd3e8444814352c4c1fa7ee1161a4f0d076",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution",
+        "catalysis"
+      ],
+      "reason": "금속 cyanide와 copper를 이용해 aryl halide를 nitrile로 바꾼다. 별도 효과의 중복 여부를 검토한다."
+    },
+    {
+      "identifier": "AR-069854-A1",
+      "source_fingerprint": "f5722bd903545bd07d8e5e1b282f9aeedc825eaf90b363ba210ff9172d876607",
+      "content_hash": "02ea0e00d0ffa1ebb7164469da710df4312c5a4ab7b8f97fb0f97ff96499eae0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "calcium salt 배합과 뒷맛 가림만 있어 물리·화학 경로가 충분하지 않다."
+    },
+    {
+      "identifier": "AR-069855-A1",
+      "source_fingerprint": "39e1c3ab21113eec277811c0bdb77402d185e1a2454c68fb89ccfb4729791d6a",
+      "content_hash": "a1c4ff55bf694c1d6a16693e06faf34feb961b90c75bde752fab97a89e79478a",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "omega3의 선택적 캡슐화와 향료 혼합이다. 향 가림의 감각 기전은 미확인이다."
+    },
+    {
+      "identifier": "AR-069877-A1",
+      "source_fingerprint": "31e1f103ab84b5bbc7864ae795b656b86bd89a8e22fcdbd067dfff85b30c07da",
+      "content_hash": "2dcbf2b7c1a8e0a775134d643b43c26fb73435990fc51fcbb8bfcb99a544a529",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "ion-exchange"
+      ],
+      "reason": "Ba·K 교환 faujasite의 선택적 흡착으로 이성질체 등을 분리한다."
+    },
+    {
+      "identifier": "AR-069932-A1",
+      "source_fingerprint": "2a1aee37f9bf130a87c3ededfeb52ad4b5e7f39b3a2a4137c771a7f90c91eed0",
+      "content_hash": "c909ea04f8f98d4ab76ba5fb2ba48c271487ebeaee0bd1a203d326f71d7b6833",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "개체 태깅·권위 레코드 연결·사건 분류 순서이나 학습·추론 알고리즘은 없다."
+    },
+    {
+      "identifier": "AR-069938-A1",
+      "source_fingerprint": "556b5b0f8392c85c47b2137d3e7c6156c995a3a809ce533d89f363b0bc46fba2",
+      "content_hash": "017435e1e627b830bf3b72563d07c3b7ec091198776949b60f7f6d99fba82446",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "phospholipid 첨가로 렌즈 탈형력을 줄인다. 계면 작용으로 연결하며 특정 흡착 배향은 미확인이다."
+    },
+    {
+      "identifier": "AR-069947-A1",
+      "source_fingerprint": "d5ad3a45934c413df278794a8388eee7295f577f7f1623188ebfc7843ce5f653",
+      "content_hash": "36b4f6e2a9287e8588eb939a21fd6c0c112e5f04971ea2670baa6623972e2cea",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "관의 차압을 만들어 폐기물을 공기와 함께 운반한다. 입자 항력 수송 후보."
+    },
+    {
+      "identifier": "AR-069974-A1",
+      "source_fingerprint": "ed41258799dc7d5f94b330dea261bda4e149e4e3d80f2e7c613794434ec8072d",
+      "content_hash": "19dc6cae133be5809f7f1282a38f3457cad17653bde3e710904ff40d65c48bc2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "catalytic-hydrogenation"
+      ],
+      "reason": "탄수화물 효소 액화·당화 후 촉매 수소화로 수소화 IMO를 만든다."
+    },
+    {
+      "identifier": "AR-069975-A1",
+      "source_fingerprint": "f55499be596b9a5640344d15cc8fed75809108a198d0d902f7fff215dbb10f50",
+      "content_hash": "79ead1bb855fbaa0e8840c9e5e876055ab00a9ea7f1b2688d67c4dddf0dff74c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastomer-contact-sealing"
+      ],
+      "reason": "금속 collar·bolt와 연속 seal로 수지 흡기관을 고정한다."
+    },
+    {
+      "identifier": "AR-069997-A1",
+      "source_fingerprint": "9fe3fdd16b32a17d957a38b76f0362aae3024a2558a032a219c5ca52857b629e",
+      "content_hash": "dc74cd3d68decbae10ceabba51d11ba64b3bc0d4653ea55d635c6371f1f51c5a",
+      "decision": "LINK",
+      "keys": [
+        "urethane-addition",
+        "mechanical-interlocking"
+      ],
+      "reason": "반응성 결합제로 코르크 입자를 결합하고 서로 다른 입도층이 맞물린다."
+    },
+    {
+      "identifier": "AR-070023-A1",
+      "source_fingerprint": "0238208f7b08401a463e5b6d28c02b78c9e3704dcd642a28d9037cfffa413642",
+      "content_hash": "61637d2be7e1af154ab29f6f4d72e8d0166eedeccf96f6da587560a9b400ced8",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "gestagen의 호르몬 수용체 조절 용도이다. 기형·유산 위험 감소 주장은 효과로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-070032-A1",
+      "source_fingerprint": "420c2ca75d465c8d5f3f14298e9379e7519c961c2431ab6640fa8ddd25b42133",
+      "content_hash": "febdd02e3c978a8ade682ac19a4e48d290210c4b6d675b43e1b5f806293e181e",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "ALK1 antagonist와 immunoadhesin을 제시한다. soluble receptor ligand trap 후보를 보강한다."
+    },
+    {
+      "identifier": "AR-070044-A1",
+      "source_fingerprint": "14e36cc612eb46aa70eb1f0da8714b4d5d953a383bb93ce4dd351e7d5765078c",
+      "content_hash": "587731f1b0b5a1b63933a0bbd4008a5f7e00bdff7d4d02a4ba0675e3c154d7d5",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "crystallization"
+      ],
+      "reason": "산 처리·pH 조정·antisolvent 첨가로 특정 결정형을 얻는다."
+    },
+    {
+      "identifier": "AR-070090-A1",
+      "source_fingerprint": "3abc4404ca5430dc4122ecc5a0bb2f6a3cffd2f20f1077826a1b2e5736fd67c7",
+      "content_hash": "c2f42bc5b46fffa47c4a8d610773b2930aabf1ee9dcb8c8d91f7a9d403a390a6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "preamble 확인과 timing offset으로 전송 프레임 시작을 정한다. 참조 기반 동기화 후보를 보강한다."
+    },
+    {
+      "identifier": "AR-070107-A1",
+      "source_fingerprint": "428b98bcb5bb97a55c0e288873e95299b59871b895df4ab68f2ffa853ecb8601",
+      "content_hash": "6393086c861f93f5802a06696974e94b29d4760d7a5d4b18792aca28be767bb3",
+      "decision": "LINK",
+      "keys": [
+        "crystallization",
+        "diffraction",
+        "nuclear-magnetic-resonance",
+        "differential-scanning-calorimetry"
+      ],
+      "reason": "결정형을 XRD·고체 NMR·DSC로 식별한다."
+    }
+  ],
+  "recorded_at": "2026-09-21T23:04:45.763405+00:00"
+}

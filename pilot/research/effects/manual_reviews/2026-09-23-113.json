@@ -1,0 +1,173 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "4644bd298d6febc213359b14d3b8a7bdca35a47b877237f04141f72837f193f5",
+  "reviews": [
+    {
+      "identifier": "AR-089879-A1",
+      "source_fingerprint": "b7708c249ad921cc3f10a961a907429821640d866c18d348db3c5c42ea566712",
+      "content_hash": "76103c75cdc707ed3508b3520a5f3fec198c3170dca92053a35786a828117c3f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균 화합물의 구조 범위만으로 표적 경로를 판정하지 않는다."
+    },
+    {
+      "identifier": "AR-089904-A1",
+      "source_fingerprint": "d6dd0d830eecaaf0061d2a61f5babeaa8436ff11080a62f037c97b2e3a986aa0",
+      "content_hash": "8987e87516864285e87adaa63b412545b62e7f2989a720cd7d9bac36d15c589f",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion",
+        "mechanical-contact-switching"
+      ],
+      "reason": "자석의 인력으로 이동 접점을 두 회로 위치 사이에서 전환한다."
+    },
+    {
+      "identifier": "AR-089927-A1",
+      "source_fingerprint": "af51dd3f8453e71955144673153eef52e9084a0f28b31b4543ed2d89c529bff8",
+      "content_hash": "1a2708bf15996001c66d6f14a6abd05fbc9227dffae476c6c47e4893a543898f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "carboxylic-acid-esterification"
+      ],
+      "reason": "효소의 거울상 선택적 에스터화이다. 반응 속도 차를 이용한 광학 분할은 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-089933-A2",
+      "source_fingerprint": "46313e6117539531bacebe44d3be7a3a5ec29ffb13aa81728111bad5d16a38f3",
+      "content_hash": "6c3c9023483a32adf3b4981c43dcaf73ddf97c36ddc5c0a85cf0926d1f9365ad",
+      "decision": "LINK",
+      "keys": [
+        "pressure-sensitive-adhesion",
+        "gelation"
+      ],
+      "reason": "겔과 열가소성 필름 및 감압 점착층으로 구성한 보호재이다."
+    },
+    {
+      "identifier": "AR-089942-A1",
+      "source_fingerprint": "082019ccab4d118db353e917bcdd259270d32f4a6159741f3a2a9a04123dd38e",
+      "content_hash": "efd9188a4714cba5c6bdb8ef0d353b180357f43ab6d73364d4c645267fb5a1dd",
+      "decision": "LINK",
+      "keys": [
+        "cyclone-separation",
+        "wet-scrubbing"
+      ],
+      "reason": "습식 배연 탈황 슬러리를 하이드로사이클론에서 분급·농축한다."
+    },
+    {
+      "identifier": "AR-089947-A1",
+      "source_fingerprint": "103f55dde1117793972b42d44c26261d97563db27b7605256995f8c4e795415f",
+      "content_hash": "ff0a222f726c7f5b3428d24a22ebcb7449db37343f68ad220fc3ab556c6ae66b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유정 작업 설비의 공급·제작·운송 절차이며 구체적인 파쇄 현상은 설명되지 않는다."
+    },
+    {
+      "identifier": "AR-089967-A1",
+      "source_fingerprint": "3a38c6447ba8510f5ff13c8fedbbd3a0d5ab5dc27c0c9b39e959c336fd9a56fd",
+      "content_hash": "113dd1c422366003d55d8b4bb984b7022d80919412b6ea92ba80c8c11e798175",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수축·확대 노즐로 초음속 반응 유동을 만드는 원리를 별도 검토한다."
+    },
+    {
+      "identifier": "AR-089983-A1",
+      "source_fingerprint": "771bde1c17ffb1a3dbcde3f03bb974bc011aa210d8a981ecbd16b8e371c51ecc",
+      "content_hash": "06fe9bb9970896f29a41c044b4be5694a364032b69f1489b09cff930145664b2",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "흡입 공기의 우회 유로를 배치한 구성이다."
+    },
+    {
+      "identifier": "AR-089987-A1",
+      "source_fingerprint": "22b60b2795fec1581f1731c92da039c8554b3a747451f5ce3e21feb06a0607ef",
+      "content_hash": "d55a1fe5d9ddde3f1355802ffa1bb6bc7c5b8cb059948249b928d04b66efb8ce",
+      "decision": "LINK",
+      "keys": [
+        "progenitor-cell-differentiation"
+      ],
+      "reason": "지방 유래 줄기세포의 신경 분화 정도로 후보 물질을 평가한다."
+    },
+    {
+      "identifier": "AR-090001-A1",
+      "source_fingerprint": "a42a638bcf117b82feddf24fded6827997e5d72677c8eabb088d5ce268e9710a",
+      "content_hash": "e9fe673b57ff5b49f7d73295b19552a81722798036381f26bc1d5b4d071d2a67",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "섬유아세포의 계통 전환 주장이다. 분화와 직접 재프로그래밍의 근거 및 기능 한계를 확인한다."
+    },
+    {
+      "identifier": "AR-090014-A1",
+      "source_fingerprint": "b300d6fca82fb9525c280f2a7cfb8e8a925fe01ef9f356f4543e1dbfda0f5bbf",
+      "content_hash": "752de7162a1a031bf14ad081e799c292342bd7e3fb0fffe20c5cac70d16d987a",
+      "decision": "LINK",
+      "keys": [
+        "fluorescence-sensing",
+        "heterologous-gene-expression"
+      ],
+      "reason": "유전자 보고자 형광으로 분석한다. 명시된 리보스위치의 RNA 구조 전환 조절은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-090025-A1",
+      "source_fingerprint": "e39be9ef615246aabfcd84a1454002a1b859f31ed8d81d0c89c90b3c54b03494",
+      "content_hash": "346c6674d702fa915c02fe569fa03bf062e78eff495bcdbd6b8f92c5b64570e6",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "LPA 수용체 길항 작용이다."
+    },
+    {
+      "identifier": "AR-090026-A1",
+      "source_fingerprint": "cc29e4dc8ce9f37ec267fa6c2cbdf7f7e2ea6d0e7991bb8e03e71583cc0c26b7",
+      "content_hash": "d8f573e83819ed92e3d432342a2a58ddf6d3761539b7a1b5266a951f3bf49848",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "처리 시점에 따른 식물 성장 결과만 제시되어 장기 신호 유지 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-090033-A1",
+      "source_fingerprint": "0edc8d5ca3655550c042222ebabc1dbca9a92e97bbd8861316e907034f45a0f4",
+      "content_hash": "64152c301bb47ac43897cba159172553a39b8bc4b69166e2c625fb71ab7e3d96",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "elastomer-contact-sealing"
+      ],
+      "reason": "가압된 탄성 용기가 가변 단면 피스톤 형상과 접촉 밀봉을 유지한다."
+    },
+    {
+      "identifier": "AR-090035-A1",
+      "source_fingerprint": "bf114e903fe34a9e19fe97d75b65c03daa9314f935a9b00417a262bc9c324db2",
+      "content_hash": "de8ed98b3d50ca7a43b875f8077ec580d9af3dbb85058979c0469c5307935bfe",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "회전 관절과 걸림으로 카트·테이블의 접힘 상태를 바꾼다."
+    },
+    {
+      "identifier": "AR-090044-A1",
+      "source_fingerprint": "bf824bf906818c72cd00ad2a718737972372396f11addb3f7836e9a3594f604c",
+      "content_hash": "1ab9b17b58c942028f97b98adb962410b9d63c94079478b90ff34946c6b72ffe",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 구조 목록만으로 작용 경로를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-090050-A1",
+      "source_fingerprint": "315eea267823da60d483294c8eb4a332df59e9bbd6375cc34ccf135b209faedc",
+      "content_hash": "89507eb49ddf851586cce842c5f63654d91eb0dc3e6c5b0d17bf996d15b9d588",
+      "decision": "LINK",
+      "keys": [
+        "hypochlorite-oxidative-inactivation"
+      ],
+      "reason": "전해 생성한 차아염소산을 사용한다. 염화물의 전극 산화 생성 원리는 별도 후보이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:09:42.666824+00:00"
+}

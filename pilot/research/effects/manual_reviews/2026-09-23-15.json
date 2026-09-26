@@ -1,0 +1,197 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "140652613e241903a1a78dbe6fbc823e6ba78a6af32f767e141dd5cf23fe7b58",
+  "reviews": [
+    {
+      "identifier": "AR-078974-A1",
+      "source_fingerprint": "411487eefc16a36e9b2911d47793215f132e6110ab6139d38d0fbd8f699345ac",
+      "content_hash": "c83b526cc33a8bdf69403395f191586c392577e3fa333f6048e53567ab489f91",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "조직을 실린더와 고정 요소 사이에 잡아 밀봉한다. 세부 밀봉 물성은 미상이다."
+    },
+    {
+      "identifier": "AR-079006-A1",
+      "source_fingerprint": "668edd9021a7a222a7c38866a5b98ba0fdb399a9a67e5d3c5d56ac74a9c414e8",
+      "content_hash": "4e95f55c10518c6c42fe092edfbfe5d2560916e0ff10f3c33ec1a68d6895d284",
+      "decision": "LINK",
+      "keys": [
+        "viscous-damping",
+        "elastic-energy-recovery"
+      ],
+      "reason": "두 챔버 사이 제한 유동으로 운동 에너지를 소산하고 탄성체로 복원한다."
+    },
+    {
+      "identifier": "AR-079009-A1",
+      "source_fingerprint": "0079bb789e89fc3761ca4d83451d1dc3307e869c157b2c82ff2eeb5816353138",
+      "content_hash": "245ece16fcba00285f34b364d5f7700a2e40ca429029f1b6b26e87f538ff967c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 성분 두 종류의 병용 구조 범위이다. 작용 표적·상승 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-079010-A1",
+      "source_fingerprint": "f5f109cdd9946a9eada4aa8ef1a870766005c4d19da4338cddc026eef7a0ff41",
+      "content_hash": "069efe226f5df10bd6ffe3cb5f59a3dbd913a6777bbac850f489092923d2f72b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피레스로이드 병용 조성이다. 초록에 없는 채널 작용을 성분 계열만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-079013-A1",
+      "source_fingerprint": "0471a9dfed55923adf8635701e91fc224664774000cee823ab4602dd34dd73cb",
+      "content_hash": "0c9b51d23877e005df7d985444d43bf8cf8d68497e06ad9378547be5e9195985",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제목의 눈깜박임 감지와 본문의 가변 광학 렌즈가 불일치한다. 실제 구동·감지 원리를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-079020-A1",
+      "source_fingerprint": "cd224d995f7d83fb36aeaad3efe71a470e140f0e43068d0164c6357a545dc174",
+      "content_hash": "4d8c929615e9fab1e53ebee0aa34e1163fe3aff59af3a7ed4453b090be9232fe",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "두 에스터 살충제의 혼합물이다. 분자 작용 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-079025-A1",
+      "source_fingerprint": "bb999bfae8a5b50c303476af768807d355b7a7c3e19dfc077c6eab87b71ba254",
+      "content_hash": "63b686c403ad7061506df78591a7a5072748bb7e616922cecd68c455c1326c4e",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "항체 결합으로 두 질환 지표 신호를 얻는다. 신호 변환 방식은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-079028-A1",
+      "source_fingerprint": "159f4b9e0fdb75941f67b92a577cca38e3bc000f55ea8ab24ea725c123d75880",
+      "content_hash": "767a538924d246eac84b0f3fcea1e283d8efdc971b2d74f38ed10360416a39da",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration",
+        "nucleation-barrier"
+      ],
+      "reason": "고분자 약물 막을 가열·건조해 결정화를 막는다. 고체 분산 후보의 명시적 결정 억제 근거이다."
+    },
+    {
+      "identifier": "AR-079033-A1",
+      "source_fingerprint": "d936b6bba9203d4e114b2f4348e20bedf187553a5563fd37ee98cc72989deb41",
+      "content_hash": "d239d370712e037c9debb819bef32511760fd3a9002d1c121f6fa4c2652026b0",
+      "decision": "LINK",
+      "keys": [
+        "chromatography",
+        "ion-exchange",
+        "freeze-drying"
+      ],
+      "reason": "친화성·양이온·음이온 크로마토그래피와 동결 건조를 조합한다."
+    },
+    {
+      "identifier": "AR-079041-A1",
+      "source_fingerprint": "5d9cd7cbb3857f5dae02876d25832589207d421e418451c294d5415a14031d39",
+      "content_hash": "d2f54f10a2c2b4037d1d57dbc41debd3b8bc21c0d96f4bfd55d42e2588b91ee1",
+      "decision": "LINK",
+      "keys": [
+        "thixotropy",
+        "gelation"
+      ],
+      "reason": "전단 중 낮아진 점도가 정지 후 회복되고 겔이 누출부를 막는다."
+    },
+    {
+      "identifier": "AR-079059-A1",
+      "source_fingerprint": "8c73b22e0f438915c51f482ceecef51d5917848e535885a877ca3e95ab95ea83",
+      "content_hash": "d38416abb14de5f18b767c3352d38cb6c037b10ea6315c92dfd6ee0bc0748e31",
+      "decision": "LINK",
+      "keys": [
+        "diffraction",
+        "absorption-spectroscopy",
+        "nuclear-magnetic-resonance"
+      ],
+      "reason": "회절·ATR 적외선·고체 NMR로 결정을 특성화한다. 소멸장 흡수 계측은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-079065-A1",
+      "source_fingerprint": "d7d84f6964cc75ebbf4c8994a876799a1801da7038c75400fabe5e539ec65732",
+      "content_hash": "5f3dce435035a68cdeb1133124db3fe63666c532c0a313b5e38e04a968f7f785",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물에서 안지오제닌 단백질을 생산한다."
+    },
+    {
+      "identifier": "AR-079070-A1",
+      "source_fingerprint": "831f2784fe79c79e1841bc65382d10c7c9a6d574a359c1c6f72338ae28276da0",
+      "content_hash": "3d1b7e1261a54bdda85258808dd2ac2c9b7bba09975391823a76e7ca03e88e19",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "abrasive-material-removal"
+      ],
+      "reason": "포도당 산화효소·기질과 연마제를 포함한 치약이다. 과산화물 생성·산화 표백은 추가 근거로 확인한다."
+    },
+    {
+      "identifier": "AR-079076-A1",
+      "source_fingerprint": "f0c16ce6818df4d72cc48114becd3a1a4e6dc86da098e4ebb8c39728dabae554",
+      "content_hash": "6f2343423778eb9b55e80d7a53a27748587b527efa6727d3bbd739d9c8848725",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "HCV NS5B 중합효소 저해의 일반 원리만 연결한다."
+    },
+    {
+      "identifier": "AR-079089-A1",
+      "source_fingerprint": "d3c551549e0d50d8e1a39f3c42f3fff2b7b1b379745182352bccf14930148924",
+      "content_hash": "38ba298435d5f0ecb2c222aa45e74ab8da3b5bf814b92ca58e1621619655d783",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "전리 방사선 처리 바이오매스를 발효한다. 방사선의 라디칼 생성은 물질 변환 후보이며 소거제 종류는 미상이다."
+    },
+    {
+      "identifier": "AR-079108-A1",
+      "source_fingerprint": "9ffbb512814491aa0fcfec63e5f82f1c8649e3faf944c976bfab9e0416f5a74a",
+      "content_hash": "509d98184ada633c8029cbaeb3a33060ce5b285be216c100142b03a11c5da6e7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 약물 구조와 치료 용도만 있고 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-079116-A4",
+      "source_fingerprint": "64005af2b61fd53dedfdd7c14d20959d4b6af833a02d406ce03df61756156575",
+      "content_hash": "2a1f0c24497a2ad15d154bcd36d43f9fc530c5c898406fbf2fabbe50cea8104d",
+      "decision": "LINK",
+      "keys": [
+        "maillard-browning",
+        "thermal-radiation"
+      ],
+      "reason": "열 차폐판으로 빵의 국소 갈변 차이를 만든다. 모든 갈변이 동일 단일 반응이라고 보지 않는다."
+    },
+    {
+      "identifier": "AR-079121-A4",
+      "source_fingerprint": "0919dd8478aa096104ff51c8ed5941de34fe73a2fceaa5197c637bb2737ed1d9",
+      "content_hash": "f29b27d9e2932942595256b73fdda8ef5131280cc2b061f2ce806a17b9ceff41",
+      "decision": "LINK",
+      "keys": [
+        "solidification"
+      ],
+      "reason": "가열 연화된 고분자 금속 복합 충전재를 냉각해 형상을 고정한다."
+    },
+    {
+      "identifier": "AR-079130-A1",
+      "source_fingerprint": "07cfb4a45150ad6e7e5458f1eb7a158c7f5f3b507f9ba8ee1598445e99493e7c",
+      "content_hash": "c120f6d90f37eb9118055cb9292d8e5925c4eb62cddaf665bd03b1d0f5000158",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "바이러스 단백질분해효소 저해의 치료 원리만 연결한다. 내성 변이 구축·선발 지침은 추가하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:14:55.923702+00:00"
+}

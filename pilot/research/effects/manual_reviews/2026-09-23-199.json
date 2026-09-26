@@ -1,0 +1,125 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "051d2be7d1bf2897e35b926b951a4e00b335c13f6c63765ad33370934b9ede4d",
+  "reviews": [
+    {
+      "identifier": "AR-108708-A1",
+      "source_fingerprint": "21e711d5288460924f2a84f9fecb1e78f9f11ffb8aa075b828d18e1fdc54cd5d",
+      "content_hash": "b0f1772c1a6ab85833f77d9b224bcc1319b1983e9ad142e120403e9b934792e4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "옥사디아졸 구조와 해충 방제 용도만으로 분자 표적을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-108709-A1",
+      "source_fingerprint": "0ae46c83756338d405ccacadd44113071bd791703be144b509cfa36633939901",
+      "content_hash": "c6469ae9682ac153243e2cd9a40d72f0d7e0bdcef0bf49ac43135008c5aaffb9",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "NR1H4/FXR 핵 수용체에 결합하는 작용제이다."
+    },
+    {
+      "identifier": "AR-108712-A1",
+      "source_fingerprint": "84d92cc9f69e26df7f62474b21f42027e3215e8643906ed2d806451540d31cbd",
+      "content_hash": "a9bd650e223525874fe2c9b6b0413ad18e215c2317547f7a1ee2ad4356b83177",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항염·골관절염 용도와 화합물 명칭만으로 작용 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-108713-A2",
+      "source_fingerprint": "c171d1ce4c454599c1b1318a603dacbe89898cf96844687ae844b66f19a65bf3",
+      "content_hash": "96a770af77ebdd2763c5d9ddda58615504b25b2654f1cc6bf7acc67f015f8b31",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "외부 클립과 경사진 내부 밀봉부가 결합하는 뚜껑 구조이다. 재질의 탄성 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-108719-A1",
+      "source_fingerprint": "9da44878740419835f6d6668f8c61057fa003fb0cd80f9cd8682d81fe5496a48",
+      "content_hash": "3c98b9896445ec643ba141b85a8c702225f16a327290fb29067bf630af13b7cb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "필터 포장지 피복으로 방사 방향 경도가 증가하나 피복의 강화 기전은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-108750-A1",
+      "source_fingerprint": "2b8d58af6b9a360a0993064c4d2697d0a1a884f08c650c1b2834d244cc36c695",
+      "content_hash": "18b1f5f42b5cb19971841e981dcbe1360fac716e3605c310203f5181e64c8bc4",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "대두 삽입 사건의 서열 검출과 EPSPS·PAT 형질 발현이다. 두 단백질의 저항성 경로를 혼동하지 않는다."
+    },
+    {
+      "identifier": "AR-108754-A1",
+      "source_fingerprint": "4d16efb9a3553340d83dd24a140a3d0b64632a62454064599cdb9e9252dfa523",
+      "content_hash": "3a55935751bd0b197f3f949114834913908c238b78e38ea4abdb840da4ae6565",
+      "decision": "LINK",
+      "keys": [
+        "compressible-shock-wave"
+      ],
+      "reason": "액체 속 전극 사이 전압 펄스로 충격파를 만들어 고체의 탄화수소 분리를 돕는다. 전기 방전으로 파를 생성하는 경로를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-108757-A2",
+      "source_fingerprint": "6fd47b36dcdc962734d90ba4816e9c9ef3a26f98603c0f846e10c5406ab44545",
+      "content_hash": "3c81a0e670db4c961e11ececca9044582a2d81f19698d2fe7419fbe8d7d74b87",
+      "decision": "LINK",
+      "keys": [
+        "pcr",
+        "fluorescence-dequenching",
+        "heterologous-gene-expression"
+      ],
+      "reason": "동일 대두 삽입 사건의 TaqMan 검출과 접합성 판정의 추가 사례다."
+    },
+    {
+      "identifier": "AR-108764-A1",
+      "source_fingerprint": "08a9011062200d5107f9d1fcdfd932218de4bd5689bda63c645721b6d219b2b3",
+      "content_hash": "8ab8069c405e931d47b857639732db536ccddaa9848d09318130ca665d7bd17c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "stress-concentration-fracture"
+      ],
+      "reason": "절단 가능한 탭과 잠금 구조가 개봉 흔적을 남긴다."
+    },
+    {
+      "identifier": "AR-108766-A1",
+      "source_fingerprint": "f32847f0fb60bbca77ecdfc4f0c4b3efb0e028580b4719a4e1564837de97ed10",
+      "content_hash": "522aeee8dc1e8cedba945a6e900f1856985e5b16c84c2a6e0eab7b6e83a3312d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "플리나불린의 호중구 감소증 치료 용도만 제시되어 세포 작용 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-108767-A2",
+      "source_fingerprint": "d31272f40f9786581ba094e5c6511ad741435c0e7d6e06afe43ad672e1913d19",
+      "content_hash": "559a83b47783385c21057beb754807ffa31c6da6729427282d6affc7fb32da51",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "fcrn-recycling"
+      ],
+      "reason": "인슐린 분비성 펩타이드와 Fc의 접합체이다. Fc 수용체 결합을 보존할 때의 재순환 원리로 연결하며 임상 반감기를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-108774-A1",
+      "source_fingerprint": "074835da5cc73f58d17a9ed758659b10fe0cd979ead147af353d02c356df0def",
+      "content_hash": "91847daa0ecd701a722596f0fb9d408927ebaa1a8dfafbecc48c5e4894a4ea28",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "캐슈 껍질 유래 중합체 프로판트로 수압 파쇄 틈을 유지하는 용도이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:48:20.797337+00:00"
+}

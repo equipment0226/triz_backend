@@ -1,0 +1,243 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "66927cb24e38d27274683edcb783448d46247c2399b532d8ebc95561f55f8afa",
+  "reviews": [
+    {
+      "identifier": "AR-109321-A1",
+      "source_fingerprint": "8a915a28a0f937fda46b55f5a48efb28550c277c5c58db090377b50f105e2fae",
+      "content_hash": "6a998f3d7e29717fc0e1e889ae1be6d9ea95f0d56f58c93c6d432d6c903f5386",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "elastic-energy-recovery"
+      ],
+      "reason": "노출되는 유로 구멍 수를 바꾸어 유량을 조절하고 압축 복원 부품으로 밸브를 되돌린다."
+    },
+    {
+      "identifier": "AR-109329-A1",
+      "source_fingerprint": "0d671bc97ead84e1c10efd5effc28fb828830a1d77a160bf8bb3c8d716b75979",
+      "content_hash": "9973dd8ed2e0fc677cc5aaef32d4aa2df2a370758bbac2a3cd079b2946991b51",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "회전자와 자화 축·발전층을 이용하는 발전기이다. 입력 없는 발전이나 효율 우월성을 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-109334-A1",
+      "source_fingerprint": "d47671aeb529fec2e5a236533d89b33e8cb72ba01f4f7687f337f3eeb1a37437",
+      "content_hash": "487e9a3634fe8c0f0ad9700cc9bfb428ad4a458c959c296c5f21bec89486c750",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "보조 상향링크의 전송 시간 간격을 제어 메시지로 설정하는 규칙이다."
+    },
+    {
+      "identifier": "AR-109343-A1",
+      "source_fingerprint": "c90246b090b72d9a56e4c27ea64e76913141dfbeb48f8dc9fec9382ce45ae3d1",
+      "content_hash": "1a42c9ceaec624257c88dceb587af2f99eef97523642fe8a54d791d88578ca45",
+      "decision": "LINK",
+      "keys": [
+        "chromatography",
+        "ion-exchange"
+      ],
+      "reason": "혼합 모드 이온교환과 용매 구배로 단백질·비이온성 계면활성제를 분리 정량한다."
+    },
+    {
+      "identifier": "AR-109357-A2",
+      "source_fingerprint": "58ec3ad943ee1a2429ef479068bbc6b6bab1ca89aa1b925c012b193762326b47",
+      "content_hash": "34db0ac80f4578100055fd0a86a08a0a741f63ed3ee0f3cb36773710cde11856",
+      "decision": "LINK",
+      "keys": [
+        "host-guest-inclusion"
+      ],
+      "reason": "시클로덱스트린을 포함하는 약물 제형이다. 포접되는 분자와 주사 부위 내약성 개선량을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-109365-A1",
+      "source_fingerprint": "f224f25dd4b888057f5cf43f3e0094c4beb13e70e154170dcc2d126ed51b0fdd",
+      "content_hash": "265abe2a88d6186578e997e84a41fa378be00f60c25b39bdbb93b5f1382e7d81",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "퇴비의 자동 뒤집기·액체 공급 구조이다. 준비한 호기성 퇴비화의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-109374-A1",
+      "source_fingerprint": "989fd2cb02c7ce76d43aab2b747e11b4e45e3f743a0d303ae6d84648cbabe96f",
+      "content_hash": "cbed18e33b1df4712e5f18d254d8e28874fb39603dcda35a43251ff4511d70bd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "양쪽성 아크릴·다당류의 표면 처리 조성만으로 흡착·전하 역전·소수화를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-109384-A1",
+      "source_fingerprint": "165d2a41c16d96affa4b65b1fdab7ad96e9c459962f74b518b3f76912e9a464d",
+      "content_hash": "685eeb6331351663defa5b584d14d9a3cb936138ff347932fc422614bbecca6e",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction"
+      ],
+      "reason": "염 교환 뒤 불용성 칼륨염을 분리해 암모늄 플루오라이드를 얻는다. 유기 탄소의 친핵 치환과 구별한다."
+    },
+    {
+      "identifier": "AR-109386-A1",
+      "source_fingerprint": "24060d1d08c7d73a9d6d3d3d546ac1cae0dc6cab4c43f915f5d82ecd3be1b1df",
+      "content_hash": "b2c024bcd6abd3b2f335fec9b10f6ede88ade50a9da5556bd3ce6565c2f50c49",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "acid-base-buffering"
+      ],
+      "reason": "재구성 폐 계면활성제의 수성 현탁액을 완충해 저장 중 점도 변화를 억제한다."
+    },
+    {
+      "identifier": "AR-109401-A1",
+      "source_fingerprint": "6e2dd3f0bbf33197275550b1fd4c0be86058194778c80388b8a6722833c3f447",
+      "content_hash": "f2c8e277158e84c6d31fb532a3532665fc61316147f7dbbe6ea6fa2c8db0e238",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "분무대와 견인 팔의 관절 연결로 지형 변화와 마스트 방향을 분리한다."
+    },
+    {
+      "identifier": "AR-109424-A2",
+      "source_fingerprint": "3918bd1ead27ec80df2bd603a9c6621a3f6be70f9c2d0ae5a816a8bd869dc129",
+      "content_hash": "4b6d1be6dad57200def0a0018c7bccb167d93c5e9ffedbaa7ee22a52e102f931",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "AKT 단백질 키나아제 저해 화합물이다."
+    },
+    {
+      "identifier": "AR-109431-A1",
+      "source_fingerprint": "595034505f4e6d0bbee96e96f38712b22e25cdd35d08b428a51db893cca438af",
+      "content_hash": "52571e1b1a51d756c8b738f27bb007a67900ad0d5a0bb1f838089a253bf23840",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "lever-mechanical-advantage"
+      ],
+      "reason": "손잡이 토크를 전달해 연성 철사를 나선으로 감아 묶는다."
+    },
+    {
+      "identifier": "AR-109433-A1",
+      "source_fingerprint": "2eaba3fda7f7f7bdbed9c185bee56377bec070fc3704e2fa131f5a04199531e8",
+      "content_hash": "546be483e1f1218d34cd434e8ed34a74e7e8d15681860531fe8f6f6d15e3273b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HBV 치료용 퓨리논 구조이며 분자 작용 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-109463-A2",
+      "source_fingerprint": "c6cf8d6bc25933fd3a5090925fb2ab7532ec7f9f0db8634b59c70d7df5aefcdd",
+      "content_hash": "aa46676f53b57f3228a80c7adb09975379cc959f27020c33e9a2f861c54e5ab6",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "식품 포장막의 차단층과 공기 채널 구조이다. 채널의 광 산란·단열 성능은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-109469-A1",
+      "source_fingerprint": "57790f9ddaab77a1d6c0e2eee9ea0561c1897b28f72e310b4152d02c6b4e035f",
+      "content_hash": "fb8976697a6bd08b52aeb763d38bab47b2f56810240b9b56194107a43c740078",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "멀티캐스트 서비스 중단의 선택적 통지 규칙이며 장애 검출 알고리즘은 미상이다."
+    },
+    {
+      "identifier": "AR-109495-A1",
+      "source_fingerprint": "0d4da03c68419534d32f0d1ba18753e851644bde64a912bf85666e3eae8e1ebb",
+      "content_hash": "3e2555ed56fc7ad1e05e192232638964ca7ab1d58adae24f9b3b4e043b6fa7ad",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "대사 억제 화합물 구조만으로 특정 대사 효소·경로를 선택하지 않는다."
+    },
+    {
+      "identifier": "AR-109504-A1",
+      "source_fingerprint": "76efe3a7fb5f81effb678e07d812e828398fab75a8696a5d0a81750c75bfd978",
+      "content_hash": "2e2abb6637014362559cce3758b4db4c1364d6eaff0141b5aeb17adf44336bca",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알룰로스 함유 잼의 조성만 제시되어 겔화·보존·갈변 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-109526-A1",
+      "source_fingerprint": "b71169d8afff4e69ce00a5ef5d5502d7e5d95f3ffcfa33ed6384e5ac0567be02",
+      "content_hash": "27711502ce33a1641a5d199c9949b86ce89b8307f3dffd5802ee0ec0bd169ab3",
+      "decision": "LINK",
+      "keys": [
+        "thermal-radiation",
+        "photothermal-conversion"
+      ],
+      "reason": "PET 프리폼 내부 IR 램프에서 방사된 빛을 벽이 흡수해 가열된다."
+    },
+    {
+      "identifier": "AR-109533-A2",
+      "source_fingerprint": "66323a2a4f6ce89379fdd0107b7bac2985bd9381dbd7f30d0d7345ffadc56ae1",
+      "content_hash": "ec1bc7e41dfab74594cfdc2ceb077ec5ceda3caa9853172bef8c141c9010d714",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "프랙탈카인 결합 항체와 중쇄·경쇄 발현이다. 결합만으로 수용체 차단 방향을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-109545-A1",
+      "source_fingerprint": "6758111ce625116d39bcd756d6c21015f97f47f7d4eb907fff21b58317501925",
+      "content_hash": "e8d4646281d649aa43814cb555f89a0ed9c5e585020b6e91f0ab3f8b3dc713f9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "트리아졸 구조와 살균·성장 조절 용도만으로 특정 효소를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-109553-A1",
+      "source_fingerprint": "e3c95e5f13167ef47b16d51ecceb1ce9d6b145e429fe63d4136425d89e101da0",
+      "content_hash": "03b64a023088fcd978d401ccc75e3d128c78fed985e3e2fc9fe113a2f84cffb2",
+      "decision": "LINK",
+      "keys": [
+        "rotary-positive-displacement",
+        "fluid-jet-deposit-removal"
+      ],
+      "reason": "진행 공동 펌프 속도를 높이고 세정액을 유정 환형 유로로 보내 침착물을 제거한다."
+    },
+    {
+      "identifier": "AR-109555-A1",
+      "source_fingerprint": "091ea2755a18753702964fc5d7cccf92496fce27734c45d36bb756c1a9d47446",
+      "content_hash": "a8a9c3e4ef9ac6504a1f8df1508cab38ccdd89c8c81eefedbb6b0edf2473d891",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "AFM 표면 거칠기와 투명도를 규정하는 코팅막이다. 준비한 원자힘 표면 측정의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-109559-A1",
+      "source_fingerprint": "ba5a3f573b3ea1ddbced35cae69d356d24d087d21378c96409895500787ff46d",
+      "content_hash": "822447e34334717246cb59567ab36d714136212536fa0c78481a4ed84ec2042a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "벤조트리아졸을 중합체 안정제로 쓰지만 UV 흡수·라디칼 포획 중 어느 경로인지 미상이다."
+    },
+    {
+      "identifier": "AR-109606-A1",
+      "source_fingerprint": "a0888751503ab92f1941f27373b8afe59f18d5d98e13e86b7346c01963904cc5",
+      "content_hash": "3d9ffb5423c942b89703a4b8ca1e431bf261717c697c2f67c67f9fc1b59a3096",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "콘크리트에 박힌 돌출 스트립이 아스팔트층의 상대 미끄럼을 기하학적으로 막는다."
+    },
+    {
+      "identifier": "AR-109609-A1",
+      "source_fingerprint": "1bd760c7408fd667f17f430326c4bd038087029a31d90e833786897c7197071f",
+      "content_hash": "559459920f5924adbfecc3f675ba9098b7ac32bc4c34c9a51ab78f38cd72d4f4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "인장 섬유 묶음의 낮은 꼬임 손실을 규정하는 케이블이다. 섬유 방향에 따른 축방향 하중 분담을 별도 후보로 검토하며 수지 계면 전단을 가정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:50:09.614252+00:00"
+}

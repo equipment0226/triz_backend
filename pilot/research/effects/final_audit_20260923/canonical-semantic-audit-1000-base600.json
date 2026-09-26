@@ -1,0 +1,34 @@
+{
+  "method": "direct_astra_conversation_reread",
+  "external_llm_calls": 0,
+  "canonical_definitions_reread": 600,
+  "canonical_sha256": "65ddf5175438a532dcc5f5e36abe9c2208315900f1cf0c925e271e3f06876905",
+  "scope": "Full definition reread and comparison with recorded overlap groups and current draft scope. Not an automated all-pairs proof of independence.",
+  "pending_merges": [
+    {
+      "key": "fluorescence-lifetime-discrimination",
+      "representative": "fluorescence-sensing",
+      "reason": "기존 형광 검출 정의가 세기·파장뿐 아니라 수명 변화를 이미 명시한다. 별도 항목의 감쇠 시간·비복사 소멸 설명과 기기 응답·복수 수명 조건을 대표 항목에 보존하고 출처·특허 연결·구 ID를 이전한다. 별도 개수로 세지 않는다.",
+      "preserve": [
+        "old stable identifier",
+        "search aliases",
+        "references",
+        "patent source links",
+        "historical review decisions"
+      ]
+    }
+  ],
+  "explicit_boundary_notes": [
+    "형광 검출은 이미 수명 관측을 포함한다. 별도 수명 판별 카드의 설명과 근거를 통합한다.",
+    "형광 파장 변환·장잔광·응집 발광은 검출과 다른 입력·상태·출력을 갖는 하위 원리로 연결한다.",
+    "막수송 ATP 펌프·이온구배 공동수송·표면수송체 이동은 각각 에너지 결합·구배 결합·수송체 수 변화로 구분한다.",
+    "전구세포 분화·식물 재생·체세포 재프로그래밍·조절 발생은 서로 다른 초기 상태와 발생 능력의 범위를 명시한다.",
+    "고상 확산 접합·브레이징·용융 용접·확산 표면합금은 물질 상태와 최종 접합/피막 목적을 구분한다.",
+    "광합성·RuBisCO 탄소 고정은 상위 경로와 그 탄소 결합 단계이다. 서로 독립된 기본 법칙으로 주장하지 않는다.",
+    "고체 탄산염 고정과 규산염 풍화의 용존 알칼리도 저장은 최종 탄소 상태와 검증 조건을 구분한다.",
+    "자기학습·생성 적대 학습·혼합 표지 정규화는 표지 출처와 목적함수·입력 구성의 서로 다른 단계이다.",
+    "형광 수명 통합을 적용하면 600 원본 중 활성 대표 항목은 599개다. 신규 401개가 필요하다."
+  ],
+  "release_applied": false,
+  "final_combined_audit_pending": true
+}

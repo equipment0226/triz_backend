@@ -1,0 +1,306 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "0dee9b8b8bc86f23c2f9ce1db888a936bd9868bb727ea754f13d0e7909980639",
+  "reviews": [
+    {
+      "identifier": "AR-113322-A1",
+      "source_fingerprint": "a3d10b98421127d5cfb7f47fa5a068bf45227d10eaa636ab760ee56ed9642edb",
+      "content_hash": "a6e3fc46fb9b5bed5f44fcb81ff8fd4c6dc363203a3db2f357d80213cfc0fe5f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "저장 공간 임계값과 사용자 상호작용에 따른 삭제 알림 규칙이다."
+    },
+    {
+      "identifier": "AR-113336-A1",
+      "source_fingerprint": "bed2722023496c2370996186223fd50f74d3f206c80ce5be2ea8444c2eb06e6a",
+      "content_hash": "949edf2e4e74769308c4ea055ef7770294f1bbd546d801896552a67142871bca",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "enzyme-electron-transfer"
+      ],
+      "reason": "페레독신·티오레독신 환원효소 발현을 늘리는 식물이다. 작물 수량 개선을 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-113340-A2",
+      "source_fingerprint": "804bcb4be19e2dd3c33265845108d5f99136f9645e1849b76f9d859c777db079",
+      "content_hash": "b30df1c4d71d80112c071af38d899c2e81cd88bee5d17b583449ce16254c4eb9",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "꽃가루 외 조직에서 전사를 유도하는 조절 서열이다."
+    },
+    {
+      "identifier": "AR-113353-A1",
+      "source_fingerprint": "d4a98dd8deff559d3f79e4995b56363127c1fef0fff83479e52931ebfad30ede",
+      "content_hash": "0dc5a2559fd13bc71361a045db518a5ddfe49ae208cafea0100f5d9897a3acad",
+      "decision": "LINK",
+      "keys": [
+        "sampling-reconstruction"
+      ],
+      "reason": "샘플링 에일리어스를 통신 주파수로 활용한다. 대역통과 언더샘플링 주파수 변환을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113356-A1",
+      "source_fingerprint": "92afb6af0895d9e5c2bdab027a6925913222dbae09cc814a894c2df1136cd2ee",
+      "content_hash": "e76fb6013701c83378438e7bdf82f0e9fbf7de075d61ea2d0f6b7b814ab0dd6b",
+      "decision": "LINK",
+      "keys": [
+        "time-of-flight"
+      ],
+      "reason": "서로 다른 무선망의 기준 신호로 도착시간차 측위를 한다. 거리 기반 다변측량 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-113366-A1",
+      "source_fingerprint": "7b44823e89966ea72726209ade6327abdb593c550ea04e034e63c693cfe3f3ce",
+      "content_hash": "afbc59fd5af82aaa1872f7ac980725f856753c4839d06063a209de039c1b9c93",
+      "decision": "LINK",
+      "keys": [
+        "time-of-flight"
+      ],
+      "reason": "무작위 진폭·위상의 레이더 펄스 반사로 물체를 추적한다. 특정 상관 처리 사용은 별도 확인한다."
+    },
+    {
+      "identifier": "AR-113387-A1",
+      "source_fingerprint": "3111d59549e9bd010e5e1e21884cfdfc55f0e4fea637e9c4de78cb1c87f4a4f7",
+      "content_hash": "dca1deaaab779f17fb80a37f44b3169fce3140029ce8c6f86e20f250fa3e2b5d",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "수용액 중합으로 폴리아크릴아미드 겔을 만들고 물에 용해한다."
+    },
+    {
+      "identifier": "AR-113393-A1",
+      "source_fingerprint": "96d24879586a682554f4a297727807f49214a50ff45588579ecfea8632bb6fc3",
+      "content_hash": "bd93a5995ccc5c4164d4748c4155ab9068673b24444820a1d679e41603a940dd",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "유연한 손잡이와 용기 고정 탭의 탄성·맞물림이다."
+    },
+    {
+      "identifier": "AR-113394-A1",
+      "source_fingerprint": "ce1a9ffd86d0143421c5e8348b6707813d85edaefce2ed030b6ac371ff8dfc9c",
+      "content_hash": "2cf7bc4f4ca3a0143922192ea87455623ed366a494b1dc35c3736df0e3dfb812",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "SDMA의 경쟁 면역분석이다. 경쟁 결합 분석 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-113401-A1",
+      "source_fingerprint": "6c534fb1d2bb65a5ecd099076c98f71cdc0ce119ebfc93dfb6d34a8eb55c417c",
+      "content_hash": "25b912d16b086bc47327c19ea38191273bf7129b1cfdb649464921deef075744",
+      "decision": "LINK",
+      "keys": [
+        "epoxide-ring-opening",
+        "coagulation-flocculation"
+      ],
+      "reason": "알킬렌옥사이드로 중합체를 알콕실화하고 응집·재침착 억제에 쓴다."
+    },
+    {
+      "identifier": "AR-113406-A1",
+      "source_fingerprint": "8dafb589af59e54c7e8d700e7eb6ffdf53f08eed394a96e38bd8e2440ea0aff1",
+      "content_hash": "2ae0e4079293094ae7895789e3d96028d61c5b2b45032ffa76d0d5c69a679cb9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "환경·농업 정보로 작물 보호제 살포 시기의 부작용 확률을 평가하나 추정 원리는 없다."
+    },
+    {
+      "identifier": "AR-113419-A1",
+      "source_fingerprint": "cf1459de43a8ea12f543bdc331682fdcb4e611df498763cb041e95c1badc6758",
+      "content_hash": "6f90dc04f5326dfa64ed02f88fe3838953e066982042184efe150292f8b07c1d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "물·향료·사이클로덱스트린 조성이며 포접 여부는 초록으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-113420-A1",
+      "source_fingerprint": "d52054fd6ec4617dd8fe83d4f9d4480199e507a1bee424bc1ffc1737ef3bebaf",
+      "content_hash": "fbe26bc23cba6c47f749901da73d5977e6721b1d6023d41ffe216db590c6d157",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "가열된 관을 기계적으로 원형 성형한다. 재질·유리전이 여부는 미상이다."
+    },
+    {
+      "identifier": "AR-113439-A1",
+      "source_fingerprint": "9cb8ab16467255271f605d77c2f06471df28b4c31f0b918ae90522d112231ce9",
+      "content_hash": "e6d04fe9e5ea9d0564839e7d38a7c27b2af5a3a90f9eb9d9fe6aa654bab2e78a",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "표적 RNA 억제를 이용한 식물 병원체 방제이다. 서열·전달 조건은 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-113446-A1",
+      "source_fingerprint": "3fa436982f95ed56fadd1e0607f4f60670dfd9d504063e3e7bb21fc345267254",
+      "content_hash": "e139e0941c7f33f6aa586ea333422e5886ac05e4eba454f9f7c4d96869f013fc",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "biomolecular-recognition"
+      ],
+      "reason": "프로테아제 절단으로 가림 부위를 제거하여 항체 결합을 활성화한다. 절단에 의한 결합 부위 노출을 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113472-A1",
+      "source_fingerprint": "9af2913a3c2403b0921130d9464b17cd8db9cf9b1078cbd48f8fdd9a39acc224",
+      "content_hash": "d0b34948917c42eeca2b7ab58eee3b97589c02ea76dfc8d8a73bd303c901df78",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission",
+        "blade-shear-cutting"
+      ],
+      "reason": "기어 운동비로 칼날 왕복 거리를 늘려 여러 상대 칼날을 통과시킨다."
+    },
+    {
+      "identifier": "AR-113494-A1",
+      "source_fingerprint": "b5843f21ab19f290d217291f2ff38fc233b4ba15e007ebc42e58dcef8ef050eb",
+      "content_hash": "88a2947a3f6a382a71f4cc31b6ecb0609ad118e762e2f1fca3b6c87d59d86da5",
+      "decision": "LINK",
+      "keys": [
+        "scintillation-radiation-detection",
+        "photodiode",
+        "geometric-optical-occlusion"
+      ],
+      "reason": "섬광체와 실리콘 광증배기·콜리메이터로 방사선을 검출한다. 반도체 충돌 이온화 증배를 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113499-A1",
+      "source_fingerprint": "26a6a7f69e81a113c686c567da0859d1cb0eebbc5471fa40a0e84c5fb26251d8",
+      "content_hash": "cddfe4a3d45a68a3c1f734e6920c0ea52a05dfdefbe8c537c735b01fef83273d",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control",
+        "surfactant-action"
+      ],
+      "reason": "선행 세척으로 물 젖음성을 바꾼 뒤 발포제를 투입한다."
+    },
+    {
+      "identifier": "AR-113503-A1",
+      "source_fingerprint": "813331f1837dab02ca4d3a5d4751dac4616e15610c9308d5115098943ac2ab95",
+      "content_hash": "6d85eff478f6e556475a3494e3dcf0197885d21e512a39e815132f072aed1657",
+      "decision": "LINK",
+      "keys": [
+        "microemulsion-phase-equilibrium",
+        "surfactant-action",
+        "elastic-light-scattering-sensing"
+      ],
+      "reason": "미세에멀션의 계면장력과 동적 광산란 크기를 이용한다. 브라운 확산의 상관 감쇠 측정을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113544-A1",
+      "source_fingerprint": "d0d2e18ba9bbbb26b8f843809af87c49b6cb107bd56d445fefb28f90545dcd71",
+      "content_hash": "4037364009d71f49d2f338f5ead000ae46431f8bfa77ff7e13a769ba2cf19514",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "시간 자원과 복조 기준 신호의 배치 유형을 전달하는 규칙이다."
+    },
+    {
+      "identifier": "AR-113563-A1",
+      "source_fingerprint": "5cd9c07fa8e2d398d9d0010bcce9f7c0339fc2db945655c9343d54f9f8c5b5ef",
+      "content_hash": "475649c8e8a1e85989234d7400b04870bbad0c1c785e537e86a11d497cea9ba0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이오노머 첨가로 발포체 수축을 줄이는 조성이다. 이온 클러스터 가교·발포 방식은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-113569-A1",
+      "source_fingerprint": "4f53f5e05c18970ccfb89646b0527a3c33ef02e37e094bb8a79045eee8bcbd70",
+      "content_hash": "97e964dad21cc383752fc533c495f2a01276bed11ce272c5c5a2acbebe3be514",
+      "decision": "LINK",
+      "keys": [
+        "solidification",
+        "melt-binder-agglomeration"
+      ],
+      "reason": "열가소성 수지로 코르크 입자를 결합하고 용융 성형한다. 발포는 선택적 단계이다."
+    },
+    {
+      "identifier": "AR-113578-A1",
+      "source_fingerprint": "f3fd1bbd488cafa321f2c8d323d50d9c3e11adc0d058a1d6120a323470a346be",
+      "content_hash": "dc611b3e8b7d144ebabf61894fff0d3bf6199f5df323bffadbce1569595ed717",
+      "decision": "LINK",
+      "keys": [
+        "shear-droplet-breakup"
+      ],
+      "reason": "압축 공기로 액체를 분무하는 탈착 노즐이다."
+    },
+    {
+      "identifier": "AR-113598-A1",
+      "source_fingerprint": "f3568f4207d6cf15a76821594908b1b35cbd612f595914ea890ca57803ceb641",
+      "content_hash": "880e8014bd2e5db8cb5663fae6f9986209f39da931f033ab8df8cbc9454f1ea5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "사용자가 표시한 위치를 무선 측정값과 함께 데이터베이스에 저장한다."
+    },
+    {
+      "identifier": "AR-113602-A1",
+      "source_fingerprint": "c2024f006888d6953e5b0153268b452b49333396c32f6f6ba51cee9faa8039a4",
+      "content_hash": "fa98c7d20abe314b67ae840ac87f8f579652cf55b34fa02e3c2a7a0bb6d4b377",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "뚜껑의 힌지와 돌기가 개방 위치를 정한다."
+    },
+    {
+      "identifier": "AR-113617-A1",
+      "source_fingerprint": "e8b9ba596581caf7ec8c8cedcaf0e0a0c312e5bb6b126f7df52d2177c9116959",
+      "content_hash": "ab578d66aa81b945ccdadeb627605fbd5f51842fb9488005b2c647e9fea0cb7f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "충전·압착 동안 병의 지지 위치를 제한한다. 응력 변화의 정량 기전은 초록에 없다."
+    },
+    {
+      "identifier": "AR-113643-A1",
+      "source_fingerprint": "b0d1daf69f63e1dc75df065f715608c8d2711bb7f4593d6f6a7f8395aeba6649",
+      "content_hash": "012677c70bd66139d2ea4c47f08380134b26fbd257e4e46dfd91d6049bb5bed3",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-mechanical-actuation"
+      ],
+      "reason": "회전 패들이 벌크 재료를 바깥으로 던지는 살포 장치이다."
+    },
+    {
+      "identifier": "AR-113674-A1",
+      "source_fingerprint": "c59eec1b0b94825f1e3f7b6c5727b547050168adf81bb9c967c6521e65ae2141",
+      "content_hash": "19478a0e1a486aff2a0f20072c1fe144016190a1139886587c8b470a7893d72c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "식물성 DHA 조성 규격이며 합성 경로·안정화 기전은 없다."
+    },
+    {
+      "identifier": "AR-113699-A1",
+      "source_fingerprint": "f11770ed2a24663772643a9908f160dab2e4d7d061fbcff0165676dfbe67a2ea",
+      "content_hash": "2b6177841f18762196370cd8b84f4133ac3b76d0be2030f064806a0857f909a5",
+      "decision": "LINK",
+      "keys": [
+        "carboxylic-acid-esterification"
+      ],
+      "reason": "방향족 카르복실산과 알코올로 에스터 윤활유를 만든다. 윤활막 형태는 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-113733-A1",
+      "source_fingerprint": "04ec28de11999ee1dd180090f52bdf94e39b02a58f574cd2a05cd47ae7603ae1",
+      "content_hash": "836213ff4e410b9d62bc8412259bd40ea9aa9b76015b71f94178b93cb7d6d2b0",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "기울기 측정에 따라 좌우 양력을 조정해 수확 헤더의 지면 추종을 제어한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:09:04.983524+00:00"
+}

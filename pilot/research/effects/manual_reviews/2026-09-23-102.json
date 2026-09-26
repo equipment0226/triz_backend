@@ -1,0 +1,262 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "8a151ae8f2cacd06505ab94b73fa11a06eebcaa8eece0338064498e3361b6528",
+  "reviews": [
+    {
+      "identifier": "AR-086992-A1",
+      "source_fingerprint": "0fbf1b5d20f1a4a9a74fea6f2b3f87a809214293aea186ac735c312945b11ad3",
+      "content_hash": "baebd9fc99a4260077390db6723dcf58741ce05219f79db09537869c3b0f6281",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살균제 구조와 용도만으로 표적 효소나 작용 기전을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-086993-A1",
+      "source_fingerprint": "56c446c056eef6717234fd26db2b6b93d101a61caa950287ed8bb33cc2b1bf31",
+      "content_hash": "e15dbed7ba4486638220bf933a1bf01f64b89e756c6a29684abdea8c4b26cacd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "저수분 반죽과 느린 전분 소화 비율을 제시하지만 전분 구조·소화 속도 변화의 원인이 불명확하다."
+    },
+    {
+      "identifier": "AR-086995-A1",
+      "source_fingerprint": "93e43280aafafae7d116c8e3789ab8865e141c287ac68ca53c13fcbc9eb4bc80",
+      "content_hash": "a95628d6070178668f4b16090a3adcc9343f622953da62ff2f6f956a1ee088f5",
+      "decision": "LINK",
+      "keys": [
+        "genetic-loss-of-function"
+      ],
+      "reason": "표적 유전자 이중가닥 절단 후 변이를 선발한다. 서열 지향 절단 자체를 별도 후보로 검토하며 특정 복구 경로는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-087000-A1",
+      "source_fingerprint": "233fdcd7aeef28e40ec1045e773a2d39a24e0be1f52b6d09e4ee26e5ab99d08c",
+      "content_hash": "e42bdf303ca9d1b422cbc0f0326be7a81390a6dab9c1ad411432d1e603a0d65e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "덮개를 손잡이로 겸용하는 계량 용기 배치다."
+    },
+    {
+      "identifier": "AR-087001-A1",
+      "source_fingerprint": "2cc76c441caaabd690d9f5c1a83a41a421346d07e0ebc3cc4330c73356dcfd60",
+      "content_hash": "4cbb6370c7b0fe6a4769e04cd5cb5900410f6f8f803abd87183e2aba13bbc052",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying"
+      ],
+      "reason": "회전 축 날개로 슬러리를 혼합·축방향 이송한다. 날개의 정확한 피치와 이송량은 미상이다."
+    },
+    {
+      "identifier": "AR-087002-A1",
+      "source_fingerprint": "0faaf9f59ae03a32a309537101020d4d9ee40bf8626f2836dc00acbd80134a68",
+      "content_hash": "56a02a4eb877a34ccb7c15da74fa531dadf9842e2342fbf56123a5a5e829adce",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission",
+        "gravitational-energy-storage"
+      ],
+      "reason": "마찰 구동 로프와 균형추로 승강한다. 일정 장력 고정 장치의 내부 작동 원리는 별도 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-087006-A1",
+      "source_fingerprint": "10a10e4579d9f62251672d429c58f065e02375faae0b2194f3bf1af7aaf392bf",
+      "content_hash": "d4ef328c1bd9416ff5e8dab77e291b0747726c74ed60b2f265ebfbc906bc70e9",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding",
+        "joule-heating",
+        "mechanical-interlocking"
+      ],
+      "reason": "전기융착 커플링으로 라이너를 접합하고 역방향 이탈 방지 구조를 둔다."
+    },
+    {
+      "identifier": "AR-087014-A1",
+      "source_fingerprint": "bd16cde07e42041247a5c22401a38a4b966fb35608f8bffe53557862d87820a8",
+      "content_hash": "61e88fcbbd882ebef252aaa18f8b7c77501d9e4fa89bf646c514318e73771ec6",
+      "decision": "LINK",
+      "keys": [
+        "genetic-loss-of-function",
+        "metabolic-flux-redistribution"
+      ],
+      "reason": "효소 활성 감소 변이로 올레산의 후속 전환을 줄인다. 수치와 각 변이의 성능은 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-087022-A1",
+      "source_fingerprint": "a73a1879655b8b2088527d0eb32810b9009898a0a1277f5960bb79cb9b19fa14",
+      "content_hash": "315b01e53c31b2130c2885051549321d504b76e999897528cdc9b95a4511267a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "방수 캡슐의 위 내 기체 측정·무선 전송 구성이다. 기체 센서의 검출 기전이 미상이다."
+    },
+    {
+      "identifier": "AR-087033-A1",
+      "source_fingerprint": "fedbf2f5e94da373f040985110986c0b6210ad6cc10a26f7f58bc3283f43f127",
+      "content_hash": "5e7f34110d9d320e3a6f43d50bfbd866b4f70143e70fd7bee3945c54d62ea762",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "식물 색소를 결정 형태로 농축한다. 결정화·당 제거의 구체 단계는 초록 범위를 넘는다."
+    },
+    {
+      "identifier": "AR-087041-A1",
+      "source_fingerprint": "16721322f78e87d6abb2e896e1011f139cc4eced56886f9519584736aca65b09",
+      "content_hash": "99588b315a67d8a078eedd645f386791b5bd2a00c1eb817ec42d0177c94795cf",
+      "decision": "LINK",
+      "keys": [
+        "geometric-optical-occlusion",
+        "barrier-coating"
+      ],
+      "reason": "금속·흡광 입자를 분산한 다층 포장으로 빛을 차단한다. 모든 파장 완전 차단 주장은 검증되지 않았다."
+    },
+    {
+      "identifier": "AR-087061-A1",
+      "source_fingerprint": "a77e55a2de472224e9ca9c74c8206765ece4f25900ab67c57cc976cab51c13cb",
+      "content_hash": "c954328c5d01afcb87ff98feeaf225c0ee78f47ace2400c4f0235ee5c3a3c8e2",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "블록 공중합체 미셀을 비극성 액체에서 표면에 도포한다. 미셀 형성은 기존 계면활성 원리에 포함한다."
+    },
+    {
+      "identifier": "AR-087071-A1",
+      "source_fingerprint": "2002a789a90bf56627df25c7f562859857cad7478621bc05a2cbe25a4384e3de",
+      "content_hash": "d685adacdf67211cd258e28dce65c5031349580bb65eb6c5506df54839f12951",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "centrifugal-separation"
+      ],
+      "reason": "효소 가수분해와 원심 분리를 명시한다. 올레인이라는 산물 표현과 무폐수 주장은 따로 검증해야 한다."
+    },
+    {
+      "identifier": "AR-087077-A1",
+      "source_fingerprint": "8b91f616ffb5ba4e7440064b0123986590cdd76990e168b9dfd0485ec1a433e7",
+      "content_hash": "340391268e3d04ed2d6eb92f14c5d97100c2a7eee888ffa4e074c395bd1cd375",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "두 선으로 전력과 색상 정보를 보내는 구성이다. 실제 신호 중첩·변조 방식은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-087092-A1",
+      "source_fingerprint": "410a7948fcb3ed30932374f71b26123b828762bf6830eec909139b33d86c4fd7",
+      "content_hash": "725274143ed4690adc87d12e0cc35d09a27f8261fc33b260da7f0b7b2cb82168",
+      "decision": "LINK",
+      "keys": [
+        "gravity-settling"
+      ],
+      "reason": "단계별 침강과 역류 세척을 결합한다. 역류 접촉의 구배 유지·세척 효율 원리를 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-087096-A1",
+      "source_fingerprint": "e523829a8170fa6f3c9f91c43e40281c89bf48d0fb8a68f6faa7453b71853416",
+      "content_hash": "6e6ca2131b5d7af2b45bdc8e402571e2ead7429ec7956e4a11e0b73fa3dbf1ef",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "살수 헤드·기둥·받침의 조합으로 독립 효과 근거가 부족하다."
+    },
+    {
+      "identifier": "AR-087135-A1",
+      "source_fingerprint": "dddf38eac897cfe9eb4c2adee6a46c65da1d13786945339cc7f7f2c82a0d0df8",
+      "content_hash": "e823d2f74655aa7d4f1ce636e626ca0c98d395283a1c9a17a1274aeef6c17072",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "약화선을 두어 종이 절단 위치를 정한다. 접지 방식 자체는 구성 설계다."
+    },
+    {
+      "identifier": "AR-087151-A1",
+      "source_fingerprint": "ea9fe73a4a151625e1f9743a30aef8be5b009ee0cf9432e9ffc778c182e6c150",
+      "content_hash": "dccdca82f8c04fe878fdd67579e21ddf14b36a60efbef6b91564043c708d8195",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "JNK 경로 저해를 명시한다. 간 섬유화 치료 효과를 보편 성능으로 취급하지 않는다."
+    },
+    {
+      "identifier": "AR-087152-A1",
+      "source_fingerprint": "54a2e32a137f0f0261b79ae800888be0e647301fae9a01d0c12368beae2bf0b3",
+      "content_hash": "226c279c77172e326febfd899b5a541f24cc634dcbc7e7810007a7a55243e19c",
+      "decision": "LINK",
+      "keys": [
+        "brazing"
+      ],
+      "reason": "도전 접속부를 납땜층으로 유리에 있는 도전 패턴에 연결한다. 모재 용융은 요구되지 않는다."
+    },
+    {
+      "identifier": "AR-087154-A1",
+      "source_fingerprint": "aec650f9ae417ac526b278ad7c5a78696b083d2168fb895a97688a2031c485f4",
+      "content_hash": "8ac79e249bc5c4732dac9f7d4fe4d0c28b7b53a6271e9732152390c15d8adf96",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "오프셋 전사와 플라스티솔 열 경화 공정이다. 선택 젖음·입자 융합의 상세 기전은 문헌 확인 후 판단한다."
+    },
+    {
+      "identifier": "AR-087194-A1",
+      "source_fingerprint": "ae87adeba184637a733f0ef04f5963f729b4cb9dc3e1201b4fe5ae98c5fe0dd6",
+      "content_hash": "e3d5d8e78946afca48b5c93b3d9ad08d1635f4a38a3282b7d836916913d0a93f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항진균 화합물 구조·용도만 있고 표적과 반응 기전은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-087199-A1",
+      "source_fingerprint": "ae10c6d37a5cc3aa386962cd19d66cf1a3679c393dca614f167943aa3c01f370",
+      "content_hash": "e74c01120a5b32f4a67c61f149ac53c25374cdbd4b89b85a099a5caab9e5409a",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "pressure-sensitive-adhesion"
+      ],
+      "reason": "접착 패치의 쐐기와 굽힘 구속으로 눈꺼풀 움직임을 제한한다. 의료 효과는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-087207-A1",
+      "source_fingerprint": "a9ef5ac1b6d0cb21a208bc20fc1dda73e64b50d3ec494a70c13ea3f3234ccf23",
+      "content_hash": "2633c2e5fab58e740a88883bb69a6fb7d7bd7fb09237918b98f006cfef958b2a",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage",
+        "elastic-energy-recovery",
+        "articulated-linkage-motion"
+      ],
+      "reason": "회전하는 스프링의 작용선·모멘트암을 바꿔 하중 변화를 보상한다. 일정 출력 힘을 위한 기하 보상 후보로 추가 대조한다."
+    },
+    {
+      "identifier": "AR-087222-A1",
+      "source_fingerprint": "10bbded15c82c41d009a3a3abb6ea5763ce399155946326fe3bdeeda91acecb4",
+      "content_hash": "bf22d3718a6d9760707616ac4394602a5b84b63397a95f4de353b697295ef6a5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "여러 높이의 상품 진열·배출 받침 배치다."
+    },
+    {
+      "identifier": "AR-087260-A1",
+      "source_fingerprint": "2c5d81e27c599b030a568e29985d9c7206600da7538520d94813dd63dc0b8374",
+      "content_hash": "cfdafbcaff21ebddba809d40d493907c1f9f49760b7b8d086841bac11f0281ba",
+      "decision": "LINK",
+      "keys": [
+        "redundant-path-fault-tolerance",
+        "time-division-multiplexing"
+      ],
+      "reason": "고장 DSL 경로를 제외한 나머지 시간 슬롯으로 통신을 이어간다."
+    },
+    {
+      "identifier": "AR-087265-A1",
+      "source_fingerprint": "c92a8d5f32d25575acdd1a78d33bb7a162508f02ca117d5ea16d8a56e40fae67",
+      "content_hash": "88d0d547b4f3c414c86f006c121d43ed0efbd55fbdd4dbab53921ee9cac11df7",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting",
+        "articulated-linkage-motion"
+      ],
+      "reason": "동결 혈액 제품 포장을 절단하고 로봇 집게로 잡아 이송한다. 새로운 생물 작용은 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:01:00.364477+00:00"
+}

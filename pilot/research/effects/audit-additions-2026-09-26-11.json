@@ -1,0 +1,242 @@
+{
+  "batch": "additions-2026-09-26-11.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1140,
+  "added": 20,
+  "after": 1160,
+  "target": 1200,
+  "source_sha256": "8afb36db2ddd230be8159dbca2430cb3ce00642dda63c1b3cc38d22d143a26a2",
+  "decisions": [
+    {
+      "key": "compressive-euler-buckling",
+      "group": 6,
+      "related_keys": [
+        "bistable-structure",
+        "prestress-geometric-stiffening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "두 안정 형상 사이 스냅과 달리 압축 분기 임계조건이며 좌굴이 반드시 쌍안정인 것은 아니다.",
+      "source_url": "https://www.nature.com/articles/s41598-017-03412-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "film-substrate-wrinkling-instability",
+      "group": 6,
+      "related_keys": [
+        "compressive-euler-buckling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자유 기둥의 전체 좌굴과 달리 탄성 기초가 파장을 선택하는 분포 불안정이다.",
+      "source_url": "https://www.nature.com/articles/s41598-022-08136-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "poroelastic-fluid-network-relaxation",
+      "group": 2,
+      "related_keys": [
+        "viscoelastic-response"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고분자 사슬 자체의 완화와 구별되는 공극 유체 이동과 고체 변형의 결합이다.",
+      "source_url": "https://dash.harvard.edu/entities/publication/a425c629-e062-4669-b4ec-be7b9fc6b980",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "stress-assisted-trap-mechanoluminescence",
+      "group": 13,
+      "related_keys": [
+        "direct-piezoelectricity",
+        "electroluminescence"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전기 출력 또는 외부 주입 발광과 달리 응력이 저장 전하 방출·광 재결합을 연결한다.",
+      "source_url": "https://www.nature.com/articles/s41378-026-01284-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "hydrostatic-pressure-barocaloric-response",
+      "group": 7,
+      "related_keys": [
+        "elastocaloric-effect",
+        "phase-change-storage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일축 변형 구동과 구별되는 정수압·부피 공액 구동이며 단순 잠열 저장에는 없는 압력 조절을 명시한다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-28229-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "elastocapillary-sheet-wrapping",
+      "group": 6,
+      "related_keys": [
+        "wetting-control"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "강체 표면의 젖음과 달리 젖음 에너지와 고체 굽힘이 서로 형상을 바꾼다.",
+      "source_url": "https://www.nature.com/articles/nmat4397",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "griffith-energy-release-fracture",
+      "group": 17,
+      "related_keys": [
+        "continuum-damage-stiffness-degradation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분포 손상의 유효 강성 모델 대신 명시적인 균열면 증가의 에너지 수지이다.",
+      "source_url": "https://www.nature.com/articles/s41467-017-00139-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "environment-assisted-dissolution-cracking",
+      "group": 17,
+      "related_keys": [
+        "hydrogen-assisted-metal-embrittlement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "내부 수소 취화만이 아니라 노출 선단의 용해·피막·환경 결합을 다룬다.",
+      "source_url": "https://www.nature.com/articles/s41529-021-00172-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "interstitial-reorientation-anelastic-loss",
+      "group": 2,
+      "related_keys": [
+        "thermoelastic-diffusive-damping",
+        "solute-dislocation-strain-aging"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열 확산 손실이나 이동 전위 고정과 달리 간극 원자의 응력 유도 재배향 지연이다.",
+      "source_url": "https://www.nature.com/articles/s41598-025-93709-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "drying-capillary-network-collapse",
+      "group": 16,
+      "related_keys": [
+        "capillary-wicking",
+        "poroelastic-fluid-network-relaxation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "액체 이동만이 아니라 건조 곡률 압력의 고체 골격 손상을 다룬다.",
+      "source_url": "https://www.nature.com/articles/158341b0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "jahn-teller-orbital-lattice-distortion",
+      "group": 6,
+      "related_keys": [
+        "ferroelastic-variant-switching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이미 존재하는 변형 변종 전환과 달리 전자 궤도 축퇴가 구조 왜곡의 구동 원인이다.",
+      "source_url": "https://www.nature.com/articles/s41586-022-05681-2",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "interfacial-exchange-bias-pinning",
+      "group": 14,
+      "related_keys": [
+        "remanent-magnetic-recording"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 자성체의 잔류자화 저장과 달리 계면 교환 고정이 반전 대칭을 편향시킨다.",
+      "source_url": "https://www.nature.com/articles/35015515",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "antisymmetric-exchange-magnetic-chirality",
+      "group": 14,
+      "related_keys": [
+        "interfacial-exchange-bias-pinning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일방향 자화 반전 고정과 달리 이웃 스핀의 비공선 회전 손잡이를 선택한다.",
+      "source_url": "https://www.nature.com/articles/s41467-018-04017-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ligand-field-spin-crossover",
+      "group": 14,
+      "related_keys": [
+        "jahn-teller-orbital-lattice-distortion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "궤도 축퇴를 깨는 왜곡과 달리 전자 짝짓기 수와 총스핀의 상태 전환이다.",
+      "source_url": "https://www.nature.com/articles/s41467-018-05399-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "magnetoelectric-cross-field-coupling",
+      "group": 14,
+      "related_keys": [
+        "ferroelectricity",
+        "magnetostriction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단독 분극 반전이나 자계 치수 변화와 달리 전기장과 자기 질서 사이 교차 응답이다.",
+      "source_url": "https://www.nature.com/articles/nmat2785",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "intrinsic-berry-curvature-hall-current",
+      "group": 14,
+      "related_keys": [
+        "hall-effect",
+        "geometric-state-path-phase"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "보통 자계 로런츠 힘과 달리 운동량 공간의 기하가 횡속도를 만든다.",
+      "source_url": "https://www.nature.com/articles/s43246-024-00525-0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rashba-inversion-asymmetric-spin-splitting",
+      "group": 14,
+      "related_keys": [
+        "spin-hall-current-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "횡 스핀 전류 변환 자체가 아니라 운동량별 스핀 준위 구조를 형성하는 기전이다.",
+      "source_url": "https://www.nature.com/articles/nmat3051",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ballistic-channel-conductance-quantization",
+      "group": 14,
+      "related_keys": [
+        "quantum-hall",
+        "size-quantized-electronic-confinement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "횡 홀 저항 양자화와 달리 탄도 채널의 종방향 전도 모드 수를 이용한다.",
+      "source_url": "https://www.nature.com/articles/s41928-020-0383-2",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "interlayer-coulomb-momentum-drag",
+      "group": 14,
+      "related_keys": [
+        "electromagnetic-induction",
+        "photon-momentum-drag-current"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변화 자속이나 광자 운동량 대신 층간 전자 상호작용의 운동량 전달이다.",
+      "source_url": "https://www.nature.com/articles/nphys2441",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "grain-boundary-premelting",
+      "group": 16,
+      "related_keys": [
+        "solidification",
+        "grain-boundary-relative-sliding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "벌크 응고나 입계 미끄럼과 달리 계면에 한정된 선행 상전이이다.",
+      "source_url": "https://www.nature.com/articles/s41598-020-77863-9",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

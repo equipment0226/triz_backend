@@ -1,0 +1,238 @@
+{
+  "batch": "additions-2026-09-26-06.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1040,
+  "added": 20,
+  "after": 1060,
+  "target": 1200,
+  "source_sha256": "df642ee3982cbfb6299436696f452f38521db96c421659653d78bc47a87925ec",
+  "decisions": [
+    {
+      "key": "current-driven-solid-electromigration",
+      "group": 16,
+      "related_keys": [
+        "kirkendall-diffusion-imbalance-voiding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "성분별 고유 확산률 차이 대신 전류가 원자 수송을 구동한다.",
+      "source_url": "https://www.nature.com/articles/s41598-017-03324-5",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "solid-temperature-gradient-thermomigration",
+      "group": 16,
+      "related_keys": [
+        "thermophoresis",
+        "current-driven-solid-electromigration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유체 속 입자 전체의 열영동과 달리 고체의 원자 확산이며 전류 없이 온도 구배로 구동한다.",
+      "source_url": "https://www.nature.com/articles/s41467-019-12416-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "vacancy-assisted-dislocation-climb",
+      "group": 16,
+      "related_keys": [
+        "plastic-forming"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "항복 소성 일반론 중 질량 확산으로 미끄럼면 밖을 이동하는 전위 기전이다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-31800-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "stress-directed-diffusional-creep",
+      "group": 16,
+      "related_keys": [
+        "vacancy-assisted-dislocation-climb"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전위 선의 상승 없이도 결정립 양면 간 질량 수송으로 변형이 가능하다.",
+      "source_url": "https://www.nature.com/articles/207070a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "grain-boundary-relative-sliding",
+      "group": 16,
+      "related_keys": [
+        "stress-directed-diffusional-creep",
+        "grain-refinement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확산으로 결정립 형상만 바뀌는 기전이나 경계의 전위 차단과 달리 경계 양측의 상대 변위가 핵심이다.",
+      "source_url": "https://www.nature.com/articles/s41467-017-01234-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "cyclic-plasticity-fatigue-crack-growth",
+      "group": 17,
+      "related_keys": [
+        "work-hardening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전위 증가에 따른 강도 상승과 달리 반복 국소 변형의 균열 진전을 다룬다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-28481-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "hydrogen-assisted-metal-embrittlement",
+      "group": 17,
+      "related_keys": [
+        "solid-solution-strengthening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "용질의 전위 저항 강화와 달리 수소 농축이 균열 끝의 파괴 경로를 바꾸는 현상이다.",
+      "source_url": "https://www.nature.com/articles/nmat3479",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "crack-tip-transformation-toughening",
+      "group": 17,
+      "related_keys": [
+        "martensitic-hardening",
+        "fiber-bridging"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "경도 증가나 섬유 하중 가교 대신 균열 주변의 국소 변태 변형이 응력집중을 낮춘다.",
+      "source_url": "https://www.nature.com/articles/s41467-023-41481-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ferroelastic-variant-switching",
+      "group": 6,
+      "related_keys": [
+        "ferroelectricity",
+        "shape-memory-alloy"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전기 분극 반전이나 가열 상회복과 구별되는 응력 구동 자발 변형 변종의 전환이다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-23882-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rosensweig-magnetic-interface-instability",
+      "group": 11,
+      "related_keys": [
+        "faraday-parametric-surface-wave"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기계적 주기 변조 대신 자화와 경계 형상의 자기 응력 피드백으로 발생한다.",
+      "source_url": "https://www.nature.com/articles/s43246-022-00249-z",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "magnetic-relaxation-loss-heating",
+      "group": 7,
+      "related_keys": [
+        "induction-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "도체 와전류 발열과 달리 자화의 네엘·브라운 완화 손실을 이용한다.",
+      "source_url": "https://www.nature.com/articles/srep38733",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "poole-frenkel-field-assisted-detrapping",
+      "group": 14,
+      "related_keys": [
+        "thermal-carrier-generation-dark-current"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열적 전하 생성 일반론에서 전계에 의한 하전 트랩 탈출 장벽 저하를 구체적으로 분리한다.",
+      "source_url": "https://www.nature.com/articles/s41467-020-20856-z",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "space-charge-limited-injection",
+      "group": 14,
+      "related_keys": [
+        "coulomb-charging-blockade"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개별 전자의 섬 충전 문턱 대신 분포된 주입 전하가 연속적인 내부장을 바꾸는 전류 제한이다.",
+      "source_url": "https://www.nature.com/articles/srep09173",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "localized-state-hopping-conduction",
+      "group": 14,
+      "related_keys": [
+        "disorder-interference-anderson-localization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "국소화 자체와 달리 국소 상태 간 비결맞은 이동이 만드는 유한 전도 경로이다.",
+      "source_url": "https://www.nature.com/articles/ncomms3642",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "auger-nonradiative-carrier-recombination",
+      "group": 14,
+      "related_keys": [
+        "photoluminescent-wavelength-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광자 재방출과 달리 제삼 운반자가 재결합 에너지를 받는다.",
+      "source_url": "https://www.nature.com/articles/ncomms3329",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "fano-discrete-continuum-interference",
+      "group": 13,
+      "related_keys": [
+        "wave-interference",
+        "electromagnetically-induced-transparency"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 간섭의 하위 기전 중 이산·연속 경로 결합 조건을 명시하며 EIT의 원자 준위 제어와 구분한다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-27556-2",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "strain-gradient-flexomagnetism",
+      "group": 14,
+      "related_keys": [
+        "villari-effect",
+        "flexoelectric-strain-gradient-polarization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "균일 응력의 역자기변형과 다르며 전기 분극이 아닌 자기 질서가 응답한다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-34233-5",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "phonon-drag-thermoelectric-momentum",
+      "group": 8,
+      "related_keys": [
+        "seebeck-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "제베크 응답의 하위 기전이며 운반자 확산만으로 설명되지 않는 포논 끌림 기여를 구분한다.",
+      "source_url": "https://www.nature.com/articles/s41524-022-00710-0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "maxwell-wagner-interfacial-charge-relaxation",
+      "group": 14,
+      "related_keys": [
+        "effective-medium-dielectric-permittivity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정적 상 혼합 일반론과 달리 이동 전하의 계면 축적·완화가 만드는 분산이다.",
+      "source_url": "https://www.nature.com/articles/pj197816",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "phonon-hydrodynamic-second-sound",
+      "group": 7,
+      "related_keys": [
+        "fourier-conduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "즉시 국소 푸리에 열유속과 달리 집단 포논 운동의 유한 속도 온도파이다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-27907-z",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "2fdcd0d6a169ddb822a41691a8ee7900a35c4cdaf9e0a6edeea5b11b954f86f4",
+  "reviews": [
+    {
+      "identifier": "AR-093887-A1",
+      "source_fingerprint": "1d5f98fdbfefd53ee6af6c5ac6bba7131ae87740bfaff28904f812997d73fd6c",
+      "content_hash": "42ee095dee742409dba1813b5e711701368f5f2566cee14f5481ece7e6773424",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물의 Cry1F 발현이다. 막 기공 형성 초안의 추가 사례로 검토하되 무공해·무잔류 주장은 검증된 사실로 취급하지 않는다."
+    },
+    {
+      "identifier": "AR-093892-A1",
+      "source_fingerprint": "6f469b3f841fa44302f0d3c52a1d7fffd6fc0fac46d530ee736cc0b5c96d5c0b",
+      "content_hash": "bf7961f208d2fcdec93b9af94317e5e525f47b02ee6f4ab725d0e36cac9189ac",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "메타데이터 인덱스를 이용한 검색이 명시된다. 속성-문서 대응 인덱스의 검색 원리를 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-093904-A1",
+      "source_fingerprint": "601295455b22e163f36612be20b0fc93298972e614e3e5a5163b3dc811ba5bb5",
+      "content_hash": "464ea31589ecc1caa903b706644bb37f347245708468262efd2e351bdd68f49b",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "Cry1F 발현에 의한 방제이며 대상 해충 차이를 새 효과로 나누지 않는다."
+    },
+    {
+      "identifier": "AR-093905-A1",
+      "source_fingerprint": "01e772eea84ebaadb58ca097f0979893dc8b3d36141967bfe19a54a5d50b2a74",
+      "content_hash": "4b7c13960e8d64936455ec0d85b80efbfec8f41431c7a69d5f2429a10f61843c",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "forced-convection"
+      ],
+      "reason": "산소 분할 주입과 중간 냉각을 결합한 촉매 산화 공정이다."
+    },
+    {
+      "identifier": "AR-093936-A1",
+      "source_fingerprint": "fcecf40d06f294503884094882b2b17b9494ae42916fef89034ec0a138306803",
+      "content_hash": "d915d56f93b80639af8dfe50dcf8cc2f90ffed6242cf472093e5b9eaa3c3e470",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "속성 필터로 천공 위치를 선택하는 설계 절차이며 구체 계산 원리는 없다."
+    },
+    {
+      "identifier": "AR-093944-A1",
+      "source_fingerprint": "c78e860846a0962ea89a6a0197c214232ac09fc3b63c6bedbe7f4412016aa89e",
+      "content_hash": "293fddb11d57e532b117fbc6a2dafb29ed5769b8cb214b51708fee2f952e8e61",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "고분자 시트를 다이 절단하여 용기 몸체를 만든다."
+    },
+    {
+      "identifier": "AR-093976-A1",
+      "source_fingerprint": "55a9e659c938e26554023520e199e87401e974bc63a72917530ef1b4d41ae237",
+      "content_hash": "9461c8ef2059b0ef4061f95a6ce03e45c6d676eb8bda745b5ff4872747392809",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis",
+        "acetal-carbonyl-protection",
+        "carboxylic-acid-esterification"
+      ],
+      "reason": "보호·가수분해·에스터화가 명시된다. 알데하이드의 아염소산염 산화는 이전 보류 후보와 달리 단계가 명확하여 새 근거로 검토한다."
+    },
+    {
+      "identifier": "AR-093980-A1",
+      "source_fingerprint": "d3c4c85813592924664ade1dc3f215c6ba79dfd90b70df311806be0409da7b54",
+      "content_hash": "caccd62937ea0da6d6c9f8f5bc4b92177694bfaacab28cf564051a5849e42d65",
+      "decision": "LINK",
+      "keys": [
+        "homologous-recombination"
+      ],
+      "reason": "아연손가락 뉴클레이스의 특정 유전자좌 절단 후 표적 삽입이다. 서열 지향 절단 초안의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-093989-A1",
+      "source_fingerprint": "958d842271d3b9e471964275ff711b0751d678e330cb35dbbb353dfe38740777",
+      "content_hash": "e617f3d3968eb453c49bc2086ba9c6321579785bb18fd899227446fe58b35d35",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "메시지의 타일·미리보기 화면 구성이다."
+    },
+    {
+      "identifier": "AR-094004-A1",
+      "source_fingerprint": "439649c0371b0bb1d2f0e142f2c33b0d593eb221c5475f55200cd00bbe9b7370",
+      "content_hash": "599fe706255c2691ac8d2883ab83343d9e0c74612963db596150fc5cf6913523",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 조합과 적용 절차만 있고 표적이나 병용 기전은 없다."
+    },
+    {
+      "identifier": "AR-094016-A1",
+      "source_fingerprint": "6e8ae309641e65b81e3b2d8b3b3841ccd8705e0ce4a1d6fd8cd6c84f2b5c64dd",
+      "content_hash": "ffd80741dec7808182d40dcbfe04c569afe12ee618b499b671f13f68be1f0336",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "여러 에너지원의 운전 모드 전환 조건이다. 변환 물리 원리는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-094023-A1",
+      "source_fingerprint": "b38a73f782f8be4f3f2339a023d9f935eb14e81cb77e625917d61181163d9bca",
+      "content_hash": "3ebe6788e69a7855a824233f057faf015862d21a62cdf5ad6ae368e98391ec74",
+      "decision": "LINK",
+      "keys": [
+        "hydrophobic-association",
+        "polymerization"
+      ],
+      "reason": "소수성 블록이 회합하는 수용성 공중합체를 만든다."
+    },
+    {
+      "identifier": "AR-094032-A1",
+      "source_fingerprint": "ec1ad77dab7e3ba74f940bee81b972058a374b303b6f1de5261f8930da8b335b",
+      "content_hash": "5215250c0ba146a20e1c20f8bcb2f9accbddbc5de2e4112c234be5a2aa9e8c32",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "PLOD2 발현 증가를 명시한다. 콜라겐 라이신 수산화의 기전과 연결 가능성을 문헌으로 확인한다."
+    },
+    {
+      "identifier": "AR-094054-A1",
+      "source_fingerprint": "2c6dbbb2a17d1c6dc0e95d93e9956faef2a1f970df398eec9796dcf1b2ee36df",
+      "content_hash": "213842bc6da86f2c3b69c81d3e390903190ac6c9f6d17de8fadf8634ceb51c50",
+      "decision": "LINK",
+      "keys": [
+        "radical-alkane-halogenation",
+        "catalysis"
+      ],
+      "reason": "라디칼 브로민화와 붕소 시약의 금속 촉매 결합 경로이다. 동위원소가 있다는 사실만으로 속도 동위원소 효과를 부여하지 않는다."
+    },
+    {
+      "identifier": "AR-094065-A1",
+      "source_fingerprint": "7957787ba22afeb2f17001174e572b66a669b224b024aeecfdfda250c51adfec",
+      "content_hash": "50d664f077bdcaab5664b83043610e0ae40a87a12a865ce00e8a339d2a730ec7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 배합만 있고 상호작용 기전은 없다."
+    },
+    {
+      "identifier": "AR-094073-A1",
+      "source_fingerprint": "a0e430778e3bc5a0cc48221bbeeceec39a2e63e7413f867d033a3e55121cdd7e",
+      "content_hash": "4efb72af2e3bcd97967f56c6d2970b2723b31853c1e2ec62b81ab799bebfecd2",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "스프링 지지 삽입물을 누르는 보호 덮개이다. 항균 첨가제의 작용은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-094088-A1",
+      "source_fingerprint": "193598473ab5dc1579be03786b266bc35b4b351e49fd00be290b31923a9766f4",
+      "content_hash": "339ad9121c39bbbd60257128026378bf2a6f3c37896fa759cd497b677d26cb48",
+      "decision": "LINK",
+      "keys": [
+        "polymer-molecular-weight-viscosity",
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "식용 하이드로콜로이드의 수화·용해와 증점이다."
+    },
+    {
+      "identifier": "AR-094103-A1",
+      "source_fingerprint": "458ce8d9571f1f3eb0918e0f40df6e6fd2ca0f810e8df778b41f472585ad181d",
+      "content_hash": "f4920d85d31c79ce684684a7f14d7d784d3bbe0d7440e7da72d37e924a2d22bc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 구조 범위만 있고 생물학적 표적은 없다."
+    },
+    {
+      "identifier": "AR-094108-A1",
+      "source_fingerprint": "162e8bd3e368107224b81195eced24595eab12ff2f3c67bffb9ef63a8f2dd18d",
+      "content_hash": "f1c00efa6da56b6a05ec798d689bfce64137a0486ec1977d216abc94c2e6a246",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching"
+      ],
+      "reason": "음료 정제를 물과 접촉하여 성분을 추출한다. 두께·표면 센서의 원리는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-094125-A2",
+      "source_fingerprint": "dc56a01b07853124f356a05bb32a34bb41d10f692268cfac19b8d5b76fb364e0",
+      "content_hash": "3df9a4ff720ae3a5e525671c31614733ee6562513b5109a7685face6fa49849a",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "IL12 결합·중화 항체와 재조합 발현이다."
+    },
+    {
+      "identifier": "AR-094129-A1",
+      "source_fingerprint": "f1b16ddb811fe7da6d8a567126e76e9475f4e998d73125ae10df020608270ef3",
+      "content_hash": "9cb9259adec54dc34f45efeae7183fd8b55fc225cfb7d98ee3d532e6454e9449",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "충전 상태에 따른 메시지 전달 정책이다. 무선 전력 전달 방식은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-094141-A1",
+      "source_fingerprint": "dae70d13c5e9e7f5359a3e2d1a1d49a622851972131a16e9772a1d208ace3115",
+      "content_hash": "b8d3cedd60a025c4d7b69f46dec7964f0dcc74c1102c666414762c3b7e30cbac",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "binding-residence-time"
+      ],
+      "reason": "히알루론산 결합 태그로 국소 체류를 늘리는 구성이다. 세포외 기질의 친화성 보유를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-094143-A1",
+      "source_fingerprint": "54dca70bf671c25e4c1bc9be181bb14ee4f701f6621f0436e0ff6c2c080cc609",
+      "content_hash": "69b61a19acf36887815cd830cbfeef282f451acca1c5daee7cab08821ba21651",
+      "decision": "LINK",
+      "keys": [
+        "thermal-expansion-compensation"
+      ],
+      "reason": "배관의 열팽창 길이를 반대 방향으로 맞추어 위치 변화를 상쇄한다."
+    },
+    {
+      "identifier": "AR-094144-A1",
+      "source_fingerprint": "7c56d2f139d0488a1fb068e2a75a65def3b9880abb54cfcdcb5c3a0bc48d3120",
+      "content_hash": "ad5125792ac12d8457fd8bc856839b3ef46285fd147c12e69ada8adbe4b198c0",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "frictional-load-transmission"
+      ],
+      "reason": "인장재의 자동 파지 앵커이다. 프리스트레스 부재의 재료는 초록에 없으므로 확대하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:33:16.815549+00:00"
+}

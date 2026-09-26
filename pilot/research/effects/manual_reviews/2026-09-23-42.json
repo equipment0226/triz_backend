@@ -1,0 +1,203 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "dc0c0b18341394dec8a4162f8c1c3cf4786b1d834846ebe930c6a5405994f51e",
+  "reviews": [
+    {
+      "identifier": "AR-084490-A1",
+      "source_fingerprint": "71f6481c94b1c7f8dbc524e553621d17bf2a4d822744438055a6384efa321fb5",
+      "content_hash": "93ebb7a851eea0a36d6428f45d8f7c99a4f2dba200c2785bf412b4d5dab54c4f",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "회전 부재와 슬라이더의 연동으로 삽입관과 플런저가 상대 이동한다."
+    },
+    {
+      "identifier": "AR-084499-A1",
+      "source_fingerprint": "4c517d18a5d64bf607332977056485a850b9f5fc8839ced440812cbf54da450f",
+      "content_hash": "b59b8c0a016458e90eaaf3cf54e233f9d9391f2cfc02c7e94e75ccead6127374",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "골수정의 구멍에 피복을 고정한다. 항생제 방출 속도 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-084511-A1",
+      "source_fingerprint": "db91ac28317a1bbea72e9907ca312b04996ef4893126ff15554bbd9e1b6fd71a",
+      "content_hash": "136361b5e941c2ffa891c1702897def8e489f940e7bc852787c0233a7ca4605d",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "유전자 도입으로 식물 스트레스 특성과 수량을 조절한다. 개별 기능은 추가 근거가 필요하다."
+    },
+    {
+      "identifier": "AR-084522-A1",
+      "source_fingerprint": "f9a74604c233c3cb611f839275b44042be63adb9880b7fadc871b2b0d48958d0",
+      "content_hash": "cdd09dea5a7600ab76236d426fd88ba61983431a973244eedd127855770e4602",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "용기 목을 기울인 배치 설계이다."
+    },
+    {
+      "identifier": "AR-084532-A1",
+      "source_fingerprint": "7e3935939d95cb5223e26332a985ca6a636cbf3f09c509098d80ddcc94666951",
+      "content_hash": "072b04d38de4ee4d805d42788ef884af7ee454a9f18b55d776803c06da72290f",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "복수 가변 도메인이 항원을 인식한다. 친화도 상승을 구조만으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-084542-A1",
+      "source_fingerprint": "84fe5e54eded1f44daaf17d8a68da889351ba620c684ebfbd56b349c2c5aa0ed",
+      "content_hash": "ee024e26c45b3f7193e230b7ffa31b886e09b2ae56e4e520fd0538f3cbe8df40",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아세틸렌에 염화수소를 첨가하는 촉매 반응. 신규 하이드로할로젠화 후보이다."
+    },
+    {
+      "identifier": "AR-084543-A1",
+      "source_fingerprint": "05ad22e4f7309c5acf32ee36c81c65bc834355404c0938db753a76c0cedf9960",
+      "content_hash": "208587684dd9704a94c65a983ddf5f1ffaca15af6a733289a5673db9c2c89044",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "질소계 촉매에 의한 아세틸렌 하이드로염소화. 앞 후보와 통합 검토한다."
+    },
+    {
+      "identifier": "AR-084556-A1",
+      "source_fingerprint": "2b2f3e1d21bc0e3fd807ef7f649f984ba86a185ed5c992bc535173dda47e9c72",
+      "content_hash": "199f2033046f31612b7abb8e1daf1fdb2d56d60d1e0992b2bf470a39d5d1e335",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "홈 게이트웨이의 서비스 가상화 배치이다."
+    },
+    {
+      "identifier": "AR-084576-A1",
+      "source_fingerprint": "24bb78d0b58cb93f6d3095de03e129010b5e02a971074ecac19f7df8115956e7",
+      "content_hash": "5ff2fb81d9d208102ea7b1c0ba3e897d5a95d059d55787b3102c5eba3ef834b8",
+      "decision": "LINK",
+      "keys": [
+        "oxime-formation",
+        "pegylation-steric-shielding"
+      ],
+      "reason": "말단 알코올 산화 후 옥심 결합과 PEG 접합. 알부민 결합 및 산화 단계는 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-084590-A1",
+      "source_fingerprint": "59c438464e8ec42f567cd1e9ac31f0df476c4385118dbd4b875d201f040149d9",
+      "content_hash": "94d19992e486d2d4c50c41d209f07de0c9c8cc068e10baa5bd75f52dc6c664fe",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 조성물의 분자 작용점이 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-084593-A1",
+      "source_fingerprint": "531e7b9df8cc7d356faa6940128ed98b1cc34e7c3d9ea07deb1524ed491095e6",
+      "content_hash": "e0d708d5949a95c619c1b1154640f9f771a1df9acbb8f6bbec1fc1f198752673",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "건축 조립 부재의 맞물림으로 결합한다."
+    },
+    {
+      "identifier": "AR-084598-A1",
+      "source_fingerprint": "6b2270df3411f5b7880faee13d2fcf9d85cd414309968d4cfc286c9e4ea38803",
+      "content_hash": "1564090e6eabda6b7d7b15b62f8da952cb0fe88bf2c1a179de7a6ea6eb1744f5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "miR29 억제로 세포외기질 단백질 발현을 높인다. microRNA의 번역 후 억제 경로를 기존 안티센스와 구분 검토한다."
+    },
+    {
+      "identifier": "AR-084609-A1",
+      "source_fingerprint": "5e7d781a71a63e765e7a5c91149013e06f20658b801a0f506dadd58797012532",
+      "content_hash": "81214d93590425415d08241b88490c9000828532920a382bfd1e0d75145a6321",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 화합물 구조만으로 작용점을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-084622-A1",
+      "source_fingerprint": "0dbf01bb78ccaeb3421242d88ab5c0a25a183d79f589eb1378192266473a2f3b",
+      "content_hash": "5700bd6e40ef7c21d0bbdf3ecbfd1115fd78baa80772008f018c29f2d233add8",
+      "decision": "LINK",
+      "keys": [
+        "martensitic-hardening"
+      ],
+      "reason": "마르텐사이트 조직을 갖는 내마모 강재이다."
+    },
+    {
+      "identifier": "AR-084631-A1",
+      "source_fingerprint": "0c93dfbf7b3702e5f854a1f0628bb1e24912739dd042e577b501a973e00252a0",
+      "content_hash": "4363796f9808ab451faf8e16c7010abfd880f054e70fafdc323737d891c5a8de",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "핵산 서열을 참조 서열에 정렬해 변이를 찾는다. 특정 정렬 알고리즘은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-084635-A1",
+      "source_fingerprint": "cfb7e17fbf67e010f9232bd67859a6957ef53626d440164652346007206ce57a",
+      "content_hash": "02fe3633e28374e9426f57d1bbf133c2670a2b557b51f8815ccddcb2e679e461",
+      "decision": "LINK",
+      "keys": [
+        "linear-frequency-filtering"
+      ],
+      "reason": "방송 주파수 선택 필터. 주파수 이동의 혼합 회로 구현은 초록에 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-084641-A1",
+      "source_fingerprint": "42a80270a4e98dea6e7bde7261a1fb202d941018b472ab827dd264f2b2cc8cff",
+      "content_hash": "30269ff71579f1ba252911f252c661613f1727ab22bf5896c6bd9e0a6dc2e08b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "임베디드 작업을 서버 가상화 계층에서 실행하는 배치이다."
+    },
+    {
+      "identifier": "AR-084649-A1",
+      "source_fingerprint": "01e0fd7631f4c30fa713e836452168eaef6794e06d912bd99db24647a50ac7ef",
+      "content_hash": "9da7a52d83dfd4c1146de28c66f931c8885caa8e07c61276df2491d8729e4ba4",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture",
+        "mechanical-interlocking"
+      ],
+      "reason": "절취 연결부의 파단과 걸림 구조로 개봉 상태를 관리한다."
+    },
+    {
+      "identifier": "AR-084654-A1",
+      "source_fingerprint": "6baad7a2d1acbe9f58103830dd8002a8890a54df1fc9e8b68ed75b01e148644f",
+      "content_hash": "6a6211f4ae179599eb0e854ed130a66c44ab43ee0bec929149083396654942dd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수압 파쇄 지층의 지질역학 모델링 구성. 해법의 원리는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-084663-A1",
+      "source_fingerprint": "cb01f201f16bba5dde958c491526569288f8ed26666fd66c6b81dda5e0f8f889",
+      "content_hash": "dbff5b8543ff098bd1ef79d187751997840edb6f162d3daae52e1e796faa0015",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "host-guest-inclusion",
+        "freeze-drying",
+        "surfactant-action"
+      ],
+      "reason": "프로테아좀 억제제를 사이클로덱스트린과 동결건조 제형으로 만든다."
+    },
+    {
+      "identifier": "AR-084691-A1",
+      "source_fingerprint": "dc1265d3a104f53adda23395b5931c423d35e04f8c3b5081389141d1f739c644",
+      "content_hash": "bae4b5113d30e84f98ad2eae8916e500428aca91a353eae274f85325a6912552",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "JAK 효소 억제제의 국소 제형이다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:30:13.865417+00:00"
+}

@@ -1,0 +1,251 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "4749bb4b8ac452287a690987a6d6325d3e9a645cea5f6f4936b3ab0d59f9604b",
+  "reviews": [
+    {
+      "identifier": "AR-118631-A1",
+      "source_fingerprint": "5868d27570e6a733d5410f16aafe43a1b5379e5254cf94b7d49405b1c8673db5",
+      "content_hash": "be4c002e95a39339bc4d1eb03024184d3a60a2d662da1eb72f10a36dba4d8f7a",
+      "decision": "LINK",
+      "keys": [
+        "state-estimation"
+      ],
+      "reason": "비파괴 계측 데이터로 금속체 형상을 추정한다. 센서·역산 방정식은 미특정이다."
+    },
+    {
+      "identifier": "AR-118638-A2",
+      "source_fingerprint": "2c06984252efcdecb739a9cb87b646fb924f0ed51e937a7e764a272277c0f357",
+      "content_hash": "f2f8ce9ad3b78ab32a56639218ae669e487c372aa324054b5edd36fe86d67685",
+      "decision": "LINK",
+      "keys": [
+        "automatic-repeat-request"
+      ],
+      "reason": "재전송 관련 피드백 시간을 메시지로 지정한다."
+    },
+    {
+      "identifier": "AR-118654-A1",
+      "source_fingerprint": "cf4c4b2081cabcf6905735675ebf5fe55a95a142db250a66cace09260e3856b1",
+      "content_hash": "8cf319002c94a52bbbd065dc529f0572b4dc4c77367afc63eb27355d3c333d80",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "지질·계면활성제 경구 제형이다. 흡수 향상의 분자 경로는 미특정이다."
+    },
+    {
+      "identifier": "AR-118662-A1",
+      "source_fingerprint": "80d6539a29cf48bcfeb2633f57ceb2afb7a46ef94a6a8d187036435849cdccc8",
+      "content_hash": "d13355da59e0cc8dea87553cb05f6e9355556e960490daeb5fae6215f79e1dbc",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "용기 양쪽이 같은 수용 홈과 맞물리는 형상이다."
+    },
+    {
+      "identifier": "AR-118670-A1",
+      "source_fingerprint": "d12134e922fc5b3bf19ff28d2ee5df87bec9e251071ff7fe9f1b90a127f31c0c",
+      "content_hash": "4fef4ec07072e805ce09a1f1e848f469556938f30a2ce74c05959dce619a112a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "표적 가이드와 Cas9에 의한 절단이다. 이미 검토한 서열 지향 DNA 절단 초안에 통합하며 새 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-118674-A1",
+      "source_fingerprint": "5b01e11178112040f732d2020fd8198fe1c426bb0aeff54b4546f6f7cb39d430",
+      "content_hash": "9f54639a07314e164a5bf459a1133a70635dbada8f6d6d919fb71a3c0a058a6c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "합성 수율·순도 주장이나 반응 단계는 없다."
+    },
+    {
+      "identifier": "AR-118692-A1",
+      "source_fingerprint": "d9a637c6decbb24941e1d0f4dd80e48981f84107d23581c1df5fb226ada23147",
+      "content_hash": "ea31e1a59f9553752afe9d1aef5a55baf74e19671b074ea352dc76667e2870a7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "다중 부품 밸브 시트 조립이다."
+    },
+    {
+      "identifier": "AR-118737-A1",
+      "source_fingerprint": "4a35eaa996cdcf6beae72541e0574b768aeef520b7ae197eb3c988be4a68286f",
+      "content_hash": "791b555a497376233f364fc5864f16848f612722c195daa81f371a06304a82c1",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "mechanical-interlocking"
+      ],
+      "reason": "쐐기와 앵커식 구역 격리 장치이다. 변형 재료가 탄성체인지 초록에 없다."
+    },
+    {
+      "identifier": "AR-118738-A1",
+      "source_fingerprint": "856a223c6eee3e4445350be19d3b6390630dc0cc82d11b3139fcaedc591f5cce",
+      "content_hash": "91ecedf426b4ad336cd671ba42edfc6d904063fcb58f4e6de73417748d3d7895",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "막힌 열교환관의 내부 지지 부품이다. 특정 감쇠 방식은 없다."
+    },
+    {
+      "identifier": "AR-118739-A1",
+      "source_fingerprint": "ce762d4479156ef585b4270597b56bf0c3cd14d57e0b507485c10b53712594f6",
+      "content_hash": "c67d0de1091bd9ec0c047d62de62f911601b0e93e64895cbc3107ebc7d06c5ba",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding",
+        "cathodic-protection"
+      ],
+      "reason": "강재 구조의 전기 용접·용융 아연도금이다. 합금 성분별 방식을 나누어 세지 않는다."
+    },
+    {
+      "identifier": "AR-118788-A1",
+      "source_fingerprint": "211f8948a4897e68e34894561aad5b9b4b66da61058d88a289979be6c9632157",
+      "content_hash": "7d2b7619b96d0118f296ff9c0bcc64491aefe8254ac1f70b1ac255824d641b30",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "알파 시누클레인 응집체 결합 항체이다. 제거·독성 완화 경로는 미특정이다."
+    },
+    {
+      "identifier": "AR-118791-A1",
+      "source_fingerprint": "92689a1048547df54b07470a95c8d2ee0beeb3d44f7b906ca71e67ee5deaf589",
+      "content_hash": "df8601c70fd23506a4b39ddc89f5d6ff2d756119dafbf995b9e2725b6de458c1",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 외래 유전자 발현과 코돈 최적화이다. 코돈 사용 의존 번역 초안의 추가 사례이며 새 항목이 아니다."
+    },
+    {
+      "identifier": "AR-118802-A1",
+      "source_fingerprint": "34ab0f14e91a2485f94202bbb0151dc456eb41f4f14065ea4dc60903caef8020",
+      "content_hash": "7503fe6e5e604d340c6b1272ff75a71d6c5affba509222ceccb346f49f853288",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "수·암 맞춤식 모듈 판재이다."
+    },
+    {
+      "identifier": "AR-118807-A1",
+      "source_fingerprint": "d7bcea8ce5f3a03b56094cc6873393ec7637208baf083fdb53278f3709c3f421",
+      "content_hash": "2dad672d5e3eb7488fc251066c908a018c808204dd4c9d92feba274e9165578b",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "회전식 빠른 분리 커넥터이다. 밀봉 부품 재질은 미특정이다."
+    },
+    {
+      "identifier": "AR-118813-A2",
+      "source_fingerprint": "c0c8eb0c2bce021ab1fe0748a01d001688a05cd0a3c25e2b016f1108cc6f98f7",
+      "content_hash": "01e6bb69d65a3f5c57b18a3bbd8c4881908536170581b61487e90fc479ac8a89",
+      "decision": "LINK",
+      "keys": [
+        "diffraction",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "회절로 규정한 결정형과 합성 옥신 조합이다."
+    },
+    {
+      "identifier": "AR-118820-A2",
+      "source_fingerprint": "70ffbda667168fd10433bb44eec9cb9aeccc8318a04a2714c6835272d6387695",
+      "content_hash": "332582cf9ecc5894dda1655bad9fe6efdf860f3c18652928374bd52671686168",
+      "decision": "LINK",
+      "keys": [
+        "shear-droplet-breakup"
+      ],
+      "reason": "난류실·환상 출구의 에어로졸 분무이다. 별도 연소·음향 원리는 없다."
+    },
+    {
+      "identifier": "AR-118841-A1",
+      "source_fingerprint": "53b8037b8f04a4b73660811d180f63c2ba96daeb4624aec663fe0f838dca1b55",
+      "content_hash": "a369fbd287348882374812594a6134e5e33e465e72f68cb498ec7ff081eace35",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-pumping"
+      ],
+      "reason": "온도 센서를 둔 원심 펌프이다. 온도 변환 소자의 종류는 미특정이다."
+    },
+    {
+      "identifier": "AR-118861-A1",
+      "source_fingerprint": "35e84a70623fc4801af9f23db783b5be6d509f04d56ac31e403da36b4dafe4e6",
+      "content_hash": "208715ef8a148357a12a12a34523c190d57dcc4d3eafbd6ada281236b5e1d848",
+      "decision": "LINK",
+      "keys": [
+        "polymerization"
+      ],
+      "reason": "유동점 저하용 고분자 라디칼 중합이다. 결정 성장 억제·공결정의 기여는 초록만으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-118862-A1",
+      "source_fingerprint": "3fb1b836c5ec0272d195405b0e1a55bcd4f447377c1644e766c5a4546977d89d",
+      "content_hash": "e07328a4e23dc51ae2a2368a49d5b3f32a05d60e3333711b2530768091f37d47",
+      "decision": "LINK",
+      "keys": [
+        "finite-difference-rate-estimation"
+      ],
+      "reason": "입출구 회전속도 차와 이송 속도로 단위 길이당 비틀림을 구한다. 운동량 계측의 응용으로 통합한다."
+    },
+    {
+      "identifier": "AR-118871-A1",
+      "source_fingerprint": "77c76315f784da2aa26e2db7dd51fb94e971abdaf5170548696e3829e72bffa1",
+      "content_hash": "f58e874c6b5b3699cdde575f1d775a4c7aa9ba28e5b5200ce6992de6aa2e7e8f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지지재 주입의 속도·점도 조합이며 구체 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-118879-A1",
+      "source_fingerprint": "32eba7cb1e80a4b2a9a1e6b41686d5b3f6fd06cc1e6c37b2badf41879ae37dd8",
+      "content_hash": "9bf033d26f3b949e99b4173e8896352e19fc55f576c1a16cf34e9b4a9fbca651",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "당류 결합 시럽의 질감·점착 조절이다. 수분활성·유리전이 기전은 미특정이다."
+    },
+    {
+      "identifier": "AR-118897-A2",
+      "source_fingerprint": "37090b6e7ada249e3d791a6471cadcda1734b496f2217eb33f13fab34d88651b",
+      "content_hash": "d74ff8bbda83ebec58357dee5bf14ed79bcebd3a4bb5783e73addd27b212eacb",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "biomolecular-recognition"
+      ],
+      "reason": "제초 내성 옥수수와 삽입 사건 식별이다. 내성 단백질의 작용은 없다."
+    },
+    {
+      "identifier": "AR-118920-A1",
+      "source_fingerprint": "15f6d833de93a6015a54390eb129f18d4639501f202c5ed16c4474473aeb93ef",
+      "content_hash": "f5efb538fbaaf12fa6aa4535da762130d1b353fb3fbd77778b00c3273f09f429",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "폭발성 물질의 활성화·에너지 증강을 위한 천공 장치이다. 제조·기폭 최적화 정보는 효과 카드로 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-118937-A1",
+      "source_fingerprint": "d9e5ea848fd9a89a737fa6f534390f3265f8aac276de5502297224c5e9e5f81f",
+      "content_hash": "37193f2b5e4620b083c66a31cc901696c1c2c1b56940a0648c70015224968b45",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "토로이드 변압기의 상호 유도로 신호를 전달한다."
+    },
+    {
+      "identifier": "AR-118939-A1",
+      "source_fingerprint": "3f3cd024e77cbf4ffc135f5c20e9c1eb4fb2494a121fbfa4b7c07a0ac3405a24",
+      "content_hash": "e4f7657e690c7951dbac1954e1604782e5263cbf1c0b14a99e312ab3dff4b64a",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting",
+        "frictional-load-transmission"
+      ],
+      "reason": "종이 롤러 이송·절단·접착 조립이다. 접착 경화 기전은 미특정이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:35:36.699104+00:00"
+}

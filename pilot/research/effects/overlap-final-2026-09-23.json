@@ -1,0 +1,3987 @@
+{
+  "effects": 959,
+  "base": 600,
+  "new_entries": 360,
+  "canonical_merges": [
+    {
+      "key": "fluorescence-lifetime-discrimination",
+      "target": "fluorescence-sensing",
+      "old_id": "12.48",
+      "representative_id": "12.15"
+    }
+  ],
+  "draft_merges": [
+    {
+      "key": "geometric-force-compensation",
+      "target": "lever-mechanical-advantage",
+      "reason": "변위별 모멘트팔 설계로 스프링 힘을 보상하는 지레·캠 조합이다. 별도 물리 원리로 재집계하지 않고 설계 사례로 보존한다.",
+      "original_row": [
+        "geometric-force-compensation",
+        "1",
+        "기구의 전달비 변화에 의한 힘 보상",
+        "변위에 따라 커지는 스프링 힘을 기구의 변화하는 모멘트암이나 전달비와 조합하면 작업 구간의 출력 힘 변화를 줄일 수 있다.",
+        "하중·기구 형상·스프링 특성에 맞춘 평형 조건이 필요하다. 고정 지레비나 단순 캠 운동과 달리 힘 곡선을 보상하며 마찰·공차 때문에 일정 힘은 근사적이다.",
+        "Design of an adjustable constant-force mechanism using a geared Sarrus linkage and spring",
+        "https://www.sciencedirect.com/science/article/pii/S0094114X2300188X",
+        "42",
+        "40",
+        "lever-mechanical-advantage,cam-follower-motion,elastic-energy-recovery"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "target-site-inhibitor-resistance",
+      "target": "enzyme-inhibition",
+      "reason": "표적 친화도 변화에 따른 저해 감소는 기존 효소 저해의 선택성 조건이다. 저항성 응용을 독립 효과로 세지 않는다.",
+      "original_row": [
+        "target-site-inhibitor-resistance",
+        "18",
+        "표적 구조 변화에 의한 저해 감수성 조절",
+        "효소 구조가 달라져 저해제 결합은 약해지고 기질 반응은 유지되면 해당 저해제에 대한 감수성이 낮아질 수 있다.",
+        "촉매 기능과 저해제 친화도를 각각 검증한다. 유전자 기능 상실과 다르며 일반 효소 저해의 구조적 하위 관계이다. 발현량·대사 분해에 의한 저항성과 구분한다.",
+        "Structural basis of glyphosate resistance resulting from a double mutation in EPSP synthase",
+        "https://pubmed.ncbi.nlm.nih.gov/19211556/",
+        "43",
+        "149",
+        "enzyme-inhibition,genetic-loss-of-function,biomolecular-recognition"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "trapped-fluid-hydraulic-load-holding",
+      "target": "hydraulic-force-transmission",
+      "reason": "밸브를 닫아 같은 압력·면적 하중 관계를 정지 상태에 적용한다. 구동과 유지라는 운전 상태 차이만으로 별도 집계하지 않는다.",
+      "original_row": [
+        "trapped-fluid-hydraulic-load-holding",
+        "1",
+        "밀폐 유체 압력에 의한 하중 유지",
+        "밸브가 유체의 배출 경로를 막으면 갇힌 유체의 압력이 피스톤 하중을 지지하여 연속적인 펌프 구동 없이 상태를 유지할 수 있다.",
+        "밸브·밀봉의 누설과 유체 압축성·열팽창을 고려한다. 유압 구동의 정지 유지 방식이며 축압기의 에너지 저장이나 모든 조건의 영구 잠금을 의미하지 않는다.",
+        "Bosch Rexroth: The Unsung Hero Keeping Your Hydraulic System Safe and Stable",
+        "https://www.boschrexroth.com/en/us/blog/ih/the-unsung-hero-keeping-your-hydraulic-system-safe-and-stable-us/",
+        "43",
+        "103",
+        "hydraulic-force-transmission,pressure-accumulator,check-valve-rectification"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "glycan-epitope-removal",
+      "target": "biomolecular-recognition",
+      "reason": "인식하는 당쇄 구조를 제거해 결합을 줄이는 경우이며 기존 분자 인식의 표적 변경이다.",
+      "original_row": [
+        "glycan-epitope-removal",
+        "18",
+        "당쇄 항원 결정기 감소에 의한 기존 항체 인식 저감",
+        "단백질에 붙은 α-Gal 같은 당쇄 항원 결정기를 줄이면 그 구조를 인식하는 기존 항체의 결합을 낮출 수 있다.",
+        "항체 종류·당쇄 위치·잔류량·환자 감작 상태에 의존한다. 다른 항원과 이상 반응은 남을 수 있으므로 안전성 보장이 아니다. Fc 수용체 친화 조절이나 새로운 면역 유도와 구분한다.",
+        "Cetuximab-Induced Anaphylaxis and IgE Specific for Galactose-α-1,3-Galactose",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC2361129/",
+        "45",
+        "78",
+        "biomolecular-recognition,antigen-specific-immunization,fc-glycan-dependent-receptor-affinity"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "fc-glycan-dependent-receptor-affinity",
+      "target": "biomolecular-recognition",
+      "reason": "당쇄 변경으로 수용체 결합 계면과 친화도가 바뀌는 인식 사례이다. ADCC 후속 기능은 관련 항목으로 남긴다.",
+      "original_row": [
+        "fc-glycan-dependent-receptor-affinity",
+        "18",
+        "Fc 당쇄 구조에 따른 면역 수용체 결합 조절",
+        "IgG의 Fc 당쇄에서 코어 푸코스 유무가 FcγRIIIa와의 결합 계면을 바꾸어 친화도를 달리하고 효과기 세포 반응에 영향을 줄 수 있다.",
+        "항체·수용체 당쇄·수용체 변이·세포 조건에 의존한다. ADCC를 조절하는 특정 분자 기전이며 모든 Fc 기능이나 임상 효능의 증가를 뜻하지 않는다. α-Gal 항원 제거와 표적이 다르다.",
+        "Structural basis for improved efficacy of therapeutic antibodies on defucosylation of their Fc glycans",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3258418/",
+        "45",
+        "182",
+        "antibody-dependent-cellular-cytotoxicity,glycan-epitope-removal,biomolecular-recognition"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "temperature-dependent-luminescence-modulation",
+      "target": "fluorescence-sensing",
+      "reason": "기존 카드가 이미 세기·파장·수명 변화를 읽는 범위를 포함한다. 온도를 자극으로 사용하는 사례를 별도 계수하지 않는다.",
+      "original_row": [
+        "temperature-dependent-luminescence-modulation",
+        "12",
+        "온도 의존 발광을 이용한 선택 신호 변조",
+        "온도가 여기 상태 분포와 비복사 이완 속도 등을 바꾸면 발광 세기·스펙트럼·수명이 변한다. 특정 입자를 선택 가열하면 그 변화를 이용해 신호를 구분할 수 있다.",
+        "발광체·온도 범위·가열 선택성·열확산·광퇴색·배경에 의존한다. 세기 변화의 방향은 재료마다 다르며 가열 방식과 발광 변환을 별도로 검증한다.",
+        "Mid-infrared detection through ligand-driven local heating in lanthanide-doped nanoparticles",
+        "https://www.nature.com/articles/s41467-026-70900-7",
+        "46",
+        "47",
+        "fluorescence-sensing,fluorescence-lifetime-discrimination,photothermal-conversion"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "sorption-equilibrium-moisture-content",
+      "target": "adsorption",
+      "reason": "흡착질이 물인 등온선·이력 적용이다. 수분 함량과 활성의 차이는 사례 조건에 보존한다.",
+      "original_row": [
+        "sorption-equilibrium-moisture-content",
+        "9",
+        "흡습 평형에 따른 재료 수분 함량 결정",
+        "재료와 주위 수증기 사이의 물 교환이 평형에 도달하면 온도·수분활성에 대응하는 평형 수분 함량이 정해진다. 흡습 등온선으로 건조의 도달 상태와 흡습 변화를 추정한다.",
+        "재료·온도·흡착 또는 탈착 이력에 맞는 등온선이 필요하다. 수분 함량과 수분활성을 같은 값으로 취급하지 않으며 평형 관계만으로 건조 속도를 알 수 없다. 일반 흡착의 수분 상태 관계다.",
+        "Sorption isotherms and isosteric heats of sorption of whole yellow dent corn",
+        "https://www.sciencedirect.com/science/article/abs/pii/S0260877406001191",
+        "50",
+        "48",
+        "adsorption,evaporative-concentration,water-activity-growth-limitation"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "substrate-selective-biopurification",
+      "target": "fermentation",
+      "reason": "동일한 선택적 기질 대사를 불순물 제거에 사용하는 공정 목적 차이이다. 생산과 정제로 별도 집계하지 않는다.",
+      "original_row": [
+        "substrate-selective-biopurification",
+        "9",
+        "미생물의 선택적 기질 소비에 의한 혼합물 정제",
+        "미생물이 목표 성분보다 불순 성분을 우선 대사하도록 조건을 선택하면 목표 물질을 남긴 채 불순물을 다른 대사산물로 전환해 순도를 높일 수 있다.",
+        "균주의 기질 선택성·배양 조건·목표 성분 손실과 대사산물 제거를 확인한다. 단당·이당류의 소비 능력은 균주마다 다르다. 발효 생산 자체보다 혼합물에서 불순 성분을 소모하는 분리 기능이다.",
+        "Purification of highly concentrated galacto-oligosaccharide preparations by selective fermentation with yeasts",
+        "https://www.sciencedirect.com/science/article/pii/S0958694614001150",
+        "50",
+        "190",
+        "fermentation,enzyme-catalysis,chromatography,substrate-limited-biochemical-rate"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "electrophilic-aromatic-alkylation",
+      "target": "electrophilic-aromatic-nitration",
+      "reason": "방향족 친전자 치환의 동일한 고리 부가·탈양성자화 원리이다. 도입 작용기가 다른 사례를 한 계열로 통합한다.",
+      "original_row": [
+        "electrophilic-aromatic-alkylation",
+        "15",
+        "친전자성 방향족 알킬화",
+        "활성화된 알킬 친전자체와 방향족 고리의 반응 뒤 양성자가 이탈해 방향족성을 회복하면 고리의 C–H 자리에 C–C 결합으로 알킬기가 도입된다.",
+        "고리 전자 밀도·촉매·위치 선택성·다중 치환에 의존한다. 페놀 산소의 알킬화나 전이금속 교차 결합과 구별하며 특정 치환체 수율을 일반화하지 않는다.",
+        "A Study on Synthesis of Styrenated Phenol Over Al-Ni/SiO2-Supported Catalysts (Lee et al., 2018)",
+        "https://pubmed.ncbi.nlm.nih.gov/29448614/",
+        "51",
+        "186",
+        "lewis-acid-catalysis,nucleophilic-substitution,electrophilic-aromatic-nitration,transition-metal-cross-coupling"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "electrophilic-aromatic-halogenation",
+      "target": "electrophilic-aromatic-nitration",
+      "reason": "방향족 친전자 치환의 동일한 고리 부가·탈양성자화 원리이다. 라디칼 알케인 할로젠화는 다른 경로이므로 유지한다.",
+      "original_row": [
+        "electrophilic-aromatic-halogenation",
+        "15",
+        "친전자성 방향족 할로젠 치환",
+        "방향족 고리의 전자계가 친전자성 할로젠과 반응하고 수소가 이탈하면서 방향족성을 회복하여 고리의 탄소·수소 결합을 탄소·할로젠 결합으로 바꾼다.",
+        "고리 전자밀도·치환기·할로젠화제에 따라 위치 선택성과 다중 치환이 달라진다. 알케인의 라디칼 연쇄 할로젠화·알켄 부가와 구분하며 특정 시약의 선택성을 일반화하지 않는다.",
+        "Substrate Controlled Regioselective Bromination of Acylated Pyrroles Using Tetrabutylammonium Tribromide (2018)",
+        "https://pubs.acs.org/doi/10.1021/acs.joc.8b01251",
+        "52",
+        "52",
+        "radical-alkane-halogenation,electrophilic-aromatic-nitration,electrophilic-aromatic-alkylation"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "photosystem-electron-transfer-blockade",
+      "target": "photosynthesis",
+      "reason": "광계의 특정 결합 부위 억제로 기존 광합성 전자 전달을 줄이는 표적별 조절 사례이다. 탈결합과는 구분하되 신규 수를 늘리지 않는다.",
+      "original_row": [
+        "photosystem-electron-transfer-blockade",
+        "18",
+        "광계 전자 수용 부위 점유에 의한 전달 차단",
+        "광계 II의 퀴논 결합 부위를 저해제가 점유하면 정상 전자 수용체의 결합과 전자 전달이 방해되어 광합성 전자 흐름이 줄어든다.",
+        "결합 부위·생물종·화합물에 따라 다르며 모든 광계 저해제의 결합 양상이 같지는 않다. 광합성의 역조절 하위 작용이며 탈결합에 의한 양성자 구배 소실과 구분한다.",
+        "Broser et al. (2011), Structural basis of cyanobacterial photosystem II Inhibition by the herbicide terbutryn",
+        "https://pubmed.ncbi.nlm.nih.gov/21367867/",
+        "52",
+        "179",
+        "photosynthesis,enzyme-inhibition,oxidative-phosphorylation-uncoupling"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "protease-triggered-binding-unmasking",
+      "target": "compartment-specific-proteolytic-processing",
+      "reason": "두 초안 모두 특정 위치의 효소가 연결 펩타이드를 절단해 연결부 기능을 해제한다. 화물 방출·결합 차폐 해제를 한 카드의 사례로 통합한다.",
+      "original_row": [
+        "protease-triggered-binding-unmasking",
+        "18",
+        "단백질분해에 의한 항체 결합 차폐 해제",
+        "항체의 표적 결합을 가리는 부위를 절단 가능한 연결부로 붙이면, 적합한 단백질분해효소가 연결부를 끊을 때 차폐가 풀려 표적 결합 능력이 회복될 수 있다.",
+        "효소 특이성·접근성·조직 분포·배경 절단에 의존한다. 세포 안에서 운반체와 화물을 분리하는 작용과 효소 절단 원리를 공유하되 여기서는 결합 기능의 국소 활성화를 다룬다. 임상 안전성을 보장하지 않는다.",
+        "Desnoyers et al. (2013), Tumor-specific activation of an EGFR-targeting probody enhances therapeutic index",
+        "https://pubmed.ncbi.nlm.nih.gov/24132639/",
+        "53",
+        "42",
+        "compartment-specific-proteolytic-processing,enzyme-catalysis,biomolecular-recognition"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "tracer-advection-velocimetry",
+      "target": "finite-difference-rate-estimation",
+      "reason": "추종자 위치 차분을 시간으로 나눈다. 추종성·미끄럼 오차 조건을 보존하고 차분 속도 측정 사례로 통합한다.",
+      "original_row": [
+        "tracer-advection-velocimetry",
+        "12",
+        "유동 추종자의 이동에 의한 속도 측정",
+        "유체와 함께 이동하는 추종자의 위치 변화를 시간 간격으로 나누면 유동 속도를 추정할 수 있다. 광학 영상 또는 위치가 알려진 표지의 통과 기록으로 추종자의 운동을 읽는다.",
+        "관성·부력·벽 접촉·열영동 때문에 추종자와 유체 속도가 다를 수 있다. 대응 입자 식별·시간·위치 보정이 필요하다. 일반 차분 측정의 유체 추종 응용이며 파동 도플러 측정과 구분한다.",
+        "Khalighi and Lee (1989), Particle tracking velocimetry: an automatic image processing algorithm",
+        "https://pubmed.ncbi.nlm.nih.gov/20555871/",
+        "53",
+        "177",
+        "finite-difference-rate-estimation,time-of-flight,doppler-sensing"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "spectral-whitening",
+      "target": "linear-frequency-filtering",
+      "reason": "주파수별 이득을 조절하여 포락을 평탄하게 하는 필터 적용이다. 선형 예측과의 구현 중복도 있어 별도 집계하지 않는다.",
+      "original_row": [
+        "spectral-whitening",
+        "19",
+        "스펙트럼 포락 보상에 의한 신호 백색화",
+        "신호의 주파수별 에너지 편중을 추정하여 보상하면 스펙트럼을 더 평탄하게 하고 시간 상관을 줄일 수 있다. 제거한 포락 정보를 함께 보관하면 후단에서 다시 입힐 수 있다.",
+        "유한 데이터·비정상 신호·스펙트럼 영점·잡음 증폭을 고려한다. 지각적 백색화가 통계적으로 완전한 백색 신호를 뜻하지 않는다. 선형 예측 오차 필터와 구현이 겹칠 수 있다.",
+        "WO2020007719A1, Multisignal audio coding using signal whitening as preprocessing",
+        "https://patents.google.com/patent/WO2020007719A1/en",
+        "54",
+        "117",
+        "autoregressive-linear-prediction,linear-frequency-filtering,fourier-spectral-decomposition"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "electrogenerated-base-precipitation",
+      "target": "precipitation-reaction",
+      "reason": "물 전해로 만든 염기가 용해도·pH 침전을 일으키는 조합이다. 염기 공급원 변경을 독립 침전 효과로 세지 않는다.",
+      "original_row": [
+        "electrogenerated-base-precipitation",
+        "9",
+        "전극 생성 염기에 의한 용존 금속 침전",
+        "음극 반응으로 수산화 이온이 생성되어 pH가 오르면 용존 금속 이온이 난용성 수산화물로 침전할 수 있다. 막으로 전극 구획을 나누어 산·염기 반응을 분리할 수 있다.",
+        "용해도·농도·완충·막 수송·전극 스케일에 의존한다. 외부 염기 투입 침전과 생성 경로가 다르며 희생 양극 금속을 녹여 응집제를 만드는 전기응집과 구분한다.",
+        "US20200188852A1, Process for the removal of magnesium and calcium cations from natural brines using membrane electrolysis with recovery of cation hydroxides",
+        "https://patents.google.com/patent/US20200188852A1/en",
+        "54",
+        "177",
+        "precipitation-reaction,water-electrolysis,electrocoagulation,electrodialysis"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "oxidative-disulfide-refolding",
+      "target": "intramolecular-crosslink-conformational-stabilization",
+      "reason": "동일한 분자 내 이황화 가교가 접힘 안정성을 바꾸는 원리이다. 재접힘 회복은 조건과 사례로 보존한다.",
+      "original_row": [
+        "oxidative-disulfide-refolding",
+        "18",
+        "이황화 결합의 산화적 재형성에 의한 단백질 재접힘",
+        "환원된 시스테인의 티올이 산화·교환되어 적합한 이황화 결합을 형성하면 단백질의 본래 접힌 구조를 회복·안정화하는 데 기여할 수 있다.",
+        "서열·산화환원 환경·농도·응집·잘못 짝지어진 결합에 의존한다. 단순 산화만으로 본래 구조가 보장되지 않는다. 결합 환원 절단 및 샤페론 보조와 기능·진행 방향을 구분한다.",
+        "Reversible denaturation of disulfide-reduced ovalbumin and its reoxidation generating the native cystine cross-link (1992)",
+        "https://doi.org/10.1016/S0021-9258(19)49948-1",
+        "54",
+        "199",
+        "disulfide-reductive-cleavage,chaperone-assisted-folding,glutaredoxin-thiol-redox"
+      ],
+      "decision": "MERGE_NOT_COUNTED"
+    },
+    {
+      "key": "curvature-dependent-elastic-contact",
+      "target": "contact-area-load-spreading",
+      "original_row": [
+        "curvature-dependent-elastic-contact",
+        "5",
+        "곡면 탄성 접촉의 면적·압력 분포 변화",
+        "맞닿은 곡면이 하중에 의해 탄성 변형하면 접촉 영역이 넓어진다. 두 면의 곡률과 탄성률·하중이 접촉 면적과 압력 분포를 정하여 국소 응력에 영향을 준다.",
+        "헤르츠 근사는 작은 접촉 영역·완만한 국소 곡률·탄성 범위가 필요하다. 밀착 접촉·큰 소성 변형·거칠기에는 별도 모델이 필요하다. 일정 곡률비만으로 일정 압력이나 수명을 보장하지 않는다.",
+        "Solution to Hertzian Contact Problem between Wheel and Rail for Small Radius of Curvature",
+        "https://www.jstage.jst.go.jp/article/jmmp/4/6/4_6_669/_article",
+        "81",
+        "152",
+        "rolling-contact-friction-reduction,indentation-load-area-hardness,elastic-energy-recovery"
+      ],
+      "reason": "접촉 면적·곡률·탄성 변형과 압력 분포의 동일 범위로 통합한다.",
+      "decision": "MERGE_NOT_COUNTED"
+    }
+  ],
+  "relations": [
+    {
+      "key": "phosphotransferase-group-translocation",
+      "related_keys": [
+        "atp-driven-membrane-transport",
+        "secondary-active-transport"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "해당 인산전달계와 기질 특이성이 필요하다. ATP 구동 펌프·이온 구배 수송과 에너지 결합 방식이 다르며 모든 당이나 생물에 적용되지 않는다."
+    },
+    {
+      "key": "bioelectric-potential-sensing",
+      "related_keys": [
+        "nernst-potentiometry",
+        "reference-channel-common-mode-rejection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전극 접촉·기준 전위·조직 전도도·움직임 잡음의 영향을 받는다. 이온 선택 전극의 평형 전위와 다르며 표면 전위만으로 원천 위치나 질환을 유일하게 결정하지 못한다."
+    },
+    {
+      "key": "sequence-directed-dna-cleavage",
+      "related_keys": [
+        "biomolecular-recognition",
+        "genetic-loss-of-function",
+        "homologous-recombination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "인식 특이성·접근성·비표적 절단을 확인한다. 절단 뒤 복구 결과는 별도이며 상동 재조합이나 유전자 기능 상실이 항상 발생하는 것은 아니다."
+    },
+    {
+      "key": "countercurrent-washing",
+      "related_keys": [
+        "solid-liquid-leaching",
+        "solvent-extraction",
+        "gravity-settling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단수·액량·혼합·잔류액·단계 효율을 평가한다. 침강 자체나 단일 추출 평형과 구분되는 접촉 방식이며 같은 세척액으로 항상 완전 제거되는 것은 아니다."
+    },
+    {
+      "key": "ran-dependent-nucleocytoplasmic-transport",
+      "related_keys": [
+        "signal-directed-protein-localization",
+        "guanine-nucleotide-switch"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수용체·화물 신호·Ran 조절계가 맞아야 한다. 표적 신호의 주소 지정과 구분되는 수송 주기이며 ATP 막펌프처럼 핵공을 직접 미는 것으로 해석하지 않는다."
+    },
+    {
+      "key": "nitrile-hydrogenation-to-amine",
+      "related_keys": [
+        "catalytic-hydrogenation",
+        "amide-carbonyl-reduction",
+        "nitro-group-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매 수소화의 기질별 하위 반응이다. 니트로기·아미드 환원과 결합 변화가 다르며 이차 아민 형성·다른 작용기 환원·촉매 열화를 고려한다."
+    },
+    {
+      "key": "flexure-hinge-motion",
+      "related_keys": [
+        "elastic-energy-recovery",
+        "articulated-linkage-motion",
+        "section-moment-stiffening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변형 범위·응력·피로·기생 이동을 평가한다. 에너지 저장 일반과 달리 운동을 안내하는 용도이며 이상적인 회전축이나 무한 회전을 제공하지 않는다."
+    },
+    {
+      "key": "surface-anchoring-liquid-crystals",
+      "related_keys": [
+        "liquid-crystal-modulation",
+        "oblique-deposition-self-shadowing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "재료·표면 지형·처리·온도에 의존한다. 전기장에 의한 벌크 재배향과 다른 경계 조건이며 충분한 외력이나 상전이에서 고정 배향이 달라질 수 있다."
+    },
+    {
+      "key": "oblique-deposition-self-shadowing",
+      "related_keys": [
+        "sputter-deposition",
+        "thermal-chemical-vapor-deposition",
+        "geometric-optical-occlusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입사 방향·표면 확산·성장 속도·기판 회전에 의존한다. 막 재료를 붙이는 일반 증착과 구분되는 형상 선택 기전이며 모든 경사 증착에서 같은 구조가 생기지는 않는다."
+    },
+    {
+      "key": "deubiquitination-regulation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "target-induced-protein-degradation",
+        "sumoylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·유비퀴틴 연결 형태·효소 조절 상태에 따라 결과가 다르다. 분해 유도나 SUMO 접합과 다른 표지 제거 단계이며 항상 단백질 안정화만 일어나는 것은 아니다."
+    },
+    {
+      "key": "carbonyl-reduction-to-alcohol",
+      "related_keys": [
+        "catalytic-hydrogenation",
+        "ester-hydride-reduction",
+        "amide-carbonyl-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "환원제·촉매·기질에 따라 선택성이 달라진다. 에스터의 결합 절단을 동반하는 환원 및 아미드의 아민 전환과 구분하며 다른 불포화 결합의 환원도 확인한다."
+    },
+    {
+      "key": "hierarchical-spatial-partition",
+      "related_keys": [
+        "packet-fragmentation-reassembly",
+        "motion-compensated-prediction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분할 비용과 표현 오차 사이 절충이 필요하다. 패킷 조각화와 목적이 다르며 특정 특허가 표준의 모든 쿼드트리 규칙을 쓴다고 가정하지 않는다."
+    },
+    {
+      "key": "resistive-shunt-current-sensing",
+      "related_keys": [
+        "hall-effect",
+        "electromagnetic-induction",
+        "joule-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "저항 온도계수·접촉 저항·증폭기 오프셋·발열을 보정한다. 홀·유도식 검출과 달리 경로에 저항 손실을 만들며 연결부 저항을 사용할 때는 현장 교정이 필요하다."
+    },
+    {
+      "key": "guanine-nucleotide-switch",
+      "related_keys": [
+        "allosteric-cooperativity",
+        "receptor-ligand-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "해당 단백질·조절 인자·국소 뉴클레오타이드 공급이 필요하다. 단백질 인산화와 다른 결합 뉴클레오타이드 주기이며 활성 상태의 생물학적 출력은 경로마다 다르다."
+    },
+    {
+      "key": "competitive-binding-assay",
+      "related_keys": [
+        "biomolecular-recognition",
+        "fluorescence-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평형 또는 재현 가능한 반응 시간·교차 반응·시료 간섭을 확인한다. 생체분자 인식의 정량 하위 방식이며 신호와 농도의 관계는 검사 구성에 따라 달라진다."
+    },
+    {
+      "key": "dehydrohalogenation",
+      "related_keys": [
+        "alcohol-dehydration-to-alkene",
+        "nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·입체 배치·반응 환경에 따라 치환과 경쟁한다. 알코올 탈수와 제거되는 성분이 다르며 모든 탈할로젠화가 알켄을 만드는 것은 아니다."
+    },
+    {
+      "key": "counter-rotating-vortex-interaction",
+      "related_keys": [
+        "fluid-dynamic-lift",
+        "turbulent-transport-enhancement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "회전 방향뿐 아니라 하중·위치·후류 겹침을 평가한다. 선형 파동의 상쇄와 다르며 전체 와류 소멸이나 항력 제거를 보장하지 않는다."
+    },
+    {
+      "key": "protein-pore-membrane-permeabilization",
+      "related_keys": [
+        "ion-channel-modulation",
+        "electroporation",
+        "osmosis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단백질·막 조성·표적 인식에 의존한다. 기존 이온 채널의 개폐나 전기천공과 구분되는 일반 현상이며 생물별 독성·효능이나 설계 조건을 제공하지 않는다."
+    },
+    {
+      "key": "reversible-binding-concentration-buffer",
+      "related_keys": [
+        "coordination-complexation",
+        "binding-residence-time",
+        "acid-base-buffering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결합 용량·평형 상수·해리 속도·희석을 함께 평가한다. 산도 완충과 다른 결합 저장고이며 농도가 일정하게 고정되거나 희석에 선형 비례하는 것은 아니다."
+    },
+    {
+      "key": "specular-reflection-steering",
+      "related_keys": [
+        "optical-reflectometry",
+        "rough-surface-diffuse-reflection",
+        "refraction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표면 거칠기·파장·코팅·형상 오차를 고려한다. 반사율 측정이나 거친 면의 확산 반사와 기능이 다르며 반사 손실과 광학 불변량의 제한을 받는다."
+    },
+    {
+      "key": "redox-initiated-radical-generation",
+      "related_keys": [
+        "advanced-oxidation",
+        "photoinitiated-radical-generation",
+        "thermal-homolytic-radical-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산화환원쌍·매질·산소·반응열에 의존한다. 광·열 개시와 입력 방식이 다르며 고도 산화와 라디칼 생성 기전을 공유하지만 목적 반응은 별도이다."
+    },
+    {
+      "key": "xray-diffraction-line-broadening",
+      "related_keys": [
+        "diffraction",
+        "bragg-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "크기·변형·결함의 기여 분리와 적절한 모형이 필요하다. 회절각으로 상을 식별하는 것과 다르며 선 폭 하나를 곧바로 입자 크기나 강도로 환산할 수 없다."
+    },
+    {
+      "key": "hydrodeoxygenation-carbon-oxygen-cleavage",
+      "related_keys": [
+        "catalytic-hydrogenation",
+        "hydrodesulfurization",
+        "carbonyl-reduction-to-alcohol"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "불포화 결합의 수소 첨가와 다른 탈산소 출력이다. 수소화·탈수·탈탄산 등이 경쟁할 수 있으므로 탄소 골격 보존과 생성물 선택성은 반응계별로 확인한다."
+    },
+    {
+      "key": "bisulfite-carbonyl-addition",
+      "related_keys": [
+        "carbon-nucleophile-carbonyl-addition",
+        "thiol-carbonyl-addition",
+        "solvent-extraction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "카보닐의 입체·전자 구조와 평형에 의존한다. 탄소 친핵 부가·티올 부가와 다른 이온성 유도체이며 모든 케톤을 같은 효율로 분리하지 않는다."
+    },
+    {
+      "key": "simulated-moving-bed-separation",
+      "related_keys": [
+        "chromatography",
+        "adsorption",
+        "countercurrent-washing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "흡착 선택성·유량·포트 전환 주기와 주기 정상상태를 평가한다. 일반 크로마토그래피의 연속 접촉 방식이며 역류 세척처럼 고체를 실제 이동시키는 것은 아니다."
+    },
+    {
+      "key": "directed-aromatic-metalation",
+      "related_keys": [
+        "acid-base-reaction",
+        "transmetalation",
+        "halogen-metal-exchange"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·염기·용매·응집 상태에 따라 위치 선택성이 달라진다. 유기기의 금속 간 전달이나 할로젠·금속 교환과 출발 결합이 다르며 단일 경로를 모든 계에 적용하지 않는다."
+    },
+    {
+      "key": "enantioselective-kinetic-resolution",
+      "related_keys": [
+        "enzyme-catalysis",
+        "carboxylic-acid-esterification",
+        "chromatography"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "반응 진행률과 선택성·분리 공정이 필요하다. 일반 효소 촉매·에스터화와 달리 속도 차를 분리에 쓰며 라세미화가 없는 단순 분할은 수율과 광학 순도 사이 제한이 있다."
+    },
+    {
+      "key": "choked-converging-diverging-nozzle",
+      "related_keys": [
+        "pressure-driven-flow",
+        "venturi-entrainment",
+        "compressible-shock-wave"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입구 상태·면적비·배압이 맞아야 한다. 비압축성 벤투리와 다르며 확대관이 항상 가속시키는 것은 아니다. 충격파·박리·열전달이 이상 모형을 바꾼다."
+    },
+    {
+      "key": "somatic-lineage-reprogramming",
+      "related_keys": [
+        "progenitor-cell-differentiation",
+        "plant-cell-totipotency",
+        "transcription-factor-regulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "세포 정체성·기능·안정성을 따로 확인한다. 이미 정해진 전구세포 분화나 식물 기관 재생과 구분하며 특허의 표지 발현만으로 완전한 기능 전환을 입증하지 않는다."
+    },
+    {
+      "key": "riboswitch-ligand-responsive-regulation",
+      "related_keys": [
+        "transcription-factor-regulation",
+        "antisense-gene-suppression",
+        "allosteric-cooperativity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "적합한 RNA·리간드·세포 맥락이 필요하다. 단백질 전사인자와 상보성 안티센스 작용과 다르며 모든 RNA 결합이 발현 변화로 연결되는 것은 아니다."
+    },
+    {
+      "key": "electrochemical-chloride-oxidation",
+      "related_keys": [
+        "water-electrolysis",
+        "hypochlorite-oxidative-inactivation",
+        "acid-base-reaction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전극·염 농도·pH·물질 전달에 따라 산소 발생과 부산물 생성이 경쟁한다. 물 전해 및 생성된 산화제의 불활성화 작용과 구분되는 생성 단계이다."
+    },
+    {
+      "key": "self-forming-filter-cake",
+      "related_keys": [
+        "fibrous-filtration",
+        "sieve-size-separation",
+        "pressure-driven-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입도·층 공극률·압축성·압력차를 확인한다. 고정 섬유나 체 구멍만의 여과와 달리 운전 중 매질이 형성되며 두꺼워질수록 유량이 감소할 수 있다."
+    },
+    {
+      "key": "electrochemical-carbon-dioxide-to-carbon-monoxide",
+      "related_keys": [
+        "solid-oxide-oxygen-pumping",
+        "water-electrolysis",
+        "carbon-oxide-methanation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매·전해질·온도·전위에 따라 선택성과 전력 소요가 달라진다. 산소 펌핑과 결합되지만 탄소 산화물 전환이 출력이며 탄소 침적·경쟁 반응을 확인한다."
+    },
+    {
+      "key": "carrier-linked-antigen-recognition",
+      "related_keys": [
+        "antigen-specific-immunization",
+        "biomolecular-recognition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "항원·담체·연결 구조·처리 경로에 의존한다. 항원 특이 면역 유도의 하위 기전이며 단순 혼합과 구분한다. 모든 결합 백신이 같은 제시 경로나 보호력을 갖지는 않는다."
+    },
+    {
+      "key": "serpin-protease-trapping",
+      "related_keys": [
+        "enzyme-inhibition",
+        "binding-residence-time",
+        "target-induced-protein-degradation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "해당 세르핀·효소 조합과 반응 분기가 중요하다. 효소 저해의 구체적 하위 기전이며 단순 경쟁 결합이나 표적 단백질의 분해 유도와 다르다."
+    },
+    {
+      "key": "alcohol-sulfate-ester-formation",
+      "related_keys": [
+        "carboxylic-acid-esterification",
+        "surfactant-action"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질과 황산화 경로에 맞는 선택성·안정성 검증이 필요하다. 탄소·황 결합의 술폰화나 카르복실산 에스터화와 결합 구조가 다르며 계면활성은 분자 전체 구조에 의존한다."
+    },
+    {
+      "key": "alpha-helical-coiled-coil-assembly",
+      "related_keys": [
+        "hydrophobic-association",
+        "chaperone-assisted-folding",
+        "multivalent-avidity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "서열 맥락과 용액 조건에 따라 결합 수·방향·안정성이 달라진다. 샤페론의 접힘 보조와 다른 자가 조립이며 특정 병원체의 서열 설계나 기능 최적화를 뜻하지 않는다."
+    },
+    {
+      "key": "effective-medium-dielectric-permittivity",
+      "related_keys": [
+        "dielectric-insulation",
+        "capacitive-sensing",
+        "porous-gas-trapping-insulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상 비율·형상·연결성·주파수·수분에 의존한다. 단순 절연 성능이나 기체 열차단과 다른 물성이며 항상 체적 평균으로 계산할 수 없다."
+    },
+    {
+      "key": "halogen-metal-exchange",
+      "related_keys": [
+        "directed-aromatic-metalation",
+        "transmetalation",
+        "nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "할로젠 종류·시약·기질·용매에 따라 속도와 선택성이 달라진다. 수소 제거에 의한 금속화 및 두 금속 사이 유기기 전달과 출발 결합이 다르다."
+    },
+    {
+      "key": "multiscale-property-upscaling",
+      "related_keys": [
+        "geophysical-inverse-reconstruction",
+        "discrete-static-equilibrium-solving",
+        "effective-medium-dielectric-permittivity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "대표 부피·경계 조건·척도 분리와 비균질성을 검증한다. 관측값으로 물성을 찾는 역산과 다른 모형 간 전달이며 작은 표본의 물성이 전체를 대표한다고 보장하지 않는다."
+    },
+    {
+      "key": "bosch-carbon-dioxide-reduction",
+      "related_keys": [
+        "water-gas-shift",
+        "carbon-oxide-methanation",
+        "steam-carbon-activation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매·평형·열 및 고체 탄소 제거를 관리한다. 메탄 생성·CO 전해 생성과 최종 생성물이 다르며 특정 탄소 동소체나 완전 전환을 보장하지 않는다."
+    },
+    {
+      "key": "magnetic-dipole-alignment-torque",
+      "related_keys": [
+        "magnetic-adhesion",
+        "reluctance-actuation",
+        "lorentz-actuation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자속·극 배치·부하각·구동 동기와 열을 고려한다. 단순 자성체 흡착 및 자기저항 감소 구동과 토크 기여를 구분하며 큰 부하에서 동기를 잃을 수 있다."
+    },
+    {
+      "key": "transition-metal-cross-coupling",
+      "related_keys": [
+        "transmetalation",
+        "nucleophilic-substitution",
+        "catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매·리간드·기질 조합마다 경로와 부반응이 다르다. 트랜스메탈화 한 단계와 전체 결합 변환을 구분하며 이름이 다른 동일 주기 반응을 별도 효과로 중복 세지 않는다."
+    },
+    {
+      "key": "sulfide-oxygen-transfer-oxidation",
+      "related_keys": [
+        "sulfide-oxidative-imination",
+        "advanced-oxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산화제·촉매·기질에 따른 선택성과 과산화를 확인한다. 질소를 도입하는 황의 산화적 이미노화와 다르며 산소 전달의 세부 경로는 반응계별로 다르다."
+    },
+    {
+      "key": "chromatic-dispersion-spatial-separation",
+      "related_keys": [
+        "refraction",
+        "diffraction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "재료 분산·입사각·개구·흡수를 고려한다. 굴절의 하위 기능이며 회절격자의 간섭 분리와 기전이 다르다. 같은 분산은 초단 펄스의 시간 폭도 바꿀 수 있다."
+    },
+    {
+      "key": "frictional-failure-stress-constraint",
+      "related_keys": [
+        "frictional-load-transmission",
+        "geophysical-inverse-reconstruction",
+        "discrete-static-equilibrium-solving"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "마찰계수·공극압·단층 방향·응력 체계 가정이 필요하다. 정적 평형만의 해석과 다르며 허용 영역을 얻어도 실제 응력의 유일한 값이 정해지는 것은 아니다."
+    },
+    {
+      "key": "thermal-homolytic-radical-generation",
+      "related_keys": [
+        "pyrolysis",
+        "photoinitiated-radical-generation",
+        "redox-initiated-radical-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개시제 반감기·용매·산소·열수지를 고려한다. 열분해의 라디칼 개시 하위 기전이며 광·산화환원 개시와 에너지 입력이 다르고 생성 라디칼 모두가 유효 개시에 쓰이지는 않는다."
+    },
+    {
+      "key": "reference-channel-common-mode-rejection",
+      "related_keys": [
+        "twisted-pair-interference-cancellation",
+        "lock-in-detection",
+        "signal-correlation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이득·위상·지연의 일치와 기준 경로의 신호 누설을 확인한다. 동기검파나 연선 배치와 다른 신호 처리이며 상관이 낮은 잡음은 차분으로 제거되지 않는다."
+    },
+    {
+      "key": "partial-discharge-radiation-detection",
+      "related_keys": [
+        "electrical-continuity-sensing",
+        "residual-current-detection",
+        "electromagnetic-induction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "주파수 응답·전파 경로·외부 잡음·검출 감도를 교정한다. 전체 절연 파괴·누설전류 측정과 다르며 방사 신호 크기만으로 결함 크기나 수명을 직접 확정하지 않는다."
+    },
+    {
+      "key": "multivalent-ion-polysaccharide-crosslinking",
+      "related_keys": [
+        "gelation",
+        "polyelectrolyte-complexation",
+        "borate-diol-reversible-crosslinking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "다당류 구조·에스터화도·이온 농도·염 경쟁에 의존한다. 겔화의 이온 연결 하위 기전이며 두 고분자 전해질의 복합화나 붕산·디올 결합과 다르다."
+    },
+    {
+      "key": "polymer-viscosity-temperature-compensation",
+      "related_keys": [
+        "polymer-molecular-weight-viscosity",
+        "shear-thinning",
+        "polymer-solvent-dissolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고분자·용매·농도·전단 이력에 의존한다. 모든 개선제가 온도 상승 시 코일 팽창을 보이는 것은 아니다. 한 온도에서의 단순 분자량 증점과 구분한다."
+    },
+    {
+      "key": "heme-monooxygenase-oxygen-insertion",
+      "related_keys": [
+        "enzyme-catalysis",
+        "enzyme-electron-transfer",
+        "advanced-oxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·기질·전자 공여계·산소 공급에 의존한다. 효소 촉매의 구체 산화 기전이며 모든 P450 반응이 수산화인 것은 아니다. 특허의 대사 산물을 초록만으로 특정하지 않는다."
+    },
+    {
+      "key": "pressure-swing-adsorptive-separation",
+      "related_keys": [
+        "adsorption",
+        "simulated-moving-bed-separation",
+        "pressure-driven-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "흡착 등온선·선택도·확산 속도·퍼지·압축 에너지를 함께 고려한다. 일반 흡착의 압력 재생 하위 기전이며 모사 이동층의 접촉 위치 순환과 다르다."
+    },
+    {
+      "key": "ionization-dependent-membrane-permeation",
+      "related_keys": [
+        "ionization-solubility",
+        "first-pass-metabolism-bypass",
+        "gas-solution-diffusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "pKa·용해도·막 종류·농도 구배를 확인한다. 이온형도 통과할 수 있고 용해도 감소가 흡수를 제한할 수 있다. 수중 용해도 조절·초회 통과 우회와 다른 과정이다."
+    },
+    {
+      "key": "disulfide-reductive-cleavage",
+      "related_keys": [
+        "glutaredoxin-thiol-redox",
+        "nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "환원 전위·pH·입체 접근성과 다른 작용기의 반응을 고려한다. 글루타레독신의 효소 조절과 원리를 공유하는 화학적 환원 범위이며 재산화를 방지해야 한다."
+    },
+    {
+      "key": "adsorptive-crystal-growth-inhibition",
+      "related_keys": [
+        "adsorption",
+        "nucleation-barrier",
+        "amorphous-solid-dispersion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결정면·첨가제 친화도·과포화도·농도에 의존한다. 핵생성 억제나 유리화와 구별하며 모든 고분자 결정화 억제제가 이 경로만 사용하는 것은 아니다."
+    },
+    {
+      "key": "hierarchical-pore-mass-transfer",
+      "related_keys": [
+        "catalysis",
+        "gas-solution-diffusion",
+        "catalytic-hydrogenation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "연결성·굴곡도·반응 속도와 확산 속도의 비·표면적 손실을 평가한다. 두 기공 크기가 있다는 사실만으로 성능 향상을 보장하지 않는다. 촉매 반응 자체와 구분한다."
+    },
+    {
+      "key": "electron-cyclotron-resonance-heating",
+      "related_keys": [
+        "dielectric-heating",
+        "induction-heating",
+        "nuclear-magnetic-resonance",
+        "lorentz-actuation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "비상대론적 기본 공명은 각주파수 eB/m에 대응한다. 자기장 분포·충돌·파동 접근성·밀도를 고려한다. 핵 스핀 공명이나 벌크 유전 가열과 다른 전자 회전 공명이다."
+    },
+    {
+      "key": "polymer-chain-end-deactivation",
+      "related_keys": [
+        "pyrolysis",
+        "phenolic-radical-termination",
+        "polymer-chain-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "말단 유래 분해가 중요한 고분자에 적용한다. 무작위 사슬 절단이나 다른 열분해는 남을 수 있다. 라디칼 사슬 종결·산화방지·중합 중 사슬 이동과 구분한다."
+    },
+    {
+      "key": "amino-acid-pool-translation-fidelity",
+      "related_keys": [
+        "heterologous-gene-expression",
+        "metabolic-flux-redistribution",
+        "biomolecular-recognition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "아미노아실 tRNA 합성효소의 선택성·교정·세포 내 농도에 의존한다. 메티오닌 공급에 의한 노르류신 오삽입 감소가 한 사례이며 모든 유사체나 발현계에 일반화하지 않는다."
+    },
+    {
+      "key": "triangulated-tension-bracing",
+      "related_keys": [
+        "section-moment-stiffening",
+        "articulated-linkage-motion",
+        "discrete-static-equilibrium-solving"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "인장재의 느슨함·초기 장력·접합부·하중 방향에 의존한다. 압축을 지지하지 못하는 케이블은 반대 방향 가새가 필요하다. 부재 단면 강성 증가와 다른 구조 기하의 구속이다."
+    },
+    {
+      "key": "product-autocatalysis",
+      "related_keys": [
+        "catalysis",
+        "le-chatelier-equilibrium-shift",
+        "positive-feedback-oscillation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질 고갈·촉매 비활성화·역반응·열 및 물질 전달에 따라 거동이 달라진다. 일반 촉매의 생성물 피드백 하위 기전이며 항상 폭주나 특정 S자 곡선을 뜻하지 않는다."
+    },
+    {
+      "key": "rheopexy",
+      "related_keys": [
+        "shear-thickening",
+        "thixotropy",
+        "gelation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전단률·이력·온도·구조 회복성을 함께 측정한다. 전단률 증가에 대한 즉시 농화와 구분하고 비가역 경화도 배제한다. 특허의 탄환 정지 성능을 이 현상만으로 검증하지 않는다."
+    },
+    {
+      "key": "parametric-spatial-audio-reconstruction",
+      "related_keys": [
+        "linear-channel-downmixing",
+        "cross-channel-predictive-coding",
+        "parametric-bandwidth-extension"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "매개변수의 시간·주파수 해상도와 소스 상관에 의존한다. 원래 파형의 무손실 복원은 아니며 단순 다운믹스나 잔차 예측 부호화와 구분한다."
+    },
+    {
+      "key": "gas-diffusion-electrode-three-phase-contact",
+      "related_keys": [
+        "wetting-control",
+        "fuel-cell",
+        "electrochemical-cell",
+        "capillary-entry-barrier"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "젖음·기체압·전해질 침투 깊이·촉매 위치에 의존한다. 침수와 건조 모두 반응 면적을 줄일 수 있다. 실제 반응은 얇은 액막을 거칠 수 있어 이상적 접촉선에만 국한하지 않는다."
+    },
+    {
+      "key": "glyoxalase-carbonyl-detoxification",
+      "related_keys": [
+        "enzyme-catalysis",
+        "thiol-carbonyl-addition",
+        "hydrolysis",
+        "metabolic-flux-redistribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소 계열·기질·보조인자 공급을 확인한다. 글루타티온 비의존 경로도 있어 명칭만으로 경로를 특정하지 않는다. 일반 효소 촉매의 카보닐 해독 사례이며 발효 개선량을 보장하지 않는다."
+    },
+    {
+      "key": "imide-cyclodehydration",
+      "related_keys": [
+        "peptide-bond-coupling",
+        "polymerization",
+        "amide-dehydration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전구체 기하·온도·탈수 조건·수분 및 용매 제거에 의존한다. 단순 아미드 결합과 달리 고리를 닫는 단계이며 고분자 사슬 증가와 이미드화는 별도 과정일 수 있다."
+    },
+    {
+      "key": "polymer-steric-dispersion-stabilization",
+      "related_keys": [
+        "double-layer-repulsion",
+        "pegylation-steric-shielding",
+        "coagulation-flocculation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표면 피복·사슬 길이·용매 품질·흡착 안정성이 필요하다. 부족한 피복은 가교 응집을 만들 수 있다. 전기 이중층 반발과 구분하며 PEG 단백질 차폐와 상위 입체 반발 원리를 공유한다."
+    },
+    {
+      "key": "diffusion-flame-reaction-sheet",
+      "related_keys": [
+        "combustion-heating",
+        "turbulent-transport-enhancement",
+        "catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유한 반응 속도·변형률·열손실·부력·난류를 고려한다. 얇은 반응면은 근사이며 소염·들뜸이 생길 수 있다. 연소 발열 자체와 다른 혼합 제한 기전이다."
+    },
+    {
+      "key": "size-dependent-glomerular-clearance",
+      "related_keys": [
+        "ultrafiltration",
+        "fcrn-recycling",
+        "albumin-binding-half-life-extension"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분자량만으로 결정하지 않으며 전하·변형성·장벽 상태·세뇨관 회수·다른 제거 경로를 고려한다. 막 체거름의 생물학적 하위 사례이며 FcRn 재순환과 독립적이다."
+    },
+    {
+      "key": "endothermic-hydroxide-dehydration",
+      "related_keys": [
+        "thermochemical-heat-storage",
+        "phase-change-storage",
+        "metal-oxide-hydration-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분해 온도 범위·가열률·함량·입도와 고분자 분해 시점의 정합을 확인한다. 상변화가 아닌 화학 반응이며 방출 증기와 잔류물의 추가 난연 작용은 따로 평가한다."
+    },
+    {
+      "key": "intumescent-char-barrier",
+      "related_keys": [
+        "barrier-coating",
+        "chemical-foaming",
+        "porous-gas-trapping-insulation",
+        "pyrolysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "발포 시점·용융 점도·탄화 수율·층 부착·균열·고온 복사를 고려한다. 팽창 배율만으로 보호 성능을 판단하지 않는다. 기존 차단막의 열 반응형 하위 기전이다."
+    },
+    {
+      "key": "peptidoglycan-precursor-sequestration",
+      "related_keys": [
+        "biomolecular-recognition",
+        "enzyme-inhibition",
+        "soluble-receptor-ligand-trap"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표적 말단의 치환·약물 접근성·농도에 의존한다. 효소 활성 부위를 직접 막는 저해와 구분되는 기질 포획이며 모든 항균제에 적용하지 않는다. 흡입 제형의 임상 효능은 별도 검증 대상이다."
+    },
+    {
+      "key": "mechanical-resonance-property-sensing",
+      "related_keys": [
+        "quartz-crystal-microbalance",
+        "dynamic-system-identification",
+        "resonant-absorber"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "온도·유체 부가 질량·감쇠·지지 조건을 분리해야 한다. 주파수 하나만으로 질량과 강성을 모두 식별할 수 없다. 수정 미량저울을 포함하는 상위 계측 원리이며 추정 알고리즘과 구분한다."
+    },
+    {
+      "key": "configurational-diffusion-molecular-sieving",
+      "related_keys": [
+        "adsorption",
+        "nanofiltration",
+        "gas-solution-diffusion",
+        "sieve-size-separation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기공 크기·유연성·결함·흡착·온도·혼합물 경쟁에 의존한다. 평형 흡착 선택성과 함께 작용할 수 있으며 거시적 체질이나 치밀막의 용해 확산과 구분한다."
+    },
+    {
+      "key": "aldehyde-oxidation-to-carboxylate",
+      "related_keys": [
+        "alcohol-oxidation-to-carbonyl",
+        "advanced-oxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·산화제·pH·부반응을 확인한다. 아염소산염 경로에서는 차아염소산 부산물의 포획이 선택성에 중요할 수 있다. 알코올의 카보닐 형성과 구분되는 후속 산화 단계이다."
+    },
+    {
+      "key": "collagen-lysyl-hydroxylation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "heme-monooxygenase-oxygen-insertion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소 위치·기질 부위·산소·철·보조기질과 후속 가교 효소에 의존한다. P450 헤임 산소화와 다른 효소 경로이며 발현 증가가 피부 개선이나 임상 효능을 보장하지 않는다."
+    },
+    {
+      "key": "intramolecular-crosslink-conformational-stabilization",
+      "related_keys": [
+        "disulfide-reductive-cleavage",
+        "crosslink-mesh-diffusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "서열·가교 위치·산화환원 환경·응집·잘못 짝지어진 결합에 의존한다. 잘못 배치한 가교는 불안정화하며 산화만으로 본래 구조를 보장하지 않는다. 분자 사이 망 형성·샤페론 보조와 구분한다."
+    },
+    {
+      "key": "bacterial-type-iv-dna-transfer",
+      "related_keys": [
+        "signal-directed-protein-localization",
+        "sequence-directed-dna-cleavage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전달 신호·장치·에너지 공급과 숙주 적합성이 필요하다. 전달과 핵 이동·유전체 통합·발현은 별도 단계이며 전기천공과 물리적 유전자 투사와 구분한다."
+    },
+    {
+      "key": "self-immolative-linker-fragmentation",
+      "related_keys": [
+        "hydrolysis",
+        "antigen-targeted-payload-delivery"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉발 선택성·중간체 수명·물·pH·부산물에 의존한다. 최초 효소 절단과 후속 자발적 분해를 구분하며 모든 가수분해성 연결자가 자기분해 연결자는 아니다."
+    },
+    {
+      "key": "matrix-assisted-laser-desorption-ionization",
+      "related_keys": [
+        "laser-ablation",
+        "electrospray-ionization",
+        "mass-to-charge-spectrometric-separation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "매트릭스·파장·에너지·결정 균일성·시료 조성이 중요하다. 세부 이온 생성 경로는 조건에 따라 다르며 분해·이온 억제가 가능하다. 레이저 제거 가공과 측정 목적이 다르다."
+    },
+    {
+      "key": "electrospray-ionization",
+      "related_keys": [
+        "electrospinning",
+        "matrix-assisted-laser-desorption-ionization",
+        "mass-to-charge-spectrometric-separation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전압·유량·용매·염 농도·탈용매화 조건에 의존한다. 다중 전하와 이온 억제·부가체를 고려하며 섬유를 만드는 전기방사와 생성물이 다르다."
+    },
+    {
+      "key": "mass-to-charge-spectrometric-separation",
+      "related_keys": [
+        "time-of-flight",
+        "electrospray-ionization",
+        "matrix-assisted-laser-desorption-ionization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분석기마다 사용하는 운동 원리가 다르다. 이온화·전하수·동위원소·분해·분해능을 확인하며 피크 하나만으로 분자 구조를 확정하지 않는다. 일반 거리 측정 ToF와 목적이 다르다."
+    },
+    {
+      "key": "finite-state-transducer-decoding",
+      "related_keys": [
+        "state-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "망 구성·전이 규칙·가지치기와 가중치 해석에 의존한다. 특허의 토큰 전파가 특정 최적화 알고리즘을 뜻하지는 않는다. 최단 경로 계산과 구분되는 표현·해독 구조이다."
+    },
+    {
+      "key": "microtubule-dynamic-instability-modulation",
+      "related_keys": [
+        "guanine-nucleotide-switch",
+        "enzyme-inhibition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "튜불린·뉴클레오타이드·결합 물질·농도에 의존한다. 안정화와 탈중합 모두 기능을 방해할 수 있으며 일반 효소 저해나 GTP 신호 스위치와 구분한다."
+    },
+    {
+      "key": "systemic-acquired-resistance",
+      "related_keys": [
+        "innate-pattern-recognition",
+        "antigen-specific-immunization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "식물 종·신호 경로·영양·유도 시점에 의존하며 성장 비용이 생길 수 있다. 최초 패턴 인식이나 약제의 직접 살균과 구분하며 포유류 항원 기억과 동일시하지 않는다."
+    },
+    {
+      "key": "range-based-multilateration",
+      "related_keys": [
+        "time-of-flight",
+        "state-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기준점 배치·시간 기준·전파 지연·다중 경로·측정 오차를 고려한다. 일반적인 3차원 위치와 공통 시계 오차에는 최소 네 개의 독립 제약이 필요하며 단일 ToF 측정과 구분한다."
+    },
+    {
+      "key": "sterol-binding-membrane-function-disruption",
+      "related_keys": [
+        "protein-pore-membrane-permeabilization",
+        "enzyme-inhibition",
+        "biomolecular-recognition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "스테롤 종류·접근성·농도·균종에 의존한다. 모든 폴리엔의 작용을 이 경로로 일반화하지 않으며 단백질 기공 형성 및 스테롤 합성 효소 저해와 구분한다."
+    },
+    {
+      "key": "phage-replication-host-lysis",
+      "related_keys": [
+        "enzyme-catalysis",
+        "protein-pore-membrane-permeabilization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "숙주 범위·세균 생리·흡착·잠복기·환경·내성에 의존한다. 용원성 감염과 구분하며 살균제 병용은 파지 활성을 저해할 수도 있다. 단순 항균 효소 투여와 자기 증식 경로가 다르다."
+    },
+    {
+      "key": "electrospark-material-transfer-deposition",
+      "related_keys": [
+        "electrical-discharge-machining"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전기적 접촉 경로·펄스 에너지·재료 상용성·반복 조건에 의존한다. 비금속 기판에는 도전성 중간층 등이 필요할 수 있다. 주목적이 재료 제거인 방전 가공과 물질 이동 방향이 다르다."
+    },
+    {
+      "key": "immune-cell-target-bridging",
+      "related_keys": [
+        "antibody-dependent-cellular-cytotoxicity",
+        "biomolecular-recognition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결합 부위·친화도·배치·항원 밀도·T세포 상태에 의존한다. Fc 수용체를 경유하는 ADCC와 구분하며 비표적 활성·과도한 사이토카인 반응을 평가해야 한다."
+    },
+    {
+      "key": "interfacial-enzyme-substrate-access",
+      "related_keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소 종류·유화제·액적 크기·담즙 성분·반응 생성물에 의존한다. 모든 리파아제의 뚜껑 구조 활성화를 전제하지 않으며 일반 효소 촉매와 계면 접근 제한 단계를 구분한다."
+    },
+    {
+      "key": "bainitic-transformation",
+      "related_keys": [
+        "martensitic-hardening",
+        "martensite-tempering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "합금·냉각 및 유지 이력에 따라 탄화물 형성과 조직 크기가 달라진다. 마르텐사이트 급랭이나 이후 뜨임과 구분하며 세부 변태 기전을 하나의 확산 모형으로 단정하지 않는다."
+    },
+    {
+      "key": "photochemical-cycloaddition-crosslinking",
+      "related_keys": [
+        "photoinitiated-radical-generation",
+        "polymerization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "파장·발색단 배치·농도·용매·입체 선택성에 의존한다. 2-피리돈의 4+4 반응은 해당 계의 사례이며 모든 광가교에 적용하지 않는다. 광라디칼 개시와 결합 형성 경로가 다르다."
+    },
+    {
+      "key": "lipid-packing-disruption-permeation",
+      "related_keys": [
+        "ionization-dependent-membrane-permeation",
+        "protein-pore-membrane-permeabilization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "장벽·성분·농도·분배·노출 시간에 의존한다. 가역성·자극·손상과 용해도 변화도 확인해야 하며 이온화 비율 변화나 전기천공·단백질 기공과 구분한다."
+    },
+    {
+      "key": "ring-opening-polymerization",
+      "related_keys": [
+        "polymerization",
+        "polymer-chain-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고리의 자유에너지·촉매·개시제·온도·사슬 이동을 확인한다. 글리세롤 카보네이트는 탈탄산 경로가 가능하므로 생성물을 항상 폴리카보네이트로 단정하지 않는다. 단회 개환 부가와 구분한다."
+    },
+    {
+      "key": "charge-balance-state-of-charge",
+      "related_keys": [
+        "state-estimation",
+        "resistive-shunt-current-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "초기값·측정 편향·시간 오차·손실·효율을 확인한다. 변위 환산에는 유효 면적·압축성·누설 보정이 필요하다. 오차가 누적되므로 독립 관측으로 보정한다."
+    },
+    {
+      "key": "nitroxide-radical-trapping",
+      "related_keys": [
+        "phenolic-radical-termination",
+        "polymer-chain-transfer",
+        "polymer-chain-end-deactivation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·입체장애·온도·산소와 결합 해리 속도에 의존한다. 높은 온도에서는 재해리되어 제어 중합에 쓰일 수 있다. 페놀의 수소 공여 및 다른 분자로 활성점이 옮겨가는 사슬 이동과 구분한다."
+    },
+    {
+      "key": "microbial-resource-competition",
+      "related_keys": [
+        "microbial-sulfate-reduction",
+        "enzyme-inhibition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공급 자원·수용체·성장 속도·공간 분리·환경에 의존한다. 질산염에 의한 황화물 저감에는 아질산염 저해·황화물 산화도 기여할 수 있어 경쟁 하나로 전체 효과를 설명하지 않는다."
+    },
+    {
+      "key": "conjugate-nucleophilic-addition",
+      "related_keys": [
+        "carbon-nucleophile-carbonyl-addition",
+        "nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·친핵체·촉매·용매에 따른 1,2 및 1,4 선택성과 입체 선택성을 확인한다. 카보닐 탄소 직접 부가·친핵 치환과 다르며 모든 알켄에 동일하게 성립하지 않는다."
+    },
+    {
+      "key": "coordination-insertion-chain-growth",
+      "related_keys": [
+        "polymerization",
+        "catalysis",
+        "ring-opening-polymerization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "활성 금속종·리간드·지지체·온도·압력에 의존한다. 담지 니켈의 실제 활성점과 개시 경로는 별도 검증 대상이며 모든 올리고머화가 같은 경로는 아니다. 라디칼 성장과 구분한다."
+    },
+    {
+      "key": "ensemble-averaging-noise-reduction",
+      "related_keys": [
+        "linear-frequency-filtering",
+        "reference-channel-common-mode-rejection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "신호 안정성·동기·상관·양자화·센서 편향을 확인한다. 공통 편향이나 드리프트는 단순 평균으로 없어지지 않는다. 주파수 필터와 겹칠 수 있으나 통계적 독립성에 근거한 오차 감소를 다룬다."
+    },
+    {
+      "key": "spatial-intra-prediction",
+      "related_keys": [
+        "motion-compensated-prediction",
+        "arithmetic-entropy-coding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "예측 방향·참조 가능성·경계·복원 규칙이 일치해야 한다. 질감·불연속에서는 잔차가 커질 수 있다. 다른 시점 영상을 참조하는 움직임 보상과 구분한다."
+    },
+    {
+      "key": "quantization-rate-distortion-tradeoff",
+      "related_keys": [
+        "arithmetic-entropy-coding",
+        "spatial-intra-prediction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "양자화 간격·분포·지각 중요도·후속 부호화에 의존한다. 양자화만으로 비트율 감소량을 확정하지 않으며 표본화나 무손실 엔트로피 부호화와 구분한다."
+    },
+    {
+      "key": "edge-adaptive-deblocking",
+      "related_keys": [
+        "linear-frequency-filtering",
+        "quantization-rate-distortion-tradeoff"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "실제 경계와 부호화 흔적의 구분·필터 순서·표준 규칙에 의존한다. 세부 정보 손실과 번짐이 가능하다. 일정 전달함수의 전역 선형 필터와 다른 국소 비선형 처리이다."
+    },
+    {
+      "key": "resistive-divider-position-sensing",
+      "related_keys": [
+        "piezoresistive-sensing",
+        "incremental-position-encoding",
+        "resistive-shunt-current-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "접촉 마모·부하 임피던스·트랙 선형성·전원 변동에 의존한다. 비선형 트랙도 가능하며 재료의 압저항 변화나 펄스 계수 인코딩과 구분한다."
+    },
+    {
+      "key": "water-activity-growth-limitation",
+      "related_keys": [
+        "osmosis",
+        "evaporative-concentration",
+        "thermal-biological-inactivation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "균종·온도·pH·용질 종류에 따라 성장 한계가 다르다. 수분 함량과 수분활성은 다르며 낮은 수분활성이 살균이나 모든 미생물의 성장 억제를 보장하지 않는다."
+    },
+    {
+      "key": "atomic-force-topography",
+      "related_keys": [
+        "electron-tunneling",
+        "negative-feedback",
+        "mechanical-resonance-property-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탐침 형상·탄성 상수·접착·접촉 모드·피드백·시료 변형에 의존한다. 전도성 AFM의 전류 지도와 힘 기반 지형 신호는 별도이며 전자 터널링만을 전제하지 않는다."
+    },
+    {
+      "key": "missing-frame-signal-concealment",
+      "related_keys": [
+        "automatic-repeat-request",
+        "error-correcting-code",
+        "pitch-synchronous-speech-resynthesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "손실 길이·신호 변화·모형·전환 방식에 의존한다. 원래 데이터를 정확히 복구한다는 보장은 없으며 오류 정정이나 재전송과 달리 재생 신호를 대체한다."
+    },
+    {
+      "key": "aerobic-composting-mineralization",
+      "related_keys": [
+        "anaerobic-digestion",
+        "fermentation",
+        "biofilm-treatment"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "통기·수분·공극·탄질비·온도와 기질 분해성에 의존한다. 산소 부족 시 다른 경로가 생기며 퇴비 성숙·병원체 감소는 별도 확인이 필요하다. 혐기성 소화와 전자 수용체·생성물이 다르다."
+    },
+    {
+      "key": "reactive-power-phase-control",
+      "related_keys": [
+        "capacitive-energy-storage",
+        "lc-electrical-resonance",
+        "feedforward"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "위상·크기·계통 임피던스·변환기 용량에 의존한다. 고조파·불평형에서는 단일 위상각 식만으로 충분하지 않다. 무효전력은 순 유효 에너지 공급이나 예측 제어 알고리즘 자체와 다르다."
+    },
+    {
+      "key": "antenna-current-radiation-conversion",
+      "related_keys": [
+        "electromagnetic-induction",
+        "phased-array",
+        "polarization-control"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "파장 대비 크기·전류 분포·편광·임피던스 정합·주변 도체에 의존한다. 모든 시간 변화 전류가 효율적 안테나는 아니다. 위상 배열은 여러 방사원의 결합이고 근접 유도 결합과 거리 의존성이 다르다."
+    },
+    {
+      "key": "hydrocarbon-steam-reforming",
+      "related_keys": [
+        "water-gas-shift",
+        "carbon-oxide-methanation",
+        "steam-carbon-activation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "온도·압력·수증기 비·촉매·열 및 물질 전달에 의존한다. 수성가스 전환·메탄화·탄소 퇴적이 함께 일어날 수 있다. 고체 탄소의 기공 활성화와 출발 물질·목적이 다르다."
+    },
+    {
+      "key": "aromatic-side-chain-oxidation",
+      "related_keys": [
+        "alcohol-oxidation-to-carbonyl",
+        "aldehyde-oxidation-to-carboxylate"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·개시·산소·촉매·중간체와 연쇄 반응 선택성을 확인한다. 알코올·케톤·산 등 최종 생성물은 조건에 따라 다르며 모든 C–H 산화가 같은 단계나 수율을 갖지 않는다."
+    },
+    {
+      "key": "protodecarboxylation",
+      "related_keys": [
+        "catalysis",
+        "pyrolysis",
+        "aromatic-side-chain-oxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·촉매·온도·양성자 공급원에 의존한다. 모든 카복실산이 쉽게 반응하지 않으며 탈탄산 결합 형성이나 단순 가수분해와 생성 결합이 다르다."
+    },
+    {
+      "key": "amplitude-dependent-dynamic-range-compression",
+      "related_keys": [
+        "feedforward",
+        "negative-feedback",
+        "quantization-rate-distortion-tradeoff"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "검출 방식·문턱·압축비·어택·릴리스·미리보기에 의존한다. 왜곡·펌핑·클리핑이 남을 수 있다. 데이터 비트율 압축이나 일정 이득 음량 조절과 구분한다."
+    },
+    {
+      "key": "gas-liquid-mixture-acoustic-compressibility",
+      "related_keys": [
+        "choked-converging-diverging-nozzle",
+        "acoustic-impedance-reflection",
+        "cavitation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기포 크기·체적비·압력·주파수·열 교환·슬립에 의존한다. 저주파 균질 혼합 근사와 실제 이류 음속을 구분하며 기포 공진 부근에서는 분산·감쇠가 중요하다."
+    },
+    {
+      "key": "nonoxidative-catalytic-dehydrogenation",
+      "related_keys": [
+        "oxidative-dehydrogenation",
+        "catalytic-hydrogenation",
+        "catalytic-hydrocarbon-cracking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "높은 온도·수소 분압·평형·체류 시간·코크 생성·촉매 열화를 고려한다. 산화 탈수소와 산소 소비·열수지가 다르고 단순 열분해와도 경쟁 경로가 다르다."
+    },
+    {
+      "key": "thermal-reaction-quenching",
+      "related_keys": [
+        "pyrolysis",
+        "forced-convection",
+        "le-chatelier-equilibrium-shift"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "냉각 속도·혼합·온도 분포와 경쟁 반응 속도에 의존한다. 모든 반응이 동시에 멈추는 것은 아니며 냉각 중 새로운 반응도 가능하다. 단순 열회수나 평형 이동과 시간적 반응 정지를 구분한다."
+    },
+    {
+      "key": "reaction-jet-thrust",
+      "related_keys": [
+        "fluid-turbine-conversion",
+        "impact-momentum-flow-sensing",
+        "choked-converging-diverging-nozzle"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유입·유출 운동량과 압력 힘·손실을 함께 계산해야 한다. 질량 유출만으로 에너지가 생기지 않으며 연소·압축 등 공급 에너지가 필요하다. 터빈은 동일 보존법칙의 다른 에너지 전달 구성이다."
+    },
+    {
+      "key": "biological-nitrogen-fixation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "enzyme-electron-transfer",
+        "aerobic-nitrification",
+        "anoxic-denitrification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소 금속 보조인자·전자 공급·산소 민감성·에너지 비용·숙주 연계에 의존한다. 식물과 균의 접촉만으로 질소 전달 증가를 보장하지 않으며 질산화·탈질과 다른 반응이다."
+    },
+    {
+      "key": "particle-motion-polarization-sensing",
+      "related_keys": [
+        "polarization-control",
+        "geophysical-inverse-reconstruction",
+        "signal-correlation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "센서 축 정렬·시간 동기·파 중첩·반사·매질 이방성에 의존한다. 편극 방향이 항상 전파 방향과 같지는 않으며 파 모형이 필요하다. 빛의 편광을 바꾸는 소자와 계측 기능이 다르다."
+    },
+    {
+      "key": "tensioned-string-eigenfrequency",
+      "related_keys": [
+        "acoustic-resonator",
+        "mechanical-resonance-property-sensing",
+        "wave-interference"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "작은 진폭·균일 현·지지 경계 근사의 범위를 확인한다. 굽힘 강성·감쇠·감김 구조는 배음에 영향을 준다. 기체 공동의 음향 공진과 매질·복원력이 다르다."
+    },
+    {
+      "key": "radical-induced-polymer-chain-scission",
+      "related_keys": [
+        "polymer-chain-transfer",
+        "polymer-chain-end-deactivation",
+        "polymer-molecular-weight-viscosity",
+        "thermal-homolytic-radical-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고분자 종류·라디칼 공급·온도·산소·체류 시간에 의존한다. 가교와 절단이 경쟁하므로 모든 고분자가 같은 거동을 보이지 않는다. 성장 사슬의 활성점 이동이나 말단 비활성화와 구분한다."
+    },
+    {
+      "key": "chimeric-receptor-signal-coupling",
+      "related_keys": [
+        "immune-cell-target-bridging",
+        "antibody-dependent-cellular-cytotoxicity",
+        "heterologous-gene-expression"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결합 영역·간격·막 배치·신호 모듈·항원 밀도·세포 상태에 의존한다. 비표적·상시 신호와 기능 저하를 평가한다. 외부 이중항체가 두 세포를 연결하는 방식 및 Fc 매개 ADCC와 구조가 다르다."
+    },
+    {
+      "key": "current-field-magnetic-ranging",
+      "related_keys": [
+        "eddy-current-sensing",
+        "geophysical-inverse-reconstruction",
+        "range-based-multilateration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전류·위치 중 어느 양이 알려져 있는지 확인한다. 귀환 경로·주변 투자율·센서 방향·잡음이 영향을 주며 둘을 동시에 유일하게 결정하지 못할 수 있다. 유도 전압 검출과 구분한다."
+    },
+    {
+      "key": "photoluminescent-wavelength-conversion",
+      "related_keys": [
+        "fluorescence-sensing",
+        "photothermal-conversion",
+        "peroxide-oxidative-bleaching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "여기 광원·방출 대역·양자수율·농도 소광·광열화를 확인한다. 총 방출 에너지가 입력 에너지를 넘는다는 뜻이 아니다. 형광을 읽는 검출 기능 및 화학 표백과 구별한다."
+    },
+    {
+      "key": "bremsstrahlung-photon-generation",
+      "related_keys": [
+        "atomic-emission-spectroscopy",
+        "radioactive-decay",
+        "ionizing-radiation-radical-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전자 에너지·전류·표적 원자번호·두께·열 부하를 확인한다. 방출 광자 에너지는 입사 전자 에너지의 제한을 받는다. 원자 전이 특성선·방사성 핵 붕괴와 발생 과정이 다르다."
+    },
+    {
+      "key": "matrix-diffusion-controlled-release",
+      "related_keys": [
+        "crosslink-mesh-diffusion",
+        "dialysis",
+        "polymer-solvent-dissolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "매트릭스의 공극·두께·용해도·외부 싱크 조건을 확인한다. 팽윤·침식이 크면 단순 확산 모델이 맞지 않으며 일정 속도 방출을 보장하지 않는다. 가교 밀도를 바꾸는 망 크기 제어와 구별한다."
+    },
+    {
+      "key": "pozzolanic-calcium-silicate-hydrate-formation",
+      "related_keys": [
+        "cement-hydration",
+        "precipitation-reaction",
+        "sol-gel"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "포졸란 반응성·입도·석회량·물·양생 온도와 시간을 확인한다. 모든 화산재가 같은 반응성을 갖지는 않는다. 클링커 광물 자체의 수화와 달리 외부 수산화칼슘을 소비하는 경로이다."
+    },
+    {
+      "key": "parameter-sensitivity-measurement-prioritization",
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "dynamic-system-identification",
+        "supervised-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입력 단위·변화 범위·상호작용·모델 타당성을 확인한다. 국소 민감도가 전체 범위의 중요도와 같지는 않다. 출력 분포를 구하는 불확실성 전파 및 예측 모델 학습과 목적이 다르다."
+    },
+    {
+      "key": "oxidative-n-dealkylation",
+      "related_keys": [
+        "heme-monooxygenase-oxygen-insertion",
+        "enzyme-catalysis",
+        "metabolic-flux-redistribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·산화 효소·보조인자·선택성을 확인한다. 헤임 산소 활성화와 연결되는 하위 반응이지만 생성물에 산소를 남기는 수산화와 순변환이 다르다. 모든 아민에 같은 경로가 적용되지는 않는다."
+    },
+    {
+      "key": "spliceosome-mediated-rna-processing",
+      "related_keys": [
+        "antisense-gene-suppression",
+        "sequence-directed-dna-cleavage",
+        "chromatin-accessibility-regulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표적 스플라이싱 인자·서열·세포별 반응을 확인한다. 광범위한 전사체 교란이 가능하며 항암 선택성은 별도 검증한다. DNA 절단이나 상보적 안티센스 결합을 통한 억제와 구별한다."
+    },
+    {
+      "key": "mycorrhizal-nutrient-exchange",
+      "related_keys": [
+        "biological-nitrogen-fixation",
+        "endophyte-metabolite-defense",
+        "microbial-resource-competition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "숙주·균종·토양 영양·정착·탄소 비용을 확인한다. 공생 접종이 항상 수량 증가를 보장하지 않는다. 대기 질소의 환원 고정 및 독성 대사산물을 통한 병해 방어와 구별한다."
+    },
+    {
+      "key": "phototactic-behavior",
+      "related_keys": [
+        "chemical-cue-directed-behavior",
+        "photosynthesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "종·발달 단계·주변 조도·파장·광량을 확인한다. 모든 곤충이 UV로 유인되거나 빛을 직접 향해 직진하지는 않는다. 광합성 에너지 변환 및 화학 냄새 유인과 구별한다."
+    },
+    {
+      "key": "autoregressive-linear-prediction",
+      "related_keys": [
+        "cross-channel-predictive-coding",
+        "linear-frequency-filtering",
+        "parametric-bandwidth-extension"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "차수·분석 구간·계수 추정·필터 안정성·양자화 오차를 확인한다. 비정상 신호에는 짧은 구간 적응이 필요하다. 서로 다른 채널을 예측하는 공간 중복 제거와 구별한다."
+    },
+    {
+      "key": "antibody-opsonized-phagocytosis",
+      "related_keys": [
+        "antibody-dependent-cellular-cytotoxicity",
+        "receptor-mediated-endocytosis",
+        "biomolecular-recognition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "항체 종류·밀도·Fc 수용체·세포 상태·표적 크기를 확인한다. 표면 결합만으로 완전 섭취·분해를 보장하지 않는다. NK 세포의 세포독성 방출 및 작은 리간드의 소낭 내재화와 구별한다."
+    },
+    {
+      "key": "substrate-limited-biochemical-rate",
+      "related_keys": [
+        "fermentation",
+        "enzyme-catalysis",
+        "microbial-resource-competition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이용 가능한 모든 기질·저장 물질·유지 대사·pH·생성물 저해를 확인한다. 기질 소진과 세포 사멸은 같지 않으며 잔여 산 생성 가능성을 측정한다. 두 생물의 자원 경쟁과 구별한다."
+    },
+    {
+      "key": "mhc-peptide-antigen-presentation",
+      "related_keys": [
+        "biomolecular-recognition",
+        "antigen-specific-immunization",
+        "immune-tolerance"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "MHC 대립유전자·펩타이드 가공·결합 안정성·T세포·공자극을 확인한다. 제시만으로 활성화나 보호 면역을 보장하지 않는다. 항체의 자유 항원 인식 및 접종 전체 과정과 구별한다."
+    },
+    {
+      "key": "continuum-damage-stiffness-degradation",
+      "related_keys": [
+        "discrete-static-equilibrium-solving",
+        "hydraulic-fracture-opening",
+        "stress-concentration-fracture"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "재료별 손상 법칙·보정·비국소화·격자 의존성을 확인한다. 금속에서 확인한 매개변수를 암석에 그대로 적용하지 않는다. 평형 방정식 풀이와 별개의 구성 관계이며 실제 균열을 모두 해상하지 않는다."
+    },
+    {
+      "key": "range-adaptive-arithmetic-precision",
+      "related_keys": [
+        "quantization-rate-distortion-tradeoff",
+        "arithmetic-entropy-coding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "부호·누적 횟수·범위 경계·곱셈 성장·변환 비용을 확인한다. 안전한 상한이 필요하며 소수부 반올림 오차는 별도로 관리한다. 정보 손실을 허용하는 신호 양자화와 목적이 다르다."
+    },
+    {
+      "key": "bacterial-spore-germination",
+      "related_keys": [
+        "differential-survival-selection",
+        "receptor-ligand-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "포자 종·수용체·발아제·수분·온도에 의존한다. 발아와 후속 증식은 별개이며 모든 포자가 동시에 반응하지 않는다. 일반 생존 선발과 구별한다."
+    },
+    {
+      "key": "carbon-monoxide-disproportionation-carburization",
+      "related_keys": [
+        "bosch-carbon-dioxide-reduction",
+        "oxidative-decarburization",
+        "metal-oxide-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "온도·CO/CO₂ 비·표면 상태가 탄소 활동도를 좌우한다. 자유 탄소 침적과 금속 분진화가 경쟁할 수 있다. CO₂·수소의 Bosch 반응 및 산화 탈탄과 구별한다."
+    },
+    {
+      "key": "extractive-distillation-activity-modification",
+      "related_keys": [
+        "distillation",
+        "azeotropic-phase-equilibrium",
+        "solvent-extraction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "추출제 선택성·용매비·기액 평형·회수 에너지를 확인한다. 액액 추출이나 공비 형성 자체와 구별하며 용매를 늘릴수록 전체 효율이 좋아지는 것은 아니다."
+    },
+    {
+      "key": "electric-arc-plasma-heating",
+      "related_keys": [
+        "joule-heating",
+        "gas-discharge-luminescence",
+        "electrical-discharge-machining",
+        "thermal-radiation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "점화·아크 길이·전류·분위기·열유속 관리가 필요하다. 줄 가열을 포함하지만 고온 방전 유지와 열 전달이 핵심이며 발광·방전 제거 가공과 적용 목적이 다르다."
+    },
+    {
+      "key": "positive-displacement-gas-compression",
+      "related_keys": [
+        "pressure-accumulator",
+        "rotary-positive-displacement",
+        "hydraulic-force-transmission"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "압축 경로·열교환·누설·사체적에 따라 온도와 일이 달라진다. 축압기의 저장·회수와 달리 압력 상승 공급이 목적이며 액체의 용적 이송과 상태 변화가 다르다."
+    },
+    {
+      "key": "compartment-specific-proteolytic-processing",
+      "related_keys": [
+        "hydrolysis",
+        "signal-directed-protein-localization",
+        "self-immolative-linker-fragmentation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소 분포·기질 특이성·접근성·배경 절단·화물 안정성에 의존한다. 세포 구획 도달이나 막 탈출·치료 안전성을 보장하지 않는다. 절단 후 비효소 연쇄 반응인 자기분해 연결자와 구분한다."
+    },
+    {
+      "key": "compressive-expression-liquid-removal",
+      "related_keys": [
+        "pressure-compaction",
+        "pressure-driven-flow",
+        "self-forming-filter-cake"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "골격 압축성·투과도·배액 경로·하중 시간이 수율을 좌우한다. 과도한 압축은 유로를 막을 수 있다. 분말 치밀화 및 고정된 필터의 차압 여과와 구별한다."
+    },
+    {
+      "key": "magnetic-hysteresis-loop-characterization",
+      "related_keys": [
+        "barkhausen-noise",
+        "remanent-magnetic-recording",
+        "villari-effect"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기장 범위·주파수·시편 형상·온도와 탈자장을 보정한다. 조직과 응력의 영향이 중첩된다. 자구벽의 순간 잡음 검출이나 잔류자화 정보 기록과 측정량이 다르다."
+    },
+    {
+      "key": "stochastic-queue-waiting-time-estimation",
+      "related_keys": [
+        "queue-buffering",
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "도착 과정·서버 수·중단 후 재개 규칙·안정 조건을 확인한다. M/G/1 휴가 모형의 결과를 모든 큐에 적용하지 않는다. 큐 저장 기능과 확률적 성능 계산을 구별한다."
+    },
+    {
+      "key": "electrophilic-aromatic-nitration",
+      "related_keys": [
+        "nucleophilic-substitution",
+        "nitro-group-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "친전자체 생성·고리 전자밀도·산도·촉매가 속도와 위치 선택성을 바꾼다. 세 반응의 시약·조건을 서로 대체할 수 있다는 뜻은 아니다. 친핵 치환·알케인 라디칼 할로젠화·금속 교차 결합과 구분한다."
+    },
+    {
+      "key": "multilayer-interface-dislocation-barrier",
+      "related_keys": [
+        "grain-refinement",
+        "precipitation-hardening",
+        "cross-ply-laminate"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "층 두께·정합성·탄성 불일치·계면 접합과 결함에 의존한다. 극박층에서는 연화도 가능하다. NiCr 특허의 전체 경도를 이 기전 하나로 단정하지 않으며 결정립·석출 강화와 구별한다."
+    },
+    {
+      "key": "density-based-clustering",
+      "related_keys": [
+        "nearest-neighbor-retrieval",
+        "supervised-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "거리 척도·특징 스케일·반경·최소 이웃 수를 정해야 한다. 밀도 차가 큰 집단과 고차원에서는 오분류가 가능하다. 최근접 검색 및 정답 라벨 기반 학습과 목적이 다르다."
+    },
+    {
+      "key": "interfacial-fracture-controlled-peeling",
+      "related_keys": [
+        "stress-concentration-fracture",
+        "pressure-sensitive-adhesion",
+        "viscoelastic-response"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "박리각·두께·탄성·속도·소성 및 점탄성 손실을 확인한다. 계면 박리와 재료 내부 응집 파괴가 경쟁한다. 절개 형상의 응력 집중이나 점착 접합 자체와 구별한다."
+    },
+    {
+      "key": "magnetic-plasma-confinement",
+      "related_keys": [
+        "lorentz-actuation",
+        "electron-cyclotron-resonance-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기 구조·입자 궤도·압력·불안정성과 충돌 수송에 의존한다. 유한한 누설과 에너지 손실이 있으며 구속 달성이 핵융합 순에너지 생산을 뜻하지 않는다."
+    },
+    {
+      "key": "neutral-beam-plasma-heating",
+      "related_keys": [
+        "electron-cyclotron-resonance-heating",
+        "magnetic-plasma-confinement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "빔 에너지·중성화율·침투 깊이·전하 교환·빠른 이온 손실을 고려한다. 빔이 통과해 버리는 손실과 가열 효율을 확인하며 전자 공명 가열과 에너지 전달 경로가 다르다."
+    },
+    {
+      "key": "neutron-activation-radionuclide-production",
+      "related_keys": [
+        "radioactive-decay",
+        "scintillation-radiation-detection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표적 동위원소·중성자 에너지와 선속·반응 단면적·조사 및 냉각 시간에 의존한다. 모든 생성물이 방사성은 아니며 기존 핵종의 자연 붕괴 및 화학 반응과 구별한다."
+    },
+    {
+      "key": "aerodynamic-gravity-classification",
+      "related_keys": [
+        "pneumatic-particle-transport",
+        "gravity-settling",
+        "cyclone-separation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유속 분포·투입 농도·수분·입자 자세가 분리에 영향을 준다. 종말속도가 비슷한 입자는 분리가 어렵다. 단순 공기 이송 및 회전 원심장을 쓰는 사이클론과 구별한다."
+    },
+    {
+      "key": "plant-assimilatory-nutrient-removal",
+      "related_keys": [
+        "anoxic-denitrification",
+        "biofilm-treatment",
+        "photosynthesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "생장·빛·온도·독성·수확 주기에 의존한다. 고사·분해 시 재방출되며 뿌리 주변 미생물 제거도 병행될 수 있다. 탈질의 기체 전환과 구별한다."
+    },
+    {
+      "key": "acetogenic-carbon-monoxide-fixation",
+      "related_keys": [
+        "fermentation",
+        "enzyme-catalysis",
+        "photosynthesis",
+        "fischer-tropsch-chain-growth"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "적합한 균주·환원력·보조인자·기체 전달이 필요하다. 산소와 높은 CO 농도가 억제 요인이 될 수 있다. 일반 발효의 하위 경로로 광합성·무기 FT 사슬 성장과 구별한다."
+    },
+    {
+      "key": "reverse-beta-oxidation-chain-elongation",
+      "related_keys": [
+        "fermentation",
+        "metabolic-flux-redistribution",
+        "fischer-tropsch-chain-growth",
+        "acetogenic-carbon-monoxide-fixation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "균주·기질비·pH·환원력과 생성물 독성이 중요하다. 긴 사슬 알코올을 얻으려면 추가 환원 경로가 필요하다. 일반 발효 및 금속 촉매 FT 합성과 구별한다."
+    },
+    {
+      "key": "differential-thermal-contraction-prestress",
+      "related_keys": [
+        "thermal-expansion-compensation",
+        "bimetal",
+        "thermal-stress-relaxation-annealing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탄성률·열팽창계수 차·온도 이력·접합과 소성 이완에 좌우된다. 압축 또는 인장의 방향을 따로 계산해야 한다. 열변위 보상이나 응력 제거를 뜻하지 않는다."
+    },
+    {
+      "key": "preferential-exclusion-protein-stabilization",
+      "related_keys": [
+        "chaperone-assisted-folding",
+        "pegylation-steric-shielding",
+        "cosolvent-solubilization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "보조용질·단백질·농도·온도에 의존하며 모든 첨가제가 안정화하지 않는다. 초록의 저장 안정성에 적용 가능한 기전으로, 해당 제형에서 단일 원인임을 입증한 것은 아니다."
+    },
+    {
+      "key": "auditory-startle-deterrence",
+      "related_keys": [
+        "chemical-cue-directed-behavior",
+        "phototactic-behavior"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "종·맥락·소리 특성과 이전 노출에 따라 반응이 다르며 반복 노출로 습관화할 수 있다. 화학 유인·기피 및 광주성과 감각 경로를 구별하며 지속 효과를 보장하지 않는다."
+    },
+    {
+      "key": "selective-catalytic-nitrogen-oxide-reduction",
+      "related_keys": [
+        "catalysis",
+        "anoxic-denitrification",
+        "advanced-oxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매·환원제·온도 범위·가스 조성과 체류시간을 맞춰야 한다. 암모니아 누출과 부반응을 관리한다. 촉매 작용의 특정 환원 경로로 미생물 탈질·오염물 산화와 구별한다."
+    },
+    {
+      "key": "nonlinear-harmonic-state-sensing",
+      "related_keys": [
+        "magnetostriction",
+        "fourier-spectral-decomposition",
+        "mechanical-resonance-property-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "구동 진폭·온도·전달 경로를 함께 보정하고 상태별 교정이 필요하다. 고조파만으로 원인을 유일하게 판별할 수 없다. 주파수 분해는 분석 도구이며 비선형 변환이 감지 근거다."
+    },
+    {
+      "key": "contact-area-load-spreading",
+      "related_keys": [
+        "section-moment-stiffening",
+        "stress-concentration-fracture",
+        "elastohydrodynamic-lubrication"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "명목 면적 증가가 실제 면적 증가를 보장하지 않는다. 헤르츠 근사는 작은 접촉 영역과 국소 곡률·탄성 범위가 필요하다. 소성·밀착·거칠기·가장자리 효과와 최대 응력은 별도 평가한다."
+    },
+    {
+      "key": "micropeptide-transcriptional-feedback",
+      "related_keys": [
+        "antisense-gene-suppression",
+        "transcription-factor-regulation",
+        "riboswitch-ligand-responsive-regulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확인된 miPEP·숙주 조합에 한정해 검증해야 한다. 모든 짧은 ORF가 기능성 펩타이드를 만들지는 않는다. 직접 전사인자 결합이나 안티센스 작용 자체와 구별하며 분자 경로가 모두 밝혀진 것은 아니다."
+    },
+    {
+      "key": "operating-point-prebiasing",
+      "related_keys": [
+        "duty-cycled-power-saving",
+        "slew-rate-limiting",
+        "capacitive-energy-storage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "노드 용량·누설·바이어스 경로와 안정성이 중요하며 대기 전력과 절충한다. 특정 기동 시간은 회로별 검증이 필요하다. 듀티 절전이나 변화율 제한과 별개의 초기 상태 설정이다."
+    },
+    {
+      "key": "aerodynamic-filament-drawing",
+      "related_keys": [
+        "pneumatic-particle-transport",
+        "electrospinning",
+        "draw-induced-orientation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공기 속도·점도·냉각·섬유 온도와 장력에 의존하며 파단·불안정이 생길 수 있다. 입자 공기 이송이나 전기방사의 전기력과 구별하고 배향 강화는 후속 물성 결과다."
+    },
+    {
+      "key": "surfactant-templated-mesopore-formation",
+      "related_keys": [
+        "sol-gel",
+        "sacrificial-porogen-leaching",
+        "ice-templating",
+        "surfactant-action"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "계면활성제·전구체·용매·열처리 조건이 맞아야 하며 수축·붕괴를 관리한다. 졸–겔은 골격 형성 단계이고 희생 입자 용출과 주형 형성 방식이 다르다. 기공만으로 항균성을 단정하지 않는다."
+    },
+    {
+      "key": "cathodic-arc-vapor-deposition",
+      "related_keys": [
+        "sputter-deposition",
+        "plasma-enhanced-chemical-vapor-deposition",
+        "electrospark-material-transfer-deposition",
+        "electric-arc-plasma-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "음극 재료·전류·기판 바이어스·분위기와 거대 입자 발생을 관리한다. 외부 이온 충돌 스퍼터링·기체 전구체 분해·접촉 전기스파크 전사와 재료 공급 방식이 다르다."
+    },
+    {
+      "key": "frequency-controlled-motor-speed",
+      "related_keys": [
+        "lorentz-actuation",
+        "electromagnetic-induction",
+        "negative-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "극수 p에 대해 동기속도는 120f/p rpm이다. 유도전동기의 실제 속도에는 슬립이 있으며 전압·자속·부하·냉각 한계도 고려한다. 일반적인 전자기력 발생과 제어 기능을 구별한다."
+    },
+    {
+      "key": "digital-frequency-division",
+      "related_keys": [
+        "positive-feedback-oscillation",
+        "sampling-reconstruction",
+        "time-division-multiplexing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상태 전이·리셋·지연·메타안정성과 지터를 관리한다. 분수 평균비는 매 주기의 일정함을 뜻하지 않는다. 샘플링에 의한 신호 복원이나 스펙트럼 분해와 기능이 다르다."
+    },
+    {
+      "key": "perceptual-loudness-normalization",
+      "related_keys": [
+        "amplitude-dependent-dynamic-range-compression",
+        "linear-channel-downmixing",
+        "negative-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "음량 모델·측정 구간·청취 조건에 의존하며 피크 여유도 별도로 확보해야 한다. 모든 청취자의 동일 지각을 보장하지 않는다. 피크 정규화나 진폭별 동적 압축과 평가량이 다르다."
+    },
+    {
+      "key": "hardware-enforced-memory-isolation",
+      "related_keys": [
+        "keyed-encryption",
+        "digital-certificate-trust"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "신뢰 코드·주소 변환·주변장치 접근 정책이 일관돼야 한다. 물리 공격과 부채널까지 자동으로 차단하는 것은 아니다. 암호 변환과 구별되는 접근 통제이며 제품별 보안 검증이 필요하다."
+    },
+    {
+      "key": "codon-usage-dependent-translation",
+      "related_keys": [
+        "heterologous-gene-expression",
+        "amino-acid-pool-translation-fidelity",
+        "transcription-factor-regulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "숙주·전사체·배양 상태별 검증이 필요하다. 흔한 코돈의 증가가 발현 향상을 보장하지 않으며 개시 부근 구조가 우세할 수 있다. 단백질 서열 변경이나 아미노산 공급 조절과 구별한다."
+    },
+    {
+      "key": "siderophore-sequestration-iron-starvation",
+      "related_keys": [
+        "biomolecular-recognition",
+        "transporter-inhibition",
+        "microbial-resource-competition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결합체의 시데로포어 특이성·철 공급·대체 획득 경로에 좌우된다. 리포칼린 연구 결과를 모든 피오베르딘 결합체에 그대로 적용하지 않는다. 수송체 직접 저해와 달리 운반체를 가로챈다."
+    },
+    {
+      "key": "end-gas-autoignition-suppression",
+      "related_keys": [
+        "combustion-heating",
+        "diffusion-flame-reaction-sheet",
+        "thermal-reaction-quenching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "온도·압력·혼합비·운전 이력에 의존한다. 옥탄가가 같아도 조성별 거동이 다를 수 있다. 특정 첨가제의 성능은 별도 시험이 필요하며 발열량 증가를 뜻하지 않는다."
+    },
+    {
+      "key": "alkene-alkoxycarbonylation",
+      "related_keys": [
+        "methanol-carbonylation",
+        "carboxylic-acid-esterification",
+        "coordination-insertion-chain-growth"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "금속·리간드·기질·압력에 따라 경로와 위치 선택성이 달라진다. 동일 촉매에도 여러 순환 경로가 가능하다. 메탄올 자체의 카르보닐화나 산·알코올의 에스터화와 구별한다."
+    },
+    {
+      "key": "culture-amplified-virus-detection",
+      "related_keys": [
+        "pcr",
+        "biomolecular-recognition",
+        "phage-replication-host-lysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "세포의 감수성과 시료 독성·배경 신호를 검증해야 한다. 배양 음성이 바이러스 부재를 보장하지 않으며 잔류 핵산과 실제 증식을 구별한다. 시험관 핵산 증폭과 증폭 주체가 다르다."
+    },
+    {
+      "key": "rubisco-carbon-fixation",
+      "related_keys": [
+        "photosynthesis",
+        "enzyme-catalysis",
+        "acetogenic-carbon-monoxide-fixation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질 재생에 에너지와 환원력이 필요하며 산소화 반응과 경쟁한다. 이 반응 자체가 빛을 흡수하는 것은 아니다. 광합성의 하위 탄소 고정 단계로 CO 기반 아세틸CoA 경로와 구별한다."
+    },
+    {
+      "key": "phase-transition-history-indication",
+      "related_keys": [
+        "phase-change-storage",
+        "archimedes-buoyancy",
+        "thermal-expansion-actuation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "용융 구간·열 지연·설치 방향·표시체 밀도와 이동 경로가 중요하다. 충분한 이동 시간이 필요하며 식품 변질 자체를 검출하는 것은 아니다. 상변화 축열·온도에 따른 연속 변위와 구별한다."
+    },
+    {
+      "key": "high-atomic-number-radiation-dose-enhancement",
+      "related_keys": [
+        "ionizing-radiation-radical-generation",
+        "ionizing-radiation-inactivation",
+        "photoelectric-emission"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "방사선 종류·에너지·입자 크기·농도·위치에 의존한다. 국소 선량 증대가 종양 선택성이나 치료 효과를 보장하지 않는다. 마이크로파에 동일하게 적용하지 않으며 특허의 세포 사멸 주장은 별도 검증 대상이다."
+    },
+    {
+      "key": "gas-adsorption-surface-area-measurement",
+      "related_keys": [
+        "adsorption",
+        "atomic-force-topography",
+        "xray-diffraction-line-broadening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탈기·흡착질·압력 구간·등온선의 모형 적합성을 확인한다. 접근 불가능한 기공은 측정되지 않으며 미세기공·불균일 표면에서는 해석에 제약이 있다. 분리용 흡착과 측정 목적을 구별한다."
+    },
+    {
+      "key": "acoustic-emission-event-detection",
+      "related_keys": [
+        "direct-piezoelectricity",
+        "time-of-flight",
+        "mechanical-resonance-property-sensing",
+        "acoustic-impedance-reflection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "센서 결합·구조 경계·파동 분산·감쇠·배경 진동의 영향을 보정한다. 펄스만으로 손상 종류를 단정하지 않는다. 센서의 압전 변환 및 정상 공진에 의한 물성 감지와 구별한다."
+    },
+    {
+      "key": "cryoprotective-cellular-dehydration",
+      "related_keys": [
+        "osmosis",
+        "freezing-point-depression",
+        "quench-vitrification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "세포 크기·막 투과성·보호제·냉각 및 해동 속도를 함께 검증한다. 지나친 탈수·농축과 보호제 독성도 손상을 일으킨다. 단순 어는점 내림·유리화와 달리 물 이동과 냉각의 경쟁을 이용한다."
+    },
+    {
+      "key": "carbon-nucleophile-acyl-substitution",
+      "related_keys": [
+        "carbon-nucleophile-carbonyl-addition",
+        "nucleophilic-substitution",
+        "transesterification",
+        "protodecarboxylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "염기·금속·기질·이탈기와 수분을 관리하며 자기축합·과반응을 고려한다. 할로케톤 생성에는 후속 탈탄산이 따를 수 있다. 알코올을 만드는 카보닐 부가 및 산소 친핵체의 에스터 교환과 구별한다."
+    },
+    {
+      "key": "frequency-hopping-diversity",
+      "related_keys": [
+        "code-division-multiple-access",
+        "transmit-diversity",
+        "deterministic-pseudorandom-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "도약 순서·시각 동기·채널 수·전환 시간과 복호 조건이 필요하다. 광대역 간섭이나 상관된 채널에서는 이점이 작아질 수 있다. 사용자별 확산 코드 분리 및 공간 다이버시티와 구별한다."
+    },
+    {
+      "key": "random-access-contention-backoff",
+      "related_keys": [
+        "timer-response-suppression",
+        "automatic-repeat-request",
+        "stochastic-queue-waiting-time-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "경쟁자 수·숨은 노드·검출 지연·창 크기가 처리량과 지연을 좌우한다. 충돌을 완전히 제거하지 못한다. 다른 응답을 들으면 전송을 취소하는 중복 응답 억제와 구별한다."
+    },
+    {
+      "key": "pressure-dependent-thermal-contact-conductance",
+      "related_keys": [
+        "fourier-conduction",
+        "contact-area-load-spreading",
+        "thermal-isolation-gap"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "거칠기·경도·탄성 변형·산화막·중간 물질·분위기에 의존한다. 명목 면적이나 압력만으로 값을 확정하지 않는다. 벌크 열전도 법칙의 계면 경계 조건을 조절하는 하위 작용이다."
+    },
+    {
+      "key": "oxidative-amino-acid-deamination",
+      "related_keys": [
+        "enzyme-catalysis",
+        "oxidative-n-dealkylation",
+        "reductive-amination",
+        "enantioselective-kinetic-resolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·보조인자·전자 수용체·기질 적합성을 확인한다. 산소를 쓰는 산화효소 경로에서는 과산화물 생성·억제를 관리한다. N탈알킬화와 환원 아민화는 다른 변환이다."
+    },
+    {
+      "key": "aminotransferase-group-transfer",
+      "related_keys": [
+        "enzyme-catalysis",
+        "reductive-amination",
+        "enantioselective-kinetic-resolution",
+        "oxidative-amino-acid-deamination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소의 기질 범위·PLP·공여체·반응 평형과 생성물 억제를 확인한다. 일반 환원제를 쓰는 환원적 아민화와 다르며 분리만 하는 동역학적 광학분할과 구별한다."
+    },
+    {
+      "key": "isobaric-pressure-energy-exchange",
+      "related_keys": [
+        "hydraulic-force-transmission",
+        "rotary-positive-displacement",
+        "fluid-turbine-conversion",
+        "pressure-driven-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "포트 동기·유량 균형·누설·압력 손실·유체 혼합을 관리한다. 회수 효율은 장치와 운전점에 의존한다. 터빈·전동기 변환이나 외부 피스톤 힘 전달과 구체적 에너지 경로가 다르다."
+    },
+    {
+      "key": "glass-network-immobilization",
+      "related_keys": [
+        "quench-vitrification",
+        "barrier-coating",
+        "solid-liquid-leaching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "조성·산화 상태·포집량·균질성·냉각과 사용 환경을 검증한다. 산성 조건 등에서 유리가 용해되면 다시 방출될 수 있다. 유리화 형성 자체나 표면 차단막과 달리 내부 원소의 용출 억제가 목적이다."
+    },
+    {
+      "key": "target-mediated-drug-clearance",
+      "related_keys": [
+        "biomolecular-recognition",
+        "receptor-mediated-endocytosis",
+        "binding-residence-time",
+        "fcrn-recycling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결합이 실제 약물 소모로 이어지는 경로가 필요하다. 단순 가역 결합이나 FcRn 회수와 구별하며 투여량·임상 반감기를 예측하지 않는다."
+    },
+    {
+      "key": "micellar-solubilization",
+      "related_keys": [
+        "surfactant-action",
+        "hydrophobic-association",
+        "microemulsion-phase-equilibrium",
+        "cosolvent-solubilization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "미셀 형성 농도·온도·염·용질의 위치와 포화 용량에 의존한다. 계면장력 감소나 거대 유적의 분산과 구별하며 모든 미셀이 벌레형이거나 점탄성인 것은 아니다."
+    },
+    {
+      "key": "electrohydraulic-discharge-shock-generation",
+      "related_keys": [
+        "compressible-shock-wave",
+        "cavitation",
+        "electric-arc-plasma-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "절연 파괴·전극 상태·액체 전도도·주위 압력에 의존한다. 전기분해 기포나 공동 붕괴와 발생 경로가 다르며 분리 효율을 일반화하지 않는다."
+    },
+    {
+      "key": "persistent-luminescence",
+      "related_keys": [
+        "photoluminescent-wavelength-conversion",
+        "fluorescence-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "트랩 깊이·충전 이력·온도·재흡수가 세기와 감쇠를 바꾼다. 모든 인광을 동일 트랩 모형으로 설명하지 않으며 빠른 형광 수명 측정과 구별한다."
+    },
+    {
+      "key": "gyroscopic-precession-torque",
+      "related_keys": [
+        "flywheel-storage",
+        "rotor-mass-balancing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "토크는 각운동량 변화율에 따르고 축 구속·회전 속도에 의존한다. 순수 자이로 작용은 에너지 소산이 아니므로 제동에는 별도 에너지 수용 경로가 필요하다."
+    },
+    {
+      "key": "polymerase-theta-mediated-end-joining",
+      "related_keys": [
+        "homologous-recombination",
+        "genetic-loss-of-function",
+        "bacterial-type-iv-dna-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "긴 상동 서열을 이용하는 정확한 재조합과 구별한다. 세포·말단 구조·경쟁 복구 경로에 의존하며 POLQ 억제가 모든 삽입을 없애는 것은 아니다."
+    },
+    {
+      "key": "flame-ionization-current-detection",
+      "related_keys": [
+        "electrical-continuity-sensing",
+        "combustion-heating",
+        "pn-rectification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "연료·전극 면적·접지·오염 상태에 의존한다. UV 광 검출이나 방사선원으로 이온화하는 연기 센서와 다르며 단순 전극 단락을 화염으로 판정하지 않는다."
+    },
+    {
+      "key": "helical-fiber-axial-load-projection",
+      "related_keys": [
+        "fiber-matrix-load-transfer",
+        "cross-ply-laminate",
+        "draw-induced-orientation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "연속 섬유·꼬임 형상·접촉 미끄럼·굽힘 손상에 의존한다. 짧은 섬유는 꼬임 부족으로 결속을 잃을 수 있어 낮은 꼬임이 항상 강한 것은 아니다."
+    },
+    {
+      "key": "inductive-magnetic-energy-storage",
+      "related_keys": [
+        "electromagnetic-induction",
+        "capacitive-energy-storage",
+        "lc-electrical-resonance"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "선형 인덕터의 저장량은 LI²/2이며 포화·저항·스위칭 손실을 고려한다. 역기전력 회수는 이전 입력의 일부 회수이고 영구자석이 순에너지를 생성하지 않는다."
+    },
+    {
+      "key": "male-sterility-enforced-outcrossing",
+      "related_keys": [
+        "differential-survival-selection",
+        "genetic-loss-of-function"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수분원·개화 시기·암성 가임성과 잔존 꽃가루를 확인해야 한다. 불임 유도 수단마다 부작용이 다르며 교잡 종자의 우수성이나 순도를 자동 보장하지 않는다."
+    },
+    {
+      "key": "phosphite-reductive-dehalogenation",
+      "related_keys": [
+        "radical-alkane-halogenation",
+        "dehydrohalogenation",
+        "nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·염기·용매에 따라 선택성이 달라진다. 모든 할로젠 기질에 적용하거나 라디칼 경로로 단정하지 않으며 이중결합을 만드는 탈할로젠화수소와 구별한다."
+    },
+    {
+      "key": "antenna-pattern-bearing-estimation",
+      "related_keys": [
+        "antenna-current-radiation-conversion",
+        "phased-array",
+        "range-based-multilateration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "패턴 보정·편파·다중경로·송신 출력 변화에 민감하다. 거리 다변측량이나 위상차 측정과 구별하며 한 방향 추정만으로 유일한 절대 위치를 보장하지 않는다."
+    },
+    {
+      "key": "membrane-desaturase-double-bond-formation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "oxidative-dehydrogenation",
+        "metabolic-flux-redistribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·기질·산소·전자 공급에 의존한다. FAD2의 올레산 전환이 대표 사례이며 모든 불포화화 위치에 일반화하지 않는다. 산화적 탈수소의 생물학적 하위 작용이다."
+    },
+    {
+      "key": "layered-host-organic-intercalation",
+      "related_keys": [
+        "adsorption",
+        "ion-exchange",
+        "lithium-intercalation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "층간 삽입은 외부 표면 흡착·완전 박리와 구분하여 회절 등으로 확인한다. 분자 크기·전하·pH에 의존하며 리튬 전극의 산화환원 삽입을 뜻하지 않는다."
+    },
+    {
+      "key": "sequence-scrambling-interference-decorrelation",
+      "related_keys": [
+        "deterministic-pseudorandom-generation",
+        "signal-correlation",
+        "code-division-multiple-access"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "간섭 전력 자체를 없애는 과정은 아니다. 수열 상관·반복 구조·복원 동기에 의존한다. 암호화나 사용자 분리를 위한 CDMA와 목적이 다르며 항상 복호 성공을 보장하지 않는다."
+    },
+    {
+      "key": "seed-imbibition-germination",
+      "related_keys": [
+        "osmosis",
+        "enzyme-catalysis",
+        "bacterial-spore-germination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "생존 종자·온도·산소·휴면 상태에 의존한다. 흡수만으로 발아가 보장되지 않으며 세균 내생포자의 발아와 구조·조절 경로가 다르다. 특정 첨가제의 촉진 효과는 별도 검증한다."
+    },
+    {
+      "key": "compartmentalized-emulsion-polymerization",
+      "related_keys": [
+        "polymerization",
+        "interfacial-polymerization",
+        "redox-initiated-radical-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유화 상태의 라디칼 중합에 적용하며 모든 입자의 라디칼 수가 일정한 것은 아니다. 개시제·단량체 용해도·입자 크기에 의존한다. 두 반응물의 상 경계 막 형성인 계면 중합과 구분한다."
+    },
+    {
+      "key": "compatible-solute-osmotic-adjustment",
+      "related_keys": [
+        "osmosis",
+        "preferential-exclusion-protein-stabilization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "세포 유입·합성·구획화·대사와 환경에 의존한다. 외부 살포가 같은 축적을 보장하지 않는다. 단백질 주위의 선택적 배제에 의한 구조 안정화와 구분하되 함께 작용할 수 있다."
+    },
+    {
+      "key": "closed-cycle-vapor-expansion-power-generation",
+      "related_keys": [
+        "fluid-turbine-conversion",
+        "boiling-heat-transfer",
+        "condensation-recovery",
+        "vapor-compression"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "팽창기 일에서 펌프·보조 동력을 빼야 하며 냉원과 지속적인 열 공급이 필요하다. 유기 랭킨 사이클은 한 구현이다. 증기 압축 냉동의 동력 소비 방향과 구분한다."
+    },
+    {
+      "key": "diffusion-driven-additive-blooming",
+      "related_keys": [
+        "wetting-control",
+        "tribochemical-lubrication",
+        "matrix-diffusion-controlled-release"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "첨가제 용해성·온도·고분자 결정성·시간·인접층 분배에 의존한다. 비이행성 윤활제와 구분하며 표면 석출이 접착·인쇄를 저해할 수 있고 일정 마찰계수를 보장하지 않는다."
+    },
+    {
+      "key": "nonideal-eutectic-melting-depression",
+      "related_keys": [
+        "freezing-point-depression",
+        "cosolvent-solubilization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "조성별 고액 평형과 활동도 확인이 필요하다. 모든 저융점 혼합물이 비이상 심공융계는 아니며 수분·불순물이 영향을 준다. 묽은 이상 용액의 총괄성 어는점 내림과 적용 범위를 구분한다."
+    },
+    {
+      "key": "supercritical-meniscus-free-drying",
+      "related_keys": [
+        "supercritical-fluid-extraction",
+        "freeze-drying",
+        "capillary-entry-barrier"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "용매 교환·상평형·감압 경로·겔 강도에 의존하며 수축이 전혀 없는 것은 아니다. 초임계 용해도를 이용한 성분 추출과 기능을 구분한다. 동결·승화를 이용하는 건조와 경로가 다르다."
+    },
+    {
+      "key": "pulse-interval-information-encoding",
+      "related_keys": [
+        "time-division-multiplexing",
+        "incremental-position-encoding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표지 검출·시간 기준·지터와 최대 구간 길이에 의존한다. 간격의 값 자체가 정보이며 사용자별 시간 슬롯 할당과 다르다. 표지 손실이나 주기 누락에 대한 복구가 필요하다."
+    },
+    {
+      "key": "extracellular-matrix-proteolytic-remodeling",
+      "related_keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "integrin-mediated-cell-adhesion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질 종류·가교·효소 위치와 저해 인자에 의존한다. 모든 MMP가 같은 기질 침투를 일으키지는 않는다. 효소 촉매의 조직 수준 적용이며 세포 부착·분화 자체와 구분한다."
+    },
+    {
+      "key": "salt-induced-micellar-growth-thickening",
+      "related_keys": [
+        "surfactant-action",
+        "viscoelastic-response",
+        "double-layer-repulsion",
+        "micellar-solubilization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "염·계면활성제 종류·농도·온도에 의존한다. 최적 농도 이후 분지·상전이로 점도가 다시 낮아질 수 있다. 공유결합 가교·고분자 분자량 증가와 구분하고 막대형 미셀의 형성을 별도로 확인한다."
+    },
+    {
+      "key": "phosphomonoester-enzymatic-dephosphorylation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "le-chatelier-equilibrium-shift",
+        "phosphotransferase-group-translocation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소의 기질 특이성·pH·보조 금속·생성물 저해에 의존한다. 인산기 전달 반응과 구분하며 모든 인산화 결합을 같은 효소가 절단하지 않는다. 일반 효소 가수분해의 결합별 하위 작용이다."
+    },
+    {
+      "key": "viscous-entrainment-dip-coating",
+      "related_keys": [
+        "wetting-control",
+        "pressure-driven-flow",
+        "barrier-coating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "뉴턴 유체·비증발·저모세관수 등 모델 가정을 확인한다. 기판 곡률·입자·비뉴턴성·건조가 두께를 바꾸므로 특정 속도 법칙을 모든 도포액에 적용하지 않는다."
+    },
+    {
+      "key": "quadrature-carrier-channel-separation",
+      "related_keys": [
+        "lock-in-detection",
+        "hilbert-quadrature",
+        "orthogonal-frequency-multiplexing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "충분한 관측 시간·주파수·위상 동기와 진폭 보정이 필요하다. 직교 오차는 채널 누설을 만든다. 힐베르트 변환으로 해석 신호를 구성하는 과정과 구분하며 동기 검파를 이용한다."
+    },
+    {
+      "key": "actomyosin-atp-mechanical-transduction",
+      "related_keys": [
+        "enzyme-catalysis",
+        "atp-driven-membrane-transport",
+        "allosteric-cooperativity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "ATP 공급·하중·액틴 배열과 조절 단백질에 의존한다. 근절 조절 약물이 반드시 미오신을 직접 표적으로 삼는 것은 아니다. ATP 막수송과 출력·분자 기계를 구분한다."
+    },
+    {
+      "key": "silver-ion-antimicrobial-disruption",
+      "related_keys": [
+        "enzyme-inhibition",
+        "coordination-complexation",
+        "matrix-diffusion-controlled-release"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산소·리간드·배지·균종·노출량에 의존한다. 입자 자체의 접촉 효과와 용존 이온 기여를 분리해야 한다. 특정 실험의 결과를 모든 균이나 이식재의 치료 효과·안전성으로 일반화하지 않는다."
+    },
+    {
+      "key": "state-matched-bumpless-transfer",
+      "related_keys": [
+        "state-estimation",
+        "slew-rate-limiting",
+        "operating-point-prebiasing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상태 추정 오차·지연·제약과 전환 조건에 의존한다. 모터 재기동에서는 잔류 자속의 위상·크기 정합이 한 사례이다. 단순 변화율 제한·미리 정한 운전점 바이어스와 구분하며 전체 안정성을 따로 확인한다."
+    },
+    {
+      "key": "zero-voltage-current-soft-switching",
+      "related_keys": [
+        "field-effect-transistor",
+        "lc-electrical-resonance",
+        "joule-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "회로·부하·구동 지연에 의존한다. 영전류 전환만으로 출력 정전용량 손실이 사라지지 않으며 도통·자성체 손실은 남는다. 모든 운전점에서 영전압과 영전류를 동시에 보장하지 않는다."
+    },
+    {
+      "key": "spatial-neighbor-interpolation",
+      "related_keys": [
+        "nearest-neighbor-retrieval",
+        "sampling-reconstruction",
+        "geophysical-inverse-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공간적 연속성·관측 밀도·가중 규칙에 의존한다. 경계·급격한 변화·관측 영역 밖의 외삽에서 오차가 커질 수 있다. 최근접 항목 하나의 검색이나 시간 변화 예측 자체와 구분한다."
+    },
+    {
+      "key": "basis-function-surface-reconstruction",
+      "related_keys": [
+        "fourier-spectral-decomposition",
+        "spatial-neighbor-interpolation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기저·정의 영역·정규화·차수와 근사 오차를 확인한다. 유한 항수로 모든 형상을 정확히 복원하지는 않는다. 푸리에 분해와 선형 기저 원리를 공유하되 공간 형상 표현의 다른 기저를 다룬다."
+    },
+    {
+      "key": "phosphate-bonded-ceramic-hardening",
+      "related_keys": [
+        "acid-base-reaction",
+        "precipitation-reaction",
+        "sintering",
+        "cement-hydration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산화물 반응성·인산 대 금속 비·수분·열 이력에 따라 생성상과 경화 속도가 달라진다. 물리적 건조나 입자 소결만으로 설명하지 않으며 특정 강도·내구성은 별도 측정한다."
+    },
+    {
+      "key": "gravity-driven-granular-orifice-discharge",
+      "related_keys": [
+        "gravity-settling",
+        "granular-jamming",
+        "screw-conveying"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "출구가 좁거나 응집성이 크면 아치·래트홀로 막힐 수 있다. 베버루형 관계는 적용 입자·기하 조건을 확인하며 젖은 분말에 그대로 적용하지 않는다. 유체 속 침강 분리와 구분한다."
+    },
+    {
+      "key": "urea-formaldehyde-methylolation",
+      "related_keys": [
+        "bisulfite-carbonyl-addition",
+        "polymerization",
+        "isocyanate-amine-urea-formation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "pH·온도·농도·몰비·수분에 의존하며 영구적 완전 제거를 보장하지 않는다. 메틸올화 단계와 수지 망을 만드는 후속 축합을 구분한다. 아황산수소염 부가와 결합 원자가 다르다."
+    },
+    {
+      "key": "bandpass-undersampling-frequency-translation",
+      "related_keys": [
+        "sampling-reconstruction",
+        "fourier-spectral-decomposition",
+        "time-domain-alias-cancellation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표본화율·대역 제한·복제본 비중첩·입출력 필터·지터를 확인한다. ADC 입력 대역폭과 DAC 유지 응답은 다르며 단순히 대역폭 두 배만 정해 충분하지 않다."
+    },
+    {
+      "key": "semiconductor-impact-ionization-multiplication",
+      "related_keys": [
+        "photodiode",
+        "secondary-electron-multiplication",
+        "semiconductor-doping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "바이어스·온도·재료·영역 폭에 의존한다. 가이거 모드에서는 소거·재충전이 필요하며 암계수·후속 펄스·포화가 있다. 진공 표면의 이차 전자 방출 증배와 발생 위치·메커니즘이 다르다."
+    },
+    {
+      "key": "brownian-correlation-particle-sizing",
+      "related_keys": [
+        "elastic-light-scattering-sensing",
+        "signal-correlation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "점도·온도·형상·분산도·다중 산란·응집에 민감하다. 유체역학적 크기는 건조 입자의 기하 크기와 다를 수 있다. 정적인 산란 강도·각도 측정과 시간 동역학 정보를 구분한다."
+    },
+    {
+      "key": "temporary-chiral-auxiliary-stereodirection",
+      "related_keys": [
+        "enantioselective-kinetic-resolution",
+        "acetal-carbonyl-protection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·보조기·반응 조건·제거 과정의 라세미화 가능성을 확인한다. 라세미 혼합물을 사후 분리하는 동역학적 분할과 구분하며 모든 보조기가 같은 선택성을 주지 않는다."
+    },
+    {
+      "key": "biological-tactile-mechanotransduction",
+      "related_keys": [
+        "ion-channel-modulation",
+        "bioelectric-potential-sensing",
+        "negative-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수용 영역·자극 크기·적응·조직 상태에 의존한다. 이 원리만으로 특정 위생 교육이나 질환 진단의 효과를 보장하지 않으며 개별 이온 채널 종류를 단정하지 않는다."
+    },
+    {
+      "key": "single-instruction-data-parallel-execution",
+      "related_keys": [
+        "distributed-barrier",
+        "hardware-enforced-memory-isolation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "데이터 독립성·메모리 대역폭·정렬·분기 발산·동기화에 의존한다. SIMD와 SIMT의 제어 흐름 모델은 같지 않으며 요소 수에 비례한 속도 향상을 보장하지 않는다. 분산 장벽 동기화와 기능이 다르다."
+    },
+    {
+      "key": "muramidase-peptidoglycan-cleavage",
+      "related_keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "peptidoglycan-precursor-sequestration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소 계열·기질 수식·접근성·pH에 의존한다. 모든 세균의 즉시 용해나 사료 효율 향상을 보장하지 않는다. 세포벽 전구체 포획에 의한 합성 억제와 기존 당사슬 절단을 구분한다."
+    },
+    {
+      "key": "single-use-authentication-replay-resistance",
+      "related_keys": [
+        "keyed-encryption",
+        "digital-certificate-trust",
+        "sequence-number-ordering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "사용 상태의 원자적 갱신·유효기간·시도 제한·세션 연결이 필요하다. OTP 생성만으로 재사용 차단이 보장되지 않으며 피싱·중간자 공격에 대한 완전한 방어를 뜻하지 않는다."
+    },
+    {
+      "key": "weak-acid-cytoplasmic-acidification",
+      "related_keys": [
+        "ionization-dependent-membrane-permeation",
+        "acid-base-reaction",
+        "water-activity-growth-limitation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "균종·막 투과성·배지·산 배출·완충 능력에 의존한다. 산성화만이 모든 약산의 보존 기전은 아니며 식품 안전이나 완전한 미생물 사멸을 보장하지 않는다. 수분활성 저하와 구분한다."
+    },
+    {
+      "key": "thermal-sacrificial-template-removal",
+      "related_keys": [
+        "sacrificial-porogen-leaching",
+        "pyrolysis",
+        "sintering",
+        "physical-foaming"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가열 속도·산소·분해 가스 배출·골격 강도·소결 수축을 조절한다. 공극 연결성은 주형 배치에 의존하며 항상 닫힌 공극을 만들지 않는다. 용해성 입자의 용출 및 기체 팽창 발포와 제거 경로가 다르다."
+    },
+    {
+      "key": "attractive-mixed-surfactant-adsorption",
+      "related_keys": [
+        "surfactant-action",
+        "salt-induced-micellar-growth-thickening",
+        "microemulsion-phase-equilibrium"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "조성·염·온도·계면 종류에 의존한다. 침전·상 분리도 가능하며 음의 상호작용 계수만으로 모든 종류의 상승효과가 보장되지는 않는다. 미셀 성장에 따른 벌크 점도 증가와 측정 기능을 구분한다."
+    },
+    {
+      "key": "vibration-assisted-granular-unclogging",
+      "related_keys": [
+        "granular-jamming",
+        "vibratory-consolidation",
+        "gravity-driven-granular-orifice-discharge"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입자 마찰·응집·수분·개구·진동 조건에 의존한다. 진동을 오래 가해도 안정 아치가 남을 수 있으며 젖은 모래의 성능은 별도 확인한다. 충전도를 높이는 진동 다짐과 출력 기능을 구분한다."
+    },
+    {
+      "key": "aggregation-restricted-intramolecular-motion-emission",
+      "related_keys": [
+        "fluorescence-sensing",
+        "photoluminescent-wavelength-conversion",
+        "fluorescence-dequenching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "모든 염료에 적용되지 않으며 응집 소광도 가능하다. 발광 세기·파장 변화는 분자 구조·분산·변형에 의존한다. 특허의 연신 색 변화 임계값을 일반 상수로 취급하지 않는다."
+    },
+    {
+      "key": "epoxide-carbonylative-ring-expansion",
+      "related_keys": [
+        "epoxide-ring-opening",
+        "methanol-carbonylation",
+        "alkene-alkoxycarbonylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매·기질·기체 조성·물에 민감하며 중합·부반응과 경쟁한다. 모든 에폭사이드의 동일 선택성이나 공정 수율을 보장하지 않는다. 알켄의 알콕시카르보닐화와 기질·생성 결합이 다르다."
+    },
+    {
+      "key": "catalytic-nitrogen-hydrogenation",
+      "related_keys": [
+        "catalytic-hydrogenation",
+        "biological-nitrogen-fixation",
+        "le-chatelier-equilibrium-shift"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매 종류·표면 상태·불순물·온도·압력에 의존한다. 철 표면의 해리 경로를 모든 질소 환원 촉매에 일반화하지 않는다. ATP·질소고정효소를 쓰는 생물학적 질소 고정과 구분한다."
+    },
+    {
+      "key": "ester-aminolysis",
+      "related_keys": [
+        "peptide-bond-coupling",
+        "carbon-nucleophile-acyl-substitution",
+        "transesterification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·아민·촉매·수분·입체장애에 의존한다. 카르복실산 활성화에 의한 결합 형성과 친핵성 아실 치환 원리를 공유하되 출발 작용기·이탈기가 다르다. 특정 촉매 중간체를 모든 경로에 적용하지 않는다."
+    },
+    {
+      "key": "ensemble-classification",
+      "related_keys": [
+        "supervised-learning",
+        "ensemble-averaging-noise-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "오류 상관·정확도·확률 보정·분포 변화와 결합 규칙에 의존한다. 모델 수만으로 성능 향상을 보장하지 않는다. 같은 센서의 반복 측정 평균과 모델 예측 결합을 구분한다."
+    },
+    {
+      "key": "binding-mediated-proteolysis-prevention",
+      "related_keys": [
+        "target-induced-protein-degradation",
+        "deubiquitination-regulation",
+        "transcription-factor-regulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질 합성·다른 분해 경로·세포 환경에 의존한다. 이미 붙은 유비퀴틴을 절단하는 탈유비퀴틴화나 분해 인자를 새로 모집하는 작용과 구분한다. 질환 개선을 보장하지 않는다."
+    },
+    {
+      "key": "receptor-mediated-transcytosis",
+      "related_keys": [
+        "receptor-mediated-endocytosis",
+        "fcrn-recycling",
+        "antigen-targeted-payload-delivery"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수용체 분포·결합력·소낭 분류·재순환·분해에 의존한다. 세포 내 유입만으로 반대편 전달이 보장되지 않는다. 특정 항체의 뇌 전달량이나 치료 효과는 별도 검증한다."
+    },
+    {
+      "key": "n-halamine-active-chlorine-reservoir",
+      "related_keys": [
+        "hypochlorite-oxidative-inactivation",
+        "barrier-coating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결합 종류·수분·염소 소모·유기물 부하에 의존한다. 차아염소산계 산화와 원리를 공유하지만 결합 저장 상태가 다르다. 모든 재료의 직접 접촉 기전·재충전성·생체 적합성을 보장하지 않는다."
+    },
+    {
+      "key": "emulsion-phase-inversion",
+      "related_keys": [
+        "spontaneous-emulsification",
+        "emulsion-film-destabilization",
+        "microemulsion-phase-equilibrium"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "혼합 이력·첨가 속도·조성·온도·젖음성에 의존하며 다중 에멀션이 생길 수 있다. 단순 액적 크기 감소나 완전 탈유화와 구분한다. 특허 조성의 반전점을 일반화하지 않는다."
+    },
+    {
+      "key": "extreme-value-tail-estimation",
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "state-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표본 대표성·독립성·분포 적합성·외삽 범위에 의존한다. 추정 최대값은 확정 상한이 아니며 측정 크기 정의를 일치시켜야 한다. 평균값 보간이나 개별 재료 강도 보증과 구분한다."
+    },
+    {
+      "key": "flow-induced-vascular-remodeling",
+      "related_keys": [
+        "nitric-oxide-signaling",
+        "load-induced-bone-remodeling",
+        "negative-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "혈관 종류·압력·노출 기간·질환 상태에 의존한다. 순간적인 혈관 확장과 지속 구조 변화는 구분한다. 펌프를 사용한 사람의 치료 효과·안전한 자극 조건을 이 원리만으로 정하지 않는다."
+    },
+    {
+      "key": "nitrilase-hydrolysis-to-carboxylate",
+      "related_keys": [
+        "hydrolysis",
+        "enzyme-catalysis",
+        "amide-dehydration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소 기질 특이성·농도·생성물 저해·pH에 의존한다. 아미드까지 수화하는 니트릴 수화효소와 최종 전환을 구분하며 부산물 없는 완전 전환을 보장하지 않는다."
+    },
+    {
+      "key": "diffuser-pressure-recovery",
+      "related_keys": [
+        "centrifugal-pumping",
+        "venturi-entrainment",
+        "choked-converging-diverging-nozzle"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입구 유동·확대각·압축성·경계층 박리·마찰에 의존한다. 손실 때문에 총압이 새로 생성되지 않으며 단면 증가만으로 항상 압력이 회복되지는 않는다. 펌프의 동력 전달과 구분한다."
+    },
+    {
+      "key": "metal-chloride-pyrohydrolysis",
+      "related_keys": [
+        "hydrolysis",
+        "gas-absorption",
+        "endothermic-hydroxide-dehydration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "금속 종류·수분·온도·가스 분압·체류시간에 의존한다. 모든 염화물이 동일 조건에서 완전 전환되지 않는다. 유기물 열분해나 수산화물 단순 탈수와 출발 물질·회수물이 다르다."
+    },
+    {
+      "key": "nonoxidative-ammonia-lyase-deamination",
+      "related_keys": [
+        "enzyme-catalysis",
+        "oxidative-amino-acid-deamination",
+        "aminotransferase-group-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·기질·pH·암모니아 농도·평형에 의존한다. PAL의 MIO 매개 경로와 아스파르타아제의 제거 경로는 다르다. 산화 탈아미노화·아미노기 전이와 구분하며 반응만으로 치료 효과를 보장하지 않는다."
+    },
+    {
+      "key": "conjugated-polymer-conformational-chromism",
+      "related_keys": [
+        "electrochromism",
+        "absorption-spectroscopy",
+        "aggregation-restricted-intramolecular-motion-emission"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "측쇄·조립 상태·온도·용매·이온에 의존한다. 물 반응성 논문 소재와 땀 선택성 특허 소재는 조성이 다르다. 모든 변색을 pH나 전기 산화환원으로 설명하지 않는다."
+    },
+    {
+      "key": "cytoplasmic-organelle-inheritance",
+      "related_keys": [
+        "genetic-linkage-selection",
+        "male-sterility-enforced-outcrossing",
+        "somatic-cell-fusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "종·소기관·부계 누출·핵과 세포질의 상호작용에 의존한다. 모든 소기관이 항상 모계 유전인 것은 아니다. 핵 표지의 연관 선발과 구분하며 특허의 형질전환 향상량을 일반화하지 않는다."
+    },
+    {
+      "key": "carbon-oxide-hydrogenation-to-methanol",
+      "related_keys": [
+        "catalytic-hydrogenation",
+        "carbon-oxide-methanation",
+        "hydrocarbon-steam-reforming",
+        "fischer-tropsch-chain-growth"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매·가스 조성·온도·압력·물과 평형에 의존한다. 촉매별 중간체 경로를 동일시하지 않는다. C–O 결합을 제거하는 메탄화 및 C–C 사슬을 늘리는 FT 합성과 생성물·선택성이 다르다."
+    },
+    {
+      "key": "oxidation-assisted-thermal-cutting",
+      "related_keys": [
+        "combustion-heating",
+        "fluid-jet-deposit-removal",
+        "oxidative-decarburization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산화 반응성·산화물 유동성·열손실에 의존한다. 단순 용융 절단과 구별하며 모든 금속에 적용되지 않는다. 특허의 압력 조절 성능은 이 일반 원리만으로 검증되지 않는다."
+    },
+    {
+      "key": "phosphorus-sulfur-addition",
+      "related_keys": [
+        "sulfur-vulcanization",
+        "catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·황 공여체·촉매·수분에 따라 반응성이 달라진다. 고무의 황 가교나 탄소·황 결합 형성과 구분한다. 개별 제조 조건이나 후속 농약 제조법을 일반화하지 않는다."
+    },
+    {
+      "key": "selective-oxide-chlorination",
+      "related_keys": [
+        "solid-liquid-leaching",
+        "mercury-halogenation-capture",
+        "metal-chloride-pyrohydrolysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "염소 화학퍼텐셜·온도·상 조성·반응 속도에 의존한다. 문헌의 CaCl2 경로와 특허의 기체 염소 경로는 조건이 다르다. 화학적 전환과 침출 물질전달을 구분한다."
+    },
+    {
+      "key": "nad-dependent-protein-adp-ribosylation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "enzyme-inhibition",
+        "sumoylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·표적 잔기·보조인자에 의존한다. PARP7은 단일 ADP리보스 전달 사례이며 모든 PARP가 중합체를 만들지는 않는다. 단백질 인산화·SUMO 부착과 전달되는 화학기가 다르다."
+    },
+    {
+      "key": "retained-state-restoration",
+      "related_keys": [
+        "redundant-path-fault-tolerance",
+        "cache-reuse-validation",
+        "sequence-number-ordering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상태의 신선도·식별자 충돌·복구 순서·중복 적용을 검증한다. 동시 대체 경로의 장애 허용이나 계산 결과 캐시와 구별한다. 보존되지 않은 상태나 실행 중 결과의 무손실 복구는 보장하지 않는다."
+    },
+    {
+      "key": "atp-dependent-protein-phosphorylation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "phosphomonoester-enzymatic-dephosphorylation",
+        "phosphotransferase-group-translocation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소의 잔기 선택성·금속 보조인자·기질 접근성과 탈인산화 경로를 확인한다. RIPK1의 특정 인산화만으로 세포 사멸이 충분히 유도되지는 않는다. PEP 구동 당 수송과 구분한다."
+    },
+    {
+      "key": "sulfatase-sulfate-ester-hydrolysis",
+      "related_keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "phosphomonoester-enzymatic-dephosphorylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소별 기질 특이성·성숙 가공·산도·세포 내 위치가 맞아야 한다. 인산 에스터 가수분해나 황산기 도입과 구분한다. 효소 발현 증가만으로 조직별 치료 효능을 보장하지 않는다."
+    },
+    {
+      "key": "phase-locked-oscillator-synchronization",
+      "related_keys": [
+        "negative-feedback",
+        "pilot-aided-synchronization",
+        "positive-feedback-oscillation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "획득 범위·루프 안정성·대역폭·분주비·잡음을 함께 평가한다. 음의 피드백의 발진 위상 제어 하위 방식이며 기준열 상관 검출이나 발진 생성 자체와 구분한다."
+    },
+    {
+      "key": "glucose-dependent-aerobic-fermentation",
+      "related_keys": [
+        "fermentation",
+        "metabolic-flux-redistribution",
+        "substrate-limited-biochemical-rate"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "균주·성장률·당 조성·산소 공급에 의존한다. 호흡 용량 포화 하나로 항상 설명되지 않는다. 산소 결핍 발효와 구별하며 특허의 생산성 수치를 일반화하지 않는다."
+    },
+    {
+      "key": "peptidylarginine-hydrolytic-deimination",
+      "related_keys": [
+        "enzyme-catalysis",
+        "enzyme-inhibition",
+        "oxidative-amino-acid-deamination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·기질 접근성과 칼슘 의존성을 확인한다. PAD4 구조 연구를 모든 동족 효소의 조건으로 전용하지 않는다. 자유 아미노산 산화 탈아미노화나 펩타이드 주사슬 절단과 구분한다."
+    },
+    {
+      "key": "reference-value-response-calibration",
+      "related_keys": [
+        "reference-channel-common-mode-rejection",
+        "dynamic-system-identification",
+        "optical-reflectometry"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기준의 안정성·측정 조건·모델 범위·불확실성을 확인한다. 동일 장면의 공통 잡음 차분 및 동적 시스템 식별과 목적이 다르다. 기준 자체의 오염과 측정계 오차를 항상 유일하게 분리하지 못한다."
+    },
+    {
+      "key": "nucleotide-pyrophosphohydrolysis",
+      "related_keys": [
+        "phosphomonoester-enzymatic-dephosphorylation",
+        "enzyme-catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·기질·금속 보조인자와 피로인산의 후속 분해를 확인한다. 인산 모노에스터의 탈인산화 및 ATP에서 ADP를 만드는 반응과 생성물이 다르다. ENPP 계열 전체에 같은 선택성을 일반화하지 않는다."
+    },
+    {
+      "key": "chiral-organocatalytic-hydrogen-transfer",
+      "related_keys": [
+        "temporary-chiral-auxiliary-stereodirection",
+        "enantioselective-kinetic-resolution",
+        "catalytic-hydrogenation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매·공여체·기질별 선택성과 라세미화 가능성을 확인한다. 공유결합으로 붙였다 제거하는 키랄 보조기나 미반응 거울상이성질체를 남기는 분할과 다르다. 모든 헤테로고리의 동일 선택성을 뜻하지 않는다."
+    },
+    {
+      "key": "mitofusin-driven-membrane-fusion",
+      "related_keys": [
+        "guanine-nucleotide-switch",
+        "somatic-cell-fusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외막 융합과 내막 융합은 별도 장치가 필요하다. MFN1 구조 근거를 모든 MFN2 변이의 기능에 그대로 적용하지 않는다. 작은 G 단백질의 신호 스위치 및 세포 전체 융합과 구분한다."
+    },
+    {
+      "key": "regulative-embryonic-development",
+      "related_keys": [
+        "somatic-lineage-reprogramming",
+        "progenitor-cell-differentiation",
+        "plant-cell-totipotency"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "종·발생 단계·만능성 세포 수와 신호 환경에 강하게 의존한다. 배반포 형성이 출생 가능성을 보장하지 않고 모든 할구의 무제한 전능성을 뜻하지 않는다. 분화한 체세포의 재프로그래밍과 구분한다."
+    },
+    {
+      "key": "electrical-membrane-excitation",
+      "related_keys": [
+        "ion-channel-modulation",
+        "electroporation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "막의 채널 구성·휴지 상태·자극의 공간·시간 분포에 의존한다. 전기천공이나 생체 전위 측정과 다르며 흥분 발생 자체가 통증 감소나 특정 치료 효능을 보장하지 않는다."
+    },
+    {
+      "key": "reactive-interdiffusion-surface-alloying",
+      "related_keys": [
+        "diffusion-bonding",
+        "thermal-chemical-vapor-deposition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확산 시간·온도·조성·상 안정성과 층의 취성을 확인한다. 물리적으로 피막만 올리는 증착이나 두 몸체의 접합 자체와 구분한다. 두꺼운 반응층이 항상 내구성을 높이지는 않는다."
+    },
+    {
+      "key": "template-directed-rna-transcription",
+      "related_keys": [
+        "transcription-factor-regulation",
+        "heterologous-gene-expression",
+        "enzyme-catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·프로모터·주형·기질 공급과 중단·부산물 형성을 확인한다. 전사량 조절이나 최종 단백질 생산과 다른 합성 단계이며 특정 UTP 공급 방식의 수율 향상을 일반적으로 보장하지 않는다."
+    },
+    {
+      "key": "polydisperse-particle-packing",
+      "related_keys": [
+        "pressure-compaction",
+        "granular-jamming"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입경비·혼합비·형상·입자간 상호작용과 변형성을 확인한다. 분포가 넓다는 사실만으로 치밀화·점도 저하를 보장하지 않는다. 압력에 의한 변형 치밀화 및 재밍 강성 전환과 구분한다."
+    },
+    {
+      "key": "loop-mediated-strand-displacement-amplification",
+      "related_keys": [
+        "pcr",
+        "nucleic-acid-duplex-melting",
+        "enzyme-catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "적합한 중합효소·프라이머·주형 구조가 필요하다. 비특이 증폭과 오염·시료 억제를 확인한다. 열적 가닥 분리를 반복하는 PCR과 증폭 주기의 구성이 다르며 검출 신호의 종류와도 구분한다."
+    },
+    {
+      "key": "substrate-level-atp-formation",
+      "related_keys": [
+        "atp-dependent-protein-phosphorylation",
+        "phosphotransferase-group-translocation",
+        "enzyme-catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·금속 이온·기질 비율·생성물과 반응 평형에 의존한다. ATP를 소비하는 단백질 인산화나 PEP를 소비하는 당 수송과 에너지의 수용체가 다르다. 활성제의 임상 효능을 뜻하지 않는다."
+    },
+    {
+      "key": "alkene-ozonolytic-cleavage",
+      "related_keys": [
+        "alkene-epoxidation",
+        "ozone-generation",
+        "advanced-oxidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질·매질·후속 산화환원과 경쟁 반응에 의존한다. 에폭시화처럼 탄소 골격을 유지하는 산소 부가 및 오존 생성과 구분한다. 반응성 중간체가 존재하므로 특정 공정 조건은 일반화하지 않는다."
+    },
+    {
+      "key": "vicinal-diol-oxidative-cleavage",
+      "related_keys": [
+        "alcohol-oxidation-to-carbonyl",
+        "alkene-ozonolytic-cleavage",
+        "borate-diol-reversible-crosslinking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "두 산소의 배치·고리 형성 가능성·pH·산화제와 다른 반응성 부위를 확인한다. 알코올 한 곳의 카보닐 산화나 알켄의 오존 절단과 기질·중간체가 다르다."
+    },
+    {
+      "key": "parallel-impedance-current-sharing",
+      "related_keys": [
+        "resistive-shunt-current-sensing",
+        "joule-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "소자 특성·온도·게이트 구동 동기·주파수·상호 인덕턴스를 함께 확인한다. 배선 대칭만으로 모든 스위칭 순간의 균등 전류를 보장하지 않는다. 저항 전압강하를 읽는 전류 측정과 출력이 다르다."
+    },
+    {
+      "key": "combinatorial-pooled-identification",
+      "related_keys": [
+        "geophysical-inverse-reconstruction",
+        "pcr"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "풀 배정의 구별 가능성·양성 비율·희석·검출 한계·잡음 모델에 의존한다. 높은 양성률이나 모호한 조합에서는 추가 확인이 필요하다. 한 풀의 양성을 모든 구성원의 양성으로 해석하지 않는다."
+    },
+    {
+      "key": "bipolar-membrane-water-dissociation",
+      "related_keys": [
+        "electrodialysis",
+        "water-electrolysis",
+        "acid-base-reaction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "역방향 전압·막 선택성·계면 촉매·물 공급과 염 누설을 확인한다. 수소·산소 기체를 만드는 전극 물 전기분해와 다른 반응이며 통상 전기투석의 기존 염 이온 이동에 해리 단계가 더해진다."
+    },
+    {
+      "key": "corrosion-driven-sacrificial-disappearance",
+      "related_keys": [
+        "electrochemical-machining",
+        "cathodic-protection",
+        "passivation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "합금·표면막·온도·염·유동·기체 발생과 잔류물을 확인한다. 제거 시간·완전 소실을 보장하지 않는다. 외부 전원으로 공작물을 용해하는 전해 가공 및 단순 용매 용해와 구분한다."
+    },
+    {
+      "key": "ku-ligase-mediated-end-joining",
+      "related_keys": [
+        "polymerase-theta-mediated-end-joining",
+        "homologous-recombination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "종·말단 손상·가공 필요성·세포 상태에 의존한다. 정확한 재연결도 가능하지만 삽입·결실·잘못된 말단 연결이 생길 수 있다. 세타 중합효소의 짧은 상동성 경로 및 긴 상동 재조합과 구분한다."
+    },
+    {
+      "key": "internal-ribosome-entry-initiation",
+      "related_keys": [
+        "heterologous-gene-expression",
+        "riboswitch-ligand-responsive-regulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "RNA 구조·숙주·개시 인자·주변 서열에 의존한다. 모든 IRES가 인자 없이 작동하지 않으며 동일 전사체의 단백질 양이 같다는 보장도 없다. 전사 조절 및 번역 도중 사슬 분리와 구분한다."
+    },
+    {
+      "key": "nascent-peptide-induced-translation-skipping",
+      "related_keys": [
+        "internal-ribosome-entry-initiation",
+        "compartment-specific-proteolytic-processing",
+        "heterologous-gene-expression"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "펩타이드·숙주·주변 단백질에 따라 효율과 잔류 연결물이 달라진다. 완성 단백질을 효소로 절단하는 반응이나 IRES에 의한 새 번역 개시와 구분한다. 기능·발현비는 별도 확인한다."
+    },
+    {
+      "key": "superoxide-enzymatic-dismutation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "phenolic-radical-termination",
+        "phosphite-peroxide-decomposition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소 종류·금속 결합·접근성과 후속 과산화수소 처리에 의존한다. 모든 활성 산소를 제거하는 것이 아니며 페놀계 라디칼 연쇄 정지와 반응 생성물이 다르다. 변이의 생산성 개선은 별도 입증한다."
+    },
+    {
+      "key": "thermal-carrier-generation-dark-current",
+      "related_keys": [
+        "photodiode",
+        "thermionic-emission",
+        "reference-value-response-calibration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "재료·결함·바이어스·표면 상태에 의존한다. 일정 배증 온도를 모든 센서에 일반화하지 않는다. 평균 암신호를 보정해도 생성 잡음은 남으며 물질 밖으로 전자를 방출하는 열전자 효과와 구분한다."
+    },
+    {
+      "key": "acc-oxidative-ethylene-formation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "receptor-ligand-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "철·산소·아스코르베이트와 중탄산 활성화 조건에 의존한다. 이산화탄소와 시안화물도 생성된다. 수용체 결합 및 에테폰 분해와 다른 경로이며 특허의 적과 효능을 자동 입증하지 않는다."
+    },
+    {
+      "key": "clay-dehydroxylation-structural-disordering",
+      "related_keys": [
+        "pyrolysis",
+        "pozzolanic-calcium-silicate-hydrate-formation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "점토 광물·초기 질서·가열 이력에 의존하며 과열 재결정화로 반응성이 낮아질 수 있다. 자유수 건조 및 후속 포졸란 반응과 구별하고 탈수산화의 흡열 자체를 별도 중복 계수하지 않는다."
+    },
+    {
+      "key": "freeze-thaw-tissue-permeabilization",
+      "related_keys": [
+        "solid-liquid-leaching",
+        "ice-templating",
+        "cryoprotective-cellular-dehydration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "조직·냉각 및 해동 속도·저장 기간에 의존한다. 포도 품종과 성분별 추출량은 감소할 수도 있다. 생존 보호용 동결 탈수 및 얼음 주형의 공극 형성과 구분하며 모든 막의 파열을 가정하지 않는다."
+    },
+    {
+      "key": "associative-covalent-network-rearrangement",
+      "related_keys": [
+        "borate-diol-reversible-crosslinking",
+        "viscoelastic-response",
+        "transesterification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "교환 화학·촉매·온도·가교 밀도에 의존하며 크리프와 열화가 남는다. 모든 동적 망이 결합 수를 보존하는 비트리머는 아니다. 비가역 가교 형성 및 용액의 붕산염·디올 가역 가교와 경로를 구별한다."
+    },
+    {
+      "key": "pseudo-label-self-training",
+      "related_keys": [
+        "supervised-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "초기 모델·표지 신뢰도·분포 차이·독립 검증에 의존한다. 틀린 표지가 자기강화될 수 있어 향상을 보장하지 않는다. 사람이 준 정답의 지도 학습이나 보상 기반 강화학습과 목표값의 출처가 다르다."
+    },
+    {
+      "key": "exonucleolytic-end-resection",
+      "related_keys": [
+        "hydrolysis",
+        "enzyme-catalysis",
+        "homologous-recombination",
+        "ku-ligase-mediated-end-joining"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소별 5′·3′ 방향성과 단일·이중가닥 선호 및 금속 의존성을 확인한다. RecJ는 단일가닥 5′ 말단 사례이다. 모든 효소를 같은 방향으로 묶지 않으며 내부 표적 절단과 구분한다."
+    },
+    {
+      "key": "hydrogen-borrowing-alcohol-chain-extension",
+      "related_keys": [
+        "alcohol-oxidation-to-carbonyl",
+        "catalytic-hydrogenation",
+        "nonoxidative-catalytic-dehydrogenation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매의 산·염기 및 수소 전달 기능과 기질에 의존한다. 촉매에 따라 직접 탈수소와 분자 간 수소 전달의 비중이 다르며 메탄올을 에탄올 자기축합과 동일 경로로 일반화하지 않는다."
+    },
+    {
+      "key": "adenylation-mediated-nucleic-acid-ligation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "ku-ligase-mediated-end-joining",
+        "template-directed-rna-transcription"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "말단 화학·배열·효소·금속 및 ATP 상태에 의존한다. 미리 아데닐화된 기질은 필요한 단계가 다르다. Ku 복합체가 DNA 이중가닥 끝을 포획하는 경로와 달리 연결의 화학적 활성화 단계에 한정한다."
+    },
+    {
+      "key": "malonyl-decarboxylative-acyl-chain-elongation",
+      "related_keys": [
+        "enzyme-catalysis",
+        "carbon-nucleophile-acyl-substitution",
+        "reverse-beta-oxidation-chain-elongation",
+        "protodecarboxylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·운반체·사슬 길이 선택성과 후속 환원 단계에 의존한다. ACP 기반 생합성을 아세틸CoA를 쓰는 역 β산화와 구분한다. KASII 변이의 작물별 지방산 비율은 별도 검증한다."
+    },
+    {
+      "key": "nitrogen-oxide-oxidative-acid-regeneration",
+      "related_keys": [
+        "gas-absorption",
+        "hydrolysis",
+        "selective-catalytic-nitrogen-oxide-reduction",
+        "solid-liquid-leaching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "NO·산소 농도·기액 접촉·체류 시간·산화 상태에 의존한다. NO2와 N2O4의 평형 및 후속 아질산 반응을 고려한다. 단순 물리 흡수나 질소까지 환원하는 탈질과 다르며 완전 무손실을 보장하지 않는다."
+    },
+    {
+      "key": "thermal-gradient-fracture",
+      "related_keys": [
+        "thermal-expansion-actuation",
+        "thermal-glass-tempering",
+        "differential-thermal-contraction-prestress",
+        "thermal-reaction-quenching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열전도율·팽창률·탄성률·파괴인성·크기·열전달 조건에 의존한다. 잔류 압축응력을 남기는 유리 강화 및 화학 반응을 멈추는 급랭과 구분한다. 세라믹 실험이 특허 슬래그의 모든 파쇄율을 입증하지는 않는다."
+    },
+    {
+      "key": "linear-quadratic-optimal-feedback",
+      "related_keys": [
+        "negative-feedback",
+        "model-predictive-control",
+        "state-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "안정화 가능성·검출 가능성·가중치와 모델 근사를 확인한다. 제약을 온라인에서 반복 최적화하는 MPC와 운용을 구분한다. 표준 LQR 설명이 특허의 행렬부등식 기반 강인 제어 성능을 보장하지 않는다."
+    },
+    {
+      "key": "metal-assisted-sugar-epimerization",
+      "related_keys": [
+        "enzyme-catalysis",
+        "photoinduced-geometric-isomerization",
+        "enantioselective-kinetic-resolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·금속·기질·평형에 의존한다. 탄소 연결을 유지한 입체중심 반전으로 기하 E/Z 이성질화 및 한 거울상체를 소비하는 속도 분할과 구분한다. 모든 에피머화효소가 이 중간체를 쓰지는 않는다."
+    },
+    {
+      "key": "adversarial-generative-learning",
+      "related_keys": [
+        "supervised-learning",
+        "pseudo-label-self-training",
+        "ensemble-classification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "목적함수·학습 균형·데이터·모델 용량에 의존한다. 모드 붕괴·불안정·편향이 가능하다. 지도 분류나 자기표지 재학습과 다른 경쟁 구조이며 특허의 이상 탐지 성능을 보장하지 않는다."
+    },
+    {
+      "key": "interpolated-example-label-regularization",
+      "related_keys": [
+        "supervised-learning",
+        "ensemble-classification",
+        "pseudo-label-self-training"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입력 표현·표지 의미·혼합 비율·손실함수에 의존한다. 혼합 표본이 물리적으로 가능한 상태라는 보장은 없다. 새 입력 생성에 의한 정규화로 여러 분류기 결과의 평균이나 자기표지와 구분한다."
+    },
+    {
+      "key": "death-receptor-caspase-recruitment",
+      "related_keys": [
+        "receptor-ligand-modulation",
+        "mitochondrial-apoptosis",
+        "receptor-dimerization-signaling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수용체 집합·세포 내 억제인자·효과기 경로에 의존한다. 미토콘드리아 경로와 상호작용할 수 있으나 시작점이 다르다. DR4·DR5 결합 항체가 반드시 작용제이거나 치료 효과를 갖는 것은 아니다."
+    },
+    {
+      "key": "acc-deaminative-ring-opening",
+      "related_keys": [
+        "enzyme-catalysis",
+        "acc-oxidative-ethylene-formation",
+        "nonoxidative-ammonia-lyase-deamination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소·기질 접근성·PLP와 세포 환경에 의존한다. ACC 산화효소의 에틸렌 생성이나 페닐알라닌의 단순 암모니아 제거와 결합 변화가 다르다. 구체적 개환 촉매 단계의 대안 기전을 고려하며 식물 성장 개선을 보장하지 않는다."
+    },
+    {
+      "key": "silicate-weathering-alkalinity-generation",
+      "related_keys": [
+        "mineral-carbonation",
+        "solid-liquid-leaching",
+        "acid-base-reaction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광물 조성·산의 출처·입도·물 흐름·이차 광물과 재방출을 확인한다. 고체 탄산염 고정과 달리 용존 알칼리도 경로를 다룬다. 미생물 첨가량만으로 촉진·순 제거·영구성을 인정하지 않으며 채굴·분쇄 배출을 함께 평가한다."
+    },
+    {
+      "key": "carbodiimide-carboxyl-crosslinking",
+      "related_keys": [
+        "polymerization",
+        "peptide-bond-coupling",
+        "urethane-addition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "관능기 농도·이동성·수분·온도에 따라 생성물과 가교가 달라진다. 산 활성화 후 외부 아민에 결합시키는 펩타이드 합성과 목적 생성물이 다르다. 특허의 아민 반응성 수지까지 같은 산 경로로 일반화하지 않는다."
+    },
+    {
+      "key": "lysine-acetyltransferase-protein-modification",
+      "related_keys": [
+        "enzyme-catalysis",
+        "chromatin-accessibility-regulation",
+        "hydroxyl-acetylation",
+        "atp-dependent-protein-phosphorylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소 복합체·기질 위치·탈아세틸화·세포 맥락에 의존한다. 수산기 아세틸화의 에스터 형성과 달리 라이신 질소를 수식한다. 염색질 접근성 일반보다 특정 화학 단계를 다루며 KAT 억제의 항암 효능을 보장하지 않는다."
+    },
+    {
+      "key": "confined-crystallization-pressure",
+      "related_keys": [
+        "crystallization",
+        "cement-hydration",
+        "precipitation-reaction",
+        "hydraulic-fracture-opening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "과포화도·공극 크기·용액 공급·성장면과 골격 강도에 의존한다. 열린 공간의 석출이 항상 손상을 만드는 것은 아니다. 초기 수화 결속과 지연 팽창을 구분하며 황산염 첨가만으로 방지 성능을 단정하지 않는다."
+    },
+    {
+      "key": "gas-throughput-pressure-leak-sensing",
+      "related_keys": [
+        "vacuum-gripping",
+        "hydrostatic-level-sensing",
+        "gas-solution-diffusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "체적·온도·배기 속도·탈기·투과·배경 유량을 보정한다. 압력 상승만으로 누설 위치를 확정하지 않는다. 정수압 액면계나 압력차 흡착 고정과 달리 가스 물질수지를 판독하며 특허가 압력 상승률 정량법을 쓴다는 뜻은 아니다."
+    },
+    {
+      "key": "interleaved-switching-ripple-cancellation",
+      "related_keys": [
+        "parallel-impedance-current-sharing",
+        "zero-voltage-current-soft-switching",
+        "wave-interference"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상 수·위상차·진폭·주파수·부하·듀티비·권선 결합에 의존한다. 모든 고조파나 운전점의 리플이 사라지지 않는다. 스위칭 순간의 손실 저감과 평균 전류 분담은 별도이다."
+    },
+    {
+      "key": "metal-carbonate-thermal-decomposition",
+      "related_keys": [
+        "mineral-carbonation",
+        "sintering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "화합물·온도·이산화탄소 분압·입도·가열 속도를 확인한다. 모든 탄산염이 같은 조건에서 분해되지는 않는다. 광물 탄산화의 역방향이며 산화물 재생·기체 방출이라는 기능과 열 공급 조건을 구분한다."
+    },
+    {
+      "key": "ultrasonic-interfacial-metal-bonding",
+      "related_keys": [
+        "diffusion-bonding",
+        "friction-stir-welding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "재료·표면막·압력·진폭·시간·두께에 의존한다. 과도 진동은 균열·손상을 낼 수 있다. 회전 공구의 벌크 교반이나 정적 고온 확산 접합과 구분하며 계면 전체의 완전한 산화막 제거를 가정하지 않는다."
+    },
+    {
+      "key": "active-input-current-waveform-shaping",
+      "related_keys": [
+        "reactive-power-phase-control",
+        "negative-feedback",
+        "zero-voltage-current-soft-switching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "제어 대역폭·부하·전원 왜곡·필터 전류·센싱 오차에 의존한다. 정현파의 위상차만 조절하는 무효전력 보상과 달리 파형 왜곡도 다루며 단위 역률이나 무손실 변환을 보장하지 않는다."
+    },
+    {
+      "key": "opposed-contact-preload-backlash-suppression",
+      "related_keys": [
+        "gear-ratio-transmission",
+        "elastic-energy-recovery",
+        "hydraulic-force-transmission"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "예압·외부 토크·열팽창·윤활·마모를 확인한다. 예압을 넘는 하중에서 유격이 다시 나타날 수 있으며 마찰과 접촉 하중이 증가한다. 기어비 설정이나 재료의 잔류 예응력과 다른 접촉 유지 기전이다."
+    },
+    {
+      "key": "sigma-delta-quantization-noise-shaping",
+      "related_keys": [
+        "quantization-rate-distortion-tradeoff",
+        "negative-feedback",
+        "linear-frequency-filtering",
+        "pulse-interval-information-encoding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "과표본화·루프 차수·안정성·포화·재구성 필터와 유휴 톤을 고려한다. 오차를 없애는 것이 아니라 주파수 분포를 바꾸며 일반 양자화·선형 사후 필터링·단순 펄스 폭 부호화와 구분한다."
+    },
+    {
+      "key": "digital-holographic-wavefront-reconstruction",
+      "related_keys": [
+        "wave-interference",
+        "diffraction",
+        "projective-coordinate-mapping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "파장·표본 간격·전파 거리·기준파·배경 보정이 필요하다. 인라인 방식의 쌍둥이상·다중 산란·입자 겹침이 오차를 만든다. 단순 간섭 검출이나 기하 투영과 달리 회절 전파 복원을 포함한다."
+    },
+    {
+      "key": "switched-capacitor-charge-transfer-conversion",
+      "related_keys": [
+        "capacitive-energy-storage",
+        "inductive-magnetic-energy-storage",
+        "parallel-impedance-current-sharing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "스위칭 주기·용량·스위치 저항·ESR·부하·전하 공유 손실에 의존한다. 출력 임피던스와 리플이 남고 순 에너지는 공급원에서 온다. 단순 축전이나 코일 자속 변화에 의한 변환과 구분한다."
+    },
+    {
+      "key": "vibrating-mesh-droplet-ejection",
+      "related_keys": [
+        "centrifugal-film-atomization",
+        "converse-piezoelectricity",
+        "pressure-driven-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "주파수·진폭·점도·표면장력·젖음·막힘·액체 조성을 확인한다. 기체 전단 분무·회전 액막 분열과 구동 경로가 다르다. 미스트 생성이 흡입액의 무해성이나 치료 효과를 입증하지는 않는다."
+    },
+    {
+      "key": "reductive-sulfate-catalyst-regeneration",
+      "related_keys": [
+        "hydrodesulfurization",
+        "adsorption",
+        "microbial-sulfate-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매·황 부하·온도·환원제·물·이산화탄소에 의존한다. 잔류 황화물과 열적 열화 때문에 완전 재생을 보장하지 않는다. 유기물의 탄소·황 결합을 끊는 수소화 탈황이나 미생물 황산염 환원과 구분한다."
+    },
+    {
+      "key": "coordinatewise-local-search",
+      "related_keys": [
+        "negative-feedback",
+        "finite-difference-rate-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변수 간 결합·잡음·보폭·제약을 고려한다. 따로 시험한 변수의 동시 변경은 다시 검증해야 한다. 전역 최적이나 고정 보폭의 수렴을 보장하지 않으며 모델 식별 자체·시간 지평 제어와 구분한다."
+    },
+    {
+      "key": "pressure-driven-streaming-potential",
+      "related_keys": [
+        "electroosmotic-flow",
+        "nernst-potentiometry",
+        "pressure-driven-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전해질 전도도·점도·유전율·표면 전도·공극 구조·pH와 압력차를 확인한다. 제타 전위 환산에는 모델 가정이 필요하다. 전기장으로 유동을 만드는 전기삼투 및 평형 이온 선택 전위와 구분한다."
+    },
+    {
+      "key": "metabolic-conductivity-growth-detection",
+      "related_keys": [
+        "fermentation",
+        "electrical-continuity-sensing",
+        "nernst-potentiometry"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "균종·배지·초기 균수·온도·배양 시간·전극 분극에 의존한다. 무균 대조와 비생물 변화 보정이 필요하다. 전도도 변화가 종 동정·생균수·살균 여부를 단독으로 확정하지는 않는다."
+    },
+    {
+      "key": "active-swimming-motility-separation",
+      "related_keys": [
+        "capillary-wicking",
+        "gravity-settling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유로 길이·벽 상호작용·시간·배지·온도·대류와 유영 피로에 의존한다. 정자 실험에서는 회수율과 운동성의 절충이 나타난다. 원심 분리·수동 확산과 구분하며 수정 성공이나 DNA 무손상을 보장하지 않는다."
+    },
+    {
+      "key": "forster-resonance-energy-transfer",
+      "related_keys": [
+        "fluorescence-sensing",
+        "fluorescence-dequenching",
+        "photosensitized-singlet-oxygen"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공여체 방출·수용체 흡수의 중첩, 배향·양자수율·굴절률을 확인한다. 직접 여기·재흡수·접촉 소광을 구분한다. 절단에 의한 일반 소광 해제보다 특정 전달 기전이며 모든 형광 감소를 FRET로 판정하지 않는다."
+    },
+    {
+      "key": "photoacid-mediated-reaction-initiation",
+      "related_keys": [
+        "photoinitiated-radical-generation",
+        "acid-base-reaction",
+        "photolithography"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "흡수 파장·광량·염의 반대 이온·양성자원·염기 불순물과 산 확산에 의존한다. 라디칼이 중합을 직접 전파하는 광개시와 구분하며 모든 광분해물이 산을 내는 것은 아니다."
+    },
+    {
+      "key": "self-organizing-neighborhood-map",
+      "related_keys": [
+        "density-based-clustering",
+        "quantization-rate-distortion-tradeoff"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "특징 스케일·거리·초기값·학습률·이웃 폭·표본 순서에 의존한다. 모든 거리나 위상을 정확히 보존하지 않는다. 밀도 연결 군집과 달리 격자 이웃 갱신을 사용하며 예측에는 별도 모델이 필요하다."
+    },
+    {
+      "key": "chemical-singlet-oxygen-generation",
+      "related_keys": [
+        "photosensitized-singlet-oxygen",
+        "advanced-oxidation",
+        "microemulsion-phase-equilibrium"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "촉매·산도·상 분배·과산화물 농도·소광과 수명에 의존한다. 몰리브데이트계의 결과를 모든 금속염에 일반화하지 않는다. 광감작 에너지 전달이나 일반 과산화물 라디칼 산화와 생성 경로가 다르다."
+    },
+    {
+      "key": "bioimpedance-fluid-volume-estimation",
+      "related_keys": [
+        "bioelectric-potential-sensing",
+        "metabolic-conductivity-growth-detection",
+        "capacitive-energy-storage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "체형·전극 배치·접촉·온도·움직임·조직 비저항·모델 검량에 의존한다. 자발 생체 전위 기록과 다르며 측정 임피던스만으로 절대 체액량·심박출량을 확정하지 않는다."
+    },
+    {
+      "key": "prestress-geometric-stiffening",
+      "related_keys": [
+        "section-moment-stiffening",
+        "elastic-energy-recovery",
+        "differential-thermal-contraction-prestress"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "초기 장력·부재 배치·지지 조건·이완·좌굴·허용 응력을 확인한다. 모든 모드가 같은 비율로 강해지지는 않는다. 단면 2차 모멘트 증가나 재료의 잔류 압축응력에 의한 균열 억제와 구분한다."
+    },
+    {
+      "key": "thyristor-current-commutation-turnoff",
+      "related_keys": [
+        "pn-rectification",
+        "capacitive-energy-storage",
+        "negative-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유지 전류·저장 전하·접합 온도·소호 시간·재인가 전압 상승률·인덕턴스를 확인한다. 게이트 펄스 제거만으로 꺼지는 스위치와 다르며 영전압 전환의 손실 저감과도 목적·회복 조건이 다르다."
+    },
+    {
+      "key": "load-modulated-passive-response",
+      "related_keys": [
+        "electromagnetic-induction",
+        "quadrature-carrier-channel-separation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "근접 유도 결합과 원거리 후방 산란은 전파 조건을 구분한다. 안테나 정합·결합도·거리·전력 공급·검출 감도에 의존한다. 단순 유도 전력 전달 및 수신기의 직교 복조와 다른 정보 부호화 단계이다."
+    },
+    {
+      "key": "laser-q-switched-energy-release",
+      "related_keys": [
+        "stimulated-emission",
+        "photoelasticity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "펌핑·여기 수명·스위칭 시간·공진기 손실·광학 손상 한계에 의존한다. 종모드 위상 정합과 다른 펄스 형성 원리이다. 특허는 변조기의 Q 스위칭 응용을 명시하며 모든 펄스 성능을 입증하지는 않는다."
+    },
+    {
+      "key": "laser-longitudinal-mode-locking",
+      "related_keys": [
+        "stimulated-emission",
+        "wave-interference",
+        "photoelasticity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이득 대역·분산·변조 주파수·깊이·공진기 길이와 안정성에 의존한다. 모드 수와 스펙트럼 위상이 펄스 폭을 제한한다. 에너지를 저장했다 방출하는 Q 스위칭과 구별한다."
+    },
+    {
+      "key": "pneumatic-jet-obstruction-sensing",
+      "related_keys": [
+        "pressure-driven-flow",
+        "gas-throughput-pressure-leak-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공급 압력·노즐 형상·거리·표면 투과성·오염을 관리한다. 천처럼 투과성인 물체는 위치와 투과도가 함께 영향을 준다. 누설 경로 존재를 판단하는 밀폐 용기 누설 검사와 측정 구성이 다르다."
+    },
+    {
+      "key": "radical-thiol-ene-addition",
+      "related_keys": [
+        "photoinitiated-radical-generation",
+        "thiol-carbonyl-addition",
+        "polymerization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "티올·이중결합 구조·개시제·광 침투·산소·라디칼 소거제에 의존한다. 광개시는 시작 단계이며 티올의 카보닐 부가 및 황 가황과 결합 형성 경로가 다르다. 라텍스의 실제 전환율을 별도 확인한다."
+    },
+    {
+      "key": "quantum-disturbance-key-distribution",
+      "related_keys": [
+        "keyed-encryption"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "인증된 고전 채널·장치 모델·유한 표본 보안 검증이 필요하다. 손실·잡음·측면 채널을 고려하며 양자 채널이 모든 공격을 막지는 않는다. 특허의 양자키 노드에 해당하나 특정 프로토콜 구현은 확정하지 않는다."
+    },
+    {
+      "key": "additive-color-stimulus-mixing",
+      "related_keys": [
+        "subtractive-color-mixing",
+        "rough-surface-diffuse-reflection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광원 스펙트럼·공간 균일도·관찰 조건과 시각 적응에 의존한다. 비간섭 광의 세기 합성이며 색소의 선택 흡수와 다르다. 모든 광원 조합이 임의의 색이나 백색을 만들 수 있는 것은 아니다."
+    },
+    {
+      "key": "molten-droplet-impact-coating",
+      "related_keys": [
+        "fourier-conduction",
+        "wetting-control",
+        "mechanical-interlocking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입자 온도·속도·기재 온도·거칠기·산화·열 접촉 저항에 의존한다. 기공·잔류응력·박리를 관리한다. 목재 열손상에 유의하며 기화 후 증착이나 고체 입자의 냉간 충돌 결합과 구분한다."
+    },
+    {
+      "key": "closed-gas-regenerative-heat-engine",
+      "related_keys": [
+        "heat-capacity-buffer",
+        "forced-convection",
+        "closed-cycle-vapor-expansion-power-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열원·저온 방열원·위상차·열교환과 밀봉이 필요하다. 실제 팽창·압축은 완전 등온이 아니고 재생·유동 손실이 있다. 증발·응축하는 Rankine 계열 및 압력파 열음향 변환과 구분한다."
+    },
+    {
+      "key": "reluctance-dependent-inductive-position-sensing",
+      "related_keys": [
+        "reluctance-actuation",
+        "eddy-current-sensing",
+        "electromagnetic-induction",
+        "state-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기 포화·누설 자속·히스테리시스·권선 저항·구동 파형·온도 보정이 필요하다. 도체 내 와전류에 의한 응답과 구분하며 구동 코일을 센서로 겸용해도 위치 모델 검증이 필요하다."
+    },
+    {
+      "key": "transient-thermal-defect-imaging",
+      "related_keys": [
+        "fourier-conduction",
+        "thermal-radiation",
+        "differential-scanning-calorimetry"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "방사율·입력·두께·열확산율·센서 시간 응답·기준 상태를 보정한다. 결함 위치·종류의 역산은 비유일할 수 있다. 정상 온도 측정이나 벌크 열량 분석과 구분한다."
+    },
+    {
+      "key": "indentation-load-area-hardness",
+      "related_keys": [
+        "plastic-forming",
+        "elastic-energy-recovery"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "압입자 형상·하중·시간·표면·두께·기재 영향과 압입 크기 효과를 확인한다. 잔류 자국과 최대 하중 접촉 면적은 구분하며 경도를 인장 강도와 동일시하지 않는다."
+    },
+    {
+      "key": "threshold-crossing-event-sampling",
+      "related_keys": [
+        "sampling-reconstruction",
+        "photodiode",
+        "incremental-position-encoding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "문턱·잡음·데드타임·처리 대역에 의존하며 사건률이 높으면 포화될 수 있다. 상대 밝기 변화와 절대 문턱은 구현을 구분한다. 공간 눈금 계수 및 펄스 간격으로 정보를 송신하는 부호화와 목적이 다르다."
+    },
+    {
+      "key": "stiffness-detuning-resonance-avoidance",
+      "related_keys": [
+        "resonant-absorber",
+        "active-vibration-control",
+        "vibration-isolation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전체 모드·운전 주파수·감쇠·강성 변경 속도와 안정성을 확인한다. 다른 모드의 공진이나 전달률이 커질 수 있다. 추가 질량으로 진동을 흡수하거나 반대 힘을 가하는 제어와 구별한다."
+    },
+    {
+      "key": "acyloin-ring-contraction-isomerization",
+      "related_keys": [
+        "acid-base-reaction",
+        "alkene-double-bond-isomerization",
+        "claisen-rearrangement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질 구조·pH·온도·체류 시간에 따라 이성질체 비율과 분해가 달라진다. 이중결합 위치 이동이나 광학적 기하 이성질화와 달리 고리 골격 연결이 바뀐다. 추출 수율과 반응 수율을 구분한다."
+    },
+    {
+      "key": "photoconductive-carrier-modulation",
+      "related_keys": [
+        "photodiode",
+        "photovoltaic-conversion",
+        "resistance-thermometry"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "흡수 파장·온도·트랩·재결합·접촉·바이어스에 의존한다. 느린 잔류 응답과 잡음을 확인한다. 접합의 전하 분리나 빛에 의한 가열 저항 변화와 구별한다."
+    },
+    {
+      "key": "bearing-ray-triangulation",
+      "related_keys": [
+        "projective-coordinate-mapping",
+        "range-based-multilateration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "대응점·보정·기선·시각 동기화가 필요하다. 거의 평행한 광선은 깊이 오차가 커지고 가림·오대응은 잘못된 위치를 만든다. 기준점까지의 거리를 사용하는 다변측량과 관측량이 다르다."
+    },
+    {
+      "key": "cycle-to-cycle-learning-control",
+      "related_keys": [
+        "negative-feedback",
+        "feedforward"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "작업 반복성·주기 정렬·학습 이득·잡음·포화를 확인한다. 공정 변화가 크면 오차가 누적될 수 있다. 전체 궤적을 갱신하는 반복 학습 제어와 주기별 매개변수 갱신은 구현을 구분한다."
+    },
+    {
+      "key": "verified-break-before-make-interlock",
+      "related_keys": [
+        "field-effect-transistor",
+        "zero-voltage-current-soft-switching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "검출 문턱·지연·기생 결합·고장 모드를 고려한다. 게이트 상태 확인만으로 모든 기생 도통을 보장하지 못한다. 고정 지연 시간이나 영전압 전환과 목적·판정 조건이 다르다."
+    },
+    {
+      "key": "electrochemical-alloying-charge-storage",
+      "related_keys": [
+        "lithium-intercalation",
+        "reactive-interdiffusion-surface-alloying"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "호스트 틀을 대체로 유지하는 삽입 반응과 구분한다. 부피 변화·균열·전도 경로 손실·계면막·비가역 용량을 고려하며 모든 합금 조성의 가역성과 수명을 보장하지 않는다."
+    },
+    {
+      "key": "equivalent-domain-boundary-reuse",
+      "related_keys": [
+        "multiscale-property-upscaling",
+        "discrete-static-equilibrium-solving"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "형상 유사성만으로 충분하지 않다. 유입·위상·하류 되먹임·비대칭 불안정성의 동등성을 확인해야 하며 복사한 경계가 실제 상호작용을 누락할 수 있다. 미세 물성의 평균화와 구별한다."
+    },
+    {
+      "key": "marker-mass-balance-consumption",
+      "related_keys": [
+        "bioimpedance-fluid-volume-estimation",
+        "absorption-spectroscopy"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "추적 성분의 동반 이동·회수율·배경 농도·검출 한계를 검증한다. 바륨 사용 특허는 원리 단서이며 바륨의 온라인 검출 성능을 입증하지 않는다. 안정 동위원소 실험 근거와 구분한다."
+    },
+    {
+      "key": "capillary-film-leveling",
+      "related_keys": [
+        "rough-surface-diffuse-reflection",
+        "capillary-wicking",
+        "wetting-control"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "막 두께·점도·표면장력·기판 경계·젖음과 경화 시간을 확인한다. 불안정 탈젖음이나 증발이 우세하면 평탄화되지 않는다. 광택 변화 자체와 그 원인인 액막 흐름을 구분한다."
+    }
+  ],
+  "scope_edits": {
+    "fluorescence-sensing": [
+      "형광 세기·파장·수명 검출",
+      "광여기로 발생한 형광의 세기·파장·감쇠 시간을 읽어 물질과 상태를 추정한다. 수명은 분자 환경과 복사·비복사 소멸 경로에 의존한다.",
+      "여기·검출 대역 분리, 기기 응답·복수 수명·소광·광표백·배경과 광자 수를 고려한다. 수명 측정도 모든 조건에서 농도 영향을 배제하지 못한다."
+    ],
+    "contact-area-load-spreading": [
+      "접촉 형상·탄성 변형에 따른 하중 분산",
+      "같은 하중이 더 넓은 실제 접촉 영역에 분산되면 평균 압력이 낮아진다. 곡면의 탄성 변형과 곡률·탄성률·하중은 접촉 면적과 국부 압력 분포를 함께 정한다.",
+      "명목 면적 증가가 실제 면적 증가를 보장하지 않는다. 헤르츠 근사는 작은 접촉 영역과 국소 곡률·탄성 범위가 필요하다. 소성·밀착·거칠기·가장자리 효과와 최대 응력은 별도 평가한다."
+    ],
+    "hydrostatic-gas-bearing": [
+      "외부 가압 유체막의 정압 지지",
+      "외부에서 공급한 가압 기체 또는 액체가 좁은 공극에 압력 분포를 형성해 하중을 비접촉 지지한다.",
+      "공급 압력·유량·공극·배출과 안정성을 확인한다. 기체 압축성과 액체 점성·누설 조건은 다르다. 상대 운동이 스스로 압력을 만드는 동압 지지와 구분한다."
+    ],
+    "gear-ratio-transmission": [
+      "접촉 반경비에 의한 회전·직선 운동 전달",
+      "맞물린 기어 또는 구르는 접촉의 유효 반경비가 속도비를 정하고 동력을 속도와 힘·토크로 전달한다. 랙과 피니언에서는 회전을 직선 변위로 바꾼다.",
+      "기어는 치형·백래시·치면 응력, 마찰 구동은 예압·미끄럼 한계를 확인한다. 손실을 고려하며 감속에 따른 토크 증가는 동력 증가가 아니다."
+    ],
+    "reluctance-actuation": [
+      "자기 회로 에너지 변화에 의한 철심 힘·토크",
+      "자화된 자기 회로의 공극·형상이 위치에 따라 달라지면 자기장 에너지 변화에 대응하는 힘·토크가 생긴다. 가동 철심의 흡인과 회전자의 위치별 코깅이 사례이다.",
+      "여자 방식·전류 또는 자속 구속·위치에 따른 에너지를 확인한다. 포화·히스테리시스·발열·잔류 자화를 고려하며 가동 코일의 로렌츠 구동과 구분한다."
+    ],
+    "eddy-current-damping": [
+      "유도 전류의 상대 운동 억제·동력 전달",
+      "도체와 자속 분포 사이 상대 운동이 전류를 유도하고 그 자기 작용이 상대 운동을 줄이는 힘·토크를 만든다. 제동 또는 움직이는 자계에서 회전자로 동력 전달에 이용된다.",
+      "폐전류 경로·슬립·저항·발열과 에너지 공급 경로를 확인한다. 국소 와전류와 권선 회전자 전류는 형상이 다르다. 정지 자계에서 상대 운동이 사라지면 지속 제동 토크가 제한된다."
+    ],
+    "rotor-mass-balancing": [
+      "운동 질량·위상 조절에 의한 관성 가진 제어",
+      "회전·왕복 질량의 분포와 운동 위상을 조절하면 관성력·모멘트를 상쇄하거나 의도한 진동 방향으로 합성할 수 있다. 축 정렬과 보정 질량은 회전 불평형을 줄인다.",
+      "정적·동적 불평형·보정면·회전수·구조 공진과 위상을 확인한다. 가진 생성과 저감은 같은 관성력 합성의 다른 용도이며 감쇠 에너지 소산 자체가 아니다."
+    ],
+    "swelling-actuation": [
+      "용매 흡수·방출에 따른 팽윤·수축",
+      "재료에 들어가거나 빠져나오는 용매가 부피 변화를 만든다. 이를 변위에 이용하거나 구속·농도 구배로 응력과 균열이 발생하는 조건을 평가할 수 있다.",
+      "용매 친화성·조직·가교·확산 시간·구속·가역성을 확인한다. 재료별 수축과 손상은 달라지며 단순 수분 손실만으로 균일 변형을 가정하지 않는다."
+    ],
+    "hydrodynamic-lubrication": [
+      "점성 연행의 유체 압력 형성·윤활",
+      "상대 운동하는 면이 점성 유체를 좁아지는 공극으로 끌어들이면 압력이 생겨 하중을 지지한다. 홈의 방향을 설계하면 연행 흐름으로 밀봉부의 역펌핑도 만들 수 있다.",
+      "속도·점도·공극·하중·홈 방향과 유체 공급에 의존한다. 정지·기동·공급 부족에서는 막이 유지되지 않을 수 있고 밀봉에서도 누설이 완전히 없어지는 것은 아니다."
+    ],
+    "cement-hydration": [
+      "무기 결합재의 수화물 형성 경화",
+      "무기 결합재 성분이 물 또는 수용액과 반응해 연결된 수화물 조직을 만들면 혼합물이 굳어진다. 포틀랜드계와 마그네슘 옥시염화물계는 서로 다른 생성상을 가진다.",
+      "조성·물비·온도·양생·수축·공극에 의존한다. 모든 수화 경화물이 수중 내구성을 갖는 수경성 재료는 아니며 옥시염화마그네슘의 물에 의한 열화를 구분한다."
+    ],
+    "quench-vitrification": [
+      "결정 형성 억제에 의한 유리화",
+      "용융체나 적합한 수용액의 냉각에서 결정 핵생성·성장이 충분히 진행되기 전에 분자 이동이 느려지면 비정질 고체로 고정될 수 있다.",
+      "조성·냉각 속도·두께·열전달에 의존한다. 수용액은 동결보호제와 재가열 시 재결정화를 고려한다. 기존 유리의 응력 강화나 결정성 응고와 구분한다."
+    ],
+    "load-induced-bone-remodeling": [
+      "기계 환경 변화에 따른 골 조직 적응",
+      "기계 하중과 점진적 인장 등 조직 환경의 변화가 골 형성·흡수 신호에 영향을 주어 뼈의 구조와 재생을 조절할 수 있다.",
+      "하중·시간·방향·세포 상태·혈류에 의존한다. 기존 골의 재형성과 절골 간극의 신생골 형성은 과정이 다르며 기계 자극의 생체 반응이라는 공통 범위에서 다룬다. 장치 효과는 별도 검증한다."
+    ],
+    "chemical-glycosylation": [
+      "글리코시드 결합 형성",
+      "활성화된 당 공여체의 아노머 탄소와 수용체 사이에 결합을 만들어 당을 연결한다. 화학 활성화 또는 적합한 당전달효소가 이 반응을 촉진할 수 있다.",
+      "공여체·수용체·효소 또는 촉매에 따라 입체 선택성·결합 원자가 달라진다. 당 고리의 다른 위치를 단순 치환하는 반응과 구분하고 효소 반응을 모든 화학 경로와 동일시하지 않는다."
+    ],
+    "remanent-magnetic-recording": [
+      "잔류 자화 설정·정보 보존",
+      "외부 자기장으로 자성 재료의 자화 방향·패턴을 정하고 장을 제거한 뒤 남는 자화 상태를 이용한다. 영구자석 제조와 자기 정보 기록이 응용이다.",
+      "보자력·잔류 자화·이방성·형상·온도·기록장·판독 분해능을 확인한다. 외부장 제거 후 모든 재료가 같은 자화를 유지하지 않으며 자화 설정과 센서 판독을 구분한다."
+    ],
+    "linear-frequency-filtering": [
+      "선형 주파수 응답에 의한 신호 성분 조절",
+      "선형 계의 주파수별 이득·위상을 설계하면 신호 대역을 선택하거나 알려진 전달 특성을 보상할 수 있다.",
+      "대역폭·위상·지연·잡음·안정성·인과성을 확인한다. 역응답 보상은 작은 전달 이득 구간에서 잡음을 증폭하며 비최소위상·영점 때문에 정확한 안정 역필터가 불가능할 수 있다."
+    ],
+    "finite-difference-rate-estimation": [
+      "유한 차분에 의한 변화율 추정",
+      "독립변수의 떨어진 두 지점에서 관측량의 차이를 간격으로 나누면 그 구간의 평균 변화율을 구할 수 있다. 시간에 따른 속도나 파수에 따른 위상 기울기가 사례이다.",
+      "간격·노이즈·표본화·평활화와 단위를 확인한다. 미분 근사 오차가 있고 짧은 간격은 잡음을 증폭한다. 독립변수가 항상 시간인 것은 아니다."
+    ],
+    "charge-balance-state-of-charge": [
+      "유입·유출률 적분에 의한 누적량 추적",
+      "유입·유출률을 시간에 대해 적분하면 초기 상태 대비 저장량 변화를 구한다. 전류로 전하량을, 누설을 보정한 유량으로 실린더 유체량·변위를 추정할 수 있다.",
+      "초기값·측정 편향·시간 오차·손실·효율을 확인한다. 변위 환산에는 유효 면적·압축성·누설 보정이 필요하다. 오차가 누적되므로 독립 관측으로 보정한다."
+    ],
+    "aromatic-side-chain-oxidation": [
+      "알킬 탄소·수소 결합의 산소화",
+      "적합한 알킬 C–H의 활성화와 산소 도입으로 산소화 생성물을 만든다. 방향족 곁사슬의 카복실기 산화와 NHPI 매개 탄화수소 산소화가 사례이다.",
+      "기질·개시·산소·촉매·중간체와 연쇄 반응 선택성을 확인한다. 알코올·케톤·산 등 최종 생성물은 조건에 따라 다르며 모든 C–H 산화가 같은 단계나 수율을 갖지 않는다."
+    ],
+    "current-field-magnetic-ranging": [
+      "전류 자기장 관계의 역산에 의한 전류·거리 추정",
+      "도체의 전류가 만드는 자기장 분포를 측정하면 알려진 기하에서 전류를, 알려진 전류·경로에서 상대 위치를 역산할 수 있다.",
+      "전류·위치 중 어느 양이 알려져 있는지 확인한다. 귀환 경로·주변 투자율·센서 방향·잡음이 영향을 주며 둘을 동시에 유일하게 결정하지 못할 수 있다. 유도 전압 검출과 구분한다."
+    ],
+    "bandpass-undersampling-frequency-translation": [
+      "표본화 스펙트럼 복제에 의한 주파수 대역 선택",
+      "주기적 표본화가 만드는 스펙트럼 복제본을 선택하면 입력 대역을 낮은 디지털 대역에 표현하거나 DAC 출력의 고차 대역을 이용해 신호를 만들 수 있다.",
+      "표본화율·대역 제한·복제본 비중첩·입출력 필터·지터를 확인한다. ADC 입력 대역폭과 DAC 유지 응답은 다르며 단순히 대역폭 두 배만 정해 충분하지 않다."
+    ],
+    "ensemble-classification": [
+      "여러 모델 예측의 결합",
+      "서로 다른 모델의 범주·확률·수치 예측을 투표 또는 가중 결합하면 개별 오류를 상호 보완할 수 있다.",
+      "오류 상관·정확도·확률 보정·분포 변화와 결합 규칙에 의존한다. 모델 수만으로 성능 향상을 보장하지 않는다. 같은 센서의 반복 측정 평균과 모델 예측 결합을 구분한다."
+    ],
+    "nonoxidative-ammonia-lyase-deamination": [
+      "효소의 암모니아 제거·역부가",
+      "암모니아 분해효소가 기질에서 암모니아를 제거해 불포화 결합을 만들거나 역방향 부가를 촉진한다. PAL의 신남산 형성과 아스파르타아제의 아스파르트산 반응이 사례이다.",
+      "효소·기질·pH·암모니아 농도·평형에 의존한다. PAL의 MIO 매개 경로와 아스파르타아제의 제거 경로는 다르다. 산화 탈아미노화·아미노기 전이와 구분하며 반응만으로 치료 효과를 보장하지 않는다."
+    ],
+    "transient-thermal-defect-imaging": [
+      "과도 열전달 응답에 의한 결함·냉각 상태 진단",
+      "가열·냉각 입력 뒤 온도의 시간 변화를 비교하면 내부 결함·접합 상태·냉각 경로가 열 흐름을 바꿔 만든 응답 차이를 찾을 수 있다. 열 영상은 공간 정보도 제공한다.",
+      "방사율·입력·두께·열확산율·센서 시간 응답·기준 상태를 보정한다. 결함 위치·종류의 역산은 비유일할 수 있다. 정상 온도 측정이나 벌크 열량 분석과 구분한다."
+    ],
+    "interleaved-switching-ripple-cancellation": [
+      "위상이 다른 전력 경로의 맥동·고조파 상쇄",
+      "전력 변환 경로의 스위칭·발전·권선 위상을 엇갈리게 하면 각 경로의 맥동·고조파 성분이 합성 시 일부 상쇄될 수 있다.",
+      "상 수·위상차·진폭·주파수·부하·듀티비·권선 결합에 의존한다. 모든 고조파나 운전점의 리플이 사라지지 않는다. 스위칭 순간의 손실 저감과 평균 전류 분담은 별도이다."
+    ]
+  },
+  "exact_duplicate_titles": 0,
+  "exact_duplicate_principles": 0,
+  "method": "direct_astra_conversation_reasoning",
+  "external_llm_calls": 0,
+  "scope": "Scientific and engineering mechanisms with explicit parent/subtype boundaries, not 959 independent fundamental laws.",
+  "user_requested_stop_before_1000": true,
+  "catalog_sha256": "0bd8fea7438e89a8b9e8eb8a0709ecaaf4fa6d715f4aa2401973148d9289c152"
+}

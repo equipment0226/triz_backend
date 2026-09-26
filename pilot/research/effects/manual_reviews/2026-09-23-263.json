@@ -1,0 +1,97 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d81645594f1235db07af2bcfc6ba854e0dfaeebedcb31f43ba56797fd5bec53c",
+  "reviews": [
+    {
+      "identifier": "AR-120654-A1",
+      "source_fingerprint": "27b19f0b2a209c47153a0bbaf86818ff88cd0448ff5a01dd01fae22350b52787",
+      "content_hash": "fad703c0dc88fd4e21e317fd763a0528da663561c1db18874dd524a380266af8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "키랄 거대고리 화합물 구조이며 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-120663-A1",
+      "source_fingerprint": "e732a8f776ffc0f306688d80eb59956260d07faad470646b7ed48e5d7350a8ee",
+      "content_hash": "dc32f96514a29f58ef000793bc404d7fe625ac6ae7e995d9ddc9aec0f835e387",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조 목록이며 구체 생물 표적은 없다."
+    },
+    {
+      "identifier": "AR-120669-A2",
+      "source_fingerprint": "9beb2072b9ab185d8bd9f910ac923cc1e4b8ebe2ac835a0acb2864e085638268",
+      "content_hash": "e21ad2f4ca5984151e8cee49057cc5a02c696eff4dc09342ed6abef0e1dcbc0f",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "enzyme-inhibition"
+      ],
+      "reason": "PPO 저해제 내성을 위한 단백질 발현이다. 표적 내성은 기존 저해 선택성 사례로 통합한다."
+    },
+    {
+      "identifier": "AR-120674-A1",
+      "source_fingerprint": "195ed30da117e80d1e7b0adacbe96a73e42d2c64419f7f6cec4daffa4244483d",
+      "content_hash": "5f82e93a52db585e9ba9f3feabac1e8048097997dd549ce13077d03e5b1b5d8d",
+      "decision": "LINK",
+      "keys": [
+        "transporter-inhibition"
+      ],
+      "reason": "ASBT·LBAT 담즙산 수송 저해이다."
+    },
+    {
+      "identifier": "AR-120678-A1",
+      "source_fingerprint": "d820e494d08cfdf30b8c482e85c01e76137cd32326f09b2ba4d56bd209fac7ab",
+      "content_hash": "70cb396656c3016b6c92546830766f861347a5a81c0f921867a379285944e025",
+      "decision": "LINK",
+      "keys": [
+        "incremental-position-encoding",
+        "cable-drum-linear-drive",
+        "negative-feedback",
+        "gear-ratio-transmission"
+      ],
+      "reason": "드럼 회전 인코딩과 장력 팔에 반응하는 되감기 구동이다."
+    },
+    {
+      "identifier": "AR-120708-A2",
+      "source_fingerprint": "3036fcb82f699b3625354c0785aa1295960140fc603ec7427bc6056a046252a0",
+      "content_hash": "3a33fedcf48d0d15539af022de23e8ebb38d41dcff56aada2d637fcc2020519b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "CFTR 조절제 병용 개요이다. 개폐·접힘·막 이동 중 어느 경로인지 미특정이다."
+    },
+    {
+      "identifier": "AR-120709-A1",
+      "source_fingerprint": "06a5f303b5b830be9e4712dfed8453e68de6c0a70fdcbd2c112383b44252675a",
+      "content_hash": "73b485f52b8d867adff9604680da38741353870ca5fadfef507d97284097254d",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "enzyme-catalysis"
+      ],
+      "reason": "코돈 최적화한 I2S의 발현이다. 황산 에스터 효소 가수분해는 일반 반응 후보로 대조한다."
+    },
+    {
+      "identifier": "AR-120737-A2",
+      "source_fingerprint": "1e7e87ef48b2636751e6e375a1be32d01922db29352d9c2cd4a1f282560c6a56",
+      "content_hash": "39795de38810d923bbbfe3d61fefd401c5b0ecb00466e7bc084e41537a2eb6f1",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "TIC 계열 살충 단백질 발현이다. 막공 형성을 이름만으로 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-120738-A2",
+      "source_fingerprint": "b2000ae5f6e7cf98972b2bb641a69367925f6d76a3deedc8526c717a6cdee089",
+      "content_hash": "17dc54ec4459e949899a02e6ce582db00853444d926f9895dfbc3f597e2832f8",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "직전 특허와 같은 단백질 발현 초록이다. 별도 신규 효과를 만들지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:46:48.216890+00:00"
+}

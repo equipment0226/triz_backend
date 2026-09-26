@@ -1,0 +1,195 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "c79cff8ff60bdba742ef93bcffabc1246b37c58957c23d0d05957273d56ae182",
+  "reviews": [
+    {
+      "identifier": "AR-104147-A4",
+      "source_fingerprint": "607b7558b11df781c0989958f06ee81aacb8bf57a1980a34c37cefc792aa136a",
+      "content_hash": "d72a45d0dead8cc927c7f682363c690927c7c0bb149fbd3034a2699d0df7b1f6",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-contact-switching",
+        "elastic-energy-recovery"
+      ],
+      "reason": "방사선원이 없으면 스프링 막대가 접점을 닫아 경보를 켠다. 방사선 검출기가 아니다."
+    },
+    {
+      "identifier": "AR-104155-A1",
+      "source_fingerprint": "fa1185e143bf123445903987cd9e0212aedaa564fbc6eee4a65eb01be2038275",
+      "content_hash": "08d7c54d8be762f8b2c70be9a8a9fa09ab922e19ced2264a5903ab6b1ce42ba1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HPMC 흡입 캡슐의 안정화 조성으로 수분·반응·흡착 경로는 없다."
+    },
+    {
+      "identifier": "AR-104180-A1",
+      "source_fingerprint": "f6d41cc06d343ff2000d3bf09019e1b8988bd1a3c390fb1659df491cbbf21dc5",
+      "content_hash": "1f28e3f9a006f2f2a0b34d29f7384b944179e9e2b748f4b88e05bb053fd18994",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission",
+        "mechanical-interlocking"
+      ],
+      "reason": "기어 인덱싱으로 블리스터를 이동시키고 투여 위치에서 구동을 일시 분리한다."
+    },
+    {
+      "identifier": "AR-104192-A1",
+      "source_fingerprint": "8d737c9bf17097503efd34622b80e11791096877f39bf7a301d1837bbba6e7c4",
+      "content_hash": "e4b49c72d7f07230a562eaae0a96da4fbbbc7df8c4acb756d436cda8198315a1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유연 용기의 목·부속품 두께와 지름 비의 설계이다."
+    },
+    {
+      "identifier": "AR-104205-A1",
+      "source_fingerprint": "d14df437edf9f1c785564051a8ca8b203b54437e9a1a6f124b7b551610bddeb1",
+      "content_hash": "3b34ff95120003e5a4ee101fedc1a44850726e3d1eab6be59ace2bedafcb0038",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "포스포리파아제 C가 인지질을 가수분해해 디아실글리세롤과 인산 성분으로 분리한다."
+    },
+    {
+      "identifier": "AR-104209-A1",
+      "source_fingerprint": "c870b96ad198c0e6e71854b7c2f05c63f2f45ddaaadd19902a690bef654dac49",
+      "content_hash": "2a96c8605b61c8fe4fcecaabb1359a884d999cd38eb5125daf7ae217c23d9092",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HFA 추진제와 약물 입자를 넣은 에어로졸 제형이다. 분무 노즐·압력 강하·기화 과정은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-104238-A1",
+      "source_fingerprint": "f66df2abf598e94fda05e4f915b5bab1d837f40c44944f8b987bd3c1e28cfa71",
+      "content_hash": "c953ff55de7a326ae54a3ced695f1a5e973c6ce17f20d16893e775d6964bb090",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping",
+        "lever-mechanical-advantage",
+        "elastic-energy-recovery"
+      ],
+      "reason": "레버로 고무 원판을 변형시키는 흡착 고정 구조와 스프링을 사용한다."
+    },
+    {
+      "identifier": "AR-104242-A2",
+      "source_fingerprint": "35038a662c6ec3ebcacca79707de6e87de3b0b3fccc409fb9a2c39f9bcce610c",
+      "content_hash": "3779ffb0541d60de5db28d4aff13069be0445a9f76afabf0afc28501ceb0d5d9",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "5T4 항체와 약물 접합으로 표적에 화물을 전달한다."
+    },
+    {
+      "identifier": "AR-104243-A1",
+      "source_fingerprint": "0808aacb6317ce82dfaa92dbfe4ab312cb64521ff84f795f7eb7557b4184da84",
+      "content_hash": "af8f07ff9a8160fa1652dcebc81aa0adb4e3bb8cceb2fdbd34d0e14e4a9fa017",
+      "decision": "LINK",
+      "keys": [
+        "hydroxyl-acetylation",
+        "evaporative-concentration"
+      ],
+      "reason": "목재를 아세틸화한 뒤 서로 다른 매질로 순차 건조한다."
+    },
+    {
+      "identifier": "AR-104263-A1",
+      "source_fingerprint": "472df4e50239f5cd230d99acbcf3caa3c99a7d367253472d525a7041aaf55ea0",
+      "content_hash": "595dba7881e53102e5036770eb0d1e7cd7b6cc3ca830088e1fae24a1d807b6bb",
+      "decision": "LINK",
+      "keys": [
+        "viscoelastic-response",
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "점탄성 계면활성제 유체로 미세 지지재를 균열에 넣는다. 고분자 없이 미셀 얽힘으로 점탄성을 만드는 후보를 확인한다."
+    },
+    {
+      "identifier": "AR-104268-A1",
+      "source_fingerprint": "78c777f28c5070aa9030fef307f964af4bab2c656044389cbb8a65935a213ec9",
+      "content_hash": "39309009bc18fa5e21aeb2f8b8eec7450d8f0aaaf1d0f45a29fdc59c072af992",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal",
+        "barrier-coating",
+        "pneumatic-membrane-actuation"
+      ],
+      "reason": "금속관 내면을 블라스팅하고 가열·내압으로 플라스틱 라이너를 밀착시킨다. 블라스팅을 잔류 압축응력 목적의 쇼트피닝으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-104277-A1",
+      "source_fingerprint": "b888e20d74ca37787c050e0d9a35d31c6da9db7b970a48602dec7efbdfe595bd",
+      "content_hash": "12dc64cd5b441c78689447952af39a03be67ef47584818cac29f0d648fc4457d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "데이터 벡터를 생성 규칙·비트 표지로 매핑하는 압축 구성이다. 복원 가능성·평균 길이·특정 사전 알고리즘이 불명확하다."
+    },
+    {
+      "identifier": "AR-104282-A1",
+      "source_fingerprint": "2e200367eb3a00b863d7a4cfe70c0f215f4eefab01a2aeada0de1a15492f5b70",
+      "content_hash": "9ab09d59336a9f8a1a036761bb7eb3560f2d63c5d99a724f7d09af243da1e314",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "향미 혼합물로 동물 사료의 기호성을 조절하나 유인 행동이나 수용체 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-104283-A1",
+      "source_fingerprint": "16555eeb1be2f421d0b2b8d5c1185baf3aab8b3cfd91a5f06e157fab4ea70503",
+      "content_hash": "f99de2d33a7a93854d6d64800b9cf0f95929d6d41f654c2a96337e2137cdc661",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충제 화학식과 치환기 목록으로 표적 기전은 없다."
+    },
+    {
+      "identifier": "AR-104295-A1",
+      "source_fingerprint": "c61a406727712f31db6a8780775856ca8cffdbc9348e04790b94359eb37e0181",
+      "content_hash": "e4bb2430576fc813455aa1350b2ac413deb69cd30ce3914a72d7885f3b737aea",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "매체 제약과 라우팅 정보로 포장 서버를 선택한다. 최적화 알고리즘은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-104308-A1",
+      "source_fingerprint": "e9695741b40f5c43afd00eb38cc2dc256e304c17c24ee974e4b6faced410f365",
+      "content_hash": "8ce717718f47e408d93f88cf3d092662ee6f91b699219961e49f119e82db2ca6",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "coordination-complexation",
+        "cosolvent-solubilization"
+      ],
+      "reason": "이온성 액체·아미노알코올·계면활성제·킬레이트제를 조합한 세정액이다. 4급 암모늄의 막 손상은 초록에 없어 따로 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-104329-A1",
+      "source_fingerprint": "437aea3117abd324412d41de461d3863fce77b7d004f6a53d45d015d940a1e59",
+      "content_hash": "c3b5ef916ce15bffd464a72a40743fdab76aa2b85e5f2e74d9bef4e0def3d037",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "대기 중 작은 바이어스 전류로 내부 노드 전위를 동작값 가까이 유지해 기동 과도를 줄인다. 초기 동작점 유지에 의한 정착 시간 단축 후보이다."
+    },
+    {
+      "identifier": "AR-104335-A1",
+      "source_fingerprint": "a9e8ac51239a667f3df20ae9fee1198e426480578a7caa31fe405e8c86f968e1",
+      "content_hash": "ba7874fc8181695df2a0fa9f1a75a1f7e84b7338cd512f2be9e33aea366742ee",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating",
+        "mechanical-interlocking"
+      ],
+      "reason": "아연 중심 코팅을 나사·금속 밀봉면에 적용한다. 연금속 전단에 의한 고착 억제는 문헌 후보로 확인하고 탄성체 밀봉으로 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-104348-A1",
+      "source_fingerprint": "2265360cb2ac2494551491ae88a6682ae8b47a6016619946a57eb169c81e1d55",
+      "content_hash": "8e0c8ae8b69460f2844c1d5b9ae29212b271acb2bf8f0c444f9e61b9f6a708db",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "SNP 위치 특이 탐침으로 유전형을 식별한다. 특정 약물 반응 예측 규칙의 임상 유효성은 별도 검증 대상이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:24:48.018779+00:00"
+}

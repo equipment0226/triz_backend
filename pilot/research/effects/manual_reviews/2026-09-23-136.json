@@ -1,0 +1,231 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e89f7f99946ea95dffe80e878e878940d78a65ef8f714627edea941143b9df21",
+  "reviews": [
+    {
+      "identifier": "AR-096022-A1",
+      "source_fingerprint": "65c0d2f25870fc39d8f35401f7cf7c83a14abde4d1eec295fe0a81f82b20fac8",
+      "content_hash": "030029ff1692ffdf5e80466edbc37f1c356274295cf9814b4f88981f88324c7d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 구조 목록만 있고 작용 표적이 없으며 저장 말미가 절단되어 있다."
+    },
+    {
+      "identifier": "AR-096033-A1",
+      "source_fingerprint": "20d82f76ebb86028e5a20bed5eaaa593ad9ed3febfe5250e69ffcc9a447111ef",
+      "content_hash": "3e6efade1c5c5871056ecce6332685a3aaba44ce62c61f1889b0c25c1e4e8040",
+      "decision": "LINK",
+      "keys": [
+        "feedforward"
+      ],
+      "reason": "평균 온도로 진동 주기를 보정하고 기준과 비교한다. 반복 측정 평균의 잡음 감소는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-096053-A1",
+      "source_fingerprint": "664f2bc0b1898a36833a09f7a09c67c8a4bbe6e53a8475cc7d7ba6c2a58b11c8",
+      "content_hash": "3bcb782596f49326eb4ae59a1ee410ebb3bcc1c57de9d7a44fc5a7abc547cbb2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "양이온성 스테롤의 사료 효과를 기술하나 세균 막 교란 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-096060-A1",
+      "source_fingerprint": "43dc3e74d73a248059876b03ce9ac50fdb19ff7c05cee542aae332c5da1422a6",
+      "content_hash": "f4f6f696c230b4570bb065879a34087581b0b3554cd8681d228a6ce33af3b624",
+      "decision": "LINK",
+      "keys": [
+        "positive-feedback-oscillation"
+      ],
+      "reason": "진동 응답으로 구동 신호를 만들고 위상 관계를 비교한다. 구체 위상 비교 연산은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-096069-A1",
+      "source_fingerprint": "70225701e3f3b6eb07dc287e9537332fb499422bd8cc2218d5ba62159c862e6d",
+      "content_hash": "c1d4c3f704e990119ac848e20b47684eddc6c2026633216103948b4a7c3e7ed0",
+      "decision": "LINK",
+      "keys": [
+        "fiber-matrix-load-transfer"
+      ],
+      "reason": "고무와 평행 실의 복합재를 장력을 맞추어 이어 붙인다."
+    },
+    {
+      "identifier": "AR-096099-A1",
+      "source_fingerprint": "a1fa87247e5b1df64a48abad0b6eab4721b94294be613798bac4c27a468a0477",
+      "content_hash": "0e7c59584935c01452e65d073abace49fe8d0137b51a5072362752de7b197afb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "센서가 원주를 이동하도록 안내하는 검사 지그이다. 센서 원리는 없다."
+    },
+    {
+      "identifier": "AR-096103-A2",
+      "source_fingerprint": "c267000ccbc97bf083d7d7b09b8d47a469df45e5b71db7e1f6b431b986fef7a2",
+      "content_hash": "a98f7653bcb758b1e9b48dc19c91f278cadf4f877c415d089ebb3cc5b9fdd6c8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "공간 내 예측·역양자화·역변환·경계 적응 필터가 명시된다. 공간 예측·양자화·디블로킹의 서로 다른 정보 처리 단계를 문헌 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-096109-A1",
+      "source_fingerprint": "ac71b7e1b9e5155cebcbc60330175d47e13e35cafbb3f312a93c9a9ceffd5c9e",
+      "content_hash": "cf3fb3b5d620ac87cc5c7c64d5f687b8378163a19f1f27e7cafa3beef55ab8f5",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "수용성 포장과 아황산염·카보닐 향료 제형이다. 아황산염 부가 초안의 연결을 검토하며 황 전구체를 티올로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-096137-A1",
+      "source_fingerprint": "879e87f031a3d2fad2f04ef1ab2ecb1347f4a633af19a3480e0fd7e9e96936c8",
+      "content_hash": "965edb3977ffe602fa5d7d59958e609ec5f0b751a5ae45dfd98431e640f3ca0e",
+      "decision": "LINK",
+      "keys": [
+        "projective-coordinate-mapping"
+      ],
+      "reason": "실제 3차원 대상과 화면의 조작 위치를 대응하여 기계 명령을 만든다."
+    },
+    {
+      "identifier": "AR-096149-A1",
+      "source_fingerprint": "056dce120ce92503d53589a8fc1997b90a1ea1563c058e1ff2c89bedaa8d079b",
+      "content_hash": "1c9165410e44fac28a21b715227c5a545571df1efb54269d71141c5ff118dabe",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "키나아제 저해가 명시된다."
+    },
+    {
+      "identifier": "AR-096154-A1",
+      "source_fingerprint": "d7e64d999879029a266be5a0abc6af5b5d24569a38eb88ef2f6519932ceeb5da",
+      "content_hash": "f8864869af91a34aa4065b3f27a23e4fcb66653b410a1d7eb4288ab7ea22a8d4",
+      "decision": "LINK",
+      "keys": [
+        "subtractive-color-mixing"
+      ],
+      "reason": "아조 발색단의 선택 흡수에 의한 착색이다."
+    },
+    {
+      "identifier": "AR-096157-A1",
+      "source_fingerprint": "b37dca224c765ba8606640a4021fd8ca5ec4a22ec3a53e93f497133c1b8d10e4",
+      "content_hash": "21bec574df6c9f8976da3365c0d368fe560c93fd9a32954d5f4e19b5b539b32f",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "막대의 특정 구역을 노출하는 지지·정지 지그이다."
+    },
+    {
+      "identifier": "AR-096161-A1",
+      "source_fingerprint": "0ec3a56a326e8bc2b8d142831565037c4278d1092d0b4731cf0a232a7bed3512",
+      "content_hash": "391c741afb4ebf6fea68dee01107b520331a83a5792d0fb630a7a3ad0bbf5fea",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PDE10 효소 저해이다."
+    },
+    {
+      "identifier": "AR-096162-A1",
+      "source_fingerprint": "48a5493ad3980a887459900887da1c2664e221ff546e83cd99e001d40c770d9e",
+      "content_hash": "2a2e79511c431ae590d2d773fe76583bdb2cc74e629f138ffb035722c539f2bf",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "PYY 유사체의 생물 신호 작용이다. 특정 수용체 선택성은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-096183-A1",
+      "source_fingerprint": "13a6e7fd5611835cdbc0c437b834d85aca20450a572246b937796c71a46c8964",
+      "content_hash": "9486f6c631c000a6d4335004af7e3a0a9de0cd400be4e04086e3827e1971b272",
+      "decision": "LINK",
+      "keys": [
+        "antibody-dependent-cellular-cytotoxicity",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "탈푸코스 항체와 약물 접합체이다. Fc 당쇄에 따른 수용체 친화 변화는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-096187-A1",
+      "source_fingerprint": "37f0d275a55215adc1075b9d24d9f6b72bced2699c911de94b876eab60503d0a",
+      "content_hash": "b9e44d38eeb1f47ee250b823835f455391823a199ad5b9a377e73491e7cefa0e",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating",
+        "forced-convection"
+      ],
+      "reason": "피복 증기를 포함한 배기 기류를 재순환하여 재사용한다."
+    },
+    {
+      "identifier": "AR-096188-A1",
+      "source_fingerprint": "c6fb64750e7b1e878ae4af3a7ac52f07d42b1b0d39836e05318e5591df0138a4",
+      "content_hash": "675e5710fd240d76a9ac1cec47ad7ade2ec5e17d2073f83a548e87a56462b661",
+      "decision": "LINK",
+      "keys": [
+        "geophysical-inverse-reconstruction"
+      ],
+      "reason": "XX·YY 결합 신호 차이로 지층 방향성을 파악한다. 방향별 전기 응답은 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-096199-A1",
+      "source_fingerprint": "675db6cfefffdbc51c17f3ed9a9497b3b1c69c801ac8a0dbecc2bd90104a9e37",
+      "content_hash": "db46d90bbc06d20fb77583f40e863fd061c5b990e50805b78168f04cd88fcf7e",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction",
+        "lorentz-actuation"
+      ],
+      "reason": "자석 축의 운동과 도전층 사이 전기·기계 에너지를 변환한다."
+    },
+    {
+      "identifier": "AR-096203-A1",
+      "source_fingerprint": "eed889dec1083676063fdc66cbc97a814f85eede9bae5c80a1f60f300bcd1cc4",
+      "content_hash": "0ce97b09a78eb44365193f01f8cce972cf0ee58197d32658c80f827f4614c416",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "단계별 투여량·속도 조절 절차이며 과민반응 감소의 생물 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-096209-A1",
+      "source_fingerprint": "267eaeebea926010f6b7f6e9b56377ceec0c04a7c4c7c2612a558801ac41029c",
+      "content_hash": "68df2fe75e8bb08fb0bf32238f56f03c9e952b1c74191500d49afc1cc89065c7",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "계통 전압·주파수에 따라 유효·무효 전력을 조절한다. 임의 함수라는 이유만으로 droop 특성을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-096213-A1",
+      "source_fingerprint": "3254abae6c99ec938f4f9ab94c535ee3ab56f18d0543319968e9579dc88b537e",
+      "content_hash": "64d53050cf6ab4d62c813595383febd1a395bdef728a28f283464812a5a71626",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "레이저 노출에 따른 표식 변화는 있으나 광열·광화학·제거 중 기전이 없다."
+    },
+    {
+      "identifier": "AR-096216-A1",
+      "source_fingerprint": "a5b97ba449ec7b3ae5b5c75d0d856435f4836c82f93afa2931e4731d1b832bab",
+      "content_hash": "8f6aad5cc6f202681be44873958f7dda0cc357df10bd506feba8aefa61d2d475",
+      "decision": "LINK",
+      "keys": [
+        "swelling-actuation",
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "초흡수성 고분자를 팽윤시키고 후속 분해하여 지지 입자를 방출한다. 분해 반응은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-096246-A1",
+      "source_fingerprint": "a99f389c50b602f528ded52cd8f655021f3f8f04a3e6048c43b6159ef5873b1c",
+      "content_hash": "a218969ee1f7aad5a4215ac0393507ed79db78c71049fd12d107372b5ee39bb4",
+      "decision": "LINK",
+      "keys": [
+        "chromatin-accessibility-regulation",
+        "biomolecular-recognition"
+      ],
+      "reason": "브로모도메인의 표지 인식 저해이다. 이를 효소 활성 부위 저해로 분류하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:39:06.238200+00:00"
+}

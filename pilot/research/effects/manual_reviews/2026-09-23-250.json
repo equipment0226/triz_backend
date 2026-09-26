@@ -1,0 +1,102 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "3753c58a40aa1a7b0f577e84fb80a608e5bddcb7e7a82fb2b2618f7f2f32ae86",
+  "reviews": [
+    {
+      "identifier": "AR-118968-A1",
+      "source_fingerprint": "4e456779522c64fafdd63ed4f933fad9e3d599d6fa7d8a3a8fdf22a0321e7db7",
+      "content_hash": "2e811bd5253c00336d8e00bf4d57abe4f3807667b2d692d2e6f15b30940febfe",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "변기 보호막의 광범위 위생 성능 주장이다. 조성·반응·유동 검증이 없어 새 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-118969-A1",
+      "source_fingerprint": "4bd3fbd6c2224b8a9126011551a08281a9e970dba8e38d1c6a9db8650834cae3",
+      "content_hash": "094b5323f7723602e29639007789b833f2086cc870b2e696e50dd3bcf8ec8674",
+      "decision": "LINK",
+      "keys": [
+        "distillation",
+        "condensation-recovery"
+      ],
+      "reason": "진공 증발·응축으로 와인 알코올을 분리한다. 압력 조건 변형은 같은 증류 원리이다."
+    },
+    {
+      "identifier": "AR-118990-A1",
+      "source_fingerprint": "e0c68bdcbfadf749c34c47f0338f27abf0d695b088ff8aa7ffe3d2c9191033b8",
+      "content_hash": "ed7faeb960e2e6d6aecce5ba24833b6d63140add4ac6b0a2520edb22a8bfdc99",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "마개가 얇은 연결부를 끊어 농축액을 방출한다."
+    },
+    {
+      "identifier": "AR-119012-A1",
+      "source_fingerprint": "09e4a3479b61954fef22d04a401943741713d9385c711a7e18e4f5fb5062252e",
+      "content_hash": "19da96755c7443af8da0771435296be64912da5875311a7ab2d47aa5aede7715",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조 목록이며 생화학 표적이 없다."
+    },
+    {
+      "identifier": "AR-119030-A1",
+      "source_fingerprint": "f8d9b584928ce122f727311ccc40aa347b0c0b0f1eaa168aaa658e9d98d3b1b3",
+      "content_hash": "176e7a55f4f1d8fc7d12ef868340932e901a65049c9e06876fc77adb8a59118c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "B형 간염 약제 구조와 용도이며 작용 경로는 미특정이다."
+    },
+    {
+      "identifier": "AR-119038-A1",
+      "source_fingerprint": "cc19d70faf882d7f8ad538a0e4ad43619e89d7ad6e5f0db694bff1c0d7ce003e",
+      "content_hash": "9945f314d926a7d2ea8e187a19e3230264dfd15d5ff917bfc0ca646ae57f4614",
+      "decision": "LINK",
+      "keys": [
+        "solidification"
+      ],
+      "reason": "분자량 분포가 다른 수지의 사출 성형이다. 용접선 강도 개선 원리는 미특정이다."
+    },
+    {
+      "identifier": "AR-119054-A1",
+      "source_fingerprint": "9edb2a5747136d23e68716ee6331c29f73689396c8f97deacdb3af531a231bb7",
+      "content_hash": "c94767a00272ade5fd3ee81c5c03b035e9d9622146ec3511388f33ed9d3b79df",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation"
+      ],
+      "reason": "TEAD 전사인자 저해제이다. 공유결합 반응·팔미토일화 저해는 초록만으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-119055-A1",
+      "source_fingerprint": "a7cc4fb171ef37db6c8f46755f6e05d05aff25de37efd15d6ccbd53c07f8e73e",
+      "content_hash": "d73f9bd76610939d074249bd0c0ff4ecc5b4d9f133abfc5265086bcf9da502f3",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression",
+        "genetic-loss-of-function"
+      ],
+      "reason": "게놈 편집으로 안티센스 발현을 바꾸어 지베렐린 경로를 낮춘다."
+    },
+    {
+      "identifier": "AR-119059-A1",
+      "source_fingerprint": "838829741b3a3e54325a6d6fdfb58339e8da9015c2997f6274423b4c1df81dc7",
+      "content_hash": "cd767665bfa3c8d9812eaf66e331782b4d24ab8bc29d373616a2140641dd6cf0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 화합물 구조뿐이고 표적이 없다."
+    },
+    {
+      "identifier": "AR-119090-A1",
+      "source_fingerprint": "21ca42f38a383a3bff03005bb86e268c3d0ac865cd866f3bf7a3b536bce18333",
+      "content_hash": "57dc708630ab654e50ad5d567a9f2556eb808a80590dd03e966c9b5fd6158573",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction"
+      ],
+      "reason": "수소 기반 철 직접 환원과 가스 재순환이다. 물에서 수소를 재생하는 데 외부 에너지가 필요하며 자립 에너지 생성으로 해석하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:35:52.101305+00:00"
+}

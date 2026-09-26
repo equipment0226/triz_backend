@@ -1,0 +1,58 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "1e36c5405812ee4321ec620de8739002de6285ab4014a2f4b973c20e3954bd04",
+  "reviews": [
+    {
+      "identifier": "AR-113953-A1",
+      "source_fingerprint": "9694a1fa66e006ff011df3813663535ecf192f09bd3f78a377e8583f18547d96",
+      "content_hash": "38a6a540284f1773e8f83d9a54da8f3b7d2b7a970d8364bcd19e28a0b06c679f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유정·시나리오별 데이터를 SIMD·SIMT 실행 단위에 배치해 병렬 계산한다. 데이터 병렬 실행의 처리량 증가를 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113957-A1",
+      "source_fingerprint": "965570f6a6ad2b0b1cf0251d6cb2550a93b9ddfc2336ba357e26cf03e1634276",
+      "content_hash": "7bbc1514c33a175f02e918a6ebb47db0798a8ed3718ac1799e37492924af5380",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "플로니카미드·리모넨의 조합이며 작용 표적은 초록에 없다."
+    },
+    {
+      "identifier": "AR-113968-A1",
+      "source_fingerprint": "32b3df93373fcc07c941d38226656048b6868adc7cb2a269077601273c3c1d0a",
+      "content_hash": "c167cb99d5add3ed74fc210b98a5f34ec0c5a3bafeab8f34038b87028d47b9be",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피롤리딘아미드의 구조 목록이며 분자 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-113979-A1",
+      "source_fingerprint": "90ac066703848db1efa8c0240d1fb838ef788cf21e72d430fe0b38c9df37acfa",
+      "content_hash": "0f9d9f5b04ec9b193256a1cf9be3f520c3ec874b7291e6a63f81f23a2a022ef7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "티오페닐우라실 제초제의 Markush 구조이며 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-113998-A1",
+      "source_fingerprint": "d63d73e6823e509c0e39980d4057167fbef9bae8f34bfa9a1745c0292cca0028",
+      "content_hash": "abfa3941d76a6b635409f6173fb3000c200b8848762f1370ca65fe822262372c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미세섬유 종이의 강도·흡수성 개선 주장이다. 섬유 간 결합·공극 작용을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-114002-A1",
+      "source_fingerprint": "3a4e84afdab3d9f273bc963e2a08701378731d4b04a50db9e93096ef74849c2a",
+      "content_hash": "7d63444640bd5285f1600398702a23e99e26fcc78af9f3cf0951713a11174a44",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "LILRB2 결합 항체이다. 차단·활성 방향은 초록에서 특정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:09:49.807827+00:00"
+}

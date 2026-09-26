@@ -1,0 +1,213 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "2db05f19d26a20c01e1324c00dd50baf17244243d2356862c38cf0fa0c1d839a",
+  "reviews": [
+    {
+      "identifier": "AR-097272-A1",
+      "source_fingerprint": "7209bb35a1fb6a785f796a034cb5191849a75729e2772dd4d327e6dd6e95ab33",
+      "content_hash": "d35e7b82a9b347e7e145b51bb7f43e35bc7c30f4c49844d74f8f2d5bb8cc3682",
+      "decision": "LINK",
+      "keys": [
+        "adsorption"
+      ],
+      "reason": "재생 가능한 흡착 매체로 탄화수소를 제거하여 CO2를 농축한다. 재생 구동력이 명시되지 않아 압력 변동 흡착을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-097303-A1",
+      "source_fingerprint": "76d7be401205a52c071f429d0e532e93ae10870b92850e4679f29957a6745021",
+      "content_hash": "34c15bc00f8481d47ef464a2139d26c71be136971a880a3bdd2a33038c2f590b",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "상대 회전 시 전단 부재가 취약 연결부를 끊어 개봉 흔적을 남긴다."
+    },
+    {
+      "identifier": "AR-097305-A1",
+      "source_fingerprint": "73f09b5fb141ec35acd91f2e8dbd87b6bad90c0825c8098f54c50430aa242a11",
+      "content_hash": "1dd29b89c1c63ae7b8da36601ccff2b8b19495bf40ae0241840a719faf9fa770",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 정렬되는 유로와 밀봉 부재 배치이다. 밀봉 소재가 명확하지 않다."
+    },
+    {
+      "identifier": "AR-097307-A1",
+      "source_fingerprint": "7cb7dd1ced952c9c46b1b3cda9354cd0a0694a1befa419f3ed65cca693065893",
+      "content_hash": "8ee287270744ac0029290161b550114cca04ab215a6a7343c73d691bdd5fa8e5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "여러 탄소 전환실의 입출구를 교대하는 공정 장치이다. 두 번째 기체나 반응식이 없어 특정 가스화 경로를 붙이지 않는다."
+    },
+    {
+      "identifier": "AR-097343-A2",
+      "source_fingerprint": "56fba53d6f191e352d725c0eb3ea0220f565af02244897336fdd3ac4d612fbaf",
+      "content_hash": "0bf676ca19acb31462a3590889a62e5786febd98d84c5bd9dcf74089442b5efc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아미드 살충제의 치환체만 명시된다. 이온 채널 등의 표적을 구조 계열에서 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-097347-A1",
+      "source_fingerprint": "2551cd6e8822a958ad80d91543948c20166835c7413c5779f7cc710dbea1528c",
+      "content_hash": "30aeb5febe65987ebec5a18f42db6a4eb636664f8b8d37d3d4169fbf7a42f2ec",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-pumping"
+      ],
+      "reason": "회전 임펠러와 축방향 가동 구조를 갖는 액체 펌프이다. 핀·구멍 배치는 설계이다."
+    },
+    {
+      "identifier": "AR-097349-A1",
+      "source_fingerprint": "231b863143825bd69a7753c74154d2232535aa76300134b0c5ec6860f4dc179b",
+      "content_hash": "8b5a9932e3cbe80c795c141bf145863eec0caf664694fd9cde07f2bbf6e0001f",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction"
+      ],
+      "reason": "전기 부품 열을 방열 핀으로 전달한다. 송수신 안테나의 전류·전자기파 변환은 별도 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-097372-A1",
+      "source_fingerprint": "2147cd391e9da7527820d2ff644bc8633a7a97366d17badcc60efa4f6f547812",
+      "content_hash": "174619db637783d861d3dfb64586be42142901861b8f2e665aac116cc44e3b7b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "발포제·핵생성제 포함 고분자 조성이다. 화학·물리 발포 중 어느 경로인지 불명확하다."
+    },
+    {
+      "identifier": "AR-097374-A1",
+      "source_fingerprint": "bce88864d872dbedcdcee402a6c7dddf583c5fadb030700bca21c68dfa81ef0f",
+      "content_hash": "626a133d52c74b720c899a18116eea006667dd37ff03b69470db10ea11c148fd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두께 격자와 횡방향 속성 격자의 곱으로 매장량을 계산한다. 구체적 확률·역산 모형 없이 독립 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-097379-A1",
+      "source_fingerprint": "819fd6b30ef1aa53e8daccc2f00a06ba94ced941009635085f1ce30d97e49f06",
+      "content_hash": "fad43341595f6d549f4153d3f702d38cb42887758da01d1a238bb10a99bb6549",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "plastic-forming"
+      ],
+      "reason": "블로 성형 플라스틱 용기와 비가역 걸림 결합이다."
+    },
+    {
+      "identifier": "AR-097401-A1",
+      "source_fingerprint": "02ce9d7202101432bfcfa5d4697df85a0aa0bbb5d76fbbe21f6a9b59df9b35e2",
+      "content_hash": "b1426b73d7f619a821e6c83740fb5551ea844664d09afbb470be2901bceaabca",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation",
+        "antigen-targeted-payload-delivery",
+        "binding-residence-time",
+        "surface-plasmon"
+      ],
+      "reason": "PRLR 결합·신호 차단 여부·표적 화물·해리 시간·SPR 측정이 명시된다. 결합 항체 전부가 신호를 차단하는 것은 아니다."
+    },
+    {
+      "identifier": "AR-097451-A1",
+      "source_fingerprint": "126ccf9bd2842e023bfe03c1096fd9d032b402713c6eac29ac992db271617872",
+      "content_hash": "2a7d623896e53aceb9676f12dc3079461efb65c936abb2e2e99a2420422b60f9",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "명명된 PPO 저해 제초제와 글리포세이트의 효소 저해 적용이다. 혼합물 상승 효과를 별도 원리로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-097454-A1",
+      "source_fingerprint": "4abc581eadb5d83bc1240b126fee511144859689450b15b711c6464738444548",
+      "content_hash": "1f0869e9784a03c9fa44a7938d88791ce0a35cbda0c7835add49fcfeea6ae1fd",
+      "decision": "LINK",
+      "keys": [
+        "parametric-bandwidth-extension"
+      ],
+      "reason": "저대역에서 고대역을 재구성하는 HFR의 주파수 띠 표 구성이다."
+    },
+    {
+      "identifier": "AR-097497-A1",
+      "source_fingerprint": "44de9e5a650822c46491be651a7a64fc5deb7423da9cbe0371cb9efca22be4d0",
+      "content_hash": "571a14cea13e0cf5fc5de5da2a2e039e8d8614e12e6f6b2f1c54c6d8da007618",
+      "decision": "LINK",
+      "keys": [
+        "hypochlorite-oxidative-inactivation"
+      ],
+      "reason": "차아할로젠산염 처리 조성이다. 음이온성 고분자를 배제하여 PEC를 만들지 않는다고 명시하므로 복합화 효과를 붙이지 않는다."
+    },
+    {
+      "identifier": "AR-097546-A1",
+      "source_fingerprint": "4476236a2f89ee4d1a10c73ddf5918f48bceedb75e13108b802e1654d5e389ac",
+      "content_hash": "79971e50673fbbcb60dba5ee4e4c193f2ea080a996daa6cdb56b692f7f31ff90",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "fourier-conduction"
+      ],
+      "reason": "요철 금속판을 말아 전열관을 형성한다. 접합 방식이나 난류 발생은 초록에서 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-097552-A1",
+      "source_fingerprint": "dc652607fcec2dfd0db3be43d14bea81fb957b9476947a60b804bcd1e954624d",
+      "content_hash": "3dc13c9d4b5e711d5341dccdf0bfcfd14ea1ab6cefcdc7acbf4675a6bd19776a",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "mechanical-interlocking"
+      ],
+      "reason": "훅을 표면에 접촉·미끄러뜨려 형상을 바꾸는 체결재 제조이다."
+    },
+    {
+      "identifier": "AR-097553-A1",
+      "source_fingerprint": "aa31dd105099c0549a4b9c908a3585d10c8f67c5d174576f8fb7c1806b0781bc",
+      "content_hash": "c801a6ccedb6827c4995b811a5b045041cdc74024dabcd9e5a3fa9813c8c3129",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "여러 질환 용도와 치환체만 있고 표적·기전이 없다."
+    },
+    {
+      "identifier": "AR-097570-A1",
+      "source_fingerprint": "89647625f8c8df0117692d5f067b2e3698c0a5692644383e04c57150aca136df",
+      "content_hash": "d4f6eef33cbe747eff36561961fed121b569bda362ab4557d9faf1840ee1802b",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "자가분비 운동 인자 자극으로 세포 이동·부착을 바꾸는 적용이다. 공간 구배가 없어 방향성 화학주성으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-097592-A1",
+      "source_fingerprint": "69c06d3405e86b5a8e3f2cbae7cfbe0d837a8d82954bbe8b296ef93db4d8c18a",
+      "content_hash": "e755c8bcacde748db9ac3b4a10ae3638f0ee7ac0c4a0afb06278dff2cecea893",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission"
+      ],
+      "reason": "공압 피스톤이 핀을 타격해 뽑는 장치이다. 유체압·면적 힘 변환의 기체 적용이며 순간 충격의 분리 효과는 추가 후보로 남긴다."
+    },
+    {
+      "identifier": "AR-097604-A1",
+      "source_fingerprint": "3cb2070416af0110c0cb4b1899319093da8d30758c6c50742251fc1c3e947037",
+      "content_hash": "4806c2d3b41ed3894bcf61393c70bc0c64541cc479dc90541081935a19cd7b65",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission"
+      ],
+      "reason": "압착 롤러가 봉투 벽을 잡아 회전으로 당긴다."
+    },
+    {
+      "identifier": "AR-097626-A1",
+      "source_fingerprint": "f4a12d4999132a3760f3ddd8442ca44b8786e35d28138b0fcc866dd6179b84f5",
+      "content_hash": "ebd6de9091d1b3367720d38fd3f5e64a7a1ed679d3fb69c9d462ab12065b91c3",
+      "decision": "LINK",
+      "keys": [
+        "liquid-bridge-agglomeration"
+      ],
+      "reason": "물 첨가 혼합·과립화·드럼 회전으로 광물 입자를 응집시킨다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:48:49.214567+00:00"
+}

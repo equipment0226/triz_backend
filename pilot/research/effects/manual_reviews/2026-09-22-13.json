@@ -1,0 +1,531 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "c8779fb5280da33909b9c8fc02534e981d2dca4ed2d11cbbe1cb680b58f4e95e",
+  "reviews": [
+    {
+      "identifier": "AR-071757-A1",
+      "source_fingerprint": "9d91f05d98113784f4949ab3f82564500a15041871a2e9922ecfd605d2d7dd92",
+      "content_hash": "7b54ac4015bb7fcf00afe64f733751ba5ea2c0e89762a272ec67f07bdf8d6d2d",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction"
+      ],
+      "reason": "CO로 광석을 환원하고 용탕에 산소를 불어 탄소를 제거한다. 산화 탈탄 후보."
+    },
+    {
+      "identifier": "AR-071761-A1",
+      "source_fingerprint": "396a9f7bd3719499089fce51d8ab84aaf59dd9b23354d6588a4f42db3e8a7218",
+      "content_hash": "09709baf8b169740b7ed69b54c06ea020d8dbcbfa17b246797be03a944e26b0f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡수층·압착 채널·볼록 분리부로 변형을 안정화하는 형상이다."
+    },
+    {
+      "identifier": "AR-071762-A1",
+      "source_fingerprint": "a32ab107dff4d2ae53b4b756a531bf62a1366da49095dd7afd06538fe2e9b8ee",
+      "content_hash": "cee1537b8b46cf9fc92ffc79d6e6cb8453aba9e404bc89d8efc54c779b3e6ab8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "장내 세균용 화합물 구조와 용도만으로 직접 표적을 알 수 없다."
+    },
+    {
+      "identifier": "AR-071778-A1",
+      "source_fingerprint": "75328cf74d7b8b3816d27e83de9070c08a5fccabd641fc8af5442889d3a19e5c",
+      "content_hash": "b18d1d424e1f66dab4f5597ee56441c5804a522a0c6a7dd9bfc916759d69779d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "복수 protein kinase에 대한 저해 화합물이다."
+    },
+    {
+      "identifier": "AR-071788-A1",
+      "source_fingerprint": "55ff2ad80c8b6dd06813bf9deb5cf8120375d73d2d9020e56bb1f955e47c6eb8",
+      "content_hash": "278c62c68b85b75514d74cf47434738ada57665685a5da1ca4d880a8e8ff6703",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "PGE2 관련 질환 용도이며 직접 합성 효소 저해를 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-071793-A1",
+      "source_fingerprint": "d0f2a6558f870490a011b12696b4a921f6547f2f0361de15c3590e04f0504201",
+      "content_hash": "24c2d06fca61f9c1135df18e836757b88c3057b7190d768e249a97060f051790",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting",
+        "pressure-driven-flow"
+      ],
+      "reason": "동축 왕복 cannula로 조직을 절단·흡인한다."
+    },
+    {
+      "identifier": "AR-071807-A1",
+      "source_fingerprint": "a3ea976f94c4f42b4aa1ad0e02ec0470abb14541cf8ed040967b14c48e9ac692",
+      "content_hash": "d6639c98f2c8c326bab8593488a221bdd10230adfe80a93e5bcbd6ef7d4cbc4e",
+      "decision": "LINK",
+      "keys": [
+        "archimedes-buoyancy",
+        "articulated-linkage-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "힌지·분리 보강재·외피를 가진 접이 kayak이다."
+    },
+    {
+      "identifier": "AR-071875-A1",
+      "source_fingerprint": "aa690dae944f65d8d96b26f058365e28069653bc5d97c4352c1f05df71b846ac",
+      "content_hash": "69b0f513a511d50f350f0820d2459f5d0696948872d95a9a880a5aa479f75442",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "위치가 경계를 넘으면 파종을 잠시 중단하는 조건 제어이며 위치 검출 물리는 미제시이다."
+    },
+    {
+      "identifier": "AR-071877-A1",
+      "source_fingerprint": "39ee55d8c838600ea43564af31dfebeb3af38c4fec5f969f14d7e2896035b5e0",
+      "content_hash": "3dac9c38f98e55185079984ac7391e2c61214b8624c63122056c71cd0b39d21f",
+      "decision": "LINK",
+      "keys": [
+        "absorption-spectroscopy"
+      ],
+      "reason": "단색광 강도를 달리해 혈관 영상을 얻는다. 세기 변경과 주파수 변경은 같지 않다."
+    },
+    {
+      "identifier": "AR-071917-A1",
+      "source_fingerprint": "7b151cbe00585d386398b31c3dd076fe27440de81ce9d3aa8c8d26d3fa9a907a",
+      "content_hash": "31468a9207e94dc98b9c7ce90f0e7b0da82f36c74dddedd1b19b0bcb1b9d365d",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "발현 시점이 다른 두 계통의 항원을 이용한 면역화이다. 균주 제작·사용 조건은 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-071923-A1",
+      "source_fingerprint": "db8612ed8e118474896a7c5ab33f0d194bf7a5d19a344e16d5ba5f472170eb58",
+      "content_hash": "43a936612abf48c070995ab7685971e5e8ae74067dc01a7b2ffda5b0939846d9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "plasma enhanced CVD로 관 표면에 박막을 증착한다. PECVD 후보이며 ALD와 구분한다."
+    },
+    {
+      "identifier": "AR-071946-A1",
+      "source_fingerprint": "ab15deacd10327cb0372e24d8cc02de004e24095707262b3a77ead2393279e46",
+      "content_hash": "75cd5d2efd0b0c06aec8f5f15d501fa98321a83cae9133d5ab03f30327fd3d63",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡수성 의복의 폐기 고정 flap 길이·폭 배치이다."
+    },
+    {
+      "identifier": "AR-071963-A1",
+      "source_fingerprint": "82788ca9f847452e0f298a6153c22792bc734acbb537c5a046f65a073e94fba9",
+      "content_hash": "332748f18816945a5c99af3d279ec4adf42ab6152a528902481a82de6291425c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "주문 장부 상태에 따라 교차 거래를 경매로 처리하는 업무 규칙이다."
+    },
+    {
+      "identifier": "AR-071967-A1",
+      "source_fingerprint": "f165af0e2a0040f6e11c6cebda40cd7e1bb0cfab4125ddee3e9c35c87387ba96",
+      "content_hash": "acaac074310133a76c35b7007e40bfab962264790c064502927566b052839903",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "polyether 측쇄 수용성 고분자로 silica 침착을 억제하나 핵생성 방해와 분산 중 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-071988-A1",
+      "source_fingerprint": "7356a2e42e71a58bb12f290c8d5042b92a713aa3173173dee986ae5841ee609f",
+      "content_hash": "15e1cdfdd08ceda4ba5d619098244c154b1b8173b45729cb5cf53029b954fcbe",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항균제·steroid·지방산 배합이며 상세 작용 경로나 상호작용 자료는 없다."
+    },
+    {
+      "identifier": "AR-071997-A1",
+      "source_fingerprint": "4c6a27d21befb70213719628e56346c930582476d8fe5aad9f8ae3d885547e5e",
+      "content_hash": "e8bdf578a8be0c36277207c5998518e0010c70884dceadfe1a8259585e7538cb",
+      "decision": "LINK",
+      "keys": [
+        "crystallization",
+        "diffraction"
+      ],
+      "reason": "특정 단위격자로 결정형을 정의한다."
+    },
+    {
+      "identifier": "AR-072000-A1",
+      "source_fingerprint": "3b249613e9161432d313719a778d80f0e1c9d52e200bcac46820d552c17dc306",
+      "content_hash": "9adf1b27cc3bef237d0ed09dba4d6864d404af1d94b30c1d47e82586714f060e",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "하나의 결합 단백질이 여러 항원을 결합한다. 다가 결합 avidity 후보이며 배열·표적 접근 조건이 필요하다."
+    },
+    {
+      "identifier": "AR-072015-A1",
+      "source_fingerprint": "13d9b3072ad050adb65309ea1f5ac7a7c0988bbc94a65c0d7b5c0de685d64bf4",
+      "content_hash": "e6c503743bd537fcf64404535fb6d3cb6d97b1f1d92fb5bab9f774575769e757",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption",
+        "catalysis",
+        "pressure-driven-flow"
+      ],
+      "reason": "질산 공정 축에 labyrinth seal을 두고 고압 purge gas를 공급한다. 미로 압력손실·양압 장벽 후보."
+    },
+    {
+      "identifier": "AR-072049-A1",
+      "source_fingerprint": "89248effc6a908770dc75086ca9aaa77fda30f365b5ecd74063bdb96eba061ec",
+      "content_hash": "13fadda4b64373cce9cab6d58148a7bdec6d149e12828b05ac0370c12b0fae17",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "stress-concentration-fracture"
+      ],
+      "reason": "연속 clip을 수·암 결합하고 분리 가능한 연결부로 묶는다."
+    },
+    {
+      "identifier": "AR-072083-A1",
+      "source_fingerprint": "7110dc94038ca5a29e6e0aefb10f5ca09dcae9ffe625da4ac57d81de079fdf9b",
+      "content_hash": "7760265224cef598db70004b6a41a221f4ef0029d8da3babc0b11963ba6b1304",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "P450 reductase가 합성 효소에 전자를 공급해 carotenoid 전환을 돕는다. 효소 전자전달 후보."
+    },
+    {
+      "identifier": "AR-072091-A1",
+      "source_fingerprint": "a0886d5cfdb69a3e1c05e16972b7f93ad22bd0224bfab26a96d8977d169e5402",
+      "content_hash": "b046613431cdd46b04c4d2dbff543a24200ee6744723f3897de7f29d1229d1c4",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "비동축 송수신 안테나를 상대 회전하며 지층 EM 응답을 측정한다."
+    },
+    {
+      "identifier": "AR-072106-A1",
+      "source_fingerprint": "f1486eabd12aab693570a67d0b12b02e5b268a398601915117e9572c4a1b4797",
+      "content_hash": "0d0f0623d46d28eb243e66a558b477eb83adccab0c259caa2f2e9117cd941a89",
+      "decision": "LINK",
+      "keys": [
+        "shear-droplet-breakup",
+        "solidification",
+        "fourier-conduction"
+      ],
+      "reason": "물방울을 지방에 분산하고 냉각 drum에서 고화 후 파쇄한다."
+    },
+    {
+      "identifier": "AR-072111-A1",
+      "source_fingerprint": "adff0252fe707beab5780103cabb8639107b3d6a2fba72f36b391c6d047800ac",
+      "content_hash": "d9b774a1c26fd4640d6e96a436f3deb1b7793636b9309def7671d2cda0178e55",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "fluidization",
+        "coagulation-flocculation"
+      ],
+      "reason": "flocculating yeast를 유지·회수·재순환하며 당을 발효한다."
+    },
+    {
+      "identifier": "AR-072114-A1",
+      "source_fingerprint": "f04c9463d6f46b0bb0a7633f14da81f1e6ba7f9659fa82c74622888f33ab38ec",
+      "content_hash": "0b0c2337b1be5e237ba48cb8554dc4041966e4ccf230936dfa947bd38ef291f0",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "흡기 흐름으로 단위 분말 제제를 전달하는 cartridge 흡입기이다."
+    },
+    {
+      "identifier": "AR-072115-A1",
+      "source_fingerprint": "8fba8787310ad04ff9f0c8b60642ced008515d5f0a38d83ca2012d5398c5b4e5",
+      "content_hash": "1a1315110bb5bef8450550bce9e311f2d24eefe3da21c6c7f9bb43e0d8d52bd4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "silane·염기·용매 처리로 강도를 높인다는 개요만 있어 결합 기전이 부족하다."
+    },
+    {
+      "identifier": "AR-072118-A1",
+      "source_fingerprint": "5097c091a862854719b10d3c82062f320c4e2144591cea682b2429993c28455d",
+      "content_hash": "dbb7b5ff47a2f7ffe1c53fb2bb73febda9551256604aa5b76e8f12e7b61c7360",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "NK2 수용체 길항제이다."
+    },
+    {
+      "identifier": "AR-072138-A1",
+      "source_fingerprint": "9834b6a63ead2c7fc1231589dadda218a29fee4bc83c504ef9dde05f3f8f11ce",
+      "content_hash": "7f3a1406fd698e0e831eaa9b19126885a4a03b40a8e26602df0bac78ce6fec70",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "윤활제 점도에 따라 삽입·제거하는 bearing retainer 구조이다."
+    },
+    {
+      "identifier": "AR-072141-A1",
+      "source_fingerprint": "fe767941c6c98b7f5a207a634279d08ae3534120d1884a58fd35c0e86b87bcb9",
+      "content_hash": "4b936c14e2bf0d42b21705ce1b6a832ead04d30b7f492cc6d67f30b0e82fca3a",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "유산균 발효 산물과 비소화성 당을 조합한 영양식이다. 영아 장내 정착 향상은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-072168-A2",
+      "source_fingerprint": "fad05abe7b83fefd6f70e9a84b2f9d71376c43e112de533d032a6eb59f437b55",
+      "content_hash": "717b08159db61ffee8cea6f2b4815a45d8a6cd29f5d215b0b831eec5b2b3569f",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "genetic-linkage-selection",
+        "pcr"
+      ],
+      "reason": "cis promoter 구성과 후대의 표지 검출·선발이다. 내성 유전자 세부 기전은 미제시이다."
+    },
+    {
+      "identifier": "AR-072172-A1",
+      "source_fingerprint": "06645f330211f60c6ec3b79cc0088980ce7e45c13de19ebc5bb244e51a543436",
+      "content_hash": "565e05076a8b20b53332a2b8673d07af2c3e254002674fee92874a4209d3f4ae",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "원격 천연가스원에 소규모 GTL 설비를 배치하는 방식이며 화학 반응은 없다."
+    },
+    {
+      "identifier": "AR-072178-A1",
+      "source_fingerprint": "100777e55c30537db52a3ac616f3448fe00b644f293523569fab818406460f4e",
+      "content_hash": "946f6e180bfd79b5ffcce9a2feab0fe6c367c5a1163e461e9d4cd8c4fc2cff6f",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "centrifugal-separation"
+      ],
+      "reason": "맥주 발효 후 원추형 disc centrifuge로 분리한다."
+    },
+    {
+      "identifier": "AR-072190-A1",
+      "source_fingerprint": "858597d1d78b7cbb73bb4663e5a488487ea4616de36a720ea86439c22912c297",
+      "content_hash": "313a2a544ee520e33ca63c77186ccf752c2f2be6e3f44e681c18f60e70161299",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "tungstate·phosphate계 부식 억제제이나 피막 형성의 직접 증거가 없다."
+    },
+    {
+      "identifier": "AR-072191-A1",
+      "source_fingerprint": "ba4e913573686633a90c84b082f1dcd2cf8e68df7a39b379eaa2d9bda7c2a00b",
+      "content_hash": "69a3c7926184cdc0deb04fd6d914e66810b96d8364a12c6c9a0c0ba59af71dfb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기질의 hydrocarbon에 고에너지 전자를 조사하나 전환 산물·결합 변화는 없다."
+    },
+    {
+      "identifier": "AR-072193-A1",
+      "source_fingerprint": "188042119f4fc8355360ed88460051f110b4c8eefece841f435d048d32e74202",
+      "content_hash": "c5da1d4e5a17d391e7c4e7f34647b3da8f3b888a81e27990c3af369c5119c049",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "웹 편집기에서 개인별 텍스트를 인쇄물에 병합하는 소프트웨어 절차이다."
+    },
+    {
+      "identifier": "AR-072217-A2",
+      "source_fingerprint": "accdee3bcc775495b5b2efc6e047f7cc5e0dc01e6b2b1398911e21eeb353997e",
+      "content_hash": "0d85e8e9cb4ff786f33cf7164cd92e8efd65685c48c8c0b8b365c7625bf836bd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 단백질의 혼합 구조와 용도만으로 수용체·막 손상을 확정하지 않으며 제작 지침은 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-072228-A1",
+      "source_fingerprint": "580fdaaa5052a3bcc267cab016465f8d4b75622759d2d6fbe50e17166c5bf864",
+      "content_hash": "74d17fe4d68a8dcbf4666f4f82411f42bc6a49940f2db36bf482e30207ad4558",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "GSK3β 억제를 명시한다."
+    },
+    {
+      "identifier": "AR-072251-A4",
+      "source_fingerprint": "d5c54d2a76522a23c995d0270ba4b53c2980c99bbf3e6e1f28facf5373fe32ad",
+      "content_hash": "955d687ebd924c7be39b14915b1e267e09f70f403f1633838fcf6367672db655",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "오토바이 발판을 지지 frame의 홈과 이동 고리로 붙잡는다."
+    },
+    {
+      "identifier": "AR-072255-A1",
+      "source_fingerprint": "ab868a674defd3604ec2ed5e3f907ff83ee4bdda805c5d46a6924f208cc784b6",
+      "content_hash": "16550cff2a1eb4e13f913cd9a31a30cfeb2f4f7e3511c4ebac5492c608f41662",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "pressure-accumulator",
+        "negative-feedback"
+      ],
+      "reason": "두 valve로 충압·토출을 교대하고 pump를 제어해 압력·유량을 유지한다."
+    },
+    {
+      "identifier": "AR-072266-A1",
+      "source_fingerprint": "683a764a75c54884ac4bc7493ec64e22d435e21ad85afdc0852a678b76c2fd07",
+      "content_hash": "b0df6ca80d65dd58bdc6057c45c285b2d21f6eee13c4fc55725cb017494b964d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 질환용 amide의 분자 표적이 없다."
+    },
+    {
+      "identifier": "AR-072272-A1",
+      "source_fingerprint": "4c86c248e2282ed5428b9585440dc5c21bb2beefe3bc6eceb2d7f9f8f97201b0",
+      "content_hash": "ee717ea3085250a11185eb5b39b7a0ec830cc7539f14fa53ea109d3c5f054368",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "B cell 과활성 질환과 화합물 구조만 제시된다."
+    },
+    {
+      "identifier": "AR-072287-A1",
+      "source_fingerprint": "3336e5ab6aeaf7f6e0cacb9a985543f1b2ef38df2565134bc6f93cf3a82e60ef",
+      "content_hash": "299788af00d6d0e122415394108b4f8bc4a101d60611136b42f66cd17b881348",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "정보를 push하거나 알림 후 pull하는 전달 절차이며 구체 수학 원리는 없다."
+    },
+    {
+      "identifier": "AR-072289-A2",
+      "source_fingerprint": "f9a73cb9f26ad965d147f011a9ed8110bc4cf9e60057bfba34a9ad6ddf4deeed",
+      "content_hash": "ba9cd266280c78d09cd486360750ed1fcbb04e1733e323bdeae1fb9d38d920c0",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "pin·rack를 분리하고 다시 맞물려 열쇠에 맞는 위치를 바꾼다."
+    },
+    {
+      "identifier": "AR-072317-A1",
+      "source_fingerprint": "acb6f6fbe8f0f361f348e39efa8d060a1bccac5274bd3fb5ce17747b8e20fe8b",
+      "content_hash": "5bab2495fb33d2b7b1162b5da1f2ff12b1609eb48fe8bfa3e20ef3511f0032fa",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조 목록만으로 분자 표적을 알 수 없다."
+    },
+    {
+      "identifier": "AR-072328-A1",
+      "source_fingerprint": "bf2bb3a2f7ee2209614d63ecefd3b1c04b2e27179e7b2e98aebab2101730a3de",
+      "content_hash": "93a86d6cdfcbd83026e7884ccfc7f227f9b62703200beed6b04ae09eea4f9f05",
+      "decision": "LINK",
+      "keys": [
+        "gelation",
+        "coordination-complexation"
+      ],
+      "reason": "zirconium과 고분자 작용기의 가교로 수성 유체를 gel화한다."
+    },
+    {
+      "identifier": "AR-072391-A1",
+      "source_fingerprint": "bae30ac4a6f21a089f6fd4d1fc8c95e2838fb8d9b760dd46acfa0b7c1af06074",
+      "content_hash": "8c13abb6ac22052cd5c3daf3f2efa7ae44fa82b53be22b147c73cb01759174d5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "seed에서 이종 단백질을 발현하고 ER 신호·체류 서열로 축적한다. 단백질 소기관 표적화 후보."
+    },
+    {
+      "identifier": "AR-072440-A4",
+      "source_fingerprint": "ae4d4c643566127f368c631cad43f4e5917ec8cc5625098d7a8e468ef6502449",
+      "content_hash": "049520ac43dd5653f9caf585237a131b65966b7fb97c9ac7f9aaecd2d8757fe3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "격벽과 독립 주둥이로 두 내용물을 나누는 용기이다."
+    },
+    {
+      "identifier": "AR-072443-A1",
+      "source_fingerprint": "9007092e4e1833e28bc519fe96af6e070e3d31b21f10f3562c43c031e4018a65",
+      "content_hash": "36083959e6def8468df3b5de31c215b1e32f877e9bf297979010ea1e27f97bb6",
+      "decision": "LINK",
+      "keys": [
+        "elastomer-contact-sealing"
+      ],
+      "reason": "L 단면 seal ring으로 valve plug와 cage 틈을 막는다."
+    },
+    {
+      "identifier": "AR-072481-A1",
+      "source_fingerprint": "02df04dcf2fd613ff58bfbf4e717fc59104a9483681cd449537087773194065b",
+      "content_hash": "03a925b77b2ecf757e2aad3809a015b1b30ca33657b321f928eaaa656a2b1b60",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "저대역 신호·BWE 매개변수로 고대역을 확장하고 codec별 교차 주파수를 바꾼다. 매개변수 대역 확장 후보."
+    },
+    {
+      "identifier": "AR-072493-A1",
+      "source_fingerprint": "8f9c3eb6c60f0de51c50051066f711e39f5fb31e96a284728ed317729067ab33",
+      "content_hash": "939c0ed5ff0e0b0457b38db1257b3ca3dd3b1453f3caa8448edb28cb4dd2b2a6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "MgOH2를 이용한 탈묵이라는 개요만 있어 분리 경로가 없다."
+    },
+    {
+      "identifier": "AR-072508-A1",
+      "source_fingerprint": "cf6c4215b3bb1edffbca8ea4c6d75c289a7b8ee55531e423980da0085f6e392e",
+      "content_hash": "8f4d48134d3c431feab9ad1305775a5826c3b7e3f303616911e5f796b200d932",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "ion-channel-modulation"
+      ],
+      "reason": "α7 nicotinic 수용체 조절제를 명시한다."
+    },
+    {
+      "identifier": "AR-072513-A1",
+      "source_fingerprint": "8bd788e27b95c97369472e9168d09ec9c4e3cf5700c9f2aae805a57b2e5e1450",
+      "content_hash": "bb5894a4a1aaaad7b6a00d318583ccc258706cd6e53134f42320a81baeaa14f2",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "elastic-energy-recovery"
+      ],
+      "reason": "흐름에 따른 압력힘이 보정 spring에 맞서 valve를 닫는 과유량 차단 구조이다."
+    },
+    {
+      "identifier": "AR-072525-A1",
+      "source_fingerprint": "d44ef33c7dbdecad27f03b452a91ae32bdb48eaccf7623542b8ddc5cb1f32a64",
+      "content_hash": "871cbbbe8c4c4f2822f869bfa7b9d35e9470f06a55a2ae2409c8ca621afef111",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "β defensin의 관절염 용도만으로 작용 기전을 확인할 수 없다."
+    },
+    {
+      "identifier": "AR-072534-A1",
+      "source_fingerprint": "e0a0cba4490564d4b5d780d4861650c82d7ac71914f569c8933d055aed0fc100",
+      "content_hash": "f802abfef54a6e130dc874160345ab3fa6cbf3c7e170f227471e98687b97a54e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 물질 구조만 있고 직접 표적은 없다."
+    },
+    {
+      "identifier": "AR-072558-A1",
+      "source_fingerprint": "c95c9fd6316c7e64ad51e1e56b0f6020baa923393607272ce1857cd9d76ed1ee",
+      "content_hash": "fb5ceddcedd88dd5ba81517a790d8dc610b1210e2daf0e1a3910f67104be381e",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "결정성 melam층을 두 필름 사이에 넣어 수분 통과를 제한한다."
+    },
+    {
+      "identifier": "AR-072570-A1",
+      "source_fingerprint": "154674b36c20fa3f2e86b94dafb2d87279cd26d6096cf64a6b01d430e8159e46",
+      "content_hash": "c5a8c1898351a882e08b8d8cd2fdd35af1098d2726780e17df799668cd9299e5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "IND의 부분 기능상실 변이로 종자 탈립을 지연한다. 유전자 기능상실 후보를 식물 사례로 보강한다."
+    },
+    {
+      "identifier": "AR-072591-A1",
+      "source_fingerprint": "8316ac99631087da9486bdbc73e7ec02205a9c8ff696ca7d63d3c282b82d0ff4",
+      "content_hash": "4bc0eca40acef9e0b5beec97e3918d78a61ffde94eab18c5cd327a06bb9cf15d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "isosorbide nitrate의 혈관 질환 용도만으로 NO 방출량·경로를 확정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-21T23:07:33.317768+00:00"
+}

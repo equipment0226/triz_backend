@@ -1,0 +1,198 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "69e19e34e436a609293d81881a584b352910a95134a7f71bdf064a99add01f7c",
+  "reviews": [
+    {
+      "identifier": "AR-108778-A1",
+      "source_fingerprint": "d07089b91beb1f71e441b19ae8c2c293b099281be40a45870d7c54b229a1f63c",
+      "content_hash": "3a92d804fb8ba08af65050af31b9885501752b16dc3d21775fd6f19bf9391436",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항균 화합물의 Markush 구조만으로 표적 효소를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-108782-A1",
+      "source_fingerprint": "6dede406fad0f2109003ffe1cfc137d8e687d93ad5568a5a8e31fd539d521943",
+      "content_hash": "73be9506590986b959f14da5e0e0f87ec6adb0ed5dd64359917897db7e44de0b",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping",
+        "bulk-comminution",
+        "solid-liquid-leaching",
+        "gravity-settling"
+      ],
+      "reason": "곡물 흡입·분쇄·물 추출·침강 상등액 분석의 공정이다. 시험지 검출 반응은 미상이다."
+    },
+    {
+      "identifier": "AR-108783-A1",
+      "source_fingerprint": "15df208b93f599e41a2f56f5e046d6fabe6f58dcc461b4cb87e21531bbb23c31",
+      "content_hash": "5303389a72b65105af9a3c35797bbb2d4a2b7cd308bdc947acb64d261ecdcd2b",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "트리알킬포스포늄 할로알루미네이트 이온성 액체를 알킬화 촉매로 쓴다. 반응물과 알킬화 종류는 초록에 없다."
+    },
+    {
+      "identifier": "AR-108838-A1",
+      "source_fingerprint": "d910d11c9f7736bdfe8429f530c07ee8849481aa0119c9615801054341251040",
+      "content_hash": "c037aba997a0d5d723a1eb04a6df57611059f0bd8fb215e7839e9a17912d8aed",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "LPA 수용체의 선택적 길항 작용이다."
+    },
+    {
+      "identifier": "AR-108849-A1",
+      "source_fingerprint": "abb826f8c70629fb4d5efe5fd01a785c091a76ce371c04051a2ce6c9b7ce68a7",
+      "content_hash": "97b9a69909946cd2ac12a3b23ff1effed3edd0f759c4f0b19b62010b24bed1cb",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "surfactant-action",
+        "foam-film-rupture"
+      ],
+      "reason": "산·아민 계면활성제·소포제의 제형과 pH 조절이다. 증발 억제량이나 폴리머의 액적 신장 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-108862-A1",
+      "source_fingerprint": "91212f15a5ccd76c1599c84d478da48fa0e1d7a6758e44cd2f674f63877049e4",
+      "content_hash": "9e562c9fb2b58ddee603c2407b79276cd7b7c7509a2a283c0850029fc6f037c6",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "evaporative-concentration"
+      ],
+      "reason": "사전 가열한 사료를 압출하고 건조한다. 식욕 증가를 일반 물리 효과로 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-108866-A1",
+      "source_fingerprint": "9b00eeba13b0ab5841b9e12b479f2c495c96d16d959242c321063b4e5dd2cbd9",
+      "content_hash": "7f58147fde1b497ba8264fc4b0cb3e288db3fb5ec114c5b5c1c4239613ceb784",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "다층막의 공중합체 조성·밀도·유동지수 범위이며 해당 층의 작동 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-108870-A1",
+      "source_fingerprint": "417a61ed1cd5017ca595be178d55252aeedfc9c3bbe3a92562b8e87568894c32",
+      "content_hash": "d9bdfc76f493a443f93d1067d96efec3e9ea27495066788f6c09f1f30beac1c0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "올리고당과 베타글루칸의 장내 미생물 조절 조성이다. 선택적 기질 이용과 면역 수용체 경로는 추가 근거가 필요하다."
+    },
+    {
+      "identifier": "AR-108888-A1",
+      "source_fingerprint": "20086185d17d263c82a06f07df7873c86d52c9d3565fd362fab5b679982d43d1",
+      "content_hash": "b59556e262ad29f17c9772768e1cadad0ad7ea0a01488f10e614e82bd9bebec1",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion",
+        "rolling-contact-friction-reduction"
+      ],
+      "reason": "슬라이더의 롤러가 안내 홈을 따라 이동해 창짝을 올리고 하중 롤러가 접촉을 지지한다."
+    },
+    {
+      "identifier": "AR-108920-A1",
+      "source_fingerprint": "3d0e104c7606c0ba54a8826805cc3e38fdd8a58c2c99bdbe6ccae7c405bf5982",
+      "content_hash": "a8a70d67a6126fd3ee84a6c1dde061818e7ae6600a0aec46bb5780f06d4b6177",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "니코틴·당·아미노산 입자 조성만으로 방출·흡수 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-108922-A1",
+      "source_fingerprint": "30056d0ed11c816ebb05dfc12d38868d5038faeec40fbdacceeaca25bc76e22d",
+      "content_hash": "785f0cb130580e3ef8dac88d2496bd6e521bc4d5606f5b627b4d21241d00a04f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "공중합체·폴리올레핀 탄성체의 밀봉층 조성이며 열봉합 조건이나 계면 접착 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-108933-A1",
+      "source_fingerprint": "d2c5270f408ece3b495b5724887ce9edd623293efbb0efc5c60f4110ef97ab86",
+      "content_hash": "e91ba066320282a4ee2b6d1fe9a210bfea4e88c850bae963159bbd0cb80dd845",
+      "decision": "LINK",
+      "keys": [
+        "acetal-carbonyl-protection"
+      ],
+      "reason": "알코올과 알데히드·케톤의 반응 생성물인 아세탈 조성이다. 황화물 제거의 상세 반응과 상승효과는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-108942-A1",
+      "source_fingerprint": "8cf01a9c9274f6d7ca1a1c2d21ebbe4a5ecbce72d0cadf97fcc03ea2ce013eb9",
+      "content_hash": "82071b6c2f91459134ce9ecf3a817d9bf624f3e78b0f03a49488066496068511",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "장잔광 물질의 초기 강도와 발광 지속 시간으로 진품을 판별한다. 형광과 동일시하지 않고 지속 발광 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-108946-A1",
+      "source_fingerprint": "19da33dd9662ef33b0234802ea5367f56f3175f29163593a1355bbe468a6a124",
+      "content_hash": "ba5240bed8ed56b3fc4fbc42376a197f89c3a17f02429c277657e5c42313d932",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "펀치 끝만 오스테나이트 변태 온도 이상 가열하는 공정이다. 냉각 경로가 없어 마르텐사이트 경화를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-108949-A1",
+      "source_fingerprint": "4be25c22409af1e29af5c8af7799b045539851ddbe4a8324c6ca93d99f1ad431",
+      "content_hash": "6ca7fe1112716f31450bc5b5c8e8cb00bb6cd37f15344bef18c00765bbfa6be2",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "wetting-control",
+        "gas-solution-diffusion"
+      ],
+      "reason": "실리콘 하이드로겔의 중합과 습윤성·산소 투과 조절이다. 생체적합성 우월성을 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-108967-A1",
+      "source_fingerprint": "a43d1f6577f660f53bc739584dcd2733041f4d7c21ce19178f26b7886aec7f06",
+      "content_hash": "e2ee0d5367b2b2d4dbe144e7f8c8ff36b26dd7204620cb625bf6b7190f0e76ee",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening",
+        "wet-chemical-etching"
+      ],
+      "reason": "수압 파쇄와 지연 탄산염 용해로 지층 유로를 바꾼다. 용해제의 산 종류는 미상이다."
+    },
+    {
+      "identifier": "AR-108971-A2",
+      "source_fingerprint": "889a81305dffcba4034c5b6c12933c27877e2ff8c6be710d72424028d41b7ae7",
+      "content_hash": "5b1050c335dd2260b85d5e3e9a1e14d194f0900cf92502d0254589fd5ee25111",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "비원형 렌즈와 눈꺼풀의 기하 접촉에 의한 위치 안정 설계이며 구체 힘 전달 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-109003-A1",
+      "source_fingerprint": "ab2bb728be9a55d4246d91d083375f2044cb864bddefdebe362d8ca48b8ac426",
+      "content_hash": "c416e7f8298490a2d58cb142aa454f67cefc30889d40ddd3807fa18ab253dd2a",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "크랭크·커넥팅 로드의 길이 관계로 운동을 구속한다. 제목의 운동량 증폭을 에너지 생성으로 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-109005-A1",
+      "source_fingerprint": "0eacbe81e4d6613eaf035bcd01393a8da0cd8a75ee72efbdf77fac09c4dad1d8",
+      "content_hash": "a863395eb7f13ec9f7b6784f1e23e06feeb98f9ce4507143780fbb1bdc41cc47",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "일회용 미세유체 검사 장치 구성만 소개하여 유체 구동·분석 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-109036-A1",
+      "source_fingerprint": "475690ec5bac1c120ede8439c97bf93947e9dde5c684e54c17cd7c4eea6f31f2",
+      "content_hash": "fa6555527ba37ed8ca4a60d79c1046accd405eeb05ddfe544af03dd96e52b71b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "날개 끝 두 핀의 상대 각도와 배치이다. 초록만으로 유도 항력 감소량이나 와류 상쇄를 확정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:48:52.764530+00:00"
+}

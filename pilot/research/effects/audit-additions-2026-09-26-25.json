@@ -1,0 +1,382 @@
+{
+  "batch": "additions-2026-09-26-25.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1436,
+  "added": 30,
+  "after": 1466,
+  "target": 1500,
+  "source_sha256": "bf88d6d5bee5c9d12aad061ac0b23962ac5d469c2d689cc8a261414693115a38",
+  "decisions": [
+    {
+      "key": "multipole-local-expansion-interaction-summation",
+      "group": 19,
+      "related_keys": [
+        "hierarchical-spatial-partition",
+        "transform-domain-convolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공간을 나누는 것 자체나 전역 푸리에 곱셈과 달리 먼 집단의 장을 전개 계수로 합치고 이동시킨다.",
+      "source_url": "https://web.stanford.edu/class/cme324/classics/greengard-rokhlin.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "outward-rounded-interval-enclosure",
+      "group": 19,
+      "related_keys": [
+        "range-adaptive-arithmetic-precision",
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표현 비트 수 선택이나 확률 표집이 아니라 가능한 모든 입력값의 결과를 포함하는 수치 경계를 전파한다.",
+      "source_url": "https://live.boost.org/doc/libs/1_68_0/libs/numeric/interval/doc/interval.htm",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "distance-probability-stochastic-rounding",
+      "group": 19,
+      "related_keys": [
+        "range-adaptive-arithmetic-precision",
+        "deterministic-pseudorandom-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "비트폭 확대나 난수 생성 자체가 아니라 인접 수 선택 확률로 반올림의 조건부 평균을 보존한다.",
+      "source_url": "https://eprints.maths.manchester.ac.uk/2836/1/cfhm21.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "roundoff-residual-compensated-summation",
+      "group": 19,
+      "related_keys": [
+        "range-adaptive-arithmetic-precision",
+        "sigma-delta-quantization-noise-shaping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표현 폭 조절이나 오차의 주파수 이동과 달리 각 덧셈의 수치 잔차를 보존해 최종 합을 보정한다.",
+      "source_url": "https://www.tuhh.de/ti3/paper/rump/OgRuOi05.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "step-size-leading-error-extrapolation",
+      "group": 19,
+      "related_keys": [
+        "multigrid-scale-separated-error-correction",
+        "spatial-neighbor-interpolation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "격자 간 잔차 보정이나 관측점 사이 보간과 달리 간격에 따른 오차 전개를 상쇄하여 연속 극한을 추정한다.",
+      "source_url": "https://www.grc.nasa.gov/www/wind/valid/tutorial/spatconv.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "tangent-linearized-newton-root-iteration",
+      "group": 19,
+      "related_keys": [
+        "coordinatewise-local-search",
+        "krylov-subspace-residual-solution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "좌표별 목적값 시험이나 선형계 부분공간 확장과 달리 함수의 국소 미분으로 비선형 영점 갱신량을 정한다.",
+      "source_url": "https://docs.scipy.org/doc/scipy-1.10.0/reference/generated/scipy.optimize.newton.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "homotopy-continuous-solution-path-tracking",
+      "group": 19,
+      "related_keys": [
+        "coordinatewise-local-search",
+        "annealed-uphill-stochastic-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정 문제의 국소 탐색이나 확률적 장벽 통과와 달리 문제 자체의 연속 변형을 따라 해의 가지를 추적한다.",
+      "source_url": "https://homotopycontinuation.github.io/tutorial/tim-HCtut.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "bregman-geometry-mirror-descent",
+      "group": 19,
+      "related_keys": [
+        "coordinatewise-local-search",
+        "augmented-lagrangian-splitting-coordination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "좌표별 시험이나 분할 문제의 승수 조정과 달리 비유클리드 거리로 한 단계의 이동 기하를 정한다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167637702002316",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "complementary-clause-resolution-refutation",
+      "group": 19,
+      "related_keys": [
+        "bayesian-network-inference",
+        "branch-bound-relaxation-pruning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확률 갱신이나 비용 경계 가지치기가 아니라 논리적으로 함의되는 절을 도출하여 반례 가정의 모순을 증명한다.",
+      "source_url": "https://web.stanford.edu/class/linguist289/robinson65.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "syntactic-term-variable-unification",
+      "group": 19,
+      "related_keys": [
+        "finite-state-transducer-decoding",
+        "sequence-alignment"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상태망의 문자열 변환이나 유사 서열 정렬과 달리 중첩 항 구조에서 같은 변수의 치환 제약을 동시에 만족시킨다.",
+      "source_url": "https://www.swi-prolog.org/pldoc/man?section=unifyspecial",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "abstract-domain-fixed-point-program-analysis",
+      "group": 19,
+      "related_keys": [
+        "finite-state-transducer-decoding",
+        "branch-bound-relaxation-pruning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "실제 입력열 실행이나 최적화 가지치기 대신 여러 실행을 포함하는 추상 의미와 반복 고정점으로 성질을 도출한다.",
+      "source_url": "https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "temporal-product-state-model-checking",
+      "group": 19,
+      "related_keys": [
+        "finite-state-transducer-decoding",
+        "distributed-barrier"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입출력열 해독이나 실행 동기화와 달리 가능한 전이 경로를 요구 조건과 대조해 반례 실행을 찾는다.",
+      "source_url": "https://spinroot.com/spin/Man/Manual.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "intermediate-node-network-coding",
+      "group": 19,
+      "related_keys": [
+        "multicast-branch-replication",
+        "error-correcting-code",
+        "capacity-cut-flow-duality"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 분기 복제나 링크 오류 정정과 달리 중간 노드가 서로 다른 정보 흐름을 결합해 병목 링크를 공유한다.",
+      "source_url": "https://web.stanford.edu/class/ee388/REFS/ahlswede2000network.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "decoded-waveform-successive-cancellation",
+      "group": 19,
+      "related_keys": [
+        "mimo-spatial-multiplexing",
+        "non-gaussian-independent-source-separation",
+        "reference-channel-common-mode-rejection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공간 채널이나 독립 통계만으로 분리하지 않고 복호한 데이터로 간섭 파형을 재생하여 순차적으로 제거한다.",
+      "source_url": "https://web.stanford.edu/~dntse/papers/book121004.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "known-state-dirty-paper-precoding",
+      "group": 19,
+      "related_keys": [
+        "feedforward",
+        "keyed-encryption",
+        "mimo-spatial-multiplexing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외란의 단순 역신호 주입이 아니라 알려진 채널 상태에 조건화한 부호어 선택으로 복호 가능한 정보를 전달한다.",
+      "source_url": "https://www.researchgate.net/publication/3083840_Writing_on_dirty_paper_Corresp",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "parameter-space-hough-vote-accumulation",
+      "group": 19,
+      "related_keys": [
+        "random-minimal-consensus-robust-fitting",
+        "signal-correlation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "무작위 최소 표본의 모형 가설이나 고정 파형 상관 대신 각 점의 가능한 형상 매개변수를 누적한다.",
+      "source_url": "https://docs.opencv.org/4.13.0/d6/d10/tutorial_py_houghlines.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "normalized-laplacian-spectral-partition",
+      "group": 19,
+      "related_keys": [
+        "density-based-clustering",
+        "capacity-cut-flow-duality",
+        "singular-spectrum-low-rank-projection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "밀도 연결·단순 최소 절단·자료 에너지 압축과 달리 집단 연결량으로 정규화한 절단의 스펙트럼 완화를 사용한다.",
+      "source_url": "https://people.eecs.berkeley.edu/~malik/papers/SM-ncut.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "recursive-virtual-control-backstepping",
+      "group": 19,
+      "related_keys": [
+        "lyapunov-descent-stabilizing-control",
+        "negative-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "리아푸노프 감소 조건 자체보다 구체적으로 가상 입력과 추종 오차를 한 상태씩 확장해 제어식을 구성한다.",
+      "source_url": "https://www.eolss.net/sample-chapters/c18/e6-43-15-07.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "controlled-unitary-eigenphase-estimation",
+      "group": 19,
+      "related_keys": [
+        "fourier-spectral-decomposition",
+        "quantum-disturbance-key-distribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고전 표본의 스펙트럼 계산이나 측정 교란 보안 대신 제어 연산의 위상 되먹임을 측정 가능한 이진 값으로 바꾼다.",
+      "source_url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/phase-estimation-and-factoring/phase-estimation-procedure",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "two-reflection-quantum-amplitude-amplification",
+      "group": 19,
+      "related_keys": [
+        "branch-bound-relaxation-pruning",
+        "annealed-uphill-stochastic-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "경계값 가지치기나 확률적 후보 수락과 달리 진폭의 결맞은 두 반사로 목표 측정 확률을 재분배한다.",
+      "source_url": "https://quantum.cloud.ibm.com/learning/en/modules/computer-science/grovers",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "graph-hamiltonian-coherent-quantum-walk",
+      "group": 19,
+      "related_keys": [
+        "graph-shortest-path",
+        "detailed-balance-markov-sampling",
+        "landau-zener-avoided-crossing-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확률의 마르코프 전이나 에너지 준위의 단열 이동과 달리 그래프에서 복소 진폭을 유니터리 전파시킨다.",
+      "source_url": "https://arxiv.org/pdf/quant-ph/0209131",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "isotropic-probe-quadratic-trace-estimation",
+      "group": 19,
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "random-projection-distance-preservation",
+        "singular-spectrum-low-rank-projection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 입력 불확실성 전달·거리 보존·저랭크 절단과 달리 등방 탐침의 이차형식 항등식으로 대각합을 얻는다.",
+      "source_url": "https://arxiv.org/pdf/2010.09649",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "known-mean-correlated-control-variate",
+      "group": 19,
+      "related_keys": [
+        "importance-density-ratio-sampling",
+        "reference-channel-common-mode-rejection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "제안 분포의 밀도비나 실물 기준 센서 대신 평균이 알려진 확률변수의 중심화 편차로 추정 분산을 줄인다.",
+      "source_url": "https://artowen.su.domains/reports/qmccv.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "coprime-residue-chinese-remainder-reconstruction",
+      "group": 19,
+      "related_keys": [
+        "error-correcting-code",
+        "secret-shared-multiparty-computation",
+        "range-adaptive-arithmetic-precision"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "오류 중복이나 비밀 분산과 달리 여러 법에서의 정확한 합동 조건을 결합해 큰 정수를 재구성한다.",
+      "source_url": "https://doc.sagemath.org/html/en/reference/finite_rings/sage/rings/finite_rings/integer_mod.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "orthogonal-polynomial-node-gaussian-quadrature",
+      "group": 19,
+      "related_keys": [
+        "low-discrepancy-quasi-monte-carlo-integration",
+        "basis-function-surface-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "점 분포의 균등성이나 함수 표현을 목표로 하지 않고 특정 다항식 공간에 대한 적분 정확 조건으로 점과 가중치를 고른다.",
+      "source_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.roots_sh_legendre.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "cyclic-string-block-sort-permutation",
+      "group": 19,
+      "related_keys": [
+        "dictionary-reference-lossless-compression",
+        "arithmetic-entropy-coding",
+        "bit-interleaving"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "문자열 참조나 확률 구간 축소와 달리 원문을 가역적으로 재배열해 같은 문맥의 기호를 모은다.",
+      "source_url": "https://www.cs.jhu.edu/~langmea/resources/burrows_wheeler.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "multi-hash-counter-minimum-frequency-sketch",
+      "group": 19,
+      "related_keys": [
+        "bloom-probabilistic-set-membership",
+        "hash-extreme-statistic-cardinality"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "포함 여부 비트나 고유 항목 수 극값 대신 여러 충돌 계수의 최솟값으로 특정 항목의 빈도를 추정한다.",
+      "source_url": "https://www.cs.ox.ac.uk/people/graham.cormode/pubs/papers/cm-full.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "alternate-location-displacement-hashing",
+      "group": 19,
+      "related_keys": [
+        "consistent-hash-stable-partition",
+        "bloom-probabilistic-set-membership"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "서버 변화의 재배치 최소화나 확률적 포함 검사와 달리 실제 키의 후보 위치 불변식을 연쇄 이동으로 유지한다.",
+      "source_url": "https://www.rasmuspagh.net/papers/cuckoo-jour.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "representative-path-compression-set-union",
+      "group": 19,
+      "related_keys": [
+        "density-based-clustering",
+        "graph-shortest-path",
+        "cache-reuse-validation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "군집 기준이나 경로 비용 탐색 대신 이미 판정한 동치 집합의 대표 연결을 압축해 반복 조회를 가속한다.",
+      "source_url": "https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/UF.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "marginal-gain-waterfilling-resource-allocation",
+      "group": 19,
+      "related_keys": [
+        "adaptive-modulation-coding",
+        "orthogonal-frequency-multiplexing",
+        "augmented-lagrangian-splitting-coordination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변조 차수 변경이나 주파수 직교화와 달리 채널별 한계 이득과 공통 문턱으로 제한 전력을 배분한다.",
+      "source_url": "https://www.cvxpy.org/examples/applications/water_filling_BVex5.2.html",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "4ff2627be3768133d602f74c44c7c9b2b0d1671354d55007751aec4f4ddfe8ea",
+  "reviews": [
+    {
+      "identifier": "AR-102464-A1",
+      "source_fingerprint": "54eef4b81f8947181621e329ba60967c3c49681118af9fc357a2779e37b47247",
+      "content_hash": "7d770c69de6c1033ca6fa13d5f01b2209109c703f866df229225350b823c5c7e",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "CHO 세포에 CMV 단백질 복합체를 재조합 발현한다."
+    },
+    {
+      "identifier": "AR-102474-A1",
+      "source_fingerprint": "2b5c6e16f8d8a60f73d86d9de84f1fd1974bcb740a8ad0ac0f388837ed476970",
+      "content_hash": "6249e96cf079ce1e01b502707f84fe656dd97c509c1b90da33c68d3722fe1692",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "FRC의 자기장 구속과 중성 입자빔으로 플라스마 상태를 유지한다. 자기 구속 및 충돌성 빔 가열 후보를 각각 확인하며 핵융합 순에너지 생산을 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-102475-A1",
+      "source_fingerprint": "24aeb1723c38621662ec281e248775c9859377deec07d7214f11cb156ddd5b80",
+      "content_hash": "1548cea763aaf96d5b4beb9fcbee771f54f411a799030afb1549e4174b1345a1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "처리 성분을 포함한 지지재 조성으로 작용 기전이 부족하다."
+    },
+    {
+      "identifier": "AR-102476-A1",
+      "source_fingerprint": "2866822b3d07215939424b7eea843d7be9666ddd4cf30730d2acddf8f211f0ad",
+      "content_hash": "81004f458c82668d4d15ee0c0dd001318501426657cebc71fd640e35885f3a81",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "구형 부재를 연결한 부유 덮개를 암수 걸림 구조로 연결한다."
+    },
+    {
+      "identifier": "AR-102479-A1",
+      "source_fingerprint": "404e0a2263b1bdfc2f3c2030142fbca3701ab9a3985ec6adf9c67874b152d391",
+      "content_hash": "140bedf8241b845ac32f527afcf238bec39a0659f8e2dec5ee39f14c886d5e7b",
+      "decision": "LINK",
+      "keys": [
+        "linear-channel-downmixing"
+      ],
+      "reason": "채널을 선형 결합해 축소하고 비상관 신호로 복원한다. 공간 음향 복원 초안과 연관되며 손실 없는 복원은 아니다."
+    },
+    {
+      "identifier": "AR-102480-A1",
+      "source_fingerprint": "16b64909a5b4cfe5579a12827cd444c875861952b7d561345e8ebb9cc8d8befa",
+      "content_hash": "06b137d88375a7d5860b7c2866797b3466f751af8a226813ad0452da65f40379",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "transcription-factor-regulation"
+      ],
+      "reason": "RORγt 조절 작용을 명시한다."
+    },
+    {
+      "identifier": "AR-102494-A1",
+      "source_fingerprint": "5e6894476a07526f2a830765110df7a3fd2c35503f4707371af0a39248466cb6",
+      "content_hash": "15659aa2bd084dd1d602287c69bcc4be0715336ffffc3e8879e808b7d88acfe3",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "VEGF 길항제의 투여 간격 설계이다. 주기 변경 자체를 새로운 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-102497-A1",
+      "source_fingerprint": "6af41ae9faeeb9fd7c8fa3a50f287dfc698213b81a002701ea4f9c03196e8eb6",
+      "content_hash": "09083de0efb6c2493422e5a95d5bc922d0b7781591d34e700f1642008564b6d6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "화합물과 출혈 관련 용도만으로 분자 작용 표적을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-102504-A1",
+      "source_fingerprint": "b6b48be053e5aaa23907431d9e2c8efe9ab8ef13a7816760de0e94762a6c8973",
+      "content_hash": "0f3eeb57edaaa10207e5e52402f3737d19c26af519680e89e20babe028bd3c75",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아크릴로니트릴 유도체의 황화수소 포집은 친핵 공액 첨가 후보와 연결 가능하나 반응 경로의 별도 근거가 필요하다."
+    },
+    {
+      "identifier": "AR-102507-A1",
+      "source_fingerprint": "66d798d28861bc034e8314356720825011b8604ee4e26a4de32c643f6e1740c5",
+      "content_hash": "bb148dfa0feb43e02da24a9f97a28a9ea09c8c186f1a526bd93f54e402c0e7f5",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "lead-screw-motion"
+      ],
+      "reason": "나사 핀·박스 결합 및 경사 어깨 접촉 구조이다. 탄성중합체 밀봉이라고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-102514-A1",
+      "source_fingerprint": "9f1fec190184bdbafb89865c786ef204326465c9a070d7daadce71dfc1caa783",
+      "content_hash": "1ac5559da07ff2e5f88c13cbe9dc64fe5d8bc7b6c6a22571314a4a943e9c0621",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "양방향 문손잡이 설치 배치이다."
+    },
+    {
+      "identifier": "AR-102526-A1",
+      "source_fingerprint": "27a1885bc7fc13b4e4339c75cf625c7782a97784b3354ebcaf1a20e684d9b906",
+      "content_hash": "2f65d028767d85684c2b78ada54e1cf0bf862fd779ee9d6a8ce8f7e5a5593f61",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction"
+      ],
+      "reason": "황화물 스케일의 침전 생성과 제거를 다룬다. 포집제와 분산제의 구체적 작용은 별도 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-102554-A1",
+      "source_fingerprint": "41f8e24d8f34cfaf3528c8f5720d38534d357db98392206c0512b75f8b588448",
+      "content_hash": "9296866fe4bf473b5461deccf283d4a01c7dc47f291f9c8fd4981497739d225f",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "biomolecular-recognition"
+      ],
+      "reason": "클라우딘 인식 키메라 수용체의 발현이다. 키메라 신호 연결 초안과 동일 계열이다."
+    },
+    {
+      "identifier": "AR-102590-A4",
+      "source_fingerprint": "22f8443e0085d8bd19a3e89dd929b45171ae798a29eb7ea547c85ba9a9ef4117",
+      "content_hash": "cf9d211f5c2876f868e3890578308d0b70d524201aee08960f6cf7cdda3f6943",
+      "decision": "LINK",
+      "keys": [
+        "photovoltaic-conversion",
+        "electroluminescence",
+        "electrochemical-cell"
+      ],
+      "reason": "태양전지·축전지·LED를 결합한 보온 용기이다."
+    },
+    {
+      "identifier": "AR-102594-A1",
+      "source_fingerprint": "569aead5db7e7eb87b230513f69add987f0da5754e396c0685b52cb13e8db133",
+      "content_hash": "db4836f20d28ddb97ea4e34ce9db565724399e6651a57696a8af115afe5785ac",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "IL1β 항체의 결합을 명시하며 결합만으로 모든 신호 차단을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-102597-A1",
+      "source_fingerprint": "9f9d25d46855ce0230c3064713fb5da8a6c3d0aec0aacbdb5af6c1d6139248db",
+      "content_hash": "dc010d3b3fa2bee093310b2c596863fd024ccf9902372f3529b9542ffcd9afed",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "transcription-factor-regulation"
+      ],
+      "reason": "RORγ 조절 벤즈아미드 계열이다."
+    },
+    {
+      "identifier": "AR-102601-A1",
+      "source_fingerprint": "5088c40363b2978218bb1fbbe751ad088ee371690afa2229f138971af04e1452",
+      "content_hash": "d10434e3707aa740b2c1d9715a330fbd5a28901eaad40820f9e039397c4578b0",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission"
+      ],
+      "reason": "유성 기어를 이용한 회전 시추 구동이다. 결합부의 스틱슬립 완화 기전은 구체화되지 않았다."
+    },
+    {
+      "identifier": "AR-102607-A1",
+      "source_fingerprint": "3ba2bb271829a122cf9c4620ef153e185658c3a58973c45fa2ec69d6e792c3ad",
+      "content_hash": "277eef65956b530232c68f9795fe32be47d454b1305c866aa527b90fe1260c84",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction",
+        "distillation"
+      ],
+      "reason": "열 전달관으로 증류 트레이의 고체 오염물을 녹인다. 상변화 열저장을 목적으로 하지 않는다."
+    },
+    {
+      "identifier": "AR-102621-A1",
+      "source_fingerprint": "3524295b8e413ca66f035638709f992126b6c4102a4396466e8b185d871e1ae6",
+      "content_hash": "004c0525f538a11a86cef3564cf1045a050f2ec735077115debf3d641f034961",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "원자로 조사용 분말 충전체로 방사성 핵종을 생산한다. 중성자 활성화 후보이며 분말 자체의 다른 효과는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-102625-A1",
+      "source_fingerprint": "368156f0798f56773a88248f79f290263b7de3306e0c36ca4c0b2261b50b9a33",
+      "content_hash": "35e05b9a763d117514cf0b5ac18c3a3f33019d1ab41c81abe0f8789a4ada99f2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "중공 철도 침목의 단면 구조로 실제 강성 향상 기전·조건은 부족하다."
+    },
+    {
+      "identifier": "AR-102656-A1",
+      "source_fingerprint": "f26d29cf6f12fa4e944aaa74c23196d7c3d10530e5504af56cb1eb1db335695b",
+      "content_hash": "88bc01880819b2acb01f0382e6b857d3ae4f68b5401c57836bed4c76464cecf9",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-particle-transport",
+        "turbulent-transport-enhancement"
+      ],
+      "reason": "종자 공기 이송관의 홈이 와류를 만들어 분포를 조절한다고 명시한다."
+    },
+    {
+      "identifier": "AR-102664-A1",
+      "source_fingerprint": "0eb4b40a0754dbdc4fc56bd150b07f7c09298ab23f959ca56a10835ead0b3f28",
+      "content_hash": "3cb4ad7ed24979482003ed4bc19ca31db88390597f0d1dff1c9a36916cef0b24",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "시간에 따라 바뀌는 카드 암호 표시이다. 비밀키 기반 코드 생성·검증 기전이 없어 별도 인증 효과를 확정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:11:22.686753+00:00"
+}

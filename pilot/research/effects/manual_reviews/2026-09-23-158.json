@@ -1,0 +1,182 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "28fcd1e639214d407a218c3a1673b2fd594f50b0f4c0a566bf6618c664ca450c",
+  "reviews": [
+    {
+      "identifier": "AR-100708-A1",
+      "source_fingerprint": "7142e2dfa93133b35eaf6402b83d4640ce90970637a7ffa873b0d50c6b6d982b",
+      "content_hash": "634e35c1425e06228b98846cfe0362b3a875d91190e96bc01e3be4bf704bae4a",
+      "decision": "LINK",
+      "keys": [
+        "seebeck-generation",
+        "reluctance-actuation"
+      ],
+      "reason": "열전대 신호와 자기식 가스 차단 밸브에 CO 감지 회로를 추가한다. CO 센서 화학 방식은 미상이다."
+    },
+    {
+      "identifier": "AR-100711-A1",
+      "source_fingerprint": "386ab0fdf38fb4cf909f43ad786f09c7831a0c80f5cd551dd5d651d8c0f3be77",
+      "content_hash": "19350a42b31bac4ea43a9e8972b349be4c74b9a2c06440dec7b0bc6cbf8199b7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이환식 구충 화합물 치환체 목록이며 작용 표적이 없다."
+    },
+    {
+      "identifier": "AR-100716-A1",
+      "source_fingerprint": "2f2317eee0cb6bbc4df42898b639d6fd3860e1e89ab0f35a1344fae8f9b47bf1",
+      "content_hash": "6b31a64eeea0a4a5cf1f954fb29802dab7c6d836122c83aedc2ca8449ce3ed35",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "형질전환 포유류의 유선에서 항체를 생산하고 우유에서 Fc를 분리한다."
+    },
+    {
+      "identifier": "AR-100722-A1",
+      "source_fingerprint": "d4af583a9fef515088e7ffe9cff6e08cd5009d965212b2eb053f90fd9e519a3f",
+      "content_hash": "b05d90d2b3b8623ec92ed674851c65036d0a5ce97184b1464b27d2119d631a7e",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-hardening",
+        "grain-refinement"
+      ],
+      "reason": "합금 탄화물 분포와 결정립 크기를 정한 강관이다. 수소 포획 기전은 초록에 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-100730-A1",
+      "source_fingerprint": "ff2c5e96d727284bcfa3e8c39a2a70bb265e76b8c5f8eb95e1eb02f22f6e30db",
+      "content_hash": "0a938387455f36178e5ebd36b3b7013d9aa88cc3a51b65cec0bc296f51ec483e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 석고 슬러리를 층별로 배치하는 제조 순서이다. 수화물 변환이나 강성 효과의 근거는 없다."
+    },
+    {
+      "identifier": "AR-100735-A1",
+      "source_fingerprint": "9f016826871fc955ba067d9d1ef574da7bea1a84615ca8781dd1468bc29d2ad6",
+      "content_hash": "7d194798ac238481098f58fb4a5de780abb43e07adeaaa31c9f69db3b8958841",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "균근과 효모 추출물로 식물 생산성을 조절한다. 균근의 영양 교환 후보를 문헌 확인하며 내생균 독성 대사산물 방어와 구별한다."
+    },
+    {
+      "identifier": "AR-100745-A1",
+      "source_fingerprint": "42ed773e544527c9abe30d94f98e40c49a5aafe9666764a4fdacabeaf18923d7",
+      "content_hash": "956def3295a40fb846ac8ffc0fca2388ab430698ea1066990baa6289dbe8c829",
+      "decision": "LINK",
+      "keys": [
+        "gelation",
+        "antigen-specific-immunization"
+      ],
+      "reason": "키토산의 이온성 겔화로 항원 나노입자를 만든다. 가교 이온 종류는 불명이라 다가 금속 가교로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-100792-A1",
+      "source_fingerprint": "baf1708e688587256efe351966caac45d30c7d2314ee9bbfded780c9b6eba544",
+      "content_hash": "9194fc525104092ed48d3c95e90495d14de82d6ed841c5a078e76f5eb870e033",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "산 유체와 지지제 현탁액을 별도 펌핑 후 혼합한다. 마찰 저감제의 종류와 파쇄 압력은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-100797-A1",
+      "source_fingerprint": "3112308d8d02399f8d160aa38133fa1f1d1ea7279e102c0cfd30ebc348a0f8c1",
+      "content_hash": "c13840f9f34bfa736d6b657c523f8bba510a954d7618140da086dcc1f983d099",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "surfactant-action",
+        "bulk-comminution",
+        "evaporative-concentration"
+      ],
+      "reason": "ALS 저해제와 보조제를 분쇄·과립화·건조한다. 보호제의 대사 유도 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-100798-A1",
+      "source_fingerprint": "0e3118b1026fe9710b2fe5c5a273b4c9a75f05b111d6b672042770da71ad49ee",
+      "content_hash": "97a10d94ce5937e16d0450922f8bced19b88e3ee27de7f50e95f5b84e7b2c32c",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "bulk-comminution",
+        "evaporative-concentration"
+      ],
+      "reason": "제초제 조성물을 분쇄·가수 혼합·압출·건조한다. 144번과 공정 원리를 공유한다."
+    },
+    {
+      "identifier": "AR-100809-A1",
+      "source_fingerprint": "fa8d0b9f1f752c5c5977bcb9ce0d66849e4656c1b485d9a23b201ff5996ace66",
+      "content_hash": "e600634dda3fe38c028c97bfd03ea71b4da61090bc670fe9928bb4a020eb7cac",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PI3K 저해제이다. 표적별 별도 효과는 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-100823-A1",
+      "source_fingerprint": "94cbcb327f1f53954de8226be98be812c43a4dd7b41fcfd7cf2035a19889a9ac",
+      "content_hash": "b73bc70fde4361de8f27fc7850f14c19a5cb8f42242699c4280eff4004e1b924",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-contact-switching"
+      ],
+      "reason": "역의 전원 레일과 차량 집전 접점으로 회로를 연결한다. 두 회로 공통 귀선은 설계이다."
+    },
+    {
+      "identifier": "AR-100826-A1",
+      "source_fingerprint": "82aebb0cdd8679adc8d7dc1c81689482570368169e58dca8c803efd9d96112a9",
+      "content_hash": "c18872dd769e720d523123f6443235f48bb1b07c1cb90a450479aa99b597b1dd",
+      "decision": "LINK",
+      "keys": [
+        "pressure-sensitive-adhesion",
+        "barrier-coating"
+      ],
+      "reason": "점착층으로 지문·접촉 유전물질을 채취하고 적층 덮개로 보존한다. 진공 자체가 유전물질 완전 보존을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-100838-A4",
+      "source_fingerprint": "156c348ba0d6cb5833e95407b68b6bf45a1525f136ba2fa6f570dec28119428a",
+      "content_hash": "28942a1f1ac0649e733be9023e227586a603369d2e9fbb6bb95a2df71e75ccad",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "UV 빛으로 곤충 접근을 유도하는 양성 주광성 후보이다. 감전 포획 회로는 표준 위험 접촉 구조이며 새로운 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-100847-A1",
+      "source_fingerprint": "4e488096ea374564424cd2d573166a774558c81614541f764c7352eb24d94892",
+      "content_hash": "3e10f1b9211d486ddffd1eaf6c3d594a62a00165f49a3851f22907d757af7b57",
+      "decision": "LINK",
+      "keys": [
+        "parametric-bandwidth-extension"
+      ],
+      "reason": "고주파 대역 합성과 선형 예측 필터의 차수·이득을 조절한다. 시간 이력 선형 예측은 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-100852-A1",
+      "source_fingerprint": "152ea848c82719c75651d584efbbf2e971999014fd055b6b70dba1544273a078",
+      "content_hash": "52364e006c6324afc5989a5118e5ec7dfb3507a7a211493e8e9ee1a4eec5b03b",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening",
+        "hydraulic-force-transmission",
+        "articulated-linkage-motion"
+      ],
+      "reason": "L·T 단면의 방향 강성과 유압 접이 관절로 살포 날개를 지지·수납한다."
+    },
+    {
+      "identifier": "AR-100859-A1",
+      "source_fingerprint": "8f9f1175beec57506a3017c8fa079300caaf6187e5e4638e76cd9e9d3c79294e",
+      "content_hash": "75c2c894527c97c278cdf9d791b4a6c0821efef093617fe3f0cb94358968d7e6",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "chemical-glycosylation"
+      ],
+      "reason": "운반체 단백질에 O항원을 접합해 옵소닌성 식균 항체를 유도한다. 운반체 접합은 기존 초안과 같고 항체 매개 식균은 신규 후보이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:01:47.952076+00:00"
+}

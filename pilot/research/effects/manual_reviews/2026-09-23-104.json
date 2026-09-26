@@ -1,0 +1,152 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "4c9b16c2e143a293ab99115a3de9272e29574d5bcb424653e169179524cea8ec",
+  "reviews": [
+    {
+      "identifier": "AR-087597-A1",
+      "source_fingerprint": "5430d8cc4745a033b22e4309990235c2e562c8b4e1f1e0911c0c525a27781b52",
+      "content_hash": "41f6f812394ab499ab98fb46dbb3bcf50b988fc288789198309b60fce231f213",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "metabolic-flux-redistribution"
+      ],
+      "reason": "종자 특이 프로모터로 자당 수송체 발현을 바꿔 지방산 생산을 조절한다. 수송 결합 이온 종류는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-087620-A1",
+      "source_fingerprint": "bec1c6e2855f71e1ce70b6e553badbf949f0f0c310d15f99df943daeec785452",
+      "content_hash": "64f5e2efa6a782548aff329eb24f042de2d18220c2c09550b606046669a05173",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "cable-drum-linear-drive"
+      ],
+      "reason": "유압 실린더와 도르래를 통해 앵커에 시험 인장 하중을 가한다. 하중 계측 방식은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-087626-A2",
+      "source_fingerprint": "bec14f3f4746de28bd9667c32dda6d1c1b6c8ee2b3672e79fb41afd709df7e92",
+      "content_hash": "7fe3f3676aadb41d8b585da7f022590ecce71850bfce38bf1d52362c5e605bda",
+      "decision": "LINK",
+      "keys": [
+        "electrical-continuity-sensing"
+      ],
+      "reason": "유량계 센서·여기 케이블의 단선과 연결 방향 오류를 검사한다."
+    },
+    {
+      "identifier": "AR-087632-A1",
+      "source_fingerprint": "6949a76ccdb78e7358040c59896ccf14e87d10670528a37ec52bfac5483a1907",
+      "content_hash": "46d6c4c5aa7ad0c33ab548c6d1bb2439200c98b32ab04b96d2c9f4d4d74fdedc",
+      "decision": "LINK",
+      "keys": [
+        "liquid-crystal-modulation"
+      ],
+      "reason": "액정 광학 소자에 비스듬히 증착한 산화규소 계면을 둔다. 기둥 성장과 액정 표면 앵커링 기전은 독립 문헌 대조 대상으로 남긴다."
+    },
+    {
+      "identifier": "AR-087641-A1",
+      "source_fingerprint": "420708681cc728312de686d0ba18f4fc64dfd8bd3432fa76c9d994cc1a567d6d",
+      "content_hash": "d7513f353d07b1372969ccd4223cc49bfaf7eff20281cf52ac65ec5236ad2001",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "특이 항체로 보체 인자 계열 농도를 측정한다. 농도와 임상 반응의 예측 관계는 초록의 주장이다."
+    },
+    {
+      "identifier": "AR-087648-A1",
+      "source_fingerprint": "93cb9ff0b2084fee6641c5b35cb8cc869360643e1b313ee204dddf4b53fe9261",
+      "content_hash": "c189de186670de0205d2b7aaf7ebad5099b375850b3f12815a51bdac6a40cc83",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "아미드·아졸계 농약 병용 제형이다. 구체 기전이나 상승작용 근거는 없다."
+    },
+    {
+      "identifier": "AR-087693-A1",
+      "source_fingerprint": "71f99b9d41bbd671e0338d7fa6afc208957de84176e3f47685cc08018d61b341",
+      "content_hash": "01e384f2671e254a4d270aa3ab5be9deb633d150df2b69a71f9cc83e90590723",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 약제의 혈당 조절 병용 구성으로 기전과 효과 크기 근거는 미상이다."
+    },
+    {
+      "identifier": "AR-087698-A1",
+      "source_fingerprint": "d2326e2e624eee4017e3aa26a81997267a38dd9bb58baa00ac40e91dac1dd6f5",
+      "content_hash": "66f4273529b236540373c7a47510ef5188f4a549be831f1a86ea0f7a2cc5da1a",
+      "decision": "LINK",
+      "keys": [
+        "bulk-comminution"
+      ],
+      "reason": "고분자 결합제와 광물 안료 현탁액을 분쇄한다. 흡착·전하 기전은 조성만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-087701-A1",
+      "source_fingerprint": "20adbe3a41e61ca40ef66fa459ec4d6b2a88e34454c9b94b06a4016dfe890de8",
+      "content_hash": "9efa6b2ad6c5baf19a610d41c861ad7b6b8e2e1f41236cc7352f2407d6a29893",
+      "decision": "LINK",
+      "keys": [
+        "transporter-inhibition"
+      ],
+      "reason": "SGLT1 수송체 억제를 명시한다. 질환 효능은 따로 검증해야 한다."
+    },
+    {
+      "identifier": "AR-087705-A1",
+      "source_fingerprint": "a67ee97cbf424dbdbc543f4e72b710db822a50ffc81d3003d5d38ec52e605ff2",
+      "content_hash": "3c79f46153532d28ee4f1e35268182c68739a576951e0e478fcf85e1209489b9",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "barrier-coating"
+      ],
+      "reason": "내화 성형물의 암수 맞춤과 차단층으로 노를 구성한다. 내화 원료별 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-087731-A1",
+      "source_fingerprint": "820a118d8b6eb8f32296b955cdcc8f8f094affb33dfb3a584cc564741d371dd3",
+      "content_hash": "d3fb8418e8954b8425a376fc0443d308d488c3c4b8bfcf4c2aa5213acced8200",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "ROS 변이 암에 크리조티닙 사용을 제시한다. 짧은 초록으로 ROS 단백질과 활성산소를 혼동해 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-087751-A1",
+      "source_fingerprint": "f9d5e19fd2c3fc764473c8f9e5cf252bbc90d19376b3056412c4c380dae9fbe8",
+      "content_hash": "c180af00f35d917bd9930d39883bdbe35a976003ae92f616f4a2ba4e7b9e12c2",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting",
+        "articulated-linkage-motion"
+      ],
+      "reason": "반죽 절단과 링크·벨트의 동기 이송을 결합한다."
+    },
+    {
+      "identifier": "AR-087757-A1",
+      "source_fingerprint": "679dbdbf05ef4fb4717c039a6831930b7b02944bdecb52cade21b86c1bbb0def",
+      "content_hash": "5317a30a960bc1f5fd94bf51c676df88980342a1c7bd6c8e46600c1e4e2cc55f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "USP7 가역 저해를 명시한다. 유비퀴틴 제거 단계의 일반 원리를 별도 문헌으로 확인한다."
+    },
+    {
+      "identifier": "AR-087759-A1",
+      "source_fingerprint": "c40bfb9bdec178c76305b1c1d484d17dafce72de4591102ca4003d2f49b0d9fa",
+      "content_hash": "7f8619a4d7a0784df8812628da60fb4dea9267b1f0005456c7aee7aedcd3a920",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수신 트리거를 명령 표에 대응시키는 소프트웨어 구성이다. 별도 계산 효과를 뒷받침할 알고리즘은 없다."
+    },
+    {
+      "identifier": "AR-087787-A1",
+      "source_fingerprint": "58c8a7ae30b6e121a7047a74a291f704c0899359f956876496fabf5c61550365",
+      "content_hash": "40e70f10cd30855e6dd06c43f301cbf79986dab4f9ad732f67082478f40a1f6a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "벤조티아졸론 구조와 치료 용도만 있고 작용 표적은 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:02:05.644942+00:00"
+}

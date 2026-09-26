@@ -1,0 +1,189 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "b165934160d998ef8c7c24ddb56bc0938657561361dc1c0bfa2a4dd952699966",
+  "reviews": [
+    {
+      "identifier": "AR-087789-A1",
+      "source_fingerprint": "a15eec854322698aa9bbdda386c7feaabcdc20f6803cfd017b7027ad59e79358",
+      "content_hash": "b0e457433592bf573f61c578485a760bc05f33f42eb9058cc594a074b639cb4c",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching"
+      ],
+      "reason": "바이오매스 추출 뒤 산 처리·산화·아민 반응·카보닐 환원·보호를 진행한다. 구조 도면과 끝부분이 없어 특정 골격·후반 반응은 단정하지 않는다. 카보닐의 알코올 환원은 후보로 대조한다."
+    },
+    {
+      "identifier": "AR-087802-A4",
+      "source_fingerprint": "174917e5f32116e75ab026d97be1315160176a8790901a51bf78aea5acc16994",
+      "content_hash": "7434db44949164bd717e9405a2df236675b00767a787cb69e77c5c4041497db1",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "articulated-linkage-motion"
+      ],
+      "reason": "접는 카트와 펼침 방지 잠금의 조합이다."
+    },
+    {
+      "identifier": "AR-087803-A1",
+      "source_fingerprint": "d781eb73da611cce29e246d70fe03d654270da7381ec0b42ef7318bf32b08608",
+      "content_hash": "c041f6cc8b7eaae391374c0b1a87899d591e6d8e317a61f5be73962b1a66f89a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "약물 투여 간격과 병용 일정이다. 독립된 반응 기전을 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-087824-A1",
+      "source_fingerprint": "07f78a90254fa268d0f0614abcc50c20d4b402c21c31e90e1001e3cd09c29dfb",
+      "content_hash": "172c20e0ae4a0a7dc1963296d56844b0ff2027a53ccf591cae14957884b08d29",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening",
+        "pressure-compaction"
+      ],
+      "reason": "압축 입자 코어와 외부 판재를 접착한 복합 패널이다. 샌드위치 굽힘 배치는 기존 단면 강성 원리의 응용이다."
+    },
+    {
+      "identifier": "AR-087827-A4",
+      "source_fingerprint": "92bf97090b44bbb0ca1a734dc466067b88ea2f0cba277fcd97c70017b330a5bd",
+      "content_hash": "ef1ea2f8f0f773be5f9fc87334ce443ae1e4b1a2a1f488d6ebde773b4061372f",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal"
+      ],
+      "reason": "손잡이·완충층·천으로 표면을 문질러 마감하는 도구다. 세부 제거 효율은 미상이다."
+    },
+    {
+      "identifier": "AR-087829-A1",
+      "source_fingerprint": "536676894d64c515cd4362b82c98923543d7b2510f7073d9fbbe280976af6aa1",
+      "content_hash": "b404854014b16846d85fa38146114c9841a127d68c5341f3e9a270fbdffe10f6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "핑골리모드와 항우울제의 병용 구성이다. 작용 기전·상승작용은 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-087833-A1",
+      "source_fingerprint": "e5d833d23ec33f15a6f1b61a545c524d53fb8555539282d85620463988d32e05",
+      "content_hash": "589f83a3132811972170d2a90aa71bb89d26a5bf02adeecd0490e94f37adba5c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "TCR/CD3 복합체에 특이적으로 결합하는 항체다. 면역 반응의 방향·효능은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-087844-A4",
+      "source_fingerprint": "5819ef653e380e4b4874006d03f861a8cf414f916e4f7ef9da9b7001a2adeaaf",
+      "content_hash": "75ddd55fb0144b97403c8e658e6ae3dba61e9615dac7d49acbfb4e22f0a1d407",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "리브와 분리벽으로 상자 강성과 용기 간격을 확보한다."
+    },
+    {
+      "identifier": "AR-087848-A1",
+      "source_fingerprint": "b2119ef83e639721fbe3b60771b7984f3c75377d7b245418173ff28734dbc56c",
+      "content_hash": "0f58302d2cd6aa1df054a89b823836eb5fb5842cc62745a726578a56eb72edd8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "좌석 이용 권한 확인 서비스이며 검출·인증 알고리즘은 미상이다."
+    },
+    {
+      "identifier": "AR-087849-A1",
+      "source_fingerprint": "c780a16fca94379b60f707b648f0c4b1c5b979db29c7b38f007a824e7abc64a3",
+      "content_hash": "94f04330fb2a08d5a9d4f4784545c5f065a14a058294c7a2b5a1ae3612cc1c36",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "생장 조절제와 시스 자스몬 병용이다. 세포 신호 경로는 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-087851-A1",
+      "source_fingerprint": "5c9f131b2624771a5bf65d09614b9efb69d86601075409426c584c5c000a3244",
+      "content_hash": "d999c750817e5eb9bbc632e4ae81cf9da3a1d92c95bba6559a31e9455d815ffa",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "브라시노스테로이드 모방체의 생장 조절 용도만으로 수용체 결합 기전을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-087874-A1",
+      "source_fingerprint": "961a57f39a55fbdba4337b492381b54f487c0d11dea4dba14cb3319336bce9ea",
+      "content_hash": "734f70ed5bce632ce1079f43d25e5cc814cd7a81c6c25ee8e26175c1fe29dcc5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수확량 증가 용도와 화합물 구조만 있고 작용 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-087893-A1",
+      "source_fingerprint": "9e3f8611a189d7e38fbf803c76d6fee283ac5b572df632ce47a7256ef82fedd6",
+      "content_hash": "6000275d45a26c641237a08119132f437045f775f6226dbe81f10494d0f66837",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "polymer-molecular-weight-viscosity"
+      ],
+      "reason": "고분자와 pH 조절제로 고온 처리 유체를 구성한다. 안정성 수치를 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-087914-A1",
+      "source_fingerprint": "252cd948130e4ac316e39101fc653354105d31d45f437d03491ab90e35ae25f7",
+      "content_hash": "89f6f1ebccf85fc95b038bab20beec58eaaa999f1a113ac8f840019984dbc9b0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "무선 손목 알림 장치다. 진동·광·기타 자극의 구체 변환 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-087933-A1",
+      "source_fingerprint": "b2668410e8eaff5bbe3f5a0339c424b569be442e1b1c396329aee8b1430d1875",
+      "content_hash": "b4c4c352849aac268274685ff17379aa4b060b0ff96c69655b167a91503c1aa5",
+      "decision": "LINK",
+      "keys": [
+        "interfacial-polymerization",
+        "isocyanate-amine-urea-formation",
+        "surfactant-action"
+      ],
+      "reason": "유수 계면에서 아민·이소시아네이트로 폴리우레아 캡슐벽을 만든다. 작물 안전성 및 입도 단위는 별도 확인 대상이다."
+    },
+    {
+      "identifier": "AR-087935-A1",
+      "source_fingerprint": "ef9e3a7560a8063ff15f08c953939f5955ae16b78551a6960e0fc2f99deb5a79",
+      "content_hash": "e9aec726be68627b8eeecda28b76070a0275682d7d09c110431175982f0f453e",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물 유전자 발현으로 선충 저항성을 얻는 구성이다. 열거된 단백질 각각의 저항 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-087975-A1",
+      "source_fingerprint": "17cdbd213291e6148b455eaec36fed08237a4be66e8fdaf80ab9cbf452fae1b1",
+      "content_hash": "c878af49339c7f64d5ab1199ce4eeceeb9de923aa38db3a2486a21298d493801",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction",
+        "catalysis"
+      ],
+      "reason": "코발트 전구체를 열처리·산화 후 환원 활성화한다. 합성 반응의 구체 분포는 미상이다."
+    },
+    {
+      "identifier": "AR-087976-A1",
+      "source_fingerprint": "3113f41f24239b9792a7fbad34f1164325df1b92a22b466fba5a955be2024062",
+      "content_hash": "bde491aab135db26759afc2d394ac06c42f0542716cf4492976a8f8bc85acd00",
+      "decision": "LINK",
+      "keys": [
+        "fuel-cell",
+        "elastomer-contact-sealing"
+      ],
+      "reason": "막 전극 연료전지의 가스 유로와 주변 가스켓 밀봉 구성이다."
+    },
+    {
+      "identifier": "AR-087989-A1",
+      "source_fingerprint": "c0ebaa0f0837d8b7f35d4653baa2facc5fdf10e888cda6a653be3e3ecddde545",
+      "content_hash": "925c1aff82659c048ff2637124d75c94a03dd0d5c34caa94d12ac2b5f64e8015",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "튀김유 전과정 평가 비교다. 데이터·평가식이나 물리 작용 기전은 제시되지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:02:38.464936+00:00"
+}

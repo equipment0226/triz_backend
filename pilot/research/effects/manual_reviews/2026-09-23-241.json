@@ -1,0 +1,256 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d25cc4cb751b1cc87a5448413ca90c990e6449484f66eea4102a33d49f5051ad",
+  "reviews": [
+    {
+      "identifier": "AR-117206-A1",
+      "source_fingerprint": "0f5aa94127a2f2067b77cbd9b34cb5fe3145d080457c1f535093d69b8397f4cf",
+      "content_hash": "1b67e77ad662dade6691b06aa753f0e0783a7c0e39125daead283722c9dc05e4",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation"
+      ],
+      "reason": "SMAC 유사체의 비정형 NF 카파B 신호 조절이다. 구체 분해 경로·바이러스 활성화 절차는 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-117209-A1",
+      "source_fingerprint": "c615ee5024affa2df7a489e8b861d0ffd0cb6d2389bdf258965b56bfeabc69b8",
+      "content_hash": "346c3cd934bdbada1edcfac3544bdcba939ca97cb4ea23ae670d8c3905da69da",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "극성 작용기 필름과 접착제의 초기 점착 규격이다. 실제 계면 결합을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-117211-A1",
+      "source_fingerprint": "c672fd101895ab452b8bdfe111b4ba137ec02c78dab7536251a318b87a4176cc",
+      "content_hash": "1ff4ea518183e188c51ba79968dcd376acf40a948dde264e34bbafb6239954bf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "동일 필름·접착층의 화학 저항성 규격이다. 단순 조성 변형을 새 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-117221-A1",
+      "source_fingerprint": "57f2152d56087825fc98237984a791c0eb3f0a76f909a94455d05b4c2aac1128",
+      "content_hash": "5f2ce31d5d4e733666e3a4940b0a933e2fa011132b54194047a06af96ea083ae",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching"
+      ],
+      "reason": "물로 고체 농축물을 녹여 배출한다. V자 바닥은 배출 위치 설계이다."
+    },
+    {
+      "identifier": "AR-117229-A1",
+      "source_fingerprint": "3c0767b86bdc387818e71cd31bb03f5d5158d33ee42442a6eba478c2d27383da",
+      "content_hash": "5997a90a89454d608c808a531dbae10abfc0944997f2036dab4346c0a6f29782",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "바닌 효소 저해 화합물이다."
+    },
+    {
+      "identifier": "AR-117235-A1",
+      "source_fingerprint": "e1333625c7878734f60a2bd19784c24d4d15a847f48873fb781e5446352883c5",
+      "content_hash": "7856860900cac618bc473d5a6d3617bd72cb2f79edc9c597639122cad9ad9e4d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "I2C 두 주소에 서로 다른 검증 응답을 보내는 논리 구조이다. 암호 원리는 미특정이다."
+    },
+    {
+      "identifier": "AR-117240-A1",
+      "source_fingerprint": "2c87be6b31e49c7dc0826a607066bdcf325dacabdc36522e2da3ac77a0f200a3",
+      "content_hash": "e4ebb840a10e190f8ad465955304fd57e31fce6841a026ff2dc4df6d61efabde",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "직렬 버스를 일정 시간 저전압으로 유지한다. 클록 스트레칭인지 별도의 응답 부호인지 원문 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-117249-A1",
+      "source_fingerprint": "063044b4f48eec03a0a3a0571fd403f779fabe6df7438004e681c1c66dc3f102",
+      "content_hash": "c2c3b16fcc6f7f8ecc36a78e888f3df227581b1a7afbff9fbd73fbca5f748102",
+      "decision": "LINK",
+      "keys": [
+        "pyrolysis",
+        "condensation-recovery",
+        "combustion-heating"
+      ],
+      "reason": "폐고분자를 열분해하고 응축액을 회수하며 비응축 가스를 열원으로 사용한다."
+    },
+    {
+      "identifier": "AR-117280-A1",
+      "source_fingerprint": "16fff85527797b1afe23d78fe8a1f0110b5b6803eb8a58fd37aaaca1be3f8303",
+      "content_hash": "7f194f7ef05dbe81b05a5f204ab1095cc732ed8ff2c608865af8f13ee38a0f7d",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "ANGPTL3/8 복합체를 항체로 중화하여 지질분해효소 활성을 회복한다. 억제 인자 제거의 작용이며 새 효소 생성으로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-117299-A1",
+      "source_fingerprint": "5c3966ea7546f172dbd0aa8c99b199411e46f3a1b75e091661faca814c2b30e6",
+      "content_hash": "eaff3eb4bfededaeb2a754abdc65dfeec9156b75a8ff27ed2de41a3fee3f7255",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "인슐린 유사체 접합이다. 설폰아미드의 구체 표적·반감기 조절 원리는 미특정이다."
+    },
+    {
+      "identifier": "AR-117309-A2",
+      "source_fingerprint": "dd331e1507b5990792aa0df9ce0811f263a6c36a2cf0f3cfa81a88db87b3e5cf",
+      "content_hash": "80c5f563a777c2064719ed25c4e77718c8bcd92c9e4e2756484ea3e3ad8291ba",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "enzyme-inhibition"
+      ],
+      "reason": "PCSK9 항체와 HMG CoA 환원효소 저해제 조합이다. PCSK9 항체 결합을 효소 촉매 활성의 직접 저해로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-117310-A1",
+      "source_fingerprint": "d25c7a944ff36c96a0c19e1de9f52e15a12767832bc8ba3ed97621e39fee0f79",
+      "content_hash": "c0221da3efc2c5d568408583da1c78c083ef50bb1a3ddca054c2c54ea122af75",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "위성 영상 특징으로 토양 물성을 기계학습 예측한다. 정답 표지·학습 방식은 없어 지도학습으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-117313-A1",
+      "source_fingerprint": "73374165ca4cc341d11cecaad85ab22905e606c1a273590757353ad2c9e6c602",
+      "content_hash": "3c463ed9188af2064645632914d03a6577c5866d9971c40bba1f91e8059fd0f2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "생체인식 정보를 공통 프로필로 통합한다. 특징 추출·인식 알고리즘은 없다."
+    },
+    {
+      "identifier": "AR-117337-A1",
+      "source_fingerprint": "f7eae6ea23e1eaed02e1261604999477b99cb87b35bcffeeed36c04330f19333",
+      "content_hash": "91d4f55d15589a74c66b568fc2c4ef31493b35d395f13810d5d44044ea6d79f1",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching",
+        "cosolvent-solubilization"
+      ],
+      "reason": "2메틸옥솔란·물 혼합 용매로 생체 원료에서 오일·폴리페놀을 추출한다."
+    },
+    {
+      "identifier": "AR-117340-A1",
+      "source_fingerprint": "1be66b0c6c71100349abdfed6778c6fd4f41d0ff0f0b190088ae5ab4c5e4ece0",
+      "content_hash": "5f63dc099dde73902c47e8a93b9413cf6b5381498466fe56cec06cdfd3ff4203",
+      "decision": "LINK",
+      "keys": [
+        "oxidative-dehydrogenation",
+        "catalysis"
+      ],
+      "reason": "프로판을 프로펜으로 전환하는 혼합 금속 촉매이다."
+    },
+    {
+      "identifier": "AR-117343-A1",
+      "source_fingerprint": "00f62233ec2c6bfbe6615a0a77ac23616ed338dfca38f696bfd771f15178d4b2",
+      "content_hash": "9eef6c17baa7514e21e930c2dc0896ee84a52bea98a444acecdc3fc4d68ce036",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "항응고 항체를 선택적으로 결합하여 작용을 되돌리는 중화제이다. 응급 투약법은 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-117347-A1",
+      "source_fingerprint": "2eec39b1d69771ad8494c661e9eba664bdfe4034aec06f78e2cb71551bc054b2",
+      "content_hash": "8bc3921a3375d86006e39cebbe39a1dfdb60415003efcfffd905ec60c343624b",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "electrodialysis"
+      ],
+      "reason": "막 전해로 2가 이온을 제거하고 수산화물을 회수한다. 전극에서의 염기 생성 경로를 추가 확인한다."
+    },
+    {
+      "identifier": "AR-117350-A1",
+      "source_fingerprint": "ba0155935154347fe0df2da2b2d1dc12d8b1076fc30107e6143a0b71d4263299",
+      "content_hash": "320aaa3cf0bad696a0ceb4f34b50cccf5199e618b829c36db43a73cbe75edcc5",
+      "decision": "LINK",
+      "keys": [
+        "cyclone-separation",
+        "emulsion-film-destabilization"
+      ],
+      "reason": "첨가제 처리 후 하이드로사이클론으로 수상·유상을 분리한다. 첨가제의 구체 분자 작용은 미특정이다."
+    },
+    {
+      "identifier": "AR-117352-A1",
+      "source_fingerprint": "991528629bab2ec4ed0e2d6dd9d3436b691778a72dfe2333dd87da7378051d77",
+      "content_hash": "458c21345d989438d64a39f1649c51cd39efce2285b582c56f0e5fe89f90d910",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-contact-switching"
+      ],
+      "reason": "고장·수화기 방치 시 연결을 끊는다. 시간 예약의 방해 금지를 전력 절전으로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-117367-A1",
+      "source_fingerprint": "d1461f238d39298a0bfa6f604a328365766b9560e4e8695e84de2c2a3313244f",
+      "content_hash": "efa3997b81a75786e3521d41dfd01703eea2721b074872262d29c4d95d71990a",
+      "decision": "LINK",
+      "keys": [
+        "linear-frequency-filtering"
+      ],
+      "reason": "선택한 필터 집합으로 영상 블록의 루프 필터링을 수행한다. 학습·최적화 방식은 미특정이다."
+    },
+    {
+      "identifier": "AR-117371-A4",
+      "source_fingerprint": "2fb380e9f57ef7c18a8716a3bb89ad4e8ed1fbaa03d5bdba30b0273830143519",
+      "content_hash": "cc6b19c527dbee5a4393f23e0aa90865cafca7076d072d5e4a7e956017d01a10",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding"
+      ],
+      "reason": "열가소성 외층의 열융착 관 연결과 금속 내부 보강이다."
+    },
+    {
+      "identifier": "AR-117389-A2",
+      "source_fingerprint": "2f5a2e36d0607bed051a1edee183db3582c8bdd26e7b841e0cddfd60aac70351",
+      "content_hash": "1abd19470bc7f1559d60323b2cb60650efbaa336d6512684aa07a9b477f91723",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "페닐알라닌 암모니아 분해효소의 아미노산 전환이다. 비산화적 암모니아 제거를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-117403-A2",
+      "source_fingerprint": "90ac32a791f0f788efbcb1fb336e5cd43327101affa2a5d436ea6a5c2814d8d0",
+      "content_hash": "3a995da1dc58d449bf1013bea1cfd561651586573efd4cdee89b6cec0d948c65",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "surfactant-action",
+        "biomolecular-recognition"
+      ],
+      "reason": "VLA4 항체의 완충·계면활성제 제형이다."
+    },
+    {
+      "identifier": "AR-117407-A1",
+      "source_fingerprint": "c5aa2716ce9a157962eb7c7225fb94eae6cf11d28c9ac4a7d54b2711bd67183a",
+      "content_hash": "457c968d04261fca354332c5b37c97d78c8efe92b5aa5964fe25d119d5a1d2a8",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "surfactant-action"
+      ],
+      "reason": "항타우 항체의 완충·계면활성제 안정화 조성이다. 모든 안정화 원인을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-117421-A1",
+      "source_fingerprint": "c8b83f643ab0bdba49f7d8aeb17a45bcdc51cb64cc16cc49807cf6fa89bd2c95",
+      "content_hash": "bf3a488c6b3853e7f1ded846b20d6cec48e8105ff210ca88c9e61ea43dc7a10d",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "지베렐린·살리실산 처리로 과실 성숙을 조절한다는 주장이다. 에틸렌 감소의 분자 경로·상승효과는 추가 검증한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:25:33.471283+00:00"
+}

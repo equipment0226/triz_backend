@@ -30,6 +30,10 @@ def bind_standard(data, catalog):
 def bind_effect(data, catalog):
     data=deepcopy(data) if isinstance(data,dict) else {}
     by_id={e['id']:e for e in catalog}
+    for effect in catalog:
+        for legacy_id in effect.get('legacy_ids',[]):
+            if legacy_id not in by_id:
+                by_id[legacy_id]=effect
     by_name={e['name']:e for e in catalog}
     for app in data.get('applications') or []:
         if not isinstance(app,dict): continue

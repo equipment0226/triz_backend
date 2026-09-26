@@ -1,0 +1,58 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "da8c1fabcd34578d6a8efa2c49c5b307c07fca86136142e1928e04542c807bd5",
+  "reviews": [
+    {
+      "identifier": "AR-116909-A1",
+      "source_fingerprint": "cbce32b51ab66a5a37ae1a91c8e2c0b1f6be7a11e50e66491b0f6212855eb657",
+      "content_hash": "b60b271ab9ed2602b86f918a22e9fbe8dfbee3d145c0a14b4a19def90b983f00",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "긴 이환식 화합물 범위와 제외 목록만으로 표적·작용 원리는 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-116914-A1",
+      "source_fingerprint": "6118a1b0d8969fbb751f6a7882512f59182229f46e4e32956638294b17bbc045",
+      "content_hash": "99d6429755257b0824f4d301e6f8fa6f071612448d0c4c0be13b5d56d53fc068",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "변성 전분의 치환도·점도 규격이다. 치환기 종류와 작용 경로가 미특정이다."
+    },
+    {
+      "identifier": "AR-116916-A1",
+      "source_fingerprint": "e40e37f64500b90f9ab3252812c244b0490d6633416d8f5284cacc4200abab34",
+      "content_hash": "1e5464fcca3e64c9d59466b422c6a720aa5e1540af4b5e4f63cb20cd94089f9b",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "고정 베이스·가동 상부·슬라이딩 플랩으로 작물 장벽 높이를 조절한다."
+    },
+    {
+      "identifier": "AR-116920-A1",
+      "source_fingerprint": "f6b073b4f2888637f957704d5484299b7c3f8194d6ea1dafab03c101670d90ef",
+      "content_hash": "8853b10f278c8af43d13a8255e061deac35a0d2f1588eec01533e58b506b10b6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Fc 융합 단백질의 반감기·안정성 개선 주장이다. FcRn 결합·크기·분해 저항 중 지배 경로가 없다."
+    },
+    {
+      "identifier": "AR-116925-A1",
+      "source_fingerprint": "6001d02c070606522024dbab3bb6a1ce8d2e0ffc63afd3cf8c45803957856707",
+      "content_hash": "a8a8e5be15184f942ade37e2e2ae2b6f5fa24e0f2b8e8cdaa829b4124e88ac7d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충성 아졸 아미드 치환기 목록이다. 생물학적 표적은 없다."
+    },
+    {
+      "identifier": "AR-117008-A1",
+      "source_fingerprint": "228880265d5d384e6d34dc84c6ab8602fc680d74dddae7a797d9f487908490dc",
+      "content_hash": "41210009f7931b098eed90999abaaebe111dcd62150c6af8ff0ba283561b4c8d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자 첨가 후 미생물 포자 응집 크기가 줄어든다. 입체 반발·전하 반발·기계 분산 중 경로가 미특정이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:24:19.601671+00:00"
+}

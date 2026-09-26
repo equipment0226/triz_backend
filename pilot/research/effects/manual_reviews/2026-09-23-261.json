@@ -1,0 +1,107 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "b5d0bcb0ee47c4ec37bf0ff17eb3853e13d6b41c5f2e5eab4c723737236eeb11",
+  "reviews": [
+    {
+      "identifier": "AR-120441-A1",
+      "source_fingerprint": "47123a97e94c9a992bd17472316c2c9eacf3e40f0dfa9ee6e3e6a9dcbe47ff27",
+      "content_hash": "16fc15f3b083609cb55c223a3128a8d24ac9125a2b9c3c465c3a013c55c3e521",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 화합물 구조이며 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-120448-A1",
+      "source_fingerprint": "fa87b880309ba1e58a58aa5b0001f2094093ad14bfc9f28380303b67c2ada91e",
+      "content_hash": "9e7887922aeea71b169e26d8bbf7faf4aebd2da06cf693e45b3dac3cb192c3e3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "목재 피복 결합제의 개요이며 결합·경화 과정은 미특정이다."
+    },
+    {
+      "identifier": "AR-120458-A1",
+      "source_fingerprint": "b4dcf38440597b29d631e6e772817faf39056998989a9772d0718438a3e1f211",
+      "content_hash": "14997453a35c0ede65d60a84e32eafe1015a871039b4dba03173c14330ea8efc",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GLP1 수용체 작용제이다. 구조 변형을 새 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-120512-A1",
+      "source_fingerprint": "a005af07eeed9a7c5197062ce5997a9326503f53a7ae01cefe8299c5b8f300ea",
+      "content_hash": "c84e3dcc194fc41e5fd0abaac2432a44592f05c0f1153e8ed449dd33516822ad",
+      "decision": "LINK",
+      "keys": [
+        "freeze-drying",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "동결건조와 IL31 신호 길항이다. 당·아르기닌 안정화는 단일 작용 기전으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-120530-A1",
+      "source_fingerprint": "d52a93b9c2739ca1ee07eac0f20ab8fb0526121e5c5f0212acee0827869a9211",
+      "content_hash": "bf73f6472aa513d221d22058051a12cf8e6e73b50a134eda189c7137f7b50fba",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "유성 슬러리의 계면활성제 조성이다. 현탁 패키지의 구체 작용은 미특정이다."
+    },
+    {
+      "identifier": "AR-120531-A1",
+      "source_fingerprint": "9477e6377eb396fb8db93fc263ad5613bfb754a7217c83a2343e13c7c6b06d98",
+      "content_hash": "4daf081206e3684653e7e6adb3f095e7adadfe1c5371e7dff36f093419f440fa",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 구조 범위이며 생물 표적은 없다."
+    },
+    {
+      "identifier": "AR-120540-A1",
+      "source_fingerprint": "5ce0fa536b2726be039d0e26bf3937fb3578c36a7b6187956993b1071a92f11c",
+      "content_hash": "7e649c5e67a3da82cca880acb4bb325d3bdc124bb6df5308fef36531904bdaa5",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "TLR7·8·9 길항으로 선천 면역 신호를 조절한다."
+    },
+    {
+      "identifier": "AR-120549-A2",
+      "source_fingerprint": "b11c7a5757ee961283f86624b1bf5ff07cd598085958f4c39239d1198203629e",
+      "content_hash": "8e915954afcf357908d9c677e3dd89e5a028b03c734aec276c9bad73f10965bd",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "signal-directed-protein-localization"
+      ],
+      "reason": "외래 발현과 세포 안팎의 단백질 위치 지정이다."
+    },
+    {
+      "identifier": "AR-120559-A1",
+      "source_fingerprint": "f0d1e8ad69dbf9d2f8bf07b52d5dd8035fe1e8a52bbcb44b12a1f1f63da1fd7e",
+      "content_hash": "36aba1f6ae6f6a667d97ab778081ccc85e7f65143def871fe56ae8199d8245ef",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "cam-follower-motion",
+        "lead-screw-motion"
+      ],
+      "reason": "캠·나사·횡방향 잠금 핀의 조합이다."
+    },
+    {
+      "identifier": "AR-120565-A1",
+      "source_fingerprint": "c07f7bd42c7d37c55d3c05694e0d3c07064b3efbdaff4e74a54cabf5ee5dd246",
+      "content_hash": "a35cac46d281dbe0349e518c53848eea6a7c315ff9922d963e5ac530377241ec",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "SARM1 상보 안티센스이다. 신경 보호 효과는 별도 검증이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:45:24.468881+00:00"
+}

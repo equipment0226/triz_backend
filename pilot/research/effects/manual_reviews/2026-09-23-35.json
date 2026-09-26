@@ -1,0 +1,219 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "8a353978bf8a4801acf8f38a6020784b5f8da5c99c5cdcd47f2158d78c21d24f",
+  "reviews": [
+    {
+      "identifier": "AR-083139-A1",
+      "source_fingerprint": "88c93ba60c1a34a389eabd36566ca98c90ab6e30e12caa4c0d1a0caf07396684",
+      "content_hash": "24c40f21a6343c2f4dc115b3aec56f4de06e72ed0bd6bc0c3ce5f7f20e736400",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-insulation",
+        "mechanical-contact-switching"
+      ],
+      "reason": "절연 전면·부하 개폐와 퓨즈를 배치한다. 퓨즈 용융 차단 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-083170-A1",
+      "source_fingerprint": "71024beabe14f0923d3a952d63bc2a90aceb98c244429c0272aafd4acd8aab87",
+      "content_hash": "a5b9f90c3a78784be874b34b048541e4fa6209aa447ecfa8e259a8f538c40b29",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "섬유층 두께 차이로 아래 색의 시인성을 바꿔 요철을 강조한다. 산란·흡수 기여는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-083176-A1",
+      "source_fingerprint": "dc0f90e30a0352345f29e9ca3f165460b5363a2d7c8f1bdfe30bebd676a2f3c9",
+      "content_hash": "91e1ad49a70d8832dba8f54009581001753eb2de5407beca3c2dad0b512a9c0f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "발열 내층과 단열 외층으로 주조 보온한다. 발열 반응·단열 재질은 미상이다."
+    },
+    {
+      "identifier": "AR-083182-A1",
+      "source_fingerprint": "93c7291d5bc382adfab5f2a9559ae1263e1c24964398718710505292190f5eca",
+      "content_hash": "2cd912d7fefaf59d0c65e830486e68d3cab26475b1096cf2193e9983a8e35219",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수신기 프레임 요구에 맞춰 고해상도 영상 일부를 잘라 전송한다."
+    },
+    {
+      "identifier": "AR-083200-A1",
+      "source_fingerprint": "160579034d47eedeaa3615f5312a2bd19b031cc72328dfa9c3d5589d2b4164e4",
+      "content_hash": "b7717d370ecefa170cc0e34ccca9cf127c5faebe639a019ef084890711c43b87",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구충제의 치환기 목록이며 분자 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-083206-A4",
+      "source_fingerprint": "d7e0b65ae4c9f11260cc21b3cf5af116a5302fef5fc03bda0323434bf025eff3",
+      "content_hash": "b9ae6b6f4f636007b68a96bb9df9c9df6a5a11d3a8c41226f3d07008f0cc89c2",
+      "decision": "LINK",
+      "keys": [
+        "electroluminescence",
+        "fourier-conduction"
+      ],
+      "reason": "LED 발광과 방열판의 열전도이다. 거의 모든 전력의 광 변환 주장은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-083239-A1",
+      "source_fingerprint": "0bd0c9267fe5c141eb06f810f2194118497eafbdab5ada36705e109b2e869c84",
+      "content_hash": "afc78cf8d9eb16ea6ad4686e01451582c47f76d9663176dccdae39949179eb49",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "precipitation-reaction"
+      ],
+      "reason": "흡착제에 처리제를 흡착·침전시킨 후 천천히 방출한다."
+    },
+    {
+      "identifier": "AR-083242-A1",
+      "source_fingerprint": "fada954b35a307cc65880738851ed158bed9838f3d1dc7685c339c58e378f32b",
+      "content_hash": "bf799730f70c8c4ccfdb3e82386363b0f5cd446f423687cfbe38450a6d5fc055",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "손상된 롤러 베어링 좌면을 선삭하고 부시를 삽입한다."
+    },
+    {
+      "identifier": "AR-083248-A1",
+      "source_fingerprint": "e5284c0dac6d0f4576f517785451a6c970b087fd153148bfea3ecc4012a39928",
+      "content_hash": "b9f4363b8e776cd7660a35b5c913e263a1dacbc7119031cf44ea62edd441cbfb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "바지선의 위어·벽·통로로 유류 포함 표층수를 수집한다. 별도 상분리 작용은 미상이다."
+    },
+    {
+      "identifier": "AR-083267-A1",
+      "source_fingerprint": "4c37beb63fb70b469edc108d1730a468c225ce802cec4837d3e25efd448e60de",
+      "content_hash": "eef1c1a4c1ce76db1bcc08db8992a4b77ef776524cf06b4d4bf69a09022a7a75",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "allosteric-cooperativity"
+      ],
+      "reason": "mTOR 촉매부 저해와 알로스테릭 저해를 조합한다."
+    },
+    {
+      "identifier": "AR-083281-A1",
+      "source_fingerprint": "e632e85b80bf829315fb7515919a77bd1bb8cc9543f9ae014351d6c40ab1613f",
+      "content_hash": "7134576e7738a74f8b374cb971c076137ba2041f68b28fdbee319a4b65131cef",
+      "decision": "LINK",
+      "keys": [
+        "peristaltic-pumping",
+        "mechanical-interlocking"
+      ],
+      "reason": "연동 튜브의 장력으로 카세트를 잠가 경장 영양액을 이송한다."
+    },
+    {
+      "identifier": "AR-083301-A1",
+      "source_fingerprint": "a8463441c95beb21a3f346816c943f2a7d5f7bf4dd1ec7b01a5b52e70d2f316a",
+      "content_hash": "0d33e85bd819617e371904ca57942bddb47a11c473ea684e24e3c2951ea6ab98",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "브롬 함유 성분으로 석탄 연소 수은 배출을 줄인다. 수은 산화·포집 후보의 경로를 확인한다."
+    },
+    {
+      "identifier": "AR-083307-A1",
+      "source_fingerprint": "6fb9229c158ac7cda8773293614333c5eb410861fc9837acde036a64dd81999b",
+      "content_hash": "8067fb4daa5f9b917976f5eeb16876ab7a45c500e33f6704813220bffbca7931",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "침구에 보조 담요와 발 넣는 공간을 더한다."
+    },
+    {
+      "identifier": "AR-083308-A1",
+      "source_fingerprint": "bf36b548cc146515fd133a35ff9ee36651d786642151cf7a3bcc182663391012",
+      "content_hash": "a75d01d64ad184cb0ff33d6f1febd79e6365ae35846cb8a8799bbe18f952a2a4",
+      "decision": "LINK",
+      "keys": [
+        "reluctance-actuation",
+        "frictional-load-transmission"
+      ],
+      "reason": "전자석이 축방향 판을 당겨 펌프 클러치를 결합한다."
+    },
+    {
+      "identifier": "AR-083315-A1",
+      "source_fingerprint": "e4330e49e559080af9b818d47e4644f7c5404a21b116de6cc41c2b074042cf48",
+      "content_hash": "c22b25b8db00b10a73df66c14bf656e9ecaa451ab5e1f96e0c8837a66f6bbfde",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "가위 링크·텔레스코픽 다리·잠금으로 카트를 접는다."
+    },
+    {
+      "identifier": "AR-083321-A1",
+      "source_fingerprint": "89e44f07dfae007de42107c67d40a9bd021da02603dc550a9d132a77e0d598f3",
+      "content_hash": "94dc3598662249b1683cef3a6eb1fc6e5a89a53890376db214e03a445217b325",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "열·냉 분무 장치를 차량에 통합한다. 액적 생성 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-083334-A3",
+      "source_fingerprint": "93ef60f5f5037e0b3351ea2c338f3544df0cd8184b58d08eafb99c480b2ad2da",
+      "content_hash": "7cdda3bfb7088aff1892feb44f9f855d360f027cf268af76f838af3ed1db72f4",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission"
+      ],
+      "reason": "기어·체인 구동과 반대 회전 나선으로 곡물을 봉투에 이송한다. 나선 이송 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-083346-A1",
+      "source_fingerprint": "99447c565a024f919efa2b700041a2b41a4528af8f176b16c8c194c5adb82a16",
+      "content_hash": "90f518dc846069ff028a363c8628b26bfd26c4347b8f7e303efffdcefaa27c42",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "별도 스프링·잠금으로 바늘 삽입과 주입·보호 단계를 구동한다."
+    },
+    {
+      "identifier": "AR-083353-A1",
+      "source_fingerprint": "404380dceef8fb263469dbb6b9b3861b304a9ed8a02e47ee73eb542c37d3df86",
+      "content_hash": "2b799ae309b62ebbad4c4f8626e311235113ca7e75e5918ec8549807fbdeaa99",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "CCR3 저해제의 공결정·염을 명시한다. 다성분 공결정 형성 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-083356-A1",
+      "source_fingerprint": "95df0c8ed4156d60df40342aeec1319f3a7a436ff7e86f27c54d786a02ad0592",
+      "content_hash": "a62e6d6a37eac35d8a1b1a875f3a4cc89802ab67d19c02a2a5ca2df3252c7495",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission",
+        "elastic-energy-recovery"
+      ],
+      "reason": "고무의 탄성 압착으로 수도 연결구와 위생 세척기를 고정한다."
+    },
+    {
+      "identifier": "AR-083362-A1",
+      "source_fingerprint": "bbeb90f842e0ad3ddf1f449b30883d8231b5643867d1e183d72d2c8de26ed2f5",
+      "content_hash": "a45844ec878f7b574b047a4ac37d58c8ffff08d7ee1ad0a7472200a268ebd5ea",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "기울어진 나사 축과 힌지 회전축으로 문 부착 위치를 맞춘다."
+    },
+    {
+      "identifier": "AR-083365-A1",
+      "source_fingerprint": "1d07e0daa9468002ec312326f56af3ba0290f7c26e43763f0deab073fb694c6c",
+      "content_hash": "5be0f77c8c6e374f18011c4bb10dffdf5ca42c1d97eb48d52b0ea6236348ec88",
+      "decision": "LINK",
+      "keys": [
+        "parametric-bandwidth-extension"
+      ],
+      "reason": "저역 신호와 선택 계수로 고역 전력을 추정해 부대 정보를 부호화한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:25:45.469845+00:00"
+}

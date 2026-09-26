@@ -1,0 +1,196 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "0cba612247f80b188ea455d4f20195fa845330a9903276bccb9a7f68b5244f7b",
+  "reviews": [
+    {
+      "identifier": "AR-097633-A1",
+      "source_fingerprint": "15786f25cd2e0e1661a4ec64b03e56f8b419f96c135ee51e13623fe5c21c577f",
+      "content_hash": "5b7b71c5c7f2f3410d1cfa9ed37fab2312657fdb957ab48d17fc6f0d38879c5a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "긴 치환체 목록과 살충 용도만 있으며 생물 표적이나 합성 반응이 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-097649-A1",
+      "source_fingerprint": "c6cc9d33d9010b4a64809b40fb117f506f13accabc516ea554e21e37b9258925",
+      "content_hash": "a11c772f8d47bad5d081b38e7b75dcea9de7bff07ed38ffe791e1df3cda43aa3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "투명 코팅 속 비드와 조건 의존 영상만으로 굴절·역반사·간섭의 지배 기전을 구분할 수 없다."
+    },
+    {
+      "identifier": "AR-097653-A1",
+      "source_fingerprint": "24c551475cb132cc5f470a2268297f6086f64de29bf62937cec8832688ead698",
+      "content_hash": "4b12c80a3944c1e265b6b10e31f175d1d0044cc2d907df5b97e52f700b46fcd5",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "knitted-loop-extension"
+      ],
+      "reason": "접힌 폐루프가 다른 루프를 포획하는 연결 구조이다. 브루니안이라는 명칭만으로 수학적 위상 특성을 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-097672-A1",
+      "source_fingerprint": "97e68af7877a18a209db6c1eeb2168659458038aa6f3fd785caf583e157b3022",
+      "content_hash": "b187a348e3e9ef3346908bd3b9afa819c09f3d6929808ee9584568fd20cf24b7",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "입자 농도가 다른 유체를 교대로 균열 압력 이상에서 주입한다. 입자 막힘·우회 기전의 구체 조건은 부족하다."
+    },
+    {
+      "identifier": "AR-097673-A2",
+      "source_fingerprint": "483c772f847ed18dfd2e26273afea2211911662341160009c5eeb940b2ac35ba",
+      "content_hash": "54d383a7541870e3d22faa2d844f30dd8afc7b3a0728178d7f87fe84c1d4b5c3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다운믹스와 객체 사이 상관 부대정보로 업믹스를 생성한다. 기존 검토된 공간 오디오 재구성 초안의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-097688-A1",
+      "source_fingerprint": "7d1d48fe6684d328d96bc32c3e3b795cf11f1555102b48152efc21194a627dde",
+      "content_hash": "371a941938a5cc181c1239242699ed7e5e8cd037a66a68136c402d497fe176ea",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "gear-ratio-transmission"
+      ],
+      "reason": "랙과 걸쇠로 문 고정 핀을 이동시키는 체결 구조이다."
+    },
+    {
+      "identifier": "AR-097695-A1",
+      "source_fingerprint": "fbbb2e877f2f1884dadad211768ec3aa56f1f601c4f4837136500f9902c2aee0",
+      "content_hash": "5cc67bbdc9eaa1a210b9818fcd2d0680e9f4c019c89d56d39006a57c83c53201",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "문서의 이미지·캡션·영상 연관 추출 기능이다. 구체적 학습·검색 알고리즘은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-097726-A1",
+      "source_fingerprint": "1ddb61d716c95cd2c4ed0df2b7489d65437cfa816f0fbb2e2c7c8941907f069e",
+      "content_hash": "0e0b261c2b64f4fd8bff1b453a6b491a305c107c70beeb1f415267cc9d2a2086",
+      "decision": "LINK",
+      "keys": [
+        "feedforward",
+        "queue-buffering"
+      ],
+      "reason": "통신 음영 지역 진입을 예측해 낮은 비트율 세그먼트를 미리 버퍼에 확보한다. 학습 방식 자체는 불명확하다."
+    },
+    {
+      "identifier": "AR-097731-A1",
+      "source_fingerprint": "25d2ca31196fac42c6effb762065d4ab8740816b9e88811528892f4e21b914f4",
+      "content_hash": "6945a4c281373058b1a5458840ac5bdbda150fde4f89326d06e90449c70f997d",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "negative-feedback"
+      ],
+      "reason": "금속관 인발과 후단 기계 위치를 기준으로 한 인발 속도 피드백이다."
+    },
+    {
+      "identifier": "AR-097747-A1",
+      "source_fingerprint": "a894f1719965582abf18ddf34670f5df0585d4b0a7a6fc3e663ec685e2d9da3e",
+      "content_hash": "3f8aa208521e126a165d831cc7b78cdba596c57390660e0967b320efc2911e02",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "LRRK2 저해제의 적용이다."
+    },
+    {
+      "identifier": "AR-097752-A1",
+      "source_fingerprint": "403f1bc539f8edd77f11ab147f39c2615070616f84b0edebdfceddcfb0fff841",
+      "content_hash": "62462882ef9f0db62e5bf44cd2ec648f70522ec05e7c769061ad544c871ad592",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "독성 기질을 희석하고 배양 중 독성을 낮춰 다음 투입을 받는 발효 공정이다. 독소 종류·분해 경로는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-097767-A1",
+      "source_fingerprint": "bc8cc07f384c34c47ad93ca84bc9f2072791e2b616a22c4dcc4798e5f3f13fce",
+      "content_hash": "37dc50a3ff9b80f76a591bc9916eb86bfc2cf2d0cea225e4b0131d66a15ae9a2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "시추공 방향 센서와 통신 모듈이다. 센서의 물리적 검출 원리는 생략된다."
+    },
+    {
+      "identifier": "AR-097779-A1",
+      "source_fingerprint": "f0e3566af51be7d4469ad037b73745ed1890f7aa8f4aaea7f80615863c61e583",
+      "content_hash": "a0ff0fef1911e39791668241a1064f1381b95a7609c9f4cbb01e71e229f6fea2",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "coordination-complexation"
+      ],
+      "reason": "유기산 피클링·크롬염 무두질·염기화를 사용한다. 금속 배위 가교의 소재 적용으로 추가 수량에 넣지 않는다."
+    },
+    {
+      "identifier": "AR-097784-A1",
+      "source_fingerprint": "99e5151b44560a29911d4e4921ce324e9338118731f36d40fea8f4d0a89602ce",
+      "content_hash": "99ebff5cb4c049866208a963d11462fc4c68521d86d1a5aede22e7ee8aae7243",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "스트랩과 베이오넷 체결로 공기통·밸브를 지지판에 고정한다."
+    },
+    {
+      "identifier": "AR-097785-A1",
+      "source_fingerprint": "3c299649ae51b44ccccc3f8c9b82a95b39eee7cb86fc2f21d59722fee28bd1ba",
+      "content_hash": "1f3b68efc6473ad04183721c01da069977ad1722d55b65cf17bf5c6aeee8a14d",
+      "decision": "LINK",
+      "keys": [
+        "adsorption"
+      ],
+      "reason": "MOF 같은 흡착재에 기체를 저장하는 적용이다."
+    },
+    {
+      "identifier": "AR-097799-A1",
+      "source_fingerprint": "2cdfefb35ebc7cb2b6198a29dfd83b5954348e161ce2f3aad12a29d27c7be762",
+      "content_hash": "d4f1337013c53c2f24bcdacc827e9543eee8f4029329c35d3a3179bbd2b6875b",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "슬라이딩 프레임의 잠금으로 차축 위치를 바꾸는 구조이다."
+    },
+    {
+      "identifier": "AR-097806-A1",
+      "source_fingerprint": "85656579a39c40dcef61cc7b4a68004e5efe3b4a7053249ea284b5b251d21768",
+      "content_hash": "bdfc359f9ea47aca1ca9746282957d9532446664ade549810c4e237b0841beff",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "enzyme-inhibition"
+      ],
+      "reason": "제초제 저해에 내성인 효소 발현이다. 기존 신규 초안의 표적 부위 내성에 추가 연결할 수 있으나 독립 수량은 늘리지 않는다."
+    },
+    {
+      "identifier": "AR-097835-A1",
+      "source_fingerprint": "dce2002f5ae71c8f257d145fb97eb8ec03dd641c2caaf258321e3cfdd2903ca9",
+      "content_hash": "14cd5800db8ccfbbab92b8221933f590aa4596017681f851da0e9775e5deca6b",
+      "decision": "LINK",
+      "keys": [
+        "raman-spectroscopy"
+      ],
+      "reason": "다운홀 라만 도구로 탄화수소 분압을 추정하고 공간적으로 매핑한다."
+    },
+    {
+      "identifier": "AR-097848-A1",
+      "source_fingerprint": "670f0ca10e770c4d6cf61ba407924ee4e402564ed6b989f642f38db6a100196d",
+      "content_hash": "10d70c56553d843fbf7da804656933a5eb96bdc91cf78a60fbd29cca2c5f31ca",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "barrier-coating",
+        "capillary-wicking"
+      ],
+      "reason": "계면활성 세정제·흡수성 부직포·내측 폴리에틸렌 차단층을 결합한 세정 장갑이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:49:14.458267+00:00"
+}

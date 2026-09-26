@@ -1,0 +1,75 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "908370b3654017552dd71e6f710c858b92bfbbf9c5cd1af0217bf1b780e25715",
+  "reviews": [
+    {
+      "identifier": "AR-108782-A1",
+      "source_fingerprint": "6dede406fad0f2109003ffe1cfc137d8e687d93ad5568a5a8e31fd539d521943",
+      "content_hash": "73be9506590986b959f14da5e0e0f87ec6adb0ed5dd64359917897db7e44de0b",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-particle-transport",
+        "bulk-comminution",
+        "solid-liquid-leaching",
+        "gravity-settling"
+      ],
+      "reason": "곡물은 공기 흐름으로 운반된다. 진공 패드 고정과 다른 기전이므로 기존 진공 고정 연결을 철회한다."
+    },
+    {
+      "identifier": "AR-117350-A1",
+      "source_fingerprint": "ba0155935154347fe0df2da2b2d1dc12d8b1076fc30107e6143a0b71d4263299",
+      "content_hash": "320aaa3cf0bad696a0ceb4f34b50cccf5199e618b829c36db43a73cbe75edcc5",
+      "decision": "LINK",
+      "keys": [
+        "cyclone-separation"
+      ],
+      "reason": "하이드로사이클론 분리는 명시됐지만 첨가제의 기포·유화막 불안정화 과정은 특정되지 않아 해당 연결을 철회한다."
+    },
+    {
+      "identifier": "AR-117352-A1",
+      "source_fingerprint": "991528629bab2ec4ed0e2d6dd9d3436b691778a72dfe2333dd87da7378051d77",
+      "content_hash": "458c21345d989438d64a39f1649c51cd39efce2285b582c56f0e5fe89f90d910",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "자동 연결 차단은 있으나 기계 접점인지 전자 스위치인지 특정되지 않아 기계 접점 연결을 철회한다."
+    },
+    {
+      "identifier": "AR-119477-A2",
+      "source_fingerprint": "713b1b1929294c0b4d712285b4c877cc3dd272f7e411db49bffdd3958809fce3",
+      "content_hash": "fcc5bb3277da2745ccc08455c5236c3529f5615fb7e2d817c03941747294620d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "저분자 비정질 의약품의 유리전이이다. 고분자 사슬 운동으로 설명하는 기존 항목과 범위가 달라 연결을 철회한다."
+    },
+    {
+      "identifier": "AR-121689-A1",
+      "source_fingerprint": "b1a0c2a4de9ce3487739ee1781062cf43a9b5ca0701287a6ec07a909132bcb0c",
+      "content_hash": "2b1c2e6dde67ab5d5a07a47bb029eeb42b6306b814f4cc512717cc3492d0b41f",
+      "decision": "LINK",
+      "keys": [
+        "brazing"
+      ],
+      "reason": "입자 내부 액체 금속이 노출되어 응고 접합한다. 과냉각·핵생성 장벽의 직접 근거가 없어 해당 연결을 철회한다."
+    },
+    {
+      "identifier": "AR-121797-A1",
+      "source_fingerprint": "c21748b8c9105cd642cd94bd2e0e42261e4d332dd24d57cc95eeb2a55afd9bef",
+      "content_hash": "601c19d09ed792fc2bd8e2ff37047a06dbc21b7df74c66af5ddbc229cc632299",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지질 나노입자 조성이지만 이중층 구조가 명시되지 않아 지질 이중층 자기조립 연결을 철회한다."
+    },
+    {
+      "identifier": "AR-124329-A1",
+      "source_fingerprint": "034e59a9d78e00f71bf69d884e55787764fa3991d180b29303dfe7a2083fb88a",
+      "content_hash": "00f236b36c5064018fb6a30dfdacd9fb4079a5d758a9046e20a4df7f9d1314ea",
+      "decision": "LINK",
+      "keys": [
+        "polymerization"
+      ],
+      "reason": "촉매 올리고머화와 온도 순환은 명시됐지만 부착 제거가 용매 용해 때문이라고 특정되지 않아 해당 연결을 철회한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T03:10:34.760108+00:00"
+}

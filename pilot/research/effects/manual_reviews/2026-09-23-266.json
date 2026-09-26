@@ -1,0 +1,221 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "49f73031fbf5fb3877594bb65b66851e04d8ac30f3dc543ded111ffe4ed36f80",
+  "reviews": [
+    {
+      "identifier": "AR-121005-A1",
+      "source_fingerprint": "ba394ab37986ed6446091728073c27fba89c9e0636b766b871b2aaf9622302ab",
+      "content_hash": "11c4d84a2c3135597cd7b45c83dc71239a7984c3447d880223a0e164bb621c0c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "cam-follower-motion"
+      ],
+      "reason": "시드 장착 레일의 덮개 캠과 래칫 체결 구조이다."
+    },
+    {
+      "identifier": "AR-121013-A1",
+      "source_fingerprint": "a8b3b382f87576cab6da02ed57f888a176ef853a22641a5d94d55a9ebdbc4e9f",
+      "content_hash": "d0d3ecef640371d97987222213e726ce47efdfc6fe35aa58c29d6e109abf6d61",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "CD40 항체의 표적 결합이다. 작용제 여부는 초록만으로 정하지 않는다."
+    },
+    {
+      "identifier": "AR-121023-A1",
+      "source_fingerprint": "56eca226e8b32c8704c2c393728da89c36eff64e085d1f339a9368d60a81319a",
+      "content_hash": "77c0715b04c02a4111f9cb0ec672fa520ca8e07b88a91114f8af67b90b0d4953",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "경쟁에서 선택된 AP가 자원을 공유하는 조정 절차이다. 특정 물리 원리나 백오프 알고리즘은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-121036-A1",
+      "source_fingerprint": "1f41355a9bda49954375b41a2282a1377da7091261c9d687d9f8239d5f3a83bb",
+      "content_hash": "41e516af23e1317cbf0c4eb5ab031bc1c0a38cd11d9212eb92a165fe60f827c5",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "multivalent-avidity"
+      ],
+      "reason": "다수 펩타이드를 지닌 생체고분자가 항체를 포획한다. 다중 결합 가능성을 연결하며 실제 결합력 증가는 검증 대상이다."
+    },
+    {
+      "identifier": "AR-121037-A2",
+      "source_fingerprint": "55d289658a40e702d0ba551146fe00cfa4bd0fad90b4ce6c6b64067861a53061",
+      "content_hash": "3fdc3b360dadf0867b26170369a2c130b4105fe4bf39588d1d4c5f4bd1e94805",
+      "decision": "LINK",
+      "keys": [
+        "amorphous-solid-dispersion"
+      ],
+      "reason": "이온성 고분자 내 약물의 분자 수준 고체 분산이다."
+    },
+    {
+      "identifier": "AR-121047-A1",
+      "source_fingerprint": "99c164cfbd5b1d5c80c2e76a81e3f7bb6203d4f563814b2cc567f33961062645",
+      "content_hash": "1c2030746afc24d63618185079caf0c4dcbd228340909c6a0a5301f2e7c785ea",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "MAP4K1 억제이다. 효소 표적 차이는 별도 신규 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-121081-A1",
+      "source_fingerprint": "75848f8c8ff3d1bfa84dfb215bf7eebf48af5f5b5c02ea738d2ca072df2a2c1a",
+      "content_hash": "7b19415ed6412e5c8de02521c9d843b170e99b0d6d465636afb4fd86b579f32a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "천공 장치의 개시기 연결부 배치이다. 초록에 독립적인 신규 과학 원리는 없다."
+    },
+    {
+      "identifier": "AR-121097-A1",
+      "source_fingerprint": "32ccc148f4915dceaf40981fa45fa9e34842a13c625fb2bf6f6297c30d4f8a22",
+      "content_hash": "67d757ebf7bb588be32e2b47e6779eb2f2288d9375de956a37ceb7f73a55bcb9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "메소이온성 살충제 구조이며 작용 경로가 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-121101-A1",
+      "source_fingerprint": "07f5715e892006c53a8742b74d2daf6f19bbf966e12f82ba3776228b0a008f15",
+      "content_hash": "77ec065183468b896c8e8e938202fc7c399eb91fefa8a232c812e497d61cce53",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "서로 다른 조명에서 문서의 광학 특성을 확인하는 인증 절차이다. 형광이나 조건등색을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-121131-A1",
+      "source_fingerprint": "ec8f7a195535d780e1da0fd5270d777536d8ea8bf4da663ca5c9d4da7d5adc91",
+      "content_hash": "667e70674380e087c20a33a617e199fe9d350d659356587efa8861e2225710a5",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "surfactant-action"
+      ],
+      "reason": "PPO 억제 성분과 에테르 황산염 계면활성제의 조합이다."
+    },
+    {
+      "identifier": "AR-121152-A1",
+      "source_fingerprint": "3ee8d7326fc0428498939c4361de3f0b5db59d9537feb1daaed0cdf9d5f647a4",
+      "content_hash": "5d8bdcde711aff9f8795b82b1dc9c1a1dbcd6add307142e2cc0ece49730addad",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion",
+        "elastic-energy-recovery"
+      ],
+      "reason": "스프링과 로드가 피벗 플래퍼를 움직인다. 일방향 유동 여부는 별도이다."
+    },
+    {
+      "identifier": "AR-121178-A1",
+      "source_fingerprint": "d84f2c215a31b90d9e871fda69938d13c2319aab10e1afc263989c6a2e79d75f",
+      "content_hash": "072b13c62f6cfbb4e0aff8947d1b59d2a65881c408091c84fbed9908a6c1de9b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살진균성 디하이드로이소퀴놀린 구조이며 세부 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-121182-A1",
+      "source_fingerprint": "4e890718f252a0d7dcb8155cc51e1fde222cd74d4aaf7d698b192e6e08625074",
+      "content_hash": "fa5a99a01d7917ebbd79ad0f99d67950823585c22021f89ab9c5a702dd8d04f7",
+      "decision": "LINK",
+      "keys": [
+        "hypochlorite-oxidative-inactivation"
+      ],
+      "reason": "차아염소산 및 전해 식염수를 포함한 살균 조성이다. 다른 첨가제의 막 작용은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-121185-A4",
+      "source_fingerprint": "71649a7573357c0858824223a213988d3648befa912f05d442b4d1469e70fcb5",
+      "content_hash": "2dfdfa4fcfef29918bdff9871ab320650f5f7f6eeed7c96e31d0bb9e0fe1144f",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "articulated-linkage-motion"
+      ],
+      "reason": "접이식 다리의 힌지와 후크·베이오넷·나사 결합이다."
+    },
+    {
+      "identifier": "AR-121211-A1",
+      "source_fingerprint": "28776bbdb3a89de30cccdde98607b8d0bb0691c4988a776af5134d8399f85fd1",
+      "content_hash": "d1f7339e3d9bb8e7de009ebf259b9136d61236ee858ad8240940aaf10fe499ab",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "미토콘드리아 복합체 II·III 및 스테롤 생합성 효소 억제제 조합이다. 개별 표적을 신규 효과로 분할하지 않는다."
+    },
+    {
+      "identifier": "AR-121221-A1",
+      "source_fingerprint": "b16b398269c2073159f389da5eec4269dcc3a33856f915b864c764c264a449a7",
+      "content_hash": "016803d420ace3170f3a2e9cefa621c39b5f98f9256d6e66d199cb1bcc7b53d9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "무선 통신을 사용하는 장치 구성이다. 통신 구조만으로 신규 물리 원리는 확인되지 않는다."
+    },
+    {
+      "identifier": "AR-121231-A1",
+      "source_fingerprint": "82593cb2782efebaedff13e51bdf981fc6f1baf3e8bd630c2ab6bb7a92902acb",
+      "content_hash": "e25dda58c8f987df359ebcd9327669ecdf68480a50fcbe066e6d8f43149e9fc9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 혼합비를 제시하며 효소나 반응 경로는 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-121259-A1",
+      "source_fingerprint": "7ef5c8117bdb30ed906a84ac2052b30167cc04a94d5d1fee4b94a43e18d57939",
+      "content_hash": "759ef3a6438942fc8195017a3d92586e4359a6274fa1e6af5ab7bf19650d1f01",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-film-atomization"
+      ],
+      "reason": "회전 원판의 유효 반경을 조절하여 분무한다."
+    },
+    {
+      "identifier": "AR-121261-A1",
+      "source_fingerprint": "f8cdcecea3c5bb6c2251c40384f822dabd582a6af14cff2e8b91258e945617ab",
+      "content_hash": "9551962374847e0f3d61dea342e451387bc7b8bf815baebfaba286c33a4a0881",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "biomolecular-recognition"
+      ],
+      "reason": "CHO 발현 IL15·수용체 이종이합체이다. 당쇄 차이만으로 체내 제거 속도를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-121274-A1",
+      "source_fingerprint": "6db4120289c19e2ba97aeb0bce8f199f206e98d86676d5fd3dd886e69f929b41",
+      "content_hash": "fd574af1d187ace835c50cded1cf3966dbd38cb89ad6aea9e061f22c86a78063",
+      "decision": "LINK",
+      "keys": [
+        "electrical-continuity-sensing"
+      ],
+      "reason": "카트리지 접점 배열의 전기적 연결 상태로 식별한다."
+    },
+    {
+      "identifier": "AR-121278-A1",
+      "source_fingerprint": "b666fc2be4e64819d2cf93dc94dd2ebd6f395d084167cd1cc010578890f199ef",
+      "content_hash": "032b01d133fcb1812f2893bcf97e4fb7946113d3f87b3031078338031758048e",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-insulation",
+        "fiber-matrix-load-transfer"
+      ],
+      "reason": "금속 카드의 절개 및 섬유·에폭시 적층 구조이다. 와전류 억제는 기존 원리와의 범위 검토가 필요하다."
+    },
+    {
+      "identifier": "AR-121280-A1",
+      "source_fingerprint": "b4ad074605dea44c11a598428af2ee7c1452ae91536ad1a1ff95e494c747143a",
+      "content_hash": "68f8d8800c3e6aea59e94afe7ec7b5950bc0745c7d99fc3cc3d6ea9cffb2da50",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "물로 재구성하는 분말 세정 조성물이다. 고분자의 용해와 팽윤을 초록만으로 구별하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:50:05.108690+00:00"
+}

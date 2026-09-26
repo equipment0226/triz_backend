@@ -1,0 +1,216 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f5bf6a5bc0f50a283f995744c6b4f1ecd8076fb00561df8d700a7ed4b0973004",
+  "reviews": [
+    {
+      "identifier": "AR-093243-A1",
+      "source_fingerprint": "92808a80db2a019613350dd943ff2225fee4d79ad504eee3048f9fe10a7e0199",
+      "content_hash": "24a868cd93116576a93af860a92bc72a104f652317d9748f8a904d10d3020f6e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 조합과 구조 정의만 있고 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-093244-A1",
+      "source_fingerprint": "f1cef8d6e8e2e4a4429989e1c082683133621b5a844aa534a1f852181ececf65",
+      "content_hash": "777fefdedbf1fbc8552aa9bf9dfdb45682059a32f2b2daa7f4ae398841953fa8",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "chromatin-accessibility-regulation"
+      ],
+      "reason": "EZH2 매개 염색질 조절을 표적으로 하는 화합물이다."
+    },
+    {
+      "identifier": "AR-093255-A1",
+      "source_fingerprint": "3746290b7d0ed1c1b88fbe9d7e8731a00a2be9cb23ba0dcde9a5939ffe51a278",
+      "content_hash": "9de49f0c598541a3fcaeb11fceaae6f8db0e6bd1942480b605fa724b4616be9e",
+      "decision": "LINK",
+      "keys": [
+        "alcohol-dehydration-to-alkene",
+        "catalysis"
+      ],
+      "reason": "글리세롤의 촉매 탈수로 아크롤레인을 얻는다. 기질별 탈수를 별도 효과로 나누지 않는다."
+    },
+    {
+      "identifier": "AR-093257-A1",
+      "source_fingerprint": "7562596c50347503e547254b30dbe076617dc168877a678ea7cf8f49b3b2ca7f",
+      "content_hash": "26dde3ebac5ad06960e79bd32f9ef1ea103080fd4eaf0cb71d8a4e37fbd7f0b4",
+      "decision": "LINK",
+      "keys": [
+        "peptide-bond-coupling"
+      ],
+      "reason": "카르복실 유도체와 아민의 아미드 결합 형성이다. 살충 표적은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-093279-A1",
+      "source_fingerprint": "74cbcad4919a13a500ce892bd56ba2abe2719ef040536491bccbd34cafdc16dc",
+      "content_hash": "62754bc4a27f54004b47062dea5b0bc3e20d061532ff43d151268fe27d821cac",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "coordination-complexation",
+        "solvent-extraction"
+      ],
+      "reason": "중금속을 침전시키거나 착물로 물상에 분배해 회수한다."
+    },
+    {
+      "identifier": "AR-093280-A1",
+      "source_fingerprint": "c60417b97599bb62c694812c10217f9e0f418ab51519bc30a6e9d12cf3053e6d",
+      "content_hash": "723579a526b4addcd3e1bf12041e7ce3f0319b1d3164e236e5585f67efebb724",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "NS5A 병용 저해의 상승 효과는 주장되지만 물리적 결합·내성 극복 기전은 없다."
+    },
+    {
+      "identifier": "AR-093287-A1",
+      "source_fingerprint": "c87f6889b3b0c0f21eeed12428245af0b3811ae5571c0a6b55e7a2aae97d0429",
+      "content_hash": "e3dcd249079feb5659ec1adb0d525daedfaa4b41c49d23f02c7fe9221a92dd5d",
+      "decision": "LINK",
+      "keys": [
+        "queue-buffering"
+      ],
+      "reason": "영상 단위의 버퍼 제거 시점을 신호화하여 처리 일정을 맞춘다."
+    },
+    {
+      "identifier": "AR-093288-A1",
+      "source_fingerprint": "fec32994b643948b3f6fefabd01890ecf144b9421222b19f25bcd888039f5d0a",
+      "content_hash": "26aab8f3ce2031de53da7c607913b0e5b749525dbe5ca7b831c38ebb60ec13c8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "중첩 메타데이터의 적용 대상을 구문 요소로 지정하는 규약이다."
+    },
+    {
+      "identifier": "AR-093299-A1",
+      "source_fingerprint": "ec1ee66e75955536c12af02da38b638b77a4884badaa1d8ad20366f4130445d5",
+      "content_hash": "0b384608d7e24563a442c4fc3f188ee6f7e91843ff360759df45736c1cb0d8f6",
+      "decision": "LINK",
+      "keys": [
+        "peptide-bond-coupling",
+        "polymerization",
+        "surfactant-action"
+      ],
+      "reason": "폴리아민과 다관능 산 유도체의 축합·계면활성을 사용한다. 이미드 고리 형성은 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-093310-A1",
+      "source_fingerprint": "fa7a884666ed9dd7bcba68ba7196e19d020300b333772a2dc38773ab787ae61f",
+      "content_hash": "db29d52280e7e839b59a474d6e22b01769a6bfdbb450655356dad1c76dab2e9b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "글루타티온 처리 후 식물 성장 주장만으로 산화환원 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-093315-A1",
+      "source_fingerprint": "5726171606e5bf6f621f5c5cfbdeda8e7c0cb8382aa416b3d8d7b9fee940c791",
+      "content_hash": "bc64affbaec91f8efd4278504a5f49139ec2264498b986aa05e8788595e43c6c",
+      "decision": "LINK",
+      "keys": [
+        "solidification",
+        "acid-base-reaction"
+      ],
+      "reason": "냉동·압출·산성화의 식품 공정이다. 특정 유화 구조는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-093317-A1",
+      "source_fingerprint": "d69420aa4c64ed0913cd838fab5f43a149f4412db1cfe2ff8e970f359bc389ec",
+      "content_hash": "dbc253943db4484b0847474d7d3436eb293156adf9d1692d54a3ba32e96e739e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자 분산제와 저온 유동성 개선이 명시되어 입체 반발 분산 기전의 적용 근거를 확인한다."
+    },
+    {
+      "identifier": "AR-093325-A1",
+      "source_fingerprint": "5e24d585baca4ae1839abb24f2700e7ff45a860cd992f3e00019cc9f5530600a",
+      "content_hash": "2a407f4ee5d27ddae6f6b944192c7024cecd9fb2baaf17aa1c085bc6a195644b",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "fluid-turbine-conversion"
+      ],
+      "reason": "분리 주입된 연료·산화제가 확산 화염을 만든다. 혼합 제한 반응대는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-093334-A1",
+      "source_fingerprint": "133c0c221ad581b774a82746293180de714fff7c9bb5389679aad2eeee1d7887",
+      "content_hash": "2573cbf894032ebcfd40e5b933889b3087f4a03f0c935ac792bdd26c990f271a",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "복잡한 유로의 압력 손실과 밸브 개방 면적을 조절한다. 같은 손실 원리의 용도 변형으로 신규 분할하지 않는다."
+    },
+    {
+      "identifier": "AR-093342-A1",
+      "source_fingerprint": "312b9bdadc2839b1b847629ecd78b374f6399ffeb611ce2a6d9be46a7a2af3ef",
+      "content_hash": "33441ca0df52c63a4e834448ec8f87264f88cce11eadbabcf526865032eaff6c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "약제 배합의 상승 효과 주장만으로 상호작용 원리를 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-093347-A1",
+      "source_fingerprint": "9e2d4372f4af4b4a2b7a69412d60f555c66a13be772fcbe67a80b92d5e5bc039",
+      "content_hash": "078b8e325c100c9bbdfec4194e7631e8d830329aa201467d5f64c5a7679c6555",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "방송 분배기·다중 스위치·전원 공급의 연결 구조이다. 다중화 방식은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-093350-A1",
+      "source_fingerprint": "72cc3ec03cf7427b1cdd0802c26be5306fade2ecfec20cb4532f1017aa9dc465",
+      "content_hash": "0f845ef17dba55106654936ba185f56ef64f7bbdd1a024be1b049c38d4ade1e9",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "연속 보강 섬유 띠를 길이·폭 방향으로 절단해 배치한다."
+    },
+    {
+      "identifier": "AR-093353-A1",
+      "source_fingerprint": "43b4463fbf970a3489af19e35186f9576bc7ec306fb289fc468d8769c8d01404",
+      "content_hash": "41a38c7aa83749a6acc994880750f88ecceb7dd66964726b392619568342b00e",
+      "decision": "LINK",
+      "keys": [
+        "electroluminescence"
+      ],
+      "reason": "속도 구간에 따라 LED 색을 바꾸는 표시 장치이다."
+    },
+    {
+      "identifier": "AR-093354-A1",
+      "source_fingerprint": "c6d1a42b9f3dbc7e896e3c2b3a8e3a6c531e27b2bb658ea0d7a7f8c483442b0f",
+      "content_hash": "67accf1470f1b863b159b640b279b795c2fa55862cd998f6c0d27d8bf92865ba",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "wetting-control"
+      ],
+      "reason": "고분자로 ASA 에멀션을 안정화하여 종이의 젖음성을 바꾼다."
+    },
+    {
+      "identifier": "AR-093373-A1",
+      "source_fingerprint": "8d43a2f1636120f1f0430362a22909a193c8f66c23ed25789b2e4c6f381432a2",
+      "content_hash": "7e10b888ad592def73ac5ef73546099399c32552302dbfb896d14acceb73b522",
+      "decision": "LINK",
+      "keys": [
+        "phase-transfer-catalysis",
+        "catalysis"
+      ],
+      "reason": "팔라듐 촉매의 아크릴로니트릴 결합 반응이다. 이미 검토 중인 금속 교차 결합 후보와 같은 계열이다."
+    },
+    {
+      "identifier": "AR-093387-A1",
+      "source_fingerprint": "f31558c0d0bbfbbbd5788c777711335fce596b9671fa94af45681aaeaf959565",
+      "content_hash": "3e495284872a7427f181f09c7eaff33f9767e1b0099d5578390200de6c73e78e",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "surfactant-action",
+        "fcrn-recycling"
+      ],
+      "reason": "Fc 융합체의 제형·재순환을 이용한다. 초록에 명시된 분자 크기와 체류 시간 관계는 신장 여과 경로와 대조한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:27:21.808512+00:00"
+}

@@ -1,0 +1,113 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "75741d011a7f221024157e5aaf1261d09d4fce9cd7f1a7f8651766808cea5e7b",
+  "reviews": [
+    {
+      "identifier": "AR-112812-A1",
+      "source_fingerprint": "edb072ed4329fa70b161b9cfb782e173b119672433aeee69d3126736c80f807b",
+      "content_hash": "13d88abcef8fc1ad30b7a41a7ef58d756c9afef5c73f908b929c0d6fcc47b9af",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초용 피리딜·피리미딜 피라진의 구조 목록이며 생물학적 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-112815-A1",
+      "source_fingerprint": "83d85e767ea14ee1823b42ad0fb7669b4502427db637aaccf364f406f47074d5",
+      "content_hash": "ceb0eec2db74ddd3625b1b8d80163cd745a3b9e9642f0dff0c70c2688300b3af",
+      "decision": "LINK",
+      "keys": [
+        "chromatin-accessibility-regulation",
+        "biomolecular-recognition"
+      ],
+      "reason": "CBP·p300의 브로모도메인 인식을 억제한다. 촉매 활성 억제로 동일시하지 않는다."
+    },
+    {
+      "identifier": "AR-112817-A1",
+      "source_fingerprint": "e3edcf9206c9df6901b472ac89bc26ccaf0f9e5574e8cd19deca4ef7ceb7c3c5",
+      "content_hash": "0450adcfa773442ada9168399794461df4525b60ab4e2f785b49a8dffc90786b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살진균용 옥사디아졸 구조이며 작용 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-112824-A1",
+      "source_fingerprint": "6597e3355bf77be5f3f41959b27ca914326c9d7bc07f3e4547a935e7578aee6b",
+      "content_hash": "8cd0d0614b52faa9c321069bf376f22754a05b0fd96723b1167af3bb9b5c7e31",
+      "decision": "LINK",
+      "keys": [
+        "photosynthesis"
+      ],
+      "reason": "광계 II를 억제하는 제초제 조합이다. 광합성 전자 전달 차단 원리를 별도 후보로 검토하며 상승효과는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-112832-A2",
+      "source_fingerprint": "4d692f627aca13b57bfd2cad287d92ecd6fdfe19d014d768f0291ec069e426fd",
+      "content_hash": "8022a06870fc23d830d23b9101efccbf5500af17b7a2e7cb55ce9a66a809868f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "외부 기생충 방제용 화합물과 대상 종을 열거하며 분자 작용점은 없다."
+    },
+    {
+      "identifier": "AR-112838-A1",
+      "source_fingerprint": "3e3946db936df2e99c86036d84593ac996571aec3171b99cc06229a6fb73d274",
+      "content_hash": "6326ee0ebdec2a46764d75a000833930056b8d38eb3500066312985f556913fc",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "acid-base-reaction",
+        "diffraction"
+      ],
+      "reason": "TAM 키나아제 억제제의 산부가염을 형성하고 X선 회절로 결정형을 식별한다."
+    },
+    {
+      "identifier": "AR-112839-A2",
+      "source_fingerprint": "5620b06704fc087cee71632593d35a179000995b4336044188bb72dbd2ba956f",
+      "content_hash": "95b3748d766d08d2bb598317ed847424347a0b38ccd2b55b08ffbe841f422ced",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "중심 구조 그림 없이 치환기만 제공되어 작용을 식별하지 않는다."
+    },
+    {
+      "identifier": "AR-112848-A4",
+      "source_fingerprint": "e1ef2f2f196dc601ae367ac1aeb5325c9ed2d46e472b509077f417f4ed903417",
+      "content_hash": "7f9e80f5944f43a148a4426007a0f69483b4327c449561e0208e944981cf18d6",
+      "decision": "LINK",
+      "keys": [
+        "porous-gas-trapping-insulation",
+        "thermal-radiation",
+        "heat-capacity-buffer"
+      ],
+      "reason": "발포체의 정체 기체와 금속화 막·냉각 겔로 열 유입·온도 변화를 억제한다. 겔의 상변화는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-112851-A1",
+      "source_fingerprint": "8d5214ba17e44695e6dbfd3cb9c983d6ea82e5bf30d719808dce5672cd2b8444",
+      "content_hash": "6054002d05420039c1c50d4ec8ac611a88cde7299e2baac3e8edd77b57949ebe",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "배지 아르기닌에 따라 무푸코스 당형 비율이 증가한다는 공정이다. 대사 원인과 Fc 결합 변화는 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-112856-A1",
+      "source_fingerprint": "193050867ed58ac26b73201f9342e633f6dd4a3029a55b16b976b2b3e6b02f08",
+      "content_hash": "a1a13c400970a0bcbe1fad5bf1614027b292f4424e36f7042e20989055619921",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-particle-transport"
+      ],
+      "reason": "기류로 시추 고형 폐기물을 이송한다."
+    },
+    {
+      "identifier": "AR-112859-A1",
+      "source_fingerprint": "2ece1b23e2de0b0b977fbf7a8fecd3a376808947a15238523e79811e3aa69cbf",
+      "content_hash": "7bf1b733eafe88ba28e9379ffaf3c1d5b19b28f7224dc3d8edf76b7b8f58e9ab",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "자장으로 비구형 안료의 방향을 맞춘다. 자기 쌍극자 정렬 토크 후보의 추가 사례이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:02:35.133465+00:00"
+}

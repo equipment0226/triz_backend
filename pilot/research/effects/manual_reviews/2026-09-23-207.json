@@ -1,0 +1,166 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "9d4c391a97c405a484e33eef238356781606eb811c1b8695029b5e3c6d3e1060",
+  "reviews": [
+    {
+      "identifier": "AR-110139-A1",
+      "source_fingerprint": "4445dff9f9e24711dd42867c2ab16f9ec6dc8cfc6bff92763e2a3c76ac73a64a",
+      "content_hash": "561e8ef6888a53c008d70ec7553dd15694c35f01619f618c0775eec6af6406ed",
+      "decision": "LINK",
+      "keys": [
+        "integrin-mediated-cell-adhesion",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "알파V 함유 인테그린 길항제로 세포 부착 신호를 조절한다."
+    },
+    {
+      "identifier": "AR-110141-A1",
+      "source_fingerprint": "19cee6f5bdc9c2f88a505b5c38c0f196a04564093112d843f796bdbe3a507b6d",
+      "content_hash": "f475d7de44199249c7e88a9e9c27972ee248876fddb15068c82a3f38f52cd80b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "전자기 관측의 경작 전후 영상을 비교하나 센서·역산 수식은 미상이다."
+    },
+    {
+      "identifier": "AR-110173-A1",
+      "source_fingerprint": "f79cce0a0c8eff6e8592564192517fd1ec1bebf187a720680fa25049a8ac0766",
+      "content_hash": "78df82918590e6af49a229fcfb63e51121114ea55db9be4bfbbe26b847471649",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion"
+      ],
+      "reason": "자석 시트로 ECG 전극 캡슐을 유지한다. 준비한 생체전위 측정의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-110183-A1",
+      "source_fingerprint": "b84085d47ceb2455011005bf721bcbba0c3564be2ae3d34bf14d5acae16a2116",
+      "content_hash": "307366b453c6f137e5d692f491a6456fa264c4fe1c8868f7c2fc8d6e37942511",
+      "decision": "LINK",
+      "keys": [
+        "foam-film-rupture",
+        "liquid-bridge-agglomeration"
+      ],
+      "reason": "시메티콘 소포 성분과 액체로 젖힌 당 구슬의 분말 피복 과립이다. 임상 용량·효과를 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-110187-A1",
+      "source_fingerprint": "6167231ad6d52be5a6b5eed3dfdc99fcd79514079d4f54462b2c5b930a783b92",
+      "content_hash": "42954e72435839c83bb4e50c28ffae3f6cfe008a4df23de90067f70c882e7612",
+      "decision": "LINK",
+      "keys": [
+        "radical-alkane-halogenation"
+      ],
+      "reason": "메틸피리딘 측쇄를 라디칼 조건에서 할로젠화한다. 디알킬포스파이트를 쓰는 후속 탈브로민화는 구조 도식 확인 뒤 판단한다."
+    },
+    {
+      "identifier": "AR-110190-A1",
+      "source_fingerprint": "fed5c561ccf7d02977499f5aa7b91f3cfe484ed4f95b632e55c4d34e8c9f47b4",
+      "content_hash": "92afffa5d55444dd086d28f036c95ce02ebd80628b7d40787b55c7cea8778d02",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 저장 칸과 일체형 손잡이가 있는 용기 형상이다."
+    },
+    {
+      "identifier": "AR-110192-A1",
+      "source_fingerprint": "7ba23c613b17577cbb76ffb9842a8d607ed8d05f685624ea792652f81729ddc5",
+      "content_hash": "9ad8c82697fd6bbc8698d66d3a69aabf8d41b90c9b850673dac1db9d7c38dcda",
+      "decision": "LINK",
+      "keys": [
+        "induction-heating",
+        "negative-feedback"
+      ],
+      "reason": "유도 가열의 DC 입력 전류를 읽어 펄스 간격을 조절한다."
+    },
+    {
+      "identifier": "AR-110195-A2",
+      "source_fingerprint": "3b05d0f3edc94cb8439da28ee54977f540122c575a4e0594a0343dfe598ad686",
+      "content_hash": "f6fa821dca056cf682a536b42f613c21fc1924923e2dddf0902cd9318abcfa3d",
+      "decision": "LINK",
+      "keys": [
+        "fibrous-filtration"
+      ],
+      "reason": "셀룰로오스 아세테이트 필라멘트와 다공성 필터 구조이다."
+    },
+    {
+      "identifier": "AR-110213-A1",
+      "source_fingerprint": "041f4fdd6870d4fc8d9f1a63c45a8b372b39b0fa52b8af382fdeeb1fe75f0845",
+      "content_hash": "6f09cbbdbd423b0fdd4472b78472a11239e76c3e3b7a40fe00abd47b8527c561",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "두 살균 성분의 곡물 병해 방제 용도만으로 표적·상승효과를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-110217-A1",
+      "source_fingerprint": "6e5c7a7f4a0a40265a578ee2ddeac6f82cc5b6ffe37188c9679a49d7bf206f11",
+      "content_hash": "6734e8d687225055f0b99b30a4f77ca3b4e4897dc06e6787e3084cbf11fd5838",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "음이온 계면활성제 수성 세정 조성이다. 거품 생성·헹굼 성능의 우월성은 별도 입증이 필요하다."
+    },
+    {
+      "identifier": "AR-110222-A2",
+      "source_fingerprint": "645101a152fbf29fcaade0ca5a7188bfa11f660d724b749c57ea644545a7dec4",
+      "content_hash": "5629729a4ae2a0f4be3775408139c08a29e81fc21b1e7ec7439ea73d4beec5b7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "마모 부품의 변형·하중·압력 센서와 무선 평가 시스템이다. 압저항 등 변환 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-110246-A1",
+      "source_fingerprint": "f8b6bb5e44e7c96ffe044c3d09cc32dd98c9cb40676debbb25b7fd6ae57b97e0",
+      "content_hash": "02fcc5dbbbea4108f0e8d27ef7a6b0b1189e9a5e187b9d57e6d1ca61e7b58f77",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "황 함유 헤테로고리 살충제 구조이며 작용 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-110251-A1",
+      "source_fingerprint": "c4c8d0d0f5538ef2421b9c924759c22222522a0f4950999f9a7a5284f7f8414a",
+      "content_hash": "3a62fcc731e39ec958e3d1827440fc9bb6783def5a35e3226097274798626bce",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "diffraction"
+      ],
+      "reason": "말레산염 형성과 XRPD 결정 식별이다. 염의 광안정성 원인을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-110267-A1",
+      "source_fingerprint": "b19e2da08f47597b5ac7b49422278843cf4845f7acf2d281197bdfd6fed5a34b",
+      "content_hash": "1cfb820ca1463f80b26a89cd651e61a70e4caa25515fde054a5d61ff415b0233",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "세포 영상 결과에 따라 촬영 영역을 선택하는 규칙이며 분류 알고리즘은 미상이다."
+    },
+    {
+      "identifier": "AR-110268-A1",
+      "source_fingerprint": "99909de0591519ddea81569e6b5482c61d8729811e44f69ef9c352e900872221",
+      "content_hash": "ac6cbf7f0793c25b33063d0a3fc63f8e2d3a965d3ffb0b2326658558a2a4d7ce",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion"
+      ],
+      "reason": "바람의 표면 힘으로 수직축 회전자를 돌린다. 보조 날개의 항력 보상 성능은 특허 주장으로 둔다."
+    },
+    {
+      "identifier": "AR-110278-A1",
+      "source_fingerprint": "e64302150bca9e0c23cf4fba6052c603cfd58cf86e99b06e7414196982c4fc31",
+      "content_hash": "10d08e2922bd167b4ecfe2ac5b63f372fd06b483289a9e62b7c625e17a7af37b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "GPS 뒤 방향별 RF 수신 세기로 물체 방향을 찾는다. 안테나 패턴에 따른 방위 추정을 후보로 검토하며 정확·즉시 위치 보장을 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-110309-A1",
+      "source_fingerprint": "022f104f913edab4b3a647eaf773bb901d45b1f7c3db70be85435fb887682171",
+      "content_hash": "515a9112eef3369a3b1d997862404710d2f525c6a8cd89c052ff3b2f182a3975",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "금속염·폴리페놀·분산제의 농업 현탁액이며 킬레이트·항산화·입체 안정화 중 경로를 특정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:51:38.742282+00:00"
+}

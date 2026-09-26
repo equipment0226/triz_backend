@@ -1,0 +1,232 @@
+{
+  "batch": "additions-2026-09-26-01.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 950,
+  "added": 20,
+  "after": 970,
+  "target": 1200,
+  "source_sha256": "7bb90c0f2812a298d899fb336f6bcbb6b63606f2750606df20e81de4114cc269",
+  "decisions": [
+    {
+      "key": "casimir-fluctuation-force",
+      "group": 1,
+      "related_keys": [
+        "electrostatic-mems-actuation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 전압에 의한 정전 구동과 달리 전자기 요동·경계의 상호작용을 다룬다.",
+      "source_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=906575",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "thermal-transpiration-pumping",
+      "group": 11,
+      "related_keys": [
+        "natural-convection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "중력 부력 대신 희박 기체의 벽면 열적 상호작용을 이용한다.",
+      "source_url": "https://ntrs.nasa.gov/api/citations/20110023600/downloads/20110023600.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "spin-hall-current-conversion",
+      "group": 14,
+      "related_keys": [
+        "hall-effect"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "로런츠 힘에 따른 전하 축적과 달리 스핀·궤도 결합의 스핀 분리가 핵심이다. 정·역 스핀 홀은 한 카드로 묶는다.",
+      "source_url": "https://www.nature.com/articles/s41598-019-38687-4",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "spin-seebeck-thermal-spin-current",
+      "group": 8,
+      "related_keys": [
+        "seebeck-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "온도차가 스핀 흐름을 매개로 변환되는 경로로 일반 전하 열전효과와 구분한다.",
+      "source_url": "https://www.nature.com/articles/s41598-019-38687-4",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "spin-peltier-interfacial-heat-transfer",
+      "group": 7,
+      "related_keys": [
+        "peltier-cooling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전하 접합 열수송과 구별되는 스핀 주입·자성체 열수송의 역변환이다.",
+      "source_url": "https://www.nature.com/articles/s41598-019-38687-4",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "electromagnetically-induced-transparency",
+      "group": 13,
+      "related_keys": [
+        "wave-interference"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전파 경로 간섭 일반론과 구분되는 원자 전이 진폭의 간섭·흡수 억제이다.",
+      "source_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=920825",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "doppler-laser-cooling",
+      "group": 7,
+      "related_keys": [
+        "optical-tweezers"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광강도 구배에 의한 보존적 포획과 달리 속도 의존 광자 산란으로 운동 에너지를 소산한다.",
+      "source_url": "https://nvlpubs.nist.gov/nistpubs/Legacy/TN/nbstechnicalnote1353.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "sisyphus-optical-pumping-cooling",
+      "group": 7,
+      "related_keys": [
+        "doppler-laser-cooling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "속도에 따른 흡수 비대칭 대신 위치 의존 광학 퍼텐셜과 내부 상태 재설정을 이용한다.",
+      "source_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=956556",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "resolved-sideband-motional-cooling",
+      "group": 7,
+      "related_keys": [
+        "doppler-laser-cooling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "연속 속도 분포 감속과 달리 분해된 포획 운동 준위를 선택적으로 낮춘다.",
+      "source_url": "https://www.nist.gov/system/files/documents/2025/11/21/Jenny_Wu_2024_smaller.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "electrostrictive-quadratic-strain",
+      "group": 6,
+      "related_keys": [
+        "converse-piezoelectricity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전계에 선형인 역압전 결합과 달리 분극의 이차 결합을 다룬다.",
+      "source_url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication574.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "flexoelectric-strain-gradient-polarization",
+      "group": 12,
+      "related_keys": [
+        "direct-piezoelectricity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "균일 응력이 아닌 변형률의 공간 구배가 분극을 구동한다.",
+      "source_url": "https://arxiv.org/abs/0903.0684",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "photophoretic-gas-momentum-force",
+      "group": 1,
+      "related_keys": [
+        "optical-tweezers"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광자의 직접 운동량·쌍극자 힘과 달리 광가열 후 기체 충돌을 매개로 한다.",
+      "source_url": "https://arxiv.org/abs/1902.11177",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "depletion-osmotic-attraction",
+      "group": 10,
+      "related_keys": [
+        "coagulation-flocculation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전하 중화·고분자 가교 대신 비흡착 성분의 배제 부피·삼투압 차이가 구동한다.",
+      "source_url": "https://www.nature.com/articles/ncomms14305",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "solute-gradient-diffusiophoresis",
+      "group": 9,
+      "related_keys": [
+        "electrophoresis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 전극 전계 대신 용질 구배와 계면 결합이 이동의 원천이다.",
+      "source_url": "https://www.nature.com/articles/s41467-020-15889-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "solute-gradient-diffusioosmosis",
+      "group": 11,
+      "related_keys": [
+        "electroosmotic-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전계 구동 전기삼투와 달리 벽면을 따른 화학퍼텐셜 구배가 구동한다.",
+      "source_url": "https://www.nature.com/articles/s41467-020-15889-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "photonic-density-spontaneous-emission-control",
+      "group": 13,
+      "related_keys": [
+        "stimulated-emission"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입사 광자에 의한 유도방출 증폭과 달리 환경이 자발방출률을 바꾼다.",
+      "source_url": "https://arxiv.org/abs/1606.00167",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "coulomb-charging-blockade",
+      "group": 14,
+      "related_keys": [
+        "electron-tunneling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "장벽 통과 확률과 달리 섬의 이산 충전 에너지가 허용 전이를 제한한다.",
+      "source_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=926557",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "transferred-electron-negative-mobility",
+      "group": 14,
+      "related_keys": [
+        "semiconductor-impact-ionization-multiplication"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "충돌 이온화로 운반자 수를 늘리는 대신 점유 계곡과 이동도를 바꾼다.",
+      "source_url": "https://www.nature.com/articles/s41598-018-24387-y",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "precessing-magnetization-spin-pumping",
+      "group": 14,
+      "related_keys": [
+        "spin-transfer-torque"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "주입 스핀이 자화를 돌리는 토크의 역방향으로 자화 운동이 스핀 흐름을 생성한다.",
+      "source_url": "https://arxiv.org/abs/cond-mat/0609089",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "periodic-band-bloch-oscillation",
+      "group": 1,
+      "related_keys": [
+        "vibration-isolation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탄성 복원력의 진동이 아닌 주기 밴드 분산과 지속 힘의 양자 수송이다.",
+      "source_url": "https://arxiv.org/abs/cond-mat/0202053",
+      "retrieval_scope": "publisher_abstract"
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "1ac50352cc9b1b27374d1ddd9aa5c142f2c22b0494a98c24e14244bb1ef33678",
+  "reviews": [
+    {
+      "identifier": "AR-054784-A1",
+      "source_fingerprint": "e91315957a2e99d6962d4bd04a0db6dff76172285021f3fc633881b41e64642d",
+      "content_hash": "c9a8e714fd62b4bca057d270e9eb9d643a881014d535f379167918ba7ca90298",
+      "decision": "LINK",
+      "keys": [
+        "bischler-napieralski-cyclization",
+        "pictet-spengler-cyclization",
+        "nucleophilic-substitution"
+      ],
+      "reason": "초록이 두 명명 고리화를 대안 경로로 명시한다. 아미드 활성화·탈수 경로와 아민-카르보닐 축합 경로를 문헌 대조해 구별한다. 에피클로로히드린의 글리시딜에터 제조에 대한 기존 치환 연결을 보존한다."
+    },
+    {
+      "identifier": "AR-054874-A1",
+      "source_fingerprint": "28f586edd656e87eae8f01476fb0012510955ee53004087971b7a52b4cba6bac",
+      "content_hash": "2853daf57c29322582964823012db22751195a9c36838ec070abe36d98dd643f",
+      "decision": "LINK",
+      "keys": [
+        "hydrazine-pyrazolone-cyclocondensation"
+      ],
+      "reason": "베타 케토에스터와 알킬히드라진의 산성 고리축합을 명시한다. 히드록시피라졸과 피라졸론의 호변이성질 표기를 고려해 같은 질소 5원 고리 생성 원리로 연결한다."
+    },
+    {
+      "identifier": "AR-055078-A1",
+      "source_fingerprint": "9e0ebbc640a2e6b74e6c06a794f879d2278fc2acf814fcaf1285417b2dcb784c",
+      "content_hash": "4fced9f11134bca06088918a0b701139f14dc8097a779f3fd1bf580522e46b72",
+      "decision": "LINK",
+      "keys": [
+        "gravity-settling",
+        "aerobic-nitrification",
+        "anoxic-denitrification"
+      ],
+      "reason": "활성 슬러지의 호기성 질산화와 탄소원 공급·무산소 탈질을 명시한다. EPA 원리와 대조하여 암모니아 산화와 질소 기체 생성의 서로 다른 산화환원 단계를 연결하고 기존 침강 연결을 보존한다."
+    },
+    {
+      "identifier": "AR-055392-A1",
+      "source_fingerprint": "45eb125adf8a6908b142b991b307b6e3be2d5276f9d8d7718a20d2c621d93368",
+      "content_hash": "e162fa17c99076de8bf1a14f86dcb850c4e2b0426db010b0391f2cfde6f3f7af",
+      "decision": "LINK",
+      "keys": [
+        "deterministic-pseudorandom-generation"
+      ],
+      "reason": "엔트로피 입력·비선형 피드백 시프트레지스터의 상태 갱신·재시드로 수열을 생성한다. 결정론적 상태 전이의 일반 원리만 연결하며 NIST의 해시·블록암호 구현과 동일하거나 안전성 인증을 받았다고 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-055520-A1",
+      "source_fingerprint": "5c326847ff26ab19bba946645a40fe1b5f6dfff746b7cf5f9f2bd02fbf6ba275",
+      "content_hash": "ad20d7aff8fb3159d43a8ea43e36b33889be396e2b8dd74790cd2b59c67ade3c",
+      "decision": "LINK",
+      "keys": [
+        "schroeder-acoustic-diffusion"
+      ],
+      "reason": "원시근 수열로 정한 셀 깊이와 음향 확산을 명시한다. 지연·위상 차이에 따른 수동 반사 확산으로 연결하며 흡음률이나 모든 주파수에서의 균일 확산을 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-055587-A1",
+      "source_fingerprint": "9fbe32cf1003757a6d1bfb23c754971ba056483c367f1056b17b039d2ad41b23",
+      "content_hash": "797889bc8caba385ea7ae0538085e6a33c12d1649529bf004bb54cdcabab3cc8",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution",
+        "rayleigh-plateau-breakup"
+      ],
+      "reason": "동심 노즐의 액주를 진동으로 액적화하는 부분을 모세관 불안정의 응용으로 해석한다. 초록에 임계 파장·성장률 측정은 없어 예측 수치를 붙이지 않는다. 기존 장용 피막 용해 연결을 유지한다."
+    },
+    {
+      "identifier": "AR-055623-A1",
+      "source_fingerprint": "071a5dd22f4c39bcdac67221aab6c98c076696b6859012b4599335f63a33957d",
+      "content_hash": "bf095882c56057f6e29b4ab0411c013684ddbb75a3a1838cad4252399bd9329d",
+      "decision": "LINK",
+      "keys": [
+        "mimo-spatial-multiplexing"
+      ],
+      "reason": "MIMO·SDMA 전송 모드와 코드북 선택을 명시한다. 공간 채널을 통한 복수 흐름 분리 원리에 연결하며 다이버시티 모드까지 다중화로 간주하지 않는다."
+    },
+    {
+      "identifier": "AR-055639-A1",
+      "source_fingerprint": "02e6f39bf9924e2877de823cf59a37c05155d92446200bc35f450524d6e5e0e6",
+      "content_hash": "8654ac01f8aca24444f36122da8f48ede6da0ee1cfba0ac94d4527f0005de57e",
+      "decision": "LINK",
+      "keys": [
+        "positive-feedback-oscillation"
+      ],
+      "reason": "검출 진동의 위상을 보정해 구동에 되먹임하고 진폭을 제어한다. 전체 루프의 에너지 보충에 의한 자려 진동으로 해석하며 검출 신호와 구동 위상만으로 안정성을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-055824-A1",
+      "source_fingerprint": "e40e832be3cc72ebb9d9086b2ad633de37fdb04203ecabe9e63ea1c3c5584945",
+      "content_hash": "13978bd9ef32be822981edd0e0e34f45b250f4fbe690d1067683aae1a4f13474",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "vibratory-consolidation"
+      ],
+      "reason": "유압 성형과 침지 진동기를 함께 명시한다. 신선 콘크리트의 진동에 의한 접촉 재배열·갇힌 공기 배출을 문헌 대조해 연결한다."
+    },
+    {
+      "identifier": "AR-055837-A1",
+      "source_fingerprint": "8fe6c1decd9688ae2b1824e0d61124b39be7060acb217d9fdfeebebf510bd310",
+      "content_hash": "8a942631d24a5e070928db3bc944c7e660017b9a199f459ce00e41dc3ffd2b21",
+      "decision": "LINK",
+      "keys": [
+        "amide-carbonyl-reduction"
+      ],
+      "reason": "페녹시아세트아미드의 환원으로 아미노에톡시 생성물을 얻는다. 아미드 카르보닐을 아민으로 바꾸는 변환을 연결하되 특정 환원제를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-055927-A1",
+      "source_fingerprint": "a93d5627aea1032ae5787ff06683ed5c033249a1a1d4c77bbec0ecc2e9dcf69d",
+      "content_hash": "c74eb2f33da0890a4623c37c404dd0f1c10a34926f328b14f680631d80214fc1",
+      "decision": "LINK",
+      "keys": [
+        "uv-absorber-photoprotection"
+      ],
+      "reason": "광민감 경피 제제에 히드록시페닐트리아진 흡수제를 넣는다. 해당 계열의 광자 흡수·비복사 소산 문헌과 대조하며 특허 제제의 광분해 감소율은 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-055930-A1",
+      "source_fingerprint": "9fed6956d765849d8536935343d0b37e64c90b6e28a8084aa2070ef7d2a56cf2",
+      "content_hash": "8250b5150ce553c077c6580cce84ab7481230944e80330a3b0c22d2f03048850",
+      "decision": "LINK",
+      "keys": [
+        "cable-drum-linear-drive"
+      ],
+      "reason": "모터로 줄을 감고 풀리 반경을 이용해 주사기 피스톤의 힘과 이동을 바꾼다. 토크·반경·줄 장력의 관계로 연결하며 블록 도르래의 줄 가닥 수나 캡스턴 마찰 법칙을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-056406-A1",
+      "source_fingerprint": "347b9f35b282d86ae32fae9118530f931fc37990aca3405b7ae9b1a4e32b1117",
+      "content_hash": "85bcc58870d87a5ad2d9b5fcc3a0eb60f16db434eb2baf52bcb6245ddb994760",
+      "decision": "LINK",
+      "keys": [
+        "starch-gelatinization"
+      ],
+      "reason": "부분 호화 전분을 명시한 목재 접착제이다. 수분·열에 의한 과립 구조 변화 원리에 연결하며 접착제 전체를 완전히 호화했다고 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-056429-A1",
+      "source_fingerprint": "983bb95e29b033a82e62c28ca9bcbaaf1be40008eccb389c196c183e2f351b5f",
+      "content_hash": "797619e3705cf7dc14444a45e00909b48f764dddecf97c1fcaaa8f05c0c5c368",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening"
+      ],
+      "reason": "얇은 금속판의 리브·절곡으로 경량 내하중 구조를 만든다. 단면 배치에 의한 굽힘 강성 증가로 해석하며 재료 탄성계수나 항복강도 자체의 증가를 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-056667-A1",
+      "source_fingerprint": "e11605d7a4d35e73a323571bcd5223fefb17906d7d336aedbd6f419210f2e34b",
+      "content_hash": "5f64d0bbe961911a974c8e81833c1d9e512aadf77806c3fe0feb050853050532",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "회전 날과 조절 가능한 고정 날 사이에서 짚을 절단한다. 대향 날의 국소 전단·균열 발생 원리에 연결하며 특정 절단력 수치는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-056766-A1",
+      "source_fingerprint": "4f07df9483faa080f563361dd84d5b71801d9271db16decafe735d109ec0efb5",
+      "content_hash": "6c06a485ac620238388239e1e9e4513b720836a8c3bcf5365299dd774290df96",
+      "decision": "LINK",
+      "keys": [
+        "peptide-bond-coupling"
+      ],
+      "reason": "용액상 아미노산 결합·탈보호를 반복해 펩타이드를 만든다. 순서를 제어한 아미드 결합 생성으로 연결하며 초록에 없는 DCC나 고체상 합성을 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-056788-A1",
+      "source_fingerprint": "63b55af1bf9065332abdb53d3207e6056d60bf29f9ea527631df55c3ef41238e",
+      "content_hash": "561a8c895a55bea95cbdadfd788a1f70e29668c72c4dc6e79cf717e1415e86bb",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation"
+      ],
+      "reason": "AP2/ERF 전사인자와 스트레스 유도 프로모터를 명시한다. AP2 계열 인자의 DNA 조절 서열 인식·전사 활성화 실험과 대조하며 해당 특허 서열의 효능을 별도로 검증한 것으로 표시하지 않는다."
+    },
+    {
+      "identifier": "AR-056844-A1",
+      "source_fingerprint": "8a133e89299712283a3b119334af92945f07fb9829c48392914ebafaadf65377",
+      "content_hash": "bb7a65b422d011f99bef23f2c4d36f4961633a0889632fa11a64796f606d8945",
+      "decision": "LINK",
+      "keys": [
+        "hypochlorite-oxidative-inactivation"
+      ],
+      "reason": "수용성 차아염소산염 항균 조성이다. 활성 염소의 단백질 산화·기능 손상 실험을 근거로 기구를 연결한다. pH에 따른 HOCl/OCl 비율이나 혼합 조성의 상승 효능 수치는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-056935-A1",
+      "source_fingerprint": "46f5b346496e9ad037ca8cd0c3b9fcd6d313c99009d92f053084a909af09b5d7",
+      "content_hash": "d3e8ef9326046e8b98dca5fd0a5d4b2c93b04166d70d3a6b8860501c89df1435",
+      "decision": "LINK",
+      "keys": [
+        "rough-surface-diffuse-reflection"
+      ],
+      "reason": "미세 함몰을 가진 금형과 낮은 표면 광택을 명시한다. 거칠기에 의한 반사광 재분포를 설계 원리로 해석하며 완전 램버트 분포나 표면 전사 정도를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-057050-A1",
+      "source_fingerprint": "e5e65e9714c46f0fed27bedba08d5e321d86845428b4782624103e38c92c592b",
+      "content_hash": "f8821639cb9d023cf910b8299ca780348cafea2d32e6df82075e5ad59c20f981",
+      "decision": "LINK",
+      "keys": [
+        "oxidative-drying-crosslinking"
+      ],
+      "reason": "산화 건조 수지와 알칼리 가용 아크릴레이트의 수성 도료를 명시한다. 산소 참여 가교로 경화하는 원리만 연결하며 모든 조성 성분이 같은 경로로 경화한다고 보지 않는다."
+    },
+    {
+      "identifier": "AR-057158-A1",
+      "source_fingerprint": "a30bb9e2e0956f37f30b66d742f6e99017c5be0dfd81325ba7ced1855d014290",
+      "content_hash": "c3070358dcafd79720f86bd9caf013b0e9bbbe24e9be8730ada4d157e43cedd1",
+      "decision": "LINK",
+      "keys": [
+        "progenitor-cell-differentiation"
+      ],
+      "reason": "모낭 전구세포를 놓은 곳에서 모발·피부가 형성되는 응용이다. 전구세포의 계통별 분화와 조직 형성 원리에 연결하되 이식의 임상 성공을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-057335-A1",
+      "source_fingerprint": "155a6dc030495bc51827e2693f5adb7028c59334ba24abd139ebabbc28f4cdd1",
+      "content_hash": "0c3aa67645ffd5be2b0e031363cd08ef0ef4e7bea9e734e2ba3c1c965d6deaa3",
+      "decision": "LINK",
+      "keys": [
+        "vapor-compression",
+        "azeotropic-phase-equilibrium"
+      ],
+      "reason": "압축 냉동용 공비·근공비 혼합물을 명시한다. 기액 조성 차이가 작거나 공비점에서 같아지는 평형 특성을 연결하고 냉동 사이클 연결을 유지한다."
+    },
+    {
+      "identifier": "AR-057342-A1",
+      "source_fingerprint": "3d792fbc2df1fd47c4a9dc28c7409db5b60aa90f10f569f8ed5d2c6a321eb705",
+      "content_hash": "d7a40ac280d85d494e750547e7c65777740ff701f6a797f527c85780f946b32f",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "oxidative-dehydrogenation"
+      ],
+      "reason": "혼합 금속 산화물 촉매와 산소로 에탄을 에틸렌으로 바꾸는 선택적 산화를 명시한다. 같은 반응군의 연구와 대조하되 연구의 다른 촉매 조성·수율을 특허에 이전하지 않는다."
+    },
+    {
+      "identifier": "AR-057675-A1",
+      "source_fingerprint": "b9fcc392455ca16d34de43ba2c1dce22dc9225673f52d7872bc7978d0957cde2",
+      "content_hash": "74ba9181a2e4fb00a6e384a57f64e4ea2628687095bee767fcd4f3453ce71649",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "transesterification",
+        "le-chatelier-equilibrium-shift"
+      ],
+      "reason": "고체 촉매의 탄산에스터 교환과 기액 조건으로 제한 평형을 이동시키는 공정을 명시한다. 결합 교환·평형 조성·촉매 속도 효과를 구별하고 단순 상 공존만으로 전환 향상을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-057830-A1",
+      "source_fingerprint": "76bbc7ba3f6044980eaa7c412fbd87017aa35b1356ba57e49b63fc26addd2d0b",
+      "content_hash": "ac02e361ad194ae6b03ae057230a7b75f6dc7272dc2827f68c81197e10faee5e",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "carbonyl-ene-cyclization"
+      ],
+      "reason": "시트로넬랄에서 이소풀레골로의 고리화를 명시한다. 특허 제목은 분자 내 Prins라 부르지만 같은 변환의 알루미늄 촉매 연구는 엔 경로로 설명하므로 카르보닐-엔 고리화로 연결한다. 해당 촉매의 정확한 전이상태를 검증한 것으로 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-058019-A1",
+      "source_fingerprint": "dee121a95cf6bcac648abb12a78d3db8d6d289d1c0eb1915fb214cacfb63b3cc",
+      "content_hash": "098737cd6845cbf976eea1a115d69ce84207da5bb0e962754d8d60924e2ec35a",
+      "decision": "LINK",
+      "keys": [
+        "amide-carbonyl-reduction"
+      ],
+      "reason": "아미드 부분을 환원하여 아민 연결부를 갖는 목표물을 제조한다. 아미드 환원의 추가 특허 근거이며 환원제는 명시 범위를 넘겨 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-058090-A1",
+      "source_fingerprint": "4255ce65a88297d08a59ba7f8e3bfcc3047e19474acabf68746ec4eaa31f28dc",
+      "content_hash": "446eef7248dbd7d724ea655e87c9391ebc5de359b3d5c3b3af510ff5736de73b",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching"
+      ],
+      "reason": "물과 차 고체의 접촉·우림·여과를 명시한다. 용해 성분의 고체 내부 및 경계층 이동으로 해석하며 액액 분배 추출과 구별한다."
+    },
+    {
+      "identifier": "AR-058091-A1",
+      "source_fingerprint": "431f4abbf0278161123b7de9543c172be792a4ad17faf06752b12357421e9159",
+      "content_hash": "e74c180b0c62831371b75a2635ce908232ab77663601c23fcc6324b20a279a99",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching"
+      ],
+      "reason": "차 캡슐의 침출과 여과 뒤 저압 배출을 명시한다. 고액 침출의 추가 구조 사례이다."
+    },
+    {
+      "identifier": "AR-058129-A1",
+      "source_fingerprint": "ec402464c3bbb1901280c72a137f4a66e2ff9be6066bde27e242c6328dc9578a",
+      "content_hash": "f02fa32cebc31def0a9e12f8f8580d1c935349c58df0c713bc66dbd5179f2892",
+      "decision": "LINK",
+      "keys": [
+        "antibody-dependent-cellular-cytotoxicity"
+      ],
+      "reason": "항체 Fc의 올리고만노스 당쇄와 ADCC 향상을 명시한다. 항체-Fc 수용체-효과기 세포의 표적 살해 원리에 연결하고 특정 당쇄가 모든 항체에서 같은 향상을 낸다고 일반화하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T21:33:59.720750+00:00"
+}

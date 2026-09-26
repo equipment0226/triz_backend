@@ -1,0 +1,191 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e635d30583764aa94f5276f4415585d091227e74bbfc87713bdd6fe842f5f463",
+  "reviews": [
+    {
+      "identifier": "AR-089643-A2",
+      "source_fingerprint": "7de1e78b2d41b86f67204aea69154cc815d27addfb8cf01c90eae2a83b2fcfdf",
+      "content_hash": "9bb51787c76a07bec6a59b523782aa589f59bfd26ed7cc509beea945dadf7d49",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 화합물 구조 목록만으로 구체적인 표적 작용을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-089645-A1",
+      "source_fingerprint": "677cb07c46861bbc4e7b469295ccafd358953041f7a73908b049084ed6c9d7a9",
+      "content_hash": "750ce7db3c782d9823b0306abe0b3b77d80e54d10749d6f2e18db0935bf9f68d",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "다층 고분자 피막으로 활성 성분의 구강 접촉을 제한하는 맛 차폐이다."
+    },
+    {
+      "identifier": "AR-089682-A1",
+      "source_fingerprint": "d04ebb8ffafa32d47cdeb83d29d2df029081a6fb0f4574bcf946b87320d4d4ba",
+      "content_hash": "44924e00c52e87f6c01aa7a74ab385511227aeb78354910682f5b2223838d06a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "SYK 효소 저해이다. 동일 표적 계열을 새 효과로 나누지 않는다."
+    },
+    {
+      "identifier": "AR-089685-A1",
+      "source_fingerprint": "17696a30544302666fbb889a1e0cf10cbeade3283f932bfccc294b76788798a8",
+      "content_hash": "7a887fe418f3547e2854d171e978517e45a2ef8eb7aa9d12b9a57a9a2ddc7796",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "냉각 유로의 유체 흐름을 이용한 열 제거이다."
+    },
+    {
+      "identifier": "AR-089726-A1",
+      "source_fingerprint": "4a5392470726f440a106fd3ebbee34b2fe63dbdecd955ad410fd21b015bcc29d",
+      "content_hash": "e159d411e6853192d3ddad915648757f40a976d687545c15b2880e0174287507",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "상하 케이스의 교차 배치된 삽입 걸림으로 변형을 제한한다."
+    },
+    {
+      "identifier": "AR-089737-A1",
+      "source_fingerprint": "7bf5ca0280875eddbd0cec536d02c0fd3fa4eb57ab8a9a8af1f1cc2475737948",
+      "content_hash": "de2198552bb4381c67fd060c914941c6ffba1480dc920e59db7e1baa91a45a37",
+      "decision": "LINK",
+      "keys": [
+        "adsorption",
+        "antigen-specific-immunization"
+      ],
+      "reason": "알루미늄 표면에 항원별 흡착 상태를 달리하는 백신 제형이다. 제조 조건을 신규 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-089752-A1",
+      "source_fingerprint": "d2e29894f64af0ea550d1d760c576b4d036dcb2452e3aa13c414ed7fda629aa3",
+      "content_hash": "295a54cf4bae7b9637f54eaa7dfd9b2da2caf3bc361b133c6fc6fae7e4170b8c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "LRP5 선택적 항체 결합이며 후속 신호 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-089769-A1",
+      "source_fingerprint": "a0e1b357ad69a88f7e0b6acb7955e3066cda9e954df7057cfd3e0cc31322126d",
+      "content_hash": "a0f14e0129ca7073ba18e71839fd7abca9c3e46f6f40285d05a6cf4fbd053733",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 방제 복합 조성이나 각 성분의 작용 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-089775-A1",
+      "source_fingerprint": "39b280fbab58d5e8c617ff457aacbccd8435927de1186c0a846d2b1cf87f155b",
+      "content_hash": "12e1e5e8b8922bec50ae64e7ebda05c99a3dbe859340087b97a9ff72dfb879d8",
+      "decision": "LINK",
+      "keys": [
+        "electroluminescence",
+        "total-internal-reflection"
+      ],
+      "reason": "LED 빛을 투명 판 내부로 입사하고 표면에서 추출하는 도광 구성이다."
+    },
+    {
+      "identifier": "AR-089779-A1",
+      "source_fingerprint": "f8dcfcb6b0bb7a52cadc23116167e04ddc1e5801d642c50b01d759ab32627f4c",
+      "content_hash": "316a1334fa3e3ee580a5e7a131b2202837a73acd0264023e0c8b90d24dde0677",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "NFC 근거리 결합으로 자산 데이터를 읽는 인터페이스이다. 특정 부하 변조 구현은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-089807-A1",
+      "source_fingerprint": "df0e2cf94dd58a7b5b58b1cc7d6acefda0eaa75ffd9e8abb9c39a78eeb9f5f26",
+      "content_hash": "8d6763b76becdef63f5c82aaf173c1fba11f9f65a35867baf7047cbeba3a6420",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "MDM2 및 MDM4 관련 치료가 제시되나 저장 초록만으로 결합 차단과 효소 저해를 구분하지 않는다."
+    },
+    {
+      "identifier": "AR-089828-A1",
+      "source_fingerprint": "c73e8093d9b13f7f4ba1c29f5ee697521056c1d49aabd934ca8389a1f7089873",
+      "content_hash": "80cc57ce14988eadfe879a6240d031f171951d3cf31bec89f0567d98706dbf21",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "heterologous-gene-expression"
+      ],
+      "reason": "변이 리파아제의 발현과 촉매 반응이다. 특정 잔기 변경을 별도 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-089830-A1",
+      "source_fingerprint": "05813325e95367e7034ba0412964791512f1fe96a4289c4a164c592f4f857d3a",
+      "content_hash": "04a7b5b106ac0949e560e63ab9ea93d3479671fcafa3c74f80817591abbd313d",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물에서 방어 펩타이드를 발현한다. 초록에 없는 구체적 막공 형성은 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-089833-A1",
+      "source_fingerprint": "de5a3976d999fceecf2ba3facaa5955a004ba1c79a56865f388bae5a43779059",
+      "content_hash": "be22509d44cb64b619e3d63ab995ea6f6c5656a4d258b0113e9d23c326cf8a3e",
+      "decision": "LINK",
+      "keys": [
+        "antibody-dependent-cellular-cytotoxicity"
+      ],
+      "reason": "ADCC 항체 작용과 면역세포 침윤량의 연관을 다룬다. 예측 성능은 임상 검증 별도이다."
+    },
+    {
+      "identifier": "AR-089844-A1",
+      "source_fingerprint": "3c30d1ec54b52ab3406c5fe82ca67ca402f98553b5f6bdc21119c11fd67fe6b4",
+      "content_hash": "d149bd2f5259ac5bbb44e556cf9d06c7688287eeaaf059cbd416e0a2484693e4",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "손잡이 지지대와 경사면의 배치만으로 특정 효과를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-089845-A1",
+      "source_fingerprint": "bc7276ab52249fad16cb760de31584142bc9b661f4585aa39e24702a19d026e7",
+      "content_hash": "832b6f0be097671fa4674c9175c60b4fe23f2681f9482e3960c134519cf3f4dd",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "주석과 바니시의 내부 피복 분포를 조절하는 용기 구성이다."
+    },
+    {
+      "identifier": "AR-089872-A1",
+      "source_fingerprint": "2deb1c0909e8ade3573c90fb504c492baa4ac03317d965566244d867bca3ace0",
+      "content_hash": "327a9d64fd7fea08ee0283af2adee14b24351196190557140fe75170a63ccab8",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "제초제 저항성 EPSPS를 발현하는 식물이다. 표적 결합 변화의 작용은 별도 문헌 대조한다."
+    },
+    {
+      "identifier": "AR-089873-A1",
+      "source_fingerprint": "c7732cfc13455f1b840e10cf46dc246a74528ecb3e371a19d33ad03fd09db6d2",
+      "content_hash": "a7d1bd54bdf2af43cd949f55af87c1c97b2e2c0b13d777f9e88084668216742c",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "발현 서열의 제초제 저항성 부여이며 작용 경로가 구체화되지 않는다."
+    },
+    {
+      "identifier": "AR-089876-A1",
+      "source_fingerprint": "46a3821005756597e4a699c60a2bee88757189c1848c886ae3afaddb4c79b9d8",
+      "content_hash": "5e3a70831a05993c6f9dd35a5220f49e20abd9a2fd90105dc5e55a12b45ba31a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 조성의 긴 치환기 목록만으로 표적 작용을 도출하지 않는다. 저장 초록은 목록 중 절단되어 있다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:09:13.745135+00:00"
+}

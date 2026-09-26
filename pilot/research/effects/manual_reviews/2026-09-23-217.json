@@ -1,0 +1,267 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "77476f3f952adbd26ea9abc2f9b10b33af24acfa523c0ccd133f9c9c74ba05b3",
+  "reviews": [
+    {
+      "identifier": "AR-112189-A1",
+      "source_fingerprint": "99d408c9ced6480361aed0b0ade9e52c8f7366fac6312a2e9dc43d3749da2ad5",
+      "content_hash": "0f05050bd86008dbc823580a92734ce4599452d73676b992c07256b5aeb69fb2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "어안 영상의 단안·입체 표시 구문이다. 깊이 지각 원리를 별도로 입증하지 않는다."
+    },
+    {
+      "identifier": "AR-112193-A1",
+      "source_fingerprint": "9b14504c14f7d1d1bf19741a155b29081e194576e1d35aaffcab9e75259ab16b",
+      "content_hash": "1ba502307be786ec4326994c3d06f1b7c816106939039b02c740be7d8d0c0472",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "생장 환경 측정과 생산 결과를 바탕으로 환경 제어 설정을 조정한다."
+    },
+    {
+      "identifier": "AR-112212-A1",
+      "source_fingerprint": "a17a625b2c2e74fba3e97025bb68eb7d3757f0f7c01153bb7308ae5af4ffc5fb",
+      "content_hash": "bac62dc42c25bdc5cedd9f101fc350b576fdc7e9956322b932457e1171430f95",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "L 글루포시네이트 조성의 잡초·작물 선택성 주장이다. 구체 효소 표적은 초록에 없다."
+    },
+    {
+      "identifier": "AR-112217-A1",
+      "source_fingerprint": "e0a4f345e44a67264bbccc3db1015d094c22b073794beee6692886f31e60cbc0",
+      "content_hash": "dc65f84299220a579640cbdd1efd0ca8919b4b463e857b2c9ce249666107cc9c",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "MPS1 효소 억제와 탁산의 조합이다. 미세소관 동역학 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-112228-A1",
+      "source_fingerprint": "43160f2e3a0afd5c69e323e17f54ab35e55c918f0734b3962c92a5e109b60ab0",
+      "content_hash": "4c1bc3797a96775cb33207a81f72f9c621e306beeb32c58883b29de863e67f59",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "펩타이드 MHC 표적 TCR과 면역 효과기 모집의 이중 결합이다."
+    },
+    {
+      "identifier": "AR-112231-A1",
+      "source_fingerprint": "a3b8ce06467bc5bb04146a33654c04107b5421cac11d6550628df0dd35246b87",
+      "content_hash": "9a2abb3d94e2155addfe8e1981c3305021dca9934269a89121fdcdbca8a32d97",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광학 매질용 조성이라는 정보만으로 개별 광학 작용을 식별할 수 없다."
+    },
+    {
+      "identifier": "AR-112235-A1",
+      "source_fingerprint": "b9611be85a3383a97510c1a8978314e64d2c8b960c9c9711edcfa093e9010585",
+      "content_hash": "231c1053b829b3e89ae0f703de51c447ae161436abffef1f98cb25f646d8a7a5",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying"
+      ],
+      "reason": "경사진 혼합 장치에서 나선 스크루가 재료를 이송·배출한다."
+    },
+    {
+      "identifier": "AR-112237-A1",
+      "source_fingerprint": "dfecb3a4984775a95cb74952b881c8b79c2951f4223a032c7d578bd99e10b8e0",
+      "content_hash": "123974e9cc2c74c956fda8948e07c16a99ad61b9d9edcf03df05f96add46febf",
+      "decision": "LINK",
+      "keys": [
+        "timer-response-suppression"
+      ],
+      "reason": "동일 이벤트의 측정 보고를 금지 타이머로 제한한다."
+    },
+    {
+      "identifier": "AR-112238-A1",
+      "source_fingerprint": "ede58449c83ee08b76c5c7989340d3409cd7293543a2b40002b12ef5fc06dad0",
+      "content_hash": "e7804c10ad8ef03d179cd4c00d0d733b1d424053f6677f7e7f245d6410fd7d5a",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-contact-switching"
+      ],
+      "reason": "릴레이로 차량 전기 회로를 원격 개폐한다. 우회 절차는 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-112241-A1",
+      "source_fingerprint": "8941f66b79b88ec2fd7b14ffe445746a6a426c72507b0683133a80e597e65e51",
+      "content_hash": "5a7331f8a491ff19617c3c0e62abdabfadd30a21729a1c5eefb7af38fbca7596",
+      "decision": "LINK",
+      "keys": [
+        "gelation",
+        "enzyme-catalysis"
+      ],
+      "reason": "연성 겔의 세포 패치에서 분비형·막결합형 MMP가 기질을 분해하여 세포 이동을 돕는다. 세포외기질 단백질분해 재형성을 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-112260-A1",
+      "source_fingerprint": "657fbdf0a4365821a27460b0734893f0aca5b88dd544ac7d144ddd16a59b5103",
+      "content_hash": "c5c58caa0b3e80ee5dce4d8f768b3f523b1bc4548d0c929b9a726b33bea3b69c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "인조 잔디용 중합체·장쇄 알코올 조성이며 각 첨가제의 작용은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-112262-A1",
+      "source_fingerprint": "8c53bb54323d0b35a8c91ced9779af4484d4869bdcb3fcb9013e457d7f99cae3",
+      "content_hash": "3759f56671f07e455e5ba122c24f7b6ee0ef00c5ce2d163806e1df4c1ac29902",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "화장품 추출물과 수용체·자가포식 지표의 주장이다. 토코페릴 아세테이트를 유리 페놀 항산화제와 동일시하지 않는다."
+    },
+    {
+      "identifier": "AR-112288-A1",
+      "source_fingerprint": "4882a54496ce4feab4bd1ddee039980725e10293422e6e92436fa9de7b5e9f05",
+      "content_hash": "f23e7ad5318ea2a8b2bcb6d02f00d434e5f6cdfd81eccdbd5019e26713018c60",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "텔로머레이스 억제를 이용하는 치료 조합이다. 임상 효능·용량을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-112301-A1",
+      "source_fingerprint": "1910df085cb373c379944bfd6907edc9dda91b91d4df4327e181044be58e2c4c",
+      "content_hash": "efffe4dcc9bcd8df5c588966518f7b0dd8740489cfd76be4985864c3ee0a6d51",
+      "decision": "LINK",
+      "keys": [
+        "nearest-neighbor-retrieval"
+      ],
+      "reason": "영상의 주요 색상과 가까운 도료 색상을 검색한다. 거리 척도는 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-112307-A1",
+      "source_fingerprint": "122db57d4b68841750f2870a165a3f395369832a4b992abfd195fcd46b62b992",
+      "content_hash": "2c30b2d386f7e07b2e797f814107bf59b2294c4bd59d6c9f733afd5f1eed589a",
+      "decision": "LINK",
+      "keys": [
+        "fluid-dynamic-lift",
+        "electromagnetic-induction",
+        "combustion-heating"
+      ],
+      "reason": "프로펠러 양력과 내연기관 발전기의 전력 생산이다. 비행 안정성·안전성을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-112312-A1",
+      "source_fingerprint": "eacabdd77320307cf62cecd4e165ec4a15f890658f20526b8fa18a5396d6f75e",
+      "content_hash": "5b00e2d5c19d83cfd3a5d9e2b3073cc01a6a57450c10e8fe7917d7d97e78c1d9",
+      "decision": "LINK",
+      "keys": [
+        "cyclone-separation",
+        "bulk-comminution",
+        "evaporative-concentration",
+        "pneumatic-particle-transport"
+      ],
+      "reason": "회오리 분리·분쇄·열풍 건조·기류 이송을 결합한다."
+    },
+    {
+      "identifier": "AR-112316-A2",
+      "source_fingerprint": "9c165ed44fbbaa7cb8030e382875b1b0eeee4e5b4000c48566414820e28d64d9",
+      "content_hash": "4840a61d4fc3abe5e2ebb6929f948f0e3bd0bbb8f5484c6bbc1fe7c77289e37b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "지지 프레임과 슈트로 프로판트를 공급하는 컨베이어 배치이다."
+    },
+    {
+      "identifier": "AR-112322-A1",
+      "source_fingerprint": "75d1de63e151623993fa396fc7bdc75ff4c15524325e296ec310af43d39c42cd",
+      "content_hash": "dda64e5cce03dcb127c3b7c077117ae28c1788c842b2ddff8776f7d9d0975adf",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "동축 회전 관절과 롤러 배치로 벨트 경로를 유지한다."
+    },
+    {
+      "identifier": "AR-112359-A1",
+      "source_fingerprint": "40160ffc07c49a9752f6c76790594ca444ff96fd793da7299ceb0c81331351d4",
+      "content_hash": "0a81cbb5a7ec8a4780ea227b24fe5fc4d23c9a91a93e5018a9736247fa9fa7b3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "포장 필름의 분자량·공단량체 분포 조건이며 작용 차이의 근거가 부족하다."
+    },
+    {
+      "identifier": "AR-112367-A1",
+      "source_fingerprint": "ebf70fb5ea9a0aba0340fdf5fa1fc62a0d2a3f6de75779e606cc25ceae549bac",
+      "content_hash": "ccad6b2786cf5d41d7f3b8199ca06775dba0e06d4457cd2e6d88bd77a9c03ae3",
+      "decision": "LINK",
+      "keys": [
+        "queue-buffering"
+      ],
+      "reason": "전송 피드백에 따라 버퍼의 메시지를 삭제한다."
+    },
+    {
+      "identifier": "AR-112422-A1",
+      "source_fingerprint": "d3938b9df6f24d1af9720457261464bd9bcc0117436507a3626da5553a612f51",
+      "content_hash": "806435d9293191aa1776331769ba8198a5c4acf1ece7bb3a5c348686eb5a7eeb",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "evaporative-concentration"
+      ],
+      "reason": "호기성 미생물 배양으로 단세포 단백질을 생산하고 건조한다."
+    },
+    {
+      "identifier": "AR-112430-A1",
+      "source_fingerprint": "5e79b077041b0323396f5d50ed2b51c0aa9e1ac00ebb572e46569b94d5d719b6",
+      "content_hash": "62e714b4fd73f6e631bd750aecd9d167f6768fd9df7e4a5ad8ef94af9cc9d120",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "종자 정량 공급의 동기화·간격 조절 장치이다."
+    },
+    {
+      "identifier": "AR-112477-A1",
+      "source_fingerprint": "440c97931612f9051eb7cd75e83d311f91b7929b90719e52731ec3b359439de9",
+      "content_hash": "8720a888e4e44b5e2008a2f913e351f140270541553972794ccedb5641d4136a",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "acid-base-reaction"
+      ],
+      "reason": "베타인·타우레이트 세정계의 아미도아민 양성자화와 전해질 증점이다. 미셀 성장 기여는 별도 확인한다."
+    },
+    {
+      "identifier": "AR-112481-A1",
+      "source_fingerprint": "2e35e6788aeebd880ac994bd5f7fd4eb40a26b796fa6868fd3621fa4dcaa15d8",
+      "content_hash": "294b0fecd8ff69ed9c48105b6f63be042079af775452c9e3b1ad6f7f5f0ae638",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "B형 간염 억제 화합물의 Markush 구조이며 분자 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-112483-A1",
+      "source_fingerprint": "cdb2bf3aab3311bb8347fd170b89348661effbded2ee31d24eaabe81ab99a846",
+      "content_hash": "383e64a766304d0952af318eced2f8eaf0714fe3b8bfe07aa59d24f481657ecc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "재배 트레이의 오염 확률을 평가하나 감지·추정 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-112498-A1",
+      "source_fingerprint": "0963d4f19c192d1f5f16bae0c4f0a8b8bfc60d73ee056ff758f5580f800730d2",
+      "content_hash": "d1e8df9e2b424b7fbe813fb0c6afb2922e7250916b1cc45105350f9498b1aaa9",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "frictional-load-transmission"
+      ],
+      "reason": "압축 기체의 피스톤 작동으로 집게를 움직여 전선 묶음을 잡는다. 액체 유압이라는 뜻으로 한정하지 않는다."
+    },
+    {
+      "identifier": "AR-112528-A1",
+      "source_fingerprint": "2e70c141be58c4fc6096e0e5309a6746c85cd70bde4bd2502ff6a7460c1f4ef5",
+      "content_hash": "5a8ddb229779d7280b45ce89ae6990910d4b5e09271bd526e3c46de3aab7feac",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "베타인·타우레이트와 양이온 성분을 결합한 세정 조성이다. 전해질 증점의 추가 사례이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:01:30.409692+00:00"
+}

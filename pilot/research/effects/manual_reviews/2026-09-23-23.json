@@ -1,0 +1,180 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "2203eaed7bf222f091e3e24bbbd607c5d2fd17481f7ad9b5f056e02747fa60a6",
+  "reviews": [
+    {
+      "identifier": "AR-080539-A1",
+      "source_fingerprint": "410173e9d29752adf7f9cdb4437e9438c1ae40da122329aee5cb1c553ba0880e",
+      "content_hash": "7e0f57dd401af2c59e25e0c23b55bcfed8d1272cd8f50b3c97ed3d5e613362ad",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "류코트리엔 A4 가수분해효소의 조절·저해를 표적으로 한다."
+    },
+    {
+      "identifier": "AR-080552-A1",
+      "source_fingerprint": "af7f167846cc57c23df405b63e68f452726f53309b946f229cc6c6dfade85292",
+      "content_hash": "b7d2eedb29a5037b138e69c60bd07ba5a09929686fa214bf5af3df11bc2fb165",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전자기파 가열 장치지만 파장·흡수 방식이 불명확하다."
+    },
+    {
+      "identifier": "AR-080564-A1",
+      "source_fingerprint": "d935110cd5b825e80c659502131d30df5740fd11b1bdc99142ae8db45fdd6a1f",
+      "content_hash": "f5217364604ef9099754b33f35fcc89585f6f86eb67da1ff66a6d4a5c23d68f6",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation",
+        "enzyme-inhibition"
+      ],
+      "reason": "HER3 결합과 다른 HER 수용체 또는 키나아제 저해를 조합한다."
+    },
+    {
+      "identifier": "AR-080575-A1",
+      "source_fingerprint": "410b8a9d3b25d270d43a261168c09034f1b320a0a6cfff24922b66834380a494",
+      "content_hash": "dba9933b7d619700da6d33d68d567a4e88b28605befad29e1ec56f122cb4303c",
+      "decision": "LINK",
+      "keys": [
+        "spray-drying",
+        "surfactant-action"
+      ],
+      "reason": "세제 슬러리를 노즐 분무 후 건조해 분말을 만든다."
+    },
+    {
+      "identifier": "AR-080577-A1",
+      "source_fingerprint": "b07144f64e225f41e1973e4d04e0b6d29de11c6ccdb18f605b1920d1aa2d4a55",
+      "content_hash": "2b71625e3dd0b93b40653273b4b9444bfdedb3280f05dddd1c07deaf67af663f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "매니큐어 병을 보기 쉽게 배열하는 이동식 카트이다."
+    },
+    {
+      "identifier": "AR-080579-A1",
+      "source_fingerprint": "2ad7ded751e411c03dd47d15e18f6e2d4feba1659d30d69ddbd5fde78d9fbf37",
+      "content_hash": "5bef988f24ba9ffc82ef5a411d6f2bad6ce352bd24de993493c45d75a0a4cead",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion"
+      ],
+      "reason": "항공 파종 용기를 전자석으로 붙잡았다가 방출한다. 비행 안정성은 형상만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-080592-A1",
+      "source_fingerprint": "5a732176c1cfb02f80219b9f45d6b0200f6e6ae5fa47a3cad9e3e0a23753748d",
+      "content_hash": "29ccce7f704ae9d72e17945016916ba2f3b221a8af842a9eb25a1b5d6c70dd46",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "pegylation-steric-shielding"
+      ],
+      "reason": "GIP·GLP1 수용체 작용과 선택적 PEG 결합을 제시한다. 임상적 유효성은 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-080596-A1",
+      "source_fingerprint": "b9dbf8ed90de2ec6795e79654b112fa49155f6e0c6a6543a1886638427a2dd3b",
+      "content_hash": "19daa604d9c93fcf1a5cf310c9cf3b6736a44ff4a91eebbcc6f8d54ab8ed5be5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알킬아미도 화합물의 구조만 있으며 작용 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-080608-A1",
+      "source_fingerprint": "c51bcd155bd79376555e4b53e38abb3dbad72b061141151e8abca5a9196817a1",
+      "content_hash": "56e1c8b89ba647e35feb4875ad75b08b55fde2c3a2de38ddbe60086bd7aae146",
+      "decision": "LINK",
+      "keys": [
+        "cable-drum-linear-drive"
+      ],
+      "reason": "케이블을 감는 드럼으로 벽체 성형 틀을 수직 이동시킨다."
+    },
+    {
+      "identifier": "AR-080621-A1",
+      "source_fingerprint": "59a3bf9b16ed224dd57472767dd705f41dd224d3c729638251e41441466c5682",
+      "content_hash": "8e953b72f71f4ab64b0271d0adf2207662ecf6556c5772ecd52e761814ce5c2d",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "biomolecular-recognition"
+      ],
+      "reason": "항원 면역 유도와 항체 인식을 이용한 진단 원리이다. 제조 최적화로 확장하지 않는다."
+    },
+    {
+      "identifier": "AR-080632-A1",
+      "source_fingerprint": "ae67b75796cee38a7ddae6fbd74ce747683d50e1418a0311b681e718b72eeb3c",
+      "content_hash": "84da6a7e48a33bece09e0fd916dcd1c80e042ef6b57ff41822f611d37846df30",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전기응집·전기부상·산화를 결합해 폐수를 처리한다. 전극 용출 응집과 전기분해 기포 부상 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-080635-A1",
+      "source_fingerprint": "19a240f91f25c2bbda3a2d9e8bd18c695e4a3495d6729afcd2118c1e1f32dbed",
+      "content_hash": "f5fcc87858d9b273d1d59f136ce3c6c503012445e12d83a3fee7854b58679e12",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "활성 입자와 결합 입자의 다공체이다. 흡착제 종류와 작용 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-080638-A1",
+      "source_fingerprint": "df49736f241937de7599b3433234b91cdc886520d908727da89556497c960022",
+      "content_hash": "4ad27a2b0845cabbb7f24bed71516e95a09ddc9b6e23ad223b10a802524f1d90",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control"
+      ],
+      "reason": "유기규소·불소 계열 표면제로 암석 젖음성을 변경한다."
+    },
+    {
+      "identifier": "AR-080647-A1",
+      "source_fingerprint": "ad2c9328d4e18ef53b76ef0f505c3678685b4c32d3036e8e385eeaea9487c4c5",
+      "content_hash": "35a5a1618e27ded44bb4041729fdd58d4527094c77460741045e435be87a63c9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "해충 방제 에스터 화합물의 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-080660-A4",
+      "source_fingerprint": "4073c3662c9862b6f93450b3f9dcbb8b944a2d699b5c0b87c18baf0efc9ae38b",
+      "content_hash": "ee2b2deeb88beb18b8f248bdc2a39578c8961e43412f834e5b12b9f125c27860",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "우주 정지위성 연결 관과 이산화탄소 해리 주장에 에너지·구조 타당성 근거가 없다. 검증된 효과로 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-080661-A1",
+      "source_fingerprint": "f2cf2788adfc88392e405b4102d7be0d38dfb1eb76b884238fb5ea9cbf72ff0e",
+      "content_hash": "f4eaeb798ce512babb3bc6eaa4dde7486dac83e1b12b7768cece4ed6c4ba700b",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "solid-liquid-leaching"
+      ],
+      "reason": "올리브 기계 가공으로 접촉면을 늘려 세척·발효를 돕는다. 면적 증가에 따른 물질 전달 후보의 보조 근거이다."
+    },
+    {
+      "identifier": "AR-080662-A1",
+      "source_fingerprint": "6b9c35dec24566199231efdc5472a2c92553a4e4496d18944d21287f35d96875",
+      "content_hash": "ef252133b92107ac6e79ee9de04e0faea47c3ba1873277b720b9e2a740b3f0d4",
+      "decision": "LINK",
+      "keys": [
+        "freeze-drying"
+      ],
+      "reason": "약물 입자를 줄인 현탁액을 동결건조한다. 입도 감소 공정의 기계적 방식은 미상이다."
+    },
+    {
+      "identifier": "AR-080663-A1",
+      "source_fingerprint": "9fbabc58c503cede15d711f825c171dadf03990ea6f28ec9da62764db33eb3cb",
+      "content_hash": "08022f1eeaf7eaeb4a2144b3a421c9fc106b5db346a65c314cd61fc94e8fd3dd",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "변형된 EGFR에 노출된 에피토프를 항체로 구분한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:20:26.093898+00:00"
+}

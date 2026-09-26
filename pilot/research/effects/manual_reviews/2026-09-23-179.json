@@ -1,0 +1,198 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "a642f82922931e1b6de0e705286e1c151fdf2ce0835002c2cd4759be737734cb",
+  "reviews": [
+    {
+      "identifier": "AR-104974-A1",
+      "source_fingerprint": "a303f92db46ca00ce666bad439e82a0688e96578e33a309c251068ba26c9e53c",
+      "content_hash": "5e59eec5738eb893e3b62fb03d0e71bf5097a58aced5f37f4d501ce758a868c7",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "가변 주파수 전동기로 고압 펌프를 구동한다. 전원 주파수·극수에 따른 회전자계 속도 제어 후보이다."
+    },
+    {
+      "identifier": "AR-104980-A4",
+      "source_fingerprint": "e03be1248e77670ecf70b9b41135e7e1932c43ebfdad3f3f85c61f2b7197f29f",
+      "content_hash": "574391622e58bdca421e42990e45d5ab40668a1c07fe38c8f25d5f26ff69a562",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "모듈 납골함을 클립으로 결합하고 환기구를 둔다."
+    },
+    {
+      "identifier": "AR-104985-A2",
+      "source_fingerprint": "9f04a8ce92da36739786238b4c0a00eca4191c75f7a7ba5c127456a64e272e50",
+      "content_hash": "403837bf715a2fdef300044c44ab2a938789a2352932ef779d25c25fff9dc4b2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "벤즈이미다졸 치환기 목록으로 반응·표적 기전은 없다."
+    },
+    {
+      "identifier": "AR-104986-A4",
+      "source_fingerprint": "dd5a405f88211aba7b68e2428a3c55c41e000b68a2af06456b5b09418e6613bc",
+      "content_hash": "46a1418e84cf8ea72c0c836b75e8ad6555432c9f5de96ad0945494115af25267",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "접힘선과 용기 수용 구멍이 있는 골판지 트레이 전개도이다."
+    },
+    {
+      "identifier": "AR-105003-A1",
+      "source_fingerprint": "b1a054ae1445c0943f20bcee8a0db4a893451b4ca623f80dbd7616cf2bef9269",
+      "content_hash": "0aa9d6a902ec9da308d70d716606b54bb3cf7daab00fba1e3b3a5c3aeaba8784",
+      "decision": "LINK",
+      "keys": [
+        "lead-screw-motion"
+      ],
+      "reason": "회전 조립식 반구 거푸집을 나사 잭으로 수평 조절한다."
+    },
+    {
+      "identifier": "AR-105006-A1",
+      "source_fingerprint": "c3d905acf2cae7e245666b40a2cf1e46d3d5e8b34d039761bc6db15a1881ecc5",
+      "content_hash": "73a58fe8611c3963bedc21e778da1b7ceb9c13c77543460697f60f9c005a2397",
+      "decision": "LINK",
+      "keys": [
+        "sampling-reconstruction",
+        "spectral-windowing"
+      ],
+      "reason": "기준 합성창을 구간 보간·다운샘플링해 낮은 샘플률에서 오디오를 복원한다."
+    },
+    {
+      "identifier": "AR-105007-A1",
+      "source_fingerprint": "a0dc671df40ae23b625e3a763123eb34fc3126d6907f8d9f17890d449d3d5441",
+      "content_hash": "1c53d27a051abfb32b88323b73dd655dc28ec6a0bc3b2db510d04301ed6ee60a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다상 분주 신호·래치·멀티플렉서를 조합해 입력 주파수와 지정 비율의 출력을 만든다. 디지털 주파수 분주 후보이다."
+    },
+    {
+      "identifier": "AR-105010-A1",
+      "source_fingerprint": "c875120cc301fb3717e9b6f201be944c4c69c98a4f4c934b7c0662cfcce50ad8",
+      "content_hash": "d013e90fa5970bf5c05dff0e464e9b739f31ee573369b1c4663c37cbb3b3611d",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "정제한 세균 외막 입자와 보조제로 면역을 유도한다. 지질 A 변형만으로 특정 선천면역 경로를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-105028-A1",
+      "source_fingerprint": "4b595482b49526562666b9ad792808b82a978a18b7b61c41d797227024419cba",
+      "content_hash": "b5a394b710e42ec5781bc46861760f1c36c560b7d780e2b85fb8675a235fa91c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "사용자의 오디오 수정 전후 지각 음량을 비교해 보상 이득을 구한다. 지각 가중 음량 정규화 후보이며 특정 표준 가중 필터는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-105039-A1",
+      "source_fingerprint": "bda233f296424afdad5265878bb54d6a9c0c1437c07d4cfee17ec1152c34871c",
+      "content_hash": "fb2057d42211982407fd762dd79bf8a9bdab0f0fa68bd5803eed1490895d7da3",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "mCry3A·eCry3.1Ab 살충 단백질을 식물에 발현한다."
+    },
+    {
+      "identifier": "AR-105043-A1",
+      "source_fingerprint": "b8b41b6aa65eea1267df80bb0dfc894ea14d358b804242c1d21001da51431a8d",
+      "content_hash": "222162601c0874d157e4b965db7a5482301dd551af9cf3eb48984eba241a3c9c",
+      "decision": "LINK",
+      "keys": [
+        "keyed-encryption"
+      ],
+      "reason": "보안 코어·제한 메모리에서만 복호화해 일반 실행 환경에 평문·키를 노출하지 않는다. 하드웨어 실행·메모리 격리 후보이다."
+    },
+    {
+      "identifier": "AR-105052-A1",
+      "source_fingerprint": "7298d6c5e370a9626903765ae6307c85151bf752bef97bba8a618daadf336696",
+      "content_hash": "2174627d0626bfb20e68c5b9eb7c44d5830d753e3933a01b16a5a76cea8c3844",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "상향 송신 중지 상태를 MAC 제어 요소로 보고하는 프로토콜이다."
+    },
+    {
+      "identifier": "AR-105053-A1",
+      "source_fingerprint": "005c2a89230dfa4bd25e630f8c77f68f8637dd0b7c406b462f70dc67e6043117",
+      "content_hash": "7808f81f34a1e75a764a78dee5b0ffdfed1c8414d04e9e8bda63c5d862be1b94",
+      "decision": "LINK",
+      "keys": [
+        "immune-checkpoint-blockade"
+      ],
+      "reason": "PD1·PDL1 및 PDL1·CD80 결합을 억제하는 고리 펩타이드이다."
+    },
+    {
+      "identifier": "AR-105066-A1",
+      "source_fingerprint": "f98aa5d5e2726cb80892380903c91f4d79bb7e4819a85399ad8459324a248a25",
+      "content_hash": "29a6d9c24a7151643648ffd9d4d83cdb4adab57f9bb281a2c505fa7da8272e63",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "가이드 RNA로 DNA·RNA의 표적 위치를 지정한다. 절단·편집의 구체 작용은 초록에 없다."
+    },
+    {
+      "identifier": "AR-105067-A1",
+      "source_fingerprint": "284213f5fc77a3f2665b2dead7c23839487e90bc506e532e031d3976466d68d4",
+      "content_hash": "6d63e4d29658ed25c37c2ecc7ec7dee06f5524b71f7e7f6f4b0f5d5fa0ba5ff2",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion"
+      ],
+      "reason": "같은 축의 지름이 다른 두 풍력 로터를 사용한다. 저풍속 기동 성능의 독립 기전은 없다."
+    },
+    {
+      "identifier": "AR-105085-A1",
+      "source_fingerprint": "af185b50ccf39d3cb47e30ef98b6addd0a5a21a5ecc941957bca498109d10d6f",
+      "content_hash": "93cecf82ff5b8793b1e3712af8fbf8430b0cdeec8d086c511e99be049ad0ecbc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비수성 제초제의 무기염 안정화 조성으로 분해 억제 경로는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-105088-A1",
+      "source_fingerprint": "5cedd20181f27652b3a93a28f48c206b1c996896403f7e23f4d9112521a28e1c",
+      "content_hash": "70968bf7026a8ad5f4747afd4295a9e628a5e501022392082a1940c7a698dd88",
+      "decision": "LINK",
+      "keys": [
+        "water-electrolysis",
+        "catalysis",
+        "barrier-coating"
+      ],
+      "reason": "산소 발생 양극 촉매와 도핑 산화주석 보호층이다. 산소 발생을 완전한 수소·산소 동시 생산 공정이라고 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-105089-A1",
+      "source_fingerprint": "b7a65986aa1bb72d7bf64744bcc8589aba256ce7eff89d062d7b9ca60c8dfe40",
+      "content_hash": "a33592b0a4d6619daa5e26ec2ac339409808195303d961ca029d8ef3680bd3b2",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "인산화 Tau 항체이다. 인지 개선 효능 자체를 별도 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-105106-A1",
+      "source_fingerprint": "eb2483b2b8cfe35daa638a8224e1f834cafa7d1d56a0656951a3a23d44d637e5",
+      "content_hash": "a71eb21f100f52b6b64c6b1667d853f9de5c62ee85991ac839d8e50c76a1ced4",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "allosteric-cooperativity"
+      ],
+      "reason": "M1 수용체의 양성 알로스테릭 조절을 명시한다."
+    },
+    {
+      "identifier": "AR-105114-A1",
+      "source_fingerprint": "dac92316a72362a562eb951b16a6c84ea598970a379be2376304bace2de9cfb5",
+      "content_hash": "f113f4441b6bc8278c73963d348094836413d848c4a624c57e59323b3e43c270",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "헤테로아릴 아미노피리딘의 구조 목록으로 작용 기전은 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:26:43.803764+00:00"
+}

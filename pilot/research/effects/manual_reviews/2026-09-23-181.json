@@ -1,0 +1,230 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "87ab294c1d87eee592be4cf6d28961f42351c8cb0fb0b8593f0425290ea7b6d9",
+  "reviews": [
+    {
+      "identifier": "AR-105331-A1",
+      "source_fingerprint": "1d6130eefa519072b759566072f8f407e7a196cd2f4897d59a4e6291624a0862",
+      "content_hash": "f1c10da6f8f7c2e87b6566f1cf0326a69b8713ea751b5163efdeff4d0ba5c44c",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction"
+      ],
+      "reason": "석회 소화 중 카르복실화 셀룰로오스를 넣어 침전 탄산칼슘 현탁액을 만든다. 분산·입체 차폐 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-105332-A1",
+      "source_fingerprint": "9d4bf005a23a5dabd6f50714cf8494661ef491c8acea8cde510c740ce5243a95",
+      "content_hash": "8eecf08b1a53f2a23380ac497f5aa897c20d9a1596522bb781378ff7a0a3d89d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "변이 IDH1 효소 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-105365-A1",
+      "source_fingerprint": "57a205b73cee2372718287fb8a8f01253733070fd603e47f4f995fbe439efb50",
+      "content_hash": "5097a563d4799df63cb9d73478abb6fd6921bd72502ace925973867078f2b67c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "시트 프레임 양쪽 지지판과 고정구로 에어백 스트립을 고정한다."
+    },
+    {
+      "identifier": "AR-105375-A1",
+      "source_fingerprint": "b18a3b97321ff411b268347f8cd73ac9394a84916c75769b3127ebe8600b37af",
+      "content_hash": "72fb0ecc18905fb38b8c5a94d0fc0d2185953a0b93a241f2933604274b8b47e6",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression",
+        "heterologous-gene-expression"
+      ],
+      "reason": "식물에서 발현한 RNA로 곤충 PRP8 전사체를 억제한다."
+    },
+    {
+      "identifier": "AR-105379-A1",
+      "source_fingerprint": "99665b96339381f575633c5c42ffbe65fc9a0a5a19b4b4110afee9e143a02e00",
+      "content_hash": "ad2ed6c1f365d8d776d17b7919ec699d960100bdcd94e2ebe83de75d2965907d",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "capillary-wicking"
+      ],
+      "reason": "단백질 결합 표지는 통과하고 자유 표지는 포집되어 모세관 판독부에서 신호를 만든다."
+    },
+    {
+      "identifier": "AR-105388-A1",
+      "source_fingerprint": "927678ab457796616f151dc46914fdc3aca8b70bf521d741000a6fe34b5f2fea",
+      "content_hash": "a0bd4ab58fa95a3220a18956ba47ab518176e3cade7797ae42028c4ac23813f7",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation",
+        "catalysis"
+      ],
+      "reason": "디포스핀 리간드를 알콕시카르보닐화에 사용한다. 불포화 기질·CO·알코올의 에스터 형성 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-105397-A1",
+      "source_fingerprint": "dafe64f36f58783bc33c6f024641a0eee1917b3d809df6a33ce4b801a979e4ab",
+      "content_hash": "e35801c648821de096e87f1b683daeae718e80b4c61790c56c12a9b0df25ab08",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 방어·저항성 유도 용도이다. 전신 획득 저항성 경로가 구체적으로 확인되지 않았다."
+    },
+    {
+      "identifier": "AR-105398-A1",
+      "source_fingerprint": "9244913423067da4e76be44a94a5c2072337d986924c5eb7cd1c915ccbbb169f",
+      "content_hash": "05db5deebe326579106bb9589fa7a8d2eb99a856ed0445c7eace17c9074d3531",
+      "decision": "LINK",
+      "keys": [
+        "carboxylic-acid-esterification",
+        "polymerization"
+      ],
+      "reason": "다가 알코올과 다가 산의 축합으로 선형 폴리에스터를 만든다. 바이오 원료라는 이유로 새 반응 원리를 세지 않는다."
+    },
+    {
+      "identifier": "AR-105416-A1",
+      "source_fingerprint": "7ada559dc0b8061b7423c7bdb9b5de684d563da60dd7113722e18a090e96b525",
+      "content_hash": "63ce3d682fefb23e92b0b214f97745c3ab7340330e5668f6ac370531018c2bda",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "heterologous-gene-expression"
+      ],
+      "reason": "α아밀라제 변이체와 재조합 발현·세제 적용이다."
+    },
+    {
+      "identifier": "AR-105432-A1",
+      "source_fingerprint": "835c390d3697b75158a17a539e3314776fc8f218610c96df93d818fc05dd3923",
+      "content_hash": "2b042e381fb53a6d9759e2a729ce02559dbf2a008fa9ed79fdb3f614341f42be",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "몰리브덴·붕소 첨가제의 연비 유지 조합으로 실제 마찰 반응막은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-105439-A1",
+      "source_fingerprint": "77a41162df69965773679557b22db74c057d5d1a241bf306987e1fc1a472ab43",
+      "content_hash": "0d31b0aefccf102e94d24cae17edee38999f426ac4d6004a43007ffc557f14f9",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "세포에서 바이러스를 증식시킨 뒤 계면활성제로 처리·정량한다. 감염성 복제를 이용한 검출 증폭 후보이다."
+    },
+    {
+      "identifier": "AR-105447-A1",
+      "source_fingerprint": "c1ffb4fa5d9c93a7135c315ebb00f7293d6790698d13ef53accf11ec06d7b4f1",
+      "content_hash": "9a564c761b8e1d6e243eb6bc93a1988d5478ca6ce7ff420bf810fa02286164a2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 혼합 조성과 용도이며 분자 기전은 없다."
+    },
+    {
+      "identifier": "AR-105453-A4",
+      "source_fingerprint": "ca5547fd34b49b2d79a2bf590050caec1ec99c8ea8d56ca0db9d1b3ac63e7bce",
+      "content_hash": "f930e84da0109061586d42532e3a20183bb7629259d7b938fe3da1e6a67ddec0",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "탄성 밴드로 시트·베갯잇을 맞추는 일체형 침구이다."
+    },
+    {
+      "identifier": "AR-105491-A1",
+      "source_fingerprint": "fdf35a733a85394eea73991b9bb26a6078c859f5dbd40e840cd2d038d7e1de47",
+      "content_hash": "d6df44d2a151c161bfd7fc5392c929dca7df24b612ee8dd99269846c272ab6e4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "양이온 아크릴아미드 공중합체로 왁스를 제거하나 흡착·분산·화학 변환 기전이 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-105527-A1",
+      "source_fingerprint": "d14cb788d6de711da634de6e4388af2ffa662f00a105c6eed28454443acf63ac",
+      "content_hash": "ff55223e625f95f741a9c0c3461ff019ea45f897f4e1f5743bd6d087116b6911",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "EGFR 티로신 키나아제 저해제 조합이다."
+    },
+    {
+      "identifier": "AR-105529-A1",
+      "source_fingerprint": "ba5b37c85f54cff1da68a818618df90baf7af96488d53c9ddd3a59ce9d1d7c29",
+      "content_hash": "1173c7ed82e5eff488178c25bee6d9d7dfc99f77532a6f1f8b3d7ac3b6113017",
+      "decision": "LINK",
+      "keys": [
+        "fiber-matrix-load-transfer",
+        "cement-hydration"
+      ],
+      "reason": "섬유 격자로 경화 매트릭스를 보강한다. 균열 가교의 직접 관찰은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-105550-A1",
+      "source_fingerprint": "cc37ff71f68d139d22fbee1453c5f3857912f01148bbf10b2c76890776a9fb83",
+      "content_hash": "37835290ce276f98813b6689cacc661fabd12a691109ee023eb11dce245aca8d",
+      "decision": "LINK",
+      "keys": [
+        "emulsion-film-destabilization",
+        "archimedes-buoyancy"
+      ],
+      "reason": "매질을 지나며 기름방울을 합체시켜 물 위로 부상시킨다. 기포 부착 부유선별과 구별한다."
+    },
+    {
+      "identifier": "AR-105588-A2",
+      "source_fingerprint": "9992acd2ebaa77b691ec8e6043606f62c0bc39638e2df9e038ca7a8e16340466",
+      "content_hash": "75b6d8e30a4dae484f4b66bb707b5ad5f73ae19405db0aa6f641b975cebb66d0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "석유 함유 소재에 이온빔을 쬔 뒤 탄화수소를 추출한다. 사슬 절단·가교 중 어느 경로인지 없다."
+    },
+    {
+      "identifier": "AR-105598-A1",
+      "source_fingerprint": "fd1f6a5804f999ef5080214bf9608d39f4d29c9a29032eb26e7fc6262f542aa2",
+      "content_hash": "08974a09615cedd9557346b7272632d73b741a4167d76df3a47314978f9d2cf4",
+      "decision": "LINK",
+      "keys": [
+        "pressure-sensitive-adhesion"
+      ],
+      "reason": "가교제 없이 고분자·폴리올·점착수지로 감압 점착제를 만든다."
+    },
+    {
+      "identifier": "AR-105646-A1",
+      "source_fingerprint": "12c6339f0b93679421c69469e50cfb9f9fa641ee8d1af6791829ce1c64e4d3c1",
+      "content_hash": "de1bf91fbcb833410f141fa4d19ae3175bd89457659ce10a83a8cdf35af3da27",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "그람음성 항균제의 화학식으로 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-105650-A4",
+      "source_fingerprint": "75a5ab9cd82c05d182ce4562113c3e887288ac61daad2613e567f4c2c1e738c4",
+      "content_hash": "f4a471306d3eb160ee8bd526be795f403f93cb45dafdf7af90000d4a4e7577cf",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "서로 다른 지름 구멍의 도난 방지 부시 형상이다."
+    },
+    {
+      "identifier": "AR-105659-A1",
+      "source_fingerprint": "0bdaf9fe5b892f86eb89f605e387eed99a94c3b661706075e67a3b03f22a3760",
+      "content_hash": "ce834c4a4878358391824dabacce30aa5e7ef956dff3f3807e10fc6d4748c4e9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물병 방제 성분 조합으로 분자 기전은 없다."
+    },
+    {
+      "identifier": "AR-105663-A1",
+      "source_fingerprint": "38d1ab73ba5dbb97c1d33fa8463ce31779c66b038b953db862aaa9845506f37a",
+      "content_hash": "ce54b3fb4f9b0258d48ca8e3c8391719e725a64f88f9e3fec86011a6cd0996a9",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "차량 헤드레스트 기둥에 후크로 고정한 측면 패드이다. 충돌 안전 성능을 보장하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:27:52.334274+00:00"
+}

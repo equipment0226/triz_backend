@@ -1,0 +1,150 @@
+{
+  "task": "additions-2026-09-26-26.tsv: replace only source title, source URL, and read scope for two independently reviewed physics/materials mechanisms",
+  "date": "2026-09-26",
+  "author": "conversation subagent effects_physics",
+  "method": "Public original papers retrieved through web search/open/find; no external LLM API, automated content synthesis, or catalog installation.",
+  "selected_sources": [
+    {
+      "key": "crystallographic-continuum-potential-ion-channeling",
+      "title": "Influence of Crystal Lattice on Motion of Energetic Charged Particles",
+      "author": "Jens Lindhard",
+      "year": 1965,
+      "journal": "Matematisk-fysiske Meddelelser 34, no. 14",
+      "url": "https://gymarkiv.sdu.dk/MFM/kdvs/mfm%2030-39/mfm-34-14.pdf",
+      "retrieved_via": "web.open; original 64-page paper in University of Southern Denmark archive",
+      "read_scope": "reference_section",
+      "actually_read": "Synopsis p.2; introduction channelling and transverse escape barrier pp.6-7; Foundations of Theory pp.9-15, including continuum string potential and critical-angle applicability. Selected extracted sections read; full 64 pages not exhaustively read.",
+      "raw_short_excerpts": [
+        {
+          "location": "Synopsis p.2, extracted lines 24-25",
+          "text": "A transverse continuum potential is a natural consequence of the basic approximations."
+        },
+        {
+          "location": "Foundations of Theory, p.11, extracted lines 311-312",
+          "text": "many consecutive atoms contribute to the deflection of the orbit"
+        }
+      ],
+      "mechanism_support": "원자열의 개별 퍼텐셜을 진행 방향으로 평균해 횡방향 퍼텐셜을 만들며, 횡운동 에너지와 접근거리·임계각 조건으로 원자열 근접 충돌 억제를 설명한다. 이는 단순 결정 빔 응용의 서술보다 카드 원인 경로를 직접 지지한다.",
+      "limits": "고전적·작은 입사각·연속 퍼텐셜 근사의 적용조건이 있는 이론이다. 큰 핵 충돌 감소는 특히 양이온의 핵 회피 경로에 해당하며 모든 부호의 하전입자에 일률 적용하지 않는다. TSV 원리·조건은 이번 권한에 따라 변경하지 않았다.",
+      "selected_over": "2005 nanoscale ion beam application excerpt, which established steering but did not itself expose the continuum-potential mechanism."
+    },
+    {
+      "key": "occluded-dissolution-acidification-pitting-feedback",
+      "title": "Transport Processes and the Mechanism of Pitting of Metals",
+      "author": "Jose R. Galvele",
+      "year": 1976,
+      "journal": "Journal of The Electrochemical Society 123(4), 464-474",
+      "doi": "10.1149/1.2132857",
+      "url": "https://aboutcorrosion.s3.amazonaws.com/Journal%20articles/Galvele/Transport%20processes%20and%20the%20mechanisms%20of%20pitting%20of%20metals.pdf",
+      "retrieved_via": "web.open; public scan of the original eleven-page published paper hosted by About Corrosion",
+      "read_scope": "reference_section",
+      "actually_read": "Abstract and introduction p.464; Pit Model p.465 with metal dissolution, hydrolysis and one-dimensional diffusion assumptions; Ionic Concentration Diagrams pp.466-467; opening Critical H+ Ion Concentration discussion p.467. Selected extracted sections read, not every paragraph of eleven pages.",
+      "raw_short_excerpts": [
+        {
+          "location": "Abstract p.464, extracted lines 27-28",
+          "text": "metal ions hydrolyze inside the pits and that the corrosion products are transported by diffusion"
+        },
+        {
+          "location": "Critical H+ Ion Concentration p.467, extracted lines 341-342",
+          "text": "minimum degree of acidification necessary for sustained pit activity"
+        }
+      ],
+      "mechanism_support": "국소 금속 용해의 양이온이 가수분해로 수소 이온을 만들고, 피트 깊이와 용해 전류 및 확산이 내부 산성화를 결정하는 1차 이론 연구이다. 지속 공식 활동에 필요한 임계 산성화와 국소 용액의 유지라는 카드 경로를 직접 다룬다.",
+      "limits": "희석 용액·단순 가수분해·1차원 피트의 모델 가정이 있으며, 임계 pH 수치와 모든 금속의 세부 경로를 보편값으로 쓰지 않는다. 원리 카드는 수치나 보편성을 주장하지 않는다.",
+      "selected_over": "2018 AISI-430 application abstract, which mentioned autocatalysis but did not explicitly show hydrolysis plus restricted transport.",
+      "access_note": "Canonical DOI opens were blocked by publisher robots; the actual original published scan was successfully opened and read. URL intentionally points to the retrieved scan."
+    }
+  ],
+  "corroborating_sources": [
+    {
+      "title": "A model for the interaction of high-energy particles in straight and bent crystals implemented in Geant4",
+      "url": "https://link.springer.com/article/10.1140/epjc/s10052-014-2996-y",
+      "read_scope": "reference_section",
+      "actually_read": "Sections 2.1 Continuum approximation, 2.2 Channeling, 2.3 Dechanneling, extracted lines 99-179.",
+      "raw_short_excerpt": "Under channeling conditions positive particles penetrate deeper into the crystal relative to the un-aligned orientation because the trajectory is repelled from the nuclei.",
+      "note": "Original 2014 model paper explicitly gives transverse-energy trapping, angle dependence, and different nuclear encounters for positive versus negative particles. Used as corroboration; classic Lindhard paper selected for the TSV."
+    },
+    {
+      "title": "Effects of environmental factors on key kinetic parameters relevant to pitting corrosion",
+      "url": "https://link.springer.com/article/10.1007/s10008-015-2816-9",
+      "read_scope": "reference_section",
+      "actually_read": "Abstract; introduction lines 69-76; experimental results lines 116-169.",
+      "raw_short_excerpt": "Sufficient dilution of the pit solution will lead to repassivation.",
+      "note": "Original 2015 artificial-pit experiments and mechanistic introduction corroborate acidification, diffusion barrier from pit depth, growth, and repassivation. A linked 2021 correction exists; its accessible page did not expose the correction body, so this paper was not chosen as the TSV source."
+    }
+  ],
+  "not_selected": [
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12986447/",
+      "reason": "PMC direct open returned a reCAPTCHA page. No claim of having read the original article from that retrieval."
+    },
+    {
+      "url": "https://doi.org/10.1149/1.2132857",
+      "reason": "Publisher direct retrieval blocked; original public PDF scan selected instead."
+    },
+    {
+      "url": "https://www.electrochem.org/dl/interface/spr/spr10/spr10_p033-038.pdf",
+      "reason": "Official ECS 2010 commentary checked to locate original Galvele paper and clarify later limitations. Not treated as the original 1976 source."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s10008-021-05039-0",
+      "reason": "Correction metadata successfully opened but correction text not accessible in preview. No unsupported claim about its contents."
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "before_sha256": "ba5231478cf3ca9db8cc7955f08fdcafd8e66c0f68375c3a65028f3bb32c9832",
+    "after_sha256": "737641a455cbd6dd257f8bfde28fc99df874004142d1e0e65af66ae1d9eafa51",
+    "rows": 20,
+    "changed_fields": [
+      {
+        "line": 15,
+        "key": "crystallographic-continuum-potential-ion-channeling",
+        "column": 6,
+        "before": "Nuclear Instruments and Methods B · Channeling technique to make nanoscale ion beams",
+        "after": "Matematisk-fysiske Meddelelser · Influence of Crystal Lattice on Motion of Energetic Charged Particles (Lindhard, 1965)"
+      },
+      {
+        "line": 15,
+        "key": "crystallographic-continuum-potential-ion-channeling",
+        "column": 7,
+        "before": "https://www.sciencedirect.com/science/article/abs/pii/S0168583X05000571",
+        "after": "https://gymarkiv.sdu.dk/MFM/kdvs/mfm%2030-39/mfm-34-14.pdf"
+      },
+      {
+        "line": 15,
+        "key": "crystallographic-continuum-potential-ion-channeling",
+        "column": 8,
+        "before": "stored_search_excerpt",
+        "after": "reference_section"
+      },
+      {
+        "line": 17,
+        "key": "occluded-dissolution-acidification-pitting-feedback",
+        "column": 6,
+        "before": "Materials and Corrosion · Electrochemical, surface analytical, and spectroscopic study of passive film and pits formation on food grade ferritic stainless steel AISI-430 in aqueous acetic acid containing chloride ions",
+        "after": "Journal of The Electrochemical Society · Transport Processes and the Mechanism of Pitting of Metals (Galvele, 1976)"
+      },
+      {
+        "line": 17,
+        "key": "occluded-dissolution-acidification-pitting-feedback",
+        "column": 7,
+        "before": "https://onlinelibrary.wiley.com/doi/abs/10.1002/maco.201810173",
+        "after": "https://aboutcorrosion.s3.amazonaws.com/Journal%20articles/Galvele/Transport%20processes%20and%20the%20mechanisms%20of%20pitting%20of%20metals.pdf"
+      },
+      {
+        "line": 17,
+        "key": "occluded-dissolution-acidification-pitting-feedback",
+        "column": 8,
+        "before": "stored_search_excerpt",
+        "after": "reference_section"
+      }
+    ]
+  },
+  "final_editorial_correction": {
+    "key": "crystallographic-continuum-potential-ion-channeling",
+    "field": "principle",
+    "change": "Explicit positive-ion scope for the reduced large-angle nuclear-collision description.",
+    "final_batch_sha256": "c36417529e4fd11d13d51ef65ebd6b51d5c5473bbe4b6b5dd63d7a6562931b2c"
+  }
+}

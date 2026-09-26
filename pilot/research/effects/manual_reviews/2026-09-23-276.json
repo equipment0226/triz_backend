@@ -1,0 +1,379 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "1052213c37881c53395f3bdc9dce2a735c072eadb9b1a4c7ff24f1f7901c216c",
+  "reviews": [
+    {
+      "identifier": "AR-125195-A2",
+      "source_fingerprint": "173e7a3bccffd36050e8b8f7fa9d40f10ad6f61ec8899b1fb7e1dfdba02228a4",
+      "content_hash": "284b217768ede10ad61428be35bada33788247b1d6b9558e3d7f4280b72abc44",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening",
+        "negative-feedback"
+      ],
+      "reason": "유체 압력에 의한 균열 개방과 측정 기반 공정 제어이다."
+    },
+    {
+      "identifier": "AR-125206-A1",
+      "source_fingerprint": "caebac5f873a91784296122badaffd6cd443bc2b2e29d7e3b1d00501ca62f50d",
+      "content_hash": "d11a7b15f464c9c6d67add293327b208904f0f6bb78613e30263c79246045d54",
+      "decision": "LINK",
+      "keys": [
+        "ultrafiltration",
+        "ion-exchange"
+      ],
+      "reason": "유제품의 한외여과·이온교환이다."
+    },
+    {
+      "identifier": "AR-125208-A1",
+      "source_fingerprint": "1a674e805a953b2220f8c8f414f1e72869b8c4027f66d0fed4285505a4a51760",
+      "content_hash": "20ac931f646c924e883b95d289ab9e5c9cbdfc1ca8ac3e5e833208e07fedf636",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion"
+      ],
+      "reason": "곡선 가이드와 롤러가 회전 이동 중 금형을 개폐한다."
+    },
+    {
+      "identifier": "AR-125231-A2",
+      "source_fingerprint": "63c9a14843db7e3d94e96eb2a11fbbfff3d4b7fad88e54cb92e5bb9f287079d2",
+      "content_hash": "08c46956f0c6d5f38393e5e3e1e4f151d0388496774b5631fe79e4e73dc520c0",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "독소 중화 항체의 결합·생산이다. 독소 제작 정보는 전용하지 않는다."
+    },
+    {
+      "identifier": "AR-125235-A1",
+      "source_fingerprint": "d72622adb0ef76c371a19574f1c45849ffa68af8ea382c63136e8e467d81f6c7",
+      "content_hash": "072674c852ecc9ecbcb60280ed51f642ec303da9e527a73805b13574188e949e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "휴믹 물질의 발현·광합성 증가 주장이며 분자 경로는 없다."
+    },
+    {
+      "identifier": "AR-125254-A1",
+      "source_fingerprint": "e5c2e3b7ba5bb7f32c3f655312a14e23b19208c8a770b9c92c5f257f55b678fa",
+      "content_hash": "e488631e18347b8897b906d4d084e6f100d9c62856176f8256d20faf4d8f56f6",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "유화제로 수성 희석 제형의 상분리를 줄인다. 첨가제의 특이 효능은 별도 입증 대상이다."
+    },
+    {
+      "identifier": "AR-125326-A2",
+      "source_fingerprint": "0c9c4b70b6176017f88c0a499198f1fb85aa031040140a3e3aa66a3e4791c54a",
+      "content_hash": "8d152ad4aabc8c93cee366d6fe07d7c60d507c96ec461d9cdf9303d7dc603058",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "항원성 단백질의 면역 유도이다. 병원체 성능 변경 정보는 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-125338-A1",
+      "source_fingerprint": "989590d717716e1c749c4c01fc543f2bd00134400360629ac53646a0d873b20b",
+      "content_hash": "f6df05f62e81158694c16c127561871197e263910f456a57ad3b0f83d04a3238",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "nucleophilic-substitution"
+      ],
+      "reason": "항체 접합과 미츠노부 치환의 일반 원리이다. 특정 독성 화물 합성 조건은 전용하지 않는다."
+    },
+    {
+      "identifier": "AR-125352-A1",
+      "source_fingerprint": "a9bc01609332a863f699c1d7bfe0906653af758d5dce8170d414344a1f5b0812",
+      "content_hash": "fe3e1dc477c7b0f110b2a53f4f072f36bb1b0f8249f0c42559e8b33900c7f49f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "양이온 지질의 전달 제안이다. 이중층 형성이나 엔도솜 탈출을 구조만으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-125381-A1",
+      "source_fingerprint": "cc10dbd9f39e75c982fded323e2a85c0306c91dbee7dcae0502c90b600bb6a24",
+      "content_hash": "66a7f1aa8d8b11839fb3ad46fdd8b65eebe3d5b1c1b0050912ef7ab8ba9cc65a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "세균·추출물의 생물 방제 효능 주장이다. 길항 경로는 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-125383-A1",
+      "source_fingerprint": "8ece2c9e3f9ca78205f91331c69404d94d8e005d4f5a9bcda8e06ad757c674a7",
+      "content_hash": "4df45009ceebe006012e83b02aca06711853e324d6ec7209b22010eaa7e884ea",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "인공 수용체의 발현이다. 기존 키메라 수용체 초안에 통합한다."
+    },
+    {
+      "identifier": "AR-125389-A1",
+      "source_fingerprint": "ac4bb3a05f254f89e38cad87482f8f09713cc5097a8c45d06a5a1b2813c6ca4d",
+      "content_hash": "562bb458c9bf10e03e8e243fbc6e8ed76be5117f01732970aa0c1ab83fed04c0",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "GLP1 수용체 작용제이다."
+    },
+    {
+      "identifier": "AR-125407-A2",
+      "source_fingerprint": "aaa688b7093717d9e5cb6434e2d8fe319d69c7692df9aebe488bcf59718c857c",
+      "content_hash": "4189f550dc60024a30a26797c629a06af029d5853326aeb4bf8b5f1fbfffcada",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "freeze-drying",
+        "ionizing-radiation-inactivation"
+      ],
+      "reason": "고분자 유화·동결건조·감마 멸균이다. 용매 침전의 지배성을 추가로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-125414-A2",
+      "source_fingerprint": "7c0f02f705ab57c58f9522f2c73bd80008d6a32efd9a1aa54d94f7309e279d6d",
+      "content_hash": "8998b1b53624b378a967cca15eac53607d851bec0ccaf27abc818442b50cfb0a",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "인테그린 기능 조절이다. 표적명 차이를 신규 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-125471-A1",
+      "source_fingerprint": "15dc39cde396ecb35eec4cfdff1741f5bed6c3f89611421c40cad4d70cca103a",
+      "content_hash": "c8de71b778d6d08df2b27eabffbf601522abec24da61678dbfe87b3f4b12ee55",
+      "decision": "LINK",
+      "keys": [
+        "wet-scrubbing",
+        "gas-lift-circulation"
+      ],
+      "reason": "액체 세정 및 공기 혼합에 따른 액체 상승 구성이다. 자체 가속 표현을 무동력 주장으로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-125480-A1",
+      "source_fingerprint": "4aba1b711d6af4b3d08a2f6fe656f0341852896d84f18f22c6cff97e0dd6c0bb",
+      "content_hash": "1324912e7278866d510d2289bfa4a9e01ace41291376d06f450ae5f6e21aaec7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "알부민 혈장 교환의 임상 목적이다. 분리 기전·인지 개선의 근거는 없다."
+    },
+    {
+      "identifier": "AR-125499-A1",
+      "source_fingerprint": "3280a9edda5a442ecbb61ce1fbf96d3964184359f8eeda96e9e670367026ed6a",
+      "content_hash": "435827d31024bc78dae8f67c8c4f987aa0c5f3ac752afb97a489d778cbc5643e",
+      "decision": "LINK",
+      "keys": [
+        "raman-spectroscopy"
+      ],
+      "reason": "라만 스펙트럼과 계산 참조 스펙트럼의 비교이다. 구체 유사도 계산법은 없다."
+    },
+    {
+      "identifier": "AR-125500-A1",
+      "source_fingerprint": "23a8df2fbbeee05afb6d6638543f399fa7de45a6aceff0056dd7685877916f61",
+      "content_hash": "eb3e218adb83bf1523ed0f6fb4fcd82694fed8e46651a15967f018a07325ce94",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "양극성막 전기투석으로 아미노산 염을 산·염기로 전환한다. 계면 물 해리 기전을 검토한다."
+    },
+    {
+      "identifier": "AR-125507-A1",
+      "source_fingerprint": "8b6f292e44f975963d5f7a5caf952d794780675a2867d39318dc849d0c242429",
+      "content_hash": "0a304165c37d6323c481d8032565fab15910e09b07e616e139af61fac11a89b5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "꽃가루 현탁액 분사 전달이다. 분무 생성·생존 보존 원리는 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-125531-A1",
+      "source_fingerprint": "ba4918cc27bf050f94065f6dbab074e91c0aec4ace486f0bfe039324454b8a91",
+      "content_hash": "b419a6c89a9f652820cccf013a267e337cb6fd85fb361826a8524d7ad9cff06d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전기화학 부식으로 임시 마개를 소실시킨다. 기존 부식 분해·희생 용출 항목과 비교한다."
+    },
+    {
+      "identifier": "AR-125548-A1",
+      "source_fingerprint": "8938df118e817a116ac2f65f8ff53dc46e27ba7b42d40296a5c4d70d4936b4aa",
+      "content_hash": "d210a30e74621e78d24721e6c86ea6aa0f60914411fa1bee46c44719bd8d6d4b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "시추 압력 관리 배관·장치 배치이다."
+    },
+    {
+      "identifier": "AR-125557-A1",
+      "source_fingerprint": "49f349cc342864288fc2177edd2a546c8dad910a51fe46d5ab33072c3a60b4b5",
+      "content_hash": "aa86daf8fb9a3207d17f747655fd71ab0abe4a4001d9532582b409638f0baae5",
+      "decision": "LINK",
+      "keys": [
+        "automatic-repeat-request"
+      ],
+      "reason": "사용자 데이터 없는 블록의 재전송을 후순위로 둔다. 기존 재전송의 적용 정책이다."
+    },
+    {
+      "identifier": "AR-125561-A1",
+      "source_fingerprint": "8932f2dc307cce6ddb7dfd883ba46e4b38f68601e1b98c93951a7fac57a505e5",
+      "content_hash": "3077ef4ca858ce9bb218e81938eea2dc1dfdbf6e5c9d1a342127287ada9e5fff",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "학습 모델이 예측 분포와 불확실성을 출력한다. 확률 모델의 구성·보정 방식은 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-125569-A1",
+      "source_fingerprint": "bc274edb3e283ec40d80e247ab600d3e5e324c09b18d69346c0ff96f35fc0bf9",
+      "content_hash": "593426a24fc44c235fd90e22881ae3ecc5c2c84f6299fcaf98e2ed27fc5a94ea",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "파괴 후 변형되어 열리는 관통 장벽이다. 파괴 구동·압력 조건은 없다."
+    },
+    {
+      "identifier": "AR-125571-A1",
+      "source_fingerprint": "72fa68fc937b2039a6285e30141fcb3cf45e86e0fc2dc50a86d523183d75d155",
+      "content_hash": "653b0d310f15333b2cbebd811cb00943676c9ec9aa60cccbc4e634d1d83c54ca",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "압력 시험 단계·변화율의 설계 절차이다. 구체 검출 원리는 없으며 원전 운전 지침으로 전용하지 않는다."
+    },
+    {
+      "identifier": "AR-125583-A1",
+      "source_fingerprint": "99cc88cab316bd143c94f20ab90b12693aec2112d6dffc2d960eb80f4432ae28",
+      "content_hash": "34e757176f2dd532b7999629ba029518dfa7cbd2e16146a6afea1b42b8b04799",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction"
+      ],
+      "reason": "유기염기와 제초제의 염 형성이다. 염 종류만으로 휘발 감소를 정량 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-125595-A1",
+      "source_fingerprint": "9c3947d0e165b4fca54e2cd2220324e4b03eadac4b1c21e0e4dbb2e9bd0339d1",
+      "content_hash": "890dde3746e17bc947e7f4c195e04882c1181f1f01d014378bc45f894e622a0a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "실시간 운동 수업 서비스 구성이다."
+    },
+    {
+      "identifier": "AR-125607-A1",
+      "source_fingerprint": "40ed91f17d63dbb7bf351396cf1d8cc143cd34e63eb832a6212bd49228cd2d40",
+      "content_hash": "1985be2b9fd60d76ef54bc8855c78d062b1495e9018c69145427fb04ddb93c9a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "악취 분자 제거 목적만 있고 작용 물질·반응은 없다."
+    },
+    {
+      "identifier": "AR-125614-A1",
+      "source_fingerprint": "0d1753d417a5a7b36f4f69d6cf5f24e533f1376a3b0f6e8ade792c942654ba02",
+      "content_hash": "1027e0d60b7a4d80d73df1680e99ac7fe64d83f59cac8a3330071a86579927ba",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "벌크 고체 유량 측정 목적이며 센서 원리는 없다."
+    },
+    {
+      "identifier": "AR-125652-A1",
+      "source_fingerprint": "0872035331165922b907fa1155b8799b732ed6b77013d17c3d760d4e7e3f8946",
+      "content_hash": "fa2ec9309d56669beea078e1faf0fdbb3190e0c7e922ffb829a729c9d113281c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수소 중 전기 아크 장치이다. 산화제·발열의 출처와 출력 성능은 초록만으로 특정할 수 없다."
+    },
+    {
+      "identifier": "AR-125677-A1",
+      "source_fingerprint": "c6866000d356e198e7018aa8c3a81754bdbde5412827401840c6af307fac5318",
+      "content_hash": "f4946c3308e083aad8bd0e449a346b9c33889bfbe141b4c7ba97638a5f85040b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "고분자 셀 구조와 장벽 코팅이다. 코팅의 구체 차단 과정은 없다."
+    },
+    {
+      "identifier": "AR-125684-A1",
+      "source_fingerprint": "692cf42d22448589653ae518bd441df627d6ffb0e4740dd3403e406eef993e53",
+      "content_hash": "5e0cf55cd2e4870b86f6d42b0a07e0a7ab5a0ee8564bfceec2ff85b4a48294a2",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "굴삭기 마모부의 걸림 고정이다."
+    },
+    {
+      "identifier": "AR-125690-A1",
+      "source_fingerprint": "f6b42ab9734fe42697dd4f2c83143701b3489ba1be34c1adea4447d64baea2fd",
+      "content_hash": "b0081ca346e789f2a0856408d1e02464345a581bb2f08acde54b9284ff8c1ac4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기준 치수 그래픽을 이용한 영상 기하 측정이다. 기존 참조값 보정 초안과 통합 검토한다."
+    },
+    {
+      "identifier": "AR-125695-A1",
+      "source_fingerprint": "be4af778b63f99c6cab526aa8772faab3a7db959589158905a294f9d6faf600b",
+      "content_hash": "005ecc8f66f326682fdc4cf1f9dec90a5c7e346b11ccd7fb99de9d206a859b38",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion",
+        "mechanical-interlocking"
+      ],
+      "reason": "자석으로 콜라를 유지하고 핀으로 부품을 체결한다."
+    },
+    {
+      "identifier": "AR-125700-A2",
+      "source_fingerprint": "ce2e59363e6d2f42ee8373dc731111ba83aca6a0cda04bdee478a92019506b33",
+      "content_hash": "85d9c7e3ee25fdc8e4bc937148b9c71587ef06233df0073cf2b4edbbb1350537",
+      "decision": "LINK",
+      "keys": [
+        "time-of-flight"
+      ],
+      "reason": "초음파 거리 검출로 파종 홈 깊이를 측정한다."
+    },
+    {
+      "identifier": "AR-125723-A1",
+      "source_fingerprint": "516740a38af5c98e9c5e856862b5cb90dbc73f39129b03c200ec5f266ff77f81",
+      "content_hash": "6c3138be8add24313933e6679f07dcbdfe36fbf88c22e781e9a4c9394f66184a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "왁스 유동점 저하 고분자 구조이다. 결정 성장 억제·분산 중 작동 경로는 없다."
+    },
+    {
+      "identifier": "AR-125731-A1",
+      "source_fingerprint": "74f94d0d34418a28a74390c57975e3030119289e689d0fa21918a7fcd33bd7eb",
+      "content_hash": "1b8b32bae2ab6647cf023c3da9e92a3ee8d020076c9b1e7837f1b487010c1122",
+      "decision": "LINK",
+      "keys": [
+        "homologous-recombination"
+      ],
+      "reason": "DNA 절단 말단의 상동 복구 및 비상동 연결이다. 고전적 말단 연결 경로는 문헌 검토한다."
+    },
+    {
+      "identifier": "AR-125739-A1",
+      "source_fingerprint": "63f00ac7aafcd795a2465d4f866613142a967324dd6f69bad1b256ea6fdc6bac",
+      "content_hash": "325577d57a0c4e139ce95073baf9515197a6f54d9cb9a8942732857a7127c40a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "차체 뒤 배터리 지지 구조와 공간 배치이다."
+    },
+    {
+      "identifier": "AR-125753-A1",
+      "source_fingerprint": "39e031a34150bc59d95ad794742f3eb0d35a72d82626d85a26d53a9e91cde6ef",
+      "content_hash": "2c702b246fdf329c6962b026089083b6f6080ad079c7006437067ed524aeba9f",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "면역 수용체 항체의 결합·생산이다."
+    },
+    {
+      "identifier": "AR-125783-A1",
+      "source_fingerprint": "c4beaecc968d8595058815a88710bb9c070165cccc910d4a8d18afb8aada1053",
+      "content_hash": "516c01305989937bad1741a0cdff9d7152f2814deb6d31e17593766888f098ea",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "축 이동에 따른 회전 구성요소의 맞물림이다. 천공 장약의 제조·성능은 다루지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T03:05:03.366287+00:00"
+}

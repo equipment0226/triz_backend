@@ -1,0 +1,179 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "cd7041e666694019447bc1dd59102044477a2380a712f239bacd69ccee675d03",
+  "reviews": [
+    {
+      "identifier": "AR-114235-A1",
+      "source_fingerprint": "f1944bca53b0e3614a6f4a70fbafc212eb0de9098dee0ae66552215c9f9fe62e",
+      "content_hash": "25b97e7688336890b1055ef71e1e1f69ba21a75444afc6c83c75b98a9d246c02",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "GCN2 효소 억제 화합물이다."
+    },
+    {
+      "identifier": "AR-114238-A1",
+      "source_fingerprint": "5da38c216fa1f6015da2853e0603e891effe0c30410a3836db00d8a769a5b476",
+      "content_hash": "8bc5b51294ed5fe240a6e56c05c9690792d24c7e7d69204aa4b2187ecdf9023a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다양한 제초제·생장조절제의 조합 목록이다. 모든 조합에 단일 작용을 부여하지 않는다."
+    },
+    {
+      "identifier": "AR-114243-A1",
+      "source_fingerprint": "c7cd7a65940770fcd68d4933d34f16121f5bac3fc165e73c13b0acbf0bab1428",
+      "content_hash": "57b3e9e1eef518ae4c753fca5b251e2e699003624d174747019a47343b5bc179",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "네프릴리신 억제 화합물이다."
+    },
+    {
+      "identifier": "AR-114250-A1",
+      "source_fingerprint": "55d172bb9a6356ab8639f31ea82d1f980bce5bf1ae6ce7f0d2053a691a9b8b97",
+      "content_hash": "fd363c394cd2dde91db18550c48a40832d65dbb3032ed0aa4b35f956e0fce5a5",
+      "decision": "LINK",
+      "keys": [
+        "lewis-acid-catalysis"
+      ],
+      "reason": "글리콜알데히드와 카르보닐 화합물로 알파 히드록시산 유도체를 만드는 루이스산 반응이다. 결합 재배열 경로를 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-114273-A1",
+      "source_fingerprint": "cd58e07273ed1ca4e37e97bfc7be5fc8975379a46df0bbe99081e72d9ec8891d",
+      "content_hash": "553b108465fe905dc5b5e0acf6efbddab088d9b8edd371ca92e21570b0368b30",
+      "decision": "LINK",
+      "keys": [
+        "receptor-dimerization-signaling"
+      ],
+      "reason": "리간드에 따른 이량체화로 키메라 수용체의 키나아제 신호를 활성화한다."
+    },
+    {
+      "identifier": "AR-114287-A2",
+      "source_fingerprint": "999aa460c187be83eee69201f44990a600beeb6aa1f7eb9c11359a1e0074aa22",
+      "content_hash": "e62571f307bcf98cd556b21013b736b6806711da7b8e70e7d4eb3a10fa396e23",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "heterologous-gene-expression"
+      ],
+      "reason": "HD Zip 전사인자 도메인을 결합해 식물에서 발현한다."
+    },
+    {
+      "identifier": "AR-114306-A1",
+      "source_fingerprint": "584f12d4f508cf3261b747f3a0d57415275b21175d92d20d36611c7a57815c9c",
+      "content_hash": "5a5861f95d9e1ff3060f7212f9fbaed6cfac9a5efa5a2f4c7244b2eec895875a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "그림으로만 지시된 수면 치료 화합물이며 약리 표적은 없다."
+    },
+    {
+      "identifier": "AR-114318-A1",
+      "source_fingerprint": "542d0535d0d022cbe2072efddd30b579f20e2a4111443b6c476b4755cf26c7c8",
+      "content_hash": "e4536b3f53ec6f8dabc780313758c5042ff88f1b7e79b8cbb45ef4db51c44287",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "mechanical-interlocking"
+      ],
+      "reason": "쐐기와 팽창 고리가 변형성 밀봉부를 확장한다. 재질이 탄성체라는 가정은 하지 않는다."
+    },
+    {
+      "identifier": "AR-114346-A1",
+      "source_fingerprint": "516084acb554e2125a899d83ee238aace339bdcf30e39b85101fb586b321d25e",
+      "content_hash": "2725d31276d26817305843980b0bbcaa29657f638b2e7ccb6dfc03475fda5ae0",
+      "decision": "LINK",
+      "keys": [
+        "surface-graft-polymerization"
+      ],
+      "reason": "공유결합된 개시점에서 불포화 화합물을 그래프트 중합한다."
+    },
+    {
+      "identifier": "AR-114374-A1",
+      "source_fingerprint": "28b89ba453f0988d3dc2d6cc02e8bfb4f59d10d5024792a8f1cbffd4797d6867",
+      "content_hash": "f50375b07621f90e4f9b0634998fc6ce165fbb208ca0a04b8a6ca3c9b352c862",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 구조의 치환기 목록이며 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-114388-A1",
+      "source_fingerprint": "7a5c55f4e0c1a37aa76b8bdb548c5237038036e24176a37d11ad3d154340ddda",
+      "content_hash": "dab061b4e1fadf6420621fa7faf117babc4b95d797750b617421078c216d580b",
+      "decision": "LINK",
+      "keys": [
+        "signal-correlation"
+      ],
+      "reason": "현재·이전 프레임의 자기상관 비교로 피치 지연을 선택한다."
+    },
+    {
+      "identifier": "AR-114393-A1",
+      "source_fingerprint": "ddf22fc58b9e7afefbf8ffbe96314679159fa577ea3a556547648c50b7fbbabb",
+      "content_hash": "a63368ebc005a7f983b0959fff98493d580f9269ab78a645d2b60e37548104b8",
+      "decision": "LINK",
+      "keys": [
+        "superconductivity"
+      ],
+      "reason": "유동 통로 안에 초전도 케이블을 배치한 원격 계측 구성이다. 운전 온도·냉각 성능은 별도 검증한다."
+    },
+    {
+      "identifier": "AR-114395-A1",
+      "source_fingerprint": "a6485c57089972fc3a758559cdee2a9448fd8f1b09e4384b378deecb3126cadb",
+      "content_hash": "742d599a45024c747b2e0191529c8be40501ee2a7b1eb205d85e27336d9ef938",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "CD73 효소 활성을 억제한다."
+    },
+    {
+      "identifier": "AR-114400-A1",
+      "source_fingerprint": "70f735483493ecfb463b60ffb06745f5a7c45a54029650b79c7813a856c2bb00",
+      "content_hash": "445640175b5dca777095f8463c44602e8040847bfab974491a30a49135d56e17",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying"
+      ],
+      "reason": "위아래 나선 스크루로 벌크 재료를 이송·혼합한다."
+    },
+    {
+      "identifier": "AR-114401-A1",
+      "source_fingerprint": "5fc2b7d0cb824866943664d9212e47b241c94de9dc5527c49c3e00e09a353792",
+      "content_hash": "e31ed4229c3d3bd585e2628f9da566f3e144ffffceecb0a90d4643d4f3b34bce",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "인계 성분·장애 아민·멜라민 시아누레이트의 난연 조합이다. 기상 라디칼 억제·탄화 기여는 초록에 없다."
+    },
+    {
+      "identifier": "AR-114402-A1",
+      "source_fingerprint": "d4b0b9b58d021e19c3928d69ab4bc125bfd58301a206b1aff8fe23e6faedc0ae",
+      "content_hash": "a1e14b5bc94a05e5484a2cd44569a988d927d409f3f5c23899124ee1f54400fa",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "임의 접속 식별 메시지의 시간 자원 배치 규칙이다."
+    },
+    {
+      "identifier": "AR-114427-A1",
+      "source_fingerprint": "91c6f368f2e695de9b3d4d5475cdf3673276167c0881898e5c23971decba95c3",
+      "content_hash": "dcd2b895a22233a3a849d638fd593d720803ce701740c1fd3bb1dfe71716923e",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "뮤라미다아제의 사료 이용이다. 펩티도글리칸 당사슬 절단을 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-114432-A1",
+      "source_fingerprint": "3ed85c16784a2f2041fca93d7f68a0f721f54e06ef201934f7dbc6bad888d256",
+      "content_hash": "3c8ed0728d622dce35d34fc3d407c2cd22b432a80fc897e7a18678e1feef2c5e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전기염소화용 활성 전극 조성이다. 전기화학적 염화물 산화 후보의 추가 사례이며 도금 제조 방식은 명시되지 않았다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:10:47.094042+00:00"
+}

@@ -1,0 +1,192 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "3f20786b93d600750ee3b43c0e23687754dad70ca724dbc635cee466b469b6d3",
+  "reviews": [
+    {
+      "identifier": "AR-099951-A1",
+      "source_fingerprint": "284c593b0b55949bbe05f6358d1d5e46ddc80ab6a2fb20d796f5f17ef5d4dfaf",
+      "content_hash": "19943e6dad6c4a5a95fb4521e0102612ec126656eef6925d8f7bebd89f15ba82",
+      "decision": "LINK",
+      "keys": [
+        "alcohol-dehydration-to-alkene",
+        "catalysis"
+      ],
+      "reason": "지지 헤테로폴리산 촉매에서 에탄올을 탈수하여 에텐을 얻는다."
+    },
+    {
+      "identifier": "AR-099954-A1",
+      "source_fingerprint": "d5534dd9408976303dcef246674e12064ced06b2b48801b207f2bb337a1dd5dd",
+      "content_hash": "43bbcd44e24f1c007524d7d9a70803bfe1219b3f1c47638f226ac2c28647fc3b",
+      "decision": "LINK",
+      "keys": [
+        "catalytic-hydrocarbon-cracking",
+        "combustion-heating"
+      ],
+      "reason": "나프타 촉매분해와 개질로의 열 통합 공정이다. 개질의 상세 반응은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099959-A1",
+      "source_fingerprint": "9e9d3df3a135d4e71675ae6b9ea6778b49ab507579baab81b5df4246b68d6a57",
+      "content_hash": "4dd4dc331c92d444cc69bfaf274fc0997985498ac27bd9059e1f166a00fb3b37",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수용성·현탁계 불용성 다당류의 소화 조성이다. 화염 억제·증발 냉각 등 구체적인 지배 기전은 불명이다."
+    },
+    {
+      "identifier": "AR-099965-A1",
+      "source_fingerprint": "18762f73438cc6259be391d59bc6afd3eb84227a7ad74b13b62f9d9153a5d046",
+      "content_hash": "39579ddbb2762a8ef7c7764eb71e4adb7c013e3a49fdf06a76958342983e2ceb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "변수 변화가 회수 결과에 미치는 예측 영향을 비교해 측정 개선 대상을 선택한다. 매개변수 민감도 기반 측정 우선순위 후보로 기록한다."
+    },
+    {
+      "identifier": "AR-099968-A1",
+      "source_fingerprint": "d68b5dc8c8fd5c8c04d5da990e615abace9a4c201d71cc593e1e69f101c95340",
+      "content_hash": "008462a25c235df9960541abec8961da7a22e29246179b92ab36ea845b9fe76c",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-membrane-actuation"
+      ],
+      "reason": "공기 주입식 바닥 매트리스와 접이 주거 구조이다. 막 압력 지지 외 형상은 설계이다."
+    },
+    {
+      "identifier": "AR-099969-A1",
+      "source_fingerprint": "8cc0839206da412ceeb51eff426fc2bc4f1c244c64ed5a0bc6c7ce36867f8548",
+      "content_hash": "49a4f7aca342a2a58006b82fc947bb6e12b2e9ef550fef931cd19164550978ff",
+      "decision": "LINK",
+      "keys": [
+        "doppler-sensing"
+      ],
+      "reason": "연속 도플러 청진과 심전도 계측을 함께 제공한다. 심전도는 이미 작성한 생체 전위 초안의 추가 근거 후보이다."
+    },
+    {
+      "identifier": "AR-099981-A1",
+      "source_fingerprint": "36cd74d1e5f65f142d4ac36ac2c33df361e969625c42511cc3abe0b22782db54",
+      "content_hash": "86212c488194666354de805e615a6e33049f9e9a034f253f49d23134c9fc53ec",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "signal-directed-protein-localization"
+      ],
+      "reason": "신호펩타이드와 프로모터를 바꾸어 단백질 생산·분비를 조절한다. 특허의 100배 주장을 일반 보장으로 사용하지 않는다."
+    },
+    {
+      "identifier": "AR-099991-A1",
+      "source_fingerprint": "6ed5940e1d50968c3ca8c87da0dbb5df05a96a66d381c0c5207a3d69ce45e20f",
+      "content_hash": "9e29cdad622977f8397e310cc42f96944b77a18be07b555782c50a5411f79892",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "TGFβ 계열 신호 억제제이다. 특정 키나아제 직접 저해 여부는 초록에 없다."
+    },
+    {
+      "identifier": "AR-099996-A1",
+      "source_fingerprint": "1bd32c462a58f339a7620e3a7a12418a24ce7f2ecc10e78be35dc8a3de75c480",
+      "content_hash": "fa445136c2469c1f1757c8c8d9930c8924a177fe89c33fd68adaa188b68dd7b1",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "수용성 선형 폴리포스파젠을 물에 배합해 우물·관로에 주입한다. 항력 감소나 가교 기능은 불명이다."
+    },
+    {
+      "identifier": "AR-100005-A1",
+      "source_fingerprint": "cba3ac2efbd4a2edb74e7692c0f53878560062d9ef15e134f96a44c1d395bbd7",
+      "content_hash": "4cb5cf1bfeb6ce4add5960472da06d04d9bc066eaaff48d0b923283253442c28",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "폭이 변하는 타이어 홈의 돌 배출 형상이다. 배출 구동력·변형 과정이 없어 별도 효과를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-100022-A1",
+      "source_fingerprint": "b27958a069965a87d1c4070e66a51ae3979943943ca3550e5b47b3c54eaa209e",
+      "content_hash": "cc7ae112bf3538da1aa92c0a6994dd6354eab15115895df86e86a9bba9397f34",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration",
+        "barrier-coating"
+      ],
+      "reason": "저비점 용매의 상온 제거로 입자에 수분 차단 피복을 만든다. 생물 활성 성분은 고온에 노출하지 않는 설계이다."
+    },
+    {
+      "identifier": "AR-100037-A1",
+      "source_fingerprint": "0864d686b43e322574e1ebc36f79aac3f2ca337c18b9edd346328f6864a18443",
+      "content_hash": "eb21119541de914a6a84761f8674d114a7d38a5f963935af331b20ba2eb1d7de",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "수경재배 측정값을 설정 상하한과 비교해 환경을 조절한다. 센서별 변환 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-100049-A1",
+      "source_fingerprint": "3faa1602617626183499896892b6550e82764abdb7c721227df9f45f866bfe36",
+      "content_hash": "3d223828e42b7659651ccb5bd97dba5f843193691ea44c0ac20c71f7aaa07f62",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "BACE1 저해로 아밀로이드 생성 경로를 조절한다. 질환·분자별 신규 효과가 아니다."
+    },
+    {
+      "identifier": "AR-100071-A1",
+      "source_fingerprint": "147cec9dc8ccc7b9929c54817cbe414fc955b1688efc7c597606a28eb8df9e85",
+      "content_hash": "d1cfefe7a177d8e02cfc7567fa72c67f4b5bdc481a228081ab5fe589e422af05",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "헤테로고리 설폰의 치환체 목록이며 작용 표적·변환 반응은 없다."
+    },
+    {
+      "identifier": "AR-100133-A1",
+      "source_fingerprint": "491b532f10bb6137868c9bdcf06a88a05640c267adc24b748f2580364b8417cf",
+      "content_hash": "322ebb1d34acd05a42f3a10baa95904ccec768ca6e81f4a0ea1567bbd014366f",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "spontaneous-emulsification"
+      ],
+      "reason": "농축액을 물로 희석하면 유제가 형성된다. 분무 비산 저감의 유동 상세 기전은 보류한다."
+    },
+    {
+      "identifier": "AR-100139-A1",
+      "source_fingerprint": "9aac0c6726747cf07a5263b92c9afbc1ca9759cee72878cb8e5ca6bb60a20e9f",
+      "content_hash": "55ace124aba2e4312ba2d9d34d326e61ea28ea52fc16b89d6b38409926c0d51e",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "barrier-coating"
+      ],
+      "reason": "암수 내화벽돌의 맞물림으로 이탈을 막고 용기 내벽을 보호한다."
+    },
+    {
+      "identifier": "AR-100145-A4",
+      "source_fingerprint": "408d3ab48d3da965fb364899c53f6e4d6776730d5628e38b4f919a38e3a1beb7",
+      "content_hash": "a045f4104c526735544d74a2bb162b893bf0b75e098268a8cd6147ce975b57bb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "비행 계산자의 계산 기능 목록이다. 로그 눈금 등 실제 수학적 변환은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-100179-A1",
+      "source_fingerprint": "c0d16380ebd19f54d2f491f500ae45ff0331c99c8cd01b091c0aef10f641fe0a",
+      "content_hash": "21a2c9ede1cddc14a99894ae1b21ba27149051ee5f8004a47f9298f92591fc97",
+      "decision": "LINK",
+      "keys": [
+        "redundant-path-fault-tolerance"
+      ],
+      "reason": "외부 배터리·칩 제거 시 내부 부품으로 추적 기능을 유지하는 중복 구조이다. 위치 측정 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-100181-A1",
+      "source_fingerprint": "028ba00e73f786ee7adfc09bff8e8c06bf1c8a41450f1eaf300e7235a2a370c5",
+      "content_hash": "0df0c75f70b5faed19ec5978718db3d6da613e25d340615d0dce254744dcc855",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전류로 응력 있는 금속 덮개를 접어 약제를 노출한다. 열팽창·전해 용해 등 실제 변형 원리는 불명이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:00:25.564374+00:00"
+}

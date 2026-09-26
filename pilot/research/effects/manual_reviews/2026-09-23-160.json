@@ -1,0 +1,122 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "5f6074aaa7c5c81093e8849c82e2f38b5e04a94d3c306f6fd74dff4adb74ab94",
+  "reviews": [
+    {
+      "identifier": "AR-101093-A1",
+      "source_fingerprint": "577583a2a8b37bdec8f5c5b32dc985c76a672a0b0083b75413c0d05e6039944d",
+      "content_hash": "4acf22bee995324b0e19a827a44e1217ba543a3935acd523befe862cb053a782",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "가용성 구아닐산고리화효소 활성화제이다. NO 매개인지 독립 작용인지 불명이라 기존 NO 신호에 억지 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-101101-A1",
+      "source_fingerprint": "e9c225907e292ad2b9bee6f3e41803781d110ead247635b12f3381de1db73073",
+      "content_hash": "14b3775e088a1286e7848fa25f94a0ffab571ddce4d91686ec99d03e07656b15",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "재조합 헤모글로빈 생산을 명시한다. 무헤임체까지 산소 전달·항암 효과를 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-101105-A1",
+      "source_fingerprint": "93777668ce54f3b2e483103c1f8e73eed09e73ecc3971c5cd88e6803f19d1455",
+      "content_hash": "abc31bf85f2916e1ec1b3a435be40bcc24b4c967b9b77494b73d2e7602d6d37e",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "좁은 입구보다 넓은 너트를 채널에 가두어 조절 가능한 연결점을 만든다."
+    },
+    {
+      "identifier": "AR-101110-A1",
+      "source_fingerprint": "1fd211487f856b352cb48696751c5fed78de7ed8504b68d03271c10bac06bc78",
+      "content_hash": "82f9dc8f9dccb527ff4d43023c3b932a9de4d6e26981e781df175093b727b884",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "다중 우물 분기의 유체·통신선 배치이다. 특정 신호 전파나 결합 원리는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-101111-A1",
+      "source_fingerprint": "66202438427c28eff7a99a6fdc8e5f5d65332383f93edf73e6ec7b0d3e015e66",
+      "content_hash": "371cc2c81111135670790acff41d0b65c948f7e1302bca64bf4cc4a1ed56d821",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "흡유 충전재의 셀과 불투과성 배면으로 유출물을 담는다. 모세관 흡수·표면 흡착 중 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-101116-A1",
+      "source_fingerprint": "84562d969e1200c3d6158b9ec83611a6bba01bf1d687aa332a9a296b5a4f9e3d",
+      "content_hash": "03da9a29b9fe120c214e7a378881115e2d3dbcc5dc7f0a1d8067fcb67b4c0505",
+      "decision": "LINK",
+      "keys": [
+        "pressure-compaction"
+      ],
+      "reason": "건식 롤러 압축 과립화 후 정제로 가압 성형한다. 첨가제의 상세 작용은 불명이다."
+    },
+    {
+      "identifier": "AR-101124-A1",
+      "source_fingerprint": "89457d724261b68a6aea1a2f6f3960ae704132f03b330c8c348fe23d00986a32",
+      "content_hash": "1fabee139c4f9422b9847be837bbbf24f4afc8b74933b2503d57d7584e33beff",
+      "decision": "LINK",
+      "keys": [
+        "genetic-loss-of-function",
+        "antigen-specific-immunization"
+      ],
+      "reason": "wadC·ppdK 비활성화 균주를 백신에 사용한다. 다른 균종마다 원리를 새로 세지 않는다."
+    },
+    {
+      "identifier": "AR-101145-A1",
+      "source_fingerprint": "9173b386e2e9bb8cfd9828a73b29c749d59b4efdd505b311f1c0da3bd54ba319",
+      "content_hash": "9ba1de55438ac5bc71dfe2a22c3ac8469b1634cb043185db8ba92e667f23d8ca",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "오토바이 후방 흙받이와 측면 보호부의 구멍 배치이다."
+    },
+    {
+      "identifier": "AR-101174-A1",
+      "source_fingerprint": "7f73e2a4dd4d3482c12eb42606561d5a8531b792843d1515934335c54fc9fdbd",
+      "content_hash": "b235a490a7021c3a3c42d581dd49482d802bf2926af8e6cd19414c69f8317f4e",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "LSD1 저해제이다. 저장된 초록은 긴 치환체 목록 중간에서 끝나며 보이지 않는 상세를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-101209-A2",
+      "source_fingerprint": "4516669faf70951d6f70860e226830d2b8d31b6b79c057c7ae98321a842319b2",
+      "content_hash": "8be41ad42637261fd7fa47bfdd52b29ba131e10b3f6b0ad802ca562d2d5ea88b",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "adaptive-modulation-coding"
+      ],
+      "reason": "과열·처리 과부하 시 낮은 CQI를 보고해 전송 부하를 줄이는 피드백이다."
+    },
+    {
+      "identifier": "AR-101213-A1",
+      "source_fingerprint": "c6152a27e98539e40d09912c94d20457a4050c2215df8363caf18832e48057f4",
+      "content_hash": "522d314653d5dd3ad7d566c3d269e1001a8f4beba8a099556966bf69215b3eee",
+      "decision": "LINK",
+      "keys": [
+        "chemical-cue-directed-behavior"
+      ],
+      "reason": "카이로몬과 천적을 조합해 해충의 유인 행동을 조절한다. 포식 자체는 초록의 핵심 작동으로 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-101221-A1",
+      "source_fingerprint": "71e7ea894973ae5341191db1522e0b4bd0ff006e922a93b92495fb5a2daee9e3",
+      "content_hash": "fdab7fb4af565608e02c0aa04ac8302385df73c2593a972d7591f2c9a6de2d41",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "네 패널로 만든 용기의 목·확장부 형상이다. 별도 물리 작용 근거가 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:02:43.377377+00:00"
+}

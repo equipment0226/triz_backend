@@ -1,0 +1,199 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "4fa924398e03f59534286d2dd44c2ce27d825255775060cc51ea5156a51af3c6",
+  "reviews": [
+    {
+      "identifier": "AR-096392-A1",
+      "source_fingerprint": "f388109dc65c34fd1e3b3b48b09e1181716daffbdaff2c33c1250a4a488ae2dd",
+      "content_hash": "d8536dc5a6fb6847f56faa7eb3dbc58af715920c9d2c91097bf9749e9e80d3fe",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "상보적 RNA 이중가닥에 의한 TMPRSS6 전사체 분해가 명시된다. 표적별 신규 효과로 나누지 않는다."
+    },
+    {
+      "identifier": "AR-096422-A1",
+      "source_fingerprint": "bf09e739f62256601d76bd927e30d9633da37dc60f2594fe3732e6da8ac7069a",
+      "content_hash": "2a1725bf87f544c90d7ae93af784240fd692c9488e4c3c7e2c6ec79d072f903e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "교통사고 예방 장치라는 제목 수준의 내용뿐이므로 작동 원리를 특정할 수 없다."
+    },
+    {
+      "identifier": "AR-096430-A1",
+      "source_fingerprint": "13e9e5648c99d7a1c48dbc0783ff988b3438b20f633e94abc57917e8c10609a7",
+      "content_hash": "edd583d6ab06fc7a890bd4eb2668b6725f8c97304b4d3ac7dd56276926c9d9b8",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "절단 바 지지 팔의 회전 구속과 이동 한계 구조가 명시된다. 포텐쇼미터 위치 변환은 별도 신규 후보로 보존한다."
+    },
+    {
+      "identifier": "AR-096445-A1",
+      "source_fingerprint": "d00df912ec2e62f259240c25879744a41d643406133e323b0eec35925f313204",
+      "content_hash": "ef48d01b8a6129202f1d764dd925a2c765674acd9606ad92c766c67f2ef65277",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "시가 독소 B 소단위 특이 항체 결합이다. 치료 효능이나 중화 경로를 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-096449-A1",
+      "source_fingerprint": "d234ed4bac75c65ee5149ecbe7e11530254a81ba8f46025f240da10e1783d865",
+      "content_hash": "44875667446bcfc82d267eb2e2985cb6198c91c04361a0839bc271524445b4fb",
+      "decision": "LINK",
+      "keys": [
+        "polymer-turbulent-drag-reduction",
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "고분자 마찰 저감과 압력에 의한 지하 균열 확장이 명시된다. 양쪽 전하의 조성은 독립 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-096466-A1",
+      "source_fingerprint": "f9d84c5a12b738cbc8a725133c0275078c4deecd541072485544f25d28ee3778",
+      "content_hash": "4df32c29e44c7197ef81c9e63d81fd06ff6e97b7cefc142f3c345204f6a4fc7c",
+      "decision": "LINK",
+      "keys": [
+        "electrostatic-precipitation",
+        "dielectric-insulation"
+      ],
+      "reason": "대전 코팅의 전기장 이동과 절연 지지 구조를 이용한다. 절연체가 모든 정전 인력을 없앤다고 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-096486-A1",
+      "source_fingerprint": "0bf664beffe34304856f0fdfec3977e4527d68db5d0ab557049cb1f4d1cd86c1",
+      "content_hash": "5ba1772daf5e5c832c0ca12e7f438fed11376c82e55643c097e64e5419256ce6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "투입 해제 부재로 관을 분리하고 유로를 확보하는 기계 순서이다. 해제 힘의 상세 기전은 생략되어 있다."
+    },
+    {
+      "identifier": "AR-096492-A1",
+      "source_fingerprint": "7ab7cbff6cc0590f3658a5aaa4b620825ff0083e09c500bb94a7a1b18e526935",
+      "content_hash": "df2c86b7c2fdd601c8d77c20082a851ec572d480b3ec5e1fcf05a61442e6fc49",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수분활성 0.93 이하가 명시된 식품 조성이다. 물 함량과 다른 수분활성의 생물 이용 가능성 제어를 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-096497-A1",
+      "source_fingerprint": "229d00cc25e1117067b6805264885422f90818fac07a409181619a502edbfbb8",
+      "content_hash": "a50bed1ed1ebec516231ebd67114bc8f0c984cc48b6e4bae7723efeb1d652b9f",
+      "decision": "LINK",
+      "keys": [
+        "laser-ablation"
+      ],
+      "reason": "관 내부 레이저 빔을 표면 버로 안내하여 재료를 제거하는 적용이다."
+    },
+    {
+      "identifier": "AR-096502-A1",
+      "source_fingerprint": "e48c4673794d7a5d1d2e6b36f59c524d5054369fd0f7119fb209e0127a2852e8",
+      "content_hash": "0d6f63e2f0a314ac71b4117b7c4c08e0e330c5d6649f5414a4061d870ec450ee",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "결합제·실리카 피복 종자 구성이다. 결합제 상태와 발아 개선의 물리적 원인이 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-096503-A1",
+      "source_fingerprint": "29191c778b27c7930e5116710adbd030f8f8b6fc51300c011b717291cd89e72b",
+      "content_hash": "860b59a1d306c6dd70e4acbd06a50daaa617f12bce5d2ad5b5374c0b81ba7334",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping"
+      ],
+      "reason": "진공 롤러와 회전 밸브로 흡입 연결 구간을 정한다. 진공 흡착과 별도 독립 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-096513-A1",
+      "source_fingerprint": "99ed3726dfc75b6423ced05bc9d15a3ef5bb1a7837933f567edee4debb0ed329",
+      "content_hash": "4c37cf4d40d627447789f02ba5f8506d39541fbe9eef304c093e3949a012c047",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "잔틴 산화효소 저해이다. 방출 제형의 구체적 제어 기전은 주어지지 않았다."
+    },
+    {
+      "identifier": "AR-096515-A1",
+      "source_fingerprint": "6823d6cde99a42bb883e8e82ac547759d52d367822ff60eb979fe1119e87d528",
+      "content_hash": "99a552866515845a431a9523bd536d5177aa20d62d41060343465589e25c7a94",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "혈소판 수용체에 결합하는 항체와 응고인자 화물의 융합이다. XTEN에 의한 크기 증가·제거 변화는 기존 크기 의존 제거 후보와 연결 가능하다."
+    },
+    {
+      "identifier": "AR-096517-A1",
+      "source_fingerprint": "0fd71aa08da52b4544dbe0aa3dfde82d3686457737159cd9e1fdac9e1564444d",
+      "content_hash": "d3e7059899db2224b8c1aae39fbdb3deb75a26c619d5c74b9439f830174ca7fc",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "치환체 범위와 제초 용도만 있으며 구조식도 저장 초록에서 완전하지 않다. 생물 표적·반응 경로를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-096530-A2",
+      "source_fingerprint": "0c11456e76534225b5eaeb781583f3917c24e4ac5f1ea9bf4202f57f46492593",
+      "content_hash": "843230a076d548191e20ee0a4fdb97f76198ae8e5aa0e5619a9928f43a8a36ae",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "홈의 칼날이 화장품 끝의 재료를 제거한다. 수거 슬롯 구성은 설계이다."
+    },
+    {
+      "identifier": "AR-096543-A1",
+      "source_fingerprint": "441c2be16336f959daa162cb9198e20d1e1f912fc55c54ac15bf66da1a6030cb",
+      "content_hash": "f90b64efb6df4bf069b846f9506d1bcd8163f1d326db71bca1a944c434923431",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PI3K 키나아제 저해 적용으로 같은 원리의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-096545-A1",
+      "source_fingerprint": "df60a6c0446fd7cada6f32922ae95d218e99b960a168fd7e6fa239fccf051fca",
+      "content_hash": "7e180848764b2fb6126eba9f2547b7576f810367eeab3c2c9ae2e0cb37445637",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "항PCSK9 항체 결합을 명시한다. 수용체 재순환 변화는 초록에 직접 설명되지 않아 추가 링크를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-096548-A1",
+      "source_fingerprint": "a76030dcc36707415959f9121486362dae5cebf682d9821383047ca927768ff0",
+      "content_hash": "4fe47c0a160cc85ea35d5d95e46b58bc7b2e43b2f63d4708e68218312d7ff1df",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "카텝신 D 관련 저해 화합물이다. 하이드록시에틸렌 모티프만으로 결합 모드를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-096566-A1",
+      "source_fingerprint": "1883ea01e285c5bd88c9a0dc32965a6ff97ce975b5827930e8c30ed3b76afbce",
+      "content_hash": "e7b39cb58a1f0f69d93466725a400a86c997f14d1cf1b1cce1a7c85b5ccd7559",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "관개 수문의 콘크리트 보강벽과 흐름 진정 웅덩이 배치이다. 도수 발생 조건이 없으므로 도수 효과로 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-096572-A1",
+      "source_fingerprint": "53134ec42ea20924cc0fef82cf98501162ad2ad519faaa0ed6ee77fa1e111985",
+      "content_hash": "a7647396bcc5cbd3d1f9a5b3e4fbbeb3e975caebabd3917249b2ea0acaa54c22",
+      "decision": "LINK",
+      "keys": [
+        "electron-tunneling"
+      ],
+      "reason": "절연 장벽의 전압·전류와 두께 관계를 조사하는 터널 접합 계측이다. AFM 탐침 힘에 의한 지형 계측을 별도 후보로 검토한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:46:48.070736+00:00"
+}

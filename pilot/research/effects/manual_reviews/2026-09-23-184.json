@@ -1,0 +1,140 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d0ba65de00b6b7e81015366ba61e68c3a6f3aa849e45c205715814b37da06400",
+  "reviews": [
+    {
+      "identifier": "AR-106073-A1",
+      "source_fingerprint": "46ef08d88ea40209438369185a28e42cd416ffcfd18da6cc4678b57ff081499b",
+      "content_hash": "3f41718bac4fb376bcfff1388e8adb96bf8052485b643551c6188194c81ed419",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고원자번호 물질의 방사선 에너지 침적 증가를 독립 문헌으로 검토한다. 미토콘드리아 손상만으로 모든 종양세포가 사멸한다는 주장이나 마이크로파를 전리 방사선처럼 묶는 주장은 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-106099-A1",
+      "source_fingerprint": "8fa6071c244e693e1a3a84cbcf13d0d49388bcaa3a79395a1fe6aa1ba7e47067",
+      "content_hash": "68b31762d16dcdbc8b6fb222ac2a576daa15ddea1bd2457414c917c1c618a5ce",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "ATX와 CA 이중 효소 저해가 제목에 명시된다. 치환기와 표적 조합만으로 신규 저해 원리를 늘리지 않는다."
+    },
+    {
+      "identifier": "AR-106101-A1",
+      "source_fingerprint": "0f1b2a7569e0cfd511432dc6c8c21fd63b5199716465497297159b744c3ce7e4",
+      "content_hash": "8b7f6df5a831640904628e337b296d4e427e089de958ef5dc52120c3ad44774a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "ATX 저해가 제목에 명시되며 구체적 결합 양식은 미상이다."
+    },
+    {
+      "identifier": "AR-106121-A6",
+      "source_fingerprint": "c78c01710cabfcd1c6b3f43be354ac6ca69c4f4be128a4272eb151881efe7fc3",
+      "content_hash": "564eccfff90f67a1fcf0d8fd47e78110a4b98219f0cd82bbce499bb3019a3814",
+      "decision": "LINK",
+      "keys": [
+        "fluid-jet-deposit-removal",
+        "labyrinth-seal-throttling"
+      ],
+      "reason": "분출 유체로 배관을 세척하고 단계형 최소 접촉 밀봉으로 베어링 유입을 막는다. 제트 반동 회전은 준비 중인 반작용 추력 카드의 추가 사례다."
+    },
+    {
+      "identifier": "AR-106131-A1",
+      "source_fingerprint": "86ccd490d6d6469ad92fc9a4052aeaf86639e7b2d5f05ae0024d1562eaf48868",
+      "content_hash": "fa16bbf0f8bd12f234c133ac4bc19d2dbcc4561546b6f5edb1fd557074e43b78",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "acid-base-buffering"
+      ],
+      "reason": "재조합 AAV의 FVIII 전달·발현 용도와 완충제가 명시된다. 벡터와 제형의 변경을 별도 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-106179-A2",
+      "source_fingerprint": "a79e9d1b3a3b190993be09ce6c4a5037099357e1f09dbca56b46d44801f66284",
+      "content_hash": "7631e39d9ece86b3efc8c9b464769852ab28b719ea0ae9d163b4bfc289ecd428",
+      "decision": "LINK",
+      "keys": [
+        "emulsion-film-destabilization"
+      ],
+      "reason": "양이온성 유기 실록산 등의 첨가로 수상·유기상 에멀션을 분리한다. 전하 역전까지는 초록에 없다."
+    },
+    {
+      "identifier": "AR-106180-A2",
+      "source_fingerprint": "5941e2725fb33dfe4efd5ef11aebc1fe7263f1fa647ccc408c41ee4bbd802a46",
+      "content_hash": "241d40158b93520b5420041bc6158e8dd8a44cf41bcb827248ce1479171c3a74",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation"
+      ],
+      "reason": "사용 의존성 전압 개폐 나트륨 채널 조절이 명시된다."
+    },
+    {
+      "identifier": "AR-106199-A1",
+      "source_fingerprint": "429b08d2ecf94f046a565d3aca1abe3867dfdc201b0ccbf4f55cee62e683e45f",
+      "content_hash": "6c1bcd58b67e2aa854286bd0687b766cbca3a91580d4c1d2b6945a883c45f33e",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "T세포 활성화 항원과 STEAP1을 함께 결합한다. 준비 중인 면역세포·표적 가교와 같은 기전으로 추가 연결한다."
+    },
+    {
+      "identifier": "AR-106200-A1",
+      "source_fingerprint": "3652958bb9da39473f51d08fc5e480263cf9ea3a977031f864ee7b1460abe55e",
+      "content_hash": "c58731d52c4748dfd63951817c5659505208ed2615a0fb0236d0a694b3358515",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "T세포 활성화 항원과 CD33을 함께 결합한다. 표적 변경만으로 별도 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-106227-A1",
+      "source_fingerprint": "24d0394956ac7d95a3b469b1e94b247db1f441728f2880f90af22b24f985b157",
+      "content_hash": "08b0c6881ebeae498c387ef9ddcff00438286fcb85b7ac78d800760b4cde1af2",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "LPA 유전자 발현을 RNA 간섭으로 억제한다."
+    },
+    {
+      "identifier": "AR-106248-A1",
+      "source_fingerprint": "81f40f17f0d61e0b9e0d80bbd365370631220745efab2414f240475d4817611f",
+      "content_hash": "22718cbddc8619d93e7a6ece70a2ea46ffaa19cf82e433fc4da36fdd2302e178",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "풍력발전 콘크리트 마스트의 종방향 분할과 접속 구성이다."
+    },
+    {
+      "identifier": "AR-106255-A1",
+      "source_fingerprint": "823e4b15b80a4c3c691b70616bde49b85590a90195f40dc10fa853597e2f104c",
+      "content_hash": "72dc5d30f0c35af57f225d0743fb2ef480da96cf839e7f8a377199fd5a6b6890",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "qPE9-1·DEP1 과발현의 수량 증대 주장이며 구체적 생리 신호 경로는 초록에 없다."
+    },
+    {
+      "identifier": "AR-106258-A1",
+      "source_fingerprint": "418dc04bf2212227c7983ed232d8aa2d0159dbf20cf6b2fcef04954949231035",
+      "content_hash": "fa520a2c272862115ac8af661f860a244582916145095a85502d39631d5f0194",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피리딘 화합물의 광범위한 치환기와 농업용 염만 제시되어 작용 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-106285-A1",
+      "source_fingerprint": "896ae830cfb028169ce60f68e1cec0cba5760abe1586518a261aaa6c15b92289",
+      "content_hash": "ca65451fafa5f2940a632d9ed81d57c528b9f0c968d356c0a8ca527f59d0af22",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전분 합성효소 II 대립유전자라는 제목과 밀 표현형 변경 용도만으로 반응·기능 상실 여부를 특정할 수 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:36:11.952577+00:00"
+}

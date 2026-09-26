@@ -1,0 +1,196 @@
+{
+  "batch": "additions-2026-09-26-27.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1485,
+  "added": 15,
+  "after": 1500,
+  "target": 1500,
+  "source_sha256": "a7a90876e36d96e801529fef3229ef183d06b7a2c1563101aac74e27945618e6",
+  "decisions": [
+    {
+      "key": "donor-antibond-orbital-hyperconjugation",
+      "group": 15,
+      "related_keys": [
+        "cyclic-pi-delocalization-aromatic-stabilization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고리 전체의 파이 방향족성 대신 국소 주개와 반결합 궤도의 방향성 혼합을 다룬다. 고슈·아노머·치환기별 효과를 별도 계수하지 않는다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlelanding/1999/p2/a901974j",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "trans-ligand-kinetic-substitution-labilization",
+      "group": 15,
+      "related_keys": [
+        "coordination-complexation",
+        "lewis-acid-catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "착물 형성 자체가 아니라 기존 리간드가 맞은편 자리의 치환 장벽을 바꾸는 위치 선택적 전자 효과다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18442081/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "neighboring-group-bridged-intermediate-participation",
+      "group": 15,
+      "related_keys": [
+        "nucleophilic-substitution",
+        "chemical-glycosylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 치환이나 당 결합 생성 대신 내부 주개가 먼저 결합해 가교 중간체를 만드는 이웃기 참여 경로를 분리한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32471982/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rapid-interconversion-transition-state-product-selection",
+      "group": 15,
+      "related_keys": [
+        "le-chatelier-equilibrium-shift",
+        "enantioselective-kinetic-resolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평형 조성 이동이나 서로 교환하지 않는 거울상체의 속도 분할과 달리 빠른 내부 교환 중 경쟁 생성물 통로의 선택을 설명한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35431716/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "autocatalytic-delayed-inhibition-chemical-oscillation",
+      "group": 15,
+      "related_keys": [
+        "product-autocatalysis",
+        "turing-reaction-diffusion-patterning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "양의 피드백만 있는 자기촉매와 구분되는 지연 억제의 시간 진동이다. 성분별 확산이 공간 무늬를 만드는 튜링 불안정성을 요구하지 않는다.",
+      "source_url": "https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.5c04472",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "concerted-one-five-hydrogen-sigmatropic-migration",
+      "group": 15,
+      "related_keys": [
+        "intramolecular-hydrogen-radical-translocation",
+        "claisen-rearrangement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열린 껍질의 수소 원자 포획과 달리 닫힌 껍질 공액계의 결합 전자 재배열이다. 클라이젠의 두 삼원자 조각 3,3 교환과 연결 변화가 다르다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlelanding/2007/fd/b605100f",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "allylic-ylide-concerted-two-three-rearrangement",
+      "group": 15,
+      "related_keys": [
+        "ammonium-ylide-radical-pair-migration",
+        "sulfur-ylide-betaine-ring-closure",
+        "claisen-rearrangement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "라디칼 쌍 재결합의 1,2 이동 및 외부 카보닐 부가·소환 닫힘과 달리 일리드 내부의 협동 2,3 결합 교환이다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5374492/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "brook-silyl-migration-anion-relocation",
+      "group": 15,
+      "related_keys": [
+        "oxidative-desilylation",
+        "nhc-breslow-acyl-umpolung"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산화적 C–Si의 C–O 전환이나 카벤 부가체 형성과 달리 실릴기의 C→O 이동 자체가 탄소 음이온을 드러낸다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3178891/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dithiane-deprotonation-acyl-anion-equivalent",
+      "group": 15,
+      "related_keys": [
+        "nhc-breslow-acyl-umpolung",
+        "acetal-carbonyl-protection",
+        "carbon-nucleophile-carbonyl-addition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "카벤·브레슬로 중간체의 촉매적 극성 반전과 달리 황 보호기의 탄소 탈양성자화로 유기금속 친핵체를 만든다. 보호만 하는 아세탈 카드와도 구분한다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6150673/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "persistent-radical-accumulation-cross-reaction-selection",
+      "group": 15,
+      "related_keys": [
+        "nitroxide-radical-trapping",
+        "solvent-cage-geminate-radical-recombination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "한 번의 니트록사이드 포획이나 같은 케이지 쌍의 재결합이 아니라 자기종결의 비대칭이 농도를 바꿔 벌크 반응 선택성을 스스로 조절하는 동역학이다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlelanding/1998/p2/a802773k",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "four-center-sigma-bond-metathesis",
+      "group": 15,
+      "related_keys": [
+        "transition-metal-cross-coupling",
+        "transmetalation",
+        "frustrated-lewis-pair-hydrogen-splitting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산화적 부가·환원적 제거 주기나 두 금속 사이 유기기 전달 대신 금속 결합과 기질 결합의 네 중심 교환 단계를 다룬다.",
+      "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S1387380698142501",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "trigonal-bipyramid-berry-pseudorotation",
+      "group": 15,
+      "related_keys": [
+        "coordination-complexation",
+        "photoinduced-geometric-isomerization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "리간드 출입이나 이중결합 E/Z 변화 없이 배위 다면체의 연속 변형으로 분자 내부 자리만 교환한다.",
+      "source_url": "https://pubs.acs.org/doi/10.1021/acs.organomet.9b00559",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ligand-centered-redox-electron-reservoir",
+      "group": 15,
+      "related_keys": [
+        "ligand-aromaticity-cooperative-bond-activation",
+        "coordination-complexation",
+        "transition-metal-cross-coupling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "양성자 이동에 결합된 탈·재방향족화 대신 리간드 자체의 전자수 변화가 환원·산화 당량을 담당한다. 단순 리간드 전자주개 세기 조절과도 구분한다.",
+      "source_url": "https://pubs.acs.org/doi/abs/10.1021/ic301128m",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "halogen-sigma-hole-directional-association",
+      "group": 15,
+      "related_keys": [
+        "coordination-complexation",
+        "host-guest-inclusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "금속 배위나 공동 포접이 아니라 공유 결합된 할로젠 표면의 비등방 퍼텐셜이 방향성 결합을 유도한다. 할로젠 종류별로 따로 세지 않는다.",
+      "source_url": "https://link.springer.com/article/10.1007/s00894-006-0130-2",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "favorskii-cyclopropanone-formation-ring-opening",
+      "group": 15,
+      "related_keys": [
+        "acyloin-ring-contraction-isomerization",
+        "semipinacol-one-two-carbon-migration",
+        "enol-electrophilic-alpha-functionalization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "직접 1,2 탄소 이동의 아실로인·세미피나콜 경로와 달리 사이클로프로파논 생성 후 다른 결합의 개환으로 골격을 재구성하는 경우에 한정한다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlehtml/2008/ob/b806577b",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

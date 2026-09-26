@@ -1,0 +1,34 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "4771c6d5b1506b0bc2ec79d37e8ccd21801cc79be5340613fad27d6cdb612d3a",
+  "reviews": [
+    {
+      "identifier": "AR-084444-A1",
+      "source_fingerprint": "3d1218c6963028ed3196f0fd9df40a6aa1ced20b951b68d7bc8e779018322bec",
+      "content_hash": "756bdfc68452962214a955a8e9942ef441e23ab50ab1e75dd69565a29d4e9a1b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항증식 화합물 구조만 있고 분자 작용점은 미상이다."
+    },
+    {
+      "identifier": "AR-084463-A1",
+      "source_fingerprint": "927727ef10b3141231a6b5da1fbbb4ef03077b14f7f4b5ff830109f7d8d9a756",
+      "content_hash": "5c0a0dd6270d671b676210953202ef195143c1c32e4b9c95777eb17cf2045a51",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "개방 기공 실리콘의 조직 유입·피막 감소 용도이다. 기공 제조·세포 유입 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-084485-A1",
+      "source_fingerprint": "6737aeab3efc2030fb501e4e9ef8549d55d7c0c97343a15c1f5eabc95c09f4fb",
+      "content_hash": "85a5d34e63800911c9935758be34ac972974c70797a1aaa86682560f0b41139d",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "보철 확장체가 뼈 틈을 지지한다. 생체 적합성·골전도 성능을 구조만으로 일반화하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:27:58.032854+00:00"
+}

@@ -1,0 +1,287 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e94a51cf8071f4a4f2fdd9ef5bb49d8c89b9f8597f39208197b9210047a28795",
+  "reviews": [
+    {
+      "identifier": "AR-098986-A1",
+      "source_fingerprint": "6eba17cc6e8d2649f0ec6073ee9299385be733e612085a721e09f7c904ecab85",
+      "content_hash": "dc896a70863649c226766b03d31d0e560981452df6c3fb8352481640a343de53",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전류 분포가 만드는 자기장을 다른 우물에서 측정해 거리를 역산한다. 비오·사바르 자기장 거리 추정 후보로 보류하며 유도 전압 측정이라고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-099006-A1",
+      "source_fingerprint": "4071326057babe5218152de0ade97e02455b8f08ff6632ecffc20de76206d6a3",
+      "content_hash": "a0cdc089cd6a8262eaf240f6d61bb78a6776d838c433350fc2a3545f615501e2",
+      "decision": "LINK",
+      "keys": [
+        "genetic-linkage-selection"
+      ],
+      "reason": "세포질 웅성불임 회복 유전자와 표지를 이용한다. 특정 RNA 처리 기전은 초록에 없어 추가 효과를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-099055-A1",
+      "source_fingerprint": "db0bcca7e0c7330928f09d61b169a731ffed49ee7d0ed06f7976272722a88eac",
+      "content_hash": "97a8d567c615754fc56ea6840838e20a59918b48cf39c5a555190e5a44b7b636",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "마그네슘 인화물 고체에서 포스핀 훈증제를 공급한다. 인화물 가수분해 기체 생성 후보의 문헌을 확인한다. 독성의 분자 기전은 불명이다."
+    },
+    {
+      "identifier": "AR-099060-A1",
+      "source_fingerprint": "c9a6652cba79bfc710c1b7fec9b96101bee22256aaedc8e733182da348662b41",
+      "content_hash": "fe88162cf9a84ac7b2a085859a89eabfd267257514213a596f30f68963055352",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "밀도가 다른 판지층의 배치이다. 굽힘 강성의 단면 위치나 시험 근거가 없어 구조만 기록한다."
+    },
+    {
+      "identifier": "AR-099067-A2",
+      "source_fingerprint": "82dfdc30a013f0e969a3591a4aecf9f58bbae5fb6ed854502dd8fef63e0fa2c0",
+      "content_hash": "5895e590288af80e5c9aefc75f6194ba29d104adc3705980ba5fcc096905617f",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "압력 변화에 탄성 날개가 변형하는 연결구이다. 특정 형상의 새 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-099068-A1",
+      "source_fingerprint": "f788d1dabd81dee66d803aeec354b1456fdee33e47770270a6edd41289ba9f9c",
+      "content_hash": "6e9fb7f0d6326eb7cb605b44c5fe53dc8fcabc6beccedb12788bc4c6dff50188",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "네트린 결합을 차단해 UNC5·DCC 관련 세포 사멸 신호를 바꾼다. 미토콘드리아 경로는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099073-A1",
+      "source_fingerprint": "ce2156ba5c0c0c3a7f25a998f2a8f6d50192293bfb0405fa3a0a17e96e787d90",
+      "content_hash": "754f2dc276ff3e72c4b8c952b6f1e2364af123c42b09adae16a0cbbaa5ce6d33",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "종자 원판과 모터 일체화 구조이며 모터의 전자기 구동 방식은 특정되지 않았다."
+    },
+    {
+      "identifier": "AR-099077-A1",
+      "source_fingerprint": "d9d144a76a3b8c0bbd6b1b0d34f4053d8f9372798a4fb2bac949de65f00d4af5",
+      "content_hash": "db871c337892aaf0b32c1e15ce84b8fd3e36456d977e1e2acbbe2dc52b803f4c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "탄성 덮개의 걸림부가 금속 발판에 결합하여 길이 방향 이동을 제한한다."
+    },
+    {
+      "identifier": "AR-099104-A1",
+      "source_fingerprint": "5c6d783d5f3e27d4a33665c007e55a89fb09943d440e146dfb17048d58fd9cee",
+      "content_hash": "a26f419153a4662f64519e9fa720cb1e4d6284497f390f7f0c00b773329a6a83",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "cement-hydration"
+      ],
+      "reason": "암수 끼움 EPS 거푸집으로 콘크리트 형상을 만든다. 거푸집 모듈 배치는 별도 효과가 아니다."
+    },
+    {
+      "identifier": "AR-099128-A1",
+      "source_fingerprint": "876f567f718154f7787af8041c9b9c1cb435e3245843e930d71ab4b4f207ab80",
+      "content_hash": "a1fb4bcfabfed9fc21f95c15da05f74072f4ca722e806cac9f10a5c86217e6e5",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "배기가스와 냉각수의 열교환을 유량으로 조절한다. 제어 소자의 온도 반응 원리는 불명이다."
+    },
+    {
+      "identifier": "AR-099145-A1",
+      "source_fingerprint": "0cb2d874b62ff48402e2a9cdfaa2ea97e8213aaa7704414250b88185011df75a",
+      "content_hash": "ec56b43b6b91f0eea6d7791aa35f4140f688cdaca3fddc804b2d349d496683ce",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PDE2A 저해제이다. 화합물·질환마다 효소 저해를 새로 세지 않는다."
+    },
+    {
+      "identifier": "AR-099157-A1",
+      "source_fingerprint": "eb427b65d0d7ef56cbce011663fa4c5e7b31de6a93bf89d58f8449a0dc9c22be",
+      "content_hash": "0a1f7c604e96a67dc5221f7bc9966deb40f31179bd71bce43444a382083ab27e",
+      "decision": "LINK",
+      "keys": [
+        "gelation",
+        "surfactant-action",
+        "acid-base-reaction"
+      ],
+      "reason": "지방알코올·양이온 계면활성제의 겔과 아미도아민 중화를 이용한다. 층상 구조는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099162-A1",
+      "source_fingerprint": "d6704ca9665a0064df9e5793366807d7de1d74a5b4c706663f159c95f33e90f1",
+      "content_hash": "4394592bc4b47989cf7a2c4435c9affd59e44cb7d73fae94f483007f9adb745b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "형광 증백제로 직물 외관을 변화시킨다. 측정용 형광 검출과 다른 광흡수·파장 변환 기능 후보이며 오염 분해로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-099163-A1",
+      "source_fingerprint": "f58ce47a4d26cad116e311c4b474ba00183a998ac0979fdc81fe685b6ff405d3",
+      "content_hash": "278a6c00b2c6484fa66da25c7324b1b12b641d224522afc4d847031533ff006d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "증백제·염료이동 억제제·효소의 세정 조성이다. 광학 증백 후보를 함께 기록하며 효소 기질은 불명이다."
+    },
+    {
+      "identifier": "AR-099164-A1",
+      "source_fingerprint": "2baf74d3dc21b567c9147d6df8ec83af3f35fb22a2b45198bae6f93cf21f68e2",
+      "content_hash": "72a3078b603dd71c0989d4aaab956d5bb4f689797376d5012620ba65b23262c3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "저온 처리의 형광 증백제이다. 12번과 같은 파장 변환 후보로 묶고 별도 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-099190-A1",
+      "source_fingerprint": "10f5e65503ae60445d8fa5d7e1afd93b6ad3f3d9ae6fd522a18acbf32b8f292e",
+      "content_hash": "851236fc9204868e056a51f3a83193c5cfc93df2f4ddff477f541876c14dd69e",
+      "decision": "LINK",
+      "keys": [
+        "seebeck-generation",
+        "mechanical-contact-switching"
+      ],
+      "reason": "열전대의 화염 감시 회로를 기계 연동 접점으로 개폐한다."
+    },
+    {
+      "identifier": "AR-099219-A1",
+      "source_fingerprint": "e665d1336eb3290b434eacaa393e7c98b11a3707544f3a5fa74162b9465893a2",
+      "content_hash": "8ae59ecb1ee80be66ca6dad953bf5a2a20b280baa41c92e32fa1e4eb670f83c4",
+      "decision": "LINK",
+      "keys": [
+        "oxidative-drying-crosslinking",
+        "coordination-complexation"
+      ],
+      "reason": "망간 착물 촉매를 이용해 알키드 수지의 산화 건조 가교를 촉진한다."
+    },
+    {
+      "identifier": "AR-099220-A1",
+      "source_fingerprint": "80b49f83c53cbb989ba828679e3f1e91fe03989d66ac53a91c80ca5fb9ee43b8",
+      "content_hash": "5e60caed040b8eabab306bd7b0e753017eae6109754e364ed03236d985216d3b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PDE10A 저해제이다. 표적 아형 변경으로 신규 원리를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-099223-A1",
+      "source_fingerprint": "f94ccc481882674db24ab189753fd03e64ab90319160ec3b4fc730666491be4c",
+      "content_hash": "f03931d3090ff00c9b7c77ae42978c653a96867318e8f1065a122053092210bd",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "지방 결정성을 높이는 성분으로 저밀도 아이싱 조성을 조절한다. 기포 도입 방식은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-099244-A1",
+      "source_fingerprint": "0118ddd13107820ba6c8e82612eff8c29107038184d8d7e27cac784c18e029d6",
+      "content_hash": "cd3af5b96c897f84a640dbe9a9ed96744b846b9191133a62808f6d382f63930e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "철도차량 원격 제어와 휴대 정지 스위치의 배치이며 신호 변환 원리는 불명이다."
+    },
+    {
+      "identifier": "AR-099257-A1",
+      "source_fingerprint": "3997365280304bce7b1543e2b56d8b176470f14362fec219ec8a5d20cec1d229",
+      "content_hash": "355b3f0014b267938a6bb75ef5df7404090c5b4944dbedffab3baf20ca4f9e83",
+      "decision": "LINK",
+      "keys": [
+        "photovoltaic-conversion",
+        "combustion-heating"
+      ],
+      "reason": "접이식 주거 모듈의 선택 장치로 태양광·연소 에너지 공급을 명시한다. 접이 형상 자체는 설계이다."
+    },
+    {
+      "identifier": "AR-099281-A1",
+      "source_fingerprint": "ce1277fc00c2d0c78d64c657e87882192f03c2197bda5eb5dafccd98ae78d5df",
+      "content_hash": "dfe7767118c3bf37f3580646d62785d1795419f9120c4ec6b4cc79a6d58b1b92",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching",
+        "fermentation",
+        "bulk-comminution"
+      ],
+      "reason": "당근을 분쇄·용매 침출하고 액상을 발효해 알코올을 얻는다. 용매 제거를 곧바로 증류라고 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-099282-A1",
+      "source_fingerprint": "35b48e89a8e47d4fe65d273de87fbf6d3006f7e5b8f6f5fb60b36a599f61a940",
+      "content_hash": "b52dd83fa94c269ccad63e04cd8da15047bc03016d69f4445b06da32328fe83c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "전자빔을 변환체에 충돌시켜 제동복사 광자를 만든 뒤 경화를 유도한다. 제동복사 발생을 신규 후보로 기록하며 경화 화학 기전은 불명이다."
+    },
+    {
+      "identifier": "AR-099283-A1",
+      "source_fingerprint": "90e05228e6b1340f88c0053759ebf8b33e11604946c2c104183fced67c5ce37e",
+      "content_hash": "34f75d7abcf23c1f479ce592e6b70907c39bb070bf6168552bce2762c7234061",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 투여 화합물과 PDE4 조절 제목만 있어 효소 저해인지 활성화인지 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-099284-A1",
+      "source_fingerprint": "9104500e9e0bef3f65b9cde729884e6a4b03da08525dd76c325ee6c444a9468e",
+      "content_hash": "16d958a62cdb90dacf09c45b0669a3b086171bbbd2a0d12781b00aaa7d2f03dc",
+      "decision": "LINK",
+      "keys": [
+        "swelling-actuation",
+        "elastomer-contact-sealing"
+      ],
+      "reason": "지정 유체를 흡수하여 팽창하는 탄성체로 밀봉한다. 보호링 형상은 별도 효과가 아니다."
+    },
+    {
+      "identifier": "AR-099285-A1",
+      "source_fingerprint": "550f0d2e6aa21cf862d3ac74e8678cf8cba6fce93e61f34f523e04d7ea12712d",
+      "content_hash": "31c51d038b62377455a4952592cdf0e4b1d54a5755b2d65e460082fa8d632d17",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "폴리에터아민으로 가스 수화물을 억제하지만 핵생성·성장·응집 중 어느 단계를 바꾸는지 불명이다."
+    },
+    {
+      "identifier": "AR-099292-A2",
+      "source_fingerprint": "f82e2c673ddddbfea74206b2f3e8a2bfd76cc85453f6bb1c0bb5321516dcab5f",
+      "content_hash": "35692da9ade9d4ee19cdc466045fa08f371788cf00ead3b0fc3e83b555e5b609",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "differential-survival-selection",
+        "enzyme-catalysis"
+      ],
+      "reason": "디옥시게나아제 발현 세포를 제초제에서 선택한다. 산소 첨가 반응의 상세 결합 변화는 초록에 없다."
+    },
+    {
+      "identifier": "AR-099298-A1",
+      "source_fingerprint": "a51260efeed4731ef055108d65c645e5847959bc070f6ccf2ffd4502b45f32f4",
+      "content_hash": "83992c9310c5644352d7d2f0a0dd90fa0893021c0f5d5dea11633055199b59f0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "국소 진통 화합물의 용도이며 표적·작용 기전 정보가 없다."
+    },
+    {
+      "identifier": "AR-099309-A1",
+      "source_fingerprint": "01b71c085e8aedb71d7b5a4944e69edb7441dd473b780d4e677aedea97b1e254",
+      "content_hash": "88f2e74f39dceb22a85f20646f222c6d962e86b8f5ebf7af04fe88f8fa3c45c0",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "글루코아밀라아제·풀루라나아제로 전분을 당화한다. 효소 조합 비율을 신규 원리로 세지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:58:36.041599+00:00"
+}

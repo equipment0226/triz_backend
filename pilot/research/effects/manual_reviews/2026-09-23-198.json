@@ -1,0 +1,264 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "8e4384efda69fdfdea8e2a2b9808f4906981c9344b110df739087da82fa2ab05",
+  "reviews": [
+    {
+      "identifier": "AR-108411-A2",
+      "source_fingerprint": "ab555d5d92f4c3c5f5a4b9c2b7c5b0f0dbb098eab49257e2c38ca2ae95d71110",
+      "content_hash": "19dc3d7fb5a5133b0cca8c89784aa812cd3a3946a688a5a039f300cc4dea7b92",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HCV 억제 화합물의 구조만으로 NS5A 등 표적을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-108414-A1",
+      "source_fingerprint": "0d23adb25702697b26b6fcd754cecc7d003b082eb2afe00c11d7aabaaaea556a",
+      "content_hash": "0bbb0b65a4ca8b665367faba7ee8057409492a02c490360591d45001f08fde85",
+      "decision": "LINK",
+      "keys": [
+        "abrasive-material-removal"
+      ],
+      "reason": "모래·유체의 통과량을 마모 위험 추정에 이용한다. 특정 누적 손상 법칙이나 학습 모형은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-108425-A1",
+      "source_fingerprint": "b3f6a571d6c3da7da3eaf16b3ad2c2871fa22317daaf65d827234df7e0e8a15b",
+      "content_hash": "652b8ddc17945a98d4396ff1b6c4212f32f66cbfa4a427a8ba251cc9fbf5b95a",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "Corynebacterium 변이주를 배양해 히스티딘을 회수한다. 유도체 내성의 표적 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-108432-A1",
+      "source_fingerprint": "51778ba1754c46c8621fa3cc77a54bb12cd5520ac14d28f5a7c19a2e4afb9879",
+      "content_hash": "30b22f9ef99b0eda7796533c39d2c2d9d8fd579594fd1f6818df571386a3c388",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "mechanical-interlocking"
+      ],
+      "reason": "경사진 안내면이 밀린 링크의 운동 방향을 바꾸고 뼈 안에서 고정한다. 시술 지침이나 임상 성능으로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-108434-A1",
+      "source_fingerprint": "13887ce228eba7ea94e662b7038e4f8ca03b16092e693017d824f1c3b3d026b0",
+      "content_hash": "fd85e69239e490f153020f86c2532e1793babda67ce82626f6e061440026b3ca",
+      "decision": "LINK",
+      "keys": [
+        "rolling-contact-friction-reduction",
+        "frictional-load-transmission"
+      ],
+      "reason": "바닥 구름 접촉으로 이동하고 상부 미끄럼 방지 접촉으로 신체 하중을 받는다."
+    },
+    {
+      "identifier": "AR-108437-A1",
+      "source_fingerprint": "49aa9ef30615d2b5c736c1f73132307b11a34865fe4c5960178e449942ee7c79",
+      "content_hash": "13e95adc6de944ba066c9f85e76a85679b972f3886b4cee895c34de7bfa96332",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "밀 배아 발효물의 주름 개선 용도만으로 피부 생리 작용을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-108447-A1",
+      "source_fingerprint": "0059d6a511589f12a34d61e366c60251d6b8c2866be3567170e211275afcd4f1",
+      "content_hash": "e3c01eafb661bc8c726d01ab85657bde779beef2b1be4a6160f89dcbb5fa7be9",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration"
+      ],
+      "reason": "가열로 휘발 성분을 기상으로 이동시킨다. 전기 가열 방식이나 비등을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-108462-A1",
+      "source_fingerprint": "b50983e6b7c333ff3e239cd40d8eec5b489545a27dec3a7e34526a8331915163",
+      "content_hash": "dc1cbf4464d6a4e6c88d18420b5f7ae5a15e3eaa2434e85a49d008d2926324c3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피리딘 치환 구조와 염 범위만 제시되어 약리 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-108499-A1",
+      "source_fingerprint": "8e54d9b5dbc9969c5331b2a2035e5bc7ec4e572418054aefe9868de6dcd39cbb",
+      "content_hash": "aa558b57cd74c2f7b3d914fc02d9647a6541364fa90e1a92e2ea290c0b45e8b7",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "체인과 적재함이 순환하는 화물 승강 구조이다. 전동·감속 방식은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-108502-A1",
+      "source_fingerprint": "983573eceb6ea40cc121a192092dc705cbf92df13b067a48fb288f78402b8040",
+      "content_hash": "37fead3ec63757bee80a827b4d2d70e972f3ac4ecaa7856e3c4d2d72054695cf",
+      "decision": "LINK",
+      "keys": [
+        "coanda-wall-jet"
+      ],
+      "reason": "배출 공기가 외부 표면 윤곽을 따라 전방으로 휘어 흐른다."
+    },
+    {
+      "identifier": "AR-108516-A1",
+      "source_fingerprint": "dec89dc5e78bbe88a9fd6e3a1b59e28ac14ee2592046e399f2009192bbcd3b5d",
+      "content_hash": "0e6ff4a7c3daf3d65b3210f6bbd480cf76272af1824e3acfc3190805648ba1d9",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "PD1·LAG3 항체의 결합 및 암 치료 용도이다. 초록에 차단 방향이 없어 체크포인트 억제를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-108520-A1",
+      "source_fingerprint": "72876fb3e591020751663e7d713413a8f76f32739d20d8411c087e9be00e19a0",
+      "content_hash": "8742797916a9f890748697a5f2b68c47f1f87368b3387f510d9a0fcf4578ef1a",
+      "decision": "LINK",
+      "keys": [
+        "cement-hydration"
+      ],
+      "reason": "시멘트 결합제가 보크사이트 분말 속 물과 반응해 응집체를 경화한다."
+    },
+    {
+      "identifier": "AR-108522-A1",
+      "source_fingerprint": "8f748417165f872c558a4b312ba944194de847a953b031e9eeb4fe8477c115cc",
+      "content_hash": "7d2a63c48d0a836b43e2275160edb4024b439c0013ead07f6f66dd39ac2737a5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다성분 크림프 섬유와 저하중 사전 결속 공정이다. 차등 수축으로 크림프를 만든다는 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-108552-A1",
+      "source_fingerprint": "f5349636a483cf641170227ff04146e61c37140099f920072697e1b21672ebb4",
+      "content_hash": "e4d896d21c37df2b9823649ed73ffaf2be4d8d85770415511c0a20aeca7b4ee0",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-mediated-endocytosis",
+        "binding-residence-time"
+      ],
+      "reason": "IL2R 결합·해리와 내부화가 자유 약물 농도를 바꾸는 모형이다. 표적 매개 제거의 비선형 약물동태를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-108563-A1",
+      "source_fingerprint": "f9b38461d890f4a43a69fe58b6376023ad3518a11c83b74b259e00f17c1c26ab",
+      "content_hash": "121dc9fe40e01727a34a0defcc98b95f2043a2f1fd9ca94dfe0ec564e2d9a82e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "인쇄 문서 촬영·문자인식·음성화의 통합 기능이며 인식·합성 알고리즘은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-108567-A2",
+      "source_fingerprint": "7bb4c3441d66f54766280d5beef81ab2c6b22da447cfc99b27fb7053c03d2029",
+      "content_hash": "ae899c0fed8cb95026b56ba2265ebfd8c10434260c136553892b8645805656e3",
+      "decision": "LINK",
+      "keys": [
+        "pcr",
+        "fluorescence-dequenching",
+        "heterologous-gene-expression"
+      ],
+      "reason": "앞서 검토한 동일 대두 삽입 사건의 TaqMan 검출·형질 발현 사례다."
+    },
+    {
+      "identifier": "AR-108575-A1",
+      "source_fingerprint": "5d0f02f9e6379ab53a6c1dcf92586e4dd2484a1ec2bb225d98f5cf552816c917",
+      "content_hash": "448e7c13d5a8ef04a7aeaa23cc4bd766a606af399dc348ae653a2a2942a1bf11",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "check-valve-rectification",
+        "fluid-turbine-conversion"
+      ],
+      "reason": "차량 하중·호스·체크밸브·수력 발전기로 에너지를 전달한다. 통행이 없을 때 지속 발전한다는 주장은 인정하지 않는다."
+    },
+    {
+      "identifier": "AR-108597-A1",
+      "source_fingerprint": "cc20fff4a6d5ca9467768eca0b44c71ea668d2d1e019aab1bb523fbf6d5cf817",
+      "content_hash": "78d6d870881b59d7f2750b451444de33d7ed0627b994bd96e451ed4380de911e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "손잡이 접촉에 따른 마개 개폐 규칙이며 접촉 센서 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-108602-A1",
+      "source_fingerprint": "0930013745276d93258c5fd0e80d2a45414b34c39fd1e05454a4144320a8e4dd",
+      "content_hash": "27cba8945c10604674abb9966f8eb32d14f2a236e2f93f3209716205f402bf14",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "벌레형 미셀에 유성 컨디셔닝 성분을 가용화하는 조성이다. 미셀 형태는 명시되나 얽힘 점탄성 기전은 별도 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-108606-A1",
+      "source_fingerprint": "2005df7f001ba3886cad03116fe22094b2a662241ce480fb7b1a4e284c29252c",
+      "content_hash": "2924d0ca3fdc67446fb8a148f6d24ae7b1762766e10d8033621c1d7677710b73",
+      "decision": "LINK",
+      "keys": [
+        "electrodialysis",
+        "ion-exchange",
+        "precipitation-reaction",
+        "evaporative-concentration",
+        "acid-base-reaction"
+      ],
+      "reason": "리튬 염수의 이온 선택 이동·Mg 침전·이온교환·농축·탄산리튬 침전을 조합한다."
+    },
+    {
+      "identifier": "AR-108622-A1",
+      "source_fingerprint": "c37db909f654b1ef7a6164488984f083a4c4048831f607696837308c708464d5",
+      "content_hash": "cd139b780a138bca38e4eb877e939b2471c186cf694696a2c0b16008171d9f21",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "TCR이 MHC에 제시된 EBV 펩타이드를 인식한다. 준비된 MHC 항원 제시의 추가 사례이며 자가면역 치료 효과는 검증하지 않는다."
+    },
+    {
+      "identifier": "AR-108650-A1",
+      "source_fingerprint": "0823a445c829c7602c5e90ae8ef138dc81a6564674ca4aa21bed4c9fbcae774d",
+      "content_hash": "fc0793f304df9421bfec4ca2d6a0640508feec47bcc19ef3e3e98b40735e452e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미세섬유 셀룰로오스·충전재 입자의 식감 용도이며 얽힘·항복응력 등 구체 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-108655-A1",
+      "source_fingerprint": "b1504d0076c78692291c14be8b79da1225a9b59704b2ec376e3d0f5eca42bf98",
+      "content_hash": "65daf92d709621fa5fec77a4748236e666b6cc48c4c8c1a8d4dac8c071def68b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "스텐트의 확장·수축 상태만으로 형상기억·탄성 복원 구동을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-108659-A1",
+      "source_fingerprint": "ac3d638265b85c00a8d255256340af69e289dec7366372e2582395105888d95f",
+      "content_hash": "8847649bdc24cd9d0a857d1e3cf8103b920dac22ccbce64e64e9a583f1b5db41",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Bacillus의 비수계 제형과 선충 방제 용도로 작용 대사산물·기전은 미상이다."
+    },
+    {
+      "identifier": "AR-108667-A1",
+      "source_fingerprint": "0700c21625ffa2d1f7a174ad6dd8cc0fc327322dd7a2963631ca98b8dbf77b55",
+      "content_hash": "c7e6cf54a6679108a79b2262d0213d491377a7cd644f35c6127641b3923e34c4",
+      "decision": "LINK",
+      "keys": [
+        "fluorescence-sensing",
+        "photodiode"
+      ],
+      "reason": "UV 여기 뒤 두 파장 대역의 광 강도를 전기 신호로 변환해 형광량을 측정한다."
+    },
+    {
+      "identifier": "AR-108690-A1",
+      "source_fingerprint": "390b79e9238076093c1a3816fdcdbe2bffe062a839fb74c827e55008ba83554a",
+      "content_hash": "056a9ef9f591fffe13a320747004639add91da2bf4be7f276751cad1ffd2a251",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "TNFRSF21 항체 및 접합체를 표적 결합·전달에 이용한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:45:55.500995+00:00"
+}

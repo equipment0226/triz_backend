@@ -1,0 +1,184 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "a6b027f254350d238aee419e20c8e4ce35c1423cb99e05565c37bd229a77789a",
+  "reviews": [
+    {
+      "identifier": "AR-076260-A1",
+      "source_fingerprint": "fc1c1a5f157a3cc66b2747f7deefbd2fb3ff2ac676d97ea3eb7a19066548e400",
+      "content_hash": "a71afd5bef611981a7e6b79ba3036fdf9f7665ea200c7a124525f1628035bc06",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수하물의 움직임 상태에 따라 통신을 차단하는 제어 규칙이다. 운동 센서 종류는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-076280-A1",
+      "source_fingerprint": "83a189a34001f4ef78c244a445178f1aa1840a48898d557c969cd0087f89d12b",
+      "content_hash": "be72ff228b9ea7914e4aafa37893ee3ad7c04aab7af3b733b498fac6bdc14f31",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수분 지시 색소와 흡수체를 배치한다. 색 변화의 산염기·수화·용해 경로를 특정할 수 없다."
+    },
+    {
+      "identifier": "AR-076303-A1",
+      "source_fingerprint": "b109b168a18eabb3e6076cd009f507352d574e9fb0a3293daa71908e24035809",
+      "content_hash": "2e670cf779b71f71613ea0c048aa46e0dc653d6162f231fc764597133ba4b392",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission"
+      ],
+      "reason": "내접 기어와 유성 기어의 맞물림으로 회전·공전을 전달한다."
+    },
+    {
+      "identifier": "AR-076313-A1",
+      "source_fingerprint": "424622cb4872f19f0075078e5366054a687c9b774de1e8b1bc8d14c2ffc0f11f",
+      "content_hash": "be4eeaf27a504f103edda4ab1f0cfebfb6d6ed6cc5567d20fc674b77e00443f7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "밸브 축 지지체의 위치로 밀봉 접촉 정도를 조절하는 구조이다. 밀봉 재료의 탄성 특성은 미상이다."
+    },
+    {
+      "identifier": "AR-076338-A1",
+      "source_fingerprint": "61a3fadd41c909c213019da86d14d9473e15014b953e1974c3ce101cfe8b260b",
+      "content_hash": "75ba47d3e7d12ee03a03b70bc687029985b1e7b45567fefe8bffc8502045977e",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "베타 수용체 차단 약물을 포함한다. 보존 작용의 구체 기전은 별도로 확인하지 못했다."
+    },
+    {
+      "identifier": "AR-076339-A1",
+      "source_fingerprint": "58bb4b6b58707dd4c61461312a0e8af3682839e23b25be857ca9c88245a1092e",
+      "content_hash": "c8adc93f586f605b1cdd0a4286d0b3eeb1453aa3bb92d86214f76c7276f48d3e",
+      "decision": "LINK",
+      "keys": [
+        "keyed-encryption"
+      ],
+      "reason": "영상에서 읽은 코드의 암호를 복호해 세션 키를 얻는다. 암호 변환과 광학 코드 인식을 구분한다."
+    },
+    {
+      "identifier": "AR-076383-A1",
+      "source_fingerprint": "92adc00301a1d33ed7ad25bb60a01b0d94bc2e1f2e3e63f9539ccab2f14c49f3",
+      "content_hash": "12b322c8cae919f215db40ee05dfd9ae6d82c906e980fda96a2d3b04fba8b153",
+      "decision": "LINK",
+      "keys": [
+        "distillation",
+        "condensation-recovery",
+        "gas-absorption"
+      ],
+      "reason": "탄화수소 혼합물의 냉각·응축·흡수·증류를 조합한다. 팽창 장치 종류 없이 줄톰슨 효과를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-076384-A1",
+      "source_fingerprint": "7bbe8eb873c6ca5bd89dcef9b4cbb2e5fd14b1a0759f747f1b2cdffd771f5e8e",
+      "content_hash": "685cf67c57f61a0daf70c8e8262e047e0de787930d30474d7b76515aa71204b3",
+      "decision": "LINK",
+      "keys": [
+        "crystallization",
+        "nucleation-barrier"
+      ],
+      "reason": "종정과 용매 슬러리로 결정형을 전환한다. 용매 매개 다형 전이는 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-076393-A1",
+      "source_fingerprint": "aeb25eafc583811334e9204dc40dc6d7209fcd79df1c6cc15bac8eacee1177bb",
+      "content_hash": "7f9d1e1a8e7d0fef50847f41d31e15e442587cfd05c024a2ddb95c054c66e282",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항암 화합물의 구조 범위만 있고 작용 표적·경로가 없다."
+    },
+    {
+      "identifier": "AR-076401-A1",
+      "source_fingerprint": "d4acd3b89f46350fb7de57d3c751e351da068e87c90ff8b56292e0a325cc44e4",
+      "content_hash": "1fbec8b96023952f2c73d418ea48b06751d16b576117e1239d6a4badc2c9c954",
+      "decision": "LINK",
+      "keys": [
+        "allosteric-cooperativity",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "mGluR5의 음성 알로스테릭 조절을 명시한다."
+    },
+    {
+      "identifier": "AR-076403-A1",
+      "source_fingerprint": "02b6a6bd1939071e912d88074bed466c2750d27fe3977d70f1a8512c7d8e2f9a",
+      "content_hash": "64850b86ccd1d5b96ddb0234d4469fdf5b91ae67509522db49f036d15f889c6b",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection"
+      ],
+      "reason": "홈이 난 냉각 유로에서 난류·이차 유동으로 열전달을 촉진한다. 난류 수송의 독립 경계를 검토한다."
+    },
+    {
+      "identifier": "AR-076407-A1",
+      "source_fingerprint": "c5891f71122d235e5b424c8e5e432bb80370681244bd4c56d750bfa43facf278",
+      "content_hash": "a114ddee49521ba4c01174a69355e806c8d953f8dbbbfbed82222924e881fe19",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "퀴나졸린 합성의 산 존재 반응을 제시하나 참조 구조식이 없어 결합 변화를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-076416-A1",
+      "source_fingerprint": "dae9013feb712a55252bffa86b0967ac04d68b9a9cc694f65663cef804c45a9f",
+      "content_hash": "7eadec3d0992453ab60ec9f5e39ffb0942843a43e6b5f83b1b463df07af7f1a3",
+      "decision": "LINK",
+      "keys": [
+        "packet-fragmentation-reassembly"
+      ],
+      "reason": "다중 반송파의 허용 전송량에 맞춰 PDU 크기를 정한다. 특정 직교 변조를 가정하지 않는다."
+    },
+    {
+      "identifier": "AR-076418-A1",
+      "source_fingerprint": "62297a78ea426daa6c9fb79d3561f7f02622fa40d8132a0580eea82215423e24",
+      "content_hash": "4d926971b73f195b5c4028a59340950a6687aa1bd0d669c80e81bd97a9df4487",
+      "decision": "LINK",
+      "keys": [
+        "lewis-acid-catalysis"
+      ],
+      "reason": "루이스산을 사용한 핵염기·당 유도체 결합을 제시한다. 글리코시드 결합 형성과 보호기 제거를 추가 검토한다."
+    },
+    {
+      "identifier": "AR-076428-A1",
+      "source_fingerprint": "39a1f1f451395a8aeb4142a505370933f686c1aaf5b784ab4706db2830e65903",
+      "content_hash": "f379ad58033b1694917bbcf7a34d550957c35b201dba3ff925ecd6658ae4ac0e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "트리아졸 구조 범위와 용도만으로 효소 표적이나 항진균 경로를 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-076433-A1",
+      "source_fingerprint": "9d2cdee4e95c19028f38b08c1ebde7033ec7140158ff2768cc3b50bc67533502",
+      "content_hash": "e2a7604f906b80814b02f1ed09f32f0c80f7a849a71a99447d5c712a90df884e",
+      "decision": "LINK",
+      "keys": [
+        "crystallization",
+        "enzyme-inhibition"
+      ],
+      "reason": "CDK 저해제의 결정성 염을 제시한다. 개별 염의 생체이용률 개선은 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-076455-A1",
+      "source_fingerprint": "679fce69e5067e0a0335a3f801c7e42cb6cf6d50275ddcf579aeb1d861b3991c",
+      "content_hash": "b3ca19fac2ea7b37d6db4b7ab5f0eaef54e9c232eec3f58626e719216c289dab",
+      "decision": "LINK",
+      "keys": [
+        "sieve-size-separation",
+        "centrifugal-separation",
+        "solvent-extraction",
+        "distillation"
+      ],
+      "reason": "체분리·가열 원심분리·용매 세정·증류의 재활용 공정이다. 벌크 분쇄 후보의 두 번째 근거이다."
+    },
+    {
+      "identifier": "AR-076462-A1",
+      "source_fingerprint": "8e097098121e99756a0cbe50cf21fc088f29307ce070f7754aa87792341b4a54",
+      "content_hash": "5ce9b022e41b6835f0cfa6ce556e80643bf12bcd81be850099bc27bb9f2ea0e3",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "직선 액추에이터와 관절 팔로 침대·의자의 자세를 변환한다. 실린더의 작동 유체는 단정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:07:51.727734+00:00"
+}

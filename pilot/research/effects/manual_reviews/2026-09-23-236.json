@@ -1,0 +1,222 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "793272af3c5e12ce78dea2310129583745da91cd2656413340a35a2679a96d4f",
+  "reviews": [
+    {
+      "identifier": "AR-116242-A1",
+      "source_fingerprint": "3dbfcf224d6541e7ecfc59d616324c81a9199a0603bf982c507f037f20ba96ba",
+      "content_hash": "75b86afc1f078823bc410f86164f856938a4e79690a5bb0f0d733eabc4ecdec0",
+      "decision": "LINK",
+      "keys": [
+        "section-moment-stiffening",
+        "mechanical-interlocking"
+      ],
+      "reason": "성형 판재 단면과 리브로 건축 지지·고정점을 만든다."
+    },
+    {
+      "identifier": "AR-116253-A1",
+      "source_fingerprint": "c7e99d1ec89831b74156c314d174d3fcbde98036df807d2e5e589a237515fb6c",
+      "content_hash": "1ba8f9606a35ddb47099aedc6c4ecded5c09d2bc926424f16a39a2a02d4f90c8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "물 첨가로 유중수 에멀션을 반전하여 수용성 고분자를 공급한다. 상 반전과 단순 유화를 구분해 신규 검토한다."
+    },
+    {
+      "identifier": "AR-116257-A1",
+      "source_fingerprint": "d1309db0c9ffae95539206cba37afdebc37f59042e1c3612f3850f05c314a60d",
+      "content_hash": "55a87d68488f18a9ba1d9c1d721b5a5d736ff033b02a58fab0fd666a1c6f7eba",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion",
+        "mechanical-interlocking"
+      ],
+      "reason": "캠이 확장 링을 밀어 이빨을 허브 홈에 고정한다."
+    },
+    {
+      "identifier": "AR-116261-A1",
+      "source_fingerprint": "b438a690890297a242e185c858f751ee9efa0ae15ac2a488544865fd94834489",
+      "content_hash": "e3ae7d95a4591f071d5daa6eb0e4c8f37f04b8bdd91f931d282234f932c306b3",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "mechanical-interlocking"
+      ],
+      "reason": "유압 피스톤 이동 후 회전 잠금이 풀리는 순차 기계 인터록이다."
+    },
+    {
+      "identifier": "AR-116266-A1",
+      "source_fingerprint": "9473ed5255494aac6a26f9c092c6c39226184e63b73af91d54176b22e9f7a6a5",
+      "content_hash": "a60ce9427d154f0d081a5ec56fd05b618fbf548ff402614a48e26acd11508d28",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation",
+        "catalysis",
+        "pyrolysis"
+      ],
+      "reason": "금속 유기 배위 골격 안의 코발트 카르보닐 촉매와 고분자 열분해이다. 에폭사이드 카르보닐화·배위 다공 골격 후보의 근거를 추가 확인한다."
+    },
+    {
+      "identifier": "AR-116268-A1",
+      "source_fingerprint": "babf09f7626670766338aaf1abaea7a9416b7774aa3d91fc4227128a4b9cc4c2",
+      "content_hash": "139c25dc2da3daf5dbae18d92d608c44d24aad82f05c2e5c54af725a3806470b",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis",
+        "solid-liquid-leaching"
+      ],
+      "reason": "산·열·기계적 처리로 불용성 프로토펙틴에서 가용성 펙틴을 얻는다. 세부 절단 위치는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-116321-A1",
+      "source_fingerprint": "f0177954a875f9f3187aeec362bc0c8d06a1a6e1290ea99fa20b9d3e22871886",
+      "content_hash": "a8e3c973120acf85a4cf6622cca8665bd7bbd59dcca9d58185904c779e3d4fff",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "이봉 분자량 분포 폴리에틸렌 필름의 물성 규격이다."
+    },
+    {
+      "identifier": "AR-116342-A2",
+      "source_fingerprint": "f8fcfa251464e7915a1570d8afa904a2963a547fcbec1035147469e3c8a35c3b",
+      "content_hash": "6fbee6e28dcc956362dc6d87cc8ad47ba406231585534a2399e01b1bd0c8b17c",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "solidification"
+      ],
+      "reason": "밸브 니들로 금형 유로를 열어 사출 성형한다."
+    },
+    {
+      "identifier": "AR-116354-A1",
+      "source_fingerprint": "cca77e044bd5ac3c1ae1ea568e7fe9536b62cdfd4738ce9c1ec0daffb5b46f9c",
+      "content_hash": "4ad2a4a8f31a555cc8bdcc430dd0321649ad4b87128fe81ef7fb9702f889cfee",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유체에서 지지재를 분리·분석한다. 검출·분리 원리가 없다."
+    },
+    {
+      "identifier": "AR-116363-A1",
+      "source_fingerprint": "22dec8eabc440b626fa1930cf1bb88954420ed7cb56193c2852bff09129f66d7",
+      "content_hash": "97bd790bd350174c081faa5b2d8866803f8a11de003a5a7f431ff77aea219a33",
+      "decision": "LINK",
+      "keys": [
+        "arithmetic-entropy-coding"
+      ],
+      "reason": "영상 계수의 문맥 부호화 빈 수를 제한하고 우회 복호로 전환한다."
+    },
+    {
+      "identifier": "AR-116369-A1",
+      "source_fingerprint": "eed863bf5f1dc021eeca3643cb0fd9cee1d673c6c071eed2f3688110754e9261",
+      "content_hash": "ef1f3d185095be68fdadf8e094f126b7c55060efab9cc1c39f73f8d09dcffe63",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "세 종류 계면활성제 혼합이다. 소포 결과만으로 기포막 파열의 구체 경로를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-116379-A1",
+      "source_fingerprint": "48908abdd420eabab722ab861cc4c692f6aa3c351ca5e9fe533ede009145cf29",
+      "content_hash": "0bae9c1503b9422b437980b4280db8719e548b239437d7d1ac928907f1a188a5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "자성 안료를 회전 배향한다. 자기 쌍극자 토크 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-116389-A1",
+      "source_fingerprint": "5e28ae3735a0dcff59df0a6e2319b59587a719a4970ee53e9c77553694d08855",
+      "content_hash": "e1703c5561c17386baef9fe75bbd943cbc9054796038a40b02bbdc1773c858f0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Dominikia 균주의 식물 자극·살선충 주장이다. 영양 교환이나 독성 대사물 원인을 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-116398-A1",
+      "source_fingerprint": "58250c5061590390e98674c06b0906efe805d94dd701ce7fdda0b1893788ecea",
+      "content_hash": "c92781937de5ed8cd72701be07143cb99a764a3c1b426c55aac6d6b02b11a470",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "금속 캡슐의 돌출부가 소성 변형하여 밀봉 상대면을 따른다. 소성 접촉 밀봉의 기능을 별도 검토한다."
+    },
+    {
+      "identifier": "AR-116420-A1",
+      "source_fingerprint": "42ecb75480f191dc85abed8b908294b07d0e73866a0f254ee6c012383da0f863",
+      "content_hash": "5512baaf6fa144f53db499291a2d86a2fe10449df7aeb342337d52accf7f3749",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "어휘 요소 선택으로 명령을 조립하는 사용자 인터페이스이다. 파서·추론 알고리즘은 없다."
+    },
+    {
+      "identifier": "AR-116453-A1",
+      "source_fingerprint": "b36ae70d27d63c98e295d5f13d67f9d1083ecb42d8865b262fee78af19f92254",
+      "content_hash": "cf2d987ff09c8419c45ccce8fc5065ad36a9b885b1ad1f6c6997650bca6acdcd",
+      "decision": "LINK",
+      "keys": [
+        "oxidative-dehydrogenation"
+      ],
+      "reason": "파라핀의 산화적 탈수소 공정이다. 황 오염물 제거 방식은 미특정이다."
+    },
+    {
+      "identifier": "AR-116458-A4",
+      "source_fingerprint": "7a94684f79b0a1a1ff1436e658db708e408357be757b5a55430e842f7a55f557",
+      "content_hash": "ffccd4b53bf28db02767555540dbd645842a880ec2451374244a781c45d23b0f",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "fibrous-filtration"
+      ],
+      "reason": "요구르트 발효 용기와 직물 바닥의 유청 배출이다. 큰 공기 간격을 미세기공 단열이나 진공 단열로 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-116465-A1",
+      "source_fingerprint": "c53dd28b4b330305f2bba9ac02bf6a17957582d11d80e1880cadae76c0379bab",
+      "content_hash": "446e8df29ca947e2230967211f2c4abd77e8242ced848fcaa7e3719773cd1111",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "보호 배지와 저온을 이용한 종양 조직 보존·T세포 증식이다. 냉각만으로 유리화·세포 탈수 지배 기전을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-116466-A1",
+      "source_fingerprint": "87adec21c81a23426639fc4258d84cfab5dc6bf942c7fabe360240a0c90fcf03",
+      "content_hash": "e90881bd094613723ad18d78faf605bbf611ee35ef9319f3fb7f2176f68fe6de",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying",
+        "bulk-comminution"
+      ],
+      "reason": "회전 나선으로 긴 금속 절삭편을 운반하고 짧게 파쇄한다."
+    },
+    {
+      "identifier": "AR-116471-A1",
+      "source_fingerprint": "656a459f13235204d27b9acb05380c8322a874118ffe6dd4a9ff12257a7aaf13",
+      "content_hash": "50a5dee610ce062d2088a68a3f8bce3311ca1fbaa445df7ff6dc7eda65b4ba79",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "pressure-driven-flow"
+      ],
+      "reason": "설정 압력에서 배출을 열어 과압을 제한한다. 스프링 구조는 명시되지 않아 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-116517-A4",
+      "source_fingerprint": "8649d3d75f6934236dbf354be7b39edf5fa9a2de81588cf243b44dbd6d907624",
+      "content_hash": "19cffb5a83fdba22b33ac6e333e972497133814e4d05cadc7e9441bc276152a2",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "나사식 용기 뚜껑과 하부 링의 결합이다."
+    },
+    {
+      "identifier": "AR-116520-A1",
+      "source_fingerprint": "fedff1c1bc88cced8f0190544eae551877bbad3f83168c524e313461702ef748",
+      "content_hash": "35e1f3e9750c5b3a5103a3135e5a54976d169c13ef438b0f5317dc441e0cb4ca",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미생물 고형 제형의 수분·당·소포제 조성이다. 잔류 수분과 수분활성을 동일시하지 않으며 생물 방제 기전은 미특정이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:23:24.862764+00:00"
+}

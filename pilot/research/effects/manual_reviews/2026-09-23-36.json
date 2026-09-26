@@ -1,0 +1,134 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "53adcf03a5581c8f2c13984535661507dac27f9dcd9adc32651a29b2577af493",
+  "reviews": [
+    {
+      "identifier": "AR-083367-A1",
+      "source_fingerprint": "9366672c61eba08e3c35053aab0c527531152ac6497972154e6cd2aaf99ddd5c",
+      "content_hash": "ec4325cf33478c42cf1637e66499a2dff4df208822a4b8c860fdbecc889795ad",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "CRTH 수용체 길항을 명시한다."
+    },
+    {
+      "identifier": "AR-083374-A1",
+      "source_fingerprint": "83a5925e00398b8d048653ec535e46a384efc6a1aa28a2004fd7644befeb46c8",
+      "content_hash": "12ec8a1a27a183604fba5594e3f6e0dcf18fa74f4fc276f5e16a94a61f5a5d72",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "영지식 증명으로 사용 상세 공개 없이 청구 계산을 검증한다. 별도 정보 원리 후보이다."
+    },
+    {
+      "identifier": "AR-083408-A1",
+      "source_fingerprint": "52dd114a8a3d65c81df2184a6f9e6eca3c5c4fa35794be3a2b93be6a63ed8d93",
+      "content_hash": "e8cf7b2371d32204b7d89cdf0678c30cf0912766726161f1228723e5c56482be",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "세제 계면활성제 핵을 무기염·색소 껍질로 감싼다."
+    },
+    {
+      "identifier": "AR-083410-A1",
+      "source_fingerprint": "b57cc297bc47a86fd3f8c9bc0b6a2aa0f6c0ad2bcf312fbe99b0d94af6d8ad00",
+      "content_hash": "ecbf639250cd579b18eae95e3ba95b458c48837d41711d325cb6bff75cd635b8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충제 혼합의 직접 작용 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-083411-A1",
+      "source_fingerprint": "49b6a745790bd4429b16f48ffe801ee141227298ccb4847d401b5b56ad477786",
+      "content_hash": "a310d8eba67cfcce3894b939467ab61b9e72c67524f57d80a7ff70253a8c3dbf",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "카르바메이트 배합의 상승효과 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-083413-A1",
+      "source_fingerprint": "8aa286b5d170087e41647e921338a25c4273a388b88dbb0421163f4723596569",
+      "content_hash": "db932b97201d665fdd03a0adbeb347e67d4b9129e12559f8d81b6a1cd136a5b9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HDL 증가 용도와 구조만 있고 대사 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-083414-A1",
+      "source_fingerprint": "0fcfa5e8cdb084039610a44f2bf038cc6c5b02d3f5add68ca6554044f1f86bb9",
+      "content_hash": "7bcac20fabff753f6ea26f9e7de29a20ef71d0e50db05dca1c906a29e616d9e5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "다층 전송 신호에 각 층의 변조 형식을 기록한다. 실제 변조 원리는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-083433-A1",
+      "source_fingerprint": "f6f1ff2eae7e8409818d3d5d1517babb85371f08d9763da1edab0511d9569e0f",
+      "content_hash": "317c743136163ef051b5f221087d3cf7c92c4a9ad08ad12ac44aea44a381c08e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "우산과 지팡이를 두 클램프·슬라이드로 함께 잡는 어댑터이다."
+    },
+    {
+      "identifier": "AR-083447-A1",
+      "source_fingerprint": "cfa808aac2422ed65e0d3dd5b77052226e83322f09ecff4db6612f545049626b",
+      "content_hash": "a78f4efb67d22b557649001ea49d36d170b7c6421d0626a7e775d66e4fb478dd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "투과효소 변이의 활성을 제시하지만 수송 기질·구동 에너지는 미상이다."
+    },
+    {
+      "identifier": "AR-083450-A1",
+      "source_fingerprint": "e43b9dcd6254412cb957c81375c95d1ecd9f17ef30fa94c0cc88c9772c26571e",
+      "content_hash": "b5d016d21f4eb668e4266c0d17c6a1318a80c9700312b9721fb981c8b7746077",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PI3K·mTOR 저해를 명시한다. 구조 목록의 저장 말미가 잘려 있다."
+    },
+    {
+      "identifier": "AR-083468-A1",
+      "source_fingerprint": "7ae222127e7f07894004125ec49d466cbc2fbeb2026a072a12f17db6a7d292d7",
+      "content_hash": "34abc935a42d6bfd99b69cd4cf7d2b16858fc46c8a6ace0c3e1b448b37610ab8",
+      "decision": "LINK",
+      "keys": [
+        "metabolic-flux-redistribution",
+        "fermentation"
+      ],
+      "reason": "트랜스히드로게나아제 활성으로 NADPH 공급과 메티오닌 대사를 조절한다. 보조효소 환원력 전환 후보를 검토한다."
+    },
+    {
+      "identifier": "AR-083470-A1",
+      "source_fingerprint": "96e0071ce0874e97d80f0435b2f216c014ce4de32191fcee022c623387379e60",
+      "content_hash": "5c5a60462ede461c376dc0e2394e058ea1ed439f54ccb543b8725f8d9d964fc7",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection",
+        "hydraulic-force-transmission"
+      ],
+      "reason": "한 모터로 유압 펌프와 냉각 팬을 구동한다."
+    },
+    {
+      "identifier": "AR-083475-A1",
+      "source_fingerprint": "a6bd65f8caba51d4a23d3c9bef7255f421f93d67471c6fe076a04a59063b6a08",
+      "content_hash": "5d60e666eda4a29e41ed70c5265907eb2a0bdaa34dd9d2b97b4c44095e64c341",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "mGluR5 조절을 명시한다."
+    },
+    {
+      "identifier": "AR-083480-A1",
+      "source_fingerprint": "6d63a406dba22de6fe5ba3a2e470cd6b5b1d3deb3b297e27cf5655d7ef8ac624",
+      "content_hash": "c88f558d21ac97cbac7f0b6ccc6aeab917a4457548e56679929b7eb1c830b3de",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "스테비아 감미 성분의 조성 범위만 있고 지각 상호작용은 미상이다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:26:05.954078+00:00"
+}

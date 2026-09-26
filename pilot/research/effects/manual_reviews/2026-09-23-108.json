@@ -1,0 +1,228 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "aa3133d9de2ab879fa2130024e556431ccde4f6fec9746ee605e2606d9a869bd",
+  "reviews": [
+    {
+      "identifier": "AR-088414-A1",
+      "source_fingerprint": "45e721a53ebefaeac5f3b32952c745e855d878bcd4d827ec493e8e1a0711db09",
+      "content_hash": "b48afcb83de16e3a99c4935c19843852317080140edbf045095e5143a51b69ec",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "키나아제 매개 질환용 인돌 유도체다. 특정 키나아제 선택성은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-088415-A1",
+      "source_fingerprint": "08cb4c131948e357ffe2419ef3561bd320f16475bf3a0d993e70457c69e62794",
+      "content_hash": "86a7c8c7e1cff0eb9e44e6b9a36f70fbeff5928cd3a99a61c11a0a13f04194c0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "변환 요청·파일 스트림·변환 결과를 주고받는 서비스 구성이다."
+    },
+    {
+      "identifier": "AR-088421-A1",
+      "source_fingerprint": "4494fa78174fab2c79bad0850e51d090f70487f7d7d5021ffcd88eb80fe640a5",
+      "content_hash": "a4c472732adf43f24cd3fe472451dfdf486957d0cf34999f73108ea69e3cdead",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "저항성 단백질과 해독 효소 발현으로 식물 형질을 바꾸는 사례다. 막공 형성과 효소적 해독의 일반 원리는 문헌 대조 전 후보이며 분자 제작 조건은 다루지 않는다."
+    },
+    {
+      "identifier": "AR-088442-A1",
+      "source_fingerprint": "c122e889d6514766adf6d7c6490564d71f5d730073948947135b36e9ee641e1d",
+      "content_hash": "b0388e62a113f711ce5e8c668a1aa041aa0c7f461767deaf462223543fe92add",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "고분지 계면활성제 세정 제형이다. 분지 형태만으로 신규 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "AR-088448-A1",
+      "source_fingerprint": "4967e704011f55027fb88b18988a85c2cee12d021281f379190292005d8d0c34",
+      "content_hash": "e2a544ec0192e272fbf6d8ebb5a508a6cc0a06fc62094dc292fcd3f213eb4539",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제올라이트와 산을 처리한 피혁 무두질 조성이다. 금속 방출·콜라겐 결합의 지배 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-088465-A1",
+      "source_fingerprint": "92af5021c7d21c71b8ea95219675146af9437bc5bba17ed6c1320b1ad4fa6018",
+      "content_hash": "5584fdff504052774148d77dce7d26716ae9d8b85f9b281173927843d57aa35b",
+      "decision": "LINK",
+      "keys": [
+        "thermal-orientation-recovery"
+      ],
+      "reason": "다층 고분자 수축 필름의 배향 회복 응용이다. 나열된 성능 수치를 보편화하지 않는다."
+    },
+    {
+      "identifier": "AR-088469-A1",
+      "source_fingerprint": "546d0115fcff9d247072d6a335cfb835d14e6ba4c69cb3f940fcf4abb4f3ea6c",
+      "content_hash": "325f7ee15adfce850b34a4339ff097f35c39d4f9fa34d9f0d5bfb89c461fad36",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "임시 운영체제 진단과 시스템 이미지 쓰기의 작업 순서다. 별도 계산 원리를 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-088482-A1",
+      "source_fingerprint": "c03fff0e7e1ffca79a612cbee3a0d520e55bb09ac9cebd63abe9d47010e3fd6a",
+      "content_hash": "62485ec8b0a102a703963ade9f1deb03e91df0712624758d836e1678d545c52f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "경화 외상에서 비혼화 내상을 제거해 빈 공간을 남긴다. 기존 희생 기공 형성·상분리와의 범위 관계를 확인해야 한다."
+    },
+    {
+      "identifier": "AR-088497-A1",
+      "source_fingerprint": "0ce2183582645ecd07188b10d14a4d16d8eaf2c0458cd197d7545cd18e5f942f",
+      "content_hash": "46932d3220ae85c4b55988e38a90f3f1544084ad27aea5cc2a29cba66e28a6e8",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "DPP4 저해제를 다른 약물과 이층 정제로 구성한다. 방출 원리·상승작용은 미상이다."
+    },
+    {
+      "identifier": "AR-088508-A1",
+      "source_fingerprint": "50fe7b0d918b96373c11e347c9aefe6d97de7ab9ac9e2df9f58fdd11ec6d38f9",
+      "content_hash": "68f5e3caa9dd5c226dcd192fa9f2cca4f406149f4d0cc3fbb538cb4da7ec3e71",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastic-energy-recovery"
+      ],
+      "reason": "탄성 걸쇠와 과변형 방지 구조로 조립·개방한다."
+    },
+    {
+      "identifier": "AR-088522-A1",
+      "source_fingerprint": "1afaf79266cb0dd8c4ab2d0d4003508dba6221460bc62569fde45ea543ce2760",
+      "content_hash": "46c52dabab1f8220aca2cd9b4ede7be673d2d94ef143e50cde4eb75defd3d7f3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분할 금형 조각의 추출 경로·크기 배치다. 독립적인 재료 변형 원리는 없다."
+    },
+    {
+      "identifier": "AR-088541-A4",
+      "source_fingerprint": "f5905922a0f1e9ec5a4a28679e375044eaf06bf71caa38e4adc2e860dea9e9b4",
+      "content_hash": "aac84b2ee5ea576f118cf71a7571ed2ad054c5fb6850c78cc0e4624847670826",
+      "decision": "LINK",
+      "keys": [
+        "optical-reflectometry"
+      ],
+      "reason": "바코드 광학 판독과 무게·이동 확인을 조합한 카트다. 무게 센서의 전기 변환 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-088545-A2",
+      "source_fingerprint": "26b9924490b62a55834c862525cfbb952b9de149dd5079755fd56692c8aabb2d",
+      "content_hash": "82e0a20715370932f92513d12d254aff5e9ff1e1615dbc4650d50c02a96f2b88",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "positive-pressure-purge-barrier"
+      ],
+      "reason": "지층 내 연소 가열과 비산화성 유체 주입을 조합해 산소 유입을 줄인다."
+    },
+    {
+      "identifier": "AR-088546-A1",
+      "source_fingerprint": "e2ba95da9d5ab71a2b2bf63539763b55e4bcb10c9a901f6a6c200ea8cc3f5963",
+      "content_hash": "63fc180b8ec83b1e7f2a6fb9644fd9abe4c6f2221cf081fe0b2a9e3b28b2aad4",
+      "decision": "LINK",
+      "keys": [
+        "stress-concentration-fracture"
+      ],
+      "reason": "부재 형상을 완만하게 바꾸어 응력 집중을 줄인다. 기존 응력 집중 원리의 파단 억제 방향 응용이다."
+    },
+    {
+      "identifier": "AR-088574-A1",
+      "source_fingerprint": "ad5ab23c7ffefd8c17df08cf5b0130bc1e18ea56568ab2b1d2d643b804a919e7",
+      "content_hash": "f3fd6971ffcbc6519c8be661fdcb832b2b6bedeb055d264d9f9539dc850b87ea",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion",
+        "gravitational-energy-storage"
+      ],
+      "reason": "저수지 수위차와 수문 전환으로 터빈 발전을 이어간다. 연속 발전 가능 시간은 검증이 필요하다."
+    },
+    {
+      "identifier": "AR-088588-A1",
+      "source_fingerprint": "0d849f40ce2ae544d0831ed95474427b0903af34461cce4b8b1bc1ed2b0e839b",
+      "content_hash": "4d382de1c1ad6595c776c433d94cec3f3b26b4324b5003e86580a886347e6334",
+      "decision": "LINK",
+      "keys": [
+        "liquid-bridge-agglomeration",
+        "surfactant-action"
+      ],
+      "reason": "습식 과립화와 수용성 첨가제로 재분산성을 조절한다. 염이 어느 기전으로 응집을 억제하는지는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-088596-A1",
+      "source_fingerprint": "3f0fffdefb2e6dee732494106bd92479e4ab098ab94d79fc0a206f13704703f4",
+      "content_hash": "3d1b7925f9076f7a65c6751679a99abff735bcaefe0a05668a0ada7a31ca5b41",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 용도와 구조만 있고 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-088600-A1",
+      "source_fingerprint": "490ebd2e551d78ae5dbf48e16967627999f00d1082c2b24943a7d1520d808366",
+      "content_hash": "0a9f610ee40d87020ba0ed52392a4961f5d2563882177b80f9b54933a58cd798",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "포비돈·요오드 복합 제형이다. 가역 결합에 의한 자유 요오드 농도 완충을 신규 후보로 문헌 대조한다."
+    },
+    {
+      "identifier": "AR-088622-A1",
+      "source_fingerprint": "2de3a72ecdd14aad977b595957766c24f798faea7541b8362a3dae334b6c4800",
+      "content_hash": "a6a078dc99f67393237b8be892404c05cdd38b7f58a6f9d42361a195fa5a0291",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "호르몬성 구조와 용도만 있고 작용 수용체는 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-088629-A1",
+      "source_fingerprint": "b139d5f7cbc13472261254ed541218ff87ea6f07023c408127eeb77ead08e034",
+      "content_hash": "b93601dc79df4d8ad9c7eef2cb9cc044e77800fc8f3828b3822218c8dac61034",
+      "decision": "LINK",
+      "keys": [
+        "screw-conveying",
+        "articulated-linkage-motion"
+      ],
+      "reason": "스크루로 식품을 이송하고 링크 밸브·이동 대차로 정량 배출한다."
+    },
+    {
+      "identifier": "AR-088666-A1",
+      "source_fingerprint": "5f76fdf0ec39b09927fa80ff99f3c299366273b5b0a5bfe28b778dbfacd17f83",
+      "content_hash": "459dd4e980937fc4c73c24f143d65c694e66a166c1999fb5ebff39efe469c546",
+      "decision": "LINK",
+      "keys": [
+        "total-internal-reflection",
+        "electroluminescence",
+        "geometric-optical-occlusion"
+      ],
+      "reason": "LED 빛을 유리 내부로 유도하고 차광층으로 내부 시야를 가린다. 광 추출 미세 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-088698-A1",
+      "source_fingerprint": "78e0416c9279cd44d7fc2e60a3ced753a1e326fe45631802283c93b22bc1a7a6",
+      "content_hash": "1c85684077ab967253fb8d2ecb3488ec927d008461aeba5de0b859e1e240118f",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "frictional-load-transmission"
+      ],
+      "reason": "기초 앵커·플랜지·볼트 조임으로 풍력 타워 하중을 전달한다."
+    },
+    {
+      "identifier": "AR-088732-A1",
+      "source_fingerprint": "d6a911927fe5bbb993e7a7eab0e6ce8e999c182dd925e79b77d2f56c549dc3d3",
+      "content_hash": "7001704f2343fc9ab8df9970d6aea2b40a5ea4b8646e7d9bea65682eea99f88c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 스위치 신호의 시간차로 비상등과 방향지시등을 구분한다. 별도 일반 효과로 세지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:04:51.925365+00:00"
+}

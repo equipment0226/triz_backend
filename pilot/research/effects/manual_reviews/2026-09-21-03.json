@@ -1,0 +1,281 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d6076811bf3c045660fa966709e6e9341187211ea2f5b210751bc8275f4162c3",
+  "reviews": [
+    {
+      "identifier": "AR-055587-A1",
+      "source_fingerprint": "9fbe32cf1003757a6d1bfb23c754971ba056483c367f1056b17b039d2ad41b23",
+      "content_hash": "797889bc8caba385ea7ae0538085e6a33c12d1649529bf004bb54cdcabab3cc8",
+      "decision": "LINK",
+      "keys": [
+        "polymer-solvent-dissolution"
+      ],
+      "reason": "산성에서 불용성이고 알칼리에서 용해하는 장용성 피막을 명시한다. 진동 노즐의 액주 분열은 모세관 불안정 후보로 별도 검토한다."
+    },
+    {
+      "identifier": "AR-055609-A1",
+      "source_fingerprint": "57203f7cdb2ead58ca0487647b0f6551ca99f53c9f27843c512888a7e0f11c03",
+      "content_hash": "aa89b45bc94d7d5aa721f88cb82557dd4d8ffcf4f8c77207aa5059553efd061c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수면제 조합과 화학구조 범위만 제시해 표적 작용을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-055623-A1",
+      "source_fingerprint": "071a5dd22f4c39bcdac67221aab6c98c076696b6859012b4599335f63a33957d",
+      "content_hash": "bf095882c56057f6e29b4ab0411c013684ddbb75a3a1838cad4252399bd9329d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "MIMO·SDMA 전송 방식과 코드북 선택을 명시한다. 공간 다중화 원리를 별도 문헌과 대조한다."
+    },
+    {
+      "identifier": "AR-055639-A1",
+      "source_fingerprint": "02e6f39bf9924e2877de823cf59a37c05155d92446200bc35f450524d6e5e0e6",
+      "content_hash": "8654ac01f8aca24444f36122da8f48ede6da0ee1cfba0ac94d4527f0005de57e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "진동 신호의 위상 보정과 구동 피드백을 명시한다. 자려 진동 조건을 검토하며 코리올리 유량 측정은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-055669-A1",
+      "source_fingerprint": "8918d057bc6126805ea812ee05f6f45595ffd4ac62047da106b75f9285af8477",
+      "content_hash": "1cf8e6f932d3893b2ab85d016ec14f3a15bb30237c1cc08a2a77ec07f7173bf3",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "GSK3 효소 억제 작용을 명시한다. 임상 효능을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-055678-A1",
+      "source_fingerprint": "cfff5d21801a03be022f31cb49a93f7e3136ba4ec6c4bfaedd4dd13883fc0e22",
+      "content_hash": "f47997786cfc7acf8c67d9ed213effd739d5e46aa725e854293ade31c5c740a0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "철·구리 제제의 금속 맛 차폐를 주장하나 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-055686-A1",
+      "source_fingerprint": "2e9f61d94e9ba84ea5213453e94eaf96bee7d0ad961327669eb5f74dca324879",
+      "content_hash": "05dd48f09ad48aa1b24c50b78c3019e197753e090bccb9a682a79dc52962eecb",
+      "decision": "LINK",
+      "keys": [
+        "vacuum-gripping"
+      ],
+      "reason": "내시경의 진공 챔버로 조직을 고정하고 바늘로 조작한다."
+    },
+    {
+      "identifier": "AR-055710-A1",
+      "source_fingerprint": "2a99766768a0d69041d2bea936139be5d9fb7e9ecf15de86f5c9fba46688ec4f",
+      "content_hash": "3d849b60b941363f1a13638f3370bc0d43d87f455dfa6bb0b1780467bccd7ea0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "빙고 게임의 보너스 규칙과 화면 구성으로 과학 원리를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-055713-A4",
+      "source_fingerprint": "064643ff6507ee28991f7910e51c2933b894b9a77034d872ecb628ad5672d3b3",
+      "content_hash": "b04b626be7234b27d2bf8eb4b5d3c00720bd3c8b60a5914b7fa9f6882d33d47e",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "압축 스프링의 복원력으로 원뿔 밸브를 닫는다."
+    },
+    {
+      "identifier": "AR-055775-A1",
+      "source_fingerprint": "cf357bda04b4079661d9da4eed30fd0a80e4cca3039b9db209ce3e1e97336924",
+      "content_hash": "719add47e1c2df4a421c8a15d0e30393c34e61750141debccebad68d81bc6838",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption"
+      ],
+      "reason": "충전층과 냉각 수용액을 사용해 산화에틸렌을 흡수한다. 이산화탄소 분리 기구는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-055796-A1",
+      "source_fingerprint": "272e393afc160f8dbd41bf79ca5e7a16320e59d203b8c0ee8570b14290b23a8f",
+      "content_hash": "cc196de5fa31334e866c9a4f8866ab4caa724bafae4af89ae548f200df79ea5d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "공기 중 가열에 의한 촉매 활성화를 제시하나 조성과 상변화가 불명확하다."
+    },
+    {
+      "identifier": "AR-055810-A1",
+      "source_fingerprint": "150c84a2ea4f3a6ad06addf74acd66824a3f4da01248787421dea66e9dce714d",
+      "content_hash": "5a0574698203ed50f96857b2db18a8962f9e5c7d629cf2bc11e0e5c7ae435cd4",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "아세틸콜린에스터라아제 억제제를 명시한다. 베타 아밀로이드 축적 감소의 추가 경로는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-055824-A1",
+      "source_fingerprint": "e40e832be3cc72ebb9d9086b2ad633de37fdb04203ecabe9e63ea1c3c5584945",
+      "content_hash": "13978bd9ef32be822981edd0e0e34f45b250f4fbe690d1067683aae1a4f13474",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission"
+      ],
+      "reason": "유압 구동 피스톤으로 콘크리트를 성형한다. 침지 진동기의 다짐은 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-055831-A1",
+      "source_fingerprint": "7c518fdb39875aeb1b71fd1659616887f0ffd13c6003769dfdd08d982caba2da",
+      "content_hash": "174f074a3d664ae925347c4abeb3360bb189eb6706d1e8269873caa9a9dc5943",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "지방산 아미드 가수분해효소 억제제를 명시한다."
+    },
+    {
+      "identifier": "AR-055837-A1",
+      "source_fingerprint": "8fe6c1decd9688ae2b1824e0d61124b39be7060acb217d9fdfeebebf510bd310",
+      "content_hash": "8a942631d24a5e070928db3bc944c7e660017b9a199f459ce00e41dc3ffd2b21",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "페녹시아세트아미드를 환원해 아미노에톡시 유도체를 얻는다. 환원제의 종류는 특정하지 않고 아미드 환원 원리를 검토한다."
+    },
+    {
+      "identifier": "AR-055865-A1",
+      "source_fingerprint": "623135e47a1e382434e414ad62d3f68be56b50b63464a8b75044a42757d72fdd",
+      "content_hash": "f25b1ba94241f42da0e3e666a379beb2bbcf9d273ada38ecdce6224c88c50fbc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "슬래브 아래 배관의 고정구와 인장 스트랩 배치이다."
+    },
+    {
+      "identifier": "AR-055880-A1",
+      "source_fingerprint": "79eb6dd86761d418ab442134778344729546fcdb9ec27780e4f891e950872c1a",
+      "content_hash": "76b88b951b91eac9326c423408d4c77d48d1733891fef09128a98f2acc3d3150",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "프로필렌 공중합체 섬유의 변형 후 탄성 회복을 명시한다."
+    },
+    {
+      "identifier": "AR-055883-A1",
+      "source_fingerprint": "9d9f56bb81ea859681a42e6e85b5ee1e80a4e347fd2644b58fee58449eada7cf",
+      "content_hash": "cdc100714656af4d98b8de322abeccb258fa1cd8323826eb7f1dcd92e1eddfbf",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "기저귀 신축 패널의 촉감과 안내 그림 배치이다."
+    },
+    {
+      "identifier": "AR-055885-A1",
+      "source_fingerprint": "81a69dc478d4be2a9cc81fb5200053a53f3138927cf11edd1d0bd12ee36beb6c",
+      "content_hash": "72f0310e7fedc31d49c618747cf9c74046352ef24de96c436dc4c1be8188cc7b",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "수중 펌프로 오염수를 필터백에 보내고 재순환한다. 필터 섬유의 종류는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-055895-A1",
+      "source_fingerprint": "518c2cf71d475ba32b130b061f527aba8589de8dfffea7ccf5eeb8f33846a883",
+      "content_hash": "af8afde98e389869f34f55b7258588c34a3462a48b045cb8f34762bf899afd60",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "선반 이동을 보조하는 스프링 복원력을 명시한다. 링크 기하를 추가 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-055905-A1",
+      "source_fingerprint": "1a97217581884c0232c25e5a26afaeef0806fe3707837ff0eac8b21b1e1a6a11",
+      "content_hash": "bca769e54d234ea7ab8afaa35051ddf8dff4e5452d6712fff0417bad7657265e",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission"
+      ],
+      "reason": "크랭크 축의 기어와 체인으로 곡물 차량 덮개를 이동시킨다. 수치 기어비는 제시되지 않는다."
+    },
+    {
+      "identifier": "AR-055906-A3",
+      "source_fingerprint": "ac4b2c59dd1e3384bea4e7161621b282aed4a0187507aa5885d22560bf37ea6b",
+      "content_hash": "6717e3216be034066207d17e7e0d9df9ffff18c076efbf04084a9b8c204d1203",
+      "decision": "LINK",
+      "keys": [
+        "friction-damping"
+      ],
+      "reason": "정해진 마찰계수의 미끄럼 접면으로 지진력 전달을 제한한다."
+    },
+    {
+      "identifier": "AR-055913-A1",
+      "source_fingerprint": "83a055eb009e11e88309992a55a19d538e71823e49593efd5ada27db359ac67d",
+      "content_hash": "5328bcf82e332f5fd306fae0ecadde7de5cd0c330637b4d7050dcc221187fa9d",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "lever-mechanical-advantage"
+      ],
+      "reason": "탄성 변형 부재의 복원력과 레버를 이용해 양극봉 지지 위치를 보정한다."
+    },
+    {
+      "identifier": "AR-055927-A1",
+      "source_fingerprint": "a93d5627aea1032ae5787ff06683ed5c033249a1a1d4c77bbec0ecc2e9dcf69d",
+      "content_hash": "c74eb2f33da0890a4623c37c404dd0f1c10a34926f328b14f680631d80214fc1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "경피 제제에 히드록시페닐트리아진 자외선 흡수제를 넣어 광민감 성분을 보호한다. 흡수에 의한 광보호 원리를 별도 대조한다."
+    },
+    {
+      "identifier": "AR-055930-A1",
+      "source_fingerprint": "9fed6956d765849d8536935343d0b37e64c90b6e28a8084aa2070ef7d2a56cf2",
+      "content_hash": "8250b5150ce553c077c6580cce84ab7481230944e80330a3b0c22d2f03048850",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "모터·감김줄·반경이 다른 풀리로 주사기 피스톤의 힘과 이동을 바꾼다. 케이블 드럼의 회전·직선 변환을 검토한다."
+    },
+    {
+      "identifier": "AR-055946-A1",
+      "source_fingerprint": "108318b5a16051733e2cb38689045b20f3a490f7b9a1a092b4a307b26be4a6b8",
+      "content_hash": "363b163ef73f883679dc44fa8aea693590db3b13ad02e031782bf5955606da4e",
+      "decision": "LINK",
+      "keys": [
+        "gelation"
+      ],
+      "reason": "가교 고분자망과 물·다가 알코올을 포함하는 하이드로겔을 명시한다. 전도 이온 종류는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-055950-A1",
+      "source_fingerprint": "b807d5080b5c6ae2150106d48b7a604cf579d7526abe09213db5b0b5418c82aa",
+      "content_hash": "24f12b6251d2e8590929b9afdb07798322ca323285295ae9f94a63be40b3570b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "급식 튜브 삽입용 레일과 내시경 캐리어의 배치이다."
+    },
+    {
+      "identifier": "AR-055957-A1",
+      "source_fingerprint": "c85d0fedbfa90323842501796a658381720f5953cf6ffa3da63537efcfa44c31",
+      "content_hash": "c23c88487d0e03ed4d71b1f0aad90b87a68008f324bd6fe2502794ba9260cea8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "기저귀 흡수체의 고흡수성 입자 포켓과 시트 배치이다. 입자의 팽윤 화학을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-055960-A1",
+      "source_fingerprint": "d8192e53ab7d8a986220bc3518054d12ff96f6df85a91591d8677000f8358d1c",
+      "content_hash": "5eacbc14c5c8c3fdbc6a149f958a7845acb772d3ff030d45b3f00ced40efa478",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기능성 단량체를 그래프트한 공중합체 접착 조성이다. 표면 그래프트나 계면 결합 경로를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-055974-A1",
+      "source_fingerprint": "be7692eeaa1398387f3a7d72c7cfb4d7758128caa80c8004c4ee2226dbccffd8",
+      "content_hash": "21e1721933b41fd3f2d6e99c2d10ffc89af35c0c16d80a50c8d82f8293513751",
+      "decision": "LINK",
+      "keys": [
+        "venturi-entrainment"
+      ],
+      "reason": "수축·확대 통로의 최소 단면에서 압력이 낮아져 측면 유체를 흡인하는 벤투리 효과를 명시한다."
+    }
+  ],
+  "recorded_at": "2026-09-20T21:27:25.276139+00:00"
+}

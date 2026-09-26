@@ -1,0 +1,227 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "8d7fba39d1745e18aa1c1ccc0e9831ef00a70de387be399ae5ba1196ed370f35",
+  "reviews": [
+    {
+      "identifier": "AR-110887-A2",
+      "source_fingerprint": "0ca7df3b97de63fb559f5c2439e0ab59e8856f8e93c4babfc24672f7d2922908",
+      "content_hash": "eaef25e5ffaf351d705998fa7d145f8bf0cb4ecf6c27ea04da67c6e50ff5d39f",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "Fc 수용체 결합과 항체 불균질성을 바꾸는 상수 영역 변이이다. 서열 변화만으로 FcRn·당쇄 기전은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-110906-A1",
+      "source_fingerprint": "f9b297fed423c152b4a6ec8f0b78d788c65fde710295dc688ab54e64992246c5",
+      "content_hash": "6515a0df80ae76df5cbfcbed5f94a9d1f9b23065c9e40b6d36f2964f4858197b",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation",
+        "surfactant-action",
+        "acid-base-buffering"
+      ],
+      "reason": "킬레이트·알칼리·계면활성 성분을 조합한 세정이다. 저온 성능이나 구체 오염물 가수분해를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-110913-A1",
+      "source_fingerprint": "788aefaaede7839453ab6f219c5c87d42a56109cd863debb25566b58ffe8d8bf",
+      "content_hash": "d0033759ec4c5cfdb3cf8e5bb5a325c152be9242d35fe7204c4a05d07f9ce123",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아미노글리코사이드의 항균 용도만으로 리보솜 결합 부위·오독 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-110916-A1",
+      "source_fingerprint": "a8273eeb9b66346cbc39878c06ead5a1e65824c540cef41ee10783b59fe17a82",
+      "content_hash": "d757371d3198936b7e533832b52342c4b9f497f72d25c761f4b875fb1916fa99",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "양친매성 공중합체의 피치 점착 억제 용도이며 흡착 피복·입체 안정화의 구체 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-110927-A1",
+      "source_fingerprint": "94723cf9aba90d314e18fc5d68e01e6152f4f4f3223a1bb86da605502356a8e5",
+      "content_hash": "7a9aea800d86427a0b34657335cb133a5bc26240a7d6ecc9985c387142a576bb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "신발끈 안내 모듈의 위치·각도 조절 기능이며 구동 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-110935-A1",
+      "source_fingerprint": "0a59dbab0019f47d54287fb7e5b65d013c20daf153cd90ff5fbc8836eacbd7e7",
+      "content_hash": "8d69042aaf28bf082105393d0d54c4487d46a608e38b5e04854518932a2f1a74",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "피롤로피리다진 Markush 구조만 제시하여 분자 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-111001-A1",
+      "source_fingerprint": "65f9a314c5faaa9829c5148f5d8e3e65882acbe12ebfbb1cf1e5e0772dd8c1bb",
+      "content_hash": "8ba44798cb4fbcbf938b8def45bfc7d5be4c168d375c4df54b3d82cc2d09b5fe",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "비료 과립의 형상·경도·코팅 조성 규격이다. 구체 결합제 경화·방출 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-111009-A1",
+      "source_fingerprint": "50bea67782b72acd57fe7d809160118b48d1a5723d7cbfc09d2c02cb793715bc",
+      "content_hash": "c3c55178ca83ab196279c77f0548e1d0e516dcb6b9a4bf0d928f61a20f37980d",
+      "decision": "LINK",
+      "keys": [
+        "integrin-mediated-cell-adhesion",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "알파V베타6 인테그린 저해 화합물이다."
+    },
+    {
+      "identifier": "AR-111019-A1",
+      "source_fingerprint": "3cb1110866b58502ce82e35e32ea7a04ead3c9d2e372ff5b280a1509f10d1cab",
+      "content_hash": "61fb90d20023638597d70ba0f7ab5d325e7cef9e83c42243d3f6b1affdf5e0a1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "원격 공증 세션의 UI 동기화 규칙이며 동시성 알고리즘은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-111049-A1",
+      "source_fingerprint": "e9ea20c543299986dd832d4ec71823d90eedbef396523ba45c16d9e63d2e0873",
+      "content_hash": "7b5f7ce765273bd36f948900560e69f08d59844896ba970983c3a1a301cb847b",
+      "decision": "LINK",
+      "keys": [
+        "gas-solution-diffusion",
+        "gas-absorption"
+      ],
+      "reason": "치밀·나노다공 막을 통해 액체 흐름에서 기체를 제거한다. 모든 막에 같은 수송 경로가 적용되지는 않는다."
+    },
+    {
+      "identifier": "AR-111050-A1",
+      "source_fingerprint": "6d59660a8efeee963ae748e8a8b47c9366740568e26425b246b2617aa8f3d6ea",
+      "content_hash": "042cce003fa7b0054b0a1b0d2471ce37009e1e644b054fce5541679379940cc9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "탈곡기 출구의 가변 가이드 날개로 배출 궤적을 바꾸는 구조이다."
+    },
+    {
+      "identifier": "AR-111063-A1",
+      "source_fingerprint": "4861f5afbacb24fc232a5f7ed90b33c352abba50c8c2066a5493e5722749c260",
+      "content_hash": "ea891d528cfe1699a4e1cb3f3fcdeb3f1ca55a04f150d8b50a48c4d12d76626c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항암 덴드리머의 구조 도식과 전달·약리 기전이 없다."
+    },
+    {
+      "identifier": "AR-111070-A2",
+      "source_fingerprint": "61cc32d50ebadf8afee7973fe43b89fb947c68e23d31bd8586562f71a46f0a91",
+      "content_hash": "782a04989d78e7f5c402213f9f8efc45a2040d06c99a63006173e1648b0b2673",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "fluid-turbine-conversion",
+        "electromagnetic-induction",
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "가스 터빈 발전으로 파쇄 펌프에 전력을 공급한다. 현장 환경 우월성을 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-111082-A1",
+      "source_fingerprint": "4ea942bf4243886de806fba471c2b61dc71455b94d5e1d9841a29338e0f4a141",
+      "content_hash": "084563ac6f1c9e8af33b57d7f448a38360d9aad9daf5ba84efcc558e1960c5f4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "시트룰린의 겸상적혈구 위기 치료 용도만으로 NO 경로의 실제 기여를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-111087-A1",
+      "source_fingerprint": "73c99276b61881383b69c5d206b865a4680a2acc25baf8361ce546a0843a8f37",
+      "content_hash": "bc2c269145e3b42158417bdeb2efd5623544af3317beaec3acc8bc21d3d8ed4b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미생물 균주의 방제 성능 주장만으로 항균 대사물·경쟁·면역 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-111090-A1",
+      "source_fingerprint": "e7b2c45733aab541822cc7e0c5f8f1c6100cf83844234f18d2a477df87ad4a95",
+      "content_hash": "0d5fb06eab923478bad8ebcae0efc1d22d4c4cacf7cefa4d7e3785340d38ec65",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion",
+        "geometric-optical-occlusion",
+        "negative-feedback"
+      ],
+      "reason": "광차단 센서·캠으로 가속 페달을 구동하고 관성 관측으로 제어한다. 중력 방향 경사 측정을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-111096-A1",
+      "source_fingerprint": "4a708d1f49a3545691b8493d8d0f8545e5f7172c041140e85230da2fa0290e36",
+      "content_hash": "14cf8e3b4a72253eb588fd965a33b6e7d7aff5ce60b8a0373c9784bda271f4e6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "비생존 알을 제거하는 부화장 관리 규칙이며 검출 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-111103-A1",
+      "source_fingerprint": "60e8e3db6d299292b26dbc3feedacdf21f30f1ee32961f72318015c8473917ed",
+      "content_hash": "93bccb8e174679615beb83e1366b30179a43086a92afad22b67215241dece6ff",
+      "decision": "LINK",
+      "keys": [
+        "cosolvent-solubilization"
+      ],
+      "reason": "PEG·에탄올 액체 제형이다. 용기 소형화의 안정화 원인이나 산화 억제량은 미상이다."
+    },
+    {
+      "identifier": "AR-111104-A1",
+      "source_fingerprint": "2ecc043ff156c4388b356160113ab66cc8a23d453079390ca8c0f5849633b9f7",
+      "content_hash": "428c9bb0f9409a32e6d464b4cb71d0b56ef97d6959b77ba88ad9b6e78f0446eb",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "frictional-load-transmission"
+      ],
+      "reason": "클램프 이빨과 간섭 끼움으로 광케이블 피복의 축방향 이동을 막는다."
+    },
+    {
+      "identifier": "AR-111110-A1",
+      "source_fingerprint": "f51fc6c635fc65fe915d5b10039e4fca16e1cd5b17b8c68db4010a3967f14084",
+      "content_hash": "2aa15fea1e340fbd2976bf772a606353e4ad85c84ca38a737cb9c0466fe93aa7",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration"
+      ],
+      "reason": "곡물을 침지·발아한 뒤 말려 맥아를 얻는다. 종자 수화·발아를 후보로 검토하되 스테비올의 촉진 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-111123-A1",
+      "source_fingerprint": "810fab48dc27bc2c19bc601fe496cba023d98bbf8f99ce9e09e6b8658fbe8155",
+      "content_hash": "08b2e185771ef4501634c80b2c633e9cfa453e240303a6093707bf70b6327704",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "polymer-glass-transition",
+        "pressure-sensitive-adhesion"
+      ],
+      "reason": "유화 중합으로 낮은 유리전이 온도의 감압 접착제를 만든다. 수중 입자에 분리된 중합을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-111129-A1",
+      "source_fingerprint": "6e8d7749ae0861e912d5cf40b7d10ffd22de3b3c3592e591e14ec3a2fa6fc4d1",
+      "content_hash": "4b25698576df144fcc3cd0e61997207a9744371d6c83db3873c1b5a5a64a8aaa",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "아닐록스 롤러 표면 채널의 경계 형상이다. 모세관 인쇄 전달 성능은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-111134-A1",
+      "source_fingerprint": "79084a1415abf23fe43615cf4cdca4d89f54b7ada675631d3d8c0d86ec9fe6b7",
+      "content_hash": "3c6500f7ec7c162d8820a06efc3e966c1e71c032cf276f167776afda4e6e9761",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression",
+        "heterologous-gene-expression"
+      ],
+      "reason": "해충 RNA 간섭과 식물 내 관련 핵산 발현의 일반 원리만 연결한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:56:29.084050+00:00"
+}

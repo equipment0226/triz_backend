@@ -1,0 +1,349 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "10f388fe0d256e66bef116fa1b88693b9f59ac0f6bd29541c3f6a2251b9fb41e",
+  "reviews": [
+    {
+      "identifier": "AR-037261-A1",
+      "source_fingerprint": "e512defad1f6617d1cd3e8d92aebe13cc2fac6f835a8fdcfdca09d8901263280",
+      "content_hash": "152aced89e320ab04f2cd5c2c3ca3b8d63a0aee72349a2c55d2f7817708b8244",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "화합물 구조와 치료 용도만 제시되어 항종양 작용의 표적이나 인과 기전을 확인할 수 없다."
+    },
+    {
+      "identifier": "AR-037307-A1",
+      "source_fingerprint": "024065cc56ec183ef01f6c19fba091cd83ee6dac2135f4e7a143050bb6f79a8b",
+      "content_hash": "ddc9841696323efcffbe15c41d7f0e9f876921c3bafe3517ae69741f310b6872",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "혈관신생 억제 치료의 병용을 제안하지만 각 성분의 구체적 결합 기전과 광화학 반응은 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-037332-A4",
+      "source_fingerprint": "e1ceee72ca203aa45085fb849ca774a7b3a46951535dae50b1242c261af3d3e1",
+      "content_hash": "d31f9d35bcc43c99bfd64158ec693c7474900084fd80a20646b54589fadc311f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "다각형 축심과 유연한 걸쇠의 잠금 구조이며 독립적인 과학효과를 입증하는 설명은 없다."
+    },
+    {
+      "identifier": "AR-037333-A1",
+      "source_fingerprint": "f43f23ee181e1a2b7878b4125fd5086e03cff863b71ebe593ad113106c4c31ae",
+      "content_hash": "acb3ed1bf54bdc837c2efd4d9ba4c19b12e8ca891c9af1d578c0bf70466d7b7b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "급여 공제와 인증을 결합한 다목적 결제 서비스 구성이다."
+    },
+    {
+      "identifier": "AR-037436-A4",
+      "source_fingerprint": "34b304b3424e61140d83930325d1d9658684d01a256502a659dae208abbf559d",
+      "content_hash": "7dd45afd0f064a0a924cff46d0ca34cbb307ac34e9608ef9d69d23ff21e23d21",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "가스 유량과 디젤 분사를 캠으로 연동하는 이중 연료 장치 배치이며 제어 법칙은 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-037439-A4",
+      "source_fingerprint": "cf3ea1214676e891f4815a711058f646bc1c5c4cef49ed735cdb12ee145cdc08",
+      "content_hash": "e9cab5abff055d467a8ec183b553d4c25e2af0157ca8c2db70f6ae526d5a32b3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "자전거 프레임의 분할과 장력 조정으로 접는 기구 설계이다."
+    },
+    {
+      "identifier": "AR-037461-A4",
+      "source_fingerprint": "7aa023a4562155a48071991b2506900c9cc92c758ab2c775ca805f854974d509",
+      "content_hash": "c39e8bc1c24fdf4f6a9e2b9ef1aca07bf230275c44ede927dd5956c48dcb6522",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "소변 수집 용기의 깔때기와 관 연결 형상에 관한 설계이다."
+    },
+    {
+      "identifier": "AR-037480-A1",
+      "source_fingerprint": "7a772daa66a269e54d26920d852eba2ac02d422d115a7771a47f4a28fb36e94c",
+      "content_hash": "f4b2df0ebed4857b710819aab3b55c918ec91e8fdf8e54a905651b0b53c99ea1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "천공 필름과 멜트블로운 층의 접합 구조를 제시하지만 선택적 투과의 기전은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-037485-A1",
+      "source_fingerprint": "401d87177b677c363cb732ba0c96c202784cc24698d9365bcff0e58420103ec5",
+      "content_hash": "534309d951b1424c2e6e81901299e36f31f533480e17ab10779d103740b9cf5d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "초록에서 CDK와 GSK3 억제를 명시하므로 효소 활성 억제에 연결한다. 개별 질환의 치료 효과까지 검증한 것은 아니다."
+    },
+    {
+      "identifier": "AR-037490-A1",
+      "source_fingerprint": "05c0239f1fe6997fbc9568538c3ddbad3bed6796108687cbbf7abb76da632190",
+      "content_hash": "142302c7149cfc85070556da4c88a8bebc695ede1be03bc996351511ec650385",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "수성 환경에서 지방산 제제의 융점이 낮아진다고 기술하지만 그 원인과 상평형 조건이 없어 잠열 저장이나 가소화로 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-037505-A1",
+      "source_fingerprint": "a4bde9a9f7a5b1c3d551d0bc943d08d0872fb05fcf9cefd216965ff25a36ddca",
+      "content_hash": "5827323d9d50af31889b3aedc2a579a1c84cad369c33da47baf70d93969a6052",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "방향족 물질에 의한 외독소 생성 억제는 기재하지만 분자 표적과 억제 경로는 없다."
+    },
+    {
+      "identifier": "AR-037562-A2",
+      "source_fingerprint": "37909ecc3e47c68714785c4d81e8c7ae3240eeb54b30e9279bb85c081a70e3b5",
+      "content_hash": "394be297ec212209385d12a29762dc398690fef075be81e85504ec821b2e3b61",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제목의 티로신 키나아제 조절만으로 억제 방향을 확정할 수 없고 초록은 구조 정의 중심이다."
+    },
+    {
+      "identifier": "AR-037593-A1",
+      "source_fingerprint": "050cd23d81a526abb2e981beaf8c7ab764444ca51a4913fc81eb99550ac3de56",
+      "content_hash": "807fd08f33493ef9b419551ef687f43f04f72282a535d266dd21799dfe33ad8f",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "EP2 수용체의 선택적 작용제임을 초록이 명시한다. 저장 초록 후반의 구조식 설명은 잘려 있으며 연결은 명시된 수용체 작용에 한정한다."
+    },
+    {
+      "identifier": "AR-037613-A1",
+      "source_fingerprint": "d1ec5c0e3b2bb68319324b1dd669dd8911042fa7ce2f42d61e279aef2b84a530",
+      "content_hash": "611af2d523aa878da49d3792bed736d2fbc0261536bd02364194bb987b7819bc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "염색 중 의복을 보호하는 일회용 폴리에틸렌 덮개의 형상과 사용 배치이다."
+    },
+    {
+      "identifier": "AR-037655-A1",
+      "source_fingerprint": "24cebed2ef4279d2bb2ded7bf5ac8102429a7dd1f07f27bf4c4e654d79ae8cee",
+      "content_hash": "f4f52609378c5f2741d633693e280b83333cef5de9514d82df73340d063b567a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제목의 RXR과 초록의 PPAR 알파 및 감마 표적 표현이 달라 원문 확인 전 수용체 기전 연결을 보류한다."
+    },
+    {
+      "identifier": "AR-037681-A1",
+      "source_fingerprint": "705aadd9d2504e006c7d65a35dd2a3b8d8dfeaa5cc5c71889c8e1d15d73fc788",
+      "content_hash": "8ebc265493b50f1eb618a048b72dfe6018949884af1a8acbdb7aaac0e1dba820",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제목의 A2a 길항제 표현 외에 초록은 구조와 용도를 열거하여 해당 표적 작용의 근거를 추가 확인해야 한다."
+    },
+    {
+      "identifier": "AR-037684-A1",
+      "source_fingerprint": "2de06368a80867facb23ae64b446aa30f9d18b963e9b868f14028827a79a6981",
+      "content_hash": "9e1b240e6a23d5c51bb58c8b60f4c70d5d60045e8a3f1381250ef14bf916b56d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "포스포리파아제 특히 PLA2 억제제임을 초록에 명시하여 효소 억제 기전에 연결한다."
+    },
+    {
+      "identifier": "AR-037723-A1",
+      "source_fingerprint": "f1cbe48fa8c3441f1db33a66cc7fd636728abf16b40aefe52d5064d0cafda2e0",
+      "content_hash": "98636d58161aa6dbdcfee9932da9c8b43509dc4a5709824ae481c55116675f1b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "데이터 해시에서 생성한 키와 기준값을 비교하는 무결성 검증이다. 오류 정정과 구별되므로 기존 오류 정정 효과로 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-037800-A1",
+      "source_fingerprint": "0692f7a14e76bba0ac57827b7de6e617a1669ae9fbf2e851b2db7ab50313ea1a",
+      "content_hash": "6c55dcbbbfb2c99ba741c4d02538804c8b8e24769a8b053a42f678917cf8158f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "흡수 제품의 탄성 돌출부와 유체 유도 형상에 관한 설계이며 모세관 작용은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-037807-A1",
+      "source_fingerprint": "19eb4d206ec8d76aa7d866da47a3749aebb944e090167994a92d13191df18fec",
+      "content_hash": "76ae82d33344365cbd5ae84e4a5337c2c3f9eb3493fecbfa0483aec0f45941bc",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "리포솜 내 약물 선택지 중 크루지파인 시스테인 단백질분해효소 억제 펩타이드를 명시한 부분에 한정하여 연결한다. 봉입 자체의 방출 기전이나 전체 제제 효능은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-037820-A1",
+      "source_fingerprint": "f4195d2fc3ddb7f373e6d11f7a41e4a7d6a881e76d42211f2f677032d96b061e",
+      "content_hash": "7d4b88e69679f1f2edb12e650b6229bbf51277005395e19a31cfe818dbb65346",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "교체 가능한 모듈과 접속부를 통한 수리성 개선이 핵심이며 전자기 유도 기전 설명은 없다."
+    },
+    {
+      "identifier": "AR-037840-A1",
+      "source_fingerprint": "dcc52d3768b4fafe4f95ccb91d4705d940bdb4f24cc5e0e8c81d56e87ce8414a",
+      "content_hash": "33e4dbb1cb25bf24a072695abd553a42fa7e7500a2a568c945003b36ed25d2fe",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "속옷에 맞춘 흡수 제품과 날개의 형상 설계이다."
+    },
+    {
+      "identifier": "AR-037888-A1",
+      "source_fingerprint": "ba701db897a60223ce355823293299859eaa27c36a303dd265470888370c46e4",
+      "content_hash": "c792dd1df8dba2a87e5bd157e588c6e5b8f18e6068588810b3127556f9b758a8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미건조 펄프의 건조 중 비틀림과 입체화를 기술하지만 수축 차이의 원인과 조건은 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-037905-A1",
+      "source_fingerprint": "ce5a2a6316c4ea9344aa000e2706f29451609df652bcefdb947dcf50c948537b",
+      "content_hash": "fda48b786f8c5ceb83eb09ab9b7602d8908b6327989535e1850e31a04713563a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항균성 화합물 구조만으로 항균 표적이나 작용 기전을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-037923-A1",
+      "source_fingerprint": "1baa1b052656f835af0368102c833e7fcf51eda7530d3bf9786ec2a4107e8131",
+      "content_hash": "b7430b0e1124b2f5be33afc34469eadf557bfb00eb30f0b48302708065d113a1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "기저귀를 고정하는 단일 유연 체결부의 배치이다."
+    },
+    {
+      "identifier": "AR-037990-A1",
+      "source_fingerprint": "7200dc922024f0fada21f005233840c8a97d8bbc1ad09a3ac62bc2b76f941702",
+      "content_hash": "245a904ecff9025c0c8a468d81720be9ec38e9174ed733c3cbceac7e94e3df44",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "아연 의존성 가수분해효소인 메탈로프로테아제의 억제를 초록에 명시한다."
+    },
+    {
+      "identifier": "AR-037999-A1",
+      "source_fingerprint": "d8ea866a3bcd74385b4f1d5c012758df6c525e5c4cb6ab323424bd0cdaff731e",
+      "content_hash": "4962492fb99876f3f03b02b60f89690a96841c7f5714f0fde92761fa07dbec14",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분리된 실린더와 크랭크 위상 배치로 압력과 토크 시점을 조정하는 엔진 설계이다."
+    },
+    {
+      "identifier": "AR-038017-A1",
+      "source_fingerprint": "688d193adcb3c2284a67e2803a9eefcb49900f66b7b43e5d02ab7eb7949d83e7",
+      "content_hash": "ee812a1ceb96aa2126c238297f8902213d08d57bb26f788c14c14f98ed549fff",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "프로포폴과 사이클로덱스트린 복합 제제의 안정성을 기재하나 포접 상호작용을 배위 결합과 동일시할 근거는 없다."
+    },
+    {
+      "identifier": "AR-038027-A1",
+      "source_fingerprint": "c34065cc67ba60c618cad3ffb5952bb3795538b97ebbe440be2900739e43173d",
+      "content_hash": "be039d50e5c9bfd8a8fb321cc7460d147a25ad9db360c3f02fe15219879d12aa",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "바이아로마틱 화합물의 구조와 용도 외에 구체적 작용 표적이 없다."
+    },
+    {
+      "identifier": "AR-038031-A1",
+      "source_fingerprint": "06b4e754d705752a0c6cde8e8b2f01492fd7f8b23476bb7f57e38b03553f4e2e",
+      "content_hash": "5f48b7cad90c0199007336a96a07267b54c67f3211da8e9f27ebdc37c495f85e",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion"
+      ],
+      "reason": "댐의 수위를 터빈 발전기의 선택적 가동으로 조절하면서 발전하는 구성이므로 유체 에너지의 터빈 변환에 연결한다. 피드백 제어 법칙은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-038050-A1",
+      "source_fingerprint": "7d95bef872d8054b6142ef5ba039d3d77b9bd0e716ee6820f42e70cc93079d5a",
+      "content_hash": "fa61fbc594488fd660cdf0a2805c5f02a9f31ef4bbbedd470c87ae7cf2b04646",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "엘라스토머를 분할하고 축적하며 혼합하는 압출기 내부 구조이다."
+    },
+    {
+      "identifier": "AR-038112-A1",
+      "source_fingerprint": "4dd659264875013ea0fd35bf9b3b31c9b92aec6279815a8a005ff6b44dcc84fb",
+      "content_hash": "06649831128f9b27b11641d01a1571e7fc64e7e8ada6823e4eea607fc0eaaa0c",
+      "decision": "LINK",
+      "keys": [
+        "fuel-cell"
+      ],
+      "reason": "펌프에 장착할 때 장벽이 열려 활성화되는 전원 선택지 중 연료전지를 명시한 부분에 한정한다. 일반 배터리와 같은 것으로 취급하지 않는다."
+    },
+    {
+      "identifier": "AR-038118-A1",
+      "source_fingerprint": "7b770601fe0d7635dd864f73eab56f00402b41ded733a4e14476b30fe1ccd05a",
+      "content_hash": "fb80eaf090bb321839a2da4bd5ad94ae6b5bbda19b3a815f7312c247d9283fb3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항헤르페스 화합물의 구조 및 용도를 열거하지만 작용 기전은 없다."
+    },
+    {
+      "identifier": "AR-038128-A1",
+      "source_fingerprint": "f019f5b8e137d8db2d8d78288ec6eca86f2974b98678fce7cf6f783033cab0ea",
+      "content_hash": "48dd97e7b7bb6d53afb24f525bebe6b38dc92309f537f39afc6aef59c618ea1c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "벤즈아제핀 금속염 제제의 치료 용도만으로 분자 작용이나 배위 구조를 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-038135-A1",
+      "source_fingerprint": "9d391f251f62ae1509a37a78c0878d3fb61e5ad1bbbe63f09bf478149e1db3ec",
+      "content_hash": "b9a996a9683847d68766273139cb2acab313974580b36d5d8c1f92a63b6db1da",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "일산화탄소 수소화 촉매를 탄화수소 제거와 소성 및 금속 재함침 후 재활성화하는 공정으로 촉매 작용에 연결한다. 개별 산화물 환원 경로는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-038145-A1",
+      "source_fingerprint": "14efcacff4eab5c2d7f43c6d225f6a7b05c63ee7442058647897431b7602216f",
+      "content_hash": "325ca49b1881c32b30fc7e096d237d63260dfcdc01f7ad33948568c32dc58f57",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "폴리타르트레이트 정제의 압축과 맥동 방출을 기술하나 주기적 방출을 일으키는 기전은 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-038160-A1",
+      "source_fingerprint": "385ae5116b2610616bb44b6c2a152cc87a9914cb98c9cd0f506a04d92951c93c",
+      "content_hash": "517803edd44b5accee9ed382ad7a5087ade6e00021f887f9f175a763541aae94",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 캡과 내부 원통 및 절단날의 저장과 작동 구조이다."
+    },
+    {
+      "identifier": "AR-038162-A1",
+      "source_fingerprint": "2daedda66155bc88b47dfa7c27272f3cd8305d11764d1dbe54700b3f47385b3f",
+      "content_hash": "8479aee838c7b828c6e4092cd00f597231ce9a4095b0e386a8ab19d16d3cf194",
+      "decision": "LINK",
+      "keys": [
+        "polymerization"
+      ],
+      "reason": "산성 비닐 및 비이온성 비닐 단량체와 소수성기를 포함하는 회합성 고분자의 중합을 명시한다. 유변학 변화만으로 전단박화를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-038179-A1",
+      "source_fingerprint": "4de90bee2e9b51bc379654eea0f53fa58c51f4250ee1f292ffb2c3e647a8b223",
+      "content_hash": "3175d8e7fb97c82b84a2fb1510d95bfbb5146344d7c1956155b8cb21475a842c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "페닐설폰아마이드의 구조 정의 외에 구체적인 생물학적 표적과 기전이 없다."
+    },
+    {
+      "identifier": "AR-038226-A1",
+      "source_fingerprint": "24d72ced4cef646d2ceaa1d26f151cd033a49ce12533b65c892cd3ddb393e594",
+      "content_hash": "2ef7b13dd3414e8aa3da51e84a46ebbabf82d7e096f978611f26ac35bbcd7258",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "polymerization"
+      ],
+      "reason": "폴리에테르 실리콘 계면활성제를 사용하는 실리콘 유수 에멀션과 단량체의 촉매 중합을 명시하여 두 기전에 연결한다. 분자량별 성능은 별도 검증 대상이다."
+    }
+  ],
+  "recorded_at": "2026-09-20T01:10:47.055984+00:00"
+}

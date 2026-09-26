@@ -1,0 +1,101 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "f90189ef138d7dad6d2cd7c7b7136974abf465fc7311fb5f701cd21c69d88e7f",
+  "reviews": [
+    {
+      "identifier": "AR-104866-A1",
+      "source_fingerprint": "106f92080731f6aa3da4d4a99dafd43c56f9c2434f494cf9eead86fa63edda22",
+      "content_hash": "c15a29c7515926c7426da86037b1361ed75037345422b0363fd67109a53d90b7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고리 아미드 제초제의 긴 치환기 목록이며 작용 표적이 없다."
+    },
+    {
+      "identifier": "AR-104867-A1",
+      "source_fingerprint": "5e1a79dba646920e1ec779451d708aefe6a5a1bd3caf0a15a090f56ce935fe0c",
+      "content_hash": "6229bf5d5b3b90400c0eaf9c514061173d756bf0a6b8201c884d445b95280b85",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "살충 단백질을 재조합 발현한다. 세부 단백질 기전은 없다."
+    },
+    {
+      "identifier": "AR-104875-A1",
+      "source_fingerprint": "832506b9c36dbe47b974fd204bc0fdcb9e1249b1b53b33eeb09ab6f454d65037",
+      "content_hash": "0c2d8271ae454fd8bab7ea5d382a8867183684469bb7b67a1f516bc02a9c2e69",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "여러 상태의 Tau에 결합하는 항체와 화물 접합체이다. 제거·독성 억제 기전은 별도 확인 대상이다."
+    },
+    {
+      "identifier": "AR-104885-A1",
+      "source_fingerprint": "075b955cfa632a1c1b8e92bac6214600bd99cd7aa9d00d5f77978bc4d74965cc",
+      "content_hash": "194219edfddcb7a6eae4936cded4b1cc798a7bf93d6ddae0998486df3c512cfa",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "mechanical-interlocking"
+      ],
+      "reason": "피스톤을 뒤로 당겨 저압 채혈 공간을 만들고 고정한다."
+    },
+    {
+      "identifier": "AR-104887-A1",
+      "source_fingerprint": "433a277c736bb6fa2cc68490470bc75fe66f4a3fc8314a67fa206721f2cbc4aa",
+      "content_hash": "4325d04982b74d111d93e79e6c1a52f4c872755dccb1a658bc946931498ce49a",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "cosolvent-solubilization"
+      ],
+      "reason": "계면활성제·알코올·소량 물의 농축 세제이다. 평형 습도 수치만으로 미생물 성장 억제를 주장하지 않는다."
+    },
+    {
+      "identifier": "AR-104896-A1",
+      "source_fingerprint": "0ffadb7d4cde3f201767d065edbf80e500a630181c81ba1f9031cfc6437ece3e",
+      "content_hash": "2957abdadbf4c68620b7316f0147557aa0dda2efd319a2b168679943ef7a26a6",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "요소분해효소 저해제를 미생물 접종제와 결합한다. 균의 생장 촉진 기전은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-104902-A1",
+      "source_fingerprint": "a54e36bb83e7f5d452150dbb02ec518865e70559301b5f6b20c97c67b3588054",
+      "content_hash": "99b163cd4d34fa3e1f8c9e50932a77c4a691820552ce8e5c5ba34d925894a066",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "adsorption",
+        "crystallization"
+      ],
+      "reason": "보헤마이트 침전·성형·수열 처리로 리튬 흡착제를 만든다. 리튬 삽입의 전기화학 전지 기전과 혼동하지 않는다."
+    },
+    {
+      "identifier": "AR-104905-A1",
+      "source_fingerprint": "c9c6b09ce4adf420b2cedd1fd2453c3413214b31e0205a5fccd495d75632d774",
+      "content_hash": "5a3642a1d286bdc983eb4c42d450a7c3d28ed8dd05e28d351468f09590a887db",
+      "decision": "LINK",
+      "keys": [
+        "cyclone-separation"
+      ],
+      "reason": "접선 유입·원추부·중앙 배출관이 있는 사이클론이다."
+    },
+    {
+      "identifier": "AR-104910-A1",
+      "source_fingerprint": "e1e8b4955877b8c22c6bcc3e1f7feb7b3f05a69a2eacbdda821c95431d0df9a5",
+      "content_hash": "35e13399d3942ea86200300d7714a05948f73f385525b76f71a9c6b601c9d69f",
+      "decision": "LINK",
+      "keys": [
+        "capacitive-sensing"
+      ],
+      "reason": "이중 다이어프램 사이 액체의 정전용량을 측정한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:26:08.749714+00:00"
+}

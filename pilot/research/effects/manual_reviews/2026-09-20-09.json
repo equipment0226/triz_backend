@@ -1,0 +1,351 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "72b07c80a0851accb34847e41287d41853bd1176ff33f3f793d5aaed6b17cd97",
+  "reviews": [
+    {
+      "identifier": "AR-042154-A1",
+      "source_fingerprint": "3fc5f36aa7c452f19604ace4e8c43c4d0f6f55e9ce2d1d4853d0bf67517c8ea5",
+      "content_hash": "045dc05d92324d9e93df4a9f025de938ada798a612f743212561706b821c9a27",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "축으로 연결된 U형 부재를 펼쳐 차량을 덮는 구조이다."
+    },
+    {
+      "identifier": "AR-042172-A4",
+      "source_fingerprint": "78196eae988ac7d973df63dbccc63ca17d57c59d173604dc9dec9ebf60da9f4a",
+      "content_hash": "1e01aaa3421765ea378dd896361b239663aa5b70be5229d1c71d2794969f0c37",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "접힘선과 보호 표지로 휴대 및 펼침을 돕는 인쇄물 구성이다."
+    },
+    {
+      "identifier": "AR-042175-A1",
+      "source_fingerprint": "e02e3ff457734b21cd0ef211dd07c6cc47d629efbdb78f327fd1fc1a74f4afda",
+      "content_hash": "74f4205591218b21a189c825b9f5b8a9ed56fba151fda3148da71d976187aea7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "영양소 배합에 따른 대사 개선을 주장하지만 분자 표적이나 생리적 작용 경로는 없다."
+    },
+    {
+      "identifier": "AR-042177-A4",
+      "source_fingerprint": "615c54d4ca9ba6cf976a78e88ed2903beca6573e7c27d0ad173665608bc7c1c0",
+      "content_hash": "7a7025f5752ec5b5d8f2c2b03134329cb165304b69aecf165480bfd6e25e17ee",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "테두리 위쪽에 지지부를 배치한 세면대 형상이다."
+    },
+    {
+      "identifier": "AR-042214-A1",
+      "source_fingerprint": "eb8407b08e1598f3f2d687aa81c43123805ecfbfd6e7078c614b0790633cd8ed",
+      "content_hash": "0d43529599915309d270d75024620a578080ad9afecde72cc8953b076c59488b",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation"
+      ],
+      "reason": "염색 조성의 킬레이트제와 EDTA염 사용을 명시한 부분에 연결한다. 포획 금속과 모발 손상 감소의 인과관계는 추가 확인 대상이다."
+    },
+    {
+      "identifier": "AR-042226-A1",
+      "source_fingerprint": "c4fd7aeea2d33ca03fe6e04c026740c808f51a030f96bea92284e02c9f865e84",
+      "content_hash": "958d5e45b99788c9f98037e82a508cc713d1c21a3312ce13d0cef46f86370ca0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "무수 친수성 겔과 고흡수성 고분자의 상처액 흡수를 제시하지만 구동 변위나 선택적 투과 원리로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-042231-A1",
+      "source_fingerprint": "13545ad340e58abf5213fb49722f00298f794582c5293ca27abb3cfc0c685997",
+      "content_hash": "0ce723cd5ca17c545396bdb0fdfd63466b3c8fd8f1fcc87626899000c26f0f5b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "단차가 있는 기저귀 고정 테이프와 부착 위치에 관한 설계이다."
+    },
+    {
+      "identifier": "AR-042243-A1",
+      "source_fingerprint": "ab02f3cb6014a5c01c54848cd11fe11f090a2b322e40f3be1a9de98712af686e",
+      "content_hash": "129ee30e05b9a35fa16bc5b170215a34b12e76e318047369606ee9a0e88778a2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "변형 효소 유전자와 고생산 세포 선별의 용도를 제시하지만 선별 압력과 생산량의 인과관계는 초록에 없다."
+    },
+    {
+      "identifier": "AR-042288-A1",
+      "source_fingerprint": "9c9327bbbe8b88d6366d8816d6c72bb100be887a57fa1e00dfada856541a4894",
+      "content_hash": "775d5fa3a4fd2e152a3f487ab6a3871f953250af09ede08c0a6afe4de8cfa309",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "금속 결정구조의 측정값으로 공정 조절량을 정해 목표 재료 특성을 맞추는 측정 기반 피드백을 명시한다. 미래 응답 최적화가 없어 MPC로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-042297-A1",
+      "source_fingerprint": "eebfbc4a86b7807d7218908ee8c2d8b53c91c87beb84becb04aeb2910cceb8f0",
+      "content_hash": "2f8f2f331dea9e047ac462ee9b7d547f1474a1760c4ac6dce657f17dba664aad",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "붕해제와 가용성 충전재가 있는 즉시 방출 제형이지만 붕해 및 방출 기전은 구체적으로 설명하지 않는다."
+    },
+    {
+      "identifier": "AR-042321-A1",
+      "source_fingerprint": "4cf8a04b7f2c1ed6f0edb3adea6187429699f69e565048b7734e28851b7d8a55",
+      "content_hash": "789e67efbc5abd3acffa59e30d9dc8365157a031d02caffcb6079fbf529eaeb1",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "카르복실산 정제 공정의 결정화 구역과 결정 생성 후 분리를 명시한다. 색상 및 불순물 개선 성능은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-042333-A1",
+      "source_fingerprint": "f815a71304173c4d9a2eea8e998d31d14376106e53daad95049960cb8ae9ff1f",
+      "content_hash": "1f404f876dd7e6ee227d420b8fcb728383dfa223e09bf3c3e21c4f2c954d3694",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "휨파 센서쌍의 위상차로 접촉 위치를 계산하는 원리를 명시한다. 빔을 형성하는 위상 배열과 구별하여 위상차 위치 추정의 별도 검토를 남긴다."
+    },
+    {
+      "identifier": "AR-042367-A1",
+      "source_fingerprint": "b387cd17f8ec4a9132efc06a1ab240869606a9b371941b14186061bb78530209",
+      "content_hash": "66ec861b7bb29b6183181afcac4bb7f03466b8009996371cf77bd9b48930b6c8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유리 조성과 열안정성 용도만 있고 열팽창이나 상 안정화의 설명은 없다."
+    },
+    {
+      "identifier": "AR-042370-A2",
+      "source_fingerprint": "fb0fb038888ea2c7e1e70d2cd41dee7e1f3e52e63b78ab5ecaadbfb222c4b6de",
+      "content_hash": "248b9a404317e68b945971a7646a3513719feecd5c36a0860d17332596ec59a1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "고흡수성 입자 표면에 피복 입자를 배치한 흡수 복합재 구성이다."
+    },
+    {
+      "identifier": "AR-042384-A1",
+      "source_fingerprint": "900705c0a756d4b855fd089559561cd29ac044f97a51fd3217c37210ffe8e185",
+      "content_hash": "c85079e4a28158f46eb58ab43fd9784828390c225942770e64929a9ccc88c124",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-cooling"
+      ],
+      "reason": "액화물 일부를 순간 기화시켜 남은 액체를 냉각한다고 명시한다. 공정 효율 우위는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-042399-A1",
+      "source_fingerprint": "9c2d4af0e56e4fa7d53f2c472bb17b120ae8c9c1586f4a9f5b7b2d19d3481e5e",
+      "content_hash": "29983d53e8b3b806962855851dba453bfc3a097dd141ebba7372aaa74a394375",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "파종용 원형 날 양쪽의 나선 탄성 부재가 흙을 제거하는 기계적 배치이다."
+    },
+    {
+      "identifier": "AR-042404-A2",
+      "source_fingerprint": "a28fd104d9847576be76ea5199bfe7dadfcd985fb2b2302388e2a1ac0661657e",
+      "content_hash": "25ac862b28107fc09e3d90d585f768742e660f9a92dd5ba6db5aa780223aad16",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아닐린 중간체의 구조와 합성 용도만으로 독립적인 과학효과를 확인할 수 없다."
+    },
+    {
+      "identifier": "AR-042445-A1",
+      "source_fingerprint": "1c69e6c8cf941d11fe915bf92c31f730202500a8116edb9ff851d35d04b02049",
+      "content_hash": "4b780057914459b791671505f4080f7931ca93079e9eeb35c23d0fe3afa356f0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "강성 및 유연 구간으로 과도한 하중에서 분리되게 하는 커넥터 구조이다."
+    },
+    {
+      "identifier": "AR-042460-A1",
+      "source_fingerprint": "93612796496249dcd511f953410bfdf7dc6c774daba57b3e353bacc2d0c091b1",
+      "content_hash": "4691203c4ccb8d9ff5440ff925bdaf15417772a3986707ada602615dc153fc0b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "척추 임플란트와 삽입 도구의 홈 및 맞물림 형상이다."
+    },
+    {
+      "identifier": "AR-042489-A1",
+      "source_fingerprint": "a3b40ab5af5dba2a1821942378728150198c43ea904a99df75fa441395cc9b4d",
+      "content_hash": "7d7bd8ae438801ecd285931a190f1f44af2d0de56efdbb35e561ecbd8cd17cd5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "냄새 조절제를 가시적 무늬로 배치한 흡수 제품이다. 탈취 반응이나 흡착 기전은 없다."
+    },
+    {
+      "identifier": "AR-042496-A1",
+      "source_fingerprint": "3dd8a1b3554f39c17fc42e6c30c609c4f91099b0a42be132532c1796106e023a",
+      "content_hash": "c04f3d99746a20c0b0eb39e20829077a124b72e1d4c6efa89d0501079fb58329",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "polymerization"
+      ],
+      "reason": "금속 및 전자 공여체를 포함한 촉매로 올레핀 공중합을 수행한다고 명시한다. 공단량체 분포의 균일성은 검증된 일반 성능으로 취급하지 않는다."
+    },
+    {
+      "identifier": "AR-042515-A1",
+      "source_fingerprint": "cc2c9b6d275a84af8813b5849ebc0f695fa8d1e8c1c2ee2a045375afb31c1518",
+      "content_hash": "b56425a55f3883dff4e2a5e1d2aa5911009c0920047dabd46c2fc734851cda43",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "효소가 카르복실 성분과 아민 성분으로 펩타이드를 형성하는 반응을 명시한다."
+    },
+    {
+      "identifier": "AR-042520-A1",
+      "source_fingerprint": "7d0841454d0a4b76dc8f5d23d4d105bbfa79d22462a4a5f85019360bae8dec4a",
+      "content_hash": "762d0103e93fca2e3bee1cdd784043264b1ad20aa9211fb16bb066b4d64b2397",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미세 입자 분산으로 분진 노출과 해양 부착을 줄인다고 하나 생물학적 작용과 입경 효과의 인과 기전은 부족하다."
+    },
+    {
+      "identifier": "AR-042536-A1",
+      "source_fingerprint": "74bea6d02804cd7b4a4697eef0c2e212f3c2701c10c6c77bf94a6cc12a520272",
+      "content_hash": "ea53d713792a2ef5215e66ada76c23f092726af38816007f7eaed668ed8f1a74",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "흡습성 약물의 고체 분산으로 흡습성을 줄인다고 주장하나 수분 결합 또는 차단의 기전은 없다."
+    },
+    {
+      "identifier": "AR-042545-A1",
+      "source_fingerprint": "be1c3ded0453e42b0001cc7583fd2dda4197298a90aad4a0728be0f4d984710f",
+      "content_hash": "5ba41edf35626658e2ae56104936780b3e6f2443e65ba71a9d31e55f5999a200",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "펩타이드의 미오스타틴 결합과 활성 억제를 명시한다. 근육량 및 대사 질환 관련 성능은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-042570-A1",
+      "source_fingerprint": "5d5c36457ee528f7a4440b31cb94226cd10fff55f66b2e430713d858824db294",
+      "content_hash": "8f82eead2286685e65cecf5714880bfd039ef2e8e4dab84c75391050068b96b8",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "동기 버스트에 대한 응답 횟수로 경보를 작동하는 물품 감시 절차이다."
+    },
+    {
+      "identifier": "AR-042629-A1",
+      "source_fingerprint": "ff280688ae68b413310e69f37881d5e8db7625f911f60cd817e32987b9ce0452",
+      "content_hash": "8f645feb4c0c023946c59ea497b44464f70460048ff22cc9dcb219f2a61e628a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "생식 조절 용도와 테트라히드로퀴놀린 구조만 있고 분자 표적은 없다."
+    },
+    {
+      "identifier": "AR-042649-A1",
+      "source_fingerprint": "0579966892c80a3f59e36afbf63a76dccc4504d977bd056cce17814d6eee8028",
+      "content_hash": "276022e4e01f28bddc67f643bdf415b1d167042c16c0900e18627c04e0c038a1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충 및 살응애 화합물의 구조 정의만으로 작용 경로를 판단할 수 없다."
+    },
+    {
+      "identifier": "AR-042671-A1",
+      "source_fingerprint": "05cfce28833118f91083f5890388912f6a9c543e9a96b5afd5bafa564aba171f",
+      "content_hash": "0a5f70912f42dae7c33cb85a44317b42885a53a1df534c911d72ed355a659bc2",
+      "decision": "LINK",
+      "keys": [
+        "catalysis",
+        "centrifugal-separation"
+      ],
+      "reason": "유동 촉매 분해와 원심 작용을 통한 운반 기체 및 촉매 분리를 명시한다. 분무 최적화의 정량 성능은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-042702-A1",
+      "source_fingerprint": "1122440f2741c09c1a2ee3c2f437cc6bc21885a1df27c078368289c401e81f46",
+      "content_hash": "e76eb422bbd978a100d24382e53e905cef0c2f83bc9d5b51a96e5cf1ee65bb7e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아리피프라졸 합성 반응과 순도 향상 주장을 제시하지만 촉진 기전이나 의약 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-042723-A1",
+      "source_fingerprint": "6f2d29977f53d4b1a887a65ed91b2ed35fad55183736a14c0d1f290795ac2fe8",
+      "content_hash": "ec5b427c240c0868469d342c7c8c3db2e85423f4230c5732a1cc262a7e891ebc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "파종기의 종자 계량부와 배치부 사이를 잇는 미끄럼 통로이다."
+    },
+    {
+      "identifier": "AR-042771-A1",
+      "source_fingerprint": "0b54790a9c961b3156de5f9e1bfa0f32997429036d4556774e42a0d433fd0028",
+      "content_hash": "104d978888d9b715faca9a7ff95f7bba239dd88434cd0ba9a8346d89b342a071",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "벨트의 버킷과 풀리를 사용한 파종 종자 운반 구조이다."
+    },
+    {
+      "identifier": "AR-042775-A1",
+      "source_fingerprint": "8a66f942dff4ed258e36f7743173a980061540439ce19868bfb7bd6982cfe7c4",
+      "content_hash": "85d8120db952f9245c6cc45d8c6ce1e819e3e925152fd2f7e09cd640d2f8e476",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "적외선 감응 카메라와 이동통신을 결합한 차량 감시 구성이다. 광검출 소자 원리는 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-042796-A1",
+      "source_fingerprint": "3fe18788a168b07d4e7da6dad476a4ea313a122630b497ec4286685b7bb6bd82",
+      "content_hash": "c05e8d2e6a9f73dfd8063c9f71922bde6220d7cdabfcaed8208bd1d21fcca85e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아민 기능화 펄프의 강도 증가를 주장하지만 공유 결합 및 가교 형성 경로는 없어 특정 표면 중합으로 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-042797-A1",
+      "source_fingerprint": "97976dea85fffde19c0e9d953420380b26d593ffaaa11e76559913ad0d41cd6d",
+      "content_hash": "2cfe4cc7755a70a3481c03789e3b08ea9e66a62a90dcad636323455d18ca5472",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "상변화 잉크를 사용하는 고속 인쇄 배치이다. 상변화 자체를 열 저장용 잠열 효과와 동일시하지 않는다."
+    },
+    {
+      "identifier": "AR-042823-A1",
+      "source_fingerprint": "b6f2e69bed837026a5edaddb796117d958aea048a3bc26d06a89d7a13729b7da",
+      "content_hash": "63047aa9767bc754a6007d55b899b56bfb1c91061e26f39440c4efe9a5a2c541",
+      "decision": "LINK",
+      "keys": [
+        "coagulation-flocculation",
+        "venturi-entrainment"
+      ],
+      "reason": "응집 처리와 벤투리 에덕터로 처리수 일부를 원수에 재순환시키는 과정을 명시한다. 비소 및 불소 제거율은 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-042859-A4",
+      "source_fingerprint": "63390edc36915908c7835cb4bd887397798160007366130391349081118a35d9",
+      "content_hash": "06b5ce553d99707500b87ebe38c02b4710f4ee31ca351c8b61a79de8ff50633f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "스프링과 링크 및 레버로 작동하는 주방용 집게 구조이다."
+    },
+    {
+      "identifier": "AR-042868-A1",
+      "source_fingerprint": "88b3ae89f1beb7c415fb02d8a007b4b7e22743a791bd0658a1b300e45fcb4e53",
+      "content_hash": "a1287ba7fbcbe36a01cbb531fe44a042191e446c52ed8d35ed2dfe33a455b463",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "좌석 점유 및 안전띠 상태로 엔진 사용을 허용하는 차량 인터록이다."
+    },
+    {
+      "identifier": "AR-042874-A1",
+      "source_fingerprint": "d590c2e7b2396116f03effaa23b35e7bc612c54f285de071573d02ce608846ba",
+      "content_hash": "f1276dde32a026c723a97153f6c52936c1c9b0f4045b78b99a4fba5bd0f470ef",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "경사진 적재 바닥을 수평으로 펼쳐 화물 종류에 맞추는 트럭 차체 구조이다."
+    },
+    {
+      "identifier": "AR-042882-A1",
+      "source_fingerprint": "a53e89856f8a77cf77a521d1f37f32436dfee5bec222e70884c16ad4cbbf80f0",
+      "content_hash": "1ec8c1b3dfd67ef9fda212109f55d44aba493ff66931e07c3ece6bfab0f9896b",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "유기 계면활성제를 포함한 세정 조성을 명시한 부분에 연결한다. 그래프트 고분자의 재오염 방지 기전과 개선량은 추정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-20T05:43:02.888998+00:00"
+}

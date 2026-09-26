@@ -1,0 +1,36 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "3ad2f75b05a0ce1b80fd02088dee12ecd2ac616c44c11e031f3ade159e842328",
+  "reviews": [
+    {
+      "identifier": "AR-103525-A1",
+      "source_fingerprint": "b5ff96aac6c03a5d36f51fc64f4026d53554d624aa9a84171ad6426adb189588",
+      "content_hash": "95db8e52aad5ea95a72f98c29e35c8a3440eb12a0da84a22c35f066e8d0c32c5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "재검토: 이종 재료의 열변형 불일치로 예응력을 만드는 목적이며 변위를 상쇄하는 열팽창 보상과 달라 해당 연결을 철회한다. 새 예응력 형성 후보를 별도로 검증했다."
+    },
+    {
+      "identifier": "AR-104093-A1",
+      "source_fingerprint": "72c86abb48593fb73533cf2a46d8fd8557eb36c45780876219b1e5407d04cf0e",
+      "content_hash": "5cd2927bdcaec082f7652a39f0c3cbfdd8f5ba5ecda094c8345edf0eedc52504",
+      "decision": "LINK",
+      "keys": [
+        "geometric-optical-occlusion"
+      ],
+      "reason": "재검토: 검출기 차폐 개구로 입사 방향을 한정한다. 물체 투과 감쇠 대비 영상은 아니므로 X선 감쇠 영상 연결을 철회한다."
+    },
+    {
+      "identifier": "AR-104803-A1",
+      "source_fingerprint": "544fd27cb341f3f4603284cde61548067bc8b814154475f4e5cd73ca4c130dd5",
+      "content_hash": "3904277dcdb729d54d23468ff111c685ae673c7213a6658f4babbb4edb2dbdda",
+      "decision": "LINK",
+      "keys": [
+        "coagulation-flocculation"
+      ],
+      "reason": "재검토: 제타전위 변화와 응집은 명시되지만 전하의 부호 반전은 없어 표면 전하 역전 연결을 철회한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:41:44.494890+00:00"
+}

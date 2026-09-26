@@ -1,0 +1,238 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "d98bf27818118f4c36905126c83d6a4a82719705a4e12dc99209ca518f174d5f",
+  "reviews": [
+    {
+      "identifier": "AR-095057-A1",
+      "source_fingerprint": "03b4c5e7a171b4a0699edf69f17b576706ec14770255f5ad3be4ebb207bad401",
+      "content_hash": "e747557077ee297ca4bdb926219934017960db029e765ec287540cff1ab00f22",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "화합물 치환기 목록만 있으며 작용 표적이 없고 저장 말미가 절단되어 있다."
+    },
+    {
+      "identifier": "AR-095084-A1",
+      "source_fingerprint": "ed61a6a7023f3d8871948d832c8d9608a9fc137374357f278b3a2e254ef52004",
+      "content_hash": "90b9408ed5d67a1c9155fd10f4a54b2d46c47724ba65b655ccaf742772495bca",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis",
+        "surfactant-action"
+      ],
+      "reason": "지방구의 계면·크기를 바꾸어 리파아제 접근성을 조절한다. 계면 반응물 접근 원리를 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-095086-A1",
+      "source_fingerprint": "c31adaf2589e41141085c88c88afcfb101c00f88850b3e7c56b4640cf98469e1",
+      "content_hash": "ba7a70aff13b1a6f55ee8b97bce1c07213af17c97f008b2a7724d9ca46387695",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "고밀도·저밀도 폴리에틸렌 배합과 섬유 물성 범위이다. 형태학적 기전은 없다."
+    },
+    {
+      "identifier": "AR-095097-A1",
+      "source_fingerprint": "c902f027a2df662cfb66c139ab1ba30ac681b33d11da67912800b738320b12a2",
+      "content_hash": "d425ed36dfc94eba9d3bf07274d62674edb8aeeb465ac651d8f4e70414820c80",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구조식 참조만 있고 작용 정보가 없다."
+    },
+    {
+      "identifier": "AR-095105-A1",
+      "source_fingerprint": "024462a7822663a257b9a9cb1ec1b306c4662f16e5338c16718326a5ac44b063",
+      "content_hash": "909b54da278a716a5aae31922b3fd8e952f3cf5b8906078786b31de07ffc5dcd",
+      "decision": "LINK",
+      "keys": [
+        "cement-hydration"
+      ],
+      "reason": "유체 이동 저항 기준에 따라 시멘트 슬러리를 조정·경화한다. 계산 기준식은 없다."
+    },
+    {
+      "identifier": "AR-095129-A1",
+      "source_fingerprint": "8278b85637e2fa7d6e9c5f129b3aa44ac3927de44272a5dffa6c3c5f8bd5ccc9",
+      "content_hash": "56bfce82f742a0e9e80aad621e2a9b2c2f259bdabda115bcc8eb476c7d61150a",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "hydrolysis"
+      ],
+      "reason": "가수분해 단백질과 계면활성 전분으로 에멀션을 만든다."
+    },
+    {
+      "identifier": "AR-095179-A1",
+      "source_fingerprint": "8b22d59cebb3fcffbc5b06e63c6be69b56e0791bef12c3ca1bf21aebcc57e527",
+      "content_hash": "e0035c570cecfb1626321436aad199ea91de654dee0f73dd673f4ef6ac9c21fb",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "mechanical-interlocking"
+      ],
+      "reason": "접촉 면적을 줄여 초기 압입을 돕는 앵커이다. 구체 접촉 기하 없이 헤르츠 이론으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-095181-A1",
+      "source_fingerprint": "ce6fcf0124e0c3eb5385b927189bafb8bd857745c66cb7d4b4af78b3439b2032",
+      "content_hash": "05c423fcecd4457b877cd1431aa3dc45b3964d71c885f6d6e1412d56e08b6fe3",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastic-energy-recovery"
+      ],
+      "reason": "유연 걸쇠가 한 방향 조립을 허용하고 역방향 이탈을 제한한다."
+    },
+    {
+      "identifier": "AR-095189-A1",
+      "source_fingerprint": "c938f0e58bcc08aeeb7706c6ffa893be07ec26476b1171cfc4305f5ac61f9f70",
+      "content_hash": "c731df70086f0f2895e4e712f215d075995aa3b066a3ab6b2a061974f33e22ab",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "one-way-clutch"
+      ],
+      "reason": "래칫의 일방향 맞물림으로 확장 위치의 역행을 막는다. 회전 클러치와 공통 정류 원리 범위로 연결한다."
+    },
+    {
+      "identifier": "AR-095200-A1",
+      "source_fingerprint": "78b6acaba752e5e3c0b565284c1672bdcc2406b5db517eafa9872efb728e6638",
+      "content_hash": "b78bc889dab13fd35aa7c8db87576222d2685e0bd4c2aa59ce4cc7c616f0d122",
+      "decision": "LINK",
+      "keys": [
+        "porous-gas-trapping-insulation"
+      ],
+      "reason": "발포재가 지지부를 둘러싸고 단열한다."
+    },
+    {
+      "identifier": "AR-095207-A1",
+      "source_fingerprint": "5671cae8fc1de4cf1ed5318d52b61397b0de1927bc95e9e9c84be380c590ee6c",
+      "content_hash": "40b6efacf796c7bddb71d32d3bc07b7de3becb6cbcd539483fa07c0f3bb714a2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "BACE 효소 억제가 명시된다."
+    },
+    {
+      "identifier": "AR-095227-A1",
+      "source_fingerprint": "bef4133244e79549bbca8600f9134169c004962bfb2d0cad685e76e5ede61e9c",
+      "content_hash": "ca93fdbbf43e3064bff83d6a62799399afb3c2d9875727f9bbb263d4d94076bc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "전기 트레이의 접근용 자립 패널 구조이다."
+    },
+    {
+      "identifier": "AR-095233-A1",
+      "source_fingerprint": "525a4014e628fa6cce94a3c7f09568fbca164f8d4d2f8c91fc2dc0faa573dc95",
+      "content_hash": "ce1a6df4083b48157a0d7821f54daf623deeb0caae7c4b24c74fb45b7426ed94",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유전자 발현 조절 결과만 있고 억제·증가 수단의 기전은 없다."
+    },
+    {
+      "identifier": "AR-095239-A1",
+      "source_fingerprint": "6e1543ccaab1482208519e218d68f3efef1e44c224b66021242b6203a6e5af09",
+      "content_hash": "278751a221d4c0cfc7c89c0510cd0e8caf24816438cb8443e6b15478fd5422ba",
+      "decision": "LINK",
+      "keys": [
+        "electrostatic-precipitation",
+        "shear-droplet-breakup",
+        "photothermal-conversion"
+      ],
+      "reason": "대전 분무 입자의 전기장 이동·부착과 적외선 가열을 이용한다. 집진과 같은 입자 이동 원리의 도장 용도이다."
+    },
+    {
+      "identifier": "AR-095248-A1",
+      "source_fingerprint": "4612ca75364fec6accaf90b67f2dabf747926386c441005ce056ca6fea626930",
+      "content_hash": "d9b2aeee44c9cf2f18ae4ac39987fb01edacd80c3a1f2f4416d2b132d1de06b6",
+      "decision": "LINK",
+      "keys": [
+        "polymer-molecular-weight-viscosity",
+        "polymer-turbulent-drag-reduction",
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "분해 가능한 고분자의 증점·마찰 감소를 파쇄 유체에 적용한다."
+    },
+    {
+      "identifier": "AR-095273-A1",
+      "source_fingerprint": "54cdd68d3c41d2e28424d92dc9080dd6202370e75fceb8bcc9eb842fd5ad67e8",
+      "content_hash": "6f40dd4425dd53c16a9ee4a26f286cc360d6ef4809246e22b85bc29ff788cd8b",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "가압된 다층 링을 유지하는 고온 밸브 밀봉 구성이다. 재료가 불명확해 탄성체 밀봉으로 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-095290-A1",
+      "source_fingerprint": "1db1cf8ecffe20418a5a8a0b8b7af8d355475761ebf8b8ac91f5d37553c68eee",
+      "content_hash": "3bb0581781cafa7fbdfc470406c679f296c3ba643894ff86143fb71bb6f254e7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "악기 분해·조립의 목적만 있고 구현 원리는 없다."
+    },
+    {
+      "identifier": "AR-095294-A1",
+      "source_fingerprint": "661e4cb3c8a85ae8d440e3c7ba5a0ba962d4e903d3d5b4ef9086313cad2f626c",
+      "content_hash": "0a18361e56a7a334fefd54f4ea318d204cf69a4275f98469dc3f536295e04010",
+      "decision": "LINK",
+      "keys": [
+        "sequence-number-ordering"
+      ],
+      "reason": "영상 순서 계수와 출력 시간 관계를 신호화한다."
+    },
+    {
+      "identifier": "AR-095347-A1",
+      "source_fingerprint": "44b4b3f2c7f59ec5a190c22fff55781c9c1acbf14a64504b9d678c00641910fe",
+      "content_hash": "3d9c6d0f1d0422897c4ba8794b277cccfdf26da2b7f2fd8cc1775d6421d7e4e7",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PDE1 억제가 명시된다."
+    },
+    {
+      "identifier": "AR-095358-A1",
+      "source_fingerprint": "375c52ad1bf2a472ee89688e6df20d3e3ccfe09b6d6bcab5e6b6d07a505875c2",
+      "content_hash": "8a9acd266f831ef588861acbb56c266260e85d996128e3087491d07b6206f749",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "cosolvent-solubilization",
+        "surfactant-action"
+      ],
+      "reason": "ACC 억제제의 혼합 용매·유화 제형이다."
+    },
+    {
+      "identifier": "AR-095379-A1",
+      "source_fingerprint": "35b31f36f38e3c7d56455f22b0c54bc830234be07739828d910c393de7cb1fa7",
+      "content_hash": "854009054581232b02d8c8885cbf220537c65805401d43e61265ba2787e82f9e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "상자 내부에 배출구를 수용하는 모따기 배치이다."
+    },
+    {
+      "identifier": "AR-095383-A1",
+      "source_fingerprint": "02bbff21e347fc33bee5500c86f782c2b1b476de5f9e6d00ede127a7bd6aa75c",
+      "content_hash": "2146aeaa0f0a3d12842896f923e56197163cb0e43a303afc99b3a52838bf08d4",
+      "decision": "LINK",
+      "keys": [
+        "gelation",
+        "starch-gelatinization"
+      ],
+      "reason": "산성 환경에서 펙틴·전분 제형의 점도가 증가한다. 분자간 결합 경로를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-095384-A1",
+      "source_fingerprint": "23f4c898a88c6ce4defe7fd9eeadd200c1ed479c8646c7af6e035f03d5c282c6",
+      "content_hash": "734e7c80965670c3600bee1ceac29bc98cd6eb996ae24e7ed67a63066594309d",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering"
+      ],
+      "reason": "제형의 완충 능력을 낮춰 위산의 pH 변화에 영향을 준다. 감염 예방 효과는 별도 검증 대상이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:36:32.138925+00:00"
+}

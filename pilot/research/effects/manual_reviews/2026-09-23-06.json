@@ -1,0 +1,146 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "7171cfa854c22a91f8e8b49bb0b835980e91339c0bbe3e6942b7b4fdb54542c8",
+  "reviews": [
+    {
+      "identifier": "AR-076794-A1",
+      "source_fingerprint": "76282af43e58cf1a0fb2bd966b087f3f67d39b32fdd34a452f8b9a86cdddb532",
+      "content_hash": "95eb3e393a18b1bde1abc6cf36b75cde67251ab7db12e379cd8b4c6911899811",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "JAK1 저해를 명시한다. 긴 치환기 목록을 신규 작용 원리로 세분하지 않는다."
+    },
+    {
+      "identifier": "AR-076813-A1",
+      "source_fingerprint": "12a5511b18b52db80407649f6dcaeb98b5edf4e56218d5fa547cefb87646db19",
+      "content_hash": "b24468d79697cfdcafeff915e1eca9fda9364cee2bfaf12a1e4d70abca8e32ee",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission"
+      ],
+      "reason": "유압 실린더로 부유물 수집 트레이를 이동한다. 부유물 생성 방식은 초록에서 미상이다."
+    },
+    {
+      "identifier": "AR-076826-A1",
+      "source_fingerprint": "e13994b1fee69679b547b99072ad0086707828050991fa0a9fa2b24ddd34fcda",
+      "content_hash": "d5c1b7836ecc427b5dacfe2a43798c951f2ec551d2c6caae3d40f474fe8c7099",
+      "decision": "LINK",
+      "keys": [
+        "blade-shear-cutting"
+      ],
+      "reason": "날끝에 조직을 유도해 절개한다. 의료적 성과나 안전성을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-076828-A1",
+      "source_fingerprint": "5005bb5225e4dcf3a1c41040565fe9f142525889e21020f975e589c5166c28dc",
+      "content_hash": "77398bce8654e731edd194f28643458eb88d235d6b313e95a19b5abcd3d2f871",
+      "decision": "LINK",
+      "keys": [
+        "refraction"
+      ],
+      "reason": "투명 액체와 관찰 용기 벽의 광학 계면을 형성한다. 굴절률 일치에 의한 경계 왜곡 저감은 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-076833-A1",
+      "source_fingerprint": "21b63d65ff794f6b92c62d2ef742f3cbc9b7339ca597fb9e55f0253563c836ed",
+      "content_hash": "47f3b37f4bd133e31ae73769bd321a6a71168dcb73d68338d2e9792d423b1e4b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "폴리우레탄 발포용 자동 혼합 장치이다. 발포제의 화학·물리 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-076837-A1",
+      "source_fingerprint": "00394515add53e41fc4b659db52d6b5396f9ac82e84378e1b33f05fc912ded4c",
+      "content_hash": "f702b71f0ee3ae79cae4d7f274f9d862870b5356c858499c5e58c85640b618f7",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "DHODH 저해제의 치료 용도를 제시한다. 바이러스 배양이나 조작 방법은 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-076850-A1",
+      "source_fingerprint": "c17a8a9bd06f8b7f70e5a75f5a2020d96ce66ce79b530de2e9260ad493917940",
+      "content_hash": "f8058313a700340f2fcaa64d0bc1565a5541c04f5bb67dbf5ab0a1f29a8e71f3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "감마 시크리테이스 조절을 제시한다. 전체 활성 저해인지 절단 선택성 변화인지 불명확하다."
+    },
+    {
+      "identifier": "AR-076861-A1",
+      "source_fingerprint": "7aad90b7b796bb4e71d246479c60b3ae1271eab44f09927c71247f96998184f2",
+      "content_hash": "b04bbe56bf52fc825a99155bddfb57224b63caef4b300d05a4a56215f30e180b",
+      "decision": "LINK",
+      "keys": [
+        "allosteric-cooperativity",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "mGluR2 양성 알로스테릭 조절을 명시한다. 저장 텍스트의 말미가 잘려 구조식 전체를 확인한 것으로 보지 않는다."
+    },
+    {
+      "identifier": "AR-076871-A1",
+      "source_fingerprint": "cd9973e85e2d00db672ea0e65b9a200a5377130470ef01d6b7323a720e25e5d7",
+      "content_hash": "f772c6812c6b6b6aef4768aac0d74a97c5979f238252aa19fe86624d32295608",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "온도에 따른 에멀션 연속상 전환을 제시한다. 상전환 원리만 검토하며 병원체 백신 생산·저장 최적화 지침은 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-076874-A1",
+      "source_fingerprint": "003740b5de8bf5fd1babb41aff9f1ec7f21c852a3a18cc8ba08e9f36d9814360",
+      "content_hash": "22e56f3a1d7f32a83557c56dfba8f1d7b6706e2af9ff437c8b6b8c2a00023212",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-concentration",
+        "solid-liquid-leaching"
+      ],
+      "reason": "잎을 공기로 건조하고 용매로 침출해 추출한다."
+    },
+    {
+      "identifier": "AR-076877-A1",
+      "source_fingerprint": "2a7191de86c64b898c85905a8613888d0ec69673ee4d2d10c6c7f11919a000c1",
+      "content_hash": "090f32217d4774ca07fb833d6c1da4a44313bcf3bd7af92c66c7d5504b20ebb4",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "차종별 차체 측면 조립 스테이션의 배치이다. 용접 에너지원은 미상이다."
+    },
+    {
+      "identifier": "AR-076878-A1",
+      "source_fingerprint": "e52f65c53a095af4cb05dff33d34eb12a5f5249aac4f3b7acbee17cd0bc0e2b0",
+      "content_hash": "201b559a28a98483274e2f6ec4e5090fd444c63a57e3c81c9ce358ce3e6d5d4c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "만노단백질의 과즙 안정화 용도이다. 입체 반발과 점도 효과를 구별할 근거가 없다."
+    },
+    {
+      "identifier": "AR-076887-A4",
+      "source_fingerprint": "385de3d3ef961ed824454a1662e83e3ff5dad165a4cdcffbc45364fe3363d297",
+      "content_hash": "33c52aefd06c619aa9fa166a7092451087edcd800e9b6da0257ec92a14ba1cdb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "상자 구멍을 통과하는 회전축과 롤의 인출 배치이다."
+    },
+    {
+      "identifier": "AR-076893-A1",
+      "source_fingerprint": "325c7ea6bf49c26e882758336f9192f7d4e95dc49253eb827e0b87fb9e09598c",
+      "content_hash": "195301378b6f852d859002240bcbcbafc19f8014dd906a244d2ea21711b9909c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "저수분 고분자 매트릭스 안에 금속 이온원을 넣는다. 안정화 반응과 방출 기전을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-076906-A1",
+      "source_fingerprint": "78c0fef6623a5f79c596e6baa16d447ff32c5efe33faee785bc88449bb40bd70",
+      "content_hash": "f463989fab872a5e246d7fd2f12a1d7441e5056d4f39ad5a7f6b79cb651a508e",
+      "decision": "LINK",
+      "keys": [
+        "evaporative-cooling"
+      ],
+      "reason": "흡입 공기 중 물 액적을 분산해 증발 시간을 확보한다. 증발 냉각은 동력 증가의 가능한 열역학적 해석이며 모든 엔진의 효과를 보장하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:08:51.231544+00:00"
+}

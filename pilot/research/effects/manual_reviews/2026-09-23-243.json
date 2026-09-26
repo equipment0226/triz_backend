@@ -1,0 +1,159 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "48164a7b0d5b20c7fcccbd2b11415d69fbb774cfe97761d5e16bfcead9778a57",
+  "reviews": [
+    {
+      "identifier": "AR-117653-A1",
+      "source_fingerprint": "8690cc1e1ed59beb48f56361a7a22eefe086fd8ebf80477845bdb79ba740ff38",
+      "content_hash": "e10906154d8cd22214e43f685d56bb0ea915d9a74fda48c33b14e0d4b1e90ca8",
+      "decision": "LINK",
+      "keys": [
+        "fcrn-recycling",
+        "biomolecular-recognition"
+      ],
+      "reason": "FcRn 항체로 재순환 경로를 억제하는 응용이다. 같은 경로의 억제를 별도 원리로 세지 않는다."
+    },
+    {
+      "identifier": "AR-117702-A2",
+      "source_fingerprint": "4390180a16f78fa4907831405b691b6f88bf1fc3ac3ca6236b2c159df34a2f6a",
+      "content_hash": "60cfe2b1af12f6e8addbcab9738c8170f44e7bf1d5f686fcf3a1b0e5e62f1b1a",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "plant-cell-totipotency"
+      ],
+      "reason": "외래 단백질 발현과 형질전환 세포의 식물 재생이다. 다수의 성능 주장을 각각 새 효과로 세지 않는다."
+    },
+    {
+      "identifier": "AR-117712-A1",
+      "source_fingerprint": "e8911601981fc0f58f57e77f7a37525c8f6a3f480814047a14fa4c1c7984914f",
+      "content_hash": "0855e6145fe1c2b8aa80fe94a7a888e6451704c2ab22122460905e1a0057977f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "사포닌·스테롤 나노입자 보조제이나 면역 증강의 구체 경로는 미특정이다."
+    },
+    {
+      "identifier": "AR-117729-A2",
+      "source_fingerprint": "5d2e7d628b64bc2959d33de7a371dccf6564440536971307f8f628a16957741e",
+      "content_hash": "511122e0b8581fc5fff1b8ee8e8430fa17de31a9a9865318a24d1664e23d6960",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "fcrn-recycling"
+      ],
+      "reason": "엔도솜 pH에서 항원 결합이 약해지는 항체이다. pH 의존 결합과 재순환의 기존 설명 범위를 대조한다."
+    },
+    {
+      "identifier": "AR-117753-A1",
+      "source_fingerprint": "9abd3b0f9e1bc3a01f69f4e584f4e614175a671ee81c13370c2b1df0dadaea76",
+      "content_hash": "63fdb14ffec8144eb0836c66ad14bfa15461d89aa512654417b913f8c2a4a619",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "TAM·MET 키나아제 저해제이다."
+    },
+    {
+      "identifier": "AR-117766-A1",
+      "source_fingerprint": "bd6ad025a74e7aaae84de9fffd90651813fdfe8a5e1994792c7e5e97b2150914",
+      "content_hash": "2dd3500ee10eb1c760bfe03e646f7897e56e0ebf5948aa1452244fafc64f07ab",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "atp-driven-membrane-transport"
+      ],
+      "reason": "유전자 전달로 기능성 구리 수송 ATPase를 발현한다."
+    },
+    {
+      "identifier": "AR-117770-A1",
+      "source_fingerprint": "92d027f16b3eca7ceecc34c6779dee59fe5867eb8bc1ec5fb2af51664aa2cd99",
+      "content_hash": "5df5a82dd1c664f64b4aa94e08ab158dccb2c7d6043a8d59e9424d843694174a",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "IL2 수용체 친화도 조절이다."
+    },
+    {
+      "identifier": "AR-117772-A1",
+      "source_fingerprint": "1993d1bf8ea4dd2b5b618cafd656197c9ac88cb8ef67e264b2ff60e88ad5eeb1",
+      "content_hash": "980c35de74ded52e43c0139ffc94714862af4a17463605ca56dc25bfb0c65ce8",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "홈과 플랜지 접촉이 치과 도구의 이동 자유도를 구속한다."
+    },
+    {
+      "identifier": "AR-117774-A2",
+      "source_fingerprint": "1b53d65604740592ceef03c10de81a879443f9249457b9adbcd9c8055734b02a",
+      "content_hash": "ec66e531f842478af1fc7cee17058578bf13a06e233950a833058fa806aba24a",
+      "decision": "LINK",
+      "keys": [
+        "immune-checkpoint-blockade",
+        "biomolecular-recognition"
+      ],
+      "reason": "LAG3와 MHC의 결합 차단에 의한 면역 조절이다."
+    },
+    {
+      "identifier": "AR-117777-A1",
+      "source_fingerprint": "cafa31a02181cdf5bfd3004f3fa9e5c79f37bee378cd06faa3bef74bcde29c59",
+      "content_hash": "f2a3998dad4f3150470165617deb4d3ba69c0231469f145b93f1b886704f7f98",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "활성 재료를 담은 블리스터 포장 형상이다. 활성 재료의 반응·흡착 원리는 없다."
+    },
+    {
+      "identifier": "AR-117785-A1",
+      "source_fingerprint": "bdaa4f5b760a30486fb173a9650ad4dc0852c72aa52e368c6a1722c09a6794ed",
+      "content_hash": "2a367cd53ed778f8e56e6c0894a03929650bb402079bcd7168dde8604430cd5a",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "hydrophobic-association"
+      ],
+      "reason": "연합성 단량체를 가진 증점 고분자와 계면활성제 조합이다. 항복응력 수치나 팽윤 변위는 없다."
+    },
+    {
+      "identifier": "AR-117806-A1",
+      "source_fingerprint": "89238b82ac13034994f25aecb5989ac7a4a4d940bdb3d5ee66985396ce48a6f6",
+      "content_hash": "b0f9352d06f6b1ab440612542e3c67d1f49df0f1b371f37b6bf033db5ced9740",
+      "decision": "LINK",
+      "keys": [
+        "code-division-multiple-access",
+        "pilot-aided-synchronization"
+      ],
+      "reason": "부호 분할 그룹과 복조 기준 신호를 이용한다."
+    },
+    {
+      "identifier": "AR-117818-A1",
+      "source_fingerprint": "3a266445f3c332c482802235a261e1b3fb3698d4d395289af2d8c1f9aaf00e8e",
+      "content_hash": "6756f0945904a7daf721b440ff3633404077f25d1e8303a855431963c2b17e62",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "천공 폭약의 운반·수납 캡슐 구성이다. 폭약 제조·기폭 최적화 절차는 추출하지 않는다."
+    },
+    {
+      "identifier": "AR-117834-A1",
+      "source_fingerprint": "5069709056d2c7cd972d03ca8686019c208df9b5413404cdad91a2e1977fcfec",
+      "content_hash": "2133659911cdd66ce69481989e02271d3b0a2bfeca470257c4b5c3b187275d84",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation"
+      ],
+      "reason": "가돌리늄 킬레이트와 입체 이성질체 조성이다. 초록에 없는 이완 시간 개선을 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-117835-A1",
+      "source_fingerprint": "7a1de3ef22de205e99758066fad6e6297854e8c6538eb6504bc9386ef2975928",
+      "content_hash": "d7d46a5b60f4f391ae52122813433616b6f44865e559bc4328ea23dd9b3f2378",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation"
+      ],
+      "reason": "같은 가돌리늄 킬레이트 계열의 정제·이성질체 조성 변형이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:33:24.116104+00:00"
+}

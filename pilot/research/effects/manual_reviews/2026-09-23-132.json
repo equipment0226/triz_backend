@@ -1,0 +1,208 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "3f178c43693e90313327aca848b2b09d329e40e496027c082e84493c8f935f5d",
+  "reviews": [
+    {
+      "identifier": "AR-094673-A1",
+      "source_fingerprint": "4c2f912e00c914a856a6b82856815bb18a903ad136bbf2eb2728f2a63ae4a6d7",
+      "content_hash": "31a8b64008a38a68ab3754394e1fbc4999a6f2e0ac9b16e8e432e3a9c37f6fbb",
+      "decision": "LINK",
+      "keys": [
+        "parametric-bandwidth-extension"
+      ],
+      "reason": "부가 정보로 고주파 대역 추정 매개변수를 선택한다."
+    },
+    {
+      "identifier": "AR-094704-A1",
+      "source_fingerprint": "f73e96628cfca736fd103fd6ade082c8805394bb09e59dbad03f31326c4d0149",
+      "content_hash": "664fcd44d064d89c06fcd8df48c0e43c26f2a73b09356dbd100726de8dbaeae9",
+      "decision": "LINK",
+      "keys": [
+        "target-induced-protein-degradation",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "에스트로겐 수용체 분해 유도와 신호 조절이다."
+    },
+    {
+      "identifier": "AR-094717-A1",
+      "source_fingerprint": "631b30cc73496f38c51d15ca2161b865afe65f6e6e54c7108ce5febfb622d10b",
+      "content_hash": "d12b1ac17d609752b23ef7894cee45fa5ce7eb2541e8ba4a4c181be9d2ed9ea4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "히드라진 반응은 있으나 누락된 전구체 구조 때문에 고리화 경로를 구분할 수 없다."
+    },
+    {
+      "identifier": "AR-094738-A1",
+      "source_fingerprint": "8a04507b365e363407a9c9e8e42ad6d0983f3de184f044abdd6adcaccc0801bd",
+      "content_hash": "237691438a6d9f25f2ad26322863f93e41e5aed4065db280e1fbd3ee772885db",
+      "decision": "LINK",
+      "keys": [
+        "wedge-mechanism",
+        "barrier-coating"
+      ],
+      "reason": "비금속 쐐기에 이온 처리 중간층과 방전 전극 유래 외층을 형성한다. 방전 재료 전이 증착은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-094761-A1",
+      "source_fingerprint": "0223ee2969fead2700196ca1b1fdca9cffe8442eecc806ff59293af4777604e3",
+      "content_hash": "381a6335076fbe4eec33aeeafe3d9cc8e81dd5ab60369d318f8fef2d35ce50d2",
+      "decision": "LINK",
+      "keys": [
+        "host-guest-inclusion",
+        "gelation"
+      ],
+      "reason": "사이클로덱스트린 포접과 펙틴 제형이다."
+    },
+    {
+      "identifier": "AR-094772-A1",
+      "source_fingerprint": "aff7c0d6a8abe8278f32e7dfe46690ac2c16a05d40fbb1faf7a62cf2fadc456c",
+      "content_hash": "2103286bffcb62e6e677c69978ddd4780ede363735b1f2bc9b5a465116bd89b2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "chromatin-accessibility-regulation"
+      ],
+      "reason": "LSD1 탈메틸화 효소를 억제한다."
+    },
+    {
+      "identifier": "AR-094779-A1",
+      "source_fingerprint": "0d30057ae7f4185d1be1537b84ae25fb29ee41577ad7e05d68532a4ea6828359",
+      "content_hash": "3ebbf979c4dff0f0fb20cbdc2da2e60174052398d77971abff7f593327695709",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "발현 숙주를 바꾸어 항체의 α-Gal 잔기를 줄인다. 당 항원 결정기의 면역 인식 차이는 문헌과 대조한다."
+    },
+    {
+      "identifier": "AR-094820-A1",
+      "source_fingerprint": "9c08da55a12751fe324f0bf169443e2e16d3b9f568ca8cfb0d893697102fd4ae",
+      "content_hash": "2237efe77f12d81b2f716161199bfc5bba2a90a032c858d3b128cdf349387149",
+      "decision": "LINK",
+      "keys": [
+        "lc-electrical-resonance",
+        "eddy-current-sensing"
+      ],
+      "reason": "금속 접근에 의한 공진 특성 변화로 검출한다. 검출 회로 자체의 부하를 줄이는 구성이다."
+    },
+    {
+      "identifier": "AR-094847-A1",
+      "source_fingerprint": "29e9782afb4b672a4cbe303f86d34ee3f0d279a9caf2b80e813dc8fcbbe9614a",
+      "content_hash": "ee6a0dd6fc80e701d73365ae54b2fde359c128c5aa70effcaae9f71c86fa1171",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "wetting-control"
+      ],
+      "reason": "친수성·소수성 폴리에터로 종자 표면 부착을 돕는다."
+    },
+    {
+      "identifier": "AR-094852-A1",
+      "source_fingerprint": "f1a9667217ca4c1e65baf009edeb444315312910e41295de5b4afb34da744674",
+      "content_hash": "b09a5ceaffc6c80b2648df37066506d403f1c1a47abb54d7fae44e95a5e9430b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "AKR1C3 억제가 명시된다."
+    },
+    {
+      "identifier": "AR-094886-A1",
+      "source_fingerprint": "826f20ff4266013339c82fb4f64ced89c8d526ece977a230300d7bbe3534a3c2",
+      "content_hash": "9adfa3eef5cc3513c9bc5d7502efd1f31efc58a932cb28bd9500dabfa2b841bb",
+      "decision": "LINK",
+      "keys": [
+        "electrodeposition",
+        "barrier-coating"
+      ],
+      "reason": "전기화학적 산화물 피막을 전선에 형성한다."
+    },
+    {
+      "identifier": "AR-094891-A1",
+      "source_fingerprint": "63ccb6a61e747fc40e9905a038ebebda9272cda39a0cfe08002c9b6b648236cf",
+      "content_hash": "4b584bc2f550aae3d708f4bbef9837cf3056f3ea0b06764bdcb10676553a81cd",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission",
+        "mechanical-interlocking"
+      ],
+      "reason": "웜·분할 기어의 회전 전달과 분할 케이스 고정이다."
+    },
+    {
+      "identifier": "AR-094896-A1",
+      "source_fingerprint": "895a22b0a682b28b7506e21767274b6ef6dbb50f9d9bfb06729b0aa43a2b1773",
+      "content_hash": "4f4cb58c55d522db7dd83c7d910521f8c94ff6c72c16ca9de0ce62a3eda4c127",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "이중 특이 분자로 T세포를 표적 세포에 연결한다. 면역세포 가교의 작동 원리는 신규 후보이다."
+    },
+    {
+      "identifier": "AR-094905-A1",
+      "source_fingerprint": "a82cf18a8fee00e2a5281b0bb6f7cffda173ff3a1d62a85911c748fdabd25a19",
+      "content_hash": "47627a7aab3f672b9a0700b3f7c0ac07a9acd261ea312bdec8a8c975140eca2d",
+      "decision": "LINK",
+      "keys": [
+        "chromatography",
+        "biomolecular-recognition"
+      ],
+      "reason": "고정화 WGA의 당 인식으로 당단백질을 친화 분리한다."
+    },
+    {
+      "identifier": "AR-094919-A1",
+      "source_fingerprint": "2bd9a8ff6c6dc1ba6b8406b642bba0889e2b3fc4d83ea2d3c9d8d90eaf08d7c2",
+      "content_hash": "45b84d6b41e069c8d4be0d73639127999e3eacb33653643a56d03df2fd564f72",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation",
+        "surface-plasmon"
+      ],
+      "reason": "VEGFR1 결합·중화와 표면 플라스몬 공명에 의한 결합 정량이다."
+    },
+    {
+      "identifier": "AR-094968-A1",
+      "source_fingerprint": "84a2d499046f5dd2c7645f32b5031c39c26216a3dbc8544bea5cbf21b192c122",
+      "content_hash": "253b7c3f9377bfec063740b5fe37742b76e15b0d1381056476cf1b2f8383fcc4",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion"
+      ],
+      "reason": "볼록 접촉면을 구동 핀으로 밀어 공급 팔을 움직인다. 마찰 저감의 정량 효과는 확인되지 않는다."
+    },
+    {
+      "identifier": "AR-094992-A1",
+      "source_fingerprint": "2341b5a962843edf41c4e3813823901d7114eb572056cf50435a54e74f806801",
+      "content_hash": "95edb608f10ebcd5ac93dbe18a094906e051a227e3b559ae7474f87e598e7ce1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "롤 덮개와 화물의 상대 이동을 이용한 펼침 배치이다."
+    },
+    {
+      "identifier": "AR-095013-A1",
+      "source_fingerprint": "00ebfcc0e8e7c6c2662aaef1b7228ce12d2e6087cf8dd04868b12c163d43730f",
+      "content_hash": "e31114f03a00d33407564c3f25b9c3a1c29bdd931ff4263a124a486964f49899",
+      "decision": "LINK",
+      "keys": [
+        "archimedes-buoyancy",
+        "lever-mechanical-advantage",
+        "gear-ratio-transmission",
+        "electromagnetic-induction"
+      ],
+      "reason": "파랑의 부유 운동을 레버·기어로 발전기에 전달한다. 24시간 출력 보장은 파랑 조건에 따라 달라진다."
+    },
+    {
+      "identifier": "AR-095036-A1",
+      "source_fingerprint": "4123698c87769054fe274df39a01c639867171e52ec9df581abaf0f2ed1da0de",
+      "content_hash": "7882e752a4fbcd3cf4f3c859fd135d450c86da7d6225d83d259876d3f73f5ee2",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis"
+      ],
+      "reason": "가수분해 가능한 에스터 전구약물기가 명시된다. 진통 표적은 특정되지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:35:47.225919+00:00"
+}

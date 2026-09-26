@@ -1,0 +1,513 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "36c372e5d7581ab651d739078036471354a849e1c2d5813deda91948c550ebf0",
+  "reviews": [
+    {
+      "identifier": "AR-066054-A1",
+      "source_fingerprint": "983183633670ac187c1de75f1bfd0c83710240579984bc03189450617f91b30c",
+      "content_hash": "da11d4ad10c1206716604a74453f269c6beb6528eabb15d72830e6131ba236fe",
+      "decision": "LINK",
+      "keys": [
+        "peptide-bond-coupling"
+      ],
+      "reason": "카복실산 활성화 후 amine과 결합해 amide를 만드는 기존 결합 원리 범위로 연결한다."
+    },
+    {
+      "identifier": "AR-066066-A1",
+      "source_fingerprint": "6927bc0566c5730ebc11fd7d802e139047160a2f5bae9b1bfc752f11a2a1bd34",
+      "content_hash": "f7e0022b9ea7689a51e9d207b5cea760faedf1924d798dc6da4a7f7d66c42271",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "PLMN 식별자 전송량을 줄인다는 목적뿐 압축 원리가 없다."
+    },
+    {
+      "identifier": "AR-066071-A1",
+      "source_fingerprint": "c29b54b048195f276f80393ff49f2a38ca330465340dedcabb483ba7b8e7e26f",
+      "content_hash": "da3210382abd9aadaba17cd5c89fc7cbf0d7c62219b96a176e01297fcea48e84",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기계적 코어와 저마찰 외피의 조합이나 자가 윤활의 재료 기전은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-066076-A1",
+      "source_fingerprint": "14dc7ba8e4cfc0f46359f0f29c8e6a2cff86cef62bb280b83bb489bfa49d12fc",
+      "content_hash": "83fc0a2464f1ea67e195f4e0a1bfa752f8d10fff871be50237739da0f9fcecec",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "물을 더해 자가 유화시키는 약물 전달계이다. 자발 유화 후보이나 상전이 경로는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-066089-A1",
+      "source_fingerprint": "dae8f6a6d5402eab8f6b2beab055a145342b3a91e21c052ec0868399613f914e",
+      "content_hash": "aeab130e0974fe53e5371e39cdd2e8c2c13f7038073a5004766b36479aaa417f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "개인 정보 항목에 태그·검색키를 붙이는 절차이다."
+    },
+    {
+      "identifier": "AR-066092-A1",
+      "source_fingerprint": "9aadcd1e289ebee992a33082bf7fcaa0efdf8f578f5bab18fc2b2eb582251230",
+      "content_hash": "9ad34b9bfb5fd185f258b60d3fdc7046713843e44b65316da78cdf9c077646b0",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction",
+        "acid-base-reaction"
+      ],
+      "reason": "Ca(OH)2와 CO2의 반응으로 탄산칼슘을 석출한다. 광물 탄산화는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-066107-A1",
+      "source_fingerprint": "d4a994e2ab15093de6107581372da830c4544d7e69385a33a4233b9629271152",
+      "content_hash": "7927ba2e14f3f45646adb7145a1cc2898fe9db3dbee4fb9944ede1b3d3a7b49d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "monoacylglycerol lipase 억제 표적을 명시한다."
+    },
+    {
+      "identifier": "AR-066112-A1",
+      "source_fingerprint": "ebe2683c137cdc9a5f07c167f5fed15202faf82af66bfbdcc641244b923a5908",
+      "content_hash": "e2a948e27df584b7ad7fe49e147386dabc66cad9d4b092114fd37de5810217ba",
+      "decision": "LINK",
+      "keys": [
+        "physical-foaming"
+      ],
+      "reason": "가열 시 팽창하는 광물로 저밀도 세라믹 입자를 만든다. 구체 광물과 기체 생성 경로는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-066142-A1",
+      "source_fingerprint": "617022bcbd364cf5483852a92e0d5bcd025301c0b17f8fdb83dbdbc712b32535",
+      "content_hash": "a6f247c9dd9e1668a0f95b66cdf1cb7ff6f61b248ea7da76fe8f55ca3caf72dc",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "c-Met 등 kinase 억제를 명시한다. 저장된 구조 열거가 잘린 이후 내용은 검토 범위가 아니다."
+    },
+    {
+      "identifier": "AR-066150-A1",
+      "source_fingerprint": "e22a1c84bce6e5e020e50d009d23e9451daddfd1ad845de8fc3cf60ed9b36a5b",
+      "content_hash": "5a063ee191ee532491df047228374d667e995a1c54b875f76565a4bfb1a61b04",
+      "decision": "LINK",
+      "keys": [
+        "uv-absorber-photoprotection"
+      ],
+      "reason": "benzotriazolylphenol을 자외선 보호·고분자 광안정화에 쓴다."
+    },
+    {
+      "identifier": "AR-066151-A1",
+      "source_fingerprint": "5ffb0ef986cc82a24f78d151867dd3580c17a0fe0afd65db2eb59e79e0136513",
+      "content_hash": "2098edc6571e8497f821bf254a49aecc36232f7fbb31c7b8415316ab110a92a7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "gamma secretase 조절제이며 억제와 절단 선택성 조절을 구별할 기전 정보가 부족하다."
+    },
+    {
+      "identifier": "AR-066155-A1",
+      "source_fingerprint": "3b62421d3bacd7fa2eb960ef423095f20902690244137f410bc9c7d0dc43d640",
+      "content_hash": "aa88205c734ef89a07e11f8509233c2c46397abde37e202f3e26b345e2398bd6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "갑상선 수용체의 낮은 친화도와 대사 질환 용도를 제시하지만 치료 작용 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-066188-A1",
+      "source_fingerprint": "b606a6443700da7fab896df9d2970e0c646f6f87b2f0d01556e36d1a849e1c41",
+      "content_hash": "a311112c9019e361d5e43da9951b55e8dc6b66d97999e7ffc15c588e13a4f654",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching"
+      ],
+      "reason": "식물 잎의 물·알코올 추출물을 얻는다. 항진균 표적은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-066200-A1",
+      "source_fingerprint": "0a03004b42bf76046451c41b0bd21528021a5805e0c5612e2174aabfcc2120e8",
+      "content_hash": "e9c6dab3ae275d3df9afa1c2e19c9fb3c21d81962104af8d68bbe3d734f425a1",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching"
+      ],
+      "reason": "분쇄 커피 입도의 추출 용도이다. 농도와 입도에 따른 구체 속도 수치는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-066212-A1",
+      "source_fingerprint": "c0ad5acb80eb454d3e43dfba435dd0d947f566b21cc7c8ad6f08266371ceb6d2",
+      "content_hash": "a9b07780e38934bfecdb3f41797368a1c812b568b049b75fbe68c0dbb7be0782",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "atorvastatin 유도체의 결정형 A·B 제조를 명시한다."
+    },
+    {
+      "identifier": "AR-066246-A1",
+      "source_fingerprint": "9ccfa021df3e8206a9da50b185b002b26cc6fd99b6eb2357f0e2c863c6b8c768",
+      "content_hash": "2d4bd5cb5ae3bb2bd938c886925d77b9ea27c6d03ebeea4a0c253a7b4c48f84f",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission"
+      ],
+      "reason": "수동 펌프·유압 실린더로 프레스·잭·풀러를 구동한다."
+    },
+    {
+      "identifier": "AR-066256-A1",
+      "source_fingerprint": "b30b4a6b92b8d1c892fa53738be5d5694714f3c40055696e781103b403c846cb",
+      "content_hash": "7f97f64dc60704c6ee0ffd6f201bc145338789ac038dd8b27927fe0a3bb4c4b0",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback"
+      ],
+      "reason": "토크와 토크 증가율에 따른 임계값으로 모터를 감속한다. 미분 동작의 선행 제동은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-066262-A1",
+      "source_fingerprint": "a84f4b2752bdb8d1092c1372b0a7b651b6a423d417e45607ef345a583098ed46",
+      "content_hash": "705dcbe0deab0a03f556276d011a352bd4b67686a3447c4769668a751bae4ffd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분사 캡의 침지관·혼합실·통로 배치이며 흡인 구동 기전은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-066268-A1",
+      "source_fingerprint": "1ebedbad8e16fea4d29923a958665bc3bbc51166eb744aa35bead61609ddb2be",
+      "content_hash": "3bfedb8f19fd1c47c0afcab6aa28e052a2efe93039366a65246d09fa888580b1",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "renin 억제를 명시한다."
+    },
+    {
+      "identifier": "AR-066269-A1",
+      "source_fingerprint": "ea50183aa239d458b0b704a2dc40d3592fb12b05933f81bc7dc21fd9bbe49969",
+      "content_hash": "6b2c1a98e377bbd2bb17f0eb36aeead957a81667fafab6c793ac9cce5544ee3f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자 혼합으로 저광택·내스크래치를 주장하나 표면 구조 기전은 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-066286-A1",
+      "source_fingerprint": "adc47348016fa9504e86d80565091addc70df92a838629c3c456f6b779eeed83",
+      "content_hash": "12503acf00e38ab340c38910a7622c447bc7577efdc4292eca35b4f08193e90d",
+      "decision": "LINK",
+      "keys": [
+        "refraction"
+      ],
+      "reason": "렌즈와 이동 마스크로 빔을 바꾼다. 마스크의 기하학적 차광은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-066289-A1",
+      "source_fingerprint": "fca05c469d44a346fdf10185b00ee45dd4d4971106521bea0064c7e8156ccfc1",
+      "content_hash": "8eccde6836baf1a3153a8cfda2e14b9d2f0a06d5b5ee584e1ba75a419c40ca7b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "차가운 가압수로 분말을 용해하면서 거품을 내나 기체 공급·석출 경로는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-066325-A4",
+      "source_fingerprint": "1c5bcfb337f859ab290f0c45c09a6308547748751077b28f1b672c304e25aac6",
+      "content_hash": "702591e87cdc6140774b09e34b0971126f3675ba95a1d2a6a8a50dfcfd21509e",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "접힌 부츠 둘레에 끈을 넣고 조여 고정한다."
+    },
+    {
+      "identifier": "AR-066330-A1",
+      "source_fingerprint": "9b941ec27dfa1f6861f4bf8eef87b2ed521362b86ca5568365179cbc2701ce9d",
+      "content_hash": "c3be4a39ac9436f75064a3f30b247cab051693c4515956fbb79f03e23427f673",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "내생균의 ergovaline 생성으로 새를 기피시킨다. 공생 미생물 대사산물에 의한 방어 후보이며 수용체 작용을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-066334-A1",
+      "source_fingerprint": "8cbcb9d9fad9bbf8f740e2ecf2c4abc8938d6e2142eb9076234e9a64743104c7",
+      "content_hash": "89ee26cbfe2fc376a18a64fc2e003f2bc0bd6f1e15b2482164027b94ab102741",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "NPY Y5 수용체 길항을 명시한다."
+    },
+    {
+      "identifier": "AR-066339-A2",
+      "source_fingerprint": "0d3675bee6b8893d89cea747ec803c5b4455132de1dd98ad88417b50a14eb2de",
+      "content_hash": "276a24ccb78d76586d3cdbc8d8fb77df5bd6e0ccc13d867f6af644c14de4567c",
+      "decision": "LINK",
+      "keys": [
+        "solidification",
+        "physical-foaming"
+      ],
+      "reason": "동결·기포 함유 식품의 성형과 경화를 명시한다. 용질의 빙점 강하는 추가 후보이다."
+    },
+    {
+      "identifier": "AR-066397-A1",
+      "source_fingerprint": "52c411940e4c6f5fdd9c036e9fd848a05dafdb479a04c36cf35794913571a0f4",
+      "content_hash": "f6ac32766ce2c9679adeb8d31993326a2491f5fa8abd2f1a2866cbbbf8ee6c95",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "짧은 상보적 이중가닥 RNA로 표적 발현을 억제한다. 기존 핵산 억제 효과와 중복하므로 별도 RNAi 항목은 만들지 않는다."
+    },
+    {
+      "identifier": "AR-066398-A1",
+      "source_fingerprint": "02cc2612b095f64dac22569632d95174ae62137571ef9ff3c13dc69575ca6f8e",
+      "content_hash": "aea056b276cfb80f97eaea5e7e226cf0007e034489e9e44e576c32a34ba21978",
+      "decision": "LINK",
+      "keys": [
+        "sampling-reconstruction",
+        "state-estimation"
+      ],
+      "reason": "알려진 삽입열로 타이밍·주파수 오차를 추정하고 재표본화한다. 기준열 동기 복원은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-066405-A1",
+      "source_fingerprint": "05237905bb29699803f5a95d75e3b3877e54ac2ea96e78e9ee910a99e87e19fc",
+      "content_hash": "0b3d6711becba8375089d9108737e8f9d89fb5071c21b61b905415e2d09b519e",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "surfactant-action"
+      ],
+      "reason": "인플루엔자 항원과 유중수 아닌 수중유 보조제 에멀션을 명시한다. 면역 효능 수치는 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-066440-A1",
+      "source_fingerprint": "b9f965c46f06c13970b618711dd7340878ede7dc273b11204917e914243edca5",
+      "content_hash": "cfc14035dd6b5089c41ba1cea413ace5a7774de08987c9f0813ca079f2f7c2f2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "enzyme-catalysis"
+      ],
+      "reason": "식물 phosphatase 기질 반응의 억제량으로 독소를 정량한다."
+    },
+    {
+      "identifier": "AR-066443-A1",
+      "source_fingerprint": "cf81b78b648f184a184ad3396f611fccc0d6e5b2d2b9bdfb538bdeb2ee3e1817",
+      "content_hash": "cf3637e2f4d6705e0f2a48e127beac37326f66fee1a2d323e33ec97271dcbbdd",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "flap 밸브가 역류를 막고 공압 실린더를 고정·해제한다. 압력차에 따른 일방향 밸브 동작은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-066462-A1",
+      "source_fingerprint": "d926a894ba16e9967b3dbdfec3024b2100cc28db8a771e1889a2c86c98b24da5",
+      "content_hash": "5034b655f2ca078160e3d31caa8e748276460f8e17f927f40e7990de4e9d681e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "테플론 외피 속 강철 케이블로 떨어진 페달의 운동을 해머에 전달한다. Bowden 케이블의 인장·외피 압축 전달은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-066473-A1",
+      "source_fingerprint": "e84284608f1e1e2ef56206565b53fdf8aa2f52b9710243c131f4cb354b8a9d7e",
+      "content_hash": "4877297f24a9a55e83830c9c0fdb0086af336baa914db7af9d69369bdb113a3d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항암 용도와 구조만으로 특정 표적을 정하지 않는다."
+    },
+    {
+      "identifier": "AR-066477-A1",
+      "source_fingerprint": "d314c3e7140725443b9d368f80e5a583d7ef4021671317720075916166ca8c5e",
+      "content_hash": "d2bdeaee5db389640f6bb8b5b15067e65b7573fc5187e6148b00766f8a1c1305",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PI3 kinase 억제를 명시한다. 저장 Markush 열거의 잘린 이후 내용은 읽지 않았다."
+    },
+    {
+      "identifier": "AR-066482-A1",
+      "source_fingerprint": "badb6072dced15dbdaa4b705433630eef65c9dac043828a109d97590b8f3217e",
+      "content_hash": "0319878cb29334e89eb168326bdc006db7391bcc972ebfc4caedd0e57d87c31e",
+      "decision": "LINK",
+      "keys": [
+        "melt-binder-agglomeration",
+        "cement-hydration"
+      ],
+      "reason": "절삭열로 녹는 왁스가 미분을 뭉치고 수경성 성분이 판을 경화한다."
+    },
+    {
+      "identifier": "AR-066490-A1",
+      "source_fingerprint": "2a1b995b50057591f176562e637c4e5978d0e1d8c9cb09a562945a5a5023efe5",
+      "content_hash": "32b2c2b012f13ae906c131ceadc9f3a251ae019a1240906b6b6424f5d5528a20",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "나프타·알코올·산소 함유 방향족 혼합 연료 조성이며 특별한 연소 기전은 없다."
+    },
+    {
+      "identifier": "AR-066495-A1",
+      "source_fingerprint": "f8dbc5a97c36b5f424acc4db7148a4f7c82a7b98779cacb090eaf5deb58e9724",
+      "content_hash": "1082abf815e8d873e83c21c9e0b602e6d80f0727ab790598277307eb9b2a457e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "chromenone 출발 물질 구조만으로 반응 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-066517-A1",
+      "source_fingerprint": "d087bd1829f14f1dc9dc0a66d574109e3d46fb329dec2b98aa69421471e5a7bb",
+      "content_hash": "19a6f524e2ebdb48cdf1ca72e63c29e66889218fd14716c7f7382d1333bfb4e7",
+      "decision": "LINK",
+      "keys": [
+        "photocatalysis"
+      ],
+      "reason": "광촉매 반도체를 금속용 프라이머에 분산한다. 접착 향상의 단일 경로를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-066547-A1",
+      "source_fingerprint": "548d809b4554e491ef391974a965fb7a95122bafecf5a722629b268b9b23b22d",
+      "content_hash": "e1d4d5af61ce4c97973c66cc7a974c2ae5b0fb813d7c2b3495cd403ceaa693f1",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "종횡비가 큰 탄소 소성로 구획 배치이다."
+    },
+    {
+      "identifier": "AR-066552-A1",
+      "source_fingerprint": "a4d0248f0cf8668a87ca42b4854ec2cbd877f50c28882fc1c2e36f4a6ad338ce",
+      "content_hash": "6bf4995a86570e0b8edf9015ff0939ebea2aacf5bb99ff18b734c1a27fca602e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "회전 트레이·호퍼·누름 롤러로 빵가루를 입히는 장치이다."
+    },
+    {
+      "identifier": "AR-066571-A1",
+      "source_fingerprint": "8973908c55cf34e08ff3a4f7363604eff16b1317ce69e5ea66ad7d6939831c4e",
+      "content_hash": "5d632d85daab257f6e9eb35627096cc863ffff20ee0bb476cd3209bc98a43d52",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "농약 구조와 용도이며 작용 표적은 없다."
+    },
+    {
+      "identifier": "AR-066578-A1",
+      "source_fingerprint": "cecf18793662768907b763ea3a869acb331de81886be10d17dc61181f8e61700",
+      "content_hash": "4c7029ab732f2aa7e5851847f2a5d8814f7a6b6f607c54bf0b0f8186bd7c87ab",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion"
+      ],
+      "reason": "자성 입자로 덮은 proppant의 유실 억제이다. 구체 자화 상태와 유지력은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-066587-A1",
+      "source_fingerprint": "9dc25665bc5ba02a0eb5680c4b06db8748e9f935d088d1b69ffc81dcad09a4b8",
+      "content_hash": "9636d546a41337eb52d364a6957850b3840d9f2bcfe42a2fc61c36667b7c796f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "병용 성분의 lipoxygenase 억제·leukotriene receptor 길항이라는 명시 범위만 연결한다."
+    },
+    {
+      "identifier": "AR-066593-A1",
+      "source_fingerprint": "9936a2fee2b4cf3590be6a9f861cfea6aae1b9637995bd6e154e36d6d7dd7e1f",
+      "content_hash": "b10817b458bac26554790cb11bc73ef7de16a52e54927cd63a80aa73592a6415",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "개별 밀봉된 단위 용량을 열어 공기 펌프로 토출한다."
+    },
+    {
+      "identifier": "AR-066630-A1",
+      "source_fingerprint": "650f9b1d200f6238e9ea331fbe1bf2c4cc4e3b48b9dba9ea7a1bda021598ef3d",
+      "content_hash": "14fa6a140f0664e3c90a933950e7b53282b45890dbb14086bc77fa9159190826",
+      "decision": "LINK",
+      "keys": [
+        "polymerization"
+      ],
+      "reason": "셀룰로오스 섬유를 공중합 수지에 넣는다. 섬유·매트릭스 사이 전단 하중 전달은 별도 후보이며 crack bridging으로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-066635-A1",
+      "source_fingerprint": "660fb700f6832a89d4482c70099a01fbb8510920d0b4bb3b5fc164fcb6b12a13",
+      "content_hash": "8efe331c88ae869ba561ddbf6331b62f0269b378ebe63e058ba6d9266b902645",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "연결 후 함께 회전하여 나사 풀림을 막는 luer 결합이다."
+    },
+    {
+      "identifier": "AR-066649-A1",
+      "source_fingerprint": "f2a5779c6158421786333be5cb5038d8a4f6a191ab4bbb122ff8817b0f8fdc80",
+      "content_hash": "0720438925e853bc5e3a71369557dd8cb464d60d71d5a0cc82a95fa60c44fd33",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유전자 변이로 특정 단백질 발현·기능을 줄인다. 유전적 기능 소실 후보이며 바이러스 제조 조건이나 효능은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-066659-A1",
+      "source_fingerprint": "543499887c8a8d69dc1ffa8dadc666624af069441f00e380fa1afe75b3510071",
+      "content_hash": "04ba730cc4405524eac61707e321cfae58ba157229891d4f71b24978e58e0ab7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항증식 용도의 spiroindolinone 구조뿐 특정 표적은 없다."
+    },
+    {
+      "identifier": "AR-066662-A1",
+      "source_fingerprint": "ae3b743e048c2389a52011e63638bd4ce6630eca0bf6656b7be898b5b26b76a0",
+      "content_hash": "7677b6c7ef41c3526dd35aab211f8dbe285b858ceeb2b5fc67ad0ffb5b4469b0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "주차 상태 데이터를 모아 배포하는 정보 시스템이다."
+    },
+    {
+      "identifier": "AR-066670-A1",
+      "source_fingerprint": "d02600e90833c2c3d48160352efc259713598a9acb5fca04f84e62a87de6c2d0",
+      "content_hash": "e0ccbc4c802800d9a6d6dda2bb6eacf442bc2c45d177fb4d91186cb59b2b3b71",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering"
+      ],
+      "reason": "완충제와 pH 범위를 지정한 esmolol 제형이다."
+    },
+    {
+      "identifier": "AR-066676-A1",
+      "source_fingerprint": "c70f4a58ce4373c347260f081a19e542bd18aa57dc201a8970bcf8d1a6f1f4c0",
+      "content_hash": "c945c8afceb39b06b3096087379658bd0c64e137bf7043661b38d85bff23024f",
+      "decision": "LINK",
+      "keys": [
+        "freeze-drying",
+        "antigen-specific-immunization",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "항원·TLR9 작용 올리고뉴클레오타이드의 동결건조 백신이다. 선천 면역의 패턴 인식 수용체 활성은 추가 후보이다."
+    },
+    {
+      "identifier": "AR-066694-A2",
+      "source_fingerprint": "f17cd0f9db3052c25e62ae8f40b8481c5319001ac7cf8f68002dd65e0e9a4c57",
+      "content_hash": "9b65ba81fb6727e97f888eccdc7bdcd5dbde7cc52ff40168822962592dd9abc7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "그림 구조가 없는 전환 식만으로 citalopram 합성 반응을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-066739-A1",
+      "source_fingerprint": "f03c4d115114a05d982276c334fcbda5d5660c493d62cb9511c796a7fe522870",
+      "content_hash": "9ede44c43ac64181adbf00fd9e2b084f01cae5900c3e21a0f5b841f0937539cb",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "산성 담체의 금속 촉매에서 수소·산소로 H2O2를 합성한다. 선택적 과산화물 생성은 추가 후보이다."
+    },
+    {
+      "identifier": "AR-066744-A1",
+      "source_fingerprint": "a00038ef0e68e2bcd3ad78d0c1d70177e0e4a8af4510fc97da72c2051978cc12",
+      "content_hash": "9998f6709d9be4c0f9a093272c9fed8853cd6d9d7352f5d4cfd8679d00ace177",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "LPL 활성화제를 명시한다. 효소 활성 증가 후보이나 직접 결합·발현 증가 중 경로는 미정이다."
+    }
+  ],
+  "recorded_at": "2026-09-21T22:56:41.469727+00:00"
+}

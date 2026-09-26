@@ -1,0 +1,248 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "328bf506ab4fe3143748fb9d2671063c5dbdb0d94e18869734e1619c9492ebb1",
+  "reviews": [
+    {
+      "identifier": "AR-095394-A1",
+      "source_fingerprint": "b044fa539d5b27cad05db17dab2d6cef7989f4432094e78bb209aa5632da728d",
+      "content_hash": "115165df6d3165db26654302e9c0b73231469f3523a1fc497d530f4b69e5ec03",
+      "decision": "LINK",
+      "keys": [
+        "transporter-inhibition",
+        "secondary-active-transport"
+      ],
+      "reason": "나트륨 의존 인산 수송체를 억제한다. 저장 말미 절단을 추가 추론하지 않는다."
+    },
+    {
+      "identifier": "AR-095409-A1",
+      "source_fingerprint": "94e6fcbe76dc7afd3fdc06eeec3f48d0aacfd8de81a9760dc820d09398a3d43a",
+      "content_hash": "56c3095cbd43fa1b182b1cf532eeebe76edf321757d22fe04ba27b42be660277",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating",
+        "swelling-actuation",
+        "oxidative-drying-crosslinking"
+      ],
+      "reason": "부분 산화 기름 장벽으로 하이드로겔의 물 접촉·조기 팽창을 지연한다."
+    },
+    {
+      "identifier": "AR-095413-A1",
+      "source_fingerprint": "4c97abeaf51acf89c2fdfd98271b27bb2f7527d870b26fc215379b71f8496753",
+      "content_hash": "414ea505ed10553d52ed8afbdaf7425628e2f26e028af5b2fa95ea7f5198e5f8",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding",
+        "martensitic-hardening",
+        "martensite-tempering"
+      ],
+      "reason": "용접관의 담금질·뜨임으로 조직을 맞춘다. 베이나이트 형성도 명시되어 변태 기전을 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-095439-A1",
+      "source_fingerprint": "a8a9b4c69cb55409fece4f3740af955b1a98a42d891a1b60c9d765511e213535",
+      "content_hash": "6d872eb049fc40f00423d6c0ff57417f2f8d5b21a85c1e0766372e0a9e1530e8",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "계면활성제 제형이다. 식물 분획의 항염증 기전은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-095455-A1",
+      "source_fingerprint": "fe43d180fe7c527a7d47d42feeb3007717b67a46841e4c3324a104a1086a438d",
+      "content_hash": "b453fdd3dc97937e1fca9e2d44e92ce4a4daa9f4960d472529a0254179aa62be",
+      "decision": "LINK",
+      "keys": [
+        "alcohol-oxidation-to-carbonyl",
+        "reductive-amination"
+      ],
+      "reason": "알데하이드 형성과 환원적 아민화로 광반응기를 도입한다. 명시된 광 고리첨가 가교는 신규 후보이다."
+    },
+    {
+      "identifier": "AR-095471-A1",
+      "source_fingerprint": "97ae0a0b16bd663da83b0cbd88f1f6590e0d332d586d9dc54254e506cf3b80ed",
+      "content_hash": "f9dc1dde28171fce3989724be1d52e6de122a60bb15305d9a182f71c52a5090e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "테오브로민의 여러 건강 결과를 주장하지만 분자·세포 경로가 없다."
+    },
+    {
+      "identifier": "AR-095485-A1",
+      "source_fingerprint": "4423b667ed425f505769151b4b1c6ddfbe779beb4a49062824fd9a15ff2c270c",
+      "content_hash": "fa021a2c508181603809374c5e00e7ca69fef9d59f271cc7d017680337377acb",
+      "decision": "LINK",
+      "keys": [
+        "cosolvent-solubilization",
+        "first-pass-metabolism-bypass"
+      ],
+      "reason": "혼합 용매 경피 제형과 테르펜 투과 보조이다. 지질 배열 교란에 의한 투과 변화는 별도 문헌 후보이다."
+    },
+    {
+      "identifier": "AR-095508-A1",
+      "source_fingerprint": "34ffc7d0d10dccec90bbdfae77ff1ceb89e74f6aa5e9685e57dc6ed3241b7c8b",
+      "content_hash": "7ea8d086615c947d04cfbe969935bb73c65908254ab8b21c2126aef7785aee78",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 구조 범위만 있으며 작용 표적이 없다."
+    },
+    {
+      "identifier": "AR-095524-A1",
+      "source_fingerprint": "77a188018d95bb14b4eee8ce5360468c2c1a92c39d9a15bb4ff9c871fcf5290a",
+      "content_hash": "8fd9f4d4bfbb58ac324baaa3596ced8308e5e7c12e962f81d5435b02c80830f2",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-force-transmission",
+        "mechanical-interlocking"
+      ],
+      "reason": "기체압 변화가 피스톤 걸쇠를 해제하여 유로를 전환한다."
+    },
+    {
+      "identifier": "AR-095535-A1",
+      "source_fingerprint": "b71ac3f393bbe4d6eb207d889934c0ada1786f4f58178d2a3bb6422fa5e38b64",
+      "content_hash": "a09c151724d05a23b6ebfbbee2aef86d6b52ab836c1652f6e41a552306d2eebd",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "H3 수용체의 길항·역작용제이다."
+    },
+    {
+      "identifier": "AR-095536-A1",
+      "source_fingerprint": "3dd476c527697ad3bb9f066472c2b4718340ebb1f06b5a09890c528a7d263fba",
+      "content_hash": "08b27f26a5469ebfd4740f6bc4f6fe259bfa5dccc6920415581c8d3d97d9fa40",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "올리고머 구조 정의만 있고 기능·합성 원리는 없다."
+    },
+    {
+      "identifier": "AR-095540-A1",
+      "source_fingerprint": "e52feaa236510127be634c21a73b669ce73e519e7c987b69a1425a92eeebfc33",
+      "content_hash": "e1e9f7227f0abe9d491e2e0172cea54f9badc5bf5ea45d76e36973f65f6e9e56",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "수지·난연제로 케이블 피막을 형성한다. 난연 반응의 종류는 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-095548-A1",
+      "source_fingerprint": "888ae4e087215064b63eb4cd0783b4858d569f7e586776287a1262b5305bf55c",
+      "content_hash": "00539d514aeb754c0a2da43b300887234a96c3398e203379f4e796de3ef11765",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기재된 반응물·생성물과 나트륨 시약 명칭에 불명확성이 있어 축합 경로를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-095550-A1",
+      "source_fingerprint": "d5ed49b25d06f294e08377efff3e1bf18f8c87f0918a01ae86b0762e8a9dba17",
+      "content_hash": "53185b0bbaf689b3f2464266c434e899f5ae9aefef39852ae2b3558b80cb235a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "잠재산과 페놀수지 조성만 있고 활성화 조건·산 생성 경로가 없다."
+    },
+    {
+      "identifier": "AR-095564-A1",
+      "source_fingerprint": "4b626dc807d2c4c85747d2cc1ccb02e24d4dcb0e63d6af58c7db9a8044ff4ad8",
+      "content_hash": "86d915b2241e7567fccd5bf0f5155ccdeb2cb00598601a5a1e62347f8dcf43a9",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "catalysis"
+      ],
+      "reason": "환형 탄산에스터의 금속 촉매·알코올 개시 중합이다. 고리 개환에 의한 사슬 성장은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-095565-A1",
+      "source_fingerprint": "65b5cd0336a9012fc2003a004ad1df5c7896c08ef58fc68accb7cb7a48067060",
+      "content_hash": "3ba78faf497a1809021016ea39520883f78451d3c1609d7d3f9cec744122e06e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "운동 매트에 언어로 지정 가능한 표적을 표시하는 구성이다."
+    },
+    {
+      "identifier": "AR-095583-A1",
+      "source_fingerprint": "3c2fda8a870e7772a20abe598ae6e48a5a89841303eeeab63443da2206024e24",
+      "content_hash": "f6d879ad326139f2b26aaa64bb56962bf6ea2d02678cbbb0750cef2d2bc7894c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "공기 노출 시 비가역 외관 변화만 있고 산화·수분 반응 중 어느 경로인지 없다."
+    },
+    {
+      "identifier": "AR-095585-A1",
+      "source_fingerprint": "8f3c1d54277a03469d935c13f8eb5d642f92dade12a7f4b3498a2342b3a32599",
+      "content_hash": "9037982a73d04a8b378f45db32296d46ac93238ff0e955825029f22ae8008665",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastomer-contact-sealing"
+      ],
+      "reason": "뚜껑 회전으로 밀봉 링을 해제하는 구성이다. 밀봉부의 탄성 접촉 범위에 연결한다."
+    },
+    {
+      "identifier": "AR-095586-A1",
+      "source_fingerprint": "f6997ec770c5797d6eaa3954ae6702db85c270f17b0739040f5d1794eacf717e",
+      "content_hash": "a11b87ad00693e0a8dd22cf594684eed29ab47d37c7ab5e1716a0354997a647c",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "얇은 금속 몸체를 확장해 혈관 형태에 맞춘다. 혈전 유도의 세부 표면 경로는 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-095589-A1",
+      "source_fingerprint": "24609be5452cb89d44c1b618aac7f361c7251e685ab10f40fbd1991e74588c5d",
+      "content_hash": "17dc3311d31314c38fbcc096239ee5d2f9a628beed73a4f2650a2df8c9351847",
+      "decision": "LINK",
+      "keys": [
+        "optical-reflectometry",
+        "elastic-light-scattering-sensing"
+      ],
+      "reason": "각도별 반사 강도 패턴으로 투명 용기의 변화를 검출한다."
+    },
+    {
+      "identifier": "AR-095619-A1",
+      "source_fingerprint": "c523226eb05f4db9ea6e27335cde2ed96b9626b69d06cc2380200236dccedfad",
+      "content_hash": "fc027ba3a90c36d3dcfc56ea0c60626d0d40c9e471ea4e7598c79d799c61683c",
+      "decision": "LINK",
+      "keys": [
+        "cosolvent-solubilization"
+      ],
+      "reason": "호르몬을 지방산 에스터 매질에 용해·분산한 제형이다."
+    },
+    {
+      "identifier": "AR-095624-A1",
+      "source_fingerprint": "0235008d246e74fe48abfc4b7cddbc4c7953097f5ccbada5fddca781455dfa1d",
+      "content_hash": "33aab8d9a32da38f82a241488e6e9ddb43c0d7035c09408be2e719badd52de1d",
+      "decision": "LINK",
+      "keys": [
+        "state-estimation",
+        "linear-frequency-filtering"
+      ],
+      "reason": "전류 적분과 전압 모형을 EKF로 보정한다. 전하 수지 적산은 별도 물리 계측 후보이다."
+    },
+    {
+      "identifier": "AR-095625-A1",
+      "source_fingerprint": "1212027ee9f306a6f73d9f9bb329bd0cf076f21871cb3a56dd6734528dc47173",
+      "content_hash": "ebd8189ff31a182a2eaac262072219eca48e5400eb5ce10b9441c48df5c4d208",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "알부민·GCSF 융합체의 발현과 수용체 작용이다."
+    },
+    {
+      "identifier": "AR-095632-A1",
+      "source_fingerprint": "abcff546eebd6fc0e66436bc262320c01a88556106a33e14ab3260f5bc4115ac",
+      "content_hash": "5800460575200d07795182d70aa17759f23e7a15c4a6c97e38981b0da884ea83",
+      "decision": "LINK",
+      "keys": [
+        "capillary-wicking",
+        "joule-heating"
+      ],
+      "reason": "심지의 액체 공급과 전기 가열 증발이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:37:13.530188+00:00"
+}

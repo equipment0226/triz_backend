@@ -1,0 +1,450 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "92caf6dae3eb4d5f503a059a62ac76a40c5825a2a3cef74118b96b23496997de",
+  "reviews": [
+    {
+      "identifier": "AR-071075-A1",
+      "source_fingerprint": "637ccbba64cda5d1fb6f7013500a8a0162d140761f729fd5eb5ad38042e6a10b",
+      "content_hash": "c0e5c0ddb48438e93855fb77ff08105f5238b47b0725329a957555e3e5f1b49a",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "transesterification"
+      ],
+      "reason": "미생물이 glycerol에서 지질을 만들고 triglyceride를 연료용 지방산 ester로 전환한다."
+    },
+    {
+      "identifier": "AR-071096-A1",
+      "source_fingerprint": "a13ed5e6da82707380645c26bcfe69464a3deff4bdeffc895cc4dfd25456b817",
+      "content_hash": "3684ceae0a31b5628e41cabb4e62e2a098369e4eed799093183d2b5e2ba93748",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "HDL 증가 용도의 nicotinamide 구조만 있고 직접 표적은 없다."
+    },
+    {
+      "identifier": "AR-071098-A1",
+      "source_fingerprint": "0f5d976e95a82478eaba10c0d881d7ab75d7db739312b0781eba0668270131e9",
+      "content_hash": "ab9d072b02db1fd240ed20302ad31d40df094eafe817f7f2e62b41b2bdcdf02a",
+      "decision": "LINK",
+      "keys": [
+        "sampling-reconstruction",
+        "linear-frequency-filtering"
+      ],
+      "reason": "pulse shaping filter에서 표본 해상도로 송신 시간 정렬을 조정한다."
+    },
+    {
+      "identifier": "AR-071108-A1",
+      "source_fingerprint": "2bea04c0076a759fe3873a1b1a8d0960f547caa14ca35aa81e46561c0a66cb44",
+      "content_hash": "ebeadb4c5e274b76c266bfa9458fe6072a76cbc6d76dd4d8a84c6551a0018660",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "내부 성형체에 외부층을 overmold하여 젖꼭지·손잡이를 만든다."
+    },
+    {
+      "identifier": "AR-071125-A1",
+      "source_fingerprint": "b3a96f022cee1b37d9fa9324725770b5753a5dec6234c0710f5c6242449354a1",
+      "content_hash": "b0a019d7ae1b40d968f7b15cd7bc819c0498a5e8fefc33815438e91efda764e9",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "가교 peptide의 항균·항바이러스·통증 용도만 있고 직접 경로는 없다."
+    },
+    {
+      "identifier": "AR-071130-A1",
+      "source_fingerprint": "c4ac920669cd49716de4be3f8bf172af4cf4547417454fd99e0a1ee7cb6e2859",
+      "content_hash": "1188c7ce1d31c138883092dbabbd5fbae74dfb61f42e52517d56ecd99d6c96a7",
+      "decision": "LINK",
+      "keys": [
+        "polymerization",
+        "gas-solution-diffusion"
+      ],
+      "reason": "silicone hydrogel 경화와 산소 투과 성능을 명시한다."
+    },
+    {
+      "identifier": "AR-071138-A1",
+      "source_fingerprint": "86f8c7ee9aeb4faa8082105b554e1b23cf6dcc7b2ac43b2a0c54b5639e8fca20",
+      "content_hash": "72260be8656034b74e20face7d41d104de2989a8aee2cf8fc293ba25beb93924",
+      "decision": "LINK",
+      "keys": [
+        "sol-gel",
+        "catalysis"
+      ],
+      "reason": "ionic liquid 내 sol-gel 과정으로 귀금속 nanoparticle을 고체 지지체에 넣는다."
+    },
+    {
+      "identifier": "AR-071152-A1",
+      "source_fingerprint": "9d6ff90b65dc17623a497f1e6f3a3d96e2b7dadc7804900fc730da5521602cd8",
+      "content_hash": "609c9e1d5fa701d953b6882b1adad09f7f9726849ae97c9365bb4a8b61211179",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion",
+        "fluid-dynamic-lift"
+      ],
+      "reason": "수직축 날개가 바람의 에너지를 회전으로 바꾼다. 낮은 풍속 효율 주장은 정량 검증이 없다."
+    },
+    {
+      "identifier": "AR-071159-A1",
+      "source_fingerprint": "65279896dcb6ade4bf49a6ae120108cb7d4f271b5a328ba8a5519e6d4a73c8a8",
+      "content_hash": "3683899bcda079cb61efffbbb3a6717427480d4e832b5e6c8863d785b3fe85a4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "purine 유도체 구조만 있어 표적과 효과 경로를 알 수 없다."
+    },
+    {
+      "identifier": "AR-071168-A1",
+      "source_fingerprint": "ea1e59066728400980411b28935e705b45abc30a671ffc062e14396614979380",
+      "content_hash": "800bcb38f7c5a365230b1b8547cce0b5fdebf12676d684286926c0f167fa5b85",
+      "decision": "LINK",
+      "keys": [
+        "fusion-welding"
+      ],
+      "reason": "진동관과 brace를 일부 영역에서 용접한다. 피로 수명 개선은 초록에서 검증되지 않는다."
+    },
+    {
+      "identifier": "AR-071189-A1",
+      "source_fingerprint": "698d3b39ae41fbade97314301b91895079f8aca430bdef47d1381fdd77ae64c6",
+      "content_hash": "e6ec3568ed220016277bd1d95631dc503336ff191a33d15a24e430347a5564a3",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "두 잠금 조건을 함께 해제해야 서랍식 약 포장이 열린다."
+    },
+    {
+      "identifier": "AR-071211-A1",
+      "source_fingerprint": "2bcaa55a95e03d390e0ba52e551ac1f78566dc825e6ae82035c360ee2687844d",
+      "content_hash": "81b331994f901894f7619d0979100d9a6ea0689f2362514c000a1a5e6197a348",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "판지 laminate의 crease 방향을 지정하여 접힘 위치를 만든다."
+    },
+    {
+      "identifier": "AR-071213-A1",
+      "source_fingerprint": "50bfaf8b9b8b190029933358cc4b87d6981b7b776ce6389c992359eea2e2162b",
+      "content_hash": "9cca9aecb28fc035d4a597e25ff1fc7435719ac2e33924f4a556a4c7b66941a2",
+      "decision": "LINK",
+      "keys": [
+        "archimedes-buoyancy",
+        "hydrostatic-pressure-compensation",
+        "fluid-turbine-conversion"
+      ],
+      "reason": "수조의 채움·비움으로 부력과 중량을 바꾸고 유입수에서 일부 에너지를 회수한다. 순발전 주장은 하지 않는다."
+    },
+    {
+      "identifier": "AR-071234-A1",
+      "source_fingerprint": "fa5197793e949101bcc70c68e7e7debeca39b8451d0b9a6b4a1e03091abd22a4",
+      "content_hash": "5df2ca09741da808fb62b732b9eb2bdb77dbc60b732beed29f30e146aa6c9384",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-shielding"
+      ],
+      "reason": "금속 laminate 격벽으로 twisted pair 묶음을 분리한다. 꼬임에 의한 유도 간섭 상쇄 후보."
+    },
+    {
+      "identifier": "AR-071240-A1",
+      "source_fingerprint": "abd50c3f359bea9b943085e706b68315d19033017212fc36dbba923e1429550a",
+      "content_hash": "e03fe76640ea05a392b45e85f64ff4b9d65fa0c8e7c203b9b7bcb3ba71a5db01",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "치과용 고무줄을 돌출 끝에 걸어 이탈을 막는다."
+    },
+    {
+      "identifier": "AR-071248-A1",
+      "source_fingerprint": "557c442e9384b9800fe520669eedea0a156d3fa48c68e4d06bfa241f7666515a",
+      "content_hash": "ebd37a880d1aa49be8402f3e7473f0468c5a5a22ee1eb1b67752de01a63e8b66",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "soluble epoxide hydrolase 억제를 명시한다."
+    },
+    {
+      "identifier": "AR-071255-A1",
+      "source_fingerprint": "254f47bbec457592df058a6a9d4e6f469d1cd187be00429f1df17b017feb729d",
+      "content_hash": "677d82a379e197bc0bd11f0e9c4c304da08c34a64b2c7ee58b271560d9b171b6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "anthracene 유도체의 sulfonation·황산 처리이나 C sulfonation과 O sulfation을 도식 없이 구분하기 어렵다."
+    },
+    {
+      "identifier": "AR-071258-A1",
+      "source_fingerprint": "9bd8f1e5419cc579c3b47e1ccfc08727470a3e66c62ff2cf3eaa3f58e636ccf8",
+      "content_hash": "a1eec3f9dece00c6b90b7eb6e3948e772758615e6ff05ea5ce27969bbabf90c4",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "HIV protease 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-071274-A1",
+      "source_fingerprint": "7b253d2a84ecf5c6b1736e7c7079c423d0ccadff9987e4e19d966335b71f03cc",
+      "content_hash": "0b07c0b3bbf5df1cf7de313f5aa0d3bd6df92089beae738c16451d7c627155b2",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "crystallization",
+        "diffraction",
+        "differential-scanning-calorimetry"
+      ],
+      "reason": "pregabalin sulfonate 염 형성과 결정형의 XRD·DSC 특성이다."
+    },
+    {
+      "identifier": "AR-071290-A1",
+      "source_fingerprint": "c514d66687f5f82136caf49b61213b777ddb6b0dcd1dc7bd33256ee5ef33e0cb",
+      "content_hash": "ead3896571531c2142bf17c374c8f9fbf68460035f515a5306e6663ddd9505cd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미세 여과와 biocide 조합이나 공극 크기·살균제가 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-071313-A1",
+      "source_fingerprint": "ddb3b2b3a61ccd09961eea61df220df149041b5a304eee11e22bea9af73053d7",
+      "content_hash": "38d36ed02ff7c7f74d5e513c9c77293cdcfb960f280b2ac978120e1abb82fd83",
+      "decision": "LINK",
+      "keys": [
+        "frictional-load-transmission",
+        "plastic-forming"
+      ],
+      "reason": "마찰계수가 큰 elastomer를 용기 그립부에 overmold한다."
+    },
+    {
+      "identifier": "AR-071331-A1",
+      "source_fingerprint": "b28f5c887f64a673a4ac2a0a1355aef6babceab1451458504c07be274cc52784",
+      "content_hash": "327afa359ef7bd9641ce53da8f5bafbc771a46a3ce058ced03b65c5b82e55271",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "태양 좌표의 행렬 회전과 중심 투영으로 그림자 위치를 구한다. 기하 투영 후보이며 실제 UV 측정과 다르다."
+    },
+    {
+      "identifier": "AR-071336-A1",
+      "source_fingerprint": "ac4c60843d0e366140941cb6eb943519607226ea4190f33e5c0e30870a3c8deb",
+      "content_hash": "bfb7ddd8c1069c94dd84dab51e127c4adac6931b07b20c2ef33d3792ad9c845f",
+      "decision": "LINK",
+      "keys": [
+        "swelling-actuation"
+      ],
+      "reason": "흡수 고분자가 팽윤·수축·재팽윤하며 물을 재분배한다. 자극 조건은 미제시이다."
+    },
+    {
+      "identifier": "AR-071358-A1",
+      "source_fingerprint": "85349a3d65870bdf5e081004ff66636a0dde73921f43266aeb100353e02afa7b",
+      "content_hash": "bb4f33e243b6342c12a4b5de55b6d8663b5e97196451cb514c7ba9cc15cbd667",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "DSL 송신 전력을 계단적으로 올려 인접선 교란을 완화한다. 변화율 제한 후보."
+    },
+    {
+      "identifier": "AR-071378-A1",
+      "source_fingerprint": "c0b61d9d64e2bbd474f302ad3bf312af3589a9b060b87e179c110cc7783e7fa3",
+      "content_hash": "3936df79eacbcd809f67370ecfe4669f6a0fcedce489ad5f9e09dd67449cebee",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction",
+        "dielectric-insulation"
+      ],
+      "reason": "금속 rotor 고정 밴드를 서로 절연한 얇은 적층으로 만든다. 와전류 경로 분할 후보."
+    },
+    {
+      "identifier": "AR-071390-A1",
+      "source_fingerprint": "0296040a2cc91d4b854cea73edee41eefc99de122479454a8b2166379bc42e53",
+      "content_hash": "07c2939ca73c54ba381429d6bfafbb9ea4b1d0ab1e362c1a19e3c1fccedc26c5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 서버의 인증·정보 교환 과정이나 암호·합의 알고리즘은 미제시이다."
+    },
+    {
+      "identifier": "AR-071391-A1",
+      "source_fingerprint": "73e6a72f24b26903071b5b126fb5630adf740cfc8c0528f126daa8564f65eb11",
+      "content_hash": "c02cb18495bb11267481269b3458f063a84386d8c169e0d3e9a97566c75215a8",
+      "decision": "LINK",
+      "keys": [
+        "forced-convection",
+        "articulated-linkage-motion"
+      ],
+      "reason": "차량 공기 유입을 열교환기에 유도하는 회전 장착판이다."
+    },
+    {
+      "identifier": "AR-071403-A1",
+      "source_fingerprint": "97f0fd473c1f30d5a5fd921eaa0c8218c0d23d5132022c96f6e46a6933a5c1bc",
+      "content_hash": "26db301f56880a3c87b33442afb64376ea4d4289ec9319ea63f2599455dc2b32",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "점도가 다른 silicone 혼합과 모발 풀림 성능이나 계면 마찰 경로가 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-071462-A1",
+      "source_fingerprint": "db26714e1cf5f7571961abb15e74baead141adc7d2e4a4199ccd838c65601a62",
+      "content_hash": "7b41ff89c655ca1bcd9f71f927f5f4677ece414525152b7d1a411075ac0b3278",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "두 제초제 조합이며 분자 경로와 상호작용 근거는 없다."
+    },
+    {
+      "identifier": "AR-071471-A1",
+      "source_fingerprint": "c5d82167cb95eea2e25c3d550d047f777d02a2a26e94faff4d4f409c62b34e1a",
+      "content_hash": "e950f39dd0bd8faf1cab0306df975e0c81fde6e555c96a38a83154d14cfef515",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미생물 억제 imidazole 구조와 용도만 제시된다."
+    },
+    {
+      "identifier": "AR-071479-A1",
+      "source_fingerprint": "1145829b33ea7d1a4251bb476bfeded5f6fd608cb24e62317cfe11c88d75d081",
+      "content_hash": "4e55f0d47ef9365a99e8b021c9941de9572c7ca8fcb368eb05ca93f4638716cf",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "sialyltransferase로 rFSH 말단 sialic acid 결합 형태를 바꾼다. glycosylation에 따른 소실 속도 조절 후보."
+    },
+    {
+      "identifier": "AR-071524-A1",
+      "source_fingerprint": "9d7fa1c2010f018e97fc65448661388e8daf8a82dc2be37a4e5fb21bdd35fec8",
+      "content_hash": "14e65cf38cd551e592a8280a8b233a29462239e51f45debf86b00c2be9af9237",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "잔량에 해당하는 위치에서 stop이 맞물려 과도한 용량 설정을 막는다."
+    },
+    {
+      "identifier": "AR-071535-A1",
+      "source_fingerprint": "17b50c39badd311414341545166b23a137fb882c31bc0e7a1cf6cefc23d9b1ba",
+      "content_hash": "a52d55672172033b914146c3d98e06e5c0b38b246226682b1a879347020e5d40",
+      "decision": "LINK",
+      "keys": [
+        "cavitation",
+        "gas-discharge-luminescence"
+      ],
+      "reason": "기포 공동화 영역의 가스 미세통로에 전기 방전을 유도한다. 특별 방전 성능 수치는 검증하지 않는다."
+    },
+    {
+      "identifier": "AR-071561-A1",
+      "source_fingerprint": "7ed50c91694c95ca82a61cd4daecfc57acb6e059b52248ee7e29cf71258ea0cf",
+      "content_hash": "8f5ddb4e784a48e2f8c0f983269976aaf26e51fe05a96736dd214982eee4df05",
+      "decision": "LINK",
+      "keys": [
+        "pickering-stabilization"
+      ],
+      "reason": "고체 colloid가 액액 계면에 흡착해 분산상을 안정화한다."
+    },
+    {
+      "identifier": "AR-071567-A1",
+      "source_fingerprint": "c58384e5d7e164bceae54f8b3b619699c875794a0587ac075997315a3833a41d",
+      "content_hash": "16dcf9e147a1811265acc3527bf18ec776a89df42ef4f7f5a666f6b44cde2f41",
+      "decision": "LINK",
+      "keys": [
+        "aerobic-nitrification"
+      ],
+      "reason": "DCD·ATS로 질산화 전환을 억제하는 농업 조성이다. 기존 질산화 원리의 역방향 개입이다."
+    },
+    {
+      "identifier": "AR-071637-A1",
+      "source_fingerprint": "b839d806cd67aae514d6ead260d23cee72974bafce2bdbfe988be6609043b5c6",
+      "content_hash": "a8867ea7f8ae41f4c931850a1e3d1c816782eaca3b363e2ae5c93060ae2e5645",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "감미 수용체의 Venus flytrap 영역에 작용하는 조절 물질이다."
+    },
+    {
+      "identifier": "AR-071666-A1",
+      "source_fingerprint": "5c2a1eb329ad9bee2c62f54126ef2a5b56ca7b437068c1598790f0cddff1a57a",
+      "content_hash": "6f375b819c8285ee21d3dca00ee61a36f37942a3c0aea0a23c5a6edffa35c349",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-suspension"
+      ],
+      "reason": "rotor 추력 디스크를 stator의 자기력으로 지지한다."
+    },
+    {
+      "identifier": "AR-071673-A1",
+      "source_fingerprint": "67121f86187158ce21e38a110daaf7ad978735e3f266fe55e07f95b2349340f7",
+      "content_hash": "365627875ef9d5eaf698901e38715c2367206f3936e5f3fac5d10d52c1b38df9",
+      "decision": "LINK",
+      "keys": [
+        "hydrazine-pyrazolone-cyclocondensation",
+        "hydrolysis"
+      ],
+      "reason": "hydrazone 반응과 산성 수중 처리로 pyrazole을 얻는 기존 고리 축합 계열이다."
+    },
+    {
+      "identifier": "AR-071677-A1",
+      "source_fingerprint": "b0d41113287700e2792af32ae991f244aa989e11497e220156dd9367631c5b9a",
+      "content_hash": "e1eac1be6c757f397342da2d00537e30c07cd5ccd25936c2fbca7dcb70fa2f11",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastomer-contact-sealing"
+      ],
+      "reason": "원주 리브·홈으로 뚜껑을 고정하고 별도 ring으로 밀봉한다."
+    },
+    {
+      "identifier": "AR-071680-A1",
+      "source_fingerprint": "04552ba37aa1d8b2fbc53783ec63ce8aedc0780f79e3f7142ed267df3f442009",
+      "content_hash": "001a0cdfab4f0497ced819d146a0c75879fe07895fb656d877783cb43b0dac9a",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "근접 vehicle interface를 자동 발견해 무선 접속한다. 발견 프로토콜 원리는 없다."
+    },
+    {
+      "identifier": "AR-071683-A1",
+      "source_fingerprint": "5472039111004709628a2a3635fd45b0aca389bfd68768e66eea0f4375ebd52d",
+      "content_hash": "1d358067dd001b1b08d9e5038d8f1fac55dd6560c1de72ecca597544177fa554",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "큰 aerosol 방울과 작은 방울을 편향 통로로 분리한다. 관성 충돌 분리 후보."
+    },
+    {
+      "identifier": "AR-071686-A4",
+      "source_fingerprint": "7a65ec7a8f05192afda71e90477fc8c8c00422eb732e5580097b4d4ba4b3bb0d",
+      "content_hash": "52aa650a6baeb18014129f01488f6410333a9fd84969a498f3a80a2f79855d0d",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "evaporative-cooling"
+      ],
+      "reason": "펌프로 소화수를 보내 분사한다. 냉각 원리 연결이며 장비별 진압 성능은 미검증이다."
+    },
+    {
+      "identifier": "AR-071710-A1",
+      "source_fingerprint": "ab15309159488625550693450c81183067e911b6f63a278f4523070551e58c72",
+      "content_hash": "2897fda95f80897297dd1b452f89528b2b1e8f9a13cc98d4fb362bbff68891b0",
+      "decision": "LINK",
+      "keys": [
+        "viscoelastic-response",
+        "pressure-driven-flow"
+      ],
+      "reason": "탄성 신발 바닥의 완충과 통기 채널·밸브 구성이다."
+    },
+    {
+      "identifier": "AR-071715-A1",
+      "source_fingerprint": "8083680a9153bc64d6bc7eb9a41a230f83785a1cfcd707d1c028bc9b4e9dda2f",
+      "content_hash": "5410181c3c55d2a4e9d2fd200ef80cd96e9ece7a68d5b3435bec0bae91b18c4b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 화합물 구조이며 직접 표적은 없다. 저장 초록 말미도 잘려 있다."
+    },
+    {
+      "identifier": "AR-071737-A1",
+      "source_fingerprint": "41a79af35cf7c29e058433152da48a879f8f4dfe6f2c2cd8f67eb0d55968ddf7",
+      "content_hash": "32566335f27727ee746c6d4dacc650fb0aab3bb7b26b745f5b50676b0848cb8f",
+      "decision": "LINK",
+      "keys": [
+        "gelation",
+        "surfactant-action",
+        "acid-base-reaction"
+      ],
+      "reason": "adapalene을 계면활성제로 분산하고 고분자 gel과 섞어 pH를 맞춘다."
+    }
+  ],
+  "recorded_at": "2026-09-21T23:06:41.259355+00:00"
+}

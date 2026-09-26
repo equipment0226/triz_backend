@@ -1,0 +1,211 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "6e9f435cd2e28d6af92b3581b7bd7878d5ea592fa22c3904e7c2a7b45d0e08e6",
+  "reviews": [
+    {
+      "identifier": "AR-113745-A1",
+      "source_fingerprint": "70f9c815c3d5b0ab9bbc9310f9fedfda188afa9ddb0a0f2e4e94908057790ac7",
+      "content_hash": "33285904dfa0980abfdbb20e1768adc193db30ac6ff2367c97feda100bedcb1b",
+      "decision": "LINK",
+      "keys": [
+        "lorentz-actuation"
+      ],
+      "reason": "고정자 권선의 자장과 영구자석 회전자 사이 토크로 펌프를 돌린다. 자기 쌍극자 정렬 토크 후보와 관련된다."
+    },
+    {
+      "identifier": "AR-113748-A1",
+      "source_fingerprint": "c3313470aecd40ec488bc89048a1def7e8e0b180cdef25c7346dbb081d768eea",
+      "content_hash": "f1fe94ff38267db0529e6808e36d634f1f7f1a6276098247d20962587ba94744",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution"
+      ],
+      "reason": "할로젠 치환기의 수산기 전환을 포함한다. 일시적 키랄 보조기의 입체 선택 유도를 신규 후보로 검토하고 그림 없는 고리화 유형은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-113777-A1",
+      "source_fingerprint": "846b8f13e1d4787ef19fac4b8df3f27c1ea8f8e34859264e8750ecce4409c75c",
+      "content_hash": "8428aa7551d57373abb0157a15750f2f9a932aab1460a82b64d3bf59a5b68328",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "CD19 표적 CAR T 세포이다. 키메라 수용체 신호 후보의 추가 사례이며 임상 투여법을 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-113795-A1",
+      "source_fingerprint": "30e662c72d30b459bdbb18375c041c7e24016fb9d26981b3f2600f7cec7c7abe",
+      "content_hash": "93fb1931cf3cb29ceb12a97f16ca2ed77183f17002abf565b5f4b13c1b08f73b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구리염의 식물 살균 조성이다. 이온 독성·산화 스트레스 등의 기여는 초록에 없다."
+    },
+    {
+      "identifier": "AR-113796-A1",
+      "source_fingerprint": "af633810af76d61be697c9dec0a2c5c05435ecd2f977ecc4cac07ee3821a1883",
+      "content_hash": "676c146160c9b18e39aabb598899290bd446cc90c0cf7a0e259a43e2aa7633b7",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "BTK 효소 억제제이다."
+    },
+    {
+      "identifier": "AR-113805-A1",
+      "source_fingerprint": "0eb73cca38a5fecea9f70cdbf0a08e0160882869a2a3ebe2fae0bb96fd95dc6d",
+      "content_hash": "ee695fcf5fe6a654ce6ea2f0048b6d94e858fe3c7555622065fe107e9a239af9",
+      "decision": "LINK",
+      "keys": [
+        "immune-checkpoint-blockade"
+      ],
+      "reason": "종양용 바이러스와 PD1 항체의 조합이다. 바이러스 복제·용해의 기여는 별도 확인한다."
+    },
+    {
+      "identifier": "AR-113815-A1",
+      "source_fingerprint": "f1cbf80f294fce7311db1feb28df8d213da903d623e088d0c15a7d340c6cfe99",
+      "content_hash": "f74134409e172dd33b4309afd257ba4f817d07fe72d987b41b073d63c46bc2e8",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "C5a 수용체 길항과 소변 표지자에 따른 환자 분류이다."
+    },
+    {
+      "identifier": "AR-113833-A1",
+      "source_fingerprint": "f9b5940cebfa5bb4a8cdb591be8b416042864ac95e370b1505c222e4f1aee5b4",
+      "content_hash": "b450181a413f3f15d5d3a8a3d06a20589bd9864e68f3aee57ae34f2c78d1583d",
+      "decision": "LINK",
+      "keys": [
+        "oxidative-dehydrogenation"
+      ],
+      "reason": "산화적 탈수소에서 이산화탄소의 희석·산화제 역할을 조절한다. 배출 완전 제거를 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-113845-A1",
+      "source_fingerprint": "1df38feae05189f6d25fcb2b5ab47c85c4a9eec923c562ce6e52e4b9bd0d7889",
+      "content_hash": "cc29a4656a8fb4239244e2a898a94c979ee0c36e1dd5f6d8e975243e72418dd0",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching"
+      ],
+      "reason": "단백질 분획을 물로 세척하여 수용성 잔류물을 제거한다. 향류 세척 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-113854-A1",
+      "source_fingerprint": "6578bfbaac55f7b7ae47b7efcba1c34bb0bc1e2f98cd0ef3b122c9703e560127",
+      "content_hash": "fd0d9c8693f1824a6f4ce7d3516d7613aa53ca1fac11b902b51d5970803e413c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "antibody-dependent-cellular-cytotoxicity"
+      ],
+      "reason": "무푸코스 항체의 ADCC 증가이다. Fc 당형·수용체 친화도 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-113860-A1",
+      "source_fingerprint": "ec3d34641821f180e6c4dee5673cd3895bd037c4e97c20769c8db411cc5b10ef",
+      "content_hash": "10d922cd5512d049116156d6e92954b40574bf0c9594f804536f0650a4fce17e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "여러 제초제의 조합 목록이며 작용 표적·상승 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-113861-A1",
+      "source_fingerprint": "af9bbba1b5104bb63687dc2432afb7099d76f81ebe58f5923585cdae8eb2f023",
+      "content_hash": "3b74f3523acb2dea64a3b1b9e27fbb7687c11f847be25cfb43cc9166d0e66c4a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이속사졸 방제 화합물의 구조이며 분자 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-113869-A1",
+      "source_fingerprint": "60cc7720b2f146ea07ee016acaaca851f8795c292442aeb1fed73dd266ac3046",
+      "content_hash": "eddc3090fc1f50890dff4604d808fa99f8ba4cea9e001d3389b65e7de4e40a70",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "표적 유전자 RNA 간섭을 이용하는 해충 방제이다. 서열·제조 절차는 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-113892-A1",
+      "source_fingerprint": "0545527bcbec09d5c866fbc0f553aade3ae1883727107fafc23256f31d51251b",
+      "content_hash": "6a8171d64224f8fc606f8929ebcaec6ed383ce3d4e478b6e5800ff78aeec2224",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "heterologous-gene-expression"
+      ],
+      "reason": "퀴논 산화환원효소의 발현을 바꾼다. 전자 수·기질·스트레스 완화 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-113895-A1",
+      "source_fingerprint": "ad492cc9383087c41e5a65599cc8c7ef5c6debf3c6cb3d7124d88cde1781c13c",
+      "content_hash": "369014e50fadf4029c33640b0618de9b3e14342ee31a0e2d7cb26da8730b2cb6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "염증성 질환용 화합물의 구조 목록이며 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-113917-A1",
+      "source_fingerprint": "94db69322f70132d1ff902768d67d87eefff6f27d11512bd19a530c79e22c315",
+      "content_hash": "e5ec6a56452086181c50504374e69cdbe42d1f296e882d577c44490d3ebf20da",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "이동 가능한 벽·가구와 중앙 기둥의 건물 배치이다."
+    },
+    {
+      "identifier": "AR-113920-A1",
+      "source_fingerprint": "66c8b9d1642ca3187c2c386faef291fa587cbe2e249bd56c2b913dd3fe702380",
+      "content_hash": "dcb863884fd33b2b3e02ced8dfc276817cd4cda06179b54a496684045f1ef909",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "혀로 치면의 촉각 차이를 학습하는 방법이다. 생체 기계 감각 변환 원리를 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113926-A1",
+      "source_fingerprint": "a25da2b29ee1c860901f222f60d591b528c43001e1b15b1997f967b8d7897e7b",
+      "content_hash": "b826e31866e8a8005d3c81c4c9229d797b978173b1d0c7a3a2ef41cab2ea5c6a",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "PDE1 억제제와 수용체·효소 조절 약물의 조합이다."
+    },
+    {
+      "identifier": "AR-113940-A1",
+      "source_fingerprint": "f02923dc23f6a81f0ed9c8e0b695b2a30e146b8897cc7f955c462f6d592ff288",
+      "content_hash": "d76ac6f29175b234d7b772700f0a1288ef4ecd5b5545bd985a98f7b16c05e828",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming",
+        "mechanical-interlocking"
+      ],
+      "reason": "훅을 접어 전선을 홈에 압착 고정하는 정류자이다."
+    },
+    {
+      "identifier": "AR-113941-A2",
+      "source_fingerprint": "f3b08f2274a5ebbfcd3639391bc006f00e23c97cca58a7bdd007bb3fc409ed39",
+      "content_hash": "dd848c3e7c4127893af54011eefb140fc501e6e14ae423eb56d643b1c8815479",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "외래 서열을 발현하는 식물이다. 넓은 농업 형질 개선 주장만으로 작용 경로를 분리하지 않는다."
+    },
+    {
+      "identifier": "AR-113950-A1",
+      "source_fingerprint": "2e49ea017e96749d00e82db7662d01d7d1cccb5342bd5d2b43e5e53e7329eaa4",
+      "content_hash": "9a133bcbea2c4942d558c066abb9d6dc105e4a46d941d636dd33b36be683d464",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition"
+      ],
+      "reason": "TLR21을 자극하는 조류용 면역 조성이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:09:35.526066+00:00"
+}

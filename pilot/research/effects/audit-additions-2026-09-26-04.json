@@ -1,0 +1,244 @@
+{
+  "batch": "additions-2026-09-26-04.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1000,
+  "added": 20,
+  "after": 1020,
+  "target": 1200,
+  "source_sha256": "25a6c9449412680378e36aee48332bb9d9d1f69b1fef452e94a5651b0fc6428c",
+  "decisions": [
+    {
+      "key": "compton-photon-electron-energy-transfer",
+      "group": 13,
+      "related_keys": [
+        "elastic-light-scattering-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탄성 산란과 달리 전자 반동·운동에 의한 광자 에너지 변화가 핵심이다.",
+      "source_url": "https://www.nature.com/articles/nphoton.2012.82",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "cherenkov-phase-velocity-radiation",
+      "group": 13,
+      "related_keys": [
+        "bremsstrahlung-photon-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "핵 근처 감속 대신 매질의 위상속도 문턱과 편극파의 위상 정합이 원인이다.",
+      "source_url": "https://www.nature.com/articles/s42005-025-02108-y",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dielectric-boundary-transition-radiation",
+      "group": 13,
+      "related_keys": [
+        "cherenkov-phase-velocity-radiation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "벌크 매질 속도 문턱 대신 경계에서의 장 재구성으로 발생한다.",
+      "source_url": "https://www.nature.com/articles/s41567-018-0138-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "smith-purcell-grating-radiation",
+      "group": 13,
+      "related_keys": [
+        "diffraction",
+        "dielectric-boundary-transition-radiation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입사 광파의 회절과 달리 이동 전자의 근접장이 광원이며 경계 관통을 요구하지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41567-018-0180-2",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "synchrotron-curved-trajectory-radiation",
+      "group": 13,
+      "related_keys": [
+        "bremsstrahlung-photon-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "핵 산란에 의한 제동복사와 구분되는 제어된 곡선 궤도·주기 자석 복사이다.",
+      "source_url": "https://www.nature.com/articles/nphys811",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "free-electron-microbunching-gain",
+      "group": 13,
+      "related_keys": [
+        "synchrotron-curved-trajectory-radiation",
+        "stimulated-emission"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "독립 전자의 자발 복사를 넘어 집군 피드백 이득을 쓰며 결합 준위의 반전분포를 요구하지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41586-021-03678-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "sagnac-rotation-phase-shift",
+      "group": 12,
+      "related_keys": [
+        "interferometric-sensing",
+        "gyroscopic-precession-torque"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "위상차를 만드는 원인이 경로 회전이며 회전체의 기계적 세차 토크와 다르다.",
+      "source_url": "https://www.nature.com/articles/s41586-019-1780-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "exceptional-point-mode-coalescence",
+      "group": 13,
+      "related_keys": [
+        "sagnac-rotation-phase-shift"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "회전 자체의 위상 원인이 아니라 개방계 고유모드 합류에 따른 응답 변환이다.",
+      "source_url": "https://www.nature.com/articles/s41586-019-1777-z",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "stark-electric-field-level-shift",
+      "group": 13,
+      "related_keys": [
+        "pockels-effect",
+        "autler-townes-dressed-state-splitting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "벌크 굴절률 변조나 공명 구동의 옷입은 상태 분열과 구분되는 전기장 준위 섭동이다.",
+      "source_url": "https://www.nature.com/articles/s41563-023-01606-0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "kondo-local-moment-screening",
+      "group": 14,
+      "related_keys": [
+        "magnetoresistance"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 자계에 따른 저항 변화 일반론이 아니라 국소 스핀의 다체 차폐가 원인이다.",
+      "source_url": "https://www.nature.com/articles/s41586-023-05800-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "mott-interaction-charge-localization",
+      "group": 14,
+      "related_keys": [
+        "disorder-interference-anderson-localization",
+        "coulomb-charging-blockade"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "무질서 간섭이나 작은 섬의 충전 문턱 대신 격자 전자의 상호작용·채움률로 국소화한다.",
+      "source_url": "https://www.nature.com/articles/s42005-019-0146-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "barnett-rotation-induced-magnetization",
+      "group": 14,
+      "related_keys": [
+        "magnetostriction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변형에 따른 자화 응답 대신 회전 각운동량과 스핀의 결합이다.",
+      "source_url": "https://www.nature.com/articles/s41586-024-07200-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "einstein-de-haas-spin-mechanical-transfer",
+      "group": 1,
+      "related_keys": [
+        "barnett-rotation-induced-magnetization",
+        "spin-transfer-torque"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "회전에서 자화를 만드는 바넷 효과의 역방향이며 전자 스핀 사이 토크와 달리 격자 운동이 출력이다.",
+      "source_url": "https://www.nature.com/articles/s41586-018-0822-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "mossbauer-recoilless-nuclear-resonance",
+      "group": 12,
+      "related_keys": [
+        "nuclear-magnetic-resonance"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기장 속 핵스핀 RF 전이 대신 고체에서의 무반동 고에너지 핵 전이이다.",
+      "source_url": "https://www.nature.com/articles/s41586-023-06491-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "landau-zener-avoided-crossing-transfer",
+      "group": 19,
+      "related_keys": [
+        "quantum-zeno-measurement-confinement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "측정 빈도에 의한 억제 대신 시간 변화하는 회피 교차의 통과 속도로 상태 이동을 정한다.",
+      "source_url": "https://www.nature.com/articles/s41467-024-55588-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "geometric-state-path-phase",
+      "group": 13,
+      "related_keys": [
+        "wave-interference",
+        "polarization-control"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "간섭은 관측 수단이며 추가 위상의 원인은 상태 공간 경로의 기하이다.",
+      "source_url": "https://www.nature.com/articles/s41566-022-01107-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dicke-collective-radiative-decay",
+      "group": 13,
+      "related_keys": [
+        "stimulated-emission",
+        "photonic-density-spontaneous-emission-control"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입사광에 의한 유도 방출이나 단일체 주변 모드밀도와 달리 방출체 사이 상관이 붕괴율을 바꾼다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-29805-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rydberg-interaction-excitation-blockade",
+      "group": 19,
+      "related_keys": [
+        "coulomb-charging-blockade"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전도 섬의 전자 충전 에너지와 달리 원자 사이 여기 상태 상호작용의 공명 이탈이다.",
+      "source_url": "https://www.nature.com/articles/nphys1178",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "bose-einstein-macroscopic-occupation",
+      "group": 14,
+      "related_keys": [
+        "superconductivity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전하 수송의 무저항 조건 대신 중성 원자에도 가능한 보스 통계의 거시 점유를 다룬다.",
+      "source_url": "https://www.nature.com/articles/s41586-022-04731-z",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "superfluid-thermomechanical-fountain",
+      "group": 11,
+      "related_keys": [
+        "thermal-transpiration-pumping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "희박 기체의 벽 충돌 비대칭 대신 헬륨 II의 두 유체 열역학을 이용한다.",
+      "source_url": "https://www.nature.com/articles/141243a0",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ],
+  "scope_correction": {
+    "previous_sha256": "b5fdda932c2c4a16c645576d30f43e46b037b7f65686773bd0af54962ef98707",
+    "reason": "Conservatively identify retained evidence as search excerpts; no assertion of full-text access."
+  }
+}

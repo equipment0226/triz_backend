@@ -1,0 +1,197 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "ed0bd84ca7d0b49aa4937c43e9eb854ce2ecf273caaef34cd39a3668460bf31d",
+  "reviews": [
+    {
+      "identifier": "AR-114589-A1",
+      "source_fingerprint": "3500eb747869bc2f9699648525809bc15ec2cf74ca8e6400fb49fe0df7e797f8",
+      "content_hash": "2e0f5326f683598fb5ef9227ad1fb0be5f14f1671ac24f3b30027ea61d0c8ef6",
+      "decision": "LINK",
+      "keys": [
+        "one-way-clutch",
+        "mechanical-interlocking"
+      ],
+      "reason": "일방향 클러치와 스위블 잠금으로 튜빙의 회전 방향과 위치를 제어한다."
+    },
+    {
+      "identifier": "AR-114591-A1",
+      "source_fingerprint": "58a20f96f77a346581b5e082d13667ce7c177cb464f4a55331dc30d224a5f21c",
+      "content_hash": "cbee8b0e9c61bed4e0ea28b75efda318df66520c783cc4e2bec18e792a6b6b09",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "SHP2 포스파타아제 저해이다. 특정 치료 효과를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-114596-A1",
+      "source_fingerprint": "6717616bd8227d448469b58761b6cb2d49e682d400d0bd1c41b4bf84188b33dd",
+      "content_hash": "05244a13d2a997b4872a56ade4557aab83805e328ec206f03e1b927e6ea98743",
+      "decision": "LINK",
+      "keys": [
+        "ionization-solubility",
+        "barrier-coating"
+      ],
+      "reason": "산성 작용기 공중합체 장용 피막의 pH 의존 용해이다. 성분의 독성·임상 용량은 별도로 다룬다."
+    },
+    {
+      "identifier": "AR-114597-A1",
+      "source_fingerprint": "570eb1b3a5350a1b793458c03a0a1d6bc09c69f8f81508e9467597cc0ef4583a",
+      "content_hash": "d21d64b38186d0acfe2d4e20206c8fa268cff5547834bcaa81261d0df457c8c5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "일회용 인증값으로 거래를 승인한다. 사용된 인증값의 재사용 차단을 별도 후보로 검토하며 생성 알고리즘은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-114604-A1",
+      "source_fingerprint": "7c6ca9a59bf798264206b511a660311b5e613926d7a91ae7ed5640c81843d41c",
+      "content_hash": "978916e9259c8baa44edfcbf23cd64ddfe823e25b6eb2024c0600603c869cf04",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "이오노머 필름의 조성과 중화율이다. 초록에 특정 물성 변화의 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-114609-A1",
+      "source_fingerprint": "84a4adb58759b89e97ec4b7e0d8f56f5a1de287ec96c014be41f7549f0cb28f9",
+      "content_hash": "141ace6b2db49cfaa7c649190184c673fa0b1111229f1b4e83cd501f3233e573",
+      "decision": "LINK",
+      "keys": [
+        "metal-oxide-reduction",
+        "pressure-driven-flow"
+      ],
+      "reason": "환원로에 기체를 분배·주입한다. 산소와 천연가스의 구체 반응 경로는 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-114619-A1",
+      "source_fingerprint": "f88b6e58e3d6e240fa00d959ad6e7ef42b41f80f9ea5a55789eb1d689759eec9",
+      "content_hash": "b2fba7b33effb358da1dd584a66f11fa5c2d8c1166f2eb1fd4b74c119a93fd6a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "철강의 KAM 분율과 황화물 응력 부식 저항의 규격이다. 미세조직별 저항 원인은 추가 근거가 필요하다."
+    },
+    {
+      "identifier": "AR-114646-A1",
+      "source_fingerprint": "00dc2da3d77e0247bef89c0b5fad6bdb5ddb0799d42c9c5650193e8be7e9e6e4",
+      "content_hash": "56f9888ee37bd79ba57c4101310a47f455a0ce2faff2857bf00f64e76ab86864",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "세탁기 첨가제 저장·계량·원격 감시 배치이다."
+    },
+    {
+      "identifier": "AR-114649-A1",
+      "source_fingerprint": "7001c29fc56a46ab894eb9c29eace505f72d7521bded23816a82681cb7fb8ff1",
+      "content_hash": "23007edafa91f5307876e37c264cb580bca17bca65155629e0038ca6415c34ee",
+      "decision": "LINK",
+      "keys": [
+        "thermal-orientation-recovery",
+        "urethane-addition",
+        "barrier-coating"
+      ],
+      "reason": "열수축 필름과 폴리우레탄 부착 방지 피막의 조합이다."
+    },
+    {
+      "identifier": "AR-114674-A1",
+      "source_fingerprint": "065fa408275bae9092c8c354ee948a1b916c2c39b5f1c5304b31154b07cd149c",
+      "content_hash": "1a9c564f09b7b4c79a811b2ae6f8c2c053e43e60115d5b66cfee63c5c795bfb3",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "에어로졸 커버의 움직임을 연결 기구로 표시부에 전달한다."
+    },
+    {
+      "identifier": "AR-114713-A1",
+      "source_fingerprint": "7600f3a125d3e9cc32559b240c0543e57149d3bf39468cc22aa37c5368352b37",
+      "content_hash": "3f2c87f988359a494768e721de9da18a1afb666697d86f40cdd72636452a3e8e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이전·현재 검색어를 신경망으로 판단한다. 초록만으로 지도학습 방식이나 새 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-114739-A1",
+      "source_fingerprint": "3191de95adc4914169ec8dae7d79790c6588cb90edc07984ee8245fa591367c9",
+      "content_hash": "51c00c8bc6ad3b961106c1f7e72432c7c2af3238489e6baff56461ba3a18e386",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression",
+        "biomolecular-recognition"
+      ],
+      "reason": "HSD17B13 RNA 간섭과 간세포 표적 리간드이다. 세포 내 유입 경로는 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-114765-A1",
+      "source_fingerprint": "3e554c17e6782bda7fe7737ed090de7ff5a32ce977cd8f93960d1e890a787a45",
+      "content_hash": "ee86071dcc1dcb1ad783dd408102a5e0b0a26e008ddf925b9cbaf63d35a43581",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "레일·나사·지지대로 흉부 안정화 장치의 위치를 고정한다."
+    },
+    {
+      "identifier": "AR-114768-A1",
+      "source_fingerprint": "f0b6693f8f481f94169e07b1cee715db2062f14ee923c7283832ea1d04080866",
+      "content_hash": "7e7393b6cf08a63fc3d47740a2b091e25b4736ab41f50c1083061f300307a487",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비환원당을 이용한 건조 갑상선 제형 안정화이다. 마이야르 반응 억제가 원인인지는 추가 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-114769-A1",
+      "source_fingerprint": "3a2e19b84bdc7f4f965553119ad2561de3606f625ae4b869b4746191f141090d",
+      "content_hash": "a6a02cf39d5d48511e53d457ee2541e725ec21316e94efa777c7db9a73169556",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "중량 차량의 두 엔진과 차축군 배치이다."
+    },
+    {
+      "identifier": "AR-114784-A1",
+      "source_fingerprint": "bb7cf5469d7fd8b09444dd343748ce0c384dced4508f389c069aae779afc5f8d",
+      "content_hash": "e56cfb92521019ea08343893010a54743ec14df5b55e2858d33f568345c80fad",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-particle-transport"
+      ],
+      "reason": "병렬 흡입 공기 통로에서 캡슐 분말을 운반한다."
+    },
+    {
+      "identifier": "AR-114793-A1",
+      "source_fingerprint": "90c295234e40e585b41f5479911db4c41207a09d4b8258212ea1246f5feed574",
+      "content_hash": "f47240dbebe0da4045bd68c44997580c86fad4a067fd41fa5edf29235107615a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "메틸화 조절 효소 표적 화합물이다. 구체 효소와 조절 방향이 부족하다."
+    },
+    {
+      "identifier": "AR-114798-A1",
+      "source_fingerprint": "12e2007f728f949fa2c61709a544dcade4c0005b44d52697c1324b1c2b8d99e6",
+      "content_hash": "e0b5fef45a0497e9b4cdfa8066f5579f53976843230df721a0c61f7b62b26347",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "에스테트롤과 선택적 프로게스토겐의 호르몬 수용체 작용이다. 치료 효과·처방은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-114800-A1",
+      "source_fingerprint": "303262e730d7b8096cbb632813dd5560153efbf918772a4e654f1668f93d7c07",
+      "content_hash": "c62366788662ccac10216471e19929af6ea4f4a35deb75988e2f6b7dd320b233",
+      "decision": "LINK",
+      "keys": [
+        "acoustic-impedance-reflection",
+        "time-of-flight"
+      ],
+      "reason": "관 양단의 압력 펄스와 반사를 이용해 내부 퇴적 상태를 추정한다."
+    },
+    {
+      "identifier": "AR-114803-A1",
+      "source_fingerprint": "7597074f657334ea6a5b965e2f26de8fc7c7da80bc3482aa5990e5371c0ea717",
+      "content_hash": "bc410c6a417243a0e785ae94256cfb406c7fd15df99d2046e146bf649b4fb307",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "이소인돌린디온 화합물 범위만으로 작용 원리를 특정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:14:07.744662+00:00"
+}

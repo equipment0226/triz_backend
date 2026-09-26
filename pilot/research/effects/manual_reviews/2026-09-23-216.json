@@ -1,0 +1,121 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "6a7fabd928517bb1339caccdeaf79fa8b2666dcaa959cd3a922633f063f36bbc",
+  "reviews": [
+    {
+      "identifier": "AR-112043-A1",
+      "source_fingerprint": "3ea4034f76709c841a473e975d2761ad03b9f6dfa64ba6e4592d3935a73e7dd8",
+      "content_hash": "00ffc101a85b85afbfd8437f986b51c38d155166f33b0760ca4f349423b8a049",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "광범위한 살충 화합물 Markush 구조와 중간체 목록이며 분자 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-112055-A1",
+      "source_fingerprint": "0bdbf18025d907159af5da6732bb98977b56bbaaab833b6a78a5c1c86760e4c6",
+      "content_hash": "d7492a7bab9897059f0548bc5b12de3c53fc8eaa3230ba36450c749e5f4ef58c",
+      "decision": "LINK",
+      "keys": [
+        "hydrolysis"
+      ],
+      "reason": "프로바이오틱 단백질의 수용성 가수분해물이다. 면역·항암 효과의 표적과 임상성을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-112071-A1",
+      "source_fingerprint": "cab83dffa212b9602e59faa864a1ed35ee3f70f4a511ca63c69ee8ed7c757599",
+      "content_hash": "4170d8be5c2ac5ddb003499b3e20d517e8197d4d1c88347a77d99270b836a5cc",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption"
+      ],
+      "reason": "기체 속 액적과 접촉시켜 무거운 탄화수소를 액상으로 옮기고 두 상을 분리한다."
+    },
+    {
+      "identifier": "AR-112089-A1",
+      "source_fingerprint": "f0c0df247fa88f5f063085d5a474fa4ae0d58dce72d68964a303e598f1192b4c",
+      "content_hash": "5de366e4744a88f192f068827dbf2d278270bcc76513966e167abc169b0610a0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "시작·종료 표지 사이 전원 주기 수로 통신값을 표현한다. 펄스 간격 정보 부호화를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-112093-A1",
+      "source_fingerprint": "a9df69db210f3bbd169085b58f593daf7a789179d261d41283c873e2cce0aaae",
+      "content_hash": "3be6a9551c3e19432098b3a0e9da47cbe0d4e61710a9355f9aa94c92882bb6be",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "산업용 카트의 센서 이벤트·통신 모드 전환 규칙이다."
+    },
+    {
+      "identifier": "AR-112113-A1",
+      "source_fingerprint": "0325951c0ea94b511340fb560204579924e24d6e26ccef4abcdb89d8cfd9315c",
+      "content_hash": "5e302065135696c99fec9f76e656c885d44d633656c860cbb45bdd5a9c84af8b",
+      "decision": "LINK",
+      "keys": [
+        "transcription-factor-regulation",
+        "metabolic-flux-redistribution"
+      ],
+      "reason": "Nic1 ERF 발현·활성 변화로 식물 알칼로이드 양을 바꾼다. 생산량 강화 절차는 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-112119-A1",
+      "source_fingerprint": "8b78c229fd1deffe7796bc5eb8dd31694ffae676897b217bd803d75f8317f908",
+      "content_hash": "30377bb9abed156087d995b2e12fcd947cb8a0f4b5f65ff33d1f02e88e614069",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "지방산 아미드와 이염기산을 쓰는 필름 슬립제이다. 표면 첨가제 이동 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-112125-A1",
+      "source_fingerprint": "8ecd33d00846a0b24704970a7d1441463393f9b1bfc74594c603768bfe89c38c",
+      "content_hash": "0dcbf6347be86c2081ab2ef365edc1a4bc0824bdb8c7c3626cfc7af8154c40af",
+      "decision": "LINK",
+      "keys": [
+        "coordination-complexation"
+      ],
+      "reason": "철·망간·아연 킬레이트를 선택적으로 포함하는 농업 조성이다. 수량 증가·살균 상승효과를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-112129-A1",
+      "source_fingerprint": "13594eb3e9847b348d4f6a59e63476e6fe8e41b4f407d15d9eb175773f8e37a1",
+      "content_hash": "dafe88efdf14ae7b1393ea31a8d40f1a4fdcf5a35c5471639dc097fe027cde34",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "에틸렌·아크릴레이트·글리시딜메타크릴레이트 중합체 혼합 비율이다. 에폭시 개환 반응을 실제 수행한다고 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-112131-A1",
+      "source_fingerprint": "b7c64d582ea55cb5bd5f645b47f60bfd2a5b48bc280ade623191528bdc4d1875",
+      "content_hash": "71c355070583cef56bdf290a8cad2c1768965a54c29015bfd384b1a8ad1fe167",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "sieve-size-separation"
+      ],
+      "reason": "분산 제형의 계면활성 성분과 습식 체 잔류 평가이다. 입체 안정화·전하 반발 기여는 미상이다."
+    },
+    {
+      "identifier": "AR-112166-A1",
+      "source_fingerprint": "18eb8d40cb59896814f842757c3623e56531e2aa755ca485be2b2e9aeaa39857",
+      "content_hash": "e6d42d9eabf6d8df07d7123226e3455faacbc89f893b0dc877399cf67f2073a5",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "RNA 간섭과 인터페론 신호의 치료 조합이다. 표적 서열·전달체 제조·치료 절차는 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-112174-A1",
+      "source_fingerprint": "8c97e411a9aa06e09b870029401ca0256bc75c60f7a3f329228638a3f1df093d",
+      "content_hash": "65e7e72565b7996797e2cdf40afad97f40ffccf365a8701e3463e0e545d2678c",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "유연한 가지의 변형·복원으로 용기 내부에 장치를 고정한다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:58:42.045700+00:00"
+}

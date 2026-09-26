@@ -1,0 +1,184 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "e8c1d4367fc356681ba578dadd96f468333b49699c6238677e0c6a1ca6c69f51",
+  "reviews": [
+    {
+      "identifier": "AR-105671-A1",
+      "source_fingerprint": "e8c3339ec1175711edb06fe607bb5f685ac44559ffe7e3b13a07b9810ebb0b0e",
+      "content_hash": "1dc31a4c51afd4de81b39df0e3928508212d5ef9354a28f0c4d7934b6b32b80e",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "메티오닌 아미노펩티다아제 2에 대한 억제 작용을 다룬다."
+    },
+    {
+      "identifier": "AR-105718-A1",
+      "source_fingerprint": "bbc2dab14d1f4ba5574211d8902ca677c99d066d9e4897329dc45c175e2d8c87",
+      "content_hash": "b9a39ee4529021372a8b602308e59cf6a0f652e85c2211ad8cca17563b5c8c1b",
+      "decision": "LINK",
+      "keys": [
+        "bulk-comminution",
+        "thermal-biological-inactivation"
+      ],
+      "reason": "가압·분쇄로 습윤 고체를 가열해 미생물을 줄인다. 제시 온도만으로 완전 멸균을 보장하지 않는다."
+    },
+    {
+      "identifier": "AR-105741-A1",
+      "source_fingerprint": "e6ebb41812b0b1ef59afb301189836b9096d2845f6f47fba39b760687a3432ad",
+      "content_hash": "5909080a5c4b99a29e7bfaa762167e67e0d890945b6f0cc7b20116d7c960945b",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "효모로 포도 유래 당을 에탄올로 발효한다."
+    },
+    {
+      "identifier": "AR-105751-A1",
+      "source_fingerprint": "01f113b94d211c33f653d750f717c82dc569e997c073839a5fc84c524697e922",
+      "content_hash": "afdac693a37f5505eb50742bb4457814e343bb7d309ad1a47d2745a6c97c25cb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "총기의 탄약 공급 기구 배치이다. 개별 무기 성능 개선 정보를 신규 효과로 적재하지 않는다."
+    },
+    {
+      "identifier": "AR-105757-A1",
+      "source_fingerprint": "e825fbc4c47c96db946c244c3337aa32ee646f3d6c4ec5bd764ae33d07929d95",
+      "content_hash": "45658c0bab4f638c9d7f279fc012abdc33c2ac10c6eea6e62620b4158ba750e1",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "JAG1 결합 항체와 재조합 생산을 명시한다. 결합만으로 Notch 차단을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-105776-A1",
+      "source_fingerprint": "ec9b3cb85579ce0ef5d5f558f0744e314b170fb25e0f2ebef15897a0df4b443e",
+      "content_hash": "2a71dbf7134fc82439ce04ff7f9dd10020727f76c6205c20964ab61c40b9db15",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "특정 유전체 좌위의 재조합을 촉진하나 상동성·효소·절단 경로가 없다."
+    },
+    {
+      "identifier": "AR-105780-A1",
+      "source_fingerprint": "5520ebb910cf5e806dd03e2fab67a3b8fc94f4de4c9f58be66c6cb2072a48708",
+      "content_hash": "f11bd149f12d2c1a7d4e009a52c309a1add78a9b7c5accc2c5facd9f21ee6b69",
+      "decision": "LINK",
+      "keys": [
+        "photosynthesis",
+        "heterologous-gene-expression",
+        "coagulation-flocculation"
+      ],
+      "reason": "Calvin 유래 탄소 고정·생산 경로 및 양전하 표면 단백질의 자가 응집이다. Rubisco의 CO₂ 고정 반응 후보를 확인한다."
+    },
+    {
+      "identifier": "AR-105786-A2",
+      "source_fingerprint": "e2606006e1711bd3dffbc3ce74f91455a8b7ce461113b3f092c498fbfe6a351b",
+      "content_hash": "26edad40e9ebb8050751f7b2a7349b3f54238f6326e119036b14c5de55007088",
+      "decision": "LINK",
+      "keys": [
+        "pressure-compaction",
+        "hydrolysis"
+      ],
+      "reason": "리그노셀룰로오스를 치밀화·조사 후 당화한다. 조사만으로 특정 라디칼·사슬 절단 경로를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-105788-A2",
+      "source_fingerprint": "8916cd7adfab50a837d74612eb3976843d7b2a5b8f05e9660f26e9fc5adeb0af",
+      "content_hash": "cab974dc20cd26ac5f6af47e0e03e46c6ea37366210f10db261ad6152711fc6d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "방사선 조사량을 나누고 중간 냉각하는 처리 배치이다. 냉각·조사의 구체 변환 기전은 없다."
+    },
+    {
+      "identifier": "AR-105798-A2",
+      "source_fingerprint": "14245be72e203fc0e1cb8ff8623bf44b6b7a2055817d15e5b80a12949d2c735d",
+      "content_hash": "187491dcaa274e54d2a80b85188fda1add560be43fe1e4ac52b606eb2bbfcb00",
+      "decision": "LINK",
+      "keys": [
+        "ion-exchange",
+        "gelation"
+      ],
+      "reason": "이온교환 수지에 약물을 결합하고 겔 형성제로 제형을 증점한다."
+    },
+    {
+      "identifier": "AR-105806-A1",
+      "source_fingerprint": "f1e8da4b00074bed5443b9187ea7ed3a6f999d831ae8468702d76c361d9979a3",
+      "content_hash": "570c0f84a5db4cd2865039f5c92484b3a1dd360edeb1b507e4c2fd1840a1f5c9",
+      "decision": "LINK",
+      "keys": [
+        "magnetic-adhesion"
+      ],
+      "reason": "자석 경첩으로 조명 큐브를 결합한다. 자기 스위치 종류가 없어 홀·리드 센서 중 하나로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-105812-A1",
+      "source_fingerprint": "9bd5f51150d50075c97aa61c4a047ddfcd0eae6b715dea1016bf2ff8c9439a5d",
+      "content_hash": "eb9b709b21cba4768675b783faac55e98244047cd1d9dc6a10271423cd330617",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "도면 화학식 사이 변환만 제시되어 합성 반응 경로가 없다."
+    },
+    {
+      "identifier": "AR-105815-A1",
+      "source_fingerprint": "23db445c627f4a0679dafff9796d6b18863361ddbf2be8e20ebe16e22fe8b22b",
+      "content_hash": "913acd8266d6772e6bcaaeeef95ca84c4b56e76b0dbc8eb433fdf1713f57d15c",
+      "decision": "LINK",
+      "keys": [
+        "genetic-loss-of-function"
+      ],
+      "reason": "Lpx 유전자 변이로 리폭시게나아제 활성을 낮춰 산화 안정성을 바꾼다. 외래 유전자를 넣은 발현 방식이 아니다."
+    },
+    {
+      "identifier": "AR-105824-A2",
+      "source_fingerprint": "9e1647b794131d94070c9f8a1806cd35da88f1a1402f1f906dbd57c87e1b7cbd",
+      "content_hash": "a989b62cf5be99366eb6bb3cc074f735c91a8d796f57a3790d535aec0cd1ab4c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "핀으로 펌프 라이너를 한쪽 하우징에 고정·분리한다."
+    },
+    {
+      "identifier": "AR-105829-A1",
+      "source_fingerprint": "337ad718b40f64592ca2978424830d91a58e5fbfcd051ba04805f3ea43581430",
+      "content_hash": "6e8d187b7f3bfbfb969a458e14a195e593904ff73a7079ab3a890f9cb79f292b",
+      "decision": "LINK",
+      "keys": [
+        "induction-heating"
+      ],
+      "reason": "변동 자기장으로 내부 발열 부재를 가열한다. 교류 손실의 세부 기여는 소재에 의존한다."
+    },
+    {
+      "identifier": "AR-105831-A1",
+      "source_fingerprint": "f6448503b9ef5a0c08cc6dd0064e74a5df7b0b1c9951234c123730b73fa5fde1",
+      "content_hash": "7b7f8c8de4ef142f5b4d70df72c70b3766147158ee9f4eb1c313e3557bea2f5e",
+      "decision": "LINK",
+      "keys": [
+        "lewis-acid-catalysis"
+      ],
+      "reason": "루이스산 촉매를 포함한 무수말레산 그래프트 PE 접합층이다. 표면 그래프트 중합 과정이 명시된 것은 아니다."
+    },
+    {
+      "identifier": "AR-105838-A1",
+      "source_fingerprint": "9bcd2883cea16476465f48480e01d03b0d866d57f86b7a0b0b53a2390a5e67c9",
+      "content_hash": "8529160a9189c9120ff422f00a4d7950fcc908e55d171926e754bcafaed0fdf6",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "TIC 계열 살충 단백질의 재조합 발현이다. 작용 공극 구조는 없다."
+    },
+    {
+      "identifier": "AR-105848-A1",
+      "source_fingerprint": "c2ecdcad30a6fdea0099e40cad092dfa5bf0c84c3551d5be1941d9ed1217b9b4",
+      "content_hash": "507693703d6521a12356bb3c1e1f20693acbf92888d25ec96afaaffff5fdcb05",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항균 헤테로고리 및 전구약물 화학식으로 표적·활성화 경로는 없다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:28:23.886292+00:00"
+}

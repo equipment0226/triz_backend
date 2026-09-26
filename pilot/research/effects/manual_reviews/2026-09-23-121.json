@@ -1,0 +1,232 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "16ca2b87b5d02a700876e6e1209fa29e7579a28a494499953f5fbcd994cbc748",
+  "reviews": [
+    {
+      "identifier": "AR-092142-A1",
+      "source_fingerprint": "ee867252baa9c42c2d25edd3d1c1d4e6e2eb3017b0e8c83957b972cf3cc53cf4",
+      "content_hash": "2d06785709e02c84fd361c9fa04ec9a5048e4e4a6566bd8581ab6527709cbd72",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "벌의 건강 결과에 대한 주장만 있고 ABA의 구체적 신호 경로는 제시되지 않는다."
+    },
+    {
+      "identifier": "AR-092153-A1",
+      "source_fingerprint": "a1f9129e1bd2657891e0a9d0850e1aceb9ccae3457bb271a5f41d3be6b57716e",
+      "content_hash": "0f97dcd2ab2fd1884c12e5eb8b9e19bb34e507e2e23e2db7b4b223b72f6c59e7",
+      "decision": "LINK",
+      "keys": [
+        "coriolis-mass-flow-sensing"
+      ],
+      "reason": "진동관의 코리올리 모드를 검출하는 질량 유량계이다."
+    },
+    {
+      "identifier": "AR-092157-A1",
+      "source_fingerprint": "e5adc5f1e48ca6a57a24c1e5bc42886b1cfdfa0e1f72c34993d16ff25228d70d",
+      "content_hash": "c6545a11f80c488e62523355733317b4b127c25367e937ee49a9a663fd0e463b",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "friction-damping"
+      ],
+      "reason": "패드의 삽입·고정 경로와 마찰 제동 구성이다."
+    },
+    {
+      "identifier": "AR-092171-A1",
+      "source_fingerprint": "d916f4ab862343f5e47274b36895f335c4cc5fef07dc98b1e09f87849b70f004",
+      "content_hash": "41b05bf6b8523e08ebb866f620496a3233903f6907986d4f68e2495be07c0071",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "heterologous-gene-expression"
+      ],
+      "reason": "P450 모노옥시게나아제의 대사 반응이다. 산소 원자 도입 원리는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-092181-A1",
+      "source_fingerprint": "260eefcc007edfb9be965ea9a1a4008ca2435424c8bab5ea150463b62fcd6248",
+      "content_hash": "4178bafa0937d1ff1f811eeeba31d215a3072a3b4603b3e3382366f431ce65b1",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "외주 돌기가 고체 기판을 물어 체결하는 앵커이다."
+    },
+    {
+      "identifier": "AR-092191-A1",
+      "source_fingerprint": "afcba28c9722742973744a32ffb68055420bfed804af8ee7abecf11fef729b28",
+      "content_hash": "1e6cd5f9e0209720289dbe1ed3abaefbbb744877fd577d3f259b819d2691412f",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "환형 안테나와 집적회로를 이용한 근거리 캡슐 정보 전달 구성이다."
+    },
+    {
+      "identifier": "AR-092204-A1",
+      "source_fingerprint": "61c51f625b8671be19f166cfd06ce3561638cf9856be5c7982faab593cc83da2",
+      "content_hash": "f59c7e5360bee7f29d6df0335ae7cc5c262bc1bb2422ddbb17455dd9b9a05c08",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "혈관 분지에 맞춘 메시 임플란트의 형상·고정 배치이다."
+    },
+    {
+      "identifier": "AR-092208-A1",
+      "source_fingerprint": "6aae216b960defabc6f286dbd03cad9b72bf421e281651976877a51aae843362",
+      "content_hash": "f85f0556c94f61787d607312213c1c40f3bea8395902222182e9c3c897c75309",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating"
+      ],
+      "reason": "고체 연료 점화로 숯의 연소를 시작하여 조리열을 공급한다."
+    },
+    {
+      "identifier": "AR-092217-A1",
+      "source_fingerprint": "801be6d8c63b02a10983f51af2e8a91a2c47a5bf3d38fbed5afc7847b94df181",
+      "content_hash": "ee4b25d34f513de274f3a4d6f0cb9b81b63117f9a25e004d766f0890e6c6c348",
+      "decision": "LINK",
+      "keys": [
+        "metabolic-flux-redistribution",
+        "heterologous-gene-expression"
+      ],
+      "reason": "경쟁 효소 경로를 줄이고 산화환원 효소를 발현해 발효 흐름을 바꾼다."
+    },
+    {
+      "identifier": "AR-092254-A4",
+      "source_fingerprint": "3297db28ebd93747591bbeed3c089d04677c3ed367e1582de14f1a939ce0af84",
+      "content_hash": "3a0f265ddb0b6994ec8a9fde5dee0146c4f15bfca717500e86a6962b67d54dc5",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-contact-switching"
+      ],
+      "reason": "버튼 접점으로 동작 횟수를 기록한다."
+    },
+    {
+      "identifier": "AR-092260-A1",
+      "source_fingerprint": "3b5da5f4a70c806452c389ae60ec3a94106f16c80920f1ae7523809c8a106f90",
+      "content_hash": "39c53bb353ae8a31ccb2abaf3d594c090d49691c4706b6db47d7825492761665",
+      "decision": "LINK",
+      "keys": [
+        "xray-attenuation-imaging"
+      ],
+      "reason": "종자·열매 내부의 X선 투과 대비를 영상화한다."
+    },
+    {
+      "identifier": "AR-092264-A1",
+      "source_fingerprint": "782a06bff3c699d11d78b479303eff4e5c99f719d766de0683ab2272654cd52e",
+      "content_hash": "4ddfdf774ef415a4645f07f4b8555af29b1b648309dffce9e49e8bc80d945766",
+      "decision": "LINK",
+      "keys": [
+        "fibrous-filtration"
+      ],
+      "reason": "섬유 여과재이다. 투명도와 보강의 세부 원리는 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-092265-A1",
+      "source_fingerprint": "75b27aa4578c3d2dfa365e4e4a6e700f32cd47fac44c188e0694a369255178eb",
+      "content_hash": "d11244ab6e21410621976237aa13c9fe8a6ad13338c4470604d4b23966f5b327",
+      "decision": "LINK",
+      "keys": [
+        "gas-absorption",
+        "claus-sulfur-recovery"
+      ],
+      "reason": "알칼리 세정액의 흡수·탈거와 Claus 황 회수 공정을 결합한다."
+    },
+    {
+      "identifier": "AR-092285-A4",
+      "source_fingerprint": "e8695b8849f12143be80e1cc5f74e70f453c3b5a3f7cbff0a62233e4c849ca88",
+      "content_hash": "f0663ef95e765dd5025a9a06ed0feb4e20ccc2c46330ad2b0f7592a04cf288f7",
+      "decision": "LINK",
+      "keys": [
+        "porous-gas-trapping-insulation",
+        "fourier-conduction"
+      ],
+      "reason": "발포 재료의 단열과 열교 감소를 의도한 패널 배치이다."
+    },
+    {
+      "identifier": "AR-092297-A1",
+      "source_fingerprint": "1329a253325a37582aec17d06d61452bd960ca9e3a6e6c0cd60bb067790f20d0",
+      "content_hash": "ae6aaed74310c61663725bb1d03a4380ba2b14efae5669b8233761b4fade8e5b",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "건조·습윤 성분을 장벽으로 분리하는 포장 구성이다."
+    },
+    {
+      "identifier": "AR-092318-A1",
+      "source_fingerprint": "2b9bcd8877814047cd934aa4473a1f249b33be322c5422a51f0f15a102de5699",
+      "content_hash": "30de19c80492c52873dc85996324d15b1345a521c3254a28eb1fd2629c87a7bc",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "osmosis"
+      ],
+      "reason": "완충제·염으로 산도와 삼투 농도를 조절한 용액 제형이다."
+    },
+    {
+      "identifier": "AR-092329-A1",
+      "source_fingerprint": "aed553f654baa575a20e2b88f2ba319738d95fecc5ef547578b332d1577c9176",
+      "content_hash": "9c9b02500bc8c18cd1f675de8a7fb804e518fcfbe4955a1a85b9ee3925b6a22c",
+      "decision": "LINK",
+      "keys": [
+        "adsorption"
+      ],
+      "reason": "압력 변동 흡착 분리가 명시되어 순환 재생 원리를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-092330-A1",
+      "source_fingerprint": "315308e934847cd6d5c92a2eea86fd33858e56000ef7da17820601de5350cf6d",
+      "content_hash": "8a260e359410adaf5b4524153c21220fb5d13320ce0a78b08cedde2710e53fb4",
+      "decision": "LINK",
+      "keys": [
+        "first-pass-metabolism-bypass",
+        "ionization-solubility"
+      ],
+      "reason": "경점막 전달과 염기화 제형이다. 이온화에 따른 막 분배는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-092343-A1",
+      "source_fingerprint": "cdd9676390f9d99d8e05cdb94df1870c587acde5d8e7b70183befac5150b3147",
+      "content_hash": "f2306c3a08401735aeb6c5187c759890eb579ed730911164d4266802281413d6",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "재조합 단백질 발현이며 초록에 없는 살충 기전을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-092348-A1",
+      "source_fingerprint": "443faa93cc5038f5f47741fba69d4f62d9aa39261eda7eb5f07e0c9f1e29be5d",
+      "content_hash": "8c142846bc08d09627b46224847525302071602591704ae35be2c58468801273",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "transcription-factor-regulation"
+      ],
+      "reason": "RORc 수용체·전사 조절이다. 긴 구조 목록은 저장 중 절단되어 구조별 작용을 판정하지 않는다."
+    },
+    {
+      "identifier": "AR-092368-A1",
+      "source_fingerprint": "d47f779218282c2a065e314bf746353ec9d5bcdb68168f8f3cc4e4e5253ebb2f",
+      "content_hash": "5898f61f7f090c27c6204526ed0f2735abeeafcb9411f5ac9e82e7ea00b23239",
+      "decision": "LINK",
+      "keys": [
+        "nucleophilic-substitution"
+      ],
+      "reason": "티올과 할로아세트아미드의 결합 반응이다. 환원에 의한 자유 티올 생성은 별도 후보이다."
+    },
+    {
+      "identifier": "AR-092370-A1",
+      "source_fingerprint": "a670aebc4f3834f37be3a28def6eecd76c48be513d996725a700d09c60a50152",
+      "content_hash": "eeb4d5d32f6727156d0c9b93f42882686384bf5183e4aa6a3d9b6b9c8b3699f1",
+      "decision": "LINK",
+      "keys": [
+        "pressure-sensitive-adhesion"
+      ],
+      "reason": "점착 표지의 시각적 대응 구성이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:22:59.172910+00:00"
+}

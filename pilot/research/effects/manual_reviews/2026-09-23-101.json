@@ -1,0 +1,180 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "6c59018fa24e7851c8990f3c7175c588ca1354d981d8f3cd37fe97efbe44f7d7",
+  "reviews": [
+    {
+      "identifier": "AR-086783-A1",
+      "source_fingerprint": "24b9d468c486e3876de5ca36173fcf9f72a0cfdfbbdd78155bb5f4fb37255742",
+      "content_hash": "90fdf2f0521a5e30599461226cf6587a1d4fc185c3f253b26769160f28428d90",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "BACE 저해를 명시한다. 긴 치환기 목록 일부가 저장 범위에서 잘렸으므로 구조별 효능은 판단하지 않는다."
+    },
+    {
+      "identifier": "AR-086790-A1",
+      "source_fingerprint": "9d9e2a3bd883b6163fba5c0ab9aa44898a374c5d40e50fe69099d840557bc84c",
+      "content_hash": "28583611c8d06c1737f20e9dd5cf14968c9493041a10eddf8eb0c77ea4ad7b54",
+      "decision": "LINK",
+      "keys": [
+        "fermentation",
+        "metabolic-flux-redistribution"
+      ],
+      "reason": "포도당 유입 관련 유전자 발현을 바꿔 발효 생산을 조절한다. PTS 수송과 인산화의 결합 기전은 문헌 대조 전 후보로만 둔다."
+    },
+    {
+      "identifier": "AR-086793-A1",
+      "source_fingerprint": "5611888a6cc1c18777bcca5bf37d1881edd55a6fa1491d5611584879c16879ea",
+      "content_hash": "9f9aeabc63533efcb69e276e4871b1492583930b3e61db669856a97d0a216ba2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "ECG 전기 신호로 심실 동시성을 추정한다. 생체 전위 발생·측정 원리와 진단 판정 알고리즘을 나누어 추가 확인한다."
+    },
+    {
+      "identifier": "AR-086801-A1",
+      "source_fingerprint": "5c6782af7e2f22186835d470a918865dca0020191b47303dca9a6280a22aa597",
+      "content_hash": "e77d1ce835935e586bc6034d01a625048b4514a4b9fdbb25d876cb3f5c5d6521",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "리그닌 혼합물의 탄수화물을 효소 가수분해해 제거한다. 최적 조건 수치는 주어지지 않았다."
+    },
+    {
+      "identifier": "AR-086822-A1",
+      "source_fingerprint": "4b3b0108e908964e6561983ccd9bf78f9dcf69eb23279412340a6aab9e6730ac",
+      "content_hash": "0e4c8f452486a8706bcd16f6eaa3a20f5467ea87b02a7153f2eef192526ef799",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "파일럿·스풀·차단 밸브와 펄스 제어 구성이다. 누설을 판정하는 측정량·물리 모델은 미상이다."
+    },
+    {
+      "identifier": "AR-086835-A1",
+      "source_fingerprint": "8b6c6a166b31244cd64e581f828ca121e3293ec81dbea31905d694ad853f1b23",
+      "content_hash": "5defa061000e0bbae1f3f73b9fe7e542d3e6f232d3643f89452ec8a6cd432f34",
+      "decision": "LINK",
+      "keys": [
+        "refraction",
+        "diffraction"
+      ],
+      "reason": "렌즈 이동과 광학 위상 분포를 결합한다. 위상 지연의 정확한 구현과 조절력 수치는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-086843-A1",
+      "source_fingerprint": "45353af2550ad60849073bf2a5a2e0ed02e37b26f1d83a6132911e8fb90968fe",
+      "content_hash": "93e02485121b5a78c3738a8b360b7da9b461e064988f51ec75d9f95b704878ea",
+      "decision": "LINK",
+      "keys": [
+        "subtractive-color-mixing"
+      ],
+      "reason": "염료의 선택 흡수로 색조를 조절한다. 형광은 언급되지만 검출 용도는 아니므로 형광 센싱 항목에 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-086845-A1",
+      "source_fingerprint": "776dff31d0c69d4b116fbadf7c4dcfa4d9463a10e4cfaccf3b24d963d58872ed",
+      "content_hash": "a48595f7ec88d0afbe4bcfae2c403e31f9372f16345eb99010d84ca235fbb346",
+      "decision": "LINK",
+      "keys": [
+        "sintering",
+        "pyrolysis"
+      ],
+      "reason": "수지 입자 성형·소결·탄화를 명시한다. 활성화 기체와 흡착 성능은 초록만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-086861-A1",
+      "source_fingerprint": "21016f5ea574a126b6705f1a22d8d0afb71c357e13830c7be967b4b241d72a1f",
+      "content_hash": "af9a4826c642d04104133a04a18fedede608cb0e47189cae3c37fbff2a4cb108",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "유중 분산 살충제 제형이다. 생물 표적이나 분산 안정화의 지배 기전은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-086867-A4",
+      "source_fingerprint": "7b79c5691da1deb4bb741da71874307c8800fde2a540b481a6a3bb7b99a7bfe4",
+      "content_hash": "35cdb8ddd5034ea8640850476627d707d1cfe875e2d60aa18f5a2ba441c6a4fd",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "지퍼 맞물림으로 가방과 매트 형태를 전환한다. 제품 형태 자체를 새 효과로 만들지 않는다."
+    },
+    {
+      "identifier": "AR-086883-A1",
+      "source_fingerprint": "7ddf0f65d499dd4c450745d552555d5c397c4d714a5c632ff92468374370fe3a",
+      "content_hash": "76364a0fa7e678b3ff282f237084da7e7cc8157ad9abbf68aedd088343ca788d",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "bulk-comminution"
+      ],
+      "reason": "계면활성제를 사용한 유중 현탁과 분쇄를 명시한다. 입도 단위와 구체 안정화 기전은 검증이 필요하다."
+    },
+    {
+      "identifier": "AR-086884-A1",
+      "source_fingerprint": "548c5b781fd1f90e3d0672c4ef29321734a29e06ede475b1bbe0e1c8ba081ed0",
+      "content_hash": "c4d3eda62ed21fc5cf8a0aa8aca40a2b35f3c2839168f63cae6895395417a744",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "진동계와 압력 센서의 값을 결합해 정압·기체 혼입을 추정한다. 관측식이 없어 코리올리나 특정 공진 원리를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-086886-A1",
+      "source_fingerprint": "d3b4fd55c4fabd4660173b675fc46da42824a5bea40841844a9183146b666284",
+      "content_hash": "e7675a72ef2b269a592a041ceeb61bcc80cbdd3f021f9dc97dbb7598ba39e5e0",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "분류판으로 유체를 여러 방향에 분배한다. 단순 유로 배치이며 코안다 효과 등은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-086894-A1",
+      "source_fingerprint": "a64e67445c53a1005d190e9ab6465a87b7beee54bdc51654f1f07afe9b61e408",
+      "content_hash": "e581fd5f2631a5741092e5a50a71421c7042a805acde089f407c6e4af1d70ff0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 화합물 구조와 용도만 있고 생물학적 작용 표적이 없다."
+    },
+    {
+      "identifier": "AR-086900-A1",
+      "source_fingerprint": "2b00f227cc69b0ee6cebaaf173badb492037c2bf89b4d9a28a56236aeed1dcbd",
+      "content_hash": "294daeacdf97912853c0e5484db44a2e03c601f33e8c9406158800f8a42d0fa2",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "돌기와 홈이 한 방향 삽입을 허용하고 역방향 이탈을 막는다."
+    },
+    {
+      "identifier": "AR-086930-A1",
+      "source_fingerprint": "77970db71ed242e589b87d0bd6984f6bcfe38941a9dc6f44ce855176d09695af",
+      "content_hash": "68c4bb283681a09041c843ae02c64aa5b99825d823e6ded569ae092ae85e618b",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastic-energy-recovery"
+      ],
+      "reason": "탄성 변형되는 걸림 요소로 카트리지를 고정한다."
+    },
+    {
+      "identifier": "AR-086937-A1",
+      "source_fingerprint": "fb27b0c9728d0f56602a3d2f895daada3d1d1f1bfe0e52d3b8f7c54cf869478a",
+      "content_hash": "f6c819ee55774ae013abcd14a8b592b897edd3e4a6703f973fb30908c8eb8086",
+      "decision": "LINK",
+      "keys": [
+        "hydraulic-fracture-opening"
+      ],
+      "reason": "주입 압력과 형성 균열을 이용해 지층 응력을 추정한다. 역산식이나 정밀도는 초록에서 확인되지 않는다."
+    },
+    {
+      "identifier": "AR-086987-A1",
+      "source_fingerprint": "57a1a15848bd609412bbedd89c49551e059279901387572ae4d41ed290300644",
+      "content_hash": "67d10ff182e775abe8f9db1453a16da79d8e0458d69417aaf997f6562e9e67e4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "중수소 치환은 명시되나 반응 속도나 대사 변화 근거가 없으므로 동위원소 효과를 단정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T00:00:16.042853+00:00"
+}

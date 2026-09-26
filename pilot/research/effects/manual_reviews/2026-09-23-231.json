@@ -1,0 +1,458 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "204c3b12055307206dc14fba5c9845796cdf1d8bc5a740e0ca32b0f3b9eec007",
+  "reviews": [
+    {
+      "identifier": "AR-114811-A1",
+      "source_fingerprint": "b41976ba0c27fadee5f4d5921d78075f035348444b12c7a92697821973a7693d",
+      "content_hash": "903fd6e452bd63a3b3bc1ea8fb4fbbf5c5cdaa181e6cb83b5f2bf7068ebf3a8b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "위험물 용기의 접근·덮개 배치이다. 폭발물 제조·운용 개선 방법을 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-114813-A1",
+      "source_fingerprint": "4d743753e13d8f0ca9bc553d99cfad537ba09056bbe21f4db3207c70a7fba4e6",
+      "content_hash": "92cf527104c2966ec642dc222b4f2dbbb2437d91a2aa5499dcf99075f34355e4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "산·당·염에 의한 식품 보존이다. 약산의 세포 내 산성화와 수분활성 저하를 구분하여 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-114819-A1",
+      "source_fingerprint": "cce20e7a751d27143a768f5d5bbc5755aa9b89c774585b12fc27e31b3b920821",
+      "content_hash": "50ab5dad663e4c2d8c015251d4abcccdf63fed13c9fb25cfd3c9010e7686ca37",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "휘발성 티올을 흡수·반응 포집한다. 포집 시약과 결합 변화가 없어 특정 반응은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-114835-A1",
+      "source_fingerprint": "84d41aacfe7666f66f51adf0a637b8821a0f94b6cfcd73116f9283f284c7a774",
+      "content_hash": "c16aa76b95e3e6617d491bab3a4c4981f58cbc78679c690d56ea578b7108caa0",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "사이클린 의존성 키나아제 저해이다."
+    },
+    {
+      "identifier": "AR-114839-A1",
+      "source_fingerprint": "1cfde38b64ba98b5ef7ae2eb2eef09332d1cf5be38e7c92d7178d5f2eb2a6ff2",
+      "content_hash": "8b9546fe74efb1a8c9c05ff1c17fb82ef4bb8c83557bc90e5f3b1172a4982c82",
+      "decision": "LINK",
+      "keys": [
+        "physical-foaming",
+        "pressure-driven-flow"
+      ],
+      "reason": "생성한 거품을 시추공 환형 공간으로 주입한다. 발포 시약·반응은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-114843-A1",
+      "source_fingerprint": "25c102cface1c96216044da0a54d43eb967f3c3d57fdb102313dba289ff0cac0",
+      "content_hash": "376eff31d5341683c6a0b7a910af5698c6eb0506f58a9cff71bb550b6871f740",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "항체가 폴리 GA 반복 항원을 인식한다."
+    },
+    {
+      "identifier": "AR-114848-A1",
+      "source_fingerprint": "ec7fc10d544d056aa874ae0c885dc7e3e9afc78d57dda54ed56f95a927808487",
+      "content_hash": "8a1979472be8c89cf7345176af1e0162b9306720787bd85e0ea47d6f6d974605",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "필터의 내독소 검출 관리이다. 측정 반응·검출 방법이 특정되지 않는다."
+    },
+    {
+      "identifier": "AR-114860-A1",
+      "source_fingerprint": "6f776df7c12e14c7cdf2db433001c63799a689e273987118199d7dde768fbcb2",
+      "content_hash": "86cb07efffc2fb9fb30a64933f7d502449f4ce1bb0d1d13859224330700a2fdb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "종자 센서의 하우징·경로·장착각 배치이다. 센싱 원리는 없다."
+    },
+    {
+      "identifier": "AR-114863-A1",
+      "source_fingerprint": "a75ba8f75cc37578b255d6c7f55d8407d315f1700b8e70551c5388d63262b838",
+      "content_hash": "aef6831b4647d35f839d9f9cd6d24378489cd19b07b9d6ccd6ebc6c62a99f80e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "공기 입구가 자체 중량으로 아래로 처져 빗물 유입을 제한하는 구조이다."
+    },
+    {
+      "identifier": "AR-114864-A2",
+      "source_fingerprint": "2d5158df77d1a0fa973e1fe0c4d9f3385e2282e548bd9475b749a8d8bee71fd3",
+      "content_hash": "71fc0ebde30b94101a6aa6da60f811fb5d2af2a09f1874a3973f66f46e282d76",
+      "decision": "LINK",
+      "keys": [
+        "porous-gas-trapping-insulation"
+      ],
+      "reason": "닫힌 공극의 세라믹 단열이다. 고분자 희생 입자의 연소 제거에 의한 기공 형성은 용출과 구분해 신규 검토한다."
+    },
+    {
+      "identifier": "AR-114913-A1",
+      "source_fingerprint": "5d9190e1af825ea22fc916767143afda1f732f840433c82f612d565cdc8151ed",
+      "content_hash": "0739318222b3b21b94e8de06e1feffee38e29112d1c5e7d2619ae1ef0e036226",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초제 치환기 범위만으로 생물학적 표적이나 반응을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-114914-A1",
+      "source_fingerprint": "417290f0a60a6f457260acd66e0515c74184b26e67db6353fdbe8c29aa5711db",
+      "content_hash": "4f3c28114187700b31bcfa96925fc4fef6cc8a03483f7f125dd10efd4b60b7f5",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "HPPD의 기질 전환과 표적 효소의 저해제 감수성 변경이다. 저해제 저항성 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-114936-A1",
+      "source_fingerprint": "fd5e9cd28f3ca637b8f62c478ffdf8daf74ad421c8f00a4988574539c3df71dc",
+      "content_hash": "81cb62bdf349748d13c6f38f1e0b957bee774a50f8b66720d3c799365d4d9ccf",
+      "decision": "LINK",
+      "keys": [
+        "ionizing-radiation-inactivation"
+      ],
+      "reason": "전리 방사선 처리로 꽃가루의 생식 적합도를 낮추는 가지에 연결한다. UV 가지와 기전을 구분하며 처리량은 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-114955-A1",
+      "source_fingerprint": "3a980d4b7c712f19afd6b87ea7bd32a05a39e02c122c9a32e3274a17a5c88afc",
+      "content_hash": "c04c4ea7fdb8bd30c6f13245048333e17ba3d6eb44e2c058b149b78203e08b3c",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "CD70 표적 CAR이다. 키메라 수용체 신호 결합 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-114963-A1",
+      "source_fingerprint": "b6588ad82d7d5e08f8a0981b4ab70dcdb7f3104169d152b87be2d4523990c53c",
+      "content_hash": "ae912758b599aafb4ce742372f9061dc53302ca2db2a83f071f0452d8a1f43ea",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "고정 크기 메시지의 길이 필드를 생략하는 헤더 형식이다."
+    },
+    {
+      "identifier": "AR-114971-A1",
+      "source_fingerprint": "166c754985aa823c6453e7ef88f7fb73b5f7b69400473175f885781e81faef59",
+      "content_hash": "ab818ab2165ad131dd47641dcc778c408e005ee236ac0190349400e8177ad9cb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "DNA PK 관련 질환용 화합물이다. 초록에 구체 조절 방향이 없어 저해를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-114972-A1",
+      "source_fingerprint": "ab1f68ad844e2d4425d2aee288f4934e6ed088b01771e31e5ccba9b3dc416d2f",
+      "content_hash": "a631040396af9c327319e4aabac379971d069888e5b35e61c68264daa355dd1c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "치료 화합물의 구조 범위만 제시한다."
+    },
+    {
+      "identifier": "AR-114977-A1",
+      "source_fingerprint": "7bf92d6f7a948edcf5e4cc7c6418f2afaa5826d00c55ae4f47a326344ec2eb04",
+      "content_hash": "91b9a73d9d71b744c19888e8133e8ac92cbf3b44cc2fadf2dcb33ef64391d65c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "특정 분자의 결정 형태이다. 형성·안정화 메커니즘은 없다."
+    },
+    {
+      "identifier": "AR-114980-A2",
+      "source_fingerprint": "05d4bc2898cacab5f9260353af52f41a2a7bb67cf4c859d214181554a2e0937c",
+      "content_hash": "20a358b96f2dfae75ec1a96d9537e66772fbd42fe223ab3309c9d8a62b8c3236",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "olefin-metathesis"
+      ],
+      "reason": "메타세시스 유래 계면활성제와 음·양이온 혼합이다. 비이상 혼합의 계면장력 저하를 별도 후보로 확인한다."
+    },
+    {
+      "identifier": "AR-114983-A1",
+      "source_fingerprint": "5a277b03a9fafcf790fb56499fc314607fac05a3d5d49d46f46a2cdd4fcfed92",
+      "content_hash": "1a1e72343d9f2def439deb7b12465c93447763f76faa4cd982c8582eaee190fb",
+      "decision": "LINK",
+      "keys": [
+        "methanol-carbonylation"
+      ],
+      "reason": "병렬 반응기에서 메탄올과 일산화탄소의 아세트산 전환이다."
+    },
+    {
+      "identifier": "AR-114995-A1",
+      "source_fingerprint": "09f7fe1e31d44367757c4b575b78234bdc5aeaf7299f1c1abfac52361de524b7",
+      "content_hash": "401a16f32fbc05eb5c8cb924511d4e7afef00e09c526878e1c8c128443c8875e",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition"
+      ],
+      "reason": "STING 작용제로 선천 면역 신호를 조절한다."
+    },
+    {
+      "identifier": "AR-114998-A1",
+      "source_fingerprint": "277fddf7525a9effefa87424838daf1439316ab07b991b25c992f204f1dcc4db",
+      "content_hash": "38ccc899c450228f868d35342d2a72f555008fb4edb7c4804cfab6f5ef494618",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "벤즈아미드 치환기 정의만으로 표적·효과를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-115003-A1",
+      "source_fingerprint": "5e239610b7eba0055dbd555d2bc8ce6f05431ab0120c8e780386562a89e897d1",
+      "content_hash": "47981f2cdf9237641141d2f07fe582936d3138e361bccdf81045dcbf37a89c91",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고용 탄소량과 강도 규격을 제한한 철강이다. 강도·황화물 응력 부식 저항의 지배 원인은 추가 확인한다."
+    },
+    {
+      "identifier": "AR-115012-A1",
+      "source_fingerprint": "c961262e17e7f9c261e6795827eda72c128d983a023879946e2afb5f87aa778b",
+      "content_hash": "37553529dce96bbdb241ec27c964ae197d22ec9a6ffc49d8679b03190a79f3fa",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "뮤 오피오이드 수용체와 칼슘 채널 보조 소단위 표적이다. 보조 소단위 결합을 직접 채널 개폐로 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-115028-A1",
+      "source_fingerprint": "bbe24e61cf572d11cc53178c9bff940422707006b86914935f7d920427d32442",
+      "content_hash": "af0e81e03b179bd568c3617ee04675399cef941625ca706b4216d51745d80b53",
+      "decision": "LINK",
+      "keys": [
+        "plastic-forming"
+      ],
+      "reason": "종이에 엠보싱 형상을 부여한다. 첨가제 잔류 향상 메커니즘은 별도 확인한다."
+    },
+    {
+      "identifier": "AR-115031-A1",
+      "source_fingerprint": "c3e073dad1ac2595641820a5102d3484181fa04c010e3cb8ff01284221b0a902",
+      "content_hash": "4603bb90e1c4ba2c80eaa4babac2784d22802dde075e032b0867612eeb1c7976",
+      "decision": "LINK",
+      "keys": [
+        "finite-difference-rate-estimation"
+      ],
+      "reason": "위치가 알려진 자기 표지의 통과 시간으로 이동 센서의 속도를 추정한다. 유체 추종자의 이류 측정을 별도 검토한다."
+    },
+    {
+      "identifier": "AR-115035-A1",
+      "source_fingerprint": "36e446b81c5b8143edf02ee45fdab34b5d348b16757a9d7a48b1b1f04a2ef461",
+      "content_hash": "a703f83f537b4813dee34eda23c970b230491741a0db1a14cf78270c6bdcb856",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "wedge-mechanism"
+      ],
+      "reason": "원추 가이드로 호스를 정렬하고 걸쇠로 결합·해제한다."
+    },
+    {
+      "identifier": "AR-115042-A1",
+      "source_fingerprint": "e7d3f7e2d5cb3a60d82191bf31710b1e6007e8edc5dc83fdfc7d5ff6659daab5",
+      "content_hash": "48508cd24f42e18888b8d1dbb2c2d84d6e217ac054f4fb5672ef48d6aa8b2845",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비접힘 폴리펩타이드가 유체역학 반경을 키워 신장 제거를 줄인다. 크기 의존 사구체 제거 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-115058-A1",
+      "source_fingerprint": "cc1cc0a86fcbb3471229cdb41f68cea8403856cb0436758133d4e50649ed9f46",
+      "content_hash": "cd2def2742a522bf86be763afb15f867012471e8976d213177415480f4d04353",
+      "decision": "LINK",
+      "keys": [
+        "graph-shortest-path"
+      ],
+      "reason": "대기·주행 시간을 비용으로 여러 교통수단의 최소 기대시간 경로를 찾는다."
+    },
+    {
+      "identifier": "AR-115061-A1",
+      "source_fingerprint": "22f222870ebbf3e57801b13d8e8be089fb57765dcf4ebe3ccea82629b92bc948",
+      "content_hash": "9f6881e968a29aacbecd244f146314481df2b971d3add22e0e13c6495faaee81",
+      "decision": "LINK",
+      "keys": [
+        "condensation-recovery",
+        "starch-gelatinization"
+      ],
+      "reason": "물·증기의 열을 이용한 파스타 조리이다. 제시 시간의 보편적 성능은 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-115080-A1",
+      "source_fingerprint": "057e9cbae3346bb1805cc9918e5f6a444b821b22ad1af856baf02b52a0551229",
+      "content_hash": "4073fefcfc7e978e088ff43f05ae700d712fbe30d3295a95646e38272dfb1251",
+      "decision": "LINK",
+      "keys": [
+        "diffraction",
+        "raman-spectroscopy"
+      ],
+      "reason": "결정 형태를 X선 회절과 라만 피크로 구별한다."
+    },
+    {
+      "identifier": "AR-115087-A1",
+      "source_fingerprint": "b91cb821d6b92d10526c9b154b36d04b98dd9c41a86a699b9bf2bdfda81ae218",
+      "content_hash": "b8d7fe05239bdfbd9f2364f2839d215c50f9e6816c6e547047888db094c062f8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제초 화합물 구조만으로 표적이나 새 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-115109-A1",
+      "source_fingerprint": "1c49e159a1d482a50f7041df31717c763e2aa4ec48c45cdfbcdb92ec7526d05f",
+      "content_hash": "ef3a9e813dc61742e511fa3c26e02768f617af664edc3cbe23e21b6ba3ba0f79",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "진동으로 젖은 모래를 풀어 배출한다. 입상 아치 해제와 진동 다짐을 구분해 근거를 확인한다."
+    },
+    {
+      "identifier": "AR-115159-A1",
+      "source_fingerprint": "8d25c938bc21931069e69f399d1746ae96550b21cfcab8b61e3dc9dca9640c51",
+      "content_hash": "8df44353408fe15d2920f53f7eca162ade96a89482e127822c4526a2a8f21e83",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "세포외 소포 내부에 이온성 상호작용으로 단백질 화물을 고정한다. 항원 표적 전달이나 특정 내재화 경로를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-115161-A1",
+      "source_fingerprint": "a22262cb1aff6100242fe0fc94fc8e7000824bd288e75f45822a5c40ecd3c3c7",
+      "content_hash": "48e44d7180a48d63af924c29abbc02249812ac5ce774ab6b962bf7ec6be4961f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미세유로의 입자 집속이다. 외력·관성·형상이 부족해 특정 집속 원리를 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-115166-A1",
+      "source_fingerprint": "b01397c6fbd4fe6594daba020682ff08f3144d53a26beb6eccd4666017406679",
+      "content_hash": "51e668838c4929076d0c0d90c6b81db07f55e0815d39f2d9e52f0fc2cd40b34f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "가변 자기장으로 조류 방향 감각을 교란한다는 주장이다. 자기장 감각 연구와 이 장치의 실제 퇴치 효과는 별도 검증이 필요하다."
+    },
+    {
+      "identifier": "AR-115171-A1",
+      "source_fingerprint": "4bc5497fdfa4569907b2a51585bb42f7208555db40e2d84e3d81dc2722bf5611",
+      "content_hash": "0e4329108364aecbc286c9958c0af0f21ad4ea23dad05cb2ec3b63410b3a21e4",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow"
+      ],
+      "reason": "펌프로 보조 탱크 유체를 계량기와 호스로 공급한다."
+    },
+    {
+      "identifier": "AR-115179-A1",
+      "source_fingerprint": "26555f5f09467bab7e2a1260dd7eaf6d8413d696df17791e96d45492130fd602",
+      "content_hash": "ce412216d06bff0f1e11501dcc0c85ef95c7eda53ef5825e72e01fbe52f531f5",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction",
+        "natural-convection",
+        "forced-convection"
+      ],
+      "reason": "모듈 알루미늄 판으로 열전도·공기 대류 면적을 확보한다."
+    },
+    {
+      "identifier": "AR-115180-A1",
+      "source_fingerprint": "822828531bc5ec9996423ce40c74a1153859d4386ff42a8b7fe58fdf35fb094d",
+      "content_hash": "4ce15171894c0f0c46ec1001f32db09424026a425e1081405d82fb8262737b80",
+      "decision": "LINK",
+      "keys": [
+        "barrier-coating"
+      ],
+      "reason": "밀폐 덮개가 붓·롤러의 용매 손실과 외부 물질 이동을 제한한다."
+    },
+    {
+      "identifier": "AR-115184-A1",
+      "source_fingerprint": "b73f7f02e21ed4e42d9853f18cd27bcd20a06280c8fdd7f1b3c029501334da22",
+      "content_hash": "4d7473b8ce462fa4f8ed01c18e38613f87ccfa94131db12ad033915fd7c93736",
+      "decision": "LINK",
+      "keys": [
+        "antigen-targeted-payload-delivery"
+      ],
+      "reason": "CD30 항체 화물 전달 사례로만 연결한다. 부작용 대응 투약 변경 주장을 일반 처방으로 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-115187-A1",
+      "source_fingerprint": "2d5760ea9fe5a76b4e333fac019b40ce931c4e2f8f6b9e8c8d961173e0dc822e",
+      "content_hash": "3e3165bec16a2d239aea3f90db78191ae93c1d357f344dcc0780f7b77c8792e2",
+      "decision": "LINK",
+      "keys": [
+        "redundant-path-fault-tolerance"
+      ],
+      "reason": "보조 무선 연결의 장애를 검출하고 중단·재설정하는 이중 연결 관리이다."
+    },
+    {
+      "identifier": "AR-115208-A1",
+      "source_fingerprint": "9aafb98d63c553eca13381e9639076f5b7dffa46c6c185ad7f551ba90cd2d914",
+      "content_hash": "d3472de78ede098dece06aab2d60a62b48829e23c79636c5bdf1e07b7bfc8003",
+      "decision": "LINK",
+      "keys": [
+        "phase-change-storage",
+        "nucleation-barrier",
+        "thixotropy"
+      ],
+      "reason": "상변화 잠열 저장과 핵생성제·틱소트로픽 첨가제로 과냉각 및 상 분리를 조절한다."
+    },
+    {
+      "identifier": "AR-115218-A1",
+      "source_fingerprint": "bccb53c389e8714433b99698f2cf74dd325803aa989f98667d26c496f9d1541c",
+      "content_hash": "4ae8f65d98421da8d48af7b98a631bde450d0c8f50df0ec3d5b9413f767e0b28",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "두 나사 구간과 중간 금속 접촉면으로 관을 연결·밀봉한다. 탄성체 밀봉으로 분류하지 않는다."
+    },
+    {
+      "identifier": "AR-115231-A1",
+      "source_fingerprint": "5b5a6eaedcc6f926226f5957395de1a16f9170a7844079a8fef617cc04ad00ca",
+      "content_hash": "9377a8f8bdb44ce80dd80a2bd07adb9a92776094e05462fd8d0d8225708bae07",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "mechanical-interlocking"
+      ],
+      "reason": "탄성 결합부가 움직여 추출기를 탈착·고정한다."
+    },
+    {
+      "identifier": "AR-115240-A1",
+      "source_fingerprint": "0788eea66282d25e00135fe114147f6c4d8ef21dd723633e4c187e3b3c97e3a8",
+      "content_hash": "087d43bf7ef8585d3e7ba34b35c7cb6f7ac48396cbd1aab3ba6e4d83997c68da",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion"
+      ],
+      "reason": "위상이 다른 편심 회전으로 회전·흔들림 운동을 발생시킨다."
+    },
+    {
+      "identifier": "AR-115247-A1",
+      "source_fingerprint": "9700a8f25cfad3891e9bdbd7e8ac443b464f1b448d1ca57602a416020d1ddfdd",
+      "content_hash": "15cee31849aa473ce1676acb4d6788e790b4a2eff88764ed365bd98fe1bc1063",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "LED와 틈막이의 박쥐 퇴치 주장이다. 빛 회피 반응은 종·상황에 따라 달라 일반 효과로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-115253-A2",
+      "source_fingerprint": "2b8efc0e74f2416a9e670a73adf9b07eb6268c98c036757684f4577550cd413e",
+      "content_hash": "7a48d1846a30ac0f4bdc89ae195b1f98e9a004be776354c561871fc2e9a40c8a",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "외래 유전자 발현을 통한 식물 형질 변경이다. 열거한 서열의 개별 기능·증수 효과는 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-115268-A1",
+      "source_fingerprint": "807a2ed4e523f9deb499210512e72bbc6281a8edafd8da9dfd4ed70dbac80a76",
+      "content_hash": "910eecbcc6bf1a15ca8fb5c8e4e8595ed8d3e89e2ecd32e0e1f33a3cf1c9e11a",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "하네스·버클·카라비너로 하중 경로를 연결한다. 패드 접촉 면적 분산 후보의 추가 사례이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:15:39.187689+00:00"
+}

@@ -1,0 +1,132 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "a504a57636ebecbfe64d1d51ccd9ef95855283f3506adcd691ae2d890c7ce033",
+  "reviews": [
+    {
+      "identifier": "AR-114463-A1",
+      "source_fingerprint": "5442c59963434347503f817f65af1774c00c7ee4ac2b9d6af1ba8de0656759b9",
+      "content_hash": "bfcc18a0ad63a2aeab1eb3fe3317bbadf7b77607bbbf33f2398b9a5a74ce2561",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition"
+      ],
+      "reason": "STING 신호를 활성화해 인터페론 반응을 유도한다."
+    },
+    {
+      "identifier": "AR-114471-A1",
+      "source_fingerprint": "fae95b4c570ee9271af5f456df12b6f6d9f6c45e55d660ff38cdf48f7ebc1a3f",
+      "content_hash": "1c9d7e822e4535ec41636448ebcbbd6ac4c4b4cf813197bb3246250f337ba0c9",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "약독화 백신에 의한 면역 유도 수준으로만 연결한다. 바이러스 적응·배양·개량 방법은 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-114480-A1",
+      "source_fingerprint": "4554d51c23d12d22803e4432513272d315141eae037673258857ec58433f4a1c",
+      "content_hash": "a25bfb71f9678ef14684e435472bcf18fd9242f7e3b58c3e87b52bdf6a1425a6",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "solidification"
+      ],
+      "reason": "우레아제 억제제의 분해를 제한하며 비료 용융물을 고화·과립화한다."
+    },
+    {
+      "identifier": "AR-114484-A1",
+      "source_fingerprint": "8e4ac3fe4041182f24b7202dcf503902c0958bb17267be687083430f31548263",
+      "content_hash": "378df9cfb42af343db14099f185399e4045be35acd74a2324de5a308ab3bba6a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "스플라이소좀 표적 플라디에놀라이드이다. RNA 처리 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-114512-A1",
+      "source_fingerprint": "198f382767ca83fb25d7543844dc2917b35cd6dfe98a9ed6d0498ce1fd524de9",
+      "content_hash": "17c6c08f7f0397c1ca862ae388fe4cf45f1f30387f398da18f84a3bed13930cc",
+      "decision": "LINK",
+      "keys": [
+        "electrochemical-cell"
+      ],
+      "reason": "병렬 배터리 뱅크의 상태에 따라 전력 흐름을 관리한다."
+    },
+    {
+      "identifier": "AR-114537-A4",
+      "source_fingerprint": "e84f631a29dae41de61243a8c2ac5a27e1694590207463d3ea5e34e74a235324",
+      "content_hash": "f7be912b44ef514c708a34591b77dd8b89ab78dcccc7926a9985b95b498bed01",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "삼면 코너 결합으로 캐비닛을 조립·고정한다."
+    },
+    {
+      "identifier": "AR-114538-A1",
+      "source_fingerprint": "9995bd7b42e55595a60220c4e8443e16d8d60ce4ce81e7bde1f9eaead980dd4d",
+      "content_hash": "e555d8482069ed1e839fae443f48fcb1e83d86f96f66c87491296d70b25ee66e",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "biomolecular-recognition"
+      ],
+      "reason": "펩타이드가 IL23의 수용체 결합을 억제한다."
+    },
+    {
+      "identifier": "AR-114540-A1",
+      "source_fingerprint": "88c7312beb1a9847f88cc2ffdce2cbde89275622f071bf92d235c9134e7c754c",
+      "content_hash": "155c5ecff3c55bdec6d956b42c3f7e52adb6a08463389905637f09318eea09ab",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "알파 시누클레인 표적 RNA 간섭이다. 치료 효능을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-114553-A1",
+      "source_fingerprint": "57ae44fb787ccd5d6116d0aa6acc57bf7f9b165484700c6de4d1a9cb5b96eed1",
+      "content_hash": "879824bd76cd6bc1dfc88d10908b6f3b55930b6872658cb54665e6e83ba3aa2d",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization"
+      ],
+      "reason": "재조합 항원 백신에 의한 면역 유도 수준으로 연결한다. 병원체 서열·제조·성능 개선 절차는 재구성하지 않는다."
+    },
+    {
+      "identifier": "AR-114580-A2",
+      "source_fingerprint": "040514c939de0c924b1ccc37e96e121a9fb1d9572890b44ec26f09850e6e797f",
+      "content_hash": "f4eaf75dba4d413dd69890bea6a065bb33a885f8919d97d70a8fd2c1591b61e4",
+      "decision": "LINK",
+      "keys": [
+        "parametric-bandwidth-extension",
+        "queue-buffering"
+      ],
+      "reason": "오디오 블록을 버퍼에 저장하고 부대 정보에 따라 대역 복원을 적용한다."
+    },
+    {
+      "identifier": "AR-114586-A1",
+      "source_fingerprint": "2a6de10901ced52275c07cf1df4bf056f0f3960b9300dccfbe051a569078c3ee",
+      "content_hash": "6047711dfce101a68d986325831218d72438a0e7bc68076d4b4e45e800094c7d",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery",
+        "blade-shear-cutting"
+      ],
+      "reason": "탄성 육류를 순차 압축·이완하여 단면을 맞춘 뒤 절단한다. 미세조직 보존 주장을 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-114587-A1",
+      "source_fingerprint": "530184273d4030f9ae3b27451dda1bbc92714cf0388018a4737bd85988ad428a",
+      "content_hash": "39977b22c321650894be587aa920ea565a31dd55336da53910184e146cd69e4f",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "acid-base-buffering",
+        "first-pass-metabolism-bypass"
+      ],
+      "reason": "비강 전달 제형과 pH 완충이다. 초록의 약동학 수치를 임상 보장이나 처방으로 사용하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:11:15.558339+00:00"
+}

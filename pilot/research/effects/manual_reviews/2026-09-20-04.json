@@ -1,0 +1,354 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "92cba6f40420d36d627ead4e62910c3731018b167bdac0fa57da71156f166e4b",
+  "reviews": [
+    {
+      "identifier": "AR-038788-A4",
+      "source_fingerprint": "e677918651faf608dcb286f5166182cbb2fc575e4296bd4568224db06e7a1eed",
+      "content_hash": "4304aca41fddfb2579ae4f43d9d4846b6c581d9cefe32274b0416dfc5594e835",
+      "decision": "LINK",
+      "keys": [
+        "cathodic-protection",
+        "electromagnetic-induction"
+      ],
+      "reason": "송전선의 유도와 변압 및 정류를 이용한 철탑 기초 음극 보호를 명시한다. 실제 보호 전위와 전류 분포는 추가 확인 대상이다."
+    },
+    {
+      "identifier": "AR-038794-A1",
+      "source_fingerprint": "781300b452016dcee8000e4e9139a7abb5ee97f5b6afd9426250d227794e7d57",
+      "content_hash": "21bcead7881a729cdf0ffa668aeabce543d9d7e22e1a35ed3ea8f77538cc5dd2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고온 기체로 향 성분을 기화시키는 장치이다. 기화 목적을 증발 냉각과 동일시하지 않으며 가열 조건과 성분 분리가 확인되지 않는다."
+    },
+    {
+      "identifier": "AR-038818-A1",
+      "source_fingerprint": "c78cb38c4ced66750b59cac49c85dfcca4ba212b4f1bd0b22b1f831b553547f6",
+      "content_hash": "2523ca38e581c293e9bbfc88bad4dda15d69bfc1ec386e1ff1da9274c96a1909",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "타키키닌 매개 질환 용도만으로 특정 수용체의 길항 작용을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-038840-A1",
+      "source_fingerprint": "048c76c47a55b2c966e6173c2245d315189d9dbda1c7c7f31b5bb8192ba84e52",
+      "content_hash": "42d20212a3a95f21dc6ece1ffd5e897c752ccca5a2920d54404a666c20ffbf1e",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "돌출부가 제거한 캡의 재삽입을 막는 용기 연결 기구이다."
+    },
+    {
+      "identifier": "AR-038849-A1",
+      "source_fingerprint": "f292acbdc624203a5c1d7bca586cee778fe5d3f4078725e5547ca366067590f0",
+      "content_hash": "602e1159c35e0e6c6ccee95434a6dbc7893c651ef49716e06f89c3ab24631a8f",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "리보자임이 레오바이러스 유전체를 선택적으로 절단하는 RNA 촉매 작용을 명시한다. 잔여 병원성의 원인 식별 정확도는 별도 검증 대상이다."
+    },
+    {
+      "identifier": "AR-038853-A1",
+      "source_fingerprint": "f844115c063a05dd8f8977ec5cf9bdcb08fe588bbb59d0340a8651eef54677c3",
+      "content_hash": "8de0758002fe6e2b53fdcf649a780d19844bca93163fd4ed0aa941234acfa7a4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "고분자를 통한 약물 생체이용률 향상을 주장하지만 용해나 흡수 개선 기전은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-038902-A1",
+      "source_fingerprint": "9460b9a3d5cd03bb3d2a63d811d69c1e99963276ddb76cd61bfb8f711c771d9d",
+      "content_hash": "ca1761c3afb71fbd124738f99b084d82d0c390605e17bd731b851af139ba6fc8",
+      "decision": "LINK",
+      "keys": [
+        "crystallization"
+      ],
+      "reason": "연속 결정화와 모액 재순환으로 수크랄로스를 정제한다. 특허의 순도 및 맛 개선 주장을 일반 성능으로 취급하지 않는다."
+    },
+    {
+      "identifier": "AR-038905-A1",
+      "source_fingerprint": "71e5f0cce1f4389df38f3b39b52958c859847aa58c94f754ad5fb3043f9f5235",
+      "content_hash": "2f1df817253ef128bfe2c9893f23f58c015c6bebc13e4e4773165a961e71dd18",
+      "decision": "LINK",
+      "keys": [
+        "vapor-compression"
+      ],
+      "reason": "압축기와 열교환기 및 팽창장치의 폐회로에서 압축기 토출 고압 가스로 증발기를 제상하는 구성을 명시한다. 응축 발생은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-038910-A1",
+      "source_fingerprint": "458cfb8328564dcd5665233f0ed1fbecc81190d45efd7a1ae9efac4bf84b524b",
+      "content_hash": "1e95c0f50bc5dadf380ab086a0c034d1086b0afadd096efb1d9bd35ba241d513",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "구리 및 아연 규산염의 항균 용도만 있고 이온 방출이나 작용 표적의 설명은 없다."
+    },
+    {
+      "identifier": "AR-038913-A1",
+      "source_fingerprint": "16f1f2a0609423c864933495f899fd1d928424995da81a466e27622d5ae6548e",
+      "content_hash": "f20507d982cea4515907e29ecd1acff8bcdb408053d6229e8ed0abddc8ed66ce",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "모자의 양쪽 조절 잠금부와 덮개 배치이다."
+    },
+    {
+      "identifier": "AR-038930-A1",
+      "source_fingerprint": "2b72fcc986c81ebcc3463a73b2a165d47bcb55685d86839ab20c7a27925b2d83",
+      "content_hash": "1e32d547d3963320a1d0d3315b35c2ecf81810731c9ebf089cdceff04e8553ca",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "키랄 피페라진 합성 절차를 제시하나 선택성의 원인은 부족하고 약물을 수용체 자체로 표현한 부분도 있어 표적 작용은 보류한다."
+    },
+    {
+      "identifier": "AR-038931-A1",
+      "source_fingerprint": "e2ce08692a65250feaa333d2b8e8d306e74f09ec3c478b5ae5e85965a44d94d1",
+      "content_hash": "b5c6fc890b1cbe1e1af3174ad08c5c5856df4ef939236d792ffd3a8e4889de73",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "생성 피페라진이 5-HT1A 수용체 결합제라고 명시한다. 결합 근거에만 연결하고 작용제 또는 길항제의 방향은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-038961-A1",
+      "source_fingerprint": "96831819b0ab792cd57443c200304aa3d3d817a078acce442750570c7d7d0b70",
+      "content_hash": "252cc88abf3b4bde1454df9d678ba67f7892caaff56867160382294a718e1f70",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "가스계량기 연결 너트를 덮어 제거를 막는 체결 구조이다."
+    },
+    {
+      "identifier": "AR-038981-A1",
+      "source_fingerprint": "2d422a2f8250fe929a0a5e9c65d2d053e83386f9d3a7e02aca3336d9d52f1d2a",
+      "content_hash": "4afd6cfe7cfebe37a6896b059b2be54ff6358658db20b469f1233aa316698621",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살진균 용도와 아크릴아미드 구조만 제시하고 표적이나 반응 경로는 없다."
+    },
+    {
+      "identifier": "AR-039000-A1",
+      "source_fingerprint": "0ad696cd088719b4c966a4a94936d811814cdb300aa90766c4f4ec0c2ad3de92",
+      "content_hash": "f034c258d7219aa48bdb0ced7ed06cabc31d421961deaa24e5707994836e0ceb",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "약물이 망의 구멍을 통해 확산하는 방출 원리는 명시하지만 기존 기체 용해 확산이나 삼투와 동일하지 않아 별도 확산 항목 검토를 남긴다."
+    },
+    {
+      "identifier": "AR-039009-A1",
+      "source_fingerprint": "0f1a06be4d55a14b919b77718304045e0ae791f242711d121b433fafe71877fe",
+      "content_hash": "2e49cbd4eea8c2aa5523fa703ec4049ecb3f16e256a3bd4ea9321bc326a16ef1",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction"
+      ],
+      "reason": "뜨거운 판 사이의 벨트로 토르티야를 압착 조리하므로 접촉 가열의 열전도에 연결한다. 계측 장치만으로 피드백 제어를 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-039034-A1",
+      "source_fingerprint": "50455839adcbf1645dad0f514a314540b507087eceed18bef363835fed8a3bbb",
+      "content_hash": "c3d7782553b91bcb0fe52af3a5f128ed045f334127de188470072c34cbff3452",
+      "decision": "LINK",
+      "keys": [
+        "polymerization"
+      ],
+      "reason": "폴리실록산 전중합체 제조와 공중합을 명시한다. 균일도 및 굴절률의 정량 개선은 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-039052-A1",
+      "source_fingerprint": "37db8426bd5c858d3fbedd4f5876b456526ea12bc97811367548c0871ada2b63",
+      "content_hash": "681fe8f9057b070bd24a8e934e2a4592aca1479e0a59a44c56afb397c81eb44c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "방사성 시드 제조 및 밀봉 공정을 설명하지만 기존 효과로 연결할 핵종 검출이나 열변환 기전은 아니다. 치료 성능과 공정 조건은 추가 확인 대상이다."
+    },
+    {
+      "identifier": "AR-039070-A1",
+      "source_fingerprint": "6bd791a4dee5f156eb740dc5e6375ba946a1e8e0e2a15c211bead6d3bbcf14b8",
+      "content_hash": "9c438218da94148aa103d85a48ed104d6709ac1225fa890f317d0dfc34ffe9e7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "기준 키와 식별 매개변수에서 파생 키를 만들고 암복호화하나 파생 함수와 보안 성립 조건은 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-039071-A1",
+      "source_fingerprint": "025a6dfe1e4de3ecfe1c249e6dbbee06a2fc6376adc4fa147486443425d3e222",
+      "content_hash": "22ac9f7dc1286be41804aa72d4520337a2ce49a143f4ded82415d83b9723e76c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "비트별 성상점 집합과 수신 확률을 이용한 로그 우도비 연성 판단이다. 중복 부호로 오류를 복원하는 과정 자체와 달라 오류 정정 항목으로 바로 연결하지 않는다."
+    },
+    {
+      "identifier": "AR-039079-A1",
+      "source_fingerprint": "1ae96cce6de98bf926201137ba5d9495ff7eb44a95e27cea7b63797fb648433b",
+      "content_hash": "9c01676d3e11f0593c398dc63d562b190e914f7a9eddd23424717a5ec49ab4db",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "해충 미끼를 덮고 연성 또는 경성 표면에 고정하는 용기 구조이다."
+    },
+    {
+      "identifier": "AR-039120-A1",
+      "source_fingerprint": "be129cea2a63bd2369e7359366ce98f64b4535b05f40819eef03b76f80d80e8b",
+      "content_hash": "589b5071ba9a40e984cb3e7ba3f816fd0f18fb353516e856f19baf7b15f5f04c",
+      "decision": "LINK",
+      "keys": [
+        "solvent-extraction"
+      ],
+      "reason": "수성 추출물을 물과 섞이지 않는 알코올과 분배하고 유기층을 분리하는 과정을 명시한다. 수율 및 순도 주장은 해당 공정의 검증 대상이다."
+    },
+    {
+      "identifier": "AR-039141-A1",
+      "source_fingerprint": "9d1fcdd1ff70e6cfb7988dfd279831efe66048fa3430c6b54f88a81f8b230f67",
+      "content_hash": "c66d7136fba27bd90772c1dc19132421f057df47046189cfaf66ca668d7e0eba",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "LTB4 길항을 명시하지만 수용체 결합과 다른 억제 경로를 구별할 구체적 표적이 초록에 없다."
+    },
+    {
+      "identifier": "AR-039172-A1",
+      "source_fingerprint": "50498dc93a195390ff59503e1b865afcd46d63a2b7db11af58bb09a8efe152e1",
+      "content_hash": "8b54119625f16e4f1aad9ffed72308d822d2e35a3c39d2e55106e8bce85a8291",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "모르폴린 유도체가 CCR3 길항제임을 명시하므로 수용체 신호 조절에 연결한다."
+    },
+    {
+      "identifier": "AR-039189-A1",
+      "source_fingerprint": "fe53d9ee6179579b43034fdefc10d448456387f2dcd121a37b4cfaf696e44428",
+      "content_hash": "87d332b5ee2a7c743b0360d82cb8dd8d46559696d50a379f3443a9917bd4326a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "증식성 및 염증성 질환 용도와 구조 정의만으로 효소 또는 수용체 표적을 확정할 수 없다."
+    },
+    {
+      "identifier": "AR-039191-A1",
+      "source_fingerprint": "c74e9394c53a6d3188098758f8215b8b69b26f255eb281dd7fc47e47cf3d9ab4",
+      "content_hash": "fd958bd0f8894b892d8a00cf75ee34b60579ad75f28cf3dd288b3a088eedbe94",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "금속산화물 입자의 오염물 보유량을 제시하지만 흡착과 침전 또는 화학반응 중 제거 경로가 무엇인지 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-039229-A1",
+      "source_fingerprint": "cfce08159eb691deff9a69003b1fc1dbaed0fe4bad1e135d3e7866be74c86b33",
+      "content_hash": "b366ee95f30965ff7789eed5026ce61aa69ce4391460328ff6dbb1360e16d533",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "약화선을 파괴한 뒤 벗기는 포장재 개봉 구조이다."
+    },
+    {
+      "identifier": "AR-039250-A1",
+      "source_fingerprint": "6ed9ff9ed44b76b4de5cec3ae286388a1cec4373d8492085dbd531649656a905",
+      "content_hash": "540bc07a7d2e7367743dbef55d4951df0626cd31483555270f4206957f8c860a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "글리콜 용매에 용해한 구충 제형이며 초록에 구충 작용의 기전이 없다."
+    },
+    {
+      "identifier": "AR-039266-A1",
+      "source_fingerprint": "7796a568859b554ff10c52fdd280ec6e63cf9a8e4cf5d103d1998e50f50d98c6",
+      "content_hash": "690b82cd81c872b4198263d183fb5cfead439a4e07bd8890fcd705e2a46271ed",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "진공으로 탄성막을 움직여 열성형하는 구조이다. 물체를 붙잡는 진공 흡착이나 피스톤 구동과 같다고 취급하지 않고 막 구동 효과의 별도 검토를 남긴다."
+    },
+    {
+      "identifier": "AR-039312-A1",
+      "source_fingerprint": "9a46a600327d814d436d06fac256df3f3fe8a42a0e162e59aae916a6e9775d4e",
+      "content_hash": "141c98554ab8efbaa88f51637f37441251cee151e292291fac8457ca034014e1",
+      "decision": "LINK",
+      "keys": [
+        "absorption-refrigeration"
+      ],
+      "reason": "물과 암모니아 흡수식 냉난방 사이클에서 온도 감응 팽창밸브로 냉매 흐름을 조절한다고 명시한다. 제어 안정성과 사이클 효율은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-039343-A1",
+      "source_fingerprint": "f70e845d9752245d1868766703074c0aa77a6c2d91ad9f70b8aa817a0a1c5d96",
+      "content_hash": "17745a86fc02f587205f3d0cc53f1b5a6edc187dcd370a511034aa48a282553d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "저칼로리 유지의 비소화성과 향 발생을 주장하나 소화 저항 및 향 생성 경로는 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-039366-A1",
+      "source_fingerprint": "4dc2c7f5b21a78fb6661d591fc95ec1ace2e115fb7858e4fd9a134a45b8a1def",
+      "content_hash": "0aafba113f054a396604cff83b9ca564b2015e786068eba7c13e78910831a359",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "지게차와 팔레트의 RFID 리더 및 태그 배치이다. 전력 공급이나 후방산란 방식은 초록에 없다."
+    },
+    {
+      "identifier": "AR-039367-A1",
+      "source_fingerprint": "92e0bbe17934cd3508056206cc934806282852392d56064f24065ff00e277c3e",
+      "content_hash": "8b03cc9e0b4481a041e5826a5ed1536d33b1b33d5fa0a63e884c733919a8df9b",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "아데노신 A2A 결합 친화성과 길항 작용을 명시한다. 열거된 여러 질환의 효능은 검증된 사실로 확대하지 않는다."
+    },
+    {
+      "identifier": "AR-039372-A1",
+      "source_fingerprint": "3d93235757ebbccf1e1400e6465413d2caf44522ca77f5f698d8f29cd2d62168",
+      "content_hash": "538de508425c6c88991a1a8d4d1d71437ea55d7e8b6292cd45750ddbf4a976e3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "머리와 등 지지부를 갖춘 베개 형상으로 근육 이완 효과의 물리적 근거는 부족하다."
+    },
+    {
+      "identifier": "AR-039381-A1",
+      "source_fingerprint": "2cbd4fc2cbc2f10ba7fe4e9729de6ed4aa3b7a3f0ec9c886c6b97bee47c0f6bd",
+      "content_hash": "a0c6a4eb2ed89e6030c758bc20919fed01ef6442c7110006cb83fbc02ad3ff0f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "기어 또는 체인으로 프로펠러 날개 각도를 바꾸는 기구 배치이며 양력 특성이나 추진 효율은 제시하지 않는다."
+    },
+    {
+      "identifier": "AR-039399-A1",
+      "source_fingerprint": "00098baad01ece7290dafb9ed8a554512f8c0e389b2e09ec28e00b1194933ba1",
+      "content_hash": "a7465a6b90dafc7a4bc040bb6febefa1d08dbd60b305bb35b0769b9499ed2024",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "enzyme-inhibition"
+      ],
+      "reason": "무스카린 M3 수용체 길항과 PDE IV 효소 선택적 억제를 각각 명시하므로 두 기전에 연결한다."
+    },
+    {
+      "identifier": "AR-039409-A1",
+      "source_fingerprint": "d340e850a9b409865cb6166871ed9f6522320c0fb95596f6bee7f3683582ec6c",
+      "content_hash": "63fb5bc10976cd145a2dff9c7536ab966ddacda92f2c74ff792b54a71402f372",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "유도체화 탄수화물을 넣은 흡입 분말의 안정성 향상을 주장하나 안정화 기전은 없다."
+    },
+    {
+      "identifier": "AR-039421-A1",
+      "source_fingerprint": "db6742237500fd498e100f8d79caf5ee7c303e0d35a891e1b2111eec39fcfe9c",
+      "content_hash": "7604a26daf26bba882814febf7fdbbf0550dc75295001114fd2050b590e3de31",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "전동 운반차로 방목 구획 전선을 이동시키고 접촉 바퀴로 전력을 공급하는 장치 배치이다."
+    },
+    {
+      "identifier": "AR-039436-A3",
+      "source_fingerprint": "02761f7f0ffb671c2f08a8a44a7239237cf29a51fca51a445cb8c1e1162af710",
+      "content_hash": "a2b6a8f68f7154188b6f8ff2e516ba95830158bc5d4016eb9c4bf7cd29a55dd5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "방아쇠 안전장치의 걸림 위치를 유지하는 기계적 구조 설명이며 별도 과학효과의 근거는 없다."
+    },
+    {
+      "identifier": "AR-039438-A1",
+      "source_fingerprint": "a6a2ac0a27ba88758e381e629a0618851e7aa3cbd493a7927c937907ebecf30d",
+      "content_hash": "cd5c045e90f936597dbdd03556011de34bf96e32016ccb9bd9c71d9d66efc7b4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "우유 단백질과 지방산의 배합 정의만으로 상호작용과 기능 발현 기전을 확인할 수 없다."
+    }
+  ],
+  "recorded_at": "2026-09-20T05:28:00.923934+00:00"
+}

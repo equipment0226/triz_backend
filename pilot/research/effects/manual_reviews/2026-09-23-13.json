@@ -1,0 +1,266 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "3ac7dba2a97e55ce163e7766247b2787ba54deeaee9f77c5363a1978628e1cf9",
+  "reviews": [
+    {
+      "identifier": "AR-078437-A1",
+      "source_fingerprint": "7bced6735b6c7c3ba7c137fde869b865b1430f1cfc8b14c379c93136c66e9151",
+      "content_hash": "6a3aaeb3c73e8cefda1eaa0b16710fdc122d7fbcea514edbdc18a00bf328e6f6",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "PDE10A 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-078446-A1",
+      "source_fingerprint": "692c84e07d218db25f57cecc17fe3db22d05e41254c4b4a7aa2bf333644d91a1",
+      "content_hash": "72501ff89cea74f8bc2f1564ef9773972a7a9fa02ffd607462e71346114775de",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "NPRB 작용제 펩타이드이다. 저장 말미는 잘려 있어 전체 구조 범위를 확인한 것으로 보지 않는다."
+    },
+    {
+      "identifier": "AR-078451-A1",
+      "source_fingerprint": "82dfb2e8df6f5533a9a0df3cd11590d9e289067c2e6ddda1a84d2d8892712a1f",
+      "content_hash": "e8c9fcb814c138a3d602ccd74907b1971b9cc58a0967da63db4c114bc07baf39",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "HLA 결합 항체와 세포사멸을 제시한다. 사멸 경로는 미상이며 세포 융합의 생산 원리는 별도 후보이다."
+    },
+    {
+      "identifier": "AR-078482-A1",
+      "source_fingerprint": "e39c2c83581a54504c052f4adbeba7989074d504c6822d5fb230f4353e6f113d",
+      "content_hash": "fd5a0bfe921c81c0e94e8d1fdea129ef492bc36beb7e113e528a028ae37fac7a",
+      "decision": "LINK",
+      "keys": [
+        "gear-ratio-transmission"
+      ],
+      "reason": "기어·클러치·감속기로 비료 컨베이어 속도를 조절한다."
+    },
+    {
+      "identifier": "AR-078484-A1",
+      "source_fingerprint": "d9836f98ac01e4b07452294fc271961dc31a3c416a556b489ac7b92188d9846c",
+      "content_hash": "f7a19fc49b36b2f3b8bd9ca1534b90d243b20ec9eba85b9300ab28abe145691c",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "열가소성 수지가 인서트 홈에 들어가 기계적으로 고정된다."
+    },
+    {
+      "identifier": "AR-078490-A1",
+      "source_fingerprint": "91464ac8d74ec835043daff864320bb125d76bd85e463c4575280c1e2847b2d4",
+      "content_hash": "019b969c226fb78f262a8020fda80756b266bc4b49afccc79574cc62ce7a1175",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "피브리노겐과 Mac1 결합·미세아교세포 부착을 차단한다. 인테그린 접착 후보의 추가 근거이다."
+    },
+    {
+      "identifier": "AR-078500-A4",
+      "source_fingerprint": "940350f05237ee307080da3df39465d06732b977379e0cb03ea9a6ea355f9657",
+      "content_hash": "3092b48e9ed1b3feb06e5f280def1b01b08a2ebacf05c5c42047d49d3d2494f0",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "휘어진 팔의 탄성 변형으로 창틀 높이 차를 흡수한다."
+    },
+    {
+      "identifier": "AR-078519-A2",
+      "source_fingerprint": "c0acd9a2e24ca0491d8e88443a2c75371e987ddf46cdf7195f1ad9cb152f8614",
+      "content_hash": "4a6ed030f0019c315e906409a6eec1b00c8d3949fcb9af49372f0b463b59b51d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "단백질 인산화효소 활성 조절 화합물이다."
+    },
+    {
+      "identifier": "AR-078538-A1",
+      "source_fingerprint": "b8d2b4375f44acb9ef60d59320da7ef70261d2a88c85cee4fe5e43b9e99661ab",
+      "content_hash": "85d169fb096a81218af817c59b9323195b56e402c2baa5846d1cd0d0f4d41ff3",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "에스트로겐 수용체 리간드를 제시한다."
+    },
+    {
+      "identifier": "AR-078545-A1",
+      "source_fingerprint": "c4f5d1a19ac05254cc1716657bd25994dba8db7db4eb3eaa7111f00822170d99",
+      "content_hash": "c50bd3fb308f50a7d01f48008556e3979cd9ce1b85bd22486ce9322385819e05",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "여러 기지국 안테나 중 신호가 강한 집합을 골라 공동 수신한다. 다이버시티와 공간 다중화를 구별해 검토한다."
+    },
+    {
+      "identifier": "AR-078551-A1",
+      "source_fingerprint": "bd086cb3cf93d851eec147f26352a9042b00aea56f1f1c9dae1b38ab6a1ed015",
+      "content_hash": "651fea18d89da7166ffbd12f98f270d0f03207a08309fa2e0b9129aed9e6fd79",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "합성가스를 피셔트롭슈 촉매로 탄화수소로 바꾼다. CO 수소화 사슬 성장 반응을 후보로 기록한다."
+    },
+    {
+      "identifier": "AR-078556-A1",
+      "source_fingerprint": "5995b4dc73d5bb770f6e52428b3c3c606ca7989792d9283d76e33c11442acd63",
+      "content_hash": "f83345a516984e74794d7980da183873c68e113cd7cd3d56411907ce99143329",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "crystallization"
+      ],
+      "reason": "부분·완전 수용체 작용제의 일수화물 결정이다. 수용체별 작용을 신규 일반 원리로 중복하지 않는다."
+    },
+    {
+      "identifier": "AR-078558-A1",
+      "source_fingerprint": "06904d042f6e37440e9aba0246372d7cde983221b3c336f40af88ae789215a64",
+      "content_hash": "368d256dbda2a14df929eb0e419ff9a343fb085ab5f2b35159abce6f5be63513",
+      "decision": "LINK",
+      "keys": [
+        "antigen-specific-immunization",
+        "acid-base-buffering",
+        "freeze-drying"
+      ],
+      "reason": "불활성 항원·완충·동결 건조의 일반 원리만 연결한다. 병원체 안정화 조성·공정 최적화는 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-078568-A4",
+      "source_fingerprint": "1b2786aa9df9b085359aefa3c56eec85d630ee3a01de78c8cde1fd9ee7ac9a3c",
+      "content_hash": "7267bcfd675153f79b663d53e1e515ad9c7198481756400e589b827f72f8a29e",
+      "decision": "LINK",
+      "keys": [
+        "archimedes-buoyancy",
+        "electroluminescence"
+      ],
+      "reason": "자석 부표의 위치를 색 LED로 표시한다. 자기 센서의 종류는 미상이다."
+    },
+    {
+      "identifier": "AR-078613-A1",
+      "source_fingerprint": "2a59d75c34e30867ae42a8694f233bc881e919ea48a5927d693d83a585eb3fcb",
+      "content_hash": "25e6b98b5f86a412e1f31236978d8d7b8e5b722f135ffb3fdaedd07cbc157912",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "오토택신 저해를 명시한다."
+    },
+    {
+      "identifier": "AR-078616-A1",
+      "source_fingerprint": "509583e20f16f39b9db372317ee8bd6cbb9b34b5a593d6d17359b8db690bc98c",
+      "content_hash": "27f7eb10a3e91feccba04026024be15993a13741670aaae012196ebbcdd93f8a",
+      "decision": "LINK",
+      "keys": [
+        "articulated-linkage-motion"
+      ],
+      "reason": "페달과 안내 롤러로 바퀴를 상하 이동해 횡이동 모드로 바꾼다."
+    },
+    {
+      "identifier": "AR-078628-A1",
+      "source_fingerprint": "fbdbd57cb7a4f1b14a96e3c5e2c3448be2097ea3e2b91b9bc93ec43e999ecf38",
+      "content_hash": "adec6ce4d39e325288d4c5abab371955091f053b989c4a256f9154839a282f76",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "Winsor III 미세유화상으로 오일 회수를 돕는다. 초저계면장력 평형을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-078629-A1",
+      "source_fingerprint": "772dd538e90955234c82643dc33cdb5f58878e149c12b8f19a1971369b5f081f",
+      "content_hash": "f6f1ef3c4bd1f51e899e7c639d049aae003b5173fa628d5dd378cdfc21fbc79b",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "계면활성제 분포를 바꾼 유사 미세유화 회수 공정이다. 앞선 특허와 같은 원리를 중복 집계하지 않는다."
+    },
+    {
+      "identifier": "AR-078641-A1",
+      "source_fingerprint": "e33dfe828d6745c49c6667f6247c70ed8c67a7396212fcebc8b62dddf99215fc",
+      "content_hash": "25541110786cddff6c1ad6f7e19437e4d1469e887e3aaa170326d6b080e49346",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충·살비제의 구조 범위이며 작용 표적은 미상이다. 저장 텍스트 말미가 잘려 있다."
+    },
+    {
+      "identifier": "AR-078653-A1",
+      "source_fingerprint": "cc2ee016cd141b4239b96fc2a5927b49f4d064957ca201a93f43854886f740cb",
+      "content_hash": "35130a879f4ff57a5ede57e92445a3d433a4b9e67ce90138fb09508231804cbd",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "트라마돌·셀레콕시브 병용 조성이다. 성분명만으로 상세 기전을 추가하지 않는다."
+    },
+    {
+      "identifier": "AR-078679-A1",
+      "source_fingerprint": "aceec9199a87f5e320d7ac2034b7e433d7cd86adbaedff415b9171569f64790b",
+      "content_hash": "1ed2fdfb0e43b1d5093700d7ad2155f07c18b32be7aa5798ff92ad94aa46e955",
+      "decision": "LINK",
+      "keys": [
+        "wetting-control",
+        "barrier-coating"
+      ],
+      "reason": "뒷면 소수성 코팅으로 물방울을 맺히게 해 타일 내부 침투를 줄인다."
+    },
+    {
+      "identifier": "AR-078689-A1",
+      "source_fingerprint": "d84691f9a9ac3772f30bc1a11cf1d4b39c35b4d4924491b8ccd135fe474e8a2a",
+      "content_hash": "18b1270e46692ca4e5c3feef4343b06872b4eecfd4ad8171f01c4de10a36af2e",
+      "decision": "LINK",
+      "keys": [
+        "distillation",
+        "evaporative-concentration"
+      ],
+      "reason": "글리세롤 조성을 가열 후 증류·증발 분리한다. 고리 올리고머 형성 반응은 초록만으로 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-078695-A1",
+      "source_fingerprint": "9487cae034f62c5b1e154e9406f237764c4eff1205fd64e96720b93ca9855422",
+      "content_hash": "f0cd60f3436b9fc6e1174b07026833e00185f9ddc62ee12c3dd2fe90dabd8232",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다차원 물성 공간의 거리순으로 유사 성분을 찾는다. 최근접 이웃 검색을 지도 학습과 구분해 후보로 기록한다."
+    },
+    {
+      "identifier": "AR-078698-A1",
+      "source_fingerprint": "2b44979973fa7511249efadb390f0aca23b3b9caa82cdd1630898502dfff3c97",
+      "content_hash": "ecbe125d61f1c59a3f4ff7ce39139312893ef3c813649cb099c8185f1739f6fd",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "joule-thomson-effect"
+      ],
+      "reason": "온도 감지 밸브로 과열도를 조절하고 스로틀 압력 강하를 만든다. 감온통 유체의 상세 특성은 미상이다."
+    },
+    {
+      "identifier": "AR-078700-A1",
+      "source_fingerprint": "d64d65b0176c8b09b96ddd550e5d5d958240e468774a2a6cd47b2d373cd406eb",
+      "content_hash": "f420866ce57894c760de00d91bf421fa22c8f7fffc39020ce6a4be224d7941f6",
+      "decision": "LINK",
+      "keys": [
+        "pressure-driven-flow",
+        "pneumatic-particle-transport"
+      ],
+      "reason": "흡입 기류로 섬유·고분자를 쌓고 차압으로 두께를 줄인다."
+    },
+    {
+      "identifier": "AR-078707-A1",
+      "source_fingerprint": "4135a1e0355e9086f6699cd7ddba1d5ea985717bc114149af7094e493548d221",
+      "content_hash": "aa119218544caf113e1eed15781f58dd2ec9f39fba7b97bd5d423b68fa04062e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "문맥 확률에 따른 산술 부호화와 구간 축소 테이블 검색이다. 오류 정정 부호·푸리에 변환과 구별해 두 계산 원리를 검토한다."
+    }
+  ],
+  "recorded_at": "2026-09-22T23:13:33.577697+00:00"
+}

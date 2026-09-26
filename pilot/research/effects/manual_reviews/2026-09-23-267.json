@@ -1,0 +1,210 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "024af21be27cd8be88e49bf1703aff0c6789c468e7eacdb6ca6b0e41dbca8302",
+  "reviews": [
+    {
+      "identifier": "AR-121287-A1",
+      "source_fingerprint": "93ff3e019c3583c32fe4edad06eb931f892f859fdcc227ea6248ce4cadfce346",
+      "content_hash": "91cdcf6c21d968795e2f8d7fc4e637ee1fe6be94df20a7f14749732e996edef4",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "아민 보호기 제거이나 보호기의 종류와 절단 경로가 없어 특정 반응을 정하지 않는다."
+    },
+    {
+      "identifier": "AR-121296-A1",
+      "source_fingerprint": "1f63445d750e8e2df465b4640de53a3e56298b79dcdf7d2a0168e96df9e95ff5",
+      "content_hash": "c7c32c8042528658545ba663b6c4da0c9b69e2513bf6e188c0223bc67854da63",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "MGL 조절제의 구조이다. 조절 방향과 효소 결합 경로가 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-121301-A2",
+      "source_fingerprint": "c57f9a8eba701059a7513a7c4217c56d4c38c67a0bf4f3d564e9ec20fb3f5b5b",
+      "content_hash": "0b3ff7dc666138d9cda320f9d03ae61ba50bedc6fa13561e276116e5d84d95b3",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-mediated-endocytosis"
+      ],
+      "reason": "항체의 종양 항원 결합 및 항원 발현 세포 내재화가 명시되었다. 항튜불린 작용은 기존 초안과 통합 검토한다."
+    },
+    {
+      "identifier": "AR-121342-A1",
+      "source_fingerprint": "ed9269832cb23092f374f3ea2be1cd8a7a8c84d28687aceb4d2eb17c9f1ff2b4",
+      "content_hash": "39de4a367e49c059650637e01fbffbc57a7170b466a2f8f3afa60f033b39ac94",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-insulation"
+      ],
+      "reason": "유전체·금속·프라이머 적층 코팅이다. 특정 광학 간섭이나 저항 감소 원인은 조성만으로 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-121371-A1",
+      "source_fingerprint": "1cb98cdf3f9f64714b0f932f817d98753de6d5ca247c0613bb5176e659e715d6",
+      "content_hash": "0a7c2168d84f1f75c47b884a26c40025d9ff485569999e275e738b2afff67bd8",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "CPC 양이온 계면활성제와 유화제의 구강 세정 조성이다."
+    },
+    {
+      "identifier": "AR-121391-A1",
+      "source_fingerprint": "f7d7fdacb8af4af3fe7bbc2d62b66265d5af97f31885b072446c0c2055cd6b89",
+      "content_hash": "243cdc2c16751c54d15d931d1db8227190d5e11bac216c1b19feb7aeb6c980db",
+      "decision": "LINK",
+      "keys": [
+        "ultrafiltration"
+      ],
+      "reason": "접선 흐름 막여과로 단백질을 농축한다. 명시되지 않은 막 분자량 차단값은 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-121395-A2",
+      "source_fingerprint": "089bab872425f3fa0a2c9323cc899c117e12fe8865de065222fe11b0e6731ec5",
+      "content_hash": "580da85408aae1ecbe860c324ecd21b4186d777348086c203085896454a49da7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "주사기 내 기포·충전 상태를 영상 처리로 확인한다. 구체 광학 대비나 알고리즘이 없다."
+    },
+    {
+      "identifier": "AR-121403-A1",
+      "source_fingerprint": "03f06f7bb776858df097488cf876c597368a4908a27d7b79cdcbfa836eed243d",
+      "content_hash": "7450c84b3f074335ae774166d72a74072af5cbc996d527b1eeffb5fca2aec7e0",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스 화합물 구조 및 적응증만 제시되어 작용 경로가 없다."
+    },
+    {
+      "identifier": "AR-121414-A4",
+      "source_fingerprint": "a941ece353a3195eefadf6301865aa5c6a66ef43239db3890b697a6be9f65cf6",
+      "content_hash": "ecad0c29c3e8b9c65709cfe39f67038acde61ed7f0f1afa7f349abfe0355f6be",
+      "decision": "LINK",
+      "keys": [
+        "rolling-contact-friction-reduction",
+        "lever-mechanical-advantage",
+        "articulated-linkage-motion"
+      ],
+      "reason": "경사면을 구르는 알과 평형추 달린 회동 버킷으로 배출한다."
+    },
+    {
+      "identifier": "AR-121420-A1",
+      "source_fingerprint": "ca1875a025fe49b08b50c000c9b69dc08c15b2d5a67d697485afa3b0a1a7aa2e",
+      "content_hash": "477abf6fab0d2a706c6cdae9a3f0abf30051fd81de1321d16c3f49908cf93106",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-separation"
+      ],
+      "reason": "오염 구역을 나눈 세탁기에서 회전 드럼으로 탈수한다. 위생 구획은 장치 배치이다."
+    },
+    {
+      "identifier": "AR-121427-A1",
+      "source_fingerprint": "cdec4b85cf962638e6a514f7e85ec205bbd0b1875da15ef8c073801a22abee32",
+      "content_hash": "0d7f8f9640ce459abfd29c79bc3dabcf9cfc25086ab68db92c16bb1dc08d98e3",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition",
+        "acid-base-buffering"
+      ],
+      "reason": "우레아제 억제제와 pH 완충제를 지닌 입상 비료이다."
+    },
+    {
+      "identifier": "AR-121431-A1",
+      "source_fingerprint": "029fbbde1bab41c7468f2132d8d37d13f431e298956f9aa03db7ac38996bf9a9",
+      "content_hash": "c2701dd87d099820cedef54a792a2aff4988d07ea52143fd1947949e6a9d76b5",
+      "decision": "LINK",
+      "keys": [
+        "negative-feedback",
+        "acid-base-reaction"
+      ],
+      "reason": "압축기 물의 pH를 측정하여 설정 범위로 보정한다."
+    },
+    {
+      "identifier": "AR-121438-A1",
+      "source_fingerprint": "6af45fb4f2155cde0ade64e3d4a7e99a06c02fd2486678e1671eaf9353751d64",
+      "content_hash": "70aafbdc28ccaafa5d370c65c677fef6aba616a74d2a36b6bfe52442c6718f19",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "안정 제형에 나트륨 이온을 포함한다. 용해도·염 형성의 인과 경로를 초록만으로 정하지 않는다."
+    },
+    {
+      "identifier": "AR-121457-A1",
+      "source_fingerprint": "fca2d232b7578c82b32ab90479a59311e18ea98e7f8e4294a7cce40a090f5c2b",
+      "content_hash": "77cd6143d14b779c431c2d0039411ca4fb44401345b8c2fb0969f0340476eb95",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis"
+      ],
+      "reason": "인간 알파갈락토시다아제 효소 변이체이다. 안정성 증가의 분자 원리는 별도 검증이 필요하다."
+    },
+    {
+      "identifier": "AR-121461-A1",
+      "source_fingerprint": "a1baec62c5ba1dcd0caf6ea5ec91ec7d133bfef4a0eedf933e48e362bcc20d14",
+      "content_hash": "dcdbcb81e1969a678214fb940fc2988ffaf55d2229467a37f9249bed607e78a4",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression"
+      ],
+      "reason": "CAR 발현 면역세포 제조이다. 인공 수용체 신호 결합 초안과 연계 검토한다."
+    },
+    {
+      "identifier": "AR-121477-A1",
+      "source_fingerprint": "6d0d9c7b349c2c1bb6961068d715bfff225f05e4858297a9ff35e713a32df11e",
+      "content_hash": "546bea65ce424649e6bd4ab83f98665c53652a559e8234fc7cfb0cbbbaa4d9c2",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering"
+      ],
+      "reason": "인산 완충액을 쓰는 약물 용액이다. 제시된 pH는 임상 투여 지침으로 전용하지 않는다."
+    },
+    {
+      "identifier": "AR-121478-A1",
+      "source_fingerprint": "426f6a815f1138967b3f2283e40d3ced842434e897e1a2ca7b531412faa25328",
+      "content_hash": "79109fe19ffc20de339516e42c75777241dc600198695c568952e04160ee10e6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "포름알데히드 포획 단량체의 다단계 라텍스이다. 포획 작용기와 반응 경로가 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-121489-A1",
+      "source_fingerprint": "162e43eb8bf42f0f9368fb162c43c462ce421d59f976d0e113b2bc5d36f5bda6",
+      "content_hash": "faa109d53ade713c89947ea9527c28043329d8fea71d8624e6adc70623f36593",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking",
+        "elastomer-contact-sealing"
+      ],
+      "reason": "주사기 관과 바늘 지지체의 일방향 돌기 결합 및 천공 가능한 탄성 마개이다."
+    },
+    {
+      "identifier": "AR-121495-A1",
+      "source_fingerprint": "2ffafd9a0c958cf6dc2c7de142d746051ff52131f320632d4224364bf104b018",
+      "content_hash": "0662526818aad251cf4ba37a03a4f593082af8e88a12c26411083e8bc664252f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항바이러스성 화합물 구조이며 독립적 작용 경로를 특정할 근거가 없다."
+    },
+    {
+      "identifier": "AR-121497-A1",
+      "source_fingerprint": "8c9abb0e944ded64ee8d970aaddd79769cfc83a84b6b7713e00e3d982609f6f7",
+      "content_hash": "e86c646afec4e8675dc90c4256e348a76a3403c8fd52d0b339e8c6c711c4f8e3",
+      "decision": "LINK",
+      "keys": [
+        "water-gas-shift",
+        "condensation-recovery",
+        "gas-absorption"
+      ],
+      "reason": "개질 가스를 전환하고 냉각 응축수의 휘발성 성분을 증기 탈기로 회수한다. 개질은 기존 초안과 연계한다."
+    },
+    {
+      "identifier": "AR-121500-A1",
+      "source_fingerprint": "d96e72d482e866646f642abc18a7c517747e25e83e2f56479e420d4c6418b3cc",
+      "content_hash": "6aa9aa0283461111a1cb586cea86c8e8ecdbc54cde6f4b222dde36f5fb59d63f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "온도·습도·증기압차로 수분 시기를 선택한다. 관측 변수만으로 별도의 생리 기전을 단정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:51:08.258911+00:00"
+}

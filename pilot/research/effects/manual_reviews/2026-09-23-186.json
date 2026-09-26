@@ -1,0 +1,209 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "5ff4d6b4e0b02119adc0f90223e3ff7f63516afecad50edadb5f3154850b44a6",
+  "reviews": [
+    {
+      "identifier": "AR-106631-A1",
+      "source_fingerprint": "339c1be6582d9ebd48c385166084de7de6a3b6a1ac9d8ba993179e8c7260c985",
+      "content_hash": "84f8e000b5815e517725ab680099a30b088de9491d12f69cdb2c05f74388348a",
+      "decision": "LINK",
+      "keys": [
+        "error-correcting-code"
+      ],
+      "reason": "커버리지 수준에 따라 신호 반복 횟수를 설정하는 반복 부호의 적용이다. 자동 재전송 요청이나 공간 다이버시티를 뜻하지 않는다."
+    },
+    {
+      "identifier": "AR-106641-A1",
+      "source_fingerprint": "7cde68babe8f720894aa930c70f9fb4995256418372c691357b6c8eb05d97ed3",
+      "content_hash": "8c62c86704349d0e8b390da489da58610a291dec3e20b2e8a0e1b00d15083297",
+      "decision": "LINK",
+      "keys": [
+        "fluid-turbine-conversion",
+        "electromagnetic-induction"
+      ],
+      "reason": "바람으로 로터를 돌려 발전한다. 경사면으로 풍속·출력이 증가한다는 성능은 검증하지 않는다."
+    },
+    {
+      "identifier": "AR-106652-A1",
+      "source_fingerprint": "42cf47ef4f48b70e205150b0f2681ad173a131dc4ed091dee55dee6c6c3194a0",
+      "content_hash": "0aabd859a52fc92794c8514e103a7d205f236db09f6379569e3cf241f2ebe19d",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "ALS 치료 용도와 화학 구조만으로 약리 기전을 특정할 수 없다."
+    },
+    {
+      "identifier": "AR-106735-A1",
+      "source_fingerprint": "c479bdbbf5115648c2f07b96fd4542200bbf4ed20438cc5384cbb78bf148c0ab",
+      "content_hash": "58ebb7a00c1e1a936906fb8881974392ee5a051f32e62eb799c1fbf3b683fb99",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "살충제 화학 구조·조합·도포 대상만 제시되며 분자 작용은 미상이다."
+    },
+    {
+      "identifier": "AR-106736-A1",
+      "source_fingerprint": "f9c6f94c544b4ace9c3f60acda3d348c21f531f8f54f8fe68f7ec0cc24551e47",
+      "content_hash": "ceb7fb0c08cb413a46fae1f76e411eaaf338c30b1e505bfa5dbc4e96fb38784b",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "연속 시료 채취·측정실·실시간 표시의 설비 구성이다. 화학량을 측정하는 센서 원리는 없다."
+    },
+    {
+      "identifier": "AR-106742-A1",
+      "source_fingerprint": "6654c2e7f012c0e266a3d33395494122347dffed247241e7076475c9c68eeb63",
+      "content_hash": "bd00b6718e9d9ef7dd9b5819ec35899b1bb0bbe4e1017e3226a090b24097b58a",
+      "decision": "LINK",
+      "keys": [
+        "code-division-multiple-access"
+      ],
+      "reason": "잡음·손실 모델에 따라 확산 스펙트럼 전송을 선택한다. CDMA 카드의 확산·상관 복원 원리 적용이며 실제 다중 사용자 분할을 단정하지 않는다."
+    },
+    {
+      "identifier": "AR-106790-A1",
+      "source_fingerprint": "cee19a3ab168e063a00ad9c97c3195849ccfd38331bfd027c1a129d7e28f67fb",
+      "content_hash": "66b7ccbf36a2d0f77c7d1653941b2f3c99726327d1ba80ae06a016f2a4d4495f",
+      "decision": "LINK",
+      "keys": [
+        "plant-cell-totipotency",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "생장 조절제와 환경 조건을 이용해 포플러 잎 절편의 발근·싹 형성을 유도한다."
+    },
+    {
+      "identifier": "AR-106791-A1",
+      "source_fingerprint": "08e6061c7aed11260617b6f5249887122c2bd65cf7bcabdd6e8ee7d6d4d28679",
+      "content_hash": "3248dc28e85f2dc182e1404e581c4389e6e30f64c8058df93108afe20047bdcd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "장비 식별자·위치·이용 상태를 연결하는 추적 업무 규칙이다."
+    },
+    {
+      "identifier": "AR-106797-A2",
+      "source_fingerprint": "d531972d31e70aeda8e9b2cce42d62fbc8c1ca650ac14195768f357a9867774d",
+      "content_hash": "ef78249b40d1b7f6b16de52a1186ace8ac166b745edb4097130f4c59d89f0c48",
+      "decision": "LINK",
+      "keys": [
+        "catalysis"
+      ],
+      "reason": "암모니아가 산소 존재하에 NOx를 질소와 물로 선택 환원한다. 신규 준비된 SCR 카드의 명확한 추가 특허 사례다."
+    },
+    {
+      "identifier": "AR-106799-A1",
+      "source_fingerprint": "72891e0c454fe8c6f4b0c1198d11439d2e229e4daa156ee6c4f9d5bd756ef60d",
+      "content_hash": "55d930cd8e77b27b33a71573cec6a83be9ec746245352f279bddb6e76bb53c7e",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "ACC 효소 저해가 명시된다. 대상 작물·균이나 화합물 변형은 새 원리가 아니다."
+    },
+    {
+      "identifier": "AR-106816-A1",
+      "source_fingerprint": "2cca3a1d94f4090ac0bd592546dc92cc5747903d74cc4d28b3fbfa0643e9643e",
+      "content_hash": "8b191ef58e2552c11d21eb82251af5f7f206289300de57f169ad175e9686bbd2",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "alcohol-oxidation-to-carbonyl",
+        "carboxylic-acid-esterification"
+      ],
+      "reason": "알케인부터 알코올·알데히드·산·에스터·말단 수산화물로 이어지는 효소 경로다. 알데히드 산화 등 준비 카드의 추가 사례로 기록한다."
+    },
+    {
+      "identifier": "AR-106846-A2",
+      "source_fingerprint": "4b7d0be472ad1d5be1ca130c695137f789e8a415c48e603bf4ed15bef238ac4a",
+      "content_hash": "8bf42ccd5a02ef31919d3c1405cd2fe863d659446c40ae9d4f305ed8e62e3aa2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "용기 방향 안내 리브와 도포 패드의 구성으로 모세관 작용은 명시하지 않는다."
+    },
+    {
+      "identifier": "AR-106875-A1",
+      "source_fingerprint": "81f16eb71d7f8b84afce7236a714d2fcea7eca98e6a0d7e1767bbf760cc14d9c",
+      "content_hash": "4c7ecb0820a8c3eb05adaf97748d61321045128e9927614dfb3562a38c1e968b",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "GLS1 글루타미나아제 저해가 명시된다."
+    },
+    {
+      "identifier": "AR-106883-A1",
+      "source_fingerprint": "95100556ca60ec5764b2f76e0e9408caab885436e228d77908715fed45b1f509",
+      "content_hash": "c66e130c8369fb0262a39214dd9daee1c3c447651f16e3f91ded92e4cb9b54a8",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action",
+        "foam-film-rupture"
+      ],
+      "reason": "세정 중 기포 형성과 헹굼 중 빠른 소포를 계면활성제·지방산 조합으로 조절한다. 상세 막 파괴 경로는 제형별 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-106888-A1",
+      "source_fingerprint": "1cf9314e6dce061e2b6f05b3faca76a682ccf76d0c8e409902e301fcada061de",
+      "content_hash": "45b7d89c852478d8adf56658132666ce704fecb2daef132003344fb754564aaa",
+      "decision": "LINK",
+      "keys": [
+        "compressible-shock-wave"
+      ],
+      "reason": "유체 압력 충격을 개폐 트리거로 이용한다. 초록 내 개방·폐쇄 방향 서술이 엇갈려 상세 상태 전이를 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-106895-A1",
+      "source_fingerprint": "8ef80ad255cb7d5e8e11c364d2e2dda7655e962530b64ebd015c39d010f219d8",
+      "content_hash": "945b7a9bac4fd94beb5c5d1d6a6c570990b861d2327ef81629e75e7eb8137dcd",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "adsorption"
+      ],
+      "reason": "탄산칼슘의 산·CO2 표면 처리와 질소 흡착 BET 측정이 명시된다. 흡착량에서 비표면적을 추정하는 기능을 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-106909-A1",
+      "source_fingerprint": "87a0c36de44ee68e05e978f0261e26f057b4d4fa4d277bc5609401b44bdc4983",
+      "content_hash": "6d9d8e061342614e1f456464f79ed6184fa153b1b58fd7fdded9a3a8cd9a8d67",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "재구성 담배·충전재·에어로졸 성분 비율만 제시되어 생성 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-106919-A1",
+      "source_fingerprint": "d25b78df6ba1665d25e043b8a64e0040d4b3afda93b246dea51259fc8181019f",
+      "content_hash": "13fb8b406bbd1a145bbe2e6247c859a2addb1c85797764ec0efd701da5bfb5a7",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "과산화물 열처리와 무수물 첨가로 포깅을 줄이는 사례이나 생성물 포획·반응 경로는 불명확하다. 열 라디칼 후보의 추가 사례만 보존한다."
+    },
+    {
+      "identifier": "AR-106933-A1",
+      "source_fingerprint": "260032fe0b8453b3afd65ec80275b8c8a6bf39d7e623980cc4b53ec541f77f56",
+      "content_hash": "51075898b095283acc97a1d274ed9e33f289e48c275abec1cffb3fce92ee03ea",
+      "decision": "LINK",
+      "keys": [
+        "mechanical-interlocking"
+      ],
+      "reason": "밀봉 부품을 수용부와 유지장치에 고정한다. 밀봉 재료나 탄성체 기전은 명시되지 않는다."
+    },
+    {
+      "identifier": "AR-106957-A1",
+      "source_fingerprint": "6e5683d01b33489d72ea481d68c5a66e4090ea77a5fbffddeb4b8989e2ff58e8",
+      "content_hash": "3ff31a516548e86f380b33d1dc91c52ff53779c0f5d99905a489842fb3f7bc11",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "시아닌 결합 단백질의 세포 투과 기능만으로 수용체 유입·막 파괴 등 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-107014-A1",
+      "source_fingerprint": "e760cb6fef5bc7ad2ee184309ee401620c5a097b8e9223ce30cbab9ac9404422",
+      "content_hash": "c86d6c5a69c628c23f580899b75a141cf5ec12f74ffd36c609ad8dd32ed99d00",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-buffering",
+        "surfactant-action"
+      ],
+      "reason": "항체 제형의 완충제·당·폴리올·계면활성제가 명시된다. 선택적 배제 안정화 후보의 추가 적용 사례로 남긴다."
+    }
+  ],
+  "recorded_at": "2026-09-23T01:37:17.054332+00:00"
+}

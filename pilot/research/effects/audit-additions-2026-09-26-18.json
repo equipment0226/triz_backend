@@ -1,0 +1,253 @@
+{
+  "batch": "additions-2026-09-26-18.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1276,
+  "added": 20,
+  "after": 1296,
+  "target": 1500,
+  "source_sha256": "c65c0124b96da99f0fb969b6f1842936731e0761ca3f8b1016543dc5f76aa721",
+  "decisions": [
+    {
+      "key": "argonaute-guide-directed-rna-slicing",
+      "group": 18,
+      "related_keys": [
+        "antisense-gene-suppression",
+        "sequence-directed-dna-cleavage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "안티센스 전체를 중복 재명명하지 않고 안내 가닥을 적재한 아르고노트의 촉매 절단 경로로 한정한다.",
+      "source_url": "https://www.nature.com/articles/nature08434",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "cas-integrase-spacer-memory-acquisition",
+      "group": 18,
+      "related_keys": [
+        "sequence-directed-dna-cleavage",
+        "site-specific-recombinase-strand-exchange"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이미 정해진 서열의 절단이나 부위 간 교환과 달리 새 외래 조각을 반복 배열에 획득한다.",
+      "source_url": "https://www.nature.com/articles/nature14237",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "tmrna-template-switch-ribosome-rescue",
+      "group": 18,
+      "related_keys": [
+        "premature-termination-mrna-surveillance-decay",
+        "nascent-peptide-induced-translation-skipping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정상 종결 전 mRNA 감시나 펩타이드 유도 건너뛰기와 달리 다른 RNA 주형으로 갈아타 리보솜을 회수한다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-24881-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "adenylate-activated-trna-aminoacylation",
+      "group": 18,
+      "related_keys": [
+        "ribosomal-peptidyl-transfer",
+        "amino-acid-pool-translation-fidelity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "리보솜 안의 펩타이드 연장이나 기질 농도 경쟁과 구분되는 번역 전 운반체 충전 반응이다.",
+      "source_url": "https://www.nature.com/articles/ncomms7402",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rtcb-three-prime-phosphate-rna-ligation",
+      "group": 18,
+      "related_keys": [
+        "adenylation-mediated-nucleic-acid-ligation",
+        "spliceosome-mediated-rna-processing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "5′ 인산의 AMP 활성화와 반대쪽 말단 화학을 사용하며 스플라이소솜의 인트론 교환 반응과도 다르다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3458315/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "lipid-donor-en-bloc-n-glycosylation",
+      "group": 18,
+      "related_keys": [
+        "chemical-glycosylation",
+        "terminal-sialylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 당 결합 형성의 반복 이름이 아니라 막의 지질 운반체에서 단백질로 당사슬을 한꺼번에 옮기는 경로이다.",
+      "source_url": "https://www.nature.com/articles/nsmb.3491",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "protein-prenyl-covalent-lipid-anchoring",
+      "group": 18,
+      "related_keys": [
+        "signal-directed-protein-localization",
+        "pegylation-steric-shielding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수용성 차폐나 신호 서열 인식 수송과 달리 공유 소수성 고정점을 만든다. 프레닐기 길이별로 나누지 않는다.",
+      "source_url": "https://www.nature.com/articles/nature00986",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "photosystem-manganese-water-oxidation-cycle",
+      "group": 18,
+      "related_keys": [
+        "photosynthesis",
+        "water-electrolysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광합성 전체와 별도로 물 산화의 다전자 축적 반응에 한정하며 전극 전기분해와 구분한다.",
+      "source_url": "https://www.nature.com/articles/s41586-023-06038-z",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "four-carbon-acid-co2-concentration",
+      "group": 18,
+      "related_keys": [
+        "rubisco-carbon-fixation",
+        "photosynthesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "RuBisCO의 최종 고정 반응 자체가 아니라 앞단의 탄소 운반·방출 농축 경로이다.",
+      "source_url": "https://www.nature.com/articles/s41586-024-08204-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "hydrazine-mediated-anammox-nitrogen-formation",
+      "group": 18,
+      "related_keys": [
+        "aerobic-nitrification",
+        "anoxic-denitrification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산소를 이용한 질산화나 유기 전자공여체의 탈질 대신 암모늄 질소를 하이드라진 중간체에 편입한다.",
+      "source_url": "https://www.nature.com/articles/nature10453",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "methyl-com-radical-methane-formation",
+      "group": 18,
+      "related_keys": [
+        "anaerobic-digestion",
+        "carbon-oxide-methanation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "혐기성 소화 전체와 분리한 최종 메탄 생성 화학이며 무기 촉매의 탄소 산화물 수소화와 다르다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27199421/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "polyphosphate-kinase-phosphoanhydride-storage",
+      "group": 18,
+      "related_keys": [
+        "substrate-level-atp-formation",
+        "atp-dependent-protein-phosphorylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단백질의 조절 인산 표지와 달리 무기 인산 사슬의 반복 결합에 물질과 에너지를 저장한다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1369109/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "glucan-chain-transfer-branch-formation",
+      "group": 18,
+      "related_keys": [
+        "starch-gelatinization",
+        "chemical-glycosylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가열에 따른 전분 구조 붕괴나 새 단당의 부가와 달리 기존 사슬 조각을 재배치해 공유 분지점을 만든다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41577281/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "uncharged-trna-stringent-alarmone-synthesis",
+      "group": 18,
+      "related_keys": [
+        "substrate-limited-biochemical-rate",
+        "allosteric-cooperativity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질 부족의 수동 감속과 구별되는 리보솜 센서·알람론 생성 연결 경로이다.",
+      "source_url": "https://www.nature.com/articles/nature17675",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "differential-decay-postsegregational-selection",
+      "group": 18,
+      "related_keys": [
+        "differential-survival-selection",
+        "antisense-gene-suppression"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 선발이나 안티센스 억제보다 구체적인 서로 다른 잔류 시간에 의한 공급 중단 감지 회로이다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/2460630/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "proteasome-atp-unfolding-translocation",
+      "group": 18,
+      "related_keys": [
+        "target-induced-protein-degradation",
+        "autophagosomal-sequestration-lysosomal-degradation",
+        "chaperone-assisted-folding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표적 지정이나 소낭 격리와 구분되는 ATP 구동 사슬 풀림과 분해 핵 유입의 실행 단계이다.",
+      "source_url": "https://www.nature.com/articles/s41586-018-0736-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "escrt-reverse-topology-membrane-scission",
+      "group": 18,
+      "related_keys": [
+        "dynamin-gtp-membrane-fission",
+        "snare-zippering-membrane-fusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "다이너민이 외부에서 감싼 목을 조이는 경로와 막 위상이 다르며 융합과도 구별한다.",
+      "source_url": "https://www.nature.com/articles/nature07836",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "clathrin-coat-assembly-membrane-bending",
+      "group": 18,
+      "related_keys": [
+        "receptor-mediated-endocytosis",
+        "dynamin-gtp-membrane-fission"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "화물 인식과 최종 막목 절단을 별도로 두고 피복의 조립·굽힘 단계에 한정한다.",
+      "source_url": "https://www.nature.com/articles/s41467-018-02818-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "spike-order-dependent-synaptic-plasticity",
+      "group": 18,
+      "related_keys": [
+        "electrical-membrane-excitation",
+        "temporal-difference-action-value-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "흥분 발생 자체나 보상 오차 학습과 달리 국소 전후 발화 시차가 연결 강도 갱신을 결정한다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6793365/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "vesicle-depletion-recovery-synaptic-filtering",
+      "group": 18,
+      "related_keys": [
+        "snare-zippering-membrane-fusion",
+        "spike-order-dependent-synaptic-plasticity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개별 융합 반응이나 장기 강도 변경과 달리 가용 소낭 재고의 고갈·회복이 단기 전달을 조절한다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC19580/",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

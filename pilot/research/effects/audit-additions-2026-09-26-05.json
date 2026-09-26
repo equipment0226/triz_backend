@@ -1,0 +1,240 @@
+{
+  "batch": "additions-2026-09-26-05.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1020,
+  "added": 20,
+  "after": 1040,
+  "target": 1200,
+  "source_sha256": "d25c7c4bd140811bc1188fd79688c000ae43127980c91fc42a482596a616f2c9",
+  "decisions": [
+    {
+      "key": "knudsen-wall-collision-gas-diffusion",
+      "group": 9,
+      "related_keys": [
+        "nanofiltration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "액상 크기·전하 여과와 달리 희박 기체의 벽 충돌 통계에 따른 확산이다.",
+      "source_url": "https://www.nature.com/articles/s41467-025-61110-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "donnan-fixed-charge-ion-partition",
+      "group": 9,
+      "related_keys": [
+        "ion-exchange",
+        "nanofiltration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "특정 결합 자리의 이온 교환과 구별되는 전하 중성·전기화학 평형의 상 분배이다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-33592-3",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "kelvin-curvature-capillary-condensation",
+      "group": 10,
+      "related_keys": [
+        "capillary-wicking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 액체의 압력 구동 침투 대신 증기에서 액체로의 곡률 의존 상평형이다.",
+      "source_url": "https://www.nature.com/articles/277548a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dufour-composition-driven-heat-flux",
+      "group": 7,
+      "related_keys": [
+        "thermophoresis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "온도 구배가 물질을 옮기는 열영동과 역방향인 조성 구배의 열수송이다.",
+      "source_url": "https://www.nature.com/articles/s41598-022-15603-x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "saffman-taylor-viscosity-front-instability",
+      "group": 11,
+      "related_keys": [
+        "rayleigh-taylor-density-acceleration-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "밀도·가속도 대비 대신 점도 대비에 의한 변위 전면의 불안정이다.",
+      "source_url": "https://www.nature.com/articles/s41467-019-11939-7",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "faraday-parametric-surface-wave",
+      "group": 11,
+      "related_keys": [
+        "acoustic-resonator"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "직접 음압 공진 대신 시간에 따라 변하는 복원 계수로 표면 모드를 여기한다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-24459-0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "richtmyer-meshkov-impulsive-interface-instability",
+      "group": 11,
+      "related_keys": [
+        "rayleigh-taylor-density-acceleration-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "지속 가속도에 의한 성장과 달리 충격의 충격량·바로클리닉 와도 생성이 구동한다.",
+      "source_url": "https://www.nature.com/articles/s41598-023-27904-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ekman-rotating-boundary-pumping",
+      "group": 11,
+      "related_keys": [
+        "curved-channel-dean-secondary-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "곡선 관의 원심 관성 대신 회전 좌표계의 코리올리 힘과 경계 마찰의 균형이다.",
+      "source_url": "https://www.nature.com/articles/srep28842",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "double-diffusive-buoyancy-instability",
+      "group": 11,
+      "related_keys": [
+        "natural-convection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 온도차 부력과 달리 두 안정화·불안정화 성분의 확산 속도 차이가 필수이다.",
+      "source_url": "https://www.nature.com/articles/299812a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "basset-viscous-history-force",
+      "group": 1,
+      "related_keys": [
+        "viscous-damping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "즉시 점성 저항 모델과 구별되는 비국소 시간 기억 항이다.",
+      "source_url": "https://doi.org/10.1103/PhysRevFluids.1.074203",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "inertial-lift-cross-stream-migration",
+      "group": 9,
+      "related_keys": [
+        "inertial-impaction-separation",
+        "curved-channel-dean-secondary-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "굽은 유선을 따라가지 못하는 충돌이나 딘 와류가 아니라 직선 전단 유동의 횡방향 양력이다.",
+      "source_url": "https://www.nature.com/articles/s42005-021-00794-y",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "shear-induced-collisional-particle-migration",
+      "group": 9,
+      "related_keys": [
+        "inertial-lift-cross-stream-migration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "희박 입자의 관성 양력과 달리 농후 입자의 상호작용·전단 비균일성이 이동을 만든다.",
+      "source_url": "https://doi.org/10.1017/S0022112087002155",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "vibrated-granular-size-segregation",
+      "group": 9,
+      "related_keys": [
+        "granular-jamming"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "접촉망의 고정 대신 반복 재배열에 따른 성분 분리를 다루며 단일 보편 힘으로 간주하지 않는다.",
+      "source_url": "https://www.nature.com/articles/35104697",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "polymer-elastic-turbulence",
+      "group": 11,
+      "related_keys": [
+        "turbulent-transport-enhancement",
+        "viscoelastic-normal-stress-rod-climbing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "관성 난류와 구별되며 정상적인 막대 상승과 달리 탄성 불안정의 시간적 불규칙성이 핵심이다.",
+      "source_url": "https://www.nature.com/articles/35011019",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "evaporative-pinned-drop-ring-deposition",
+      "group": 16,
+      "related_keys": [
+        "capillary-wicking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공극 속 침투와 달리 고정된 자유 액적의 비균일 증발이 내부 보충류를 만든다.",
+      "source_url": "https://www.nature.com/articles/39827",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "electric-dipole-drop-interaction",
+      "group": 10,
+      "related_keys": [
+        "electrostatic-chuck"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고체 전극에 붙이는 힘이나 단일 입자 영동과 달리 분극된 액적 상호작용을 이용한다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-27879-0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "coupled-multicomponent-uphill-diffusion",
+      "group": 9,
+      "related_keys": [
+        "adsorption"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평형 표면 축적 자체가 아니라 여러 성분 흐름의 결합과 과도 농도 역전이다.",
+      "source_url": "https://www.nature.com/articles/ncomms8697",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "kapitza-fast-modulation-stabilization",
+      "group": 2,
+      "related_keys": [
+        "negative-feedback",
+        "faraday-parametric-surface-wave"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상태 오차 피드백 없이 빠른 개방루프 변조로 안정성을 바꾸며 매개 여기의 불안정 영역과 구분한다.",
+      "source_url": "https://www.nature.com/articles/s41467-026-70493-1",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "kapitza-interfacial-thermal-resistance",
+      "group": 7,
+      "related_keys": [
+        "fourier-conduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "벌크 내부의 확산 저항과 구별되는 이종 경계의 에너지 전달 병목이다.",
+      "source_url": "https://www.nature.com/articles/nmat4574",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "capillary-wave-partial-coalescence",
+      "group": 11,
+      "related_keys": [
+        "rayleigh-plateau-breakup"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "균일 액사의 자발 분열과 달리 합체 과정에서 발생한 모세관파 집속·배수 경쟁이 원인이다.",
+      "source_url": "https://www.nature.com/articles/nphys268",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ],
+  "scope_correction": {
+    "previous_sha256": "7cf9342b3bfe06084efd289e057927ad95a5369d65bafdbce2bb703423187656",
+    "reason": "Conservatively identify retained evidence as search excerpts; no assertion of full-text access."
+  }
+}

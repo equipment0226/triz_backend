@@ -1,0 +1,276 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "c58081d45f1ac7e391cc99ad4a37145bc2cac0d80f0398081f39d48eb5dc01c3",
+  "reviews": [
+    {
+      "identifier": "AR-112983-A1",
+      "source_fingerprint": "636c96994c77b3504ba38891f0d33f59f4ae9a7f2f9175a7e068cc2ced7fcfa9",
+      "content_hash": "c4b69256246e60cab7a3772bf049801989c736cb9fbbdb659530a16dce4a291f",
+      "decision": "LINK",
+      "keys": [
+        "taste-mixture-suppression"
+      ],
+      "reason": "NHDC·사이클로덱스트린으로 불쾌한 맛을 가린다. 포접 구조의 형성은 별도 확인이 필요하다."
+    },
+    {
+      "identifier": "AR-113009-A1",
+      "source_fingerprint": "924fa8bf9d7ceecd6968afdfc10899a0a87606610bc6041c5d5e00deb6afb796",
+      "content_hash": "4f3b04b8b0ab9841b0f13b067188e3fddca6311d4f0665c32d7953f6c69647ee",
+      "decision": "LINK",
+      "keys": [
+        "electromagnetic-induction"
+      ],
+      "reason": "절연된 양방향 전력 변환기이다. 소프트 스위칭의 전압·전류 중첩 손실 저감을 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113030-A1",
+      "source_fingerprint": "2454f1b3b12d1bf7370ac3107ccd8847b436dec4bc71b21fb22084a2270516a2",
+      "content_hash": "9ec9e111281cc16f6ab4bea4830f3e9e515ea99e306123e4880295fe4c3a3b70",
+      "decision": "LINK",
+      "keys": [
+        "fermentation"
+      ],
+      "reason": "비해리 아세트산과 효모 발효의 관계이다. 새 후보 키는 설치 후 연결한다."
+    },
+    {
+      "identifier": "AR-113049-A1",
+      "source_fingerprint": "d41a6ec16df07bbc627002c98916cf55d16d198254f72ab293d1e2e3b96f1750",
+      "content_hash": "0f8d2fd3634d9264b00e85cc2cad18277a10615deeba715972d2a6fb45dd7c16",
+      "decision": "LINK",
+      "keys": [
+        "pneumatic-membrane-actuation",
+        "articulated-linkage-motion"
+      ],
+      "reason": "유체 스프링과 회전 링크가 절단봉 높이를 조절한다."
+    },
+    {
+      "identifier": "AR-113054-A1",
+      "source_fingerprint": "440b131ddd3a0dbbd9106d6b2562be427ece870b33f8f971cba057e91b41d594",
+      "content_hash": "5c3702a0238cc1f8b7f0992cdbdda5860ddeab96854797ba0bcb5f270963a96b",
+      "decision": "LINK",
+      "keys": [
+        "nanofiltration",
+        "reverse-osmosis"
+      ],
+      "reason": "나노여과·역삼투 투과수를 혼합해 주입수 염도를 조정한다."
+    },
+    {
+      "identifier": "AR-113058-A1",
+      "source_fingerprint": "d4c29bde0df74da667b61697c3a10fac8e1bdeeb3df891694cd828c7a0c9ede4",
+      "content_hash": "ad9c32541c724f1227ab1dbeec9fc7d5a74c71d935f0d3c366ef30c303629f18",
+      "decision": "LINK",
+      "keys": [
+        "cam-follower-motion"
+      ],
+      "reason": "비원형 캠의 윤곽과 각도로 수확 릴 운동을 조절한다."
+    },
+    {
+      "identifier": "AR-113061-A1",
+      "source_fingerprint": "5607031c0b215e84a6d0ca9b063c1dbd3dfc4aef0436f8177feee0d260ad9258",
+      "content_hash": "b71370194e8568ef3ff5aecf4419df4908fbe4e9696a00b5a14ec3d22799e17b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "주변 기상 관측을 구역별 대표값으로 만든 후 질의 위치에 보간한다. 공간 보간을 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113071-A1",
+      "source_fingerprint": "2edcc42deddc8cfebd7d2d9eda7b5dc95676e7e44d41ec3aaeee1a5ca61d8020",
+      "content_hash": "adc96c24df26b793a0c07c452b8b6fced4f2cbb8860a1b0db5799cf84bc74b8c",
+      "decision": "LINK",
+      "keys": [
+        "dielectric-heating",
+        "wave-interference"
+      ],
+      "reason": "동축선의 정재파와 개구를 통해 마이크로파를 조사한다."
+    },
+    {
+      "identifier": "AR-113089-A1",
+      "source_fingerprint": "2f411245f1c1a5d9466ad97d2fb581579f8726e3ac30d0d2ae138440b79c74a1",
+      "content_hash": "c2eda8dc945d5c7e1718a8a401a5b232b747bbcfb9160a35b3e5e2e3e755e476",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "필터 속 세 캡슐의 배치이다. 필터 재질·방출 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-113091-A1",
+      "source_fingerprint": "72c3641cae77144a58d3b41d2ee3afaacbcd1a9d1ca362d242574963958c4931",
+      "content_hash": "d2a585935fb4d0a0d658e99b41279edadb73defebd41276bfe90e90bce9b76a4",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "N 당화 위치를 넣어 EPO의 수용체 작용을 변경한다. 신경 보호·반감기 주장을 일반화하지 않는다."
+    },
+    {
+      "identifier": "AR-113101-A1",
+      "source_fingerprint": "07f5240b162d93b5e416c8b474c86ff2de83f5d4cfcde502c58c189ffdf3d5d3",
+      "content_hash": "7698759074da580d93455934d780ff1521adab569c4eae086fc08dacb7b6f7a6",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "미세섬유의 구조화 작용을 쓰는 분산 제형이나 항복응력·가교 방식은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-113111-A1",
+      "source_fingerprint": "b0b7372573aa1679c559982f38b55560d77b5227c02e3ae43e69916cc53db517",
+      "content_hash": "04e6f6bff29ec5670455a1e5c62328acd82db3f913ef3ca26380d8fa68d8368e",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "제르니케 다항식 등 기저 계수로 렌즈 표면을 전달·재구성한다. 기저 함수 표현을 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113118-A1",
+      "source_fingerprint": "2cc255aa4d74654f25925cd4b9f634415bd31314b6227f7fead09fba73e6d608",
+      "content_hash": "fa31f85ddbff6a34df9b5406d46a6984fefdb9ecb1f285a46971afbe0d8f6c3e",
+      "decision": "LINK",
+      "keys": [
+        "surfactant-action"
+      ],
+      "reason": "유용성 중합체를 혼합 계면활성제로 분산한다. 저온 유동 개선의 결정 제어 기전은 별도 근거가 필요하다."
+    },
+    {
+      "identifier": "AR-113149-A1",
+      "source_fingerprint": "13f6adca84fb962563f5f10116fff1831640450f5e94fee81b5d31ed2f0cb37a",
+      "content_hash": "0ee6a7eb36622c20d26c01e8150a7af47e985a8a97a4328f3118debbe49d3b5c",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "enzyme-catalysis",
+        "fermentation"
+      ],
+      "reason": "글루코아밀라아제 발현 효모의 당 이용과 에탄올 생산이다. 글리세롤 감소 원인은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-113151-A3",
+      "source_fingerprint": "ba3038e24053581a3d65abaafcb88777569a3b7fe72c2e9b368fd5795eb06f39",
+      "content_hash": "78a9af2f522adea4ae4414bb8c74436162e04f7055f967cd4a171066ad5b2ba8",
+      "decision": "LINK",
+      "keys": [
+        "photodiode",
+        "electroluminescence",
+        "mechanical-contact-switching",
+        "geometric-optical-occlusion"
+      ],
+      "reason": "적외선 발광·수광과 버클 스위치로 탑승·벨트 사용을 확인한다."
+    },
+    {
+      "identifier": "AR-113166-A1",
+      "source_fingerprint": "7c9998b3c4936eb02c49624b063f565edc694ae87fe1e7968490faf88d85b4ba",
+      "content_hash": "77131b7eb0cbb8d9a06412e4340069beb3a982b44f814a933fc49b9ad3416a9c",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation"
+      ],
+      "reason": "아실화 인슐린 유사체이다. 알부민 결합·반감기 연장은 초록에 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-113183-A1",
+      "source_fingerprint": "6c9f7e4ed55c5cb5a904dfa208529b52506ca60101f5e98fdddeefa9d5718f24",
+      "content_hash": "ff2dadf9953056e48929767b2648489b49ec4033eb8789a346a515207a822e9c",
+      "decision": "LINK",
+      "keys": [
+        "martensitic-hardening",
+        "passivation"
+      ],
+      "reason": "마르텐사이트계 스테인리스 유정 강관이다. 성분별 강화 기여는 별도 확인한다."
+    },
+    {
+      "identifier": "AR-113199-A1",
+      "source_fingerprint": "63616a853ca6b8e3507df1144aadca85f3aa2a802b4e01fec4ade050a97ede21",
+      "content_hash": "969ccb5d00a58e21202c89d6996b6515b3af67a95fb16a1c896ec3c4343cfa11",
+      "decision": "LINK",
+      "keys": [
+        "fibrous-filtration"
+      ],
+      "reason": "연속 섬유의 밀도·형상으로 필터를 구성한다."
+    },
+    {
+      "identifier": "AR-113227-A1",
+      "source_fingerprint": "90e37567fc9b5b658425e861f9c71430019883f9b0d4ae3f74204c1a9708a7ef",
+      "content_hash": "69e9546c940e7a49b9b28878fc1265a58eb99047e1bfc92d119f699dfd4237ee",
+      "decision": "LINK",
+      "keys": [
+        "progenitor-cell-differentiation"
+      ],
+      "reason": "연골 형성을 유도하는 화합물이다. 분자 표적은 미상이다."
+    },
+    {
+      "identifier": "AR-113229-A1",
+      "source_fingerprint": "004664ae17e6495b1180fa62c62508c68af22b9384cda29dd0b4b4b59c5a44b8",
+      "content_hash": "2b4de36dde0a55bb6e9a63ce0b3652d26cb77cf66f5ee8eb7e5d8335e313e969",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "동일 물리 조건의 재배 용기에 조리법을 재사용하는 규칙이다."
+    },
+    {
+      "identifier": "AR-113232-A1",
+      "source_fingerprint": "3d9b289bd67d069be5a87c194cc76423b1fc69242a02b0d1244a64c2649a58c4",
+      "content_hash": "f150ad5c2d5dd63390b48813a8089c8b14de3a3ef65e49500d40c2743c3f7e98",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "점토·보크사이트·인산알루미늄 전구체의 세라믹 결합이다. 인산염 결합 경화를 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113259-A1",
+      "source_fingerprint": "53d3944ab5c57a74eb62a80bce6ebd60730ce06dc150b817eba5c7eeada924b1",
+      "content_hash": "b776d91b589c8bed5e2d67c728374cd6a3f3e00bc3c9c0f3e1454b518dbc2605",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "염도·온도별 베타글루칸 여과성 규격이다. 응집 억제 기전은 미상이다."
+    },
+    {
+      "identifier": "AR-113266-A1",
+      "source_fingerprint": "b77b68fab25e8c57fd0305e3af79f6a2abc55b1a2b378e4689f56be2bef73e80",
+      "content_hash": "fbd1caf10a0b46739b4884a0c69feb8369b650edc0a134ecbc9a98e36ffed3fd",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "축방향 통로를 가진 필터의 형상이다. 섬유 재질은 특정하지 않는다."
+    },
+    {
+      "identifier": "AR-113281-A1",
+      "source_fingerprint": "c21dfaec08883ec72932b987e270c90224dc34c03eeec82ba10115a032fcf87f",
+      "content_hash": "c625c3238cb88c6c7fadf339bc32deec719c834f6beedd05c371af99e86526e3",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "호퍼의 재료를 중력으로 연속 공급한다. 입상체의 중력 개구 배출을 신규 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-113292-A4",
+      "source_fingerprint": "5d48e000cfb3990a47cc8689f6fc06cad945e3a2b1ff1159bb54a89c20dc0b68",
+      "content_hash": "35268e83584d9102c7b91fe843e4ae6e20ef32fdc1817ef9cf001e71de901fcc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "정량 에어로졸 밸브용 용기의 형상과 재질이다."
+    },
+    {
+      "identifier": "AR-113305-A1",
+      "source_fingerprint": "d0e17437d288309dec2ce372a26317c3070119679576dff3d95c10f6877f16ca",
+      "content_hash": "9b0f7d0247195acd78a0a38ba62d485f70825f1f57fc9956f2cc8375d02eb976",
+      "decision": "LINK",
+      "keys": [
+        "solid-liquid-leaching"
+      ],
+      "reason": "토양 성분을 용매로 추출하여 측정한다. 센서 변환 원리는 미상이다."
+    },
+    {
+      "identifier": "AR-113310-A1",
+      "source_fingerprint": "d80af87f7a4331b15c1bac8aa146537dbcbff8fa979c5da180b56c2c53f5bd1e",
+      "content_hash": "e57bc1575a45d80294435908b173b497ba434bf6b8d58715fda3a16cc1c98c3b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "요소·아황산염 등을 다공 담체에 넣어 포름알데히드를 포집한다. 요소의 메틸올화 후보와 기존 아황산 부가 후보를 확인한다."
+    },
+    {
+      "identifier": "AR-113311-A1",
+      "source_fingerprint": "dbd503ff0c9b6bfe9b72aecfb1b57022dda09c5f461cbf55be97447d156bd069",
+      "content_hash": "1a8631d6643e1992623de356b0d76f1d6dd3ed38e8d9d3bd7560d8fae5a72888",
+      "decision": "LINK",
+      "keys": [
+        "lever-mechanical-advantage",
+        "pressure-accumulator"
+      ],
+      "reason": "직선 구동과 공압 균형 장치가 빔 펌프를 움직인다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:08:33.150997+00:00"
+}

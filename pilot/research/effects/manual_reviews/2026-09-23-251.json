@@ -1,0 +1,89 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "55c76352eda791aad2a579818886b48078095d62265c733a6d261741ae1e5914",
+  "reviews": [
+    {
+      "identifier": "AR-119092-A1",
+      "source_fingerprint": "810acf68ace764df1e50ef0ec7aa4c1f1c570080d9e7166efe4647e2581d234f",
+      "content_hash": "12471ac3c3bb38d9bf464bf58f6d2c21f5deeeacd196593590fa2dc71ae0aa47",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "삼환 약제 구조만 있고 표적·작용 원리는 없다."
+    },
+    {
+      "identifier": "AR-119100-A1",
+      "source_fingerprint": "1b50284e56f02a60c4571c84b58feb0082478c2e52f0eaa194c716096f5137a9",
+      "content_hash": "ceb036fd11a8b56321c333345e7bece45f5bd464048b1212df3a54f5243311d1",
+      "decision": "LINK",
+      "keys": [
+        "electroluminescence"
+      ],
+      "reason": "심판용 전자 카드의 LED 표시이다. 이벤트 수집 구조는 소프트웨어 설계이다."
+    },
+    {
+      "identifier": "AR-119112-A2",
+      "source_fingerprint": "371641b3173919dfe0bf6b9f6b8852bb2284071826898d72b39275f1927c9027",
+      "content_hash": "514fb45e023368d0b9807f4aa159f64d84bb3f0c7c1ff46a0fb2a418a0ebaf0d",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "농업용 종자 정렬판·가이드 구조이다. 힘·공압 변환 경로가 없다."
+    },
+    {
+      "identifier": "AR-119114-A1",
+      "source_fingerprint": "767a5c7b51cbb3a34f1e0796a5bdb1d3d45866ccbd355d54cb791be337719b8f",
+      "content_hash": "2b81eb988a722dd3befc76ac9500c98d609cc481fe6c79654d4b54e37c3a81e8",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-mechanical-actuation",
+        "wedge-mechanism",
+        "mechanical-interlocking"
+      ],
+      "reason": "회전 속도가 높아질 때 이동하는 질량이 걸리는 안전장치와 체인 잠금이다."
+    },
+    {
+      "identifier": "AR-119121-A1",
+      "source_fingerprint": "9dd47bf8c5f4c50d01cf2d937132c5c5bff6cc48946c84d63959d464dae1b3f5",
+      "content_hash": "a33bd120f4db71e8204aab633603cf76cf2b0591e58dcb9556ca65a67e111e2d",
+      "decision": "REJECT_CLAIM",
+      "keys": [],
+      "reason": "리액턴스·열 손실로 고주파 성분을 감쇠할 수 있으나 수동 구조가 주파수 자체를 낮춘다는 설명은 확인되지 않았다. 해당 성능 주장을 새 효과로 채택하지 않는다."
+    },
+    {
+      "identifier": "AR-119123-A1",
+      "source_fingerprint": "00604a7009a48d4b7a48bafedef4b5276836836baab1bc1adb39ea93b61a53c1",
+      "content_hash": "7b5ed63be8c3326e2f42ab08ae58ace9f26659c1c29ab8bd85ecc2ac0edefc6d",
+      "decision": "LINK",
+      "keys": [
+        "pictet-spengler-cyclization",
+        "catalytic-hydrogenation",
+        "peptide-bond-coupling",
+        "multicomponent-cocrystallization",
+        "diffraction"
+      ],
+      "reason": "명시된 고리화·Heck 결합·수소화·아미드화·공결정의 조합이다. 교차 결합 초안과 통합한다."
+    },
+    {
+      "identifier": "AR-119133-A1",
+      "source_fingerprint": "788e73d695c2607f9acd2d64fb858b84b3f5cda27d934c3993cdbf61ebb2132e",
+      "content_hash": "c47bc0b6740d2e287115b16b710153ae7195b34231a2818deeaeb5b99eeb4e27",
+      "decision": "LINK",
+      "keys": [
+        "electrospinning",
+        "electrodialysis"
+      ],
+      "reason": "전기방사 섬유 보강 음이온 전도 막이다. 별도 전도 기전은 미특정이다."
+    },
+    {
+      "identifier": "AR-119138-A1",
+      "source_fingerprint": "b0fe39b1900e1fb09911884230b0d6b59ec98783946140d94eb9f49c7385abf4",
+      "content_hash": "1a69b7e8b7625623b8fec3419a1f62790d6e93d669ba6fda044786d2004885c7",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "COT 키나아제 조절 화합물이다. 상세 반응·공유결합 경로는 미특정이다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:36:06.912700+00:00"
+}

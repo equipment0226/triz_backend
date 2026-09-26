@@ -1,0 +1,248 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "247be4567498c40d2a92529822c0cdc075bd4c3ec3c95cbb7db5bf93376f2fe3",
+  "reviews": [
+    {
+      "identifier": "AR-112529-A1",
+      "source_fingerprint": "ba2e93f0504a73d9e47e35cffa479b7db48675ce2ea59e641b7ba9ce4d54d5c3",
+      "content_hash": "290e4f2dd74c4f4c694b87d0f753280154c4a780e69821d5c3beeb080380ed85",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "항암용 화합물의 치환기 목록이며 분자 작용점은 명시되지 않았다."
+    },
+    {
+      "identifier": "AR-112541-A1",
+      "source_fingerprint": "bbd22c5bcc6b0c5fe2b6f397a90e4c91693ac9b9628f6b0e6720b132dc7f9b04",
+      "content_hash": "7d3945fbacf3fcc0b91b120c03fbb45cb837410a85859386e501743628c78dfa",
+      "decision": "LINK",
+      "keys": [
+        "receptor-ligand-modulation",
+        "terminal-sialylation"
+      ],
+      "reason": "난포 자극 호르몬 제제와 말단 시알산 수식이다. 환자별 투여 권고로 해석하지 않는다."
+    },
+    {
+      "identifier": "AR-112565-A1",
+      "source_fingerprint": "d08afbbaa9e66ed739d6bed123d7c65a3b1101c8061512ae40224787e1b2686f",
+      "content_hash": "370f4fea5ea5609df0afc06babba50f6c2d94a9661626930c3ba776ef9acfea8",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 프라이밍 펩타이드의 광범위한 생장·방어 주장이다. 수용체와 전달 경로는 미상이다."
+    },
+    {
+      "identifier": "AR-112587-A1",
+      "source_fingerprint": "b906145a664849259cfa91b2453e1f75ee4d4e5cf7484ca9c638da9ce10096ee",
+      "content_hash": "1d22de444dce6bc1bc069ce3e9036db4f667b8eb2b8eb7db8f4a87a47583cea4",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-catalysis",
+        "hydrolysis"
+      ],
+      "reason": "당 인산의 인산기를 제거하는 포스파타아제이다. 인산 모노에스터 가수분해를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-112589-A1",
+      "source_fingerprint": "927e601462d9d22d662df22a0fdde68437b3aaea70ed2417d4edc79394b4dd9c",
+      "content_hash": "14b24560475f58f3da955a513a766d4060b56cf543331055a5472d5f0fe208bf",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "종자의 상하 영상을 취득하여 분류한다. 학습된 분류기를 사용한다고 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-112599-A1",
+      "source_fingerprint": "37cd4eff0c10bd78dd8025ab69336e5491995e6f2c9113f5485e401c6a9a71d2",
+      "content_hash": "3c2e3ccb430dff550529fd2321445cd8c9a49bfb234e8d61dd4c71df59408326",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "파라핀 담체가 미생물 생존을 개선한다는 조성이다. 수분 차단·수분활성·산소 전달 기여는 미상이다."
+    },
+    {
+      "identifier": "AR-112604-A1",
+      "source_fingerprint": "183e2c352b85ff6d5a946247264be1fad3846ff21a9413d57a6d5faba841a1c3",
+      "content_hash": "d42d509b29ae34e8410c5da04d300655d232a3edb2001a10602ff06be6c6ab03",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition"
+      ],
+      "reason": "종양 관련 항원에 특이적인 TCR 결합이다."
+    },
+    {
+      "identifier": "AR-112609-A1",
+      "source_fingerprint": "4255aa28fa9b627ffb7cc8fcbe5e383257c2633c6c904fab5be4e65af15475bd",
+      "content_hash": "228e928b14e090828be52905baf83eefe19165cafc6fced7ab992a81d2a505b9",
+      "decision": "LINK",
+      "keys": [
+        "acid-base-reaction",
+        "sieve-size-separation"
+      ],
+      "reason": "생선 폐기물을 산성화하여 안정화하고 고액을 여과한다. 내인성 단백질분해는 별도 근거가 필요하다."
+    },
+    {
+      "identifier": "AR-112616-A1",
+      "source_fingerprint": "51c36aa794cbe4827837171af83ac56ac1a91846aa0efecae27ad31b36f9d8a8",
+      "content_hash": "7c0d41e1c5712db220a10839534e1cd568c55604d97866316ace9d2895ca8897",
+      "decision": "LINK",
+      "keys": [
+        "combustion-heating",
+        "seebeck-generation"
+      ],
+      "reason": "가스 연소와 열전대의 온도 신호를 쓰는 조리 장치이다."
+    },
+    {
+      "identifier": "AR-112638-A1",
+      "source_fingerprint": "6ef0d93e0324b2e6b072d1051760fe8bee7f607923a345e39c820564155746c9",
+      "content_hash": "9593f5d4c52dba26200f29b5bb209ce0160d0dcc168bb1eb24f6c8fb3cd32a4a",
+      "decision": "LINK",
+      "keys": [
+        "shear-droplet-breakup"
+      ],
+      "reason": "분무 노즐로 유리섬유에 결합제를 도포한다. 특정 액적 크기·미립화 양상은 미상이다."
+    },
+    {
+      "identifier": "AR-112675-A1",
+      "source_fingerprint": "37b9c86d07f9dfb12fe4c2c315792876e29b4e333d4b3fd568af7b8eae01e923",
+      "content_hash": "518eaf6eb7257cb534fb713776cd27f3523fac3789f810514def91f97d40801d",
+      "decision": "LINK",
+      "keys": [
+        "enzyme-inhibition"
+      ],
+      "reason": "CDK8·19 효소 억제 화합물이다."
+    },
+    {
+      "identifier": "AR-112681-A1",
+      "source_fingerprint": "81c2f85596c21db2bf9f4a066a36c7fcd16fcbcd554f30489f8511445cb4cc7f",
+      "content_hash": "dd11266b1ba7efcb90334aa7308b021b1a4d7662c815d927dd83020e6831cc14",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "저농도 방향족 아민을 갖는 류코인디고염 용액의 규격이다. 정제 과정은 제시되지 않았다."
+    },
+    {
+      "identifier": "AR-112683-A1",
+      "source_fingerprint": "084b7327afd5086634ddcd04d8822b286f1c21ffce601a795bf0a814e805e092",
+      "content_hash": "559a66a1c39f0fb45db21271ba321d64a68abbe0afa54cc35ccbafae8198afc6",
+      "decision": "LINK",
+      "keys": [
+        "diffraction",
+        "crystallization"
+      ],
+      "reason": "분말 X선 회절 피크로 결정형을 식별한다."
+    },
+    {
+      "identifier": "AR-112689-A1",
+      "source_fingerprint": "d4902194c160161e40327a5faa7c3c83a075f865e3195ec21ea1df47f1b90bea",
+      "content_hash": "2114f126cb75cf5d57da06f11b750dc45241de3da5a9c2e3fb5236a61ec1d363",
+      "decision": "LINK",
+      "keys": [
+        "innate-pattern-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "TLR7 작용제가 선천 면역 신호를 활성화한다."
+    },
+    {
+      "identifier": "AR-112703-A1",
+      "source_fingerprint": "16c7074beb5a431f9223eb38a5361562d72638c3ac34def6d2c2ca72d4e955ef",
+      "content_hash": "c7bf49ede21b41640a83849cd7e9d9644c70ca2af01193abfd6e7068d7f55695",
+      "decision": "LINK",
+      "keys": [
+        "crosslink-mesh-diffusion"
+      ],
+      "reason": "엘라스토머 코팅으로 방출을 조절한다. 연속 인출 속도·도막 두께의 유체막 연행 관계를 별도 후보로 검토한다."
+    },
+    {
+      "identifier": "AR-112706-A1",
+      "source_fingerprint": "6c6e87b1b1729ea3d9fa23bd647a1fb304e6cd337b515005f88e2fb571a61f90",
+      "content_hash": "7e0b3f68e9fb43f686650cfa77c0eaa0814c277fa4dff7265e007a611100f852",
+      "decision": "LINK",
+      "keys": [
+        "heterologous-gene-expression",
+        "enzyme-catalysis"
+      ],
+      "reason": "AGL 효소를 발현시켜 부족한 효소 활성을 보완한다. 치료 효능을 확정하지 않는다."
+    },
+    {
+      "identifier": "AR-112715-A1",
+      "source_fingerprint": "75c19fc8e3191598aeeb0760328a4fa919da3a67a81036c617b5f662e8358dc4",
+      "content_hash": "6074d117b4918572a4ea7d08e1101f470da4a68c3445ec7580ee7eade020a71f",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "위상이 직교하는 두 광 신호의 진폭을 분리 측정한다. 직교 반송파 분리를 신규 후보로 검토하며 힐베르트 변환 사용을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-112719-A1",
+      "source_fingerprint": "6e9fe58640e29ce50f6fbd5a794b6ff489b1ac8fac179bcf0a761ad05432a94d",
+      "content_hash": "f2e08725f90bafe6d7e61a18fad2e45f3d454b70e62582e0c8502457423a4bd0",
+      "decision": "LINK",
+      "keys": [
+        "time-of-flight",
+        "acoustic-impedance-reflection"
+      ],
+      "reason": "초음파 펄스 반사로 관벽 두께를 측정하고 왜곡된 파형을 보정한다."
+    },
+    {
+      "identifier": "AR-112723-A1",
+      "source_fingerprint": "3c5a07aa24cfbde8a278cda118e70e1daa52d81d45dc1d26015573ca80dbace2",
+      "content_hash": "a3637c3135a6ffbe568817a9e831267148d6c7536b31d7cd5199c8fc280c74dc",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "무선 제어 메시지의 캡슐화·전달 경로 규칙이다."
+    },
+    {
+      "identifier": "AR-112724-A1",
+      "source_fingerprint": "13c1fae8e4defd93408db2018e15e1d179ae0cb7815f8acbe31718d39214a40a",
+      "content_hash": "98cee339ebcda09ad69685e71aff8bfe959a296bc947ad3d83fd37f120b70853",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "하향 데이터의 QoS 표지를 상향 베어러에 대응시키는 규칙이다."
+    },
+    {
+      "identifier": "AR-112733-A1",
+      "source_fingerprint": "b98554ece07c8fc6da6424dc61decf9e701cfe75f5fc90d95ef023e65a159fc5",
+      "content_hash": "193a4699fd3391365b21409dd027777c5e5c0d4830c0b8e2b1df00b72bb2c7d2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "류코인디고 용액을 정제 유체와 접촉시키나 기체 탈거·용매 추출 여부는 초록만으로 불명확하다."
+    },
+    {
+      "identifier": "AR-112758-A1",
+      "source_fingerprint": "bbb971f85a21e729e330c6747346209b4b44e57a34b47f663c09ded2a24c7f15",
+      "content_hash": "0b39bf4b8d24f8da2166cbca8cb7b0235cc15cd965b8a12264a195284c1cb9c9",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "reason": "CD137에 결합해 수용체를 활성화하는 항체이다."
+    },
+    {
+      "identifier": "AR-112761-A1",
+      "source_fingerprint": "baa47708b684c3088b976f489a8d54a24af5a664caee9542de8491e6fce2019c",
+      "content_hash": "d66b71cd16068084631943bf546542203f42ad97d8cbf72b57f8f30f885c98b6",
+      "decision": "LINK",
+      "keys": [
+        "antisense-gene-suppression"
+      ],
+      "reason": "티로시나아제 전구 RNA의 스플라이싱 위치를 차단하여 변이 전사체를 만든다. 스플라이소좀 처리 후보의 추가 사례이다."
+    },
+    {
+      "identifier": "AR-112768-A1",
+      "source_fingerprint": "f1c32e41897e810ee455c3db342b01dfad100f9421416eb832291bb80d1dbcb5",
+      "content_hash": "6f0e0699c718acd7cc167dc655410234b39da646efb87bac787b7935c7737ce0",
+      "decision": "LINK",
+      "keys": [
+        "biomolecular-recognition",
+        "heterologous-gene-expression"
+      ],
+      "reason": "TIGIT 결합 항체와 재조합 발현이다. 결합만으로 차단 활성을 추정하지 않는다."
+    },
+    {
+      "identifier": "AR-112790-A1",
+      "source_fingerprint": "b198b98731686abb03debb98046dfbe850324856dec5101b8711a1b065976ec3",
+      "content_hash": "25bb1b69b304aedfe6aed2e225ce513ebbe3b3a90f0c9ed2e38c3c070c8db9ae",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "치환 벤즈이미다졸의 Markush 구조이며 약리 표적은 명시되지 않았다."
+    }
+  ],
+  "recorded_at": "2026-09-23T02:02:08.432275+00:00"
+}

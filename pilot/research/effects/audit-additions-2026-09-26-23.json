@@ -1,0 +1,404 @@
+{
+  "batch": "additions-2026-09-26-23.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1376,
+  "added": 30,
+  "after": 1406,
+  "target": 1500,
+  "source_sha256": "8eef41c4ab091356c77528e9c7b3636e490108bcbcc6c78f55bc8e95ed410071",
+  "decisions": [
+    {
+      "key": "selective-optical-pumping-population-redistribution",
+      "group": 14,
+      "related_keys": [
+        "sisyphus-optical-pumping-cooling",
+        "atomic-magnetometry",
+        "dark-state-adiabatic-population-transfer",
+        "driven-electron-nuclear-polarization-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공간 퍼텐셜을 오르는 냉각이나 결맞은 암상태 추종과 달리 선택 흡수·비가역 이완의 반복으로 내부 점유를 재분배한다.",
+      "source_url": "https://www.phys.ens.psl.eu/~cct/articles/petits-manuscrits/optical-pumping-1966.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nonreciprocal-hopping-skin-localization",
+      "group": 13,
+      "related_keys": [
+        "disorder-interference-anderson-localization",
+        "exceptional-point-mode-coalescence",
+        "time-reversal-helical-edge-transport"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "무질서 산란 국소화나 소수 위상 경계 모드와 달리 방향성 결합과 열린 경계가 광범위한 벌크 모드의 공간 분포를 바꾼다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-30161-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "periodic-drive-coherent-tunneling-suppression",
+      "group": 14,
+      "related_keys": [
+        "electron-tunneling",
+        "quantum-zeno-measurement-confinement",
+        "periodic-band-bloch-oscillation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "장벽 관통 자체나 빈번한 측정 억제가 아니라 외부 주기 구동이 유효 터널 결합을 상쇄하는 결맞은 경로이다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.67.516",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "adiabatic-cycle-thouless-quantized-transport",
+      "group": 14,
+      "related_keys": [
+        "geometric-state-path-phase",
+        "quantum-hall",
+        "periodic-band-bloch-oscillation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기하 위상 측정이나 정적 힘의 왕복 진동과 달리 닫힌 매개변수 주기와 채운 밴드가 정수 순수송을 만든다.",
+      "source_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.27.6083",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "pauli-spin-selection-transport-blockade",
+      "group": 14,
+      "related_keys": [
+        "coulomb-charging-blockade",
+        "pauli-degeneracy-quantum-pressure",
+        "electron-tunneling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단전자 충전 비용이나 평형 축퇴 압력이 아니라 두 전자의 스핀 대칭이 연속 터널 전이의 최종 상태를 금지한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12142438/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "superconducting-wire-coherent-phase-slip",
+      "group": 14,
+      "related_keys": [
+        "josephson-effect",
+        "superconductivity",
+        "defect-energy-superconducting-vortex-pinning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "접합을 통한 쿠퍼쌍 전달과 달리 선을 가로지르는 자속·위상 감김 전환이 양자 상태를 결합하며 결함의 와류 고정도 아니다.",
+      "source_url": "https://www.nature.com/articles/nature10930",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "fermi-sea-scattering-friedel-oscillation",
+      "group": 14,
+      "related_keys": [
+        "debye-mobile-charge-screening",
+        "conduction-mediated-rkky-exchange",
+        "wave-interference"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고전 열전하의 단조 차폐나 국소 스핀 사이 간접 교환이 아니라 결함 주위 전자 상태 밀도의 페르미 파장 진동을 다룬다.",
+      "source_url": "https://www.nature.com/articles/363524a0",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "sudden-quench-fermi-orthogonality-response",
+      "group": 13,
+      "related_keys": [
+        "kondo-local-moment-screening",
+        "fano-discrete-continuum-interference",
+        "absorption-spectroscopy"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정적 콘도 차폐나 두 광학 경로의 파노 간섭과 달리 급변 전후 다체 상태의 광범위한 재배열이 문턱 지수를 정한다.",
+      "source_url": "https://www.nature.com/articles/nature10204",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "quantum-fluctuation-stabilized-self-bound-droplet",
+      "group": 1,
+      "related_keys": [
+        "bose-einstein-macroscopic-occupation",
+        "dispersion-nonlinearity-soliton-balance",
+        "pauli-degeneracy-quantum-pressure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 상태의 거시 점유나 분산·평균장 균형과 달리 평균장을 넘는 양자 요동 압력이 인력 붕괴를 안정화한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29242233/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "one-dimensional-hardcore-boson-fermionization",
+      "group": 14,
+      "related_keys": [
+        "bose-einstein-macroscopic-occupation",
+        "mott-interaction-charge-localization",
+        "pauli-degeneracy-quantum-pressure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "격자 정수 점유의 모트 국소화나 본래 페르미 입자의 배타성과 달리 일차원 보스 입자의 강반발이 접촉을 금지한다.",
+      "source_url": "https://www.nature.com/articles/nature02530",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "integrability-conserved-rapidities-delayed-thermalization",
+      "group": 7,
+      "related_keys": [
+        "disorder-interference-anderson-localization",
+        "discrete-spectrum-wavepacket-revival",
+        "landau-resonant-wave-particle-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공간 무질서의 이동 억제나 이산 위상 재정렬과 달리 다수 보존량이 충돌의 에너지 재분배를 제약한다.",
+      "source_url": "https://doi.org/10.1038/nature04693",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "attractive-potential-quantum-reflection",
+      "group": 13,
+      "related_keys": [
+        "electron-tunneling",
+        "specular-reflection-steering",
+        "casimir-fluctuation-force"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "금지 장벽을 관통하거나 고전 반전점에서 튕기는 과정과 달리 허용된 인력 영역의 비단열 파장 변화가 반사를 만든다.",
+      "source_url": "https://www.rle.mit.edu/cua_pub/ketterle_group/Theses/Pasquini_Thesis.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "finite-electronic-density-quantum-capacitance",
+      "group": 14,
+      "related_keys": [
+        "capacitive-energy-storage",
+        "capacitive-sensing",
+        "pauli-degeneracy-quantum-pressure",
+        "coulomb-charging-blockade"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전극 거리·유전율 변화나 단전자 전도 문턱과 달리 연속 전하 주입의 화학퍼텐셜 비용이 정전용량을 제한한다.",
+      "source_url": "https://www.ece.stonybrook.edu/~serge/63.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "helium-mixture-dilution-enthalpy-cooling",
+      "group": 7,
+      "related_keys": [
+        "evaporative-cooling",
+        "absorption-refrigeration",
+        "dufour-composition-driven-heat-flux"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "혼합부의 냉각은 기화 잠열이나 농도구배 열유속이 아니라 액체 농후상에서 희석상으로 넘어가는 헬륨3의 엔탈피 증가이다.",
+      "source_url": "https://trc.nist.gov/cryogenics/Papers/Dilution_Refrigerators/1967-Thermodynamic_Properties_of_He3-He4_Solutions_with_Applications_to_DR.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "photon-linear-momentum-radiation-pressure",
+      "group": 1,
+      "related_keys": [
+        "optical-tweezers",
+        "photophoretic-gas-momentum-force",
+        "photon-momentum-drag-current"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "집속장 구배 포획이나 광가열에 따른 기체 충돌력과 달리 흡수·산란 광자의 선운동량이 물체에 직접 전달된다.",
+      "source_url": "https://www.uni-ulm.de/fileadmin/website_uni_ulm/nawi.inst.220/lehre/HauptSem_WS2007/1970_ashkin.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "interband-position-shift-photocurrent",
+      "group": 14,
+      "related_keys": [
+        "photovoltaic-conversion",
+        "photon-momentum-drag-current",
+        "intrinsic-berry-curvature-hall-current"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "접합 전기장의 운반자 분리나 입사 광자 운동량 전달과 달리 밴드 사이 전이의 전하중심 변위가 전류의 미시 기원이다.",
+      "source_url": "https://doi.org/10.1103/PhysRevB.110.115108",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "gravitational-potential-clock-rate-shift",
+      "group": 12,
+      "related_keys": [
+        "gravity-gradient-sensing",
+        "doppler-sensing",
+        "ramsey-separated-pulse-phase-interrogation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "중력장의 공간 미분을 힘으로 읽거나 상대 이동의 파면 도착률을 읽는 방식과 달리 중력 퍼텐셜 차이가 시계의 고유시간 비율을 바꾼다.",
+      "source_url": "https://doi.org/10.1126/science.1192720",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "kinematic-proper-time-dilation",
+      "group": 12,
+      "related_keys": [
+        "doppler-sensing",
+        "sagnac-rotation-phase-shift"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "파원 접근·이탈의 전파 지연이나 회전 경로 위상차와 달리 운동하는 시계 자체의 누적 고유시간에 생기는 속도 의존 효과이다.",
+      "source_url": "https://doi.org/10.1126/science.1192720",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "fermi-surface-screening-kohn-phonon-anomaly",
+      "group": 13,
+      "related_keys": [
+        "peierls-electron-lattice-dimerization",
+        "phonon-drag-thermoelectric-momentum",
+        "raman-spectroscopy"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정적 격자 이합체화나 포논 운동량의 전류 전달과 달리 전자 차폐의 파수 의존성이 동적 포논 스펙트럼을 바꾼다.",
+      "source_url": "https://www-g.eng.cam.ac.uk/nms/publications/pdf/Piscanec_PRL2004.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "relativistic-electron-inertia-plasma-transparency",
+      "group": 13,
+      "related_keys": [
+        "electromagnetic-shielding",
+        "state-filling-saturable-absorption",
+        "optical-kerr-intensity-phase-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "흡수 전이의 상태 채움이나 보통 커 굴절률 변화와 달리 상대론적 전자 관성이 플라스마의 차단 밀도 조건을 바꾼다.",
+      "source_url": "https://www.nature.com/articles/nphys2390",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "wall-loss-flux-balanced-plasma-sheath",
+      "group": 14,
+      "related_keys": [
+        "debye-mobile-charge-screening",
+        "self-field-ambipolar-diffusion",
+        "space-charge-limited-injection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평형 차폐나 벌크 공동 확산과 달리 흡수 경계로의 입자 손실 유속을 맞추는 전위가 시스를 유지한다.",
+      "source_url": "https://cpseg.eecs.umich.edu/pub/articles/tps_13_6_1985.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "velocity-dependent-collisional-runaway-acceleration",
+      "group": 8,
+      "related_keys": [
+        "joule-heating",
+        "plasma-wakefield-electron-acceleration",
+        "moving-scatterer-fermi-acceleration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "파동 후류나 이동 산란체가 주는 에너지 대신 충돌 마찰과 정전기 가속의 속도별 경쟁이 비열적 폭주를 만든다.",
+      "source_url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.117.329",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "photocharge-redistribution-refractive-index-writing",
+      "group": 13,
+      "related_keys": [
+        "pockels-effect",
+        "optical-kerr-intensity-phase-modulation",
+        "photoconductive-carrier-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 전압의 즉시 굴절률 제어나 광세기 자체의 커 응답과 달리 전하 수송·포획으로 남는 내부장 무늬가 굴절률을 기록한다.",
+      "source_url": "https://opg.optica.org/ol/abstract.cfm?uri=ol-46-2-432",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "bandgap-trap-assisted-carrier-recombination",
+      "group": 14,
+      "related_keys": [
+        "auger-nonradiative-carrier-recombination",
+        "thermal-carrier-generation-dark-current",
+        "persistent-luminescence"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "제삼 운반자에 에너지를 주는 오제 경로나 트랩의 지연 발광과 달리 갭 내부 준위의 연속 포획이 전자·정공을 소거한다.",
+      "source_url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.87.835",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "fermi-surface-lifshitz-connectivity-transition",
+      "group": 14,
+      "related_keys": [
+        "semiconductor-doping",
+        "size-quantized-electronic-confinement",
+        "time-reversal-helical-edge-transport"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 운반자 농도 변화나 위상 절연체 경계 상태와 달리 페르미 에너지에서 등에너지면의 연결성이 바뀌는 전자 전이이다.",
+      "source_url": "https://www.nature.com/articles/s41535-019-0185-9",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "collisionless-fermi-surface-zero-sound",
+      "group": 13,
+      "related_keys": [
+        "phonon-hydrodynamic-second-sound",
+        "landau-resonant-wave-particle-transfer",
+        "pauli-degeneracy-quantum-pressure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "운동량 보존 포논 충돌에 기대는 열파와 달리 충돌이 드문 페르미 분포의 상호작용 복원력이 밀도파를 전달한다.",
+      "source_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202500478",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "photon-angular-momentum-mechanical-torque",
+      "group": 1,
+      "related_keys": [
+        "optical-tweezers",
+        "inverse-faraday-optical-magnetization",
+        "spin-transfer-torque",
+        "einstein-de-haas-spin-mechanical-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광장 구배의 위치 포획이나 원편광 유도 자화와 달리 광장의 각운동량 감소가 물체 전체의 기계적 회전으로 전달된다.",
+      "source_url": "https://opg.optica.org/ol/abstract.cfm?uri=ol-22-1-52",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "interacting-floquet-discrete-time-crystal",
+      "group": 13,
+      "related_keys": [
+        "discrete-spectrum-wavepacket-revival",
+        "phase-locked-oscillator-synchronization",
+        "digital-frequency-division"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "우연한 위상 재생이나 회로의 지정 분주와 달리 다체 상호작용이 시간 병진 대칭을 깨는 섭하모닉 응답의 강건성을 만든다.",
+      "source_url": "https://www.nature.com/articles/nature21413",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "positive-momentum-quantum-probability-backflow",
+      "group": 13,
+      "related_keys": [
+        "wave-interference",
+        "dirac-branch-interference-trembling-motion",
+        "electron-tunneling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "음의 운동량이나 다른 디랙 에너지 가지 없이도 동일 방향 운동량 성분의 간섭이 국소 확률 전류의 부호를 뒤집는다.",
+      "source_url": "https://journals.aps.org/pra/abstract/10.1103/PhysRevA.99.043626",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "energy-selective-trap-escape-evaporative-cooling",
+      "group": 7,
+      "related_keys": [
+        "evaporative-cooling",
+        "doppler-laser-cooling",
+        "resolved-sideband-motional-cooling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "액체의 기화 잠열이나 광자 반동 냉각과 달리 기체 포획 에너지 필터로 뜨거운 원자를 제거한 뒤 충돌로 재평형화한다.",
+      "source_url": "https://www.rle.mit.edu/cua_pub/ketterle_group_old/Projects_1995/Pub_95/davi95-PRL05202-evap.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

@@ -45,12 +45,10 @@ parts:
       - { code: "5.4", title: "물리·화학·기하 효과 적용", required: true }
   - id: 6
     title: "문제의 변경 또는 대체"
-    max_loops: 1
     steps:
       - { code: "6.1", title: "복합 문제 분해", required: false }
-      - { code: "6.2", title: "갈등 쌍 재선택", required: false }
-      - { code: "6.3", title: "요구 수준 재검토", required: false }
-      - { code: "6.4", title: "상위 시스템으로 문제 이동", required: false }
+      - { code: "6.2", title: "다른 기술적·시스템 모순 선택", required: false }
+      - { code: "6.3", title: "상위 시스템에서 미니문제 재정의", required: false }
   - id: 7
     title: "해결안 검증"
     steps:

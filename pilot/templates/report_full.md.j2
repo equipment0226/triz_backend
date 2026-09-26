@@ -725,6 +725,8 @@
 
 {{ narrative.limitation_note or '' }}
 
+{% include 'report_reformulation.md.j2' %}
+
 {% set search_status = s.scratch.get('search_status', {}) %}
 {% if search_status.get('patent_status') in ('UNAVAILABLE', 'PARTIAL', 'UNKNOWN') %}
 **특허 검색 상태**

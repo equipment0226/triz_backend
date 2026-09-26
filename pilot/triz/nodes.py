@@ -1244,8 +1244,12 @@ def s7_gate(ctx: RunContext) -> None:
 def s8_evaluate(ctx: RunContext) -> None:
     st = ctx.state
     ctx.set_stage(Stage.S8.value)
+    st.evaluation.problem_reformulation_review = None
     if not st.concepts:
         ctx.warn("평가할 개념이 없다.")
+        from .reformulation import record
+        record(st)
+        ctx.persist()
         return
 
     from .meeting import evaluate
@@ -1306,6 +1310,14 @@ def _aggregate(st, scores: list[ReviewerScore]) -> list[ConceptEvaluation]:
 
 def _rank(ctx: RunContext) -> None:
     st = ctx.state
+    from . import reformulation
+    from .ax import enabled as ax_enabled
+    # AX reports display the candidates frozen before ranking, including
+    # conditional candidates. Legacy reports display the retained live list.
+    report_ids = list(dict.fromkeys(c.id for c in st.concepts)) if ax_enabled(st) else None
+    keep = int(cfg("solutions.max_solutions", 10))
+    solution_count = len(report_ids) if report_ids is not None else min(keep, len({c.id for c in st.concepts}))
+    st.evaluation.problem_reformulation_review = None
     table = [{
         "concept_id": e.concept_id,
         "title": (st.concept(e.concept_id).title if st.concept(e.concept_id) else ""),
@@ -1324,7 +1336,8 @@ def _rank(ctx: RunContext) -> None:
         vars={"aggregate_table": table, "concept_meta": meta,
               "dissent": [d for e in st.evaluation.evaluations for d in e.dissent][:10],
               "min_solutions": cfg("solutions.min_solutions", 5),
-              "max_solutions": cfg("solutions.max_solutions", 10)},
+              "max_solutions": cfg("solutions.max_solutions", 10),
+              "problem_reformulation_context": reformulation.rank_context(st, solution_count)},
         default=None,
     )
     if not isinstance(d, dict):
@@ -1341,10 +1354,10 @@ def _rank(ctx: RunContext) -> None:
     st.evaluation.portfolio_note = d.get("portfolio_note", "")
     st.evaluation.roadmap = d.get("roadmap") or []
 
-    keep = int(cfg("solutions.max_solutions", 10))
     st.evaluation.evaluations = st.evaluation.evaluations[:keep]
     keep_ids = {e.concept_id for e in st.evaluation.evaluations}
     st.concepts = [c for c in st.concepts if c.id in keep_ids]
+    reformulation.record(st, d.get("problem_reformulation_review"), solution_ids=report_ids)
     ctx.emit("artifact", kind="RANKING",
              data=[{"rank": e.rank, "title": st.concept(e.concept_id).title if st.concept(e.concept_id) else "",
                     "score": e.total_score, "quadrant": e.quadrant}

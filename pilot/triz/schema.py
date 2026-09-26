@@ -588,6 +588,18 @@ class EvaluationMeeting(BaseModel):
     completed_call_inputs: dict[str, str] = Field(default_factory=dict)
 
 
+class ProblemReformulationItem(BaseModel):
+    step_code: Literal["6.1", "6.2", "6.3"]
+    observation: str
+    suggestion: str
+    source: Literal["MODEL", "RECORDED_ANALYSIS"] = "RECORDED_ANALYSIS"
+
+
+class ProblemReformulationReview(BaseModel):
+    solution_ids: list[str] = Field(default_factory=list)
+    items: list[ProblemReformulationItem] = Field(default_factory=list)
+
+
 class EvaluationBundle(BaseModel):
     reviewers: list[Persona] = []
     evaluations: list[ConceptEvaluation] = []
@@ -595,6 +607,7 @@ class EvaluationBundle(BaseModel):
     ranking_note: str = ""
     portfolio_note: str = ""
     roadmap: list[dict] = []
+    problem_reformulation_review: Optional[ProblemReformulationReview] = None
 
 
 class ReportArtifact(BaseModel):

@@ -1,0 +1,22 @@
+{% if problem_reformulation_review %}
+### 추가 코멘트 · ARIZ Part 6 문제 변경 제안
+
+최종 보고서에 포함된 해결책이 {{ problem_reformulation_review.solution_ids | length }}개이므로, 문제를 다른 관점에서 정의할 수 있는지 6.1~6.3에 따라 살펴본다. 해결책 수가 적다는 사실만으로 현재 문제 정의가 잘못되었다고 판단하지 않는다.
+
+아래 내용은 다음 분석을 위한 제안이다. 현재 문제 정의와 해결책에는 반영하지 않았으며, 선행 단계 재실행이나 변경된 문제의 해결책 도출은 수행하지 않았다. 필수 요구조건과 성공 기준은 유지한다.
+
+{% for item in problem_reformulation_review.items %}
+#### {{ item.step_code }} {{ reformulation_step_titles[item.step_code] }}
+
+{% if item.source == 'MODEL' %}
+**검토 의견**: {{ item.observation | hz }}
+{% else %}
+**기존 분석 기록**: {{ item.observation | hz }}
+
+이 항목의 개별 검토 응답이 없어, 기록을 바탕으로 후속 확인 질문을 제시한다.
+{% endif %}
+
+**제안**: {{ item.suggestion | hz }}
+
+{% endfor %}
+{% endif %}

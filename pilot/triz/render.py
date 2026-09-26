@@ -356,6 +356,8 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
     from .report_style import reference_cards, report_state
     from .labels import display_value, executive_summary
     from .review_comments import by_concept
+    from .reformulation import for_report, STEP_TITLES
+    show_reformulation = for_report(state) is not None
     labels = build_label_map(state)
     narrative = dict(narrative or {})
     if 'executive_summary' in narrative:
@@ -432,6 +434,8 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
         report_concepts=sorted(state.concepts, key=lambda c: evaluation_map[c.id].rank or 999 if c.id in evaluation_map else 999),
         evaluation_map=evaluation_map,
         reviewer_comments=by_concept(state),
+        problem_reformulation_review=state.evaluation.problem_reformulation_review if show_reformulation else None,
+        reformulation_step_titles=STEP_TITLES,
     )
     from .report_style import plain_text
     return plain_text(_localize(humanize(md, labels)))

@@ -64,7 +64,10 @@ def _json(value):
 def _upsert(c, target, values):
     ins = (mysql_insert if engine.dialect.name == "mysql" else sqlite_insert)(target).values(**values)
     changes = {k: v for k, v in values.items() if k not in [col.name for col in target.primary_key]}
-    stmt = ins.on_duplicate_key_update(**changes) if engine.dialect.name == "mysql" else ins.on_conflict_do_update(
+    # Refer to the inserted columns on conflict instead of binding every value
+    # twice. Large run histories otherwise double the MySQL packet and exceed
+    # max_allowed_packet even though the stored JSON itself fits comfortably.
+    stmt = ins.on_duplicate_key_update(**{k: ins.inserted[k] for k in changes}) if engine.dialect.name == "mysql" else ins.on_conflict_do_update(
         index_elements=[col.name for col in target.primary_key], set_=changes)
     c.execute(stmt)
 def archive(run_id, name, value):

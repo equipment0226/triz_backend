@@ -89,6 +89,13 @@ def test_rank_reviews_at_most_three_displayed_solutions_without_extra_calls(stat
     nodes._rank(RunContext(state))
 
     assert len(calls) == 1
+    trace = state.steps[-1]
+    assert trace.node == "s8_ariz_p6" and trace.status == "OK"
+    assert trace.output_json["triggered"] == (count <= 3)
+    assert trace.output_json["solution_count"] == count
+    assert trace.output_json["problem_changed"] is False
+    assert trace.output_json["restart_from_s1"] is False
+    assert trace.tokens_in == trace.tokens_out == trace.cost_usd == 0
     assert bool(calls[0]["vars"]["problem_reformulation_context"]) == (count <= 3)
     review = state.evaluation.problem_reformulation_review
     if count <= 3:
@@ -112,6 +119,8 @@ def test_zero_solutions_saves_recorded_analysis_advice_without_calling_a_model(s
 
     review = state.evaluation.problem_reformulation_review
     assert calls == []
+    assert state.steps[-1].node == "s8_ariz_p6"
+    assert state.steps[-1].output_json["solution_count"] == 0
     assert review.solution_ids == []
     assert {item.step_code for item in review.items} == CODES
     assert {item.source for item in review.items} == {"RECORDED_ANALYSIS"}

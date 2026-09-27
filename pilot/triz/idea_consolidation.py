@@ -46,6 +46,23 @@ def _signature(ideas):
                                      separators=(",", ":")).encode("utf-8")).hexdigest()
 
 
+def review_packet(idea):
+    """Show only the current selection identity; retain source semantics.
+
+    Stored ancestry remains unchanged. Re-merging a legacy inventory must not
+    invite the model to select archived leaf IDs instead of the assigned groups.
+    """
+    hidden = {'source_idea_ids', 'source_idea_id', 'input_idea_ids', 'keep_ids', 'consolidation'}
+    def clean(value, root=False):
+        if isinstance(value, dict):
+            return {k: clean(v) for k, v in value.items()
+                    if k not in hidden and (root or k != 'id')}
+        if isinstance(value, list):
+            return [clean(v) for v in value]
+        return value
+    return clean(idea.model_dump(mode='json'), root=True)
+
+
 def _context_signature(state):
     context = [digest.facts_packet(state), state.definition.model_dump(mode="json"),
                state.constraints.model_dump(mode="json"), digest.causal_packet(state)]
@@ -189,7 +206,8 @@ def consolidate(ctx):
     if not sources:
         return {"ideas": [], "coverage_note": "", "gaps": [], "need_more": False}
     variables = {
-        "all_ideas": [idea.model_dump(mode="json") for idea in sources],
+        "all_ideas": [review_packet(idea) for idea in sources],
+        "allowed_idea_ids": input_ids,
         "facts": digest.facts_packet(state),
         "redefinition_hints": state.solve.gaps,
         "causal_packet": digest.causal_packet(state),

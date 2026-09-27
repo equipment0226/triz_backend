@@ -69,8 +69,8 @@ def _identity(value):
 def generate_concepts(ctx):
     st = ctx.state
     from .idea_consolidation import ensure_consolidated
-    ensure_consolidated(ctx)
     ctx.set_stage(Stage.S6.value)
+    ensure_consolidated(ctx)
     from .ax import coherence
     ideas = list(st.solve.raw_ideas)
     assigned_ids = {idea.id for idea in ideas}

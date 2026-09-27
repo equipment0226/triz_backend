@@ -1,6 +1,6 @@
 """Report-only ARIZ Part 6 suggestions; never dispatch analysis or change a problem."""
 from . import digest, verify
-from .schema import ProblemReformulationItem, ProblemReformulationReview
+from .schema import ProblemReformulationItem, ProblemReformulationReview, Stage
 
 
 STEP_TITLES = {
@@ -91,3 +91,27 @@ def for_report(state):
             or [i.step_code for i in review.items] != list(STEP_TITLES)):
         return None
     return review
+
+
+def record_execution(ctx, solution_ids=None):
+    """Log the actual Part 6 gate/review after the final portfolio is known.
+
+    The ranking call already produced any model advice. This trace records
+    that result and the conditional decision; it never makes another call.
+    """
+    state = ctx.state
+    ids = list(dict.fromkeys(solution_ids if solution_ids is not None else [c.id for c in state.concepts]))
+    review = state.evaluation.problem_reformulation_review
+    triggered = len(ids) <= SOLUTION_LIMIT
+    step = ctx.start_step(node="s8_ariz_p6", label="ARIZ Part6 문제 변경 조건·제안 검토",
+        stage=Stage.S8.value, agent_id="deterministic_review", prompt_id="", tier="")
+    step.input_slice = {"solution_ids": ids, "solution_count": len(ids), "threshold": SOLUTION_LIMIT}
+    step.output_json = {
+        "solution_ids": ids, "solution_count": len(ids), "threshold": SOLUTION_LIMIT,
+        "triggered": triggered, "decision": "REPORT_SUGGESTIONS_ONLY" if triggered else "THRESHOLD_NOT_MET",
+        "items": [item.model_dump() for item in review.items] if review and set(review.solution_ids) == set(ids) else [],
+        "problem_changed": False, "restart_from_s1": False,
+        "note": ("6.1~6.3 검토 결과를 보고서 추가 코멘트로 기록했다. 문제 변경과 선행 단계 재실행은 수행하지 않는다."
+                 if triggered else "최종 Solution 수가 3개를 초과하므로 문제 변경 제안 조건에 해당하지 않는다."),
+    }
+    ctx.finish_step(step)

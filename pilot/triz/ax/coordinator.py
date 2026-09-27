@@ -101,7 +101,9 @@ def route(ctx):
     if not (state.definition.technical_contradictions or state.definition.physical_contradictions):
         raise AbortRun('해결안 탐색 전에 분석의 모순과 근거를 확인해 주세요.')
     from .coherence import enabled as coherence_enabled
-    tracks=[]
+    # DEEP includes ARIZ by contract. It must not compete for the last slot
+    # of a single optional expansion, independently of the final solution count.
+    tracks=['D_ARIZ'] if state.control.mode.value == 'DEEP' or 'D_ARIZ' in state.control.enabled_tracks else []
     if state.definition.technical_contradictions:
         tracks.append('A_MATRIX')
     if state.definition.physical_contradictions:
@@ -114,7 +116,8 @@ def route(ctx):
             pending.append('E_TRIMMING')
         if state.analysis.function_edges:
             pending.append('G_FOS')
-        pending.append('D_ARIZ')
+        if 'D_ARIZ' not in tracks:
+            pending.append('D_ARIZ')
     if 'H_EFFECTS' not in tracks:
         tracks.append('H_EFFECTS')
     pending=list(dict.fromkeys(tracks[3:]+pending))

@@ -911,6 +911,8 @@ def s5_solve(ctx: RunContext) -> None:
     from .ax import enabled as ax_enabled
     if ax_enabled(st):
         tracks = list(st.scratch['ax_coordination']['tracks'])
+    elif st.control.mode.value == "DEEP" and "D_ARIZ" not in tracks:
+        tracks.append("D_ARIZ")
     if st.definition.technical_contradictions and "A_MATRIX" not in tracks:
         tracks.append("A_MATRIX")
     if st.definition.physical_contradictions and "B_SEPARATION" not in tracks:
@@ -930,6 +932,8 @@ def s5_solve(ctx: RunContext) -> None:
         _run_tracks(track_ctx, tracks)
         retrieval.result()
     st.solve = track_state.solve
+    if st.control.mode.value == "DEEP" and ("D_ARIZ" not in st.solve.tracks_run or st.solve.ariz is None):
+        raise AbortRun("ARIZ 실행기록이 없어 심층 분석을 완료할 수 없습니다. S5에서 이어서 실행해 주세요.")
     if "s_curve" in track_state.scratch:
         st.scratch["s_curve"] = track_state.scratch["s_curve"]
     need_more = _merge(ctx)
@@ -1247,8 +1251,9 @@ def s8_evaluate(ctx: RunContext) -> None:
     st.evaluation.problem_reformulation_review = None
     if not st.concepts:
         ctx.warn("평가할 개념이 없다.")
-        from .reformulation import record
+        from .reformulation import record, record_execution
         record(st)
+        record_execution(ctx)
         ctx.persist()
         return
 
@@ -1358,6 +1363,7 @@ def _rank(ctx: RunContext) -> None:
     keep_ids = {e.concept_id for e in st.evaluation.evaluations}
     st.concepts = [c for c in st.concepts if c.id in keep_ids]
     reformulation.record(st, d.get("problem_reformulation_review"), solution_ids=report_ids)
+    reformulation.record_execution(ctx, solution_ids=report_ids)
     ctx.emit("artifact", kind="RANKING",
              data=[{"rank": e.rank, "title": st.concept(e.concept_id).title if st.concept(e.concept_id) else "",
                     "score": e.total_score, "quadrant": e.quadrant}

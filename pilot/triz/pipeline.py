@@ -396,6 +396,12 @@ def rerun_from(run_id, stage_key, instruction=""):
             if idx <= boundary:
                 previous = getattr(state, field)
                 setattr(state, field, [] if isinstance(previous, list) else type(previous)())
+        if idx <= 6:
+            # A new solve revision gets its own bounded expansion. Continuing
+            # an interrupted revision still retains its completed round count.
+            for key in ('ax_coordination', 'ax_expansion_rounds', 'ax_expansion_deferred',
+                        'ax_idea_inventory', 'ax_effect_applicability'):
+                state.scratch.pop(key, None)
         if idx <= 9:
             state.evidence = []
             for c in state.concepts:

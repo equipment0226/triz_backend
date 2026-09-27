@@ -17,7 +17,7 @@ def _finish_snapshot(state):
     return state.scratch['ax_report_snapshot_id']
 
 
-def test_legacy_s6_rerun_captures_15_group_inventory_and_exact_concept_parent(dlc, monkeypatch):
+def test_legacy_s6_rerun_captures_10_group_inventory_and_exact_concept_parent(dlc, monkeypatch):
     dlc.solve.raw_ideas = [RawIdea(id=f'I{i}', title=f'original {i}', idea=f'original mechanism {i}',
                                   addresses=['TC-DLC']) for i in range(46)]
     runtime.checkpoint(dlc, 's5_solve')
@@ -36,7 +36,7 @@ def test_legacy_s6_rerun_captures_15_group_inventory_and_exact_concept_parent(dl
         if kw['node'] == 's5_merge':
             ideas = kw['vars']['all_ideas']
             assert len(ideas) == 46
-            groups = [ideas[i:i+3] for i in range(0, 42, 3)] + [ideas[42:]]
+            groups = [ideas[i:i+5] for i in range(0, 45, 5)] + [ideas[45:]]
             return {'ideas': [{'keep_ids': [idea['id'] for idea in group],
                 'merge_reason': 'same intervention, mechanism and protected conditions'} for group in groups]}
         return {'concepts': [{'title': idea['title'], 'source_idea_ids': [idea['id']],
@@ -53,7 +53,7 @@ def test_legacy_s6_rerun_captures_15_group_inventory_and_exact_concept_parent(dl
     quality.generate_concepts(ctx)
     runtime.checkpoint(state, 's6_concept')
     snapshot = ledger.snapshot(state.run_id, state.scratch['ax_snapshot_id'], state.user_id)
-    assert len(snapshot['artifacts']['solve']['payload']['raw_ideas']) == 15
+    assert len(snapshot['artifacts']['solve']['payload']['raw_ideas']) == 10
     assert state.scratch['ax_members']['solve'] != old_solve_version
     assert state.scratch['ax_members']['solve'] in snapshot['artifacts']['concepts']['parents']
     assert old_solve_version not in snapshot['artifacts']['concepts']['parents']
@@ -62,12 +62,12 @@ def test_legacy_s6_rerun_captures_15_group_inventory_and_exact_concept_parent(dl
                ['artifacts']['solve']['payload']['raw_ideas']) == 46
     _finish_snapshot(state)
     projected = report.project(state)
-    assert len(projected.solve.raw_ideas) == len(projected.concepts) == 15
-    assert projected.scratch['ax_candidate_review']['completed_ideas'] == 15
+    assert len(projected.solve.raw_ideas) == len(projected.concepts) == 10
+    assert projected.scratch['ax_candidate_review']['completed_ideas'] == 10
     assert {i for idea in projected.solve.raw_ideas for i in idea.source_idea_ids} == {f'I{i}' for i in range(46)}
     markdown = report.markdown(state)
-    assert '중복 통합 후 아이디어 **15개**' in markdown
-    assert '상세 검토 완료 **15개**' in markdown
+    assert '**10' in markdown and 'original 45' in markdown
+    assert '**10' in markdown and 'original 45' in markdown
 
 
 def test_s6_reuses_unchanged_solve_version_and_invalidates_downstream_outputs(dlc):

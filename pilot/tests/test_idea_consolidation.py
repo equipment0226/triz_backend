@@ -9,7 +9,7 @@ from triz.schema import RawIdea, TechnicalContradiction
 from triz.settings import settings
 
 
-def test_all_46_are_given_to_agent_and_15_groups_keep_every_source(state, monkeypatch):
+def test_all_46_are_given_to_agent_and_10_groups_keep_every_source(state, monkeypatch):
     contradiction = TechnicalContradiction()
     state.definition.technical_contradictions = [contradiction]
     originals = [RawIdea(id=f"IDEA-{n}", title=f"안 {n}", idea=f"기구 {n}",
@@ -20,9 +20,10 @@ def test_all_46_are_given_to_agent_and_15_groups_keep_every_source(state, monkey
                          detail={"catalog_sources": [{"identifier": f"REF-{n}"}]})
                  for n in range(46)]
     state.solve.raw_ideas = originals
-    groups = [{"keep_ids": [idea.id for idea in originals[start:start + 3]],
+    groups = [{"keep_ids": [idea.id for idea in originals[start:start + 5]],
                "merge_reason": "동일한 개입·작동 원리·적용 조건을 서술한 원안"}
-              for start in range(0, 42, 3)]
+              for start in range(0, 40, 5)]
+    groups.append({"keep_ids": [idea.id for idea in originals[40:42]], "merge_reason": "same mechanism and conditions"})
     groups.append({"keep_ids": [idea.id for idea in originals[42:]],
                    "merge_reason": "동일 기구와 개입 위치·조건의 표현 차이"})
 
@@ -38,7 +39,7 @@ def test_all_46_are_given_to_agent_and_15_groups_keep_every_source(state, monkey
 
     monkeypatch.setattr(agent, "run_agent", run)
     consolidation.consolidate(RunContext(state))
-    assert len(state.solve.raw_ideas) == 15
+    assert len(state.solve.raw_ideas) == 10
     assert {sid for idea in state.solve.raw_ideas for sid in idea.source_idea_ids} == {i.id for i in originals}
     assert sum(len(idea.source_idea_ids) for idea in state.solve.raw_ideas) == 46
     last = state.solve.raw_ideas[-1]
@@ -72,13 +73,14 @@ def test_invalid_partition_never_replaces_originals(state, monkeypatch, response
     assert "idea_consolidation" not in state.scratch
 
 
-def test_complete_distinct_ideas_have_no_output_count_cap(state, monkeypatch):
+def test_more_than_ten_outputs_are_rejected_without_silent_clipping(state, monkeypatch):
     state.solve.raw_ideas = [RawIdea(id=f"IDEA-{n}", idea=f"독립 기구 {n}") for n in range(53)]
     monkeypatch.setattr(agent, "run_agent", lambda *a, **kw: {
         "ideas": [{"keep_ids": [row["id"]]} for row in kw["vars"]["all_ideas"]]})
-    consolidation.consolidate(RunContext(state))
+    with pytest.raises(AbortRun, match="10"):
+        consolidation.consolidate(RunContext(state))
     assert len(state.solve.raw_ideas) == 53
-    assert consolidation.is_current(state)
+    assert not consolidation.is_current(state)
 
 
 def test_retry_reuses_completed_merge_but_changed_input_requires_new_comparison(state, monkeypatch):
@@ -151,11 +153,12 @@ def test_large_complete_inventory_has_no_implicit_byte_cutoff(state, monkeypatch
     def respond(ctx, **kwargs):
         packets = kwargs['vars']['all_ideas']
         seen.extend(packets)
-        return {'ideas': [{'keep_ids': [row['id']]} for row in packets]}
+        return {'ideas': [{'keep_ids': [row['id'] for row in packets], 'merge_reason': 'same mechanism and conditions'}]}
     monkeypatch.setattr(agent, 'run_agent', respond)
     consolidation.consolidate(RunContext(state))
     assert state.scratch['idea_consolidation']['input_bytes'] > 240000
-    assert len(seen) == len(state.solve.raw_ideas) == 46
+    assert len(seen) == 46
+    assert len(state.solve.raw_ideas) == 1
     assert [row['idea'] for row in seen] == [idea.idea for idea in originals]
 
 

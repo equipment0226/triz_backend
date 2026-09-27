@@ -1,4 +1,4 @@
-"""Lossless semantic consolidation before every distinct idea is reviewed."""
+"""Review all sources and preserve their disposition; elaborate at most ten."""
 from __future__ import annotations
 
 import copy
@@ -11,17 +11,24 @@ from .schema import RawIdea, Stage
 from .settings import settings
 
 
-CONTRACT_VERSION = "all-ideas-consolidation-v1"
+CONTRACT_VERSION = "representative-ideas-max10-v2"
+MAX_IDEAS = 10
 CONSOLIDATION_CONTRACT = """
-[전건 아이디어 통합 계약 v1 — 이전의 개수 제한·제외 지시보다 우선]
-입력된 아이디어 전체를 검토하고 모든 입력 id를 정확히 한 그룹의 keep_ids에 한 번씩 포함한다.
-그룹 수의 최소·최대·목표는 없다. TRADEOFF/UNSUPPORTED나 모순 연결 부족도 제외하지 않는다.
+[전체 원안 검토·대표 아이디어 최대 10개 계약 v2 — 이전의 무제한 유지 지시보다 우선]
+모든 입력을 비교 검토한 뒤 후속 상세검토할 대표 ideas를 최대 10개로 통합·선정한다.
+10개를 채울 의무는 없다. 앞 순서, 발상 기법별 할당, 다양성 점수만으로 자르지 않는다.
 표현이나 목적만 비슷한 것은 중복이 아니다. 작동 원리, 개입 위치·변수, 적용 조건과 보호할 요구가
-실질적으로 같을 때만 통합한다. 서로 다른 기구·조건·검증 경로는 각각 보존한다. 불확실하면 독립 유지한다.
-복수 원안을 통합한 그룹은 이 동등성을 설명하는 merge_reason을 반드시 기록한다.
-통합으로 새로운 조합 해법을 만들거나 별개의 아이디어를 한 후보 속에 숨기지 않는다.
-입력 ID의 누락·중복·새 ID를 허용하지 않는다. keep_ids가 1개인 독립 그룹도 출력한다.
-품질 판단과 제약 검문은 후속 단계에서 전건 수행한다. 이 단계에서 약한 안을 조용히 삭제하지 않는다.
+실질적으로 같을 때 통합한다. 같은 설계의 치수·표현 변형은 조건을 보존하며 묶는다.
+고장 모드·성립 조건이 다른 기구를 억지로 하나의 해법에 숨기거나 새 조합을 발명하지 않는다.
+복수 원안의 merge_reason에는 공통 기구, 개입 위치, 조건의 양립성과 차이 보존 방법을 기록한다.
+통합 후에도 독립안이 10개를 넘으면 핵심 원인·모순 해결 기여, 기술적 성립 경로,
+hard·soft 요구 적합성, 검증 가능성, 미확인 가정과 실행 부담을 비교해 대표안을 선정한다.
+선정안에는 selection_reason을 기록하고 비선정 원안은 deferred에 원안 하나의 keep_ids와
+구체적 reason을 남긴다. 단순 '10개 초과'나 '다양성 부족'은 사유가 아니다.
+모든 입력 id는 ideas 또는 deferred의 keep_ids에 정확히 한 번만 나타나야 한다.
+deferred는 상세검토 보류이며 기술적 불가능·제약 위반 확정이나 삭제를 의미하지 않는다.
+TRADEOFF/UNSUPPORTED 표기만으로 보류하지 않는다. 대표안 전부를 S6에서 상세검토하고,
+hard·soft 제약의 최종 검문은 유지한다. 원안과 통합·보류 사유는 보고서에 보존한다.
 """.strip()
 
 
@@ -49,6 +56,7 @@ def _context_signature(state):
 def is_current(state):
     record = state.scratch.get("idea_consolidation", {})
     return (record.get("contract") == CONTRACT_VERSION and record.get("coverage_complete") is True
+            and len(state.solve.raw_ideas) <= MAX_IDEAS
             and record.get("context_signature") == _context_signature(state)
             and record.get("output_signature") == _signature(state.solve.raw_ideas))
 
@@ -61,11 +69,24 @@ def ensure_consolidated(ctx):
 
 
 def check_partition(data, input_ids):
-    """The result must be an exact partition, never a ranked subset."""
+    """Every source has one disposition; only up to ten advance to S6."""
     if not isinstance(data, dict) or not isinstance(data.get("ideas"), list):
         return ["FATAL-CONSOLIDATION: ideas 배열로 모든 입력 ID의 그룹을 반환해야 합니다."]
     expected, seen, issues = set(input_ids), set(), []
-    for index, row in enumerate(data["ideas"]):
+    if len(data['ideas']) > MAX_IDEAS:
+        issues.append('FATAL-CONSOLIDATION: 대표 ideas는 최대 10개입니다. 전건 비교 후 나머지는 사유와 함께 deferred에 보존하세요.')
+    deferred = data.get('deferred', [])
+    if not isinstance(deferred, list):
+        return ['FATAL-CONSOLIDATION: deferred는 배열이어야 합니다.']
+    for row in deferred:
+        if (not isinstance(row, dict) or not isinstance(row.get('keep_ids'), list)
+                or len(row['keep_ids']) != 1 or not isinstance(row.get('reason'), str) or not row['reason'].strip()):
+            issues.append('FATAL-CONSOLIDATION: deferred 각 항목에는 원안 ID 1개와 구체적인 reason이 필요합니다.')
+    if deferred:
+        for row in data['ideas']:
+            if isinstance(row, dict) and not (isinstance(row.get('selection_reason'), str) and row['selection_reason'].strip()):
+                issues.append('FATAL-CONSOLIDATION: 보류안 대비 대표안 선정 근거 selection_reason이 필요합니다.')
+    for index, row in enumerate(data["ideas"] + deferred):
         if not isinstance(row, dict):
             issues.append(f"FATAL-CONSOLIDATION: 그룹 {index + 1}은 객체여야 합니다.")
             continue
@@ -81,7 +102,7 @@ def check_partition(data, input_ids):
         if len(ids) > 1 and not (isinstance(row.get("merge_reason"), str) and row["merge_reason"].strip()):
             issues.append(f"FATAL-CONSOLIDATION: 그룹 {index + 1}에 기구·개입·조건의 동등성을 설명하는 merge_reason이 필요합니다.")
         for key in ("title", "idea", "mechanism", "mechanism_key", "intervention_variable",
-                    "strongest_objection", "validation_test", "resolution_argument"):
+                    "strongest_objection", "validation_test", "resolution_argument", "selection_reason"):
             if key in row and not isinstance(row[key], str):
                 issues.append(f"FATAL-CONSOLIDATION: 그룹 {index + 1}의 {key}는 문자열이어야 합니다.")
         for key in ("addresses", "uses_resources", "conditions", "hypothesis_ids"):
@@ -137,6 +158,7 @@ def _merged_idea(row, sources):
                   source_tracks=_unique(t for i in sources for t in digest.idea_tracks(i) if t),
                   consolidation={"contract": CONTRACT_VERSION,
                                  "input_idea_ids": [i.id for i in sources],
+                                 "selection_reason": row.get('selection_reason', ''),
                                  "merge_reason": row.get("merge_reason", "독립 아이디어로 유지")})
     data["detail"] = detail
     return RawIdea.model_validate(data)
@@ -151,6 +173,16 @@ def consolidate(ctx):
     """
     state = ctx.state
     sources = list(state.solve.raw_ideas)
+    previous = state.scratch.get('idea_consolidation', {})
+    # Reconsider retained alternatives when the problem or inventory changes;
+    # a prior portfolio decision must never silently erase them on a new merge.
+    current_ids = {idea.id for idea in sources}
+    prior_ids = {g['idea_id'] for g in previous.get('groups', [])}
+    if previous.get('contract') == CONTRACT_VERSION and prior_ids <= current_ids:
+        for raw in previous.get('deferred_ideas', []):
+            if raw['id'] not in current_ids:
+                sources.append(RawIdea.model_validate(raw))
+                current_ids.add(raw['id'])
     input_ids = [idea.id for idea in sources]
     if len(input_ids) != len(set(input_ids)):
         raise AbortRun("아이디어 원안 ID가 중복되어 전건 통합을 중단합니다. 원안을 보존했습니다.")
@@ -164,6 +196,7 @@ def consolidate(ctx):
         "evidence": digest.relevant_evidence(state),
         "key_problems": [k.model_dump(mode="json") for k in state.definition.key_problems],
         "contradictions": digest.contradictions_digest(state),
+        "constraints": state.constraints.model_dump(mode='json'),
         "consolidation_contract": CONSOLIDATION_CONTRACT,
     }
     input_bytes = len(json.dumps(variables, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
@@ -172,7 +205,7 @@ def consolidate(ctx):
         raise AbortRun(f"아이디어 전건 통합 입력이 길이 한도를 초과했습니다 ({input_bytes:,}/{input_limit:,} bytes). "
                        "원안은 모두 보존했으며 일부만 검토하지 않았습니다. 컨텍스트 한도를 조정한 뒤 재개할 수 있습니다.")
     result = agent.run_agent(
-        ctx, node="s5_merge", label="전체 아이디어 의미 통합·중복 검토", stage=Stage.S5.value,
+        ctx, node="s5_merge", label="전체 아이디어 통합 검토·대표안 선정", stage=Stage.S5.value,
         agent_id="solution_curator", prompt_id="P_S5_MERGE", tier="T2", rubric_id="R5_MERGE",
         checker=lambda data: check_partition(data, input_ids),
         max_tokens=int(settings.cfg("solutions.merge_max_tokens", 16000)),
@@ -198,13 +231,21 @@ def consolidate(ctx):
     groups = [{"idea_id": idea.id, "input_idea_ids": list(row["keep_ids"]),
                "source_idea_ids": list(idea.source_idea_ids),
                "source_tracks": list(digest.idea_tracks(idea)),
+               "selection_reason": row.get('selection_reason', ''),
                "merge_reason": row.get("merge_reason", "독립 아이디어로 유지")}
               for idea, row in zip(merged, result["ideas"])]
     record = {"contract": CONTRACT_VERSION, "input_count": len(sources), "group_count": len(merged),
+              "max_ideas": MAX_IDEAS,
+              "deferred": [dict(row, source_idea_ids=list(by_id[row['keep_ids'][0]].source_idea_ids or row['keep_ids']))
+                           for row in result.get('deferred', [])],
+              "deferred_ideas": [by_id[row['keep_ids'][0]].model_dump(mode='json')
+                                 for row in result.get('deferred', [])],
               "input_idea_ids": input_ids, "groups": groups, "input_bytes": input_bytes,
               "input_signature": _signature(sources), "output_signature": _signature(merged),
               "context_signature": _context_signature(state),
               "coverage_complete": True, "unaccounted_idea_ids": []}
+    # Retain complete leaf sources, including deferred ones, for the frozen report.
+    record['source_ideas'] = list({row['source_idea_id']: row for row in _sources(sources)}.values())
     state.solve.raw_ideas = merged
     state.scratch["idea_consolidation"] = record
     state.scratch.setdefault("idea_consolidation_history", []).append(copy.deepcopy(record))

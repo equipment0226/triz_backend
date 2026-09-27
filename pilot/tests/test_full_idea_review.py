@@ -36,7 +36,7 @@ def _prepare(state, monkeypatch, count=15, ensure=False):
     return tc
 
 
-def test_46_sources_consolidate_to_15_and_all_15_are_reviewed(state, monkeypatch):
+def test_46_sources_consolidate_to_10_and_all_10_are_reviewed(state, monkeypatch):
     tc = _prepare(state, monkeypatch, count=46, ensure=True)
     original_ids = {i.id for i in state.solve.raw_ideas}
     generated, audits, merges = [], [], []
@@ -44,7 +44,7 @@ def test_46_sources_consolidate_to_15_and_all_15_are_reviewed(state, monkeypatch
         if kw['node'] == 's5_merge':
             rows = kw['vars']['all_ideas']
             merges.append(len(rows))
-            groups = [rows[i:i+3] for i in range(0, 42, 3)] + [rows[42:]]
+            groups = [rows[i:i+5] for i in range(0, 45, 5)] + [rows[45:]]
             return {'ideas': [{'keep_ids': [i['id'] for i in group],
                 'merge_reason': 'same mechanism, intervention, conditions and protected requirement'}
                 for group in groups]}
@@ -58,21 +58,21 @@ def test_46_sources_consolidate_to_15_and_all_15_are_reviewed(state, monkeypatch
     monkeypatch.setattr(agent, 'verify_artifact', audit)
     quality.generate_concepts(RunContext(state))
     assert merges == [46]
-    assert len(state.solve.raw_ideas) == len(generated) == len(audits) == len(state.concepts) == 15
+    assert len(state.solve.raw_ideas) == len(generated) == len(audits) == len(state.concepts) == 10
     assert all(len(c.source_idea_ids) == 1 for c in state.concepts)
     assert {c.source_idea_ids[0] for c in state.concepts} == {i.id for i in state.solve.raw_ideas}
     assert any(i['resolution_status'] == 'TRADEOFF' for i in generated)
     review = state.scratch['ax_candidate_review']
     assert review['review_limit'] is None
-    assert review['available_ideas'] == review['assigned_ideas'] == review['completed_ideas'] == 15
+    assert review['available_ideas'] == review['assigned_ideas'] == review['completed_ideas'] == 10
     assert not review['unreviewed_idea_ids']
     assert {i for ids in review['source_lineage'].values() for i in ids} == original_ids
-    assert len(review['audit_completed_concept_ids']) == 15
+    assert len(review['audit_completed_concept_ids']) == 10
     assert not review['audit_unreviewed_concept_ids']
     # An S6 retry uses the completed partition without an extra consolidation call.
     quality.generate_concepts(RunContext(state))
     assert merges == [46]
-    assert len(audits) == 15
+    assert len(audits) == 10
 
 
 @pytest.mark.parametrize('bad', ['missing', 'unknown', 'duplicate', 'excluded_no_ids', 'excluded_no_reason'])

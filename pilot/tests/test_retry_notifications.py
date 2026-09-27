@@ -94,6 +94,7 @@ def test_compact_merge_restores_all_original_resources_conditions_and_provenance
     state.solve.raw_ideas = [first, second]
     monkeypatch.setattr(agent, 'run_agent', lambda *a, **kw: {'ideas': [{
         'keep_ids': [first.id, second.id], 'addresses': [tc.id],
+        'merge_reason': '동일한 기구와 개입 위치 및 적용 조건을 표현한 원안',
         'resolution_status': 'RESOLVED', 'resolution_argument': 'both hold when condition one and two hold'}]})
     nodes._merge(RunContext(state))
     merged = state.solve.raw_ideas[0]

@@ -6,7 +6,8 @@ CONTEXT_KEYS = ('title', 'param_scheme', 'excluded_concepts', 's_curve', 'taboo'
                 'principle_patents', 'patent_additions', 'related_references',
                 'evidence_mappings', 'evidence_gaps', 'search_status',
                 'ax_coordination', 'ax_coherence', 'ax_recovery',
-                'ax_track_execution', 'ax_solve_start_seq', 'ax_candidate_review')
+                'ax_track_execution', 'ax_solve_start_seq', 'ax_candidate_review',
+                'idea_consolidation', 'constraint_normalization')
 
 TRACK_LABELS = {
     'A_MATRIX': '모순행렬·발명원리', 'B_SEPARATION': '분리 원리',

@@ -168,7 +168,7 @@ def assess(state):
                 and not row['gaps'] and row['concept_review'] == 'PASS' and (not check or check.verdict != 'FAIL')):
             covered.update(row['obligation_ids'])
     uncovered = [dict(o, kind='COVERAGE_GAP', obligation_id=o['id']) for o in required if o['id'] not in covered]
-    target = state.scratch['ax_bundle']['limits'].get('presentation_target', 5)
+    target = 0  # No candidate-count quota; original problem coverage remains required.
     return {'contract': VERSION, 'obligations': required, 'candidates': rows, 'coverage_gaps': uncovered,
             'scope_status': 'COVERED_AT_CONCEPT_LEVEL' if required and not uncovered else 'PARTIAL',
             'presentation_target': target, 'retained_count': len(rows),

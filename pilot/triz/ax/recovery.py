@@ -39,8 +39,7 @@ def run(ctx,phase='before_constraints'):
         from .coherence_recovery import run as repair
         return repair(ctx,phase)
     state=ctx.state
-    from ..solve_contract import concept_review_limit
-    limits=dict(state.scratch['ax_bundle']['limits'], detailed_candidates=concept_review_limit(state))
+    limits=state.scratch['ax_bundle']['limits']
     if state.scratch.get('ax_recovery_complete'): return
     state.scratch.setdefault('ax_baseline_candidates',[c.model_dump(mode='json') for c in state.concepts])
     source={c.id:c for c in state.concepts}
@@ -51,12 +50,12 @@ def run(ctx,phase='before_constraints'):
     journal=state.scratch.setdefault('ax_recovery',[])
     protected=digest(state.constraints.model_dump(mode='json'))
     for baseline in targets:
-        if len(state.concepts)>=limits['detailed_candidates']: break
+        if sum(row.get('status') == 'PROPOSED_REQUIRES_GATE' for row in journal) >= limits.get('recovery_additions', 4): break
         blockers=list(baseline.quality_issues) or ['독립 기구 검토 미통과']
         blocker_id='blocker-'+digest([baseline.id,blockers])[:24]
         attempts=[x for x in journal if x['blocker_id']==blocker_id]
         for attempt in range(len(attempts),limits['repairs_per_blocker']):
-            if len(state.concepts)>=limits['detailed_candidates']: break
+            if sum(row.get('status') == 'PROPOSED_REQUIRES_GATE' for row in journal) >= limits.get('recovery_additions', 4): break
             remaining=ledger.budget(state.run_id)['remaining_microusd']
             if remaining<limits['validation_reserve_microusd']+50000:
                 journal.append({'blocker_id':blocker_id,'candidate_id':baseline.id,'status':'DEFERRED_BUDGET'})
@@ -95,8 +94,10 @@ def run(ctx,phase='before_constraints'):
             from ..quality import audit_concepts
             branch=state.model_copy(deep=True)
             branch.concepts=[repaired]
+            branch.scratch['s6_quality_batches']=state.scratch.setdefault('s6_quality_batches',{})
             branch.steps,branch.cost,branch.control=state.steps,state.cost,state.control
             bctx=RunContext(branch); bctx.lock,bctx.budget,bctx.call_slots=ctx.lock,ctx.budget,ctx.call_slots
+            bctx.persist=ctx.persist
             audit_concepts(bctx)
             accepted=branch.concepts and branch.concepts[0].quality_status=='PASS'
             entry.update(status='PROPOSED_REQUIRES_GATE' if accepted else 'UNRESOLVED',
@@ -109,7 +110,7 @@ def run(ctx,phase='before_constraints'):
                 state.concepts.append(branch.concepts[0])
                 break
     pairs=[x for x in journal if x.get('proposal')]
-    if len(state.concepts)<limits['detailed_candidates'] and len(pairs)>=2:
+    if sum(row.get('status') == 'PROPOSED_REQUIRES_GATE' for row in journal) < limits.get('recovery_additions', 4) and len(pairs)>=2:
         left,right=pairs[0],pairs[-1]
         external=[r.name for r in state.analysis.resources]
         if left['candidate_id']!=right['candidate_id'] and complementary(left['proposal'],right['proposal'],external):
@@ -148,8 +149,10 @@ def codesign(ctx,left,right,baselines):
         expected_effect='공동 설계의 상호작용과 성능은 독립 검증 및 시험 필요')
     from ..quality import audit_concepts
     branch=state.model_copy(deep=True); branch.concepts=[ConceptSpec.model_validate(base)]
+    branch.scratch['s6_quality_batches']=state.scratch.setdefault('s6_quality_batches',{})
     branch.steps,branch.cost,branch.control=state.steps,state.cost,state.control
     bctx=RunContext(branch); bctx.lock,bctx.budget,bctx.call_slots=ctx.lock,ctx.budget,ctx.call_slots
+    bctx.persist=ctx.persist
     audit_concepts(bctx)
     accepted=branch.concepts and branch.concepts[0].quality_status=='PASS'
     entry.update(status='PROPOSED_REQUIRES_GATE' if accepted else 'UNRESOLVED',proposal=proposal.model_dump(mode='json'))

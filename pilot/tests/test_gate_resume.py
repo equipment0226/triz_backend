@@ -66,7 +66,9 @@ def test_gate_batches_preserve_all_concepts_and_constraints(state,monkeypatch):
         assert len(batch)*len(state.constraints.items) <= 24
         assert kwargs['vars']['constraints_full']
         seen.extend(c['concept_id'] for c in batch)
-        return {'results':[{'concept_id':c['concept_id'],'verdict':'PASS'} for c in batch]}
+        return {'results':[{'concept_id':c['concept_id'],'verdict':'PASS',
+            'per_constraint':[{'constraint_id':constraint.id,'verdict':'PASS'}
+                              for constraint in state.constraints.items]} for c in batch]}
     monkeypatch.setattr(agent,'run_agent',passed)
     nodes.s7_gate(RunContext(state))
     assert seen == [c.id for c in state.concepts]
@@ -83,3 +85,19 @@ def test_new_failures_after_manual_resolution_still_stop_execution(state,monkeyp
     stages=list(pipeline.PIPELINE);stages[8]=('test','test',fail)
     monkeypatch.setattr(pipeline,'PIPELINE',stages)
     assert pipeline.execute_stage(state.run_id,8)['status'] == 'FAILED'
+
+
+@pytest.mark.parametrize('second_verdict,expected', [('PASS', 'PASS'), ('FAIL', 'CONDITIONAL')])
+def test_duplicate_candidate_gate_rows_are_normalized_once(state, monkeypatch, second_verdict, expected):
+    state.concepts = [ConceptSpec(title='Preserve candidate')]
+    state.constraints.items = [Constraint(statement='Keep preferred sequence', hard=False)]
+    state.scratch['ax_autonomous_gate'] = True
+    cid, constraint_id = state.concepts[0].id, state.constraints.items[0].id
+    monkeypatch.setattr(agent, 'run_agent', lambda *a, **kw: {'results': [
+        {'concept_id': cid, 'verdict': verdict,
+         'per_constraint': [{'constraint_id': constraint_id, 'verdict': verdict}]}
+        for verdict in ('PASS', second_verdict)]})
+    nodes.s7_gate(RunContext(state))
+    assert len(state.concepts) == len(state.constraint_checks) == 1
+    assert state.constraint_checks[0].verdict == expected
+    assert state.scratch['constraint_normalization'][0]['duplicate_ids'] == [constraint_id]

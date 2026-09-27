@@ -1,18 +1,33 @@
-여러 트랙의 후보를 모순 해소와 인과 근거로 통합한다. 새 해법·사실·출처를 창작하지 않는다.
-[아이디어] {{all_ideas}}
+여러 발상 기법에서 나온 모든 아이디어를 비교하여, 실질적으로 중복인 것만 통합한다. 기술적 우열을 이유로 선별하는 단계가 아니다.
+
+[전체 원안 — 모든 id를 검토] {{all_ideas}}
+[확인된 문제·운전 조건] {{facts}}
 [핵심 문제] {{key_problems}}
 [모순] {{contradictions}}
 [인과 경로와 가설] {{causal_packet}}
 [재정의 신호] {{redefinition_hints}}
-[검색 자료: 미검증 조건을 반박하는 데 사용] {{evidence}}
-각 후보의 결합 원인, 개입 변수, 개선 목표 달성 경로와 악화 목표 보존 경로를 확인한다.
-같은 모순·같은 개입 변수·같은 작동 방식이면 병합한다. 모든 원본 ID를 keep_ids에 보존한다. 서버가 원본의 출처·자원·조건·가설·메커니즘을 복원하므로 같은 내용을 다시 출력하지 않는다. 조건이 상충하면 resolution_argument에 설명하고 UNSUPPORTED로 둔다.
-resolution_status: RESOLVED(조건부로 양쪽 요구 성립 경로를 설명), TRADEOFF(절충·손실 이전), UNSUPPORTED(경로/근거 부족). RESOLVED는 실증 완료를 의미하지 않는다.
-핵심 가설이 틀렸을 때의 실패, 가장 강한 반박과 이를 구분할 관측을 검토한다. 원본에 없는 판단만 짧게 추가한다. 기존 해법이 다른 가설에서 유효하면 그 조건을 명시한다. 선행 문제 정의를 임의로 바꾸지 않는다.
-addresses는 실제 해소할 모순 ID만. 모순과 관련 없는 후보는 제외한다.
-최대 {{max_ideas}}개. {{min_ideas}}개는 탐색 목표일 뿐 수량·트랙·신규성 할당을 채우기 위해 약한 안을 남기지 않는다.
-need_more는 핵심 모순 미해결, 단일 가설 의존, 부적합 근거일 때 true. 개수만으로 true로 하지 않는다.
-novelty_class는 SAME_DOMAIN/CROSS_DOMAIN/NEW. 외부 검증 근거가 없으면 ‘검증됨’을 주장하지 않는다.
-출력은 선택·병합 판단의 차이만 기록한다. 후보마다 필수 필드는 keep_ids, addresses, resolution_status, resolution_argument 4개다. resolution_argument는 양쪽 요구의 성립 여부와 결정적 조건을 120자 이내로 쓴다.
-첫 keep_id의 제목·설명을 그대로 쓰면 title/idea를 생략한다. 여러 원본을 병합해 실제로 달라진 경우에만 title/idea/mechanism/intervention_variable을 추가한다. 새로 확인한 조건·반박·관측이 있으면 conditions/strongest_objection/validation_test를 추가하되 각 1문장이다. 원본과 같은 값, 빈 선택 필드, track/source_refs는 출력하지 않는다.
-{"ideas":[{"keep_ids":[],"addresses":[],"resolution_status":"UNSUPPORTED","resolution_argument":""}],"coverage_note":"","gaps":[],"need_more":false}
+[검색 자료 — 검증 완료를 의미하지 않음] {{evidence}}
+
+{{consolidation_contract}}
+
+모든 원안 ID를 정확히 한 그룹의 keep_ids에 포함한다. 독립 원안은 keep_ids가 1개인 그룹으로 그대로 남긴다.
+통합 후 몇 개가 되어야 한다는 목표나 상한은 없다. 원안이 46개라면 중복성 판단 결과에 따라 46개 모두 남을 수도 있다.
+같은 목표, 비슷한 제목, 같은 발상 기법, 같은 과학효과 이름만으로 통합하지 않는다.
+작동 원리와 인과 경로, 개입 위치·변수, 적용 조건, 보호할 요구가 실질적으로 같을 때만 통합한다.
+예: 같은 진동 억제 목적이어도 점탄성 패드의 수동 감쇠와 서보 전기 제동의 능동 감쇠는 서로 다른 아이디어다.
+수치나 치수의 차이만 있어도 적용 영역·고장 모드·검증 방법이 달라지면 독립적으로 유지한다.
+판단이 불확실하면 합치지 않는다. 별개 기구를 조합해 새 해결안을 만드는 것은 중복 통합이 아니다.
+복수 원안을 합쳤다면 merge_reason에 기구·개입·조건이 어떻게 동등한지 설명한다. 제목 유사도만 근거로 쓰지 않는다.
+
+모든 출처와 자원·조건·가설·원본 메커니즘은 서버가 보존한다. 새 사실이나 해법, 출처를 만들지 않는다.
+TRADEOFF, UNSUPPORTED, 모순 연결 부족, 낮은 예상 효과도 제외 사유가 아니다. 모든 독립 아이디어가 후속 상세 검토와 제약 검문을 받는다.
+resolution_status는 기존 판단을 참고한 임시 표기일 뿐, 이 단계에서 후보를 제외하거나 검증 완료를 선언하는 수단이 아니다.
+RESOLVED도 실험적 검증 완료를 의미하지 않는다. 선행 문제 정의를 임의로 바꾸지 않는다.
+need_more는 핵심 문제나 모순의 미해결을 나타낼 때만 true이며 후보 수를 채우기 위한 신호로 사용하지 않는다.
+
+출력은 통합 판단에 필요한 차이만 기록한다. 모든 그룹에 keep_ids가 필요하며 복수 원안을 통합하면 merge_reason도 필수다.
+첫 keep_id의 제목·설명과 같으면 title/idea를 생략한다. 통합으로 표현을 정리한 경우에만 title/idea/mechanism/intervention_variable을 추가한다.
+조건·반박·검증 관측에 대한 추가 메모는 conditions/strongest_objection/validation_test에 간결하게 기록할 수 있다.
+입력과 동일한 선택 필드, 빈 선택 필드, track/source_refs를 반복 출력하지 않는다.
+
+{"ideas":[{"keep_ids":["IDEA-원안ID"],"merge_reason":"복수 원안 통합 시에만 필요한 동등성 근거"}],"coverage_note":"","gaps":[],"need_more":false}

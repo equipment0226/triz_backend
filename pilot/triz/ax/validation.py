@@ -4,6 +4,7 @@
 def selection(state):
     from . import ledger
     from . import coherence
+    from ..verify import normalize_constraint_result
     assessment = coherence.assess(state) if coherence.enabled(state) else None
     connections = {r['candidate_id']:r for r in assessment['candidates']} if assessment else {}
     versions=state.scratch.get('ax_members',{})
@@ -12,16 +13,21 @@ def selection(state):
         r['payload']['decision_type'] in ('RECORD_TEST_RESULT','RECORD_FIELD_RESULT')]
     rows=[]
     for candidate in state.concepts:
-        check=state.check_for(candidate.id)
+        stored_check=state.check_for(candidate.id)
+        check=normalize_constraint_result(stored_check,state.constraints)[0] if stored_check else None
+        # Reopening a saved report must not silently reverse a recorded rejection.
+        # Re-evaluating its underlying findings requires an explicit gate rerun.
+        if check and stored_check.verdict=='FAIL':
+            check.verdict='FAIL'
         missing=[]
         if candidate.quality_status!='PASS':
             missing.append('독립 기구 검토 미통과')
         if not check or check.verdict!='PASS':
-            missing.append('필수 제약 검증 미완료')
-        elif state.constraints.hard_items():
+            missing.append('제약 검증 미완료')
+        elif state.constraints.items:
             verified={r.get('constraint_id') for r in check.per_constraint if r.get('verdict')=='PASS'}
-            if {r.id for r in state.constraints.hard_items()}-verified:
-                missing.append('필수 제약별 판정 누락')
+            if {r.id for r in state.constraints.items}-verified:
+                missing.append('제약별 판정 누락')
         if not candidate.resolution_argument or not candidate.addresses_contradictions:
             missing.append('모순 해소 연결 미확인')
         if not candidate.working_principle or not candidate.validation_plan:

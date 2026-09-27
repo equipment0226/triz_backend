@@ -1016,8 +1016,7 @@ def s5_solve(ctx: RunContext) -> None:
         from .ax.coordinator import expand
         expand(ctx,need_more)
         st.scratch['ax_idea_inventory']=[i.model_dump(mode='json') for i in st.solve.raw_ideas]
-        # The concept review budget limits detailed review, not retention of
-        # generated ideas. Keep the complete inventory available in the report.
+        # Every consolidated idea remains available for detailed review.
 
     retries = st.control.retry_count.get("s5_solve", 0)
     from .ax.coherence import enabled as coherence_enabled
@@ -1116,89 +1115,10 @@ def _merge(ctx: RunContext) -> bool:
     if not st.solve.raw_ideas:
         ctx.warn("도출된 아이디어가 없다.")
         return True
-    d = agent.run_agent(
-        ctx, node="s5_merge", label="아이디어 통합·중복제거", stage=Stage.S5.value,
-        agent_id="solution_curator", prompt_id="P_S5_MERGE", tier="T2", rubric_id="R5_MERGE",
-        max_tokens=int(cfg("solutions.merge_max_tokens", 16000)),
-        vars={"all_ideas": digest.ideas_digest(st, limit=40),
-              "redefinition_hints": st.solve.gaps,
-              "causal_packet": digest.causal_packet(st),
-              "evidence": digest.relevant_evidence(st),
-              "key_problems": [k.model_dump() for k in st.definition.key_problems],
-              "contradictions": digest.contradictions_digest(st),
-              "min_ideas": cfg("solutions.min_raw_ideas", 12),
-              "max_ideas": max(int(cfg("solutions.min_raw_ideas", 12)) + 8, 20)},
-        default={},
-    ) or {}
-
-    merged = d.get("ideas") or []
-    if "ideas" in d:
-        by_id = {i.id: i for i in st.solve.raw_ideas}
-        new_ideas: list[RawIdea] = []
-        used_keep_ids = set()
-        for m in merged:
-            if not isinstance(m, dict):
-                continue
-            keep_ids = m.get("keep_ids") or []
-            if not isinstance(keep_ids, list) or any(not isinstance(k, str) for k in keep_ids):
-                continue
-            keep_ids = list(dict.fromkeys(keep_ids))
-            if any(k not in by_id for k in keep_ids) or used_keep_ids.intersection(keep_ids):
-                continue
-            keep = [by_id[k] for k in keep_ids]
-            if not keep:
-                continue
-            used_keep_ids.update(keep_ids)
-            base = keep[0]
-            prior_details = []
-            for idea in keep:
-                prior_details.extend(idea.detail.get("source_details") or [
-                    dict(idea.detail, source_idea_id=idea.id, source_track=idea.track)])
-            status = m.get("resolution_status", "UNSUPPORTED")
-            if status not in ("RESOLVED", "TRADEOFF", "UNSUPPORTED"):
-                status = "UNSUPPORTED"
-            if any(i.resolution_status == "TRADEOFF" for i in keep):
-                status = "TRADEOFF"
-            if status == "RESOLVED" and not m.get("resolution_argument"):
-                status = "UNSUPPORTED"
-            new_ideas.append(RawIdea(
-                id=base.id if base else RawIdea().id,
-                track=base.track,
-                source_ref=" + ".join(dict.fromkeys(i.source_ref for i in keep if i.source_ref)),
-                title=m.get("title") or (base.title if base else ""),
-                idea=m.get("idea") or (base.idea if base else ""),
-                uses_resources=list(dict.fromkeys(_text_list(m.get("uses_resources")) + [v for i in keep for v in i.uses_resources])),
-                addresses=m.get("addresses") or list(dict.fromkeys(v for i in keep for v in i.addresses)),
-                novelty_class=m.get("novelty_class") or (base.novelty_class if base else "NEW"),
-                feasibility_hint=m.get("feasibility_hint") or base.feasibility_hint,
-                detail={"source_details": prior_details,
-                        "source_tracks": list(dict.fromkeys(t for i in keep for t in digest.idea_tracks(i) if t))},
-                source_idea_ids=list(dict.fromkeys(k for i in keep for k in (i.source_idea_ids or [i.id]))),
-                mechanism_key=m.get("mechanism_key") or base.mechanism_key or base.id,
-                mechanism=m.get("mechanism") or base.mechanism,
-                intervention_variable=m.get("intervention_variable") or base.intervention_variable,
-                conditions=list(dict.fromkeys(_text_list(m.get("conditions")) + [v for i in keep for v in i.conditions])),
-                strongest_objection=m.get("strongest_objection") or base.strongest_objection,
-                validation_test=m.get("validation_test") or base.validation_test,
-                hypothesis_ids=list(dict.fromkeys(_text_list(m.get("hypothesis_ids")) + [v for i in keep for v in i.hypothesis_ids])),
-                resolution_status=status,
-                resolution_argument=m.get("resolution_argument", ""),
-            ))
-        # An omitted source is not an exclusion verdict, including on old pinned
-        # bundles. Preserve it for bounded selection and independent checks.
-        omitted=[idea for key,idea in by_id.items() if key not in used_keep_ids]
-        st.scratch.setdefault('ax_portfolio_trace',[]).append({
-            'stage':'merge','input_count':len(by_id),'merged_count':len(new_ideas),
-            'unaccounted_preserved':len(omitted)})
-        new_ideas.extend(omitted)
-        st.solve.raw_ideas = new_ideas
+    from .idea_consolidation import consolidate
+    d = consolidate(ctx)
     st.solve.coverage_note = d.get("coverage_note", "")
     st.solve.gaps = list(dict.fromkeys(st.solve.gaps + _text_list(d.get("gaps"))))
-    valid_ids = {t.id for t in st.definition.technical_contradictions} | {p.id for p in st.definition.physical_contradictions}
-    for idea in st.solve.raw_ideas:
-        idea.addresses = [i for i in idea.addresses if i in valid_ids]
-        if not idea.addresses:
-            idea.resolution_status = "UNSUPPORTED"
     covered = {cid for i in st.solve.raw_ideas if i.resolution_status == "RESOLVED" for cid in i.addresses}
     unmet = [kp.title for kp in st.definition.key_problems if not covered.intersection(kp.contradiction_ids)]
     st.solve.gaps.extend(f"미해결 핵심 문제: {title}" for title in unmet)
@@ -1284,14 +1204,28 @@ def s7_gate(ctx: RunContext) -> None:
 
     results: list[ConstraintCheckResult] = []
     by_id = {c.id: c for c in st.concepts}
-    for r in raw_results:
-        if r.concept_id in by_id:
-            results.append(r)
-    for c in st.concepts:  # 판정 누락분은 CONDITIONAL 처리
-        if not any(r.concept_id == c.id for r in results):
+    for c in st.concepts:
+        supplied = [r for r in raw_results if r.concept_id == c.id]
+        if supplied:
+            combined = supplied[0].model_copy(deep=True)
+            combined.per_constraint = [row for result in supplied for row in result.per_constraint]
+            combined.violated_ids = list(dict.fromkeys(cid for result in supplied for cid in result.violated_ids))
+            combined.mitigation = ' / '.join(dict.fromkeys(result.mitigation for result in supplied if result.mitigation))
+            if any(result.verdict == 'FAIL' for result in supplied):
+                combined.verdict = 'FAIL'
+            results.append(combined)
+        else:  # 판정 누락분은 CONDITIONAL 처리
             results.append(ConstraintCheckResult(concept_id=c.id, verdict="CONDITIONAL",
                                                  mitigation="자동 판정 누락 — 사용자 확인 필요",
                                                  requires_user_decision=True))
+    normalized = []
+    diagnostics = []
+    for result in results:
+        result, diagnostic = verify.normalize_constraint_result(result, st.constraints)
+        normalized.append(result)
+        diagnostics.append(dict(diagnostic, concept_id=result.concept_id))
+    results = normalized
+    st.scratch['constraint_normalization'] = diagnostics
     # 코드 기반 수치 재검증(보조)
     for r in results:
         c = by_id.get(r.concept_id)
@@ -1322,7 +1256,8 @@ def s7_gate(ctx: RunContext) -> None:
                 st.scratch.setdefault('ax_excluded', []).append(c.model_dump(mode='json'))
                 st.scratch.setdefault('ax_constraint_failures', {})[c.id]=r.model_dump(mode='json')
             st.scratch.setdefault("excluded_concepts", []).append(
-                {"idea": c.title, "reason": f"제약 위반: {', '.join(r.violated_ids) or '판정 FAIL'}"})
+                {"idea": c.title, "source_idea_ids": list(c.source_idea_ids),
+                 "reason": f"제약 위반: {', '.join(r.violated_ids) or '판정 FAIL'}"})
     st.concepts = [c for c in st.concepts if c.id not in {r.concept_id for r in failed}]
     st.constraint_checks = [r for r in results if r.verdict != "FAIL"]
 
@@ -1408,9 +1343,23 @@ def _aggregate(st, scores: list[ReviewerScore]) -> list[ConceptEvaluation]:
     return evals
 
 
+
+def _ranking_errors(data, expected_ids):
+    rows = data.get("ranking") if isinstance(data, dict) else None
+    if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
+        return ["FATAL-RANK: ranking 배열이 필요합니다."]
+    ids = [row.get("concept_id") for row in rows]
+    ranks = [row.get("rank") for row in rows]
+    if (any(not isinstance(identifier, str) for identifier in ids)
+            or len(ids) != len(expected_ids) or set(ids) != expected_ids):
+        return ["FATAL-RANK: 모든 입력 후보를 정확히 한 번씩 포함하세요."]
+    if any(type(rank) is not int for rank in ranks) or set(ranks) != set(range(1, len(rows)+1)):
+        return ["FATAL-RANK: 순위는 1부터 후보 수까지 중복 없이 지정하세요."]
+    return []
+
+
 def _rank(ctx: RunContext) -> None:
     st = ctx.state
-    keep = int(cfg("solutions.max_solutions", 10))
     st.evaluation.problem_reformulation_review = None
     table = [{
         "concept_id": e.concept_id,
@@ -1429,17 +1378,18 @@ def _rank(ctx: RunContext) -> None:
         agent_id="portfolio_manager", prompt_id="P_S8_RANK", tier="T2",
         vars={"aggregate_table": table, "concept_meta": meta,
               "dissent": [d for e in st.evaluation.evaluations for d in e.dissent][:10],
-              "min_solutions": cfg("solutions.min_solutions", 5),
-              "max_solutions": cfg("solutions.max_solutions", 10)},
+              "candidate_count": len(table)},
+        checker=lambda data: _ranking_errors(data, {c.id for c in st.concepts}),
+        max_tokens=int(cfg("evaluation.rank_max_tokens", 32000)),
         default=None,
     )
     if not isinstance(d, dict):
         raise AbortRun("순위 산정 응답이 없어 후보를 유지한 채 중단합니다. 재시도하면 완료된 직군별 평가를 재사용합니다.")
 
-    order = {r.get("concept_id"): int(r.get("rank", 99)) for r in (d.get("ranking") or [])}
-    if not order:
-        ranked = sorted(st.evaluation.evaluations, key=lambda e: -e.total_score)
-        order = {e.concept_id: i + 1 for i, e in enumerate(ranked)}
+    errors = _ranking_errors(d, {c.id for c in st.concepts})
+    if errors:
+        raise AbortRun("전체 후보의 순위 판정이 불완전하여 후보를 유지합니다: " + "; ".join(errors))
+    order = {r["concept_id"]: r["rank"] for r in d["ranking"]}
     for e in st.evaluation.evaluations:
         e.rank = order.get(e.concept_id, 99)
     st.evaluation.evaluations.sort(key=lambda e: e.rank)
@@ -1447,9 +1397,6 @@ def _rank(ctx: RunContext) -> None:
     st.evaluation.portfolio_note = d.get("portfolio_note", "")
     st.evaluation.roadmap = d.get("roadmap") or []
 
-    st.evaluation.evaluations = st.evaluation.evaluations[:keep]
-    keep_ids = {e.concept_id for e in st.evaluation.evaluations}
-    st.concepts = [c for c in st.concepts if c.id in keep_ids]
     ctx.emit("artifact", kind="RANKING",
              data=[{"rank": e.rank, "title": st.concept(e.concept_id).title if st.concept(e.concept_id) else "",
                     "score": e.total_score, "quadrant": e.quadrant}

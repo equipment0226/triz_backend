@@ -37,16 +37,7 @@ def targets(state, phase):
             output.append({'candidate_id':c.id,'baseline':c,
                 'obligation_ids':[o['id'] for o in assessment['obligations'] if set(o['contradiction_ids'])&set(c.addresses_contradictions)],
                 'gaps':[{'kind':'CONSTRAINT_FAILURE','description':failures[c.id]}],'action':'REPAIR_CANDIDATE'})
-    completion=state.scratch.get('ax_bundle',{}).get('limits',{}).get('portfolio_completion_v1')
-    if (not output or completion) and assessment['shortfall'] and assessment['obligations']:
-        portfolio={'candidate_id':'portfolio','baseline':None,
-            'obligation_ids':[o['id'] for o in assessment['obligations']],
-            'gaps':[{'kind':'CANDIDATE_SHORTFALL','description':'다른 개입 위치·기구의 대안을 탐색한다. 기존 안을 이름만 바꾸지 않는다.'}],
-            'action':'SOLVE_SUBPROBLEM'}
-        # Preserve a distinct exploration slot even when repair issues fill the
-        # queue. An uncovered original problem remains the first priority.
-        index=1 if completion and output and output[0]['candidate_id'].startswith('scope-') else 0
-        output.insert(index,portfolio)
+    # Repair actual coverage and design gaps; never generate candidates to fill a quota.
     return output
 
 
@@ -114,10 +105,14 @@ def run(ctx, phase):
             repaired=ConceptSpec.model_validate(data)
             branch=state.model_copy(deep=True)
             branch.concepts=[repaired]
+            branch.scratch['s6_quality_batches']=state.scratch.setdefault('s6_quality_batches',{})
             branch.scratch.setdefault('ax_mechanisms',{})[repaired.id]=proposal.coherence.model_dump(mode='json')
             branch.steps,branch.cost,branch.control=state.steps,state.cost,state.control
             child=RunContext(branch)
             child.lock,child.budget,child.call_slots=ctx.lock,ctx.budget,ctx.call_slots
+            # A checkpoint of this isolated one-candidate audit must save the
+            # owning portfolio, including its shared completed audit cache.
+            child.persist=ctx.persist
             from ..quality import audit_concepts
             audit_concepts(child)
             checked=coherence.candidate_check(branch,repaired)

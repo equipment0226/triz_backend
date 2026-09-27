@@ -156,6 +156,22 @@ def test_part6_is_inside_ariz_between_parts5_and7_without_a_second_late_section(
     assert '3개 이하' not in markdown
 
 
+def test_full_candidate_review_reports_completion_without_count_selection(state, monkeypatch):
+    state.solve.raw_ideas = [RawIdea(id=f'IDEA-{i}', title=f'Distinct mechanism {i}') for i in range(15)]
+    state.scratch['ax_candidate_review'] = {
+        'available_ideas': 15, 'assigned_ideas': 15, 'review_limit': None,
+        'completed_ideas': 10, 'unreviewed_idea_ids': [f'IDEA-{i}' for i in range(10, 15)],
+        'contract': 'idea-retention-v2',
+    }
+    snapshot(monkeypatch, state)
+    markdown = report.markdown(state)
+    section = markdown.split('### 4.8 원리에서 해결 아이디어로', 1)[1].split('## 5.', 1)[0]
+    assert '중복 통합 후 아이디어 **15개** · 상세 검토 완료 **10개** · 미완료 **5개**' in section
+    assert '개수 제한 없이 모두 상세 검토' in section
+    assert 'hard·soft 제약 검문' in section
+    assert all(idea.title in section for idea in state.solve.raw_ideas)
+
+
 def test_candidate_review_counts_and_unassigned_sources_are_pinned_without_rejection(state, monkeypatch):
     state.solve.raw_ideas = [RawIdea(id=f'IDEA-{index}', track='A_MATRIX',
                                     title=f'보존할 원천 아이디어 {index}', idea=f'구체적 기구 {index}')

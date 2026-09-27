@@ -16,7 +16,12 @@ VAR = re.compile(r"\{\{\s*([a-zA-Z0-9_.]+)\s*\}\}")
 
 
 def compatible_body(prompt_id: str, body: str) -> str:
-    """Append only required ARIZ output contracts; never replace a pinned prompt."""
+    """Keep old pins stored; render the explicitly requested full-review policy."""
+    # The user retired the old candidate quotas and requested complete review.
+    # These contracts must agree with the new validators on explicit reruns too.
+    # The stored bundle itself is untouched; rendered prompts remain in traces.
+    if prompt_id in {'P_S5_MERGE', 'P_S6_CONCEPT', 'P_S7_GATEKEEPER', 'P_S8_RANK'}:
+        body = _read(prompt_id)
     if prompt_id in {f"P_S5_ARIZ_PART{part}" for part in (1, 2, 3, 4, 7)}:
         from . import knowledge as K
         part_id = int(prompt_id[-1])
@@ -43,7 +48,7 @@ ideas는 배열이며 각 아이디어에 title, idea, source_step(5.1~5.4)을 �
 unresolved_reason에 필수 지식베이스 검토 후에도 미해결인 이유를 명시한다.
 """
     if prompt_id == "P_S8_RANK":
-        # Retire only the identifiable S8 Part6 clause; retain pinned ranking policy.
+        # Guard against accidentally restoring the retired late Part6 clause.
         body = re.sub(r"\n\[최종 해결책 수에 따른 ARIZ Part 6 추가 코멘트\].*?(?=\n\[출력 JSON\])",
                       "", body, flags=re.S)
         body = re.sub(r',\s*"problem_reformulation_review"\s*:\s*null', "", body)

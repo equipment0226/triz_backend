@@ -21,7 +21,10 @@ DEPENDENCIES = {
 OUTPUTS = {
     's0_bootstrap':('input',), 's0_research':('input',), 's1_intake':('input',),
     's2_confirm':('problem',), 's3_analyze':('problem','analysis'), 's4_define':('definition',),
-    's5_solve':('solve',), 's6_concept':('concepts',), 's7_gate':('concepts','constraints'),
+    # S6 can consolidate legacy S5 inventories on an explicit rerun. Capture its
+    # producer before concepts so their parent and the frozen report agree.
+    # ledger.capture reuses the solve version when payload and parents are unchanged.
+    's5_solve':('solve',), 's6_concept':('solve','concepts'), 's7_gate':('concepts','constraints'),
     's8_references':('concepts','constraints','evidence'), 's8_evaluate':('evaluation','selection'),
     's9_report':('report',), 's10_feedback':('feedback',),
 }
@@ -44,12 +47,12 @@ def bundle(state=None):
           'effect_sources':copy.deepcopy(knowledge._load('effects_sources.json')),
           'config':copy.deepcopy(settings.triz),'rubrics':copy.deepcopy(settings.rubrics),
           'limits':{'branches':3,'recovery_targets':2,'repairs_per_blocker':2,'depth':2,
-                    'validation_reserve_microusd':120000,'initial_candidates':12,'detailed_candidates':8,
-                    'presentation_target':5,'recovery_additions':4,'expansion_rounds':1,'portfolio_completion_v1':True},
+                    'validation_reserve_microusd':120000,'idea_review_policy':'full-idea-review-v1',
+                    'recovery_additions':4,'expansion_rounds':1,'portfolio_completion_v1':True},
           'source_hashes':{str(p.relative_to(root.parent)).replace('\\','/'):digest(p.read_text(encoding='utf-8')) for p in
                            [root/'nodes.py',root/'quality.py',root/'verify.py',root/'render.py',root/'reformulation.py',
                             root/'display_terms.py',root/'report_style.py',root/'solve_contract.py',root/'digest.py',
-                            root/'agent.py',root/'prompts_registry.py',root/'evidence.py',
+                            root/'agent.py',root/'prompts_registry.py',root/'evidence.py',root/'idea_consolidation.py',
                             root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
                             root/'ax/learning.py',root.parent/'templates/report_full.md.j2',

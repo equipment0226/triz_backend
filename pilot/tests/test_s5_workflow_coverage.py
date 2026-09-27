@@ -153,9 +153,11 @@ def test_old_partial_solve_is_revalidated_only_on_s5_entry(dlc):
 
 
 def test_deep_old_three_concept_cap_uses_current_breadth_without_mutating_pin(dlc):
+    from triz.schema import RawIdea
     dlc.control.mode = RunMode.DEEP
     dlc.scratch['ax_bundle']['limits']['detailed_candidates'] = 3
+    dlc.solve.raw_ideas = [RawIdea(title=f'Independent {i}', idea=f'Mechanism {i}') for i in range(15)]
     budget = dlc.cost.budget_usd
-    assert solve_contract.concept_review_limit(dlc) == 8
+    assert solve_contract.concept_review_limit(dlc) == 15
     assert dlc.scratch['ax_bundle']['limits']['detailed_candidates'] == 3
     assert dlc.cost.budget_usd == budget

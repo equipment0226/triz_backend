@@ -402,7 +402,7 @@ def rerun_from(run_id, stage_key, instruction=""):
             for key in ('ax_coordination', 'ax_expansion_rounds', 'ax_expansion_deferred',
                         'ax_idea_inventory', 'ax_effect_applicability', 's_curve',
                         'ax_track_execution', 'ax_track_review_reasons', 'ax_solve_start_seq',
-                        'ax_portfolio_trace', 'ax_solve_compatibility'):
+                        'ax_portfolio_trace', 'ax_solve_compatibility', 'idea_consolidation'):
                 state.scratch.pop(key, None)
         if idx <= 9:
             state.evidence = []
@@ -413,6 +413,7 @@ def rerun_from(run_id, stage_key, instruction=""):
         state.scratch.pop("resume_payload", None)
         if idx <= 8:
             state.scratch.pop("gate_decisions", None)
+            state.scratch.pop("constraint_normalization", None)
             for key in ('ax_recovery_complete','ax_recovery','ax_recovery_phases','ax_baseline_candidates','ax_applied_rules','ax_rule_patches'):
                 state.scratch.pop(key,None)
         if idx <= 7:

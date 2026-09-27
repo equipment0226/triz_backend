@@ -6,7 +6,7 @@ from types import SimpleNamespace
 import pytest
 
 from triz import agent, digest, domain, evidence, knowledge, nodes, personas, quality, rag, verify
-from triz.context import HumanInterrupt, RunContext
+from triz.context import AbortRun, HumanInterrupt, RunContext
 from triz.schema import (CauseEffectChain, CauseNode, ClarifyTurn, ConceptSpec, Constraint,
                          DomainContext, KeyProblem, RawIdea, SolutionFeedback, FeedbackArtifact,
                          SystemCandidate, TechnicalContradiction)
@@ -103,9 +103,15 @@ def test_merge_preserves_all_sources_and_rejects_fabricated_lineage(state, monke
     a = RawIdea(title='A', conditions=['condition A'], detail={'self_rebuttal': 'risk A'})
     b = RawIdea(title='B', conditions=['condition B'], detail={'adaptation_note': 'risk B'})
     state.solve.raw_ideas = [a, b]
-    monkeypatch.setattr(agent, 'run_agent', lambda *args, **kwargs: {'ideas': [
-        {'keep_ids': [a.id, b.id], 'title': '합침', 'addresses': [tc.id], 'resolution_status': 'RESOLVED', 'resolution_argument': '양쪽 조건을 분리하여 보존'},
+    valid = {'keep_ids': [a.id, b.id], 'title': '합침', 'addresses': [tc.id],
+             'resolution_status': 'RESOLVED', 'resolution_argument': '양쪽 조건을 분리하여 보존',
+             'merge_reason': '같은 기구와 개입 위치이며 두 원안의 적용 조건을 함께 유지할 수 있다.'}
+    monkeypatch.setattr(agent, 'run_agent', lambda *args, **kwargs: {'ideas': [valid,
         {'keep_ids': ['invented'], 'title': '허위'}]})
+    with pytest.raises(AbortRun, match='입력에 없는 ID'):
+        nodes._merge(RunContext(state))
+    assert state.solve.raw_ideas == [a, b]
+    monkeypatch.setattr(agent, 'run_agent', lambda *args, **kwargs: {'ideas': [valid]})
     assert not nodes._merge(RunContext(state))
     assert len(state.solve.raw_ideas) == 1
     result = state.solve.raw_ideas[0]
@@ -127,6 +133,8 @@ def test_verifier_receives_observations_definitions_and_hypotheses(state, monkey
 
 
 def prepare_concepts(state, monkeypatch, prior=False):
+    from triz import idea_consolidation
+    monkeypatch.setattr(idea_consolidation, 'ensure_consolidated', lambda ctx: None)
     tc = TechnicalContradiction()
     state.definition.technical_contradictions = [tc]
     state.solve.raw_ideas = [RawIdea(title=f'idea{i}', idea=f'mechanism{i}', mechanism_key=f'key{i}', addresses=[tc.id], resolution_status='RESOLVED') for i in range(12)]
@@ -150,8 +158,9 @@ def test_concept_allocation_generates_twelve_not_fifteen_and_audits_all(state, m
     calls, audits = prepare_concepts(state, monkeypatch)
     quality.generate_concepts(RunContext(state))
     assert sorted(c['batch_size'] for c in calls) == [2, 5, 5]
-    assert len(state.concepts) == 12 and len(audits) == 1
-    assert len(audits[0]['concepts']) == 12
+    assert len(state.concepts) == 12 and len(audits) == 3
+    assert [len(a['concepts']) for a in audits] == [5, 5, 2]
+    assert {p['concept_id'] for a in audits for p in a['concepts']} == {c.id for c in state.concepts}
     assert all(c.quality_status == 'PASS' for c in state.concepts)
 
 
@@ -237,7 +246,11 @@ def test_gate_batches_execute_concurrently_but_keep_order(state, monkeypatch):
     barrier = threading.Barrier(2)
     def gate(ctx, **kw):
         barrier.wait(timeout=5)
-        return {'results': [{'concept_id': c['concept_id'], 'verdict': 'PASS'} for c in kw['vars']['concepts_for_gate']]}
+        return {'results': [{'concept_id': c['concept_id'], 'verdict': 'PASS',
+            'per_constraint': [{'constraint_id': rule['constraint_id'], 'verdict': 'PASS',
+                                'reason': 'the candidate explicitly preserves this condition'}
+                               for rule in kw['vars']['constraints_full']]}
+            for c in kw['vars']['concepts_for_gate']]}
     monkeypatch.setattr(agent, 'run_agent', gate)
     nodes.s7_gate(RunContext(state))
     assert [r.concept_id for r in state.constraint_checks] == [c.id for c in state.concepts]

@@ -20,10 +20,7 @@ ax:
 
 solutions:
   concept_max_tokens: 32000
-  min_solutions: 5            # 최종 리포트에 실을 최소 해결책 수
-  max_solutions: 10           # 최대
-  min_concepts: 8             # S6에서 만들 개념 후보 최소
-  max_concepts: 12            # S6은 5개씩 배치로 생성한다(출력 잘림 방지)
+  review_policy: full-idea-review-v1  # 중복 통합 후 모든 독립 아이디어를 검토한다.
   min_raw_ideas: 12           # 탐색 목표. 수량만으로 보강 호출하지 않는다.
   ideas_per_principle: 1      # 발명원리 1개당 최소 아이디어
   max_principles_per_contradiction: 6
@@ -67,6 +64,7 @@ solve:
   max_escalations: 0          # 기본은 기존 호출 안에서 후보 교체. 필요 시 1로 심화 트랙 허용.
 
 evaluation:
+  rank_max_tokens: 32000      # 후보를 자르지 않고 전체 순위·근거를 완결한다.
   mode: independent          # 각 직군이 KPI에 따라 독립 평가. 타 직군 질의응답 없음.
   min_reviewers: 4
   max_reviewers: 6

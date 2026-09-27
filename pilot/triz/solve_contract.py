@@ -45,9 +45,8 @@ def application_count(state, track):
 
 
 def concept_review_limit(state):
-    """Apply the current DEEP review breadth without changing the pinned budget."""
-    limit = int(state.scratch['ax_bundle']['limits']['detailed_candidates'])
-    return max(8, limit) if state.control.mode.value == 'DEEP' else limit
+    """Compatibility accessor: every consolidated idea is eligible for review."""
+    return len(state.solve.raw_ideas)
 
 
 def check_applications(data):

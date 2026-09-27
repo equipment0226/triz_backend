@@ -1,7 +1,7 @@
 import pytest
 
 from triz import agent, digest, nodes
-from triz.context import RunContext
+from triz.context import AbortRun, RunContext
 from triz.schema import RawIdea, TechnicalContradiction
 
 
@@ -29,7 +29,7 @@ def test_track_balance_also_rotates_problems_and_mechanisms():
 
 
 @pytest.mark.parametrize('bundle', [None, {'limits': {}}, {'limits': {'portfolio_completion_v1': True}}])
-def test_merge_preserves_unaccounted_ideas_for_all_bundle_generations(state, monkeypatch, bundle):
+def test_merge_stops_on_unaccounted_ideas_for_all_bundle_generations(state, monkeypatch, bundle):
     if bundle is not None:
         state.scratch['ax_bundle'] = bundle
     tc = TechnicalContradiction()
@@ -38,9 +38,10 @@ def test_merge_preserves_unaccounted_ideas_for_all_bundle_generations(state, mon
                       for track in ('A_MATRIX', 'H_EFFECTS')]
     state.solve.raw_ideas = [first, omitted]
     monkeypatch.setattr(agent, 'run_agent', lambda *a, **kw: {'ideas': [{'keep_ids': [first.id]}]})
-    nodes._merge(RunContext(state))
+    with pytest.raises(AbortRun, match="누락된 입력 ID"):
+        nodes._merge(RunContext(state))
     assert [i.id for i in state.solve.raw_ideas] == [first.id, omitted.id]
-    assert state.scratch['ax_portfolio_trace'][-1]['unaccounted_preserved'] == 1
+    assert 'idea_consolidation' not in state.scratch
 
 
 def test_repeated_merge_keeps_source_tracks_in_review_packet(state, monkeypatch):
@@ -50,7 +51,8 @@ def test_repeated_merge_keeps_source_tracks_in_review_packet(state, monkeypatch)
                for t in ('A_MATRIX', 'H_EFFECTS', 'G_FOS')]
     state.solve.raw_ideas = sources[:2]
     monkeypatch.setattr(agent, 'run_agent', lambda *a, **kw: {
-        'ideas': [{'keep_ids': [i.id for i in state.solve.raw_ideas]}]})
+        'ideas': [{'keep_ids': [i.id for i in state.solve.raw_ideas],
+                   'merge_reason': '동일한 개입 위치·작동 원리·적용 조건의 중복 표현'}]})
     nodes._merge(RunContext(state))
     state.solve.raw_ideas.append(sources[2])
     nodes._merge(RunContext(state))

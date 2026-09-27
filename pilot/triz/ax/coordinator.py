@@ -178,10 +178,9 @@ def expand(ctx, need_more):
     required=obligations(state)
     addressed={cid for i in state.solve.raw_ideas if i.resolution_status!='TRADEOFF' for cid in i.addresses}
     gaps=[o for o in required if not set(o['contradiction_ids'])&addressed]
-    count=len({i.mechanism_key or i.id for i in state.solve.raw_ideas if i.resolution_status!='TRADEOFF'})
     pending=[t for t in state.scratch.get('ax_coordination',{}).get('pending_tracks',[]) if t not in state.solve.tracks_run]
     # Deferred applicability/FOS is a meaningful alternative, not an arbitrary extra model call.
-    if not pending or not (need_more or gaps or count<limits['detailed_candidates'] or 'H_EFFECTS' in pending):
+    if not pending or not (need_more or gaps or 'H_EFFECTS' in pending):
         return False
     if ledger.budget(state.run_id)['remaining_microusd']<limits['validation_reserve_microusd']+100000:
         state.scratch['ax_expansion_deferred']='검증 예산 보존으로 추가 탐색 보류'

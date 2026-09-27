@@ -7,7 +7,7 @@ import re
 from typing import Any, Callable, Optional
 
 from . import knowledge as K
-from .schema import Constraint, ConstraintSet, GlobalState
+from .schema import Constraint, ConstraintCheckResult, ConstraintSet, GlobalState
 from .settings import settings
 
 Checker = Callable[[Any], list[str]]
@@ -74,9 +74,109 @@ def constraints_full(state: GlobalState) -> list[dict]:
         {"constraint_id": c.id, "kind": c.kind, "category": c.category, "zone": c.zone or "시스템 전체",
          "statement": c.statement, "parameter": c.parameter, "operator": c.operator,
          "value": c.value, "unit": c.unit, "hard": c.hard, "rationale": c.rationale,
-         "violation_example": c.violation_example}
+         "source": c.source, "confidence": c.confidence, "violation_example": c.violation_example}
         for c in state.constraints.items
     ]
+
+
+def normalize_constraint_result(result: ConstraintCheckResult, constraints: ConstraintSet
+                                ) -> tuple[ConstraintCheckResult, dict]:
+    """Derive the gate from known per-constraint rows, never from a model's summary.
+
+    Source/confidence are context, not permission to change the saved hard flag.
+    A known FAIL excludes the candidate for either hard or soft constraints.
+    Invalid or contradictory evidence cannot establish a failure or a pass.
+    """
+    normalized = result.model_copy(deep=True)
+    known = {}
+    duplicate_definitions = set()
+    for constraint in constraints.items:
+        if constraint.id in known:
+            duplicate_definitions.add(constraint.id)
+        else:
+            known[constraint.id] = constraint
+    grouped = {key: [] for key in known}
+    issues, unknown_ids, duplicate_ids, missing_hard_ids, missing_ids = [], [], [], [], []
+    uncertain = bool(duplicate_definitions) or any(not key.strip() for key in known)
+    if uncertain:
+        issues.append('CONSTRAINT_IDS_AMBIGUOUS: 제약 정의의 ID가 비어 있거나 중복됩니다.')
+    for row in result.per_constraint:
+        cid = row.get('constraint_id') if isinstance(row, dict) else None
+        if not isinstance(cid, str) or cid not in known:
+            unknown_ids.append(cid if isinstance(cid, str) else '(invalid)')
+            uncertain = True
+            continue
+        grouped[cid].append(row)
+    if unknown_ids:
+        issues.append('UNKNOWN_CONSTRAINT_IDS: 등록되지 않은 제약 판정은 탈락 근거로 쓰지 않습니다.')
+
+    rows, hard_failures, soft_failures, hard_unknowns = [], [], [], []
+    for cid, constraint in known.items():
+        supplied = grouped[cid]
+        if not supplied:
+            verdict, reason = 'UNKNOWN', '해당 제약의 개별 판정이 누락되어 확인이 필요합니다.'
+            missing_ids.append(cid)
+            if constraint.hard:
+                missing_hard_ids.append(cid)
+        else:
+            verdicts = {row.get('verdict') for row in supplied if isinstance(row.get('verdict'), str)}
+            invalid = len(verdicts) != 1 or any(row.get('verdict') not in ('PASS', 'FAIL', 'UNKNOWN') for row in supplied)
+            if len(supplied) > 1:
+                duplicate_ids.append(cid)
+            if invalid or cid in duplicate_definitions or not cid.strip():
+                verdict, reason = 'UNKNOWN', '중복·상충하거나 잘못된 개별 판정이 있어 확인이 필요합니다.'
+                uncertain = True
+                issues.append(f'INVALID_CONSTRAINT_VERDICT: {cid}')
+            else:
+                verdict = next(iter(verdicts))
+                reason = ' / '.join(dict.fromkeys(row.get('reason', '') for row in supplied
+                    if isinstance(row.get('reason'), str) and row['reason']))
+        rows.append({'constraint_id': cid, 'verdict': verdict, 'reason': reason})
+        if constraint.hard and verdict == 'FAIL':
+            hard_failures.append(cid)
+        elif constraint.hard and verdict == 'UNKNOWN':
+            hard_unknowns.append(cid)
+        elif not constraint.hard and verdict == 'FAIL':
+            soft_failures.append(cid)
+
+    failures = [row['constraint_id'] for row in rows if row['verdict'] == 'FAIL']
+    unresolved = [row['constraint_id'] for row in rows if row['verdict'] == 'UNKNOWN']
+    # Summary-only allegations require clarification, not rejection or approval.
+    for cid in result.violated_ids:
+        if cid not in known:
+            uncertain = True
+            if cid not in unknown_ids:
+                unknown_ids.append(cid)
+            issues.append(f'UNKNOWN_SUMMARY_CONSTRAINT: {cid}')
+        elif cid not in failures:
+            uncertain = True
+            issues.append(f'SUMMARY_ROW_CONTRADICTION: {cid}')
+    if result.verdict == 'FAIL' and not failures:
+        uncertain = True
+        issues.append('UNSUPPORTED_FINAL_FAIL: 개별 판정으로 뒷받침되지 않는 최종 FAIL입니다.')
+    if unresolved:
+        issues.append('CONSTRAINT_CONFIRMATION_REQUIRED: hard·soft 제약의 개별 검증이 완료되지 않았습니다.')
+    if soft_failures:
+        issues.append('SOFT_FAILURE_ENFORCED: 사용자 선택 정책에 따라 soft 조건의 확정 위반도 후보에서 제외합니다.')
+    normalized.per_constraint = rows
+    normalized.violated_ids = failures
+    normalized.verdict = 'FAIL' if failures else 'CONDITIONAL' if uncertain or unresolved else 'PASS'
+    normalized.requires_user_decision = normalized.verdict == 'CONDITIONAL'
+    if normalized.verdict == 'CONDITIONAL':
+        clarification = '누락·불명확하거나 상충하는 제약 판정을 확인해야 합니다.'
+        normalized.mitigation = ' '.join(value for value in (result.mitigation, clarification) if value)
+    if normalized.verdict != result.verdict:
+        issues.append(f'FINAL_VERDICT_RECOMPUTED: {result.verdict} → {normalized.verdict}')
+    diagnostics = {'contract': 'constraint-verdict-v3', 'policy': 'all-known-constraint-failures-exclude',
+        'concept_id': result.concept_id,
+        'original_verdict': result.verdict, 'normalized_verdict': normalized.verdict,
+        'original_violated_ids': list(result.violated_ids), 'issues': list(dict.fromkeys(issues)),
+        'hard_failure_ids': hard_failures, 'soft_failure_ids': soft_failures,
+        'hard_unknown_ids': hard_unknowns, 'missing_hard_ids': missing_hard_ids,
+        'unresolved_constraint_ids': unresolved, 'missing_constraint_ids': missing_ids,
+        'unknown_ids': list(dict.fromkeys(unknown_ids)), 'duplicate_ids': duplicate_ids,
+        'duplicate_definition_ids': sorted(duplicate_definitions)}
+    return normalized, diagnostics
 
 
 def rubric_criteria_text(rubric: dict) -> str:
@@ -332,9 +432,6 @@ def _norm_resource(name: str) -> str:
 def check_concepts(data: dict, resource_names: set[str]) -> list[str]:
     issues = []
     cs = data.get("concepts", [])
-    mn = settings.cfg("solutions.min_concepts", 8)
-    if len(cs) < mn:
-        issues.append(f"DET-10a: 개념이 {len(cs)}개로 최소 {mn}개에 미달한다.")
     known = {_norm_resource(r) for r in resource_names if r}
     for c in cs:
         if not c.get("expected_effect"):

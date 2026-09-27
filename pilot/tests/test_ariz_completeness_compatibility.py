@@ -134,7 +134,7 @@ def test_old_pinned_rank_does_not_generate_part6_or_replace_pin(state, monkeypat
 
     def chat(ctx, **kwargs):
         requests.append(kwargs)
-        assert kwargs["user"].startswith("PINNED RANKING POLICY")
+        assert "[전체 후보 순위 계약 v1]" in kwargs["user"]
         assert "problem_reformulation_context" not in kwargs["user"]
         assert "problem_reformulation_review" not in kwargs["user"]
         return chat_result({"ranking": [{"concept_id": c.id, "rank": i}
@@ -155,7 +155,7 @@ def test_compatibility_is_idempotent_and_leaves_current_rank_and_other_pins_unch
     assert prompts_registry.compatible_body("P_S8_RANK", current) == current
     old = "Old ranking rules {{aggregate_table}}"
     patched = prompts_registry.compatible_body("P_S8_RANK", old)
-    assert patched == old
+    assert patched == current
     assert prompts_registry.compatible_body("P_S8_RANK", patched) == patched
     assert prompts_registry.compatible_body("P_S4_CONTRADICTIONS", old) == old
     part5_body = prompts_registry.compatible_body("P_S5_ARIZ_PART5", "Pinned Part5 policy")
@@ -172,7 +172,7 @@ def test_retired_part6_clause_is_removed_from_rank_pin_without_changing_ranking_
            '[출력 JSON]\n{"ranking":[],"roadmap":[],"problem_reformulation_review":null}\n'
            '검토 대상이면 null 대신 {"items":[]}를 출력한다.')
     updated = prompts_registry.compatible_body("P_S8_RANK", old)
-    assert updated.startswith("Pinned ranking rules {{aggregate_table}}")
-    assert '"ranking":[],"roadmap":[]' in updated
+    assert "[전체 후보 순위 계약 v1]" in updated
+    assert updated == prompts_registry.raw("P_S8_RANK")
     assert "problem_reformulation" not in updated and "3개 이하" not in updated
     assert prompts_registry.compatible_body("P_S8_RANK", updated) == updated

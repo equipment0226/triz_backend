@@ -548,7 +548,11 @@
 ### 4.8 원리에서 해결 아이디어로
 
 {% set candidate_review = s.scratch.get('ax_candidate_review', {}) %}
-{% if candidate_review.get('contract') == 'idea-retention-v1' %}
+{% if candidate_review.get('contract') == 'idea-retention-v2' %}
+중복 통합 후 아이디어 **{{ candidate_review.available_ideas }}개** · 상세 검토 완료 **{{ candidate_review.completed_ideas }}개** · 미완료 **{{ candidate_review.unreviewed_idea_ids | length }}개**.
+
+서로 다른 아이디어는 개수 제한 없이 모두 상세 검토한다. 중복 통합은 작동 원리·개입 위치·적용 조건의 동등성을 기준으로 하며, 최종 후보는 기술 검토와 hard·soft 제약 검문 결과에 따라 결정된다.
+{% elif candidate_review.get('contract') == 'idea-retention-v1' %}
 도출 아이디어 **{{ candidate_review.available_ideas }}개** · 상세 검토 **{{ candidate_review.assigned_ideas }}개** · 미검토 **{{ candidate_review.unassigned_idea_ids | length }}개**.
 
 미검토는 부적합 판정이 아니며, 채택 전 상세 검토와 제약 확인이 필요하다. 아래 표는 상세 검토 대상으로 선정되지 않은 아이디어도 포함한다.

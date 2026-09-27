@@ -267,7 +267,7 @@ def test_failed_ranking_preserves_meeting_and_candidates_and_retries_only_rankin
     assert len(rank_calls) == 2 and len(responder.calls) == 10 and len(roster_calls) == 1
     assert saved.evaluation.meeting.input_hash == initial_hash
     assert [question.id for question in saved.evaluation.meeting.questions] == question_ids
-    assert [concept.id for concept in saved.concepts] == ["C1"]
+    assert [concept.id for concept in saved.concepts] == ["C1", "C2"]
     assert saved.evaluation.evaluations[0].rank == 1
 
 

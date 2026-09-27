@@ -141,8 +141,6 @@ class Settings:
 
     def _apply_env_overrides(self) -> None:
         mapping = {
-            "TRIZ_MIN_SOLUTIONS": ("solutions", "min_solutions", int),
-            "TRIZ_MAX_SOLUTIONS": ("solutions", "max_solutions", int),
             "TRIZ_DEFAULT_MODE": ("run", "default_mode", str),
             "PIPELINE_PARALLEL_WORKERS": ("run", "parallel_workers", int),
         }

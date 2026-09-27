@@ -797,7 +797,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
             raise AbortRun("ARIZ Part5 검토가 완전하지 않아 후속 분석을 중단합니다. " + "; ".join(issues))
         run.steps += _ariz_steps(p5)
         run.final_ideas = _text_list(p5.get("final_ideas"))
-        run.unresolved_reason = p5.get("unresolved_reason", "")
+        run.unresolved_reason = p5.get("unresolved_reason") or ""
         _add_ideas(st, "D_ARIZ", [{**i, "ref": f"ARIZ {i.get('source_step','5.x')}"}
                                   for i in (p5.get("ideas") or [])], ref_key="ref")
 

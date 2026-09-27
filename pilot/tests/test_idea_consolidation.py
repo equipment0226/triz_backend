@@ -196,6 +196,6 @@ def test_actual_agent_repairs_missing_coverage_or_stops_without_partial_commit(s
         assert state.solve.raw_ideas == original
         assert state.steps[-1].status == "FAILED"
         assert "idea_consolidation" not in state.scratch
-    assert len(calls) == 2
+    assert len(calls) == (2 if repair_succeeds else 4)
     assert "누락된 입력 ID: B" in calls[-1]["user"]
-    assert state.steps[-1].verify_attempts == 2
+    assert state.steps[-1].verify_attempts == len(calls)

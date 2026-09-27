@@ -144,6 +144,20 @@ def list_runs(limit=50, user_id=None):
         return [dict(r) for r in c.execute(query.order_by(runs.c.started_at.desc())
             .limit(max(1, min(limit, 1000)))).mappings()]
 
+def _list_display_labels(run_id, values):
+    """Ordinary project titles need no multi-megabyte checkpoint hydration."""
+    from .labels import ID_RE, build_label_map
+    if not any(ID_RE.search(str(value or '')) for value in values):
+        return {}
+    try:
+        state = load_state(run_id)
+        return build_label_map(state) if state else {}
+    except ValueError:
+        # An invalid analysis detail must never hide the whole project library.
+        # Unknown IDs are still humanized by the existing safe display fallback.
+        return {}
+
+
 def runs_page(page=1, search='', user_id=None, public=False):
     """Bounded, stable pagination with search across the entire authorized library."""
     from sqlalchemy import or_
@@ -163,42 +177,46 @@ def runs_page(page=1, search='', user_id=None, public=False):
         rows = [dict(r) for r in c.execute(query.order_by(runs.c.started_at.desc(), runs.c.run_id.desc())
             .offset((page-1)*20).limit(20)).mappings()]
     fields = ('run_id', 'title', 'mode', 'industry', 'target_system', 'status', 'started_at')
-    from .labels import build_label_map, display_value
+    from .labels import display_value
     items = []
     for row in rows:
-        state = load_state(row['run_id'])
-        items.append(display_value({k: row.get(k) for k in fields}, build_label_map(state) if state else {}))
+        labels = _list_display_labels(row['run_id'], (row.get(k) for k in ('title', 'industry', 'target_system')))
+        items.append(display_value({k: row.get(k) for k in fields}, labels))
     return dict(items=items, total=total, page=page, page_size=20)
 
 def pending_notifications(user_id):
     """Read the owner's actionable requests and retry notices without rendering reports."""
     init()
+    paths = {'pending_id': '$.pending.interrupt_id', 'pending_title': '$.pending.title',
+             'pending_kind': '$.pending.kind', 'retry_id': '$.scratch.retry_notification_id',
+             'epoch': '$.scratch.execution_epoch', 'stage_index': '$.control.stage_index',
+             'reason': '$.scratch.interruption_reason'}
     with engine.connect() as c:
-        rows = c.execute(select(runs.c.run_id, runs.c.title, runs.c.status, states.c.state_json)
+        rows = c.execute(select(runs.c.run_id, runs.c.title, runs.c.status,
+            *(func.json_extract(states.c.state_json, path).label(key) for key, path in paths.items()))
             .join(states, runs.c.run_id == states.c.run_id)
             .where(runs.c.user_id == (user_id or 'local'),
                    runs.c.status.in_(['WAITING_HUMAN', 'FAILED', 'INTERRUPTED']))
             .order_by(runs.c.started_at.desc())).mappings().all()
     out = []
     for row in rows:
-        state = json.loads(row['state_json'])
-        from .labels import build_label_map, humanize
-        labels = build_label_map(GlobalState.model_validate(state))
+        fields = {key: json.loads(row[key]) if engine.dialect.name == 'mysql' and isinstance(row[key], str)
+                  else row[key] for key in paths}
+        from .labels import humanize
+        labels = _list_display_labels(row['run_id'], [row['title'], fields['pending_title'], fields['reason']])
         def human(value):
             return humanize(str(value or ''), labels)
-        pending = state.get('pending')
-        if pending and pending.get('interrupt_id'):
-            out.append(dict(id=pending['interrupt_id'], run_id=row['run_id'], project_title=human(row['title']),
-                title=human(pending.get('title')) or '분석 검토', kind=pending.get('kind', 'REVIEW')))
+        if fields['pending_id']:
+            out.append(dict(id=fields['pending_id'], run_id=row['run_id'], project_title=human(row['title']),
+                title=human(fields['pending_title']) or '분석 검토', kind=fields['pending_kind'] or 'REVIEW'))
         elif row['status'] in ('FAILED', 'INTERRUPTED'):
-            scratch = state.get('scratch') or {}
             # Legacy failures need stable IDs too; subsequent retries increment epoch.
-            notice_id = scratch.get('retry_notification_id') or (
-                f"retry:{row['run_id']}:{scratch.get('execution_epoch', 0)}:"
-                f"{state.get('control', {}).get('stage_index', 0)}:{row['status']}")
+            notice_id = fields['retry_id'] or (
+                f"retry:{row['run_id']}:{fields['epoch'] or 0}:"
+                f"{fields['stage_index'] or 0}:{row['status']}")
             out.append(dict(id=notice_id, run_id=row['run_id'], project_title=human(row['title']),
                 title='분석 재시도', kind='RETRY_REQUIRED', status=row['status'],
-                description=human(scratch.get('interruption_reason')) or '분석이 중단되었습니다. 저장된 내용에서 이어서 실행해 주세요.',
+                description=human(fields['reason']) or '분석이 중단되었습니다. 저장된 내용에서 이어서 실행해 주세요.',
                 action_label='이어서 확인'))
     return out
 

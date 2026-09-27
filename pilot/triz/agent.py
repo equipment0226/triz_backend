@@ -206,6 +206,11 @@ def run_agent(
         prompt_vars.setdefault("contradictions", digest.contradictions_digest(state))
     from .ax.runtime import render_prompt
     base_user = render_prompt(state, prompt_id, **prompt_vars) + domain_context(state, node) + inject_block
+    if prompt_id == "P_S5_MERGE":
+        from .idea_consolidation import CONSOLIDATION_CONTRACT
+        # Earlier requests for many ideas apply to generation, while the later
+        # product contract advances at most ten representatives to elaboration.
+        base_user += "\n\n" + CONSOLIDATION_CONTRACT
     if prompt_id in ('P_S5_TRACK_F', 'P_S5_TRACK_G', 'P_S5_TRACK_H'):
         from .solve_contract import APPLICATION_CONTRACT
         base_user += APPLICATION_CONTRACT

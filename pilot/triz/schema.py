@@ -428,6 +428,13 @@ class ARIZRun(BaseModel):
     final_ideas: list[str] = []
     unresolved_reason: str = ""
 
+    @field_validator("unresolved_reason", mode="before")
+    @classmethod
+    def _optional_unresolved_reason(cls, value):
+        # Successful Part 5 responses can explicitly return null. Historical
+        # checkpoints must remain readable without inventing a failure reason.
+        return "" if value is None else value
+
 
 class SolveBundle(BaseModel):
     matrix_lookups: list[MatrixLookup] = []

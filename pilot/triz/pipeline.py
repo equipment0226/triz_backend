@@ -443,6 +443,7 @@ def recover_orphans():
     handoffs get a grace period; a healthy, long-running stage keeps its lock.
     """
     from sqlalchemy import select
+    from pydantic import ValidationError
     store.init()
     with store.engine.connect() as connection:
         rows = connection.execute(select(store.runs.c.run_id, store.states.c.updated_at)
@@ -479,6 +480,10 @@ def recover_orphans():
                 store.save_state(state)
                 _emit_retry(state)
                 recovered.append(state.run_id)
+        except ValidationError:
+            # One unreadable legacy checkpoint must not disable recovery for
+            # every other run or prevent API startup. Retain it for repair.
+            log.exception("Cannot recover invalid checkpoint for %s", row["run_id"])
         except RuntimeError as exc:
             if str(exc) != "Run is busy":
                 raise

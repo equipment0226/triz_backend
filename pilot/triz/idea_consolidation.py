@@ -26,6 +26,8 @@ hard·soft 요구 적합성, 검증 가능성, 미확인 가정과 실행 부담
 선정안에는 selection_reason을 기록하고 비선정 원안은 deferred에 원안 하나의 keep_ids와
 구체적 reason을 남긴다. 단순 '10개 초과'나 '다양성 부족'은 사유가 아니다.
 모든 입력 id는 ideas 또는 deferred의 keep_ids에 정확히 한 번만 나타나야 한다.
+한 원안이 여러 기구와 관련돼도 가장 적합한 그룹 한 곳에만 배정하고, 다른 그룹과의 관련성은
+설명에만 기록한다. '많은 해결책'이라는 과거 요청은 원안 전부의 보존으로 충족하며 대표안 수 제한을 바꾸지 않는다.
 deferred는 상세검토 보류이며 기술적 불가능·제약 위반 확정이나 삭제를 의미하지 않는다.
 TRADEOFF/UNSUPPORTED 표기만으로 보류하지 않는다. 대표안 전부를 S6에서 상세검토하고,
 hard·soft 제약의 최종 검문은 유지한다. 원안과 통합·보류 사유는 보고서에 보존한다.
@@ -85,13 +87,34 @@ def ensure_consolidated(ctx):
     return None
 
 
+def normalize_partition(data):
+    """Expand grouped deferrals without selecting, deleting, or reassigning IDs."""
+    if not isinstance(data, dict) or not isinstance(data.get('deferred'), list):
+        return data
+    result = copy.deepcopy(data)
+    rows = []
+    for row in result['deferred']:
+        ids = row.get('keep_ids') if isinstance(row, dict) else None
+        if (isinstance(ids, list) and len(ids) > 1
+                and all(isinstance(i, str) and i for i in ids)
+                and isinstance(row.get('reason'), str) and row['reason'].strip()):
+            rows.extend({**row, 'keep_ids': [i]} for i in ids)
+        else:
+            rows.append(row)
+    result['deferred'] = rows
+    return result
+
+
 def check_partition(data, input_ids):
     """Every source has one disposition; only up to ten advance to S6."""
     if not isinstance(data, dict) or not isinstance(data.get("ideas"), list):
         return ["FATAL-CONSOLIDATION: ideas 배열로 모든 입력 ID의 그룹을 반환해야 합니다."]
     expected, seen, issues = set(input_ids), set(), []
+    assignments = {}
     if len(data['ideas']) > MAX_IDEAS:
-        issues.append('FATAL-CONSOLIDATION: 대표 ideas는 최대 10개입니다. 전건 비교 후 나머지는 사유와 함께 deferred에 보존하세요.')
+        issues.append(f"FATAL-CONSOLIDATION: 대표 ideas는 최대 10개입니다. 현재 {len(data['ideas'])}개입니다. "
+                      "전건 비교로 선정한 최대 10개만 ideas에 두고, 비선정 그룹의 모든 keep_ids를 "
+                      "원안별 deferred로 이동해 각각 비교 근거 reason을 기록하세요. 누락하거나 앞에서 자르지 마세요.")
     deferred = data.get('deferred', [])
     if not isinstance(deferred, list):
         return ['FATAL-CONSOLIDATION: deferred는 배열이어야 합니다.']
@@ -112,7 +135,12 @@ def check_partition(data, input_ids):
             issues.append(f"FATAL-CONSOLIDATION: 그룹 {index + 1}의 keep_ids가 비어 있거나 잘못되었습니다.")
             continue
         if len(ids) != len(set(ids)) or seen.intersection(ids):
-            issues.append(f"FATAL-CONSOLIDATION: 그룹 {index + 1}에 중복 배정된 입력 ID가 있습니다.")
+            duplicates = sorted({i for i in ids if ids.count(i) > 1 or i in seen})
+            locations = ', '.join(f'{i} (이전 그룹 {assignments.get(i, index + 1)}, 현재 그룹 {index + 1})'
+                                  for i in duplicates)
+            issues.append(f"FATAL-CONSOLIDATION: 중복 배정 ID: {locations}. 각 ID의 원안 기구·개입 조건을 "
+                          "비교해 가장 적합한 한 그룹에만 남기세요. 다른 그룹과의 관련성은 설명에만 기록하고 "
+                          "나머지 정상 배정·선정 이유·보류 이유는 유지하세요.")
         unknown = set(ids) - expected
         if unknown:
             issues.append("FATAL-CONSOLIDATION: 입력에 없는 ID: " + ", ".join(sorted(unknown)))
@@ -131,6 +159,8 @@ def check_partition(data, input_ids):
             if key in row and (not isinstance(row[key], str) or row[key] not in allowed):
                 issues.append(f"FATAL-CONSOLIDATION: 그룹 {index + 1}의 {key} 값이 잘못되었습니다.")
         seen.update(ids)
+        for idea_id in ids:
+            assignments.setdefault(idea_id, index + 1)
     if expected - seen:
         issues.append("FATAL-CONSOLIDATION: 검토에서 누락된 입력 ID: " + ", ".join(sorted(expected - seen)))
     return issues
@@ -226,6 +256,7 @@ def consolidate(ctx):
         ctx, node="s5_merge", label="전체 아이디어 통합 검토·대표안 선정", stage=Stage.S5.value,
         agent_id="solution_curator", prompt_id="P_S5_MERGE", tier="T2", rubric_id="R5_MERGE",
         checker=lambda data: check_partition(data, input_ids),
+        normalizer=normalize_partition, repair_attempts=3,
         max_tokens=int(settings.cfg("solutions.merge_max_tokens", 16000)),
         facts=json.dumps(variables["all_ideas"], ensure_ascii=False) + "\n" + CONSOLIDATION_CONTRACT,
         vars=variables, default=None,

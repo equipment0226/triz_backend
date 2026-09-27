@@ -300,11 +300,25 @@ def run_agent(
             return default
         data = res.data
         if expect == "object" and isinstance(data, list):
+            # Durable results may contain an array extracted by an older parser.
+            # Recover the full object from the original response without a call.
+            if getattr(res, "text", ""):
+                try:
+                    recovered = llm.extract_json(res.text)
+                    if isinstance(recovered, dict):
+                        data = recovered
+                except ValueError:
+                    pass
+        if expect == "object" and isinstance(data, list):
             merged: dict = {}
             for item in data:
-                if isinstance(item, dict):
-                    merged.update(item)
-            data = merged or {"items": data}
+                if not isinstance(item, dict) or merged.keys() & item.keys():
+                    # Rows with repeated keys must never overwrite earlier rows.
+                    data = {"items": data}
+                    break
+                merged.update(item)
+            else:
+                data = merged or {"items": data}
         if normalizer:
             data = normalizer(data)
         step.tokens_in += res.tokens_in

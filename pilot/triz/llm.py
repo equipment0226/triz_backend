@@ -55,6 +55,40 @@ def _client(tier: str, endpoint: str | None = None) -> OpenAI:
     return OpenAI(api_key=tc.api_key, base_url=endpoint or tc.base_url, timeout=settings.timeout, max_retries=0)
 
 
+def _loads_with_extra_closers(text: str) -> Any:
+    """Remove at most two unmatched closers; require the entire result to parse."""
+    for attempt in range(3):
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as exc:
+            pos = exc.pos
+            if attempt == 2 or pos >= len(text) or text[pos] not in "]}":
+                raise
+            stack: list[str] = []
+            in_str = esc = False
+            pairs = {"}": "{", "]": "["}
+            for ch in text[:pos]:
+                if in_str:
+                    if esc:
+                        esc = False
+                    elif ch == "\\":
+                        esc = True
+                    elif ch == '"':
+                        in_str = False
+                elif ch == '"':
+                    in_str = True
+                elif ch in "{[":
+                    stack.append(ch)
+                elif ch in "}]":
+                    if not stack or stack.pop() != pairs[ch]:
+                        raise exc
+            # Matching closers can signal missing data (e.g. a trailing comma).
+            # Never remove them, add values, or discard the enclosing object.
+            if in_str or (stack and stack[-1] == pairs[text[pos]]):
+                raise
+            text = text[:pos] + text[pos + 1:]
+
+
 def extract_json(text: str) -> Any:
     """모델 출력에서 JSON 객체/배열을 최대한 관대하게 뽑아낸다."""
     if not text:
@@ -68,37 +102,40 @@ def extract_json(text: str) -> Any:
     for cand in candidates:
         cand = cand.strip()
         try:
-            return json.loads(cand)
+            return _loads_with_extra_closers(cand)
         except json.JSONDecodeError:
             pass
         # 첫 {..} 또는 [..] 블록 스캔
-        for opener, closer in (("{", "}"), ("[", "]")):
-            start = cand.find(opener)
-            if start < 0:
+        # Scan only the first/root container. A nested ranking/items array is
+        # not a substitute for a malformed enclosing object and loses metadata.
+        first = min((p for p in (cand.find("{"), cand.find("[")) if p >= 0), default=-1)
+        if first < 0:
+            continue
+        opener, closer = cand[first], "}" if cand[first] == "{" else "]"
+        start = first
+        depth, in_str, esc = 0, False, False
+        for i in range(start, len(cand)):
+            ch = cand[i]
+            if in_str:
+                if esc:
+                    esc = False
+                elif ch == "\\":
+                    esc = True
+                elif ch == '"':
+                    in_str = False
                 continue
-            depth, in_str, esc = 0, False, False
-            for i in range(start, len(cand)):
-                ch = cand[i]
-                if in_str:
-                    if esc:
-                        esc = False
-                    elif ch == "\\":
-                        esc = True
-                    elif ch == '"':
-                        in_str = False
-                    continue
-                if ch == '"':
-                    in_str = True
-                elif ch == opener:
-                    depth += 1
-                elif ch == closer:
-                    depth -= 1
-                    if depth == 0:
-                        chunk = cand[start : i + 1]
-                        try:
-                            return json.loads(chunk)
-                        except json.JSONDecodeError:
-                            break
+            if ch == '"':
+                in_str = True
+            elif ch == opener:
+                depth += 1
+            elif ch == closer:
+                depth -= 1
+                if depth == 0:
+                    chunk = cand[start : i + 1]
+                    try:
+                        return _loads_with_extra_closers(chunk)
+                    except json.JSONDecodeError:
+                        raise ValueError("JSON root container is malformed")
     salvaged = salvage_truncated(text)
     if salvaged is not None:
         return salvaged

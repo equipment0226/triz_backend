@@ -60,7 +60,7 @@ def taboo_block(state: GlobalState) -> str:
     body = "\n".join(f"- @{t.get('zone', '전체')} {t.get('item', '')} ({t.get('why', '')})"
                      for t in taboo)
     return ("[절대 금기 — 이를 위반한 개념은 생성 자체를 하지 마라]\n" + body +
-            "\n(영역이 다르면 허용될 수 있다. 예: 찤4버 내부는 금지, 대기측 구동부는 허용)")
+            "\n(영역이 다르면 허용될 수 있다. 예: 챔버 내부는 금지, 대기측 구동부는 허용)")
 
 
 def confirmed_taboos(state):

@@ -120,7 +120,7 @@ class Constraint(BaseModel):
     operator: Literal["<=", ">=", "==", "!=", "in", "not_in", "none"] = "none"
     value: str = ""
     unit: str = ""
-    zone: str = ""                 # 적용 영역(예: "찤4버 내부"). 비어 있으면 시스템 전체
+    zone: str = ""                 # 적용 영역(예: "챔버 내부"). 비어 있으면 시스템 전체
     source: Literal["USER", "INFERRED", "REGULATION", "AGENT", "DOMAIN"] = "USER"
     confidence: float = 1.0
     hard: bool = True

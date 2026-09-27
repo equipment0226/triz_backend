@@ -260,7 +260,9 @@ def test_recovery_preserves_live_worker_even_with_stale_progress(state, monkeypa
             state.scratch["execution_progress_at"] = time.time() - 3600
             store.save_state(state)
             entered.set()
-            assert release.wait(5)
+            # Keep the worker lock until the test's finally block releases it;
+            # scanning prior tests' saved runs can exceed five seconds.
+            release.wait()
     worker = threading.Thread(target=running)
     worker.start()
     try:

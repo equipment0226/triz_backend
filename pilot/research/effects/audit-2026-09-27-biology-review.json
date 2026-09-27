@@ -1,0 +1,386 @@
+{
+  "date": "2026-09-27",
+  "mode": "conversation_only",
+  "status": "in_progress",
+  "canonical_mutated": false,
+  "scope": "biology, biochemistry, molecular biology; original group 18 contained 250 rows",
+  "merge_candidates": [
+    {
+      "keys": [
+        "plant-cell-totipotency",
+        "somatic-lineage-reprogramming"
+      ],
+      "priority": "high",
+      "reason": "Current principles both reset transcriptional/epigenetic cell identity; separation is plant versus animal and regeneration output, without a distinct causal molecular mechanism."
+    },
+    {
+      "keys": [
+        "antigen-targeted-payload-delivery",
+        "biomolecular-recognition"
+      ],
+      "priority": "medium",
+      "reason": "Current payload card specifies selective binding and altered distribution/residence only; internalization and release are expressly outside its mechanism. Proposed application-example migration."
+    },
+    {
+      "keys": [
+        "pegylation-steric-shielding",
+        "polymer-steric-dispersion-stabilization"
+      ],
+      "priority": "high",
+      "proposed_from": "pegylation-steric-shielding",
+      "proposed_to": "polymer-steric-dispersion-stabilization",
+      "reason": "Current PEG definition offers solvated-chain access exclusion and effective-size output, with no independent reaction or energy pathway. Preserve attachment position, chain length/distribution, target-activity loss and individual half-life validation; renal size effect remains separately covered."
+    },
+    {
+      "keys": [
+        "innate-pattern-recognition",
+        "receptor-ligand-modulation"
+      ],
+      "priority": "medium",
+      "status": "pending_root_review",
+      "reason": "Current text specifies selective binding then receptor signaling/competition without an independent adaptor-oligomerization or phosphatase intermediate; retain receptor-dimerization-signaling because it explicitly specifies two-receptor spatial juxtaposition."
+    },
+    {
+      "keys": [
+        "immune-checkpoint-blockade",
+        "receptor-ligand-modulation"
+      ],
+      "priority": "medium",
+      "status": "pending_root_review",
+      "reason": "Current text specifies selective binding then receptor signaling/competition without an independent adaptor-oligomerization or phosphatase intermediate; retain receptor-dimerization-signaling because it explicitly specifies two-receptor spatial juxtaposition."
+    }
+  ],
+  "exclusions": [
+    {
+      "candidate": "telomerase",
+      "nearest": "rna-templated-reverse-transcription",
+      "reason": "internal RNA template and telomere output alone do not distinguish polymerization chemistry"
+    },
+    {
+      "candidate": "ubiquitination and NEDDylation",
+      "nearest": "sumoylation",
+      "reason": "same E1/E2 activation-transfer family; do not split tag identities"
+    },
+    {
+      "candidate": "phytochrome photoconversion",
+      "reason": "biological implementation of existing photoinduced geometric isomerization"
+    },
+    {
+      "candidate": "cryptochrome magnetic sensing",
+      "nearest": "radical-pair-spin-selective-reaction-yield",
+      "reason": "same radical-pair spin mechanism with a biological sensing output"
+    },
+    {
+      "candidate": "protein disulfide isomerase",
+      "nearest": "glutaredoxin-thiol-redox,intramolecular-crosslink-conformational-stabilization",
+      "reason": "thiol/disulfide exchange and folding substrate do not suffice as a new mechanism"
+    },
+    {
+      "candidate": "transketolase",
+      "nearest": "nhc-breslow-acyl-umpolung,thiamine-lipoyl-oxidative-decarboxylation",
+      "url": "https://pubs.acs.org/doi/10.1021/bi700844m",
+      "scope": "stored_search_excerpt",
+      "reason": "thiazolium covalent carbanion chemistry too close to existing Breslow umpolung for current inclusion"
+    },
+    {
+      "candidate": "flavin halogenase enzyme-bound chlorinating intermediate",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17260957/",
+      "scope": "publisher_abstract",
+      "evidence": "This intermediate remained on the enzyme after removal of FAD",
+      "reason": "long-lived intermediate established, lysine chloramine identity proposed; boundary from electrophilic aromatic substitution and enzyme channeling remains weak; held out"
+    },
+    {
+      "candidate": "C3b source exclusion",
+      "url": "https://www.nature.com/articles/nature05258",
+      "scope": "stored_search_excerpt",
+      "reason": "publisher result explicitly reports a 2016 retraction; not used"
+    }
+  ],
+  "evidence": [
+    {
+      "key": "glycyl-thiyl-radical-pyruvate-formate-cleavage",
+      "url": "https://www.nature.com/articles/nsb1099_969",
+      "scope": "stored_search_excerpt",
+      "evidence": "reversibly cleave the C1-C2 bond of pyruvate",
+      "limits": "Primary nonradical enzyme, oxamate complex and Cys mutant structures; detailed thiyl sequence is mechanistic interpretation rather than all intermediates directly trapped."
+    },
+    {
+      "key": "nickel-iron-cluster-carbon-monoxide-oxidation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18048691/",
+      "scope": "stored_search_excerpt",
+      "evidence": "CO2 acts as a bridging ligand between Ni and the asymmetrically coordinated Fe",
+      "limits": "Three primary structural states; reversible CO oxidation/CO2 reduction, not acetyl-CoA synthesis or bulk electrode efficiency."
+    },
+    {
+      "key": "hydrogenase-metal-hydride-proton-splitting",
+      "url": "https://www.nature.com/articles/nature14110",
+      "scope": "stored_search_excerpt",
+      "evidence": "a hydride that bridges the Ni and Fe ions",
+      "limits": "Primary sub-angstrom hydrogenase crystallography; initial H2 docking and proton relay details are not made universal across hydrogenase classes."
+    },
+    {
+      "key": "lipoyl-aminomethyl-folate-carbon-transfer",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20375021/",
+      "scope": "stored_search_excerpt",
+      "evidence": "production of ammonia, 5,10-methylenetetrahydrofolate, and dihydrolipoate-bearing H-protein",
+      "limits": "Primary H/T-protein complex with folate analogue mimics reverse reaction; card limited to aminomethyl cleavage/transfer, not generic carrier swinging."
+    },
+    {
+      "key": "glycosidic-phosphorolysis-sugar-phosphate-release",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2142917/",
+      "scope": "stored_search_excerpt",
+      "evidence": "phosphate, in the attacking position was observed",
+      "limits": "Primary caged-phosphate initiation and crystalline heptenitol substrate-analogue conversion; not all sugar phosphorylase families share the same retention mechanism."
+    },
+    {
+      "key": "bound-nad-oxidation-rotation-epimerization",
+      "url": "https://www.rcsb.org/structure/1XEL",
+      "scope": "stored_search_excerpt",
+      "evidence": "additional rotations about the phosphate backbone of UDP are necessary",
+      "limits": "Official primary-structure record reproduces author abstract. NADH/UDP-glucose is an abortive complex; rotation path inferred from geometrical requirements, not directly filmed."
+    },
+    {
+      "key": "enzyme-templated-polyene-cationic-polycyclization",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0022283698924706",
+      "scope": "stored_search_excerpt",
+      "evidence": "how the initial protonation and the final deprotonation of squalene occur",
+      "limits": "Primary 2 Å enzyme structure supports cation cascade. Product-specific carbocation rearrangements and ring counts not split into extra cards."
+    },
+    {
+      "key": "cap-recruited-ribosomal-scanning-initiation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5861459/",
+      "scope": "stored_search_excerpt",
+      "evidence": "scans mRNA from 5′ to 3′ until it identifies an AUG start codon",
+      "limits": "Primary cap-dependent human 48S cryo-EM complex captured after start recognition; not a direct time-lapse of every scanning step. Context-dependent start choice retained."
+    },
+    {
+      "key": "stop-codon-release-factor-ester-hydrolysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18596689/",
+      "scope": "stored_search_excerpt",
+      "evidence": "type I release factors promote hydrolysis of the peptidyl-transfer RNA linkage",
+      "limits": "Primary RF1-bound 70S structure; GGQ backbone participation supported without asserting all proton-transfer steps resolved."
+    },
+    {
+      "key": "separate-editing-site-aminoacyl-trna-hydrolysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9554847/",
+      "scope": "stored_search_excerpt",
+      "evidence": "the second, editing sieve exists on a globular beta-barrel domain",
+      "limits": "Primary IleRS substrate complex structures; distinct domain location and selective hydrolysis. Do not split Ile/Leu/Val enzymes by substrate."
+    },
+    {
+      "key": "complement-buried-thioester-covalent-deposition",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16831446/",
+      "scope": "stored_search_excerpt",
+      "evidence": "This domain interface is broken upon activation, allowing nucleophile access.",
+      "limits": "Primary bovine C3 structure. Do not use the separately retracted human C3b paper. Covalent surface deposition is supported, universal exact atom-by-atom activation path not asserted."
+    },
+    {
+      "key": "vitamin-k-oxygenation-driven-gamma-carboxylation",
+      "url": "https://www.nature.com/articles/s41467-026-71212-6",
+      "scope": "stored_search_excerpt",
+      "evidence": "provides energy for substrate carboxylation when it is oxidized to vitamin K2,3-epoxide",
+      "support_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC27173/",
+      "support_scope": "stored_search_excerpt",
+      "limits": "2026 primary cryo-EM structures and 2000 primary biochemical study support coupled oxygenation/carboxylation. Old cysteine-base assignment is not adopted; exact base species and free carbanion lifetime remain qualified."
+    },
+    {
+      "key": "protein-backbone-autocatalytic-chromophore-maturation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15078092/",
+      "scope": "stored_search_excerpt",
+      "evidence": "the peptide backbone of residues 65-67 has condensed to form a five-membered heterocyclic ring",
+      "limits": "Trapped GFP Y66L intermediate by crystallography and mass spectrometry. Mutation-specific step ordering is not universalized."
+    },
+    {
+      "key": "metal-hydroxide-carbon-dioxide-hydration",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2576554/",
+      "scope": "stored_search_excerpt",
+      "evidence": "a nucleophilic attack on CO2 by the reactive zinc-bound hydroxide",
+      "limits": "Primary substrate-bound holo/apo structures support CO2 orientation. Card does not split carbonic anhydrase metal/class variants."
+    },
+    {
+      "key": "heme-compound-i-peroxide-disproportionation",
+      "url": "https://pubs.acs.org/doi/10.1021/acselectrochem.5c00039",
+      "scope": "stored_search_excerpt",
+      "evidence": "the formation of an Fe(IV) oxo radical cation",
+      "limits": "Primary electrochemistry study explicitly gives two-peroxide heme cycle in results/discussion. No claim of direct electron tunneling or individual-molecule catalysis from disputed spikes."
+    },
+    {
+      "key": "metal-sulfenate-nitrile-hydration",
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2015/sc/c5sc02012c",
+      "scope": "stored_search_excerpt",
+      "evidence": "the nitrile is activated by coordination to the LS FeIII",
+      "limits": "EPR/MCD/absorption-calibrated DFT primary study. Proposed cyclic sulfenate route is computationally favored, not universally directly observed; independent nitrilase nitrogen-releasing path is excluded."
+    },
+    {
+      "key": "persulfide-relay-iron-sulfur-cluster-assembly",
+      "url": "https://www.nature.com/articles/s41467-024-47310-8",
+      "scope": "stored_search_excerpt",
+      "evidence": "visualize different stages of persulfide transfer from Cys381NFS1 to Cys138ISCU2",
+      "limits": "Primary anaerobic cryo-EM plus biochemistry. Double sulfur density may be averaging rather than one chemical intermediate and is not asserted as a unique intermediate."
+    },
+    {
+      "key": "plp-two-base-amino-acid-racemization",
+      "url": "https://pubs.acs.org/doi/abs/10.1021/bi982924t",
+      "scope": "stored_search_excerpt",
+      "evidence": "These results support a two-base racemization mechanism involving Y265 and K39.",
+      "support_url": "https://www.sciencedirect.com/science/article/pii/S0021925820852077",
+      "support_scope": "stored_search_excerpt",
+      "limits": "Primary mutants, isotope effects, quinonoid absorbance and substrate-analogue structures. Boundary requires PLP covalent aldimine chemistry; mere different amino acid is not counted."
+    },
+    {
+      "key": "dinickel-bridged-urea-hydrolysis",
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/anie.201903565",
+      "scope": "stored_search_excerpt",
+      "evidence": "uses fluoride to substitute the hydroxide acting as the co-substrate",
+      "limits": "Primary 1.42 Å inhibited substrate-bound urease structure. Not an unmodified time-resolved turnover observation; substrate coordination and nucleophile role interpreted with this limit."
+    },
+    {
+      "key": "protease-bait-cleavage-cage-entrapment",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9181621/",
+      "scope": "stored_search_excerpt",
+      "evidence": "closes openings and entraps the prey proteinase",
+      "limits": "Eight primary cryo-EM structures. Large substrate access is blocked while small substrates can remain accessible, distinguishing serpin active-site deformation."
+    },
+    {
+      "key": "activated-five-prime-rna-reverse-polymerization",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2996639/",
+      "scope": "stored_search_excerpt",
+      "evidence": "the 3′ OH of GTP directly attacks the α-phosphate group",
+      "limits": "PMC direct open returned CAPTCHA; retrieved primary search excerpt states triphosphorylated RNA can bypass ATP activation. Successive terminal-triphosphate extension must be distinguished from single ligation."
+    },
+    {
+      "key": "trna-covalent-ribosyl-base-exchange",
+      "url": "https://www.rcsb.org/structure/1Q2R",
+      "scope": "reference_section",
+      "evidence": "RNA is tethered to TGT through the side chain of Asp280",
+      "limits": "Official primary structure deposition and reproduced author abstract were opened; chemical competence is stated, not merely inferred from a trapped adduct."
+    },
+    {
+      "key": "cobalamin-polar-methyl-carrier-transfer",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0969212696001359",
+      "scope": "stored_search_excerpt",
+      "evidence": "donating the methyl group to homocysteine to generate methionine and cob(I)alamin",
+      "limits": "Structural primary author abstract retrieved in search; source addresses catalytic carrier and reductive reactivation domain."
+    },
+    {
+      "key": "nascent-rna-hairpin-intrinsic-termination",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2295211/",
+      "scope": "stored_search_excerpt",
+      "evidence": "All three terminators encode the canonical G:C-rich stem-loop hairpin element",
+      "limits": "Primary single-molecule results; sequence-dependent load behavior does not establish one universal shearing or hypertranslocation pathway."
+    },
+    {
+      "key": "backtracked-polymerase-rna-cleavage-reactivation",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1097276519303211",
+      "scope": "stored_search_excerpt",
+      "evidence": "Reactivation requires RNA transcript cleavage.",
+      "limits": "Primary cryo-EM structures span backtracking, GreB binding, cleavage and reactivation. RNA internal cleavage is not free-end exonucleolysis."
+    },
+    {
+      "key": "leader-translation-rna-folding-attenuation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/366606/",
+      "scope": "stored_search_excerpt",
+      "evidence": "the location of the ribosome synthesizing the leader peptide is communicated to the RNA polymerase",
+      "support_url": "https://pubmed.ncbi.nlm.nih.gov/337297/",
+      "support_scope": "stored_search_excerpt",
+      "limits": "Primary mutation and in vitro transcription studies; RNA alternatives also supported by primary structural probing PMID118451. Do not generalize to uncoupled eukaryotic transcription."
+    },
+    {
+      "key": "histidine-aspartate-phosphorelay-signaling",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19800110/",
+      "scope": "stored_search_excerpt",
+      "evidence": "autokinase, phosphotransfer, and phosphatase activities",
+      "support_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC19464/",
+      "support_scope": "stored_search_excerpt",
+      "limits": "Primary HK853/RR468 complex and phosphorylation studies; domain names do not imply identical outputs across systems."
+    },
+    {
+      "key": "protein-template-sequential-cca-addition",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0092867402011157",
+      "scope": "stored_search_excerpt",
+      "evidence": "the protein template can switch its base specificity between ATP and CTP",
+      "support_url": "https://www.nature.com/articles/nature02712",
+      "support_scope": "publisher_abstract",
+      "limits": "2002 structures alone left RNA-terminal selection unresolved. Opened 2004 primary abstract and mutations support protein recognition of terminal CC and incoming ATP; kinetics of every transition not claimed."
+    },
+    {
+      "key": "terminal-glycine-oxidative-peptide-amidation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1590776/",
+      "scope": "stored_search_excerpt",
+      "evidence": "the hydroxy O atom comes from O2, but not from H2O",
+      "support_url": "https://pubmed.ncbi.nlm.nih.gov/19604476/",
+      "support_scope": "stored_search_excerpt",
+      "limits": "Isotope-labeling primary study establishes oxygen source and carbinolamide route; separate primary lyase structures and mutants support N-dealkylation."
+    },
+    {
+      "key": "glycan-cleavage-intramolecular-anhydro-closure",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5912472/",
+      "scope": "stored_search_excerpt",
+      "evidence": "followed by the synthesis of atypical 1,6-anhydro-GlcNAc derivatives",
+      "limits": "Primary LtgA in-crystal and mass-spectrometric study includes initial hydrolytic intermediate/alternative mechanism. Card deliberately does not assert universal exclusion of water or one oxazolinium path."
+    }
+  ],
+  "root_final_merge_directions": [
+    {
+      "from": "terminal-sialylation",
+      "to": "biomolecular-recognition",
+      "decision": "root confirmed merge09 applied; current glycan-dependent receptor recognition is not a separate chemical pathway; legacy/source and specific validation limits preserved"
+    },
+    {
+      "from": "chimeric-receptor-signal-coupling",
+      "to": "receptor-ligand-modulation",
+      "decision": "root confirmed merge09 applied; artificial modular receptor architecture alone does not add an independent conversion to the current ligand-to-signal description"
+    },
+    {
+      "from": "innate-pattern-recognition",
+      "to": "receptor-ligand-modulation",
+      "decision": "root confirmed immune2 applied; current ligand-induced receptor signaling is the same transformation with a different immune input class"
+    },
+    {
+      "from": "immune-checkpoint-blockade",
+      "to": "receptor-ligand-modulation",
+      "decision": "root confirmed immune2 applied; blocking inhibitory receptor engagement is already within ligand competition/signaling modulation"
+    },
+    {
+      "from": "somatic-lineage-reprogramming",
+      "to": "plant-cell-totipotency",
+      "decision": "accepted by root after current-text review; oldest ID preserved and survivor scope expanded"
+    },
+    {
+      "from": "antigen-targeted-payload-delivery",
+      "to": "biomolecular-recognition",
+      "decision": "accepted by root; delivery limits retained"
+    },
+    {
+      "from": "pegylation-steric-shielding",
+      "to": "polymer-steric-dispersion-stabilization",
+      "decision": "root confirmed applied after current-principle review; PEG attachment and individual pharmacokinetic validation limits preserved"
+    },
+    {
+      "from": "albumin-binding-half-life-extension",
+      "to": "biomolecular-recognition",
+      "decision": "root confirmed group07 applied; current binding/free-fraction/distribution mechanism lacks explicit FcRn cycle; preserve affinity/off-rate/species/metabolism/activity and individual PK limits"
+    },
+    {
+      "from": "peptidoglycan-precursor-sequestration",
+      "to": "soluble-receptor-ligand-trap",
+      "decision": "root confirmed group07 applied; selective extracellular sequestration prevents normal partner access; substrate identity and downstream endpoint do not create an independent mechanism"
+    },
+    {
+      "from": "siderophore-sequestration-iron-starvation",
+      "to": "soluble-receptor-ligand-trap",
+      "decision": "root confirmed group07 applied; selective extracellular ligand sequestration prevents native transport-partner access; preserve separate uptake/iron-limitation conditions"
+    }
+  ],
+  "batch_sources": [
+    "source-review-2026-09-27-biology-01.json",
+    "source-review-2026-09-27-biology-02.json",
+    "source-review-2026-09-27-biology-03.json",
+    "source-review-2026-09-27-biology-04.json",
+    "source-review-2026-09-27-biology-05.json",
+    "source-review-2026-09-27-biology-06.json",
+    "source-review-2026-09-27-biology-07.json",
+    "source-review-2026-09-27-biology-08.json"
+  ],
+  "work_state": "biology08 ready; further candidate research awaiting urgent Micro LED workflow task"
+}

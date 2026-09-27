@@ -1,0 +1,130 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-information-11.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "count": 15,
+  "cumulative_authored": 183,
+  "comparison": "All canonical keys searched at 1886 entries; information-domain principles and adjacent computational cards inspected. Parent formal01 additions included. No central files mutated.",
+  "records": [
+    {
+      "key": "singleton-frequency-unseen-probability-mass",
+      "url": "https://jmlr.org/papers/volume25/24-0511/24-0511.pdf",
+      "scope": "reference_section",
+      "locator": "Section 1.1 equation 7; Section 2 equations 8–9",
+      "observation": "The iid estimator is phi_1/n. The primary study explicitly contrasts it with dependent Markov observations, where it can remain biased. Only the iid operation is counted; windowed variants are not new cards."
+    },
+    {
+      "key": "permutation-marginal-coalition-value-allocation",
+      "url": "https://arxiv.org/pdf/2104.12199",
+      "scope": "reference_section",
+      "locator": "Section 2.2 equations 1–2",
+      "observation": "Coalition-size factorial weights equal averaging each marginal contribution over all player permutations. The card uses the general cooperative-game operation and does not add feature-attribution or sampling variants."
+    },
+    {
+      "key": "counterfactual-externality-pivot-payment",
+      "url": "https://mlhp.stanford.edu/src/chap5.html",
+      "scope": "reference_section",
+      "locator": "VCG mechanism equations 5.6–5.7",
+      "observation": "The official Stanford chapter gives welfare maximization and payment as others' optimal welfare absent the agent minus others' welfare under the chosen allocation. Quasilinear private values and exact allocation optimization are retained."
+    },
+    {
+      "key": "four-plane-bilinear-convex-envelope",
+      "url": "https://www.cemmap.ac.uk/wp-content/uploads/2020/09/CWP4820-inference-in-a-class-of-optimization-problems-confidence-regions-and-finite-sample-bounds-on-errors-in-coverage-probabilities.pdf",
+      "scope": "reference_section",
+      "locator": "Appendix B.1 equation B.1; supporting explicit bounds B.6",
+      "observation": "For 0<=a<=A and 0<=b<=B, lifted c obeys c>=0, c>=Ab+Ba-AB, c<=Ab, c<=Ba. This single-product convex hull does not enforce c=ab when optimized in a larger relaxed model."
+    },
+    {
+      "key": "harmonic-ratio-conditioned-markov-transition",
+      "url": "https://www.imo.universite-paris-saclay.fr/~nicolas.curien/cours/peccot.pdf",
+      "scope": "reference_section",
+      "locator": "Section 3.3.2 reminder on h-transform; equation 3.6",
+      "observation": "The author defines q(x,y)=p(x,y)h(y)/h(x) for a nonnegative harmonic h on its positive domain and derives endpoint-ratio path weights. Conditional interpretation is separately justified for appropriate hitting functions."
+    },
+    {
+      "key": "cycle-reward-duration-regenerative-average",
+      "url": "https://www.columbia.edu/~ks20/stochastic-I/stochastic-I-RRT.pdf",
+      "scope": "reference_section",
+      "locator": "Section 2.1 Theorem 2.1 equations 7–8",
+      "observation": "Independent identically distributed cycle-duration/reward pairs and finite expectations yield long-run reward rate E(R)/E(X). This is not the average of individual cycle ratios."
+    },
+    {
+      "key": "observation-time-length-biased-interval",
+      "url": "https://www.columbia.edu/~ks20/stochastic-I/stochastic-I-RRT.pdf",
+      "scope": "reference_section",
+      "locator": "Sections 1.6–1.8; spread density and inspection paradox",
+      "observation": "Equilibrium time inspection weights a lifetime density by x/E(X). The observation mechanism differs from cycle reward aggregation; it changes which intervals enter a sample."
+    },
+    {
+      "key": "joint-level-velocity-rice-crossing-intensity",
+      "url": "https://arxiv.org/pdf/2301.06608",
+      "scope": "reference_section",
+      "locator": "Section II equations 4–6; Section III equation 21",
+      "observation": "Crossing intensity integrates absolute velocity against the joint value/velocity density evaluated at the level; positive velocities give upcrossings. The primary paper treats differentiable inertial processes, not raw nondifferentiable Brownian paths."
+    },
+    {
+      "key": "min-plus-service-curve-concatenation-bound",
+      "url": "https://leboudec.github.io/netcal/latex/netCalBook.pdf",
+      "scope": "reference_section",
+      "locator": "Section 1.4 Theorems 1.4.1, 1.4.2, 1.4.6",
+      "observation": "Service guarantees compose by infimal convolution beta1 tensor beta2. Arrival/service curve deviations bound backlog and virtual delay; successive latency-rate servers add latencies and take the minimum rate."
+    },
+    {
+      "key": "stochastic-exponential-drift-measure-change",
+      "url": "https://www.math.uchicago.edu/~lawler/finbook.pdf",
+      "scope": "reference_section",
+      "locator": "Section 5.3 equations 5.7–5.9; Theorem 5.3.1",
+      "observation": "The density process exp(integral A dB minus half integral A squared dt) changes measure; B minus integral A dt becomes Brownian. The source explicitly requires a true martingale, not merely a local one."
+    },
+    {
+      "key": "coprime-bezout-stable-controller-parameterization",
+      "url": "https://lall.stanford.edu/engr210a/lectures/lecture14_2001_11_20_01.pdf",
+      "scope": "reference_section",
+      "locator": "Slides 7–10, stabilizing-controller construction and iff theorem",
+      "observation": "Doubly coprime factors satisfying the Bezout matrix identity yield Ur=Yl-Mr Q and Vr=Xl-Nr Q, with K=Ur Vr inverse. Stable Q, properness and denominator invertibility are required; factor order and feedback convention matter."
+    },
+    {
+      "key": "rapid-phase-amplitude-wkb-hierarchy",
+      "url": "https://math.arizona.edu/~kglasner/math587/WKBPDE.pdf",
+      "scope": "reference_section",
+      "locator": "Rays in wave propagation, PDF pages 10–12",
+      "observation": "The exponential-phase times amplitude-series ansatz produces the eikonal equation at leading order and amplitude transport next. Turning-point connection is discussed earlier in the notes. Different media are not separate operations."
+    },
+    {
+      "key": "transverse-first-return-dynamical-map",
+      "url": "https://www.math.utah.edu/~feldman/ODE-slides/ODE-slides5v2024.pdf",
+      "scope": "reference_section",
+      "locator": "Slides 86–95: Poincare map, periodic-orbit stability and transverse derivative",
+      "observation": "P(y)=flow at return time tau(y) maps a transversal section to itself; fixed points correspond to periodic orbits. Its derivative removes the flow direction from monodromy. No full delay-coordinate state reconstruction is involved."
+    },
+    {
+      "key": "invariant-center-graph-nonlinear-reduction",
+      "url": "https://maegantucker.com/ME6402/pdfs/presentation6.pdf",
+      "scope": "reference_section",
+      "locator": "Slides 2–8: center/stable split, invariant graph and approximation",
+      "observation": "For zero-real-part center eigenvalues and negative-real-part remaining modes, z=h(y) obeys A2h+g2-Dh(A1y+g1)=0. Substitution gives reduced nonlinear dynamics. Local spectral and tangency assumptions are included."
+    },
+    {
+      "key": "oscillatory-antiderivative-collocation-boundary-evaluation",
+      "url": "https://arxiv.org/pdf/1912.09698",
+      "scope": "reference_section",
+      "locator": "Section 1 derivative identity/equation 1.2; Sections 2–3; Theorem 2.6",
+      "observation": "The paper recalls converting an oscillatory primitive to a first-order auxiliary ODE, then evaluates endpoint differences. Its singularity modifications are not separate cards. Theorem 2.6 explicitly equates suitable-basis Filon and Levin rules."
+    }
+  ],
+  "exclusions": [
+    {"candidate": "Filon quadrature as an additional card", "reason": "Primary paper states equivalence to Levin with the corresponding basis; not separately counted."},
+    {"candidate": "Gaussian-node quadrature variants, alternate interpolation formulas", "reason": "Changing nodes or polynomial representation alone does not establish a new operation."},
+    {"candidate": "Galerkin finite elements for static structure as a new card", "reason": "Existing discrete-static-equilibrium-solving and basis reconstruction cards already cover the inspected structural construction; no distinct general operation established here."},
+    {"candidate": "CUSUM and fixed-horizon likelihood threshold tests", "reason": "Potential variants of existing sequential-likelihood-ratio-stopping; not added."},
+    {"candidate": "Routh array", "reason": "Deferred pending stronger separation from signed-remainder-Sturm root-counting; not counted on root-domain change alone."},
+    {"candidate": "Risk or reliability variants of scalar sensitivity derivatives", "reason": "Parameter/output/application substitution alone is insufficient beside parameter-sensitivity-measurement-prioritization."},
+    {"candidate": "Centered covariance mode decompositions and diffusion-map variants", "reason": "Potential variants of singular-spectrum projection or spectral graph partition; not added."}
+  ],
+  "failed_or_limited_retrievals": [
+    {"url": "https://www.cds.caltech.edu/~marsden/wiki/uploads/cds140a-09/lecturenotes/InvariantManifolds.pdf", "result": "Browser fetch failed; not used as full-text support. Author-hosted Tucker lecture was read instead."},
+    {"url": "https://www.tau.ac.il/~levin/OscIntAnal.pdf", "result": "Browser fetch failed; not used as reference-section evidence. Accessible primary Wang-Xiang paper supplies the recalled operation and equivalence boundary."},
+    {"url": "https://www.ams.org/journals/mcom/1982-38-158/S0025-5718-1982-0645668-7/S0025-5718-1982-0645668-7.pdf", "result": "Browser fetch failed; no full-text claim made."}
+  ]
+}

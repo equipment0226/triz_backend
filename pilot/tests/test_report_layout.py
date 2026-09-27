@@ -117,7 +117,9 @@ def test_ariz_steps_trends_and_fos_are_structured_without_aggregate_diagram(stat
     from triz.schema import ARIZRun, ARIZStep, Component
     state.analysis.components=[Component(name='하위 예시',level='SUB'),Component(name='대상 예시',level='TARGET'),Component(name='상위 예시',level='SUPER')]
     state.solve.ariz=ARIZRun(steps=[ARIZStep(step_code='1.3',step_title='모순',output='TC1: 고속 → 생산성 개선 + 진동 악화.'),
-        ARIZStep(step_code='2.2',step_title='작용 시간',output='T1(갈등): 가공 중. T2(이전): 투입 전. T3(이후): 배출 후.')],
+        ARIZStep(step_code='2.2',step_title='작용 시간',output='T1(갈등): 가공 중. T2(이전): 투입 전. T3(이후): 배출 후.'),
+        ARIZStep(step_code='4.1',step_title='작은 사람들 모델',output='현재: 개별 점을 붙잡는다.\n요구: 서로 방해하지 않는다.\n구현: 검사와 처리를 분리한다.',
+            table_columns=['단계','분석'],table_rows=[['현재','표의 요약을 유지한다.']])],
         solution_directions=['속도 조건별 분리로 진동을 줄인다.'],final_ideas=['기존 제어기를 이용한다.'])
     state.solve.trend_apps=[dict(trend_id='TR10',trend_name='열 번째',idea='두 번째'),dict(trend_id='TR2',trend_name='두 번째',idea='첫 번째')]
     state.scratch['s_curve']={'stage':'성숙기','note':'개념 판단'}
@@ -134,6 +136,19 @@ def test_ariz_steps_trends_and_fos_are_structured_without_aggregate_diagram(stat
     assert 'report-term' not in data['report_sections'][0]['blocks'][0]['html']
     figures={f['key']:f for f in data['figures']}
     assert 'ariz' not in figures and 'ariz-step-0' in figures and 'ariz-step-1' in figures
+    NS={'s':'http://www.w3.org/2000/svg'}
+    slp=ET.fromstring(figures['ariz-step-2']['svg'])
+    assert len(slp.findall('s:g[@class="diagram-node"]',NS))==3
+    assert len(slp.findall('s:path[@class="diagram-edge"]',NS))==2
+    assert not slp.findall('s:text[@text-anchor="start"]',NS)
+    assert not slp.findall('s:circle[@class="diagram-edge-label"]',NS)
+    visible=''.join(''.join(t.itertext()) for t in slp.findall('.//s:text',NS))
+    for value in ['개별 점을 붙잡는다.','서로 방해하지 않는다.','검사와 처리를 분리한다.','요구 행동','구현 검토']:
+        assert visible.count(value)==1
+    assert '표의 요약을 유지한다.' in text
+    assert any('개별 점을 붙잡는다.' in b['html'] for s in data['report_sections'] for b in s['blocks'] if b['type']=='details')
+    assert 'text-anchor="start"' in figures['ariz-step-0']['svg']
+    assert 'class="diagram-edge-label"' in figures['ariz-step-0']['svg']
     assert '현재 · 성숙기' in figures['s-curve']['svg']
     assert 'diagram-divider' in figures['fos']['svg'] and '항공 산업' in figures['fos']['svg']
     assert 'diagram-edge' in figures['trends']['svg']

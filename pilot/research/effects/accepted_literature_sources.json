@@ -88454,5 +88454,1466 @@
         "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
       }
     ]
+  },
+  "MERGED-20260927-electrostatic-mems-actuation": {
+    "sources": [
+      {
+        "identifier": "REF-capacitor",
+        "title": "OpenStax · Capacitors and Capacitance",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "REF-esc",
+        "title": "COMSOL · Electrostatic Chuck",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.models.mems.electrostatic_chuck/electrostatic_chuck.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-photodiode": {
+    "sources": [
+      {
+        "identifier": "REF-semiconductor",
+        "title": "OpenStax · Semiconductor Devices",
+        "url": "https://openstax.org/books/university-physics-volume-3/pages/9-7-semiconductor-devices",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section",
+        "accessed_at": "2026-09-11",
+        "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+      },
+      {
+        "identifier": "AR-041311-A1",
+        "title": "Receptor remoto universal inalámbrico para el manejo de potencia.",
+        "url": "https://patents.google.com/patent/AR041311A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "677b219c8e3e19cae4f9b4fb531614553df2859999f28cb5456104aa3256492d",
+        "review_note": "입사광에 따라 광다이오드 전류를 만들고 증폭하여 릴레이를 구동하는 과정을 명시한다. 래치 동작은 음의 피드백으로 취급하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-048446-A1",
+        "title": "Dispositivos organicos fotosensibles",
+        "url": "https://patents.google.com/patent/AR048446A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "376c504dbdcbf8e27a7aea87154183cc57e55bad46f63932811bb3245b01d330",
+        "review_note": "양극·음극 사이 유기금속 활성층에서 조명에 따라 광생성 전류가 흐름을 명시한다. 광자 흡수 후 전하 수집에 의한 광전류 검출로 연결하며 태양전지 전력 효율이나 접합 구조는 확정하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-056143-A1",
+        "title": "Sistema de cronometraje con fotocelulas infrarrojas",
+        "url": "https://patents.google.com/patent/AR056143A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "43de6aad0952d9a72bdd8e2fa31731a361b35831926d9bdd763b3d3532814348",
+        "review_note": "변조 적외선의 차광 검출과 대역통과 필터·광검출기 전류 증폭을 명시한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-113151-A3",
+        "title": "Dispositivo con circuito electrónico de monitoreo constante de la presencia del conductor y pasajeros y del uso del cinturón de seguridad por parte de los mismos",
+        "url": "https://patents.google.com/patent/AR113151A3/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "ba3038e24053581a3d65abaafcb88777569a3b7fe72c2e9b368fd5795eb06f39",
+        "review_note": "적외선 발광·수광과 버클 스위치로 탑승·벨트 사용을 확인한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-113494-A1",
+        "title": "Sonda intraoperatoria para procedimientos quirúrgicos radioguiados",
+        "url": "https://patents.google.com/patent/AR113494A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "b5843f21ab19f290d217291f2ff38fc233b4ba15e007ebc42e58dcef8ef050eb",
+        "review_note": "문헌·중복 검토 후 연결: semiconductor-impact-ionization-multiplication; 강한 전기장에서 가속된 전하 운반자가 반도체 내부에서 추가 전자·정공 쌍을 만들면 충돌 이온화가 연쇄적으로 이어져 입력 전하를 증폭한다. 실리콘 광증배기의 미소 셀이 이를 이용한다. 바이어스·온도·재료·영역 폭에 의존한다. 가이거 모드에서는 소거·재충전이 필요하며 암계수·후속 펄스·포화가 있다. 진공 표면의 이차 전자 방출 증배와 발생 위치·메커니즘이 다르다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-118553-A1",
+        "title": "Control funcional y verificación de edad en dispositivos electrónicos a través de comunicación visual",
+        "url": "https://patents.google.com/patent/AR118553A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "f2dda43e93e3aa0e24a026464b8574a8637b5af74259cb4c9eee1aeffcb46c3a",
+        "review_note": "광다이오드 등으로 인증 신호를 감지한다. 부호·암호 방식은 미특정이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AT-501698-A1",
+        "title": "Multi-pulse analysis device comprises light emitting diodes as transmission diodes, and light receiving diodes",
+        "url": "https://patents.google.com/patent/AT501698A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "c1e5aeccf3b38aa9358670b0df85e3379355c4ef1f1cbeafa6cb7c4233670f02",
+        "review_note": "LED 구동에 동기화하여 수광 전류를 처리한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-time-domain-reflectometry": {
+    "sources": [
+      {
+        "identifier": "REF-manual600-time-domain-reflectometry",
+        "title": "Tektronix: Understanding and Applying Time Domain Reflectometry",
+        "url": "https://download.tek.com/document/Understanding-Applying-TDR-Primer_48W-74128-0.pdf",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-078332-A1",
+        "title": "Sistema de control de integridad incorporado a bolsas para almacenamiento de granos y/o forrajes",
+        "url": "https://patents.google.com/patent/AR078332A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "24b08080fe16100e6d3eb16c81967b96fbba0f568c433f82f1cb42e07d652fad",
+        "review_note": "기존 초록 검토: 도전 띠의 단선과 시간영역 반사로 손상 위치를 찾고 태양전지로 전원 공급한다. 임피던스 불연속 반사 계측 후보로 기록한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 시간 영역 반사에 의한 전송선 결함 위치 추정: 전송선에 보낸 신호가 임피던스 불연속에서 반사되어 돌아오는 시간을 측정하면 전파 속도를 이용해 불연속 위치를 추정할 수 있다. 전파 속도·분산·다중 반사·대역폭 보정이 필요하다. 비행시간 측정의 전송선 응용이며 반사 크기·극성은 결함 성질의 보조 정보다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-acoustophoresis": {
+    "sources": [
+      {
+        "identifier": "REF-acoustophoresis",
+        "title": "COMSOL · Acoustophoretic Radiation Force",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.particle/particle_ug_fluid_flow.08.47.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      }
+    ]
+  },
+  "MERGED-20260927-photoluminescent-wavelength-conversion": {
+    "sources": [
+      {
+        "identifier": "REF-manual-final-photoluminescent-wavelength-conversion",
+        "title": "Synthesis of novel stilbene-alkoxysilane fluorescent brighteners, and their performance on cotton fiber as fluorescent brightening and ultraviolet absorbing agents",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0143720811001914",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-099162-A1",
+        "title": "Composiciones detergentes",
+        "url": "https://patents.google.com/patent/AR099162A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "d6704ca9665a0064df9e5793366807d7de1d74a5b4c706663f159c95f33e90f1",
+        "review_note": "문헌·중복 검토 후 연결: photoluminescent-wavelength-conversion; 형광체가 빛을 흡수해 여기된 뒤 일부 에너지를 다른 파장의 빛으로 방출하면 출력 스펙트럼을 바꿀 수 있다. 자외선을 청색 가시광으로 바꾸어 겉보기 백색도를 높이는 데 이용한다. 여기 광원·방출 대역·양자수율·농도 소광·광열화를 확인한다. 총 방출 에너지가 입력 에너지를 넘는다는 뜻이 아니다. 형광을 읽는 검출 기능 및 화학 표백과 구별한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-cross-channel-predictive-coding": {
+    "sources": [
+      {
+        "identifier": "REF-manual600-cross-channel-predictive-coding",
+        "title": "Efficient transform coding of two-channel audio signals by means of complex-valued stereo prediction",
+        "url": "https://publica.fraunhofer.de/entities/publication/9b0b81c1-a440-4658-8a42-f53cbaab100b",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-080842-A1",
+        "title": "Codificador de audio, decodificador de audio y metodos relacionados para el procesamiento de senales de audio multicanal utilizando prediccion compleja",
+        "url": "https://patents.google.com/patent/AR080842A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "39e906eb8808114fe35391ecc7d8d381ddd0a1da8cf8d4b3707f04e5b05c2238",
+        "review_note": "기존 초록 검토: 실수·허수 성분과 복소 예측 계수로 채널을 예측하고 잔차를 부호화한다. 채널 간 예측 부호화 후보를 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 채널 간 예측에 의한 오디오 중복 감소: 한 오디오 채널이나 공통 성분으로 다른 채널을 예측하고 예측 오차를 전송하면 채널 사이 상관에 따른 중복을 줄일 수 있다. 상관·예측 계수·잔차 표현 비용에 따라 이득이 달라진다. 영상 움직임 보상과 예측 원리를 공유하지만 공간 변위 대신 동시 오디오 채널 관계를 이용한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-spatial-intra-prediction": {
+    "sources": [
+      {
+        "identifier": "REF-manual-final-spatial-intra-prediction",
+        "title": "MPEG: Advanced Video Coding",
+        "url": "https://mpeg.chiariglione.org/standards/mpeg-4/advanced-video-coding.html",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-096103-A2",
+        "title": "Un aparato de decodificación de imágenes",
+        "url": "https://patents.google.com/patent/AR096103A2/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "c267000ccbc97bf083d7d7b09b8d47a469df45e5b71db7e1f6b431b986fef7a2",
+        "review_note": "문헌·중복 검토 후 연결: spatial-intra-prediction; 같은 영상에서 이미 복원된 주변 화소를 이용해 현재 블록을 예측하고 실제 값과의 잔차를 표현하면 공간적 중복을 줄일 수 있다. 예측 방향·참조 가능성·경계·복원 규칙이 일치해야 한다. 질감·불연속에서는 잔차가 커질 수 있다. 다른 시점 영상을 참조하는 움직임 보상과 구분한다. / 문헌·중복 검토 후 연결: quantization-rate-distortion-tradeoff; 세밀하거나 연속적인 값을 유한한 대표값에 대응시키면 표현 정보량을 줄일 수 있지만 서로 다른 원래 값의 구별을 잃어 복원 오차가 생긴다. 양자화 간격·분포·지각 중요도·후속 부호화에 의존한다. 양자화만으로 비트율 감소량을 확정하지 않으며 표본화나 무손실 엔트로피 부호화와 구분한다. / 문헌·중복 검토 후 연결: edge-adaptive-deblocking; 부호화 블록 경계의 화소 차이와 양자화·예측 정보를 이용해 필터 세기를 조절하면 복원 영상의 인공적인 블록 불연속을 줄일 수 있다. 실제 경계와 부호화 흔적의 구분·필터 순서·표준 규칙에 의존한다. 세부 정보 손실과 번짐이 가능하다. 일정 전달함수의 전역 선형 필터와 다른 국소 비선형 처리이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-electron-cyclotron-resonance-heating": {
+    "sources": [
+      {
+        "identifier": "REF-manual-final-electron-cyclotron-resonance-heating",
+        "title": "Plasma heating due to X-B mode conversion in a cylindrical ECR plasma system",
+        "url": "https://arxiv.org/abs/physics/0410112",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-092517-A1",
+        "title": "Dispositivo para generar un plasma que presenta una extension importante a lo largo de un eje por resonancia ciclotronica electronica rce a partir de un medio gaseoso",
+        "url": "https://patents.google.com/patent/AR092517A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "4bd20cf69a892c2ed0a74ed75d9b842ff5843ac35c4e3206c8d76eb07d745ba7",
+        "review_note": "문헌·중복 검토 후 연결: electron-cyclotron-resonance-heating; 자기장 속 전자의 회전 운동과 전자기파의 적합한 주파수·편광이 공명하면 파동 에너지가 전자 운동에 전달되어 플라스마 생성·가열을 돕는다. 비상대론적 기본 공명은 각주파수 eB/m에 대응한다. 자기장 분포·충돌·파동 접근성·밀도를 고려한다. 핵 스핀 공명이나 벌크 유전 가열과 다른 전자 회전 공명이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-somatic-lineage-reprogramming": {
+    "sources": [
+      {
+        "identifier": "REF-manual-final-somatic-lineage-reprogramming",
+        "title": "Direct conversion of fibroblasts to functional neurons by defined factors",
+        "url": "https://www.nature.com/articles/nature08797",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-090001-A1",
+        "title": "Fibroblastos modificados, procedimientos para su modificacion, usos y kit",
+        "url": "https://patents.google.com/patent/AR090001A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "a42a638bcf117b82feddf24fded6827997e5d72677c8eabb088d5ce268e9710a",
+        "review_note": "문헌·중복 검토 후 연결: somatic-lineage-reprogramming; 분화된 동물 세포의 전사·후성유전 조절 상태를 바꾸면 다른 세포 계통의 특성을 획득할 수 있다. 일부 전환은 만능성 상태를 거치지 않고 진행된다. 세포 정체성·기능·안정성을 따로 확인한다. 이미 정해진 전구세포 분화나 식물 기관 재생과 구분하며 특허의 표지 발현만으로 완전한 기능 전환을 입증하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-antigen-targeted-payload-delivery": {
+    "sources": [
+      {
+        "identifier": "REF-manual500-antigen-targeted-payload-delivery",
+        "title": "Discovery and Preclinical Characterization of XMT-1660, a B7-H4-targeted antibody-drug conjugate",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10477829/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-069747-A1",
+        "title": "Conjugado anticuerpo monoclonal anti-b7h4- farmaco y metodos de utilizacion",
+        "url": "https://patents.google.com/patent/AR069747A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "9c5bc82327d008b4fe619c7fa0e5c3d925c7e40df021180dbb3033e650311894",
+        "review_note": "기존 검토: B7H4 결합 항체에 cytotoxin을 접합한다. 항원 표적 화물 전달 후보이며 내재화는 초록에 없다. 문헌 대조 후 원리 연결: 항원 표적 결합에 의한 화물 전달: 항원을 인식하는 항체에 화물을 연결하면 결합 선택성을 이용해 표적 부근의 화물 분포·체류를 바꿀 수 있다. 항원 분포·항체·연결자·화물 방출·비표적 노출을 확인한다. 내부 유입·세포질 도달·효능은 별도이며 항체 결합만으로 보장하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-077701-A1",
+        "title": "Compuestos antiproliferativos, conjugados de los mismos, procedimientos para estos, y usos de los mismos",
+        "url": "https://patents.google.com/patent/AR077701A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "f0c69eb15a2e41a92a4b24adb7ac103313b26df51097f1b5ec1bd79298afd08e",
+        "review_note": "항체 등에 접합한 항증식성 약물을 제시한다. 약물 자체의 세포 독성 경로는 미상이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-077879-A1",
+        "title": "Inmunoconjugados dirigidos",
+        "url": "https://patents.google.com/patent/AR077879A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "560279f4c3d7bfd7487562af86a4e1c4569443269560bd646384e37a5fcb6d29",
+        "review_note": "항원 결합부와 효과기를 접합해 숙주에서 발현한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-089252-A1",
+        "title": "Conjugados de principio activo-ligante (adc) y su uso",
+        "url": "https://patents.google.com/patent/AR089252A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "b1ae04aba375c0fde9424c04cea129c9d047d47a7cdea8425af36e99a5c0cb60",
+        "review_note": "FGFR2 인식 항체에 화물을 연결한 표적 전달이다. 효능을 일반화하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-091702-A1",
+        "title": "Anticuerpos anti-cd79b e inmunoconjugados",
+        "url": "https://patents.google.com/patent/AR091702A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "852652c1cd477cca536e43468a6389991d8ab54eacf42e5b039951ee3f268bdf",
+        "review_note": "CD79b 항체의 선택적 결합과 연결 화물 전달이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-094149-A1",
+        "title": "Proteinas multifuncion que comprenden chm de clase i multivalente unido mediante disulfuro",
+        "url": "https://patents.google.com/patent/AR094149A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "49c682995f22543ca6da1a4f5ef010267600f3ee7f67ac2ada07455a77e2c4c9",
+        "review_note": "문헌·중복 검토 후 연결: intramolecular-crosslink-conformational-stabilization; 단백질 내부의 이황화 가교 등은 사슬의 가능한 형태와 접힘·풀림 경로를 제한하여 구조 안정성을 바꾼다. 환원 후 적합한 가교를 재형성하면 본래 접힘을 회복하는 데 기여할 수 있다. 서열·가교 위치·산화환원 환경·응집·잘못 짝지어진 결합에 의존한다. 잘못 배치한 가교는 불안정화하며 산화만으로 본래 구조를 보장하지 않는다. 분자 사이 망 형성·샤페론 보조와 구분한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-094280-A1",
+        "title": "Enlazantes hidrofilicos auto-inmolantes y conjugados de los mismos",
+        "url": "https://patents.google.com/patent/AR094280A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "563f54dd01f1aa8ae4515d893d446e5abb30444983fb3385c3442bbf4a777dbf",
+        "review_note": "문헌·중복 검토 후 연결: self-immolative-linker-fragmentation; 연결자의 보호 부위가 제거되면 분자 내부 제거 반응이나 고리화가 이어져 떨어진 위치의 결합까지 끊고 연결된 화물을 방출할 수 있다. 촉발 선택성·중간체 수명·물·pH·부산물에 의존한다. 최초 효소 절단과 후속 자발적 분해를 구분하며 모든 가수분해성 연결자가 자기분해 연결자는 아니다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-096183-A1",
+        "title": "Terapia de combinación de un anticuerpo para cd20 afucosilado con un conjugado de anticuerpo para cd79b-fármaco",
+        "url": "https://patents.google.com/patent/AR096183A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "13a6e7fd5611835cdbc0c437b834d85aca20450a572246b937796c71a46c8964",
+        "review_note": "문헌·중복 검토 후 연결: biomolecular-recognition; IgG의 Fc 당쇄에서 코어 푸코스 유무가 FcγRIIIa와의 결합 계면을 바꾸어 친화도를 달리하고 효과기 세포 반응에 영향을 줄 수 있다. 항체·수용체 당쇄·수용체 변이·세포 조건에 의존한다. ADCC를 조절하는 특정 분자 기전이며 모든 Fc 기능이나 임상 효능의 증가를 뜻하지 않는다. α-Gal 항원 제거와 표적이 다르다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-096515-A1",
+        "title": "Moléculas quiméricas que comprenden el factor de coagulación vii y el polipéptido xten (fvii - xten) y usos de las mismas",
+        "url": "https://patents.google.com/patent/AR096515A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "6823d6cde99a42bb883e8e82ac547759d52d367822ff60eb979fe1119e87d528",
+        "review_note": "혈소판 수용체에 결합하는 항체와 응고인자 화물의 융합이다. XTEN에 의한 크기 증가·제거 변화는 기존 크기 의존 제거 후보와 연결 가능하다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-097401-A1",
+        "title": "Anticuerpos que se unen al receptor de prolactina (anti-prlr) y usos de los mismos",
+        "url": "https://patents.google.com/patent/AR097401A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "02ce9d7202101432bfcfa5d4697df85a0aa0bbb5d76fbbe21f6a9b59df9b35e2",
+        "review_note": "PRLR 결합·신호 차단 여부·표적 화물·해리 시간·SPR 측정이 명시된다. 결합 항체 전부가 신호를 차단하는 것은 아니다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-098961-A1",
+        "title": "CONJUGADOS DE LIGADORES (ADCs) CONJUGADOS DE LIGADOR-PRINCIPIO ACTIVO, CON INHIBIDORES KSP (PROTEÍNA DE HUSO DE QUINESINA)",
+        "url": "https://patents.google.com/patent/AR098961A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "52d766234f5fc0b5efdaa5ce13649b1ba9eab30cecdd971f5d1523f9e16bf278",
+        "review_note": "키네신 방추 단백질 저해 화물을 표적 결합체에 접합한다. 다른 ADC 화물로 신규 원리를 늘리지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-103407-A1",
+        "title": "Dímeros de benzodiazepina, conjugados de estos, y sus métodos de preparación y uso",
+        "url": "https://patents.google.com/patent/AR103407A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "7aee92aa9e94be5e074c754010866a0318fa2bd4e04ac3b56bfee117f32fabaf",
+        "review_note": "항체·벤조디아제핀 이량체 접합체와 자기분해 연결기를 명시한다. 자기분해 연결기 초안의 추가 근거이며 DNA 가교는 초록에 없어 추정하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-104242-A2",
+        "title": "Anticuerpos anti-5t4 y sus usos",
+        "url": "https://patents.google.com/patent/AR104242A2/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "35038a662c6ec3ebcacca79707de6e87de3b0b3fccc409fb9a2c39f9bcce610c",
+        "review_note": "5T4 항체와 약물 접합으로 표적에 화물을 전달한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-104875-A1",
+        "title": "Anticuerpos anti-tau y métodos de uso",
+        "url": "https://patents.google.com/patent/AR104875A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "832506b9c36dbe47b974fd204bc0fdcb9e1249b1b53b33eeb09ab6f454d65037",
+        "review_note": "여러 상태의 Tau에 결합하는 항체와 화물 접합체이다. 제거·독성 억제 기전은 별도 확인 대상이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-107178-A1",
+        "title": "Anticuerpos anti-tnfsf9 y métodos de uso",
+        "url": "https://patents.google.com/patent/AR107178A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "ecf5f0ef84359e33c59d65c131575f67eb8f500155d54b3fca1054a30d78a489",
+        "review_note": "TNFSF9 특이 항체의 진단 결합과 약물 접합체 전달을 명시한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-108690-A1",
+        "title": "Anticuerpos contra el miembro 21 de la superfamilia del receptor del factor de necrosis tumoral (anti-tnfrsf21) y métodos de uso de los mismos",
+        "url": "https://patents.google.com/patent/AR108690A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "390b79e9238076093c1a3816fdcdbe2bffe062a839fb74c827e55008ba83554a",
+        "review_note": "TNFRSF21 항체 및 접합체를 표적 결합·전달에 이용한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-110397-A1",
+        "title": "Conjugados de medicamento-anticuerpo para la ablación de células madre hematopoyéticas",
+        "url": "https://patents.google.com/patent/AR110397A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "61c6f5617ff6422b55b091544003411681a6a948e51b6c578744d28a5f8791d5",
+        "review_note": "cKIT 결합 항체·약물 접합체로 표적 세포에 화물을 전달한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-111363-A1",
+        "title": "Conjugados de fármaco-anticuerpo (adc) anti-prlr y usos de los mismos",
+        "url": "https://patents.google.com/patent/AR111363A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "06bf525977ab3acbe814e944c62bc3bb9d3a1cc00c15475e4c19be988eea3765",
+        "review_note": "PRLR 항체에 약물을 연결하는 표적 전달 사례이다. PBD 화물 제조나 절단 조건을 재구성하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-115184-A1",
+        "title": "Métodos de reducción de efectos secundarios del tratamiento con conjugado anticuerpo anti-cd30-fármaco",
+        "url": "https://patents.google.com/patent/AR115184A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "b73f7f02e21ed4e42d9853f18cd27bcd20a06280c8fdd7f1b3c029501334da22",
+        "review_note": "CD30 항체 화물 전달 사례로만 연결한다. 부작용 대응 투약 변경 주장을 일반 처방으로 재구성하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-118009-A1",
+        "title": "Anticuerpos anti-cd228 y conjugados de anticuerpo-fármaco",
+        "url": "https://patents.google.com/patent/AR118009A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "c363a4f71bc41e5fd364e9d5d849cf35886fd321519add376844f3795f7e3851",
+        "review_note": "CD228 표적 항체 약물 전달이다. 연결기 절단 방식은 초록만으로 특정하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-121749-A2",
+        "title": "Anticuerpos y conjugados de anticuerpo y fármaco anti-egfr",
+        "url": "https://patents.google.com/patent/AR121749A2/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "f481473fc8de48a23d69d2357cf8117f597d7e3ede46978cd56c15010a9132a1",
+        "review_note": "EGFR 결합 항체와 약물 접합체이다. 내재화는 초록에 없다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-123660-A1",
+        "title": "Compuestos dirigidos al egfrviii y usos de estos",
+        "url": "https://patents.google.com/patent/AR123660A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "6528d78253f12b91ec3d98ef1ff2afefa40a631d3fa534fb86bd5c8560d52e3a",
+        "review_note": "킬레이트 금속 복합체의 EGFRvIII 표적 전달이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-129066-A1",
+        "title": "Conjugados de ligando-fármaco con propiedades farmacocinéticas y de liberación de fármaco mejoradas",
+        "url": "https://patents.google.com/patent/AR129066A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "331fb77f68ff35ca6f4d3aa1c7e3e13b8e0418a3dc365baa45291b2d5a7a54fa",
+        "review_note": "항체 표적 전달과 절단 연결부 조합이며 기존 단백질분해 초안에 대응한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-130181-A1",
+        "title": "Compuestos citotóxicos y sus conjugados",
+        "url": "https://patents.google.com/patent/AR130181A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "5bfd93b5a662ec18f9fdd74fc9684ff8ab8f34a3b6d4191877d93254c502768f",
+        "review_note": "리간드 항체와 약물 연결체의 전달 응용이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-130916-A1",
+        "title": "Anticuerpo anti-gucy2c y usos del mismo",
+        "url": "https://patents.google.com/patent/AR130916A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "cc7bf9b37150a249fb2cc1dd11d5d4af455c68740c7def2e023cc20a6351dd17",
+        "review_note": "항체의 표적 약물 전달의 일반 원리로만 연결한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-131528-A1",
+        "title": "Anticuerpos anti-b7h3 y métodos de uso",
+        "url": "https://patents.google.com/patent/AR131528A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "1aa1080ba09843c6ede700f4474e24db9e8d20fb04142e4e943d06351132e184",
+        "review_note": "항원 인식 항체와 약물 전달의 조합이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-132095-A1",
+        "title": "Anticuerpos anti-receptor de transferrina y usos de estos",
+        "url": "https://patents.google.com/patent/AR132095A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "0cb9031eee18000bf51a621da4f188e6673bfc1e14cacc1628d429be5a1f1712",
+        "review_note": "트랜스페린 수용체 항체의 화물 전달이다. 횡단 수송 초안과 연결 검토한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-132376-A1",
+        "title": "Conjugados de anticuerpo de steap2-fármaco y usos de los mismos",
+        "url": "https://patents.google.com/patent/AR132376A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "73871510228108653340cb928e101a0be14e82c311f5bee080f3ef7c5286a666",
+        "review_note": "STEAP2 항체와 연결 화물의 표적 전달이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-133182-A1",
+        "title": "Molécula de conector-fármaco y conjugado de anticuerpo-fármaco, método de preparación y uso de los mismos",
+        "url": "https://patents.google.com/patent/AR133182A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "79bbccbf80d0bd907d3e5060773768e8c63466a20a07d9b37d91b895989e1f18",
+        "review_note": "항체 약물 전달이며 자가분해 연결자 초안에 적용 근거를 보강한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-134103-A1",
+        "title": "ANTICUERPOS ANTI-IL-4Ra / TSLP Y USOS DE LOS MISMOS",
+        "url": "https://patents.google.com/patent/AR134103A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "182ee536052a93f62ca5cc46dd9beb3d1a1fd7a2c8569204850939762eb6374f",
+        "review_note": "IL4R·TSLP 이중 결합과 선택적 화물 연결이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-molecular-layering-oscillatory-solvation-force": {
+    "sources": [
+      {
+        "identifier": "REF-research-20260927-molecular-layering-oscillatory-solvation-force",
+        "title": "Exploring the Molecular-Scale Structures at Solid/Liquid Interfaces of Li-Ion Battery Materials: A Force Spectroscopy Analysis with Sparse Modeling",
+        "url": "https://pubs.acs.org/doi/10.1021/acs.nanolett.4c00847",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "stored_search_excerpt",
+        "accessed_at": "2026-09-27",
+        "review_method": "conversation_reasoning",
+        "supports": "공개 문헌의 원리·조건을 대화에서 검토한 참고 근거. 초록·검색 발췌 범위는 원문 전체 검증과 구분하며 개별 응용의 성능을 보장하지 않는다."
+      }
+    ]
+  },
+  "MERGED-20260927-pegylation-steric-shielding": {
+    "sources": [
+      {
+        "identifier": "REF-manual500-pegylation-steric-shielding",
+        "title": "PEG-based Changes to beta-sheet Protein Conformational and Proteolytic Stability Depend on Conjugation Strategy and Location",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6330093/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-065349-A1",
+        "title": "Coagonistas del receptor de glucagon/glp-1",
+        "url": "https://patents.google.com/patent/AR065349A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "ee3bcafdb9e7bfa9122b579ce1d747769fd35c6e47d79b900f138c98877701d9",
+        "review_note": "기존 검토: glucagon·GLP1 수용체 공동 작용을 명시한다. PEG 결합의 수화·입체 차폐는 별도 후보이다. 문헌 대조 후 원리 연결: PEG 사슬의 수화·입체 차폐: 분자에 연결된 PEG의 유연한 수화 사슬이 주변 접근과 유효 크기를 바꾸어 단백질 분해·응집·제거 속도에 영향을 준다. 결합 위치·사슬 크기·분포·표적 활성 보존을 확인한다. 차폐로 결합 활성이 낮아질 수 있고 반감기 연장은 물질별 검증이 필요하다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-080592-A1",
+        "title": "Peptido con actividad para el gip-r y glp-1-r, formulacion famaceutica que lo comprende, su uso para preparar un medicamento util para el tratamiento de diabetes mellitus y para inducir la perdida de peso",
+        "url": "https://patents.google.com/patent/AR080592A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "5a732176c1cfb02f80219b9f45d6b0200f6e6ae5fa47a3cad9e3e0a23753748d",
+        "review_note": "GIP·GLP1 수용체 작용과 선택적 PEG 결합을 제시한다. 임상적 유효성은 일반화하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-084576-A1",
+        "title": "Materiales y metodos para conjugar un derivado de acido graso hidrosoluble a una proteina",
+        "url": "https://patents.google.com/patent/AR084576A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "24bb78d0b58cb93f6d3095de03e129010b5e02a971074ecac19f7df8115956e7",
+        "review_note": "기존 초록 검토: 말단 알코올 산화 후 옥심 결합과 PEG 접합. 알부민 결합 및 산화 단계는 별도 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 알부민 결합에 의한 체내 잔류 조절: 분자가 혈중 알부민과 가역적으로 결합하면 자유 분율과 분포·제거 경로가 달라져 순환 반감기가 길어질 수 있다. 친화도·해리·종 차이·대사·약리 활성에 의존한다. 항원 표적 전달이나 분자 자체 분해 억제와 구분하며 결합만으로 반감기 연장을 보장하지 않는다.; 알코올 산화에 의한 카보닐 형성: 일차·이차 알코올의 산화로 탄소·산소 이중결합이 형성되어 각각 알데하이드 또는 케톤으로 전환될 수 있다. 일차 알코올은 조건에 따라 산까지 추가 산화될 수 있다. 탈수 알켄 형성과 결합 변화가 다르며 일반 삼차 알코올에는 같은 전환을 적용하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-metal-oxide-hydration-heating": {
+    "sources": [
+      {
+        "identifier": "REF-manual600-metal-oxide-hydration-heating",
+        "title": "Effects of temperature on the hydration characteristics of free lime",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0008884602007147",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-083047-A1",
+        "title": "Un metodo para la preparacion de un producto de alimentacion animal",
+        "url": "https://patents.google.com/patent/AR083047A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "34915d1a1c6e85144c6c32981df2a92504d07ee66bf37c7591c13aca2d6c9287",
+        "review_note": "기존 초록 검토: 금속산화물과 수분의 반응열로 젖은 사료 부산물을 가열한다. 산화물 수화 발열 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 금속산화물 수화 반응에 의한 발열: 산화칼슘 등 수화 시 반응 엔탈피가 음인 금속산화물이 물과 반응하면 열이 방출되어 주변 물질을 가열할 수 있다. 모든 금속산화물이 물과 강하게 발열하는 것은 아니다. 반응성·수분 공급·열 제거에 의존하며 가역 열화학 저장과 원리를 공유하는 직접 발열 응용이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-endothermic-hydroxide-dehydration": {
+    "sources": [
+      {
+        "identifier": "REF-manual-final-endothermic-hydroxide-dehydration",
+        "title": "Effect of hydroxides and hydroxycarbonate structure on fire retardant effectiveness and mechanical properties in ethylene-vinyl acetate copolymer",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0141391001001677",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-093533-A1",
+        "title": "Composicion de funda para cables verticales y de pleno",
+        "url": "https://patents.google.com/patent/AR093533A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "9fbd5bcf68d7a8c997f78e685b48c4abbbc257b41ca1e1ce8a146f58f1b023ed",
+        "review_note": "문헌·중복 검토 후 연결: endothermic-hydroxide-dehydration; 수산화알루미늄 같은 물질이 가열되어 산화물·옥시수산화물과 수증기로 분해될 때 열을 흡수하여 주변 온도 상승을 늦출 수 있다. 분해 온도 범위·가열률·함량·입도와 고분자 분해 시점의 정합을 확인한다. 상변화가 아닌 화학 반응이며 방출 증기와 잔류물의 추가 난연 작용은 따로 평가한다. / 문헌·중복 검토 후 연결: intumescent-char-barrier; 가열 중 탄화와 기체 발생이 적절히 결합되면 다공성 탄화층이 부풀어 올라 열 전달과 가연성 분해물의 이동을 억제하는 보호층을 형성할 수 있다. 발포 시점·용융 점도·탄화 수율·층 부착·균열·고온 복사를 고려한다. 팽창 배율만으로 보호 성능을 판단하지 않는다. 기존 차단막의 열 반응형 하위 기전이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-albumin-binding-half-life-extension": {
+    "sources": [
+      {
+        "identifier": "REF-manual600-albumin-binding-half-life-extension",
+        "title": "Acylated heptapeptide binds albumin with high affinity and furnishes long-acting peptides",
+        "url": "https://www.nature.com/articles/ncomms16092",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-084576-A1",
+        "title": "Materiales y metodos para conjugar un derivado de acido graso hidrosoluble a una proteina",
+        "url": "https://patents.google.com/patent/AR084576A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "24bb78d0b58cb93f6d3095de03e129010b5e02a971074ecac19f7df8115956e7",
+        "review_note": "기존 초록 검토: 말단 알코올 산화 후 옥심 결합과 PEG 접합. 알부민 결합 및 산화 단계는 별도 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 알부민 결합에 의한 체내 잔류 조절: 분자가 혈중 알부민과 가역적으로 결합하면 자유 분율과 분포·제거 경로가 달라져 순환 반감기가 길어질 수 있다. 친화도·해리·종 차이·대사·약리 활성에 의존한다. 항원 표적 전달이나 분자 자체 분해 억제와 구분하며 결합만으로 반감기 연장을 보장하지 않는다.; 알코올 산화에 의한 카보닐 형성: 일차·이차 알코올의 산화로 탄소·산소 이중결합이 형성되어 각각 알데하이드 또는 케톤으로 전환될 수 있다. 일차 알코올은 조건에 따라 산까지 추가 산화될 수 있다. 탈수 알켄 형성과 결합 변화가 다르며 일반 삼차 알코올에는 같은 전환을 적용하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-109680-A1",
+        "title": "Proteínas recombinantes y sus usos",
+        "url": "https://patents.google.com/patent/AR109680A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "19f9e2bca3efd225b6702b001d9cbe853dcbc86482c7e9ea9ba340e450c83ccf",
+        "review_note": "혈청 알부민 결합 앵키린 반복 도메인을 포함한다. 결합을 보존할 때의 잔류 조절 원리이며 체내 수치를 추정하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-peptidoglycan-precursor-sequestration": {
+    "sources": [
+      {
+        "identifier": "REF-manual-final-peptidoglycan-precursor-sequestration",
+        "title": "Crystal structures of the complexes between vancomycin and cell-wall precursor analogs",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18976660/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-093543-A1",
+        "title": "Composiciones en forma de polvos secos que comprenden vancomicina, y metodos relacionados",
+        "url": "https://patents.google.com/patent/AR093543A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "2ab87ed67cfa70697608f1fb9cce8989dd0f81fcc770d2e755a01e88f528e8e0",
+        "review_note": "문헌·중복 검토 후 연결: peptidoglycan-precursor-sequestration; 반코마이신은 세포벽 전구체의 D-Ala-D-Ala 말단과 결합하여 효소가 기질을 사용하는 과정을 방해하고 펩티도글리칸 조립을 저해한다. 표적 말단의 치환·약물 접근성·농도에 의존한다. 효소 활성 부위를 직접 막는 저해와 구분되는 기질 포획이며 모든 항균제에 적용하지 않는다. 흡입 제형의 임상 효능은 별도 검증 대상이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-siderophore-sequestration-iron-starvation": {
+    "sources": [
+      {
+        "identifier": "REF-manual-final-siderophore-sequestration-iron-starvation",
+        "title": "Lipocalin 2 mediates an innate immune response to bacterial infection by sequestrating iron",
+        "url": "https://www.nature.com/articles/nature03104",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-105257-A1",
+        "title": "Moléculas de fusión que tiene especificidad de unión a pioverdina y pioquelina",
+        "url": "https://patents.google.com/patent/AR105257A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "cb0337eee8524c5debb87850d6fe20e216382c905522a44ff97d9450546987d3",
+        "review_note": "문헌·중복 검토 후 연결: siderophore-sequestration-iron-starvation; 철을 운반하는 시데로포어를 외부 결합체가 포획하면 미생물이 회수할 수 있는 철이 줄어 철 의존성 증식이 제한될 수 있다. 결합체의 시데로포어 특이성·철 공급·대체 획득 경로에 좌우된다. 리포칼린 연구 결과를 모든 피오베르딘 결합체에 그대로 적용하지 않는다. 수송체 직접 저해와 달리 운반체를 가로챈다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-immune-checkpoint-blockade": {
+    "sources": [
+      {
+        "identifier": "REF-manual400-checkpoint",
+        "title": "Krummel and Allison (1996) · CTLA-4 engagement inhibits IL-2 accumulation and cell-cycle progression, original experiments",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/8676074/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-060306-A1",
+        "title": "Terapia de combinacion de anticuerpos contra ctla4",
+        "url": "https://patents.google.com/patent/AR060306A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "5aa17f73281f3b5d7f7a3a50d022355d5c8e49d620893c05f322c78999afe38e",
+        "review_note": "CTLA-4 표적 항체 CP675206 또는 ipilimumab 병용을 명시한다. CTLA-4 억제 신호 차단은 원 논문과 표적을 대조한 기전 해석이며 환자별 임상 효과를 보장하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-083957-A1",
+        "title": "Tratamiento para modular las celulas nk y metodos para tratar malignidad hematologica",
+        "url": "https://patents.google.com/patent/AR083957A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "cde273cca92b453cb9e7c5e56362140d4d8e1fca6000939ba01eabf1cb105509",
+        "review_note": "NK 억제 수용체 신호를 차단해 표적 세포 반응을 높인다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-086582-A1",
+        "title": "Anticuerpos anti-kir para el tratamiento de trastornos inflamatorios y autoinmunes",
+        "url": "https://patents.google.com/patent/AR086582A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "0bf3f8cf6ec4a602dff7c0effb6064ed18152f23da16d2fc8887c037ca540871",
+        "review_note": "NK 세포의 억제성 KIR 수용체를 중화한다. 치료 결과는 별도 평가한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-098820-A1",
+        "title": "Anticuerpos contra pd-1 canino",
+        "url": "https://patents.google.com/patent/AR098820A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "3031916664cb20f8f750768ae1217716a8b48565de5e4d7969484ce305261feb",
+        "review_note": "개의 PD1 표적 항체를 이용하는 면역 체크포인트 적용이다. 종 차이를 신규 원리로 세지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-103675-A1",
+        "title": "Anticuerpos anti-ctla4 terapéuticos",
+        "url": "https://patents.google.com/patent/AR103675A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "7e66f8e8d429a87420be21d4fa15cf571749e5ecab69c132acf986658745a27e",
+        "review_note": "CTLA4·B7 결합 차단으로 면역 반응을 높이는 항체 및 발현을 명시한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-105053-A1",
+        "title": "Inmunomoduladores",
+        "url": "https://patents.google.com/patent/AR105053A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "005c2a89230dfa4bd25e630f8c77f68f8637dd0b7c406b462f70dc67e6043117",
+        "review_note": "PD1·PDL1 및 PDL1·CD80 결합을 억제하는 고리 펩타이드이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-107802-A1",
+        "title": "Inmunomoduladores",
+        "url": "https://patents.google.com/patent/AR107802A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "1aef1544ae64122bb75e5f6f66f8246bb1e785ac179e037135a7110db40ce55c",
+        "review_note": "PD1·PDL1 및 PDL1·CD80 상호작용을 억제한다. 펩타이드 가교는 준비된 입체구조 구속의 추가 사례다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-111485-A1",
+        "title": "Inhibidores pd-1 / pd-l1",
+        "url": "https://patents.google.com/patent/AR111485A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "d34f1f30c6bdb88533d671e8b0ffe39ecb7c3c235e6d70804b2ca91b2fcb5bae",
+        "review_note": "PD1·PDL1 상호작용 억제 화합물이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-113805-A1",
+        "title": "Composiciones y métodos para tratar cáncer hepático",
+        "url": "https://patents.google.com/patent/AR113805A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "0eb73cca38a5fecea9f70cdbf0a08e0160882869a2a3ebe2fae0bb96fd95dc6d",
+        "review_note": "종양용 바이러스와 PD1 항체의 조합이다. 바이러스 복제·용해의 기여는 별도 확인한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-116526-A1",
+        "title": "Anticuerpos anti-hla-g, composiciones que comprenden anticuerpos anti-hla-g y métodos de uso de anticuerpos anti-hla-g",
+        "url": "https://patents.google.com/patent/AR116526A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "69c3241139f960e82c1f719b5a2875b4cab3d651d80e7f4250fc12b6262525a0",
+        "review_note": "HLA G의 면역 억제 수용체 상호작용 차단이다. 항체 작용 수준으로만 연결하며 벡터 제작은 재구성하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-117774-A2",
+        "title": "Anticuerpos humanos que se unen al gen 3 de activación linfocitaria (lag-3) y los usos de estos",
+        "url": "https://patents.google.com/patent/AR117774A2/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "1b53d65604740592ceef03c10de81a879443f9249457b9adbcd9c8055734b02a",
+        "review_note": "LAG3와 MHC의 결합 차단에 의한 면역 조절이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-134638-A1",
+        "title": "Anticuerpo monoclonal anti-pd-1 y métodos de uso del mismo",
+        "url": "https://patents.google.com/patent/AR134638A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "d27c8f8ac6a7359de81635aa68851d26be2a671b76488c6352edb9b6b5930b88",
+        "review_note": "PD1 항체 면역 체크포인트의 응용이며 투여 일정의 우월성을 인정하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-innate-pattern-recognition": {
+    "sources": [
+      {
+        "identifier": "REF-manual500-innate-pattern-recognition",
+        "title": "Hemmi et al.: A Toll-like receptor recognizes bacterial DNA",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11130078/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-066676-A1",
+        "title": "Composicion antigenica liofilizada que contiene un agonista del receptor tipo toll",
+        "url": "https://patents.google.com/patent/AR066676A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "c70f4a58ce4373c347260f081a19e542bd18aa57dc201a8970bcf8d1a6f1f4c0",
+        "review_note": "기존 검토: 항원·TLR9 작용 올리고뉴클레오타이드의 동결건조 백신이다. 선천 면역의 패턴 인식 수용체 활성은 추가 후보이다. 문헌 대조 후 원리 연결: 패턴 인식 수용체의 선천 면역 신호: TLR 같은 수용체가 특정 분자 패턴을 인식해 세포내 신호와 염증·면역 반응을 유도한다. 수용체·분자 패턴·세포내 위치·종·용량에 의존한다. 과도한 염증과 비표적 반응을 고려하며 항원 특이 면역 기억과 구별한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-088220-A1",
+        "title": "Activacion de celulas dendriticas humanas por el receptor de dectina-1 o de tipo toll 2 (tlr2) en el control de la alergia y el asma",
+        "url": "https://patents.google.com/patent/AR088220A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "23b3898c80ef32614cc3375be7a6e0a24786de12404b6d19cbdbdc5720fb8a11",
+        "review_note": "Dectin-1·TLR2 신호와 항원 특이 면역 반응을 조절한다. 치료 성능이나 구체 생물 제작 조건은 다루지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-091569-A1",
+        "title": "Receptores de tipo toll",
+        "url": "https://patents.google.com/patent/AR091569A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "df19e6fa8a8e811f1feff57d3bd3897de302910ba906b45f1199cc218bc02d32",
+        "review_note": "Toll 계열 수용체의 핵산 패턴 인식이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-095640-A1",
+        "title": "Composiciones y método para modular la inmunidad en plantas",
+        "url": "https://patents.google.com/patent/AR095640A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "c4a5453e598b99ef8d5a4d70169811f9e1eb1fa2d6948c8f70dfd4ba38ff5b67",
+        "review_note": "아스카로사이드 신호에 따른 식물 방어 유도이다. 전신 방어 후보의 관련 사례이나 전신성은 초록만으로 단정하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-111910-A2",
+        "title": "Composición inmunogénica que comprende una formulación de adyuvante, composición de vacuna, procedimiento, usos, métodos",
+        "url": "https://patents.google.com/patent/AR111910A2/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "d3504f2e655e220c86174f4f1aa84981a858fd10e37b0bf74027f7906aadf8ae",
+        "review_note": "항원과 CpG 보조제의 면역 유도 조성이다. 제조·투여 조건을 재구성하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-112689-A1",
+        "title": "Agonistas del receptor tipo toll 7 (tlr7) que tienen porciones aromáticas ligadas al heteroátomo, conjugados de estos y métodos y usos de estos",
+        "url": "https://patents.google.com/patent/AR112689A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "d4902194c160161e40327a5faa7c3c83a075f865e3195ec21ea1df47f1b90bea",
+        "review_note": "TLR7 작용제가 선천 면역 신호를 활성화한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-113950-A1",
+        "title": "Composiciones inmunoestimulantes",
+        "url": "https://patents.google.com/patent/AR113950A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "2e49ea017e96749d00e82db7662d01d7d1cccb5342bd5d2b43e5e53e7329eaa4",
+        "review_note": "TLR21을 자극하는 조류용 면역 조성이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-114163-A1",
+        "title": "3’3’ dinucleótidos cíclicos con enlace de fosfonato que activan la proteína adaptadora sting",
+        "url": "https://patents.google.com/patent/AR114163A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "74aab08632fee2a351df36b6229c9a598cddd827fb5b3b43a21f977c0411d479",
+        "review_note": "고리형 디뉴클레오타이드의 STING 활성화이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-114463-A1",
+        "title": "Compuestos agonistas de sting",
+        "url": "https://patents.google.com/patent/AR114463A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "5442c59963434347503f817f65af1774c00c7ee4ac2b9d6af1ba8de0656759b9",
+        "review_note": "STING 신호를 활성화해 인터페론 반응을 유도한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-114995-A1",
+        "title": "2’3’ dinucleótidos cíclicos con enlace de fosfonato que activan la proteína adaptadora sting",
+        "url": "https://patents.google.com/patent/AR114995A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "09f7fe1e31d44367757c4b575b78234bdc5aeaf7299f1c1abfac52361de524b7",
+        "review_note": "STING 작용제로 선천 면역 신호를 조절한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-115693-A1",
+        "title": "Compuestos y composiciones para tratar condiciones asociadas con la actividad de sting",
+        "url": "https://patents.google.com/patent/AR115693A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "d091600ef9739fdf46d916ffb057773a4c7ad2f20f97651c0d9f53f4e4f96f41",
+        "review_note": "STING 선천 면역 신호의 길항 조절이다. 활성화와 억제 방향을 구분한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-117134-A1",
+        "title": "Receptores tipo quinasa quiméricos de reconocimiento de patrones",
+        "url": "https://patents.google.com/patent/AR117134A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "e1796373e1c0ad7cc9d86eecdd4f49b0785dfe199b46e20fc472fc332bdd293f",
+        "review_note": "식물의 패턴 인식 외부 도메인과 내부 키나아제 신호 도메인을 결합한다. 키메라 수용체 신호 결합 후보의 식물 사례이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-117573-A1",
+        "title": "Formas cristalinas de un inhibidor tlr7 / tlr8",
+        "url": "https://patents.google.com/patent/AR117573A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "0e94d48f5d8fbabaec3b429eec6174ed7c9705e91b151d213eb9ddd37556c6f2",
+        "review_note": "TLR7·8 억제제의 결정형이다. 결정형만으로 새로운 결정 전이 효과를 세지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-117633-A1",
+        "title": "Activadores de la vía inducible del gen rig-i del ácido retinoico y métodos de uso de los mismos",
+        "url": "https://patents.google.com/patent/AR117633A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "bbe3e4891f669410f5c0c3f968cdcf1fc749a9150fb49247bd36fc420f4940f6",
+        "review_note": "RIG-I 경로 활성화이다. 세부 결합 방식은 단정하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-117837-A1",
+        "title": "Compuestos y composiciones para tratar condiciones asociadas con la actividad de sting",
+        "url": "https://patents.google.com/patent/AR117837A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "21164a2ca554e8274453b55540559abbf61be42d40ff84a6729794f988d3c627",
+        "review_note": "STING 신호 억제 화합물이다. 복잡한 치환기 목록을 각각 효과로 세지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-119148-A1",
+        "title": "Compuestos heterocíclicos sustituidos y composiciones para tratar afecciones asociadas con la actividad de sting",
+        "url": "https://patents.google.com/patent/AR119148A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "7a96f9bc94aa8932ecee4332514ad2912460d1711bfe1889d55bd12e0e8c2f02",
+        "review_note": "STING 억제제의 구조 변형이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-120540-A1",
+        "title": "Compuestos de 1,8-naftiridin-2-ona para el tratamiento de una enfermedad autoinmunitaria",
+        "url": "https://patents.google.com/patent/AR120540A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "5ce0fa536b2726be039d0e26bf3937fb3578c36a7b6187956993b1071a92f11c",
+        "review_note": "TLR7·8·9 길항으로 선천 면역 신호를 조절한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-132060-A1",
+        "title": "Compuestos heterocíclicos como antagonistas de sting",
+        "url": "https://patents.google.com/patent/AR132060A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "308734de0ae6210991913c93a3e727133e60328423051d5e2b5919b30c9ef39b",
+        "review_note": "STING 길항의 선천면역 신호 조절 범위만 연결한다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-133191-A1",
+        "title": "Adyuvantes anfifilicos tlr7/8 y usos de estos",
+        "url": "https://patents.google.com/patent/AR133191A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "8b718c1086aadf046e098251f546b03d1f36092623683c4e98ad4883e895b8c5",
+        "review_note": "TLR7/8 자극의 선천면역 경로이며 예방 효능을 확정하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-terminal-sialylation": {
+    "sources": [
+      {
+        "identifier": "REF-manual500-terminal-sialylation",
+        "title": "Biological characterization of recombinant human follicle stimulating hormone isoforms",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/10325254/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-071479-A1",
+        "title": "Hormona foliculo estimulante recombinante (rfsh) con union de acido sialico en a2,3 y a2,6",
+        "url": "https://patents.google.com/patent/AR071479A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "1145829b33ea7d1a4251bb476bfeded5f6fd608cb24e62317cfe11c88d75d081",
+        "review_note": "기존 검토: sialyltransferase로 rFSH 말단 sialic acid 결합 형태를 바꾼다. glycosylation에 따른 소실 속도 조절 후보. 문헌 대조 후 원리 연결: 말단 시알산에 따른 당단백질 제거 조절: 당사슬 말단의 시알산은 하위 당 잔기의 노출과 수용체 인식을 바꾸어 당단백질의 순환 제거·분포에 영향을 줄 수 있다. 시알산 양·결합 방식·당사슬·종·단백질을 확인한다. 반감기와 생물학적 활성은 각각 평가하며 모든 시알산 증가를 유리하다고 보지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-089324-A1",
+        "title": "Composiciones, metodos y kits para la preparacion de proteinas recombinantes sialiladas",
+        "url": "https://patents.google.com/patent/AR089324A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "280af2464a06adc9f8da847189084416f2945e745323c901fbe294716ad474fa",
+        "review_note": "재조합 발현과 시알산 전달효소로 단백질 말단 시알산 패턴을 바꾼다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-094317-A1",
+        "title": "Polipéptidos del factor vii de acción corta",
+        "url": "https://patents.google.com/patent/AR094317A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "2626717f6acdd9e7db630e4982afc0bbba0ce611c0b433553924883c800d64db",
+        "review_note": "시알산 변화로 Factor VII의 제거 시간을 조절한다. 응고 효소 전구체의 절단 활성화는 별도 문헌 후보이다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      },
+      {
+        "identifier": "AR-112541-A1",
+        "title": "Composición para estimulación ovárica controlada con hef recombinante",
+        "url": "https://patents.google.com/patent/AR112541A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "bbd22c5bcc6b0c5fe2b6f397a90e4c91693ac9b9628f6b0e6720b132dc7f9b04",
+        "review_note": "난포 자극 호르몬 제제와 말단 시알산 수식이다. 환자별 투여 권고로 해석하지 않는다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-chimeric-receptor-signal-coupling": {
+    "sources": [
+      {
+        "identifier": "REF-manual-final-chimeric-receptor-signal-coupling",
+        "title": "Specific activation and targeting of cytotoxic lymphocytes through chimeric single chains consisting of antibody-binding domains and the gamma or zeta subunits of the immunoglobulin and T-cell receptors",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/8421711/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-098848-A1",
+        "title": "Receptores de antígeno quimérico de mesotelina humana y usos de los mismos",
+        "url": "https://patents.google.com/patent/AR098848A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "7a3f4eb3cdf1df5779c6c927399a92fd06b2095915eb61d717d37c376950b233",
+        "review_note": "문헌·중복 검토 후 연결: chimeric-receptor-signal-coupling; 세포외 항원 결합 영역을 세포내 활성화 영역에 연결한 키메라 수용체를 발현하면 선택적 항원 인식을 해당 세포의 활성 신호로 바꿀 수 있다. 결합 영역·간격·막 배치·신호 모듈·항원 밀도·세포 상태에 의존한다. 비표적·상시 신호와 기능 저하를 평가한다. 외부 이중항체가 두 세포를 연결하는 방식 및 Fc 매개 ADCC와 구조가 다르다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MERGED-20260927-radiocarbon-source-apportionment": {
+    "sources": [
+      {
+        "identifier": "REF-manual600-radiocarbon-source-apportionment",
+        "title": "NIST: Identifying Carbon Compounds Derived from Fossil Fuels",
+        "url": "https://www.nist.gov/news-events/news/2017/09/new-method-identifying-carbon-compounds-derived-fossil-fuels",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "reference_section"
+      },
+      {
+        "identifier": "AR-076947-A1",
+        "title": "Un metodo para utilizar mediciones de 14 c para determinar el porcentaje natural de las composiciones de limpieza",
+        "url": "https://patents.google.com/patent/AR076947A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "1e1fae78d3fed7cf6dfa25e139814e9944d96d170b0a6a65e2ae2e90338d07cd",
+        "review_note": "기존 초록 검토: 방사성 탄소 자료로 화석·재생 탄소 비율을 구한다. 붕괴 자체와 동위원소 조성 기반 출처 추정을 구분해 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 방사성 탄소비에 의한 탄소 기원 추정: 화석 탄소와 최근 생물 기원 탄소의 탄소-14 상대량 차이를 측정하면 혼합물의 탄소 기원 비율을 추정할 수 있다. 기준 조성·오염·동위원소 보정이 필요하다. 방사성 붕괴를 바탕으로 한 측정 응용이며, 탄소 연령이나 총 원소 농도 측정과 출력이 다르다.",
+        "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+      }
+    ]
+  },
+  "MANUAL-DE-19948188-A1-ad8888aaa66f": {
+    "sources": [
+      {
+        "identifier": "DE-19948188-A1",
+        "title": "Seal for gap between shaft and housing comprises roller bearing and cassette which are biased towards each other by annular spring",
+        "url": "https://patents.google.com/patent/DE19948188A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "ad8888aaa66fedf2ee966bc1eda4480ded9376a96a2fb109a014135b6a3ab61b",
+        "review_note": "축방향으로 유연한 환형 스프링이 베어링과 밀봉부를 가압한다. 스프링 변형에 따른 복원력에 연결하며 초록에 없는 백래시 억제 성능은 추론하지 않는다."
+      }
+    ]
+  },
+  "MANUAL-PH-12020551898-A1-0912fe479743": {
+    "sources": [
+      {
+        "identifier": "PH-12020551898-A1",
+        "title": "Methods for enhancing the bioavailability and exposure of a voltage-gated potassium channel opener",
+        "url": "https://patents.google.com/patent/PH12020551898A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "0912fe4797434e06f4f8eed8dbcb364a0971c2afc9559c17f14b5a096c9de31c",
+        "review_note": "식후 경구 투여하는 칼륨 채널 알로스테릭 조절제를 명시한다. 채널 조절 원리의 적용 근거로만 연결하며 식사의 흡수 개선 경로나 임상 유효성을 검증한 것으로 취급하지 않는다."
+      }
+    ]
+  },
+  "MANUAL-KR-100976133-B1-727b36b41ea6": {
+    "sources": [
+      {
+        "identifier": "KR-100976133-B1",
+        "title": "Led lamp apparatus",
+        "url": "https://patents.google.com/patent/KR100976133B1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "727b36b41ea693e3f5e8b6937412b6ae0b9a520c5f08892d19020c60b3af8de0",
+        "review_note": "LED의 열을 방열판으로 전달해 제거하는 경로가 기재되어 있다. 열전도에 연결하며 반사판의 높이·기울기 최적화는 추가 기전으로 세지 않는다."
+      }
+    ]
+  },
+  "MANUAL-TW-I271474-B-3ebcdf7c2edf": {
+    "sources": [
+      {
+        "identifier": "TW-I271474-B",
+        "title": "Fan blade structure for a kitchen ventilator",
+        "url": "https://patents.google.com/patent/TWI271474B/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "3ebcdf7c2edfaf4165483479876659f5bedf59e2dec8a6e73229fb171e21c641",
+        "review_note": "회전하는 곡선 날개와 덕트로 공기를 내보내는 방사형 송풍기이다. 회전 유동의 운동량 전달에 연결하며 난류 소멸 등 정량 성능은 검증되지 않았다."
+      }
+    ]
+  },
+  "MANUAL-TR-201007672-A2-910b616709ee": {
+    "sources": [
+      {
+        "identifier": "TR-201007672-A2",
+        "title": "Elektro-eğirme tekniğiyle nikel ve bor katkılı termoelektrik sodyum kobalt oksit nano kompozit üretim  yöntemi ve üretimi.",
+        "url": "https://patents.google.com/patent/TR201007672A2/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "910b616709ee24bff1ecdef67ea8e1ea2547237043ab0632f2dc7edfb694b9c8",
+        "review_note": "고분자와 금속염 혼합액의 전기방사 후 고온 소성으로 세라믹 섬유를 얻는다. 전기방사 단계만 연결하며 열전 성능과 제벡 계수는 초록만으로 검증하지 않는다."
+      }
+    ]
+  },
+  "MANUAL-CY-1117895-T1-51c4347f149a": {
+    "sources": [
+      {
+        "identifier": "CY-1117895-T1",
+        "title": "Στερεα φαρμακευτικα σκευασματα που περιεχουν bibw 2992",
+        "url": "https://patents.google.com/patent/CY1117895T1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "51c4347f149ae6100d8f054beed773b44cc1cf4167798fec0f1c2a32c3baefde",
+        "review_note": "고형 제형을 롤러 압축과 체질로 제조하는 공정이 명시되어 있다. 압력에 의한 입자 치밀화 단계에 연결하며 즉시 방출의 분자적 경로는 별도로 확인되지 않았다."
+      }
+    ]
+  },
+  "MANUAL-FR-2928449-A1-b4e70a334367": {
+    "sources": [
+      {
+        "identifier": "FR-2928449-A1",
+        "title": "Dispositif d&#39;echange de chaleur et procede de fabrication d&#39;un element d&#39;echange de chaleur pour un dispositif d&#39;echange de chaleur",
+        "url": "https://patents.google.com/patent/FR2928449A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "b4e70a33436707eee4da6278f8f82749b710967b79f0fefec41d9e7ee7faac82",
+        "review_note": "분리된 두 유체 경로 사이에 흑연 폼 전도체를 두어 열을 전달한다. 유체를 직접 혼합하지 않는 고체 전도 경로에 연결한다."
+      }
+    ]
+  },
+  "MANUAL-PE-20151813-A1-110c36746cde": {
+    "sources": [
+      {
+        "identifier": "PE-20151813-A1",
+        "title": "Compuestos y metodos para aislar oro",
+        "url": "https://patents.google.com/patent/PE20151813A1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "110c36746cde8098ac72b9cc20b0d2beb4158bc5af4f2cf7b73b4aa60e825457",
+        "review_note": "금 할로겐화물 용액의 산·염기 처리 후 사이클로덱스트린 첨가로 고체를 석출시키는 경로가 명시된다. 석출에 연결하며 공동 포접의 세부 구조는 추론하지 않는다. 저장 초록 말미가 끊긴 세 번째 방법은 검토 범위에 포함하지 않는다."
+      }
+    ]
+  },
+  "MANUAL-KR-100547881-B1-b26d84ba4afd": {
+    "sources": [
+      {
+        "identifier": "KR-100547881-B1",
+        "title": "Mode transition method of mobile station for wireless data service",
+        "url": "https://patents.google.com/patent/KR100547881B1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "b26d84ba4afdf0eb5156234a9b540c84735ade6150ec51e208ddf4bda5388bdb",
+        "review_note": "예정된 슬롯에서 비트를 확인하고 데이터가 있을 때 회로를 깨우며 없으면 대기 상태를 유지한다. 활성 시간 비율을 낮추는 절전 경로에 연결한다."
+      }
+    ]
+  },
+  "MANUAL-PL-249132-B1-1db14a740b23": {
+    "sources": [
+      {
+        "identifier": "PL-249132-B1",
+        "title": "Tubular air conditioner",
+        "url": "https://patents.google.com/patent/PL249132B1/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "1db14a740b23204748fd53891e47972e3890edd6173d449d68eb98d04c7a9797",
+        "review_note": "공기 덕트 둘레의 펠티어 셀과 안팎 방열판을 사용하는 구성이 명시된다. 열전 냉각 적용에 연결하며 시스템 순 냉각량이나 효율은 검증하지 않았다."
+      }
+    ]
+  },
+  "MANUAL-US-9921228-B2-5ecedc7a7ea9": {
+    "sources": [
+      {
+        "identifier": "US-9921228-B2",
+        "title": "Electronic lateral flow test arrangement and method",
+        "url": "https://patents.google.com/patent/US9921228B2/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "5ecedc7a7ea90deb4e513badbce7e5310cc21d118cf283ebe0f0664ae041e54d",
+        "review_note": "시험부의 리간드 결합과 시험·기준 커패시터의 시간별 차이 측정을 함께 명시한다. 표적 인식과 정전용량 측정에 연결하며 이동 스트립의 구체 모세관 경로는 추가 추론하지 않는다."
+      }
+    ]
+  },
+  "MANUAL-UA-159223-U-a532631900e4": {
+    "sources": [
+      {
+        "identifier": "UA-159223-U",
+        "title": "Method for the preparation of an iron-containing complex compound [fe(ncs)2(ligand)] with a sharp spin transition at a temperature close to the freezing point of water",
+        "url": "https://patents.google.com/patent/UA159223U/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "a532631900e4e17b7c1af34434172719d984271602ca23fca403c82d3d381e20",
+        "review_note": "철 착물의 온도에 따른 스핀 전환을 명시한다. 기존 스핀 전환 원리의 적용 사례로 연결하며 해당 합성물의 리간드장 에너지나 정량 성능을 직접 측정한 것으로 취급하지 않는다."
+      }
+    ]
+  },
+  "MANUAL-GB-2631090-A-7d0197d4262a": {
+    "sources": [
+      {
+        "identifier": "GB-2631090-A",
+        "title": "Wellhead system and method of operating a wellhead system",
+        "url": "https://patents.google.com/patent/GB2631090A/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "7d0197d4262a5a797a4e8106279f03876e0d82153aa62bc3da6728851fedf483",
+        "review_note": "웰헤드 행거의 선택적 실시예에서 스프링 캐리어로 연착륙을 지원한다. 그 스프링의 탄성 작용에만 연결하며 모터 정렬·걸림 구조 전부를 같은 효과로 해석하지 않는다."
+      }
+    ]
+  },
+  "MANUAL-TW-I910508-B-68c22d34ecf6": {
+    "sources": [
+      {
+        "identifier": "TW-I910508-B",
+        "title": "Preparation method of monomer composition for synthesising recycled plastic",
+        "url": "https://patents.google.com/patent/TWI910508B/en",
+        "source_type": "PATENT",
+        "retrieval_scope": "stored_patent_abstract",
+        "review_method": "conversation_reasoning",
+        "source_fingerprint": "68c22d34ecf66a73f5b17717c7f2f5cd327ba12a88241c5aa2a1a4c1ac0ada8e",
+        "review_note": "폴리카보네이트 분해액의 pH를 단계적으로 낮추고 방향족 디올을 결정으로 회수한다. pH에 따른 용해·석출 조절에 연결하며 명시되지 않은 가수분해 촉매 경로와 비용융제 기전을 추가하지 않는다."
+      }
+    ]
+  },
+  "MERGED-20260927-bridging-hydride-elimination-dinitrogen-activation": {
+    "sources": [
+      {
+        "identifier": "REF-research-20260927-bridging-hydride-elimination-dinitrogen-activation",
+        "title": "Reductive Elimination of H2 Activates Nitrogenase to Reduce the N≡N Triple Bond: Characterization of the E4(4H) Janus Intermediate in Wild-Type Enzyme",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5024552/",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "stored_search_excerpt",
+        "accessed_at": "2026-09-27",
+        "review_method": "conversation_reasoning",
+        "supports": "공개 문헌의 원리·조건을 대화에서 검토한 참고 근거. 초록·검색 발췌 범위는 원문 전체 검증과 구분하며 개별 응용의 성능을 보장하지 않는다."
+      }
+    ]
+  },
+  "MERGED-20260927-thiolate-nitroso-nitrogen-group-transfer": {
+    "sources": [
+      {
+        "identifier": "REF-research-20260927-thiolate-nitroso-nitrogen-group-transfer",
+        "title": "Transnitrosation between nitrosothiols and thiols",
+        "url": "https://pubs.rsc.org/en/content/articlelanding/1994/p2/p29940001131",
+        "source_type": "REFERENCE",
+        "retrieval_scope": "publisher_abstract",
+        "accessed_at": "2026-09-27",
+        "review_method": "conversation_reasoning",
+        "supports": "공개 문헌의 원리·조건을 대화에서 검토한 참고 근거. 초록·검색 발췌 범위는 원문 전체 검증과 구분하며 개별 응용의 성능을 보장하지 않는다."
+      }
+    ]
   }
 }

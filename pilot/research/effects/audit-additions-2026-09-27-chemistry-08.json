@@ -1,0 +1,37 @@
+{
+  "batch": "additions-2026-09-27-chemistry-08.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1707,
+  "added": 2,
+  "after": 1709,
+  "target": 2000,
+  "source_sha256": "26b331eab0ae5b7e3d12c767721265bac6789ba791d7b27e06670ed17c9efb09",
+  "decisions": [
+    {
+      "key": "ionic-atmosphere-frequency-relaxation-conductivity",
+      "group": 14,
+      "related_keys": [
+        "debye-mobile-charge-screening",
+        "maxwell-wagner-interfacial-charge-relaxation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정적 차폐의 길이나 이종 매질 경계 전하 축적이 아니라 균일 전해질의 이온 상관 구조가 이동에 뒤따르는 시간 지연의 수송 응답이다. 측정상 분리가 어려운 이론 효과라는 한계를 유지한다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/0022309394906424",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "cooperative-helical-mismatch-chiral-amplification",
+      "group": 16,
+      "related_keys": [
+        "temporary-chiral-auxiliary-stereodirection",
+        "templated-protein-conformation-propagation",
+        "crystal-ripening-solution-racemization-deracemization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 반응 자리의 입체 선택이나 접힘 씨앗의 복제와 달리 결합한 여러 단위의 나선 불일치 비용이 작은 편향을 집단 배치로 증폭한다. 분쇄·용해·라세미화 순환은 필요하지 않다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlehtml/2016/sc/c6sc02814d",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

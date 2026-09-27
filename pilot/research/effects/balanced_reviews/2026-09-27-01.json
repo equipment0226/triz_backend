@@ -1,0 +1,429 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "decisions_sha256": "aecac31b13b64ca24720c4e792789279407558918d1e4dcfa7b3bc48f70fecbc",
+  "reviews": [
+    {
+      "identifier": "US-12054856-B2",
+      "source_fingerprint": "da2d15c704f4a91aec61da828577bb03110d11df3625ee809fdd1ae2959e3ae1",
+      "content_hash": "42a8f034628f0b1d97d982599dc807f04eadc5d11daaf1f5364f44daecdba1ce",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "슬라이버 수용부의 입구와 후방 가이드 배치를 설명한다. 힘 전달이나 재료 반응의 독립 기전을 초록에서 특정할 수 없어 장치 배치로 기록한다."
+    },
+    {
+      "identifier": "WO-2014099066-A1",
+      "source_fingerprint": "b7d09ae7a66568af82d5fefd28ce132066897e3f88614d16a8de71164488b7ab",
+      "content_hash": "7350af471c84a141d3baa26e40830f292bb318a9bdfad6d8d7158319b4b75b6a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "다운홀 분포 음향 신호의 시간별 차이로 유동 등을 판별하지만 광학 변환 경로나 구체적 판정식은 제시하지 않는다. DAS라는 명칭만으로 레일리 산란 기전을 연결하지 않는다."
+    },
+    {
+      "identifier": "CN-110492211-A",
+      "source_fingerprint": "c56c7a142ebac9d2fe70bd9d88cdd9747ae43dfe109e7b6f1c8e3eed28995727",
+      "content_hash": "84f4be96aec42699b336e9eb795d7579a5e3430158955194372605e2a2c627e7",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "발포 코어와 천공 금속층 및 압출 피복의 도파관 구조·강도를 설명한다. 별도 파동 누설 기전을 추가할 근거는 부족하다."
+    },
+    {
+      "identifier": "DE-19948188-A1",
+      "source_fingerprint": "ad8888aaa66fedf2ee966bc1eda4480ded9376a96a2fb109a014135b6a3ab61b",
+      "content_hash": "b4c461c9f3ca7dee3a9b36ba1c8ce3f4f4d328db10ada44971183b98712b39fc",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "축방향으로 유연한 환형 스프링이 베어링과 밀봉부를 가압한다. 스프링 변형에 따른 복원력에 연결하며 초록에 없는 백래시 억제 성능은 추론하지 않는다."
+    },
+    {
+      "identifier": "MX-336713-B",
+      "source_fingerprint": "38802008d571f6117ad859938cc20d6215f860506a26fb15440f2015fe4a9b6e",
+      "content_hash": "3817acb9a6df90ad80438c9949ae54d96d9db5cc66ffd0dc8bb397731f6ebba2",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "운송 시 상부 페어링을 하부에 수납하고 힌지로 펼치는 구조이다. 운송 부피와 사용 높이를 전환하는 설계이며 독립 과학효과로 세지 않는다."
+    },
+    {
+      "identifier": "PH-12020551898-A1",
+      "source_fingerprint": "0912fe4797434e06f4f8eed8dbcb364a0971c2afc9559c17f14b5a096c9de31c",
+      "content_hash": "c32584a552d8d7d1f46b44ce757a5416b5797b181fd7d17da02c87bbe3683c51",
+      "decision": "LINK",
+      "keys": [
+        "ion-channel-modulation"
+      ],
+      "reason": "식후 경구 투여하는 칼륨 채널 알로스테릭 조절제를 명시한다. 채널 조절 원리의 적용 근거로만 연결하며 식사의 흡수 개선 경로나 임상 유효성을 검증한 것으로 취급하지 않는다."
+    },
+    {
+      "identifier": "CN-215441127-U",
+      "source_fingerprint": "66856f325d19c8da7a183e199e55cfe99ec12fbaa0a52f35957be5cb44ba83e6",
+      "content_hash": "5e65f3eada9710b446255b90ec4dbcfc59a57ee633d02adc4eefc56914952292",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "페달·연결봉으로 뚜껑을 움직이고 분리 가능한 내부망을 사용하는 세탁물 통 구조이다. 끼임 방지와 탈착의 기구 배치로 기록한다."
+    },
+    {
+      "identifier": "FR-2976014-A3",
+      "source_fingerprint": "60eb738e9d627efca57824fd4b43cca62d44a6a10b7125c1bb7407392f50ee32",
+      "content_hash": "41b9657b239d309ae39c0b0692145aa3cdec9d65f9e1ee4de38cebd009bdc397",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "접이식 사다리의 곡면 받침과 결합부 귀·공간 형상을 설명한다. 접고 펼치는 연결 형상을 별도 물리효과로 세지 않는다."
+    },
+    {
+      "identifier": "EP-2584610-A2",
+      "source_fingerprint": "5677a1174cfe80bcabee2569ab31ffacd47973f2e9af865df50eb7db9b417d5e",
+      "content_hash": "499786c8424089c28c0e41d2e73a3048ec76722de5c3d9fbffacdb9d46a17eac",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "광전 소자의 베이스·에미터 피복 면적과 전극 배치를 설명한다. 명칭만으로 광기전력의 구체적 전하 분리 경로까지 확인된 것으로 연결하지 않는다."
+    },
+    {
+      "identifier": "KR-100976133-B1",
+      "source_fingerprint": "727b36b41ea693e3f5e8b6937412b6ae0b9a520c5f08892d19020c60b3af8de0",
+      "content_hash": "9b1905b23b73088d144b967c8e8077aea110a85af4d6cf201b17c121046d1489",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction"
+      ],
+      "reason": "LED의 열을 방열판으로 전달해 제거하는 경로가 기재되어 있다. 열전도에 연결하며 반사판의 높이·기울기 최적화는 추가 기전으로 세지 않는다."
+    },
+    {
+      "identifier": "TW-I271474-B",
+      "source_fingerprint": "3ebcdf7c2edfaf4165483479876659f5bedf59e2dec8a6e73229fb171e21c641",
+      "content_hash": "94f89875de0651c559416fda06796741aa3dec752d12b56d2597112b5fe623a7",
+      "decision": "LINK",
+      "keys": [
+        "centrifugal-pumping"
+      ],
+      "reason": "회전하는 곡선 날개와 덕트로 공기를 내보내는 방사형 송풍기이다. 회전 유동의 운동량 전달에 연결하며 난류 소멸 등 정량 성능은 검증되지 않았다."
+    },
+    {
+      "identifier": "TR-201007672-A2",
+      "source_fingerprint": "910b616709ee24bff1ecdef67ea8e1ea2547237043ab0632f2dc7edfb694b9c8",
+      "content_hash": "4aad7cb7c67a4e410fc2f38db3b77a3dc442f50c7c0bb3b04dae079641acba77",
+      "decision": "LINK",
+      "keys": [
+        "electrospinning"
+      ],
+      "reason": "고분자와 금속염 혼합액의 전기방사 후 고온 소성으로 세라믹 섬유를 얻는다. 전기방사 단계만 연결하며 열전 성능과 제벡 계수는 초록만으로 검증하지 않는다."
+    },
+    {
+      "identifier": "WO-2010046092-A1",
+      "source_fingerprint": "1d64c05c6372e7d0813457e10c104a34942e6668f1dde23066e4ae636afb5b44",
+      "content_hash": "3468c0015519812a813ad4419f7e1e77dfb6bc3be44a2ecfee95ac4a40146306",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "직물 삽입용 유체의 측정 상태를 예상 상태와 비교한다. 센서의 변환 기전과 잔차 판정 규칙이 특정되지 않아 일반적인 감시 절차 이상의 연결을 보류한다."
+    },
+    {
+      "identifier": "ES-2220783-T3",
+      "source_fingerprint": "b77f85932e72ce7dfd13d07ff2db4f468c4ef238824ebfcbce5fa526754d0649",
+      "content_hash": "b741091f25a611f139b4ea3e2a926cbbd0f8d7ba6bbc74b964102020391c3b8f",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "중공 플라스틱과 천공 강재 보강부를 이용한 입면 프레임 구조이다. 열교 감소의 구체적 전달 경로를 초록 밖에서 추론하여 새 효과를 만들지 않는다."
+    },
+    {
+      "identifier": "UA-5965-U",
+      "source_fingerprint": "07378109fead75490e01178a9e76f2d93fc0404149fd367490dc983760d6a278",
+      "content_hash": "81bd322ce0707b6b1073ddd18b936ec40720e63f4f7d3ebc9edaf81a20ead44a",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "재받이·반사부·열교환기와 열풍 공급을 배치한 노 구조이다. 해당 초록으로는 개선을 일으키는 열전달 경로와 기존 구조 대비 인과를 충분히 구분하기 어렵다."
+    },
+    {
+      "identifier": "RU-73225-U1",
+      "source_fingerprint": "571264758cb495081605422c4409d168321fade878a2bc433296697c8597d55e",
+      "content_hash": "e8d0f01f8002eba0543581e4a2faa3907358c93c16798afc8587073ca43c7005",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "황 정제 탱크와 배출부의 비율을 제시한다. 실제 분리 구동 원리가 기술되지 않아 치수·배치 설계로 기록한다."
+    },
+    {
+      "identifier": "CL-2025002342-S1",
+      "source_fingerprint": "cd52da7dedb4adb98687e5f90c2b1b610e6f3dea1b3602b7363afd55e00c24ad",
+      "content_hash": "277365a0163749a63fbbdc470af0fd1c4d6f84c4cf176df05f50efa42821b881",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "밑창 형상의 디자인 문헌이며 저장 초록은 Pendiente라는 자리표시자뿐이다. 저장 필드는 확인했지만 기술 초록을 읽은 것으로 해석할 수 없고 기전 분석을 보류한다."
+    },
+    {
+      "identifier": "NO-313840-B1",
+      "source_fingerprint": "e2192041510c6f21407770b0fb7f04bb397492b55ff8ad45883ed46369088fdb",
+      "content_hash": "a971913b07373dd927ebbb80cb37a6ed8d320823ae03f340ae46666147ed914c",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "Phaffia 유래 발현 조절 서열과 형질전환 균주·벡터를 설명한다. 특정 조절 과정이나 변환 기전의 세부 근거가 부족하다."
+    },
+    {
+      "identifier": "CY-1117895-T1",
+      "source_fingerprint": "51c4347f149ae6100d8f054beed773b44cc1cf4167798fec0f1c2a32c3baefde",
+      "content_hash": "1af1abfcd0444f7ea29917c4da7e27153af6c55c3386c7ea78ae51af4a49c1aa",
+      "decision": "LINK",
+      "keys": [
+        "pressure-compaction"
+      ],
+      "reason": "고형 제형을 롤러 압축과 체질로 제조하는 공정이 명시되어 있다. 압력에 의한 입자 치밀화 단계에 연결하며 즉시 방출의 분자적 경로는 별도로 확인되지 않았다."
+    },
+    {
+      "identifier": "AT-E495619-T1",
+      "source_fingerprint": "3efb50e4a1cef56130165778634204e4de93473288f1aff0e54bcb68711df973",
+      "content_hash": "3d078dfb242bd4c56883d27ecbca8b71f8875b7f12b74e04f061c5a5d6076239",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "IP·UDP·RTP 계층 해석과 메시지 유형 통지 절차이다. 프로토콜 처리 구성 자체를 새로운 정보·물리 기전으로 추가하지 않는다."
+    },
+    {
+      "identifier": "FR-2928449-A1",
+      "source_fingerprint": "b4e70a33436707eee4da6278f8f82749b710967b79f0fefec41d9e7ee7faac82",
+      "content_hash": "0f9a0308c074be6862100827d3394c6a78bbae58e433e5be126c67bef7b3a61a",
+      "decision": "LINK",
+      "keys": [
+        "fourier-conduction"
+      ],
+      "reason": "분리된 두 유체 경로 사이에 흑연 폼 전도체를 두어 열을 전달한다. 유체를 직접 혼합하지 않는 고체 전도 경로에 연결한다."
+    },
+    {
+      "identifier": "CZ-2015158-A3",
+      "source_fingerprint": "0464865fa3950722e070bf364c1badf5826158c143517ee6cad69efd15b8aa56",
+      "content_hash": "8d1a07e087f21afa128591e919d3c4564f1f69bdb6158da7e23f60933fb6b688",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "방사형 수납부를 갖는 판매 드럼을 래칫·기어로 한 칸씩 회전시키는 기구이다. 결제와 제품 배출을 연결하는 장치 구조로 기록한다."
+    },
+    {
+      "identifier": "HU-P0201228-A2",
+      "source_fingerprint": "f7bd62347dd327fc2018d7a0c48453e50f8d664bd14696cabaced1e0c9fcfb41",
+      "content_hash": "7aa694b39f7f433b2c83ce48e00d87a5da239bdb3711b52448bf609e613a87f9",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "두 근교계의 교배로 얻는 특정 옥수수 F1 품종과 표현형을 기술한다. 다른 잡종과의 비교만으로 부모 대비 잡종강세 기전이 입증됐다고 연결하지 않는다."
+    },
+    {
+      "identifier": "PE-20151813-A1",
+      "source_fingerprint": "110c36746cde8098ac72b9cc20b0d2beb4158bc5af4f2cf7b73b4aa60e825457",
+      "content_hash": "7a7a1db229d611047cf08e07157027f968feb2144c6ebea254e68da3c0c4d55b",
+      "decision": "LINK",
+      "keys": [
+        "precipitation-reaction"
+      ],
+      "reason": "금 할로겐화물 용액의 산·염기 처리 후 사이클로덱스트린 첨가로 고체를 석출시키는 경로가 명시된다. 석출에 연결하며 공동 포접의 세부 구조는 추론하지 않는다. 저장 초록 말미가 끊긴 세 번째 방법은 검토 범위에 포함하지 않는다."
+    },
+    {
+      "identifier": "SE-541401-C2",
+      "source_fingerprint": "5683ded39ab4e9eae0fc5ee981a1879bda21be138429d4150381035e161d36c0",
+      "content_hash": "5b323cb325429ccaf2d9b95813fb65e5eb8ff7e0ce0fb224103001933a38a6c3",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "슬리브와 유지부를 상대 이동해 복강 내 임플란트를 방출하는 기구이다. 위치 이동·해제 구조를 독립 과학효과로 추가하지 않는다."
+    },
+    {
+      "identifier": "JP-2003155633-A",
+      "source_fingerprint": "bbb1097ce882da0043957b392737435721782efd73225c42e7e94afac4945c1c",
+      "content_hash": "689ddd7e7c19de35686ee4e31d1a2c6febd36802b3572c16a9e4d4a3143e7f89",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "가연 PTT 실의 지연 회복률 목표를 제시하지만 분자 이완 또는 구조 회복의 구체 경로는 초록에 없다. 성능 지표만으로 점탄성 기전을 입증했다고 연결하지 않는다."
+    },
+    {
+      "identifier": "KR-100547881-B1",
+      "source_fingerprint": "b26d84ba4afdf0eb5156234a9b540c84735ade6150ec51e208ddf4bda5388bdb",
+      "content_hash": "4def0949ac2b38f2db0ae092e218635f473e8cd6e6b13684a761e2f8848f547e",
+      "decision": "LINK",
+      "keys": [
+        "duty-cycled-power-saving"
+      ],
+      "reason": "예정된 슬롯에서 비트를 확인하고 데이터가 있을 때 회로를 깨우며 없으면 대기 상태를 유지한다. 활성 시간 비율을 낮추는 절전 경로에 연결한다."
+    },
+    {
+      "identifier": "PL-249132-B1",
+      "source_fingerprint": "1db14a740b23204748fd53891e47972e3890edd6173d449d68eb98d04c7a9797",
+      "content_hash": "5069d00f1070fa99cefb5cf6151633c1864748c17e91bc82cd2c18a6aca0fb9e",
+      "decision": "LINK",
+      "keys": [
+        "peltier-cooling"
+      ],
+      "reason": "공기 덕트 둘레의 펠티어 셀과 안팎 방열판을 사용하는 구성이 명시된다. 열전 냉각 적용에 연결하며 시스템 순 냉각량이나 효율은 검증하지 않았다."
+    },
+    {
+      "identifier": "US-9921228-B2",
+      "source_fingerprint": "5ecedc7a7ea90deb4e513badbce7e5310cc21d118cf283ebe0f0664ae041e54d",
+      "content_hash": "234bfb8f3a081a81d54d5252b64830f654b4a941c5c8c2ca02c1a61221f86cbf",
+      "decision": "LINK",
+      "keys": [
+        "capacitive-sensing",
+        "biomolecular-recognition"
+      ],
+      "reason": "시험부의 리간드 결합과 시험·기준 커패시터의 시간별 차이 측정을 함께 명시한다. 표적 인식과 정전용량 측정에 연결하며 이동 스트립의 구체 모세관 경로는 추가 추론하지 않는다."
+    },
+    {
+      "identifier": "DE-502005000931-D1",
+      "source_fingerprint": "ad593805814e6d197545a98c1419cc8c796bb5ccc67c4dd858cc5efb2b34e710",
+      "content_hash": "04ae1881e84047582edf674ba32308c206f2735156b276a5cbedd35a94985849",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "탄성체 와셔의 내외 치형 고리와 보강 연결부 구조이다. 형상과 지지 배치를 새 과학효과로 세지 않는다."
+    },
+    {
+      "identifier": "UA-159223-U",
+      "source_fingerprint": "a532631900e4e17b7c1af34434172719d984271602ca23fca403c82d3d381e20",
+      "content_hash": "3f59083f963b2d024b6eda906237865888b5a773c0595185b8fc2b7892ad3ccf",
+      "decision": "LINK",
+      "keys": [
+        "ligand-field-spin-crossover"
+      ],
+      "reason": "철 착물의 온도에 따른 스핀 전환을 명시한다. 기존 스핀 전환 원리의 적용 사례로 연결하며 해당 합성물의 리간드장 에너지나 정량 성능을 직접 측정한 것으로 취급하지 않는다."
+    },
+    {
+      "identifier": "CN-112376146-A",
+      "source_fingerprint": "d0191c3124a5935dc5b1c2590944f83f0fc155bafbd29cedbd90f11366b828f1",
+      "content_hash": "72a6fa1f275381d4f32489d0871db09d2e7e828484a092699a82fa85ee458767",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "흡습 발열 직물의 섬유 배합을 제시한다. 흡착열·용해열 등 열 발생 원인이 구분되지 않아 명칭만으로 기전을 선택하지 않는다."
+    },
+    {
+      "identifier": "GB-2631090-A",
+      "source_fingerprint": "7d0197d4262a5a797a4e8106279f03876e0d82153aa62bc3da6728851fedf483",
+      "content_hash": "f5da2c12073e58585520a8836526136aeb5159c18f2d73e2d1673c7c768e7279",
+      "decision": "LINK",
+      "keys": [
+        "elastic-energy-recovery"
+      ],
+      "reason": "웰헤드 행거의 선택적 실시예에서 스프링 캐리어로 연착륙을 지원한다. 그 스프링의 탄성 작용에만 연결하며 모터 정렬·걸림 구조 전부를 같은 효과로 해석하지 않는다."
+    },
+    {
+      "identifier": "CA-2358531-A1",
+      "source_fingerprint": "266cf8d4ebae208106d4665a6e359512091af9e39146e6731524dfbce94b6a1b",
+      "content_hash": "c60617537d0cf227d2f7f98d6f30808595021cb6fcae9b788ea99f878d258d77",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "클라이언트·서버·데이터베이스와 상태 변수로 웹 구성요소를 만드는 구조이다. 시스템 구성 외에 독립 정보처리 기전을 특정하지 않는다."
+    },
+    {
+      "identifier": "SE-523705-C2",
+      "source_fingerprint": "361dc9ed66274c6e93249e3dc02ddcb71061760e4c8c3bf4cb4e09cecf493a55",
+      "content_hash": "63bf57982310c7de0d97b81a7efae76b3f33a7b80c442db248a2c0edfe562e20",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "굴뚝용 시멘트 결합재·골재·감수제·공기연행제·콜로이드 실리카의 배합을 제시한다. 각 첨가제의 작동 기전이 초록에 설명되지 않아 배합 자체를 별도 효과로 만들지 않는다."
+    },
+    {
+      "identifier": "MY-204646-A",
+      "source_fingerprint": "97c2adba70cdff663be7752f87341205bf7c24e35ba88d851cfb6296a9d3a92f",
+      "content_hash": "47e8c0821bf10aeab9d4b145b0970f0a91755bdbd78cbe2e85bf272b8aea3ef1",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "식물 추출물 함량과 당뇨·항산화 관련 용도를 제시하지만 작용 경로가 없다. 안전성·효능 주장을 사실로 확인한 것으로 기록하지 않는다."
+    },
+    {
+      "identifier": "CN-101314878-A",
+      "source_fingerprint": "302faa79bee79fb6a8c553a0b9886970aea6eba1ec960a1c5f6de88352852328",
+      "content_hash": "cc02077f526f26a1c8189e4773b1d744ba17df6d1a82c684822c5442300d73a2",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "실의 장력 유도부·비틀림 축·힘 센서와 영점 보정 구성을 설명한다. 센서 변환 방식과 자기 보정의 실제 경로가 특정되지 않아 기전 연결을 보류한다."
+    },
+    {
+      "identifier": "MX-2021006218-A",
+      "source_fingerprint": "03eb855600fcfea228ac5762ea95c31144d0768e175b096671179e48732f704e",
+      "content_hash": "ee4842822de234df6c63eab36ded082d89bc38163ddbf30369dc6f08df32dfe6",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "영상 타일과 슬라이스 순서를 플래그로 표현하는 구문 구성이다. 초록에 없는 엔트로피 감소나 독립 압축 원리를 추론하지 않는다."
+    },
+    {
+      "identifier": "EP-1571382-A1",
+      "source_fingerprint": "d0068a2b1a75bebe4981d4cb881fc097dc86e7d3df051b0f19c0610da7d559a9",
+      "content_hash": "58eb8f40318bb9392e035d2f69a90c57daa2866caa2e0ce6e0a2b39cfedf4972",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "콘크리트 관과 소켓 단면을 덮는 플라스틱 라이닝 형상이다. 피복의 구성은 확인되지만 투과·반응종 차단의 구체 과정은 초록에 설명되지 않았다."
+    },
+    {
+      "identifier": "TR-2025011400-A2",
+      "source_fingerprint": "a09437f1187ada38256eb2bc3260a96a188dba9af4100a3dbb17c733cdbe453b",
+      "content_hash": "9d8646280686363b7e4b0672ded4733e336d243bad538b1ed8ed29572032239c",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "DevOps·CI/CD·ETL과 마이크로서비스를 연동하는 자동 배포 구성이다. 일반 소프트웨어 자동화 아키텍처를 새 과학효과로 추가하지 않는다."
+    },
+    {
+      "identifier": "AT-E437798-T1",
+      "source_fingerprint": "4459b834ed01df6afe7e6ecabd12870112d43d09514b8d5c990af2499518a164",
+      "content_hash": "f512c0e79e34def9fa2037b3141622f8360099aaea62c74557f1a49dbe56a9c5",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "착륙장치의 하중 지지 격자와 압력 외피를 분리한 구조이다. 부품별 하중 경로 배치를 별도 재료 기전으로 세지 않는다."
+    },
+    {
+      "identifier": "TW-I910508-B",
+      "source_fingerprint": "68c22d34ecf66a73f5b17717c7f2f5cd327ba12a88241c5aa2a1a4c1ac0ada8e",
+      "content_hash": "9164b471b5ae81e19c6b9f69b1b8b1e328b3acaf09b0d0af02892da88b53b4fe",
+      "decision": "LINK",
+      "keys": [
+        "ionization-solubility"
+      ],
+      "reason": "폴리카보네이트 분해액의 pH를 단계적으로 낮추고 방향족 디올을 결정으로 회수한다. pH에 따른 용해·석출 조절에 연결하며 명시되지 않은 가수분해 촉매 경로와 비용융제 기전을 추가하지 않는다."
+    },
+    {
+      "identifier": "NZ-579622-A",
+      "source_fingerprint": "31db4fd71328dd05dce5c775f38951e6e5f41b90ad21d5fb61fe6c1bfad0df38",
+      "content_hash": "95b09f42fbac5be89cc1209dba7fc328af4cb99e5b64621805157e9d99ddaf7b",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "약물·수용성 고분자·계면활성제의 고체 분산체 조성을 제시한다. 비정질 안정화나 용출 향상의 실제 경로·측정 결과가 없어 연결을 보류한다."
+    },
+    {
+      "identifier": "CN-215800309-U",
+      "source_fingerprint": "3743469d5b73389c20d23edc3d2287292a3eba6f8ea90deb290197c9074e7620",
+      "content_hash": "f47c17b1757de4cdc8f5b498e83832c932e21ce0c03314ec21905dc5d9ff7943",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "천을 누르고 절단·봉제 이동을 맞추는 기구 배치이다. 주름 억제 목적 자체를 새로운 물리 기전으로 추가하지 않는다."
+    },
+    {
+      "identifier": "WO-0071838-A1",
+      "source_fingerprint": "93e9f2bd56e10090afe30632ddc6bbe0c78ba7c24ada58b1b0a84f911eb0e8da",
+      "content_hash": "2ad36504e668e09676de796df1ca4ff9c660ee1bc9ae185542b99659ad623279",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "기둥과 적층 단판 서까래의 배치·간격으로 피난 구조물을 구성한다. 구조 형상 외에 별도 재료 변환 원리를 특정하지 않는다."
+    },
+    {
+      "identifier": "US-2009057122-A1",
+      "source_fingerprint": "004eaa380037bb7dc71ef66c9bbcca43afe5908ca739a0ae352b61c684d39737",
+      "content_hash": "f776e7cdf0bc0aafec9d59fe8dfc0f80ccd5f5832a68ab0edc484b7670b29870",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "접점·미끄럼 트리거·보조 브러시와 피벗 케이스의 전기 스위치 구성이다. 접속을 전환하는 부품 배치를 독립 과학효과로 세지 않는다."
+    },
+    {
+      "identifier": "CA-2588291-A1",
+      "source_fingerprint": "95582e8cb85d8fdb79ae8b539a68ce2a76bb32e797a4b49bc6463cfd008a77d6",
+      "content_hash": "fac6b565cdf6f943d6f6e504e4c6343e792e30b8ec809884b6cf940205e47c52",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "수준기 바이알과 프레임 홀더를 접착제 공간으로 고정하는 구조이다. 초록의 중심은 조립이며 부력 감지 경로는 별도로 설명되지 않는다."
+    },
+    {
+      "identifier": "MX-2022011670-A",
+      "source_fingerprint": "b9328d344412fcc44de6674a471c78ba794331017618157d999bbe790c0def45",
+      "content_hash": "1d9729aec1f23c0a858413e91763bc4b981df51064183df9638f250382a9cbbb",
+      "decision": "DESIGN_ONLY",
+      "keys": [],
+      "reason": "이중 포장층의 개구·탭·접힌 모서리로 테이퍼 물품을 붙잡는 구조이다. 결합 형상을 별도 효과로 추가하지 않는다."
+    },
+    {
+      "identifier": "KR-20200088865-A",
+      "source_fingerprint": "d66241509632db7391ca7c363a47ba7407f3377bbd868389f410a36e857afbc4",
+      "content_hash": "81dcddae210694d4f08711680f1910b092af916b15fa69d3d301de7d54be79a5",
+      "decision": "DEFER",
+      "keys": [],
+      "reason": "THF·에탄올·담체를 이용한 분무 건조 지글러·나타 전촉매를 짧게 기재한다. 수정된 촉매의 반응 경로나 변화 원인이 없어 별도 촉매 기전을 인정하지 않는다."
+    }
+  ],
+  "recorded_at": "2026-09-27T01:52:52.644758+00:00"
+}

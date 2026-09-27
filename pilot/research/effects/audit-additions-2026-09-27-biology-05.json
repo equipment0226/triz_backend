@@ -1,0 +1,171 @@
+{
+  "batch": "additions-2026-09-27-biology-05.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1837,
+  "added": 13,
+  "after": 1850,
+  "target": 2000,
+  "source_sha256": "809092f9c987277599459219bd4c3e5be0cfea6a1fc76b907bcb1bdeeaff92dd",
+  "decisions": [
+    {
+      "key": "carboxybiotin-decarboxylation-sodium-pumping",
+      "group": 18,
+      "related_keys": [
+        "atp-driven-membrane-transport",
+        "secondary-active-transport",
+        "biotin-carrier-atp-coupled-carboxylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "ATP 분해나 다른 이온의 하강 구배 대신 공유 카르복시비오틴의 탈탄산이 일차 수송 에너지를 공급한다. 탈탄산 기질별로 나누지 않는다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7274780/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "electron-recycling-ketyl-radical-dehydration",
+      "group": 18,
+      "related_keys": [
+        "alcohol-dehydration-to-alkene",
+        "ribonucleotide-thiyl-radical-deoxygenation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 산염기 탈수와 달리 일시적 일전자 환원이 어려운 제거를 연다. 전자를 계속 소비하는 탈산소 환원과도 달리 같은 전자를 되돌려 순환한다.",
+      "source_url": "https://www.nature.com/articles/nature06637",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "sam-methyl-dehydrogenation-cluster-carbide-installation",
+      "group": 18,
+      "related_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "persulfide-relay-iron-sulfur-cluster-assembly"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "라디칼 개시나 황 전달 자체가 아니라 메틸 탄소를 다배위 중심 탄화물로 가공하면서 두 금속 클러스터를 잇는 별도 조립 경로다.",
+      "source_url": "https://www.nature.com/articles/ncomms9034",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "ester-ionization-driven-geometric-isomerization",
+      "group": 18,
+      "related_keys": [
+        "photoinduced-geometric-isomerization",
+        "nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "빛 대신 에스터 이온화가 회전 가능한 공통 중간체와 구동력을 제공한다. 단순 가수분해와 광이성질화의 연속 응용이 아닌 동일 중간체의 결합 반응이다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4433804/",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "sequential-epoxide-ferryl-dioxygenative-ring-cleavage",
+      "group": 18,
+      "related_keys": [
+        "iron-catechol-alkylperoxo-aromatic-ring-cleavage",
+        "heme-monooxygenase-oxygen-insertion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "카테콜 킬레이트·알킬과산화 재배열과 달리 산소 두 원자를 에폭시종과 페릴종으로 나누어 순차 도입한다. 단순 헴 효소의 기질 교체로 구분하지 않는다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5874177/",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "iron-sulfur-bound-allyl-reductive-dehydroxylation",
+      "group": 18,
+      "related_keys": [
+        "ribonucleotide-thiyl-radical-deoxygenation",
+        "cobalamin-cobalt-carbon-radical-rearrangement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "티일 라디칼의 수소 제거·당 환원이나 코발트 결합 절단과 달리 철황 중심의 기질 직접 결합과 금속 안정화 알릴종이 탈산소를 매개한다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3821072/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "copper-thioaldehyde-cysteine-to-aldehyde-conversion",
+      "group": 18,
+      "related_keys": [
+        "heme-monooxygenase-oxygen-insertion",
+        "metal-sulfenate-nitrile-hydration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질 황의 직접 구리 배위·티오알데히드 생성·황 제거가 결합된다. 산소의 단순 C-H 삽입이나 산화된 황 리간드가 돕는 니트릴 수화와 변환 중간체가 다르다.",
+      "source_url": "https://pubs.acs.org/doi/10.1021/acscentsci.5c00183",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "atp-sulfinate-activation-thiosulfinate-repair",
+      "group": 18,
+      "related_keys": [
+        "glutaredoxin-thiol-redox",
+        "atp-dependent-protein-phosphorylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 이황화 교환이 환원하지 못하는 술핀산을 ATP로 활성화하고 산소를 가진 황·황 공유 중간체로 복구한다. 인산화 표지의 신호 기능과도 다르다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18552404/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "backbone-serinolysis-pyruvoyl-cofactor-maturation",
+      "group": 18,
+      "related_keys": [
+        "intein-autocatalytic-protein-splicing",
+        "protein-backbone-autocatalytic-chromophore-maturation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "초기 아실 이동은 인테인과 공유하지만 뒤의 베타 제거·탈아미노 가수분해가 새 케토 보조인자를 만든다. 양쪽 단백질 재연결이나 발색단 고리화가 아니다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11583148/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "cysteinyl-methylene-radical-carbon-methylation",
+      "group": 18,
+      "related_keys": [
+        "dna-cytosine-covalent-methylation",
+        "cobalamin-polar-methyl-carrier-transfer",
+        "iron-sulfur-radical-sam-activation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "메틸기의 친전자 전달 대신 단백질에 고정한 메틸렌 라디칼을 전달하여 일시적 탄소 가교를 만들고 끊는다. RNA 종류·표적 탄소 위치별로 나누지 않는다.",
+      "source_url": "https://pure.psu.edu/en/publications/crystallographic-capture-of-a-radical-s-adenosylmethionine-enzyme/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "amino-acid-fragment-derived-iron-carbonyl-cyanide-assembly",
+      "group": 18,
+      "related_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "persulfide-relay-iron-sulfur-cluster-assembly",
+        "hydrogenase-metal-hydride-proton-splitting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "라디칼 개시 뒤 유기 조각에서 무기 리간드를 만들고 철과 함께 운반하는 생합성 경로다. 황 원자 조립이나 완성 수소화효소의 수소 절단 반응과 다르다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/24458644/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "substrate-photoexcitation-stepwise-hydride-addition",
+      "group": 18,
+      "related_keys": [
+        "photocatalysis",
+        "concerted-proton-electron-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "효소에 묶인 반응 기질 자체의 여기가 첫 전자 전달을 열고 형식적 수소화물 전달을 여러 단계로 나눈다. 단일 협동 양성자·전자 이동이나 촉매 표면 광전하 생성과 다르다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5861667/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "hemiprotonated-cytosine-intercalated-folding",
+      "group": 18,
+      "related_keys": [
+        "guanine-quartet-cation-stabilized-folding",
+        "nucleic-acid-duplex-melting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "중심 양이온이 사중판을 배위하는 경로와 달리 반양성자화한 두 염기의 짝과 이중가닥 간 삽입이 결합된다. 가닥 수만 다른 일반 이중가닥 결합으로 세분한 것이 아니다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/8389423/",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

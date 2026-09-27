@@ -1,0 +1,313 @@
+{
+  "date": "2026-09-27",
+  "mode": "conversation_only",
+  "status": "ready_frozen",
+  "additions_file": "additions-2026-09-27-biology-04.tsv",
+  "canonical_mutated": false,
+  "count": 20,
+  "sha256_utf8_lf": "4abeec49ff33f62a9488629477777336afb4be36d51939e0d660e8d2615e5e64",
+  "scope_note": "Primary papers and official author-publication records only. Search-index body excerpts remain stored_search_excerpt. Opened primary abstract uses publisher_abstract; opened body passage uses reference_section. No external LLM API. General mechanism cards only; no actionable pathogen or toxin engineering.",
+  "evidence": [
+    {
+      "key": "voltage-dependent-mobile-blocker-pore-rectification",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0021925820435562",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "These polycationic blockers traverse a long (>70 Å) pore, displacing multiple permeant ions",
+      "limits": "Primary pore-scanning chemistry and electrophysiology distinguish a blocker migration barrier from binding affinity. Do not claim polyamines account for every component of inward rectification.",
+      "supplementary": []
+    },
+    {
+      "key": "tethered-peptide-open-channel-inactivation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2122520/",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "cytoplasmic domain that occludes the ion-conducting pore",
+      "limits": "Primary 1990 peptide rescue of deletion mutant; free peptide action is concentration dependent and not noticeably voltage dependent. Tethered open-state access, rather than just blocker identity, is the boundary with mobile polyamines.",
+      "supplementary": []
+    },
+    {
+      "key": "phosphoinositide-hydrolysis-intermembrane-lipid-exchange",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24209621/",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "A four-step cycle driven by PI(4)P hydrolysis",
+      "limits": "Primary reconstitution: OSBP tethering and lipid exchange, followed by ER Sac1 hydrolysis of returned PI4P, creates directional sterol transport. Other exchanged lipid identities are not additional cards.",
+      "supplementary": []
+    },
+    {
+      "key": "alternating-access-occluded-carrier-uniport",
+      "url": "https://www.nature.com/articles/nature14655",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "outward-open to outward-occluded entails a prominent local rearrangement",
+      "limits": "Opened Nature author abstract. GLUT3 outward-open/occluded structures are compared with GLUT1 inward-open, so the full dynamic cycle was inferred from related static structures, not filmed. Passive-carrier card does not claim pumping.",
+      "supplementary": []
+    },
+    {
+      "key": "nucleotide-hydrolysis-polar-filament-treadmilling",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0022283676801003",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "filaments grow at one end and shorten simultaneously at the other",
+      "limits": "Primary radiolabeled subunit incorporation/release; abstract explicitly connects sustained treadmilling with irreversible ATP dephosphorylation. Not the mere head-to-tail orientation of actin subunits.",
+      "supplementary": []
+    },
+    {
+      "key": "flavin-photoinduced-carboxylate-decarboxylation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33833098/",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "decarboxylation occurs directly upon reduction of the excited flavin by the fatty acid substrate",
+      "limits": "Primary time-resolved spectroscopy/crystallography and computations. Card omits disputed exact bicarbonate-production route. Photoinitiated electron transfer and radical return distinguish the path from thermal protodecarboxylation.",
+      "supplementary": []
+    },
+    {
+      "key": "flavin-n5-covalent-sugar-ring-contraction",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4819441/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "In Crystallo Capture of a Covalent Intermediate",
+      "limits": "Primary H63A UGM mutant crystal captures the flavin N5-sugar C1 covalent intermediate. Reduced flavin acts nucleophilically despite no net oxidation-state change; mutation-trapped structure does not directly observe every wild-type turnover step.",
+      "supplementary": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2785223/",
+          "scope": "stored_search_excerpt",
+          "note": "Primary 2009 reduced substrate complex poised for covalent flavin catalysis."
+        }
+      ]
+    },
+    {
+      "key": "flavin-n5-oxide-oxygen-storage-transfer",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26067765/",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "direct evidence for the Fl(N5[O]) species via isotope labeling, proteolytic digestion, and high-resolution tandem mass spectrometry",
+      "limits": "Opened PubMed author abstract and figure captions. N5 oxide is established; radical coupling and water loss in regeneration remain proposed. Downstream Favorskii rearrangement is excluded from this card.",
+      "supplementary": [
+        {
+          "url": "https://www.nature.com/articles/nature12643",
+          "scope": "publisher_abstract",
+          "note": "2013 primary oxygenation-dehydrogenation report originally proposed N5 oxide; 2015 source directly tests it."
+        }
+      ]
+    },
+    {
+      "key": "prenylflavin-cycloaddition-decarboxylation-release",
+      "url": "https://www.nature.com/articles/s41557-019-0324-8",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "formation of dead-end prenylated flavin mononucleotide cycloadducts occurs with distinct propenoic and propiolic acids",
+      "limits": "Opened Nature Chemistry primary author abstract. Atomic-resolution analog adducts, enzyme mutation and calculations support reversible cycloadduct route and strain dependence. Not every UbiD substrate has the same demonstrated path.",
+      "supplementary": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26083754/",
+          "scope": "stored_search_excerpt",
+          "note": "2015 original prFMN-dependent decarboxylation and cycloaddition proposal."
+        }
+      ]
+    },
+    {
+      "key": "sam-methyl-addition-deprotonative-cyclopropanation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20538038/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "the methyl addition onto the double bond and the deprotonation step, are rate determining",
+      "limits": "Primary isotope exchange and kinetic-isotope effects reject previous solvent-exchange report; both chemical steps contribute to rate. No free carbene or universal concerted closure claim.",
+      "supplementary": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16216082/",
+          "scope": "publisher_abstract",
+          "note": "Primary mutational/chemical rescue supports catalytic bicarbonate, without directly visualizing every proton-transfer event."
+        }
+      ]
+    },
+    {
+      "key": "molybdenum-desoxo-oxo-substrate-oxygen-transfer",
+      "url": "https://pubs.acs.org/doi/abs/10.1021/ja972109l",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "cycling between mono-oxo-Mo(VI) and des-oxo-Mo(IV) forms via a DMSO-bound Mo(IV) intermediate",
+      "limits": "Primary resonance Raman supports substrate oxygen-atom transfer and persistent dithiolene ligands; publisher open returned403, so indexed excerpt remains scope. Different from Mo-OH carbon attack/hydride-to-sulfido hydroxylation.",
+      "supplementary": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3142581/",
+          "scope": "stored_search_excerpt",
+          "note": "Primary spectroscopic/electronic-structure study of DMSO reductase catalytic intermediate."
+        }
+      ]
+    },
+    {
+      "key": "bound-nad-imine-relay-aminobutyl-transfer",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10734052/",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "utilization of the enzyme-bound NADH for reduction of the eIF5A-imine intermediate",
+      "limits": "Opened primary author abstract: substrate dehydrogenation generates bound NADH, acceptor addition consumes its fluorescence. Supporting isotope-trapping study locates enzyme imine and demonstrates transfer to acceptor.",
+      "supplementary": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9188485/",
+          "scope": "stored_search_excerpt",
+          "note": "1997 primary reductive trapping identifies Lys329 enzyme intermediate and labeled aminobutyl transfer to eIF5A. No split by homospermidine versus protein acceptor."
+        }
+      ]
+    },
+    {
+      "key": "lysine-covalent-imine-relay-intermediate-shuttling",
+      "url": "https://www.nature.com/articles/nchembio.2273",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "simultaneously bound to two lysine residues and partially vacating the active site",
+      "limits": "Opened author abstract and correction notice. Covalent relay coordinates a path over20A and makes space for a second substrate. 2017 correction adds missing prior I320 structure citation; no withdrawal or changed result.",
+      "supplementary": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6078385/",
+          "scope": "stored_search_excerpt",
+          "note": "Indexed primary body discusses five trapped covalent intermediates, substrate and product sites."
+        }
+      ]
+    },
+    {
+      "key": "sacrificial-cysteinyl-sulfur-thiazole-assembly",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22031445/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "an iron-dependent sulphide transfer reaction from a conserved cysteine residue of the protein",
+      "limits": "PubMed direct open CAPTCHA; indexed abstract and primary PMC figure2 text support protein-Cys sulfur source, DHA formation and single turnover. Do not generalize to catalytic THI4 homologs using external sulfide.",
+      "supplementary": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3205460/",
+          "scope": "stored_search_excerpt",
+          "note": "Primary electron density supports loss of sulfur from the active-site cysteine to form dehydroalanine."
+        }
+      ]
+    },
+    {
+      "key": "fold-preorganized-autocatalytic-isopeptide-ligation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18063798/",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "two lysine-asparagine isopeptide bonds generated by an intramolecular reaction",
+      "limits": "Opened 2007 structural abstract establishes bonds; detailed proton relay is a primary QM/MM proposal. Card is generic fold-supported bond chemistry, with no pathogen engineering or potency claim.",
+      "supplementary": [
+        {
+          "url": "https://scholars.duke.edu/display/pub735951",
+          "scope": "stored_search_excerpt",
+          "note": "Primary 2011 JACS10.1021/ja107513t QM/MM: Lys attack, acidic residue proton relay, ammonia release."
+        }
+      ]
+    },
+    {
+      "key": "radical-ribose-purine-intramolecular-carbon-cyclization",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32348669/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "MoaA accelerates the radical-mediated C-C bond formation",
+      "limits": "Primary kinetic/EPR/shunt analysis of sugar-radical cyclization. Computed6-9-order acceleration is not made a universal card claim. Aminyl reduction is supported separately; MoaA does not perform downstream MoaC rearrangement.",
+      "supplementary": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8415136/",
+          "scope": "stored_search_excerpt",
+          "note": "Primary 2021 aminyl radical reduction study supports auxiliary cluster electron donation and Arg proton donation via PCET; do not use obsolete oxidative termination hypothesis."
+        }
+      ]
+    },
+    {
+      "key": "covalent-carbon-guidance-skeleton-insertion",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13440019/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "transient covalent linkage between the ε-amino group of K131 and the substrate’s C8 atom",
+      "limits": "PMC direct open CAPTCHA, body retrieved through search. Four kinetically relevant intermediates and analog crystal support guided C8 insertion; exact complete elementary sequence remains a proposed model.",
+      "supplementary": [
+        {
+          "url": "https://scholars.duke.edu/publication/1913038",
+          "scope": "publisher_abstract",
+          "note": "Opened author's official institution copy of primary abstract verifies PNAS123(32)e2618523123,11Aug2026,DOI10.1073/pnas.2618523123. Published before current27Sep2026; not a preprint."
+        }
+      ]
+    },
+    {
+      "key": "protein-thiocarboxylate-sulfur-atom-transfer",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12571226/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "2 molecules of thiocarboxylated MoaD per conversion of a single precursor Z molecule",
+      "limits": "Primary stoichiometry and protein-associated monosulfurated intermediate support sequential sulfur-atom delivery. Detailed covalent thioester pathway is mechanistic proposal, not directly trapped atomic structure in this paper. Shared upstream E1 activation is not counted separately.",
+      "supplementary": [
+        {
+          "url": "https://www.nature.com/articles/35104586",
+          "scope": "stored_search_excerpt",
+          "note": "Primary MoeB-MoaD apo/ATP/adenylate structures support carrier activation followed by thiocarboxylate formation; only downstream sulfur transfer defines this card."
+        }
+      ]
+    },
+    {
+      "key": "radical-hydrogen-abstraction-opposite-face-epimerization",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6485343/",
+      "scope": "reference_section",
+      "retrieved_excerpt": "carbon-centered radical produced by YydG, after Cα H-atom abstraction",
+      "limits": "Opened primary body Results critical-H-donor section and Figure5 discussion: solvent-isotope incorporation and loss of epimerization/fragmentation in cysteine mutant support H-atom return. Auxiliary-cluster details of donor regeneration are tentative; no peptide sequence or antimicrobial engineering retained.",
+      "supplementary": []
+    },
+    {
+      "key": "atp-phosphorylated-hemiorthoamide-backbone-conversion",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6535971/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "attack of the resultant backbone oxyanion onto the γ-phosphate of ATP",
+      "limits": "Primary peptide-bound crystal, mutants and alternative-substrate cyclodehydration support shared YcaO amide activation. Hemiorthoamide/phosphorylated states are presumptive; do not claim direct intermediate crystal. Azoline, thioamide and amidine are grouped as one mechanism.",
+      "supplementary": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5866606/",
+          "scope": "stored_search_excerpt",
+          "note": "Primary2018 enzymatic reconstitution: ATP/sulfide dependence and isotope/product analysis support backbone phosphorylation."
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "candidate": "multi-ion direct knock-on selectivity",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30030538/",
+      "scope": "stored_search_excerpt",
+      "nearest": "channel-carbonyl-coordination-ion-selectivity",
+      "reason": "Existing selectivity card already names multiple-ion occupancy. Direct water-free versus water-mediated knock-on is contested and this source chiefly recasts same selectivity output; held rather than count."
+    },
+    {
+      "candidate": "countercurrent renal multiplication",
+      "reason": "Potentially distinct active transverse-gradient repetition, but retrieved standard explanations were reviews and modern model disagreement needs primary qualification. Not enough verified primary scope this batch."
+    },
+    {
+      "candidate": "saltatory conduction",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18144923/",
+      "scope": "stored_search_excerpt",
+      "nearest": "electrical-membrane-excitation",
+      "reason": "Discrete nodal geometry and insulating myelin mainly modify existing regenerative electrical propagation; source also lacked readable abstract."
+    },
+    {
+      "candidate": "MiaB methylthiolation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9107155/",
+      "scope": "stored_search_excerpt",
+      "nearest": "sacrificial-iron-sulfur-carbon-sulfur-insertion",
+      "reason": "Premethylation of sulfur plus already-covered auxiliary-cluster sulfur donation lacks enough independent route beyond sequential combination; do not split substrate atoms or enzymes."
+    },
+    {
+      "candidate": "selenocysteine synthase aminoacrylate substitution",
+      "nearest": "plp-aminoacrylate-elimination-addition-substitution",
+      "reason": "Replacement of sulfur nucleophile with selenium and tRNA attachment does not create another elimination-addition mechanism."
+    },
+    {
+      "candidate": "spore-photoproduct radical beta-scission",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3666868/",
+      "scope": "stored_search_excerpt",
+      "nearest": "radical-induced-polymer-chain-scission",
+      "reason": "Useful repair chemistry but current radical-scission parent and radical-initiation cards cover core H-abstraction/beta-scission; biological lesion output alone is not enough."
+    },
+    {
+      "candidate": "riboflavin-synthase pentacyclic dismutation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2832097/",
+      "scope": "stored_search_excerpt",
+      "nearest": "diels-alder-four-plus-two-cycloaddition",
+      "reason": "Pentacyclic intermediate established, but detailed hydride-transfer/cycloaddition sequence has competing mechanistic proposals; held pending independent route beyond existing cycloaddition."
+    },
+    {
+      "candidate": "BluB flavin self-fragmentation",
+      "url": "https://www.nature.com/articles/nature05611",
+      "scope": "stored_search_excerpt",
+      "nearest": "heme-self-oxygenation-porphyrin-cleavage",
+      "reason": "Organic cofactor self-oxygenation may have a distinct ring-contraction route, but cofactors differ and detailed atomic mechanism needs more direct evidence before separating from cofactor self-destruction."
+    },
+    {
+      "candidate": "retaining glycosidase double displacement",
+      "nearest": "muramidase-peptidoglycan-cleavage",
+      "reason": "The primary lysozyme example would provide more mechanism for the same current input/transformation/conditions, not a new independent effect."
+    },
+    {
+      "candidate": "YcaO azoline versus thioamide versus amidine variants",
+      "nearest": "atp-phosphorylated-hemiorthoamide-backbone-conversion",
+      "reason": "Explicitly one card: shared amide nucleophilic addition, oxygen phosphorylation and elimination; nucleophile/output variants are not split."
+    }
+  ]
+}

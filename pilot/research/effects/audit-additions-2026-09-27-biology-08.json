@@ -1,0 +1,91 @@
+{
+  "batch": "additions-2026-09-27-biology-08.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1942,
+  "added": 6,
+  "after": 1948,
+  "target": 2000,
+  "source_sha256": "5670c87c3edbaec2ecf04509c181659cf35b77a2b94d8878272e5122117d7442",
+  "decisions": [
+    {
+      "key": "leaving-group-assisted-front-face-glycosyl-transfer",
+      "group": 18,
+      "related_keys": [
+        "chemical-glycosylation",
+        "nucleophilic-substitution",
+        "neighboring-group-bridged-intermediate-participation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 당 연결의 출력보다 구체적인 이탈기·친핵체 수소결합과 전면 접근 경로다. 이웃기의 공유 가교 형성이나 효소 공유 중간체의 두 차례 반전과 구별하며 당 종류·결합 위치로 분할하지 않는다.",
+      "source_url": "https://www.nature.com/articles/nchembio.628",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "vinyl-ether-hydration-triggered-glycoside-cleavage",
+      "group": 18,
+      "related_keys": [
+        "muramidase-peptidoglycan-cleavage",
+        "transient-nad-oxidation-elimination-glycoside-hydrolysis",
+        "glycan-cleavage-intramolecular-anhydro-closure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "아노머의 직접 가수분해·분자 내 무수당 형성과 달리 다른 탄소의 비닐에터 수화가 절단을 개시한다. NAD 산화로 불포화 결합을 먼저 만드는 GH4 경로도 필요하지 않으며 기질 계열별로 쪼개지 않는다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/22047074/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "o-acylhydroxylamine-redox-neutral-nitrogen-coupling",
+      "group": 18,
+      "related_keys": [
+        "adenylate-activated-trna-aminoacylation",
+        "atp-acyl-phosphate-amide-synthesis",
+        "aminotransferase-group-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "ATP 아실 활성화에 그치지 않고 O아실히드록실아민을 산화환원 순변화 없이 N–N 연결로 바꾸는 후속 경로다. 아미드 형성·아미노기 교환과 생성 결합 및 중간체가 다르며 아미노산별 변형은 한 원리로 묶는다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-27523-x.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "nicotinamide-c2-covalent-adduct-hydride-relay",
+      "group": 18,
+      "related_keys": [
+        "enzyme-electron-transfer",
+        "carbonyl-ene-cyclization",
+        "bound-nad-oxidation-rotation-epimerization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수소화물을 주고받기만 하는 NAD 경로와 달리 보조인자 C2가 기질 탄소를 가역적으로 공유 결합한다. 분자 내 엔 고리화의 안정 생성물 형성이 아니라 부가체 해소로 환원 중간체를 회수하며 협동 반응 여부를 확정하지 않는다.",
+      "source_url": "https://www.nature.com/articles/nchembio.1385",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "bridging-hydride-elimination-dinitrogen-activation",
+      "group": 18,
+      "related_keys": [
+        "biological-nitrogen-fixation",
+        "hydrogenase-metal-hydride-proton-splitting",
+        "metal-hydride-hydrolysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "질소고정의 총괄 환원보다 구체적인 환원 당량 저장·H₂ 환원 제거·N₂ 활성화 결합 경로다. 수소화물과 양성자의 이온적 수소 분해·재결합 또는 수소화물의 물 분해와 구분한다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5024552/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "opposing-enzyme-saturation-zero-order-ultrasensitivity",
+      "group": 18,
+      "related_keys": [
+        "allosteric-cooperativity",
+        "substrate-limited-biochemical-rate",
+        "atp-dependent-protein-phosphorylation",
+        "phosphomonoester-enzymatic-dephosphorylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결합 부위 간 구조 협동 없이 상반된 두 포화 흐름의 균형에서 증폭이 생긴다. 기질 부족의 속도 저하나 인산화·탈인산화 단일 단계의 응용명이 아니며 두 상태 순환의 동역학 조건을 별도로 규정한다.",
+      "source_url": "https://www.pnas.org/doi/10.1073/pnas.78.11.6840",
+      "retrieval_scope": "publisher_abstract"
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+﻿{
+    "date":  "2026-09-27",
+    "agent":  "effects_physics",
+    "authorship":  "Cards and comparisons directly reasoned and authored in the conversation. No external LLM calls. Scripts only validate or serialize authored data.",
+    "batch":  "pilot/research/effects/additions-2026-09-27-physics-01.tsv",
+    "comparison_baseline":  "pilot/research/effects/audit-2026-09-27-before2000/catalog.tsv",
+    "scope_note":  "reference_section means the specified source text was returned and read, not that the complete paper was critically reproduced. publisher_abstract includes the authors\u0027 abstract on arXiv. stored_search_excerpt means the quoted source passage was visible in web search output; no full-text access is claimed. Each TSV row separately records nearest keys and an explicit semantic boundary.",
+    "evidence":  [
+                     {
+                         "key":  "correlated-landau-fluid-fractional-charge",
+                         "url":  "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.50.1395/fulltext",
+                         "scope":  "reference_section",
+                         "read":  "Laughlin original paper pp1395–1398; correlated trial state, Coulomb energy comparison, fractional-charge excitations and incompressibility discussion.",
+                         "snippet":  "These excitations are particles of charge 1/m.",
+                         "support":  "다체 상관에 의한 비압축성 유체와 분수 전하 여기를 직접 다룬다. 정수·분수 홀 효과를 재료별로 추가 분할하지 않는다."
+                     },
+                     {
+                         "key":  "one-dimensional-spin-charge-mode-separation",
+                         "url":  "https://www.nature.com/articles/nphys4062",
+                         "scope":  "publisher_abstract",
+                         "read":  "Publisher abstract lines39–41.",
+                         "snippet":  "it transforms into charge- and spin-density wavepackets that propagate at different group velocities",
+                         "support":  "원저 실험의 실제 구현은 유사스핀·전하 분리이며 카드 조건에 제한을 명시했다."
+                     },
+                     {
+                         "key":  "mobile-electron-core-spin-double-exchange",
+                         "url":  "https://journals.aps.org/pr/abstract/10.1103/PhysRev.100.675",
+                         "scope":  "stored_search_excerpt",
+                         "read":  "Publisher-indexed original abstract previously returned in search; original PDF abstract also indexed.",
+                         "snippet":  "spin coupling to mobile electrons which travel from one ion to the next",
+                         "support":  "실제 이동 전자와 코어 스핀 결합을 다룬다. 초교환·RKKY와 최근접 비교."
+                     },
+                     {
+                         "key":  "fluctuation-selected-order-by-disorder",
+                         "url":  "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.167203",
+                         "scope":  "stored_search_excerpt",
+                         "read":  "Original abstract indexed in search; author APS2018 talk independently corroborates thermal degeneracy lifting.",
+                         "snippet":  "Thermal fluctuations can lift the degeneracy of a ground state manifold",
+                         "support":  "카드는 열적 요동에 제한한다. 원문 초록에 근거가 부족한 양자 요동 일반화는 제출 전에 삭제했다."
+                     },
+                     {
+                         "key":  "spin-ice-defect-monopole-fractionalization",
+                         "url":  "https://www.nature.com/articles/nature06433",
+                         "scope":  "stored_search_excerpt",
+                         "read":  "Original Nature abstract indexed in search; publisher page retrieved but body not claimed.",
+                         "snippet":  "the underlying magnetic dipole moments fractionalize into monopoles",
+                         "support":  "기본 자기 단극이 아니라 상관된 스핀 얼음의 유효 준입자임을 명시한다."
+                     },
+                     {
+                         "key":  "embedded-scar-eigenstate-nonthermal-recurrence",
+                         "url":  "https://www.nature.com/articles/s41567-018-0137-5",
+                         "scope":  "stored_search_excerpt",
+                         "read":  "Original2018 abstract indexed; direct page open failed.",
+                         "snippet":  "quantum scarred eigenstates are embedded throughout the otherwise thermalizing many-body spectrum",
+                         "support":  "특수 초기 조건과 비열적 고유상태에 한정. 고전 불안정 주기 궤도 흉터와 완전 동일하다고 주장하지 않는다."
+                     },
+                     {
+                         "key":  "interacting-disorder-many-body-localization",
+                         "url":  "https://arxiv.org/abs/1501.05661",
+                         "scope":  "publisher_abstract",
+                         "read":  "Author abstract lines16–17, Science3498422015 metadata.",
+                         "snippet":  "above a critical disorder strength a significant portion of the initial ordering persists",
+                         "support":  "상호작용 세기 의존 밀도 배열 기억 및 얽힘 성장 연결을 읽었다. 유한시간 관측의 한계를 명시."
+                     },
+                     {
+                         "key":  "superconducting-order-amplitude-higgs-oscillation",
+                         "url":  "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.111.057002",
+                         "scope":  "publisher_abstract",
+                         "read":  "Publisher abstract lines88–89.",
+                         "snippet":  "collective amplitude mode of the order parameter, namely the Higgs amplitude mode",
+                         "support":  "단주기THz여기 후 BCS갭 영역의 과도 진동. 조셉슨 위상차와 다른 진폭 좌표."
+                     },
+                     {
+                         "key":  "vortex-lattice-shear-tkachenko-wave",
+                         "url":  "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.91.100402",
+                         "scope":  "publisher_abstract",
+                         "read":  "Publisher abstract lines88–89.",
+                         "snippet":  "the small but nonvanishing elastic shear modulus of the vortex-filled superfluid",
+                         "support":  "회전BEC 소용돌이 격자의 작은 전단 탄성이 저주파파를 만든다. 단일선 굽힘파와 분리."
+                     },
+                     {
+                         "key":  "single-valued-order-quantized-circulation",
+                         "url":  "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.66.329",
+                         "scope":  "stored_search_excerpt",
+                         "read":  "Publisher-indexed original abstract includes stable circulation values and macroscopic quantum wavefunction interpretation.",
+                         "snippet":  "This experiment confirms that superfluid",
+                         "support":  "초록은 헬륨3B 순환의 -h/(2m),0,+h/(2m) 안정값을 보고한다. 원자질량과 쌍질량 구별을 조건에 남긴다."
+                     },
+                     {
+                         "key":  "excitation-spectrum-landau-superflow-threshold",
+                         "url":  "https://arxiv.org/pdf/cond-mat/9909109",
+                         "scope":  "reference_section",
+                         "read":  "Author paper pp1–3; opening criterion Eq1, heating data, vortex nucleation and geometric limitations.",
+                         "snippet":  "one must consider how to produce the excitations dynamically",
+                         "support":  "에너지·운동량 기준과 실제 여기 핵생성 동역학을 구분한다. BYU미러는 검색문구가 있었으나 직접열기는인증페이지여서 공개arXiv원고로교체."
+                     },
+                     {
+                         "key":  "phase-coherent-density-wave-supersolid-mode",
+                         "url":  "https://www.nature.com/articles/s41586-019-1569-5",
+                         "scope":  "stored_search_excerpt",
+                         "read":  "Original abstract indexed in search.",
+                         "snippet":  "an out-of-phase oscillation of the crystal array and the superfluid density",
+                         "support":  "밀도 변조만이 아니라 전역 위상 강성과 상대 집단 모드의 관측을 명시한다."
+                     },
+                     {
+                         "key":  "strong-electric-field-vacuum-pair-tunneling",
+                         "url":  "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.102.076015",
+                         "scope":  "publisher_abstract",
+                         "read":  "Publisher abstract lines95–96. Additional primary quantum-gas simulation paper intro indexed at PMC7079705.",
+                         "snippet":  "the separation of the particles in the Schwinger pair",
+                         "support":  "2020이론논문은 상대론적 터널링과 쌍 분리 좌표를 직접 다룬다. QED진공관측을 주장하지 않는다.",
+                         "corroboration":  {
+                                               "url":  "https://pmc.ncbi.nlm.nih.gov/articles/PMC7079705/",
+                                               "scope":  "stored_search_excerpt",
+                                               "title":  "Sauter-Schwinger effect with a quantum gas",
+                                               "snippet":  "creation of particle-antiparticle pairs from the quantum vacuum via tunneling when a large electric field is present",
+                                               "access_note":  "직접열기는브라우저검사페이지; 검색문구범위만사용."
+                                           }
+                     },
+                     {
+                         "key":  "disorder-depinning-domain-wall-barkhausen-avalanche",
+                         "url":  "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.58.6353",
+                         "scope":  "stored_search_excerpt",
+                         "read":  "Publisher-indexed original abstract, experiment and flexible-wall model.",
+                         "snippet":  "avalanchelike motion of the domain walls between pinned configurations produces a noise known as the Barkhausen effect",
+                         "support":  "불연속 탈고정 사건을 원리로 삼고 일반 잔류자화 용도와 구별한다."
+                     },
+                     {
+                         "key":  "domain-wall-internal-precession-walker-breakdown",
+                         "url":  "https://www.nature.com/articles/s41598-022-06275-8",
+                         "scope":  "stored_search_excerpt",
+                         "read":  "Indexed original Results text around Fig2 and Phases of DW during DW motion.",
+                         "snippet":  "caused by the precession of the internal magnetization inside the DWs",
+                         "support":  "고정 내부 배향 병진에서 세차 운동으로 넘어가는 문턱. 다층별 복수문턱은 별도카드로세지않음."
+                     },
+                     {
+                         "key":  "topological-texture-gyrotropic-skyrmion-deflection",
+                         "url":  "https://www.nature.com/articles/nphys3883",
+                         "scope":  "stored_search_excerpt",
+                         "read":  "Publisher metadata verified; same authors\u0027 original abstract arXiv1603.07393 and APS2017 author presentation indexed. Nature directopen failed.",
+                         "snippet":  "transverse transport of skyrmions due to topological charge",
+                         "support":  "스커미온 자체의 횡운동. 전하전자의홀신호와 별개. 자이로힘은 동일저자APS발표문에도 명시.",
+                         "corroboration":  {
+                                               "url":  "https://arxiv.org/abs/1603.07393",
+                                               "scope":  "stored_search_excerpt",
+                                               "title":  "Direct Observation of the Skyrmion Hall Effect"
+                                           }
+                     },
+                     {
+                         "key":  "antiferromagnetic-anisotropy-spin-flop",
+                         "url":  "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.75.094425",
+                         "scope":  "publisher_abstract",
+                         "read":  "Publisher abstract lines90–93.",
+                         "snippet":  "field-driven first-order reorientation transition in easy-axis antiferromagnets",
+                         "support":  "자유쌍극자정렬과 구별되는 반강자성 배향 일차전이. 다중도메인과고차이방성 중요성도 명시."
+                     },
+                     {
+                         "key":  "rotating-mass-frame-dragging-precession",
+                         "url":  "https://link.aps.org/accepted/10.1103/PhysRevLett.106.221101",
+                         "scope":  "reference_section",
+                         "read":  "Accepted original manuscript p1 abstract/Introduction, p2 instrument context.",
+                         "snippet":  "a frame-dragging due to the Earth’s rotation",
+                         "support":  "원저는 측지세차와회전질량끌림을분리하여설명하고두항을측정했다. 이번카드는회전질량항만추가."
+                     },
+                     {
+                         "key":  "self-gravity-pressure-jeans-instability",
+                         "url":  "https://msp.org/involve/2019/12-7/involve-v12-n7-p02-s.pdf",
+                         "scope":  "reference_section",
+                         "read":  "Sections1–2 pp1099–1103; pressure/gravity perturbation equations and Jeans threshold, equilibrium-background caveat.",
+                         "snippet":  "equivalent to Jeans’ gravitational instability criterion",
+                         "support":  "자체중력항과음속복원항의경쟁을Eq1-2와2-11에서확인. 무한균일배경문제를조건에명시."
+                     },
+                     {
+                         "key":  "gravitational-density-wake-dynamical-friction",
+                         "url":  "https://arxiv.org/abs/astro-ph/9810324",
+                         "scope":  "stored_search_excerpt",
+                         "read":  "Original author abstract indexed; independent university-hosted original ApJPDF abstract matched.",
+                         "snippet":  "gravitational attraction between the perturber and its wake in the ambient medium",
+                         "support":  "밀도후류의중력항력이며점성항력이아님. 기체와무충돌배경의공식차이명시."
+                     }
+                 ],
+    "exclusions":  [
+                       {
+                           "candidate":  "Cooper-pair formation",
+                           "reason":  "원저PDF본문추출이불충분해이번배치보류. 넓은superconductivity와독립기전경계도후속검토."
+                       },
+                       {
+                           "candidate":  "Stoner itinerant magnetism",
+                           "reason":  "원출판자접근실패. 1938초록복제사이트를최종근거로올리지않고보류."
+                       },
+                       {
+                           "candidate":  "Landau/de Haas van Alphen oscillation",
+                           "reason":  "landau-level-fermi-crossing-oscillation이이미존재해제외."
+                       },
+                       {
+                           "candidate":  "separate thermal and quantum order-by-disorder cards",
+                           "reason":  "동일질서선택계열의세분개수화를피하고현재확인된열적경로한장만작성."
+                       }
+                   ],
+    "validation":  {
+                       "rows":  19,
+                       "columns_per_row":  10,
+                       "new_keys_unique":  true,
+                       "all_nearest_keys_present_in_1500_baseline":  true,
+                       "principle_max_characters":  91,
+                       "conditions_max_characters":  85,
+                       "canonical_mutated_by_this_agent":  false
+                   },
+    "integration_correction":  {
+                                   "excluded_new_key":  "disorder-depinning-domain-wall-barkhausen-avalanche",
+                                   "existing_key":  "barkhausen-noise",
+                                   "reason":  "Parent cross-review found the same discontinuous domain-wall mechanism. Removed from additions. Its source evidence above is retained only as an existing-card source/condition supplement."
+                               }
+}

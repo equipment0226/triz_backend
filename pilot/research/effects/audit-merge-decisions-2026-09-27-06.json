@@ -1,0 +1,111 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1722,
+  "merged": 2,
+  "after": 1720,
+  "campaign": "2026-09-27",
+  "decisions_sha256": "67f55eb9147d1b1a8841088d56a9f4af35de9b433bb7ee9e9c8b86363b7fddc4",
+  "decisions": [
+    {
+      "source": "metal-oxide-hydration-heating",
+      "target": "thermochemical-heat-storage",
+      "reason": "기존 수화 발열 카드는 가역 열화학 저장과 같은 반응 엔탈피 원리의 직접 가열 응용임을 명시한다. 현재 서술에는 독립적인 수화 속도·미시 경로가 없으므로 소재·사용 목적만으로 별도 계수하지 않는다.",
+      "target_fields": [
+        "반응 엔탈피의 축열·발열·흡열",
+        "화학 반응의 엔탈피 변화로 열을 방출하거나 흡수한다. 반응을 되돌릴 수 있으면 화학적 상태로 열을 저장·회수하며, 금속산화물 수화 발열이나 수산화물 탈수 흡열은 직접 열조절에 쓸 수 있다.",
+        "반응쌍별 온도·분압·물 공급·속도·열전달·입도를 확인한다. 가역 축열은 생성물 분리·반복 열화, 일회성 반응은 소모량을 평가한다. 모든 산화물의 수화 발열을 가정하지 않고 증기·잔류물의 난연 작용은 별도 검증한다."
+      ],
+      "original_card": [
+        "metal-oxide-hydration-heating",
+        "금속산화물 수화 반응에 의한 발열",
+        "산화칼슘 등 수화 시 반응 엔탈피가 음인 금속산화물이 물과 반응하면 열이 방출되어 주변 물질을 가열할 수 있다.",
+        "모든 금속산화물이 물과 강하게 발열하는 것은 아니다. 반응성·수분 공급·열 제거에 의존하며 가역 열화학 저장과 원리를 공유하는 직접 발열 응용이다.",
+        "manual600-metal-oxide-hydration-heating"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "metal oxide hydration heating"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "metal-oxide-hydration-heating",
+        "name_en": "metal oxide hydration heating",
+        "aliases": [
+          "금속산화물 수화 반응에 의한 발열",
+          "metal oxide hydration heating"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual600-metal-oxide-hydration-heating",
+            "title": "Effects of temperature on the hydration characteristics of free lime",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0008884602007147",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-083047-A1",
+            "title": "Un metodo para la preparacion de un producto de alimentacion animal",
+            "url": "https://patents.google.com/patent/AR083047A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "34915d1a1c6e85144c6c32981df2a92504d07ee66bf37c7591c13aca2d6c9287",
+            "review_note": "기존 초록 검토: 금속산화물과 수분의 반응열로 젖은 사료 부산물을 가열한다. 산화물 수화 발열 후보이다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 금속산화물 수화 반응에 의한 발열: 산화칼슘 등 수화 시 반응 엔탈피가 음인 금속산화물이 물과 반응하면 열이 방출되어 주변 물질을 가열할 수 있다. 모든 금속산화물이 물과 강하게 발열하는 것은 아니다. 반응성·수분 공급·열 제거에 의존하며 가역 열화학 저장과 원리를 공유하는 직접 발열 응용이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "endothermic-hydroxide-dehydration",
+      "target": "thermochemical-heat-storage",
+      "reason": "탈수 카드가 설명하는 작동 경로는 반응 엔탈피의 열 흡수이다. 방출 증기의 희석과 잔류층 차단은 이미 별도 평가 대상으로 제외되어 있으므로 현재 카드의 독립 원리로 간주하지 않는다. 수화·탈수 물질별 온도와 가역성 조건은 대표 카드 및 출처에 보존한다.",
+      "original_card": [
+        "endothermic-hydroxide-dehydration",
+        "금속 수산화물의 흡열 탈수 분해",
+        "수산화알루미늄 같은 물질이 가열되어 산화물·옥시수산화물과 수증기로 분해될 때 열을 흡수하여 주변 온도 상승을 늦출 수 있다.",
+        "분해 온도 범위·가열률·함량·입도와 고분자 분해 시점의 정합을 확인한다. 상변화가 아닌 화학 반응이며 방출 증기와 잔류물의 추가 난연 작용은 따로 평가한다.",
+        "manual-final-endothermic-hydroxide-dehydration"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "금속 수산화물의 흡열 탈수 분해",
+          "endothermic hydroxide dehydration"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "endothermic-hydroxide-dehydration",
+        "name_en": "endothermic hydroxide dehydration",
+        "aliases": [
+          "금속 수산화물의 흡열 탈수 분해",
+          "endothermic hydroxide dehydration"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual-final-endothermic-hydroxide-dehydration",
+            "title": "Effect of hydroxides and hydroxycarbonate structure on fire retardant effectiveness and mechanical properties in ethylene-vinyl acetate copolymer",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0141391001001677",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-093533-A1",
+            "title": "Composicion de funda para cables verticales y de pleno",
+            "url": "https://patents.google.com/patent/AR093533A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "9fbd5bcf68d7a8c997f78e685b48c4abbbc257b41ca1e1ce8a146f58f1b023ed",
+            "review_note": "문헌·중복 검토 후 연결: endothermic-hydroxide-dehydration; 수산화알루미늄 같은 물질이 가열되어 산화물·옥시수산화물과 수증기로 분해될 때 열을 흡수하여 주변 온도 상승을 늦출 수 있다. 분해 온도 범위·가열률·함량·입도와 고분자 분해 시점의 정합을 확인한다. 상변화가 아닌 화학 반응이며 방출 증기와 잔류물의 추가 난연 작용은 따로 평가한다. / 문헌·중복 검토 후 연결: intumescent-char-barrier; 가열 중 탄화와 기체 발생이 적절히 결합되면 다공성 탄화층이 부풀어 올라 열 전달과 가연성 분해물의 이동을 억제하는 보호층을 형성할 수 있다. 발포 시점·용융 점도·탄화 수율·층 부착·균열·고온 복사를 고려한다. 팽창 배율만으로 보호 성능을 판단하지 않는다. 기존 차단막의 열 반응형 하위 기전이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    }
+  ]
+}

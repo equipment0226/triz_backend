@@ -1,0 +1,259 @@
+{
+  "batch": "additions-2026-09-27-biology-01.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1539,
+  "added": 20,
+  "after": 1559,
+  "target": 2000,
+  "source_sha256": "20960bee44c74a59cee94e5b6695a758dbee91ab8eb283dae71c7761a8eb168c",
+  "decisions": [
+    {
+      "key": "activated-five-prime-rna-reverse-polymerization",
+      "group": 18,
+      "related_keys": [
+        "template-directed-rna-transcription",
+        "adenylation-mediated-nucleic-acid-ligation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "활성 인산을 성장 사슬의 5′ 말단에 유지하며 반대 방향으로 전파한다. 일회 핵산 말단 연결이나 3′ 말단 연장과 반응 방향·활성화 위치가 다르다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2996639/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "trna-covalent-ribosyl-base-exchange",
+      "group": 18,
+      "related_keys": [
+        "glycosylase-damaged-base-excision",
+        "pseudouridine-glycosidic-bond-rearrangement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "염기 제거 후 빈자리를 남기거나 같은 염기의 결합 위치를 바꾸는 과정과 달리 효소·당 중간체에서 외부 염기로 교환한다.",
+      "source_url": "https://www.rcsb.org/structure/1Q2R",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "cobalamin-polar-methyl-carrier-transfer",
+      "group": 18,
+      "related_keys": [
+        "cobalamin-cobalt-carbon-radical-rearrangement",
+        "folate-methylene-hydride-reductive-methylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "코발트·탄소 결합의 극성 형성·절단으로 메틸기를 운반한다. 아데노실 라디칼의 수소 추출이나 메틸렌·수소화물 환원 전달과 다르다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0969212696001359",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nascent-rna-hairpin-intrinsic-termination",
+      "group": 18,
+      "related_keys": [
+        "template-directed-rna-transcription",
+        "nucleic-acid-duplex-melting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 열 해리나 RNA 합성 단계와 달리 새 RNA의 접힘을 전사 복합체 해체에 결합한다. 특정 전진 모형 하나로 모든 종결을 설명하지 않는다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2295211/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "backtracked-polymerase-rna-cleavage-reactivation",
+      "group": 18,
+      "related_keys": [
+        "template-directed-rna-transcription",
+        "energy-driven-kinetic-proofreading",
+        "exonucleolytic-end-resection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "에너지 소비 재선별이나 유리 핵산 말단 분해와 달리 후퇴 복합체 내부에서 돌출 RNA를 잘라 촉매 말단을 복구한다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1097276519303211",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "leader-translation-rna-folding-attenuation",
+      "group": 18,
+      "related_keys": [
+        "riboswitch-ligand-responsive-regulation",
+        "codon-usage-dependent-translation",
+        "template-directed-rna-transcription"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "리간드가 RNA에 직접 결합하거나 동의 코돈이 발현을 바꾸는 일반 현상이 아니라 리보솜 점유가 대체 RNA 구조와 전사 종료를 결정하는 경로이다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/366606/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "histidine-aspartate-phosphorelay-signaling",
+      "group": 18,
+      "related_keys": [
+        "atp-dependent-protein-phosphorylation",
+        "phosphotransferase-group-translocation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "ATP의 인산기를 표적에 직접 붙이는 단계나 당 수송의 인산화와 달리 단백질 사이 His–Asp 릴레이와 불안정한 수용체 아실 인산 상태를 사용한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19800110/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "protein-template-sequential-cca-addition",
+      "group": 18,
+      "related_keys": [
+        "template-independent-rna-polyadenylation",
+        "template-directed-rna-transcription"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "동일 염기의 반복 부가와 달리 단백질 인식 자리의 상태 전환으로 혼합된 짧은 서열을 정한다. 핵산 염기쌍 주형을 사용하지 않는다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0092867402011157",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "terminal-glycine-oxidative-peptide-amidation",
+      "group": 18,
+      "related_keys": [
+        "heme-monooxygenase-oxygen-insertion",
+        "atp-acyl-phosphate-amide-synthesis",
+        "oxidative-amino-acid-deamination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 질소를 보존하면서 말단 글리신의 탄소 골격을 산화 제거하여 아미드를 만든다. 활성화 카복실산에 외부 아민을 붙이는 경로와 다르다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1590776/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "glycan-cleavage-intramolecular-anhydro-closure",
+      "group": 18,
+      "related_keys": [
+        "muramidase-peptidoglycan-cleavage",
+        "glucan-chain-transfer-branch-formation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "물에 의한 당쇄 절단이나 다른 당쇄로의 분지 전달과 달리 절단된 당에서 분자 내 무수 고리를 닫는 경로를 다룬다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5912472/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "complement-buried-thioester-covalent-deposition",
+      "group": 18,
+      "related_keys": [
+        "biomolecular-recognition",
+        "antibody-opsonized-phagocytosis",
+        "sortase-thioester-mediated-transpeptidation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "미리 내장된 반응성 결합을 구조 전환으로 노출시켜 자신을 표면에 고정한다. 비공유 항체 표지나 촉매 효소의 반복 펩타이드 전달과 다르다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16831446/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "vitamin-k-oxygenation-driven-gamma-carboxylation",
+      "group": 18,
+      "related_keys": [
+        "biotin-carrier-atp-coupled-carboxylation",
+        "rubisco-carbon-fixation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "ATP로 활성화한 비오틴 운반체와 달리 보조인자 산소화의 에너지를 탄소 수소 제거와 CO₂ 부가에 연결한다. 기질만 바꾼 비오틴 카복실화가 아니다.",
+      "source_url": "https://www.nature.com/articles/s41467-026-71212-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "protein-backbone-autocatalytic-chromophore-maturation",
+      "group": 18,
+      "related_keys": [
+        "fluorescence-sensing",
+        "intein-autocatalytic-protein-splicing",
+        "chaperone-assisted-folding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "완성 색소의 광학 응답이나 사슬 절단·접합과 달리 단백질 골격 자체가 새로운 공유 고리·공액계를 만드는 화학 성숙 경로이다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15078092/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "metal-hydroxide-carbon-dioxide-hydration",
+      "group": 18,
+      "related_keys": [
+        "enzyme-catalysis",
+        "rubisco-carbon-fixation",
+        "biotin-carrier-atp-coupled-carboxylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탄소 골격에 CO₂를 결합시키지 않고 금속 수산화물의 직접 공격으로 무기 탄소의 수화 상태를 바꾼다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2576554/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "heme-compound-i-peroxide-disproportionation",
+      "group": 18,
+      "related_keys": [
+        "superoxide-enzymatic-dismutation",
+        "heme-monooxygenase-oxygen-insertion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "초과산화물의 한 전자 금속 순환과 달리 헴 고산화 중간체를 거쳐 H₂O₂가 산화제와 환원제로 번갈아 작용한다. 유기 기질 산소 삽입도 아니다.",
+      "source_url": "https://pubs.acs.org/doi/10.1021/acselectrochem.5c00039",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "metal-sulfenate-nitrile-hydration",
+      "group": 18,
+      "related_keys": [
+        "nitrilase-hydrolysis-to-carboxylate",
+        "amide-dehydration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "금속·산화 황 리간드가 니트릴 수화를 매개한다. 질소를 암모니아로 떼는 니트릴분해효소와 다르며 단순 역반응 표제만으로 계수하지 않는다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlehtml/2015/sc/c5sc02012c",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "persulfide-relay-iron-sulfur-cluster-assembly",
+      "group": 18,
+      "related_keys": [
+        "glutaredoxin-thiol-redox",
+        "iron-sulfur-radical-sam-activation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 이황화 결합을 환원하거나 완성 보조인자를 쓰는 반응과 달리 공유 과황화물로 원소 황을 운반하여 금속 클러스터를 새로 조립한다.",
+      "source_url": "https://www.nature.com/articles/s41467-024-47310-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "plp-two-base-amino-acid-racemization",
+      "group": 18,
+      "related_keys": [
+        "metal-assisted-sugar-epimerization",
+        "aminotransferase-group-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "금속 배위 당 에놀화와 달리 PLP 공유 알디민·퀴노노이드와 두 염기가 작동한다. 아미노기 전이의 케티민 가수분해 없이 원래 아미노기를 보존한다.",
+      "source_url": "https://pubs.acs.org/doi/abs/10.1021/bi982924t",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "dinickel-bridged-urea-hydrolysis",
+      "group": 18,
+      "related_keys": [
+        "enzyme-catalysis",
+        "peptidylarginine-hydrolytic-deimination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이핵 금속의 요소 배위와 가교 수산화물 공격을 다룬다. 구아니디늄의 탈이미노화나 시스테인 공유 아실 중간체에 의한 펩타이드 절단과 다르다.",
+      "source_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/anie.201903565",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "protease-bait-cleavage-cage-entrapment",
+      "group": 18,
+      "related_keys": [
+        "serpin-protease-trapping",
+        "enzyme-inhibition",
+        "complement-buried-thioester-covalent-deposition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "세르핀의 활성 부위 변형과 달리 공간을 닫아 큰 기질의 접근을 차단한다. 보체의 표면 공유 부착과도 별개인 케이지 포획 단계이다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9181621/",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

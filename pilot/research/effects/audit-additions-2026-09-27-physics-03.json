@@ -1,0 +1,183 @@
+{
+  "batch": "additions-2026-09-27-physics-03.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1709,
+  "added": 13,
+  "after": 1722,
+  "target": 2000,
+  "source_sha256": "2bfc0f00889c53c34f64bbcba2ef4285e5259e20da81d9a3371b603336a52c63",
+  "decisions": [
+    {
+      "key": "gyroaveraged-force-guiding-centre-drift",
+      "group": 1,
+      "related_keys": [
+        "lorentz-actuation",
+        "magnetic-plasma-confinement",
+        "hall-effect"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전류 도체의 순간 힘이나 횡전압이 아니라 빠른 입자 회전을 평균한 중심의 누적 횡이동이다. 여러 힘 항의 표류는 한 카드로 묶는다.",
+      "source_url": "https://escholarship.org/content/qt0s50v8dz/qt0s50v8dz.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "adiabatic-magnetic-moment-mirror-reflection",
+      "group": 1,
+      "related_keys": [
+        "magnetic-plasma-confinement",
+        "moving-scatterer-fermi-acceleration",
+        "lorentz-actuation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "포괄적 자기 구속의 구체 경로인 평행·수직 운동 에너지 교환과 손실원뿔 반사이다. 움직이는 산란체에서 총에너지를 얻는 페르미 가속과 구별한다.",
+      "source_url": "https://www.nature.com/articles/s41467-026-72197-y",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "electron-charge-separation-langmuir-oscillation",
+      "group": 13,
+      "related_keys": [
+        "surface-plasmon",
+        "debye-mobile-charge-screening",
+        "relative-stream-electrostatic-plasma-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "계면 광결합 플라스몬이나 정적 차폐가 아니라 체적 전하 분리와 전자 관성의 자연 진동이다. 상대 흐름이 공급하는 불안정 성장 자체를 뜻하지 않는다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.33.195/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "electron-pressure-ion-inertia-acoustic-wave",
+      "group": 13,
+      "related_keys": [
+        "self-field-ambipolar-diffusion",
+        "collisionless-fermi-surface-zero-sound",
+        "magnetic-tension-alfven-wave"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전자·이온의 공동 확산이 아니라 전자 압력이 전기장을 통해 이온 관성을 복원하는 파동이다. 자기 장력이나 페르미면 변형이 복원력이 아니다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.33.195/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "rotation-negative-frequency-zeldovich-amplification",
+      "group": 13,
+      "related_keys": [
+        "dicke-collective-radiative-decay",
+        "stimulated-emission",
+        "electromagnetic-induction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "방출체 집단 붕괴나 준위 역점유가 아니라 회전 도플러 부호 전환이 손실을 이득으로 만든다. 전자기 유도 구현과 연결되지만 회전 흡수체의 음의 주파수 조건을 특정한다.",
+      "source_url": "https://www.nature.com/articles/s41467-024-49689-w",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "virtual-charged-loop-vacuum-birefringence",
+      "group": 13,
+      "related_keys": [
+        "electric-kerr-effect",
+        "optical-kerr-intensity-phase-modulation",
+        "radiative-self-energy-lamb-shift",
+        "strong-electric-field-vacuum-pair-tunneling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "물질 분극의 커 응답 대신 진공의 가상 하전 입자가 광장 사이를 매개한다. 원자 준위 자기 에너지 보정이나 실제 입자쌍 생성과 구별한다.",
+      "source_url": "https://arxiv.org/abs/1605.09294",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "phonon-mediated-cooper-pair-condensation",
+      "group": 14,
+      "related_keys": [
+        "superconductivity",
+        "bose-einstein-macroscopic-occupation",
+        "lattice-dressing-polaron-self-trapping",
+        "electron-hole-andreev-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "저항 소멸이라는 부모 현상에 전자쌍을 만드는 포논 매개 인력 경로를 더한다. 단일 운반자의 자기 포획이나 이미 형성된 쌍의 계면 전달과 구별한다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.108.1175/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "coherent-pulse-absorption-emission-self-transparency",
+      "group": 13,
+      "related_keys": [
+        "electromagnetically-induced-transparency",
+        "state-filling-saturable-absorption",
+        "stimulated-emission"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "별도 제어광의 다준위 경로 간섭이나 비결맞은 상태 포화 대신 한 펄스 안의 결맞은 흡수·재방출이 에너지를 되돌리고 펄스 형태를 유지한다.",
+      "source_url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.183.457",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "collapse-horizon-mode-mixing-hawking-emission",
+      "group": 13,
+      "related_keys": [
+        "dynamic-casimir-parametric-photon-generation",
+        "strong-electric-field-vacuum-pair-tunneling",
+        "gravitational-potential-clock-rate-shift"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 회로 경계 변조나 전기장 터널링 대신 중력 붕괴·지평선의 양자장 모드 혼합이다. 기존 시계의 주파수 이동만으로 입자를 생성하는 효과와 구별한다.",
+      "source_url": "https://astrofrelat.fcaglp.unlp.edu.ar/agujeros_negros/media/Papers/Hawking_1975-Particle_creation_by_black_holes.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "spacetime-curvature-gravitational-light-deflection",
+      "group": 13,
+      "related_keys": [
+        "refraction",
+        "gravitational-potential-clock-rate-shift",
+        "rotating-mass-frame-dragging-precession"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "매질 굴절률 경계가 아닌 중력 시공간 기하가 빛의 경로를 바꾼다. 정지 시계 속도 차이나 회전 질량의 관성계 끌림과 관측량·경로가 다르다.",
+      "source_url": "https://arxiv.org/abs/1706.02037",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "time-varying-mass-quadrupole-gravitational-radiation",
+      "group": 13,
+      "related_keys": [
+        "interferometric-sensing",
+        "antenna-current-radiation-conversion",
+        "gravitational-density-wake-dynamical-friction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "간섭계는 검출 수단이고 원인은 질량 분포가 방출하는 시공간 변형이다. 전류의 전자기 복사나 주변 물질의 밀도 후류에 대한 마찰과 구별한다.",
+      "source_url": "https://arxiv.org/pdf/1602.03837",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "self-emitted-radiation-reaction-backaction",
+      "group": 8,
+      "related_keys": [
+        "synchrotron-curved-trajectory-radiation",
+        "compton-photon-electron-energy-transfer",
+        "velocity-dependent-collisional-runaway-acceleration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "방출 스펙트럼이나 단일 산란 에너지 교환을 기술하는 데서 더 나아가 누적 복사 손실이 입자 운동 방정식과 다음 방출을 되먹임하는 경로이다.",
+      "source_url": "https://arxiv.org/abs/1707.06821",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "upper-bounded-spectrum-inverted-boltzmann-equilibrium",
+      "group": 7,
+      "related_keys": [
+        "selective-optical-pumping-population-redistribution",
+        "bose-einstein-macroscopic-occupation",
+        "integrability-conserved-rapidities-delayed-thermalization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광펌핑의 비평형 점유 이동이나 보존량에 갇힌 비열적 분포가 아니라 에너지 상한을 가진 계의 역점유 열분포이다. 단일 상태의 보스 응축 조건만을 뜻하지 않는다.",
+      "source_url": "https://arxiv.org/html/1211.0545v1",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

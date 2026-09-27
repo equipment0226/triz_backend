@@ -1,0 +1,248 @@
+{
+  "date": "2026-09-27",
+  "mode": "conversation_only",
+  "status": "ready_frozen",
+  "additions_file": "additions-2026-09-27-biology-05.tsv",
+  "canonical_mutated": false,
+  "count": 13,
+  "scope_note": "Primary research and official author-publication abstract only. Search-index text remains stored_search_excerpt even when long. No external LLM API. Mechanisms are generic cards without organism engineering, sequences, protocols or optimization.",
+  "evidence": [
+    {
+      "key": "carboxybiotin-decarboxylation-sodium-pumping",
+      "title": "Structural insights into sodium transport by the oxaloacetate decarboxylase sodium pump",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7274780/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "utilizes the free energy derived from oxaloacetate decarboxylation for sodium transport",
+      "limits": "2020 primary structure establishes subunit architecture; elevator-like movement/coupling remains a model, as authors acknowledge in peer review. 1981 purified-protein liposome experiment supplies direct energetic-coupling evidence; no universal stoichiometry claimed.",
+      "supplementary": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/7028747/",
+          "scope": "stored_search_excerpt",
+          "finding": "Reconstituted vesicles accumulated sodium using oxaloacetate decarboxylation; sodium ionophores abolished transport while a proton uncoupler did not."
+        },
+        {
+          "url": "https://elifesciences.org/articles/53853/peer-reviews",
+          "scope": "stored_search_excerpt",
+          "finding": "Authors acknowledge that static structure does not establish detailed mechanical coupling."
+        }
+      ]
+    },
+    {
+      "key": "electron-recycling-ketyl-radical-dehydration",
+      "title": "An allylic ketyl radical intermediate in clostridial amino-acid fermentation",
+      "url": "https://www.nature.com/articles/nature06637",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "a kinetically competent product-related allylic ketyl radical bound to the enzyme",
+      "limits": "Primary isotope EPR identifies the product-side allylic ketyl and supports catalysis. Initial ketyl and enoxy stages are proposed. ATP-dependent reductive activation is not claimed to consume ATP every substrate turnover. No organism growth or engineering guidance.",
+      "supplementary": [
+        {
+          "url": "https://comptes-rendus.academie-sciences.fr/chimie/articles/10.1016/j.crci.2006.12.013/",
+          "scope": "reference_section",
+          "finding": "Primary activation experiments; introduction/figure 1 explains electron return and substoichiometric reductive activation."
+        }
+      ]
+    },
+    {
+      "key": "sam-methyl-dehydrogenation-cluster-carbide-installation",
+      "title": "Refining the pathway of carbide insertion into the nitrogenase M-cluster",
+      "url": "https://www.nature.com/articles/ncomms9034",
+      "scope": "reference_section",
+      "retrieved_excerpt": "the methyl group is transferred to a precursor-associated sulfur before hydrogen abstraction",
+      "limits": "Isotope labeling, acid-quench products and Fe/Se substitution establish sulfur attachment and order of initial steps. Subsequent complete dehydrogenation and cluster-rearrangement sequence remains a model.",
+      "supplementary": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23019652/",
+          "scope": "stored_search_excerpt",
+          "finding": "Primary radiolabel study establishes SAM methyl as carbide carbon source; correct DOI is 10.1126/science.1224603, not the preceding unrelated PDF-page DOI 1224947."
+        }
+      ]
+    },
+    {
+      "key": "ester-ionization-driven-geometric-isomerization",
+      "title": "Catalytic mechanism of a retinoid isomerase essential for vertebrate vision",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4433804/",
+      "scope": "reference_section",
+      "retrieved_excerpt": "ester dissociation occurs by O-alkyl cleavage rather than acyl cleavage",
+      "limits": "2015 primary inhibitor-complex structures plus isotope and stereochemical results support ionization/rotation/water-capture route. Retinyl cation not directly trapped. Do not claim an unbiased free cation alone explains site selectivity.",
+      "supplementary": []
+    },
+    {
+      "key": "sequential-epoxide-ferryl-dioxygenative-ring-cleavage",
+      "title": "Stepwise O atom Transfer in Heme-Based Tryptophan Dioxygenase: Role of Substrate Ammonium in Epoxide Ring Opening",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5874177/",
+      "scope": "reference_section",
+      "retrieved_excerpt": "the O atom transfer takes place step-by-step",
+      "limits": "2018 primary synthetic-probe, NMR and MS experiments identify a monooxygenated furoindoline interpreted as a rearranged unstable epoxide; it is not direct epoxide capture. Substrate-ammonium function is inferred with rate/probe evidence.",
+      "supplementary": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19805032/",
+          "scope": "stored_search_excerpt",
+          "finding": "2009 primary spectroscopy observes a ferryl intermediate during IDO catalysis; failure to observe it in TDO does not establish its absence."
+        }
+      ]
+    },
+    {
+      "key": "iron-sulfur-bound-allyl-reductive-dehydroxylation",
+      "title": "Isoprenoid Biosynthesis: Ferraoxetane or Allyl Anion Mechanism for IspH Catalysis?",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3821072/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "supportive of an allyl anion IspH intermediate",
+      "limits": "2013 isotope HYSCORE and DFT support an allyl anion bound to oxidized Fe4S4 rather than a ferraoxetane. This is spectroscopic structural assignment, not atomic-resolution capture of every elementary step. Do not combine IspG as an independently counted variant.",
+      "supplementary": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20173096/",
+          "scope": "stored_search_excerpt",
+          "finding": "Primary ENDOR study proposes organometallic substrate interaction; later isotope HYSCORE provides discrimination of competing models."
+        }
+      ]
+    },
+    {
+      "key": "copper-thioaldehyde-cysteine-to-aldehyde-conversion",
+      "title": "Mechanism of O2 Activation and Cysteine Oxidation by the Unusual Mononuclear Cu(I) Active Site of the Formylglycine-Generating Enzyme",
+      "url": "https://pubs.acs.org/doi/10.1021/acscentsci.5c00183",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "spectroscopically observed post-HAA intermediate containing the thioaldehyde product coordinated to a Cu(I)–OOH site",
+      "limits": "2025 primary kinetic/spectroscopic/computational study identifies thioaldehyde-containing intermediate and later ligand sulfenate. Earliest Cu-superoxide is short-lived and assigned mechanistically. Hydrolysis to aldehyde is included; not oxygen-rebound hydroxylation.",
+      "supplementary": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6431200/",
+          "scope": "stored_search_excerpt",
+          "finding": "2019 primary XAS/crystal work identifies direct substrate thiolate binding to Cu(I) before oxygen activation."
+        }
+      ]
+    },
+    {
+      "key": "atp-sulfinate-activation-thiosulfinate-repair",
+      "title": "Evidence for the formation of a covalent thiosulfinate intermediate with peroxiredoxin in the catalytic mechanism of sulfiredoxin",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18552404/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "its mass was shown to correspond to a thiosulfinate complex",
+      "limits": "Primary yeast enzyme LC-MS and kinetics establish catalytically competent covalent thiosulfinate. Substrate is typical 2-Cys peroxiredoxin sulfinic acid, not generic sulfonate repair.",
+      "supplementary": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2527103/",
+          "scope": "stored_search_excerpt",
+          "finding": "2008 ATP/Mg structure and phosphorylation of substrate mimics support direct substrate-sulfinate phosphorylation; do not repeat the superseded obligatory phosphorylated-Srx-first scheme."
+        }
+      ]
+    },
+    {
+      "key": "backbone-serinolysis-pyruvoyl-cofactor-maturation",
+      "title": "Structure of a human S-adenosylmethionine decarboxylase self-processing ester intermediate and mechanism of putrescine stimulation of processing as revealed by the H243A mutant",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11583148/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "The mutant protein is trapped in the ester form",
+      "limits": "H243A primary 1.5-A structure directly demonstrates ester intermediate. N-to-O acyl shift alone is shared with inteins; novelty is subsequent beta elimination and conversion of the serine-derived new terminus to pyruvoyl.",
+      "supplementary": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC291833/",
+          "scope": "stored_search_excerpt",
+          "finding": "Primary self-processing structure study summarizes ester beta elimination to dehydroalanine followed by hydrolysis to pyruvoyl and cautions that single mutant conformations can mislead."
+        }
+      ]
+    },
+    {
+      "key": "cysteinyl-methylene-radical-carbon-methylation",
+      "title": "Crystallographic capture of a radical S-adenosylmethionine enzyme in the act of modifying tRNA",
+      "url": "https://pure.psu.edu/en/publications/crystallographic-capture-of-a-radical-s-adenosylmethionine-enzyme/",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "cross-linked to a tRNAGlu substrate through the terminal methylene carbon of a formerly methylcysteinyl residue",
+      "limits": "Official author-publication record reproduces the original Science abstract. Mutant covalent crosslink is captured; crosslink resolution is required for turnover. No resistant organism, target engineering, sequence or optimization instructions. RNA species and carbon positions remain one mechanism.",
+      "supplementary": [
+        {
+          "url": "https://www.sciencemagazinedigital.org/sciencemagazine/15_april_2016open?pg=77",
+          "scope": "stored_search_excerpt",
+          "finding": "Original primary text describes H abstraction from enzyme methylcysteine, radical addition and covalent-link resolution; do not assert every proton/thiol step established."
+        }
+      ]
+    },
+    {
+      "key": "amino-acid-fragment-derived-iron-carbonyl-cyanide-assembly",
+      "title": "The HydG enzyme generates an Fe(CO)2(CN) synthon in assembly of the FeFe hydrogenase H-cluster",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24458644/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "an organometallic Fe(CO)2(CN) synthon",
+      "limits": "Primary stopped-flow IR and isotope ENDOR identify ligand assembly and metal provenance. Later work refines auxiliary iron to a fifth dangler site, so card avoids asserting removal of a cubane-core Fe or direct one-step transfer to mature hydrogenase.",
+      "supplementary": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9649522/",
+          "scope": "stored_search_excerpt",
+          "finding": "2021 primary QM/MM study treats dehydroglycine radical-relay sequence as a proposal and identifies the Fe(II)(Cys)(CO)2(CN) assembly intermediate in context of prior evidence."
+        }
+      ]
+    },
+    {
+      "key": "substrate-photoexcitation-stepwise-hydride-addition",
+      "title": "Stepwise Hydride Transfer in a Biological System: Insights into the Reaction Mechanism of the Light-Dependent Protochlorophyllide Oxidoreductase",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5861667/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "three discrete intermediates were resolved, consistent with a stepwise mechanism",
+      "limits": "Primary time-resolved spectroscopy supports electron-first, subsequent proton-coupled electron transfer and protonation. Intermediate electronic identities are assignments; net hydride addition does not imply transfer of a free hydride ion. The substrate chromophore is excited directly.",
+      "supplementary": []
+    },
+    {
+      "key": "hemiprotonated-cytosine-intercalated-folding",
+      "title": "A tetrameric DNA structure with protonated cytosine.cytosine base pairs",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8389423/",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "two base-paired parallel-stranded duplexes are intimately associated, with their base pairs fully intercalated",
+      "limits": "Primary 1993 solution NMR structure at acid pH. Count relies on proton-coupled C:C+ pairing plus intercalated duplex topology, not cytosine substitution alone. No universal physiological folding or regulation claim.",
+      "supplementary": []
+    }
+  ],
+  "exclusions": [
+    {
+      "candidate": "torsion-driven B-to-Z DNA transition",
+      "url": "https://www.nature.com/articles/299312a0",
+      "scope": "stored_search_excerpt",
+      "reason": "Primary evidence exists, but present boundary against elastic torsional phase switching and DNA topology needs more than handedness/geometry; held."
+    },
+    {
+      "candidate": "enzyme-induced nucleotide base flipping",
+      "url": "https://repository.cshl.edu/id/eprint/31481/",
+      "scope": "stored_search_excerpt",
+      "reason": "Base extrusion is an access step shared across existing methylation and glycosylase entries. No independently justified input-transformation function yet."
+    },
+    {
+      "candidate": "glyoxalase hemithioacetal-enediolate rearrangement",
+      "url": "https://febs.onlinelibrary.wiley.com/doi/10.1111/febs.13085",
+      "scope": "stored_search_excerpt",
+      "reason": "Primary hemithioacetal structures exist, but boundary against proton-transfer tautomerization and thiol-carbonyl chemistry not settled. Held."
+    },
+    {
+      "candidate": "additional photosystem water oxidation card",
+      "url": "https://www.nature.com/articles/s41586-023-06038-z",
+      "scope": "stored_search_excerpt",
+      "reason": "Existing photosystem-manganese-water-oxidation-cycle already states charge accumulation and O-O formation. Improved structural resolution is source enrichment."
+    },
+    {
+      "candidate": "protein pyruvoyl-catalyzed amino acid decarboxylation variants",
+      "reason": "Do not separately count substrate or electron-sink cofactor variants of decarboxylation. This batch counts only the distinct backbone-elimination cofactor maturation."
+    },
+    {
+      "candidate": "oxygenic vs anaerobic FGE enzymes",
+      "reason": "No second FGE card based solely on enzyme family or aerobic/anaerobic conditions; anaerobic route not researched enough to demonstrate an independent catalytic sequence."
+    },
+    {
+      "candidate": "nitric oxide reductase cis/trans hyponitrite route",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9007887/",
+      "scope": "stored_search_excerpt",
+      "reason": "Competing binding/coupling models and existing broad anoxic-denitrification card require stronger pathway discrimination; held."
+    },
+    {
+      "candidate": "nitric oxide dioxygenase peroxynitrite capture",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2747244/",
+      "scope": "stored_search_excerpt",
+      "reason": "Classical proposed peroxynitrite assignment is contested; ferric-nitrate interpretation prevents presenting peroxynitrite as directly observed."
+    },
+    {
+      "candidate": "sodium pump decarboxylase substrate variants",
+      "reason": "Oxaloacetate, methylmalonyl-CoA and glutaconyl-CoA routes share decarboxylation-energy sodium pumping and remain one mechanism."
+    },
+    {
+      "candidate": "thiol-disulfide/protein methionine-sulfoxide repair variants",
+      "reason": "Simple sulfur substrate or reductase identity changes do not justify extra rows without a distinct activation sequence."
+    }
+  ],
+  "sha256_utf8_lf": "809092f9c987277599459219bd4c3e5be0cfea6a1fc76b907bcb1bdeeaff92dd"
+}

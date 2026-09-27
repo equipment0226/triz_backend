@@ -1,0 +1,64 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1618,
+  "merged": 1,
+  "after": 1617,
+  "campaign": "2026-09-27",
+  "decisions_sha256": "090e3126d3fb61298f66e0a11ec2c819beac4ef4be87d55987b8eb7f29ee4d85",
+  "decisions": [
+    {
+      "source": "electron-cyclotron-resonance-heating",
+      "target": "cyclotron-orbital-resonant-absorption",
+      "reason": "두 카드는 자기장 속 하전입자 궤도 회전과 교류장의 공명으로 에너지가 전달되는 동일 기전이다. 전자 플라스마 가열은 그 응용이며 전하종·유효질량·편광·파동 접근성 조건을 합쳐 보존한다.",
+      "target_fields": [
+        "자기장 궤도 운동의 사이클로트론 공명·가열",
+        "자기장 속 하전입자의 궤도 회전 주파수에 적합한 교류 전기장을 맞추면 장의 에너지를 공명 흡수한다. 전자 플라스마의 생성·가열에도 이용한다.",
+        "전하·유효질량·자기장 분포·편광·충돌률·파동 접근성·밀도·상대론적 보정을 확인한다. 비상대론적 전자 기본 각주파수는 eB/m이며 스핀 공명이나 유전 가열과 구분한다."
+      ],
+      "original_card": [
+        "electron-cyclotron-resonance-heating",
+        "전자 사이클로트론 공명에 의한 플라스마 가열",
+        "자기장 속 전자의 회전 운동과 전자기파의 적합한 주파수·편광이 공명하면 파동 에너지가 전자 운동에 전달되어 플라스마 생성·가열을 돕는다.",
+        "비상대론적 기본 공명은 각주파수 eB/m에 대응한다. 자기장 분포·충돌·파동 접근성·밀도를 고려한다. 핵 스핀 공명이나 벌크 유전 가열과 다른 전자 회전 공명이다.",
+        "manual-final-electron-cyclotron-resonance-heating"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "전자 사이클로트론 공명에 의한 플라스마 가열",
+          "electron cyclotron resonance heating"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "electron-cyclotron-resonance-heating",
+        "name_en": "electron cyclotron resonance heating",
+        "aliases": [
+          "전자 사이클로트론 공명에 의한 플라스마 가열",
+          "electron cyclotron resonance heating"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual-final-electron-cyclotron-resonance-heating",
+            "title": "Plasma heating due to X-B mode conversion in a cylindrical ECR plasma system",
+            "url": "https://arxiv.org/abs/physics/0410112",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-092517-A1",
+            "title": "Dispositivo para generar un plasma que presenta una extension importante a lo largo de un eje por resonancia ciclotronica electronica rce a partir de un medio gaseoso",
+            "url": "https://patents.google.com/patent/AR092517A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "4bd20cf69a892c2ed0a74ed75d9b842ff5843ac35c4e3206c8d76eb07d745ba7",
+            "review_note": "문헌·중복 검토 후 연결: electron-cyclotron-resonance-heating; 자기장 속 전자의 회전 운동과 전자기파의 적합한 주파수·편광이 공명하면 파동 에너지가 전자 운동에 전달되어 플라스마 생성·가열을 돕는다. 비상대론적 기본 공명은 각주파수 eB/m에 대응한다. 자기장 분포·충돌·파동 접근성·밀도를 고려한다. 핵 스핀 공명이나 벌크 유전 가열과 다른 전자 회전 공명이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    }
+  ]
+}

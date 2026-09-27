@@ -1,0 +1,155 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-information-13.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "count": 16,
+  "batch_sha256": "689807d5eb41ede8013e9c06aa994f5ca7b065d8d3dc13faca342006f6aa6ca5",
+  "comparison": {
+    "canonical_count_at_final_key_check": 1962,
+    "scope": "All canonical keys checked; information-group descriptions and related cross-domain mechanisms compared by their input, transformation and validity conditions. Upper-principle membership is not by itself treated as a duplicate.",
+    "pending_coordination": "Biology08 and physics12 checked during research; physics12 subsequently installed. Biology09 and physics13 owners confirmed separate biochemical and physical mechanisms. No perceptual biology or physical quantum variant added here.",
+    "canonical_mutation": false,
+    "validation": "16 unique new keys, exactly 10 pipe-delimited columns each, group 19, every nearest key exists, principle and condition lengths below 160 and 180 characters. All sixteen main URLs opened as research papers or NIST documentation; body sections used, not abstract-only inference."
+  },
+  "records": [
+    {
+      "key": "adjacent-average-difference-allan-variance",
+      "url": "https://tf.nist.gov/general/pdf/2220.pdf",
+      "scope": "reference_section",
+      "locator": "NIST SP1065 Section 5.2.2, equations 6-7, printed pages 14-15; Section 5.15 dead time",
+      "observation": "Equation 6 uses one half of the mean squared first differences of adjacent frequency averages at averaging time tau. Equation 7 is its phase-second-difference form. Standard variance can fail to converge for common clock noise; Allan variance has noise-dependent convergence and confidence. Dead time changes the statistic. Constant offset cancellation does not imply drift cancellation.",
+      "supplement": {"url":"https://tf.nist.gov/general/pdf/7.pdf","title":"Statistics of Atomic Frequency Standards","scope":"reference_section","locator":"Allan 1966, finite-N sample variance and averaging/dead-time dependence, equations 11-13"},
+      "boundary": "Sequential scale-dependent instability measure; not the independent-input replacement variance upper bound. Overlapping, modified, Hadamard and total-variance variants are not additional cards."
+    },
+    {
+      "key": "cyclic-frequency-pair-spectral-correlation",
+      "url": "https://faculty.engineering.ucdavis.edu/gardner/wp-content/uploads/sites/146/2013/02/The_Spectral_Correlation_Theory_of_Cyclostationary_Time-Series.pdf",
+      "scope": "reference_section",
+      "locator": "Sections 2.2-2.3, equations 24-34, printed pages 18-19; Section 2.4 comparison to Wigner-Ville",
+      "observation": "The synchronized lag-product average has Fourier coefficients indexed by cycle frequency alpha. Equations 27-34 identify these with long-time cross-spectral correlation of components at f+alpha/2 and f-alpha/2. A second-order periodic signal can have constant first-order mean. The paper distinguishes its limit cyclic statistic from finite-energy ambiguity and Wigner distributions.",
+      "boundary": "Uses persistent second-order periodicity and a cycle-frequency limit. Sharing lag products with Wigner-Ville is acknowledged; this is not another local time-frequency display or another reference-wave matched filter."
+    },
+    {
+      "key": "illumination-diverse-photometric-normal-recovery",
+      "url": "https://www.cs.ubc.ca/~woodham/papers/Woodham94a.pdf",
+      "scope": "reference_section",
+      "locator": "Section 2 equations 2-3; Appendix A, equations A1-A3 and discussion of known illumination, printed pages 3066-3067",
+      "observation": "At fixed viewpoint, illumination changes add radiometric constraints. In the calibrated Lambertian case, replacing the gradient by a unit normal makes the three equations linear in albedo times normal. Appendix A gives the cosine/dot-product model and explicitly requires known source configuration and strengths for the original normal/albedo recovery. Shadows and interreflection invalidate the purely local model.",
+      "supplement": {"url":"https://www.cs.ubc.ca/~woodham/papers/Woodham80c.pdf","title":"Photometric method for determining surface orientation from multiple images","scope":"stored_search_excerpt","locator":"Indexed original first-page abstract and introduction; scanned PDF body yielded no extracted lines"},
+      "boundary": "No parallax, feature displacement, height-basis fitting or new material-specific optical effect is counted. The 1994 paper's nonparametric implementation and curvature extension are not separately added."
+    },
+    {
+      "key": "squared-distance-centered-gram-coordinate-recovery",
+      "url": "https://arxiv.org/pdf/2303.05682",
+      "scope": "reference_section",
+      "locator": "Introduction, first page: X=-JDJ/2 and rank-truncated eigendecomposition",
+      "observation": "D is explicitly the matrix of squared Euclidean distances and J=I-11^T/n. The paper states the equivalence between a squared Euclidean distance matrix and positive semidefinite X, then recovers the point matrix from the eigenpairs. This card uses the established classical construction in the research paper's setup, not its new dual-basis variant.",
+      "boundary": "Distance-only inverse geometry is distinct from multiplying two centered unsquared-distance matrices for dependence and from low-rank approximation of already observed coordinates. Generic non-Euclidean input need not yield an exact Euclidean embedding."
+    },
+    {
+      "key": "normalized-eigenstate-operator-derivative-sensitivity",
+      "url": "https://faculty.washington.edu/miller/51816/Feynman.pdf",
+      "scope": "reference_section",
+      "locator": "Page 341, derivation around equations 1-3: H psi=U psi and integral psi*psi=1",
+      "observation": "Feynman differentiates the energy expectation, uses self-adjointness and the eigenvalue relation, and cancels the two wavefunction-derivative terms because their sum is U times the derivative of the normalization. The remaining operator derivative gives the energy slope. The catalog states this algebraic eigenvalue identity, without claiming approximate basis derivatives vanish.",
+      "boundary": "Not a duplicate molecular force card: the recorded operation is normalized eigenpair sensitivity for a differentiable self-adjoint operator. The physics owner confirmed no independently reserved duplicate."
+    },
+    {
+      "key": "period-monodromy-exponential-periodic-factorization",
+      "url": "https://www.numdam.org/article/ASENS_1883_2_12__47_0.pdf",
+      "scope": "reference_section",
+      "locator": "Sections 22-26, printed pages 83-86; especially section 26 exponential times periodic function and repeated-root forms",
+      "observation": "The original text identifies period multipliers with roots of the fundamental equation. A solution with multiplier epsilon is exp(r*x) times a periodic function, with exp(r*period)=epsilon. Simple multipliers give a basis of such modes; repeated nontrivial blocks require polynomial factors. The card's one-period transfer terminology is the modern representation of this relation, not an attribution of matrix-log notation to the original.",
+      "boundary": "Uses an imposed coefficient period, not a trajectory-defined first return. No nonlinear or interacting time-crystal phenomenon, Magnus approximation variant, or real-log existence claim is added."
+    },
+    {
+      "key": "integrated-conditional-intensity-event-clock",
+      "url": "https://www.stat.cmu.edu/~vventura/rescaling.pdf",
+      "scope": "reference_section",
+      "locator": "Section 2.1, time-rescaling theorem and equations 2.8-2.15; Section 2.2 equation 2.16",
+      "observation": "The cumulative conditional intensity transforms each event time. Differences between transformed event times have independent unit exponential distributions under the specified process. The proof uses the conditional event density and survival term, rather than an unconditional firing-rate average. The neural examples are applications and are not separately counted biological effects.",
+      "boundary": "Jump-process compensator time differs from constant-rate CTMC uniformization and the continuous-martingale quadratic-variation clock. Discretized timestamps and fitted intensities require model and finite-resolution checks."
+    },
+    {
+      "key": "integration-by-parts-score-matching-estimation",
+      "url": "https://jmlr.org/papers/volume6/hyvarinen05a/hyvarinen05a.pdf",
+      "scope": "reference_section",
+      "locator": "Theorem 1, equation 4 and definitions around it; Appendix A partial-integration proof",
+      "observation": "The model score is the gradient of log density with respect to the data coordinate, so an input-independent normalization constant disappears. Theorem 1 rewrites the unknown-data-score discrepancy as the data expectation of the model score divergence plus half its squared norm and a parameter-independent constant. Boundary decay and differentiability are necessary.",
+      "boundary": "This constructs an estimable density-fitting objective. It does not duplicate the later use of an estimated score to generate by reverse diffusion or Gaussian risk estimation through a divergence identity."
+    },
+    {
+      "key": "known-noise-logistic-density-normalizer-estimation",
+      "url": "https://proceedings.mlr.press/v9/gutmann10a/gutmann10a.pdf",
+      "scope": "reference_section",
+      "locator": "Section 2, equations 2-5; Section 2.2 supervised-learning interpretation",
+      "observation": "The model includes an explicit unknown log normalizer c. For equal data/noise sample sizes, the classifier logit is log p_model(x)-log p_noise(x), and the objective sums data log h and noise log(1-h). Other sample ratios require their prior-ratio correction. Thus the discriminative objective identifies a normalized density under the paper's assumptions.",
+      "boundary": "Known-density noise calibration and estimation of c distinguish this from representation contrastive learning and importance weighting. Ordinary supervised learning is an upper category, not a second application card for an unchanged classifier."
+    },
+    {
+      "key": "alternating-diagonal-row-column-balancing",
+      "url": "https://msp.org/pjm/1967/21-2/pjm-v21-n2-p14-p.pdf",
+      "scope": "reference_section",
+      "locator": "Opening discussion and theorem, printed pages 343-344",
+      "observation": "For a strictly positive square matrix, alternating row and column normalization converges to a unique doubly stochastic matrix of the form D1*A*D2. The paper distinguishes support sufficient for iterative convergence from total support needed for finite positive diagonal equivalence in a nonnegative matrix. Cross-ratio preservation follows directly from cancellation of these row/column factors.",
+      "boundary": "The concrete constraint-preserving transformation is diagonal balancing. It is not counted as another material, application, transport cost, or variant of maximum entropy. General zero-pattern convergence claims are intentionally excluded."
+    },
+    {
+      "key": "nonlinear-loop-gain-composition-stability",
+      "url": "https://web.ece.ucsb.edu/~teel/ECE236/jiang-teel-praly-1994",
+      "scope": "reference_section",
+      "locator": "Theorem 2.1 equations 17-18; Corollary 2.2, printed pages 99-101",
+      "observation": "For sum-form input/output bounds, the paper requires compositions containing Id+rho margins around the two nonlinear gains. Corollary 2.2 takes outputs to be states and concludes ISS when both subsystems are ISS and the threshold is zero. The row therefore explicitly retains margin functions, global range and zero offsets instead of asserting that any bare local product below one proves global stability.",
+      "boundary": "Combines subsystem gain bounds around a loop; passive-port energy cancellation and a directly constructed decreasing Lyapunov function are different certificates and design inputs."
+    },
+    {
+      "key": "coordinated-interference-subspace-alignment",
+      "url": "https://web.mit.edu/6.454/www/papers/cadambe_jafar_interf_alignment.pdf",
+      "scope": "reference_section",
+      "locator": "Section III alignment construction and remarks; Section IV symbol extensions; concluding global-channel-knowledge limitation",
+      "observation": "Transmit beam directions are chosen so undesired messages share a subspace at a receiver while the desired vectors stay linearly independent of that space. Receiver-side projection can then remove aligned interference. The paper's asymptotic degrees-of-freedom theorem assumes suitable variable channels and symbol extensions; it does not give a universal finite-dimensional result for every constant channel.",
+      "boundary": "Multi-receiver joint alignment constrains where interference lands. It does not decode/subtract interference or simply exploit a point-to-point MIMO channel rank, and it does not require knowledge of the interfering message symbols as dirty-paper coding does."
+    },
+    {
+      "key": "distributed-random-bin-joint-typical-decoding",
+      "url": "https://isl.stanford.edu/people/cover/papers/transIT/0226cove.pdf",
+      "scope": "reference_section",
+      "locator": "Introduction random index assignment and unique jointly typical decoder, page 226; Encoding Technique and Decoding Algorithm, page 227",
+      "observation": "The introduction assigns separate random indices to x and y sequences, known to the receiver, then accepts the unique typical pair consistent with the two indices. The detailed corner-rate proof partitions X randomly while enumerating typical Y; time sharing obtains the remaining boundary. The card restricts to the finite-alphabet iid setting and records conditional and sum-entropy constraints without asserting finite-block zero error.",
+      "boundary": "Distributed compression exploits source correlation available jointly only at the decoder. It is not an ECC family variant, single-stream arithmetic interval subdivision, or intermediate-network-node combination. The original 1973 paper was also opened, but Cover's explicit binning proof is the operative source."
+    },
+    {
+      "key": "dominant-singularity-taylor-coefficient-transfer",
+      "url": "https://algo.inria.fr/flajolet/Publications/FlOd90b.pdf",
+      "scope": "reference_section",
+      "locator": "Section 2 Delta-domain transfer framework; Corollary 2, printed pages 224-225; introduction on unique dominant singularity",
+      "observation": "The paper transfers a local algebraic singular expansion to coefficient asymptotics using a Hankel-like Cauchy contour and remainder control in a dented analytic domain. Its convention (1-z)^a becomes the row's (1-z/rho)^(-alpha), alpha>0, giving C*rho^(-n)*n^(alpha-1)/Gamma(alpha). Multiple dominant singularities require multiple contributions.",
+      "boundary": "A branch-singularity coefficient-transfer operation, rather than an exact residue sum around isolated poles, saddle-location approximation, or Frobenius solution of an ODE. Logarithmic transfer variants are not counted separately."
+    },
+    {
+      "key": "positive-moment-preserving-support-compression",
+      "url": "https://arxiv.org/pdf/1611.02065",
+      "scope": "reference_section",
+      "locator": "Theorem 1, equations 1-3; NNLS and LP formulations 5-6, pages 1-3",
+      "observation": "The basis-evaluation matrix V yields V^T*u=b with u nonnegative. A conic Caratheodory argument guarantees a solution with at most dim(S restricted to X) positive components. The resulting nodes are a subset of the original finite support. The paper describes NNLS and basic-feasible LP implementations and later quantifies nonzero numerical moment residuals.",
+      "boundary": "Positive support reduction with exact selected moments is distinct from choosing free Gaussian quadrature roots, maintaining expectation only under randomized rounding, or maximizing the product of empirical point masses. No exactness outside the chosen function space is claimed."
+    },
+    {
+      "key": "renormalized-orbit-separation-lyapunov-growth",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevA.14.2338/fulltext",
+      "scope": "reference_section",
+      "locator": "Sections II.B-II.C and Figure 1, printed pages 2340-2341; numerical limitations Section III",
+      "observation": "After each time interval, the nearby trajectory is reset along the evolved displacement direction to the original small distance. The sum of logarithmic separation ratios divided by elapsed time matches tangent growth as the initial distance tends to zero. A generic direction attains the largest exponent; exceptional subspaces need not. The paper carefully distinguishes this quantity from a general equality to metric entropy.",
+      "boundary": "Growth-rate measurement through rescaling is separate from return-map geometry, delay-coordinate state reconstruction and Lyapunov-function feedback stabilization. Full-spectrum QR and system-specific entropy applications are not separately added."
+    }
+  ],
+  "exclusions": [
+    {"candidate":"Generalized method of moments","decision":"Deferred. The original Hansen paper opened as a scan without usable body text; its abstract alone does not establish the exact weighted objective. A later explanatory paper was located, but no extra card was padded into this batch."},
+    {"candidate":"Bispectrum and other high-order spectral variants","decision":"Not added; existing connected-cumulant extraction already captures much of the claimed non-Gaussian separation. A separate operation and conditions would need a stronger boundary."},
+    {"candidate":"Adaptive Runge-Kutta, inverse-CDF/thinning, kernel PCA/NMF and effective-resistance sampling variants","decision":"Excluded as weakly separated from existing extrapolation, probability transformation, low-rank projection or importance sampling operations."},
+    {"candidate":"Allan overlapping/modified/Hadamard families; Sinkhorn transport applications","decision":"Not separately counted. Additional sampling patterns or objectives do not alone justify duplicate mechanism cards."},
+    {"candidate":"Physical Floquet, biological point-process and material photometric variants","decision":"Recorded only the stated mathematical or measurement operation. No new application-specific physical/biological effect inferred."},
+    {"candidate":"Input shaping, extremum seeking and generic software patterns","decision":"Deferred or excluded because a distinct operation beyond existing feedforward/filtering/perturbation-gradient or implementation patterns was not established."}
+  ]
+}

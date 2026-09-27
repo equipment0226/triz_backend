@@ -1,0 +1,55 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1998,
+  "merged": 1,
+  "after": 1997,
+  "campaign": "2026-09-27",
+  "decisions_sha256": "f674431cca42a9183c856a116192091c5f240231afe2a4020aa759e452a20486",
+  "decisions": [
+    {
+      "source": "thiolate-nitroso-nitrogen-group-transfer",
+      "target": "nucleophilic-substitution",
+      "reason": "기존 친핵성 치환은 탄소에 한정하지 않고 친전자성 부위의 작용기 교체를 정의한다. 현재 니트로소기 전달 카드는 공격 원자와 이동 작용기를 특정하지만 별도 중간체·에너지 결합·다단계 경로를 입증하지 않아 기존 치환 원리의 구체적 사례로 통합한다. NO의 헴 결합 신호 및 이황화 결합 교환과 다른 사례라는 설명, 원출처와 식별자는 보존한다.",
+      "target_fields": [
+        "친핵성 치환",
+        "친핵체가 기질의 친전자성 부위에 결합하고 이탈기가 결합 전자쌍을 가지고 떠나 작용기를 바꾼다. 티올레이트가 S니트로소티올의 질소를 공격하여 니트로소기를 옮기는 반응도 포함한다.",
+        "기질·친핵체·이탈기·용매·pH·이온화·반응 조건을 확인한다. 제거 반응·입체 효과·부반응을 고려하며 구조·속도 근거 없이 SN1 또는 SN2로 단정하지 않는다. 니트로소기 교환에 유리 NO 방출을 필수 중간체로 두거나 생리적 효과를 자동 추정하지 않는다."
+      ],
+      "original_card": [
+        "thiolate-nitroso-nitrogen-group-transfer",
+        "티올레이트 공격의 니트로소기 교환",
+        "티올레이트가 S니트로소티올의 니트로소 질소를 공격하여 공여 황과의 결합을 치환하면 수용 티올에 니트로소기가 옮겨지고 공여 티올이 회수된다.",
+        "티올의 이온화·pH·공여체와 수용체 농도·부반응을 확인한다. 인용은 용액 모형의 속도론이며 모든 단백질에서 같은 속도를 가정하거나 유리 NO 방출을 필수 중간 단계로 두지 않는다.",
+        "research-20260927-thiolate-nitroso-nitrogen-group-transfer"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "thiolate nitroso nitrogen group transfer"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "thiolate-nitroso-nitrogen-group-transfer",
+        "name_en": "thiolate nitroso nitrogen group transfer",
+        "aliases": [
+          "티올레이트 공격의 니트로소기 교환",
+          "thiolate nitroso nitrogen group transfer"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-research-20260927-thiolate-nitroso-nitrogen-group-transfer",
+            "title": "Transnitrosation between nitrosothiols and thiols",
+            "url": "https://pubs.rsc.org/en/content/articlelanding/1994/p2/p29940001131",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "publisher_abstract",
+            "accessed_at": "2026-09-27",
+            "review_method": "conversation_reasoning",
+            "supports": "공개 문헌의 원리·조건을 대화에서 검토한 참고 근거. 초록·검색 발췌 범위는 원문 전체 검증과 구분하며 개별 응용의 성능을 보장하지 않는다."
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    }
+  ]
+}

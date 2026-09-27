@@ -1,0 +1,260 @@
+{
+  "batch": "additions-2026-09-27-information-07.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1740,
+  "added": 20,
+  "after": 1760,
+  "target": 2000,
+  "source_sha256": "41bcb62a80f558f7ca535210416e43584d7a23e73acfc86612680d6b09e5a2aa",
+  "decisions": [
+    {
+      "key": "state-dependent-nonlinearity-canceling-feedback",
+      "group": 19,
+      "related_keys": [
+        "negative-feedback",
+        "recursive-virtual-control-backstepping",
+        "tangent-linearized-newton-root-iteration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "오차 이득 조절이나 국소 접선 근사가 아니라 모형의 비선형 항을 실제 제어 입력으로 상쇄하는 좌표·입력 변환이다.",
+      "source_url": "https://underactuated.mit.edu/acrobot.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "flat-output-finite-derivative-trajectory-reconstruction",
+      "group": 19,
+      "related_keys": [
+        "model-predictive-control",
+        "state-dependent-nonlinearity-canceling-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "시간 구간마다 동역학 제약 최적화를 푸는 대신 평탄 출력의 미분 자료에서 전체 상태와 입력을 직접 복원하는 구조를 이용한다.",
+      "source_url": "https://python-control.readthedocs.io/en/latest/flatsys.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "passive-port-interconnection-energy-cancellation",
+      "group": 19,
+      "related_keys": [
+        "negative-feedback",
+        "lyapunov-descent-stabilizing-control"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 음의 되먹임과 달리 입출력 공급률의 상쇄 및 저장량 부등식을 연결 전후 보존한다. 별도 저장함수 없이 임의의 계에 적용할 수 없다.",
+      "source_url": "https://www.mathworks.com/help/control/ug/feedback-interconnection-of-passive-systems.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "exosystem-replica-internal-model-regulation",
+      "group": 19,
+      "related_keys": [
+        "negative-feedback",
+        "feedforward",
+        "smith-delay-free-model-prediction-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외란을 측정해 미리 상쇄하거나 공정 지연을 예측하는 대신 기준·외란 생성기의 동역학을 오차 경로 안에 복제한다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/0005109876900066",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nilpotent-closed-loop-finite-step-regulation",
+      "group": 19,
+      "related_keys": [
+        "linear-quadratic-optimal-feedback",
+        "negative-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이차 비용 최소화나 점근 안정화와 달리 폐루프의 멱영 조건을 구성한다. 일부 이차 최적 제어와 해가 겹칠 수 있어도 유한 단계 소멸은 별도 조건이다.",
+      "source_url": "https://www3.nd.edu/~pantsakl/Archive/WolovichSymposium/files/Kucera_Paper.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "diffusion-path-expectation-parabolic-pde-representation",
+      "group": 19,
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "shared-face-flux-conservative-volume-discretization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확률 표본 평균 자체가 아니라 미분 연산자와 확산 생성자의 대응으로 편미분방정식을 경로 기댓값 문제로 바꾼다.",
+      "source_url": "https://arxiv.org/pdf/1707.02568",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "logarithmic-derivative-burgers-heat-linearization",
+      "group": 19,
+      "related_keys": [
+        "noncommuting-subflow-operator-splitting",
+        "state-dependent-nonlinearity-canceling-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "부분 흐름을 나누거나 외부 제어로 비선형 항을 상쇄하지 않고 종속변수의 로그 미분 치환으로 특정 비선형 방정식을 선형화한다.",
+      "source_url": "https://arxiv.org/pdf/solv-int/9812025",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "characteristic-curve-pde-to-ode-reduction",
+      "group": 19,
+      "related_keys": [
+        "implicit-zero-level-front-evolution",
+        "shared-face-flux-conservative-volume-discretization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "격자 셀의 유속 합산이나 영수준 집합 갱신 대신 연쇄법칙에 맞는 곡선을 구성해 편미분식을 곡선별 상미분식으로 바꾼다.",
+      "source_url": "https://reference.wolfram.com/language/tutorial/SymbolicSolutionsOfPDEs.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "incidence-adjoint-hodge-flow-decomposition",
+      "group": 19,
+      "related_keys": [
+        "normalized-laplacian-spectral-partition",
+        "filtration-persistent-topological-features",
+        "singular-spectrum-low-rank-projection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "작은 특잇값을 버리거나 그래프를 군집화하지 않고 연속 접속 연산의 곱이 영인 구조에 따라 기울기·회전·조화 부분공간을 나눈다.",
+      "source_url": "https://arxiv.org/pdf/0811.1067",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "endpoint-derivative-euler-maclaurin-summation",
+      "group": 19,
+      "related_keys": [
+        "step-size-leading-error-extrapolation",
+        "orthogonal-polynomial-node-gaussian-quadrature"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "여러 간격의 근사를 결합하거나 적분 노드를 최적화하지 않고 경계 미분값의 명시적인 보정항으로 합과 적분의 차를 계산한다.",
+      "source_url": "https://dlmf.nist.gov/2.10#i",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "poisson-weighted-partial-sum-borel-summation",
+      "group": 19,
+      "related_keys": [
+        "step-size-leading-error-extrapolation",
+        "series-coefficient-matched-rational-approximation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "오차의 앞항을 제거하거나 유리함수를 맞추는 대신 부분합 수열에 포아송 평균 극한이라는 새로운 수렴 규칙을 적용한다.",
+      "source_url": "https://dlmf.nist.gov/1.15#i",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "implicit-power-series-lagrange-inversion",
+      "group": 19,
+      "related_keys": [
+        "tangent-linearized-newton-root-iteration",
+        "series-coefficient-matched-rational-approximation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "숫자 근을 접선으로 갱신하거나 주어진 급수를 유리근사하지 않고 순방향 함수의 거듭제곱 계수에서 역함수 계수를 직접 생성한다.",
+      "source_url": "https://mathworld.wolfram.com/LagrangeInversionTheorem.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "backward-three-term-clenshaw-series-evaluation",
+      "group": 19,
+      "related_keys": [
+        "basis-function-surface-reconstruction",
+        "roundoff-residual-compensated-summation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기저 전개라는 표현 자체나 잃어버린 반올림 잔차의 보상이 아니라 삼항 관계를 역으로 사용해 급수 평가 연산을 압축한다.",
+      "source_url": "https://dlmf.nist.gov/3.11#ii",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "support-slope-fenchel-conjugate-transform",
+      "group": 19,
+      "related_keys": [
+        "bregman-geometry-mirror-descent",
+        "augmented-lagrangian-splitting-coordination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "최적화 갱신 규칙이 아니라 함수 전체를 입력값 공간에서 지지 기울기 공간으로 바꾸는 상한 변환이다.",
+      "source_url": "https://www-leland.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "random-edge-contraction-cut-preservation",
+      "group": 19,
+      "related_keys": [
+        "capacity-cut-flow-duality",
+        "minimum-cut-edge-spanning-tree-growth",
+        "normalized-laplacian-spectral-partition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유량 증대나 고유벡터 분할 대신 절단 간선을 피할 확률을 이용해 그래프를 무작위로 축약한다. 최소 연결 나무의 탐욕 선택과도 다르다.",
+      "source_url": "https://people.csail.mit.edu/karger/Papers/contract.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "laplacian-cofactor-spanning-tree-count",
+      "group": 19,
+      "related_keys": [
+        "minimum-cut-edge-spanning-tree-growth",
+        "normalized-laplacian-spectral-partition",
+        "sylvester-determinant-polynomial-elimination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "한 나무의 비용을 최소화하거나 스펙트럼을 절단하지 않고 라플라시안 여인수 행렬식으로 모든 나무의 조합적 총량을 계산한다.",
+      "source_url": "https://networkx.org/documentation/stable/_modules/networkx/algorithms/tree/mst.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "group-fixed-point-average-orbit-count",
+      "group": 19,
+      "related_keys": [
+        "subset-incidence-mobius-inversion",
+        "representative-path-compression-set-union"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "겹치는 부분집합의 포함배제나 동치집합의 실제 병합 대신 군 원소별 고정점 계수의 평균으로 동치 배치 수를 계산한다.",
+      "source_url": "https://mathworld.wolfram.com/Cauchy-FrobeniusLemma.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "prefix-border-failure-link-pattern-matching",
+      "group": 19,
+      "related_keys": [
+        "sequence-alignment",
+        "finite-state-transducer-decoding",
+        "dictionary-reference-lossless-compression"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "편집 비용 최적화나 과거 문자열 압축이 아니라 불일치 이전 비교에서 확인한 접두·접미 관계를 재사용해 정확 대조를 선형 진행한다.",
+      "source_url": "https://www.cs.jhu.edu/~misha/Spring23/Knuth77.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "rolling-positional-modular-string-fingerprint",
+      "group": 19,
+      "related_keys": [
+        "prefix-border-failure-link-pattern-matching",
+        "locality-sensitive-hash-collision-retrieval",
+        "random-field-evaluation-polynomial-identity-test"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "거리 보존 충돌이나 독립 다항식 평가 대신 겹치는 창의 자리값 대수로 지문을 상수 비용 갱신한다.",
+      "source_url": "https://didawiki.cli.di.unipi.it/lib/exe/fetch.php/bio/kr87.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "ordered-threshold-lovasz-convex-extension",
+      "group": 19,
+      "related_keys": [
+        "support-slope-fenchel-conjugate-transform",
+        "separating-halfspace-localization-cuts",
+        "subset-incidence-mobius-inversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 연속 보간이나 포함배제가 아니라 중첩 문턱 집합의 증가량으로 이산 부분모듈성과 연속 볼록성을 연결한다.",
+      "source_url": "https://arxiv.org/pdf/1111.6453",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

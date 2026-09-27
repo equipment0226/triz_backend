@@ -1,0 +1,275 @@
+{
+  "date": "2026-09-27",
+  "mode": "conversation_only",
+  "external_llm_calls": false,
+  "status": "ready_frozen",
+  "additions_file": "additions-2026-09-27-biology-09.tsv",
+  "count": 12,
+  "canonical_mutated": false,
+  "scope_note": "Primary research supports every affirmative row. Opened body is reference_section; opened abstract is publisher_abstract; indexed primary content remains stored_search_excerpt even if a long excerpt was returned. Failed opens are not recorded as full text. Molecular species, product variants and applications are not separate effects.",
+  "comparison_note": "Current canonical keys and relevant full principles/conditions compared, including all prior biology batches. Physics12 and information13 reviewed directly; physics13 candidate list received from its author. No semantic overlap found with these pending batches. Generic parents are retained only where the new row describes a substantial intermediate, reaction-center or energy-coupling distinction.",
+  "evidence": [
+    {
+      "key": "dual-substrate-phosphorylation-metal-carboxylation",
+      "title": "Structural Basis for the Mechanism of ATP-Dependent Acetone Carboxylation",
+      "url": "https://www.nature.com/articles/s41598-017-06973-8",
+      "doi": "10.1038/s41598-017-06973-8",
+      "scope": "reference_section",
+      "retrieved_excerpt": "activate both acetone and bicarbonate with a single ATP",
+      "finding": "Opened introduction, structure results and proposed cycle: nucleotide-bound conformations connect separate phosphorylation and Mn reaction sites. Prior biochemistry plus these structures support activation of both carbon substrates before C–C ligation.",
+      "limits": "Phosphoenolacetone/carboxyphosphate trafficking and the detailed Mn-site sequence are a structural rationale, not direct capture of every intermediate. ATP stoichiometry varies among enzymes. Acetophenone and acetone variants are grouped.",
+      "boundary": "Biotin carrier carboxylation transfers activated carbon on a covalent cofactor; here both carbon substrates are phosphorylated and brought to the metal site. Internal channeling is an enabling transport step, not the distinguishing chemical transformation. PEP carboxylation is deliberately not a second card in this batch."
+    },
+    {
+      "key": "hybrid-beta-barrel-strand-exchange-membrane-folding",
+      "title": "Structure of a nascent membrane protein as it folds on the BAM complex",
+      "url": "https://www.nature.com/articles/s41586-020-2370-1",
+      "doi": "10.1038/s41586-020-2370-1",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "release by stepwise exchange of hydrogen bonds",
+      "finding": "Opened abstract and public figure captions describe a trapped catalyst–substrate asymmetric hybrid barrel and substrate-assisted release by hydrogen-bond exchange.",
+      "limits": "The reported substrate is BamA folding on BamA. The paywalled body was not retrieved. Detailed ordering is not asserted for every outer-membrane substrate or organelle assembly machine.",
+      "boundary": "A temporary intermolecular beta-sheet is formed and resolved during membrane folding. This differs from antiaggregation chaperones, capped cages, stable domain-swapped oligomers and Sec lateral partitioning of hydrophobic segments."
+    },
+    {
+      "key": "cyclopropylcarbinyl-intermediate-head-to-head-prenyl-coupling",
+      "title": "Structural insights into the catalytic mechanism of human squalene synthase",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24531458/",
+      "doi": "10.1107/S1399004713026230",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "using presqualene diphosphate (PSPP) as an intermediate",
+      "finding": "Opened primary abstract reports two-step reductive head-to-head coupling and structures with substrate analogues and intermediates. Public publisher figure 1 identifies the cyclopropyl intermediate and bond rearrangements.",
+      "limits": "NADPH binding is a model supported by mutagenesis, not a fully captured catalytic trajectory. Product reduction variants and different terpene substrates are not separately counted.",
+      "supplementary": [
+        {
+          "url": "https://journals.iucr.org/d/issues/2014/02/00/mh5106/mh5106fig1.html",
+          "scope": "stored_search_excerpt",
+          "finding": "Indexed publisher figure caption specifies PSPP linkage cleavage and alternative squalene/dehydrosqualene outcomes under different cofactor conditions."
+        },
+        {
+          "title": "Mechanism of action and inhibition of dehydrosqualene synthase",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3003041/",
+          "scope": "stored_search_excerpt",
+          "finding": "Indexed primary structural study describes the shared cyclopropyl intermediate pathway; treated as the same family, not an additional effect."
+        }
+      ],
+      "boundary": "Two substrate chains join through a cyclopropylcarbinyl intermediate which then rearranges. Existing polyene cyclization folds one chain into rings, while carbene/SAM cyclopropanation transfers a one-carbon group without this head-to-head reorganization."
+    },
+    {
+      "key": "copper-directed-carbon-oxidation-glycoside-cleavage",
+      "title": "Oxidative cleavage of polysaccharides by monocopper enzymes depends on H2O2",
+      "url": "https://www.nature.com/articles/nchembio.2470",
+      "doi": "10.1038/nchembio.2470",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "the reductant is consumed in priming",
+      "finding": "Opened abstract reports enzyme assays, oxygen-label experiments and mass spectrometry supporting peroxide-driven oxidative polysaccharide cleavage, including turnover without molecular oxygen.",
+      "limits": "The detailed oxygen intermediate is not fully established by this abstract. No universal two-electron/O2 requirement is asserted. C1/C4 positions and cellulose/chitin variants are one effect.",
+      "supplementary": [
+        {
+          "title": "The molecular basis of polysaccharide cleavage by lytic polysaccharide monooxygenases",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4817220/",
+          "doi": "10.1038/nchembio.2029",
+          "scope": "stored_search_excerpt",
+          "finding": "Indexed primary structures/spectroscopy connect substrate binding geometry with copper-mediated oxidation adjacent to the glycosidic linkage. Author-manuscript PDF open failed, so this remains indexed scope."
+        }
+      ],
+      "boundary": "Copper-driven carbon oxidation destabilizes the glycosidic linkage. This is distinct from hydrolytic anomeric substitution, transient NAD oxidation/elimination/reduction and heme oxygen insertion without glycoside cleavage."
+    },
+    {
+      "key": "terminal-rna-phosphorolysis-diphosphate-recovery",
+      "title": "Structure and mechanism of Mycobacterium smegmatis polynucleotide phosphorylase",
+      "url": "https://rnajournal.cshlp.org/content/27/8/959.full",
+      "doi": "10.1261/rna.078822.121",
+      "scope": "reference_section",
+      "retrieved_excerpt": "stepwise phosphorolysis of the 3′-terminal phosphodiesters",
+      "finding": "Opened primary body reports cryo-EM structures, catalytic-site mutagenesis and the reversible NDP/Pi reaction. Phosphate attacks terminal phosphodiester phosphorus rather than hydrolytic cleavage with water.",
+      "limits": "Authors favor a two-metal mechanism but do not exclude alternating single-metal occupancy; their structure does not directly capture every substrate-bound catalytic state. No organism-engineering claim is made.",
+      "boundary": "Existing exonuclease describes sequential end removal and polyadenylation uses ATP with pyrophosphate release. Here Pi/NDP exchange conserves a diphosphate product. Glycosidic phosphorolysis attacks anomeric carbon rather than phosphorus."
+    },
+    {
+      "key": "atp-coupled-acceptor-potential-shift-reductive-activation",
+      "title": "Redox potential changes during ATP-dependent corrinoid reduction determined by redox titrations with europium(II)–DTPA",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6739815/",
+      "doi": "10.1002/pro.3699",
+      "scope": "stored_search_excerpt",
+      "retrieved_excerpt": "electron-accepting site is increased",
+      "finding": "Indexed primary content reports an apparent corrinoid Co(II)/Co(I) potential shift from about −530 to −250 mV with ATP-dependent activation, allowing reduction by a milder donor.",
+      "limits": "PMC open returned a challenge and Wiley returned 403. Indexed content was read; no full-text retrieval claimed. ATP binding, hydrolysis and conformational contributions are not generalized to all ATP-dependent electron-transfer families, some of which alter donor potentials or complex dissociation.",
+      "boundary": "ATP investment changes the electron-accepting thermodynamics. Generic enzyme electron transfer does not specify uphill energy coupling; flavin bifurcation couples two redox branches. Corrinoid methyl transfer and the ketyl dehydration reaction are downstream chemistry, not this activation route."
+    },
+    {
+      "key": "aminyl-fragmentation-carboxyl-radical-relocation",
+      "title": "Fine-tuning of a radical-based reaction by radical S-adenosyl-L-methionine tryptophan lyase",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26989252/",
+      "doi": "10.1126/science.aad8995",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "a carboxyl fragment migration mechanism",
+      "finding": "Opened abstract reports EPR and isotope-resolved radical intermediates supporting cleavage of the Cα–carboxyl-carbon bond and carboxyl migration, revising the earlier Cα–Cβ fragmentation scheme.",
+      "limits": "Specific active-site confinement is essential; not arbitrary solution migration. Later studies refine stepwise radical confinement and cyanide release. The old Cα–Cβ hypothesis is not used as the productive mechanism.",
+      "supplementary": [
+        {
+          "title": "Crystal Structure of Tryptophan Lyase (NosL): Evidence for Radical Formation at the Amino Group of Tryptophan",
+          "url": "https://onlinelibrary.wiley.com/doi/10.1002/anie.201407320",
+          "scope": "stored_search_excerpt",
+          "finding": "Primary structure supports amino-nitrogen radical initiation. Its downstream Cα–Cβ proposal is superseded by the 2016 evidence and is not retained."
+        },
+        {
+          "title": "Radical S-Adenosyl-l-methionine Tryptophan Lyase (NosL): How the Protein Controls the Carboxyl Radical •CO2− Migration",
+          "url": "https://pubs.acs.org/doi/10.1021/jacs.8b09142",
+          "scope": "stored_search_excerpt",
+          "finding": "Indexed primary abstract reports crystallography, EPR and quantum/QM-MM analysis of confined carboxyl-radical migration. Detailed elementary steps remain model-dependent."
+        }
+      ],
+      "boundary": "The carboxyl fragment is retained and reattached within the original substrate rather than released as CO2 or converted into iron ligands. CofH/CofG adds an amino-acid fragment to a different substrate before ring closure, a different bond-construction path."
+    },
+    {
+      "key": "heme-copper-tyrosyl-coupled-dioxygen-bond-cleavage",
+      "title": "The three-spin intermediate at the O-O cleavage and proton-pumping junction in heme-Cu oxidases",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34516790/",
+      "doi": "10.1126/science.abh3209",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "a cross-linked tyrosyl radical",
+      "finding": "Opened 2021 Science abstract and public figure captions report magnetic circular dichroism evidence for coupled ferryl, copper(II) and tyrosyl spins in the PM O–O-cleavage intermediate.",
+      "limits": "The PMC deposit is dated later than the 2021 publication. Proton-pump topology and the electron donor sequence for every initial redox state are not asserted. This card covers coupled O2 bond cleavage, not a new generic pump application.",
+      "supplementary": [
+        {
+          "title": "The proton donor for O-O bond scission by cytochrome c oxidase",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18664577/",
+          "doi": "10.1073/pnas.0802512105",
+          "scope": "stored_search_excerpt",
+          "finding": "Indexed primary abstract reports time-resolved optical, FTIR and electrometric evidence supporting proton donation from the cross-linked tyrosine during O–O cleavage."
+        }
+      ],
+      "boundary": "The metal pair and covalent organic cofactor collect reducing equivalents for O2 cleavage. P450 oxygen insertion and catalase peroxide disproportionation have different substrate fates and redox cycles. Generic PCET is a parent, not an assertion that this multicomponent cycle is a single elementary concerted step."
+    },
+    {
+      "key": "backbone-sulfenyl-amide-reversible-thiol-protection",
+      "title": "Oxidation state of the active-site cysteine in protein tyrosine phosphatase 1B",
+      "url": "https://www.nature.com/articles/nature01681",
+      "doi": "10.1038/nature01681",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "The sulphenyl-amide is a protective intermediate",
+      "finding": "Opened primary abstract describes oxidized active-site structures including the cyclic sulphenyl-amide, conformational regulation and protection from irreversible overoxidation.",
+      "limits": "A suitable backbone geometry is required. The card does not generalize formation to every sulfenic acid or claim repair after irreversible higher oxidation states.",
+      "supplementary": [
+        {
+          "title": "Redox regulation of protein tyrosine phosphatase 1B involves a sulphenyl-amide intermediate",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12802338/",
+          "scope": "stored_search_excerpt",
+          "finding": "Independent primary abstract identifies the bond between catalytic cysteine sulfur and adjacent main-chain nitrogen and thiol-reversible structural change."
+        }
+      ],
+      "boundary": "The protective trap is an intramolecular S–N cycle, unlike disulfide exchange. Sulfiredoxin repairs the higher sulfinate state through ATP activation and thiosulfinate formation; this is a different intermediate and entry condition."
+    },
+    {
+      "key": "reversible-amine-carbon-dioxide-carbamate-capture",
+      "title": "The identification of carbon dioxide mediated protein post-translational modifications",
+      "url": "https://www.nature.com/articles/s41467-018-05475-z",
+      "doi": "10.1038/s41467-018-05475-z",
+      "scope": "reference_section",
+      "retrieved_excerpt": "neutral amine groups",
+      "finding": "Opened body uses carbamate trapping, isotope-sensitive NMR and mass spectrometry to identify reversible CO2 additions to amines in model substrates and proteins.",
+      "limits": "Chemical trapping stabilizes a normally reversible adduct; functional regulation is not presumed for every detected site. This card includes general amine capture and does not split proteins from sorbent materials.",
+      "boundary": "Neutral amine nitrogen adds to CO2 and changes charge/coordination. Rubisco forms carbon–carbon bonds in its substrate; mineral carbonation makes inorganic salts; urethane formation adds alcohol to isocyanate. Protein carbamylation by cyanate is not conflated with reversible CO2 carbamate."
+    },
+    {
+      "key": "thiolate-nitroso-nitrogen-group-transfer",
+      "title": "Transnitrosation between nitrosothiols and thiols",
+      "url": "https://pubs.rsc.org/en/content/articlelanding/1994/p2/p29940001131",
+      "doi": "10.1039/P29940001131",
+      "scope": "publisher_abstract",
+      "retrieved_excerpt": "attack by the thiolate anion at the nitroso nitrogen atom",
+      "finding": "Opened primary abstract reports pH-dependent kinetics consistent with direct thiolate attack at nitroso nitrogen, transferring the nitroso group between thiols.",
+      "limits": "Solution-model kinetics support the pathway; no universal intracellular rate or physiological effect is claimed. Free-NO release is not required by this transfer mechanism.",
+      "boundary": "The electrophilic center and transferred group are nitroso nitrogen, rather than the sulfur attacked during disulfide exchange. Existing NO signaling describes heme binding. Nucleophilic substitution is a broad parent; this is the weakest parent-boundary row and should be merged into that parent if atom-specific group-transfer pathways are excluded by the final editorial criterion."
+    },
+    {
+      "key": "radical-pair-selective-photoexcitation-net-heterolysis",
+      "title": "Unimolecular net heterolysis of symmetric and homopolar σ-bonds",
+      "url": "https://www.nature.com/articles/s41586-024-07622-7",
+      "doi": "10.1038/s41586-024-07622-7",
+      "scope": "reference_section",
+      "retrieved_excerpt": "stimulated doublet–doublet electron transfer",
+      "finding": "Opened abstract and main mechanism discussion describe thermal homolysis followed by selective radical photoexcitation and electron transfer, producing ionic products from symmetric or homopolar bonds.",
+      "limits": "Experimental examples are Se–Se and C–Se bonds. Excitation of only one incipient radical is presented as probable symmetry breaking, not a universally directly observed elementary event. This is not a claim that all unpolarized sigma bonds heterolyze under light.",
+      "boundary": "Existing radical-generation cards stop at radicals and solvent-cage recombination returns the initial bond. Here a second excitation changes the radical-pair charge state to an ion pair, enabling net heterolysis. It is not SRN1 propagation by electron transfer to the next substrate."
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "candidate": "PEP phosphate-transfer coupled carboxylation",
+      "reason": "Different activation input but shares the carboxyphosphate/enolate terminal chemistry with the accepted double-activation pathway. Not separately counted in this batch; avoid inflation by prephosphorylated substrate variants.",
+      "primary_url": "https://pubmed.ncbi.nlm.nih.gov/7317383/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "candidate": "Membrane-gap height-dependent CD45 segregation",
+      "reason": "The reconstituted membrane result is real, but the proposed card could be read as recognition plus size-dependent steric exclusion. Excluded conservatively under the strict combination-versus-distinct-path criterion; no assertion that T-cell signaling is fully explained by this partitioning.",
+      "primary_title": "In vitro reconstitution of T cell receptor-mediated segregation of the CD45 phosphatase",
+      "primary_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5676914/",
+      "doi": "10.1073/pnas.1710358114",
+      "retrieval_scope": "stored_search_excerpt",
+      "retrieved_excerpt": "absence of any active cellular organization"
+    },
+    {
+      "candidate": "QueE radical ring contraction",
+      "reason": "Detailed azacyclopropylcarbinyl intermediate is model-dependent and overlaps the existing PLP radical amino migration and radical-rearrangement families. A distinct final ring size alone is insufficient for this batch.",
+      "primary_url": "https://pubmed.ncbi.nlm.nih.gov/24362703/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "candidate": "ATP-dependent benzoyl-CoA reductase activation",
+      "reason": "Not split from the energy-coupled electron-transfer family in the accepted corrinoid activation row. Aromatic reduction product alone also risks duplicating Birch-type reduction. Donor-potential and acceptor-potential variants are explicitly not multiplied.",
+      "primary_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC61090/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "candidate": "Topaquinone amine oxidation",
+      "reason": "Existing oxidative-amino-acid-deamination already describes imine formation and hydrolytic deamination. Cofactor identity and substrate class are insufficient here for an additional card."
+    },
+    {
+      "candidate": "Hsp70 translocation Brownian ratchet",
+      "reason": "Thermal movement plus occupancy preventing reverse movement shares the existing polymerization Brownian-ratchet rectification principle. A different blocking protein was not accepted as a new effect."
+    },
+    {
+      "candidate": "Formylglycine sulfate-ester double displacement",
+      "reason": "Existing sulfatase-sulfate-ester-hydrolysis already names the formylglycine hydrate reaction center. No new independent row."
+    },
+    {
+      "candidate": "Spore-photoproduct-lyase radical repair",
+      "reason": "Radical beta cleavage and photodimer restoration risk an application-specific split from existing radical scission and dimer-repair mechanisms. Not added solely for enzyme/substrate identity."
+    }
+  ],
+  "editorial_attention": [
+    "12 retained instead of forcing the requested 15–20 through weak mechanistic variants.",
+    "Transnitrosation is the closest broad-parent boundary; source and atom-level chemistry are firm, final counting depends on the chosen breadth of nucleophilic-substitution.",
+    "Heme–Cu–Tyr row describes O2 cleavage chemistry, not an extra proton-pump card; all detailed pump and universal initial-state claims are excluded.",
+    "ATP-dependent corrinoid source is honestly stored_search_excerpt after blocked page opens."
+  ],
+  "validation": {
+    "canonical_count_at_check": 1978,
+    "compared_files": [
+      {
+        "file": "catalog.tsv",
+        "sha256_raw_bytes": "b7c35df8f113e776fbb458e7adbe67753ece91904db66dc8422283b5126defa1"
+      },
+      {
+        "file": "additions-2026-09-27-physics-12.tsv",
+        "sha256_raw_bytes": "3e301dd62f35f9f44adce12ef41907927182b960cc5d65962b7d8326d9e35fb2"
+      },
+      {
+        "file": "additions-2026-09-27-information-13.tsv",
+        "sha256_raw_bytes": "689807d5eb41ede8013e9c06aa994f5ca7b065d8d3dc13faca342006f6aa6ca5"
+      }
+    ],
+    "row_count": 12,
+    "columns": 10,
+    "max_principle_chars": 102,
+    "max_conditions_chars": 107,
+    "nearest_keys_all_exist": true,
+    "new_keys_unique_and_absent": true,
+    "evidence_keys_titles_urls_scopes_match": true,
+    "tsv_encoding": "UTF-8 no BOM, LF, terminal newline",
+    "tsv_sha256": "d037140413285fb068f3f00889b78a2b192b52e4d7df858027bc5e4bb2a3b5ab"
+  }
+}

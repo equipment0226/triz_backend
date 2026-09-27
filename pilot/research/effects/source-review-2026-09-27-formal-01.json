@@ -1,0 +1,14 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "observations": [
+    {"key": "epsilon-closed-subset-automaton-determinization", "scope": "reference_section", "read": "Cornell lecture 3 PDF slides 21–25: parallel reachable-state sets, epsilon closure, DFAedge, accepting subset condition."},
+    {"key": "mismatch-character-suffix-safe-pattern-shifting", "scope": "reference_section", "read": "Boyer/Moore original author-hosted PDF section 2: observations 1, 2, 3a/3b and maximum safe shift; no universal average speed claim retained."},
+    {"key": "dotted-production-predict-scan-complete-chart", "scope": "reference_section", "read": "SDSU teaching implementation: dotted rules, chart start/end positions, predictor, scanner and completer; packing caveat for adding arbitrary features."}
+  ],
+  "held_or_excluded": [
+    {"candidate": "DFA partition-refinement minimization", "reason": "Lecture 4 read, but its split-by-successor-class operator overlaps installed neighbor-multiset color refinement enough to avoid counting a separate item without a stronger mechanistic boundary."},
+    {"candidate": "Manacher palindrome mirror reuse", "reason": "Author textbook PDF failed to open; search result alone did not establish the operative algorithm adequately."},
+    {"candidate": "Aho multiple-pattern failure links", "reason": "Failure-link mechanism is already represented by prefix-border-failure-link-pattern-matching; multi-pattern application not counted."}
+  ]
+}

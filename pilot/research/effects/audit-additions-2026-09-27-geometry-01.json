@@ -1,0 +1,109 @@
+{
+  "batch": "additions-2026-09-27-geometry-01.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1795,
+  "added": 8,
+  "after": 1803,
+  "target": 2000,
+  "source_sha256": "9deefd7b9bed5b8467c86d3f49c5549b2f8158eac7113951b01a864e577eb6e1",
+  "decisions": [
+    {
+      "key": "orientation-stack-pruning-convex-hull",
+      "group": 19,
+      "related_keys": [
+        "hierarchical-spatial-partition",
+        "separating-halfspace-localization-cuts"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공간을 재귀 분할하거나 최적점 탐색 범위를 자르는 대신 순서 있는 점 사슬에서 비볼록 회전을 제거해 극점을 남긴다. 위·아래 사슬은 한 알고리즘으로 묶는다.",
+      "source_url": "https://raw.githubusercontent.com/CGAL/cgal/master/Convex_hull_2/include/CGAL/Convex_hull_2/ch_graham_andrew_impl.h",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "paraboloid-lifting-lower-hull-delaunay-projection",
+      "group": 19,
+      "related_keys": [
+        "orientation-stack-pruning-convex-hull",
+        "nearest-neighbor-retrieval"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "볼록 껍질은 하위 계산이나 핵심은 거리의 제곱을 한 차원 높은 선형 지지면 문제로 바꾸는 상승 변환이다. 쌍대 보로노이 표현을 별도 신규 효과로 세지 않는다.",
+      "source_url": "https://www.qhull.org/html/qdelaun.htm",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ordered-sweep-event-planar-intersection-enumeration",
+      "group": 19,
+      "related_keys": [
+        "hierarchical-spatial-partition",
+        "orientation-stack-pruning-convex-hull"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공간 구역을 나누거나 외곽점만 남기지 않고 움직이는 절단선의 순서가 바뀌는 사건을 추적하여 교차를 열거한다.",
+      "source_url": "https://doc.cgal.org/Manual/3.1/doc_html/cgal_manual/Sweep_line_2/Chapter_main.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "oriented-solid-angle-generalized-winding-classification",
+      "group": 19,
+      "related_keys": [
+        "filtration-persistent-topological-features",
+        "implicit-zero-level-front-evolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "위상 특징의 지속성을 추적하거나 경계를 시간 진화시키는 대신 방향 있는 경계의 입체각 적분으로 한 점의 감싸짐을 계산한다. 논문의 후속 그래프 절단은 이 카드의 신규 경로가 아니다.",
+      "source_url": "https://igl.ethz.ch/projects/winding-number/robust-inside-outside-segmentation-using-generalized-winding-numbers-siggraph-2013-compressed-jacobson-et-al.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "additive-plane-quadric-mesh-pair-contraction",
+      "group": 19,
+      "related_keys": [
+        "singular-spectrum-low-rank-projection",
+        "basis-function-surface-reconstruction",
+        "random-edge-contraction-cut-preservation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "특잇값 절단이나 무작위 그래프 축약 대신 과거 평면 거리의 이차형을 더하며 기하 오차가 작은 정점 쌍을 합친다. 단순 최소제곱 풀이보다 누적 오차 표현과 연결 변경의 결합이 경계다.",
+      "source_url": "https://www.cs.cmu.edu/afs/cs.cmu.edu/user/garland/www/Papers/quadrics.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "empty-convex-ear-removal-polygon-triangulation",
+      "group": 19,
+      "related_keys": [
+        "orientation-stack-pruning-convex-hull",
+        "paraboloid-lifting-lower-hull-delaunay-projection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "오목한 경계를 버리는 볼록 껍질과 달리 내부에 다른 꼭짓점이 없는 국소 귀만 제거하여 원래 다각형 영역을 보존한다. 들로네의 외접구 조건을 요구하지 않는다.",
+      "source_url": "https://www.geometrictools.com/Documentation/TriangulationByEarClipping.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "cube-sign-case-edge-interpolation-isosurface",
+      "group": 19,
+      "related_keys": [
+        "implicit-zero-level-front-evolution",
+        "basis-function-surface-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "미분방정식으로 전선을 진화시키거나 기저 곡면을 적합하지 않고 이미 주어진 스칼라 격자에서 부호 사례와 모서리 보간으로 경계 삼각망을 추출한다.",
+      "source_url": "https://graphics.stanford.edu/courses/cs348a-21-winter/Papers/Marching_Cubes.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "rotating-support-line-calipers-extreme-enclosure",
+      "group": 19,
+      "related_keys": [
+        "orientation-stack-pruning-convex-hull",
+        "ordered-sweep-event-planar-intersection-enumeration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "직선 위치에 따른 곡선 교차 열거와 달리 볼록체의 지지 방향을 돌리며 외접 접촉점을 재사용한다. 직경·폭·외접 사각형은 같은 지지선 회전 경로의 용도라 더 나누지 않는다.",
+      "source_url": "https://www.geometrictools.com/Documentation/MinimumAreaRectangle.pdf",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1873,
+  "merged": 3,
+  "after": 1870,
+  "campaign": "2026-09-27",
+  "decisions_sha256": "8ea03cdb9e2b0f3e954c4d70c8c6deba3bf22de2e69bac247c2e41fd2fe922ca",
+  "decisions": [
+    {
+      "source": "terminal-sialylation",
+      "target": "biomolecular-recognition",
+      "reason": "현재 시알산 카드는 말단 당 노출에 따른 수용체 인식과 분포·제거 결과만 서술하며 별도 수송·분해 중간단계는 특정하지 않는다. 기존 당 에피토프·Fc 당사슬·알부민 결합 카드와 같은 표적 결합 판정 기준으로 통합한다.",
+      "target_fields": [
+        "생체분자 인식·표적 결합",
+        "상보적인 구조와 비공유 상호작용이 표적을 선택적으로 결합한다. 당사슬 말단 노출은 수용체 인식을 바꾸고, 항체 화물·알부민 결합은 자유분율·분포·제거 경로에 영향을 줄 수 있다.",
+        "친화도·해리·선택성·pH·염도·표적 분포·비특이 결합·변성을 확인한다. 당사슬의 결합 방식·종, 화물 연결자·방출·비표적 노출, 알부민 결합의 대사·활성을 평가한다. 내부 유입·효능·반감기 연장은 결합만으로 보장하지 않는다."
+      ],
+      "original_card": [
+        "terminal-sialylation",
+        "말단 시알산에 따른 당단백질 제거 조절",
+        "당사슬 말단의 시알산은 하위 당 잔기의 노출과 수용체 인식을 바꾸어 당단백질의 순환 제거·분포에 영향을 줄 수 있다.",
+        "시알산 양·결합 방식·당사슬·종·단백질을 확인한다. 반감기와 생물학적 활성은 각각 평가하며 모든 시알산 증가를 유리하다고 보지 않는다.",
+        "manual500-terminal-sialylation"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "terminal sialylation"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "terminal-sialylation",
+        "name_en": "terminal sialylation",
+        "aliases": [
+          "말단 시알산에 따른 당단백질 제거 조절",
+          "terminal sialylation"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual500-terminal-sialylation",
+            "title": "Biological characterization of recombinant human follicle stimulating hormone isoforms",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/10325254/",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-071479-A1",
+            "title": "Hormona foliculo estimulante recombinante (rfsh) con union de acido sialico en a2,3 y a2,6",
+            "url": "https://patents.google.com/patent/AR071479A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "1145829b33ea7d1a4251bb476bfeded5f6fd608cb24e62317cfe11c88d75d081",
+            "review_note": "기존 검토: sialyltransferase로 rFSH 말단 sialic acid 결합 형태를 바꾼다. glycosylation에 따른 소실 속도 조절 후보. 문헌 대조 후 원리 연결: 말단 시알산에 따른 당단백질 제거 조절: 당사슬 말단의 시알산은 하위 당 잔기의 노출과 수용체 인식을 바꾸어 당단백질의 순환 제거·분포에 영향을 줄 수 있다. 시알산 양·결합 방식·당사슬·종·단백질을 확인한다. 반감기와 생물학적 활성은 각각 평가하며 모든 시알산 증가를 유리하다고 보지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-089324-A1",
+            "title": "Composiciones, metodos y kits para la preparacion de proteinas recombinantes sialiladas",
+            "url": "https://patents.google.com/patent/AR089324A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "280af2464a06adc9f8da847189084416f2945e745323c901fbe294716ad474fa",
+            "review_note": "재조합 발현과 시알산 전달효소로 단백질 말단 시알산 패턴을 바꾼다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-094317-A1",
+            "title": "Polipéptidos del factor vii de acción corta",
+            "url": "https://patents.google.com/patent/AR094317A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "2626717f6acdd9e7db630e4982afc0bbba0ce611c0b433553924883c800d64db",
+            "review_note": "시알산 변화로 Factor VII의 제거 시간을 조절한다. 응고 효소 전구체의 절단 활성화는 별도 문헌 후보이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-112541-A1",
+            "title": "Composición para estimulación ovárica controlada con hef recombinante",
+            "url": "https://patents.google.com/patent/AR112541A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "bbd22c5bcc6b0c5fe2b6f397a90e4c91693ac9b9628f6b0e6720b132dc7f9b04",
+            "review_note": "난포 자극 호르몬 제제와 말단 시알산 수식이다. 환자별 투여 권고로 해석하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "chimeric-receptor-signal-coupling",
+      "target": "receptor-ligand-modulation",
+      "reason": "인공 항원 결합부·막 연결·세포내 신호부라는 모듈 구성 외 현재 카드에 일반 수용체 결합·신호 조절과 다른 작동 중간체가 없다. 생체 수용체를 인공 모듈로 재구성한 응용으로 통합하고 구조·신호 조건을 보존한다.",
+      "target_fields": [
+        "수용체·리간드 신호 조절",
+        "리간드가 수용체 활성 상태를 바꾸거나 다른 리간드의 결합·작용을 방해해 신호를 조절한다. 패턴 인식·억제성 체크포인트 차단과 항원 결합부를 세포내 신호부에 이은 인공 수용체도 표적 신호망의 역할에 따라 출력을 바꾼다.",
+        "표적·에피토프·친화도·효능·농도·세포 맥락·위치·종·기저 활성·탈감작을 확인한다. 인공 수용체는 모듈·간격·막 배치도 평가한다. 비표적·상시 신호·과도한 염증·면역 독성을 고려하며 항원 특이 기억 및 임상 효과는 결합만으로 보장하지 않는다."
+      ],
+      "original_card": [
+        "chimeric-receptor-signal-coupling",
+        "인공 수용체의 항원 인식·세포 신호 결합",
+        "세포외 항원 결합 영역을 세포내 활성화 영역에 연결한 키메라 수용체를 발현하면 선택적 항원 인식을 해당 세포의 활성 신호로 바꿀 수 있다.",
+        "결합 영역·간격·막 배치·신호 모듈·항원 밀도·세포 상태에 의존한다. 비표적·상시 신호와 기능 저하를 평가한다. 외부 이중항체가 두 세포를 연결하는 방식 및 Fc 매개 ADCC와 구조가 다르다.",
+        "manual-final-chimeric-receptor-signal-coupling"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "인공 수용체의 항원 인식·세포 신호 결합",
+          "chimeric receptor signal coupling"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "chimeric-receptor-signal-coupling",
+        "name_en": "chimeric receptor signal coupling",
+        "aliases": [
+          "인공 수용체의 항원 인식·세포 신호 결합",
+          "chimeric receptor signal coupling"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual-final-chimeric-receptor-signal-coupling",
+            "title": "Specific activation and targeting of cytotoxic lymphocytes through chimeric single chains consisting of antibody-binding domains and the gamma or zeta subunits of the immunoglobulin and T-cell receptors",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/8421711/",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-098848-A1",
+            "title": "Receptores de antígeno quimérico de mesotelina humana y usos de los mismos",
+            "url": "https://patents.google.com/patent/AR098848A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "7a3f4eb3cdf1df5779c6c927399a92fd06b2095915eb61d717d37c376950b233",
+            "review_note": "문헌·중복 검토 후 연결: chimeric-receptor-signal-coupling; 세포외 항원 결합 영역을 세포내 활성화 영역에 연결한 키메라 수용체를 발현하면 선택적 항원 인식을 해당 세포의 활성 신호로 바꿀 수 있다. 결합 영역·간격·막 배치·신호 모듈·항원 밀도·세포 상태에 의존한다. 비표적·상시 신호와 기능 저하를 평가한다. 외부 이중항체가 두 세포를 연결하는 방식 및 Fc 매개 ADCC와 구조가 다르다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "radiocarbon-source-apportionment",
+      "target": "radioactive-decay",
+      "reason": "현재 탄소 기원 카드는 방사성 붕괴를 바탕으로 한 측정 응용이라고 명시한다. 독립 붕괴 경로나 판독 기전 없이 탄소14 잔존량·혼합비 추정이라는 출력만 달리 세지 않는다. NIST 원문과 기존 source ID는 보존한다.",
+      "target_fields": [
+        "방사성 붕괴",
+        "불안정한 원자핵이 자발적으로 다른 핵종이나 낮은 에너지 상태로 전이하며 입자·방사선과 에너지를 방출한다. 잔존 방사성 동위원소비는 기준 조성과 혼합 가정을 두면 시기·물질 기원 추정에도 쓰인다.",
+        "핵종별 반감기·방출 에너지·방사능·시간 감소를 확인한다. 차폐·밀봉·오염 방지·붕괴 생성물 관리가 필요하다. 기원 추정은 기준 조성·오염·동위원소 보정·혼합 가정을 확인하며 총 원소 농도와 구별한다."
+      ],
+      "original_card": [
+        "radiocarbon-source-apportionment",
+        "방사성 탄소비에 의한 탄소 기원 추정",
+        "화석 탄소와 최근 생물 기원 탄소의 탄소-14 상대량 차이를 측정하면 혼합물의 탄소 기원 비율을 추정할 수 있다.",
+        "기준 조성·오염·동위원소 보정이 필요하다. 방사성 붕괴를 바탕으로 한 측정 응용이며, 탄소 연령이나 총 원소 농도 측정과 출력이 다르다.",
+        "manual600-radiocarbon-source-apportionment"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "radiocarbon source apportionment"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "radiocarbon-source-apportionment",
+        "name_en": "radiocarbon source apportionment",
+        "aliases": [
+          "방사성 탄소비에 의한 탄소 기원 추정",
+          "radiocarbon source apportionment"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual600-radiocarbon-source-apportionment",
+            "title": "NIST: Identifying Carbon Compounds Derived from Fossil Fuels",
+            "url": "https://www.nist.gov/news-events/news/2017/09/new-method-identifying-carbon-compounds-derived-fossil-fuels",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-076947-A1",
+            "title": "Un metodo para utilizar mediciones de 14 c para determinar el porcentaje natural de las composiciones de limpieza",
+            "url": "https://patents.google.com/patent/AR076947A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "1e1fae78d3fed7cf6dfa25e139814e9944d96d170b0a6a65e2ae2e90338d07cd",
+            "review_note": "기존 초록 검토: 방사성 탄소 자료로 화석·재생 탄소 비율을 구한다. 붕괴 자체와 동위원소 조성 기반 출처 추정을 구분해 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 방사성 탄소비에 의한 탄소 기원 추정: 화석 탄소와 최근 생물 기원 탄소의 탄소-14 상대량 차이를 측정하면 혼합물의 탄소 기원 비율을 추정할 수 있다. 기준 조성·오염·동위원소 보정이 필요하다. 방사성 붕괴를 바탕으로 한 측정 응용이며, 탄소 연령이나 총 원소 농도 측정과 출력이 다르다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    }
+  ]
+}

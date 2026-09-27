@@ -1,0 +1,54 @@
+{
+  "batch": "additions-2026-09-27-physics-10.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1914,
+  "added": 3,
+  "after": 1917,
+  "target": 2000,
+  "source_sha256": "90587eba1eeb6ad101e791548c29b7464077868c49890a626f5e2c6f87aee107",
+  "decisions": [
+    {
+      "key": "flavor-selective-coherent-weak-forward-refraction",
+      "group": 13,
+      "related_keys": [
+        "mass-flavor-basis-mismatch-neutrino-oscillation",
+        "neutral-current-coherent-neutrino-nuclear-recoil",
+        "refraction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "진공 질량 차의 위상 누적에 전자와의 맛 선택적 약한 상호작용 항이 추가되는 경로다. 유한 운동량 전달의 핵 반동이나 경계에서 진행 방향이 꺾이는 굴절과 다르며 질량 없는 비표준 중성 전류 모형은 포함하지 않는다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevD.17.2369/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "self-induced-metal-image-charge-barrier-lowering",
+      "group": 14,
+      "related_keys": [
+        "poole-frenkel-field-assisted-detrapping",
+        "thermionic-emission",
+        "electron-tunneling",
+        "dielectrophoresis",
+        "pn-rectification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "풀·프렌켈의 이미 존재하는 하전 트랩 장벽과 달리 전자 자신의 위치가 금속 경계의 유도 전하와 자기 에너지를 만든다. 열적 장벽 통과·터널링 자체나 중성 입자의 외부장 분극 이동과 구분하며 접촉 형상별로 나누지 않는다.",
+      "source_url": "https://arxiv.org/pdf/2301.05373",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "spin-orbit-impurity-skew-scattering-transverse-current",
+      "group": 14,
+      "related_keys": [
+        "spin-hall-current-conversion",
+        "intrinsic-berry-curvature-hall-current",
+        "spin-admixed-state-scattering-elliott-relaxation",
+        "hall-effect"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 스핀 홀은 변환 현상이며 여기서는 불순물 산란 위상차가 횡 편향을 만드는 외인성 경로를 특정한다. 밴드 베리 곡률의 이상 속도·스핀 전환에 따른 분극 이완·로런츠 힘과 구분하고 정역 변환과 합금별 사례는 묶는다.",
+      "source_url": "https://arxiv.org/pdf/1208.6208",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

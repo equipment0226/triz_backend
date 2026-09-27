@@ -1,0 +1,253 @@
+{
+  "batch": "additions-2026-09-27-information-05.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1687,
+  "added": 20,
+  "after": 1707,
+  "target": 2000,
+  "source_sha256": "725972627f8efebfeeb99760f9cf89838c75a31de81ff16591db40a3f25c0ed3",
+  "decisions": [
+    {
+      "key": "minimum-cut-edge-spanning-tree-growth",
+      "group": 19,
+      "related_keys": [
+        "graph-shortest-path",
+        "representative-path-compression-set-union"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "경로 길이 최적화나 성분 조회 자체가 아니라 순환 배제와 절단 간선 교환 성질로 전체 연결 비용을 최소화한다.",
+      "source_url": "https://networkx.org/documentation/latest/_modules/networkx/algorithms/tree/mst.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "depth-first-lowlink-strong-component-extraction",
+      "group": 19,
+      "related_keys": [
+        "representative-path-compression-set-union",
+        "graph-shortest-path"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "무방향 집합 병합이나 거리 누적 대신 방문 순서와 되돌아가는 간선이 닫는 방향 순환 구조를 추출한다.",
+      "source_url": "https://networkx.org/documentation/stable/_modules/networkx/algorithms/components/strongly_connected.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "zero-indegree-dependency-elimination-ordering",
+      "group": 19,
+      "related_keys": [
+        "distributed-barrier",
+        "vector-clock-causal-partial-order"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "진행 중 작업을 기다리거나 사건에 시계를 붙이는 대신 주어진 의존 그래프의 선행 차수를 감소시켜 실행 가능한 순서를 구성한다.",
+      "source_url": "https://networkx.org/nx-guides/content/algorithms/dag/index.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "unused-edge-cycle-splicing-euler-traversal",
+      "group": 19,
+      "related_keys": [
+        "graph-shortest-path",
+        "minimum-cut-edge-spanning-tree-growth"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "최단 경로나 최소 연결 부분집합이 아니라 간선 소모와 순환 접합으로 모든 간선을 중복 없이 덮는다.",
+      "source_url": "https://networkx.org/documentation/stable/_modules/networkx/algorithms/euler.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "deferred-preference-proposal-stable-matching",
+      "group": 19,
+      "related_keys": [
+        "capacity-cut-flow-duality",
+        "marginal-gain-waterfilling-resource-allocation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "용량 유량이나 합산 목적값 대신 양쪽의 개별 선호와 거절의 단조성으로 이탈 쌍을 없앤다.",
+      "source_url": "https://www.math.utoronto.ca/mccann/assignments/477/GaleShapley62.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "odd-cycle-blossom-contraction-matching",
+      "group": 19,
+      "related_keys": [
+        "capacity-cut-flow-duality",
+        "representative-path-compression-set-union"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 성분 압축과 달리 홀수 교대 순환의 매칭 가능성을 보존하는 축약·복원이 증가 경로 탐색을 가능하게 한다.",
+      "source_url": "https://networkx.org/documentation/stable/_modules/networkx/algorithms/matching.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "sylvester-determinant-polynomial-elimination",
+      "group": 19,
+      "related_keys": [
+        "s-polynomial-leading-term-ideal-closure",
+        "schur-complement-block-elimination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "다항 아이디얼의 선도항 폐쇄나 선형 블록 대입 대신 계수 행렬의 특이성으로 공통 근 조건을 투영한다.",
+      "source_url": "https://doc.sagemath.org/html/en/reference/polynomial_rings/sage/rings/polynomial/multi_polynomial.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "signed-remainder-sturm-real-root-count",
+      "group": 19,
+      "related_keys": [
+        "euclidean-remainder-gcd-descent",
+        "outward-rounded-interval-enclosure",
+        "tangent-linearized-newton-root-iteration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "나머지 알고리즘을 사용하지만 도함수에서 시작한 부호 변화의 위상적 근 개수 불변량이 핵심이다. 공약수나 한 근의 근사와 다르다.",
+      "source_url": "https://raw.githubusercontent.com/sympy/sympy/master/sympy/polys/rootisolation.py",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "subset-incidence-mobius-inversion",
+      "group": 19,
+      "related_keys": [
+        "combinatorial-pooled-identification",
+        "coprime-residue-chinese-remainder-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "검사 풀의 희소 신호 식별이나 합동식 결합과 달리 부분순서의 포함 행렬을 역으로 적용해 중복 집계를 소거한다.",
+      "source_url": "https://docs.sympy.org/latest/modules/discrete.html#mobius-transform",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "positive-gram-matrix-sum-square-certificate",
+      "group": 19,
+      "related_keys": [
+        "barrier-function-safe-set-invariance",
+        "s-polynomial-leading-term-ideal-closure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표본점 검사나 아이디얼 환원 대신 전체 영역의 다항 비음수 조건을 선형 계수 제약과 양의 행렬 증명서로 바꾼다.",
+      "source_url": "https://www.mit.edu/~parrilo/sdocag/SIAMBookFinalvNov12-2012.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "laurent-residue-contour-integral-reduction",
+      "group": 19,
+      "related_keys": [
+        "orthogonal-polynomial-node-gaussian-quadrature",
+        "green-kernel-boundary-integral-representation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "구간 표본의 가중 합이나 경계값 표현과 달리 해석성으로 연속 폐곡선 적분을 고립 특이점의 국소 계수로 환원한다.",
+      "source_url": "https://dlmf.nist.gov/1.10#iv",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "complex-saddle-steepest-descent-asymptotics",
+      "group": 19,
+      "related_keys": [
+        "orthogonal-polynomial-node-gaussian-quadrature",
+        "step-size-leading-error-extrapolation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "여러 해상도의 수치 오차를 소거하는 대신 큰 매개변수에서 지수의 국소 기하와 경로 변형으로 적분의 지배 영역을 분리한다.",
+      "source_url": "https://dlmf.nist.gov/2.4#iv",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "alternating-error-extrema-minimax-exchange",
+      "group": 19,
+      "related_keys": [
+        "basis-function-surface-reconstruction",
+        "separating-halfspace-localization-cuts"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평균 제곱오차 적합이나 반공간 절단 대신 오차의 교대 극점을 교환하여 전 구간의 최악 오차를 균등화한다.",
+      "source_url": "https://www.boost.org/latest/libs/math/doc/html/math_toolkit/remez.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "series-coefficient-matched-rational-approximation",
+      "group": 19,
+      "related_keys": [
+        "step-size-leading-error-extrapolation",
+        "alternating-error-extrema-minimax-exchange"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "해상도별 오차를 없애거나 구간 오차 극점을 맞추는 대신 한 점의 급수 계수를 분모까지 포함한 유리식에 정합한다.",
+      "source_url": "https://dlmf.nist.gov/3.11#iv",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "bilinear-block-product-algebraic-recombination",
+      "group": 19,
+      "related_keys": [
+        "transform-domain-convolution",
+        "range-adaptive-arithmetic-precision"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변환 영역 곱셈이나 비트 폭 조정 대신 쌍선형 식의 공유 중간 곱으로 곱셈 횟수를 줄인다. 같은 원리의 블록 곱 변형은 묶는다.",
+      "source_url": "https://gmplib.org/manual/Karatsuba-Multiplication",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "radix-cancelled-montgomery-modular-reduction",
+      "group": 19,
+      "related_keys": [
+        "euclidean-remainder-gcd-descent",
+        "coprime-residue-chinese-remainder-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "몫·나머지 반복이나 여러 법의 결합 대신 진법 역원으로 낮은 자리를 지워 쉬운 정확 나눗셈으로 치환한다.",
+      "source_url": "https://gmplib.org/~tege/modexp-silent.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "least-probability-prefix-tree-merging",
+      "group": 19,
+      "related_keys": [
+        "arithmetic-entropy-coding",
+        "dictionary-reference-lossless-compression"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확률 구간을 연속 축소하거나 반복 문자열을 참조하는 대신 확률 질량을 병합한 나무의 접두 없는 경로를 부호로 쓴다.",
+      "source_url": "https://ocw.mit.edu/courses/6-02-introduction-to-eecs-ii-digital-communication-systems-fall-2012/95605227801c1ef2e1b6ddfd8da7a8a2_MIT6_02F12_chap03.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "random-parity-weighted-quantile-compaction",
+      "group": 19,
+      "related_keys": [
+        "reservoir-stream-uniform-sampling",
+        "multi-hash-counter-minimum-frequency-sketch"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "균등 부분표본 보관이나 해시 빈도 충돌 대신 순서상 이웃을 교대로 압축하여 순위 오차의 기대값을 상쇄한다.",
+      "source_url": "https://arxiv.org/pdf/1603.05346",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "equal-bin-alias-threshold-discrete-sampling",
+      "group": 19,
+      "related_keys": [
+        "envelope-ratio-rejection-sampling",
+        "deterministic-pseudorandom-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "제안을 버리는 반복 없이 사전 재배치 표에서 한 번의 문턱 비교로 기호를 선택한다. 균등 난수 생성 자체와 구별한다.",
+      "source_url": "https://docs.scipy.org/doc/scipy/tutorial/stats/sampling_dau.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "associative-upsweep-downsweep-prefix-scan",
+      "group": 19,
+      "related_keys": [
+        "single-instruction-data-parallel-execution",
+        "optimal-substructure-dynamic-programming"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "독립 원소에 같은 연산을 하는 대신 의존하는 모든 접두 결과를 결합법칙과 두 방향 나무 통신으로 재구성한다.",
+      "source_url": "https://www.cs.cmu.edu/~guyb/papers/Ble93.pdf",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

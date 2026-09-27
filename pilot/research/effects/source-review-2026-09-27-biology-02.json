@@ -1,0 +1,79 @@
+{
+  "date": "2026-09-27",
+  "mode": "conversation_only",
+  "status": "ready_frozen",
+  "additions_file": "additions-2026-09-27-biology-02.tsv",
+  "sha256": "93b46aeab387be51d98ffc5100d5694dda4968ef0a0cb1e2f3116135197a2071",
+  "evidence": [
+    {
+      "key": "glycyl-thiyl-radical-pyruvate-formate-cleavage",
+      "url": "https://www.nature.com/articles/nsb1099_969",
+      "scope": "stored_search_excerpt",
+      "evidence": "reversibly cleave the C1-C2 bond of pyruvate",
+      "limits": "Primary nonradical enzyme, oxamate complex and Cys mutant structures; detailed thiyl sequence is mechanistic interpretation rather than all intermediates directly trapped."
+    },
+    {
+      "key": "nickel-iron-cluster-carbon-monoxide-oxidation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18048691/",
+      "scope": "stored_search_excerpt",
+      "evidence": "CO2 acts as a bridging ligand between Ni and the asymmetrically coordinated Fe",
+      "limits": "Three primary structural states; reversible CO oxidation/CO2 reduction, not acetyl-CoA synthesis or bulk electrode efficiency."
+    },
+    {
+      "key": "hydrogenase-metal-hydride-proton-splitting",
+      "url": "https://www.nature.com/articles/nature14110",
+      "scope": "stored_search_excerpt",
+      "evidence": "a hydride that bridges the Ni and Fe ions",
+      "limits": "Primary sub-angstrom hydrogenase crystallography; initial H2 docking and proton relay details are not made universal across hydrogenase classes."
+    },
+    {
+      "key": "lipoyl-aminomethyl-folate-carbon-transfer",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20375021/",
+      "scope": "stored_search_excerpt",
+      "evidence": "production of ammonia, 5,10-methylenetetrahydrofolate, and dihydrolipoate-bearing H-protein",
+      "limits": "Primary H/T-protein complex with folate analogue mimics reverse reaction; card limited to aminomethyl cleavage/transfer, not generic carrier swinging."
+    },
+    {
+      "key": "glycosidic-phosphorolysis-sugar-phosphate-release",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2142917/",
+      "scope": "stored_search_excerpt",
+      "evidence": "phosphate, in the attacking position was observed",
+      "limits": "Primary caged-phosphate initiation and crystalline heptenitol substrate-analogue conversion; not all sugar phosphorylase families share the same retention mechanism."
+    },
+    {
+      "key": "bound-nad-oxidation-rotation-epimerization",
+      "url": "https://www.rcsb.org/structure/1XEL",
+      "scope": "stored_search_excerpt",
+      "evidence": "additional rotations about the phosphate backbone of UDP are necessary",
+      "limits": "Official primary-structure record reproduces author abstract. NADH/UDP-glucose is an abortive complex; rotation path inferred from geometrical requirements, not directly filmed."
+    },
+    {
+      "key": "enzyme-templated-polyene-cationic-polycyclization",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0022283698924706",
+      "scope": "stored_search_excerpt",
+      "evidence": "how the initial protonation and the final deprotonation of squalene occur",
+      "limits": "Primary 2 Å enzyme structure supports cation cascade. Product-specific carbocation rearrangements and ring counts not split into extra cards."
+    },
+    {
+      "key": "cap-recruited-ribosomal-scanning-initiation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5861459/",
+      "scope": "stored_search_excerpt",
+      "evidence": "scans mRNA from 5′ to 3′ until it identifies an AUG start codon",
+      "limits": "Primary cap-dependent human 48S cryo-EM complex captured after start recognition; not a direct time-lapse of every scanning step. Context-dependent start choice retained."
+    },
+    {
+      "key": "stop-codon-release-factor-ester-hydrolysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18596689/",
+      "scope": "stored_search_excerpt",
+      "evidence": "type I release factors promote hydrolysis of the peptidyl-transfer RNA linkage",
+      "limits": "Primary RF1-bound 70S structure; GGQ backbone participation supported without asserting all proton-transfer steps resolved."
+    },
+    {
+      "key": "separate-editing-site-aminoacyl-trna-hydrolysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9554847/",
+      "scope": "stored_search_excerpt",
+      "evidence": "the second, editing sieve exists on a globular beta-barrel domain",
+      "limits": "Primary IleRS substrate complex structures; distinct domain location and selective hydrolysis. Do not split Ile/Leu/Val enzymes by substrate."
+    }
+  ]
+}

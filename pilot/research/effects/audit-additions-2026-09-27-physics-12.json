@@ -1,0 +1,183 @@
+{
+  "batch": "additions-2026-09-27-physics-12.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1947,
+  "added": 12,
+  "after": 1959,
+  "target": 2000,
+  "source_sha256": "3e301dd62f35f9f44adce12ef41907927182b960cc5d65962b7d8326d9e35fb2",
+  "decisions": [
+    {
+      "key": "intrinsic-rotor-angular-momentum-odd-viscosity",
+      "group": 11,
+      "related_keys": [
+        "viscous-damping",
+        "active-nematic-stress-bend-instability",
+        "anisotropic-viscous-torque-jeffery-orbit",
+        "barnett-rotation-induced-magnetization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 점성의 에너지 소산·네마틱 배향 굽힘의 불안정과 달리 내재 회전에서 유래한 비소산 구성 응력이다. 단일 입자의 배향 회전이나 회전 유도 자화도 아니며 전자·입자 재료별 홀 점성을 따로 나누지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1702.02393",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "dislocation-source-exhaustion-strengthening",
+      "group": 17,
+      "related_keys": [
+        "work-hardening",
+        "pinned-dislocation-frank-read-loop-multiplication",
+        "grain-refinement",
+        "multilayer-interface-dislocation-barrier"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전위가 늘어 서로 막는 기존 가공 경화와 달리 운반 전위 공급원의 소진이 병목이다. 입계·적층 장벽 추가와도 다르며 기둥 재료나 시험 방식별 변형은 한 경로로 묶는다.",
+      "source_url": "https://www.nature.com/articles/nmat2085",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "collision-induced-transient-pair-dipole-absorption",
+      "group": 13,
+      "related_keys": [
+        "absorption-spectroscopy",
+        "simultaneous-two-photon-absorption",
+        "forster-resonance-energy-transfer",
+        "dielectric-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존 흡수선의 측정·충돌 선폭 변화가 아니라 입자 사이 접근이 전이 쌍극자 자체를 만든다. 두 광자의 동시 흡수나 이미 여기된 공여체의 에너지 전달과 구분하며 기체쌍별로 분할하지 않는다.",
+      "source_url": "https://arxiv.org/pdf/2506.09257",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "atomic-plane-standing-wave-borrmann-transmission",
+      "group": 13,
+      "related_keys": [
+        "wave-interference",
+        "diffraction",
+        "photonic-bandgap",
+        "electromagnetically-induced-transparency",
+        "coherent-input-controlled-perfect-absorption"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "간섭의 구체 경로는 원자 위치의 국소장 마디가 흡수 결합을 선택적으로 끄는 것이다. 전파 금지 밴드·원자 내부 전이의 암상태·외부 입력 정합의 완전 흡수와 구분하며 회절면별로 세지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1511.05354",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "secular-orbital-angular-momentum-kozai-lidov-exchange",
+      "group": 1,
+      "related_keys": [
+        "gyroscopic-precession-torque",
+        "rotating-mass-frame-dragging-precession",
+        "gravitational-density-wake-dynamical-friction",
+        "moving-scatterer-fermi-acceleration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "한 축의 세차만이 아니라 궤도 평균 섭동이 경사와 이심률을 교환하는 비선형 경로다. 상대론적 관성계 끌림·밀도 후류 항력·근접 산란 에너지 획득과 다르며 천체 종류별로 분리하지 않는다.",
+      "source_url": "https://adsabs.harvard.edu/pdf/1962aj.....67..591k",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "excited-absorption-cross-relaxation-photon-avalanche",
+      "group": 13,
+      "related_keys": [
+        "selective-optical-pumping-population-redistribution",
+        "simultaneous-two-photon-absorption",
+        "forster-resonance-energy-transfer",
+        "state-filling-saturable-absorption",
+        "semiconductor-impact-ionization-multiplication"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 준위 재분배에서 나아가 흡수 가능한 중간 점유를 교차 이완이 증식시키는 폐순환이다. 동시 다광자 흡수·포화 표백·충돌 이온화와 구분하며 희토류·입자 크기·영상 응용별로 세지 않는다.",
+      "source_url": "https://nanolight.me.columbia.edu/sites/nanolight.me.columbia.edu/files/content/LeeSchuck21_ANPs_Nature589_230.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "perpendicular-pressure-compressive-mirror-instability",
+      "group": 11,
+      "related_keys": [
+        "adiabatic-magnetic-moment-mirror-reflection",
+        "pressure-anisotropy-negative-tension-firehose-instability",
+        "anisotropic-plasma-weibel-magnetization",
+        "landau-resonant-wave-particle-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부에 주어진 거울의 단입자 반사가 아니라 압력 비등방이 거울장 자체를 증폭시키는 집단 경로다. 평행 압력 우세의 횡굽힘 장력 상쇄나 전류 필라멘트 형성과 구분하며 포화 경로는 별도 항목으로 쪼개지 않는다.",
+      "source_url": "https://sun.ps.uci.edu/zlin/bib/qu08b.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "resistive-electron-phase-lag-drift-wave-growth",
+      "group": 11,
+      "related_keys": [
+        "gyroaveraged-force-guiding-centre-drift",
+        "relative-stream-electrostatic-plasma-instability",
+        "landau-resonant-wave-particle-transfer",
+        "viscous-boundary-layer-tollmien-schlichting-growth"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정해진 장의 안내중심 이동만이 아니라 충돌성 평행 응답의 위상 지연과 배경 밀도 구배가 결합하는 자기증폭이다. 두 입자 빔의 상대 흐름·무충돌 공명·중성 유체 벽면 전단 불안정과 다르다.",
+      "source_url": "https://plasma.physics.ucla.edu/papers/impact-of-the-electron-density-and-temperature-gradient-on-drift-wave-turbulence-in-the-large-plasma-device.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "electromagnetic-environment-dynamical-tunneling-blockade",
+      "group": 14,
+      "related_keys": [
+        "coulomb-charging-blockade",
+        "electron-tunneling",
+        "lc-electrical-resonance",
+        "sudden-quench-fermi-orthogonality-response"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "작은 섬의 정적 충전 문턱에서 더 나아가 단일 접합과 회로 환경의 동적 에너지 교환·회복을 특정한다. 단순 공진이나 페르미 바다 급변 중첩 소실과 구분하며 광자 보조형을 다시 별도 계수하지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1706.09337",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "fermi-surface-induced-repulsive-interaction-pairing",
+      "group": 14,
+      "related_keys": [
+        "phonon-mediated-cooper-pair-condensation",
+        "fermi-sea-scattering-friedel-oscillation",
+        "fermi-surface-screening-kohn-phonon-anomaly",
+        "superconductivity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "포논 교환 없이 전자계 자체의 응답이 쌍형성 채널을 만드는 경로다. 결함 주위 밀도 진동이나 포논 주파수 이상을 재명명한 것이 아니라 그 상호작용의 인력 성분이 쌍 불안정으로 이어지는 조건을 다룬다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.15.524/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "cyclic-collision-avoidance-absorbing-organization",
+      "group": 16,
+      "related_keys": [
+        "shear-induced-collisional-particle-migration",
+        "granular-jamming",
+        "granular-rearrangement-shear-dilatancy",
+        "amorphous-local-cooperative-shear-transformation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전단 구배에 따른 공간 분급이나 하중 지지 접촉망 형성과 달리 반복 충돌이 앞으로의 충돌을 제거하여 주기별 재배열을 멈추게 하는 동역학 경로다. 흡수 상태의 일반 수학 이름이나 재료별 반복 변형으로 나누지 않는다.",
+      "source_url": "https://www.nature.com/articles/nphys891",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "impurity-scattering-wavepacket-side-jump-current",
+      "group": 14,
+      "related_keys": [
+        "spin-orbit-impurity-skew-scattering-transverse-current",
+        "intrinsic-berry-curvature-hall-current",
+        "interband-position-shift-photocurrent",
+        "spin-hall-current-conversion",
+        "geometric-state-path-phase"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "좌우 산란 확률의 비대칭과 달리 한 산란 사건의 실공간 변위를 전류에 포함한다. 산란 사이 밴드 이상속도·광자 흡수의 밴드간 이동과 구분하며 이론 항의 분해가 별도 기본 법칙임을 뜻하지 않는다.",
+      "source_url": "https://arxiv.org/pdf/cond-mat/0511310",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

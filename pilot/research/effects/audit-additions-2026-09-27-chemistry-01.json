@@ -1,0 +1,156 @@
+{
+  "batch": "additions-2026-09-27-chemistry-01.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1500,
+  "added": 12,
+  "after": 1512,
+  "target": 2000,
+  "source_sha256": "d63501a9b6d797b3414b344619d2eb885ad2030866a37bd664436fda9b021d1e",
+  "decisions": [
+    {
+      "key": "coadsorbed-reactant-langmuir-hinshelwood-reaction",
+      "group": 15,
+      "related_keys": [
+        "catalysis",
+        "adsorption"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 촉매의 장벽 저하나 분리용 흡착과 달리 두 반응종의 공흡착 후 결합이라는 미시 경로를 명시한다.",
+      "source_url": "https://goldbook.iupac.org/terms/view/L03451",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "gas-adsorbate-rideal-direct-reaction",
+      "group": 15,
+      "related_keys": [
+        "coadsorbed-reactant-langmuir-hinshelwood-reaction",
+        "catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공흡착 반응과 달리 한 반응종은 기체에서 직접 접근한다. 소재나 생성물 차이가 아닌 반응 전 상태의 차이다.",
+      "source_url": "https://goldbook.iupac.org/terms/view/L03453/pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "lattice-oxygen-vacancy-redox-catalysis",
+      "group": 15,
+      "related_keys": [
+        "oxidative-dehydrogenation",
+        "metal-oxide-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탈수소라는 순변환이나 산화물의 일회 환원과 달리 격자 산소가 반응물로 쓰이고 재충전되는 표면 촉매 순환이다.",
+      "source_url": "https://www.nature.com/articles/s41467-024-45031-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "light-nucleus-barrier-tunneling-rearrangement",
+      "group": 15,
+      "related_keys": [
+        "electron-tunneling",
+        "mass-dependent-kinetic-isotope-effect"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전하 운반 전자의 장벽 통과와 달리 결합을 재배열하는 핵 운동이며 동위원소 속도 차이 자체보다 구체적인 반응 경로다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21659600/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "near-dissociation-roaming-abstraction",
+      "group": 15,
+      "related_keys": [
+        "intramolecular-hydrogen-radical-translocation",
+        "solvent-cage-geminate-radical-recombination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정된 분자 내 수소 이동이나 용매 케이지 재결합과 달리 해리 한계의 넓은 운동 영역을 거친 추출 경로다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15498970/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "post-transition-state-dynamic-product-bifurcation",
+      "group": 15,
+      "related_keys": [
+        "rapid-interconversion-transition-state-product-selection",
+        "conical-intersection-internal-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "빠른 반응물 평형 뒤 서로 다른 장벽을 택하는 커틴·해밋 조건과 달리 공통 장벽 이후의 비통계적 분기를 다룬다.",
+      "source_url": "https://pubs.acs.org/doi/abs/10.1021/jacs.4c16760",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "collision-activation-unimolecular-pressure-falloff",
+      "group": 15,
+      "related_keys": [
+        "pyrolysis",
+        "thermal-homolytic-radical-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열분해 생성물이나 결합 종류의 변형이 아니라 충돌 활성화와 분해의 시간 경쟁으로 압력 차수가 바뀌는 기전이다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlehtml/2022/fd/d2fd00125j",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ionic-strength-transition-state-activity-rate-shift",
+      "group": 15,
+      "related_keys": [
+        "acid-base-reaction",
+        "double-layer-repulsion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "양성자 전달 자체나 콜로이드 입자 간 반발과 달리 반응물과 전이상태의 차등 정전기 안정화가 속도에 미치는 효과다.",
+      "source_url": "https://www.old.goldbook.iupac.org/html/K/K03401.html",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "diffusion-depletion-periodic-precipitation-banding",
+      "group": 16,
+      "related_keys": [
+        "precipitation-reaction",
+        "turing-reaction-diffusion-patterning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 침전과 달리 확산 전선 뒤 고갈 영역이 띠 간격을 만들며 정상 활성·억제자의 튜링 불안정성과 구별된다.",
+      "source_url": "https://pubs.acs.org/langd5/article/36/2/481/1258295/Pattern-Formation-in-Precipitation-Reactions-The",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "crystal-ripening-solution-racemization-deracemization",
+      "group": 9,
+      "related_keys": [
+        "ostwald-curvature-driven-ripening",
+        "enantioselective-kinetic-resolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "곡률에 의한 숙성만이 아니라 용액 라세미화가 반대 거울상 물질을 재공급해 고체 손잡이성을 증폭한다. 두 거울상의 반응 속도 차를 쓰는 분할과 다르다.",
+      "source_url": "https://pubs.acs.org/doi/10.1021/acs.cgd.7b01180",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "agostic-carbon-hydrogen-metal-coordination",
+      "group": 15,
+      "related_keys": [
+        "coordination-complexation",
+        "four-center-sigma-bond-metathesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "통상 비공유 전자쌍 배위와 달리 C–H 시그마 결합이 배위에 참여하며 이미 결합을 교환한 시그마 메타세시스와 구분한다.",
+      "source_url": "https://goldbook.iupac.org/terms/view/AT06984",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "diketone-nucleophile-benzilic-migration",
+      "group": 15,
+      "related_keys": [
+        "semipinacol-one-two-carbon-migration",
+        "acyloin-ring-contraction-isomerization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "양이온성 세미피나콜이나 알파 하이드록시케톤 평형 이동과 달리 다이케톤의 친핵 부가로 시작해 카복실산 유도체를 만드는 경로다.",
+      "source_url": "https://pubs.acs.org/doi/abs/10.1021/acscentsci.1c00075",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

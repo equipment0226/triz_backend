@@ -1,0 +1,435 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1669,
+  "merged": 2,
+  "after": 1667,
+  "campaign": "2026-09-27",
+  "decisions_sha256": "a6cef6acba4318e8ea5f4d3f1855256f3fa85f7c868031ecdcde0b46d2f02f72",
+  "decisions": [
+    {
+      "source": "somatic-lineage-reprogramming",
+      "target": "plant-cell-totipotency",
+      "reason": "두 기존 카드는 발생·전사·후성유전 프로그램 변경에 의한 세포 정체성 재설정을 기술하며 식물/동물과 기관 재생/계통 전환이라는 적용 범위로 나뉜다. 서로 다른 세부 분자 경로를 기술하지 않으므로 일반 재프로그래밍 카드로 통합한다.",
+      "target_fields": [
+        "세포 발생·계통 프로그램 재설정",
+        "세포의 전사·후성유전적 발생 프로그램이 바뀌면 다른 계통의 특성을 얻거나 기관 재생에 기여할 수 있다. 식물 배양과 동물 체세포 전환은 조건이 다른 응용이며 일부는 만능성을 거치지 않는다.",
+        "종·조직·초기 상태·배양 및 조절 인자를 확인한다. 모든 세포의 전능성·재생을 가정하지 않는다. 표지 발현과 정체성·기능·안정성을 따로 검증하며 이미 정해진 전구세포의 분화와 구분한다."
+      ],
+      "original_card": [
+        "somatic-lineage-reprogramming",
+        "체세포 조절 프로그램 변경에 의한 계통 전환",
+        "분화된 동물 세포의 전사·후성유전 조절 상태를 바꾸면 다른 세포 계통의 특성을 획득할 수 있다. 일부 전환은 만능성 상태를 거치지 않고 진행된다.",
+        "세포 정체성·기능·안정성을 따로 확인한다. 이미 정해진 전구세포 분화나 식물 기관 재생과 구분하며 특허의 표지 발현만으로 완전한 기능 전환을 입증하지 않는다.",
+        "manual-final-somatic-lineage-reprogramming"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "체세포 조절 프로그램 변경에 의한 계통 전환",
+          "somatic lineage reprogramming"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "somatic-lineage-reprogramming",
+        "name_en": "somatic lineage reprogramming",
+        "aliases": [
+          "체세포 조절 프로그램 변경에 의한 계통 전환",
+          "somatic lineage reprogramming"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual-final-somatic-lineage-reprogramming",
+            "title": "Direct conversion of fibroblasts to functional neurons by defined factors",
+            "url": "https://www.nature.com/articles/nature08797",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-090001-A1",
+            "title": "Fibroblastos modificados, procedimientos para su modificacion, usos y kit",
+            "url": "https://patents.google.com/patent/AR090001A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "a42a638bcf117b82feddf24fded6827997e5d72677c8eabb088d5ce268e9710a",
+            "review_note": "문헌·중복 검토 후 연결: somatic-lineage-reprogramming; 분화된 동물 세포의 전사·후성유전 조절 상태를 바꾸면 다른 세포 계통의 특성을 획득할 수 있다. 일부 전환은 만능성 상태를 거치지 않고 진행된다. 세포 정체성·기능·안정성을 따로 확인한다. 이미 정해진 전구세포 분화나 식물 기관 재생과 구분하며 특허의 표지 발현만으로 완전한 기능 전환을 입증하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "antigen-targeted-payload-delivery",
+      "target": "biomolecular-recognition",
+      "reason": "항원 인식 카드가 설명하는 경로는 비공유 선택 결합이며 연결 화물의 위치·체류라는 응용 출력만 다르다. 별도의 내부 유입·방출 기전을 설명하지 않아 생체분자 인식의 응용으로 통합한다.",
+      "target_fields": [
+        "생체분자 인식·표적 결합",
+        "상보적인 분자 구조와 비공유 상호작용으로 표적을 선택적으로 결합한다. 항체 등에 연결한 화물도 결합 선택성에 따라 표적 부근의 분포·체류가 달라질 수 있다.",
+        "결합쌍의 친화도·선택성·pH·염도·표적 분포·비특이 결합·변성을 확인한다. 화물 전달에서는 연결자·방출·비표적 노출을 평가하며 내부 유입·세포질 도달·효능은 결합만으로 보장하지 않는다."
+      ],
+      "original_card": [
+        "antigen-targeted-payload-delivery",
+        "항원 표적 결합에 의한 화물 전달",
+        "항원을 인식하는 항체에 화물을 연결하면 결합 선택성을 이용해 표적 부근의 화물 분포·체류를 바꿀 수 있다.",
+        "항원 분포·항체·연결자·화물 방출·비표적 노출을 확인한다. 내부 유입·세포질 도달·효능은 별도이며 항체 결합만으로 보장하지 않는다.",
+        "manual500-antigen-targeted-payload-delivery"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "antigen targeted payload delivery"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "antigen-targeted-payload-delivery",
+        "name_en": "antigen targeted payload delivery",
+        "aliases": [
+          "항원 표적 결합에 의한 화물 전달",
+          "antigen targeted payload delivery"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual500-antigen-targeted-payload-delivery",
+            "title": "Discovery and Preclinical Characterization of XMT-1660, a B7-H4-targeted antibody-drug conjugate",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10477829/",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-069747-A1",
+            "title": "Conjugado anticuerpo monoclonal anti-b7h4- farmaco y metodos de utilizacion",
+            "url": "https://patents.google.com/patent/AR069747A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "9c5bc82327d008b4fe619c7fa0e5c3d925c7e40df021180dbb3033e650311894",
+            "review_note": "기존 검토: B7H4 결합 항체에 cytotoxin을 접합한다. 항원 표적 화물 전달 후보이며 내재화는 초록에 없다. 문헌 대조 후 원리 연결: 항원 표적 결합에 의한 화물 전달: 항원을 인식하는 항체에 화물을 연결하면 결합 선택성을 이용해 표적 부근의 화물 분포·체류를 바꿀 수 있다. 항원 분포·항체·연결자·화물 방출·비표적 노출을 확인한다. 내부 유입·세포질 도달·효능은 별도이며 항체 결합만으로 보장하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-077701-A1",
+            "title": "Compuestos antiproliferativos, conjugados de los mismos, procedimientos para estos, y usos de los mismos",
+            "url": "https://patents.google.com/patent/AR077701A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "f0c69eb15a2e41a92a4b24adb7ac103313b26df51097f1b5ec1bd79298afd08e",
+            "review_note": "항체 등에 접합한 항증식성 약물을 제시한다. 약물 자체의 세포 독성 경로는 미상이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-077879-A1",
+            "title": "Inmunoconjugados dirigidos",
+            "url": "https://patents.google.com/patent/AR077879A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "560279f4c3d7bfd7487562af86a4e1c4569443269560bd646384e37a5fcb6d29",
+            "review_note": "항원 결합부와 효과기를 접합해 숙주에서 발현한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-089252-A1",
+            "title": "Conjugados de principio activo-ligante (adc) y su uso",
+            "url": "https://patents.google.com/patent/AR089252A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "b1ae04aba375c0fde9424c04cea129c9d047d47a7cdea8425af36e99a5c0cb60",
+            "review_note": "FGFR2 인식 항체에 화물을 연결한 표적 전달이다. 효능을 일반화하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-091702-A1",
+            "title": "Anticuerpos anti-cd79b e inmunoconjugados",
+            "url": "https://patents.google.com/patent/AR091702A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "852652c1cd477cca536e43468a6389991d8ab54eacf42e5b039951ee3f268bdf",
+            "review_note": "CD79b 항체의 선택적 결합과 연결 화물 전달이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-094149-A1",
+            "title": "Proteinas multifuncion que comprenden chm de clase i multivalente unido mediante disulfuro",
+            "url": "https://patents.google.com/patent/AR094149A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "49c682995f22543ca6da1a4f5ef010267600f3ee7f67ac2ada07455a77e2c4c9",
+            "review_note": "문헌·중복 검토 후 연결: intramolecular-crosslink-conformational-stabilization; 단백질 내부의 이황화 가교 등은 사슬의 가능한 형태와 접힘·풀림 경로를 제한하여 구조 안정성을 바꾼다. 환원 후 적합한 가교를 재형성하면 본래 접힘을 회복하는 데 기여할 수 있다. 서열·가교 위치·산화환원 환경·응집·잘못 짝지어진 결합에 의존한다. 잘못 배치한 가교는 불안정화하며 산화만으로 본래 구조를 보장하지 않는다. 분자 사이 망 형성·샤페론 보조와 구분한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-094280-A1",
+            "title": "Enlazantes hidrofilicos auto-inmolantes y conjugados de los mismos",
+            "url": "https://patents.google.com/patent/AR094280A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "563f54dd01f1aa8ae4515d893d446e5abb30444983fb3385c3442bbf4a777dbf",
+            "review_note": "문헌·중복 검토 후 연결: self-immolative-linker-fragmentation; 연결자의 보호 부위가 제거되면 분자 내부 제거 반응이나 고리화가 이어져 떨어진 위치의 결합까지 끊고 연결된 화물을 방출할 수 있다. 촉발 선택성·중간체 수명·물·pH·부산물에 의존한다. 최초 효소 절단과 후속 자발적 분해를 구분하며 모든 가수분해성 연결자가 자기분해 연결자는 아니다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-096183-A1",
+            "title": "Terapia de combinación de un anticuerpo para cd20 afucosilado con un conjugado de anticuerpo para cd79b-fármaco",
+            "url": "https://patents.google.com/patent/AR096183A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "13a6e7fd5611835cdbc0c437b834d85aca20450a572246b937796c71a46c8964",
+            "review_note": "문헌·중복 검토 후 연결: biomolecular-recognition; IgG의 Fc 당쇄에서 코어 푸코스 유무가 FcγRIIIa와의 결합 계면을 바꾸어 친화도를 달리하고 효과기 세포 반응에 영향을 줄 수 있다. 항체·수용체 당쇄·수용체 변이·세포 조건에 의존한다. ADCC를 조절하는 특정 분자 기전이며 모든 Fc 기능이나 임상 효능의 증가를 뜻하지 않는다. α-Gal 항원 제거와 표적이 다르다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-096515-A1",
+            "title": "Moléculas quiméricas que comprenden el factor de coagulación vii y el polipéptido xten (fvii - xten) y usos de las mismas",
+            "url": "https://patents.google.com/patent/AR096515A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "6823d6cde99a42bb883e8e82ac547759d52d367822ff60eb979fe1119e87d528",
+            "review_note": "혈소판 수용체에 결합하는 항체와 응고인자 화물의 융합이다. XTEN에 의한 크기 증가·제거 변화는 기존 크기 의존 제거 후보와 연결 가능하다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-097401-A1",
+            "title": "Anticuerpos que se unen al receptor de prolactina (anti-prlr) y usos de los mismos",
+            "url": "https://patents.google.com/patent/AR097401A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "02ce9d7202101432bfcfa5d4697df85a0aa0bbb5d76fbbe21f6a9b59df9b35e2",
+            "review_note": "PRLR 결합·신호 차단 여부·표적 화물·해리 시간·SPR 측정이 명시된다. 결합 항체 전부가 신호를 차단하는 것은 아니다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-098961-A1",
+            "title": "CONJUGADOS DE LIGADORES (ADCs) CONJUGADOS DE LIGADOR-PRINCIPIO ACTIVO, CON INHIBIDORES KSP (PROTEÍNA DE HUSO DE QUINESINA)",
+            "url": "https://patents.google.com/patent/AR098961A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "52d766234f5fc0b5efdaa5ce13649b1ba9eab30cecdd971f5d1523f9e16bf278",
+            "review_note": "키네신 방추 단백질 저해 화물을 표적 결합체에 접합한다. 다른 ADC 화물로 신규 원리를 늘리지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-103407-A1",
+            "title": "Dímeros de benzodiazepina, conjugados de estos, y sus métodos de preparación y uso",
+            "url": "https://patents.google.com/patent/AR103407A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "7aee92aa9e94be5e074c754010866a0318fa2bd4e04ac3b56bfee117f32fabaf",
+            "review_note": "항체·벤조디아제핀 이량체 접합체와 자기분해 연결기를 명시한다. 자기분해 연결기 초안의 추가 근거이며 DNA 가교는 초록에 없어 추정하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-104242-A2",
+            "title": "Anticuerpos anti-5t4 y sus usos",
+            "url": "https://patents.google.com/patent/AR104242A2/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "35038a662c6ec3ebcacca79707de6e87de3b0b3fccc409fb9a2c39f9bcce610c",
+            "review_note": "5T4 항체와 약물 접합으로 표적에 화물을 전달한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-104875-A1",
+            "title": "Anticuerpos anti-tau y métodos de uso",
+            "url": "https://patents.google.com/patent/AR104875A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "832506b9c36dbe47b974fd204bc0fdcb9e1249b1b53b33eeb09ab6f454d65037",
+            "review_note": "여러 상태의 Tau에 결합하는 항체와 화물 접합체이다. 제거·독성 억제 기전은 별도 확인 대상이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-107178-A1",
+            "title": "Anticuerpos anti-tnfsf9 y métodos de uso",
+            "url": "https://patents.google.com/patent/AR107178A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "ecf5f0ef84359e33c59d65c131575f67eb8f500155d54b3fca1054a30d78a489",
+            "review_note": "TNFSF9 특이 항체의 진단 결합과 약물 접합체 전달을 명시한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-108690-A1",
+            "title": "Anticuerpos contra el miembro 21 de la superfamilia del receptor del factor de necrosis tumoral (anti-tnfrsf21) y métodos de uso de los mismos",
+            "url": "https://patents.google.com/patent/AR108690A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "390b79e9238076093c1a3816fdcdbe2bffe062a839fb74c827e55008ba83554a",
+            "review_note": "TNFRSF21 항체 및 접합체를 표적 결합·전달에 이용한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-110397-A1",
+            "title": "Conjugados de medicamento-anticuerpo para la ablación de células madre hematopoyéticas",
+            "url": "https://patents.google.com/patent/AR110397A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "61c6f5617ff6422b55b091544003411681a6a948e51b6c578744d28a5f8791d5",
+            "review_note": "cKIT 결합 항체·약물 접합체로 표적 세포에 화물을 전달한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-111363-A1",
+            "title": "Conjugados de fármaco-anticuerpo (adc) anti-prlr y usos de los mismos",
+            "url": "https://patents.google.com/patent/AR111363A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "06bf525977ab3acbe814e944c62bc3bb9d3a1cc00c15475e4c19be988eea3765",
+            "review_note": "PRLR 항체에 약물을 연결하는 표적 전달 사례이다. PBD 화물 제조나 절단 조건을 재구성하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-115184-A1",
+            "title": "Métodos de reducción de efectos secundarios del tratamiento con conjugado anticuerpo anti-cd30-fármaco",
+            "url": "https://patents.google.com/patent/AR115184A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "b73f7f02e21ed4e42d9853f18cd27bcd20a06280c8fdd7f1b3c029501334da22",
+            "review_note": "CD30 항체 화물 전달 사례로만 연결한다. 부작용 대응 투약 변경 주장을 일반 처방으로 재구성하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-118009-A1",
+            "title": "Anticuerpos anti-cd228 y conjugados de anticuerpo-fármaco",
+            "url": "https://patents.google.com/patent/AR118009A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "c363a4f71bc41e5fd364e9d5d849cf35886fd321519add376844f3795f7e3851",
+            "review_note": "CD228 표적 항체 약물 전달이다. 연결기 절단 방식은 초록만으로 특정하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-121749-A2",
+            "title": "Anticuerpos y conjugados de anticuerpo y fármaco anti-egfr",
+            "url": "https://patents.google.com/patent/AR121749A2/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "f481473fc8de48a23d69d2357cf8117f597d7e3ede46978cd56c15010a9132a1",
+            "review_note": "EGFR 결합 항체와 약물 접합체이다. 내재화는 초록에 없다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-123660-A1",
+            "title": "Compuestos dirigidos al egfrviii y usos de estos",
+            "url": "https://patents.google.com/patent/AR123660A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "6528d78253f12b91ec3d98ef1ff2afefa40a631d3fa534fb86bd5c8560d52e3a",
+            "review_note": "킬레이트 금속 복합체의 EGFRvIII 표적 전달이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-129066-A1",
+            "title": "Conjugados de ligando-fármaco con propiedades farmacocinéticas y de liberación de fármaco mejoradas",
+            "url": "https://patents.google.com/patent/AR129066A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "331fb77f68ff35ca6f4d3aa1c7e3e13b8e0418a3dc365baa45291b2d5a7a54fa",
+            "review_note": "항체 표적 전달과 절단 연결부 조합이며 기존 단백질분해 초안에 대응한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-130181-A1",
+            "title": "Compuestos citotóxicos y sus conjugados",
+            "url": "https://patents.google.com/patent/AR130181A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "5bfd93b5a662ec18f9fdd74fc9684ff8ab8f34a3b6d4191877d93254c502768f",
+            "review_note": "리간드 항체와 약물 연결체의 전달 응용이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-130916-A1",
+            "title": "Anticuerpo anti-gucy2c y usos del mismo",
+            "url": "https://patents.google.com/patent/AR130916A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "cc7bf9b37150a249fb2cc1dd11d5d4af455c68740c7def2e023cc20a6351dd17",
+            "review_note": "항체의 표적 약물 전달의 일반 원리로만 연결한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-131528-A1",
+            "title": "Anticuerpos anti-b7h3 y métodos de uso",
+            "url": "https://patents.google.com/patent/AR131528A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "1aa1080ba09843c6ede700f4474e24db9e8d20fb04142e4e943d06351132e184",
+            "review_note": "항원 인식 항체와 약물 전달의 조합이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-132095-A1",
+            "title": "Anticuerpos anti-receptor de transferrina y usos de estos",
+            "url": "https://patents.google.com/patent/AR132095A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "0cb9031eee18000bf51a621da4f188e6673bfc1e14cacc1628d429be5a1f1712",
+            "review_note": "트랜스페린 수용체 항체의 화물 전달이다. 횡단 수송 초안과 연결 검토한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-132376-A1",
+            "title": "Conjugados de anticuerpo de steap2-fármaco y usos de los mismos",
+            "url": "https://patents.google.com/patent/AR132376A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "73871510228108653340cb928e101a0be14e82c311f5bee080f3ef7c5286a666",
+            "review_note": "STEAP2 항체와 연결 화물의 표적 전달이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-133182-A1",
+            "title": "Molécula de conector-fármaco y conjugado de anticuerpo-fármaco, método de preparación y uso de los mismos",
+            "url": "https://patents.google.com/patent/AR133182A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "79bbccbf80d0bd907d3e5060773768e8c63466a20a07d9b37d91b895989e1f18",
+            "review_note": "항체 약물 전달이며 자가분해 연결자 초안에 적용 근거를 보강한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-134103-A1",
+            "title": "ANTICUERPOS ANTI-IL-4Ra / TSLP Y USOS DE LOS MISMOS",
+            "url": "https://patents.google.com/patent/AR134103A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "182ee536052a93f62ca5cc46dd9beb3d1a1fd7a2c8569204850939762eb6374f",
+            "review_note": "IL4R·TSLP 이중 결합과 선택적 화물 연결이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    }
+  ]
+}

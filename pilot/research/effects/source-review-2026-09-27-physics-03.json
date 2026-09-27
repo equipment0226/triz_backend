@@ -1,0 +1,129 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-03.tsv",
+  "authoring": "Direct conversational research and Korean authoring; no external LLM API or program-generated scientific content.",
+  "scope_convention": "reference_section describes only returned sections actually read. publisher_abstract includes an original author's repository abstract. stored_search_excerpt records publisher/author text returned by search, even when long; it does not imply successful full-page access.",
+  "comparison": "Baseline physical-domain principles and cross-domain key vocabulary were reviewed earlier. This batch was checked again with candidate-specific English and Korean searches across the entire evolving canonical file. Two candidates missed during initial domain browsing, spin echo and Stern-Gerlach separation, were found in the complete key search and excluded before authoring. Explicit nearest-key boundaries are in every TSV row; mechanical validation of key existence is not a semantic novelty proof.",
+  "evidence": [
+    {
+      "key": "gyroaveraged-force-guiding-centre-drift",
+      "url": "https://escholarship.org/content/qt0s50v8dz/qt0s50v8dz.pdf",
+      "scope": "reference_section",
+      "read": "Littlejohn original-author LBL-17137 report, December 1983: section 2, section 4 averaged Poincare-Cartan form, and section 6 gyrogauge-invariance passages; PDF pages 5-7,15-17,26-28 returned by text lookup.",
+      "quote": "move slowly in a direction perpendicular to the magnetic field lines",
+      "support": "Gyroaveraged guiding centre gains slow cross-field drift while rapid motion remains along the field. The report develops the averaged variational description and conservation laws; it explicitly suppresses electric fields in its worked derivation.",
+      "supplement": {"url": "https://www.cambridge.org/core/journals/journal-of-plasma-physics/article/guidingcentre-lagrangian-and-quasisymmetry/83EF94257C74E7919D01CB0DF8C019A2", "scope": "reference_section", "read": "Sections 2 and 3, equations 3.5-3.7 and final paragraph of section 3.", "support": "2025 tutorial explicitly derives gradient/curvature drift and adding electrostatic potential gives E cross B over B squared. This supplemental source is honestly a tutorial, not an original discovery paper; the primary row cites Littlejohn's original-author theory report. Electric, curvature and gradient cases are combined as one mechanism."}
+    },
+    {
+      "key": "adiabatic-magnetic-moment-mirror-reflection",
+      "url": "https://www.nature.com/articles/s41467-026-72197-y",
+      "scope": "reference_section",
+      "read": "Methods subsection Magnetic mirror and shock reflection, equations 6-7 and text on magnetic moment, pitch angle and loss cone.",
+      "quote": "the particle cannot penetrate any further, but is pushed back by the field gradient",
+      "support": "Invariant magnetic moment plus conserved total energy converts parallel motion into gyro motion; reflection threshold follows the field-strength ratio. The new card is static mirror reflection only. The paper's moving-shock multiple-reflection energy-gain results overlap existing Fermi acceleration and are not counted again. Original observations published 22 April 2026."
+    },
+    {
+      "key": "electron-charge-separation-langmuir-oscillation",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.33.195/fulltext",
+      "scope": "reference_section",
+      "read": "Tonks and Langmuir 1929, abstract and Theory A, displacement-density-Poisson derivation, equations 4-6.",
+      "quote": "the positive ions behave like a rigid jelly",
+      "support": "Electron displacement creates charge density and a restoring electric field; electron inertia gives a density-dependent natural frequency. The cold limit is an oscillation without generic energy transport; finite-temperature propagation is qualified."
+    },
+    {
+      "key": "electron-pressure-ion-inertia-acoustic-wave",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.33.195/fulltext",
+      "scope": "reference_section",
+      "read": "Same original paper, abstract and Theory B ionic oscillations; Boltzmann electron response and long-wavelength sound limit.",
+      "quote": "the electron density has its equilibrium value at all times",
+      "support": "Electrons follow the potential while ions supply inertia. Long wavelengths have sound speed governed by electron temperature and ion mass, changing near the Debye scale. Two short quotes from this shared source total fewer than 25 words."
+    },
+    {
+      "key": "rotation-negative-frequency-zeldovich-amplification",
+      "url": "https://www.nature.com/articles/s41467-024-49689-w",
+      "scope": "stored_search_excerpt",
+      "read": "Publisher-indexed abstract, introduction equation 1 and Discussion/Methods excerpts. Direct page and PDF access failed; the long indexed text was read without asserting successful full-page retrieval.",
+      "quote": "the absorption coefficient changes sign",
+      "support": "Condition omega minus angular-mode-number times rotation-rate below zero changes the absorptive susceptibility sign and transfers rotational energy to the field. Original 2024 rotor/LC experiment reports negative induced resistance. Authors explicitly connect the implementation to induction generators; this parent relationship is acknowledged in the boundary rather than claiming a new fundamental force."
+    },
+    {
+      "key": "virtual-charged-loop-vacuum-birefringence",
+      "url": "https://arxiv.org/abs/1605.09294",
+      "scope": "publisher_abstract",
+      "read": "Original authors' abstract and journal metadata, Physical Review D 94, 013004 (2016).",
+      "quote": "quantum fluctuations of virtual charged particles which couple to both pump and probe fields",
+      "support": "Virtual charged-particle coupling gives polarization-dependent probe refractive indices in an applied strong field. This is a dedicated theoretical analysis of a proposed discovery experiment, not a report of observing optical vacuum birefringence. Material Kerr responses and real Schwinger pairs are distinct nearest mechanisms."
+    },
+    {
+      "key": "phonon-mediated-cooper-pair-condensation",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.108.1175/fulltext",
+      "scope": "reference_section",
+      "read": "BCS 1957 original paper abstract, introductory attractive-interaction discussion and section II comparison of phonon attraction with screened Coulomb repulsion.",
+      "quote": "interaction between electrons resulting from virtual exchange of phonons is attractive",
+      "support": "Opposite-spin/opposite-momentum paired many-electron ground state is lower in energy when the phonon-mediated interaction wins. This is an explicit microscopic child of the broad zero-resistance card under the project's parent/submechanism policy, not an assertion that all superconductors use phonons."
+    },
+    {
+      "key": "coherent-pulse-absorption-emission-self-transparency",
+      "url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.183.457",
+      "scope": "publisher_abstract",
+      "read": "McCall and Hahn 1969 publisher abstract, paragraphs on coherent absorption in the first pulse half, emission in the second, damping, pulse reshaping and ruby experiment.",
+      "quote": "coherent induced emission of the same amount of energy back into the beam direction",
+      "support": "Pulse shorter than dissipative relaxation time can propagate with low net loss by coherent energy return. The HTML omits some mathematical pulse-area glyphs, so the row avoids a numeric area claim that was not legible. This is distinct from multilevel EIT and incoherent state-filling saturation."
+    },
+    {
+      "key": "collapse-horizon-mode-mixing-hawking-emission",
+      "url": "https://astrofrelat.fcaglp.unlp.edu.ar/agujeros_negros/media/Papers/Hawking_1975-Particle_creation_by_black_holes.pdf",
+      "scope": "reference_section",
+      "read": "Original 1975 paper reproduced in a university course archive: introduction positive/negative frequency discussion, section 2 opening on collapse-dependent mode mixing, thermal-result paragraphs on pages 12-14.",
+      "quote": "it is essential to consider not only the quasi-stationary final state",
+      "support": "Formation-phase mode mixing generates a late thermal spectrum set by surface gravity. Semiclassical theoretical derivation only; no astrophysical observation is claimed. The paper itself says the virtual-pair cartoon is heuristic and should not be literal; the card uses mode mixing instead. DOI and title corroborated at the original author's bibliography https://www.hawking.org.uk/in-print ."
+    },
+    {
+      "key": "spacetime-curvature-gravitational-light-deflection",
+      "url": "https://arxiv.org/abs/1706.02037",
+      "scope": "publisher_abstract",
+      "read": "Original Sahu et al. abstract and Science DOI metadata 10.1126/science.aal2879.",
+      "quote": "the background star's position was deflected",
+      "support": "HST measures multi-epoch gravitational deflection of background starlight by Stein 2051 B. This source supports astrometric lensing, not a claim to have read Einstein's 1936 paper or observed multiple images in this event. Material refraction and gravitational clock frequency shifts have distinct observables."
+    },
+    {
+      "key": "time-varying-mass-quadrupole-gravitational-radiation",
+      "url": "https://arxiv.org/pdf/1602.03837",
+      "scope": "reference_section",
+      "read": "Original LIGO/Virgo 2016 paper abstract and Introduction opening on weak-field transverse strain and time-varying mass quadrupole.",
+      "quote": "generated by time variations of the mass quadrupole moment of the source",
+      "support": "Propagating spacetime strain and first binary black-hole signal; the inferred radiated energy appears in the abstract. Quadrupole approximation is explicitly weak field; the strong-field merger requires relativity waveforms. The interferometer is a separate pre-existing readout mechanism."
+    },
+    {
+      "key": "self-emitted-radiation-reaction-backaction",
+      "url": "https://arxiv.org/abs/1707.06821",
+      "scope": "publisher_abstract",
+      "read": "Original Cole et al. abstract, accepted Physical Review X 8, 011020 (2018).",
+      "quote": "energy loss arising from the emission of radiation during acceleration",
+      "support": "Electron energy loss correlated with hard-photon emission is consistent with stochastic quantum radiation reaction. The card is emitted-radiation feedback on particle dynamics, rather than another emitted-spectrum or single Compton-scattering card; it does not overstate unique discrimination among all theories."
+    },
+    {
+      "key": "upper-bounded-spectrum-inverted-boltzmann-equilibrium",
+      "url": "https://arxiv.org/html/1211.0545v1",
+      "scope": "reference_section",
+      "read": "Original Braun et al. manuscript introduction, Figure 1 discussion, Bose-Hubbard energy-bound paragraphs and state-preparation passage.",
+      "quote": "Negative temperatures, on the other hand, demand an upper bound in energy",
+      "support": "A single lattice band bounds kinetic energy; attractive interaction and anti-trapping bound the other terms. The experiment creates an inverted, stable motional distribution. The card specifies Boltzmann inverse temperature to avoid conflating entropy conventions or implying colder-than-zero cooling. It is a bounded-spectrum equilibrium mechanism, not generic laser inversion."
+    }
+  ],
+  "exclusions": [
+    {"candidate": "spin echo / photon echo as separate new cards", "nearest": "spin-echo-coherent-refocusing,nonlinear-phase-mixing-plasma-echo", "reason": "Existing spin card already specifies pulse-driven reversal of static frequency dephasing. Optical carrier change alone is not a new mechanism. Hahn 1950 original retrieved but not counted."},
+    {"candidate": "Stern-Gerlach separation", "nearest": "spin-gradient-stern-gerlach-separation", "reason": "Exact existing mechanism found across all groups; excluded before row authoring."},
+    {"candidate": "whistler electron-Hall-current wave", "nearest": "magnetic-tension-alfven-wave,hall-effect", "reason": "Promising distinct electron-current collective mode, but held pending primary full-section access. Bellan 2013 author abstract at https://authors.library.caltech.edu/records/erykt-app90 was read; attached PDF failed. A third-party transcription was not substituted for verified original-section scope."},
+    {"candidate": "separate electric / magnetic-gradient / curvature drift cards", "nearest": "gyroaveraged-force-guiding-centre-drift", "reason": "Combined into one gyroaveraged perpendicular-force drift mechanism rather than multiplying force-source variants."},
+    {"candidate": "magnetic reconnection and Fermi/shock mirror acceleration", "nearest": "magnetic-reconnection-energy-release,moving-scatterer-fermi-acceleration", "reason": "Already present; only static adiabatic mirror reflection is proposed separately."}
+  ],
+  "cross_review_for_parent": {
+    "pair": "molecular-layering-oscillatory-solvation-force -> molecular-hydration-layer-repulsion",
+    "recommendation": "Merge into preserved existing ID, broaden wording and preserve both sources. Current descriptions and sources do not establish independent microscopic mechanisms beyond solvent choice.",
+    "existing_source": "https://www.nature.com/articles/306249a0",
+    "read_scope": "stored_search_excerpt",
+    "quote": "alternating maxima and minima",
+    "reason": "Existing 1983 primary abstract explicitly reports oscillations with approximately water-molecule periodicity between mica surfaces. New 2024 ACS source resolves PC molecular packing/orientation periods. Pure water-orientation force could be a future separate mechanism only after specifically differentiating it from this existing layering evidence. Direct Nature opening failed; indexed publisher abstract was read."
+  }
+}

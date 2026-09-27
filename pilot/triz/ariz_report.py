@@ -111,5 +111,6 @@ def diagrams(state):
             if all(k in parts for k in ('현재','요구','구현')):
                 nodes=[(k,k+'\n'+parts[k],'field') for k in ('현재','요구','구현')]
                 edges=[('현재','요구','요구 행동',False),('요구','구현','구현 검토',False)]
-        if nodes:out.append(dict(key=f'ariz-step-{index}',title=f'ARIZ {step.step_code} · {step.step_title}',nodes=nodes,edges=edges))
+        if nodes:out.append(dict(key=f'ariz-step-{index}',title=f'ARIZ {step.step_code} · {step.step_title}',nodes=nodes,edges=edges,
+            show_edge_legend=step.step_code!='4.1',numbered_edge_labels=step.step_code!='4.1'))
     return out

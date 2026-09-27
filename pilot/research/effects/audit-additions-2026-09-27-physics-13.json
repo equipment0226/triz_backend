@@ -1,0 +1,122 @@
+{
+  "batch": "additions-2026-09-27-physics-13.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1978,
+  "added": 8,
+  "after": 1986,
+  "target": 2000,
+  "source_sha256": "10f7f696ba7ed6886ea9c019c3e382ba77213a7ac8c66af283d71eb428e0f774",
+  "decisions": [
+    {
+      "key": "core-excitation-capture-radiative-dielectronic-recombination",
+      "group": 14,
+      "related_keys": [
+        "auger-nonradiative-carrier-recombination",
+        "molecular-cation-electron-capture-fragmentation",
+        "bandgap-trap-assisted-carrier-recombination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "포획과 결합 전자의 동시 여기 후 광자 방출이 재이온화를 막는 두 단계 경로다. 오제 과정의 단순 역반응만 세는 것이 아니며 분자 해리로 에너지를 버리는 재결합·고체 트랩 경유 재결합과 다르다.",
+      "source_url": "https://arxiv.org/pdf/astro-ph/0108048",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "screw-dislocation-end-torque-eshelby-twist",
+      "group": 6,
+      "related_keys": [
+        "screw-dislocation-persistent-spiral-growth-step",
+        "finite-torsion-poynting-axial-response",
+        "dislocation-backstress-bauschinger-response"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "같은 나사 전위라도 표면 성장 계단의 지속 공급과 달리 정지한 결정의 응력·끝단 토크 평형이 원인이다. 외부 비틀림이 축변형을 만드는 포인팅 응답·전위 역응력의 역항복과도 구분한다.",
+      "source_url": "https://arxiv.org/pdf/1409.3522",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "head-on-fermi-collision-odd-angular-mode-protection",
+      "group": 14,
+      "related_keys": [
+        "rarefaction-knudsen-flow-minimum",
+        "pauli-spin-selection-transport-blockade",
+        "integrability-conserved-rapidities-delayed-thermalization",
+        "collisionless-fermi-surface-zero-sound"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기체의 벽·분자 충돌 교차를 전자로 바꾼 항목이 아니라 정면 충돌 연산이 홀대칭 각모드를 소거하지 못하는 경로다. 스핀 선택 봉쇄·일차원 적분가능 보존량·무충돌 압력파와 구별한다.",
+      "source_url": "https://ciqm.harvard.edu/uploads/2/3/3/4/23349210/ledwith_guo_shytov2019.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "bent-field-mass-drainage-parker-buoyancy",
+      "group": 11,
+      "related_keys": [
+        "archimedes-buoyancy",
+        "natural-convection",
+        "rayleigh-taylor-density-acceleration-instability",
+        "field-aligned-heat-exchange-magnetothermal-buoyancy",
+        "magnetic-tension-differential-rotation-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열팽창이나 열전도로 가벼워지는 대신 휘어진 자속관을 따라 질량이 빠져나가 부력을 키운다. 정해진 두 유체 계면의 밀도 역전과 달리 장의 굽힘·평행 배수가 결합하며 차등 회전의 각운동량 교환도 필요 없다.",
+      "source_url": "https://arxiv.org/pdf/1006.3836",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "doppler-line-deshadowing-radiative-instability",
+      "group": 11,
+      "related_keys": [
+        "photon-linear-momentum-radiation-pressure",
+        "doppler-laser-cooling",
+        "absorption-spectroscopy",
+        "radiative-loss-compression-thermal-condensation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일정 광장의 운동량 전달에 더해 유체 속도가 비국소 흡수 차폐를 바꾸는 양의 되먹임이다. 대향 레이저 감속·흡수선 판독·복사 냉각의 압축 응축과 구분하며 별 종류별로 분할하지 않는다.",
+      "source_url": "https://adsabs.harvard.edu/pdf/1984ApJ...284..337O",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "density-flux-phase-feedback-photon-bubble-instability",
+      "group": 11,
+      "related_keys": [
+        "photon-linear-momentum-radiation-pressure",
+        "radiative-loss-compression-thermal-condensation",
+        "field-aligned-heat-exchange-magnetothermal-buoyancy"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "밀도에 따른 복사 확산과 방향 구속이 압축파에 일을 주는 경로다. 순냉각으로 압축되는 열적 응축·자기력선 열전도 부력·도플러 이동의 선 차폐 변화와 다르며 복사압의 단순 적용만 세지 않는다.",
+      "source_url": "https://arxiv.org/pdf/astro-ph/9802226",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "resonant-ion-neutral-charge-identity-exchange",
+      "group": 7,
+      "related_keys": [
+        "long-range-electron-transfer-harpoon-capture",
+        "localized-state-hopping-conduction",
+        "elastic-nuclear-collision-neutron-moderation",
+        "doppler-laser-cooling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "두 중성종에서 이온쌍을 만들어 끌어당기는 하푼과 달리 기존 양전하의 소속만 교환한다. 고정 자리 호핑 수송이나 운동량 교환 감속 없이 이온 집단의 속도 표지가 바뀌며 냉각 응용을 별도 분할하지 않는다.",
+      "source_url": "https://arxiv.org/pdf/2012.07759",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "beta-fed-unbound-nucleus-delayed-neutron-emission",
+      "group": 8,
+      "related_keys": [
+        "weak-nucleon-conversion-beta-emission",
+        "nuclear-fission-binding-energy-release",
+        "radioactive-decay",
+        "neutron-activation-radionuclide-production"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 붕괴·핵자 전환에 더해 베타 전이가 비결합 딸핵 상태를 먼저 채워 중성자 채널을 여는 연속 경로다. 분열 순간의 직접 중성자 방출·외부 중성자 포획과 다르며 전구 핵종별로 세지 않는다.",
+      "source_url": "https://arxiv.org/pdf/2303.12173",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

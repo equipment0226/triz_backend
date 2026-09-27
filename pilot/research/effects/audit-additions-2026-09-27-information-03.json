@@ -1,0 +1,229 @@
+{
+  "batch": "additions-2026-09-27-information-03.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1600,
+  "added": 18,
+  "after": 1618,
+  "target": 2000,
+  "source_sha256": "84bdef0895c57d797f89f0061103ccfcc6b8ac6dc364e049c21835420523469c",
+  "decisions": [
+    {
+      "key": "neighborhood-rank-median-filtering",
+      "group": 19,
+      "related_keys": [
+        "linear-frequency-filtering",
+        "edge-adaptive-deblocking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가중 합이나 경계별 선형 평활화 대신 이웃 값의 순위를 선택하는 비선형 연산이다.",
+      "source_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "structuring-element-morphological-extrema",
+      "group": 19,
+      "related_keys": [
+        "neighborhood-rank-median-filtering",
+        "hierarchical-spatial-partition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "중앙 순위 선택이나 공간 검색 분할과 달리 구조 요소에 대한 극값·집합 포함을 계산한다. 이진·회색조와 조합별로 수를 늘리지 않는다.",
+      "source_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.grey_dilation.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "log-spectrum-cepstral-convolution-separation",
+      "group": 19,
+      "related_keys": [
+        "fourier-spectral-decomposition",
+        "transform-domain-convolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "선형 기저 분해나 FFT 곱셈의 빠른 합성곱이 아니라 로그 비선형 변환으로 곱셈 혼합을 덧셈으로 바꾼다.",
+      "source_url": "https://www.mathworks.com/help/signal/ref/rceps.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "bilinear-lag-product-time-frequency-distribution",
+      "group": 19,
+      "related_keys": [
+        "wavelet-localized-multiresolution-decomposition",
+        "signal-correlation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정 기저와의 선형 내적 대신 신호 자체의 두 지연 값 곱을 변환한다. 창 종류나 평활화 변형은 같은 이차 분포 계열로 묶는다.",
+      "source_url": "https://www.mathworks.com/help/signal/ref/wvd.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "integer-cycle-consistent-phase-unwrapping",
+      "group": 19,
+      "related_keys": [
+        "intensity-constraint-phase-retrieval",
+        "interferometric-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "진폭만으로 잃어버린 위상을 추정하는 대신 이미 측정된 나머지 위상의 정수 주기 모호성을 해결한다.",
+      "source_url": "https://scikit-image.org/docs/stable/auto_examples/filters/plot_phase_unwrap.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "fourier-slice-filtered-backprojection",
+      "group": 19,
+      "related_keys": [
+        "geophysical-inverse-reconstruction",
+        "fourier-spectral-decomposition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반적인 순방향 모형 오차 최소화와 달리 선적분의 절편 정리를 이용한 명시적 필터·역투영 역변환이다.",
+      "source_url": "https://scikit-image.org/docs/stable/api/skimage.transform.html#skimage.transform.iradon",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "brightness-constancy-displacement-field-estimation",
+      "group": 19,
+      "related_keys": [
+        "motion-compensated-prediction",
+        "signal-correlation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "주어진 벡터로 참조 영상을 이동하는 연산과 달리 밝기 일치 제약에서 벡터장을 추정한다. 영상 정합 용도별로 분리하지 않는다.",
+      "source_url": "https://scikit-image.org/docs/stable/auto_examples/registration/plot_opticalflow.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "marker-basin-flooding-watershed-segmentation",
+      "group": 19,
+      "related_keys": [
+        "density-based-clustering",
+        "structuring-element-morphological-extrema"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "거리 내 밀도 연결이나 고정 구조 요소의 극값 대신 높이 순서와 경쟁하는 시작 표지의 도달 영역으로 경계를 만든다.",
+      "source_url": "https://scikit-image.org/docs/stable/auto_examples/segmentation/plot_watershed.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "linkage-ordered-hierarchical-cluster-merging",
+      "group": 19,
+      "related_keys": [
+        "density-based-clustering",
+        "normalized-laplacian-spectral-partition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "밀도 연결 확장이나 고유벡터 절단 대신 군집 쌍의 비용을 갱신하며 비가역 병합 계층을 만든다. 연결 비용별 변형은 묶는다.",
+      "source_url": "https://scikit-learn.org/stable/modules/clustering.html#hierarchical-clustering",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "kernel-neighborhood-mean-shift-mode-seeking",
+      "group": 19,
+      "related_keys": [
+        "density-based-clustering",
+        "self-organizing-neighborhood-map"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "핵심점 연결이나 고정 격자 이웃 학습 대신 움직이는 이웃의 평균으로 밀도 모드를 추적한다. K-means의 고정 군집 배정과도 다르다.",
+      "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MeanShift.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "impurity-minimizing-recursive-feature-partition",
+      "group": 19,
+      "related_keys": [
+        "supervised-learning",
+        "hierarchical-spatial-partition",
+        "ordered-boolean-cofactor-dag-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "검색용 기하 분할이나 이미 주어진 논리 함수의 압축이 아니라 관측 표지의 손실 감소로 조건 분기를 선택한다.",
+      "source_url": "https://scikit-learn.org/stable/modules/tree.html#mathematical-formulation",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "margin-constrained-support-vector-separation",
+      "group": 19,
+      "related_keys": [
+        "implicit-feature-kernel-inner-product",
+        "supervised-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "암묵 특징의 내적 계산과 독립적으로 여유폭·위반량의 제약 최적화가 경계를 정한다. 커널별 분류기는 별도 계수하지 않는다.",
+      "source_url": "https://scikit-learn.org/stable/modules/svm.html#svc",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "loss-gradient-stagewise-function-boosting",
+      "group": 19,
+      "related_keys": [
+        "ensemble-classification",
+        "reverse-mode-chain-rule-gradient"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "완성된 모델을 사후 투표하는 대신 현재 모델의 오차가 다음 모델의 학습 목표를 바꾼다. 약한 학습기 제품명·트리 구현별로 나누지 않는다.",
+      "source_url": "https://scikit-learn.org/stable/modules/ensemble.html#mathematical-formulation",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "shared-face-flux-conservative-volume-discretization",
+      "group": 19,
+      "related_keys": [
+        "discrete-static-equilibrium-solving",
+        "multiscale-property-upscaling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평형 방정식의 일반 이산 해법 대신 체적별 적분과 공유 면의 상쇄로 보존 법칙을 구성한다.",
+      "source_url": "https://pages.nist.gov/fipy/en/3.4.5/numerical/discret.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "green-kernel-boundary-integral-representation",
+      "group": 19,
+      "related_keys": [
+        "equivalent-domain-boundary-reuse",
+        "discrete-static-equilibrium-solving"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "동등한 경계 조건의 결과를 재사용하는 대신 미분 방정식을 기본해와 경계 적분으로 변환하여 미지량의 차원을 줄인다.",
+      "source_url": "https://bempp.com/handbook/theory/greens_representation.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "implicit-zero-level-front-evolution",
+      "group": 19,
+      "related_keys": [
+        "basis-function-surface-reconstruction",
+        "shared-face-flux-conservative-volume-discretization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정 표면을 적합하거나 보존량을 셀에 저장하는 대신 영 준위 집합을 진화시켜 연결 위상 변화도 표현한다.",
+      "source_url": "https://math.berkeley.edu/~sethian/2006/Semiconductors/ieee_level_set_explain_technical.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "secant-gradient-curvature-matrix-update",
+      "group": 19,
+      "related_keys": [
+        "tangent-linearized-newton-root-iteration",
+        "inertial-extrapolated-gradient-acceleration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정확한 현재 미분으로 선형화하거나 이전 이동을 더하는 대신 기울기 변화가 만든 할선 제약으로 곡률 행렬을 학습한다.",
+      "source_url": "https://raw.githubusercontent.com/scipy/scipy/main/scipy/optimize/_hessian_update_strategy.py",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "approximate-inverse-linear-system-preconditioning",
+      "group": 19,
+      "related_keys": [
+        "krylov-subspace-residual-solution",
+        "multigrid-scale-separated-error-correction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "반복 부분공간의 생성 규칙과 독립적으로 원래 선형계를 좌표·연산자 변환한다. 대각·불완전 분해 전처리 변형은 묶는다.",
+      "source_url": "https://www.netlib.org/utk/lsi/templatesLSI/TEMPLATES",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

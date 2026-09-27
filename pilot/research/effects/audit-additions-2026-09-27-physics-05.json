@@ -1,0 +1,120 @@
+{
+  "batch": "additions-2026-09-27-physics-05.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1814,
+  "added": 8,
+  "after": 1822,
+  "target": 2000,
+  "source_sha256": "7a23e78fc1ba2b9ad3eaa8a242c62282f815a53b8024fa22400039e64fe11436",
+  "decisions": [
+    {
+      "key": "uniform-acceleration-vacuum-detector-thermal-response",
+      "group": 7,
+      "related_keys": [
+        "collapse-horizon-mode-mixing-hawking-emission",
+        "dynamic-casimir-parametric-photon-generation",
+        "kinematic-proper-time-dilation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "붕괴 지평선이나 장의 경계 변조 없이 검출기의 비관성 궤적과 장 결합으로 나타나는 응답이다. 고유시간 지연이라는 시계 비교 결과 및 실제 광자 생성률과 동일시하지 않는다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevD.14.870/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "mass-flavor-basis-mismatch-neutrino-oscillation",
+      "group": 13,
+      "related_keys": [
+        "wave-interference",
+        "discrete-spectrum-wavepacket-revival",
+        "landau-zener-avoided-crossing-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "간섭이라는 포괄적 부모 아래 약한 상호작용의 맛 기저와 자유 전파의 질량 기저 불일치를 특정한다. 공간 세기 무늬·원래 파동묶음 재생이나 외부 준위 스윕이 필요하지 않은 내부 맛 변환 경로이다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.81.1562/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "muonic-molecule-nuclear-approach-catalyzed-fusion",
+      "group": 8,
+      "related_keys": [
+        "nuclear-fusion-binding-energy-release",
+        "light-nucleus-barrier-tunneling-rearrangement",
+        "feshbach-bound-channel-scattering-tuning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "핵융합의 질량 결손은 방출 에너지의 부모이고 이 카드는 음의 무거운 입자가 핵 접근을 촉진하는 경로이다. 화학 결합 좌표의 수소 터널링 및 중성원자 산란 길이 조절과 구별한다.",
+      "source_url": "https://arxiv.org/pdf/physics/0104010",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "gyro-orbit-stochasticity-nonresonant-ion-heating",
+      "group": 7,
+      "related_keys": [
+        "cyclotron-orbital-resonant-absorption",
+        "landau-resonant-wave-particle-transfer",
+        "adiabatic-magnetic-moment-mirror-reflection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "회전 주파수보다 느린 요동이 유한 회전반경 궤도를 확률화하는 가열이다. 사이클로트론 주파수 정합·위상속도 공명과 구별하며 자기 거울 반사의 단열 불변량이 깨지는 조건을 특정한다.",
+      "source_url": "https://arxiv.org/abs/1001.2069",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "closed-shape-cycle-zero-momentum-reorientation",
+      "group": 1,
+      "related_keys": [
+        "torque-free-intermediate-inertia-axis-instability",
+        "gyroscopic-precession-torque",
+        "nonreciprocal-stokes-swimming",
+        "geometric-state-path-phase"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정 형상의 회전체 불안정이나 외부 세차 토크와 달리 총각운동량이 영인 계의 내부 형상 변화가 자세를 바꾼다. 점성 유체의 추진 및 파동 상태의 베리 위상과 수학적 구조는 관련되나 작동 구속과 물리 출력이 다르다.",
+      "source_url": "https://arxiv.org/pdf/physics/9702010",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "interaction-driven-fermi-surface-shape-instability",
+      "group": 14,
+      "related_keys": [
+        "fermi-surface-lifshitz-connectivity-transition",
+        "collisionless-fermi-surface-zero-sound",
+        "itinerant-exchange-band-polarization-stoner-instability",
+        "jahn-teller-orbital-lattice-distortion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "포메란추크의 비등방 점유 변형 채널이다. 밴드 극값 통과의 연결 변화·안정 분포의 집단 진동·균일 스핀 분극과 구별한다. 이온 격자의 궤도 축퇴 해소가 필수인 얀·텔러 경로도 아니다.",
+      "source_url": "https://jetp.ras.ru/cgi-bin/dn/e_008_02_0361.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "traction-free-boundary-elastic-rayleigh-wave",
+      "group": 13,
+      "related_keys": [
+        "acoustic-impedance-reflection",
+        "total-internal-reflection",
+        "poroelastic-out-of-phase-slow-wave",
+        "surface-plasmon"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 음파의 임피던스 반사보다 여러 탄성 변위의 응력 경계 결합을 특정한다. 빛의 굴절률 구속·금속 전자 집단 진동·공극 유체의 역위상 운동이 아니며 재료와 판 형상별 모드를 추가 계수하지 않는다.",
+      "source_url": "https://maths.nuigalway.ie/~destrade/Publis/destrade_04.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "electron-current-induction-whistler-propagation",
+      "group": 13,
+      "related_keys": [
+        "magnetic-tension-alfven-wave",
+        "electron-charge-separation-langmuir-oscillation",
+        "hall-effect",
+        "cyclotron-orbital-resonant-absorption"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알벤파의 벌크 유체 관성 대신 전자 전류와 자기 유도 항의 결합이 전파를 만든다. 정적 횡전압·전하 분리 종진동·개별 궤도의 공명 흡수와 구별하며 편광·경사각별 파동을 따로 세지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1104.4148",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

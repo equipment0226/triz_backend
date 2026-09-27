@@ -1,0 +1,78 @@
+{
+  "date": "2026-09-27",
+  "mode": "conversation_only",
+  "external_llm_calls": false,
+  "status": "ready_frozen",
+  "additions_file": "additions-2026-09-27-biology-10.tsv",
+  "count": 1,
+  "canonical_mutated": false,
+  "scope_note": "Opened primary PDFs are reference_section. Indexed primary content remains stored_search_excerpt when the page open returned CAPTCHA or failed. Established atom conversion is separated from disputed microscopic intermediate assignments.",
+  "evidence": [
+    {
+      "key": "heme-confined-chlorite-intramolecular-oxygen-coupling",
+      "title": "Unique Biradical Intermediate in the Mechanism of the Heme Enzyme Chlorite Dismutase",
+      "url": "https://research.unl.pt/ws/portalfiles/portal/45488041/artigo3.pdf",
+      "doi": "10.1021/acscatal.1c03432",
+      "scope": "reference_section",
+      "retrieved_excerpt": "two weakly coupled amino acid cation radicals",
+      "read_sections": "Abstract, introduction, native-substrate rapid kinetics, EPR interpretation, proposed cycle and conclusion; public 12-page publisher PDF at an author institution.",
+      "finding": "Native chlorite turnover gives transient ferric-state and radical signals different from the peracetic-acid model reaction. The authors propose a protein-biradical intermediate and confined oxygen recombination, revising a compulsory Compound-I route.",
+      "limits": "Compound T identity and assignments of heme-bound species are mechanistic interpretations, not atom-resolved captures of the complete trajectory. Later calculations dispute the stable starting adduct. The row therefore specifies established intramolecular atom conversion without declaring I, II or T the unique intermediate.",
+      "nearest_existing_keys": [
+        "heme-compound-i-peroxide-disproportionation",
+        "photosystem-manganese-water-oxidation-cycle",
+        "molybdenum-desoxo-oxo-substrate-oxygen-transfer",
+        "heme-copper-tyrosyl-coupled-dioxygen-bond-cleavage"
+      ],
+      "boundary": "Catalase cycles between two peroxide molecules and oxidizes an existing O–O unit; chlorite has two Cl–O bonds and creates a new O–O bond while its chlorine is reduced. Photosystem II couples light-driven oxidizing-equivalent accumulation to water oxidation. Molybdenum oxygen transfer requires an external reductive reset; heme–Cu oxidase cleaves O2 with incoming reducing equivalents. None describes this internally balanced chlorite rearrangement. Changing organism, oligomerization, or preferred intermediate hypothesis does not create another card.",
+      "supplementary": [
+        {
+          "title": "Mechanism of and exquisite selectivity for O–O bond formation by the heme-dependent chlorite dismutase",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2572943/",
+          "doi": "10.1073/pnas.0804279105",
+          "scope": "stored_search_excerpt",
+          "retrieved_excerpt": "originates entirely from chlorite and not from solvent water",
+          "finding": "Indexed primary discussion reports ion chromatography and mass-spectrometric 1:1 chloride/O2 conversion and isotope support for chlorite-derived oxygen. Its Compound-I/hypochlorite mechanism relied partly on a surrogate oxidant and is not adopted as established fact. PMC open returned a challenge."
+        },
+        {
+          "title": "Molecular Mechanism of Enzymatic Chlorite Detoxification: Insights from Structural and Kinetic Studies",
+          "url": "https://iris.unimore.it/bitstream/11380/1146930/2/ACSCatalysis2017.pdf",
+          "doi": "10.1021/acscatal.7b01749",
+          "scope": "reference_section",
+          "retrieved_excerpt": "Compound I and hypochlorite do not recombine",
+          "finding": "Opened primary PDF reports stopped-flow, optical/Raman and crystal/neutron data. Compound II dominated native turnover under its conditions, challenging the older Compound-I rebound model. Arg remains protonated at high pH, so its simple acid-base titration is not assumed to explain all activity changes."
+        },
+        {
+          "title": "No heme-chlorite adduct in the catalytic cycle of chlorite dismutase: Insight from QM/MM and dynamics calculations",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41871518/",
+          "doi": "10.1016/j.jinorgbio.2026.113312",
+          "scope": "stored_search_excerpt",
+          "finding": "Indexed 2026 primary computational abstract questions a stable iron–chlorite adduct and favors a ferryl state with delocalized radical character. This limits microscopic certainty; it does not refute the established chlorite-to-chloride/O2 reaction. PubMed open returned CAPTCHA."
+        }
+      ]
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "candidate": "Flavin-dependent lysine-directed halogenation",
+      "primary_title": "Mechanism of Action of Flavin-Dependent Halogenases",
+      "primary_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9764358/",
+      "retrieval_scope": "stored_search_excerpt",
+      "reason": "Final chemistry is already covered by the electrophilic-aromatic-substitution parent. A lysine chloramine carrier is disputed versus hydrogen-bond-guided HOCl, and N-halamine storage is already present. A new enzyme or directed position does not supply a sufficiently independent route here."
+    }
+  ],
+  "editorial_attention": "Accepted as a distinct atom-rearrangement and internal redox coupling. The full elementary sequence remains unresolved; explicit qualification is essential. No earlier excluded PEP, membrane-gap or QueE candidate was revived.",
+  "validation": {
+    "canonical_count_at_check": 1997,
+    "canonical_sha256_raw_bytes": "2b7f18bb08460e72800225c75c4da8899230bb0146a8fdde3dc4e15a627e690e",
+    "row_count": 1,
+    "columns": 10,
+    "principle_chars": 115,
+    "conditions_chars": 115,
+    "nearest_keys_all_exist": true,
+    "new_key_absent": true,
+    "evidence_matches": true,
+    "tsv_encoding": "UTF-8 no BOM, LF, terminal newline",
+    "tsv_sha256": "da150730f60e57f20d6ca0a5a143e51fdbd21254df5dc7f3e0841d468518d825"
+  }
+}

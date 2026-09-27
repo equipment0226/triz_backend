@@ -1,0 +1,125 @@
+{
+  "batch": "additions-2026-09-27-biology-06.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1877,
+  "added": 9,
+  "after": 1886,
+  "target": 2000,
+  "source_sha256": "0d0a63d5163291cbc1ccd14dd5ac32cc11924011777d5901db1371c317e45d50",
+  "decisions": [
+    {
+      "key": "thiyl-phosphorus-addition-carbon-phosphorus-cleavage",
+      "group": 18,
+      "related_keys": [
+        "glycyl-thiyl-radical-pyruvate-formate-cleavage",
+        "enzyme-confined-oxygen-carbon-phosphoryl-rearrangement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "피루브산 카보닐 탄소의 절단과 달리 인 중심 부가·C–P 절단·고리인산 포획을 결합한다. 반대 방향의 PEP 인산 재배열과도 라디칼 경로·중간체가 다르며 알킬기별로 나누지 않는다.",
+      "source_url": "https://www.chem.tamu.edu/rgroup/raushel/publications/P276-Nature-Catalytic%20Mechanism-2013.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "substrate-hydroxyl-radical-oxidative-ring-closure",
+      "group": 18,
+      "related_keys": [
+        "alkene-epoxidation",
+        "heme-monooxygenase-oxygen-insertion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알켄에 산화제 산소를 전달하는 에폭시화와 달리 포화 탄소 수소를 제거하고 기존 알코올 산소로 내부 결합을 닫는다. 산소 반동 수산화와도 산소 기원·결합 상대가 다르다.",
+      "source_url": "https://pubs.acs.org/doi/10.1021/jacs.9b10974",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "superoxo-ferryl-sequential-oxidative-double-cyclization",
+      "group": 18,
+      "related_keys": [
+        "heme-monooxygenase-oxygen-insertion",
+        "copper-thioaldehyde-cysteine-to-aldehyde-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산소 도입이나 티오알데히드의 가수분해가 아니라 한 산소 분자의 환원을 두 차례의 서로 다른 폐환에 배분한다. 첫 티오카보닐·질소 폐환 뒤 페릴·황 폐환이 이어지는 경로 하나로 묶는다.",
+      "source_url": "https://pure.psu.edu/en/publications/spectroscopic-evidence-for-the-two-c-h-cleaving-intermediates-of-/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "selenocarboxymethyl-acetyl-thioester-reductive-relay",
+      "group": 18,
+      "related_keys": [
+        "oxidative-amino-acid-deamination",
+        "lipoyl-aminomethyl-folate-carbon-transfer",
+        "carrier-thioester-nonribosomal-peptide-synthesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "산화 탈아미노화와 반대로 전자를 소비하며 두 탄소를 보존하고 공유 셀레노에터에서 아실 티오에스터로 바꾼다. C1 엽산 전달이나 운반 아미노산의 펩타이드 축합과 다르다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/2018775/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "adenosyl-hydrogen-relay-ribose-fragment-reassembly",
+      "group": 18,
+      "related_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "covalent-carbon-guidance-skeleton-insertion",
+        "purine-hydrolytic-formate-loss-pterin-ring-expansion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개시 라디칼 생성 이후 같은 아데노실종의 위치별 수소 릴레이·당 조각 분리·재결합이라는 경로다. 라이신 공유 고정이나 퓨린 가수분해의 탄소 삽입과 구별하며 비타민 산물별로 나누지 않는다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11117688/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "bound-nad-aldol-ring-opening-carbon-branch-reclosure",
+      "group": 18,
+      "related_keys": [
+        "bound-nad-oxidation-rotation-epimerization",
+        "flavin-n5-covalent-sugar-ring-contraction",
+        "hydrogen-borrowing-alcohol-chain-extension"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수소 회수만으로 입체중심을 뒤집는 경로와 달리 산화·알돌 개환이 결합해 C–C 골격을 끊고 분지를 재구성한다. 플라빈의 아노머 공유 치환이나 분자 간 알코올 사슬 연장과도 다르다.",
+      "source_url": "https://www.nature.com/articles/s41929-019-0382-8",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "transient-nad-oxidation-elimination-glycoside-hydrolysis",
+      "group": 18,
+      "related_keys": [
+        "muramidase-peptidoglycan-cleavage",
+        "glycosidic-phosphorolysis-sugar-phosphate-release",
+        "bound-nad-oxidation-rotation-epimerization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "양이온성 아노머 치환이나 인산 친핵 공격 대신 NAD 산화가 음이온성 제거를 열고 물 부가 뒤 산화 상태를 회복한다. 같은 NAD 순환의 입체 반전과도 제거되는 결합·중간체가 다르다.",
+      "source_url": "https://pubs.acs.org/doi/abs/10.1021/bi052054x",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nad-ribosyl-phosphate-cyclization-dephosphorylation",
+      "group": 18,
+      "related_keys": [
+        "phosphomonoester-enzymatic-dephosphorylation",
+        "nad-dependent-protein-adp-ribosylation",
+        "sirtuin-nad-coupled-lysine-deacetylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "물에 의한 직접 인산 절단이나 영구 ADP리보스 표지가 아니다. 두 단계의 리보실·인산 전달로 기질 인산을 고리인산에 포획하며 시르투인의 아실기 전이·아미드 절단과 반응 중심이 다르다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7075268/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "atp-capped-chaperonin-folding-cage-cycle",
+      "group": 18,
+      "related_keys": [
+        "chaperone-assisted-folding",
+        "protein-condensate-liquid-phase-partition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기존의 노출 부위 일시 결합을 넘어 덮개 폐쇄·내부 방출·ATP 재개방으로 경계가 있는 공동을 순환한다. 상분리 응축체의 분배와 달리 단백질 벽의 물리적 격리와 주기적 방출이 필요하다.",
+      "source_url": "https://www.nature.com/articles/379420a0",
+      "retrieval_scope": "publisher_abstract"
+    }
+  ]
+}

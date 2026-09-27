@@ -181,7 +181,13 @@
       "방사선원",
       "radioisotope",
       "radionuclide",
-      "붕괴 반감기"
+      "붕괴 반감기",
+      "방사성 탄소비에 의한 탄소 기원 추정",
+      "radiocarbon source apportionment",
+      "방사성 붕괴"
+    ],
+    "legacy_ids": [
+      "12.41"
     ]
   },
   "amperometric-sensing": {
@@ -584,7 +590,13 @@
       "친핵 치환",
       "nucleophilic substitution",
       "이탈기",
-      "nucleofuge"
+      "nucleofuge",
+      "티올레이트 공격의 니트로소기 교환",
+      "thiolate nitroso nitrogen group transfer",
+      "친핵성 치환"
+    ],
+    "legacy_ids": [
+      "15.240"
     ]
   },
   "alkene-epoxidation": {
@@ -1150,13 +1162,6 @@
       "이차 산화방지제"
     ]
   },
-  "immune-checkpoint-blockade": {
-    "aliases": [
-      "면역 체크포인트",
-      "CTLA-4",
-      "checkpoint blockade"
-    ]
-  },
   "genetic-linkage-selection": {
     "aliases": [
       "표지 선발",
@@ -1484,7 +1489,16 @@
   },
   "soluble-receptor-ligand-trap": {
     "aliases": [
-      "soluble receptor ligand trap"
+      "soluble receptor ligand trap",
+      "세포벽 전구체 결합에 의한 합성 접근 차단",
+      "peptidoglycan precursor sequestration",
+      "가용성 수용체의 리간드 포획",
+      "철 운반체 포획에 의한 미생물 철 확보 제한",
+      "siderophore sequestration iron starvation"
+    ],
+    "legacy_ids": [
+      "18.84",
+      "18.114"
     ]
   },
   "heterologous-gene-expression": {
@@ -1495,11 +1509,6 @@
   "binding-residence-time": {
     "aliases": [
       "binding residence time"
-    ]
-  },
-  "pegylation-steric-shielding": {
-    "aliases": [
-      "pegylation steric shielding"
     ]
   },
   "fcrn-recycling": {
@@ -1532,11 +1541,6 @@
       "endophyte metabolite defense"
     ]
   },
-  "innate-pattern-recognition": {
-    "aliases": [
-      "innate pattern recognition"
-    ]
-  },
   "immune-tolerance": {
     "aliases": [
       "immune tolerance"
@@ -1567,11 +1571,6 @@
       "first pass metabolism bypass"
     ]
   },
-  "antigen-targeted-payload-delivery": {
-    "aliases": [
-      "antigen targeted payload delivery"
-    ]
-  },
   "nitric-oxide-signaling": {
     "aliases": [
       "nitric oxide signaling"
@@ -1585,11 +1584,6 @@
   "glutaredoxin-thiol-redox": {
     "aliases": [
       "glutaredoxin thiol redox"
-    ]
-  },
-  "terminal-sialylation": {
-    "aliases": [
-      "terminal sialylation"
     ]
   },
   "multivalent-avidity": {
@@ -1704,7 +1698,13 @@
     "aliases": [
       "plant cell totipotency",
       "plant regeneration",
-      "plant cell reprogramming"
+      "plant cell reprogramming",
+      "체세포 조절 프로그램 변경에 의한 계통 전환",
+      "somatic lineage reprogramming",
+      "식물 세포의 재프로그래밍·기관 재생"
+    ],
+    "legacy_ids": [
+      "18.74"
     ]
   },
   "receptor-dimerization-signaling": {
@@ -1797,11 +1797,6 @@
       "mitochondrial apoptosis"
     ]
   },
-  "radiocarbon-source-apportionment": {
-    "aliases": [
-      "radiocarbon source apportionment"
-    ]
-  },
   "finite-difference-rate-estimation": {
     "aliases": [
       "finite difference rate estimation",
@@ -1870,11 +1865,6 @@
   "alcohol-dehydration-to-alkene": {
     "aliases": [
       "alcohol dehydration to alkene"
-    ]
-  },
-  "time-domain-reflectometry": {
-    "aliases": [
-      "time domain reflectometry"
     ]
   },
   "nitro-group-reduction": {
@@ -2037,11 +2027,6 @@
       "hydrosilylation crosslinking"
     ]
   },
-  "cross-channel-predictive-coding": {
-    "aliases": [
-      "cross channel predictive coding"
-    ]
-  },
   "hydraulic-fracture-opening": {
     "aliases": [
       "hydraulic fracture opening"
@@ -2065,11 +2050,6 @@
   "quench-vitrification": {
     "aliases": [
       "quench vitrification"
-    ]
-  },
-  "metal-oxide-hydration-heating": {
-    "aliases": [
-      "metal oxide hydration heating"
     ]
   },
   "collaborative-preference-prediction": {
@@ -2135,11 +2115,6 @@
   "alkyne-hydrohalogenation": {
     "aliases": [
       "alkyne hydrohalogenation"
-    ]
-  },
-  "albumin-binding-half-life-extension": {
-    "aliases": [
-      "albumin binding half life extension"
     ]
   },
   "alcohol-oxidation-to-carbonyl": {
@@ -2354,12 +2329,6 @@
       "choked converging diverging nozzle"
     ]
   },
-  "somatic-lineage-reprogramming": {
-    "aliases": [
-      "체세포 조절 프로그램 변경에 의한 계통 전환",
-      "somatic lineage reprogramming"
-    ]
-  },
   "riboswitch-ligand-responsive-regulation": {
     "aliases": [
       "리간드 결합에 따른 RNA 구조의 발현 조절",
@@ -2522,12 +2491,6 @@
       "hierarchical pore mass transfer"
     ]
   },
-  "electron-cyclotron-resonance-heating": {
-    "aliases": [
-      "전자 사이클로트론 공명에 의한 플라스마 가열",
-      "electron cyclotron resonance heating"
-    ]
-  },
   "polymer-chain-end-deactivation": {
     "aliases": [
       "반응성 말단 봉쇄에 의한 해중합 억제",
@@ -2585,7 +2548,12 @@
   "polymer-steric-dispersion-stabilization": {
     "aliases": [
       "용매화 고분자층의 입체 반발에 의한 분산 안정화",
-      "polymer steric dispersion stabilization"
+      "polymer steric dispersion stabilization",
+      "PEG 사슬의 수화·입체 차폐",
+      "pegylation steric shielding"
+    ],
+    "legacy_ids": [
+      "18.30"
     ]
   },
   "diffusion-flame-reaction-sheet": {
@@ -2600,22 +2568,10 @@
       "size dependent glomerular clearance"
     ]
   },
-  "endothermic-hydroxide-dehydration": {
-    "aliases": [
-      "금속 수산화물의 흡열 탈수 분해",
-      "endothermic hydroxide dehydration"
-    ]
-  },
   "intumescent-char-barrier": {
     "aliases": [
       "열 유도 팽창 탄화층에 의한 열·물질 차단",
       "intumescent char barrier"
-    ]
-  },
-  "peptidoglycan-precursor-sequestration": {
-    "aliases": [
-      "세포벽 전구체 결합에 의한 합성 접근 차단",
-      "peptidoglycan precursor sequestration"
     ]
   },
   "mechanical-resonance-property-sensing": {
@@ -2799,12 +2755,6 @@
       "ensemble averaging noise reduction"
     ]
   },
-  "spatial-intra-prediction": {
-    "aliases": [
-      "동일 영상의 주변 화소를 이용한 블록 예측",
-      "spatial intra prediction"
-    ]
-  },
   "quantization-rate-distortion-tradeoff": {
     "aliases": [
       "양자화에 의한 표현량·복원 오차 조절",
@@ -2910,7 +2860,12 @@
   "biological-nitrogen-fixation": {
     "aliases": [
       "질소고정효소의 질소 분자 환원",
-      "biological nitrogen fixation"
+      "biological nitrogen fixation",
+      "가교 수소화물의 수소 방출 결합 질소 활성화",
+      "bridging hydride elimination dinitrogen activation"
+    ],
+    "legacy_ids": [
+      "18.361"
     ]
   },
   "particle-motion-polarization-sensing": {
@@ -2931,22 +2886,10 @@
       "radical induced polymer chain scission"
     ]
   },
-  "chimeric-receptor-signal-coupling": {
-    "aliases": [
-      "인공 수용체의 항원 인식·세포 신호 결합",
-      "chimeric receptor signal coupling"
-    ]
-  },
   "current-field-magnetic-ranging": {
     "aliases": [
       "전류 자기장의 공간 분포에 의한 거리 추정",
       "current field magnetic ranging"
-    ]
-  },
-  "photoluminescent-wavelength-conversion": {
-    "aliases": [
-      "형광의 흡수·재방출에 의한 파장 변환",
-      "photoluminescent wavelength conversion"
     ]
   },
   "bremsstrahlung-photon-generation": {
@@ -3000,7 +2943,15 @@
   "autoregressive-linear-prediction": {
     "aliases": [
       "과거 표본의 선형 결합에 의한 신호 예측·합성",
-      "autoregressive linear prediction"
+      "autoregressive linear prediction",
+      "채널 간 예측에 의한 오디오 중복 감소",
+      "cross channel predictive coding",
+      "동일 영상의 주변 화소를 이용한 블록 예측",
+      "spatial intra prediction"
+    ],
+    "legacy_ids": [
+      "19.55",
+      "19.69"
     ]
   },
   "antibody-opsonized-phagocytosis": {
@@ -3255,12 +3206,6 @@
     "aliases": [
       "동의 코돈 선택에 따른 단백질 발현 조절",
       "codon usage dependent translation"
-    ]
-  },
-  "siderophore-sequestration-iron-starvation": {
-    "aliases": [
-      "철 운반체 포획에 의한 미생물 철 확보 제한",
-      "siderophore sequestration iron starvation"
     ]
   },
   "end-gas-autoignition-suppression": {
@@ -4366,7 +4311,20 @@
       "glycan epitope removal",
       "당쇄 항원 결정기 감소에 의한 기존 항체 인식 저감",
       "fc glycan dependent receptor affinity",
-      "Fc 당쇄 구조에 따른 면역 수용체 결합 조절"
+      "Fc 당쇄 구조에 따른 면역 수용체 결합 조절",
+      "항원 표적 결합에 의한 화물 전달",
+      "antigen targeted payload delivery",
+      "생체분자 인식",
+      "알부민 결합에 의한 체내 잔류 조절",
+      "albumin binding half life extension",
+      "생체분자 인식·표적 결합",
+      "말단 시알산에 따른 당단백질 제거 조절",
+      "terminal sialylation"
+    ],
+    "legacy_ids": [
+      "18.44",
+      "18.67",
+      "18.48"
     ]
   },
   "fluorescence-sensing": {
@@ -4376,11 +4334,15 @@
       "형광 감쇠 시간에 의한 상태 식별",
       "fluorescence lifetime discrimination",
       "소광 해제에 의한 효소 반응 검출",
-      "fluorescence dequenching"
+      "fluorescence dequenching",
+      "형광의 흡수·재방출에 의한 파장 변환",
+      "photoluminescent wavelength conversion",
+      "형광 세기·파장·수명 검출"
     ],
     "legacy_ids": [
       "12.48",
-      "12.35"
+      "12.35",
+      "13.36"
     ]
   },
   "adsorption": {
@@ -5565,7 +5527,13 @@
   },
   "cyclotron-orbital-resonant-absorption": {
     "aliases": [
-      "cyclotron orbital resonant absorption"
+      "cyclotron orbital resonant absorption",
+      "전자 사이클로트론 공명에 의한 플라스마 가열",
+      "electron cyclotron resonance heating",
+      "자기장 궤도 운동의 사이클로트론 공명"
+    ],
+    "legacy_ids": [
+      "7.33"
     ]
   },
   "coulomb-ordered-wigner-crystallization": {
@@ -5905,7 +5873,13 @@
   },
   "molecular-hydration-layer-repulsion": {
     "aliases": [
-      "molecular hydration layer repulsion"
+      "molecular hydration layer repulsion",
+      "액체 분자층 배치의 진동성 용매화 힘",
+      "molecular layering oscillatory solvation force",
+      "표면 수화층 제거 비용의 근거리 반발"
+    ],
+    "legacy_ids": [
+      "1.68"
     ]
   },
   "entanglement-tube-polymer-reptation": {
@@ -7196,6 +7170,2683 @@
   "favorskii-cyclopropanone-formation-ring-opening": {
     "aliases": [
       "favorskii cyclopropanone formation ring opening"
+    ]
+  },
+  "coadsorbed-reactant-langmuir-hinshelwood-reaction": {
+    "aliases": [
+      "coadsorbed reactant langmuir hinshelwood reaction"
+    ]
+  },
+  "gas-adsorbate-rideal-direct-reaction": {
+    "aliases": [
+      "gas adsorbate rideal direct reaction"
+    ]
+  },
+  "lattice-oxygen-vacancy-redox-catalysis": {
+    "aliases": [
+      "lattice oxygen vacancy redox catalysis"
+    ]
+  },
+  "light-nucleus-barrier-tunneling-rearrangement": {
+    "aliases": [
+      "light nucleus barrier tunneling rearrangement"
+    ]
+  },
+  "near-dissociation-roaming-abstraction": {
+    "aliases": [
+      "near dissociation roaming abstraction"
+    ]
+  },
+  "post-transition-state-dynamic-product-bifurcation": {
+    "aliases": [
+      "post transition state dynamic product bifurcation"
+    ]
+  },
+  "collision-activation-unimolecular-pressure-falloff": {
+    "aliases": [
+      "collision activation unimolecular pressure falloff"
+    ]
+  },
+  "ionic-strength-transition-state-activity-rate-shift": {
+    "aliases": [
+      "ionic strength transition state activity rate shift"
+    ]
+  },
+  "diffusion-depletion-periodic-precipitation-banding": {
+    "aliases": [
+      "diffusion depletion periodic precipitation banding"
+    ]
+  },
+  "crystal-ripening-solution-racemization-deracemization": {
+    "aliases": [
+      "crystal ripening solution racemization deracemization"
+    ]
+  },
+  "agostic-carbon-hydrogen-metal-coordination": {
+    "aliases": [
+      "agostic carbon hydrogen metal coordination"
+    ]
+  },
+  "diketone-nucleophile-benzilic-migration": {
+    "aliases": [
+      "diketone nucleophile benzilic migration"
+    ]
+  },
+  "directional-donor-hydrogen-acceptor-association": {
+    "aliases": [
+      "directional donor hydrogen acceptor association"
+    ]
+  },
+  "aromatic-pi-surface-ion-stabilization": {
+    "aliases": [
+      "aromatic pi surface ion stabilization"
+    ]
+  },
+  "metal-ligand-pi-antibond-backdonation": {
+    "aliases": [
+      "metal ligand pi antibond backdonation"
+    ]
+  },
+  "ligand-bridged-inner-sphere-electron-transfer": {
+    "aliases": [
+      "ligand bridged inner sphere electron transfer"
+    ]
+  },
+  "activated-hydrogen-cross-support-spillover": {
+    "aliases": [
+      "activated hydrogen cross support spillover"
+    ]
+  },
+  "tensile-work-chemical-barrier-modulation": {
+    "aliases": [
+      "tensile work chemical barrier modulation"
+    ]
+  },
+  "alkylidene-carbene-one-two-alkyne-rearrangement": {
+    "aliases": [
+      "alkylidene carbene one two alkyne rearrangement"
+    ]
+  },
+  "electrostatic-chuck": {
+    "legacy_ids": [
+      "1.7"
+    ],
+    "aliases": [
+      "정전 구동",
+      "electrostatic mems actuation",
+      "정전기척(ESC)"
+    ]
+  },
+  "photovoltaic-conversion": {
+    "legacy_ids": [
+      "12.6"
+    ],
+    "aliases": [
+      "광다이오드",
+      "photodiode",
+      "광기전력 효과"
+    ]
+  },
+  "time-of-flight": {
+    "legacy_ids": [
+      "12.45"
+    ],
+    "aliases": [
+      "시간 영역 반사에 의한 전송선 결함 위치 추정",
+      "time domain reflectometry",
+      "비행·통과시간 측정(ToF)"
+    ]
+  },
+  "acoustic-levitation": {
+    "legacy_ids": [
+      "4.3"
+    ],
+    "aliases": [
+      "음향영동",
+      "acoustophoresis",
+      "음향 부상"
+    ]
+  },
+  "schur-complement-block-elimination": {
+    "aliases": [
+      "schur complement block elimination"
+    ]
+  },
+  "householder-reflection-triangular-factorization": {
+    "aliases": [
+      "householder reflection triangular factorization"
+    ]
+  },
+  "imaginary-perturbation-complex-step-derivative": {
+    "aliases": [
+      "imaginary perturbation complex step derivative"
+    ]
+  },
+  "symplectic-discrete-flow-preservation": {
+    "aliases": [
+      "symplectic discrete flow preservation"
+    ]
+  },
+  "noncommuting-subflow-operator-splitting": {
+    "aliases": [
+      "noncommuting subflow operator splitting"
+    ]
+  },
+  "log-slack-interior-barrier-optimization": {
+    "aliases": [
+      "log slack interior barrier optimization"
+    ]
+  },
+  "proximal-distance-penalized-resolvent": {
+    "aliases": [
+      "proximal distance penalized resolvent"
+    ]
+  },
+  "linear-oracle-feasible-convex-combination": {
+    "aliases": [
+      "linear oracle feasible convex combination"
+    ]
+  },
+  "separating-halfspace-localization-cuts": {
+    "aliases": [
+      "separating halfspace localization cuts"
+    ]
+  },
+  "ordered-boolean-cofactor-dag-reduction": {
+    "aliases": [
+      "ordered boolean cofactor dag reduction"
+    ]
+  },
+  "function-congruence-equivalence-closure": {
+    "aliases": [
+      "function congruence equivalence closure"
+    ]
+  },
+  "s-polynomial-leading-term-ideal-closure": {
+    "aliases": [
+      "s polynomial leading term ideal closure"
+    ]
+  },
+  "unimodular-lattice-basis-shortening": {
+    "aliases": [
+      "unimodular lattice basis shortening"
+    ]
+  },
+  "euclidean-remainder-gcd-descent": {
+    "aliases": [
+      "euclidean remainder gcd descent"
+    ]
+  },
+  "modular-square-chain-compositeness-witness": {
+    "aliases": [
+      "modular square chain compositeness witness"
+    ]
+  },
+  "random-field-evaluation-polynomial-identity-test": {
+    "aliases": [
+      "random field evaluation polynomial identity test"
+    ]
+  },
+  "gaussian-screened-real-reciprocal-summation": {
+    "aliases": [
+      "gaussian screened real reciprocal summation"
+    ]
+  },
+  "constraint-support-domain-pruning": {
+    "aliases": [
+      "constraint support domain pruning"
+    ]
+  },
+  "inertial-extrapolated-gradient-acceleration": {
+    "aliases": [
+      "inertial extrapolated gradient acceleration"
+    ]
+  },
+  "model-agreement-trust-region-update": {
+    "aliases": [
+      "model agreement trust region update"
+    ]
+  },
+  "episulfone-extrusion-alkene-formation": {
+    "aliases": [
+      "episulfone extrusion alkene formation"
+    ]
+  },
+  "heteroaryl-sulfone-smiles-olefination": {
+    "aliases": [
+      "heteroaryl sulfone smiles olefination"
+    ]
+  },
+  "beta-hydroxysilane-silicon-assisted-olefination": {
+    "aliases": [
+      "beta hydroxysilane silicon assisted olefination"
+    ]
+  },
+  "separated-pi-photochemical-cyclopropyl-rearrangement": {
+    "aliases": [
+      "separated pi photochemical cyclopropyl rearrangement"
+    ]
+  },
+  "isotopic-vibrational-free-energy-partition": {
+    "aliases": [
+      "isotopic vibrational free energy partition"
+    ]
+  },
+  "activated-five-prime-rna-reverse-polymerization": {
+    "aliases": [
+      "activated five prime rna reverse polymerization"
+    ]
+  },
+  "trna-covalent-ribosyl-base-exchange": {
+    "aliases": [
+      "trna covalent ribosyl base exchange"
+    ]
+  },
+  "cobalamin-polar-methyl-carrier-transfer": {
+    "aliases": [
+      "cobalamin polar methyl carrier transfer"
+    ]
+  },
+  "nascent-rna-hairpin-intrinsic-termination": {
+    "aliases": [
+      "nascent rna hairpin intrinsic termination"
+    ]
+  },
+  "backtracked-polymerase-rna-cleavage-reactivation": {
+    "aliases": [
+      "backtracked polymerase rna cleavage reactivation"
+    ]
+  },
+  "leader-translation-rna-folding-attenuation": {
+    "aliases": [
+      "leader translation rna folding attenuation"
+    ]
+  },
+  "histidine-aspartate-phosphorelay-signaling": {
+    "aliases": [
+      "histidine aspartate phosphorelay signaling"
+    ]
+  },
+  "protein-template-sequential-cca-addition": {
+    "aliases": [
+      "protein template sequential cca addition"
+    ]
+  },
+  "terminal-glycine-oxidative-peptide-amidation": {
+    "aliases": [
+      "terminal glycine oxidative peptide amidation"
+    ]
+  },
+  "glycan-cleavage-intramolecular-anhydro-closure": {
+    "aliases": [
+      "glycan cleavage intramolecular anhydro closure"
+    ]
+  },
+  "complement-buried-thioester-covalent-deposition": {
+    "aliases": [
+      "complement buried thioester covalent deposition"
+    ]
+  },
+  "vitamin-k-oxygenation-driven-gamma-carboxylation": {
+    "aliases": [
+      "vitamin k oxygenation driven gamma carboxylation"
+    ]
+  },
+  "protein-backbone-autocatalytic-chromophore-maturation": {
+    "aliases": [
+      "protein backbone autocatalytic chromophore maturation"
+    ]
+  },
+  "metal-hydroxide-carbon-dioxide-hydration": {
+    "aliases": [
+      "metal hydroxide carbon dioxide hydration"
+    ]
+  },
+  "heme-compound-i-peroxide-disproportionation": {
+    "aliases": [
+      "heme compound i peroxide disproportionation"
+    ]
+  },
+  "metal-sulfenate-nitrile-hydration": {
+    "aliases": [
+      "metal sulfenate nitrile hydration"
+    ]
+  },
+  "persulfide-relay-iron-sulfur-cluster-assembly": {
+    "aliases": [
+      "persulfide relay iron sulfur cluster assembly"
+    ]
+  },
+  "plp-two-base-amino-acid-racemization": {
+    "aliases": [
+      "plp two base amino acid racemization"
+    ]
+  },
+  "dinickel-bridged-urea-hydrolysis": {
+    "aliases": [
+      "dinickel bridged urea hydrolysis"
+    ]
+  },
+  "protease-bait-cleavage-cage-entrapment": {
+    "aliases": [
+      "protease bait cleavage cage entrapment"
+    ]
+  },
+  "correlated-landau-fluid-fractional-charge": {
+    "aliases": [
+      "correlated landau fluid fractional charge"
+    ]
+  },
+  "one-dimensional-spin-charge-mode-separation": {
+    "aliases": [
+      "one dimensional spin charge mode separation"
+    ]
+  },
+  "mobile-electron-core-spin-double-exchange": {
+    "aliases": [
+      "mobile electron core spin double exchange"
+    ]
+  },
+  "fluctuation-selected-order-by-disorder": {
+    "aliases": [
+      "fluctuation selected order by disorder"
+    ]
+  },
+  "spin-ice-defect-monopole-fractionalization": {
+    "aliases": [
+      "spin ice defect monopole fractionalization"
+    ]
+  },
+  "embedded-scar-eigenstate-nonthermal-recurrence": {
+    "aliases": [
+      "embedded scar eigenstate nonthermal recurrence"
+    ]
+  },
+  "interacting-disorder-many-body-localization": {
+    "aliases": [
+      "interacting disorder many body localization"
+    ]
+  },
+  "superconducting-order-amplitude-higgs-oscillation": {
+    "aliases": [
+      "superconducting order amplitude higgs oscillation"
+    ]
+  },
+  "vortex-lattice-shear-tkachenko-wave": {
+    "aliases": [
+      "vortex lattice shear tkachenko wave"
+    ]
+  },
+  "single-valued-order-quantized-circulation": {
+    "aliases": [
+      "single valued order quantized circulation"
+    ]
+  },
+  "excitation-spectrum-landau-superflow-threshold": {
+    "aliases": [
+      "excitation spectrum landau superflow threshold"
+    ]
+  },
+  "phase-coherent-density-wave-supersolid-mode": {
+    "aliases": [
+      "phase coherent density wave supersolid mode"
+    ]
+  },
+  "strong-electric-field-vacuum-pair-tunneling": {
+    "aliases": [
+      "strong electric field vacuum pair tunneling"
+    ]
+  },
+  "domain-wall-internal-precession-walker-breakdown": {
+    "aliases": [
+      "domain wall internal precession walker breakdown"
+    ]
+  },
+  "topological-texture-gyrotropic-skyrmion-deflection": {
+    "aliases": [
+      "topological texture gyrotropic skyrmion deflection"
+    ]
+  },
+  "antiferromagnetic-anisotropy-spin-flop": {
+    "aliases": [
+      "antiferromagnetic anisotropy spin flop"
+    ]
+  },
+  "rotating-mass-frame-dragging-precession": {
+    "aliases": [
+      "rotating mass frame dragging precession"
+    ]
+  },
+  "self-gravity-pressure-jeans-instability": {
+    "aliases": [
+      "self gravity pressure jeans instability"
+    ]
+  },
+  "gravitational-density-wake-dynamical-friction": {
+    "aliases": [
+      "gravitational density wake dynamical friction"
+    ]
+  },
+  "envelope-ratio-rejection-sampling": {
+    "aliases": [
+      "envelope ratio rejection sampling"
+    ]
+  },
+  "stratum-mass-weighted-sampling": {
+    "aliases": [
+      "stratum mass weighted sampling"
+    ]
+  },
+  "antithetic-measure-preserving-sample-pairing": {
+    "aliases": [
+      "antithetic measure preserving sample pairing"
+    ]
+  },
+  "conditional-expectation-randomness-removal": {
+    "aliases": [
+      "conditional expectation randomness removal"
+    ]
+  },
+  "leave-one-out-jackknife-bias-correction": {
+    "aliases": [
+      "leave one out jackknife bias correction"
+    ]
+  },
+  "exchangeable-label-permutation-null-distribution": {
+    "aliases": [
+      "exchangeable label permutation null distribution"
+    ]
+  },
+  "risk-set-product-limit-survival-estimation": {
+    "aliases": [
+      "risk set product limit survival estimation"
+    ]
+  },
+  "relative-risk-set-partial-likelihood": {
+    "aliases": [
+      "relative risk set partial likelihood"
+    ]
+  },
+  "joint-norm-adaptive-mean-shrinkage": {
+    "aliases": [
+      "joint norm adaptive mean shrinkage"
+    ]
+  },
+  "copula-uniform-marginal-dependence-coupling": {
+    "aliases": [
+      "copula uniform marginal dependence coupling"
+    ]
+  },
+  "capture-overlap-unseen-population-estimation": {
+    "aliases": [
+      "capture overlap unseen population estimation"
+    ]
+  },
+  "assignment-threshold-local-causal-discontinuity": {
+    "aliases": [
+      "assignment threshold local causal discontinuity"
+    ]
+  },
+  "parallel-trend-double-difference-identification": {
+    "aliases": [
+      "parallel trend double difference identification"
+    ]
+  },
+  "nonnegative-supermartingale-time-uniform-bound": {
+    "aliases": [
+      "nonnegative supermartingale time uniform bound"
+    ]
+  },
+  "distinct-tuple-symmetric-kernel-estimation": {
+    "aliases": [
+      "distinct tuple symmetric kernel estimation"
+    ]
+  },
+  "long-range-electron-transfer-harpoon-capture": {
+    "aliases": [
+      "long range electron transfer harpoon capture"
+    ]
+  },
+  "template-organized-functional-site-imprinting": {
+    "aliases": [
+      "template organized functional site imprinting"
+    ]
+  },
+  "pore-transition-state-confinement-selectivity": {
+    "aliases": [
+      "pore transition state confinement selectivity"
+    ]
+  },
+  "floating-conductor-bipolar-electrochemistry": {
+    "aliases": [
+      "floating conductor bipolar electrochemistry"
+    ]
+  },
+  "molecular-cation-electron-capture-fragmentation": {
+    "aliases": [
+      "molecular cation electron capture fragmentation"
+    ]
+  },
+  "aromatic-sigma-adduct-addition-elimination": {
+    "aliases": [
+      "aromatic sigma adduct addition elimination"
+    ]
+  },
+  "metal-ligand-intramolecular-valence-tautomerism": {
+    "aliases": [
+      "metal ligand intramolecular valence tautomerism"
+    ]
+  },
+  "position-gated-fuel-barrier-directional-motion": {
+    "aliases": [
+      "position gated fuel barrier directional motion"
+    ]
+  },
+  "photochemical-isomerization-helicity-inversion-rotation": {
+    "aliases": [
+      "photochemical isomerization helicity inversion rotation"
+    ]
+  },
+  "neighborhood-rank-median-filtering": {
+    "aliases": [
+      "neighborhood rank median filtering"
+    ]
+  },
+  "structuring-element-morphological-extrema": {
+    "aliases": [
+      "structuring element morphological extrema"
+    ]
+  },
+  "log-spectrum-cepstral-convolution-separation": {
+    "aliases": [
+      "log spectrum cepstral convolution separation"
+    ]
+  },
+  "bilinear-lag-product-time-frequency-distribution": {
+    "aliases": [
+      "bilinear lag product time frequency distribution"
+    ]
+  },
+  "integer-cycle-consistent-phase-unwrapping": {
+    "aliases": [
+      "integer cycle consistent phase unwrapping"
+    ]
+  },
+  "fourier-slice-filtered-backprojection": {
+    "aliases": [
+      "fourier slice filtered backprojection"
+    ]
+  },
+  "brightness-constancy-displacement-field-estimation": {
+    "aliases": [
+      "brightness constancy displacement field estimation"
+    ]
+  },
+  "marker-basin-flooding-watershed-segmentation": {
+    "aliases": [
+      "marker basin flooding watershed segmentation"
+    ]
+  },
+  "linkage-ordered-hierarchical-cluster-merging": {
+    "aliases": [
+      "linkage ordered hierarchical cluster merging"
+    ]
+  },
+  "kernel-neighborhood-mean-shift-mode-seeking": {
+    "aliases": [
+      "kernel neighborhood mean shift mode seeking"
+    ]
+  },
+  "impurity-minimizing-recursive-feature-partition": {
+    "aliases": [
+      "impurity minimizing recursive feature partition"
+    ]
+  },
+  "margin-constrained-support-vector-separation": {
+    "aliases": [
+      "margin constrained support vector separation"
+    ]
+  },
+  "loss-gradient-stagewise-function-boosting": {
+    "aliases": [
+      "loss gradient stagewise function boosting"
+    ]
+  },
+  "shared-face-flux-conservative-volume-discretization": {
+    "aliases": [
+      "shared face flux conservative volume discretization"
+    ]
+  },
+  "green-kernel-boundary-integral-representation": {
+    "aliases": [
+      "green kernel boundary integral representation"
+    ]
+  },
+  "implicit-zero-level-front-evolution": {
+    "aliases": [
+      "implicit zero level front evolution"
+    ]
+  },
+  "secant-gradient-curvature-matrix-update": {
+    "aliases": [
+      "secant gradient curvature matrix update"
+    ]
+  },
+  "approximate-inverse-linear-system-preconditioning": {
+    "aliases": [
+      "approximate inverse linear system preconditioning"
+    ]
+  },
+  "glycyl-thiyl-radical-pyruvate-formate-cleavage": {
+    "aliases": [
+      "glycyl thiyl radical pyruvate formate cleavage"
+    ]
+  },
+  "nickel-iron-cluster-carbon-monoxide-oxidation": {
+    "aliases": [
+      "nickel iron cluster carbon monoxide oxidation"
+    ]
+  },
+  "hydrogenase-metal-hydride-proton-splitting": {
+    "aliases": [
+      "hydrogenase metal hydride proton splitting"
+    ]
+  },
+  "lipoyl-aminomethyl-folate-carbon-transfer": {
+    "aliases": [
+      "lipoyl aminomethyl folate carbon transfer"
+    ]
+  },
+  "glycosidic-phosphorolysis-sugar-phosphate-release": {
+    "aliases": [
+      "glycosidic phosphorolysis sugar phosphate release"
+    ]
+  },
+  "bound-nad-oxidation-rotation-epimerization": {
+    "aliases": [
+      "bound nad oxidation rotation epimerization"
+    ]
+  },
+  "enzyme-templated-polyene-cationic-polycyclization": {
+    "aliases": [
+      "enzyme templated polyene cationic polycyclization"
+    ]
+  },
+  "cap-recruited-ribosomal-scanning-initiation": {
+    "aliases": [
+      "cap recruited ribosomal scanning initiation"
+    ]
+  },
+  "stop-codon-release-factor-ester-hydrolysis": {
+    "aliases": [
+      "stop codon release factor ester hydrolysis"
+    ]
+  },
+  "separate-editing-site-aminoacyl-trna-hydrolysis": {
+    "aliases": [
+      "separate editing site aminoacyl trna hydrolysis"
+    ]
+  },
+  "anisotropic-viscous-torque-jeffery-orbit": {
+    "aliases": [
+      "anisotropic viscous torque jeffery orbit"
+    ]
+  },
+  "finite-particle-flow-curvature-faxen-force": {
+    "aliases": [
+      "finite particle flow curvature faxen force"
+    ]
+  },
+  "displaced-fluid-acceleration-added-mass": {
+    "aliases": [
+      "displaced fluid acceleration added mass"
+    ]
+  },
+  "viscosity-stratified-interfacial-yih-instability": {
+    "aliases": [
+      "viscosity stratified interfacial yih instability"
+    ]
+  },
+  "oscillating-bubble-rectified-gas-diffusion": {
+    "aliases": [
+      "oscillating bubble rectified gas diffusion"
+    ]
+  },
+  "stable-stratification-internal-buoyancy-wave": {
+    "aliases": [
+      "stable stratification internal buoyancy wave"
+    ]
+  },
+  "coriolis-restored-inertial-wave": {
+    "aliases": [
+      "coriolis restored inertial wave"
+    ]
+  },
+  "vortex-line-curvature-kelvin-wave": {
+    "aliases": [
+      "vortex line curvature kelvin wave"
+    ]
+  },
+  "shear-induced-transient-vortex-streak-amplification": {
+    "aliases": [
+      "shear induced transient vortex streak amplification"
+    ]
+  },
+  "phase-speed-matched-critical-layer-absorption": {
+    "aliases": [
+      "phase speed matched critical layer absorption"
+    ]
+  },
+  "phase-change-mass-injection-stefan-flow": {
+    "aliases": [
+      "phase change mass injection stefan flow"
+    ]
+  },
+  "pinned-dislocation-frank-read-loop-multiplication": {
+    "aliases": [
+      "pinned dislocation frank read loop multiplication"
+    ]
+  },
+  "section-thinning-hardening-competition-necking": {
+    "aliases": [
+      "section thinning hardening competition necking"
+    ]
+  },
+  "nonlinear-elastic-surface-sulcification": {
+    "aliases": [
+      "nonlinear elastic surface sulcification"
+    ]
+  },
+  "hydrostatic-tension-plastic-void-enlargement": {
+    "aliases": [
+      "hydrostatic tension plastic void enlargement"
+    ]
+  },
+  "plastic-wake-fatigue-crack-closure-shielding": {
+    "aliases": [
+      "plastic wake fatigue crack closure shielding"
+    ]
+  },
+  "adhesive-interface-schallamach-detachment-wave": {
+    "aliases": [
+      "adhesive interface schallamach detachment wave"
+    ]
+  },
+  "lattice-barrier-kink-pair-dislocation-glide": {
+    "aliases": [
+      "lattice barrier kink pair dislocation glide"
+    ]
+  },
+  "particle-velocity-variance-gradient-turbophoresis": {
+    "aliases": [
+      "particle velocity variance gradient turbophoresis"
+    ]
+  },
+  "three-dimensional-vorticity-line-stretching": {
+    "aliases": [
+      "three dimensional vorticity line stretching"
+    ]
+  },
+  "photoexcited-intramolecular-proton-tautomerization": {
+    "aliases": [
+      "photoexcited intramolecular proton tautomerization"
+    ]
+  },
+  "adsorbate-triggered-metastable-pore-collapse-release": {
+    "aliases": [
+      "adsorbate triggered metastable pore collapse release"
+    ]
+  },
+  "covalent-block-connectivity-frustrated-microphase-separation": {
+    "aliases": [
+      "covalent block connectivity frustrated microphase separation"
+    ]
+  },
+  "prepared-vote-two-phase-atomic-commit": {
+    "aliases": [
+      "prepared vote two phase atomic commit"
+    ]
+  },
+  "durable-log-before-data-replay-recovery": {
+    "aliases": [
+      "durable log before data replay recovery"
+    ]
+  },
+  "version-visibility-snapshot-concurrency": {
+    "aliases": [
+      "version visibility snapshot concurrency"
+    ]
+  },
+  "read-write-set-optimistic-commit-validation": {
+    "aliases": [
+      "read write set optimistic commit validation"
+    ]
+  },
+  "atomic-compare-exchange-conditional-update": {
+    "aliases": [
+      "atomic compare exchange conditional update"
+    ]
+  },
+  "channel-marker-consistent-global-snapshot": {
+    "aliases": [
+      "channel marker consistent global snapshot"
+    ]
+  },
+  "write-fault-triggered-shared-page-copy": {
+    "aliases": [
+      "write fault triggered shared page copy"
+    ]
+  },
+  "zero-reference-count-resource-reclamation": {
+    "aliases": [
+      "zero reference count resource reclamation"
+    ]
+  },
+  "root-reachability-tracing-garbage-reclamation": {
+    "aliases": [
+      "root reachability tracing garbage reclamation"
+    ]
+  },
+  "idle-worker-task-stealing-load-balancing": {
+    "aliases": [
+      "idle worker task stealing load balancing"
+    ]
+  },
+  "staged-register-overlapped-pipeline-execution": {
+    "aliases": [
+      "staged register overlapped pipeline execution"
+    ]
+  },
+  "static-input-partial-program-evaluation": {
+    "aliases": [
+      "static input partial program evaluation"
+    ]
+  },
+  "accrued-token-credit-rate-envelope": {
+    "aliases": [
+      "accrued token credit rate envelope"
+    ]
+  },
+  "differential-backlog-maxweight-routing": {
+    "aliases": [
+      "differential backlog maxweight routing"
+    ]
+  },
+  "commuting-secret-exponent-key-agreement": {
+    "aliases": [
+      "commuting secret exponent key agreement"
+    ]
+  },
+  "invertible-blinding-signature-issuance": {
+    "aliases": [
+      "invertible blinding signature issuance"
+    ]
+  },
+  "randomized-hiding-binding-value-commitment": {
+    "aliases": [
+      "randomized hiding binding value commitment"
+    ]
+  },
+  "random-wire-label-garbled-circuit-evaluation": {
+    "aliases": [
+      "random wire label garbled circuit evaluation"
+    ]
+  },
+  "random-remapping-oblivious-memory-access": {
+    "aliases": [
+      "random remapping oblivious memory access"
+    ]
+  },
+  "line-charge-entropy-counterion-condensation": {
+    "aliases": [
+      "line charge entropy counterion condensation"
+    ]
+  },
+  "elongation-factor-coupled-ribosomal-translocation": {
+    "aliases": [
+      "elongation factor coupled ribosomal translocation"
+    ]
+  },
+  "guide-rna-directed-uridine-insertion-editing": {
+    "aliases": [
+      "guide rna directed uridine insertion editing"
+    ]
+  },
+  "schiff-base-deoxyribose-phosphate-beta-elimination": {
+    "aliases": [
+      "schiff base deoxyribose phosphate beta elimination"
+    ]
+  },
+  "phosphohistidine-dna-adduct-hydrolytic-release": {
+    "aliases": [
+      "phosphohistidine dna adduct hydrolytic release"
+    ]
+  },
+  "protein-domain-swapped-oligomerization": {
+    "aliases": [
+      "protein domain swapped oligomerization"
+    ]
+  },
+  "phosphoenzyme-bisphosphate-positional-exchange": {
+    "aliases": [
+      "phosphoenzyme bisphosphate positional exchange"
+    ]
+  },
+  "sacrificial-iron-sulfur-carbon-sulfur-insertion": {
+    "aliases": [
+      "sacrificial iron sulfur carbon sulfur insertion"
+    ]
+  },
+  "tetrapyrrole-spiro-mediated-ring-inversion": {
+    "aliases": [
+      "tetrapyrrole spiro mediated ring inversion"
+    ]
+  },
+  "heme-self-oxygenation-porphyrin-cleavage": {
+    "aliases": [
+      "heme self oxygenation porphyrin cleavage"
+    ]
+  },
+  "iron-catechol-alkylperoxo-aromatic-ring-cleavage": {
+    "aliases": [
+      "iron catechol alkylperoxo aromatic ring cleavage"
+    ]
+  },
+  "methylation-succinimide-isoaspartyl-backbone-repair": {
+    "aliases": [
+      "methylation succinimide isoaspartyl backbone repair"
+    ]
+  },
+  "end-anchored-molecular-ruler-rna-cleavage": {
+    "aliases": [
+      "end anchored molecular ruler rna cleavage"
+    ]
+  },
+  "iron-sulfur-disulfide-one-to-two-electron-coupling": {
+    "aliases": [
+      "iron sulfur disulfide one to two electron coupling"
+    ]
+  },
+  "microtubule-lattice-extraction-repair-islands": {
+    "aliases": [
+      "microtubule lattice extraction repair islands"
+    ]
+  },
+  "molybdenum-hydroxide-sulfido-hydride-hydroxylation": {
+    "aliases": [
+      "molybdenum hydroxide sulfido hydride hydroxylation"
+    ]
+  },
+  "tryptophan-photoexcitation-salt-bridge-dissociation": {
+    "aliases": [
+      "tryptophan photoexcitation salt bridge dissociation"
+    ]
+  },
+  "metastable-protein-sheath-lattice-contraction": {
+    "aliases": [
+      "metastable protein sheath lattice contraction"
+    ]
+  },
+  "plp-aminoacrylate-elimination-addition-substitution": {
+    "aliases": [
+      "plp aminoacrylate elimination addition substitution"
+    ]
+  },
+  "enzyme-confined-oxygen-carbon-phosphoryl-rearrangement": {
+    "aliases": [
+      "enzyme confined oxygen carbon phosphoryl rearrangement"
+    ]
+  },
+  "purine-hydrolytic-formate-loss-pterin-ring-expansion": {
+    "aliases": [
+      "purine hydrolytic formate loss pterin ring expansion"
+    ]
+  },
+  "minimum-cut-edge-spanning-tree-growth": {
+    "aliases": [
+      "minimum cut edge spanning tree growth"
+    ]
+  },
+  "depth-first-lowlink-strong-component-extraction": {
+    "aliases": [
+      "depth first lowlink strong component extraction"
+    ]
+  },
+  "zero-indegree-dependency-elimination-ordering": {
+    "aliases": [
+      "zero indegree dependency elimination ordering"
+    ]
+  },
+  "unused-edge-cycle-splicing-euler-traversal": {
+    "aliases": [
+      "unused edge cycle splicing euler traversal"
+    ]
+  },
+  "deferred-preference-proposal-stable-matching": {
+    "aliases": [
+      "deferred preference proposal stable matching"
+    ]
+  },
+  "odd-cycle-blossom-contraction-matching": {
+    "aliases": [
+      "odd cycle blossom contraction matching"
+    ]
+  },
+  "sylvester-determinant-polynomial-elimination": {
+    "aliases": [
+      "sylvester determinant polynomial elimination"
+    ]
+  },
+  "signed-remainder-sturm-real-root-count": {
+    "aliases": [
+      "signed remainder sturm real root count"
+    ]
+  },
+  "subset-incidence-mobius-inversion": {
+    "aliases": [
+      "subset incidence mobius inversion"
+    ]
+  },
+  "positive-gram-matrix-sum-square-certificate": {
+    "aliases": [
+      "positive gram matrix sum square certificate"
+    ]
+  },
+  "laurent-residue-contour-integral-reduction": {
+    "aliases": [
+      "laurent residue contour integral reduction"
+    ]
+  },
+  "complex-saddle-steepest-descent-asymptotics": {
+    "aliases": [
+      "complex saddle steepest descent asymptotics"
+    ]
+  },
+  "alternating-error-extrema-minimax-exchange": {
+    "aliases": [
+      "alternating error extrema minimax exchange"
+    ]
+  },
+  "series-coefficient-matched-rational-approximation": {
+    "aliases": [
+      "series coefficient matched rational approximation"
+    ]
+  },
+  "bilinear-block-product-algebraic-recombination": {
+    "aliases": [
+      "bilinear block product algebraic recombination"
+    ]
+  },
+  "radix-cancelled-montgomery-modular-reduction": {
+    "aliases": [
+      "radix cancelled montgomery modular reduction"
+    ]
+  },
+  "least-probability-prefix-tree-merging": {
+    "aliases": [
+      "least probability prefix tree merging"
+    ]
+  },
+  "random-parity-weighted-quantile-compaction": {
+    "aliases": [
+      "random parity weighted quantile compaction"
+    ]
+  },
+  "equal-bin-alias-threshold-discrete-sampling": {
+    "aliases": [
+      "equal bin alias threshold discrete sampling"
+    ]
+  },
+  "associative-upsweep-downsweep-prefix-scan": {
+    "aliases": [
+      "associative upsweep downsweep prefix scan"
+    ]
+  },
+  "ionic-atmosphere-frequency-relaxation-conductivity": {
+    "aliases": [
+      "ionic atmosphere frequency relaxation conductivity"
+    ]
+  },
+  "cooperative-helical-mismatch-chiral-amplification": {
+    "aliases": [
+      "cooperative helical mismatch chiral amplification"
+    ]
+  },
+  "gyroaveraged-force-guiding-centre-drift": {
+    "aliases": [
+      "gyroaveraged force guiding centre drift"
+    ]
+  },
+  "adiabatic-magnetic-moment-mirror-reflection": {
+    "aliases": [
+      "adiabatic magnetic moment mirror reflection"
+    ]
+  },
+  "electron-charge-separation-langmuir-oscillation": {
+    "aliases": [
+      "electron charge separation langmuir oscillation"
+    ]
+  },
+  "electron-pressure-ion-inertia-acoustic-wave": {
+    "aliases": [
+      "electron pressure ion inertia acoustic wave"
+    ]
+  },
+  "rotation-negative-frequency-zeldovich-amplification": {
+    "aliases": [
+      "rotation negative frequency zeldovich amplification"
+    ]
+  },
+  "virtual-charged-loop-vacuum-birefringence": {
+    "aliases": [
+      "virtual charged loop vacuum birefringence"
+    ]
+  },
+  "phonon-mediated-cooper-pair-condensation": {
+    "aliases": [
+      "phonon mediated cooper pair condensation"
+    ]
+  },
+  "coherent-pulse-absorption-emission-self-transparency": {
+    "aliases": [
+      "coherent pulse absorption emission self transparency"
+    ]
+  },
+  "collapse-horizon-mode-mixing-hawking-emission": {
+    "aliases": [
+      "collapse horizon mode mixing hawking emission"
+    ]
+  },
+  "spacetime-curvature-gravitational-light-deflection": {
+    "aliases": [
+      "spacetime curvature gravitational light deflection"
+    ]
+  },
+  "time-varying-mass-quadrupole-gravitational-radiation": {
+    "aliases": [
+      "time varying mass quadrupole gravitational radiation"
+    ]
+  },
+  "self-emitted-radiation-reaction-backaction": {
+    "aliases": [
+      "self emitted radiation reaction backaction"
+    ]
+  },
+  "upper-bounded-spectrum-inverted-boltzmann-equilibrium": {
+    "aliases": [
+      "upper bounded spectrum inverted boltzmann equilibrium"
+    ]
+  },
+  "thermochemical-heat-storage": {
+    "legacy_ids": [
+      "7.32",
+      "7.34"
+    ],
+    "aliases": [
+      "금속산화물 수화 반응에 의한 발열",
+      "metal oxide hydration heating",
+      "열화학 축열",
+      "금속 수산화물의 흡열 탈수 분해",
+      "endothermic hydroxide dehydration"
+    ]
+  },
+  "friction-energy-spatial-diffusion-kramers-turnover": {
+    "aliases": [
+      "friction energy spatial diffusion kramers turnover"
+    ]
+  },
+  "nonequilibrium-work-exponential-free-energy-recovery": {
+    "aliases": [
+      "nonequilibrium work exponential free energy recovery"
+    ]
+  },
+  "fermi-reservoir-electron-transfer-rate-saturation": {
+    "aliases": [
+      "fermi reservoir electron transfer rate saturation"
+    ]
+  },
+  "streaming-field-electroosmotic-backflow-resistance": {
+    "aliases": [
+      "streaming field electroosmotic backflow resistance"
+    ]
+  },
+  "residual-influence-iteratively-reweighted-fitting": {
+    "aliases": [
+      "residual influence iteratively reweighted fitting"
+    ]
+  },
+  "adjacent-violation-pooling-isotonic-projection": {
+    "aliases": [
+      "adjacent violation pooling isotonic projection"
+    ]
+  },
+  "inverse-propensity-residual-doubly-robust-estimation": {
+    "aliases": [
+      "inverse propensity residual doubly robust estimation"
+    ]
+  },
+  "log-density-score-expectation-gradient": {
+    "aliases": [
+      "log density score expectation gradient"
+    ]
+  },
+  "parameter-free-noise-pathwise-gradient": {
+    "aliases": [
+      "parameter free noise pathwise gradient"
+    ]
+  },
+  "signed-measure-decomposition-expectation-gradient": {
+    "aliases": [
+      "signed measure decomposition expectation gradient"
+    ]
+  },
+  "past-coupling-coalescence-perfect-sampling": {
+    "aliases": [
+      "past coupling coalescence perfect sampling"
+    ]
+  },
+  "gaussian-divergence-unbiased-risk-estimation": {
+    "aliases": [
+      "gaussian divergence unbiased risk estimation"
+    ]
+  },
+  "asymmetric-absolute-loss-conditional-quantile": {
+    "aliases": [
+      "asymmetric absolute loss conditional quantile"
+    ]
+  },
+  "posterior-sampled-model-optimal-action-selection": {
+    "aliases": [
+      "posterior sampled model optimal action selection"
+    ]
+  },
+  "uncertainty-bonus-upper-confidence-action-selection": {
+    "aliases": [
+      "uncertainty bonus upper confidence action selection"
+    ]
+  },
+  "random-unit-mask-shared-network-regularization": {
+    "aliases": [
+      "random unit mask shared network regularization"
+    ]
+  },
+  "phase-derivative-time-frequency-reassignment": {
+    "aliases": [
+      "phase derivative time frequency reassignment"
+    ]
+  },
+  "wavelet-modulus-cascade-invariant-representation": {
+    "aliases": [
+      "wavelet modulus cascade invariant representation"
+    ]
+  },
+  "patch-similarity-normalized-value-averaging": {
+    "aliases": [
+      "patch similarity normalized value averaging"
+    ]
+  },
+  "two-universal-hash-entropy-extraction": {
+    "aliases": [
+      "two universal hash entropy extraction"
+    ]
+  },
+  "state-dependent-nonlinearity-canceling-feedback": {
+    "aliases": [
+      "state dependent nonlinearity canceling feedback"
+    ]
+  },
+  "flat-output-finite-derivative-trajectory-reconstruction": {
+    "aliases": [
+      "flat output finite derivative trajectory reconstruction"
+    ]
+  },
+  "passive-port-interconnection-energy-cancellation": {
+    "aliases": [
+      "passive port interconnection energy cancellation"
+    ]
+  },
+  "exosystem-replica-internal-model-regulation": {
+    "aliases": [
+      "exosystem replica internal model regulation"
+    ]
+  },
+  "nilpotent-closed-loop-finite-step-regulation": {
+    "aliases": [
+      "nilpotent closed loop finite step regulation"
+    ]
+  },
+  "diffusion-path-expectation-parabolic-pde-representation": {
+    "aliases": [
+      "diffusion path expectation parabolic pde representation"
+    ]
+  },
+  "logarithmic-derivative-burgers-heat-linearization": {
+    "aliases": [
+      "logarithmic derivative burgers heat linearization"
+    ]
+  },
+  "characteristic-curve-pde-to-ode-reduction": {
+    "aliases": [
+      "characteristic curve pde to ode reduction"
+    ]
+  },
+  "incidence-adjoint-hodge-flow-decomposition": {
+    "aliases": [
+      "incidence adjoint hodge flow decomposition"
+    ]
+  },
+  "endpoint-derivative-euler-maclaurin-summation": {
+    "aliases": [
+      "endpoint derivative euler maclaurin summation"
+    ]
+  },
+  "poisson-weighted-partial-sum-borel-summation": {
+    "aliases": [
+      "poisson weighted partial sum borel summation"
+    ]
+  },
+  "implicit-power-series-lagrange-inversion": {
+    "aliases": [
+      "implicit power series lagrange inversion"
+    ]
+  },
+  "backward-three-term-clenshaw-series-evaluation": {
+    "aliases": [
+      "backward three term clenshaw series evaluation"
+    ]
+  },
+  "support-slope-fenchel-conjugate-transform": {
+    "aliases": [
+      "support slope fenchel conjugate transform"
+    ]
+  },
+  "random-edge-contraction-cut-preservation": {
+    "aliases": [
+      "random edge contraction cut preservation"
+    ]
+  },
+  "laplacian-cofactor-spanning-tree-count": {
+    "aliases": [
+      "laplacian cofactor spanning tree count"
+    ]
+  },
+  "group-fixed-point-average-orbit-count": {
+    "aliases": [
+      "group fixed point average orbit count"
+    ]
+  },
+  "prefix-border-failure-link-pattern-matching": {
+    "aliases": [
+      "prefix border failure link pattern matching"
+    ]
+  },
+  "rolling-positional-modular-string-fingerprint": {
+    "aliases": [
+      "rolling positional modular string fingerprint"
+    ]
+  },
+  "ordered-threshold-lovasz-convex-extension": {
+    "aliases": [
+      "ordered threshold lovasz convex extension"
+    ]
+  },
+  "local-phonon-population-relaxation-akhiezer-damping": {
+    "aliases": [
+      "local phonon population relaxation akhiezer damping"
+    ]
+  },
+  "amorphous-local-cooperative-shear-transformation": {
+    "aliases": [
+      "amorphous local cooperative shear transformation"
+    ]
+  },
+  "shear-coupled-normal-grain-boundary-migration": {
+    "aliases": [
+      "shear coupled normal grain boundary migration"
+    ]
+  },
+  "pinned-dislocation-oscillation-internal-friction": {
+    "aliases": [
+      "pinned dislocation oscillation internal friction"
+    ]
+  },
+  "glide-bowing-orowan-obstacle-bypass": {
+    "aliases": [
+      "glide bowing orowan obstacle bypass"
+    ]
+  },
+  "effective-stress-melting-refreezing-regelation": {
+    "aliases": [
+      "effective stress melting refreezing regelation"
+    ]
+  },
+  "torque-free-intermediate-inertia-axis-instability": {
+    "aliases": [
+      "torque free intermediate inertia axis instability"
+    ]
+  },
+  "inertia-curvature-misalignment-rattleback-reversal": {
+    "aliases": [
+      "inertia curvature misalignment rattleback reversal"
+    ]
+  },
+  "nonconservative-follower-force-flutter": {
+    "aliases": [
+      "nonconservative follower force flutter"
+    ]
+  },
+  "moving-medium-fresnel-fizeau-light-drag": {
+    "aliases": [
+      "moving medium fresnel fizeau light drag"
+    ]
+  },
+  "noncollinear-lorentz-boost-thomas-wigner-rotation": {
+    "aliases": [
+      "noncollinear lorentz boost thomas wigner rotation"
+    ]
+  },
+  "itinerant-exchange-band-polarization-stoner-instability": {
+    "aliases": [
+      "itinerant exchange band polarization stoner instability"
+    ]
+  },
+  "spin-orbit-crystal-field-magnetocrystalline-anisotropy": {
+    "aliases": [
+      "spin orbit crystal field magnetocrystalline anisotropy"
+    ]
+  },
+  "structural-double-well-tunneling-phonon-scattering": {
+    "aliases": [
+      "structural double well tunneling phonon scattering"
+    ]
+  },
+  "fermi-occupation-limited-pauli-spin-paramagnetism": {
+    "aliases": [
+      "fermi occupation limited pauli spin paramagnetism"
+    ]
+  },
+  "voltage-dependent-mobile-blocker-pore-rectification": {
+    "aliases": [
+      "voltage dependent mobile blocker pore rectification"
+    ]
+  },
+  "tethered-peptide-open-channel-inactivation": {
+    "aliases": [
+      "tethered peptide open channel inactivation"
+    ]
+  },
+  "phosphoinositide-hydrolysis-intermembrane-lipid-exchange": {
+    "aliases": [
+      "phosphoinositide hydrolysis intermembrane lipid exchange"
+    ]
+  },
+  "alternating-access-occluded-carrier-uniport": {
+    "aliases": [
+      "alternating access occluded carrier uniport"
+    ]
+  },
+  "nucleotide-hydrolysis-polar-filament-treadmilling": {
+    "aliases": [
+      "nucleotide hydrolysis polar filament treadmilling"
+    ]
+  },
+  "flavin-photoinduced-carboxylate-decarboxylation": {
+    "aliases": [
+      "flavin photoinduced carboxylate decarboxylation"
+    ]
+  },
+  "flavin-n5-covalent-sugar-ring-contraction": {
+    "aliases": [
+      "flavin n5 covalent sugar ring contraction"
+    ]
+  },
+  "flavin-n5-oxide-oxygen-storage-transfer": {
+    "aliases": [
+      "flavin n5 oxide oxygen storage transfer"
+    ]
+  },
+  "prenylflavin-cycloaddition-decarboxylation-release": {
+    "aliases": [
+      "prenylflavin cycloaddition decarboxylation release"
+    ]
+  },
+  "sam-methyl-addition-deprotonative-cyclopropanation": {
+    "aliases": [
+      "sam methyl addition deprotonative cyclopropanation"
+    ]
+  },
+  "molybdenum-desoxo-oxo-substrate-oxygen-transfer": {
+    "aliases": [
+      "molybdenum desoxo oxo substrate oxygen transfer"
+    ]
+  },
+  "bound-nad-imine-relay-aminobutyl-transfer": {
+    "aliases": [
+      "bound nad imine relay aminobutyl transfer"
+    ]
+  },
+  "lysine-covalent-imine-relay-intermediate-shuttling": {
+    "aliases": [
+      "lysine covalent imine relay intermediate shuttling"
+    ]
+  },
+  "sacrificial-cysteinyl-sulfur-thiazole-assembly": {
+    "aliases": [
+      "sacrificial cysteinyl sulfur thiazole assembly"
+    ]
+  },
+  "fold-preorganized-autocatalytic-isopeptide-ligation": {
+    "aliases": [
+      "fold preorganized autocatalytic isopeptide ligation"
+    ]
+  },
+  "radical-ribose-purine-intramolecular-carbon-cyclization": {
+    "aliases": [
+      "radical ribose purine intramolecular carbon cyclization"
+    ]
+  },
+  "covalent-carbon-guidance-skeleton-insertion": {
+    "aliases": [
+      "covalent carbon guidance skeleton insertion"
+    ]
+  },
+  "protein-thiocarboxylate-sulfur-atom-transfer": {
+    "aliases": [
+      "protein thiocarboxylate sulfur atom transfer"
+    ]
+  },
+  "radical-hydrogen-abstraction-opposite-face-epimerization": {
+    "aliases": [
+      "radical hydrogen abstraction opposite face epimerization"
+    ]
+  },
+  "atp-phosphorylated-hemiorthoamide-backbone-conversion": {
+    "aliases": [
+      "atp phosphorylated hemiorthoamide backbone conversion"
+    ]
+  },
+  "orientation-stack-pruning-convex-hull": {
+    "aliases": [
+      "orientation stack pruning convex hull"
+    ]
+  },
+  "paraboloid-lifting-lower-hull-delaunay-projection": {
+    "aliases": [
+      "paraboloid lifting lower hull delaunay projection"
+    ]
+  },
+  "ordered-sweep-event-planar-intersection-enumeration": {
+    "aliases": [
+      "ordered sweep event planar intersection enumeration"
+    ]
+  },
+  "oriented-solid-angle-generalized-winding-classification": {
+    "aliases": [
+      "oriented solid angle generalized winding classification"
+    ]
+  },
+  "additive-plane-quadric-mesh-pair-contraction": {
+    "aliases": [
+      "additive plane quadric mesh pair contraction"
+    ]
+  },
+  "empty-convex-ear-removal-polygon-triangulation": {
+    "aliases": [
+      "empty convex ear removal polygon triangulation"
+    ]
+  },
+  "cube-sign-case-edge-interpolation-isosurface": {
+    "aliases": [
+      "cube sign case edge interpolation isosurface"
+    ]
+  },
+  "rotating-support-line-calipers-extreme-enclosure": {
+    "aliases": [
+      "rotating support line calipers extreme enclosure"
+    ]
+  },
+  "receptor-ligand-modulation": {
+    "legacy_ids": [
+      "18.24",
+      "18.37",
+      "18.98"
+    ],
+    "aliases": [
+      "면역 체크포인트 차단",
+      "immune checkpoint blockade",
+      "면역 체크포인트",
+      "CTLA-4",
+      "checkpoint blockade",
+      "수용체·리간드 신호 조절",
+      "패턴 인식 수용체의 선천 면역 신호",
+      "innate pattern recognition",
+      "인공 수용체의 항원 인식·세포 신호 결합",
+      "chimeric receptor signal coupling"
+    ]
+  },
+  "time-delay-coordinate-dynamical-embedding": {
+    "aliases": [
+      "time delay coordinate dynamical embedding"
+    ]
+  },
+  "history-conditioned-transition-information-transfer": {
+    "aliases": [
+      "history conditioned transition information transfer"
+    ]
+  },
+  "log-generating-function-connected-cumulants": {
+    "aliases": [
+      "log generating function connected cumulants"
+    ]
+  },
+  "nested-commutator-magnus-exponential-propagation": {
+    "aliases": [
+      "nested commutator magnus exponential propagation"
+    ]
+  },
+  "monomial-lift-carleman-linearization": {
+    "aliases": [
+      "monomial lift carleman linearization"
+    ]
+  },
+  "costate-hamiltonian-pointwise-control-extremization": {
+    "aliases": [
+      "costate hamiltonian pointwise control extremization"
+    ]
+  },
+  "fundamental-harmonic-describing-function-balance": {
+    "aliases": [
+      "fundamental harmonic describing function balance"
+    ]
+  },
+  "strictly-proper-outcome-score-belief-elicitation": {
+    "aliases": [
+      "strictly proper outcome score belief elicitation"
+    ]
+  },
+  "sum-preserving-dependent-randomized-rounding": {
+    "aliases": [
+      "sum preserving dependent randomized rounding"
+    ]
+  },
+  "frobenius-fixed-subalgebra-polynomial-factorization": {
+    "aliases": [
+      "frobenius fixed subalgebra polynomial factorization"
+    ]
+  },
+  "balanced-power-table-meet-in-middle-logarithm": {
+    "aliases": [
+      "balanced power table meet in middle logarithm"
+    ]
+  },
+  "orthogonal-factorial-contrast-effect-isolation": {
+    "aliases": [
+      "orthogonal factorial contrast effect isolation"
+    ]
+  },
+  "pair-distance-scaling-correlation-dimension": {
+    "aliases": [
+      "pair distance scaling correlation dimension"
+    ]
+  },
+  "linear-dual-infeasibility-witness": {
+    "aliases": [
+      "linear dual infeasibility witness"
+    ]
+  },
+  "diagonal-radius-gershgorin-spectral-enclosure": {
+    "aliases": [
+      "diagonal radius gershgorin spectral enclosure"
+    ]
+  },
+  "scattering-wave-variable-delay-passivation": {
+    "aliases": [
+      "scattering wave variable delay passivation"
+    ]
+  },
+  "uniform-acceleration-vacuum-detector-thermal-response": {
+    "aliases": [
+      "uniform acceleration vacuum detector thermal response"
+    ]
+  },
+  "mass-flavor-basis-mismatch-neutrino-oscillation": {
+    "aliases": [
+      "mass flavor basis mismatch neutrino oscillation"
+    ]
+  },
+  "muonic-molecule-nuclear-approach-catalyzed-fusion": {
+    "aliases": [
+      "muonic molecule nuclear approach catalyzed fusion"
+    ]
+  },
+  "gyro-orbit-stochasticity-nonresonant-ion-heating": {
+    "aliases": [
+      "gyro orbit stochasticity nonresonant ion heating"
+    ]
+  },
+  "closed-shape-cycle-zero-momentum-reorientation": {
+    "aliases": [
+      "closed shape cycle zero momentum reorientation"
+    ]
+  },
+  "interaction-driven-fermi-surface-shape-instability": {
+    "aliases": [
+      "interaction driven fermi surface shape instability"
+    ]
+  },
+  "traction-free-boundary-elastic-rayleigh-wave": {
+    "aliases": [
+      "traction free boundary elastic rayleigh wave"
+    ]
+  },
+  "electron-current-induction-whistler-propagation": {
+    "aliases": [
+      "electron current induction whistler propagation"
+    ]
+  },
+  "double-centered-distance-matrix-dependence": {
+    "aliases": [
+      "double centered distance matrix dependence"
+    ]
+  },
+  "empirical-cdf-supremum-distribution-test": {
+    "aliases": [
+      "empirical cdf supremum distribution test"
+    ]
+  },
+  "spectral-random-feature-kernel-approximation": {
+    "aliases": [
+      "spectral random feature kernel approximation"
+    ]
+  },
+  "projection-lifting-sign-invariant-cylindrical-cells": {
+    "aliases": [
+      "projection lifting sign invariant cylindrical cells"
+    ]
+  },
+  "bounded-polynomial-congruence-primality-certificate": {
+    "aliases": [
+      "bounded polynomial congruence primality certificate"
+    ]
+  },
+  "smooth-parity-dependence-congruent-square-factorization": {
+    "aliases": [
+      "smooth parity dependence congruent square factorization"
+    ]
+  },
+  "elliptic-curve-noninvertible-denominator-factorization": {
+    "aliases": [
+      "elliptic curve noninvertible denominator factorization"
+    ]
+  },
+  "modular-orbit-collision-gcd-factorization": {
+    "aliases": [
+      "modular orbit collision gcd factorization"
+    ]
+  },
+  "poisson-clock-uniformized-markov-propagation": {
+    "aliases": [
+      "poisson clock uniformized markov propagation"
+    ]
+  },
+  "paired-bound-fourier-motzkin-variable-elimination": {
+    "aliases": [
+      "paired bound fourier motzkin variable elimination"
+    ]
+  },
+  "unimodular-row-column-invariant-factor-diagonalization": {
+    "aliases": [
+      "unimodular row column invariant factor diagonalization"
+    ]
+  },
+  "fractional-tableau-integer-rounding-cut": {
+    "aliases": [
+      "fractional tableau integer rounding cut"
+    ]
+  },
+  "quadratic-variation-ito-chain-correction": {
+    "aliases": [
+      "quadratic variation ito chain correction"
+    ]
+  },
+  "inverse-variance-root-stabilizing-transform": {
+    "aliases": [
+      "inverse variance root stabilizing transform"
+    ]
+  },
+  "moment-constrained-empirical-likelihood-reweighting": {
+    "aliases": [
+      "moment constrained empirical likelihood reweighting"
+    ]
+  },
+  "carboxybiotin-decarboxylation-sodium-pumping": {
+    "aliases": [
+      "carboxybiotin decarboxylation sodium pumping"
+    ]
+  },
+  "electron-recycling-ketyl-radical-dehydration": {
+    "aliases": [
+      "electron recycling ketyl radical dehydration"
+    ]
+  },
+  "sam-methyl-dehydrogenation-cluster-carbide-installation": {
+    "aliases": [
+      "sam methyl dehydrogenation cluster carbide installation"
+    ]
+  },
+  "ester-ionization-driven-geometric-isomerization": {
+    "aliases": [
+      "ester ionization driven geometric isomerization"
+    ]
+  },
+  "sequential-epoxide-ferryl-dioxygenative-ring-cleavage": {
+    "aliases": [
+      "sequential epoxide ferryl dioxygenative ring cleavage"
+    ]
+  },
+  "iron-sulfur-bound-allyl-reductive-dehydroxylation": {
+    "aliases": [
+      "iron sulfur bound allyl reductive dehydroxylation"
+    ]
+  },
+  "copper-thioaldehyde-cysteine-to-aldehyde-conversion": {
+    "aliases": [
+      "copper thioaldehyde cysteine to aldehyde conversion"
+    ]
+  },
+  "atp-sulfinate-activation-thiosulfinate-repair": {
+    "aliases": [
+      "atp sulfinate activation thiosulfinate repair"
+    ]
+  },
+  "backbone-serinolysis-pyruvoyl-cofactor-maturation": {
+    "aliases": [
+      "backbone serinolysis pyruvoyl cofactor maturation"
+    ]
+  },
+  "cysteinyl-methylene-radical-carbon-methylation": {
+    "aliases": [
+      "cysteinyl methylene radical carbon methylation"
+    ]
+  },
+  "amino-acid-fragment-derived-iron-carbonyl-cyanide-assembly": {
+    "aliases": [
+      "amino acid fragment derived iron carbonyl cyanide assembly"
+    ]
+  },
+  "substrate-photoexcitation-stepwise-hydride-addition": {
+    "aliases": [
+      "substrate photoexcitation stepwise hydride addition"
+    ]
+  },
+  "hemiprotonated-cytosine-intercalated-folding": {
+    "aliases": [
+      "hemiprotonated cytosine intercalated folding"
+    ]
+  },
+  "weak-nucleon-conversion-beta-emission": {
+    "aliases": [
+      "weak nucleon conversion beta emission"
+    ]
+  },
+  "nuclear-energy-direct-electron-internal-conversion": {
+    "aliases": [
+      "nuclear energy direct electron internal conversion"
+    ]
+  },
+  "radiative-spin-flip-asymmetry-polarization": {
+    "aliases": [
+      "radiative spin flip asymmetry polarization"
+    ]
+  },
+  "pressure-anisotropy-negative-tension-firehose-instability": {
+    "aliases": [
+      "pressure anisotropy negative tension firehose instability"
+    ]
+  },
+  "neutral-current-coherent-neutrino-nuclear-recoil": {
+    "aliases": [
+      "neutral current coherent neutrino nuclear recoil"
+    ]
+  },
+  "nonzero-scalar-vacuum-gauge-field-mass": {
+    "aliases": [
+      "nonzero scalar vacuum gauge field mass"
+    ]
+  },
+  "nonabelian-gauge-self-interaction-asymptotic-freedom": {
+    "aliases": [
+      "nonabelian gauge self interaction asymptotic freedom"
+    ]
+  },
+  "spin-admixed-state-scattering-elliott-relaxation": {
+    "aliases": [
+      "spin admixed state scattering elliott relaxation"
+    ]
+  },
+  "overlap-subtracted-inner-outer-asymptotic-matching": {
+    "aliases": [
+      "overlap subtracted inner outer asymptotic matching"
+    ]
+  },
+  "independent-slow-time-secular-solvability-removal": {
+    "aliases": [
+      "independent slow time secular solvability removal"
+    ]
+  },
+  "neighbor-multiset-injective-color-refinement": {
+    "aliases": [
+      "neighbor multiset injective color refinement"
+    ]
+  },
+  "row-hyperplane-residual-orthogonal-projection": {
+    "aliases": [
+      "row hyperplane residual orthogonal projection"
+    ]
+  },
+  "duplicate-label-complementary-polytope-pivoting": {
+    "aliases": [
+      "duplicate label complementary polytope pivoting"
+    ]
+  },
+  "independent-coordinate-replacement-variance-bound": {
+    "aliases": [
+      "independent coordinate replacement variance bound"
+    ]
+  },
+  "conditional-integral-orthogonal-variance-decomposition": {
+    "aliases": [
+      "conditional integral orthogonal variance decomposition"
+    ]
+  },
+  "two-power-subgroup-modular-root-correction": {
+    "aliases": [
+      "two power subgroup modular root correction"
+    ]
+  },
+  "reduced-cost-feasible-basis-exchange": {
+    "aliases": [
+      "reduced cost feasible basis exchange"
+    ]
+  },
+  "radiative-loss-compression-thermal-condensation": {
+    "aliases": [
+      "radiative loss compression thermal condensation"
+    ]
+  },
+  "inelastic-collision-cooling-granular-clustering": {
+    "aliases": [
+      "inelastic collision cooling granular clustering"
+    ]
+  },
+  "field-aligned-heat-exchange-magnetothermal-buoyancy": {
+    "aliases": [
+      "field aligned heat exchange magnetothermal buoyancy"
+    ]
+  },
+  "self-gravity-negative-heat-capacity-thermal-runaway": {
+    "aliases": [
+      "self gravity negative heat capacity thermal runaway"
+    ]
+  },
+  "gravitational-wave-energy-nonlinear-displacement-memory": {
+    "aliases": [
+      "gravitational wave energy nonlinear displacement memory"
+    ]
+  },
+  "matched-spin-orbit-symmetry-persistent-helix": {
+    "aliases": [
+      "matched spin orbit symmetry persistent helix"
+    ]
+  },
+  "epsilon-closed-subset-automaton-determinization": {
+    "aliases": [
+      "epsilon closed subset automaton determinization"
+    ]
+  },
+  "mismatch-character-suffix-safe-pattern-shifting": {
+    "aliases": [
+      "mismatch character suffix safe pattern shifting"
+    ]
+  },
+  "dotted-production-predict-scan-complete-chart": {
+    "aliases": [
+      "dotted production predict scan complete chart"
+    ]
+  },
+  "nonaffine-force-balance-elastic-softening": {
+    "aliases": [
+      "nonaffine force balance elastic softening"
+    ]
+  },
+  "sloping-isentrope-available-potential-baroclinic-instability": {
+    "aliases": [
+      "sloping isentrope available potential baroclinic instability"
+    ]
+  },
+  "polar-optical-mode-collective-ferroelectric-instability": {
+    "aliases": [
+      "polar optical mode collective ferroelectric instability"
+    ]
+  },
+  "exchange-coupled-spin-precession-magnon-wave": {
+    "aliases": [
+      "exchange coupled spin precession magnon wave"
+    ]
+  },
+  "thiyl-phosphorus-addition-carbon-phosphorus-cleavage": {
+    "aliases": [
+      "thiyl phosphorus addition carbon phosphorus cleavage"
+    ]
+  },
+  "substrate-hydroxyl-radical-oxidative-ring-closure": {
+    "aliases": [
+      "substrate hydroxyl radical oxidative ring closure"
+    ]
+  },
+  "superoxo-ferryl-sequential-oxidative-double-cyclization": {
+    "aliases": [
+      "superoxo ferryl sequential oxidative double cyclization"
+    ]
+  },
+  "selenocarboxymethyl-acetyl-thioester-reductive-relay": {
+    "aliases": [
+      "selenocarboxymethyl acetyl thioester reductive relay"
+    ]
+  },
+  "adenosyl-hydrogen-relay-ribose-fragment-reassembly": {
+    "aliases": [
+      "adenosyl hydrogen relay ribose fragment reassembly"
+    ]
+  },
+  "bound-nad-aldol-ring-opening-carbon-branch-reclosure": {
+    "aliases": [
+      "bound nad aldol ring opening carbon branch reclosure"
+    ]
+  },
+  "transient-nad-oxidation-elimination-glycoside-hydrolysis": {
+    "aliases": [
+      "transient nad oxidation elimination glycoside hydrolysis"
+    ]
+  },
+  "nad-ribosyl-phosphate-cyclization-dephosphorylation": {
+    "aliases": [
+      "nad ribosyl phosphate cyclization dephosphorylation"
+    ]
+  },
+  "atp-capped-chaperonin-folding-cage-cycle": {
+    "aliases": [
+      "atp capped chaperonin folding cage cycle"
+    ]
+  },
+  "transverse-linkage-vibration-thermal-contraction": {
+    "aliases": [
+      "transverse linkage vibration thermal contraction"
+    ]
+  },
+  "reciprocal-lattice-phonon-drift-momentum-relaxation": {
+    "aliases": [
+      "reciprocal lattice phonon drift momentum relaxation"
+    ]
+  },
+  "multiple-scattering-formation-length-radiation-suppression": {
+    "aliases": [
+      "multiple scattering formation length radiation suppression"
+    ]
+  },
+  "nuclear-symmetry-restored-proton-neutron-dipole-vibration": {
+    "aliases": [
+      "nuclear symmetry restored proton neutron dipole vibration"
+    ]
+  },
+  "conducting-flow-magnetic-stretching-dynamo-amplification": {
+    "aliases": [
+      "conducting flow magnetic stretching dynamo amplification"
+    ]
+  },
+  "helicity-selective-velocity-population-injection-current": {
+    "aliases": [
+      "helicity selective velocity population injection current"
+    ]
+  },
+  "singleton-frequency-unseen-probability-mass": {
+    "aliases": [
+      "singleton frequency unseen probability mass"
+    ]
+  },
+  "permutation-marginal-coalition-value-allocation": {
+    "aliases": [
+      "permutation marginal coalition value allocation"
+    ]
+  },
+  "counterfactual-externality-pivot-payment": {
+    "aliases": [
+      "counterfactual externality pivot payment"
+    ]
+  },
+  "four-plane-bilinear-convex-envelope": {
+    "aliases": [
+      "four plane bilinear convex envelope"
+    ]
+  },
+  "harmonic-ratio-conditioned-markov-transition": {
+    "aliases": [
+      "harmonic ratio conditioned markov transition"
+    ]
+  },
+  "cycle-reward-duration-regenerative-average": {
+    "aliases": [
+      "cycle reward duration regenerative average"
+    ]
+  },
+  "observation-time-length-biased-interval": {
+    "aliases": [
+      "observation time length biased interval"
+    ]
+  },
+  "joint-level-velocity-rice-crossing-intensity": {
+    "aliases": [
+      "joint level velocity rice crossing intensity"
+    ]
+  },
+  "min-plus-service-curve-concatenation-bound": {
+    "aliases": [
+      "min plus service curve concatenation bound"
+    ]
+  },
+  "stochastic-exponential-drift-measure-change": {
+    "aliases": [
+      "stochastic exponential drift measure change"
+    ]
+  },
+  "coprime-bezout-stable-controller-parameterization": {
+    "aliases": [
+      "coprime bezout stable controller parameterization"
+    ]
+  },
+  "rapid-phase-amplitude-wkb-hierarchy": {
+    "aliases": [
+      "rapid phase amplitude wkb hierarchy"
+    ]
+  },
+  "transverse-first-return-dynamical-map": {
+    "aliases": [
+      "transverse first return dynamical map"
+    ]
+  },
+  "invariant-center-graph-nonlinear-reduction": {
+    "aliases": [
+      "invariant center graph nonlinear reduction"
+    ]
+  },
+  "oscillatory-antiderivative-collocation-boundary-evaluation": {
+    "aliases": [
+      "oscillatory antiderivative collocation boundary evaluation"
+    ]
+  },
+  "flavin-n5-methylene-relay-reductive-methylation": {
+    "aliases": [
+      "flavin n5 methylene relay reductive methylation"
+    ]
+  },
+  "sam-carbon-fragment-radical-transfer": {
+    "aliases": [
+      "sam carbon fragment radical transfer"
+    ]
+  },
+  "plp-imine-radical-one-two-amino-migration": {
+    "aliases": [
+      "plp imine radical one two amino migration"
+    ]
+  },
+  "cysteinyl-thioimidate-sequestered-imine-nitrile-reduction": {
+    "aliases": [
+      "cysteinyl thioimidate sequestered imine nitrile reduction"
+    ]
+  },
+  "slow-conformational-relaxation-kinetic-cooperativity": {
+    "aliases": [
+      "slow conformational relaxation kinetic cooperativity"
+    ]
+  },
+  "paired-radical-fragment-addition-heterocycle-annulation": {
+    "aliases": [
+      "paired radical fragment addition heterocycle annulation"
+    ]
+  },
+  "pentacyclic-dimer-fragmentation-four-carbon-transfer": {
+    "aliases": [
+      "pentacyclic dimer fragmentation four carbon transfer"
+    ]
+  },
+  "flavor-selective-coherent-weak-forward-refraction": {
+    "aliases": [
+      "flavor selective coherent weak forward refraction"
+    ]
+  },
+  "self-induced-metal-image-charge-barrier-lowering": {
+    "aliases": [
+      "self induced metal image charge barrier lowering"
+    ]
+  },
+  "spin-orbit-impurity-skew-scattering-transverse-current": {
+    "aliases": [
+      "spin orbit impurity skew scattering transverse current"
+    ]
+  },
+  "residual-calcium-sensor-synaptic-facilitation": {
+    "aliases": [
+      "residual calcium sensor synaptic facilitation"
+    ]
+  },
+  "surround-inhibitory-network-spatial-contrast-selection": {
+    "aliases": [
+      "surround inhibitory network spatial contrast selection"
+    ]
+  },
+  "population-activity-divisive-neural-gain": {
+    "aliases": [
+      "population activity divisive neural gain"
+    ]
+  },
+  "myelin-insulated-internode-nodal-regeneration": {
+    "aliases": [
+      "myelin insulated internode nodal regeneration"
+    ]
+  },
+  "paired-connexon-intercellular-electrical-coupling": {
+    "aliases": [
+      "paired connexon intercellular electrical coupling"
+    ]
+  },
+  "extracellular-field-neighbor-membrane-coupling": {
+    "aliases": [
+      "extracellular field neighbor membrane coupling"
+    ]
+  },
+  "opsin-transducin-cyclic-nucleotide-channel-closure": {
+    "aliases": [
+      "opsin transducin cyclic nucleotide channel closure"
+    ]
+  },
+  "cascaded-quadratic-backconversion-optical-phase-shift": {
+    "aliases": [
+      "cascaded quadratic backconversion optical phase shift"
+    ]
+  },
+  "quasiperiodic-internal-configuration-phason-flip-diffusion": {
+    "aliases": [
+      "quasiperiodic internal configuration phason flip diffusion"
+    ]
+  },
+  "finite-flight-nonlocal-anomalous-skin-conduction": {
+    "aliases": [
+      "finite flight nonlocal anomalous skin conduction"
+    ]
+  },
+  "coupled-resolution-telescoping-expectation": {
+    "aliases": [
+      "coupled resolution telescoping expectation"
+    ]
+  },
+  "survival-weighted-random-truncation-debiasing": {
+    "aliases": [
+      "survival weighted random truncation debiasing"
+    ]
+  },
+  "simultaneous-sign-perturbation-gradient-estimation": {
+    "aliases": [
+      "simultaneous sign perturbation gradient estimation"
+    ]
+  },
+  "running-negative-supremum-skorokhod-regulation": {
+    "aliases": [
+      "running negative supremum skorokhod regulation"
+    ]
+  },
+  "first-hit-reflected-brownian-path-pairing": {
+    "aliases": [
+      "first hit reflected brownian path pairing"
+    ]
+  },
+  "inverse-quadratic-variation-martingale-clock": {
+    "aliases": [
+      "inverse quadratic variation martingale clock"
+    ]
+  },
+  "offspring-generating-function-extinction-fixed-point": {
+    "aliases": [
+      "offspring generating function extinction fixed point"
+    ]
+  },
+  "orthogonal-dynamics-memory-projection-identity": {
+    "aliases": [
+      "orthogonal dynamics memory projection identity"
+    ]
+  },
+  "scattering-data-evolution-inverse-pde-transform": {
+    "aliases": [
+      "scattering data evolution inverse pde transform"
+    ]
+  },
+  "angle-exponent-schwarz-christoffel-mapping": {
+    "aliases": [
+      "angle exponent schwarz christoffel mapping"
+    ]
+  },
+  "clockwise-odd-pfaffian-perfect-matching-count": {
+    "aliases": [
+      "clockwise odd pfaffian perfect matching count"
+    ]
+  },
+  "indicial-root-frobenius-singular-series": {
+    "aliases": [
+      "indicial root frobenius singular series"
+    ]
+  },
+  "rectified-lie-symmetry-differential-order-reduction": {
+    "aliases": [
+      "rectified lie symmetry differential order reduction"
+    ]
+  },
+  "double-exponential-endpoint-quadrature-map": {
+    "aliases": [
+      "double exponential endpoint quadrature map"
+    ]
+  },
+  "dimension-exponent-nullspace-similarity-groups": {
+    "aliases": [
+      "dimension exponent nullspace similarity groups"
+    ]
+  },
+  "leaving-group-assisted-front-face-glycosyl-transfer": {
+    "aliases": [
+      "leaving group assisted front face glycosyl transfer"
+    ]
+  },
+  "vinyl-ether-hydration-triggered-glycoside-cleavage": {
+    "aliases": [
+      "vinyl ether hydration triggered glycoside cleavage"
+    ]
+  },
+  "o-acylhydroxylamine-redox-neutral-nitrogen-coupling": {
+    "aliases": [
+      "o acylhydroxylamine redox neutral nitrogen coupling"
+    ]
+  },
+  "nicotinamide-c2-covalent-adduct-hydride-relay": {
+    "aliases": [
+      "nicotinamide c2 covalent adduct hydride relay"
+    ]
+  },
+  "opposing-enzyme-saturation-zero-order-ultrasensitivity": {
+    "aliases": [
+      "opposing enzyme saturation zero order ultrasensitivity"
+    ]
+  },
+  "intrinsic-rotor-angular-momentum-odd-viscosity": {
+    "aliases": [
+      "intrinsic rotor angular momentum odd viscosity"
+    ]
+  },
+  "dislocation-source-exhaustion-strengthening": {
+    "aliases": [
+      "dislocation source exhaustion strengthening"
+    ]
+  },
+  "collision-induced-transient-pair-dipole-absorption": {
+    "aliases": [
+      "collision induced transient pair dipole absorption"
+    ]
+  },
+  "atomic-plane-standing-wave-borrmann-transmission": {
+    "aliases": [
+      "atomic plane standing wave borrmann transmission"
+    ]
+  },
+  "secular-orbital-angular-momentum-kozai-lidov-exchange": {
+    "aliases": [
+      "secular orbital angular momentum kozai lidov exchange"
+    ]
+  },
+  "excited-absorption-cross-relaxation-photon-avalanche": {
+    "aliases": [
+      "excited absorption cross relaxation photon avalanche"
+    ]
+  },
+  "perpendicular-pressure-compressive-mirror-instability": {
+    "aliases": [
+      "perpendicular pressure compressive mirror instability"
+    ]
+  },
+  "resistive-electron-phase-lag-drift-wave-growth": {
+    "aliases": [
+      "resistive electron phase lag drift wave growth"
+    ]
+  },
+  "electromagnetic-environment-dynamical-tunneling-blockade": {
+    "aliases": [
+      "electromagnetic environment dynamical tunneling blockade"
+    ]
+  },
+  "fermi-surface-induced-repulsive-interaction-pairing": {
+    "aliases": [
+      "fermi surface induced repulsive interaction pairing"
+    ]
+  },
+  "cyclic-collision-avoidance-absorbing-organization": {
+    "aliases": [
+      "cyclic collision avoidance absorbing organization"
+    ]
+  },
+  "impurity-scattering-wavepacket-side-jump-current": {
+    "aliases": [
+      "impurity scattering wavepacket side jump current"
+    ]
+  },
+  "low-energy-s-wave-phase-zero-scattering-minimum": {
+    "aliases": [
+      "low energy s wave phase zero scattering minimum"
+    ]
+  },
+  "orbital-magnetization-self-consistent-condon-domains": {
+    "aliases": [
+      "orbital magnetization self consistent condon domains"
+    ]
+  },
+  "cathode-secondary-feedback-townsend-gas-breakdown": {
+    "aliases": [
+      "cathode secondary feedback townsend gas breakdown"
+    ]
+  },
+  "adjacent-average-difference-allan-variance": {
+    "aliases": [
+      "adjacent average difference allan variance"
+    ]
+  },
+  "cyclic-frequency-pair-spectral-correlation": {
+    "aliases": [
+      "cyclic frequency pair spectral correlation"
+    ]
+  },
+  "illumination-diverse-photometric-normal-recovery": {
+    "aliases": [
+      "illumination diverse photometric normal recovery"
+    ]
+  },
+  "squared-distance-centered-gram-coordinate-recovery": {
+    "aliases": [
+      "squared distance centered gram coordinate recovery"
+    ]
+  },
+  "normalized-eigenstate-operator-derivative-sensitivity": {
+    "aliases": [
+      "normalized eigenstate operator derivative sensitivity"
+    ]
+  },
+  "period-monodromy-exponential-periodic-factorization": {
+    "aliases": [
+      "period monodromy exponential periodic factorization"
+    ]
+  },
+  "integrated-conditional-intensity-event-clock": {
+    "aliases": [
+      "integrated conditional intensity event clock"
+    ]
+  },
+  "integration-by-parts-score-matching-estimation": {
+    "aliases": [
+      "integration by parts score matching estimation"
+    ]
+  },
+  "known-noise-logistic-density-normalizer-estimation": {
+    "aliases": [
+      "known noise logistic density normalizer estimation"
+    ]
+  },
+  "alternating-diagonal-row-column-balancing": {
+    "aliases": [
+      "alternating diagonal row column balancing"
+    ]
+  },
+  "nonlinear-loop-gain-composition-stability": {
+    "aliases": [
+      "nonlinear loop gain composition stability"
+    ]
+  },
+  "coordinated-interference-subspace-alignment": {
+    "aliases": [
+      "coordinated interference subspace alignment"
+    ]
+  },
+  "distributed-random-bin-joint-typical-decoding": {
+    "aliases": [
+      "distributed random bin joint typical decoding"
+    ]
+  },
+  "dominant-singularity-taylor-coefficient-transfer": {
+    "aliases": [
+      "dominant singularity taylor coefficient transfer"
+    ]
+  },
+  "positive-moment-preserving-support-compression": {
+    "aliases": [
+      "positive moment preserving support compression"
+    ]
+  },
+  "renormalized-orbit-separation-lyapunov-growth": {
+    "aliases": [
+      "renormalized orbit separation lyapunov growth"
+    ]
+  },
+  "core-excitation-capture-radiative-dielectronic-recombination": {
+    "aliases": [
+      "core excitation capture radiative dielectronic recombination"
+    ]
+  },
+  "screw-dislocation-end-torque-eshelby-twist": {
+    "aliases": [
+      "screw dislocation end torque eshelby twist"
+    ]
+  },
+  "head-on-fermi-collision-odd-angular-mode-protection": {
+    "aliases": [
+      "head on fermi collision odd angular mode protection"
+    ]
+  },
+  "bent-field-mass-drainage-parker-buoyancy": {
+    "aliases": [
+      "bent field mass drainage parker buoyancy"
+    ]
+  },
+  "doppler-line-deshadowing-radiative-instability": {
+    "aliases": [
+      "doppler line deshadowing radiative instability"
+    ]
+  },
+  "density-flux-phase-feedback-photon-bubble-instability": {
+    "aliases": [
+      "density flux phase feedback photon bubble instability"
+    ]
+  },
+  "resonant-ion-neutral-charge-identity-exchange": {
+    "aliases": [
+      "resonant ion neutral charge identity exchange"
+    ]
+  },
+  "beta-fed-unbound-nucleus-delayed-neutron-emission": {
+    "aliases": [
+      "beta fed unbound nucleus delayed neutron emission"
+    ]
+  },
+  "dual-substrate-phosphorylation-metal-carboxylation": {
+    "aliases": [
+      "dual substrate phosphorylation metal carboxylation"
+    ]
+  },
+  "hybrid-beta-barrel-strand-exchange-membrane-folding": {
+    "aliases": [
+      "hybrid beta barrel strand exchange membrane folding"
+    ]
+  },
+  "cyclopropylcarbinyl-intermediate-head-to-head-prenyl-coupling": {
+    "aliases": [
+      "cyclopropylcarbinyl intermediate head to head prenyl coupling"
+    ]
+  },
+  "copper-directed-carbon-oxidation-glycoside-cleavage": {
+    "aliases": [
+      "copper directed carbon oxidation glycoside cleavage"
+    ]
+  },
+  "terminal-rna-phosphorolysis-diphosphate-recovery": {
+    "aliases": [
+      "terminal rna phosphorolysis diphosphate recovery"
+    ]
+  },
+  "atp-coupled-acceptor-potential-shift-reductive-activation": {
+    "aliases": [
+      "atp coupled acceptor potential shift reductive activation"
+    ]
+  },
+  "aminyl-fragmentation-carboxyl-radical-relocation": {
+    "aliases": [
+      "aminyl fragmentation carboxyl radical relocation"
+    ]
+  },
+  "heme-copper-tyrosyl-coupled-dioxygen-bond-cleavage": {
+    "aliases": [
+      "heme copper tyrosyl coupled dioxygen bond cleavage"
+    ]
+  },
+  "backbone-sulfenyl-amide-reversible-thiol-protection": {
+    "aliases": [
+      "backbone sulfenyl amide reversible thiol protection"
+    ]
+  },
+  "reversible-amine-carbon-dioxide-carbamate-capture": {
+    "aliases": [
+      "reversible amine carbon dioxide carbamate capture"
+    ]
+  },
+  "radical-pair-selective-photoexcitation-net-heterolysis": {
+    "aliases": [
+      "radical pair selective photoexcitation net heterolysis"
+    ]
+  },
+  "electric-magnetic-dipole-interference-chiral-absorption": {
+    "aliases": [
+      "electric magnetic dipole interference chiral absorption"
+    ]
+  },
+  "counterion-hole-spatial-correlation-like-charge-attraction": {
+    "aliases": [
+      "counterion hole spatial correlation like charge attraction"
+    ]
+  },
+  "heme-confined-chlorite-intramolecular-oxygen-coupling": {
+    "aliases": [
+      "heme confined chlorite intramolecular oxygen coupling"
     ]
   }
 }

@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-27",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "batch": "additions-2026-09-27-geometry-01.tsv",
+  "evidence": [
+    {"key": "orientation-stack-pruning-convex-hull", "scope": "reference_section", "read": "Official CGAL implementation lines 29-107 and 174-213: sorted coordinates, left-turn predicate, stack popping, forward/reverse scans."},
+    {"key": "paraboloid-lifting-lower-hull-delaunay-projection", "scope": "stored_search_excerpt", "read": "Official Qhull indexed documentation: sum-of-squares lifting, lower hull projection, cocircular merging, Qbb scaling, Qt/QJ degeneracy handling. Direct page open failed."},
+    {"key": "ordered-sweep-event-planar-intersection-enumeration", "scope": "reference_section", "read": "Official CGAL 3.1 chapter Introduction and Implementation: event endpoints/intersections, status container, event queue and output-dependent complexity."},
+    {"key": "oriented-solid-angle-generalized-winding-classification", "scope": "reference_section", "read": "Original authors' PDF sections 4.1-4.2: oriented triangle solid-angle sum /4pi, watertight indicator versus open-surface confidence measure. Subsequent graphcut not separately counted."},
+    {"key": "additive-plane-quadric-mesh-pair-contraction", "scope": "reference_section", "read": "Original paper sections 4-6: additive Q matrices, linear minimization with singular fallback, plane-distance derivation and boundary/inversion limitations."},
+    {"key": "empty-convex-ear-removal-polygon-triangulation", "scope": "reference_section", "read": "Eberly primary algorithm documentation section 2 and hole prerequisites: convex ear with no contained vertices, removal and neighbor retesting."},
+    {"key": "cube-sign-case-edge-interpolation-isosurface", "scope": "stored_search_excerpt", "read": "Original 1987 paper indexed abstract and algorithm excerpt, case table and linear interpolation. PDF direct open failed; no full-paper reading claimed."},
+    {"key": "rotating-support-line-calipers-extreme-enclosure", "scope": "reference_section", "read": "Eberly primary implementation documentation section 3, pages 3-4: minimum angular next edge event and reused support multiset."}
+  ],
+  "excluded": [
+    "Voronoi diagram is not a separate addition alongside Delaunay dual construction.",
+    "Minkowski dilation duplicates existing morphological extrema operation.",
+    "GJK held due to its Frank-Wolfe relation; BVH duplicates hierarchical partition; Lloyd duplicates already represented cluster fitting.",
+    "Welzl minimum circle held: support-set definition was read but insufficient independent algorithm detail retrieved for a new card."
+  ]
+}

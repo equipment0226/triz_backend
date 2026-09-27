@@ -1,0 +1,207 @@
+{
+  "batch": "additions-2026-09-27-information-06.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1724,
+  "added": 16,
+  "after": 1740,
+  "target": 2000,
+  "source_sha256": "b55ca46130d4eb1fd93ba76ed47fe67d94ee2d4848d3d988c70e8b8fbc5e7e1e",
+  "decisions": [
+    {
+      "key": "residual-influence-iteratively-reweighted-fitting",
+      "group": 19,
+      "related_keys": [
+        "random-minimal-consensus-robust-fitting",
+        "neighborhood-rank-median-filtering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "무작위 최소 부분집합의 합의 투표나 순서통계 치환이 아니라 잔차별 영향 제한을 가중 정상방정식에 되먹임한다.",
+      "source_url": "https://www.statsmodels.org/stable/generated/statsmodels.robust.norms.HuberT.weights.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "adjacent-violation-pooling-isotonic-projection",
+      "group": 19,
+      "related_keys": [
+        "constraint-support-domain-pruning",
+        "proximal-distance-penalized-resolvent"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 제약 전파나 근접 연산의 이름만 바꾼 것이 아니라 인접 위반 블록의 가중 병합이라는 단조 원뿔 전용 계산을 정의한다.",
+      "source_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.isotonic_regression.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "inverse-propensity-residual-doubly-robust-estimation",
+      "group": 19,
+      "related_keys": [
+        "importance-density-ratio-sampling",
+        "known-mean-correlated-control-variate"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 역확률 재가중이나 알려진 평균의 분산 감소와 달리 예측항과 가중 잔차항의 편향이 한 모형의 정확성으로 상쇄된다.",
+      "source_url": "https://arxiv.org/pdf/0804.2958",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "log-density-score-expectation-gradient",
+      "group": 19,
+      "related_keys": [
+        "reverse-mode-chain-rule-gradient",
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "결정론적 연산 그래프의 미분 전파 대신 확률법칙의 도함수를 로그밀도 점수 가중 표본 평균으로 바꾼다.",
+      "source_url": "https://jmlr.org/papers/volume21/19-346/19-346.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "parameter-free-noise-pathwise-gradient",
+      "group": 19,
+      "related_keys": [
+        "log-density-score-expectation-gradient",
+        "reverse-mode-chain-rule-gradient",
+        "variational-posterior-bound-optimization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변분 목적함수 자체와 별개인 확률 미분 기전이다. 밀도 점수를 가중하지 않고 무작위성을 고정한 변환 경로로 미분을 통과시킨다.",
+      "source_url": "https://arxiv.org/pdf/1312.6114",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "signed-measure-decomposition-expectation-gradient",
+      "group": 19,
+      "related_keys": [
+        "log-density-score-expectation-gradient",
+        "parameter-free-noise-pathwise-gradient"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "로그밀도나 표본 경로의 미분 대신 도함수 자체를 두 확률법칙으로 분해해 함수 평가 차를 구한다.",
+      "source_url": "https://jmlr.org/papers/volume21/19-346/19-346.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "past-coupling-coalescence-perfect-sampling",
+      "group": 19,
+      "related_keys": [
+        "detailed-balance-markov-sampling",
+        "deterministic-pseudorandom-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "긴 소각 구간 뒤의 근사 평형 표본과 달리 과거부터의 공동 갱신과 전 상태 합류로 정확한 종료를 인증한다.",
+      "source_url": "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/propp_wilson.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "gaussian-divergence-unbiased-risk-estimation",
+      "group": 19,
+      "related_keys": [
+        "joint-norm-adaptive-mean-shrinkage",
+        "leave-one-out-jackknife-bias-correction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "추정값을 직접 수축하거나 자료를 빼서 재적합하는 대신 가우스 부분적분 항등식의 발산 보정으로 추정 위험을 계산한다.",
+      "source_url": "https://proceedings.neurips.cc/paper_files/paper/2018/file/c0560792e4a3c79e62f76cbf9fb277dd-Paper.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "asymmetric-absolute-loss-conditional-quantile",
+      "group": 19,
+      "related_keys": [
+        "neighborhood-rank-median-filtering",
+        "exchangeable-score-conformal-coverage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "지역 관측을 정렬해 중앙값으로 치환하거나 교환가능 점수를 교정하는 대신 잔차 부호의 비대칭 비용으로 조건부 확률 위치를 식별한다.",
+      "source_url": "https://scikit-learn.org/stable/modules/linear_model.html#quantile-regression",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "posterior-sampled-model-optimal-action-selection",
+      "group": 19,
+      "related_keys": [
+        "bayesian-network-inference",
+        "temporal-difference-action-value-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "사후분포 계산 자체나 시간차 가치 갱신이 아니라 사후 모형의 무작위 선택을 행동 선택 확률로 연결하는 탐색 기전이다.",
+      "source_url": "https://www.jmlr.org/papers/volume17/14-087/14-087.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "uncertainty-bonus-upper-confidence-action-selection",
+      "group": 19,
+      "related_keys": [
+        "posterior-sampled-model-optimal-action-selection",
+        "parameter-sensitivity-measurement-prioritization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "사후 모형을 뽑는 탐색과 달리 평균에 신뢰폭을 더한 낙관적 지수로 선택한다. 물리 모수의 민감도 순위와도 다르다.",
+      "source_url": "https://aima.eecs.berkeley.edu/~russell/classes/cs294/s11/readings/Auer%2Bal:2002.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "random-unit-mask-shared-network-regularization",
+      "group": 19,
+      "related_keys": [
+        "ensemble-classification",
+        "interpolated-example-label-regularization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "별도 모형의 출력 결합이나 예제·정답 보간과 달리 공유 가중치를 가진 계산 경로를 표본마다 확률적으로 제거한다.",
+      "source_url": "https://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "phase-derivative-time-frequency-reassignment",
+      "group": 19,
+      "related_keys": [
+        "wavelet-localized-multiresolution-decomposition",
+        "bilinear-lag-product-time-frequency-distribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기저 투영이나 지연곱의 주파수 변환이 아니라 국소 위상 변화율을 이용해 이미 얻은 계수를 주파수 축에서 재배치한다.",
+      "source_url": "https://arxiv.org/pdf/0912.2437",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "wavelet-modulus-cascade-invariant-representation",
+      "group": 19,
+      "related_keys": [
+        "wavelet-localized-multiresolution-decomposition",
+        "contrastive-view-representation-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 선형 웨이블릿 계수나 학습된 대조 목적과 달리 변환·절댓값·재변환의 비선형 연쇄로 고차 변동을 보존한 뒤 평균한다.",
+      "source_url": "https://arxiv.org/pdf/1101.2286",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "patch-similarity-normalized-value-averaging",
+      "group": 19,
+      "related_keys": [
+        "nearest-neighbor-retrieval",
+        "linear-frequency-filtering",
+        "kernel-neighborhood-mean-shift-mode-seeking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정 공간 필터나 근접 후보 반환이 아니라 자료 내용으로 달라지는 정규화 가중치로 대응 값을 합성한다. 모드 위치의 반복 이동과 구별한다.",
+      "source_url": "https://www.ipol.im/pub/art/2011/bcm_nlm/article.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "two-universal-hash-entropy-extraction",
+      "group": 19,
+      "related_keys": [
+        "sensitivity-calibrated-differential-privacy",
+        "commuting-secret-exponent-key-agreement",
+        "merkle-hash-path-membership-proof"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "잡음 첨가로 개별 자료 영향을 숨기거나 계산 난제로 키를 합의하는 대신 잔여 엔트로피를 충돌 제한 해시로 더 짧은 균일 비트에 모은다.",
+      "source_url": "https://arxiv.org/pdf/quant-ph/0403133",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

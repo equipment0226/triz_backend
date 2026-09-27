@@ -1,0 +1,59 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-10.tsv",
+  "authoring": "Direct conversational authorship; cross-group semantic comparison; no external LLM API and no generated-content script.",
+  "scope_convention": "reference_section names directly retrieved primary passages, not whole-paper coverage. Failed requests and stored local patent reviews are separately identified.",
+  "evidence": [
+    {
+      "key": "flavor-selective-coherent-weak-forward-refraction",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevD.17.2369/fulltext",
+      "scope": "reference_section",
+      "read": "Wolfenstein 1978 six-page original: Section III page 2372 equations 21-24 and Section IV summary. The earlier massless, flavor-changing neutral-current models are deliberately excluded.",
+      "quote": "charged-current scattering which singles out",
+      "support": "In the stated standard neutral-current limit, the common neutral-current phase cancels from oscillations but electron-neutrino charged-current forward scattering changes propagation eigenstates and relative phase. Electron density enters the Hamiltonian and modifies the mixing and oscillation length.",
+      "limitation": "No claim of universal enhancement, full modern three-flavor fitting, or direct experimental verification from this theoretical paper. The card does not claim the complete later adiabatic MSW density-sweep result.",
+      "nearest_comparison": "Existing vacuum neutrino card expressly leaves matter propagation separate. Coherent nuclear recoil requires finite momentum transfer to the nucleus; this card concerns electron-selective forward refraction. Generic refraction changes ray direction at an index boundary rather than identifying a weak flavor-dependent Hamiltonian."
+    },
+    {
+      "key": "self-induced-metal-image-charge-barrier-lowering",
+      "url": "https://arxiv.org/pdf/2301.05373",
+      "scope": "reference_section",
+      "read": "Evans et al. original 2023 theory: pages 2-4 Section II/III.A, Figure 2 and equation 1; results discussion around Figure 6 pages 13-14.",
+      "quote": "charge induced on the metal",
+      "support": "The electron induces positive surface charge. Subtracting its own Coulomb potential gives the induced potential; charging integration gives self-energy with a half factor. Adding that energy to contact potentials lowers computed barriers. The derivation assumes a homogeneous dielectric environment; specific geometric predictions are not generalized.",
+      "limitation": "This is a continuum electrostatic mechanism, not an additional 2D material or metal-angle effect. Atomic-scale image-plane and interface-state corrections matter. No numerical enhancement factor is adopted.",
+      "nearest_comparison": "Poole-Frenkel acts on an existing trap; here the carrier induces its own boundary response. Thermionic emission and tunneling describe crossing an already specified barrier. Dielectrophoresis acts on externally induced particle polarization in an imposed field gradient.",
+      "parent_source_check": {"url": "https://www.nature.com/articles/s41467-020-20856-z", "read": "Original Kublitski et al. 2021 Results, equation 5 and surrounding trap-generation discussion.", "scope": "reference_section", "support": "Explicitly describes an external field reducing the escape energy of a pre-existing trapped carrier. It does not supply the self-induced conductor surface-charge pathway."}
+    },
+    {
+      "key": "spin-orbit-impurity-skew-scattering-transverse-current",
+      "url": "https://arxiv.org/pdf/1208.6208",
+      "scope": "reference_section",
+      "read": "Niimi et al. 2012 original experiment/model, Introduction; page 3 dilute-impurity dependence; page 4 scattering phase-shift paragraph and equation 2.",
+      "quote": "difference in these phase shifts comes from the SO interaction",
+      "support": "Spin-orbit splitting changes impurity scattering phases and their interference, producing asymmetric spin-dependent scattering. The low-concentration scaling supports a skew contribution; concentrated samples depart from that regime.",
+      "limitation": "The paper itself reports disagreement in sign with a different first-principles treatment and sensitivity to transport modeling. No universal sign, numerical angle, or complete quantitative agreement is asserted. Side jump is mentioned but not separately authored.",
+      "nearest_comparison": "The intrinsic Berry card explicitly separates extrinsic asymmetric scattering. Elliott relaxation changes spin population through spin mixing, rather than identifying the antisymmetric directional collision probability.",
+      "parent_source_check": {"url": "https://www.nature.com/articles/s41598-019-38687-4", "scope": "reference_section", "read": "Sola et al. 2019 Discussion, paragraphs around equation 8 describing Pt inverse spin Hall conversion by a phenomenological Hall angle.", "support": "The existing parent source uses a charge/spin conversion coefficient without selecting the impurity phase-shift mechanism. Its actual title is Experimental proof of the reciprocal relation between spin Peltier and spin Seebeck effects in a bulk YIG/Pt bilayer."}
+    }
+  ],
+  "existing_card_supplement": {
+    "key": "magnetoresistance",
+    "decision": "Do not count GMR as a new row; parent explicitly requested supplementation because existing linked patent review already names GMR.",
+    "source_title": "Valet and Fert · Theory of the perpendicular magnetoresistance in magnetic multilayers (1993)",
+    "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.48.7099/fulltext",
+    "scope": "reference_section",
+    "read": "Original pages 7099-7100 Introduction and Boltzmann model assumptions; pages 7106-7107 Section III.C and Figure 3 caption.",
+    "quote": "both volume and interface spin-dependent scattering",
+    "support": "Relative magnetization alignment changes how spin-dependent bulk and interface resistances combine. The independent two-current limit requires layer thicknesses small relative to spin-diffusion lengths. The model retains spin flips outside that limit and does not justify independently adding isolated-interface resistances.",
+    "suggested_boundary": "Retain GMR microscopic transport and its spin-diffusion conditions as enrichment of existing magnetoresistance, with no separate count for geometry, interface material or sensor application.",
+    "parent_review_read": "Local accepted_literature_sources.json record MANUAL-AR-029978-A1-56bb752b8265 states GMR transducer use. Other linked reviews concern magnetoresistive sensing. Live AR029978A1 request failed; no new full patent reading is claimed.",
+    "failed_sources": "Baibich 1988 APS endpoint and AGH PDF timed out. RMKI scan returned zero text; its retrieved search excerpt was not treated as full text. Valet-Fert original supplied usable passages."
+  },
+  "exclusions": [
+    {"candidate": "critical Casimir composition-fluctuation force", "nearest": ["casimir-fluctuation-force", "critical-fluctuation-opalescence", "depletion-osmotic-attraction"], "reason": "Excluded after parent review: replacing the fluctuating field while retaining boundary-constrained fluctuation free energy is insufficient to count another mechanism. Original article search material was seen but no successful original full-text reading is claimed."},
+    {"candidate": "Kibble-Zurek defect freezing", "nearest": ["finite-rate-kibble-zurek-defect-freezing"], "reason": "Exact existing finite-rate freeze-out mechanism."},
+    {"candidate": "screw dislocation cross slip", "nearest": ["screw-dislocation-cross-slip-plane-switching"], "reason": "Existing principle already covers core reconstruction and partial constriction."},
+    {"candidate": "ponderomotive quiver-gradient force", "nearest": ["oscillatory-field-ponderomotive-force"], "reason": "Exact existing averaged oscillatory-energy-gradient pathway."}
+  ]
+}

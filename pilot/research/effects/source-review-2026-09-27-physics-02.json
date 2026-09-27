@@ -1,0 +1,180 @@
+{
+  "date": "2026-09-27",
+  "authoring": "Conversation reasoning and directly authored Korean rows; no external LLM API or script-generated mechanisms.",
+  "batch": "additions-2026-09-27-physics-02.tsv",
+  "scope_convention": "reference_section means only the specifically returned text sections read, never an assertion that every page or cited reference was read. publisher_abstract includes an original author's repository abstract. stored_search_excerpt means publisher/author text returned in search; landing-page access alone is not full-text review.",
+  "comparison": "All baseline key vocabulary and physical-domain principles were inspected; candidate-specific English and Korean searches also spanned the current canonical catalog across every group. The TSV contains the explicit closest existing mechanisms and a reasoned boundary. This is a semantic review, not a claim that keyword existence alone proves novelty. Parent integration review remains appropriate for parent/submechanism pairs.",
+  "evidence": [
+    {
+      "key": "anisotropic-viscous-torque-jeffery-orbit",
+      "url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/nearwall-dynamics-of-nonbrownian-rodlike-particle-suspensions-in-confined-shear-flows/A8CCBAC8EE1B726674E63A5A7010E8AA",
+      "scope": "reference_section",
+      "read": "Section 2.1, equations 2.1–2.4 and surrounding orientation/orbit text; introductory wall limitations.",
+      "quote": "their orientation changes were determined by the rates of strain and rotation",
+      "support": "Shape factor in orientation equation; periodic tumbling and closed kayaking orbits; wall constraints change dynamics. Primary 2025 numerical investigation uses the classical model; this is not a claim to have read Jeffery's 1922 original."
+    },
+    {
+      "key": "finite-particle-flow-curvature-faxen-force",
+      "url": "https://arxiv.org/html/0811.4410v2",
+      "scope": "reference_section",
+      "read": "Section 1 equations 2–4 and Taylor expansion; concluding limitations.",
+      "quote": "the first order Faxén correction accounts for the curvature of the unperturbed flow at the particle location",
+      "support": "Surface-average drag and volume-average inertia replace point values. Low particle/shear Reynolds assumptions and finite-Re corrections are explicit. The paper does not solve every acceleration-PDF discrepancy."
+    },
+    {
+      "key": "displaced-fluid-acceleration-added-mass",
+      "url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/accurate-models-of-the-added-mass-force-of-a-uniform-random-distribution-of-spherical-particles-or-bubbles/DD838FAAFAA961C36BE91A020B221FCB",
+      "scope": "stored_search_excerpt",
+      "read": "Indexed publisher abstract and introduction from original 2025 study.",
+      "quote": "half the mass of the fluid displaced by the sphere",
+      "support": "Potential-flow accelerating sphere has acceleration-proportional force; neighbors and configuration modify tensor coefficients. Independent corroboration: Odar and Hamilton 1964 Forces on a sphere accelerating in a viscous fluid distinguishes velocity, acceleration and history forces (indexed publisher abstract)."
+    },
+    {
+      "key": "viscosity-stratified-interfacial-yih-instability",
+      "url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/abs/instability-due-to-viscosity-stratification/F80EC4B5BA284BD622A042C1472D206A",
+      "scope": "stored_search_excerpt",
+      "read": "Original 1967 publisher abstract returned in search.",
+      "quote": "unstable at however small a Reynolds number",
+      "support": "Two superposed fluids with different viscosities in Couette–Poiseuille flow can become unstable; no separate Kelvin–Helmholtz or porous-front displacement assumption. Card deliberately avoids an unverified universal stability criterion."
+    },
+    {
+      "key": "oscillating-bubble-rectified-gas-diffusion",
+      "url": "https://authors.library.caltech.edu/records/pt1pa-nk061",
+      "scope": "publisher_abstract",
+      "read": "Caltech's original August 1960 technical-report abstract, lines 14–20.",
+      "quote": "in second order a net inflow of gas into the bubble",
+      "support": "Expansion uptake and compression loss cancel only in first order. Isothermal small-amplitude model stresses convection in the diffusion process. Area and diffusion-layer asymmetry also checked in indexed primary JFM 951 A12 (2022), A tractable mathematical model for rectified diffusion, DOI 10.1017/jfm.2022.849."
+    },
+    {
+      "key": "stable-stratification-internal-buoyancy-wave",
+      "url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/experimental-evidence-of-internal-wave-attractor-signatures-hidden-in-largeamplitude-multifrequency-wave-fields/08FEC37140FF38C7CA1E626235039D9F",
+      "scope": "stored_search_excerpt",
+      "read": "Indexed publisher Section 2 experiment and buoyancy-frequency definition.",
+      "quote": "A salt stratification with linear density profile giving a constant buoyancy frequency",
+      "support": "Experiment creates a measured stable density gradient and internal wave field, with N squared defined by negative vertical density gradient. Additional original Thorpe paper Statically unstable layers produced by overturning internal gravity waves supports large-amplitude overturning limitation. Explicit narrower dynamic propagation boundary against static density-stratification parent."
+    },
+    {
+      "key": "coriolis-restored-inertial-wave",
+      "url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/an-experimental-study-investigating-the-inertialwave-field-accompanying-vortex-rings-translating-through-a-rotating-fluid/F3D311C5F85E9F260F1612FFC1C2C2B6",
+      "scope": "stored_search_excerpt",
+      "read": "Publisher abstract and introduction of original 2026 experiment.",
+      "quote": "For rotation rates when Coriolis forces dominate the dynamics",
+      "support": "PIV extracts inertial-wave modes around vortex rings in rotating water; measured dispersion agrees with rotating-fluid prediction. The statement about Coriolis restoration is the physical interpretation of the documented wave mechanism. Distinct from spatial PV-gradient Rossby restoration and from parametric excitation of already-existing inertial waves."
+    },
+    {
+      "key": "vortex-line-curvature-kelvin-wave",
+      "url": "https://arxiv.org/abs/cond-mat/0402208",
+      "scope": "publisher_abstract",
+      "read": "Original Fetter author abstract, including long-wave dispersion and Biot–Savart extension.",
+      "quote": "the line's curvature dominates the dynamics",
+      "support": "Single vortex supports helical traveling waves; core length enters dispersion; confinement changes modes. Not a separate carrier-specific copy of lattice Tkachenko shear."
+    },
+    {
+      "key": "shear-induced-transient-vortex-streak-amplification",
+      "url": "https://arxiv.org/html/2405.13545v1",
+      "scope": "reference_section",
+      "read": "Abstract; introductory stable-flow transient amplification discussion; Section 4/figures 11–12 and conclusions on two-stage amplification.",
+      "quote": "initial streamwise vortices transform into high and low-velocity longitudinal streaks",
+      "support": "Lift-up creates streaks, then Orr tilting amplifies perturbations; nonlinear outcomes include either sustained turbulence or relaminarization. This author manuscript is labeled arXiv in the TSV because the opened record contains no journal-reference binding. A Trefethen 1993 author PDF was located but its image-only pages were not substantively read; it is not the card's evidence."
+    },
+    {
+      "key": "phase-speed-matched-critical-layer-absorption",
+      "url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/abs/critical-layer-for-internal-gravity-waves-in-a-shear-flow/8D72D50D8C40AFCC668E7047B2300EEF",
+      "scope": "stored_search_excerpt",
+      "read": "Booker–Bretherton original 1967 publisher abstract returned by search; DOI open failed.",
+      "quote": "U is equal to the horizontal phase speed, and momentum is transferred to the mean flow there",
+      "support": "Small-amplitude Boussinesq inviscid adiabatic analysis; Richardson number everywhere above one quarter; explicit attenuation factor. Does not assert all finite-amplitude critical layers completely absorb waves."
+    },
+    {
+      "key": "phase-change-mass-injection-stefan-flow",
+      "url": "https://re.public.polimi.it/retrieve/dce948b5-5588-454c-83cb-01792f7ee755/1-s2.0-S0017931024009451-main.pdf",
+      "scope": "stored_search_excerpt",
+      "read": "Author-repository original PDF indexed text around interface jump equations 7–12.",
+      "quote": "derives from the strong expansion due to the phase change, which leads to the Stefan flow",
+      "support": "Velocity jump distinguished from recoil pressure and Marangoni stress; mass conservation crosses phase interface. Additional primary JCP 507 112955 (2024) explicitly includes Stefan flow in multicomponent evaporation and distinguishes a pure-diffusion benchmark."
+    },
+    {
+      "key": "pinned-dislocation-frank-read-loop-multiplication",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.79.722/fulltext",
+      "scope": "reference_section",
+      "read": "Original 1950 two-page letter, paragraphs around Fig. 3 and fixed end points, parsed PDF lines 63–89.",
+      "quote": "A suitable applied shear stress will cause BC to curve",
+      "support": "Anchored endpoints, successive closed loops, spacing-dependent minimum stress and activation below threshold. The adjacent Seitz prismatic-punching letter is not claimed as another counted mechanism."
+    },
+    {
+      "key": "section-thinning-hardening-competition-necking",
+      "url": "https://www.nature.com/articles/ncomms4580",
+      "scope": "reference_section",
+      "read": "Results section on mechanical instabilities and Considère maximum-load condition, plus hardening measurements.",
+      "quote": "the critical point of maximum load described by the Considère criterion",
+      "support": "Direct experiment/simulation paper distinguishes diffuse necking from localized necking and fracture. Cross-section reduction versus hardening is the standard mechanical interpretation of its maximum-load criterion; card does not export numerical uniform-strain predictions to rate-sensitive or thermal conditions."
+    },
+    {
+      "key": "nonlinear-elastic-surface-sulcification",
+      "url": "https://arxiv.org/abs/1008.0694",
+      "scope": "publisher_abstract",
+      "read": "Original PRL author's revised abstract.",
+      "quote": "the system is linearly stable but nonlinearly unstable with no energy barrier",
+      "support": "Purely elastic surface furrows, scale-free subcritical nonlinear instability, loading/unloading critical strains and confirming experiment. Not interpreted as a finite nucleation barrier; condition only requires nonlinear shape change."
+    },
+    {
+      "key": "hydrostatic-tension-plastic-void-enlargement",
+      "url": "https://www.sciencedirect.com/science/article/pii/0022509669900337",
+      "scope": "stored_search_excerpt",
+      "read": "Original Rice–Tracey 1969 publisher abstract returned in search; direct open returned 403.",
+      "quote": "a process enhanced by the superposition of hydrostatic tensile stresses on a plastic deformation field",
+      "support": "Growth/coalescence of microscopic voids in ductile fracture; source full paper was not accessible through publisher open, so detailed growth-law constants are not asserted."
+    },
+    {
+      "key": "plastic-wake-fatigue-crack-closure-shielding",
+      "url": "https://www.nature.com/articles/s41598-023-33761-4",
+      "scope": "reference_section",
+      "read": "Methods: Crack closure analyses, lines 227–235.",
+      "quote": "derived from the plastically-strained crack wake",
+      "support": "Original experiment explicitly separates plasticity-induced from roughness-induced closure, contact reduces effective stress-intensity range, and closure slows growth at equal nominal range. No claim that hydrogen is required for closure."
+    },
+    {
+      "key": "adhesive-interface-schallamach-detachment-wave",
+      "url": "https://arxiv.org/abs/1405.4953",
+      "scope": "publisher_abstract",
+      "read": "Original PRE author abstract and journal binding.",
+      "quote": "detachment fronts that mediate inhomogeneous sliding between an elastomer and a hard surface",
+      "support": "High-speed in situ displacement imaging of single waves, nucleation and pinning. Detachment/reattachment interpretation additionally corroborated by original Ringoot et al. arXiv:2011.13051 abstract. Retain only one slow-wave mechanism, not opposite directions or different elastomers as extra cards."
+    },
+    {
+      "key": "lattice-barrier-kink-pair-dislocation-glide",
+      "url": "https://www.nature.com/articles/s41524-018-0125-4",
+      "scope": "stored_search_excerpt",
+      "read": "Indexed original introduction and finite-temperature glide section describing Fig. 3.",
+      "quote": "nucleation of kink pairs along the straight screw dislocation, followed by lateral glide of the kinks",
+      "support": "Thermally activated passage to next Peierls valley; DFT-benchmarked atomistic model; high simulation stresses reflect short observation time. Distinguishes same-plane glide from cross-slip and vacancy climb."
+    },
+    {
+      "key": "particle-velocity-variance-gradient-turbophoresis",
+      "url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/abs/turbophoresis-of-small-inertial-particles-theoretical-considerations-and-application-to-wallmodelled-largeeddy-simulations/9C886AB2B3C469E174FF47C8A86CE347",
+      "scope": "stored_search_excerpt",
+      "read": "Original 2020 publisher abstract returned in search.",
+      "quote": "the wall-normal gradient in turbulence intensity causes inertial particles to move preferentially toward the wall",
+      "support": "Conservation-equation analysis qualifies the interpretation at small Stokes numbers; at higher Stokes number concentration relates inversely to particle velocity variance. This is not ordinary diffusion down concentration gradient or collision-induced migration."
+    },
+    {
+      "key": "three-dimensional-vorticity-line-stretching",
+      "url": "https://arxiv.org/html/2102.06844v1",
+      "scope": "reference_section",
+      "read": "Introduction paragraphs around Fig. 1, lines 54–69; abstract.",
+      "quote": "subjected to an extensional strain-rate along its axis of rotation will have its cross-section reduced",
+      "support": "Following paragraph states enhanced vorticity with Kelvin conservation. Original DNS study emphasizes strain self-amplification also contributes, often more to energy transfer; the card therefore never calls stretching the unique cascade cause."
+    }
+  ],
+  "exclusions": [
+    {"candidate": "Saffman lift / Segre–Silberberg migration", "reason": "Existing inertial-lift-cross-stream-migration already states this lateral inertial mechanism."},
+    {"candidate": "Gortler concave-wall rolls", "reason": "Held back as centrifugal angular-momentum instability with changed geometry relative to Taylor–Couette."},
+    {"candidate": "Widnall short-wave vortex instability", "reason": "Held back against elliptic-strain-inertial-wave-instability rather than recounting its vortex application."},
+    {"candidate": "Solutal Marangoni / streaming subtypes / primary Bjerknes", "reason": "Concentration, geometry or force application alone did not establish an independent microscopic route beyond existing cards."},
+    {"candidate": "Brazil-nut / granular kinetic sieving", "reason": "Existing vibrated-granular-size-segregation already includes small-particle passage through gaps."},
+    {"candidate": "Contact-angle hysteresis", "reason": "Existing contact-line-defect-barrier-hysteresis is the direct mechanism match."},
+    {"candidate": "Soft-solid cavitation", "reason": "Held pending explicit ideal-elastic versus fracture scope; modern work warns against treating all observed cavities as purely elastic instability."},
+    {"candidate": "Saffman–Delbruck membrane drag", "reason": "Not included in this batch: dimensional hydrodynamic crossover needs stronger comparison to existing drag/diffusion cards and biochemical-agent coordination."}
+  ],
+  "validation": {"authored_rows": 20, "expected_columns": 10, "principle_limit": 160, "condition_limit": 180, "nearest_keys_checked_against_current_catalog": true, "canonical_mutation_by_this_agent": false}
+}

@@ -1,0 +1,265 @@
+{
+  "batch": "additions-2026-09-27-biology-04.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1775,
+  "added": 20,
+  "after": 1795,
+  "target": 2000,
+  "source_sha256": "4abeec49ff33f62a9488629477777336afb4be36d51939e0d660e8d2615e5e64",
+  "decisions": [
+    {
+      "key": "voltage-dependent-mobile-blocker-pore-rectification",
+      "group": 18,
+      "related_keys": [
+        "ion-channel-modulation",
+        "voltage-sensor-gating-charge-displacement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전압 감지 잔기의 이동으로 문을 여는 경로와 달리 용액 속 차단자의 전압 의존 통로 점유가 전류 비대칭을 만든다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0021925820435562",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "tethered-peptide-open-channel-inactivation",
+      "group": 18,
+      "related_keys": [
+        "ion-channel-modulation",
+        "voltage-sensor-gating-charge-displacement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열림이 먼저 접근 경로를 만들고 연결 펩타이드가 뒤따라 막는 상태 의존 지연 회로로서 전압 감지에 의한 닫힘과 다르다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/2122520/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "phosphoinositide-hydrolysis-intermembrane-lipid-exchange",
+      "group": 18,
+      "related_keys": [
+        "secondary-active-transport",
+        "phosphomonoester-enzymatic-dephosphorylation",
+        "signal-directed-protein-localization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "한 막을 가로지르는 이온 공동수송 대신 서로 다른 막 사이의 지질 맞교환과 도착측 기질 소모가 비소낭 수송 순환을 구동한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/24209621/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "alternating-access-occluded-carrier-uniport",
+      "group": 18,
+      "related_keys": [
+        "secondary-active-transport",
+        "atp-driven-membrane-transport",
+        "ionophore-transport"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "용질을 물고 막 안에서 이동하는 이오노포어와 달리 고정 운반체의 두 문이 번갈아 열리는 경로이며 능동 수송의 에너지 결합을 전제하지 않는다.",
+      "source_url": "https://www.nature.com/articles/nature14655",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "nucleotide-hydrolysis-polar-filament-treadmilling",
+      "group": 18,
+      "related_keys": [
+        "actin-polymerization-brownian-ratchet",
+        "microtubule-dynamic-instability-modulation",
+        "microtubule-lattice-extraction-repair-islands"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "말단 중합의 힘 생성이나 한 말단의 성장·붕괴 교대와 달리 양 말단의 반대 반응이 동시에 유지되는 비평형 단량체 순환이다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022283676801003",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "flavin-photoinduced-carboxylate-decarboxylation",
+      "group": 18,
+      "related_keys": [
+        "protodecarboxylation",
+        "photocatalysis",
+        "norrish-carbonyl-alpha-photocleavage",
+        "lov-cysteinyl-flavin-photoadduct-switch"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열적 탈탄산이나 여기 카보닐의 결합 균일 절단과 달리 기질에서 여기 플라빈으로의 전자 이동과 라디칼의 전자 반환이 촉매 순환을 이룬다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33833098/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "flavin-n5-covalent-sugar-ring-contraction",
+      "group": 18,
+      "related_keys": [
+        "bound-nad-oxidation-rotation-epimerization",
+        "trna-covalent-ribosyl-base-exchange",
+        "pseudouridine-glycosidic-bond-rearrangement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "NAD 산화·환원에 의한 입체 반전이나 염기만 교환하는 경로와 달리 플라빈·당 공유체가 개환·재폐환을 지지하여 당 고리의 원자 수를 바꾼다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4819441/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "flavin-n5-oxide-oxygen-storage-transfer",
+      "group": 18,
+      "related_keys": [
+        "heme-monooxygenase-oxygen-insertion",
+        "ligand-centered-redox-electron-reservoir"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 보조인자 재료 차이보다 안정한 N5 산화물의 산소 원자 보유·기질 이중 산화·환원 상태 회복이라는 별도 중간체 순환이 경계이며 후속 Favorskii 반응은 포함하지 않는다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/26067765/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "prenylflavin-cycloaddition-decarboxylation-release",
+      "group": 18,
+      "related_keys": [
+        "protodecarboxylation",
+        "azide-alkyne-triazole-cycloaddition",
+        "diels-alder-four-plus-two-cycloaddition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "영구 고리 연결을 만드는 고리첨가와 달리 보조인자·기질 임시 고리의 생성·분해가 탈탄산 장벽을 낮추고 두 성분을 다시 분리하는 순환이다.",
+      "source_url": "https://www.nature.com/articles/s41557-019-0324-8",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "sam-methyl-addition-deprotonative-cyclopropanation",
+      "group": 18,
+      "related_keys": [
+        "carbene-transfer-cyclopropanation",
+        "dna-cytosine-covalent-methylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "카르벤 전달이나 유지되는 단순 메틸 표지와 달리 SAM 메틸의 친전자 부가 후 수소 제거·폐환으로 한 탄소 메틸렌 다리를 만든다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20538038/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "molybdenum-desoxo-oxo-substrate-oxygen-transfer",
+      "group": 18,
+      "related_keys": [
+        "molybdenum-hydroxide-sulfido-hydride-hydroxylation",
+        "hydrodeoxygenation-carbon-oxygen-cleavage",
+        "enzyme-electron-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수산화물의 탄소 공격·수소화물 제거와 달리 이미 기질에 결합한 산소 자체가 금속으로 이동하며 탈옥소·말단 옥소 상태의 두 전자 순환을 이룬다.",
+      "source_url": "https://pubs.acs.org/doi/abs/10.1021/ja972109l",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "bound-nad-imine-relay-aminobutyl-transfer",
+      "group": 18,
+      "related_keys": [
+        "aminotransferase-group-transfer",
+        "bound-nad-oxidation-rotation-epimerization",
+        "transhydrogenase-cofactor-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "아미노기만 옮기는 PLP 전이나 당의 회전·재환원과 달리 폴리아민 절단으로 얻은 탄소 사슬이 이민으로 수용체에 넘어가고 최초 회수한 수소화물이 돌아온다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10734052/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "lysine-covalent-imine-relay-intermediate-shuttling",
+      "group": 18,
+      "related_keys": [
+        "enzyme-internal-metabolite-channeling",
+        "biotin-carrier-atp-coupled-carboxylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "하나의 운반팔이 회전하거나 자유 중간체가 통로를 이동하는 경로와 달리 중간체의 공유 결합 앵커가 라이신 사이에서 바뀌어 이동과 활성 자리 확보가 결합된다.",
+      "source_url": "https://www.nature.com/articles/nchembio.2273",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "sacrificial-cysteinyl-sulfur-thiazole-assembly",
+      "group": 18,
+      "related_keys": [
+        "sacrificial-iron-sulfur-carbon-sulfur-insertion",
+        "persulfide-relay-iron-sulfur-cluster-assembly"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "황 원천이 단백질의 구조적 시스테인이며 탄소 골격에 탈수알라닌이 남아 단백질이 소모된다. 철황 클러스터의 라디칼 황 삽입 및 재생 가능한 과황화물 운반과 다르다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/22031445/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "fold-preorganized-autocatalytic-isopeptide-ligation",
+      "group": 18,
+      "related_keys": [
+        "intramolecular-crosslink-conformational-stabilization",
+        "sortase-thioester-mediated-transpeptidation",
+        "peptide-bond-coupling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이미 있는 가교의 안정화 효과와 구분되는 자가 결합 생성 경로이며 별도 효소·티오에스터 운반체나 ATP 활성화 없이 접힘 내부가 아미드 교환을 촉진한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18063798/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "radical-ribose-purine-intramolecular-carbon-cyclization",
+      "group": 18,
+      "related_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "enzyme-templated-polyene-cationic-polycyclization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "라디칼 생성만을 다루는 상위 카드 뒤의 탄소 라디칼·퓨린 내부 부가와 질소 라디칼 환원이 핵심이며 양이온 연쇄 고리화나 전자고리화가 아니다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32348669/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "covalent-carbon-guidance-skeleton-insertion",
+      "group": 18,
+      "related_keys": [
+        "purine-hydrolytic-formate-loss-pterin-ring-expansion",
+        "enzyme-internal-metabolite-channeling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "퓨린 탄소를 포름산으로 버리는 고리 확장과 달리 그 탄소를 공유 앵커로 유지하여 리보스 탄소 사이에 삽입한다. 단순 공간 채널링보다 원자 재연결 경로를 제어한다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13440019/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "protein-thiocarboxylate-sulfur-atom-transfer",
+      "group": 18,
+      "related_keys": [
+        "sumoylation",
+        "persulfide-relay-iron-sulfur-cluster-assembly",
+        "carrier-thioester-nonribosomal-peptide-synthesis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단백질 전체를 표적으로 전달하는 E1/E2 표지나 운반체의 아실기 전달과 달리 말단 티오카르복실산의 황 원자만 이동한다. 활성화의 공통 조상만으로 같은 반응으로 보지 않는다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12571226/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "radical-hydrogen-abstraction-opposite-face-epimerization",
+      "group": 18,
+      "related_keys": [
+        "plp-two-base-amino-acid-racemization",
+        "bound-nad-oxidation-rotation-epimerization",
+        "iron-sulfur-radical-sam-activation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "PLP가 안정화한 음이온의 양성자 교환이나 NAD 산화·재환원과 달리 수소 원자의 균일 이동과 탄소 라디칼의 반대면 소거가 입체 반전의 직접 경로이다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6485343/",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "atp-phosphorylated-hemiorthoamide-backbone-conversion",
+      "group": 18,
+      "related_keys": [
+        "atp-acyl-phosphate-amide-synthesis",
+        "amide-dehydration",
+        "imide-cyclodehydration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "카르복실산을 활성화해 새 아미드를 만드는 반응과 달리 기존 아미드의 친핵 부가체 산소를 인산화하여 골격을 전환한다. 티오아미드·아졸린·아미딘은 이 경로의 산물 범위다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6535971/",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

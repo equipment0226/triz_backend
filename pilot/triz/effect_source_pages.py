@@ -20,7 +20,9 @@ def harvest_page(cursor='',upper_bound='',limit=400):
         doc=corpus.decode(blob)
         documents.append(dict(identifier=number,publication_number=number,source_type='PATENT',
             title=doc.get('title',''),abstract=doc.get('abstract',''),url='https://patents.google.com/patent/'+number.replace('-','')+'/en',
-            year=doc.get('year',''),cpc=doc.get('cpc',[]),family_id=doc.get('family_id'),content_hash=content_hash.hex(),
+            year=str(doc.get('publication_date',''))[:4] or doc.get('year',''),
+            publication_date=doc.get('publication_date',''),country_code=doc.get('country_code',''),
+            cpc=doc.get('cpc',[]),ipc=doc.get('ipc',[]),family_id=doc.get('family_id'),content_hash=content_hash.hex(),
             abstract_truncated=bool(doc.get('abstract_truncated')),retrieval_scope='stored_patent_abstract',
             origins=['exhaustive_primary_key_sweep']))
     return dict(inventory=dict(created_at=datetime.now(timezone.utc).isoformat(),cursor=cursor,

@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-27",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "scope": "Cross-domain candidate review and chemistry candidate exclusions. This is not a claim of experimentally validating the catalog or proving all pairs semantically disjoint.",
+  "candidate_retrieval": "At 1722 cards, local character-trigram Jaccard comparison of principle fields returned 22 pairs at threshold 0.14. Scores only retrieve candidates; no score triggers a merge.",
+  "lexical_pair_reviews": [
+    {"keys": ["thermophoresis", "solute-gradient-diffusiophoresis"], "decision": "KEEP", "reason": "Temperature-dependent momentum/interaction imbalance and solute-gradient interfacial osmotic/electric transport have different driving fields and coupling paths."},
+    {"keys": ["electrorheological-fluid", "magnetorheological-fluid"], "decision": "KEEP", "reason": "Electrical polarization and magnetic dipole interactions produce superficially similar chains but require different material responses and field coupling."},
+    {"keys": ["pockels-effect", "electric-kerr-effect"], "decision": "KEEP", "reason": "Odd linear and even quadratic electro-optic response have different inversion-symmetry requirements and field-sign behavior. This is a constitutive distinction, not a changed application label."},
+    {"keys": ["converse-piezoelectricity", "direct-piezoelectricity"], "decision": "KEEP_RELATED", "reason": "Reciprocal coupling is acknowledged. Electrical drive to mechanical strain and mechanical input to electrical readout retain distinct controlled inputs, boundary conditions and practical limitations."},
+    {"keys": ["viscoelastic-response", "friction-damping"], "decision": "KEEP", "reason": "Bulk time-dependent constitutive relaxation differs from interfacial sliding friction."},
+    {"keys": ["wetting-control", "electrowetting"], "decision": "KEEP_PARENT_CHILD", "reason": "Electrowetting adds voltage-dependent interfacial electrical energy to the general contact-angle response."},
+    {"keys": ["bischler-napieralski-cyclization", "pictet-spengler-cyclization"], "decision": "KEEP", "reason": "Pre-existing amide activation/dehydration and amine-carbonyl condensation create the cyclizing electrophile by different bond-change sequences."},
+    {"keys": ["resistance-thermometry", "nernst-potentiometry"], "decision": "KEEP", "reason": "Resistance versus temperature and equilibrium electrode potential versus chemical activity are different observables and constitutive relations."},
+    {"keys": ["grain-refinement", "work-hardening"], "decision": "KEEP", "reason": "Grain-boundary obstruction and accumulation/interactions of deformation-generated dislocations are different microstructural routes."},
+    {"keys": ["fischer-tropsch-chain-growth", "hydrocarbon-steam-reforming"], "decision": "KEEP", "reason": "Surface carbon-chain assembly from syngas and hydrocarbon conversion to syngas differ in reactants, catalytic pathways and bond changes."},
+    {"keys": ["peltier-cooling", "seebeck-generation"], "decision": "KEEP_RELATED", "reason": "Reciprocal thermoelectric coupling is acknowledged. Imposed current transporting junction heat and imposed temperature gradient generating voltage retain distinct operating conditions."},
+    {"keys": ["nuclear-fission-binding-energy-release", "nuclear-fusion-binding-energy-release"], "decision": "KEEP", "reason": "Common binding-energy bookkeeping does not identify heavy-nucleus breakup with light-nucleus barrier penetration and combination."},
+    {"keys": ["thermal-expansion-actuation", "electrocaloric-effect"], "decision": "KEEP", "reason": "Thermal strain and electric-field-driven entropy/temperature change have different inputs and material responses."},
+    {"keys": ["spliceosome-mediated-rna-processing", "group-i-ribozyme-self-splicing"], "decision": "KEEP", "reason": "Spliceosomal branching and group-I guanosine-initiated self-splicing differ in attacking group, intermediates and catalytic assembly."},
+    {"keys": ["dynamic-texture-spin-motive-voltage", "strain-gradient-flexomagnetism"], "decision": "KEEP", "reason": "Time-dependent magnetic texture induces a transport electromotive force; strain gradients couple to magnetic order."},
+    {"keys": ["alcohol-dehydration-to-alkene", "dehydrohalogenation"], "decision": "KEEP_WITH_OVERLAP", "reason": "Generic ionic elimination portions overlap. Existing dehydrohalogenation primary evidence also establishes an organopalladium beta-hydride-elimination route absent from the alcohol card, so a wholesale merge would hide a substantiated route. This boundary remains broader than a single elementary reaction.", "verified_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3432975/", "retrieval_scope": "stored_search_excerpt"},
+    {"keys": ["precipitation-hardening", "solid-solution-strengthening"], "decision": "KEEP", "reason": "Discrete precipitate obstacles and dissolved-solute lattice distortions are different microstructures and interactions with dislocations."},
+    {"keys": ["photophoretic-gas-momentum-force", "thermophoresis"], "decision": "KEEP", "reason": "Absorbing-particle surface temperature asymmetry and an externally imposed gas temperature gradient impose different boundary conditions and momentum imbalance."},
+    {"keys": ["liquid-crystal-modulation", "electric-kerr-effect"], "decision": "KEEP", "reason": "Director reorientation in an anisotropic mesophase differs from the quadratic field-induced optical constitutive response."},
+    {"keys": ["alcohol-oxidation-to-carbonyl", "carbonyl-reduction-to-alcohol"], "decision": "KEEP_RELATED", "reason": "Net reverse chemistry is acknowledged; oxidative electron/hydrogen removal and hydride addition/protonation require different reagents and elementary routes."},
+    {"keys": ["liquid-crystal-modulation", "pockels-effect"], "decision": "KEEP", "reason": "Director reorientation differs from a linear electro-optic tensor response."},
+    {"keys": ["antibody-dependent-cellular-cytotoxicity", "antibody-opsonized-phagocytosis"], "decision": "KEEP", "reason": "Effector-cell killing and engulfment/digestion are different downstream physical and biochemical actions despite shared antibody recognition."}
+  ],
+  "chemistry_exclusions": [
+    {"candidate": "chelation as another card", "reason": "Existing coordination-complexation already includes multidentate binding."},
+    {"candidate": "Chichibabin as another generic aromatic addition-elimination card", "reason": "Changing the leaving group without independently justified extra pathway would repeat the accepted aromatic sigma-adduct mechanism."},
+    {"candidate": "redox hopping", "reason": "Existing localized-state-hopping-conduction covers the proposed operation."},
+    {"candidate": "separate cation-pi and anion-pi materials", "reason": "Combined into aromatic-pi-surface-ion-stabilization rather than material-specific counts."},
+    {"candidate": "Hofmeister series", "reason": "No sufficiently bounded single mechanism was established in this research pass."},
+    {"candidate": "metal-specific aurophilicity", "reason": "Held pending evidence separating its mechanism from generic dispersion/relativistic bonding, rather than counting a material name."},
+    {"candidate": "Cope/Claisen and Curtius/Hofmann/Lossen named variants", "reason": "Names alone do not justify another card; no separate candidate accepted in this pass."},
+    {"candidate": "Nazarov reaction as a separate electrocyclic card", "reason": "The proposed description repeated electrocyclic-conjugated-ring-switching."},
+    {"candidate": "Wien-field-assisted water dissociation", "reason": "Current bipolar-membrane-water-dissociation already covers field-driven water ion production and separation; held as potentially useful source detail, not counted as a new effect.", "source": "https://www.nature.com/articles/s41467-022-33451-1"},
+    {"candidate": "proton inventory isotope analysis", "reason": "Would be an inference application of the existing kinetic isotope effect without a newly established physical path."},
+    {"candidate": "excitable chemical pulse waves", "reason": "Held for comparison with existing excitation propagation, Turing patterning and chemical oscillation; no additional row authored."}
+  ],
+  "additional_existing_card_reviews": [
+    {"keys": ["peptide-bond-coupling", "carbodiimide-carboxyl-crosslinking"], "decision": "KEEP", "reason": "Carbodiimide incorporation into N-acylurea network links differs from transient acid activation followed by external amine coupling."},
+    {"keys": ["hydroxyl-acetylation", "carboxylic-acid-esterification"], "decision": "KEEP_WITH_OVERLAP", "reason": "Both form ester functionality. The material card also describes site accessibility, hydrogen-bond availability and cell-wall bulking effects; its overlap is acknowledged instead of claiming a completely independent bond class."},
+    {"keys": ["adsorptive-corrosion-inhibition", "barrier-coating", "adsorption"], "decision": "KEEP_PARENT_CHILD", "reason": "Specific interfacial adsorption/complexation blocks corrosion reaction sites and charge transfer, whereas generic coating describes material transport through a film. A future broader ontology may group these under protection without discarding these operative distinctions."}
+  ]
+}

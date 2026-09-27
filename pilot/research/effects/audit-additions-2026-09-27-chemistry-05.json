@@ -1,0 +1,49 @@
+{
+  "batch": "additions-2026-09-27-chemistry-05.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1597,
+  "added": 3,
+  "after": 1600,
+  "target": 2000,
+  "source_sha256": "454b461912636bc80f1530d1a9bcded03837ad396b91c628139a2b0ac23f61f8",
+  "decisions": [
+    {
+      "key": "metal-ligand-intramolecular-valence-tautomerism",
+      "group": 14,
+      "related_keys": [
+        "ligand-field-spin-crossover",
+        "ligand-centered-redox-electron-reservoir"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "금속의 같은 전자수에서 스핀만 바뀌는 전환이나 리간드가 외부 기질에 전자를 주는 과정과 달리 총 전하를 유지한 금속·리간드 간 전자 재분배이다.",
+      "source_url": "https://www.nature.com/articles/s41467-024-53311-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "position-gated-fuel-barrier-directional-motion",
+      "group": 1,
+      "related_keys": [
+        "actin-polymerization-brownian-ratchet",
+        "microtubule-motor-processive-stepping",
+        "mechanical-interlocking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "사슬 끝 단량체 첨가나 ATP 결합 모터의 보행 대신 이미 있는 트랙에서 위치 의존 장벽 부착·제거의 속도 비대칭으로 순환 운동을 편향한다.",
+      "source_url": "https://www.nature.com/articles/nature18013",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "photochemical-isomerization-helicity-inversion-rotation",
+      "group": 1,
+      "related_keys": [
+        "photoinduced-geometric-isomerization",
+        "position-gated-fuel-barrier-directional-motion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광이성질화에 열적 나선 반전의 비대칭 복귀를 결합해 회전 방향을 정한다. 화학 연료로 트랙 장벽을 설치하는 정보 래칫과 구동 단계가 다르다.",
+      "source_url": "https://www.nature.com/articles/43646",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

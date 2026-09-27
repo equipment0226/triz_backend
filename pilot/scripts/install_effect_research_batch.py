@@ -20,8 +20,12 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('batch',type=Path)
     p.add_argument('--apply',action='store_true')
+    p.add_argument('--campaign',default='2026-09-26',help='ISO date identifying the explicitly initialized research campaign')
     a=p.parse_args()
-    progress=read('resume-2026-09-26.json',{})
+    datetime.strptime(a.campaign,'%Y-%m-%d')
+    progress_name=f'resume-{a.campaign}.json'
+    assert (D/progress_name).exists(),'Initialize an explicit campaign before installing batches'
+    progress=read(progress_name,{})
     target=progress.get('target',1200)
     raw=a.batch.read_text(encoding='utf-8')
     rows=[l.split('|') for l in raw.splitlines() if l and not l.startswith('#')]
@@ -45,10 +49,10 @@ def main():
         related=[redirects.get(k,k) for k in nearest.split(',')]
         assert all(k in existing or k in keys for k in related), (key,related)
         assert key not in related
-        ref='research-20260926-'+key
+        ref='research-'+a.campaign.replace('-','')+'-'+key
         assert ref not in refs
         refs[ref]=[title,url]
-        observations[ref]=dict(retrieval_scope=scope,accessed_at='2026-09-26',review_method='conversation_reasoning',
+        observations[ref]=dict(retrieval_scope=scope,accessed_at=a.campaign,review_method='conversation_reasoning',
             supports='공개 문헌의 원리·조건을 대화에서 검토한 참고 근거. 초록·검색 발췌 범위는 원문 전체 검증과 구분하며 개별 응용의 성능을 보장하지 않는다.')
         meta[key]={'aliases':[key.replace('-',' ')]}
         grouped[int(group)].append('|'.join([key,name,principle,conditions,ref]))
@@ -63,6 +67,7 @@ def main():
     if current is not None:out.extend(grouped.pop(current,[]))
     assert not grouped
     count=len(existing)+len(rows)
+    assert count<=target, f'Batch exceeds explicitly requested canonical target: {count}>{target}'
     audit=dict(batch=a.batch.name,method='conversation_reasoning',external_llm_calls=0,
         before=len(existing),added=len(rows),after=count,target=target,
         source_sha256=hashlib.sha256(raw.encode()).hexdigest(),decisions=review)
@@ -77,10 +82,11 @@ def main():
                         updated_at=datetime.now(timezone.utc).isoformat(),status='IN_PROGRESS')
         progress.update(campaign_new_effects=count-progress.get('campaign_initial_effects',1200),
                         new_effects=count-progress.get('after_existing_merge',950),
-                        completed_batches=len(list(D.glob('audit-additions-2026-09-26-*.json'))),
+                        completed_batches=len(list(D.glob(f'audit-additions-{a.campaign}-*.json'))),
                         current_campaign_validation='PENDING',service_deployed=False,
-                        git_publish_requested=True,service_deployment_deferred=True)
-        atomic_json(D/'resume-2026-09-26.json',progress)
+                        git_publish_requested=True,
+                        service_deployment_deferred=progress.get('service_deployment_deferred',True))
+        atomic_json(D/progress_name,progress)
     print(json.dumps({k:v for k,v in audit.items() if k!='decisions'}))
 
 if __name__=='__main__':main()

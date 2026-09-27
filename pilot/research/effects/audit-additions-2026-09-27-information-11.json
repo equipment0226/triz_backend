@@ -1,0 +1,197 @@
+{
+  "batch": "additions-2026-09-27-information-11.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1892,
+  "added": 15,
+  "after": 1907,
+  "target": 2000,
+  "source_sha256": "ce788f20e114eab1f2a6651d934b9067b541e3b2a57c629b3c86438a49ab0628",
+  "decisions": [
+    {
+      "key": "singleton-frequency-unseen-probability-mass",
+      "group": 19,
+      "related_keys": [
+        "capture-overlap-unseen-population-estimation",
+        "leave-one-out-jackknife-bias-correction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "두 포획 집합의 중복으로 개체 수를 역산하거나 추정량의 선도 편향을 빼는 연산과 달리 빈도 1인 종류의 수를 이용하여 미관측 집합의 확률질량을 추정한다.",
+      "source_url": "https://jmlr.org/papers/volume25/24-0511/24-0511.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "permutation-marginal-coalition-value-allocation",
+      "group": 19,
+      "related_keys": [
+        "conditional-integral-orthogonal-variance-decomposition",
+        "strictly-proper-outcome-score-belief-elicitation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "조건부 평균 함수의 직교 분산 분해와 달리 가능한 모든 선행 연합에 대한 가치 증가를 순열 가중치로 평균한다. 예측 점수의 진실성 유도와도 입력 및 배분 연산이 다르다.",
+      "source_url": "https://arxiv.org/pdf/2104.12199",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "counterfactual-externality-pivot-payment",
+      "group": 19,
+      "related_keys": [
+        "strictly-proper-outcome-score-belief-elicitation",
+        "deferred-preference-proposal-stable-matching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "관측 결과에 대한 예측 점수를 주거나 거절 가능한 선호 제안을 반복하는 방식과 달리 참여자가 없는 반사실 최적값을 계산하여 다른 참여자에게 가한 외부효과를 금전 이전으로 상쇄한다.",
+      "source_url": "https://mlhp.stanford.edu/src/chap5.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "four-plane-bilinear-convex-envelope",
+      "group": 19,
+      "related_keys": [
+        "branch-bound-relaxation-pruning",
+        "separating-halfspace-localization-cuts"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분기한 탐색영역을 목적값으로 가지치기하거나 해를 배제하는 절단면을 찾는 상위 전략과 달리 이중선형 곱 하나에 대해 구간 끝점에서 정확한 네 평면 완화를 구성하는 연산이다.",
+      "source_url": "https://www.cemmap.ac.uk/wp-content/uploads/2020/09/CWP4820-inference-in-a-class-of-optimization-problems-confidence-regions-and-finite-sample-bounds-on-errors-in-coverage-probabilities.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "harmonic-ratio-conditioned-markov-transition",
+      "group": 19,
+      "related_keys": [
+        "detailed-balance-markov-sampling",
+        "importance-density-ratio-sampling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상세평형을 맞추는 수락·거절이나 고정 표본의 중요도 가중과 달리 조화 방정식으로 정규화가 보장되는 새 전이핵을 구성한다. 단순 목표분포 변경의 명칭 변형으로 다루지 않는다.",
+      "source_url": "https://www.imo.universite-paris-saclay.fr/~nicolas.curien/cours/peccot.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "cycle-reward-duration-regenerative-average",
+      "group": 19,
+      "related_keys": [
+        "stochastic-queue-waiting-time-estimation",
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "도착·서비스 분포로 대기시간을 구하는 대기행렬 모형이나 임의 표집 전파와 달리 재생 시점에서 나눈 보상과 기간의 두 기대값 비로 장기 시간 평균을 환원한다.",
+      "source_url": "https://www.columbia.edu/~ks20/stochastic-I/stochastic-I-RRT.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "observation-time-length-biased-interval",
+      "group": 19,
+      "related_keys": [
+        "reservoir-stream-uniform-sampling",
+        "risk-set-product-limit-survival-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알고리즘이 기록별 동일 포함확률을 만드는 저수지 표집이나 중도절단 생존율 계산과 달리 시간 점유량 자체가 포함확률을 길이에 비례시키는 관찰 기전이다.",
+      "source_url": "https://www.columbia.edu/~ks20/stochastic-I/stochastic-I-RRT.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "joint-level-velocity-rice-crossing-intensity",
+      "group": 19,
+      "related_keys": [
+        "threshold-crossing-event-sampling",
+        "extreme-value-tail-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "실제 문턱 통과마다 표본을 내보내거나 관측 극값에 꼬리 분포를 맞추는 방식과 달리 값과 미분값의 결합밀도에서 확률 흐름을 적분해 평균 통과율을 계산한다.",
+      "source_url": "https://arxiv.org/pdf/2301.06608",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "min-plus-service-curve-concatenation-bound",
+      "group": 19,
+      "related_keys": [
+        "accrued-token-credit-rate-envelope",
+        "stochastic-queue-waiting-time-estimation",
+        "transform-domain-convolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "토큰으로 송신량을 직접 제한하거나 확률적 평균 대기시간을 추정하는 기전과 달리 결정론적 서비스 곡선을 최소·합 합성으로 연결한다. 보통 합·곱 합성곱과 연산 대수가 다르다.",
+      "source_url": "https://leboudec.github.io/netcal/latex/netCalBook.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "stochastic-exponential-drift-measure-change",
+      "group": 19,
+      "related_keys": [
+        "importance-density-ratio-sampling",
+        "quadratic-variation-ito-chain-correction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정 표본의 밀도비 보정과 달리 연속 경로의 확률지수에서 이차변동 보정을 포함해 시간적으로 일관된 새 측도를 만들고 확산의 드리프트를 바꾼다. 이토 미분 규칙 자체와도 목적 연산이 다르다.",
+      "source_url": "https://www.math.uchicago.edu/~lawler/finbook.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "coprime-bezout-stable-controller-parameterization",
+      "group": 19,
+      "related_keys": [
+        "negative-feedback",
+        "linear-quadratic-optimal-feedback",
+        "exosystem-replica-internal-model-regulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "오차를 되먹임하거나 특정 비용의 최적 이득을 찾는 법과 달리 서로소 분해와 베주 항등식으로 안정화 가능한 제어기 집합 전체를 자유 안정 전달함수의 분수식으로 표현한다.",
+      "source_url": "https://lall.stanford.edu/engr210a/lectures/lecture14_2001_11_20_01.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "rapid-phase-amplitude-wkb-hierarchy",
+      "group": 19,
+      "related_keys": [
+        "independent-slow-time-secular-solvability-removal",
+        "overlap-subtracted-inner-outer-asymptotic-matching",
+        "characteristic-curve-pde-to-ode-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "독립 느린 시간을 추가해 공명항을 제거하거나 다른 경계층 해를 접합하는 연산과 달리 지수형 급변 위상을 먼저 분리한 뒤 위상·진폭 계층을 도출한다. 특정 파동 매질의 변형은 추가 계수하지 않는다.",
+      "source_url": "https://math.arizona.edu/~kglasner/math587/WKBPDE.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "transverse-first-return-dynamical-map",
+      "group": 19,
+      "related_keys": [
+        "time-delay-coordinate-dynamical-embedding",
+        "threshold-crossing-event-sampling",
+        "dynamic-system-identification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "시간 지연 관측으로 상태를 복원하거나 문턱 사건을 기록하는 것과 달리 횡단면의 다음 귀환을 상태 사상으로 정의하여 연속 주기궤도 문제를 한 차원 낮은 고정점 문제로 바꾼다.",
+      "source_url": "https://www.math.utah.edu/~feldman/ODE-slides/ODE-slides5v2024.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "invariant-center-graph-nonlinear-reduction",
+      "group": 19,
+      "related_keys": [
+        "singular-spectrum-low-rank-projection",
+        "monomial-lift-carleman-linearization",
+        "independent-slow-time-secular-solvability-removal"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표본 분산의 큰 선형 모드만 남기거나 단항식을 추가해 차원을 늘리는 대신 비선형 그래프의 불변 방정식을 풀어 감쇠 자유도를 중립 변수에 종속시킨다.",
+      "source_url": "https://maegantucker.com/ME6402/pdfs/presentation6.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "oscillatory-antiderivative-collocation-boundary-evaluation",
+      "group": 19,
+      "related_keys": [
+        "orthogonal-polynomial-node-gaussian-quadrature",
+        "complex-saddle-steepest-descent-asymptotics"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "다항식 적분의 정확성을 맞추는 노드 선택이나 복소 경로 변형과 달리 진동 인자를 미분 연산자에 넣은 보조 방정식을 풀어 끝점 차이로 환원한다. 적절한 기저에서 동등한 Filon 변형은 별도 계수하지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1912.09698",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

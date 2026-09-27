@@ -1,0 +1,38 @@
+{
+  "batch": "additions-2026-09-27-chemistry-07.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1667,
+  "added": 2,
+  "after": 1669,
+  "target": 2000,
+  "source_sha256": "75e0b194d64f8f2c4aa0b60dd4c11e81bccc15211ec51d1094cc219ed13e8373",
+  "decisions": [
+    {
+      "key": "line-charge-entropy-counterion-condensation",
+      "group": 14,
+      "related_keys": [
+        "debye-mobile-charge-screening",
+        "adsorption-induced-charge-reversal",
+        "polyelectrolyte-complexation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "약한 퍼텐셜의 확산 차폐 구름과 달리 선형 전하 기하에서 이온 구속·엔트로피 경쟁의 임계 결합 분율을 다룬다. 전하 부호 역전이나 두 고분자의 복합화 자체가 아니다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5585397/",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "molecular-layering-oscillatory-solvation-force",
+      "group": 1,
+      "related_keys": [
+        "depletion-osmotic-attraction",
+        "debye-mobile-charge-screening",
+        "hydrodynamic-lubrication"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고갈제 배제 부피나 연속체 점성 압력과 달리 분자층의 공간 배열로 간격에 따른 반복 힘 구조가 생긴다. 물·유기 용매·이온액체별로 분리 계수하지 않는다.",
+      "source_url": "https://pubs.acs.org/doi/10.1021/acs.nanolett.4c00847",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

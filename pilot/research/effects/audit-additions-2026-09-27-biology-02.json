@@ -1,0 +1,139 @@
+{
+  "batch": "additions-2026-09-27-biology-02.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1617,
+  "added": 10,
+  "after": 1627,
+  "target": 2000,
+  "source_sha256": "93b46aeab387be51d98ffc5100d5694dda4968ef0a0cb1e2f3116135197a2071",
+  "decisions": [
+    {
+      "key": "glycyl-thiyl-radical-pyruvate-formate-cleavage",
+      "group": 18,
+      "related_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "ribonucleotide-thiyl-radical-deoxygenation",
+        "thiamine-lipoyl-oxidative-decarboxylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "SAM 라디칼 발생 이후의 별도 탄소 절단 순환이다. 당 수산기 제거나 CO₂를 방출하는 티아민 탈탄산과 달리 포름산을 떼며 아세틸기를 보존한다.",
+      "source_url": "https://www.nature.com/articles/nsb1099_969",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "nickel-iron-cluster-carbon-monoxide-oxidation",
+      "group": 18,
+      "related_keys": [
+        "electrochemical-carbon-dioxide-to-carbon-monoxide",
+        "acetogenic-carbon-monoxide-fixation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전극 환원의 특정 생물 재료 사례로만 쓰지 않고 Ni·Fe 가교 CO₂와 철의 물 리간드 교환이라는 명시된 촉매 경로를 다룬다. 아세틸CoA 탄소 결합 형성은 포함하지 않는다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18048691/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "hydrogenase-metal-hydride-proton-splitting",
+      "group": 18,
+      "related_keys": [
+        "catalytic-hydrogenation",
+        "enzyme-electron-transfer",
+        "ligand-aromaticity-cooperative-bond-activation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유기 불포화 결합 수소화와 달리 수소 분자를 전자·양성자 흐름으로 분리한다. 리간드 방향족성 전환 대신 금속 가교 수소화물·시스테인 양성자화가 확인된 경로이다.",
+      "source_url": "https://www.nature.com/articles/nature14110",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "lipoyl-aminomethyl-folate-carbon-transfer",
+      "group": 18,
+      "related_keys": [
+        "thiamine-lipoyl-oxidative-decarboxylation",
+        "folate-methylene-hydride-reductive-methylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "리포일 아실기를 CoA로 보내는 과정과 달리 아미노메틸기의 질소를 방출하고 탄소를 엽산에 옮긴다. 티미딜산의 환원 메틸화와도 방향·중간체가 다르다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20375021/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "glycosidic-phosphorolysis-sugar-phosphate-release",
+      "group": 18,
+      "related_keys": [
+        "hydrolysis",
+        "chemical-glycosylation",
+        "glucan-chain-transfer-branch-formation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "물 절단이나 다른 당으로의 사슬 전이와 달리 무기 인산이 절단 기질에 직접 편입된다. 글리코젠·셀룰로스·뉴클레오시드 적용을 별도 계수하지 않는다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2142917/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "bound-nad-oxidation-rotation-epimerization",
+      "group": 18,
+      "related_keys": [
+        "metal-assisted-sugar-epimerization",
+        "plp-two-base-amino-acid-racemization",
+        "alcohol-oxidation-to-carbonyl"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탄소의 양성자를 제거·재부가하는 에피머화와 달리 수산기의 가역 산화·수소화물 회수 및 기질 재배향으로 입체중심을 다시 만든다.",
+      "source_url": "https://www.rcsb.org/structure/1XEL",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "enzyme-templated-polyene-cationic-polycyclization",
+      "group": 18,
+      "related_keys": [
+        "enzyme-catalysis",
+        "carbonyl-ene-cyclization",
+        "lewis-acid-catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "한 번의 카르보닐·엔 고리화나 분자 사이 사슬 중합과 달리 접힌 폴리엔 내부에서 양전하 전파와 여러 고리 폐환이 결합한다. 효소 종류별로 나누지 않는다.",
+      "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0022283698924706",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "cap-recruited-ribosomal-scanning-initiation",
+      "group": 18,
+      "related_keys": [
+        "internal-ribosome-entry-initiation",
+        "rna-five-prime-guanylyl-cap-formation",
+        "programmed-ribosomal-reading-frame-shift"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "캡을 만드는 화학 반응이나 내부 RNA 자리의 직접 모집과 달리 말단 모집 뒤 이동하며 시작점을 찾는 경로이다. 신장 도중의 읽기틀 이동도 아니다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5861459/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "stop-codon-release-factor-ester-hydrolysis",
+      "group": 18,
+      "related_keys": [
+        "ribosomal-peptidyl-transfer",
+        "nascent-peptide-induced-translation-skipping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "종결 코돈을 단백질 인자가 읽고 tRNA와 사슬 사이 에스터를 자르는 경로이다. 신생 2A 펩타이드의 결합 건너뛰기나 다음 아미노산으로의 사슬 전이와 다르다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18596689/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "separate-editing-site-aminoacyl-trna-hydrolysis",
+      "group": 18,
+      "related_keys": [
+        "adenylate-activated-trna-aminoacylation",
+        "energy-driven-kinetic-proofreading",
+        "amino-acid-pool-translation-fidelity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질 농도 경쟁이나 단순 시간 재검사에 한정하지 않고 합성과 반대 선택성을 가진 공간적으로 분리된 가수분해 자리에서 이미 생긴 오생성물을 제거한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/9554847/",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

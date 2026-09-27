@@ -1,0 +1,24 @@
+{
+  "mode": "conversation_only",
+  "scope": "all_stored_patents_all_industries_including_IT",
+  "fetched_records": 13160,
+  "abstracts_directly_reviewed": 10851,
+  "no_abstract": 2309,
+  "pending_review": 0,
+  "decisions": {
+    "NO_ABSTRACT": 2309,
+    "LINK": 6247,
+    "DEFER": 2558,
+    "DESIGN_ONLY": 2023,
+    "REJECT_CLAIM": 23
+  },
+  "completed_pages": 81,
+  "cursor": "AT-512674-A1",
+  "fetched_cursor": "AT-512674-A1",
+  "upper_bound": "ZA-F202500713-S",
+  "corpus_documents_at_latest_fetch": 10558113,
+  "corpus_observed_at": "2026-09-23T04:34:24.430786+00:00",
+  "sweep_complete": false,
+  "external_llm_calls": 0,
+  "caveat": "Stored abstracts only. Missing abstracts are not analyzed. Newly inserted or changed earlier keys require another sweep; this is not a transaction snapshot."
+}

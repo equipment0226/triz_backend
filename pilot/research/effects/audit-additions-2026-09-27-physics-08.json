@@ -1,0 +1,70 @@
+{
+  "batch": "additions-2026-09-27-physics-08.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1873,
+  "added": 4,
+  "after": 1877,
+  "target": 2000,
+  "source_sha256": "02a1d2a994b8aa120783e207081763379e8f02964eb4c238d4022705c20baae6",
+  "decisions": [
+    {
+      "key": "nonaffine-force-balance-elastic-softening",
+      "group": 3,
+      "related_keys": [
+        "amorphous-local-cooperative-shear-transformation",
+        "viscoelastic-response",
+        "granular-jamming",
+        "elastic-energy-recovery"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정된 접촉망에서도 원자별 힘 평형을 다시 만족시키는 가역 이완이 강성을 보정한다. 비가역 배치 전환·시간 지연 손실·접촉망 증가에 따른 재밍과 다르며 단순 탄성 저장의 용도 변형이 아니다.",
+      "source_url": "https://arxiv.org/pdf/1102.0162",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "sloping-isentrope-available-potential-baroclinic-instability",
+      "group": 11,
+      "related_keys": [
+        "natural-convection",
+        "kelvin-helmholtz-shear-instability",
+        "potential-vorticity-gradient-rossby-wave",
+        "richtmyer-meshkov-impulsive-interface-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수직 대류가 억제되는 성층에서 수평 밀도 대비의 가용 위치에너지를 비스듬한 이동으로 꺼내는 경로이다. 전단 운동에너지 추출·안정 로스비파·충격파의 순간 와도 주입과 구별하며 일반 경압 와도 생성 자체를 추가 계수하지 않는다.",
+      "source_url": "https://empslocal.ex.ac.uk/people/staff/gv219/classics.d/Eady49.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "polar-optical-mode-collective-ferroelectric-instability",
+      "group": 14,
+      "related_keys": [
+        "ferroelectricity",
+        "fermi-surface-screening-kohn-phonon-anomaly",
+        "jahn-teller-orbital-lattice-distortion",
+        "ferroelastic-variant-switching",
+        "electric-dipole-drop-interaction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분극 전환이라는 거시 성질 아래 극성 격자 모드의 집단 불안정이라는 생성 경로를 명시한다. 페르미면 차폐 이상·전자 궤도 축퇴 해소·이미 있는 변종 선택·외부장으로 분극된 액적의 이동과 다르다.",
+      "source_url": "https://arxiv.org/pdf/mtrl-th/9502004",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "exchange-coupled-spin-precession-magnon-wave",
+      "group": 13,
+      "related_keys": [
+        "precessing-magnetization-spin-pumping",
+        "virtual-hopping-superexchange",
+        "spin-seebeck-thermal-spin-current",
+        "magnetic-tension-alfven-wave",
+        "magnetic-moment-zeeman-splitting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "주어진 교환 결합이 이웃 세차를 연결하는 벌크 집단 동역학이다. 교환 상수의 가상 이동 기원·계면 스핀 주입·열구배 수송·플라스마 장력파·단일 모멘트 준위 분열과 구별하며 자성 재료나 여기 격자별로 나누지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1903.00638",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

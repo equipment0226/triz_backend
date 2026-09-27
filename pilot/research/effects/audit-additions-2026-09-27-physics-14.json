@@ -1,0 +1,43 @@
+{
+  "batch": "additions-2026-09-27-physics-14.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1997,
+  "added": 2,
+  "after": 1999,
+  "target": 2000,
+  "source_sha256": "8c7fd5a75e80871bfdbe9d9f76fc29c2436dbf37f07bb821783c16c0f82cda0e",
+  "decisions": [
+    {
+      "key": "electric-magnetic-dipole-interference-chiral-absorption",
+      "group": 13,
+      "related_keys": [
+        "magnetic-circular-differential-absorption",
+        "polarization-control",
+        "faraday-rotation",
+        "magnetoelectric-cross-field-coupling",
+        "helicity-selective-velocity-population-injection-current"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자기장·자화가 전이를 바꾸는 자기 원형 이색성과 달리 분자의 거울상 비대칭 및 전기·자기 전이의 혼합 응답이 원인이다. 일반 편광 투과·위상 지연이나 정적 자기전기 결합, 속도 상태의 비대칭 점유가 만드는 전류와 구분한다.",
+      "source_url": "https://cohenweb.rc.fas.harvard.edu/Publications/Tang_Cohen_PRL.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "counterion-hole-spatial-correlation-like-charge-attraction",
+      "group": 10,
+      "related_keys": [
+        "double-layer-repulsion",
+        "line-charge-entropy-counterion-condensation",
+        "adsorption-induced-charge-reversal",
+        "multivalent-ion-polysaccharide-crosslinking",
+        "depletion-osmotic-attraction",
+        "molecular-hydration-layer-repulsion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 물체로 대이온이 모여 유효 전하를 줄이는 응축과 달리 두 물체 사이 점유·빈자리 상관이 힘을 만든다. 전하 부호 역전·화학적 이온 가교·소입자의 배제부피 엔트로피·용매 분자층 재배열 없이도 성립하는 다체 정전기 경로다.",
+      "source_url": "https://arxiv.org/pdf/cond-mat/0011308",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "batch": "additions-2026-09-27-information-01.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1514,
+  "added": 20,
+  "after": 1534,
+  "target": 2000,
+  "source_sha256": "51d980f201a7ba765f162f71ad852477b45667dbb208a5f65331a12423f3e81f",
+  "decisions": [
+    {
+      "key": "schur-complement-block-elimination",
+      "group": 19,
+      "related_keys": [
+        "krylov-subspace-residual-solution",
+        "discrete-static-equilibrium-solving"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "크릴로프 반복의 부분공간 탐색과 달리 블록 대입으로 변수 자체를 제거한다. 구조 평형의 응용별 재명명이 아닌 일반 선형 소거 연산이다.",
+      "source_url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "householder-reflection-triangular-factorization",
+      "group": 19,
+      "related_keys": [
+        "singular-spectrum-low-rank-projection",
+        "krylov-subspace-residual-solution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "특이값 절단의 차원 축소와 달리 직교 반사로 모든 정보를 보존하며 삼각계를 만든다. 피벗·블록 구현은 추가 계수하지 않는다.",
+      "source_url": "https://netlib.org/lapack/lug/node69.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "imaginary-perturbation-complex-step-derivative",
+      "group": 19,
+      "related_keys": [
+        "reverse-mode-chain-rule-gradient",
+        "step-size-leading-error-extrapolation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "역방향 연쇄법칙이나 여러 보폭의 오차 상쇄 대신 복소 함수 평가의 허수 성분을 읽는다.",
+      "source_url": "https://mdolab.engin.umich.edu/wiki/guide-complex-step-derivative-approximation",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "symplectic-discrete-flow-preservation",
+      "group": 19,
+      "related_keys": [
+        "dynamic-system-identification",
+        "discrete-static-equilibrium-solving"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "동역학 계수 추정이나 정적 평형 풀이가 아니라 이산 시간 사상이 보존해야 할 위상공간 구조를 강제한다.",
+      "source_url": "https://www.unige.ch/~hairer/poly_geoint/week2.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "noncommuting-subflow-operator-splitting",
+      "group": 19,
+      "related_keys": [
+        "augmented-lagrangian-splitting-coordination",
+        "symplectic-discrete-flow-preservation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "목적함수를 나누는 ADMM과 달리 시간 진화 연산자를 합성한다. 비해밀턴 문제에도 쓰이며 심플렉틱 보존은 별도 조건이다.",
+      "source_url": "https://www.unige.ch/~hairer/poly_geoint/week2.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "log-slack-interior-barrier-optimization",
+      "group": 19,
+      "related_keys": [
+        "barrier-function-safe-set-invariance",
+        "tangent-linearized-newton-root-iteration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "제어 장벽은 동역학의 안전 집합 불변성을 제한한다. 여기서는 제약 여유에 대한 발산 벌점으로 정적 최적화의 내부 경로를 만든다.",
+      "source_url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "proximal-distance-penalized-resolvent",
+      "group": 19,
+      "related_keys": [
+        "augmented-lagrangian-splitting-coordination",
+        "total-variation-edge-preserving-regularization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "TV는 벌점의 선택이고 ADMM은 분할·쌍대 조정 구조이다. 이 항목은 제곱 거리와 원함수의 최소화를 푸는 근접 사상이며 소프트 문턱 변형은 묶는다.",
+      "source_url": "https://web.stanford.edu/~boyd/papers/pdf/prox_algs.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "linear-oracle-feasible-convex-combination",
+      "group": 19,
+      "related_keys": [
+        "bregman-geometry-mirror-descent",
+        "coordinatewise-local-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "거리 투영이나 한 좌표 시험 대신 전체 실행 가능 집합의 선형 오라클과 볼록 결합을 사용한다.",
+      "source_url": "https://proceedings.mlr.press/v28/jaggi13.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "separating-halfspace-localization-cuts",
+      "group": 19,
+      "related_keys": [
+        "branch-bound-relaxation-pruning",
+        "bregman-geometry-mirror-descent"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가지별 상한·하한 비교로 분기를 버리는 대신 한 영역에 유효 부등식을 계속 추가한다. 쌍대적인 열 생성은 별도 신규 수로 세지 않는다.",
+      "source_url": "https://see.stanford.edu/materials/lsocoee364b/05-localization_methods_slides.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "ordered-boolean-cofactor-dag-reduction",
+      "group": 19,
+      "related_keys": [
+        "complementary-clause-resolution-refutation",
+        "temporal-product-state-model-checking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "절을 해소해 반박하거나 상태 경로를 검사하는 대신 불 함수 자체를 여인수 분기와 그래프 공유로 정규화한다.",
+      "source_url": "https://www.cs.cmu.edu/~bryant/pubdir/ieeetc86.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "function-congruence-equivalence-closure",
+      "group": 19,
+      "related_keys": [
+        "syntactic-term-variable-unification",
+        "representative-path-compression-set-union"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변수 치환을 찾는 구문 통일과 다르며 단순 집합 병합에 함수 인수의 합동성 추론을 더한다. 검색에 보존된 원문 §2 발췌 범위이다.",
+      "source_url": "https://web.eecs.umich.edu/~weimerw/2006-615/reading/nelson-oppen-congruence.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "s-polynomial-leading-term-ideal-closure",
+      "group": 19,
+      "related_keys": [
+        "complementary-clause-resolution-refutation",
+        "homotopy-continuous-solution-path-tracking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "불 절 반박이나 수치 해 경로 추적과 달리 다항식 아이디얼을 보존하는 S-다항식 환원·추가를 수행한다.",
+      "source_url": "https://doc.sagemath.org/html/en/reference/polynomial_rings/sage/rings/polynomial/toy_buchberger.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "unimodular-lattice-basis-shortening",
+      "group": 19,
+      "related_keys": [
+        "singular-spectrum-low-rank-projection",
+        "nearest-neighbor-retrieval"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "실수 공간의 저랭크 투영과 달리 정수 격자를 그대로 보존하는 기저 변경이다. 차원을 버리지 않으며 최근접 항목을 직접 반환하는 연산도 아니다.",
+      "source_url": "https://ir.cwi.nl/pub/9304/9304D.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "euclidean-remainder-gcd-descent",
+      "group": 19,
+      "related_keys": [
+        "coprime-residue-chinese-remainder-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "여러 나머지에서 원수를 재구성하는 CRT와 달리 나눗셈 나머지로 공약수 불변량을 축소한다. 정수·다항식 구현은 묶는다.",
+      "source_url": "https://www.shoup.net/ntb/ntb-v2_0.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "modular-square-chain-compositeness-witness",
+      "group": 19,
+      "related_keys": [
+        "coprime-residue-chinese-remainder-reconstruction",
+        "deterministic-pseudorandom-generation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "나머지 재구성이나 난수 생성이 아니라 소수의 대수적 제곱근 조건을 위반하는 증인을 찾는다.",
+      "source_url": "https://www.shoup.net/ntb/ntb-v2_0.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "random-field-evaluation-polynomial-identity-test",
+      "group": 19,
+      "related_keys": [
+        "random-projection-distance-preservation",
+        "zero-knowledge-proof"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "거리 보존 사영이나 비밀 증명과 달리 다항식 영점의 차수 상한으로 무작위 수치 지문의 오류율을 제한한다.",
+      "source_url": "https://www.cs.cmu.edu/afs/cs/academic/class/15750-s09/www/Handouts/ab_appendixchap.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "gaussian-screened-real-reciprocal-summation",
+      "group": 19,
+      "related_keys": [
+        "multipole-local-expansion-interaction-summation",
+        "transform-domain-convolution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "다중극 계층 근사와 달리 가우스 항을 더하고 빼 두 공간의 수렴을 동시에 개선한다. 입자 메시 구현은 같은 분할 원리로 묶는다.",
+      "source_url": "https://manual.gromacs.org/current/reference-manual/functions/long-range-electrostatics.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "constraint-support-domain-pruning",
+      "group": 19,
+      "related_keys": [
+        "branch-bound-relaxation-pruning",
+        "complementary-clause-resolution-refutation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "목적함수 경계로 분기를 버리거나 절을 도출하는 대신 제약을 지지할 값의 부재로 변수 도메인을 줄인다.",
+      "source_url": "https://artint.info/3e/html/ArtInt3e.Ch4.S3.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "inertial-extrapolated-gradient-acceleration",
+      "group": 19,
+      "related_keys": [
+        "bregman-geometry-mirror-descent",
+        "coordinatewise-local-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "거리 기하 선택이나 한 좌표 시험과 달리 이전 갱신 방향의 기억과 외삽점을 사용한다. 모멘텀의 계수별 변형은 추가 계수하지 않는다.",
+      "source_url": "https://papers.nips.cc/paper/5322-a-differential-equation-for-modeling-nesterovs-accelerated-gradient-method-theory-and-insights.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "model-agreement-trust-region-update",
+      "group": 19,
+      "related_keys": [
+        "tangent-linearized-newton-root-iteration",
+        "coordinatewise-local-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "뉴턴 선형화 방향을 무조건 적용하는 대신 예측과 관측의 일치도로 허용 탐색 영역을 제어한다. 근사식 풀이 알고리즘별로 나누지 않는다.",
+      "source_url": "https://raw.githubusercontent.com/scipy/scipy/main/scipy/optimize/_lsq/common.py",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

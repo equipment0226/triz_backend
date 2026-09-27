@@ -114,6 +114,18 @@ def coverage(pages, snapshots):
 
 def merge_explicit_links(pages, snapshots, directory):
     """Attach only authored LINK decisions with matching source fingerprints."""
+    documents = {d['identifier']: d for p in pages for d in p['documents']}
+    _, records = coverage(pages, snapshots)
+    merge_review_records(records, documents, directory)
+
+
+def merge_review_records(records, documents, directory):
+    """Attach already bound decisions, independent of a queue's cursor format."""
+    for row in records:
+        if row['status'] == 'LINK':
+            document = documents.get(row['identifier'])
+            if not document or row['source_fingerprint'] != source_fingerprint(document):
+                raise ValueError('Source changed after review: ' + row['identifier'])
     directory = Path(directory)
     def read(name):
         path = directory/name
@@ -122,8 +134,6 @@ def merge_explicit_links(pages, snapshots, directory):
     redirects = read('mechanism_redirects.json')
     for old, new in redirects.items():
         links[new] = list(dict.fromkeys([*links.get(new, []), *links.pop(old, [])]))
-    documents = {d['identifier']: d for p in pages for d in p['documents']}
-    _, records = coverage(pages, snapshots)
     for row in records:
         if row['status'] != 'LINK': continue
         document = documents[row['identifier']]

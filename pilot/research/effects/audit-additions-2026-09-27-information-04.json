@@ -1,0 +1,243 @@
+{
+  "batch": "additions-2026-09-27-information-04.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1650,
+  "added": 19,
+  "after": 1669,
+  "target": 2000,
+  "source_sha256": "bdee30977aa9c1a8e5619024fd7d9e3b4b0c832e53e01fd2812db7842a2fa543",
+  "decisions": [
+    {
+      "key": "prepared-vote-two-phase-atomic-commit",
+      "group": 19,
+      "related_keys": [
+        "distributed-barrier",
+        "byzantine-quorum-state-machine-agreement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "장벽의 도착 대기나 복제 상태 합의와 달리 각 참여자가 준비된 변경을 공통 확정 또는 취소하는 원자 완료 절차이다.",
+      "source_url": "https://www.postgresql.org/docs/18/sql-prepare-transaction.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "durable-log-before-data-replay-recovery",
+      "group": 19,
+      "related_keys": [
+        "retained-state-restoration",
+        "sequence-number-ordering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "완성 상태를 보존하는 대신 변경 로그의 선행 영속화 순서가 불완전 저장 상태의 복구를 보장한다.",
+      "source_url": "https://www.postgresql.org/docs/current/wal-intro.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "version-visibility-snapshot-concurrency",
+      "group": 19,
+      "related_keys": [
+        "retained-state-restoration",
+        "cache-reuse-validation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "저장된 한 상태를 복원하거나 캐시 유효성을 확인하는 대신 같은 객체의 여러 버전 중 읽기 시점에 보이는 값을 선택한다.",
+      "source_url": "https://www.postgresql.org/docs/18/mvcc-intro.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "read-write-set-optimistic-commit-validation",
+      "group": 19,
+      "related_keys": [
+        "version-visibility-snapshot-concurrency",
+        "cache-reuse-validation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "과거 버전 선택과 달리 읽기 이후의 간섭을 집합 교차로 검증하여 지역 변경의 공개 여부를 결정한다.",
+      "source_url": "https://www.eecs.harvard.edu/~htk/publication/1981-tods-kung-robinson.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "atomic-compare-exchange-conditional-update",
+      "group": 19,
+      "related_keys": [
+        "read-write-set-optimistic-commit-validation",
+        "hardware-enforced-memory-isolation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "여러 객체의 후속 검증이 아니라 한 공유 값의 비교와 쓰기 자체를 분리 불가능한 연산으로 수행한다.",
+      "source_url": "https://doc.rust-lang.org/std/sync/atomic/struct.Atomic.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "channel-marker-consistent-global-snapshot",
+      "group": 19,
+      "related_keys": [
+        "vector-clock-causal-partial-order",
+        "retained-state-restoration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "사건의 인과 순서만 표시하거나 지역 상태만 저장하는 대신 전송 중 메시지까지 포함하는 전역 단면을 표지 규칙으로 구성한다.",
+      "source_url": "https://lamport.azurewebsites.net/pubs/chandy.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "write-fault-triggered-shared-page-copy",
+      "group": 19,
+      "related_keys": [
+        "hardware-enforced-memory-isolation",
+        "version-visibility-snapshot-concurrency"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "접근을 차단하는 데 그치지 않고 쓰기 사건을 지연 복제의 계기로 사용한다. 데이터베이스 버전 가시성과는 다른 페이지 할당 연산이다.",
+      "source_url": "https://pdos.csail.mit.edu/6.1810/2024/labs/cow.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "zero-reference-count-resource-reclamation",
+      "group": 19,
+      "related_keys": [
+        "retained-state-restoration",
+        "write-fault-triggered-shared-page-copy"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상태를 보존하거나 공유하는 규칙이 아니라 국소 소유 참조 수의 영점을 해제 조건으로 사용한다.",
+      "source_url": "https://docs.python.org/3.11/extending/extending.html#reference-counting-in-python",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "root-reachability-tracing-garbage-reclamation",
+      "group": 19,
+      "related_keys": [
+        "zero-reference-count-resource-reclamation",
+        "representative-path-compression-set-union"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "각 객체의 참조 개수 대신 루트에서의 전역 도달성을 판정한다. 세대·동시 표시 구현별로 별도 계수하지 않는다.",
+      "source_url": "https://v8.dev/blog/concurrent-marking",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "idle-worker-task-stealing-load-balancing",
+      "group": 19,
+      "related_keys": [
+        "queue-buffering",
+        "single-instruction-data-parallel-execution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "큐에 저장하거나 같은 명령을 여러 데이터에 적용하는 대신 유휴 실행자가 다른 실행자의 준비 과제를 능동적으로 재배정한다.",
+      "source_url": "https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/concurrent/ForkJoinPool.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "staged-register-overlapped-pipeline-execution",
+      "group": 19,
+      "related_keys": [
+        "single-instruction-data-parallel-execution",
+        "queue-buffering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "같은 단계의 복제 병렬화가 아니라 다른 입력의 서로 다른 단계를 시간상 겹쳐 실행한다.",
+      "source_url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c7/c7s1/",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "static-input-partial-program-evaluation",
+      "group": 19,
+      "related_keys": [
+        "cache-reuse-validation",
+        "abstract-domain-fixed-point-program-analysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이전 결과를 저장해 반환하는 대신 알려진 입력을 프로그램에 대입하여 남은 연산 구조를 새로 만든다. 원문 검색 발췌 범위이다.",
+      "source_url": "https://www.itu.dk/~sestoft/papers/Sestoft-Automatic-call-unfolding-in-a-partial-evaluator-1988.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "accrued-token-credit-rate-envelope",
+      "group": 19,
+      "related_keys": [
+        "queue-buffering",
+        "slew-rate-limiting",
+        "timer-response-suppression"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "순간 변화율 제한이나 고정 시간 억제와 달리 사용하지 않은 허용량을 유한 크레딧으로 축적하여 버스트를 허용한다.",
+      "source_url": "https://www.rfc-editor.org/info/rfc3290/",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "differential-backlog-maxweight-routing",
+      "group": 19,
+      "related_keys": [
+        "queue-buffering",
+        "graph-shortest-path",
+        "marginal-gain-waterfilling-resource-allocation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정 경로 비용이나 한계 효용 대신 목적지별 인접 큐의 차이가 전송·경로 선택의 가중치를 만든다.",
+      "source_url": "https://ee.usc.edu/stochastic-nets/docs/backpressure.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "commuting-secret-exponent-key-agreement",
+      "group": 19,
+      "related_keys": [
+        "keyed-encryption",
+        "digital-certificate-trust"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이미 공유된 키로 변환하거나 인증서를 검증하는 대신 공개 교환만으로 양쪽의 비밀이 함께 반영된 값을 생성한다.",
+      "source_url": "https://www.rfc-editor.org/rfc/pdfrfc/rfc2631.txt.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "invertible-blinding-signature-issuance",
+      "group": 19,
+      "related_keys": [
+        "digital-certificate-trust",
+        "zero-knowledge-proof"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자격 증명의 서명 검증이나 명제 증명과 달리 발급 단계에서 서명 대상과 발급 기록의 연결을 가역 블라인딩으로 감춘다.",
+      "source_url": "https://www.rfc-editor.org/rfc/rfc9474.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "randomized-hiding-binding-value-commitment",
+      "group": 19,
+      "related_keys": [
+        "zero-knowledge-proof",
+        "merkle-hash-path-membership-proof"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "명제의 참이나 집합 포함을 증명하는 대신 숨겨진 특정 값을 미리 고정하고 나중에 개시한다. 원문 검색에 보존된 약정 정리 범위이다.",
+      "source_url": "https://cgi.di.uoa.gr/~aggelos/crypto/page8/assets/Pedersen-VSS.PDF",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "random-wire-label-garbled-circuit-evaluation",
+      "group": 19,
+      "related_keys": [
+        "secret-shared-multiparty-computation",
+        "homomorphic-ciphertext-computation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "비밀 분산의 산술 연산이나 동형 암호문 연산 대신 선별 키와 암호화 게이트 표를 따라 표지만 전달한다.",
+      "source_url": "https://eprint.iacr.org/2004/175.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "random-remapping-oblivious-memory-access",
+      "group": 19,
+      "related_keys": [
+        "keyed-encryption",
+        "hierarchical-spatial-partition",
+        "consistent-hash-stable-partition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "저장 내용이나 고정 배정만 바꾸는 대신 매 접근 후 비밀 재배치와 균일한 외부 접근 형태로 주소 이력을 은닉한다.",
+      "source_url": "https://arxiv.org/pdf/1202.5150",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "batch": "additions-2026-09-27-neural-01.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1917,
+  "added": 7,
+  "after": 1924,
+  "target": 2000,
+  "source_sha256": "477e3e9316a0c5afedcc17c945d7a8b290e4acad4645b52edca1b57a13d01263",
+  "decisions": [
+    {
+      "key": "residual-calcium-sensor-synaptic-facilitation",
+      "group": 18,
+      "related_keys": [
+        "vesicle-depletion-recovery-synaptic-filtering",
+        "spike-order-dependent-synaptic-plasticity",
+        "snare-zippering-membrane-fusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "방출 가능 소낭의 수가 줄거나 회복되는 경로와 달리 잔류 신호를 별도 감지자가 읽어 후속 방출 확률을 높인다. 전후 발화 순서에 따른 장기 연결 변화나 막 융합 자체와도 구분한다.",
+      "source_url": "https://regehr.med.harvard.edu/SJ_WR_2016.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "surround-inhibitory-network-spatial-contrast-selection",
+      "group": 18,
+      "related_keys": [
+        "negative-feedback",
+        "biological-tactile-mechanotransduction",
+        "taste-mixture-suppression"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "한 출력의 시간 오차를 되먹이는 일반 조절과 달리 이웃 위치의 입력이 중심 출력을 억제하는 공간 연결이 선택성을 만든다. 촉각 변환이나 성분 혼합에 따른 맛 억제의 이름만 바꾼 항목이 아니다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10196588/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "population-activity-divisive-neural-gain",
+      "group": 18,
+      "related_keys": [
+        "negative-feedback",
+        "perceptual-loudness-normalization",
+        "allosteric-cooperativity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고정 기준으로 음량 이득을 맞추거나 결합 자리의 협동 점유를 바꾸는 대신 동시에 활성화된 집단이 응답 분모를 조절한다. 감각 종류별로 나누지 않고 시냅스 전후 구현 차이는 조건으로 남긴다.",
+      "source_url": "https://wilson.hms.harvard.edu/resource/pdf-17",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "myelin-insulated-internode-nodal-regeneration",
+      "group": 18,
+      "related_keys": [
+        "electrical-membrane-excitation",
+        "ion-channel-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "활동전위의 국소 재생이라는 부모 원리에 절연된 수동 구간과 이산 재생 결절의 공간 분리가 더해져 전파 비용·속도를 바꾼다. 단순 채널 개폐나 균일 막의 연속 전파와 경계를 둔다.",
+      "source_url": "https://cdn.elifesciences.org/articles/23329/elife-23329-v2.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "paired-connexon-intercellular-electrical-coupling",
+      "group": 18,
+      "related_keys": [
+        "protein-pore-membrane-permeabilization",
+        "electrical-membrane-excitation",
+        "snare-zippering-membrane-fusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "세포 외부로 통하는 막공 대신 두 세포의 통로가 맞물려 세포질을 직접 전기적으로 연결한다. 막 전체의 융합이나 전달물질 분비가 필요 없는 접합 경로이다.",
+      "source_url": "https://www.nature.com/articles/ncomms12229",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "extracellular-field-neighbor-membrane-coupling",
+      "group": 18,
+      "related_keys": [
+        "bioelectric-potential-sensing",
+        "electrical-membrane-excitation",
+        "ion-channel-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "체적 전도 전위를 전극으로 관측하는 효과에 그치지 않고 주변 막의 전압차를 바꾸어 생리 반응을 유도하는 경로다. 세포질을 잇는 접합 통로나 신경전달물질 전달과 구분한다.",
+      "source_url": "https://regehrmedharvard.wordpress.com/wp-content/uploads/2020/06/2018_kh_wr.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "opsin-transducin-cyclic-nucleotide-channel-closure",
+      "group": 18,
+      "related_keys": [
+        "retinal-photocycle-proton-pumping",
+        "guanine-nucleotide-switch",
+        "ion-channel-modulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광색소의 구조 변화가 중간 전달체와 cGMP 소모를 거쳐 막 통로를 닫는 연쇄다. 색소 자체의 양성자 운반·일반 GDP/GTP 스위치만의 동작과 구분하고 간상·원추 세포별로 분할하지 않는다.",
+      "source_url": "https://dm5migu4zj3pb.cloudfront.net/manuscripts/114000/114648/cache/114648.1-20201218131505-covered-e0fd13ba177f913fd3156f593ead4cfd.pdf",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

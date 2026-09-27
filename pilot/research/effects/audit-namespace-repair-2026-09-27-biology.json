@@ -1,0 +1,17 @@
+{
+  "moved": [
+    {
+      "from": "audit-additions-2026-09-27-biology-01.json",
+      "to": "source-review-2026-09-27-biology-01.json"
+    },
+    {
+      "from": "audit-additions-2026-09-27-biology-02.json",
+      "to": "source-review-2026-09-27-biology-02.json"
+    }
+  ],
+  "restored_audit": "audit-additions-2026-09-27-biology-01.json",
+  "batch_sha256": "20960bee44c74a59cee94e5b6695a758dbee91ab8eb283dae71c7761a8eb168c",
+  "installed_rows_and_reference_labels_verified": 20,
+  "reason": "An evidence note overwrote the reserved installer audit filename. The unchanged first 20 authored rows and installed records reconstruct the audit; evidence notes are retained separately.",
+  "extra_ten_rows_installed": false
+}

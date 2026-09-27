@@ -1,0 +1,175 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1803,
+  "merged": 3,
+  "after": 1800,
+  "campaign": "2026-09-27",
+  "decisions_sha256": "44d85993b217413d3163b53c2105226f126cf1e672f1ef68920eda8f6ee7b724",
+  "decisions": [
+    {
+      "source": "albumin-binding-half-life-extension",
+      "target": "biomolecular-recognition",
+      "reason": "현재 알부민 카드는 별도의 FcRn 회수 경로가 아니라 가역적인 선택 결합에 따른 자유분율·분포·제거 변화만 설명한다. 이미 통합한 항원 화물 표적화와 같은 기준으로 결합 원리에 통합하고 반감기·활성 검증 조건을 보존한다.",
+      "target_fields": [
+        "생체분자 인식·표적 결합",
+        "상보적인 분자 구조와 비공유 상호작용으로 표적을 선택적으로 결합한다. 항체 연결 화물의 표적 체류나 알부민 결합 분자의 자유분율·분포·제거 경로도 결합에 따라 달라질 수 있다.",
+        "친화도·해리·선택성·pH·염도·표적 분포·비특이 결합·변성을 확인한다. 화물은 연결자·방출·비표적 노출, 알부민 결합은 종·대사·활성을 평가한다. 내부 유입·효능·반감기 연장은 결합만으로 보장하지 않는다."
+      ],
+      "original_card": [
+        "albumin-binding-half-life-extension",
+        "알부민 결합에 의한 체내 잔류 조절",
+        "분자가 혈중 알부민과 가역적으로 결합하면 자유 분율과 분포·제거 경로가 달라져 순환 반감기가 길어질 수 있다.",
+        "친화도·해리·종 차이·대사·약리 활성에 의존한다. 항원 표적 전달이나 분자 자체 분해 억제와 구분하며 결합만으로 반감기 연장을 보장하지 않는다.",
+        "manual600-albumin-binding-half-life-extension"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "albumin binding half life extension"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "albumin-binding-half-life-extension",
+        "name_en": "albumin binding half life extension",
+        "aliases": [
+          "알부민 결합에 의한 체내 잔류 조절",
+          "albumin binding half life extension"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual600-albumin-binding-half-life-extension",
+            "title": "Acylated heptapeptide binds albumin with high affinity and furnishes long-acting peptides",
+            "url": "https://www.nature.com/articles/ncomms16092",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-084576-A1",
+            "title": "Materiales y metodos para conjugar un derivado de acido graso hidrosoluble a una proteina",
+            "url": "https://patents.google.com/patent/AR084576A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "24bb78d0b58cb93f6d3095de03e129010b5e02a971074ecac19f7df8115956e7",
+            "review_note": "기존 초록 검토: 말단 알코올 산화 후 옥심 결합과 PEG 접합. 알부민 결합 및 산화 단계는 별도 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 알부민 결합에 의한 체내 잔류 조절: 분자가 혈중 알부민과 가역적으로 결합하면 자유 분율과 분포·제거 경로가 달라져 순환 반감기가 길어질 수 있다. 친화도·해리·종 차이·대사·약리 활성에 의존한다. 항원 표적 전달이나 분자 자체 분해 억제와 구분하며 결합만으로 반감기 연장을 보장하지 않는다.; 알코올 산화에 의한 카보닐 형성: 일차·이차 알코올의 산화로 탄소·산소 이중결합이 형성되어 각각 알데하이드 또는 케톤으로 전환될 수 있다. 일차 알코올은 조건에 따라 산까지 추가 산화될 수 있다. 탈수 알켄 형성과 결합 변화가 다르며 일반 삼차 알코올에는 같은 전환을 적용하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-109680-A1",
+            "title": "Proteínas recombinantes y sus usos",
+            "url": "https://patents.google.com/patent/AR109680A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "19f9e2bca3efd225b6702b001d9cbe853dcbc86482c7e9ea9ba340e450c83ccf",
+            "review_note": "혈청 알부민 결합 앵키린 반복 도메인을 포함한다. 결합을 보존할 때의 잔류 조절 원리이며 체내 수치를 추정하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "peptidoglycan-precursor-sequestration",
+      "target": "soluble-receptor-ligand-trap",
+      "reason": "세포벽 전구체 말단을 외부 결합체로 잡아 효소 접근을 줄이는 현재 서술은 자유 리간드 포획과 같은 경쟁적 기질 접근 차단이다. 결합 표적·후속 기능만으로 별도 원리를 세지 않으며 효소 직접 저해와 구분한다.",
+      "target_fields": [
+        "선택 결합의 기질·리간드 포획",
+        "외부 결합체가 리간드·반응 기질·운반체를 선택적으로 잡으면 원래 수용체·효소·수송계가 접근할 자유 분자가 줄어 신호·합성·자원 획득이 제한될 수 있다.",
+        "선택성·결합량·해리·경쟁·분포·표적 치환·대체 경로를 확인한다. 수용체·효소·수송체 자체의 직접 저해와 구별한다. 세포벽·철 운반체별 접근성과 철 공급을 검증하며 다른 결합쌍·제형의 임상 효과를 일반화하지 않는다."
+      ],
+      "original_card": [
+        "peptidoglycan-precursor-sequestration",
+        "세포벽 전구체 결합에 의한 합성 접근 차단",
+        "반코마이신은 세포벽 전구체의 D-Ala-D-Ala 말단과 결합하여 효소가 기질을 사용하는 과정을 방해하고 펩티도글리칸 조립을 저해한다.",
+        "표적 말단의 치환·약물 접근성·농도에 의존한다. 효소 활성 부위를 직접 막는 저해와 구분되는 기질 포획이며 모든 항균제에 적용하지 않는다. 흡입 제형의 임상 효능은 별도 검증 대상이다.",
+        "manual-final-peptidoglycan-precursor-sequestration"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "세포벽 전구체 결합에 의한 합성 접근 차단",
+          "peptidoglycan precursor sequestration"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "peptidoglycan-precursor-sequestration",
+        "name_en": "peptidoglycan precursor sequestration",
+        "aliases": [
+          "세포벽 전구체 결합에 의한 합성 접근 차단",
+          "peptidoglycan precursor sequestration"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual-final-peptidoglycan-precursor-sequestration",
+            "title": "Crystal structures of the complexes between vancomycin and cell-wall precursor analogs",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/18976660/",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-093543-A1",
+            "title": "Composiciones en forma de polvos secos que comprenden vancomicina, y metodos relacionados",
+            "url": "https://patents.google.com/patent/AR093543A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "2ab87ed67cfa70697608f1fb9cce8989dd0f81fcc770d2e755a01e88f528e8e0",
+            "review_note": "문헌·중복 검토 후 연결: peptidoglycan-precursor-sequestration; 반코마이신은 세포벽 전구체의 D-Ala-D-Ala 말단과 결합하여 효소가 기질을 사용하는 과정을 방해하고 펩티도글리칸 조립을 저해한다. 표적 말단의 치환·약물 접근성·농도에 의존한다. 효소 활성 부위를 직접 막는 저해와 구분되는 기질 포획이며 모든 항균제에 적용하지 않는다. 흡입 제형의 임상 효능은 별도 검증 대상이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "siderophore-sequestration-iron-starvation",
+      "target": "soluble-receptor-ligand-trap",
+      "reason": "철 운반체를 외부 결합체로 포획하여 본래 수송계 접근을 낮추는 경로는 앞의 경쟁적 포획과 같다. 시데로포어 특이성·철 공급·대체 획득 경로·리포칼린 결과의 일반화 제한은 대표 조건과 보존 출처에서 유지한다.",
+      "original_card": [
+        "siderophore-sequestration-iron-starvation",
+        "철 운반체 포획에 의한 미생물 철 확보 제한",
+        "철을 운반하는 시데로포어를 외부 결합체가 포획하면 미생물이 회수할 수 있는 철이 줄어 철 의존성 증식이 제한될 수 있다.",
+        "결합체의 시데로포어 특이성·철 공급·대체 획득 경로에 좌우된다. 리포칼린 연구 결과를 모든 피오베르딘 결합체에 그대로 적용하지 않는다. 수송체 직접 저해와 달리 운반체를 가로챈다.",
+        "manual-final-siderophore-sequestration-iron-starvation"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "철 운반체 포획에 의한 미생물 철 확보 제한",
+          "siderophore sequestration iron starvation"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "siderophore-sequestration-iron-starvation",
+        "name_en": "siderophore sequestration iron starvation",
+        "aliases": [
+          "철 운반체 포획에 의한 미생물 철 확보 제한",
+          "siderophore sequestration iron starvation"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual-final-siderophore-sequestration-iron-starvation",
+            "title": "Lipocalin 2 mediates an innate immune response to bacterial infection by sequestrating iron",
+            "url": "https://www.nature.com/articles/nature03104",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-105257-A1",
+            "title": "Moléculas de fusión que tiene especificidad de unión a pioverdina y pioquelina",
+            "url": "https://patents.google.com/patent/AR105257A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "cb0337eee8524c5debb87850d6fe20e216382c905522a44ff97d9450546987d3",
+            "review_note": "문헌·중복 검토 후 연결: siderophore-sequestration-iron-starvation; 철을 운반하는 시데로포어를 외부 결합체가 포획하면 미생물이 회수할 수 있는 철이 줄어 철 의존성 증식이 제한될 수 있다. 결합체의 시데로포어 특이성·철 공급·대체 획득 경로에 좌우된다. 리포칼린 연구 결과를 모든 피오베르딘 결합체에 그대로 적용하지 않는다. 수송체 직접 저해와 달리 운반체를 가로챈다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "batch": "additions-2026-09-27-chemistry-09.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1720,
+  "added": 4,
+  "after": 1724,
+  "target": 2000,
+  "source_sha256": "b91f23c9e17a1cb84d033922ed146c925e0e81328f0da5b9987217c4adad404f",
+  "decisions": [
+    {
+      "key": "friction-energy-spatial-diffusion-kramers-turnover",
+      "group": 15,
+      "related_keys": [
+        "collision-activation-unimolecular-pressure-falloff",
+        "noise-matched-stochastic-resonance",
+        "viscous-damping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "충돌 활성화의 압력 포화나 외부 주기와 잡음의 동기화가 아니라 에너지 확산 제한에서 공간 확산 제한으로 바뀌며 탈출률이 비단조적으로 변하는 경로이다.",
+      "source_url": "https://arxiv.org/pdf/1703.07699",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "nonequilibrium-work-exponential-free-energy-recovery",
+      "group": 12,
+      "related_keys": [
+        "ensemble-averaging-noise-reduction",
+        "importance-density-ratio-sampling",
+        "logical-erasure-entropy-heat-bound"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 평균 오차 감소나 임의 밀도비 보정 대신 초기 열평형과 미시 동역학이 정하는 비평형 일 분포의 항등식이다. 정보 소거의 하한과 달리 상태 간 자유에너지 차이를 추정한다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.78.2690/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "fermi-reservoir-electron-transfer-rate-saturation",
+      "group": 14,
+      "related_keys": [
+        "reorganization-marcus-inverted-transfer",
+        "electron-tunneling",
+        "amperometric-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "재배열 장벽만으로 비교하는 고정 에너지 공여체와 달리 연속 금속 상태의 페르미 점유가 병렬 전달 경로를 열어 역전 영역을 없애는 조건을 다룬다. 물질 공급 부족의 확산 제한은 별도이다.",
+      "source_url": "https://web.mit.edu/bazant/www/papers/pdf/Zeng_2014_JEAC_MHC_formula.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "streaming-field-electroosmotic-backflow-resistance",
+      "group": 11,
+      "related_keys": [
+        "pressure-driven-streaming-potential",
+        "electroosmotic-flow",
+        "pressure-driven-flow"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유동 전위를 읽거나 외부 전압으로 액체를 구동하는 데서 더 나아가 스스로 형성한 전기장이 유량을 되먹임해 압력·유량 관계를 바꾸는 결합 경로이다.",
+      "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0017931000003392",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

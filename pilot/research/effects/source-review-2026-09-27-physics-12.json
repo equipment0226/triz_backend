@@ -1,0 +1,203 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-12.tsv",
+  "authoring": "Direct conversational authorship. No external LLM API, generated scientific prose script, catalog mutation or deployment.",
+  "comparison": {
+    "canonical_count": 1942,
+    "canonical_sha256_at_review": "37458931fdf625ed74667a973fcda9fb7d927d7d8bb216357f11c3ba6833e817",
+    "pending_included": ["additions-2026-09-27-biology-08.tsv"],
+    "also_compared_before_ingestion": ["additions-2026-09-27-physics-11.tsv", "additions-2026-09-27-information-12.tsv"],
+    "method": "Physical-domain keys and principles were inspected; searches for candidate synonyms and mechanistic components were run over the entire catalog, including chemistry, biology and information. Each row names verified existing nearest keys, with an explicit mechanism boundary. Relevant parent sources were checked when their content could already subsume the proposed mechanism. This is a human-style semantic review, not a mathematical proof of non-duplication.",
+    "result": "12 authored candidate rows. No exact key collision; all nearest keys exist. Parent review remains appropriate for the explicitly described finer mechanisms. These are not represented as 12 independent fundamental laws."
+  },
+  "evidence": [
+    {
+      "key": "intrinsic-rotor-angular-momentum-odd-viscosity",
+      "url": "https://arxiv.org/pdf/1702.02393",
+      "scope": "reference_section",
+      "read": "Banerjee et al. original 2017 manuscript, pages 1-5: constitutive argument, Fig. 1 collision sketch, equations 4-5; pages 7-8 transverse response and limitations.",
+      "quote": "not associated with energy dissipation",
+      "support": "The intrinsic angular momentum density enters a stress term that reduces to odd viscosity when rotations are nearly uniform. It couples transverse flow and compression, or vorticity and pressure. The antisymmetric stress from inter-rotor friction is a different term; the card does not identify the two.",
+      "limitation": "Theory and hydrodynamic computations. Continuous active driving still dissipates energy; only the odd constitutive response is nondissipative. Large rotation gradients and jamming invalidate the simplified constant-coefficient reduction.",
+      "nearest_comparison": "Viscous damping dissipates energy. Active nematic instability uses orientational dipolar stress. Jeffery orbits rotate an individual shape; Barnett response changes spin polarization. None specifies the intrinsic-angular-momentum stress coupling."
+    },
+    {
+      "key": "dislocation-source-exhaustion-strengthening",
+      "url": "https://www.nature.com/articles/nmat2085",
+      "scope": "publisher_abstract",
+      "read": "Publisher abstract, lines 38-43, and bibliographic metadata. The subscription body was not read.",
+      "quote": "progressive activation and exhaustion of dislocation sources",
+      "support": "In situ TEM compression correlates stress and plastic events. Initially defective submicrometre Ni pillars can become dislocation-free under mechanical stress; the abstract identifies source-limited atypical hardening.",
+      "limitation": "The row does not claim a measured universal escape rate, nucleation law or size exponent. The abstract establishes source exhaustion, not every proposed microscopic route of dislocation removal.",
+      "nearest_comparison": "Existing work-hardening increases obstruction with increasing dislocation population. Frank-Read multiplication renews sources; this mechanism exhausts them. Grain and multilayer barriers restrict moving defects instead of depleting their supply."
+    },
+    {
+      "key": "collision-induced-transient-pair-dipole-absorption",
+      "url": "https://arxiv.org/pdf/2506.09257",
+      "scope": "reference_section",
+      "read": "Orton et al. original 2025 manuscript: abstract and Section II.A, pages 2-4, interaction-induced dipole surface and binary absorption normalized by the two gas densities; comparison with laboratory measurements.",
+      "quote": "interaction-induced dipole moment",
+      "support": "The authors calculate H2-He binary absorption from an induced pair-dipole surface with anisotropic quantum scattering, and compare it with experiments. The pair-density normalization supports the dilute binary scaling, without extending it to all dense gases.",
+      "limitation": "The read paper supplies calculations, not new laboratory measurements. Its quantitative tables cover specified temperatures, frequencies and ortho/para ratios. No table accuracy claim is generalized in the card.",
+      "supplement": {
+        "title": "Borysow, Jorgensen and Fu · High-temperature (1000-7000 K) collision-induced absorption of H2 pairs computed from the first principles, with application to cool and dense stellar atmospheres (2001)",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0022407300000236",
+        "scope": "stored_search_excerpt",
+        "read": "Publisher search excerpt retrieved; direct open failed. Author names and 2001 bibliographic record additionally verified at University of Copenhagen research portal.",
+        "quote": "transient collision-induced dipole moment",
+        "support": "The retrieved primary-paper introduction explicitly contrasts isolated nonpolar H2/He with transient interacting complexes that acquire infrared dipole absorption. No access to the entire 2001 body is claimed."
+      },
+      "nearest_comparison": "Absorption spectroscopy reads existing opacity; this creates an otherwise absent dipole channel. It is neither two-photon absorption nor excitation transfer between an already excited donor and acceptor. Pressure broadening by itself is excluded."
+    },
+    {
+      "key": "atomic-plane-standing-wave-borrmann-transmission",
+      "url": "https://arxiv.org/pdf/1511.05354",
+      "scope": "reference_section",
+      "read": "Ruotsalainen et al. revised original manuscript, 13 January 2017: abstract and Introduction page 1, alpha/beta Bloch-wave branches under two-beam diffraction and Laue transmission.",
+      "quote": "nodes on atomic sites",
+      "support": "The branch with an electric-field node at absorbing atoms has reduced dipole attenuation; the antinode branch is absorbed strongly. The experiment extends this standing-wave selection to resonant emission.",
+      "limitation": "The effect suppresses selected dipole absorption, not every multipole transition or arbitrary crystal loss. The row is a microscopic absorption-selection path under dynamical diffraction, not a claim of a new interference law.",
+      "nearest_comparison": "Generic interference and diffraction are acknowledged parents. Photonic band gaps suppress propagation. EIT cancels internal transition amplitudes. Coherent perfect absorption instead matches external inputs to dissipative eigenchannels. Here internal node placement at atom sites suppresses local absorption."
+    },
+    {
+      "key": "secular-orbital-angular-momentum-kozai-lidov-exchange",
+      "url": "https://adsabs.harvard.edu/pdf/1962aj.....67..591k",
+      "scope": "reference_section",
+      "read": "Kozai original 1962 AJ paper: Introduction and equations of motion pages 591-592, conserved angular momentum component; Section V small semimajor-axis ratio and Section VI restrictions, pages 594-598.",
+      "quote": "secular changes of the eccentricities and inclinations",
+      "support": "Averaging short-period terms leaves coupled eccentricity/inclination dynamics and libration solutions. Constant semimajor axis and angular momentum projection constrain the exchange in the circular-outer-orbit test-particle limit.",
+      "limitation": "The source derives secular theory, not direct orbital observations. Other perturbers, eccentric outer orbits, oblateness and competing precession change the reduced dynamics. No universal inclination threshold is stated.",
+      "supplement": {
+        "url": "https://www.lpi.usra.edu/meetings/acm2012/pdf/6195.pdf",
+        "title": "Y. Kozai · Kozai Mechanism (2012)",
+        "scope": "reference_section",
+        "read": "Author's one-page conference abstract, lines 3-24.",
+        "quote": "both e and i change",
+        "support": "Explicitly restates constant semimajor axis and sqrt(1-e^2) cos(i) in the assumed geometry, and periodic coupled variation."
+      },
+      "nearest_comparison": "Gyroscope precession is direction change alone. Frame dragging is relativistic. Density wakes dissipate orbital energy; moving-scatterer acceleration uses encounters. This row concerns conservative, orbit-averaged nonlinear exchange of orbital shape and inclination."
+    },
+    {
+      "key": "excited-absorption-cross-relaxation-photon-avalanche",
+      "url": "https://nanolight.me.columbia.edu/sites/nanolight.me.columbia.edu/files/content/LeeSchuck21_ANPs_Nature589_230.pdf",
+      "scope": "reference_section",
+      "read": "Lee et al. original Nature 2021 author-hosted article: pages 230-231 main mechanism and Fig. 1; Methods, PA mechanism in our ANPs, manuscript page 7.",
+      "quote": "double the 3F4 population",
+      "support": "Excited-state absorption followed by cross-relaxation returns the pumped ion and a second ion to the intermediate reservoir. Repetition amplifies pump-absorbing populations. The measured threshold appears when this loop outpaces relaxation losses.",
+      "limitation": "Energy still comes from continuous pumping. No claim of one input photon creating net energy is made. Particular slopes, dopant concentrations, wavelengths and imaging resolution are not promoted to universal constants.",
+      "nearest_comparison": "Optical pumping alone redistributes populations. FRET alone transfers excitation. Here a closed loop multiplies the population available for subsequent absorption. Simultaneous two-photon absorption, saturable bleaching and impact ionization do not implement this reservoir-doubling loop."
+    },
+    {
+      "key": "perpendicular-pressure-compressive-mirror-instability",
+      "url": "https://sun.ps.uci.edu/zlin/bib/qu08b.pdf",
+      "scope": "reference_section",
+      "read": "Qu, Lin and Chen original 2008 GRL author-institution copy: Introduction; gyrokinetic model equations 2-7; Section 3 magnetic perturbation growth and phase-space islands; Summary.",
+      "quote": "low frequency compressible electromagnetic mode",
+      "support": "Perpendicular-temperature excess drives a compressive magnetic mirror mode in magnetized high-beta plasma. The simulation couples mirror-force particle response and magnetic-pressure balance. Its zero-phase-speed structure traps particles, which limits growth in weak-drive cases.",
+      "limitation": "Gyrokinetic simulation with specified ordering and simplified electron response. Strong-drive anisotropy relaxation and weak-drive trapping are not merged into a universal saturation formula. No direct satellite evidence is claimed from the simulation itself.",
+      "nearest_comparison": "A prescribed magnetic mirror reflects individual particles. Firehose is excess parallel pressure destroying bending tension. Weibel produces transverse current filaments. This is self-consistent compressive field growth from perpendicular-pressure anisotropy. Landau-type trapping may limit it but is not separately counted."
+    },
+    {
+      "key": "resistive-electron-phase-lag-drift-wave-growth",
+      "url": "https://plasma.physics.ucla.edu/papers/impact-of-the-electron-density-and-temperature-gradient-on-drift-wave-turbulence-in-the-large-plasma-device.pdf",
+      "scope": "reference_section",
+      "read": "Perks et al. original 2022 experimental paper: abstract and Introduction pages 1-3, collision-delayed nonadiabatic electron response, density-gradient drive, and explicit limits of linear/quasilinear interpretation.",
+      "quote": "electrons are prevented by collisions",
+      "support": "Finite collisional response prevents the parallel electron density from following potential adiabatically. Density/potential phase relationships allow cross-field transport and growth fed by the background gradient. The experimental density fluctuations track the expected drive, while potential fluctuations and neutrals expose missing nonlinear physics.",
+      "limitation": "The measured broadband turbulence does not directly measure a linear growth rate. The paper reports partial agreement and additional trends, so the card does not present the simplest model as a complete experimental explanation.",
+      "supplement": {
+        "title": "Qi and Majda · Flux-balanced two-field plasma edge turbulence in a channel geometry (2020)",
+        "url": "https://www.math.purdue.edu/~qi117/papers/032304_1_online.pdf",
+        "scope": "reference_section",
+        "read": "Section II equations 1 and parameter definitions on journal pages 2-3; energy balance discussion page 4.",
+        "quote": "inverse of parallel resistivity",
+        "support": "Explicit density/potential coupling and density-gradient terms distinguish instability feedback from prescribed guiding-centre drift."
+      },
+      "nearest_comparison": "Guiding-centre drift alone specifies velocity in a given field; this feeds it back through resistive electron density response. Two-stream instability uses relative velocity populations, and Landau transfer is collisionless resonant exchange."
+    },
+    {
+      "key": "electromagnetic-environment-dynamical-tunneling-blockade",
+      "url": "https://arxiv.org/pdf/1706.09337",
+      "scope": "reference_section",
+      "read": "Houle et al. revised original manuscript: Introduction page 1, single-junction charge leakage and circuit recovery versus two-junction island blockade; environmental P(E) energy accommodation; experimental caveat in abstract and Introduction.",
+      "quote": "frequency-dependent feedback of the electromagnetic environment",
+      "support": "Tunneling changes contact charge and voltage. In a single junction the environment relaxes that perturbation over its circuit timescale; environmental modes determine which inelastic energy transfers are possible. This is not an isolated-island gate threshold.",
+      "limitation": "The experiment finds that standard driven P(E) descriptions do not fit transport and noise with the same AC amplitude. The row includes this limitation and makes no universal photon-sideband formula claim.",
+      "nearest_comparison": "Static charging blockade is acknowledged as closely related. The added boundary is a frequency-dependent external environment and its energy-exchange/recovery feedback, including a single junction without a isolated island. Orthogonality catastrophe concerns a quenched Fermi many-body overlap instead."
+    },
+    {
+      "key": "fermi-surface-induced-repulsive-interaction-pairing",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.15.524/fulltext",
+      "scope": "reference_section",
+      "read": "Kohn and Luttinger original 1965 PRL, publisher-hosted full text: pages 524-525 oscillatory screened interaction, second-order particle response and exchange diagrams, angular channel criterion; applicability caution pages 525-526.",
+      "quote": "purely repulsive forces between the particles",
+      "support": "A sharp Fermi surface generates an oscillatory long-distance contribution to the effective interaction. At sufficiently high angular momentum the induced attractive channel can dominate regular bare repulsion and cause a pairing instability in the weak-interaction model.",
+      "limitation": "The original authors explicitly state that their weak-coupling formulas cannot directly be applied to real strongly interacting metals or liquid helium. The card describes a theoretical path, not confirmation of the dominant glue in a particular unconventional superconductor.",
+      "access_note": "Initial APS abstract page supplied metadata only and required authorization for body. The public APS harvest fulltext endpoint subsequently returned the original paper, so reference_section scope is supported.",
+      "nearest_comparison": "Phonon-mediated BCS specifies a different attraction source. Friedel oscillations describe screening around a disturbance; here the fermions' induced interaction is projected into attractive pairing channels. The Kohn phonon anomaly modifies phonon response, not this pairing criterion."
+    },
+    {
+      "key": "cyclic-collision-avoidance-absorbing-organization",
+      "url": "https://www.nature.com/articles/nphys891",
+      "scope": "publisher_abstract",
+      "read": "Corte et al. publisher abstract and visible Figure 1 caption. Direct first open failed; a subsequent public publisher page with cookies-not-supported query returned the abstract. Subscription body was not read.",
+      "quote": "self-organize to avoid future collisions",
+      "support": "The abstract reports a collision-driven model and suspension experiments in which irreversible encounters can organize particles into a nonfluctuating state. The visible Fig. 1 caption identifies small random displacements of particles that collide during shear.",
+      "limitation": "Only the abstract and caption support the row. Detailed exponents, critical amplitudes and universal class assignments were not imported. Quiescence is measured between drive cycles; it does not mean no motion during each cycle.",
+      "nearest_comparison": "Shear migration redistributes concentration spatially through inhomogeneous encounters; jamming forms load-bearing contacts. Here repeated cycles remove future collisions until rearrangement ceases, with no required shear-gradient segregation or force-bearing contact network."
+    },
+    {
+      "key": "impurity-scattering-wavepacket-side-jump-current",
+      "url": "https://arxiv.org/pdf/cond-mat/0511310",
+      "scope": "reference_section",
+      "read": "Sinitsyn, Niu and MacDonald original manuscript: Section II coordinate shift definition, equations 21-24 and Born validity; Section III phase relation; transport discussion separating side jump and asymmetric scattering rates.",
+      "quote": "scattering induced coordinate shift",
+      "support": "Incoming and outgoing wave-packet trajectories have a finite offset. Bloch-state Berry connections plus the scattering-matrix phase derivative give a gauge-invariant displacement. A collision-rate-only treatment misses this contribution; the paper separately treats skew scattering's asymmetric rate kernel.",
+      "limitation": "The derivation assumes weak potential scattering treatable in the Born expansion. The small-angle smooth-potential limit relates the shift to Berry curvature, so these are connected transport contributions, not independent fundamental interactions.",
+      "nearest_comparison": "Existing skew scattering changes left/right probabilities. Intrinsic Hall velocity acts between collisions. Optical shift current involves photon-induced interband transitions. This row is the displacement in an impurity collision itself; generic Berry phase is acknowledged, and charge/spin material variants are not split."
+    }
+  ],
+  "exclusions": [
+    {
+      "candidate": "Lomer-Cottrell sessile dislocation lock",
+      "nearest": ["work-hardening"],
+      "reason": "The existing work-hardening source already directly attributes Taylor hardening to sessile dislocation junctions, predominantly Lomer-Cottrell and Hirth. A new lock row would rename an already supported mechanism.",
+      "url": "https://www.nature.com/articles/s41586-024-07453-6",
+      "scope": "reference_section",
+      "read": "Original paper abstract, dislocation-junction discussion and Methods Taylor-scaling prefactor discussion.",
+      "quote": "formed dislocation junctions are mostly of Lomer–Cottrell and Hirth type"
+    },
+    {
+      "candidate": "Dyakonov-Perel fast-scattering spin relaxation",
+      "nearest": ["rapid-fluctuation-motional-line-narrowing", "spin-admixed-state-scattering-elliott-relaxation", "matched-spin-orbit-symmetry-persistent-helix"],
+      "reason": "Although different from Elliott spin flips, the proposed new card relied mainly on rapid random-field motional averaging already covered by the existing generic narrowing mechanism. Not added merely for semiconductor spin carriers.",
+      "retrieval": "The original 1972 author-uploaded ResearchGate record supplied a short abstract only; later citing snippets are not represented as the original body."
+    },
+    {
+      "candidate": "Gurzhi electron-fluid viscous transport",
+      "nearest": ["pressure-driven-flow", "viscous-damping"],
+      "reason": "Not advanced without a boundary beyond changing the carrier of momentum-conserving viscous flow. Exclusion is semantic screening, not a new evidence claim."
+    },
+    {
+      "candidate": "Asaro-Tiller-Grinfeld misfit surface roughening",
+      "nearest": ["epitaxial-misfit-strain-coherent-island-growth"],
+      "reason": "Candidate framing was elastic misfit-energy relief against added surface cost, already the existing card's path. No new card based only on morphology or name."
+    },
+    {
+      "candidate": "generic surface-diffusion smoothing",
+      "nearest": ["sintering", "ostwald-curvature-driven-ripening"],
+      "reason": "Curvature-dependent chemical potential and diffusion were insufficient as a new independent path relative to existing surface coarsening/neck growth. Not researched into a new row."
+    }
+  ],
+  "validation": {
+    "authored_rows": 12,
+    "columns_per_row": 10,
+    "duplicate_keys": [],
+    "unknown_nearest_keys": [],
+    "maximum_principle_characters": 108,
+    "maximum_conditions_characters": 112,
+    "final_canonical_count_observed": 1947,
+    "final_canonical_sha256_observed": "e869c0295befc37a30a93a354fd921c94655f342b1d207a0aa755b9730528074",
+    "status": "Files authored for parent review only; canonical catalog not changed by this batch. Parent independently ingested five already-compared biology candidates during final validation."
+  }
+}

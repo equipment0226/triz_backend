@@ -1,0 +1,70 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-14.tsv",
+  "authoring": "Direct conversational authorship; no external LLM API, generated scientific prose script, canonical mutation or deployment. Further candidate research stopped at the parent's instruction after two defensible mechanisms.",
+  "comparison": {
+    "canonical_count": 1997,
+    "canonical_sha256_at_review": "2b7f18bb08460e72800225c75c4da8899230bb0146a8fdde3dc4e15a627e690e",
+    "included_recent_batches": ["physics-13", "information-13", "biology-09 after the parent's transnitrosation merge"],
+    "method": "Candidate synonyms and intermediate mechanisms were compared against the complete canonical key inventory and candidate-nearest principles and conditions, including nonphysical groups. Earlier pending files were also read. This is an editorial mechanism comparison, not a proof of every alternative scientific classification.",
+    "result": "Two proposed mechanism cards; no claim of two additional fundamental laws. The existing magnetic circular dichroism conditions explicitly distinguish natural circular dichroism. Existing counterion condensation, charge reversal and ionic crosslinking do not state the interobject occupation correlation pathway. Root retains the final ingestion decision."
+  },
+  "evidence": [
+    {
+      "key": "electric-magnetic-dipole-interference-chiral-absorption",
+      "url": "https://cohenweb.rc.fas.harvard.edu/Publications/Tang_Cohen_PRL.pdf",
+      "scope": "reference_section",
+      "read": "Author-institution copy of original PRL 104, 163901 (2010): main pages 1-3, equations 2 and 4-6, and limitations across pages 3-4. Supplement not fully reviewed.",
+      "quote": "interference between electric dipole and magnetic dipole transitions",
+      "support": "Mixed electric-magnetic polarizability contributes a parity-odd absorption term. Isotropic averaging removes the electric-quadrupole differential contribution used in this approximation.",
+      "limitation": "Linear response and fields smooth over the molecule. Higher multipoles can matter for larger objects. No universal superchiral enhancement or experimental molecular separation is claimed."
+    },
+    {
+      "key": "counterion-hole-spatial-correlation-like-charge-attraction",
+      "url": "https://arxiv.org/pdf/cond-mat/0011308",
+      "scope": "reference_section",
+      "read": "Original manuscript, published as PRE 64, 011804 (2001): introduction, model, equation 3, figures 4/7/8 and summary, pages 1-5. Submitted in 2000; the PDF's later compilation date is not the publication date.",
+      "quote": "correlations between the condensed counterions",
+      "support": "Facing occupied sites anticorrelate; close cylinders attract with multivalent counterions even while net charges retain their sign.",
+      "limitation": "Monte Carlo model: rigid cylinders, fixed condensed-ion numbers, continuum dielectric. No chemical bridges or inter-cylinder particle exchange. Neither crystallization nor universal neutralization thresholds are required or claimed."
+    }
+  ],
+  "nearest_comparisons": {
+    "electric-magnetic-dipole-interference-chiral-absorption": {
+      "magnetic-circular-differential-absorption": "The current card requires magnetic field or magnetization; its conditions expressly separate natural circular dichroism. Here molecular mirror asymmetry permits mixed optical transition response without a static field.",
+      "polarization-control": "The generic transmission/phase card does not supply the parity-odd molecular transition interference mechanism.",
+      "faraday-rotation": "Field-dependent propagation phase differs from this absorption channel.",
+      "magnetoelectric-cross-field-coupling": "Static material-order response is not the optical-transition absorption interference specified here.",
+      "helicity-selective-velocity-population-injection-current": "That card produces current from velocity population imbalance; natural molecular absorption asymmetry requires neither transport nor directed carrier velocity."
+    },
+    "counterion-hole-spatial-correlation-like-charge-attraction": {
+      "double-layer-repulsion": "The card describes same-sign double-layer repulsion. The proposed additional intermediate variable is the connected correlation of occupations across different objects.",
+      "line-charge-entropy-counterion-condensation": "Single-cylinder localization against entropy changes effective charge. The new card requires cross-object correlations after condensation, not a second condensation application.",
+      "adsorption-induced-charge-reversal": "Existing adsorption changes the sign of effective charge. The new pathway can retain the original sign on both objects.",
+      "multivalent-ion-polysaccharide-crosslinking": "Existing ions chemically connect polymer sites into a network. The model here has no such binding bridge.",
+      "depletion-osmotic-attraction": "Excluded-volume entropy of nonadsorbing species differs from correlated electrostatic energy.",
+      "molecular-hydration-layer-repulsion": "Solvent packing and molecular-layer compression differ from mobile-ion occupation correlations."
+    }
+  },
+  "parent_reference_checks": [
+    {
+      "key": "line-charge-entropy-counterion-condensation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5585397/",
+      "read": "Abstract and introductory discussion of Hidden Criticality of Counterion Condensation Near a Charged Cylinder. It concerns single-cylinder condensation, not the force between two correlated condensation layers."
+    },
+    {
+      "key": "adsorption-induced-charge-reversal",
+      "url": "https://www.sciencedirect.com/science/article/pii/0021979786902067",
+      "read": "Catalog metadata and card only. The publisher page retrieval failed; no full-text review is claimed."
+    }
+  ],
+  "exclusions": [
+    {"candidate": "Superchiral standing-wave enhancement as a separate card", "reason": "An optical configuration modifying the selected transition contrast is not counted separately from the accepted dipole-interference mechanism."},
+    {"candidate": "Third physical mechanism solely to fill the target", "reason": "No third mechanism was established to the same boundary standard. Parent assigned the remaining research elsewhere and requested this two-row batch be frozen."}
+  ],
+  "validation": {
+    "status": "PASS",
+    "checks": "Two unique ten-column rows; no canonical key collision; integer groups; principle and condition maxima both 114 characters; HTTPS sources; allowed scopes; all nearest keys exist; evidence keys, URLs and scopes match. Canonical count and SHA-256 still match the reviewed 1997-row snapshot.",
+    "tsv_sha256": "8c7fd5a75e80871bfdbe9d9f76fc29c2436dbf37f07bb821783c16c0f82cda0e"
+  }
+}

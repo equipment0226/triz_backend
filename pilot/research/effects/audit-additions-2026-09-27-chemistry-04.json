@@ -1,0 +1,85 @@
+{
+  "batch": "additions-2026-09-27-chemistry-04.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1591,
+  "added": 6,
+  "after": 1597,
+  "target": 2000,
+  "source_sha256": "534818df420d28aa4adddae49a3575423995783efbaad14fef028e2d9a0564e5",
+  "decisions": [
+    {
+      "key": "long-range-electron-transfer-harpoon-capture",
+      "group": 15,
+      "related_keys": [
+        "ligand-bridged-inner-sphere-electron-transfer",
+        "solvent-cage-geminate-radical-recombination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "배위 가교를 통한 전자 이동이나 이미 생성된 라디칼의 케이지 재회가 아니라 중성 입자 사이 원거리 전자 이동이 포획 인력을 새로 만든다.",
+      "source_url": "https://goldbook.iupac.org/terms/view/H02746",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "template-organized-functional-site-imprinting",
+      "group": 16,
+      "related_keys": [
+        "host-guest-inclusion",
+        "sacrificial-porogen-leaching",
+        "surfactant-templated-mesopore-formation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "희생 주형의 빈 공간 자체보다 주형이 조직한 화학 작용기의 공간 기억을 고정하는 제조 기전이다. 만들어진 자리의 게스트 결합과도 생성 단계가 다르다.",
+      "source_url": "https://www.nature.com/articles/35002032",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "pore-transition-state-confinement-selectivity",
+      "group": 15,
+      "related_keys": [
+        "configurational-diffusion-molecular-sieving",
+        "catalysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입자의 기공 통과 속도 차이 대신 기공 안에서 화학 반응 전이상태를 형성하는 자유에너지 차이를 다룬다. 인용 연구도 관측 선택성의 수송 기여를 별도로 경고한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/14733571/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "floating-conductor-bipolar-electrochemistry",
+      "group": 15,
+      "related_keys": [
+        "water-electrolysis",
+        "electrochemical-cell"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "직접 배선한 전극의 반응이나 자발 전지 발전과 달리 외부 장에 놓인 부유 도체의 공간 분극이 반대 두 극의 전기화학 반응을 구동한다.",
+      "source_url": "https://www.nature.com/articles/ncomms1550",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "molecular-cation-electron-capture-fragmentation",
+      "group": 15,
+      "related_keys": [
+        "resonant-electron-attachment-bond-dissociation",
+        "solvent-cage-geminate-radical-recombination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "중성 분자에 전자가 붙어 음이온으로 분해되는 경로와 달리 양이온의 중성화 에너지가 해리로 연결된다. 특정 분자나 회전 상태만 바꿔 별도 효과로 세지 않는다.",
+      "source_url": "https://arxiv.org/abs/1910.02628",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "aromatic-sigma-adduct-addition-elimination",
+      "group": 15,
+      "related_keys": [
+        "nucleophilic-substitution",
+        "aryne-elimination-addition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "시그마 부가체의 선행 형성과 방향족성 회복이 핵심이다. 포화 탄소의 SN1·SN2와 전이 경로가 다르고 먼저 제거해 아라인을 만드는 경로와 순서가 반대다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3498977/",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

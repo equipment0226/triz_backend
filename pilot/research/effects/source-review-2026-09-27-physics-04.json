@@ -1,0 +1,161 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-04.tsv",
+  "authoring": "Direct conversational research and Korean authoring. No external LLM API and no generated scientific-content script.",
+  "scope_convention": "reference_section means the specified returned passages, not an assertion that the entire article was read. publisher_abstract includes the original author's repository abstract. stored_search_excerpt preserves primary publisher text retrieved through search when direct access failed.",
+  "comparison": "Compared against previously read canonical physical principles and candidate-specific key/title/principle searches across all current groups, including chemistry and information. Current catalog had 1740 entries at structural validation. Explicit nearest mechanisms and boundaries appear in each authored row. Key-existence checks do not by themselves establish semantic novelty.",
+  "evidence": [
+    {
+      "key": "local-phonon-population-relaxation-akhiezer-damping",
+      "url": "https://www.nature.com/articles/s41598-019-38847-6",
+      "scope": "reference_section",
+      "read": "Original 2019 experiment: abstract, Q(T) for TED, Q for Phonon-Phonon Scattering, and discussion of frequency and temperature scaling.",
+      "quote": "the stresses induce distortion of the phonon energy spectrum away from the equilibrium Boltzmann distribution",
+      "support": "Local distribution relaxation through phonon scattering adds entropy. The paper separates it from spatial temperature-gradient heat flow and defines the regime by the acoustic period exceeding thermal-phonon relaxation time. Experiment distinguishes competing damping by geometry and frequency scaling.",
+      "limitation": "Silicon MEMS evidence does not provide a universal damping constant. Landau-Rumer and Akhiezer frequency regimes are not counted as separate new cards. The paper's historical attribution date is not used."
+    },
+    {
+      "key": "amorphous-local-cooperative-shear-transformation",
+      "url": "https://www.sciencedirect.com/science/article/pii/0001616079900555",
+      "scope": "stored_search_excerpt",
+      "read": "Publisher-indexed abstract of Argon 1979 returned by search; direct ScienceDirect open failed. Abstract describes thermally activated local shear transformations, two temperature regimes, free-volume model and plastic localization.",
+      "quote": "thermally activated shear transformations initiated around free volume regions under an applied shear stress",
+      "support": "Localized atomic rearrangements produce plastic shear in a glass without requiring crystalline dislocation glide. Both temperature regimes are one mechanism.",
+      "limitation": "This is a model, not a direct image of predetermined defects. The exact region size and a universal free-volume criterion are deliberately omitted. The card differentiates local events from macroscopic thermal-softening feedback."
+    },
+    {
+      "key": "shear-coupled-normal-grain-boundary-migration",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1359645406005313",
+      "scope": "stored_search_excerpt",
+      "read": "Publisher-indexed abstract of Cahn, Mishin and Suzuki 2006; direct page retrieval failed. Original MD study of copper tilt grain boundaries.",
+      "quote": "normal grain boundary (GB) motion must often be coupled to tangential translation of grains",
+      "support": "Boundary-normal migration produces shear deformation, and conversely shear stress drives normal motion. Coupling factor depends on misorientation and temperature.",
+      "supplement": {"url": "https://www.nature.com/articles/srep23602", "scope": "reference_section", "read": "Introduction and Results around geometric coupling factor beta = tangential translation / normal displacement.", "support": "Original tungsten simulation explicitly contrasts coupled migration with pure grain-boundary sliding. Unusual shuffle modes are not additional cards. Later comments on the page are not substituted for the published Results."},
+      "limitation": "The primary abstract supports the coupled geometric mechanism; the row does not claim a single universal disconnection type or atomic shuffle path."
+    },
+    {
+      "key": "pinned-dislocation-oscillation-internal-friction",
+      "url": "https://pubs.aip.org/aip/jap/article-pdf/27/6/583/18315628/583_1_online.pdf",
+      "scope": "publisher_abstract",
+      "read": "Original Granato-Lucke 1956 publisher PDF endpoint redirected to AIP/Silverchair article-minimal/161648. Returned content was the publisher abstract and references, not PDF full text.",
+      "quote": "a pinned dislocation loop oscillating under the influence of an applied stress",
+      "support": "The original theory gives damping and modulus change, with frequency-dependent and hysteretic losses from the pinned-line model. Both remain one card.",
+      "limitation": "No microscopic drag coefficient or particular breakaway law is inferred from the abstract. The new row concerns oscillatory loss rather than Frank-Read multiplication."
+    },
+    {
+      "key": "glide-bowing-orowan-obstacle-bypass",
+      "url": "https://www.nature.com/articles/s41598-018-25285-z",
+      "scope": "reference_section",
+      "read": "Original 2018 dislocation-dynamics study: Results precipitate-obstacle cases, Figure 3 caption and Discussion on classical loops versus twisted nooses.",
+      "quote": "dislocations bypass the precipitates by bowing around them and forming Orowan loops",
+      "support": "The advancing line leaves loops around obstacles. It is a specific pathway beneath broad precipitation strengthening, distinct from cutting, climb, and a repeating Frank-Read source.",
+      "limitation": "Simulation evidence in iron, not direct observation in all alloys. The atypical nonplanar noose is retained as a condition and not split into a material-specific new mechanism."
+    },
+    {
+      "key": "effective-stress-melting-refreezing-regelation",
+      "url": "https://www.cambridge.org/core/journals/journal-of-glaciology/article/premelting-increases-the-rate-of-regelation-by-an-order-of-magnitude/2F27071853F8872CEA7D29DD53D90026",
+      "scope": "reference_section",
+      "read": "Original Rempel-Meyer 2019 theory: abstract, premelting/effective-stress derivation and concluding discussion.",
+      "quote": "melting on their upstream sides and refreezing downstream",
+      "support": "The paper separates liquid pressure from ice pressure; their difference alters melting equilibrium. Premelt liquid transport and latent-heat conduction enable passage over obstacles. Effective-stress forcing is stronger than equal hydrostatic changes in both phases.",
+      "limitation": "Do not equate the effect with universal negative Clapeyron slope. The paper explicitly extends effective-stress-driven melt/refreeze cycling to solids wetted by their own melt. Pressure solution instead transports solute in another solvent."
+    },
+    {
+      "key": "torque-free-intermediate-inertia-axis-instability",
+      "url": "https://arxiv.org/html/2311.17933v1",
+      "scope": "reference_section",
+      "read": "Original-author 2023 numerical control study: abstract, Introduction on second-principal-axis instability and Methods rotational equation (7).",
+      "quote": "unstable rotation around the direction close to the body’s second principal axis",
+      "support": "Torque-free angular-momentum conservation gives coupled Euler rotation; the intermediate principal axis is unstable. The paper uses changing inertia to initiate and control flips.",
+      "limitation": "The card takes the fixed-inertia limit of the stated equation, an explicit inference. It does not count inertia-control engineering as a second effect and does not repeat the article's overly broad phrase about generic chaos in fixed rigid-body rotation."
+    },
+    {
+      "key": "inertia-curvature-misalignment-rattleback-reversal",
+      "url": "https://arxiv.org/pdf/1609.09223",
+      "scope": "reference_section",
+      "read": "Original-author version 2 (2017): abstract, Introduction, section 2 prototypical rattleback equations and Figure 1 caption on spin/pitch/roll energy exchange.",
+      "quote": "inertia and geometry be misaligned",
+      "support": "Principal inertia and contact-curvature directions are skew. Nonlinear spin, pitch and roll coupling produces unequal reversal time scales, including reversals in either sense in the ideal model.",
+      "limitation": "Contact-constrained body, not a torque-free top. No perpetual motion or angular-momentum violation. Dissipation and slipping can suppress ideal repeated reversals."
+    },
+    {
+      "key": "nonconservative-follower-force-flutter",
+      "url": "https://arxiv.org/pdf/1804.07378",
+      "scope": "reference_section",
+      "read": "Original-author JMPS 2018 manuscript: abstract, Introduction paragraph on energy input, and Conclusions on measured flutter/divergence and damping effects.",
+      "quote": "follower forces can in certain circumstances provide energy to the elastic system",
+      "support": "A tangential force maintained by a wheel and conveyor validates follower loading experimentally. Increasing oscillatory amplitude precedes static divergence in the tested regime. Damping can lower the flutter threshold.",
+      "limitation": "Positive cyclic work and instability are conditional, not claims for every follower load. Ziegler damping destabilization is kept in this card's conditions rather than separately counted."
+    },
+    {
+      "key": "moving-medium-fresnel-fizeau-light-drag",
+      "url": "https://www.nature.com/articles/s42005-020-0386-3",
+      "scope": "reference_section",
+      "read": "Original 2020 experiment: abstract, Introduction and Results/Theoretical model, Lorentz transformation and drag-phase equation (1).",
+      "quote": "applying Lorentz transformation to the coupling system",
+      "support": "A microcavity translates along the coupling fibre; moving-medium propagation alters phase. Normal and anomalous dispersion alter the dragging coefficient. Translation establishes the boundary from Sagnac rotation.",
+      "limitation": "Brillouin transparency/absorption provide dispersion enhancement here; they are not new cards. The effect does not alter vacuum light speed or establish faster-than-light signalling."
+    },
+    {
+      "key": "noncollinear-lorentz-boost-thomas-wigner-rotation",
+      "url": "https://arxiv.org/pdf/gr-qc/0501070",
+      "scope": "reference_section",
+      "read": "Original-author 2005 paper: abstract, Introduction, section VII A discussions of successive boosts and noncommutativity, printed pages 23-24.",
+      "quote": "not a pure boost but rather is the product of a boost and a rotation",
+      "support": "A rapidity-space derivation from Lorentz invariance links finite non-collinear boost rotation and its continuous Thomas-precession limit.",
+      "supplement": {"url": "https://www.nature.com/articles/117514a0", "scope": "publisher_abstract", "read": "Thomas 1926 publisher abstract only.", "support": "Original letter states that relativistic kinematics resolves the factor-of-two spin-precession discrepancy. Its abstract does not itself derive non-collinear boost composition, so the row uses the accessible original-author theoretical treatment."},
+      "limitation": "This is kinematic reference-frame rotation; it is not a new force and does not imply an observed spin-rotation measurement in this paper."
+    },
+    {
+      "key": "itinerant-exchange-band-polarization-stoner-instability",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0921452696006291",
+      "scope": "stored_search_excerpt",
+      "read": "Original Fernando et al. 1997 publisher abstract returned in search, including mean-field approximation and upper-bound caveat.",
+      "quote": "intraatomic Coulomb repulsion of itinerant electrons provides another Stoner mechanism of band splitting",
+      "support": "Repulsive itinerant-electron correlations can favour spin-split ferromagnetic states. The primary model explicitly distinguishes the mean-field approximation from exact magnetic moments.",
+      "limitation": "No claim that this criterion guarantees actual ordering in every dimension. Early ultracold-gas observations with competing molecular decay were not used as an unqualified experimental demonstration."
+    },
+    {
+      "key": "spin-orbit-crystal-field-magnetocrystalline-anisotropy",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.39.865/fulltext",
+      "scope": "reference_section",
+      "read": "Bruno 1989 original PDF: abstract, section II A spin-orbit term, and sections III B/IV relation of anisotropy, crystal field, band filling and orbital moment.",
+      "quote": "The spin-orbit coupling, responsible for the magnetocrystalline anisotropy",
+      "support": "The perturbative calculation gives directional energy differences from spin-orbit coupling of crystal-field-defined orbitals. Predictions depend on the orbital occupation and crystal-field splitting.",
+      "limitation": "The source model overestimates some measured coefficients. Directional energy is the mechanism; no universal easy-axis sign, coefficient, or proportionality is asserted. Shape demagnetization is a different contribution."
+    },
+    {
+      "key": "structural-double-well-tunneling-phonon-scattering",
+      "url": "https://www.nature.com/articles/s41467-020-19872-w",
+      "scope": "reference_section",
+      "read": "Original 2020 measurements and modelling: abstract, Introduction, Results discussion following inelastic-scattering evidence and double-well model.",
+      "quote": "phonons being overdamped by resonant scattering with the tunneling states",
+      "support": "A structural atom in a shallow double well provides a quantum two-level system that resonantly scatters heat-bearing phonons. The paper explicitly relates this to the general glass tunneling model while showing a higher-frequency crystal example.",
+      "supplement": {"url": "https://link.springer.com/article/10.1007/BF00660072", "scope": "publisher_abstract", "read": "Phillips 1972 original publisher abstract.", "support": "The ionic-tunneling theory explains low-temperature glass heat capacity, thermal conductivity and anomalous phonon free path. The new card remains one structural-tunneling scattering mechanism across glass and crystal cases."},
+      "limitation": "The measured crystal is BaTiS3. High-temperature applicability requires sufficiently high tunneling splitting; it is not generalized to arbitrary glasses or all low-conductivity solids."
+    },
+    {
+      "key": "fermi-occupation-limited-pauli-spin-paramagnetism",
+      "url": "https://www.nature.com/articles/srep34966",
+      "scope": "reference_section",
+      "read": "Original 2016 ESR experiment: discussion of Figure 2 carrier susceptibility, Figure 3 energy/spin states and Figure 4 weak temperature dependence.",
+      "quote": "reflects the density of states at the Fermi surface",
+      "support": "Carrier spin susceptibility tracks Fermi-surface density of states and is weakly temperature dependent in the observed degenerate regime. Localized vacancy-spin response is separately fitted.",
+      "limitation": "The spin-occupation explanation is the physical interpretation of these Fermi-degenerate-state results, not a new measurement in every metal. Interactions, band edges and strong fields can invalidate constant-susceptibility simplification."
+    }
+  ],
+  "exclusions": [
+    {"candidate": "baroclinic vorticity generation", "nearest": "richtmyer-meshkov-impulsive-interface-instability", "reason": "Existing principle already explicitly says misaligned pressure and density gradients generate vorticity. A broader-flow wording would duplicate the stated microscopic source term."},
+    {"candidate": "grain-boundary solute drag", "nearest": "solute-dislocation-strain-aging", "reason": "Cahn impurity-drag mechanism is credible, but proposed wording was diffusion/segregation-retarded motion of a defect, already present for dislocations. Changing defect dimension alone was not judged enough here.", "source": {"url": "https://imisweb.tms.org/ItemDetail?Category=PUBS_PDF&WebsiteKey=4cd9a8e2-b117-4f09-9c05-d1fba7072d0b&iProductCode=01-416X-115", "scope": "stored_search_excerpt", "read": "Publisher-selected original Cahn paper abstract; dependence on boundary velocity, impurity diffusivity and binding."}},
+    {"candidate": "separate Landau-Rumer damping / BCC twisted-noose Orowan bypass / Ziegler paradox", "reason": "Frequency, host-specific glide geometry, or damping-conditioned regimes remain within the corresponding authored pathway rather than becoming extra cards."}
+  ],
+  "parent_cross_review": {
+    "topic": "metal-oxide-hydration-heating and endothermic-hydroxide-dehydration versus thermochemical-heat-storage",
+    "recommendation": "Merge the two direct thermal-use cards into a generalized reaction-enthalpy card while preserving reversible versus single-use and reaction-specific constraints. Parent reports merge completed.",
+    "reason": "Existing hydration conditions already called it the same principle as reversible thermochemical storage. Both current card principles only describe reaction enthalpy heating or temperature-rise delay. Dehydration source discusses steam dilution and residue barrier too, but those were explicitly outside the existing card; they cannot retroactively justify a different counted path.",
+    "sources": [
+      {"title": "Effects of temperature on the hydration characteristics of free lime", "url": "https://www.sciencedirect.com/science/article/pii/S0008884602007147", "scope": "stored_search_excerpt", "read": "Publisher-indexed abstract, Introduction and conclusion excerpts.", "quote": "hydration characteristics of free lime", "support": "Microcalorimetric hydration and firing/temperature-dependent kinetics; no independently described non-enthalpic heating mechanism."},
+      {"title": "Effect of hydroxides and hydroxycarbonate structure on fire retardant effectiveness and mechanical properties in ethylene-vinyl acetate copolymer", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0141391001001677", "scope": "stored_search_excerpt", "read": "Publisher-indexed abstract, Introduction and thermal-characterization excerpts.", "quote": "endothermic decomposition", "support": "Heat uptake during decomposition is distinct from the additionally discussed released-water dilution and oxide barrier. Existing card counted only the first thermal pathway."}
+    ]
+  }
+}

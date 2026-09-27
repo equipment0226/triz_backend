@@ -1,0 +1,26 @@
+{
+  "batch": "additions-2026-09-27-biology-10.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1999,
+  "added": 1,
+  "after": 2000,
+  "target": 2000,
+  "source_sha256": "da150730f60e57f20d6ca0a5a143e51fdbd21254df5dc7f3e0841d468518d825",
+  "decisions": [
+    {
+      "key": "heme-confined-chlorite-intramolecular-oxygen-coupling",
+      "group": 18,
+      "related_keys": [
+        "heme-compound-i-peroxide-disproportionation",
+        "photosystem-manganese-water-oxidation-cycle",
+        "molybdenum-desoxo-oxo-substrate-oxygen-transfer",
+        "heme-copper-tyrosyl-coupled-dioxygen-bond-cleavage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "두 과산화수소를 산화·환원하는 카탈레이스와 달리 한 아염소산염의 Cl–O 결합을 새 O–O 결합으로 재편한다. 물의 광산화·외부 환원제로 산소를 제거하는 금속 순환과도 에너지 결합이 다르며 종·중간체 가설별로 분할하지 않는다.",
+      "source_url": "https://research.unl.pt/ws/portalfiles/portal/45488041/artigo3.pdf",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

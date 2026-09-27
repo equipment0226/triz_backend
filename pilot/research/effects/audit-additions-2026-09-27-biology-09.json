@@ -1,0 +1,173 @@
+{
+  "batch": "additions-2026-09-27-biology-09.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1986,
+  "added": 12,
+  "after": 1998,
+  "target": 2000,
+  "source_sha256": "d037140413285fb068f3f00889b78a2b192b52e4d7df858027bc5e4bb2a3b5ab",
+  "decisions": [
+    {
+      "key": "dual-substrate-phosphorylation-metal-carboxylation",
+      "group": 18,
+      "related_keys": [
+        "biotin-carrier-atp-coupled-carboxylation",
+        "atp-acyl-phosphate-amide-synthesis",
+        "enzyme-internal-metabolite-channeling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "비오틴에 탄소를 적재하는 대신 두 탄소 기질을 별도로 인산 활성화하여 금속 중심에서 결합한다. 단순 기질 전달이나 아실인산의 아미드 치환과 구별하며 케톤 종류·ATP 사용 수로 나누지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41598-017-06973-8",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "hybrid-beta-barrel-strand-exchange-membrane-folding",
+      "group": 18,
+      "related_keys": [
+        "chaperone-assisted-folding",
+        "protein-domain-swapped-oligomerization",
+        "sec-translocon-lateral-membrane-partition",
+        "atp-capped-chaperonin-folding-cage-cycle"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "응집 억제나 공동 격리보다 구체적인 혼성 베타통의 형성·해소 경로다. 영구적인 도메인 교환 다량체 및 Sec 측면 출구에서 소수성 사슬이 지질로 분배되는 삽입과 구별한다.",
+      "source_url": "https://www.nature.com/articles/s41586-020-2370-1",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "cyclopropylcarbinyl-intermediate-head-to-head-prenyl-coupling",
+      "group": 18,
+      "related_keys": [
+        "enzyme-templated-polyene-cationic-polycyclization",
+        "carbene-transfer-cyclopropanation",
+        "sam-methyl-addition-deprotonative-cyclopropanation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "하나의 폴리엔 사슬을 여러 고리로 접는 경로가 아니라 두 기질을 삼원환 중간체로 연결했다가 재배열하는 경로다. 카벤·SAM 메틸렌 전달과 구별하고 최종 환원 유무나 테르펜 종류로 쪼개지 않는다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/24531458/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "copper-directed-carbon-oxidation-glycoside-cleavage",
+      "group": 18,
+      "related_keys": [
+        "heme-monooxygenase-oxygen-insertion",
+        "muramidase-peptidoglycan-cleavage",
+        "transient-nad-oxidation-elimination-glycoside-hydrolysis"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 산소 도입이나 물의 아노머 공격 대신 구리 매개 탄소 산화로 당결합을 불안정화한다. NAD를 회수하는 산화·제거·환원 경로도 아니며 C1·C4 산화나 다당 종류는 한 경로로 묶는다.",
+      "source_url": "https://www.nature.com/articles/nchembio.2470",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "terminal-rna-phosphorolysis-diphosphate-recovery",
+      "group": 18,
+      "related_keys": [
+        "exonucleolytic-end-resection",
+        "template-independent-rna-polyadenylation",
+        "glycosidic-phosphorolysis-sugar-phosphate-release"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "물에 의한 말단 절단이나 삼인산의 피로인산 방출 중합과 달리 인산이 인 원자를 공격해 이인산 산물을 회수한다. 당 인산분해의 아노머 탄소 치환과 반응 중심이 다르며 정·역방향은 한 원리다.",
+      "source_url": "https://rnajournal.cshlp.org/content/27/8/959.full",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "atp-coupled-acceptor-potential-shift-reductive-activation",
+      "group": 18,
+      "related_keys": [
+        "enzyme-electron-transfer",
+        "flavin-coupled-electron-bifurcation",
+        "cobalamin-polar-methyl-carrier-transfer",
+        "electron-recycling-ketyl-radical-dehydration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 전자 중계나 유리한 전자 분기와 달리 ATP 사용에 연동한 수용체 전위 변화가 불리한 환원을 허용한다. 코발라민의 후속 메틸 전달 또는 케틸 반응 자체와 구별하며 활성화 효소별로 중복 계수하지 않는다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6739815/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "aminyl-fragmentation-carboxyl-radical-relocation",
+      "group": 18,
+      "related_keys": [
+        "paired-radical-fragment-addition-heterocycle-annulation",
+        "amino-acid-fragment-derived-iron-carbonyl-cyanide-assembly",
+        "protodecarboxylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "카르복실기를 CO₂로 버리는 탈탄산과 달리 카르복실 라디칼을 같은 골격에 다시 연결한다. 다른 기질에 조각을 더해 고리를 닫거나 철의 CO·CN 리간드로 회수하는 경로와 구별한다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/26989252/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "heme-copper-tyrosyl-coupled-dioxygen-bond-cleavage",
+      "group": 18,
+      "related_keys": [
+        "heme-monooxygenase-oxygen-insertion",
+        "heme-compound-i-peroxide-disproportionation",
+        "complex-i-redox-coupled-proton-pumping",
+        "concerted-proton-electron-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "유기 기질에 산소를 넣거나 과산화수소를 불균등화하는 헴 순환과 달리 이핵 금속과 유기 잔기가 O₂ 절단에 환원 당량을 모은다. 단순 양성자 펌핑의 효소명 변형으로 계수하지 않는다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34516790/",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "backbone-sulfenyl-amide-reversible-thiol-protection",
+      "group": 18,
+      "related_keys": [
+        "glutaredoxin-thiol-redox",
+        "atp-sulfinate-activation-thiosulfinate-repair",
+        "enzyme-inhibition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이황화 결합 교환과 달리 산화된 황을 인접 주사슬 질소에 고리로 포획한다. 이미 더 산화된 설핀산을 ATP로 활성화해 수선하는 경로와 구별하며 단백질별 보호 사례는 한 원리로 묶는다.",
+      "source_url": "https://www.nature.com/articles/nature01681",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "reversible-amine-carbon-dioxide-carbamate-capture",
+      "group": 15,
+      "related_keys": [
+        "rubisco-carbon-fixation",
+        "urethane-addition",
+        "mineral-carbonation",
+        "biomolecular-recognition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "탄소 골격에 C–C 결합으로 고정하거나 금속 탄산염을 만드는 반응이 아니라 아민 질소의 가역 CO₂ 부가다. 이소시아네이트·알코올 우레탄 형성과도 출발 반응 중심이 다르며 단백질·흡수제 재료별로 나누지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41467-018-05475-z",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "thiolate-nitroso-nitrogen-group-transfer",
+      "group": 15,
+      "related_keys": [
+        "nitric-oxide-signaling",
+        "glutaredoxin-thiol-redox",
+        "nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "NO의 헴 결합 신호나 황·황 결합의 티올 교환과 달리 공격 중심이 니트로소 질소인 가역 작용기 전달이다. 생리적 신호 출력이나 특정 단백질 표적을 별도 원리로 쪼개지 않는다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlelanding/1994/p2/p29940001131",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "radical-pair-selective-photoexcitation-net-heterolysis",
+      "group": 15,
+      "related_keys": [
+        "thermal-homolytic-radical-generation",
+        "photoinitiated-radical-generation",
+        "solvent-cage-geminate-radical-recombination",
+        "electron-chain-radical-nucleophilic-substitution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "라디칼을 만드는 개시나 원래 쌍의 재결합이 아니라 이미 생긴 라디칼 쌍의 비대칭 여기가 이온 쌍 전환을 허용한다. 전자 전달을 다음 기질로 이어가는 치환 연쇄와도 구별하며 셀레늄 화합물별로 나누지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41586-024-07622-7",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

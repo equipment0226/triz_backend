@@ -1,0 +1,206 @@
+{
+  "batch": "additions-2026-09-27-information-08.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1798,
+  "added": 16,
+  "after": 1814,
+  "target": 2000,
+  "source_sha256": "1f1aa4ba298b5035d4da81cbfd526fa3a7d377474759e65e14f3c829b205457d",
+  "decisions": [
+    {
+      "key": "time-delay-coordinate-dynamical-embedding",
+      "group": 19,
+      "related_keys": [
+        "state-estimation",
+        "dynamic-system-identification"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "지연 관측을 좌표로 매입하는 위상적 복원이다. 상태 전이모형과 측정오차를 결합하는 필터나 모형 계수 적합과 연산이 다르다.",
+      "source_url": "https://www.math.ucdavis.edu/~saito/data/synchrosqueezing/takens_detect-strange-attractors-turbulence.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "history-conditioned-transition-information-transfer",
+      "group": 19,
+      "related_keys": [
+        "signal-correlation",
+        "causal-graph-intervention-calculus",
+        "autoregressive-linear-prediction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평균 곱이나 선형 예측잔차가 아닌 두 조건부 전이분포의 로그비 평균이다. 인과 그래프를 수정하는 개입 연산과도 다르다.",
+      "source_url": "https://arxiv.org/pdf/nlin/0001042",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "log-generating-function-connected-cumulants",
+      "group": 19,
+      "related_keys": [
+        "signal-correlation",
+        "non-gaussian-independent-source-separation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "연결 고차 통계를 추출하는 로그·미분 연산이다. 혼합행렬을 역추정하여 여러 독립 신호를 분리하는 연산과 구별한다.",
+      "source_url": "https://reference.wolfram.com/language/ref/CumulantGeneratingFunction.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "nested-commutator-magnus-exponential-propagation",
+      "group": 19,
+      "related_keys": [
+        "noncommuting-subflow-operator-splitting",
+        "symplectic-discrete-flow-preservation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "부분 흐름의 지수를 차례로 곱하는 분할과 달리 시간 순서의 비가환성을 교환자 적분으로 지수 안에 넣는다. 심플렉틱성만을 요구하는 일반 조건과도 다르다.",
+      "source_url": "https://arxiv.org/pdf/0810.5488",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "monomial-lift-carleman-linearization",
+      "group": 19,
+      "related_keys": [
+        "logarithmic-derivative-burgers-heat-linearization",
+        "tangent-linearized-newton-root-iteration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변수 거듭제곱을 무한 선형계로 올리는 대수적 확장이다. 한 점의 접선 근사나 특정 PDE의 로그미분 치환과 다르며 양자 계산 속도 향상은 이 카드의 주장이 아니다.",
+      "source_url": "https://arxiv.org/pdf/2011.03185",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "costate-hamiltonian-pointwise-control-extremization",
+      "group": 19,
+      "related_keys": [
+        "linear-quadratic-optimal-feedback",
+        "model-predictive-control",
+        "optimal-substructure-dynamic-programming"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상태와 공상태의 두 경계값 문제 및 입력별 극값 조건을 구성한다. 전체 상태공간 가치함수 재귀나 리카티 방정식의 선형 이차 특수해와 구분한다.",
+      "source_url": "https://hankyang.seas.harvard.edu/OptimalControlEstimation/continuous-time-optimal-control.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "fundamental-harmonic-describing-function-balance",
+      "group": 19,
+      "related_keys": [
+        "positive-feedback-oscillation",
+        "fourier-spectral-decomposition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "진동기 자체의 양의 피드백 작동과 달리 비선형 출력을 기본파로 투영한 뒤 진폭을 포함한 조화균형 방정식을 푸는 근사 분석 연산이다.",
+      "source_url": "https://python-control.readthedocs.io/en/0.10.2/descfcn.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "strictly-proper-outcome-score-belief-elicitation",
+      "group": 19,
+      "related_keys": [
+        "supervised-learning",
+        "asymmetric-absolute-loss-conditional-quantile"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "관측 결과에 연동한 점수의 기대값을 설계하여 전체 확률 보고를 유도한다. 학습 모형 적합이라는 일반 목적이나 한 분위수의 점 추정과 같은 항목으로 세지 않는다.",
+      "source_url": "https://sites.stat.washington.edu/raftery/Research/PDF/Gneiting2007jasa.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "sum-preserving-dependent-randomized-rounding",
+      "group": 19,
+      "related_keys": [
+        "distance-probability-stochastic-rounding",
+        "odd-cycle-blossom-contraction-matching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "독립적인 수치 반올림과 달리 여러 변수의 증감을 결합하여 합을 보존한다. 매칭을 찾는 꽃봉오리 축약과 달리 주어진 분수해를 확률적으로 정수화한다.",
+      "source_url": "https://www.cs.umd.edu/~srin/PDF/2006/depround-jou.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "frobenius-fixed-subalgebra-polynomial-factorization",
+      "group": 19,
+      "related_keys": [
+        "euclidean-remainder-gcd-descent",
+        "s-polynomial-leading-term-ideal-closure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "최대공약수는 마지막 분할 도구이며 핵심은 유한체 거듭제곱 고정공간의 분해다. 일반 나머지 감소나 다변수 아이디얼 기저 완성과 다른 구조를 사용한다.",
+      "source_url": "https://docs.sympy.org/latest/modules/polys/internals.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "balanced-power-table-meet-in-middle-logarithm",
+      "group": 19,
+      "related_keys": [
+        "commuting-secret-exponent-key-agreement",
+        "branch-bound-relaxation-pruning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "양쪽 부분 계산을 표에서 일치시키는 시간·메모리 교환이다. 비밀 지수 교환 프로토콜이나 하한으로 가지를 자르는 최적화 탐색과 다르다.",
+      "source_url": "https://doc.sagemath.org/html/en/reference/groups/sage/groups/generic.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "orthogonal-factorial-contrast-effect-isolation",
+      "group": 19,
+      "related_keys": [
+        "parameter-sensitivity-measurement-prioritization",
+        "stratum-mass-weighted-sampling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "측정 우선순위나 모집단 층별 표본 배분과 달리 조절 가능한 요인 조합의 설계행렬을 직교화하여 효과 대비를 분리한다.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri3331.htm",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "pair-distance-scaling-correlation-dimension",
+      "group": 19,
+      "related_keys": [
+        "filtration-persistent-topological-features",
+        "time-delay-coordinate-dynamical-embedding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "쌍 거리의 척도별 확률 질량을 지수로 요약한다. 지연벡터를 만드는 좌표 복원이나 위상적 구멍의 생성·소멸 추적과 구별한다.",
+      "source_url": "https://verga.github.io/pdfs/Grassberger-1983fk.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "linear-dual-infeasibility-witness",
+      "group": 19,
+      "related_keys": [
+        "separating-halfspace-localization-cuts",
+        "complementary-clause-resolution-refutation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "반공간 절단으로 후보 영역을 축소하는 과정과 달리 하나의 선형 조합 증인으로 불가능성을 검산한다. 논리절의 상보 리터럴 소거와도 연산이 다르다.",
+      "source_url": "https://docs.mosek.com/modeling-cookbook/linear.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "diagonal-radius-gershgorin-spectral-enclosure",
+      "group": 19,
+      "related_keys": [
+        "outward-rounded-interval-enclosure",
+        "normalized-laplacian-spectral-partition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입력 구간의 산술 전파나 고유벡터 계산 대신 행별 절댓값 합으로 스펙트럼 영역을 직접 포위하는 행렬 구조의 부등식이다.",
+      "source_url": "https://mathworld.wolfram.com/GershgorinCircleTheorem.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "scattering-wave-variable-delay-passivation",
+      "group": 19,
+      "related_keys": [
+        "passive-port-interconnection-energy-cancellation",
+        "smith-delay-free-model-prediction-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 수동 포트 연결에 지연을 추가하는 변형이 아니라 송수신 신호를 파동변수로 가역 변환하여 채널의 공급률을 바꾼다. 지연 없는 모형 출력 예측과도 다르다.",
+      "source_url": "https://www.mathworks.com/help/control/ug/passive-control-with-communication-delays.html",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

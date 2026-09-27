@@ -134,7 +134,7 @@ def test_compact_editorial_catalog_and_agent_references_agree():
     assert len(legacy)==len(set(legacy)) and not set(legacy)&{e['id'] for e in entries}
     assert all(e['conditions'] and len(e['principle'])<=160 for e in entries)
     esc=next(e for e in entries if e['id']=='1.4')
-    assert esc['name']=='정전기척(ESC)' and '밀착' in esc['principle']
+    assert 'ESC' in esc['name'] and '밀착' in esc['principle'] and '변위' in esc['principle']
     esc_group=next(g for g in groups if esc in g['effects'])
     assert '비접촉' not in esc_group['function_ko']
     assert any(e['domain']=='INFORMATIONAL' for e in entries)

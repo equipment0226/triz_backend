@@ -1,0 +1,12 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "changes": [{
+    "key": "glycan-cleavage-intramolecular-anhydro-closure",
+    "field": "principle",
+    "before": "용해성 트랜스글리코실레이스",
+    "after": "용균성 트랜스글리코실레이스",
+    "reason": "Lytic refers to cell-wall lysis, not water solubility. Mechanism, conditions, identity and sources are unchanged.",
+    "scope": "Canonical wording correction; original installed batch and its hash remain preserved."
+  }]
+}

@@ -1,0 +1,22 @@
+{
+  "key": "barkhausen-noise",
+  "original_card": [
+    "barkhausen-noise",
+    "바르크하우젠 잡음 검출",
+    "자화 중 자구벽이 불연속적으로 이동하며 발생하는 신호를 이용해 강자성체의 조직·응력 변화를 살핀다.",
+    "강자성 재료와 자화·수신 조건 보정 필요. 조직·경도·응력·표면 상태의 중첩 영향을 고려.",
+    "manual-barkhausen"
+  ],
+  "updated_card": [
+    "barkhausen-noise",
+    "바르크하우젠 잡음 검출",
+    "자화 중 고정되어 있던 자구벽이 불연속적으로 탈고정·이동하면 자속 변화 신호가 발생한다. 이 잡음에서 강자성체의 조직·응력 상태를 추정할 수 있다.",
+    "강자성 재료·자벽 구조·결함·자화 속도·반자기장·수신 조건을 확인한다. 조직·경도·응력·표면 상태의 중첩을 보정하며 잡음만으로 원인을 하나로 확정하지 않는다.",
+    "manual-barkhausen,research-20260927-barkhausen-source-supplement"
+  ],
+  "reference": "research-20260927-barkhausen-source-supplement",
+  "source_title": "Dynamics of a ferromagnetic domain wall: Avalanches, depinning transition, and the Barkhausen effect",
+  "source_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.58.6353",
+  "new_canonical_effects": 0,
+  "reason": "The proposed new Barkhausen key described an existing mechanism; retain only its added evidence and condition detail."
+}

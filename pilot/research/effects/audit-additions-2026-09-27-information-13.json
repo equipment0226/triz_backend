@@ -1,0 +1,213 @@
+{
+  "batch": "additions-2026-09-27-information-13.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1962,
+  "added": 16,
+  "after": 1978,
+  "target": 2000,
+  "source_sha256": "689807d5eb41ede8013e9c06aa994f5ca7b065d8d3dc13faca342006f6aa6ca5",
+  "decisions": [
+    {
+      "key": "adjacent-average-difference-allan-variance",
+      "group": 19,
+      "related_keys": [
+        "fourier-spectral-decomposition",
+        "independent-coordinate-replacement-variance-bound"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "순서가 있는 인접 평균의 척도별 변동 통계이다. 독립 입력 좌표를 교체하는 분산 상한이나 원신호 주파수 분해와 입력·출력이 다르다.",
+      "source_url": "https://tf.nist.gov/general/pdf/2220.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "cyclic-frequency-pair-spectral-correlation",
+      "group": 19,
+      "related_keys": [
+        "signal-correlation",
+        "lock-in-detection",
+        "bilinear-lag-product-time-frequency-distribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알려진 파형과의 정합이나 국소 시간·주파수 분포 대신 장시간 순환 평균으로 주기적인 이차 구조를 추출한다. 지연곱을 공유해도 평균화와 추정 대상이 다르다.",
+      "source_url": "https://faculty.engineering.ucdavis.edu/gardner/wp-content/uploads/sites/146/2013/02/The_Spectral_Correlation_Theory_of_Cyclostationary_Time-Series.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "illumination-diverse-photometric-normal-recovery",
+      "group": 19,
+      "related_keys": [
+        "projective-coordinate-mapping",
+        "basis-function-surface-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "시차나 투영 위치가 아닌 고정 화소의 조명별 방사량을 역산한다. 높이 기저의 계수 적합과도 다른 관측 관계이다.",
+      "source_url": "https://www.cs.ubc.ca/~woodham/papers/Woodham94a.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "squared-distance-centered-gram-coordinate-recovery",
+      "group": 19,
+      "related_keys": [
+        "double-centered-distance-matrix-dependence",
+        "singular-spectrum-low-rank-projection",
+        "random-projection-distance-preservation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "거리만으로 내적과 미지 좌표를 복원하는 항등식이다. 두 거리행렬의 의존 통계나 이미 주어진 좌표의 저차원 근사와 구별한다.",
+      "source_url": "https://arxiv.org/pdf/2303.05682",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "normalized-eigenstate-operator-derivative-sensitivity",
+      "group": 19,
+      "related_keys": [
+        "reverse-mode-chain-rule-gradient",
+        "imaginary-perturbation-complex-step-derivative",
+        "diagonal-radius-gershgorin-spectral-enclosure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고유관계와 정규화로 상태 미분항을 없애는 항등식이다. 계산 그래프 역전파나 섭동 차분, 고유값 위치의 상한 추정과 다르다.",
+      "source_url": "https://faculty.washington.edu/miller/51816/Feynman.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "period-monodromy-exponential-periodic-factorization",
+      "group": 19,
+      "related_keys": [
+        "transverse-first-return-dynamical-map",
+        "nested-commutator-magnus-exponential-propagation",
+        "interacting-floquet-discrete-time-crystal"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일정한 계수 주기를 이용한 선형 기본해의 분해이다. 상태에 따라 달라지는 첫 귀환 시점이나 교환자 근사, 상호작용 물질의 시간결정 현상과 다르다.",
+      "source_url": "https://www.numdam.org/article/ASENS_1883_2_12__47_0.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "integrated-conditional-intensity-event-clock",
+      "group": 19,
+      "related_keys": [
+        "poisson-clock-uniformized-markov-propagation",
+        "inverse-quadratic-variation-martingale-clock"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "불연속 사건 사이 누적 조건부 강도가 시계이다. 마코프 사슬에 일정 포아송 시각을 덧붙이거나 연속 마팅게일의 이차변동으로 시각을 바꾸는 연산과 다르다.",
+      "source_url": "https://www.stat.cmu.edu/~vventura/rescaling.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "integration-by-parts-score-matching-estimation",
+      "group": 19,
+      "related_keys": [
+        "score-guided-reverse-diffusion-generation",
+        "gaussian-divergence-unbiased-risk-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "밀도 추정 목적함수에서 미지 데이터 스코어를 부분적분으로 제거한다. 이미 얻은 스코어로 역확산을 구동하거나 가우스 잡음의 위험도를 추정하는 작업과 구별한다.",
+      "source_url": "https://jmlr.org/papers/volume6/hyvarinen05a/hyvarinen05a.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "known-noise-logistic-density-normalizer-estimation",
+      "group": 19,
+      "related_keys": [
+        "contrastive-view-representation-learning",
+        "importance-density-ratio-sampling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알려진 잡음 밀도로 분류 로짓을 보정하여 밀도 상수를 식별한다. 두 뷰의 표현을 가깝게 만드는 대조 학습이나 적분 표본 재가중과 추정 대상이 다르다.",
+      "source_url": "https://proceedings.mlr.press/v9/gutmann10a/gutmann10a.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "alternating-diagonal-row-column-balancing",
+      "group": 19,
+      "related_keys": [
+        "mass-coupling-optimal-transport",
+        "constraint-maximal-entropy-distribution"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "원소마다 임의 가중치를 주는 대신 좌우 대각 곱으로 교차비를 유지하며 두 주변합을 맞춘다. 수송 비용 최소화나 최대엔트로피라는 상위 최적화 목적 자체와 동일하지 않다.",
+      "source_url": "https://msp.org/pjm/1967/21-2/pjm-v21-n2-p14-p.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "nonlinear-loop-gain-composition-stability",
+      "group": 19,
+      "related_keys": [
+        "lyapunov-descent-stabilizing-control",
+        "passive-port-interconnection-energy-cancellation",
+        "negative-feedback"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "내부 공급 에너지 상쇄나 단일 저장함수의 감소 대신 각 계의 비선형 입력·상태 경계를 합성해 되먹임 증폭을 제한하는 연결 조건이다.",
+      "source_url": "https://web.ece.ucsb.edu/~teel/ECE236/jiang-teel-praly-1994",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "coordinated-interference-subspace-alignment",
+      "group": 19,
+      "related_keys": [
+        "mimo-spatial-multiplexing",
+        "decoded-waveform-successive-cancellation",
+        "known-state-dirty-paper-precoding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "수신 후 복호 파형을 차감하거나 한 링크의 공간 채널을 분리하는 대신 여러 수신점에서 간섭끼리 같은 공간을 차지하도록 송신 방향들을 공동 구성한다.",
+      "source_url": "https://web.mit.edu/6.454/www/papers/cadambe_jafar_interf_alignment.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "distributed-random-bin-joint-typical-decoding",
+      "group": 19,
+      "related_keys": [
+        "arithmetic-entropy-coding",
+        "error-correcting-code",
+        "intermediate-node-network-coding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "서로 원자료를 모르는 분산 부호기와 공동 복호기의 상관 정보가 핵심이다. 단일 확률구간 압축·채널 오류 복구·중간 노드의 흐름 결합과 다른 부호화 제약을 해결한다.",
+      "source_url": "https://isl.stanford.edu/people/cover/papers/transIT/0226cove.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "dominant-singularity-taylor-coefficient-transfer",
+      "group": 19,
+      "related_keys": [
+        "laurent-residue-contour-integral-reduction",
+        "complex-saddle-steepest-descent-asymptotics",
+        "indicial-root-frobenius-singular-series"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "지배 분기 특이점의 국소 성장에서 멱급수 계수의 점근 크기를 전이한다. 고립 극점 잔여계수의 정확 적분이나 미분방정식의 지표근 계산과 목표·조건이 다르다.",
+      "source_url": "https://algo.inria.fr/flajolet/Publications/FlOd90b.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "positive-moment-preserving-support-compression",
+      "group": 19,
+      "related_keys": [
+        "orthogonal-polynomial-node-gaussian-quadrature",
+        "moment-constrained-empirical-likelihood-reweighting"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이미 주어진 다차원 점 중 일부를 선택하고 정확 적률을 유지하는 양의 희소 표현이다. 새 직교다항식 영점을 정하는 구적이나 질량 곱을 최대화하는 경험우도와 다르다.",
+      "source_url": "https://arxiv.org/pdf/1611.02065",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "renormalized-orbit-separation-lyapunov-growth",
+      "group": 19,
+      "related_keys": [
+        "time-delay-coordinate-dynamical-embedding",
+        "transverse-first-return-dynamical-map",
+        "lyapunov-descent-stabilizing-control"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "불안정한 성장으로 간격이 포화되기 전에 크기를 재설정하고 누적 로그 팽창률을 측정한다. 시계열 상태 복원·귀환 차원 축약·리아푸노프 함수 제어와 다르다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevA.14.2338/fulltext",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

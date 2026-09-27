@@ -1,0 +1,2849 @@
+{
+  "status": "IN_PROGRESS",
+  "scope": "INFORMATION/statistical/computational mechanisms",
+  "baseline_effects": 1500,
+  "baseline_information_effects": 205,
+  "baseline_catalog_sha256": "e52d3245e66e745929f36de4504fc8fd060b0fe20fb9d4b87577ec16d29d1b6c",
+  "inference_mode": "conversation_only",
+  "external_llm_calls": 0,
+  "central_catalog_modified_by_agent": false,
+  "comparison_method": "Read all baseline keys and informational principles; inspect nearest mechanisms and explicit transforms. Structural schema checks do not prove all-pairs semantic independence.",
+  "existing_reviews": [
+    {
+      "decision": "MERGE_RECOMMENDED_AFTER_GENERALIZING_REPRESENTATIVE",
+      "keys": [
+        "cross-channel-predictive-coding",
+        "spatial-intra-prediction",
+        "autoregressive-linear-prediction"
+      ],
+      "target": "autoregressive-linear-prediction",
+      "reason": "Same predictor-and-residual operation; reference axis changes between channel, spatial neighbors, and time. Generalize representative before merging.",
+      "required_rewrite": "Generalize title, principle, and conditions to correlated-reference prediction plus residual coding; preserve names, IDs, and references.",
+      "net_reduction_if_accepted": 2,
+      "confidence": "high",
+      "original_rows": [
+        {
+          "group": 19,
+          "row": "cross-channel-predictive-coding|채널 간 예측에 의한 오디오 중복 감소|한 오디오 채널이나 공통 성분으로 다른 채널을 예측하고 예측 오차를 전송하면 채널 사이 상관에 따른 중복을 줄일 수 있다.|상관·예측 계수·잔차 표현 비용에 따라 이득이 달라진다. 영상 움직임 보상과 예측 원리를 공유하지만 공간 변위 대신 동시 오디오 채널 관계를 이용한다.|manual600-cross-channel-predictive-coding"
+        },
+        {
+          "group": 19,
+          "row": "spatial-intra-prediction|동일 영상의 주변 화소를 이용한 블록 예측|같은 영상에서 이미 복원된 주변 화소를 이용해 현재 블록을 예측하고 실제 값과의 잔차를 표현하면 공간적 중복을 줄일 수 있다.|예측 방향·참조 가능성·경계·복원 규칙이 일치해야 한다. 질감·불연속에서는 잔차가 커질 수 있다. 다른 시점 영상을 참조하는 움직임 보상과 구분한다.|manual-final-spatial-intra-prediction"
+        },
+        {
+          "group": 19,
+          "row": "autoregressive-linear-prediction|과거 표본의 선형 결합에 의한 신호 예측·합성|현재 신호를 이전 표본들의 가중 합으로 예측하고 계수와 잔차·여기 신호를 표현하면 시간적 상관을 이용해 신호를 압축하거나 재귀 필터로 합성할 수 있다.|차수·분석 구간·계수 추정·필터 안정성·양자화 오차를 확인한다. 비정상 신호에는 짧은 구간 적응이 필요하다. 서로 다른 채널을 예측하는 공간 중복 제거와 구별한다.|manual-final-autoregressive-linear-prediction"
+        }
+      ]
+    },
+    {
+      "decision": "KEEP_DISTINCT",
+      "keys": [
+        "phase-locked-oscillator-synchronization",
+        "negative-feedback",
+        "lock-in-detection"
+      ],
+      "reason": "KEEP: phase detector and controlled oscillator introduce acquisition/tracking dynamics distinct from generic feedback or known-reference estimation.",
+      "parent_criterion_applied": true,
+      "original_rows": [
+        {
+          "group": 19,
+          "row": "phase-locked-oscillator-synchronization|위상 오차 피드백에 의한 발진기 동기|기준 신호와 발진기 출력의 위상 차를 검출하고 필터를 거쳐 발진 주파수를 조절하면 오차를 제한하는 잠금 상태에 도달할 수 있다.|획득 범위·루프 안정성·대역폭·분주비·잡음을 함께 평가한다. 음의 피드백의 발진 위상 제어 하위 방식이며 기준열 상관 검출이나 발진 생성 자체와 구분한다.|manual-final-phase-locked-oscillator-synchronization"
+        },
+        {
+          "group": 19,
+          "row": "negative-feedback|음의 피드백과 변화율 제동|목표와 측정값의 오차를 되돌려 입력을 보정한다. 측정량 변화율을 사용하는 제동도 피드백 구현이며 급격한 변화를 억제할 수 있다.|관측·구동 가능성·안정성·지연·포화·잡음을 확인한다. 변화율 기반 구현은 표본 간격·미분 필터·문턱을 평가하며 문턱 제어를 완전한 PID와 동일시하지 않는다.|feedback"
+        },
+        {
+          "group": 19,
+          "row": "lock-in-detection|동기 검파|기준 신호와 곱한 뒤 저역 통과시켜 같은 주파수·위상 성분을 추출한다.|기준 동기와 충분한 관측 시간 필요. 같은 대역의 잡음은 남으며 과입력 방지 필요.|lockin"
+        }
+      ]
+    },
+    {
+      "decision": "REVIEW_POSSIBLE_DUPLICATE_NOT_AUTOMATIC_MERGE",
+      "keys": [
+        "quadrature-carrier-channel-separation",
+        "lock-in-detection"
+      ],
+      "target": "lock-in-detection",
+      "reason": "REVIEW ONLY: quadrature uses two synchronous projections; preserve orthogonality/channel separation conditions before deciding equivalence.",
+      "confidence": "medium",
+      "original_rows": [
+        {
+          "group": 19,
+          "row": "quadrature-carrier-channel-separation|직교 반송파 투영에 의한 두 채널 분리|같은 주파수의 사인·코사인처럼 서로 직교하는 기준에 두 신호를 싣고 수신 신호를 각 기준에 투영하면 두 진폭 성분을 분리할 수 있다. 서로 다른 광원 측정에도 적용할 수 있다.|충분한 관측 시간·주파수·위상 동기와 진폭 보정이 필요하다. 직교 오차는 채널 누설을 만든다. 힐베르트 변환으로 해석 신호를 구성하는 과정과 구분하며 동기 검파를 이용한다.|manual-final-quadrature-carrier-channel-separation"
+        },
+        {
+          "group": 19,
+          "row": "lock-in-detection|동기 검파|기준 신호와 곱한 뒤 저역 통과시켜 같은 주파수·위상 성분을 추출한다.|기준 동기와 충분한 관측 시간 필요. 같은 대역의 잡음은 남으며 과입력 방지 필요.|lockin"
+        }
+      ]
+    },
+    {
+      "decision": "KEEP_DISTINCT",
+      "keys": [
+        "state-estimation",
+        "weighted-particle-sequential-state-filtering"
+      ],
+      "reason": "KEEP: generic state estimation does not specify importance weighting and particle resampling.",
+      "original_rows": [
+        {
+          "group": 19,
+          "row": "state-estimation|상태 추정|동역학 모델과 잡음이 있는 측정값을 결합해 직접 보이지 않는 상태를 추정한다.|관측 가능한 모델과 잡음 가정 필요. 모델 불일치·편향·비선형성 고려.|kalman"
+        },
+        {
+          "group": 19,
+          "row": "weighted-particle-sequential-state-filtering|가중 입자 전파·재표집의 상태 추정|상태 분포를 표본 입자로 나타내고 동역학 전파와 관측 우도 가중을 반복하며 재표집으로 가중치 집중을 완화한다.|입자 수·제안 분포·차원·표본 소실·유효 표본수·관측 모형을 확인한다.|research-20260926-weighted-particle-sequential-state-filtering"
+        }
+      ]
+    },
+    {
+      "decision": "KEEP_DISTINCT",
+      "keys": [
+        "error-correcting-code",
+        "quantum-syndrome-error-correction"
+      ],
+      "reason": "KEEP: commuting quantum syndromes and no-cloning constraints differ from classical redundancy.",
+      "original_rows": [
+        {
+          "group": 19,
+          "row": "error-correcting-code|오류 정정 부호|중복 정보를 부호화해 전송·저장 중의 일부 오류를 검출·복구한다.|오류 모델에 맞는 부호·복호기 필요. 복구 한계·부호율·지연 고려.|ecc"
+        },
+        {
+          "group": 19,
+          "row": "quantum-syndrome-error-correction|논리 상태를 보존하는 양자 오류 증후 판독|논리 정보를 여러 자유도에 부호화하고 논리값을 직접 읽지 않는 증후 측정으로 오류를 추론·보정하면 양자 결맞음을 보호할 수 있다.|오류 모형·게이트·측정·디코딩·임계 조건을 확인한다. 부호화 자체가 항상 수명을 늘리지는 않는다.|research-20260926-quantum-syndrome-error-correction"
+        }
+      ]
+    },
+    {
+      "decision": "KEEP_DISTINCT",
+      "keys": [
+        "low-rank-matrix-completion",
+        "singular-spectrum-low-rank-projection"
+      ],
+      "reason": "KEEP: missing-entry constraints differ from complete-matrix singular-value truncation.",
+      "original_rows": [
+        {
+          "group": 19,
+          "row": "low-rank-matrix-completion|저랭크 제약의 결측 행렬 복원|행렬의 자유도가 낮은 랭크 구조에 묶여 있으면 관측된 원소를 만족하는 저랭크 행렬을 찾아 미관측 원소를 추정할 수 있다.|관측 패턴·비정렬성·랭크·잡음을 확인한다. 임의 결측이나 전체 행 누락의 정확 복원은 보장되지 않는다.|research-20260926-low-rank-matrix-completion"
+        },
+        {
+          "group": 19,
+          "row": "singular-spectrum-low-rank-projection|특이값 절단에 의한 저차원 투영|관측 행렬을 직교 성분으로 분해하고 큰 특이값에 해당하는 성분을 남겨 제한된 차원의 근사를 얻는다.|중심화·척도·선택 계수·잡음과 신호의 구분을 확인한다. 큰 분산이 항상 중요한 의미는 아니다.|research-20260926-singular-spectrum-low-rank-projection"
+        }
+      ]
+    },
+    {
+      "decision": "KEEP_DISTINCT",
+      "keys": [
+        "reference-channel-common-mode-rejection",
+        "known-mean-correlated-control-variate"
+      ],
+      "reason": "KEEP: physical reference sensing differs from an auxiliary random variable with known expectation.",
+      "original_rows": [
+        {
+          "group": 19,
+          "row": "reference-channel-common-mode-rejection|기준 경로와의 차분에 의한 공통 잡음 제거|관심 신호 경로와 기준 경로에 공통으로 들어오는 성분을 맞추어 차분하면 공통 잡음을 줄이면서 두 경로의 차이 성분을 남길 수 있다.|이득·위상·지연의 일치와 기준 경로의 신호 누설을 확인한다. 동기검파나 연선 배치와 다른 신호 처리이며 상관이 낮은 잡음은 차분으로 제거되지 않는다.|manual-final-reference-channel-common-mode-rejection"
+        },
+        {
+          "group": 19,
+          "row": "known-mean-correlated-control-variate|알려진 평균의 상관 보조량으로 표집 분산 감소|평균을 아는 보조량의 표본 편차를 목표량에서 적절히 빼면 기댓값을 유지하면서 상관된 표집 요동을 상쇄할 수 있다.|알려진 평균의 정확성·상관·계수 선택·유한 분산·같은 표본으로 계수를 맞출 때의 편향을 확인한다.|research-20260926-known-mean-correlated-control-variate"
+        }
+      ]
+    }
+  ],
+  "new_source_records": [
+    {
+      "key": "schur-complement-block-elimination",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Boyd and Vandenberghe · Convex Optimization, Appendix C.4.2",
+      "url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Boyd Appendix C.4.2 gives Schur complement block elimination.",
+      "related_keys": [
+        "krylov-subspace-residual-solution",
+        "discrete-static-equilibrium-solving"
+      ],
+      "mechanism_boundary": "크릴로프 반복의 부분공간 탐색과 달리 블록 대입으로 변수 자체를 제거한다. 구조 평형의 응용별 재명명이 아닌 일반 선형 소거 연산이다."
+    },
+    {
+      "key": "householder-reflection-triangular-factorization",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "LAPACK Users' Guide · QR Factorization",
+      "url": "https://netlib.org/lapack/lug/node69.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "LAPACK describes Householder reflector H=I-tau*v*vT for QR.",
+      "related_keys": [
+        "singular-spectrum-low-rank-projection",
+        "krylov-subspace-residual-solution"
+      ],
+      "mechanism_boundary": "특이값 절단의 차원 축소와 달리 직교 반사로 모든 정보를 보존하며 삼각계를 만든다. 피벗·블록 구현은 추가 계수하지 않는다."
+    },
+    {
+      "key": "imaginary-perturbation-complex-step-derivative",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "MDO Lab · A Guide to the Complex-Step Derivative Approximation",
+      "url": "https://mdolab.engin.umich.edu/wiki/guide-complex-step-derivative-approximation",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "MDOLab derives imaginary perturbation derivative without subtractive cancellation.",
+      "related_keys": [
+        "reverse-mode-chain-rule-gradient",
+        "step-size-leading-error-extrapolation"
+      ],
+      "mechanism_boundary": "역방향 연쇄법칙이나 여러 보폭의 오차 상쇄 대신 복소 함수 평가의 허수 성분을 읽는다."
+    },
+    {
+      "key": "symplectic-discrete-flow-preservation",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Ernst Hairer · Geometric Numerical Integration, Lecture 2 §§1–2",
+      "url": "https://www.unige.ch/~hairer/poly_geoint/week2.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Hairer geometric integration notes give symplectic maps and preservation conditions.",
+      "related_keys": [
+        "dynamic-system-identification",
+        "discrete-static-equilibrium-solving"
+      ],
+      "mechanism_boundary": "동역학 계수 추정이나 정적 평형 풀이가 아니라 이산 시간 사상이 보존해야 할 위상공간 구조를 강제한다."
+    },
+    {
+      "key": "noncommuting-subflow-operator-splitting",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Ernst Hairer · Geometric Numerical Integration, Lecture 2 §5",
+      "url": "https://www.unige.ch/~hairer/poly_geoint/week2.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Hairer splitting section composes individually solvable subflows.",
+      "related_keys": [
+        "augmented-lagrangian-splitting-coordination",
+        "symplectic-discrete-flow-preservation"
+      ],
+      "mechanism_boundary": "목적함수를 나누는 ADMM과 달리 시간 진화 연산자를 합성한다. 비해밀턴 문제에도 쓰이며 심플렉틱 보존은 별도 조건이다."
+    },
+    {
+      "key": "log-slack-interior-barrier-optimization",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Boyd and Vandenberghe · Convex Optimization, Chapter 11",
+      "url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Boyd Chapter 11 defines logarithmic barrier and central path.",
+      "related_keys": [
+        "barrier-function-safe-set-invariance",
+        "tangent-linearized-newton-root-iteration"
+      ],
+      "mechanism_boundary": "제어 장벽은 동역학의 안전 집합 불변성을 제한한다. 여기서는 제약 여유에 대한 발산 벌점으로 정적 최적화의 내부 경로를 만든다."
+    },
+    {
+      "key": "proximal-distance-penalized-resolvent",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Parikh and Boyd · Proximal Algorithms, §§1.1, 6.5",
+      "url": "https://web.stanford.edu/~boyd/papers/pdf/prox_algs.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Boyd proximal monograph defines penalty-plus-squared-distance minimizer.",
+      "related_keys": [
+        "augmented-lagrangian-splitting-coordination",
+        "total-variation-edge-preserving-regularization"
+      ],
+      "mechanism_boundary": "TV는 벌점의 선택이고 ADMM은 분할·쌍대 조정 구조이다. 이 항목은 제곱 거리와 원함수의 최소화를 푸는 근접 사상이며 소프트 문턱 변형은 묶는다."
+    },
+    {
+      "key": "linear-oracle-feasible-convex-combination",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Martin Jaggi · Revisiting Frank-Wolfe: Projection-Free Sparse Convex Optimization, Algorithm 1",
+      "url": "https://proceedings.mlr.press/v28/jaggi13.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Jaggi Algorithm 1 uses a linear minimization oracle and feasible convex interpolation.",
+      "related_keys": [
+        "bregman-geometry-mirror-descent",
+        "coordinatewise-local-search"
+      ],
+      "mechanism_boundary": "거리 투영이나 한 좌표 시험 대신 전체 실행 가능 집합의 선형 오라클과 볼록 결합을 사용한다."
+    },
+    {
+      "key": "separating-halfspace-localization-cuts",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Stephen Boyd · Localization and Cutting-plane Methods",
+      "url": "https://see.stanford.edu/materials/lsocoee364b/05-localization_methods_slides.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Stanford localization slides show feasible-region intersections with separating cuts.",
+      "related_keys": [
+        "branch-bound-relaxation-pruning",
+        "bregman-geometry-mirror-descent"
+      ],
+      "mechanism_boundary": "가지별 상한·하한 비교로 분기를 버리는 대신 한 영역에 유효 부등식을 계속 추가한다. 쌍대적인 열 생성은 별도 신규 수로 세지 않는다."
+    },
+    {
+      "key": "ordered-boolean-cofactor-dag-reduction",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Randal Bryant · Graph-Based Algorithms for Boolean Function Manipulation, §2",
+      "url": "https://www.cs.cmu.edu/~bryant/pubdir/ieeetc86.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Bryant paper reduces equivalent ordered Boolean decision subgraphs.",
+      "related_keys": [
+        "complementary-clause-resolution-refutation",
+        "temporal-product-state-model-checking"
+      ],
+      "mechanism_boundary": "절을 해소해 반박하거나 상태 경로를 검사하는 대신 불 함수 자체를 여인수 분기와 그래프 공유로 정규화한다."
+    },
+    {
+      "key": "function-congruence-equivalence-closure",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Nelson and Oppen · Fast Decision Procedures Based on Congruence Closure, §2",
+      "url": "https://web.eecs.umich.edu/~weimerw/2006-615/reading/nelson-oppen-congruence.pdf",
+      "retrieval_scope": "stored_search_excerpt",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Primary-paper search excerpt from section 2 defines congruence closure; direct PDF retrieval failed.",
+      "related_keys": [
+        "syntactic-term-variable-unification",
+        "representative-path-compression-set-union"
+      ],
+      "mechanism_boundary": "변수 치환을 찾는 구문 통일과 다르며 단순 집합 병합에 함수 인수의 합동성 추론을 더한다. 검색에 보존된 원문 §2 발췌 범위이다."
+    },
+    {
+      "key": "s-polynomial-leading-term-ideal-closure",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "SageMath · Educational versions of Groebner basis algorithms",
+      "url": "https://doc.sagemath.org/html/en/reference/polynomial_rings/sage/rings/polynomial/toy_buchberger.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Sage toy Buchberger reference implements S-polynomial remainder and leading-ideal closure.",
+      "related_keys": [
+        "complementary-clause-resolution-refutation",
+        "homotopy-continuous-solution-path-tracking"
+      ],
+      "mechanism_boundary": "불 절 반박이나 수치 해 경로 추적과 달리 다항식 아이디얼을 보존하는 S-다항식 환원·추가를 수행한다."
+    },
+    {
+      "key": "unimodular-lattice-basis-shortening",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Lenstra, Lenstra and Lovász · Factoring Polynomials with Rational Coefficients, §1",
+      "url": "https://ir.cwi.nl/pub/9304/9304D.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original LLL paper section 1 describes size reduction and lattice basis swaps.",
+      "related_keys": [
+        "singular-spectrum-low-rank-projection",
+        "nearest-neighbor-retrieval"
+      ],
+      "mechanism_boundary": "실수 공간의 저랭크 투영과 달리 정수 격자를 그대로 보존하는 기저 변경이다. 차원을 버리지 않으며 최근접 항목을 직접 반환하는 연산도 아니다."
+    },
+    {
+      "key": "euclidean-remainder-gcd-descent",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Victor Shoup · A Computational Introduction to Number Theory and Algebra, §§4.1–4.3",
+      "url": "https://www.shoup.net/ntb/ntb-v2_0.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Shoup number theory text presents Euclidean quotient-remainder descent.",
+      "related_keys": [
+        "coprime-residue-chinese-remainder-reconstruction"
+      ],
+      "mechanism_boundary": "여러 나머지에서 원수를 재구성하는 CRT와 달리 나눗셈 나머지로 공약수 불변량을 축소한다. 정수·다항식 구현은 묶는다."
+    },
+    {
+      "key": "modular-square-chain-compositeness-witness",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Victor Shoup · A Computational Introduction to Number Theory and Algebra, §10.2",
+      "url": "https://www.shoup.net/ntb/ntb-v2_0.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Shoup section 10.2 gives repeated modular squaring primality witnesses.",
+      "related_keys": [
+        "coprime-residue-chinese-remainder-reconstruction",
+        "deterministic-pseudorandom-generation"
+      ],
+      "mechanism_boundary": "나머지 재구성이나 난수 생성이 아니라 소수의 대수적 제곱근 조건을 위반하는 증인을 찾는다."
+    },
+    {
+      "key": "random-field-evaluation-polynomial-identity-test",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Arora and Barak · Computational Complexity, Appendix A, Lemma A.36",
+      "url": "https://www.cs.cmu.edu/afs/cs/academic/class/15750-s09/www/Handouts/ab_appendixchap.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Arora-Barak appendix Lemma A.36 states random field evaluation identity bound.",
+      "related_keys": [
+        "random-projection-distance-preservation",
+        "zero-knowledge-proof"
+      ],
+      "mechanism_boundary": "거리 보존 사영이나 비밀 증명과 달리 다항식 영점의 차수 상한으로 무작위 수치 지문의 오류율을 제한한다."
+    },
+    {
+      "key": "gaussian-screened-real-reciprocal-summation",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "GROMACS Reference Manual · Long Range Electrostatics, Ewald summation",
+      "url": "https://manual.gromacs.org/current/reference-manual/functions/long-range-electrostatics.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "GROMACS reference gives erfc real-space, Gaussian reciprocal-space, and self correction terms.",
+      "related_keys": [
+        "multipole-local-expansion-interaction-summation",
+        "transform-domain-convolution"
+      ],
+      "mechanism_boundary": "다중극 계층 근사와 달리 가우스 항을 더하고 빼 두 공간의 수렴을 동시에 개선한다. 입자 메시 구현은 같은 분할 원리로 묶는다."
+    },
+    {
+      "key": "constraint-support-domain-pruning",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Poole and Mackworth · Artificial Intelligence: Foundations of Computational Agents, §4.3",
+      "url": "https://artint.info/3e/html/ArtInt3e.Ch4.S3.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Poole-Mackworth section 4.3 removes domain values with no supporting compatible value.",
+      "related_keys": [
+        "branch-bound-relaxation-pruning",
+        "complementary-clause-resolution-refutation"
+      ],
+      "mechanism_boundary": "목적함수 경계로 분기를 버리거나 절을 도출하는 대신 제약을 지지할 값의 부재로 변수 도메인을 줄인다."
+    },
+    {
+      "key": "inertial-extrapolated-gradient-acceleration",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "Su, Boyd and Candès · A Differential Equation for Modeling Nesterov's Accelerated Gradient Method, §1",
+      "url": "https://papers.nips.cc/paper/5322-a-differential-equation-for-modeling-nesterovs-accelerated-gradient-method-theory-and-insights.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Su-Boyd-Candes section 1 gives accelerated iteration using previous-iterate extrapolation.",
+      "related_keys": [
+        "bregman-geometry-mirror-descent",
+        "coordinatewise-local-search"
+      ],
+      "mechanism_boundary": "거리 기하 선택이나 한 좌표 시험과 달리 이전 갱신 방향의 기억과 외삽점을 사용한다. 모멘텀의 계수별 변형은 추가 계수하지 않는다."
+    },
+    {
+      "key": "model-agreement-trust-region-update",
+      "batch": "additions-2026-09-27-information-01.tsv",
+      "source_title": "SciPy · Least-squares common routines, update_tr_radius",
+      "url": "https://raw.githubusercontent.com/scipy/scipy/main/scipy/optimize/_lsq/common.py",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "SciPy update_tr_radius compares actual and predicted reduction to change trust radius.",
+      "related_keys": [
+        "tangent-linearized-newton-root-iteration",
+        "coordinatewise-local-search"
+      ],
+      "mechanism_boundary": "뉴턴 선형화 방향을 무조건 적용하는 대신 예측과 관측의 일치도로 허용 탐색 영역을 제어한다. 근사식 풀이 알고리즘별로 나누지 않는다."
+    },
+    {
+      "key": "envelope-ratio-rejection-sampling",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "Art Owen · Monte Carlo theory, methods and examples, §4.7 Algorithm 4.5",
+      "url": "https://artowen.su.domains/mc/Ch-nonunifrng.pdf",
+      "retrieval_scope": "stored_search_excerpt",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Owen Algorithm 4.5 search excerpt gives f<=c*g and acceptance U<=f(Y)/(c*g(Y)); direct PDF returned 403.",
+      "related_keys": [
+        "importance-density-ratio-sampling",
+        "detailed-balance-markov-sampling"
+      ],
+      "mechanism_boundary": "가중치를 붙여 기대값을 보정하거나 이전 상태에서 전이하는 대신 독립 제안의 수락 여부로 실제 표본 분포를 바꾼다. 공개 검색의 알고리즘 발췌 범위이다."
+    },
+    {
+      "key": "stratum-mass-weighted-sampling",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "Art Owen · Monte Carlo theory, methods and examples, §8.4",
+      "url": "https://artowen.su.domains/mc/Ch-var-basic.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Owen section 8.4 partitions the domain into strata of known probability and combines conditional samples.",
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "importance-density-ratio-sampling"
+      ],
+      "mechanism_boundary": "독립 추출 횟수만 늘리는 대신 층마다 출현 횟수를 제어한다. 연속 밀도 비율의 사후 가중과 다른 표본 배정 연산이다."
+    },
+    {
+      "key": "antithetic-measure-preserving-sample-pairing",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "Art Owen · Monte Carlo theory, methods and examples, §8.2",
+      "url": "https://artowen.su.domains/mc/Ch-var-basic.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Owen section 8.2 pairs symmetry-related inputs; variance reduction requires negative correlation.",
+      "related_keys": [
+        "known-mean-correlated-control-variate",
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "mechanism_boundary": "기대값이 알려진 별도 보조함수를 빼는 대신 표적 함수 자체를 음의 상관 표본쌍에서 평가한다."
+    },
+    {
+      "key": "conditional-expectation-randomness-removal",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "Art Owen · Monte Carlo theory, methods and examples, §8.7",
+      "url": "https://artowen.su.domains/mc/Ch-var-basic.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Owen section 8.7 uses exact conditional expectation and total variance decomposition.",
+      "related_keys": [
+        "known-mean-correlated-control-variate",
+        "weighted-particle-sequential-state-filtering"
+      ],
+      "mechanism_boundary": "상관 보조량의 선형 차감이나 입자 재추출과 달리 한 확률 성분을 조건부 적분으로 직접 제거한다."
+    },
+    {
+      "key": "leave-one-out-jackknife-bias-correction",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "Astropy · astropy.stats.jackknife source and documentation",
+      "url": "https://docs.astropy.org/en/stable/_modules/astropy/stats/jackknife.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Astropy source constructs every one-observation-deleted sample and computes bias and standard error.",
+      "related_keys": [
+        "empirical-bootstrap-resampling-distribution",
+        "parameter-sensitivity-measurement-prioritization"
+      ],
+      "mechanism_boundary": "복원 추출로 경험 분포를 재표본화하는 대신 각 관측을 정확히 한 번씩 삭제해 영향과 선도 편향을 계산한다."
+    },
+    {
+      "key": "exchangeable-label-permutation-null-distribution",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "SciPy · scipy.stats.permutation_test, Notes",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.permutation_test.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "SciPy Notes define null-specific label and pairing permutations and exchangeability requirements.",
+      "related_keys": [
+        "empirical-bootstrap-resampling-distribution",
+        "sequential-likelihood-ratio-stopping"
+      ],
+      "mechanism_boundary": "관측값을 복원 재추출하지 않고 귀무가설이 허용하는 표지·대응의 대칭 변환으로 기준 분포를 만든다."
+    },
+    {
+      "key": "risk-set-product-limit-survival-estimation",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "Terry Therneau · A package for survival analysis in R, §§2.1, 5.2",
+      "url": "https://cran.r-project.org/web/packages/survival/vignettes/survival.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Survival vignette sections 2.1 and 5.2 construct the Kaplan-Meier product from changing risk sets.",
+      "related_keys": [
+        "extreme-value-tail-estimation",
+        "bayesian-network-inference"
+      ],
+      "mechanism_boundary": "극값 외삽이나 사후 확률 갱신이 아니라 시점마다 달라지는 위험 집합의 조건부 생존율을 곱한다."
+    },
+    {
+      "key": "relative-risk-set-partial-likelihood",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "D. R. Cox · Regression Models and Life-Tables, Summary",
+      "url": "https://academic.oup.com/jrsssb/article/34/2/187/7027194",
+      "retrieval_scope": "publisher_abstract",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Publisher Summary describes covariate relative risk times unspecified baseline hazard and conditional likelihood.",
+      "related_keys": [
+        "risk-set-product-limit-survival-estimation",
+        "supervised-learning"
+      ],
+      "mechanism_boundary": "생존 비율을 곱해 곡선을 얻는 대신 위험 집합 내 조건부 상대 확률로 미지의 공통 시간 함수를 소거한다."
+    },
+    {
+      "key": "joint-norm-adaptive-mean-shrinkage",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "James and Stein · Estimation with Quadratic Loss, estimator (19)",
+      "url": "https://www.math.tau.ac.il/~yekutiel/eBayes/james_stein_1961.pdf",
+      "retrieval_scope": "stored_search_excerpt",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original James-Stein paper search excerpt contains shrinkage estimator (19); direct PDF retrieval timed out.",
+      "related_keys": [
+        "gaussian-process-covariance-conditioning",
+        "proximal-distance-penalized-resolvent"
+      ],
+      "mechanism_boundary": "자료 전체의 크기에서 수축량을 정하는 빈도주의 공동 위험 개선이다. 사후 공분산 조건화나 고정 벌점의 근접 연산과 동일시하지 않는다."
+    },
+    {
+      "key": "copula-uniform-marginal-dependence-coupling",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "statsmodels · CopulaDistribution.rvs, Notes",
+      "url": "https://www.statsmodels.org/stable/generated/statsmodels.distributions.copula.api.CopulaDistribution.rvs.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official CopulaDistribution.rvs Notes use copula uniforms followed by marginal inverse CDF transforms.",
+      "related_keys": [
+        "bayesian-network-inference",
+        "invertible-jacobian-density-transformation"
+      ],
+      "mechanism_boundary": "조건부 확률 그래프나 학습된 전체 가역 변환과 달리 균등 주변 좌표의 의존성과 개별 주변분포를 분리해 결합한다."
+    },
+    {
+      "key": "capture-overlap-unseen-population-estimation",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "Manly, McDonald and Amstrup · Handbook of Capture-Recapture Analysis, Introduction",
+      "url": "https://www.usgs.gov/publications/introduction-handbook",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "USGS handbook introduction explains marked-recapture overlap ratio and unseen population estimation.",
+      "related_keys": [
+        "hash-extreme-statistic-cardinality",
+        "reservoir-stream-uniform-sampling"
+      ],
+      "mechanism_boundary": "해시 극값으로 관측된 고유 수를 세거나 흐름의 균등 표본을 유지하는 대신 두 표본의 개체 중첩률에서 미관측 모집단을 추정한다."
+    },
+    {
+      "key": "assignment-threshold-local-causal-discontinuity",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "Imbens and Lemieux · Regression Discontinuity Designs: A Guide to Practice",
+      "url": "https://scholar.harvard.edu/files/imbens/files/regression_discontinuity_designs_a_guide_to_practice.pdf",
+      "retrieval_scope": "stored_search_excerpt",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Author-paper search excerpts describe threshold assignment and local regression discontinuity; full PDF timed out.",
+      "related_keys": [
+        "instrument-induced-causal-identification",
+        "causal-graph-intervention-calculus"
+      ],
+      "mechanism_boundary": "외부 도구변수나 그래프 경로 소거 대신 알려진 배정 문턱과 양쪽 잠재결과 연속성이 식별의 근거이다. 원문 검색 발췌 범위로 기록한다."
+    },
+    {
+      "key": "parallel-trend-double-difference-identification",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "Callaway and Sant'Anna · Difference-in-Differences with Multiple Time Periods, §2",
+      "url": "https://arxiv.org/pdf/1803.09015",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Callaway-Sant Anna section 2 states conditional parallel trends and group-time treatment-effect identification.",
+      "related_keys": [
+        "causal-graph-intervention-calculus",
+        "reference-channel-common-mode-rejection"
+      ],
+      "mechanism_boundary": "센서 동시 공통모드의 차감과 달리 두 집단의 전후 변화와 반사실적 평행 추세로 인과 식별을 수행한다."
+    },
+    {
+      "key": "nonnegative-supermartingale-time-uniform-bound",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "Howard et al. · Time-uniform, nonparametric, nonasymptotic confidence sequences, §2",
+      "url": "https://arxiv.org/pdf/1810.08240",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Howard et al section 2 constructs nonnegative supermartingales from conditional MGF bounds; appendix explains mixtures.",
+      "related_keys": [
+        "sequential-likelihood-ratio-stopping",
+        "exchangeable-score-conformal-coverage"
+      ],
+      "mechanism_boundary": "두 단순 가설의 우도비 문턱과 달리 조건부 적률에서 초마팅게일을 구성해 모든 시점에 걸친 추정 오차를 제한한다."
+    },
+    {
+      "key": "distinct-tuple-symmetric-kernel-estimation",
+      "batch": "additions-2026-09-27-information-02.tsv",
+      "source_title": "John Duchi · Stats 300b Lecture 8: U-statistics, Definition 0.1",
+      "url": "https://web.stanford.edu/class/stats300b/ScribeNotes/2018/lecture-08.pdf",
+      "retrieval_scope": "stored_search_excerpt",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Stanford lecture Definition 0.1 averages a symmetric kernel over all subsets of distinct observations.",
+      "related_keys": [
+        "empirical-bootstrap-resampling-distribution",
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "mechanism_boundary": "같은 관측의 중복을 허용하는 재표본화와 달리 서로 다른 관측의 고정 크기 조합을 대칭화해 모수 함수의 불편성을 얻는다."
+    },
+    {
+      "key": "neighborhood-rank-median-filtering",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "SciPy · scipy.ndimage.median_filter, Notes",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official function notes define a footprint median and boundary extension.",
+      "related_keys": [
+        "linear-frequency-filtering",
+        "edge-adaptive-deblocking"
+      ],
+      "mechanism_boundary": "가중 합이나 경계별 선형 평활화 대신 이웃 값의 순위를 선택하는 비선형 연산이다."
+    },
+    {
+      "key": "structuring-element-morphological-extrema",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "SciPy · scipy.ndimage.grey_dilation, Notes",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.grey_dilation.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official morphology Notes define max of input plus structuring-element offsets.",
+      "related_keys": [
+        "neighborhood-rank-median-filtering",
+        "hierarchical-spatial-partition"
+      ],
+      "mechanism_boundary": "중앙 순위 선택이나 공간 검색 분할과 달리 구조 요소에 대한 극값·집합 포함을 계산한다. 이진·회색조와 조합별로 수를 늘리지 않는다."
+    },
+    {
+      "key": "log-spectrum-cepstral-convolution-separation",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "MathWorks · rceps, Algorithms and Echo Cancellation",
+      "url": "https://www.mathworks.com/help/signal/ref/rceps.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Algorithm is inverse FFT of log magnitude FFT; example removes delayed echo.",
+      "related_keys": [
+        "fourier-spectral-decomposition",
+        "transform-domain-convolution"
+      ],
+      "mechanism_boundary": "선형 기저 분해나 FFT 곱셈의 빠른 합성곱이 아니라 로그 비선형 변환으로 곱셈 혼합을 덧셈으로 바꾼다."
+    },
+    {
+      "key": "bilinear-lag-product-time-frequency-distribution",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "MathWorks · wvd, More About and Interference Terms",
+      "url": "https://www.mathworks.com/help/signal/ref/wvd.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official More About defines time-dependent delayed conjugate product and its Fourier transform; examples show negative cross terms.",
+      "related_keys": [
+        "wavelet-localized-multiresolution-decomposition",
+        "signal-correlation"
+      ],
+      "mechanism_boundary": "고정 기저와의 선형 내적 대신 신호 자체의 두 지연 값 곱을 변환한다. 창 종류나 평활화 변형은 같은 이차 분포 계열로 묶는다."
+    },
+    {
+      "key": "integer-cycle-consistent-phase-unwrapping",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "scikit-image · Phase Unwrapping",
+      "url": "https://scikit-image.org/docs/stable/auto_examples/filters/plot_phase_unwrap.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official example unwraps observations modulo 2*pi and explains disconnected masks and wrap-around connectivity.",
+      "related_keys": [
+        "intensity-constraint-phase-retrieval",
+        "interferometric-sensing"
+      ],
+      "mechanism_boundary": "진폭만으로 잃어버린 위상을 추정하는 대신 이미 측정된 나머지 위상의 정수 주기 모호성을 해결한다."
+    },
+    {
+      "key": "fourier-slice-filtered-backprojection",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "scikit-image · skimage.transform.iradon, Notes",
+      "url": "https://scikit-image.org/docs/stable/api/skimage.transform.html#skimage.transform.iradon",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "iradon Notes explicitly use Fourier slice theorem and frequency-filtered backprojection.",
+      "related_keys": [
+        "geophysical-inverse-reconstruction",
+        "fourier-spectral-decomposition"
+      ],
+      "mechanism_boundary": "일반적인 순방향 모형 오차 최소화와 달리 선적분의 절편 정리를 이용한 명시적 필터·역투영 역변환이다."
+    },
+    {
+      "key": "brightness-constancy-displacement-field-estimation",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "scikit-image · Registration using optical flow",
+      "url": "https://scikit-image.org/docs/stable/auto_examples/registration/plot_opticalflow.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official example defines flow by image1(x+u,y+v)=image0(x,y) and uses regularized flow.",
+      "related_keys": [
+        "motion-compensated-prediction",
+        "signal-correlation"
+      ],
+      "mechanism_boundary": "주어진 벡터로 참조 영상을 이동하는 연산과 달리 밝기 일치 제약에서 벡터장을 추정한다. 영상 정합 용도별로 분리하지 않는다."
+    },
+    {
+      "key": "marker-basin-flooding-watershed-segmentation",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "scikit-image · Watershed segmentation",
+      "url": "https://scikit-image.org/docs/stable/auto_examples/segmentation/plot_watershed.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official tutorial floods elevation basins from markers until fronts meet.",
+      "related_keys": [
+        "density-based-clustering",
+        "structuring-element-morphological-extrema"
+      ],
+      "mechanism_boundary": "거리 내 밀도 연결이나 고정 구조 요소의 극값 대신 높이 순서와 경쟁하는 시작 표지의 도달 영역으로 경계를 만든다."
+    },
+    {
+      "key": "linkage-ordered-hierarchical-cluster-merging",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "scikit-learn · Clustering, §2.3.6 Hierarchical clustering",
+      "url": "https://scikit-learn.org/stable/modules/clustering.html#hierarchical-clustering",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 2.3.6 starts singleton clusters and repeatedly merges by linkage costs.",
+      "related_keys": [
+        "density-based-clustering",
+        "normalized-laplacian-spectral-partition"
+      ],
+      "mechanism_boundary": "밀도 연결 확장이나 고유벡터 절단 대신 군집 쌍의 비용을 갱신하며 비가역 병합 계층을 만든다. 연결 비용별 변형은 묶는다."
+    },
+    {
+      "key": "kernel-neighborhood-mean-shift-mode-seeking",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "scikit-learn · MeanShift, algorithm description",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MeanShift.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official MeanShift describes updating moving centers to neighborhood means and removing duplicate centers.",
+      "related_keys": [
+        "density-based-clustering",
+        "self-organizing-neighborhood-map"
+      ],
+      "mechanism_boundary": "핵심점 연결이나 고정 격자 이웃 학습 대신 움직이는 이웃의 평균으로 밀도 모드를 추적한다. K-means의 고정 군집 배정과도 다르다."
+    },
+    {
+      "key": "impurity-minimizing-recursive-feature-partition",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "scikit-learn · Decision Trees, §1.10.7",
+      "url": "https://scikit-learn.org/stable/modules/tree.html#mathematical-formulation",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 1.10.7 selects feature-threshold splits by weighted impurity and recursively partitions.",
+      "related_keys": [
+        "supervised-learning",
+        "hierarchical-spatial-partition",
+        "ordered-boolean-cofactor-dag-reduction"
+      ],
+      "mechanism_boundary": "검색용 기하 분할이나 이미 주어진 논리 함수의 압축이 아니라 관측 표지의 손실 감소로 조건 분기를 선택한다."
+    },
+    {
+      "key": "margin-constrained-support-vector-separation",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "scikit-learn · Support Vector Machines, §1.4.7.1",
+      "url": "https://scikit-learn.org/stable/modules/svm.html#svc",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 1.4.7.1 gives margin constraints, slack penalties, quadratic norm objective, and support vectors.",
+      "related_keys": [
+        "implicit-feature-kernel-inner-product",
+        "supervised-learning"
+      ],
+      "mechanism_boundary": "암묵 특징의 내적 계산과 독립적으로 여유폭·위반량의 제약 최적화가 경계를 정한다. 커널별 분류기는 별도 계수하지 않는다."
+    },
+    {
+      "key": "loss-gradient-stagewise-function-boosting",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "scikit-learn · Gradient boosting, Mathematical formulation",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html#mathematical-formulation",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Gradient boosting formulation fits each new function to the negative gradient of current ensemble loss.",
+      "related_keys": [
+        "ensemble-classification",
+        "reverse-mode-chain-rule-gradient"
+      ],
+      "mechanism_boundary": "완성된 모델을 사후 투표하는 대신 현재 모델의 오차가 다음 모델의 학습 목표를 바꾼다. 약한 학습기 제품명·트리 구현별로 나누지 않는다."
+    },
+    {
+      "key": "shared-face-flux-conservative-volume-discretization",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "NIST FiPy · Finite Volume Method and Discretization",
+      "url": "https://pages.nist.gov/fipy/en/3.4.5/numerical/discret.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "NIST finite-volume discretization integrates over control volumes and approximates shared face fluxes.",
+      "related_keys": [
+        "discrete-static-equilibrium-solving",
+        "multiscale-property-upscaling"
+      ],
+      "mechanism_boundary": "평형 방정식의 일반 이산 해법 대신 체적별 적분과 공유 면의 상쇄로 보존 법칙을 구성한다."
+    },
+    {
+      "key": "green-kernel-boundary-integral-representation",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "Bempp Handbook · Green's Representation Theorem",
+      "url": "https://bempp.com/handbook/theory/greens_representation.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Green representation derives single/double layer boundary terms plus volume source term.",
+      "related_keys": [
+        "equivalent-domain-boundary-reuse",
+        "discrete-static-equilibrium-solving"
+      ],
+      "mechanism_boundary": "동등한 경계 조건의 결과를 재사용하는 대신 미분 방정식을 기본해와 경계 적분으로 변환하여 미지량의 차원을 줄인다."
+    },
+    {
+      "key": "implicit-zero-level-front-evolution",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "J. A. Sethian · Technical Explanation of Level Set Methods",
+      "url": "https://math.berkeley.edu/~sethian/2006/Semiconductors/ieee_level_set_explain_technical.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Originator technical page embeds moving front as zero set and derives level-set evolution.",
+      "related_keys": [
+        "basis-function-surface-reconstruction",
+        "shared-face-flux-conservative-volume-discretization"
+      ],
+      "mechanism_boundary": "고정 표면을 적합하거나 보존량을 셀에 저장하는 대신 영 준위 집합을 진화시켜 연결 위상 변화도 표현한다."
+    },
+    {
+      "key": "secant-gradient-curvature-matrix-update",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "SciPy · Hessian update strategy source, BFGS update formulas",
+      "url": "https://raw.githubusercontent.com/scipy/scipy/main/scipy/optimize/_hessian_update_strategy.py",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "SciPy source gives BFGS rank updates from delta_x and delta_grad with curvature safeguards.",
+      "related_keys": [
+        "tangent-linearized-newton-root-iteration",
+        "inertial-extrapolated-gradient-acceleration"
+      ],
+      "mechanism_boundary": "정확한 현재 미분으로 선형화하거나 이전 이동을 더하는 대신 기울기 변화가 만든 할선 제약으로 곡률 행렬을 학습한다."
+    },
+    {
+      "key": "approximate-inverse-linear-system-preconditioning",
+      "batch": "additions-2026-09-27-information-03.tsv",
+      "source_title": "Barrett et al. · Templates for the Solution of Linear Systems, Preconditioners",
+      "url": "https://www.netlib.org/utk/lsi/templatesLSI/TEMPLATES",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Netlib Templates explains approximate operators, transformed systems, convergence and construction/application tradeoff.",
+      "related_keys": [
+        "krylov-subspace-residual-solution",
+        "multigrid-scale-separated-error-correction"
+      ],
+      "mechanism_boundary": "반복 부분공간의 생성 규칙과 독립적으로 원래 선형계를 좌표·연산자 변환한다. 대각·불완전 분해 전처리 변형은 묶는다."
+    },
+    {
+      "key": "prepared-vote-two-phase-atomic-commit",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "PostgreSQL · PREPARE TRANSACTION and Two-Phase Transactions",
+      "url": "https://www.postgresql.org/docs/18/sql-prepare-transaction.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "PostgreSQL preparation durably saves transaction state; external coordinator completes after all participants prepare; locks remain while waiting.",
+      "related_keys": [
+        "distributed-barrier",
+        "byzantine-quorum-state-machine-agreement"
+      ],
+      "mechanism_boundary": "장벽의 도착 대기나 복제 상태 합의와 달리 각 참여자가 준비된 변경을 공통 확정 또는 취소하는 원자 완료 절차이다."
+    },
+    {
+      "key": "durable-log-before-data-replay-recovery",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "PostgreSQL · Write-Ahead Logging, §28.3",
+      "url": "https://www.postgresql.org/docs/current/wal-intro.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "WAL introduction requires log flush before data page writes and explains redo recovery.",
+      "related_keys": [
+        "retained-state-restoration",
+        "sequence-number-ordering"
+      ],
+      "mechanism_boundary": "완성 상태를 보존하는 대신 변경 로그의 선행 영속화 순서가 불완전 저장 상태의 복구를 보장한다."
+    },
+    {
+      "key": "version-visibility-snapshot-concurrency",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "PostgreSQL · Concurrency Control, Introduction",
+      "url": "https://www.postgresql.org/docs/18/mvcc-intro.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "MVCC introduction explains snapshot-visible data versions and read/write nonblocking behavior.",
+      "related_keys": [
+        "retained-state-restoration",
+        "cache-reuse-validation"
+      ],
+      "mechanism_boundary": "저장된 한 상태를 복원하거나 캐시 유효성을 확인하는 대신 같은 객체의 여러 버전 중 읽기 시점에 보이는 값을 선택한다."
+    },
+    {
+      "key": "read-write-set-optimistic-commit-validation",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "Kung and Robinson · On Optimistic Methods for Concurrency Control, §§2–3",
+      "url": "https://www.eecs.harvard.edu/~htk/publication/1981-tods-kung-robinson.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Kung-Robinson sections 2-3 separate local read/write copies, validation, and publication; conflicts cause restart.",
+      "related_keys": [
+        "version-visibility-snapshot-concurrency",
+        "cache-reuse-validation"
+      ],
+      "mechanism_boundary": "과거 버전 선택과 달리 읽기 이후의 간섭을 집합 교차로 검증하여 지역 변경의 공개 여부를 결정한다."
+    },
+    {
+      "key": "atomic-compare-exchange-conditional-update",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "Rust standard library · Atomic, compare_exchange",
+      "url": "https://doc.rust-lang.org/std/sync/atomic/struct.Atomic.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Rust compare_exchange combines equality check and atomic update; memory-order and ABA limitations are explicit.",
+      "related_keys": [
+        "read-write-set-optimistic-commit-validation",
+        "hardware-enforced-memory-isolation"
+      ],
+      "mechanism_boundary": "여러 객체의 후속 검증이 아니라 한 공유 값의 비교와 쓰기 자체를 분리 불가능한 연산으로 수행한다."
+    },
+    {
+      "key": "channel-marker-consistent-global-snapshot",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "Chandy and Lamport · Distributed Snapshots, §3.2",
+      "url": "https://lamport.azurewebsites.net/pubs/chandy.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Chandy-Lamport section 3.2 gives marker sending/receiving rules and records in-flight channel messages.",
+      "related_keys": [
+        "vector-clock-causal-partial-order",
+        "retained-state-restoration"
+      ],
+      "mechanism_boundary": "사건의 인과 순서만 표시하거나 지역 상태만 저장하는 대신 전송 중 메시지까지 포함하는 전역 단면을 표지 규칙으로 구성한다."
+    },
+    {
+      "key": "write-fault-triggered-shared-page-copy",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "MIT PDOS · Copy-on-Write Fork for xv6",
+      "url": "https://pdos.csail.mit.edu/6.1810/2024/labs/cow.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "MIT xv6 source lab marks shared pages readonly and handles first write fault by allocation, copy, remap.",
+      "related_keys": [
+        "hardware-enforced-memory-isolation",
+        "version-visibility-snapshot-concurrency"
+      ],
+      "mechanism_boundary": "접근을 차단하는 데 그치지 않고 쓰기 사건을 지연 복제의 계기로 사용한다. 데이터베이스 버전 가시성과는 다른 페이지 할당 연산이다."
+    },
+    {
+      "key": "zero-reference-count-resource-reclamation",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "Python C API · Reference Counting",
+      "url": "https://docs.python.org/3.11/extending/extending.html#reference-counting-in-python",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Python reference-count section increments/decrements owned references and deallocates at zero.",
+      "related_keys": [
+        "retained-state-restoration",
+        "write-fault-triggered-shared-page-copy"
+      ],
+      "mechanism_boundary": "상태를 보존하거나 공유하는 규칙이 아니라 국소 소유 참조 수의 영점을 해제 조건으로 사용한다."
+    },
+    {
+      "key": "root-reachability-tracing-garbage-reclamation",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "V8 · Concurrent marking, Background",
+      "url": "https://v8.dev/blog/concurrent-marking",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "V8 authors describe root traversal, marking, reclaiming unmarked objects, and write barrier requirement.",
+      "related_keys": [
+        "zero-reference-count-resource-reclamation",
+        "representative-path-compression-set-union"
+      ],
+      "mechanism_boundary": "각 객체의 참조 개수 대신 루트에서의 전역 도달성을 판정한다. 세대·동시 표시 구현별로 별도 계수하지 않는다."
+    },
+    {
+      "key": "idle-worker-task-stealing-load-balancing",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "Java API · ForkJoinPool, work-stealing description",
+      "url": "https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/concurrent/ForkJoinPool.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Java official class documentation describes idle pool workers executing tasks created by other active tasks.",
+      "related_keys": [
+        "queue-buffering",
+        "single-instruction-data-parallel-execution"
+      ],
+      "mechanism_boundary": "큐에 저장하거나 같은 명령을 여러 데이터에 적용하는 대신 유휴 실행자가 다른 실행자의 준비 과제를 능동적으로 재배정한다."
+    },
+    {
+      "key": "staged-register-overlapped-pipeline-execution",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "MIT 6.004 · Computation Structures, 7.1 Pipelining",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c7/c7s1/",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "MIT pipelining lecture explains stage overlap, register boundaries, slowest-stage throughput, latency tradeoff.",
+      "related_keys": [
+        "single-instruction-data-parallel-execution",
+        "queue-buffering"
+      ],
+      "mechanism_boundary": "같은 단계의 복제 병렬화가 아니라 다른 입력의 서로 다른 단계를 시간상 겹쳐 실행한다."
+    },
+    {
+      "key": "static-input-partial-program-evaluation",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "Sestoft · Automatic Call Unfolding in a Partial Evaluator, §3",
+      "url": "https://www.itu.dk/~sestoft/papers/Sestoft-Automatic-call-unfolding-in-a-partial-evaluator-1988.pdf",
+      "retrieval_scope": "stored_search_excerpt",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original Sestoft paper search excerpt distinguishes static/dynamic inputs and shows residual program; warns infinite unfolding.",
+      "related_keys": [
+        "cache-reuse-validation",
+        "abstract-domain-fixed-point-program-analysis"
+      ],
+      "mechanism_boundary": "이전 결과를 저장해 반환하는 대신 알려진 입력을 프로그램에 대입하여 남은 연산 구조를 새로 만든다. 원문 검색 발췌 범위이다."
+    },
+    {
+      "key": "accrued-token-credit-rate-envelope",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "RFC 3290 · §5.1.3 and Appendix A, Token Buckets",
+      "url": "https://www.rfc-editor.org/info/rfc3290/",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "RFC 3290 section 5.1.3 accumulates credit at rate R up to burst size B and debits packet lengths.",
+      "related_keys": [
+        "queue-buffering",
+        "slew-rate-limiting",
+        "timer-response-suppression"
+      ],
+      "mechanism_boundary": "순간 변화율 제한이나 고정 시간 억제와 달리 사용하지 않은 허용량을 유한 크레딧으로 축적하여 버스트를 허용한다."
+    },
+    {
+      "key": "differential-backlog-maxweight-routing",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "Michael J. Neely · Backpressure notes, equations (8)–(9)",
+      "url": "https://ee.usc.edu/stochastic-nets/docs/backpressure.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Neely original notes equations 8-9 maximize transmission-rate times differential commodity backlog.",
+      "related_keys": [
+        "queue-buffering",
+        "graph-shortest-path",
+        "marginal-gain-waterfilling-resource-allocation"
+      ],
+      "mechanism_boundary": "고정 경로 비용이나 한계 효용 대신 목적지별 인접 큐의 차이가 전송·경로 선택의 가중치를 만든다."
+    },
+    {
+      "key": "commuting-secret-exponent-key-agreement",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "RFC 2631 · Diffie-Hellman Key Agreement Method, §2.1.1",
+      "url": "https://www.rfc-editor.org/rfc/pdfrfc/rfc2631.txt.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "RFC 2631 section 2.1.1 gives g^(xa*xb), computed independently from public powers and secret exponent.",
+      "related_keys": [
+        "keyed-encryption",
+        "digital-certificate-trust"
+      ],
+      "mechanism_boundary": "이미 공유된 키로 변환하거나 인증서를 검증하는 대신 공개 교환만으로 양쪽의 비밀이 함께 반영된 값을 생성한다."
+    },
+    {
+      "key": "invertible-blinding-signature-issuance",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "RFC 9474 · RSA Blind Signatures, §§4.2–4.4",
+      "url": "https://www.rfc-editor.org/rfc/rfc9474.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "RFC 9474 sections 4.2-4.4 show uniform blinding, private-key operation, inverse unblinding, signature verification.",
+      "related_keys": [
+        "digital-certificate-trust",
+        "zero-knowledge-proof"
+      ],
+      "mechanism_boundary": "자격 증명의 서명 검증이나 명제 증명과 달리 발급 단계에서 서명 대상과 발급 기록의 연결을 가역 블라인딩으로 감춘다."
+    },
+    {
+      "key": "randomized-hiding-binding-value-commitment",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "Pedersen · Non-interactive and information-theoretic secure verifiable secret sharing, §2",
+      "url": "https://cgi.di.uoa.gr/~aggelos/crypto/page8/assets/Pedersen-VSS.PDF",
+      "retrieval_scope": "stored_search_excerpt",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original Pedersen section-2 search excerpt states commitment hides value and alternate opening yields discrete logarithm; scanned PDF text unavailable.",
+      "related_keys": [
+        "zero-knowledge-proof",
+        "merkle-hash-path-membership-proof"
+      ],
+      "mechanism_boundary": "명제의 참이나 집합 포함을 증명하는 대신 숨겨진 특정 값을 미리 고정하고 나중에 개시한다. 원문 검색에 보존된 약정 정리 범위이다."
+    },
+    {
+      "key": "random-wire-label-garbled-circuit-evaluation",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "Lindell and Pinkas · A Proof of Security of Yao's Protocol, pp. 2–3",
+      "url": "https://eprint.iacr.org/2004/175.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Lindell-Pinkas pp.2-3 assign random wire keys and encrypt each output key under matching input-key pair.",
+      "related_keys": [
+        "secret-shared-multiparty-computation",
+        "homomorphic-ciphertext-computation"
+      ],
+      "mechanism_boundary": "비밀 분산의 산술 연산이나 동형 암호문 연산 대신 선별 키와 암호화 게이트 표를 따라 표지만 전달한다."
+    },
+    {
+      "key": "random-remapping-oblivious-memory-access",
+      "batch": "additions-2026-09-27-information-04.tsv",
+      "source_title": "Stefanov et al. · Path ORAM, §§3.3–3.5 and Figure 1",
+      "url": "https://arxiv.org/pdf/1202.5150",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Path ORAM Figure 1 and sections 3.3-3.5 read whole path, randomly remap, maintain stash, and write back.",
+      "related_keys": [
+        "keyed-encryption",
+        "hierarchical-spatial-partition",
+        "consistent-hash-stable-partition"
+      ],
+      "mechanism_boundary": "저장 내용이나 고정 배정만 바꾸는 대신 매 접근 후 비밀 재배치와 균일한 외부 접근 형태로 주소 이력을 은닉한다."
+    },
+    {
+      "key": "minimum-cut-edge-spanning-tree-growth",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "NetworkX · tree.mst source, kruskal_mst_edges",
+      "url": "https://networkx.org/documentation/latest/_modules/networkx/algorithms/tree/mst.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "NetworkX Kruskal source sorts weights and adds edges only across different union-find components.",
+      "related_keys": [
+        "graph-shortest-path",
+        "representative-path-compression-set-union"
+      ],
+      "mechanism_boundary": "경로 길이 최적화나 성분 조회 자체가 아니라 순환 배제와 절단 간선 교환 성질로 전체 연결 비용을 최소화한다."
+    },
+    {
+      "key": "depth-first-lowlink-strong-component-extraction",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "NetworkX · strongly_connected_components source",
+      "url": "https://networkx.org/documentation/stable/_modules/networkx/algorithms/components/strongly_connected.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Tarjan/Nuutila source propagates preorder lowlinks and closes SCCs at matching preorder roots.",
+      "related_keys": [
+        "representative-path-compression-set-union",
+        "graph-shortest-path"
+      ],
+      "mechanism_boundary": "무방향 집합 병합이나 거리 누적 대신 방문 순서와 되돌아가는 간선이 닫는 방향 순환 구조를 추출한다."
+    },
+    {
+      "key": "zero-indegree-dependency-elimination-ordering",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "NetworkX Guides · Directed Acyclic Graphs and Topological Sort",
+      "url": "https://networkx.org/nx-guides/content/algorithms/dag/index.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "NetworkX guide explicitly explains Kahn indegree-zero removal and decrementing dependencies.",
+      "related_keys": [
+        "distributed-barrier",
+        "vector-clock-causal-partial-order"
+      ],
+      "mechanism_boundary": "진행 중 작업을 기다리거나 사건에 시계를 붙이는 대신 주어진 의존 그래프의 선행 차수를 감소시켜 실행 가능한 순서를 구성한다."
+    },
+    {
+      "key": "unused-edge-cycle-splicing-euler-traversal",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "NetworkX · Eulerian circuit source",
+      "url": "https://networkx.org/documentation/stable/_modules/networkx/algorithms/euler.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Euler source consumes unused edges on a stack and emits edges while closing and splicing traversals.",
+      "related_keys": [
+        "graph-shortest-path",
+        "minimum-cut-edge-spanning-tree-growth"
+      ],
+      "mechanism_boundary": "최단 경로나 최소 연결 부분집합이 아니라 간선 소모와 순환 접합으로 모든 간선을 중복 없이 덮는다."
+    },
+    {
+      "key": "deferred-preference-proposal-stable-matching",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "Gale and Shapley · College Admissions and the Stability of Marriage, Theorem 1",
+      "url": "https://www.math.utoronto.ca/mccann/assignments/477/GaleShapley62.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original Gale-Shapley Theorem 1 proof retains best current proposal, rejects others, and repeats down preferences.",
+      "related_keys": [
+        "capacity-cut-flow-duality",
+        "marginal-gain-waterfilling-resource-allocation"
+      ],
+      "mechanism_boundary": "용량 유량이나 합산 목적값 대신 양쪽의 개별 선호와 거절의 단조성으로 이탈 쌍을 없앤다."
+    },
+    {
+      "key": "odd-cycle-blossom-contraction-matching",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "NetworkX · matching source, addBlossom and augmentBlossom",
+      "url": "https://networkx.org/documentation/stable/_modules/networkx/algorithms/matching.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "NetworkX source builds/expands blossoms and augments alternating paths in general undirected matching.",
+      "related_keys": [
+        "capacity-cut-flow-duality",
+        "representative-path-compression-set-union"
+      ],
+      "mechanism_boundary": "단순 성분 압축과 달리 홀수 교대 순환의 매칭 가능성을 보존하는 축약·복원이 증가 경로 탐색을 가능하게 한다."
+    },
+    {
+      "key": "sylvester-determinant-polynomial-elimination",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "SageMath · Multivariate polynomials, sylvester_matrix and resultant",
+      "url": "https://doc.sagemath.org/html/en/reference/polynomial_rings/sage/rings/polynomial/multi_polynomial.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Sage official reference defines shifted coefficient Sylvester matrix and its determinant as resultant.",
+      "related_keys": [
+        "s-polynomial-leading-term-ideal-closure",
+        "schur-complement-block-elimination"
+      ],
+      "mechanism_boundary": "다항 아이디얼의 선도항 폐쇄나 선형 블록 대입 대신 계수 행렬의 특이성으로 공통 근 조건을 투영한다."
+    },
+    {
+      "key": "signed-remainder-sturm-real-root-count",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "SymPy · rootisolation source, dup_sturm and dup_count_real_roots",
+      "url": "https://raw.githubusercontent.com/sympy/sympy/master/sympy/polys/rootisolation.py",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "SymPy source defines negative remainders beginning with derivative and counts endpoint sign variations.",
+      "related_keys": [
+        "euclidean-remainder-gcd-descent",
+        "outward-rounded-interval-enclosure",
+        "tangent-linearized-newton-root-iteration"
+      ],
+      "mechanism_boundary": "나머지 알고리즘을 사용하지만 도함수에서 시작한 부호 변화의 위상적 근 개수 불변량이 핵심이다. 공약수나 한 근의 근사와 다르다."
+    },
+    {
+      "key": "subset-incidence-mobius-inversion",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "SymPy · Discrete transforms, Möbius Transform",
+      "url": "https://docs.sympy.org/latest/modules/discrete.html#mobius-transform",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "SymPy official examples implement subset cumulative transform and inverse inclusion-lattice transform.",
+      "related_keys": [
+        "combinatorial-pooled-identification",
+        "coprime-residue-chinese-remainder-reconstruction"
+      ],
+      "mechanism_boundary": "검사 풀의 희소 신호 식별이나 합동식 결합과 달리 부분순서의 포함 행렬을 역으로 적용해 중복 집계를 소거한다."
+    },
+    {
+      "key": "positive-gram-matrix-sum-square-certificate",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "Blekherman, Parrilo and Thomas · Semidefinite Optimization and Convex Algebraic Geometry, §3.1",
+      "url": "https://www.mit.edu/~parrilo/sdocag/SIAMBookFinalvNov12-2012.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Parrilo chapter 3 Gram representation lemma and generalization convert SOS to affine coefficient constraints plus PSD matrix.",
+      "related_keys": [
+        "barrier-function-safe-set-invariance",
+        "s-polynomial-leading-term-ideal-closure"
+      ],
+      "mechanism_boundary": "표본점 검사나 아이디얼 환원 대신 전체 영역의 다항 비음수 조건을 선형 계수 제약과 양의 행렬 증명서로 바꾼다."
+    },
+    {
+      "key": "laurent-residue-contour-integral-reduction",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "NIST DLMF · §1.10(iv) Residue Theorem",
+      "url": "https://dlmf.nist.gov/1.10#iv",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "DLMF 1.10.iv and equation 1.10.8 equate contour integral to sum of local Laurent residues.",
+      "related_keys": [
+        "orthogonal-polynomial-node-gaussian-quadrature",
+        "green-kernel-boundary-integral-representation"
+      ],
+      "mechanism_boundary": "구간 표본의 가중 합이나 경계값 표현과 달리 해석성으로 연속 폐곡선 적분을 고립 특이점의 국소 계수로 환원한다."
+    },
+    {
+      "key": "complex-saddle-steepest-descent-asymptotics",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "NIST DLMF · §2.4(iv) Saddle Points",
+      "url": "https://dlmf.nist.gov/2.4#iv",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "DLMF 2.4.iv describes phase-constant contour deformation and simple saddle asymptotic expansion.",
+      "related_keys": [
+        "orthogonal-polynomial-node-gaussian-quadrature",
+        "step-size-leading-error-extrapolation"
+      ],
+      "mechanism_boundary": "여러 해상도의 수치 오차를 소거하는 대신 큰 매개변수에서 지수의 국소 기하와 경로 변형으로 적분의 지배 영역을 분리한다."
+    },
+    {
+      "key": "alternating-error-extrema-minimax-exchange",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "Boost.Math · The Remez Method",
+      "url": "https://www.boost.org/latest/libs/math/doc/html/math_toolkit/remez.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Boost Remez documentation solves alternating equal-error equations then exchanges true error extrema.",
+      "related_keys": [
+        "basis-function-surface-reconstruction",
+        "separating-halfspace-localization-cuts"
+      ],
+      "mechanism_boundary": "평균 제곱오차 적합이나 반공간 절단 대신 오차의 교대 극점을 교환하여 전 구간의 최악 오차를 균등화한다."
+    },
+    {
+      "key": "series-coefficient-matched-rational-approximation",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "NIST DLMF · §3.11(iv) Padé Approximations, equations 3.11.20–23",
+      "url": "https://dlmf.nist.gov/3.11#iv",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "DLMF 3.11.20-23 define rational function matching formal series coefficients through prescribed order.",
+      "related_keys": [
+        "step-size-leading-error-extrapolation",
+        "alternating-error-extrema-minimax-exchange"
+      ],
+      "mechanism_boundary": "해상도별 오차를 없애거나 구간 오차 극점을 맞추는 대신 한 점의 급수 계수를 분모까지 포함한 유리식에 정합한다."
+    },
+    {
+      "key": "bilinear-block-product-algebraic-recombination",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "GNU MP · Karatsuba Multiplication, §15.1.2",
+      "url": "https://gmplib.org/manual/Karatsuba-Multiplication",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "GMP manual formula replaces four half-size products by three plus additions.",
+      "related_keys": [
+        "transform-domain-convolution",
+        "range-adaptive-arithmetic-precision"
+      ],
+      "mechanism_boundary": "변환 영역 곱셈이나 비트 폭 조정 대신 쌍선형 식의 공유 중간 곱으로 곱셈 횟수를 줄인다. 같은 원리의 블록 곱 변형은 묶는다."
+    },
+    {
+      "key": "radix-cancelled-montgomery-modular-reduction",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "Torbjörn Granlund · Defeating modexp side-channel attacks, Algorithm 4",
+      "url": "https://gmplib.org/~tege/modexp-silent.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Granlund Algorithm 4 cancels each low radix word by adding modulus multiple and exact radix division.",
+      "related_keys": [
+        "euclidean-remainder-gcd-descent",
+        "coprime-residue-chinese-remainder-reconstruction"
+      ],
+      "mechanism_boundary": "몫·나머지 반복이나 여러 법의 결합 대신 진법 역원으로 낮은 자리를 지워 쉬운 정확 나눗셈으로 치환한다."
+    },
+    {
+      "key": "least-probability-prefix-tree-merging",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "MIT 6.02 · Compression Algorithms, Huffman code propositions",
+      "url": "https://ocw.mit.edu/courses/6-02-introduction-to-eecs-ii-digital-communication-systems-fall-2012/95605227801c1ef2e1b6ddfd8da7a8a2_MIT6_02F12_chap03.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "MIT chapter 3 states least-probability sibling property and repeated merging optimality for prefix codes.",
+      "related_keys": [
+        "arithmetic-entropy-coding",
+        "dictionary-reference-lossless-compression"
+      ],
+      "mechanism_boundary": "확률 구간을 연속 축소하거나 반복 문자열을 참조하는 대신 확률 질량을 병합한 나무의 접두 없는 경로를 부호로 쓴다."
+    },
+    {
+      "key": "random-parity-weighted-quantile-compaction",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "Karnin, Lang and Liberty · Optimal Quantile Approximation in Streams, §2",
+      "url": "https://arxiv.org/pdf/1603.05346",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original KLL section 2 sorts compactors, randomly keeps odd/even positions, doubles weights, and chains levels.",
+      "related_keys": [
+        "reservoir-stream-uniform-sampling",
+        "multi-hash-counter-minimum-frequency-sketch"
+      ],
+      "mechanism_boundary": "균등 부분표본 보관이나 해시 빈도 충돌 대신 순서상 이웃을 교대로 압축하여 순위 오차의 기대값을 상쇄한다."
+    },
+    {
+      "key": "equal-bin-alias-threshold-discrete-sampling",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "SciPy · Discrete Alias Urn, algorithm description",
+      "url": "https://docs.scipy.org/doc/scipy/tutorial/stats/sampling_dau.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official SciPy DAU reference identifies Walker alias-urn preprocessing with finite probability table, one uniform draw and one comparison per sample.",
+      "related_keys": [
+        "envelope-ratio-rejection-sampling",
+        "deterministic-pseudorandom-generation"
+      ],
+      "mechanism_boundary": "제안을 버리는 반복 없이 사전 재배치 표에서 한 번의 문턱 비교로 기호를 선택한다. 균등 난수 생성 자체와 구별한다."
+    },
+    {
+      "key": "associative-upsweep-downsweep-prefix-scan",
+      "batch": "additions-2026-09-27-information-05.tsv",
+      "source_title": "Guy Blelloch · Prefix Sums and Their Applications, §1.2",
+      "url": "https://www.cs.cmu.edu/~guyb/papers/Ble93.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Blelloch section 1.2 explicitly gives associative upsweep partial reductions followed by downsweep prefix propagation.",
+      "related_keys": [
+        "single-instruction-data-parallel-execution",
+        "optimal-substructure-dynamic-programming"
+      ],
+      "mechanism_boundary": "독립 원소에 같은 연산을 하는 대신 의존하는 모든 접두 결과를 결합법칙과 두 방향 나무 통신으로 재구성한다."
+    },
+    {
+      "key": "residual-influence-iteratively-reweighted-fitting",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "statsmodels · HuberT.weights and RLM.fit",
+      "url": "https://www.statsmodels.org/stable/generated/statsmodels.robust.norms.HuberT.weights.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official HuberT.weights gives psi(z)/z and weights 1 inside threshold and t/abs(z) outside; RLM.fit describes iteratively reweighted least squares.",
+      "related_keys": [
+        "random-minimal-consensus-robust-fitting",
+        "neighborhood-rank-median-filtering"
+      ],
+      "mechanism_boundary": "무작위 최소 부분집합의 합의 투표나 순서통계 치환이 아니라 잔차별 영향 제한을 가중 정상방정식에 되먹임한다."
+    },
+    {
+      "key": "adjacent-violation-pooling-isotonic-projection",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "SciPy · isotonic_regression, Notes",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.isotonic_regression.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "SciPy Notes gives weighted squared loss under monotonic ordering and constant adjacent pools produced by PAVA.",
+      "related_keys": [
+        "constraint-support-domain-pruning",
+        "proximal-distance-penalized-resolvent"
+      ],
+      "mechanism_boundary": "일반 제약 전파나 근접 연산의 이름만 바꾼 것이 아니라 인접 위반 블록의 가중 병합이라는 단조 원뿔 전용 계산을 정의한다."
+    },
+    {
+      "key": "inverse-propensity-residual-doubly-robust-estimation",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Kang and Schafer · Demystifying Double Robustness, section 3.1",
+      "url": "https://arxiv.org/pdf/0804.2958",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 3.1 equation 8 adds inverse-propensity-weighted observed residuals to predicted mean; explains consistency if either response or propensity model is correct.",
+      "related_keys": [
+        "importance-density-ratio-sampling",
+        "known-mean-correlated-control-variate"
+      ],
+      "mechanism_boundary": "단순 역확률 재가중이나 알려진 평균의 분산 감소와 달리 예측항과 가중 잔차항의 편향이 한 모형의 정확성으로 상쇄된다."
+    },
+    {
+      "key": "log-density-score-expectation-gradient",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Mohamed et al. · Monte Carlo Gradient Estimation in Machine Learning, section 4",
+      "url": "https://jmlr.org/papers/volume21/19-346/19-346.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 4 rewrites probability derivatives as score-weighted expectations under regularity and common-support assumptions.",
+      "related_keys": [
+        "reverse-mode-chain-rule-gradient",
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "mechanism_boundary": "결정론적 연산 그래프의 미분 전파 대신 확률법칙의 도함수를 로그밀도 점수 가중 표본 평균으로 바꾼다."
+    },
+    {
+      "key": "parameter-free-noise-pathwise-gradient",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Kingma and Welling · Auto-Encoding Variational Bayes, section 2.4",
+      "url": "https://arxiv.org/pdf/1312.6114",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 2.4 moves parameter dependence into a differentiable transform of independent base noise and differentiates the resulting sample estimator.",
+      "related_keys": [
+        "log-density-score-expectation-gradient",
+        "reverse-mode-chain-rule-gradient",
+        "variational-posterior-bound-optimization"
+      ],
+      "mechanism_boundary": "변분 목적함수 자체와 별개인 확률 미분 기전이다. 밀도 점수를 가중하지 않고 무작위성을 고정한 변환 경로로 미분을 통과시킨다."
+    },
+    {
+      "key": "signed-measure-decomposition-expectation-gradient",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Mohamed et al. · Monte Carlo Gradient Estimation in Machine Learning, section 6",
+      "url": "https://jmlr.org/papers/volume21/19-346/19-346.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 6 equations 34-35 decomposes probability derivative as a constant times positive minus negative probability measures; estimates corresponding expectation difference.",
+      "related_keys": [
+        "log-density-score-expectation-gradient",
+        "parameter-free-noise-pathwise-gradient"
+      ],
+      "mechanism_boundary": "로그밀도나 표본 경로의 미분 대신 도함수 자체를 두 확률법칙으로 분해해 함수 평가 차를 구한다."
+    },
+    {
+      "key": "past-coupling-coalescence-perfect-sampling",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Propp and Wilson · Exact Sampling with Coupled Markov Chains, section 2",
+      "url": "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/propp_wilson.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 2 requires shared past random maps, prepending older maps without replacing existing ones, and coalescence of all initial states at the present.",
+      "related_keys": [
+        "detailed-balance-markov-sampling",
+        "deterministic-pseudorandom-generation"
+      ],
+      "mechanism_boundary": "긴 소각 구간 뒤의 근사 평형 표본과 달리 과거부터의 공동 갱신과 전 상태 합류로 정확한 종료를 인증한다."
+    },
+    {
+      "key": "gaussian-divergence-unbiased-risk-estimation",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Soltanayev and Chun · Training deep learning based denoisers without ground truth data, section 2.1",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2018/file/c0560792e4a3c79e62f76cbf9fb277dd-Paper.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 2.1 equation 3 and Theorem 1 establish squared residual minus noise variance plus twice variance times normalized divergence as unbiased Gaussian risk.",
+      "related_keys": [
+        "joint-norm-adaptive-mean-shrinkage",
+        "leave-one-out-jackknife-bias-correction"
+      ],
+      "mechanism_boundary": "추정값을 직접 수축하거나 자료를 빼서 재적합하는 대신 가우스 부분적분 항등식의 발산 보정으로 추정 위험을 계산한다."
+    },
+    {
+      "key": "asymmetric-absolute-loss-conditional-quantile",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "scikit-learn · Quantile Regression, Mathematical details",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html#quantile-regression",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official mathematical details give the asymmetric piecewise-linear pinball loss and explain that its minimizer estimates conditional quantiles.",
+      "related_keys": [
+        "neighborhood-rank-median-filtering",
+        "exchangeable-score-conformal-coverage"
+      ],
+      "mechanism_boundary": "지역 관측을 정렬해 중앙값으로 치환하거나 교환가능 점수를 교정하는 대신 잔차 부호의 비대칭 비용으로 조건부 확률 위치를 식별한다."
+    },
+    {
+      "key": "posterior-sampled-model-optimal-action-selection",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Russo and Van Roy · An Information-Theoretic Analysis of Thompson Sampling, section 4",
+      "url": "https://www.jmlr.org/papers/volume17/14-087/14-087.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 4 samples a parameter from its posterior then executes the action optimal for that sampled model, matching posterior optimal-action probabilities.",
+      "related_keys": [
+        "bayesian-network-inference",
+        "temporal-difference-action-value-learning"
+      ],
+      "mechanism_boundary": "사후분포 계산 자체나 시간차 가치 갱신이 아니라 사후 모형의 무작위 선택을 행동 선택 확률로 연결하는 탐색 기전이다."
+    },
+    {
+      "key": "uncertainty-bonus-upper-confidence-action-selection",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Auer, Cesa-Bianchi and Fischer · Finite-time Analysis of the Multiarmed Bandit Problem, section 2",
+      "url": "https://aima.eecs.berkeley.edu/~russell/classes/cs294/s11/readings/Auer%2Bal:2002.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 2 explains UCB1 index as empirical mean plus a Chernoff-Hoeffding one-sided confidence term; assumes bounded independent stationary rewards.",
+      "related_keys": [
+        "posterior-sampled-model-optimal-action-selection",
+        "parameter-sensitivity-measurement-prioritization"
+      ],
+      "mechanism_boundary": "사후 모형을 뽑는 탐색과 달리 평균에 신뢰폭을 더한 낙관적 지수로 선택한다. 물리 모수의 민감도 순위와도 다르다."
+    },
+    {
+      "key": "random-unit-mask-shared-network-regularization",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Srivastava et al. · Dropout: A Simple Way to Prevent Neural Networks from Overfitting, sections 2 and 4",
+      "url": "https://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original paper describes independent temporary unit deletion, shared weights across thinned networks, and retention-probability scaling for inference.",
+      "related_keys": [
+        "ensemble-classification",
+        "interpolated-example-label-regularization"
+      ],
+      "mechanism_boundary": "별도 모형의 출력 결합이나 예제·정답 보간과 달리 공유 가중치를 가진 계산 경로를 표본마다 확률적으로 제거한다."
+    },
+    {
+      "key": "phase-derivative-time-frequency-reassignment",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Daubechies, Lu and Wu · Synchrosqueezed Wavelet Transforms, section 2",
+      "url": "https://arxiv.org/pdf/0912.2437",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 2 equation 2.2 uses wavelet coefficient derivative divided by coefficient, then moves coefficients to the estimated instantaneous-frequency bins; amplitude threshold addresses noisy zeros.",
+      "related_keys": [
+        "wavelet-localized-multiresolution-decomposition",
+        "bilinear-lag-product-time-frequency-distribution"
+      ],
+      "mechanism_boundary": "기저 투영이나 지연곱의 주파수 변환이 아니라 국소 위상 변화율을 이용해 이미 얻은 계수를 주파수 축에서 재배치한다."
+    },
+    {
+      "key": "wavelet-modulus-cascade-invariant-representation",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Mallat · Group Invariant Scattering, section 2",
+      "url": "https://arxiv.org/pdf/1101.2286",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section 2 constructs cascaded wavelet modulus operators and local integration, proves deformation stability under specified wavelets and translation invariance in the large-window limit.",
+      "related_keys": [
+        "wavelet-localized-multiresolution-decomposition",
+        "contrastive-view-representation-learning"
+      ],
+      "mechanism_boundary": "단일 선형 웨이블릿 계수나 학습된 대조 목적과 달리 변환·절댓값·재변환의 비선형 연쇄로 고차 변동을 보존한 뒤 평균한다."
+    },
+    {
+      "key": "patch-similarity-normalized-value-averaging",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Buades, Coll and Morel · Non-Local Means Denoising, sections 1 and 2",
+      "url": "https://www.ipol.im/pub/art/2011/bcm_nlm/article.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Equations in sections 1-2 give normalized decreasing functions of patch distance as weights for averaging pixel or patch values; both variants count once.",
+      "related_keys": [
+        "nearest-neighbor-retrieval",
+        "linear-frequency-filtering",
+        "kernel-neighborhood-mean-shift-mode-seeking"
+      ],
+      "mechanism_boundary": "고정 공간 필터나 근접 후보 반환이 아니라 자료 내용으로 달라지는 정규화 가중치로 대응 값을 합성한다. 모드 위치의 반복 이동과 구별한다."
+    },
+    {
+      "key": "two-universal-hash-entropy-extraction",
+      "batch": "additions-2026-09-27-information-06.tsv",
+      "source_title": "Renner and Koenig · Universally Composable Privacy Amplification Against Quantum Adversaries, sections 2 and 4",
+      "url": "https://arxiv.org/pdf/quant-ph/0403133",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Sections 2 and 4 analyze public randomly selected two-universal hashing of a partially secret string into a shorter secret key with security depending on retained uncertainty.",
+      "related_keys": [
+        "sensitivity-calibrated-differential-privacy",
+        "commuting-secret-exponent-key-agreement",
+        "merkle-hash-path-membership-proof"
+      ],
+      "mechanism_boundary": "잡음 첨가로 개별 자료 영향을 숨기거나 계산 난제로 키를 합의하는 대신 잔여 엔트로피를 충돌 제한 해시로 더 짧은 균일 비트에 모은다."
+    },
+    {
+      "key": "state-dependent-nonlinearity-canceling-feedback",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Tedrake · Underactuated Robotics, Partial Feedback Linearization",
+      "url": "https://underactuated.mit.edu/acrobot.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Tedrake derives exact collocated and non-collocated feedback cancellation, general manipulator block formulas, and singular control authority when an input coefficient vanishes.",
+      "related_keys": [
+        "negative-feedback",
+        "recursive-virtual-control-backstepping",
+        "tangent-linearized-newton-root-iteration"
+      ],
+      "mechanism_boundary": "오차 이득 조절이나 국소 접선 근사가 아니라 모형의 비선형 항을 실제 제어 입력으로 상쇄하는 좌표·입력 변환이다."
+    },
+    {
+      "key": "flat-output-finite-derivative-trajectory-reconstruction",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Python Control Systems Library · Differentially Flat Systems",
+      "url": "https://python-control.readthedocs.io/en/latest/flatsys.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official flat-systems overview equations 1 express states and inputs through flat outputs and finitely many derivatives, then construct trajectories using the inverse map.",
+      "related_keys": [
+        "model-predictive-control",
+        "state-dependent-nonlinearity-canceling-feedback"
+      ],
+      "mechanism_boundary": "시간 구간마다 동역학 제약 최적화를 푸는 대신 평탄 출력의 미분 자료에서 전체 상태와 입력을 직접 복원하는 구조를 이용한다."
+    },
+    {
+      "key": "passive-port-interconnection-energy-cancellation",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "MathWorks · Feedback Interconnection of Passive Systems",
+      "url": "https://www.mathworks.com/help/control/ug/feedback-interconnection-of-passive-systems.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official feedback-interconnection document establishes passive negative-feedback closure and index conditions. Mechanism is cancellation of internal input-output supply terms in the summed storage inequalities.",
+      "related_keys": [
+        "negative-feedback",
+        "lyapunov-descent-stabilizing-control"
+      ],
+      "mechanism_boundary": "일반 음의 되먹임과 달리 입출력 공급률의 상쇄 및 저장량 부등식을 연결 전후 보존한다. 별도 저장함수 없이 임의의 계에 적용할 수 없다."
+    },
+    {
+      "key": "exosystem-replica-internal-model-regulation",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Francis and Wonham · The internal model principle of control theory",
+      "url": "https://www.sciencedirect.com/science/article/pii/0005109876900066",
+      "retrieval_scope": "stored_search_excerpt",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Publisher indexed abstract explicitly requires regulated-variable feedback and replicated disturbance/reference dynamics for structurally stable regulation; direct publisher page returned 403, so scope is stored search excerpt.",
+      "related_keys": [
+        "negative-feedback",
+        "feedforward",
+        "smith-delay-free-model-prediction-feedback"
+      ],
+      "mechanism_boundary": "외란을 측정해 미리 상쇄하거나 공정 지연을 예측하는 대신 기준·외란 생성기의 동역학을 오차 경로 안에 복제한다."
+    },
+    {
+      "key": "nilpotent-closed-loop-finite-step-regulation",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Kucera · Deadbeat Response is l2 Optimal, section I",
+      "url": "https://www3.nd.edu/~pantsakl/Archive/WolovichSymposium/files/Kucera_Paper.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Section I gives state feedback u=-Lx and nilpotent closed-loop condition (A-BL)^q=0. Paper discusses overlap with particular quadratic-optimal designs; no disjointness claim is made.",
+      "related_keys": [
+        "linear-quadratic-optimal-feedback",
+        "negative-feedback"
+      ],
+      "mechanism_boundary": "이차 비용 최소화나 점근 안정화와 달리 폐루프의 멱영 조건을 구성한다. 일부 이차 최적 제어와 해가 겹칠 수 있어도 유한 단계 소멸은 별도 조건이다."
+    },
+    {
+      "key": "diffusion-path-expectation-parabolic-pde-representation",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Han, Jentzen and E · Solving High-Dimensional Partial Differential Equations Using Deep Learning, BSDE Reformulation",
+      "url": "https://arxiv.org/pdf/1707.02568",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Primary research Materials and Methods equations 16-18 relate diffusion paths, terminal data and accumulated source to the PDE solution via a backward stochastic equation. The card states the linear case: source independent of backward unknowns, conditional expectation eliminates the Ito integral. Pham arXiv 1409.0625 equation 1.5 independently displays this same linear specialization.",
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "shared-face-flux-conservative-volume-discretization"
+      ],
+      "mechanism_boundary": "확률 표본 평균 자체가 아니라 미분 연산자와 확산 생성자의 대응으로 편미분방정식을 경로 기댓값 문제로 바꾼다."
+    },
+    {
+      "key": "logarithmic-derivative-burgers-heat-linearization",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Gesztesy and Holden · The Cole-Hopf and Miura Transformations Revisited, equations 1.14-1.16",
+      "url": "https://arxiv.org/pdf/solv-int/9812025",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Equations 1.14-1.16 directly give V=-2 psi_x/psi for positive heat solution psi and the associated Burgers equation; viscosity scaling follows from equations 1.24 onward.",
+      "related_keys": [
+        "noncommuting-subflow-operator-splitting",
+        "state-dependent-nonlinearity-canceling-feedback"
+      ],
+      "mechanism_boundary": "부분 흐름을 나누거나 외부 제어로 비선형 항을 상쇄하지 않고 종속변수의 로그 미분 치환으로 특정 비선형 방정식을 선형화한다."
+    },
+    {
+      "key": "characteristic-curve-pde-to-ode-reduction",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Wolfram Language · Symbolic Solutions of PDEs, Method of Characteristics",
+      "url": "https://reference.wolfram.com/language/tutorial/SymbolicSolutionsOfPDEs.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official tutorial constructs characteristic-coordinate initial-value problems by chain rule, evolves the solution along curves, and maps back to original variables.",
+      "related_keys": [
+        "implicit-zero-level-front-evolution",
+        "shared-face-flux-conservative-volume-discretization"
+      ],
+      "mechanism_boundary": "격자 셀의 유속 합산이나 영수준 집합 갱신 대신 연쇄법칙에 맞는 곡선을 구성해 편미분식을 곡선별 상미분식으로 바꾼다."
+    },
+    {
+      "key": "incidence-adjoint-hodge-flow-decomposition",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Jiang et al. · Statistical Ranking and Combinatorial Hodge Theory, theorems 4.7-4.8",
+      "url": "https://arxiv.org/pdf/0811.1067",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Theorems 4.7-4.8 decompose cochains into image of coboundary, harmonic kernel, and image of adjoint; edge-flow case identifies gradient, curl-adjoint and harmonic components.",
+      "related_keys": [
+        "normalized-laplacian-spectral-partition",
+        "filtration-persistent-topological-features",
+        "singular-spectrum-low-rank-projection"
+      ],
+      "mechanism_boundary": "작은 특잇값을 버리거나 그래프를 군집화하지 않고 연속 접속 연산의 곱이 영인 구조에 따라 기울기·회전·조화 부분공간을 나눈다."
+    },
+    {
+      "key": "endpoint-derivative-euler-maclaurin-summation",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "NIST DLMF · 2.10(i) Euler-Maclaurin Formula",
+      "url": "https://dlmf.nist.gov/2.10#i",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "DLMF equation 2.10.1 gives integral, endpoint half-sums, Bernoulli-weighted odd derivatives and explicit remainder under integrability conditions.",
+      "related_keys": [
+        "step-size-leading-error-extrapolation",
+        "orthogonal-polynomial-node-gaussian-quadrature"
+      ],
+      "mechanism_boundary": "여러 간격의 근사를 결합하거나 적분 노드를 최적화하지 않고 경계 미분값의 명시적인 보정항으로 합과 적분의 차를 계산한다."
+    },
+    {
+      "key": "poisson-weighted-partial-sum-borel-summation",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "NIST DLMF · 1.15(i), Borel Summability, equation 1.15.9",
+      "url": "https://dlmf.nist.gov/1.15#i",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "DLMF equation 1.15.9 defines Borel summability using exp(-t) times factorial-weighted partial sums as t tends to infinity. This card does not claim all divergent series possess such a sum.",
+      "related_keys": [
+        "step-size-leading-error-extrapolation",
+        "series-coefficient-matched-rational-approximation"
+      ],
+      "mechanism_boundary": "오차의 앞항을 제거하거나 유리함수를 맞추는 대신 부분합 수열에 포아송 평균 극한이라는 새로운 수렴 규칙을 적용한다."
+    },
+    {
+      "key": "implicit-power-series-lagrange-inversion",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Wolfram MathWorld · Lagrange Inversion Theorem",
+      "url": "https://mathworld.wolfram.com/LagrangeInversionTheorem.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Wolfram reference equations 2-4 construct local inverse-function power-series coefficients from derivatives of powers, requiring nonzero first derivative.",
+      "related_keys": [
+        "tangent-linearized-newton-root-iteration",
+        "series-coefficient-matched-rational-approximation"
+      ],
+      "mechanism_boundary": "숫자 근을 접선으로 갱신하거나 주어진 급수를 유리근사하지 않고 순방향 함수의 거듭제곱 계수에서 역함수 계수를 직접 생성한다."
+    },
+    {
+      "key": "backward-three-term-clenshaw-series-evaluation",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "NIST DLMF · 3.11(ii), Clenshaw's Algorithm",
+      "url": "https://dlmf.nist.gov/3.11#ii",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "DLMF equations 3.11.15 and subsequent text give reverse three-term recurrence and final combination; independent NumPy chebval documentation confirms actual use.",
+      "related_keys": [
+        "basis-function-surface-reconstruction",
+        "roundoff-residual-compensated-summation"
+      ],
+      "mechanism_boundary": "기저 전개라는 표현 자체나 잃어버린 반올림 잔차의 보상이 아니라 삼항 관계를 역으로 사용해 급수 평가 연산을 압축한다."
+    },
+    {
+      "key": "support-slope-fenchel-conjugate-transform",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Boyd and Vandenberghe · Convex Optimization, section 3.3",
+      "url": "https://www-leland.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Boyd and Vandenberghe section 3.3 defines the conjugate as supremum of affine pairing minus function, states Fenchel inequality and closed-convex biconjugacy, and relates differentiable case to gradient inversion.",
+      "related_keys": [
+        "bregman-geometry-mirror-descent",
+        "augmented-lagrangian-splitting-coordination"
+      ],
+      "mechanism_boundary": "최적화 갱신 규칙이 아니라 함수 전체를 입력값 공간에서 지지 기울기 공간으로 바꾸는 상한 변환이다."
+    },
+    {
+      "key": "random-edge-contraction-cut-preservation",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Karger and Stein · A New Approach to the Minimum Cut Problem, section 2",
+      "url": "https://people.csail.mit.edu/karger/Papers/contract.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Karger-Stein section 2 contracts random edges and preserves a target minimum cut on runs avoiding its crossing edges; survival-probability calculation explains repeated trials.",
+      "related_keys": [
+        "capacity-cut-flow-duality",
+        "minimum-cut-edge-spanning-tree-growth",
+        "normalized-laplacian-spectral-partition"
+      ],
+      "mechanism_boundary": "유량 증대나 고유벡터 분할 대신 절단 간선을 피할 확률을 이용해 그래프를 무작위로 축약한다. 최소 연결 나무의 탐욕 선택과도 다르다."
+    },
+    {
+      "key": "laplacian-cofactor-spanning-tree-count",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "NetworkX · number_of_spanning_trees source",
+      "url": "https://networkx.org/documentation/stable/_modules/networkx/algorithms/tree/mst.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "NetworkX official number_of_spanning_trees source builds graph Laplacian and takes determinant after deleting the first row and column; weighted tree partition-function meaning is documented.",
+      "related_keys": [
+        "minimum-cut-edge-spanning-tree-growth",
+        "normalized-laplacian-spectral-partition",
+        "sylvester-determinant-polynomial-elimination"
+      ],
+      "mechanism_boundary": "한 나무의 비용을 최소화하거나 스펙트럼을 절단하지 않고 라플라시안 여인수 행렬식으로 모든 나무의 조합적 총량을 계산한다."
+    },
+    {
+      "key": "group-fixed-point-average-orbit-count",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Wolfram MathWorld · Cauchy-Frobenius Lemma",
+      "url": "https://mathworld.wolfram.com/Cauchy-FrobeniusLemma.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Wolfram reference states that the average number of fixed points of finite permutation-group actions equals the number of orbits.",
+      "related_keys": [
+        "subset-incidence-mobius-inversion",
+        "representative-path-compression-set-union"
+      ],
+      "mechanism_boundary": "겹치는 부분집합의 포함배제나 동치집합의 실제 병합 대신 군 원소별 고정점 계수의 평균으로 동치 배치 수를 계산한다."
+    },
+    {
+      "key": "prefix-border-failure-link-pattern-matching",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Knuth, Morris and Pratt · Fast Pattern Matching in Strings, section 2",
+      "url": "https://www.cs.jhu.edu/~misha/Spring23/Knuth77.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original KMP paper section 2 defines next/failure links from prefix-suffix equality and reuses them after mismatches, proving linear preprocessing and search.",
+      "related_keys": [
+        "sequence-alignment",
+        "finite-state-transducer-decoding",
+        "dictionary-reference-lossless-compression"
+      ],
+      "mechanism_boundary": "편집 비용 최적화나 과거 문자열 압축이 아니라 불일치 이전 비교에서 확인한 접두·접미 관계를 재사용해 정확 대조를 선형 진행한다."
+    },
+    {
+      "key": "rolling-positional-modular-string-fingerprint",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Karp and Rabin · Efficient Randomized Pattern-Matching Algorithms, section 4",
+      "url": "https://didawiki.cli.di.unipi.it/lib/exe/fetch.php/bio/kr87.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original Karp-Rabin paper gives positional integer fingerprint modulo a prime and exact constant-operation rolling update after deleting the outgoing bit and appending the incoming bit.",
+      "related_keys": [
+        "prefix-border-failure-link-pattern-matching",
+        "locality-sensitive-hash-collision-retrieval",
+        "random-field-evaluation-polynomial-identity-test"
+      ],
+      "mechanism_boundary": "거리 보존 충돌이나 독립 다항식 평가 대신 겹치는 창의 자리값 대수로 지문을 상수 비용 갱신한다."
+    },
+    {
+      "key": "ordered-threshold-lovasz-convex-extension",
+      "batch": "additions-2026-09-27-information-07.tsv",
+      "source_title": "Bach · Learning with Submodular Functions: A Convex Optimization Perspective, section 3",
+      "url": "https://arxiv.org/pdf/1111.6453",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Bach definition 3.1 equations 3.1-3.4 sorts coordinates and sums nested-set increments; section 3.3 establishes equivalence of submodularity and convexity of the extension.",
+      "related_keys": [
+        "support-slope-fenchel-conjugate-transform",
+        "separating-halfspace-localization-cuts",
+        "subset-incidence-mobius-inversion"
+      ],
+      "mechanism_boundary": "일반 연속 보간이나 포함배제가 아니라 중첩 문턱 집합의 증가량으로 이산 부분모듈성과 연속 볼록성을 연결한다."
+    },
+    {
+      "key": "time-delay-coordinate-dynamical-embedding",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "Detecting strange attractors in turbulence — Takens, Theorems 1–2",
+      "url": "https://www.math.ucdavis.edu/~saito/data/synchrosqueezing/takens_detect-strange-attractors-turbulence.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Takens Theorems 1-2 explicitly form successive observations on a compact m-dimensional manifold into a generic 2m+1 coordinate embedding. The card does not claim arbitrary observations or noisy stochastic systems satisfy the theorem.",
+      "related_keys": [
+        "state-estimation",
+        "dynamic-system-identification"
+      ],
+      "mechanism_boundary": "지연 관측을 좌표로 매입하는 위상적 복원이다. 상태 전이모형과 측정오차를 결합하는 필터나 모형 계수 적합과 연산이 다르다."
+    },
+    {
+      "key": "history-conditioned-transition-information-transfer",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "Measuring Information Transfer — Schreiber, equation 4",
+      "url": "https://arxiv.org/pdf/nlin/0001042",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Schreiber equation 4 averages the log ratio of transition distributions with and without the source history. The paragraph following equation 4 describes conditioning on known common drivers; the card does not equate observed transfer entropy with intervention causality.",
+      "related_keys": [
+        "signal-correlation",
+        "causal-graph-intervention-calculus",
+        "autoregressive-linear-prediction"
+      ],
+      "mechanism_boundary": "평균 곱이나 선형 예측잔차가 아닌 두 조건부 전이분포의 로그비 평균이다. 인과 그래프를 수정하는 개입 연산과도 다르다."
+    },
+    {
+      "key": "log-generating-function-connected-cumulants",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "CumulantGeneratingFunction — Wolfram Language Documentation",
+      "url": "https://reference.wolfram.com/language/ref/CumulantGeneratingFunction.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Wolfram Details explicitly defines the logarithm of the moment generating function and extraction of cumulants by Taylor coefficients times factorial. Additivity follows directly from factorization for independent variables. The indexed primary Mendel paper also explicitly states Gaussian-noise insensitivity of higher cumulants; its scanned PDF did not provide extracted body text.",
+      "related_keys": [
+        "signal-correlation",
+        "non-gaussian-independent-source-separation"
+      ],
+      "mechanism_boundary": "연결 고차 통계를 추출하는 로그·미분 연산이다. 혼합행렬을 역추정하여 여러 독립 신호를 분리하는 연산과 구별한다."
+    },
+    {
+      "key": "nested-commutator-magnus-exponential-propagation",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "The Magnus expansion and some of its applications — Blanes et al., equations 5–7",
+      "url": "https://arxiv.org/pdf/0810.5488",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Blanes et al. introduction equations 5-7 and section 4.2 display integrals and nested commutators in a single exponential. The text explains Lie-algebra closure and the convergence limitation. The card excludes commutator-free product variants already related to splitting.",
+      "related_keys": [
+        "noncommuting-subflow-operator-splitting",
+        "symplectic-discrete-flow-preservation"
+      ],
+      "mechanism_boundary": "부분 흐름의 지수를 차례로 곱하는 분할과 달리 시간 순서의 비가환성을 교환자 적분으로 지수 안에 넣는다. 심플렉틱성만을 요구하는 일반 조건과도 다르다."
+    },
+    {
+      "key": "monomial-lift-carleman-linearization",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "Efficient quantum algorithm for dissipative nonlinear differential equations — Liu et al., section 3",
+      "url": "https://arxiv.org/pdf/2011.03185",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Liu et al. section 3 explicitly introduces powers of variables to form an infinite linear chain and truncates at order N. Equations 3.1-3.3 show the block system. Only this classical algebraic transformation is counted, not the separate quantum linear-system solver or speedup.",
+      "related_keys": [
+        "logarithmic-derivative-burgers-heat-linearization",
+        "tangent-linearized-newton-root-iteration"
+      ],
+      "mechanism_boundary": "변수 거듭제곱을 무한 선형계로 올리는 대수적 확장이다. 한 점의 접선 근사나 특정 PDE의 로그미분 치환과 다르며 양자 계산 속도 향상은 이 카드의 주장이 아니다."
+    },
+    {
+      "key": "costate-hamiltonian-pointwise-control-extremization",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "Optimal Control and Estimation — Continuous-time Optimal Control, Theorem 4.2",
+      "url": "https://hankyang.seas.harvard.edu/OptimalControlEstimation/continuous-time-optimal-control.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Harvard authored course chapter 4, Theorem 4.2, states Hamiltonian minimization, the adjoint differential equation and terminal condition. The following paragraph explicitly warns these are necessary rather than sufficient conditions.",
+      "related_keys": [
+        "linear-quadratic-optimal-feedback",
+        "model-predictive-control",
+        "optimal-substructure-dynamic-programming"
+      ],
+      "mechanism_boundary": "상태와 공상태의 두 경계값 문제 및 입력별 극값 조건을 구성한다. 전체 상태공간 가치함수 재귀나 리카티 방정식의 선형 이차 특수해와 구분한다."
+    },
+    {
+      "key": "fundamental-harmonic-describing-function-balance",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "Describing Functions — Python Control Systems Library",
+      "url": "https://python-control.readthedocs.io/en/0.10.2/descfcn.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Python Control official Describing Functions page defines amplitude-dependent fundamental complex gain and H(jw)N(A)=-1; it explicitly warns higher harmonics are neglected and intersections only indicate possible limit cycles.",
+      "related_keys": [
+        "positive-feedback-oscillation",
+        "fourier-spectral-decomposition"
+      ],
+      "mechanism_boundary": "진동기 자체의 양의 피드백 작동과 달리 비선형 출력을 기본파로 투영한 뒤 진폭을 포함한 조화균형 방정식을 푸는 근사 분석 연산이다."
+    },
+    {
+      "key": "strictly-proper-outcome-score-belief-elicitation",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "Strictly Proper Scoring Rules, Prediction, and Estimation — Gneiting and Raftery, Example 1",
+      "url": "https://sites.stat.washington.edu/raftery/Research/PDF/Gneiting2007jasa.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Gneiting and Raftery Example 1 defines the quadratic outcome score and its squared-Euclidean expected-score divergence; general propriety definitions explain truthful expectation maximization. A working author PDF URL without the people path was opened after the people-path URL timed out.",
+      "related_keys": [
+        "supervised-learning",
+        "asymmetric-absolute-loss-conditional-quantile"
+      ],
+      "mechanism_boundary": "관측 결과에 연동한 점수의 기대값을 설계하여 전체 확률 보고를 유도한다. 학습 모형 적합이라는 일반 목적이나 한 분위수의 점 추정과 같은 항목으로 세지 않는다."
+    },
+    {
+      "key": "sum-preserving-dependent-randomized-rounding",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "Dependent Rounding and its Applications to Approximation Algorithms — Gandhi et al., section 2",
+      "url": "https://www.cs.umd.edu/~srin/PDF/2006/depround-jou.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Gandhi et al. section 2.1 modifies alternating edge sets on a cycle or maximal path. The proof displays opposite pair updates with probabilities beta/(alpha+beta) and alpha/(alpha+beta), preserving expectations and controlling degree sums. Integer exact-sum case is distinguished from general floor/ceiling degree preservation.",
+      "related_keys": [
+        "distance-probability-stochastic-rounding",
+        "odd-cycle-blossom-contraction-matching"
+      ],
+      "mechanism_boundary": "독립적인 수치 반올림과 달리 여러 변수의 증감을 결합하여 합을 보존한다. 매칭을 찾는 꽃봉오리 축약과 달리 주어진 분수해를 확률적으로 정수화한다."
+    },
+    {
+      "key": "frobenius-fixed-subalgebra-polynomial-factorization",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "SymPy polynomial internals — gf_Qmatrix, gf_Qbasis and gf_berlekamp",
+      "url": "https://docs.sympy.org/latest/modules/polys/internals.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "SymPy official documentation identifies Q construction, kernel basis and Berlekamp factoring. Linked raw implementation explicitly subtracts I in gf_Qbasis and splits factors with gcd(f,V[k]-s). These source lines were inspected, not inferred only from function names.",
+      "related_keys": [
+        "euclidean-remainder-gcd-descent",
+        "s-polynomial-leading-term-ideal-closure"
+      ],
+      "mechanism_boundary": "최대공약수는 마지막 분할 도구이며 핵심은 유한체 거듭제곱 고정공간의 분해다. 일반 나머지 감소나 다변수 아이디얼 기저 완성과 다른 구조를 사용한다."
+    },
+    {
+      "key": "balanced-power-table-meet-in-middle-logarithm",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "SageMath Groups — generic.bsgs and implementation",
+      "url": "https://doc.sagemath.org/html/en/reference/groups/sage/groups/generic.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Sage official bsgs documentation specifies group operations and exponent bounds. Linked implementation uses ceil(sqrt(range)), stores small powers, advances by the inverse m-th power, and reconstructs i*m+j at a table match.",
+      "related_keys": [
+        "commuting-secret-exponent-key-agreement",
+        "branch-bound-relaxation-pruning"
+      ],
+      "mechanism_boundary": "양쪽 부분 계산을 표에서 일치시키는 시간·메모리 교환이다. 비밀 지수 교환 프로토콜이나 하한으로 가지를 자르는 최적화 탐색과 다르다."
+    },
+    {
+      "key": "orthogonal-factorial-contrast-effect-isolation",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "NIST/SEMATECH e-Handbook — Two-level full factorial designs",
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri3331.htm",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "NIST section 5.3.3.3.1 displays the complete coded design and main/interaction columns and explains pairwise orthogonality eliminates correlation between effect estimates. Equal-variance conditions and aliasing of fractional designs are retained in the card.",
+      "related_keys": [
+        "parameter-sensitivity-measurement-prioritization",
+        "stratum-mass-weighted-sampling"
+      ],
+      "mechanism_boundary": "측정 우선순위나 모집단 층별 표본 배분과 달리 조절 가능한 요인 조합의 설계행렬을 직교화하여 효과 대비를 분리한다."
+    },
+    {
+      "key": "pair-distance-scaling-correlation-dimension",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "Measuring the strangeness of strange attractors — Grassberger and Procaccia, equations 1.5–1.8",
+      "url": "https://verga.github.io/pdfs/Grassberger-1983fk.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Grassberger and Procaccia equations 1.5-1.8 define the correlation integral using close pairs and its small-radius power law. The card treats log-slope estimation as scale-limited and does not promise a definitive chaos test from finite data.",
+      "related_keys": [
+        "filtration-persistent-topological-features",
+        "time-delay-coordinate-dynamical-embedding"
+      ],
+      "mechanism_boundary": "쌍 거리의 척도별 확률 질량을 지수로 요약한다. 지연벡터를 만드는 좌표 복원이나 위상적 구멍의 생성·소멸 추적과 구별한다."
+    },
+    {
+      "key": "linear-dual-infeasibility-witness",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "MOSEK Modeling Cookbook — Farkas lemma, section 2.3",
+      "url": "https://docs.mosek.com/modeling-cookbook/linear.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "MOSEK Modeling Cookbook Lemma 2.1 states exactly one of x>=0, Ax=b or A-transpose*y<=0, b-transpose*y>0 can hold. The card uses this exact witness sign convention and distinguishes certificate verification from optimization search.",
+      "related_keys": [
+        "separating-halfspace-localization-cuts",
+        "complementary-clause-resolution-refutation"
+      ],
+      "mechanism_boundary": "반공간 절단으로 후보 영역을 축소하는 과정과 달리 하나의 선형 조합 증인으로 불가능성을 검산한다. 논리절의 상보 리터럴 소거와도 연산이 다르다."
+    },
+    {
+      "key": "diagonal-radius-gershgorin-spectral-enclosure",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "Gershgorin Circle Theorem — Wolfram MathWorld, equations 1–2",
+      "url": "https://mathworld.wolfram.com/GershgorinCircleTheorem.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Wolfram MathWorld equations 1-2 give the absolute off-diagonal row sum and eigenvalue disks centered on the diagonal. The card explicitly rejects the false inference that each individual disk contains one eigenvalue.",
+      "related_keys": [
+        "outward-rounded-interval-enclosure",
+        "normalized-laplacian-spectral-partition"
+      ],
+      "mechanism_boundary": "입력 구간의 산술 전파나 고유벡터 계산 대신 행별 절댓값 합으로 스펙트럼 영역을 직접 포위하는 행렬 구조의 부등식이다."
+    },
+    {
+      "key": "scattering-wave-variable-delay-passivation",
+      "batch": "additions-2026-09-27-information-08.tsv",
+      "source_title": "Passive Control with Communication Delays — MathWorks, Scattering Transformation",
+      "url": "https://www.mathworks.com/help/control/ug/passive-control-with-communication-delays.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "MathWorks Scattering Transformation section gives positive-b signal sum/difference mappings, their inverse equivalence without delays and bounded transformed transfer functions in the presence of delay. The card adds the actual channel transform beyond the prior direct passive interconnection card.",
+      "related_keys": [
+        "passive-port-interconnection-energy-cancellation",
+        "smith-delay-free-model-prediction-feedback"
+      ],
+      "mechanism_boundary": "단순 수동 포트 연결에 지연을 추가하는 변형이 아니라 송수신 신호를 파동변수로 가역 변환하여 채널의 공급률을 바꾼다. 지연 없는 모형 출력 예측과도 다르다."
+    },
+    {
+      "key": "double-centered-distance-matrix-dependence",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "Measuring and testing dependence by correlation of distances — Szekely, Rizzo and Bakirov, equations 2.8–2.10",
+      "url": "https://arxiv.org/pdf/0803.4101",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original paper equations 2.8-2.10 double-center Euclidean distance matrices and average element products; population zero-dependence equivalence is under finite first moments, not an exact finite-sample independence certificate.",
+      "related_keys": [
+        "signal-correlation",
+        "copula-uniform-marginal-dependence-coupling",
+        "pair-distance-scaling-correlation-dimension"
+      ],
+      "mechanism_boundary": "원자료의 곱이나 반경 내 쌍의 비율이 아니라 중심화된 두 거리행렬의 내적이다. 주변 누적분포를 결합하는 코풀라 구성과도 다르다."
+    },
+    {
+      "key": "empirical-cdf-supremum-distribution-test",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "ks_2samp — SciPy Manual, Notes",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official SciPy Notes state that the two-sided statistic is the maximum absolute difference between two empirical CDFs, comparing independent samples from continuous distributions; exact and asymptotic null calculations are separated.",
+      "related_keys": [
+        "exchangeable-label-permutation-null-distribution",
+        "empirical-bootstrap-resampling-distribution"
+      ],
+      "mechanism_boundary": "순열이나 복원 재표집을 일반적으로 반복하는 절차와 달리 순서 누적분포의 최대 수직 편차를 사용하는 특정 분포 비교 연산이다."
+    },
+    {
+      "key": "spectral-random-feature-kernel-approximation",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "Random Features for Large-Scale Kernel Machines — Rahimi and Recht, section 3",
+      "url": "https://papers.nips.cc/paper/3182-random-features-for-large-scale-kernel-machines.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original NeurIPS paper section 3 applies Bochner representation to sampled frequencies, constructing sine/cosine explicit features whose inner product is an unbiased kernel approximation. This differs from linear random projection.",
+      "related_keys": [
+        "implicit-feature-kernel-inner-product",
+        "random-projection-distance-preservation",
+        "fourier-spectral-decomposition"
+      ],
+      "mechanism_boundary": "선형 차원 축소나 암묵 커널의 정확한 쌍 계산과 달리 스펙트럼 측도의 난수 정현 좌표로 커널을 명시적 유한 내적으로 바꾼다."
+    },
+    {
+      "key": "projection-lifting-sign-invariant-cylindrical-cells",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "Real Polynomial Systems — Wolfram Language Documentation, Cylindrical Algebraic Decomposition",
+      "url": "https://reference.wolfram.com/language/tutorial/RealPolynomialSystems.html?view=all",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official Wolfram Real Polynomial Systems documentation describes projection polynomials for sign-invariant delineability and lifting roots and intervening intervals to cylindrical cells.",
+      "related_keys": [
+        "sylvester-determinant-polynomial-elimination",
+        "signed-remainder-sturm-real-root-count",
+        "s-polynomial-leading-term-ideal-closure"
+      ],
+      "mechanism_boundary": "결과식이나 근 개수는 중간 도구이며 핵심 출력은 다변량 실수 부호가 불변인 셀과 차원 간 원통 구조다. 복소 대수 방정식 아이디얼 기저와 구별한다."
+    },
+    {
+      "key": "bounded-polynomial-congruence-primality-certificate",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "PRIMES is in P — Agrawal, Kayal and Saxena, algorithm and Theorem 4.1",
+      "url": "https://cse.iitk.ac.in/users/manindra/algebra/primality_original.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original AKS preprint equation 2, algorithm and Theorem 4.1 compare polynomial coefficients modulo both n and x^r-1 after preliminary checks. Card deliberately avoids mixing thresholds from later algorithm versions.",
+      "related_keys": [
+        "modular-square-chain-compositeness-witness",
+        "random-field-evaluation-polynomial-identity-test"
+      ],
+      "mechanism_boundary": "스칼라 거듭제곱의 무작위 합성수 증거나 무작위 점 평가와 달리 몫 다항식환에서 정해진 유한 합동식 전체를 검사하는 결정적 판정이다."
+    },
+    {
+      "key": "smooth-parity-dependence-congruent-square-factorization",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "The Quadratic Sieve Factoring Algorithm — Pomerance, congruent squares and exponent vectors",
+      "url": "https://www.cs.umd.edu/~gasarch/TOPICS/factoring/quad-sieve.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Pomerance primary paper constructs a factor base and exponent parity vectors; a GF(2) dependence yields congruent squares and gcd extraction. Quadratic sieve and other relation-collection variants are counted as one family.",
+      "related_keys": [
+        "euclidean-remainder-gcd-descent",
+        "modular-square-chain-compositeness-witness"
+      ],
+      "mechanism_boundary": "최대공약수 호출에 앞서 다수 관계의 소인수 지수를 짝수화하여 제곱 합동식을 구성한다. 이차 체·연분수 등 관계 수집 방식은 별도 기전으로 세지 않는다."
+    },
+    {
+      "key": "elliptic-curve-noninvertible-denominator-factorization",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "Factoring Integers with Elliptic Curves — Lenstra, sections 1–2",
+      "url": "https://pages.cs.wisc.edu/~cs812-1/Lenstra1987.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Lenstra original paper introduction connects smooth elliptic-curve group order with scalar multiplication; section 2.2 explicitly describes pseudo-addition yielding a point or a nontrivial divisor via noninvertible denominators.",
+      "related_keys": [
+        "euclidean-remainder-gcd-descent",
+        "smooth-parity-dependence-congruent-square-factorization"
+      ],
+      "mechanism_boundary": "곡선군의 차수를 바꾸며 스칼라 배수 계산의 비가역 분모를 포착한다. 정수 제곱 관계의 지수 행렬을 모으거나 단순 나머지 감소를 반복하는 연산과 다르다."
+    },
+    {
+      "key": "modular-orbit-collision-gcd-factorization",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "SymPy Number Theory — pollard_rho",
+      "url": "https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.pollard_rho",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official SymPy pollard_rho documentation describes iterative modular values compared at k and 2k and gcd of their difference with n, including failures and retries. This is factor discovery from collisions modulo an unknown prime.",
+      "related_keys": [
+        "deterministic-pseudorandom-generation",
+        "euclidean-remainder-gcd-descent",
+        "balanced-power-table-meet-in-middle-logarithm"
+      ],
+      "mechanism_boundary": "의사난수 궤적 자체의 생성과 달리 미지 소인수에 대한 충돌을 값 차이의 최대공약수로 읽는다. 알려진 군 지수의 두 거듭제곱 표 일치와 구분한다."
+    },
+    {
+      "key": "poisson-clock-uniformized-markov-propagation",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "Simulation from endpoint-conditioned continuous-time Markov chains on a finite state space — Hobolth and Stone, section 2.3",
+      "url": "https://arxiv.org/pdf/0910.1683",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Hobolth-Stone section 2.3 defines R=I+Q/mu with virtual self-transitions and Poisson jump clock; equation 2.8 gives the exact matrix exponential as a Poisson mixture of powers.",
+      "related_keys": [
+        "detailed-balance-markov-sampling",
+        "poisson-weighted-partial-sum-borel-summation"
+      ],
+      "mechanism_boundary": "목표 정상분포를 위한 수락 표집이나 발산 급수의 가합성이 아니라 가상 자기 전이와 독립 포아송 시계로 연속시간 생성행렬의 정확한 전파를 표현한다."
+    },
+    {
+      "key": "paired-bound-fourier-motzkin-variable-elimination",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "Pareto Adaptive Robust Optimality via a Fourier-Motzkin Elimination Lens — Appendix C.1",
+      "url": "https://arxiv.org/pdf/2012.04419",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Primary FME paper Appendix C.1 equations C.8-C.11 identifies lower and upper bounds by coefficient sign and pairs bounds to eliminate a variable. Constraints independent of the eliminated variable remain; integer feasibility is not claimed.",
+      "related_keys": [
+        "schur-complement-block-elimination",
+        "linear-dual-infeasibility-witness",
+        "separating-halfspace-localization-cuts"
+      ],
+      "mechanism_boundary": "등식 블록의 역대입이나 하나의 불가능성 증인과 달리 모든 상·하한 조합으로 변수 제거 뒤의 실수 가능영역을 구성한다."
+    },
+    {
+      "key": "unimodular-row-column-invariant-factor-diagonalization",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "SageMath Integer Dense Matrices — smith_form and elementary_divisors",
+      "url": "https://doc.sagemath.org/html/en/reference/matrices/sage/matrix/matrix_integer_dense.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official Sage integer-matrix documentation gives smith_form S=U*A*V, diagonal divisibility and elementary divisors of the cokernel. Integer unimodular transformations preserve the integer linear-map structure, unlike real elimination.",
+      "related_keys": [
+        "unimodular-lattice-basis-shortening",
+        "euclidean-remainder-gcd-descent",
+        "schur-complement-block-elimination"
+      ],
+      "mechanism_boundary": "같은 격자의 짧은 기저를 찾는 최적화와 달리 정의역·공역 양쪽의 정수 가역 변환으로 나눗셈 불변인자를 구한다. 에르미트형의 별도 카드 확장은 제외한다."
+    },
+    {
+      "key": "fractional-tableau-integer-rounding-cut",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "Can pure cutting plane algorithms work? — Zanette, Fischetti and Balas, section 2",
+      "url": "https://www.math.uwaterloo.ca/~bico/bellairs/Gomory_cuts.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Zanette-Fischetti-Balas section 2 explicitly rounds coefficients and right hand side of a valid equation with nonnegative integer variables to produce Gomory inequalities from fractional optimal tableau rows. Inaccessible original AMS scan was not treated as read.",
+      "related_keys": [
+        "separating-halfspace-localization-cuts",
+        "branch-bound-relaxation-pruning",
+        "sum-preserving-dependent-randomized-rounding"
+      ],
+      "mechanism_boundary": "일반 절단 탐색의 하위 도구이지만 계수의 정수 내림으로 유효 부등식을 생성하는 별도 산술 조건을 갖는다. 분기나 확률적 정수 선택은 수행하지 않는다."
+    },
+    {
+      "key": "quadratic-variation-ito-chain-correction",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "Ito's Lemma — Wolfram MathWorld",
+      "url": "https://mathworld.wolfram.com/ItosLemma.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official MathWorld Ito lemma displays the first-derivative stochastic integral and half second-derivative time integral. Its explicit time variable is reversed; the card uses the time-independent function case and quadratic variation to avoid silently changing that convention.",
+      "related_keys": [
+        "reverse-mode-chain-rule-gradient",
+        "diffusion-path-expectation-parabolic-pde-representation"
+      ],
+      "mechanism_boundary": "합성함수의 보통 미분에 이차변동 항이 살아남는 확률 연쇄법칙이다. 확산 경로 기대값으로 PDE 해를 표현하는 연산이나 계산 그래프 역전파와 구분한다."
+    },
+    {
+      "key": "inverse-variance-root-stabilizing-transform",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "Nonparametric regression in exponential families — Brown, Cai and Zhou, section 2",
+      "url": "https://arxiv.org/pdf/1010.3836",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Brown-Cai-Zhou section 2 equation 2 sets G prime to inverse square root of the variance function, and uses the CLT/delta method for asymptotically unit variance. Mean-matching distribution-specific refinements are not separate mechanisms.",
+      "related_keys": [
+        "invertible-jacobian-density-transformation",
+        "amplitude-dependent-dynamic-range-compression"
+      ],
+      "mechanism_boundary": "확률밀도의 정확한 부피 보정이나 포락선별 신호 이득과 달리 알려진 평균·분산 관계를 상쇄하는 도함수를 설계한다. 제곱근·아크사인 등의 분포별 식은 같은 기전이다."
+    },
+    {
+      "key": "moment-constrained-empirical-likelihood-reweighting",
+      "batch": "additions-2026-09-27-information-09.tsv",
+      "source_title": "Empirical Likelihood Ratio Confidence Intervals for a Single Functional — Owen, sections 1–2",
+      "url": "https://www.ms.uky.edu/~mai/sta709/Owen1988.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Owen original paper section 1 defines products of probability jumps and profile likelihood; section 2 imposes nonnegative weights summing to one with moment constraints. Profile empirical likelihood is distinct from entropy maximization or bootstrap resampling.",
+      "related_keys": [
+        "constraint-maximal-entropy-distribution",
+        "empirical-bootstrap-resampling-distribution",
+        "relative-risk-set-partial-likelihood"
+      ],
+      "mechanism_boundary": "관측 지지점의 질량 곱을 최대화하며 엔트로피 합을 최대화하거나 표본을 복원 추출하지 않는다. 위험집합의 순위 조건부 우도와도 입력·제약 구조가 다르다."
+    },
+    {
+      "key": "overlap-subtracted-inner-outer-asymptotic-matching",
+      "batch": "additions-2026-09-27-information-10.tsv",
+      "source_title": "Asymptotic Methods: Matched asymptotic expansions — Glasner, non-uniformity and composite expansion",
+      "url": "https://math.arizona.edu/~kglasner/math587/MATCHED.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Author-hosted University of Arizona lecture source pages 6-8 derives scaled inner coordinate X=x/epsilon, matches limiting constants with the outer solution and explicitly adds the expansions minus their common behavior. Scale and overlap existence are material assumptions.",
+      "related_keys": [
+        "step-size-leading-error-extrapolation",
+        "multiscale-property-upscaling"
+      ],
+      "mechanism_boundary": "서로 다른 수치 간격의 선도 오차를 상쇄하거나 미세 물성을 평균하는 과정과 달리 특이 섭동의 다른 지배 영역에서 얻은 해를 겹침 극한으로 정합한다."
+    },
+    {
+      "key": "independent-slow-time-secular-solvability-removal",
+      "batch": "additions-2026-09-27-information-10.tsv",
+      "source_title": "Asymptotic and Perturbation Methods — Ivrii, section 8.2 Derivative Expansion Method",
+      "url": "https://www.math.utoronto.ca/ivrii/APM-textbook/Chapter8/L8.2.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Ivrii author-hosted University of Toronto text section 8.2 equations 8.2.1-8.2.2 introduce independent slow times and derivative expansion; equations 8.2.16-8.2.17 remove resonant sine/cosine terms by amplitude evolution conditions. Not the physical process of homogenization.",
+      "related_keys": [
+        "overlap-subtracted-inner-outer-asymptotic-matching",
+        "nested-commutator-magnus-exponential-propagation"
+      ],
+      "mechanism_boundary": "영역별 해의 겹침 접합과 달리 같은 궤적에 여러 시간변수를 도입해 공명 계수의 영 조건으로 느린 진폭을 결정한다. 시변 선형행렬의 교환자 지수화도 아니다."
+    },
+    {
+      "key": "neighbor-multiset-injective-color-refinement",
+      "batch": "additions-2026-09-27-information-10.tsv",
+      "source_title": "Weisfeiler-Lehman Graph Kernels — Shervashidze et al., Algorithm 1",
+      "url": "https://jmlr.org/papers/volume12/shervashidze11a/shervashidze11a.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "JMLR primary paper Algorithm 1 takes neighbor-label multisets, sorts them, prefixes the current label and compresses with an injective mapping shared between graphs. Section 2 explicitly warns that indistinguishable labels do not prove isomorphism.",
+      "related_keys": [
+        "normalized-laplacian-spectral-partition",
+        "function-congruence-equivalence-closure"
+      ],
+      "mechanism_boundary": "스펙트럼의 실수 좌표나 알려진 항 등가관계 전파 대신 이웃 색의 다중집합을 단사적으로 다시 표지하여 반복 분할한다. 고차원 변형과 그래프 커널 이름은 별도로 세지 않는다."
+    },
+    {
+      "key": "row-hyperplane-residual-orthogonal-projection",
+      "batch": "additions-2026-09-27-information-10.tsv",
+      "source_title": "A randomized Kaczmarz algorithm with exponential convergence — Strohmer and Vershynin, equation 2",
+      "url": "https://www.math.ucdavis.edu/~strohmer/papers/2007/kaczmarz.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Original Strohmer-Vershynin paper equation 2 gives residual divided by squared row norm times row vector, an orthogonal projection onto one linear solution hyperplane. Cyclic/random row orders are one family; convergence conditions use consistency and rank.",
+      "related_keys": [
+        "krylov-subspace-residual-solution",
+        "proximal-distance-penalized-resolvent",
+        "intensity-constraint-phase-retrieval"
+      ],
+      "mechanism_boundary": "개별 선형 행의 정확한 초평면 투영과 행 방문 규칙을 사용한다. 행렬 거듭제곱 부분공간 풀이·일반 함수 근접 최소화·강도 제약의 비선형 위상 복원과 구분한다."
+    },
+    {
+      "key": "duplicate-label-complementary-polytope-pivoting",
+      "batch": "additions-2026-09-27-information-10.tsv",
+      "source_title": "The Lemke Howson Algorithm — Nashpy Documentation",
+      "url": "https://nashpy.readthedocs.io/en/stable/text-book/lemke-howson.html",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Official Nashpy textbook page explicitly walks through dropping a label, pivoting between two best-response polytopes to remove duplicate labels, and normalizing the final fully-labelled vertex pair. This complementary path has no scalar reduced-cost objective rule.",
+      "related_keys": [
+        "deferred-preference-proposal-stable-matching",
+        "homotopy-continuous-solution-path-tracking"
+      ],
+      "mechanism_boundary": "선호 순위의 제안·보류나 연속 방정식 경로 추적과 달리 두 다면체의 중복 표지를 해소하는 상보적 피벗 경로다. 전략 확률은 도착 정점을 정규화하여 얻는다."
+    },
+    {
+      "key": "independent-coordinate-replacement-variance-bound",
+      "batch": "additions-2026-09-27-information-10.tsv",
+      "source_title": "An Exponential Efron-Stein Inequality for Lq Stable Learning Rules — Abou-Moustafa and Szepesvari, Theorem 10",
+      "url": "https://arxiv.org/pdf/1903.05457",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Primary paper section 5 Theorem 10 defines independent coordinate replacements and bounds Var(Z) by one half the sum of expected squared replacement differences. The finite empirical average is not automatically a rigorous upper bound.",
+      "related_keys": [
+        "leave-one-out-jackknife-bias-correction",
+        "empirical-bootstrap-resampling-distribution",
+        "conditional-expectation-randomness-removal"
+      ],
+      "mechanism_boundary": "관측 삭제의 편향 보정이나 경험분포 재표집과 달리 독립 좌표 교체의 평균 제곱차를 합산하는 유한표본 분산 부등식이다. 기대값 치환으로 새 추정량을 만드는 작업과도 다르다."
+    },
+    {
+      "key": "conditional-integral-orthogonal-variance-decomposition",
+      "batch": "additions-2026-09-27-information-10.tsv",
+      "source_title": "Variance components and generalized Sobol' indices — Owen, section 2",
+      "url": "https://arxiv.org/pdf/1205.1774",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Owen primary paper section 2 recursively integrates out complement variables and subtracts strict-subset components; zero coordinate means imply component orthogonality and an additive variance identity. Although related to factorial ANOVA, the card operates on a specified function and product input measure rather than designing discrete experiments.",
+      "related_keys": [
+        "parameter-sensitivity-measurement-prioritization",
+        "orthogonal-factorial-contrast-effect-isolation",
+        "conditional-expectation-randomness-removal"
+      ],
+      "mechanism_boundary": "입력 한 점의 변화량이나 직교 실험 배치 선택과 달리 주어진 함수와 입력분포를 부분집합별 적분·하위효과 차감으로 분해한다. 표본화 추정식의 여러 변형은 같은 기전이다."
+    },
+    {
+      "key": "two-power-subgroup-modular-root-correction",
+      "batch": "additions-2026-09-27-information-10.tsv",
+      "source_title": "Handbook of Applied Cryptography — Menezes, van Oorschot and Vanstone, Algorithm 3.34",
+      "url": "https://cacr.uwaterloo.ca/hac/about/chap3.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "Author-hosted HAC chapter 3 Algorithm 3.34 selects a quadratic nonresidue, factors p-1 into a power of two times an odd number, initializes a root candidate, and removes successive error powers by nonresidue multiplication. Special cases for prime congruence classes are excluded.",
+      "related_keys": [
+        "modular-square-chain-compositeness-witness",
+        "balanced-power-table-meet-in-middle-logarithm",
+        "coprime-residue-chinese-remainder-reconstruction"
+      ],
+      "mechanism_boundary": "소수 여부의 증인 검사나 미지 지수 표 탐색이 아니라 알려진 소수체에서 비잉여 보정인자로 제곱근의 잔여 오차를 없앤다. 소수의 나머지 종류별 단축 공식은 별도 항목으로 세지 않는다."
+    },
+    {
+      "key": "reduced-cost-feasible-basis-exchange",
+      "batch": "additions-2026-09-27-information-10.tsv",
+      "source_title": "Applied Mathematical Programming — Bradley, Hax and Magnanti, Appendix B.2",
+      "url": "https://web.mit.edu/15.053/www/AMP-Appendix-B.pdf",
+      "retrieval_scope": "reference_section",
+      "accessed_at": "2026-09-27",
+      "method": "conversation_reasoning",
+      "source_observation": "MIT-hosted authors textbook Appendix B.2 steps 1-4 gives reduced costs, an entering basis column, positive-coefficient minimum-ratio test and pivot/basis update. Revised and dual implementations are not separate mechanisms; degeneracy and unboundedness are explicitly distinguished.",
+      "related_keys": [
+        "log-slack-interior-barrier-optimization",
+        "linear-oracle-feasible-convex-combination",
+        "fractional-tableau-integer-rounding-cut"
+      ],
+      "mechanism_boundary": "가능 기저를 유지하는 진입·이탈 변수 교환이다. 내부 장벽 경로·전역 선형 오라클의 볼록 결합·정수성을 이용한 새 절단식 생성과 구별하며 수정·쌍대 구현은 별도 계수하지 않는다."
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "candidate": "column generation as separate from cutting planes",
+      "reason": "Dual column generation and cutting planes are not counted separately."
+    },
+    {
+      "candidate": "FISTA, heavy ball, momentum schedules as separate entries",
+      "reason": "Momentum coefficient schedules remain one inertial extrapolation mechanism."
+    },
+    {
+      "candidate": "Huffman/Golomb/Rice coding as multiple independent entropy entries",
+      "reason": "Prefix-code construction variants will be treated as one operation family."
+    },
+    {
+      "candidate": "MLMC, Hutch++, Romberg, quantum zero-noise extrapolation",
+      "reason": "Combinations or variants of existing control variate and extrapolation mechanisms excluded."
+    },
+    {
+      "candidate": "new ECC, Kalman, LSH, EM/VI, particle-filter variants",
+      "reason": "Application and algorithm-name variants of existing inference/filtering/error-correction mechanisms excluded."
+    },
+    {
+      "candidate": "epipolar camera triangulation",
+      "reason": "Existing bearing-ray-triangulation already back-projects calibrated rays and estimates their intersection."
+    },
+    {
+      "candidate": "K-means and minibatch K-means",
+      "reason": "Official documentation explicitly identifies equal-covariance hard-assignment EM equivalence; existing EM entry makes separate counting questionable."
+    },
+    {
+      "candidate": "receiver-private-selective-oblivious-transfer",
+      "reason": "Initial abstract establishes security goal but not concrete transfer operations; parent review requested verified construction. Follow-up primary retrieval was blocked, and later research flags an overstrong UC security claim for a candidate alternative. Excluded rather than count an underspecified mechanism.",
+      "sources": [
+        "https://eprint.iacr.org/2008/035.pdf",
+        "https://eprint.iacr.org/2015/267.pdf",
+        "https://www.sciencedirect.com/science/article/pii/S0020019020300624"
+      ]
+    }
+  ],
+  "batch_exclusion_notes": [
+    {
+      "batch": "information-06",
+      "candidates": [
+        "separate attention card",
+        "separate bilateral-filter card",
+        "separate MC-SURE card",
+        "bandit UCB variants",
+        "Fisher-information precision-bound card"
+      ],
+      "decision": "Count one content-similarity normalized aggregation family; no separate attention, patch/pixel or bilateral counting in this batch. MC-SURE combines existing random-probe trace estimation with SURE. UCB coefficient variants do not count. Fisher bound deferred until an independently actionable operation is established.",
+      "support_urls": [
+        "https://arxiv.org/html/1706.03762v7",
+        "https://www.ipol.im/pub/art/2011/bcm_nlm/article.pdf",
+        "https://proceedings.neurips.cc/paper_files/paper/2018/file/c0560792e4a3c79e62f76cbf9fb277dd-Paper.pdf"
+      ]
+    },
+    {
+      "batch": "information-07",
+      "candidates": [
+        "convex hull",
+        "Delaunay/Voronoi",
+        "balanced truncation",
+        "fast marching",
+        "Nyquist contour count",
+        "separate Cole-Hopf application variants"
+      ],
+      "decision": "Computational geometry delegated to root. Balanced truncation and fast marching deferred for overlap with low-rank projection and shortest paths. Nyquist contour count is an argument-principle/residue specialization. No PDE-specific renames of the same Cole-Hopf transformation are separately counted.",
+      "support_urls": [
+        "https://www.qhull.org/html/qdelaun.htm",
+        "https://arxiv.org/pdf/solv-int/9812025"
+      ]
+    },
+    {
+      "batch": "information-08",
+      "candidates": [
+        "separate Koopman monomial-lift card",
+        "separate Blahut-Arimoto card",
+        "separate CUSUM card",
+        "independent factorial fractional-design variants",
+        "unqualified small-gain guarantee"
+      ],
+      "decision": "Carleman counts one explicit monomial-lift family; no separate Koopman rename. Rate-distortion iteration and sequential-test variants deferred as overlap-prone. Factorial designs count once. Scattering transformation retained only with its actual port-variable transform; small-gain is supporting stability reasoning, not a second card.",
+      "support_urls": [
+        "https://arxiv.org/pdf/2011.03185",
+        "https://www.mathworks.com/help/control/ug/passive-control-with-communication-delays.html"
+      ]
+    },
+    {
+      "batch": "information-09",
+      "candidates": [
+        "separate Dixon, continued-fraction, quadratic-sieve and number-field-sieve cards",
+        "Hermite normal form as another integer diagonalization card",
+        "distribution-specific variance stabilizers",
+        "mixed-integer Gomory variants"
+      ],
+      "decision": "Congruent-squares relation/parity construction is counted once; ECM and rho remain distinct due to different factor-revealing operations. Integer normal forms are represented by one Smith operation. Variance-stabilizing transforms and integer rounding cuts are not inflated with parameter or input-family variants.",
+      "support_urls": [
+        "https://www.cs.umd.edu/~gasarch/TOPICS/factoring/quad-sieve.pdf",
+        "https://pages.cs.wisc.edu/~cs812-1/Lenstra1987.pdf",
+        "https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.pollard_rho",
+        "https://arxiv.org/pdf/1010.3836"
+      ]
+    },
+    {
+      "batch": "information-10",
+      "candidates": [
+        "higher-dimensional WL and WL-kernel application cards",
+        "randomized/cyclic Kaczmarz as separate mechanisms",
+        "variance-component sampling formula variants",
+        "modular square-root special-prime formulas",
+        "revised and dual simplex implementations"
+      ],
+      "decision": "Count one core operation per family. Multiple scales and matched asymptotics are separately retained for resonant solvability versus spatial overlap matching, with parent/physics coordination. Additional candidates remain uncounted pending complete source review.",
+      "support_urls": [
+        "https://math.arizona.edu/~kglasner/math587/MATCHED.pdf",
+        "https://www.math.utoronto.ca/ivrii/APM-textbook/Chapter8/L8.2.html",
+        "https://jmlr.org/papers/volume12/shervashidze11a/shervashidze11a.pdf",
+        "https://cacr.uwaterloo.ca/hac/about/chap3.pdf"
+      ]
+    }
+  ],
+  "supplementary_source_records": [
+    {
+      "key": "log-generating-function-connected-cumulants",
+      "url": "https://sipi.usc.edu/~mendel/publications/HOSATutorial.pdf",
+      "retrieval_scope": "stored_search_excerpt",
+      "source_observation": "Indexed primary paper introduction states higher-order cumulants are insensitive to Gaussian measurement noise. Scanned body PDF extraction had zero lines; full-body reading is not claimed."
+    },
+    {
+      "key": "frobenius-fixed-subalgebra-polynomial-factorization",
+      "url": "https://raw.githubusercontent.com/sympy/sympy/16fa855354eb7bcabd3fe10993841e03b1382692/sympy/polys/galoistools.py",
+      "retrieval_scope": "reference_section",
+      "source_observation": "gf_Qbasis subtracts the identity; gf_berlekamp uses the resulting basis and gcd of basis polynomial minus field elements."
+    },
+    {
+      "key": "balanced-power-table-meet-in-middle-logarithm",
+      "url": "https://github.com/sagemath/sage/blob/develop/src/sage/groups/generic.py",
+      "retrieval_scope": "reference_section",
+      "source_observation": "bsgs source table and inverse-m-step loop explicitly inspected."
+    }
+  ]
+}

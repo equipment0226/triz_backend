@@ -1,0 +1,50 @@
+{
+  "batch": "additions-2026-09-27-chemistry-06.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1647,
+  "added": 3,
+  "after": 1650,
+  "target": 2000,
+  "source_sha256": "ac755188bffc58a4d138361799c8cda7c89c619a22fdab473e154f5554fca084",
+  "decisions": [
+    {
+      "key": "photoexcited-intramolecular-proton-tautomerization",
+      "group": 15,
+      "related_keys": [
+        "photoacid-mediated-reaction-initiation",
+        "concerted-proton-electron-transfer",
+        "photoinduced-geometric-isomerization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분해로 자유 산을 생성하거나 두 입자 사이 전자·양성자를 함께 넘기는 대신 광여기로 같은 분자 안의 양성자 위치와 결합 차수가 바뀐다.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17583330/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "adsorbate-triggered-metastable-pore-collapse-release",
+      "group": 9,
+      "related_keys": [
+        "adsorption",
+        "bistable-structure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "같은 기공의 평형 점유 변화와 달리 흡착이 골격 수축 전이를 유도해 저장 용량을 떨어뜨린다. 단순 압력 재생이나 기체 종류별 별도 효과로 세지 않는다.",
+      "source_url": "https://www.nature.com/articles/nature17430",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "covalent-block-connectivity-frustrated-microphase-separation",
+      "group": 16,
+      "related_keys": [
+        "spinodal-composition-instability",
+        "solvent-exchange-phase-separation",
+        "surfactant-templated-mesopore-formation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "분리가 계속 조대화되는 비연결 혼합물과 달리 블록 사이 연결이 성장 길이를 제한한다. 주형 제거로 빈 기공을 만드는 후속 공정과도 다른 구조 형성 기전이다.",
+      "source_url": "https://www.nature.com/articles/pj201697",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

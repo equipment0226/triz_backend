@@ -1,0 +1,75 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-09.tsv",
+  "authoring": "Direct conversational Korean authoring and semantic comparison; no external LLM API or generated-content script.",
+  "scope_convention": "reference_section denotes named directly retrieved primary passages, not whole-paper coverage. Observations, modeling, historical original papers and inaccessible endpoints are distinguished.",
+  "comparison": "All-group searches plus nearest card reading distinguish actual microscopic couplings from material or observable substitutions. Thermal expansion, induction, interference and optical pumping remain valid parents. Their proposed children specify mechanisms rather than additional uses. Dynamo/vorticity stretching share an equation structure; the explicit electrodynamic energy-transfer and backreaction boundary is submitted for parent review.",
+  "evidence": [
+    {
+      "key": "transverse-linkage-vibration-thermal-contraction",
+      "url": "https://pubs.aip.org/aip/apm/article/11/4/041130/2886917/Which-phonons-contribute-most-to-negative-thermal",
+      "scope": "reference_section",
+      "read": "Dove et al. 2023 original calculations, Introduction and Figure 1 caption; end of Section V and Section VI Discussion on mode contributions, finite bond-bending flexibility and competing positive modes. Publisher redirected to its readable silverchair article mirror.",
+      "quote": "transverse vibrations of the fluorine atoms draw their neighboring scandium atoms closer together",
+      "support": "Average Sc-Sc separation contracts despite positive nearest Sc-F bond expansion. Low-energy near-rigid rotations and nearby modes dominate negative mode contributions in this calculation. The paper explains why finite polyhedron flexibility extends the useful mode range.",
+      "limitation": "The literature debates detailed mode correlations. The card uses the shared transverse-linkage mechanism and does not claim infinitely rigid units, uncorrelated rotations alone, or that every framework necessarily contracts."
+    },
+    {
+      "key": "reciprocal-lattice-phonon-drift-momentum-relaxation",
+      "url": "https://link.aps.org/accepted/10.1103/PhysRevB.98.180302",
+      "scope": "reference_section",
+      "read": "Ding et al. 2018 original work, manuscript pages 2-5: Introduction, equations 1-5 and direction-dependent distinction, followed by the described BTE comparison for graphite and black phosphorus.",
+      "quote": "projected momentum is conserved in the direction of heat flow",
+      "support": "Anharmonic scattering obeys wave-vector balance modulo a reciprocal lattice vector. Relaxing the projected drift momentum produces resistance, unlike redistribution toward a displaced distribution that preserves it. A reciprocal vector orthogonal to heat flow does not automatically destroy that component.",
+      "limitation": "Neither every Umklapp event nor every phonon collision is labeled resistive in all directions. Specific relaxation-time approximations and the numerical accuracy of the paper's model are not universal transport laws."
+    },
+    {
+      "key": "multiple-scattering-formation-length-radiation-suppression",
+      "url": "https://arxiv.org/pdf/hep-ph/9709214",
+      "scope": "reference_section",
+      "read": "Baier and Katkov 1997 original theory, Introduction and Section 2 pages 2-4, formation-length equation 2.1 and scattering-dependent radiation probability. The complete 39-page derivation was not read.",
+      "quote": "the emission can be disrupted",
+      "support": "Radiation forms over a finite distance. Significant electron multiple scattering during this interval changes the coherent radiation amplitude and suppresses emission compared with independent-atom bremsstrahlung. The theory treats finite-target and dielectric effects separately.",
+      "limitation": "No universal suppression factor, all-spectrum upper bound or absorption-after-emission interpretation is claimed. Dielectric suppression and target-boundary radiation must not be confused with the electron-scattering contribution.",
+      "supplement": {"url": "https://pure.au.dk/ws/portalfiles/portal/285211635/PhysRevD.104.096018.pdf", "scope": "reference_section", "title": "Comparison with experimental data of different theoretical approaches to high-energy electron bremsstrahlung including quantum coherence effects", "read": "Original 2021 numerical/data-comparison study: Section II.B pages 3-4 equations 6-8; page 10 paragraph describing the multiple-center amplitude explanation.", "quote": "destructive interference between radiation amplitudes", "support": "Explicitly identifies the interference and explains formation-length shortening by electron multiple scattering, distinct from photon phase changes due to medium polarization."},
+      "additional_retrieval": "CERN NA63 original 2013 manuscript arXiv:1309.5765 was retrieved (abstract and formation-length passages). It supports experimental investigation; no quantitative agreement claim is copied. SLAC 1995 PDF endpoint timed out."
+    },
+    {
+      "key": "nuclear-symmetry-restored-proton-neutron-dipole-vibration",
+      "url": "https://academic.oup.com/ptep/article/2013/6/063D02/1625808",
+      "scope": "reference_section",
+      "read": "Yasuda et al. 2013 original experimental analysis, Introduction on IVGDR restoring mechanism and distinction from AGDR/SDR; Section 2 first paragraphs on the measured charge-exchange spectrum and mode separation.",
+      "quote": "protons and neutrons oscillate out of phase",
+      "support": "The primary paper expressly describes IVGDR as a collective proton-neutron relative oscillation restored by nuclear symmetry energy. It separately studies the charge-exchange anti-analog mode and stresses model dependence of extracting neutron skin thickness.",
+      "limitation": "The paper's AGDR measured energy is not mislabeled as an IVGDR frequency. The card's mechanism is the explicitly stated macroscopic two-component picture, not a claim that all nuclear response is a rigid pair of fluids. Nuclear isotope or multipole variants are not additional cards.",
+      "source_history": "Goldhaber and Teller 1948 On Nuclear Dipole Vibrations DOI 10.1103/PhysRev.74.1046 metadata verified, but full-text endpoint failed. The modern primary paper supplies the directly read mechanism."
+    },
+    {
+      "key": "conducting-flow-magnetic-stretching-dynamo-amplification",
+      "url": "https://arxiv.org/pdf/astro-ph/0312046",
+      "scope": "reference_section",
+      "read": "Schekochihin et al., original Astrophysical Journal 612, 276 (2004), revised author manuscript: Section 1.1-1.2 pages 1-2 random field stretching, seed growth, resistive scale and Lorentz feedback. A later PDF generation date is not treated as publication date.",
+      "quote": "amplify small-scale magnetic fluctuations via random stretching",
+      "support": "Three-dimensional velocity gradients amplify weak magnetic structure; resistive diffusion competes and the growing field eventually reacts back on the flow. The study concerns high magnetic-Prandtl-number simulations and does not assume every turbulence regime grows a field.",
+      "limitation": "Specific growth spectra, saturation values and scale estimates are not generalized to all dynamos. The analogy to vorticity stretching is acknowledged; retained novelty is electrodynamic energy conversion and self-excitation under induction with Lorentz feedback.",
+      "supplement": {"url": "https://arxiv.org/pdf/physics/0701075", "scope": "reference_section", "title": "Generation of magnetic field by dynamo action in a turbulent flow of liquid sodium", "read": "Monchaux et al. 2007 original experiment, pages 1-2 Introduction, apparatus changes, iron boundaries and growth observations.", "support": "A driven sodium flow exhibits a threshold and amplified field. Replacing impellers and changing magnetic boundaries mattered. This supports fluid self-excitation generally, not identity with the high-Prandtl simulation's parameter regime."}
+    },
+    {
+      "key": "helicity-selective-velocity-population-injection-current",
+      "url": "https://arxiv.org/pdf/1705.00590",
+      "scope": "reference_section",
+      "read": "Original 2017 experiment/theory: pages 4-5 chirality selection, Pauli blocking and cancellation; page 7 equation 2 containing velocity difference times transition probability; Figure 1 caption. Supplementary files were not read separately.",
+      "quote": "transition is allowed on the +kz side but forbidden on the -kz side",
+      "support": "Helicity-dependent optical matrix elements produce an asymmetric occupation of states with opposite velocity. Equation 2 gives the resulting current. For the studied mirror-symmetric Weyl material, tilt and chemical potential also control whether contributions cancel.",
+      "limitation": "This is a velocity-population injection pathway, not a material-specific topological-current count or assertion of quantized CPGE. Spin-selective impurity scattering and optical injection are not conflated.",
+      "source_history": "Ganichev et al. arXiv:physics/0008002 was read but describes possible asymmetric spin-dependent scattering, so it is not used to prove this injection mechanism. The separate TaAs preprint arXiv:1612.07005 PDF failed; its abstract-only attribution is not used. The Nature 2017 quantized-CPGE page and author repository PDF were inaccessible, so no full-text scope is claimed for them."
+    }
+  ],
+  "exclusions": [
+    {"candidate": "Anderson orthogonality catastrophe", "existing": "sudden-quench-fermi-orthogonality-response", "reason": "Exact microscopic mechanism already present; no new count."},
+    {"candidate": "Dirac Zitterbewegung", "existing": "dirac-branch-interference-trembling-motion", "reason": "Exact branch-interference mechanism already present. arXiv:0909.0674 retrieved but unnecessary for another card."},
+    {"candidate": "Quantum reflection without a classical turning point", "existing": "attractive-potential-quantum-reflection", "reason": "Exact mechanism already present."},
+    {"candidate": "Debye-Waller attenuation as a separate thermal-vibration card", "existing": "mossbauer-recoilless-nuclear-resonance", "reason": "Held pending stronger separation from the represented zero-phonon/recoil factor; another observable alone is insufficient."},
+    {"candidate": "Spin-dependent scattering CPGE, quantized CPGE, RUM versus quasi-RUM, nuclear-isotope resonance branches", "reason": "Not split as extra rows in this batch. Different mechanisms need their own verified boundaries; regime, material and mode-label multiplication is avoided."}
+  ]
+}

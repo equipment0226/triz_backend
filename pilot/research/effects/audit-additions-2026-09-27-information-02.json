@@ -1,0 +1,192 @@
+{
+  "batch": "additions-2026-09-27-information-02.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1578,
+  "added": 15,
+  "after": 1593,
+  "target": 2000,
+  "source_sha256": "710615826355523e649c0265e1ff79da68380c8287a2982b8336523ea0f8668c",
+  "decisions": [
+    {
+      "key": "envelope-ratio-rejection-sampling",
+      "group": 19,
+      "related_keys": [
+        "importance-density-ratio-sampling",
+        "detailed-balance-markov-sampling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가중치를 붙여 기대값을 보정하거나 이전 상태에서 전이하는 대신 독립 제안의 수락 여부로 실제 표본 분포를 바꾼다. 공개 검색의 알고리즘 발췌 범위이다.",
+      "source_url": "https://artowen.su.domains/mc/Ch-nonunifrng.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "stratum-mass-weighted-sampling",
+      "group": 19,
+      "related_keys": [
+        "monte-carlo-uncertainty-propagation",
+        "importance-density-ratio-sampling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "독립 추출 횟수만 늘리는 대신 층마다 출현 횟수를 제어한다. 연속 밀도 비율의 사후 가중과 다른 표본 배정 연산이다.",
+      "source_url": "https://artowen.su.domains/mc/Ch-var-basic.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "antithetic-measure-preserving-sample-pairing",
+      "group": 19,
+      "related_keys": [
+        "known-mean-correlated-control-variate",
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기대값이 알려진 별도 보조함수를 빼는 대신 표적 함수 자체를 음의 상관 표본쌍에서 평가한다.",
+      "source_url": "https://artowen.su.domains/mc/Ch-var-basic.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "conditional-expectation-randomness-removal",
+      "group": 19,
+      "related_keys": [
+        "known-mean-correlated-control-variate",
+        "weighted-particle-sequential-state-filtering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상관 보조량의 선형 차감이나 입자 재추출과 달리 한 확률 성분을 조건부 적분으로 직접 제거한다.",
+      "source_url": "https://artowen.su.domains/mc/Ch-var-basic.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "leave-one-out-jackknife-bias-correction",
+      "group": 19,
+      "related_keys": [
+        "empirical-bootstrap-resampling-distribution",
+        "parameter-sensitivity-measurement-prioritization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "복원 추출로 경험 분포를 재표본화하는 대신 각 관측을 정확히 한 번씩 삭제해 영향과 선도 편향을 계산한다.",
+      "source_url": "https://docs.astropy.org/en/stable/_modules/astropy/stats/jackknife.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "exchangeable-label-permutation-null-distribution",
+      "group": 19,
+      "related_keys": [
+        "empirical-bootstrap-resampling-distribution",
+        "sequential-likelihood-ratio-stopping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "관측값을 복원 재추출하지 않고 귀무가설이 허용하는 표지·대응의 대칭 변환으로 기준 분포를 만든다.",
+      "source_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.permutation_test.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "risk-set-product-limit-survival-estimation",
+      "group": 19,
+      "related_keys": [
+        "extreme-value-tail-estimation",
+        "bayesian-network-inference"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "극값 외삽이나 사후 확률 갱신이 아니라 시점마다 달라지는 위험 집합의 조건부 생존율을 곱한다.",
+      "source_url": "https://cran.r-project.org/web/packages/survival/vignettes/survival.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "relative-risk-set-partial-likelihood",
+      "group": 19,
+      "related_keys": [
+        "risk-set-product-limit-survival-estimation",
+        "supervised-learning"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "생존 비율을 곱해 곡선을 얻는 대신 위험 집합 내 조건부 상대 확률로 미지의 공통 시간 함수를 소거한다.",
+      "source_url": "https://academic.oup.com/jrsssb/article/34/2/187/7027194",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "joint-norm-adaptive-mean-shrinkage",
+      "group": 19,
+      "related_keys": [
+        "gaussian-process-covariance-conditioning",
+        "proximal-distance-penalized-resolvent"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자료 전체의 크기에서 수축량을 정하는 빈도주의 공동 위험 개선이다. 사후 공분산 조건화나 고정 벌점의 근접 연산과 동일시하지 않는다.",
+      "source_url": "https://www.math.tau.ac.il/~yekutiel/eBayes/james_stein_1961.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "copula-uniform-marginal-dependence-coupling",
+      "group": 19,
+      "related_keys": [
+        "bayesian-network-inference",
+        "invertible-jacobian-density-transformation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "조건부 확률 그래프나 학습된 전체 가역 변환과 달리 균등 주변 좌표의 의존성과 개별 주변분포를 분리해 결합한다.",
+      "source_url": "https://www.statsmodels.org/stable/generated/statsmodels.distributions.copula.api.CopulaDistribution.rvs.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "capture-overlap-unseen-population-estimation",
+      "group": 19,
+      "related_keys": [
+        "hash-extreme-statistic-cardinality",
+        "reservoir-stream-uniform-sampling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "해시 극값으로 관측된 고유 수를 세거나 흐름의 균등 표본을 유지하는 대신 두 표본의 개체 중첩률에서 미관측 모집단을 추정한다.",
+      "source_url": "https://www.usgs.gov/publications/introduction-handbook",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "assignment-threshold-local-causal-discontinuity",
+      "group": 19,
+      "related_keys": [
+        "instrument-induced-causal-identification",
+        "causal-graph-intervention-calculus"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 도구변수나 그래프 경로 소거 대신 알려진 배정 문턱과 양쪽 잠재결과 연속성이 식별의 근거이다. 원문 검색 발췌 범위로 기록한다.",
+      "source_url": "https://scholar.harvard.edu/files/imbens/files/regression_discontinuity_designs_a_guide_to_practice.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "parallel-trend-double-difference-identification",
+      "group": 19,
+      "related_keys": [
+        "causal-graph-intervention-calculus",
+        "reference-channel-common-mode-rejection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "센서 동시 공통모드의 차감과 달리 두 집단의 전후 변화와 반사실적 평행 추세로 인과 식별을 수행한다.",
+      "source_url": "https://arxiv.org/pdf/1803.09015",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "nonnegative-supermartingale-time-uniform-bound",
+      "group": 19,
+      "related_keys": [
+        "sequential-likelihood-ratio-stopping",
+        "exchangeable-score-conformal-coverage"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "두 단순 가설의 우도비 문턱과 달리 조건부 적률에서 초마팅게일을 구성해 모든 시점에 걸친 추정 오차를 제한한다.",
+      "source_url": "https://arxiv.org/pdf/1810.08240",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "distinct-tuple-symmetric-kernel-estimation",
+      "group": 19,
+      "related_keys": [
+        "empirical-bootstrap-resampling-distribution",
+        "monte-carlo-uncertainty-propagation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "같은 관측의 중복을 허용하는 재표본화와 달리 서로 다른 관측의 고정 크기 조합을 대칭화해 모수 함수의 불편성을 얻는다.",
+      "source_url": "https://web.stanford.edu/class/stats300b/ScribeNotes/2018/lecture-08.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

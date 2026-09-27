@@ -1,0 +1,140 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-13.tsv",
+  "authoring": "Direct conversational authorship; no external LLM API, generated scientific prose script, canonical mutation or deployment.",
+  "comparison": {
+    "canonical_count": 1962,
+    "canonical_sha256_at_review": "2e0b4389e48f6eb8c11e6bc5867e2f30109b22dd34091a29871b3692772b2519",
+    "pending_included": ["additions-2026-09-27-information-13.tsv", "additions-2026-09-27-biology-09.tsv"],
+    "pending_rows_reviewed": {"information-13": 16, "biology-09": 12},
+    "method": "Reviewed physical-domain key/title inventory and candidate-nearest principles and conditions. Candidate synonyms and intermediate mechanisms were searched against the entire canonical catalog and all 2026-09-27 additions, including nonphysical groups. Relevant parent reference identities were inspected. All eight rows name existing nearest keys. The two radiation instabilities are also compared with each other in their boundary prose. This is a semantic editorial audit, not a proof that the scientific literature has no alternative classification.",
+    "result": "Eight proposed mechanism cards, not eight independent fundamental laws. No carrier-only Gurzhi card or final-state-only ICD card was added. Root review is required for the stated finer mechanisms before ingestion."
+  },
+  "evidence": [
+    {
+      "key": "core-excitation-capture-radiative-dielectronic-recombination",
+      "url": "https://arxiv.org/pdf/astro-ph/0108048",
+      "scope": "reference_section",
+      "read": "Original Savin et al. manuscript: Introduction pages 3-4, simultaneous capture/excitation, competing autoionization, radiative stabilization, resonance-energy relation and measured Fe XX channels. The whole 65-page paper was not reviewed.",
+      "quote": "formed by the simultaneous excitation and capture",
+      "support": "A photon lowers the captured ion below its ionization threshold. The storage-ring measurements resolve resonances, while theory supplies rate calculations.",
+      "limitation": "The second electron is excited, not a second incoming electron captured. Results are ion- and temperature-dependent. A resonant capture without stabilization is not completed recombination.",
+      "nearest_comparison": "Auger recombination transfers energy to another carrier. Its inverse capture step alone is insufficient here: radiative stabilization retains the electron. Dissociative recombination instead disposes of energy through molecular fragmentation; a solid-state trap is not the intermediate state."
+    },
+    {
+      "key": "screw-dislocation-end-torque-eshelby-twist",
+      "url": "https://arxiv.org/pdf/1409.3522",
+      "scope": "reference_section",
+      "read": "Author manuscript of PRL 107, 195503 (2011), uploaded in 2014: introductory torque/twist relation and pages 3-4 diffraction results, measured Burgers vector, enhanced twist, and surface/core limitations.",
+      "quote": "needed to compensate the torque",
+      "support": "An axial screw dislocation produces lattice rotation. Independent measurements show very thin InP wires can twist more than the bulk-elastic prediction.",
+      "limitation": "The detailed microscopic source of the enhanced twist remains partly interpretive. The card asserts torque compensation, not a universal magnitude or an established electronic-device benefit.",
+      "nearest_comparison": "Persistent spiral-growth steps supply new growth layers; this is elastic equilibrium of a finite rod. Poynting response converts externally imposed finite torsion into axial strain. Backstress changes reverse plastic yield. None is the axial-dislocation/free-end torque balance."
+    },
+    {
+      "key": "head-on-fermi-collision-odd-angular-mode-protection",
+      "url": "https://ciqm.harvard.edu/uploads/2/3/3/4/23349210/ledwith_guo_shytov2019.pdf",
+      "scope": "reference_section",
+      "read": "Original PRL 123, 116601 (2019), author-institution copy: first two pages, Fig. 1, head-on collision parity, equations 1-3, and extrinsic angular relaxation discussion.",
+      "quote": "identical way simultaneously at momenta p and −p",
+      "support": "Pauli blocking plus two-dimensional conservation constraints preferentially permit head-on collisions. Such collisions relax even angular modes but leave odd modes to slower processes.",
+      "limitation": "Kinetic theory, not an experimental lifetime measurement in this source. Non-head-on collisions and disorder still relax odd modes; only intermediate length scales exhibit the proposed dynamics.",
+      "nearest_comparison": "The gas Knudsen minimum only needs bulk/wall collision competition. This parity-selective collision null space is absent there. Spin blockade restricts a different quantum number; integrable one-dimensional thermalization retains rapidities, whereas this two-dimensional system eventually relaxes."
+    },
+    {
+      "key": "bent-field-mass-drainage-parker-buoyancy",
+      "url": "https://arxiv.org/pdf/1006.3836",
+      "scope": "reference_section",
+      "read": "Lo, Ko and Wang original simulation manuscript, accepted in Computer Physics Communications (2010): abstract, Introduction page 1, model assumptions, and gas accumulation at magnetic-loop footpoints on pages 2-3.",
+      "quote": "plasma can only fall along the magnetic field lines",
+      "support": "A frozen-in field develops arches; gas drains along them into dense footpoints. Cosmic-ray diffusion modifies growth rather than defining a separately counted mechanism.",
+      "limitation": "Magnetohydrodynamic simulations. The card does not identify every observed molecular loop or cloud uniquely with this instability.",
+      "nearest_comparison": "This specifies how the moving field geometry removes mass from a crest. Thermal convection and magnetothermal instability change buoyancy by heat exchange; Rayleigh-Taylor begins with a prescribed density interface; magnetorotational instability exchanges angular momentum. Generic buoyancy remains an acknowledged parent."
+    },
+    {
+      "key": "doppler-line-deshadowing-radiative-instability",
+      "url": "https://adsabs.harvard.edu/pdf/1984ApJ...284..337O",
+      "scope": "reference_section",
+      "read": "Original Owocki and Rybicki 1984 ApJ paper: Section II line-force perturbation, pages 342-344, Fig. 2 and Doppler/Voigt profile comparison; short-wavelength amplification and weak-line limitations.",
+      "quote": "exposes the line to a fresh supply of continuum radiation",
+      "support": "A velocity perturbation shifts the absorption edge into less attenuated incident light. The resulting force reinforces it; line profile and optical depth set the growth and characteristic scale.",
+      "limitation": "Linear absorption-line model. Scattered-radiation drag and long-wavelength behavior prevent treating every line-driven flow as uniformly unstable.",
+      "nearest_comparison": "Radiation pressure alone has no velocity-controlled shielding loop. Doppler cooling uses imposed counterpropagating detuned beams to damp motion. Here upstream absorption is part of the evolving medium, not a measurement or heat-loss condensation process."
+    },
+    {
+      "key": "density-flux-phase-feedback-photon-bubble-instability",
+      "url": "https://arxiv.org/pdf/astro-ph/9802226",
+      "scope": "reference_section",
+      "read": "Gammie original 1998 manuscript, Section 6.2, page 5: equations 37-41, stiff-field constraint, density-dependent radiative flux and qualitative overstable cycle; Section 7 nonlinear-outcome caveat.",
+      "quote": "Radiation escapes more rapidly along density minima",
+      "support": "Density perturbations redirect diffusing radiation while the field restricts material motion. Their phase relationship permits radiation force to amplify a compressive oscillation.",
+      "limitation": "Local linear theory. The cited paper explicitly treats nonlinear transport predictions as uncertain; no quantitative saturation enhancement is claimed.",
+      "nearest_comparison": "The energy path is radiative mechanical work, not loss-driven cooling/condensation or field-aligned thermal conduction. Unlike line deshadowing, it needs neither spectral-line Doppler escape nor velocity-dependent upstream line opacity. The magnetic field constrains direction rather than supplying the driving energy."
+    },
+    {
+      "key": "resonant-ion-neutral-charge-identity-exchange",
+      "url": "https://arxiv.org/pdf/2012.07759",
+      "scope": "reference_section",
+      "read": "Mahdian, Krukow and Hecker Denschlag original manuscript, version 3 (2021): page 1 and Fig. 1 electron-hop/identity exchange, page 2 impact-parameter distinction and homonuclear versus heteronuclear experimental comparison.",
+      "quote": "momentum exchange between atom and ion is negligible",
+      "support": "A glancing resonant electron transfer turns a fast ion into a fast neutral and a cold neutral into a cold ion. The direct single-ion experiment separates this from ordinary elastic cooling.",
+      "limitation": "Negligible momentum transfer is the glancing-collision regime, not every ion-atom encounter. Total kinetic energy is not annihilated; it remains predominantly with the fast neutral.",
+      "nearest_comparison": "Harpoon capture creates opposite charges from two neutrals. This swaps a pre-existing positive charge between equivalent ionic cores. It changes charge-labelled velocities rather than dissipating kinetic energy by a momentum-changing collision or laser recoil."
+    },
+    {
+      "key": "beta-fed-unbound-nucleus-delayed-neutron-emission",
+      "url": "https://arxiv.org/pdf/2303.12173",
+      "scope": "reference_section",
+      "read": "Original 2023 manuscript: Introduction pages 1-2, states above neutron separation energy, prompt neutron emission after beta decay; experimental beta/neutron measurement and discussion of gamma competition.",
+      "quote": "Promptly after the β decays, neutrons were emitted",
+      "support": "Beta feeding populates neutron-unbound daughter states. Their neutron emission is subsequent and prompt relative to the beta precursor, giving a physically distinct sequential emission channel.",
+      "limitation": "Specific 133In spectroscopy. The card neither generalizes a branching probability nor claims all beta daughters emit neutrons. Detailed nuclear structure and gamma competition matter.",
+      "nearest_comparison": "Generic radioactive decay and beta conversion are parents. The added intermediate is a populated neutron-unbound daughter, which opens a second emission channel and inherits the precursor waiting time. It is not direct prompt fission emission or external neutron activation."
+    }
+  ],
+  "exclusions": [
+    {
+      "candidate": "Efimov three-body binding",
+      "reason": "Exact existing mechanism resonant-three-body-efimov-binding. No new row.",
+      "retrieved_primary": "https://www.sciencedirect.com/science/article/pii/0375947473905101",
+      "read_scope": "stored_search_excerpt",
+      "read": "Efimov 1973 publisher abstract retrieved in search; no full-text claim."
+    },
+    {
+      "candidate": "Penning ionization",
+      "reason": "Exact existing mechanism metastable-collision-penning-ionization. No new row.",
+      "retrieved_primary": "https://www.sciencedirect.com/science/article/pii/0368204881850451",
+      "read_scope": "stored_search_excerpt",
+      "read": "Original state-selected metastable-neon collision experiment publisher abstract retrieved in search."
+    },
+    {
+      "candidate": "Generic Gurzhi resistance decrease or superballistic electron flow",
+      "reason": "The ordinary momentum-conserving collision/boundary-loss explanation is too close to rarefaction-knudsen-flow-minimum and viscous transport if only the carrier changes. Excluded; the authored parity-selective Fermi collision mechanism has an explicitly different intermediate constraint.",
+      "retrieved_primary": "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.15.011039",
+      "read_scope": "publisher_abstract",
+      "read": "Publisher abstract and indexed introduction retrieved; no claim to have inspected the failed author-PDF download."
+    },
+    {
+      "candidate": "Interatomic or intermolecular Coulombic decay",
+      "reason": "Not counted. The read experiment shows an inner-hole relaxation transferring energy to a neighbor and continuum electron emission; its long-distance dipole-coupling limit overlaps the existing FRET transfer channel. The locally forbidden Auger channel becoming allowed through distributed final charges may justify a narrower mechanism later, but this batch has not established that boundary strongly enough against FRET, Penning and Auger parents.",
+      "retrieved_primary": "https://arxiv.org/pdf/1308.0118",
+      "read_scope": "reference_section",
+      "read": "Schnorr et al. original time-resolved Ne2 experiment: page 1 abstract, inner-shell vacancy filling and neighbor electron emission, and distance-dependent dipole coupling. Also retrieved Cederbaum et al. 1997 publisher abstract; its APS fulltext endpoint failed.",
+      "quote": "transferred to a neighboring atom",
+      "additional_primary": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.79.4778"
+    },
+    {
+      "candidate": "Diffusive-thermal flame instability",
+      "reason": "Not advanced to a card. Different heat/reactant transport could be an instance of already represented reaction-diffusion instability; an independent primary-source boundary review was not completed, so no new count is claimed."
+    }
+  ],
+  "validation": {
+    "status": "passed local structural checks; eight unique 10-column rows, no canonical key collisions, all nearest keys canonical, HTTPS sources, evidence/TSV key and URL consistency",
+    "rows": 8,
+    "maximum_principle_characters": 111,
+    "maximum_conditions_characters": 110,
+    "external_llm_calls": 0,
+    "canonical_writes": 0,
+    "deployment_actions": 0
+  }
+}

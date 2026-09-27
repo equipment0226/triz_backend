@@ -1,0 +1,125 @@
+{
+  "batch": "additions-2026-09-27-information-10.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1858,
+  "added": 9,
+  "after": 1867,
+  "target": 2000,
+  "source_sha256": "9dddf30357c9fea14ec9e807c99e951f2e8f6f8ce2b84331300c5319dc00d158",
+  "decisions": [
+    {
+      "key": "overlap-subtracted-inner-outer-asymptotic-matching",
+      "group": 19,
+      "related_keys": [
+        "step-size-leading-error-extrapolation",
+        "multiscale-property-upscaling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "서로 다른 수치 간격의 선도 오차를 상쇄하거나 미세 물성을 평균하는 과정과 달리 특이 섭동의 다른 지배 영역에서 얻은 해를 겹침 극한으로 정합한다.",
+      "source_url": "https://math.arizona.edu/~kglasner/math587/MATCHED.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "independent-slow-time-secular-solvability-removal",
+      "group": 19,
+      "related_keys": [
+        "overlap-subtracted-inner-outer-asymptotic-matching",
+        "nested-commutator-magnus-exponential-propagation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "영역별 해의 겹침 접합과 달리 같은 궤적에 여러 시간변수를 도입해 공명 계수의 영 조건으로 느린 진폭을 결정한다. 시변 선형행렬의 교환자 지수화도 아니다.",
+      "source_url": "https://www.math.utoronto.ca/ivrii/APM-textbook/Chapter8/L8.2.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "neighbor-multiset-injective-color-refinement",
+      "group": 19,
+      "related_keys": [
+        "normalized-laplacian-spectral-partition",
+        "function-congruence-equivalence-closure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "스펙트럼의 실수 좌표나 알려진 항 등가관계 전파 대신 이웃 색의 다중집합을 단사적으로 다시 표지하여 반복 분할한다. 고차원 변형과 그래프 커널 이름은 별도로 세지 않는다.",
+      "source_url": "https://jmlr.org/papers/volume12/shervashidze11a/shervashidze11a.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "row-hyperplane-residual-orthogonal-projection",
+      "group": 19,
+      "related_keys": [
+        "krylov-subspace-residual-solution",
+        "proximal-distance-penalized-resolvent",
+        "intensity-constraint-phase-retrieval"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개별 선형 행의 정확한 초평면 투영과 행 방문 규칙을 사용한다. 행렬 거듭제곱 부분공간 풀이·일반 함수 근접 최소화·강도 제약의 비선형 위상 복원과 구분한다.",
+      "source_url": "https://www.math.ucdavis.edu/~strohmer/papers/2007/kaczmarz.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "duplicate-label-complementary-polytope-pivoting",
+      "group": 19,
+      "related_keys": [
+        "deferred-preference-proposal-stable-matching",
+        "homotopy-continuous-solution-path-tracking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "선호 순위의 제안·보류나 연속 방정식 경로 추적과 달리 두 다면체의 중복 표지를 해소하는 상보적 피벗 경로다. 전략 확률은 도착 정점을 정규화하여 얻는다.",
+      "source_url": "https://nashpy.readthedocs.io/en/stable/text-book/lemke-howson.html",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "independent-coordinate-replacement-variance-bound",
+      "group": 19,
+      "related_keys": [
+        "leave-one-out-jackknife-bias-correction",
+        "empirical-bootstrap-resampling-distribution",
+        "conditional-expectation-randomness-removal"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "관측 삭제의 편향 보정이나 경험분포 재표집과 달리 독립 좌표 교체의 평균 제곱차를 합산하는 유한표본 분산 부등식이다. 기대값 치환으로 새 추정량을 만드는 작업과도 다르다.",
+      "source_url": "https://arxiv.org/pdf/1903.05457",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "conditional-integral-orthogonal-variance-decomposition",
+      "group": 19,
+      "related_keys": [
+        "parameter-sensitivity-measurement-prioritization",
+        "orthogonal-factorial-contrast-effect-isolation",
+        "conditional-expectation-randomness-removal"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입력 한 점의 변화량이나 직교 실험 배치 선택과 달리 주어진 함수와 입력분포를 부분집합별 적분·하위효과 차감으로 분해한다. 표본화 추정식의 여러 변형은 같은 기전이다.",
+      "source_url": "https://arxiv.org/pdf/1205.1774",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "two-power-subgroup-modular-root-correction",
+      "group": 19,
+      "related_keys": [
+        "modular-square-chain-compositeness-witness",
+        "balanced-power-table-meet-in-middle-logarithm",
+        "coprime-residue-chinese-remainder-reconstruction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "소수 여부의 증인 검사나 미지 지수 표 탐색이 아니라 알려진 소수체에서 비잉여 보정인자로 제곱근의 잔여 오차를 없앤다. 소수의 나머지 종류별 단축 공식은 별도 항목으로 세지 않는다.",
+      "source_url": "https://cacr.uwaterloo.ca/hac/about/chap3.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "reduced-cost-feasible-basis-exchange",
+      "group": 19,
+      "related_keys": [
+        "log-slack-interior-barrier-optimization",
+        "linear-oracle-feasible-convex-combination",
+        "fractional-tableau-integer-rounding-cut"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가능 기저를 유지하는 진입·이탈 변수 교환이다. 내부 장벽 경로·전역 선형 오라클의 볼록 결합·정수성을 이용한 새 절단식 생성과 구별하며 수정·쌍대 구현은 별도 계수하지 않는다.",
+      "source_url": "https://web.mit.edu/15.053/www/AMP-Appendix-B.pdf",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

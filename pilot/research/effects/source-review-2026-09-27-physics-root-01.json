@@ -1,0 +1,55 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-root-01.tsv",
+  "authoring": "Direct conversational authorship after primary-paper retrieval; no external LLM API.",
+  "canonical_count_checked": 1959,
+  "evidence": [
+    {
+      "key": "low-energy-s-wave-phase-zero-scattering-minimum",
+      "url": "https://arxiv.org/pdf/1408.1389",
+      "scope": "reference_section",
+      "read": "Original calculation, pages 2-3, equation 3 and electron/positron comparison.",
+      "finding": "A small higher-partial-wave contribution and s-wave phase zero produce a low-energy total-cross-section minimum. The beryllium predictions are theoretical, not measured values.",
+      "supplement": {
+        "url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.149.58",
+        "scope": "publisher_abstract",
+        "finding": "Golden and Bandel measured absolute electron-argon cross sections and analyzed their minimum with partial-wave effective-range theory. Only the opened abstract was read; fulltext retrieval failed."
+      },
+      "boundary": "No narrow discrete resonance or closed-channel molecular state is required. Gas/particle variants are one pathway; generic interference remains a parent, not a duplicate card for the same experimental setup."
+    },
+    {
+      "key": "orbital-magnetization-self-consistent-condon-domains",
+      "url": "https://arxiv.org/pdf/1003.4822",
+      "scope": "reference_section",
+      "read": "Original experiment and theory, Introduction pages 1-2, equation 1 and shape boundary conditions; experimental phase-boundary discussion.",
+      "finding": "The orbital magnetization depends on total induction. Its sufficiently steep differential response destabilizes a uniform state; demagnetizing geometry determines jumps or domain coexistence. Silver phase boundaries were measured using nonlinear pickup response.",
+      "limits": "Neither spin exchange nor pinned-wall motion is the origin. Does not assert domains in every sample shape or every quantum-oscillating metal. Material-specific field and temperature values were omitted."
+    },
+    {
+      "key": "cathode-secondary-feedback-townsend-gas-breakdown",
+      "url": "https://arxiv.org/pdf/cond-mat/0205173",
+      "scope": "reference_section",
+      "read": "Original numerical/analytical study, classical model and Section III.A equation 26; extensions discussed on page 2.",
+      "finding": "Gas impact ionization and ion-driven cathode secondary emission form the self-sustaining loop; the Townsend threshold balances regenerated electrons against losses. Space charge affects the subsequent glow transition.",
+      "limits": "One-dimensional local drift model; diffusion, attachment, nonlocal ionization and field-dependent emission are extensions. Self-sustaining does not mean no electrical power."
+    }
+  ],
+  "excluded": [
+    {
+      "candidate": "Boycott inclined-wall sedimentation",
+      "nearest": "gravity-settling",
+      "url": "https://iypt.ru/wp-content/uploads/2021/09/Enhanced-sedimentation-in-settling-tanks-with-inclined-walls.pdf",
+      "scope": "reference_section",
+      "read": "Acrivos and Herbolzheimer original 1979 paper, pages 455-456.",
+      "reason": "The paper explicitly attributes settling-rate enhancement to increased particle-free-fluid production/collection area, not the bulk convective circulation. The proposed card would mainly subdivide existing gravity settling by vessel geometry, so it is excluded."
+    },
+    {
+      "candidate": "Overhauser nuclear polarization",
+      "reason": "Existing driven-electron-nuclear-polarization-transfer already covers the proposed pathway."
+    },
+    {
+      "candidate": "magnetic breakdown between semiclassical orbits",
+      "reason": "No accepted boundary beyond avoided-crossing tunneling already covered by landau-zener-avoided-crossing-transfer."
+    }
+  ]
+}

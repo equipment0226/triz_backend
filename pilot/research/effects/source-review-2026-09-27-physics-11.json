@@ -1,0 +1,48 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-11.tsv",
+  "authoring": "Direct conversational authorship and cross-group comparison; no external LLM API or generated prose script.",
+  "scope_convention": "Named primary passages were retrieved. Theory, atomistic simulation, macroscopic experiment and failed access are not conflated.",
+  "evidence": [
+    {
+      "key": "cascaded-quadratic-backconversion-optical-phase-shift",
+      "url": "https://api.creol.ucf.edu/Publications/1327.pdf",
+      "scope": "reference_section",
+      "read": "DeSalvo et al. original three-page 1992 paper, author-institution copy: page 28 explanation and coupled equations 1-4; page 29 equations 6-7 approximation and Figure 2; page 30 direct electronic Kerr contribution.",
+      "quote": "downconverted with a shifted phase",
+      "support": "Off-phase-matched second-harmonic generation returns some light to the fundamental with a changed phase. Eliminating the generated field produces a Kerr-like low-conversion response. The experiment tunes the sign through phase mismatch; a separately measured electronic Kerr contribution remains positive.",
+      "limitation": "The effective intensity-linear coefficient fails for large phase distortion. The paper's crystal-specific numerical coefficients and irradiance values are not generalized. Ordinary third-harmonic cascading is not counted separately.",
+      "parent_source_check": {"url": "https://www.nature.com/articles/s41467-021-27933-x", "scope": "reference_section", "read": "Moroney et al. 2022 original Results, equation 1 and paragraphs immediately after it.", "support": "The existing Kerr source explicitly uses a direct third-order medium and calls its mechanism a nonresonant electronic response. Existing nonlinear-frequency-conversion card describes generation, not the phase-shifted return path."}
+    },
+    {
+      "key": "quasiperiodic-internal-configuration-phason-flip-diffusion",
+      "url": "https://arxiv.org/pdf/2302.14441",
+      "scope": "reference_section",
+      "read": "Nagai et al. 2023 original manuscript: Introduction on internal/perpendicular degrees of freedom; Atomic Structure and Phasons and Discussion: Origin of Al diffusion, pages 3-5; equation 1 and Summary.",
+      "quote": "without any vacancy formation",
+      "support": "Calculated Al trajectories in approximants follow restricted sites represented by hyperatomic fluctuations. A sequence of site changes supplies diffusion without creating vacancies. The quasicrystal's internal phason coordinate is distinct from ordinary physical translation; a diffusive collective mode is discussed.",
+      "limitation": "Heat capacity was measured experimentally, whereas the atom trajectories were simulated. Extension from approximants to quasicrystals and the anomalous-heat-capacity interpretation are model-dependent. The card makes no universal heat-capacity prediction or literal physical six-dimensional-space claim.",
+      "supplement": {"url": "https://arxiv.org/pdf/1006.1836", "scope": "reference_section", "title": "Dynamics of particle flips in two-dimensional quasicrystals", "read": "Engel et al. 2010 original simulation, Introduction; Section II.D local tiling description; Section VI conclusions.", "quote": "local scale, phason flips strongly resemble",
+      "support": "Describes near-degenerate configurations, geometrically allowed flips and thermally activated long-time diffusion. Explicitly compares local flips to slow beta relaxation in glasses. Novelty is therefore assigned to the internal quasiperiodic structural degree, not to thermal hopping alone."},
+      "nearest_comparison": "Stress-biased amorphous shear events, low-temperature tunneling phonon scatterers, unequal-species vacancy flow and stress-directed creep are existing cards. None currently identifies quasiperiodic internal configuration changes. This boundary remains explicit for parent review.",
+      "additional_retrieval": "Francoual et al. 2003 PRL 91,225501 primary publisher search abstract describes wavelength-squared decay times of phason speckles; APS full text failed, so it is not represented as a directly read paper body."
+    },
+    {
+      "key": "finite-flight-nonlocal-anomalous-skin-conduction",
+      "url": "https://arxiv.org/pdf/2211.00135",
+      "scope": "reference_section",
+      "read": "Ratzinger and Wang revised original manuscript dated April 2024: Section II.A/B pages 2-3 assumptions 3-7, discussion pages 4-5 and equations 8-10. The first arXiv submission was 2022; the card identifies the read revision.",
+      "quote": "leave the skin layer between two collisions",
+      "support": "Long electron flights out of the thin driven region reduce RF conductivity relative to a DC-based local calculation. The authors compare a geometric surface-resistance model with measurements and established transport theory.",
+      "limitation": "The equivalent uniform layer is a surface-resistance approximation, not a full complex impedance solution. It assumes a simple Fermi surface and small frequency-times-collision-time; surface scattering and extremely low-temperature small-angle events change accuracy. No universal frequency cutoff or numerical loss factor is copied.",
+      "historical_source": {"url": "https://www.nature.com/articles/161394a0", "scope": "stored_search_excerpt", "title": "Reuter and Sondheimer · Theory of the Anomalous Skin Effect in Metals (1948)", "support": "Publisher search abstract explicitly states failure of local Ohm response when free path becomes comparable to field penetration depth. Direct page request failed; no original body read is claimed."},
+      "nearest_comparison": "Induction/heating/sensing describe induced currents and their uses; this resolves finite-flight nonlocal response. Ballistic quantization counts transverse modes. Knudsen gas transport is controlled by pore-wall collisions rather than leaving a shallow electromagnetic drive layer."
+    }
+  ],
+  "exclusions": [
+    {"candidate": "rotational superradiant amplification", "nearest": ["rotation-negative-frequency-zeldovich-amplification"], "reason": "Exact existing negative co-rotating frequency and absorptive sign-reversal mechanism."},
+    {"candidate": "antisymmetric spin-orbit exchange", "nearest": ["antisymmetric-exchange-magnetic-chirality"], "reason": "Exact existing Dzyaloshinskii-Moriya mechanism."},
+    {"candidate": "quantum superconducting wire phase slips", "nearest": ["superconducting-wire-coherent-phase-slip"], "reason": "Exact existing winding-state tunneling mechanism."},
+    {"candidate": "beam reflection phase-gradient shift", "nearest": ["goos-hanchen-reflection-beam-shift"], "reason": "Exact existing finite-beam angular-spectrum phase-gradient pathway."}
+  ]
+}

@@ -70,3 +70,36 @@ checks do not establish engineering correctness or physical performance.
 The catalog describes ARIZ Parts 8/9, but this application has no separate
 Part 8/9 ARIZ executor. S8 evaluation and S10 feedback must not be presented as
 proof that every original ARIZ-85C substep was executed.
+
+## Verified deployment, 2026-09-27
+
+Backend branch `fix/workflow-coverage-20260927`, commit `0a123fe`, passed 436
+isolated regression tests and was deployed as Railway
+`849f82ac-6b5e-4518-a62b-0585554ba9e8`. Frontend branch
+`fix/report-details-20260927`, commit `5540cf4`, was deployed as
+`6d4d994a-00f4-4b2d-998e-e0b43f507752`. Both deployments reported SUCCESS.
+The production image matched 882 source-file hashes; six mode/bundle routing
+scenarios, the Part 6 contract and health endpoint passed read-only checks.
+No analysis jobs, model calls or production-record edits were made by these checks.
+
+The public Micro LED report `run-bbe70a45d710` passed Edge and WebKit checks at
+desktop and mobile viewports. Its 29 disclosure controls started closed, opened
+on click, and removed the body DOM when closed. Mobile rendering used 54 pages;
+page and tab changes reset disclosure state without extra document navigation,
+JavaScript errors or horizontal viewport overflow. These were browser emulations,
+not physical iPhone tests. The first bounded discovery scan found no suitable
+case among the newest eight DEEP reports; the verified case was ninth and was
+subsequently selected explicitly from the public list.
+
+This workflow-only release retained the previously published 1,500-effect
+catalog. Existing project analysis is unchanged; missing S5 methods and new
+Part 6 model output require an explicit S5 rerun to generate new results.
+
+## Subsequent ARIZ 4.1 presentation change
+
+The subsequent [2,000-effect release](EFFECTS_2000_20260927.md) removes the
+duplicated lower edge legend only from the small-people model in step 4.1.
+Its three nodes, two arrows and meaningful action labels remain. Existing
+reports and exports use the updated renderer without an analysis rerun;
+other ARIZ diagram legends and saved step content are retained. The change
+passed 22 focused rendering tests and a visual check with the Micro LED data.

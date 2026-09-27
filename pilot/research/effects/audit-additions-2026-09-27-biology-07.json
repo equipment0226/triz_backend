@@ -1,0 +1,99 @@
+{
+  "batch": "additions-2026-09-27-biology-07.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1907,
+  "added": 7,
+  "after": 1914,
+  "target": 2000,
+  "source_sha256": "20bcba1291d6059df2aaddae3b17cd22541b4ce76d83c8b93c51110127b6d7a1",
+  "decisions": [
+    {
+      "key": "flavin-n5-methylene-relay-reductive-methylation",
+      "group": 18,
+      "related_keys": [
+        "folate-methylene-hydride-reductive-methylation",
+        "flavin-n5-covalent-sugar-ring-contraction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "엽산이 탄소와 수소화물을 직접 공급하는 ThyA와 달리 플라빈 N5가 공유 탄소 운반체·환원체를 겸하고 기질 활성화에도 시스테인 부가가 필요하지 않다. 당 고리 전환의 아노머 치환과도 다르다.",
+      "source_url": "https://www.nature.com/articles/s41467-021-24756-8",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "sam-carbon-fragment-radical-transfer",
+      "group": 18,
+      "related_keys": [
+        "iron-sulfur-radical-sam-activation",
+        "cysteinyl-methylene-radical-carbon-methylation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "아데노실 라디칼을 수소 제거 개시자로 쓰는 경로와 달리 다른 SAM 결합의 절단 조각 자체가 기질에 편입된다. 메틸시스테인 운반체의 탈수소화·효소 가교 해소도 거치지 않는다.",
+      "source_url": "https://www.acert.cornell.edu/PDFs/Science359_1247_2018.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "plp-imine-radical-one-two-amino-migration",
+      "group": 18,
+      "related_keys": [
+        "aminotransferase-group-transfer",
+        "cobalamin-cobalt-carbon-radical-rearrangement",
+        "iron-sulfur-radical-sam-activation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "PLP 이민과 라디칼이 협동하여 같은 분자 안에서 C–N 연결 위치를 바꾸는 경로다. 분자 사이 질소 교환이나 코발트 결합 절단 자체와 구별하며 SAM·코발라민 개시 및 이동 위치별로 나누지 않는다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2553251/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "cysteinyl-thioimidate-sequestered-imine-nitrile-reduction",
+      "group": 18,
+      "related_keys": [
+        "nitrile-hydrogenation-to-amine",
+        "nitrilase-hydrolysis-to-carboxylate"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "니트릴 수소화의 구체적 공유 촉매 경로로 티오이미데이트·헤미티오아미날·차폐 이민을 거친다. 니트릴분해효소와 초기 부가는 공유하지만 물에 의한 질소 제거 대신 두 번 환원하고 질소를 보존한다.",
+      "source_url": "https://pubs.rsc.org/en/content/articlehtml/2019/cy/c8cy02331j",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "slow-conformational-relaxation-kinetic-cooperativity",
+      "group": 18,
+      "related_keys": [
+        "allosteric-cooperativity",
+        "substrate-limited-biochemical-rate",
+        "binding-residence-time"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "다른 조절 자리의 리간드 결합이나 결합 분자의 느린 해리 대신 기질이 떠난 뒤 남는 효소 구조의 수명과 재결합 경쟁이 핵심이다. 평형 결합 협동성 없이 비평형 반응 경로의 분배가 변한다.",
+      "source_url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001452",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "paired-radical-fragment-addition-heterocycle-annulation",
+      "group": 18,
+      "related_keys": [
+        "amino-acid-fragment-derived-iron-carbonyl-cyanide-assembly",
+        "radical-ribose-purine-intramolecular-carbon-cyclization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "아미노산 절단의 작은 조각을 금속 리간드로 쓰는 경로와 달리 벤질 조각을 분자 간 부가한 뒤 별도 라디칼 개시로 융합 고리를 닫는다. 단일 당·염기 내부 고리화와 다르며 두 효소형을 나누지 않는다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4416281/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "pentacyclic-dimer-fragmentation-four-carbon-transfer",
+      "group": 18,
+      "related_keys": [
+        "diels-alder-four-plus-two-cycloaddition",
+        "aldehyde-hydride-disproportionation",
+        "covalent-carbon-guidance-skeleton-insertion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단순 고리첨가 산물 유지나 수소화물만의 불균등화와 달리 실측 공유 이합체의 분해로 네 탄소 단위를 두 기질 사이에 재배분한다. 효소 라이신에 고정된 분자 내부 탄소 삽입과도 다르다.",
+      "source_url": "https://www.pnas.org/doi/10.1073/pnas.131610698",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1669,
+  "merged": 2,
+  "after": 1667,
+  "campaign": "2026-09-27",
+  "decisions_sha256": "f75ecb1dcafed822ff2bb7009447f95f4f63751badae57cc15777e2675cc701c",
+  "decisions": [
+    {
+      "source": "molecular-layering-oscillatory-solvation-force",
+      "target": "molecular-hydration-layer-repulsion",
+      "reason": "기존 수화층 카드와 1983 Nature 원출처는 이미 물 분자 크기에 따른 비단조적 층상 힘을 포함한다. 새 PC 용매 카드도 계면 분자층의 배치·배향·제거 비용이라는 경로이므로 용매 소재만으로 분리하지 않고 기존 ID에 일반화한다.",
+      "target_fields": [
+        "계면 용매 분자층의 근거리 힘",
+        "고체 계면에 배치된 용매 분자층을 압축·제거·재배향하는 자유에너지 비용이 근거리 힘을 만든다. 층을 차례로 바꾸는 구속 조건에서는 분자 크기 수준의 거리 주기로 힘이 진동할 수 있다.",
+        "표면 화학·용매·이온·온도·구속 거리와 분자 배향을 확인한다. 물의 수화층과 유기 용매층 모두 해당할 수 있으나 모든 표면에서 진동을 가정하지 않으며 정전기·분산력·거칠기 영향을 분리한다."
+      ],
+      "original_card": [
+        "molecular-layering-oscillatory-solvation-force",
+        "액체 분자층 배치의 진동성 용매화 힘",
+        "고체 가까이에서 액체 분자가 층상으로 배열되면 접근하는 경계와의 간격에 따라 허용되는 분자층 수와 배치 비용이 바뀌어 힘이 분자 길이 척도로 진동할 수 있다.",
+        "분자 크기·배향·표면 화학·거칠기·온도·간격·탐침 형상을 확인한다. 장거리 전기력과 배경 인력을 분리하고 모든 계면이 같은 층상 구조를 갖는다고 보지 않는다.",
+        "research-20260927-molecular-layering-oscillatory-solvation-force"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "molecular layering oscillatory solvation force"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "molecular-layering-oscillatory-solvation-force",
+        "name_en": "molecular layering oscillatory solvation force",
+        "aliases": [
+          "액체 분자층 배치의 진동성 용매화 힘",
+          "molecular layering oscillatory solvation force"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-research-20260927-molecular-layering-oscillatory-solvation-force",
+            "title": "Exploring the Molecular-Scale Structures at Solid/Liquid Interfaces of Li-Ion Battery Materials: A Force Spectroscopy Analysis with Sparse Modeling",
+            "url": "https://pubs.acs.org/doi/10.1021/acs.nanolett.4c00847",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "stored_search_excerpt",
+            "accessed_at": "2026-09-27",
+            "review_method": "conversation_reasoning",
+            "supports": "공개 문헌의 원리·조건을 대화에서 검토한 참고 근거. 초록·검색 발췌 범위는 원문 전체 검증과 구분하며 개별 응용의 성능을 보장하지 않는다."
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "pegylation-steric-shielding",
+      "target": "polymer-steric-dispersion-stabilization",
+      "reason": "PEG 카드의 수화 사슬 접근 차폐는 기존 고분자 사슬 중첩·압축 비용과 같은 경로이며 소재와 생체 적용 출력만 다르다. 유효 크기에 따른 제거 변화는 별도 기전이므로 차폐 자체의 보장으로 주장하지 않는다.",
+      "target_fields": [
+        "고분자 사슬의 입체적 접근 차폐",
+        "표면에 결합하거나 흡착한 용매화 고분자 사슬이 겹치고 압축되면 사슬 자유도와 혼합의 자유에너지 비용이 접근을 억제한다. 입자 응집이나 다른 분자의 표면 접근을 줄일 수 있다.",
+        "사슬 길이·밀도·분포·용매 품질·결합 안정성을 확인한다. 생체분자 PEG 결합은 위치와 표적 활성 저하를 평가하고, 유효 크기·제거·반감기는 차폐와 별도로 검증한다."
+      ],
+      "original_card": [
+        "pegylation-steric-shielding",
+        "PEG 사슬의 수화·입체 차폐",
+        "분자에 연결된 PEG의 유연한 수화 사슬이 주변 접근과 유효 크기를 바꾸어 단백질 분해·응집·제거 속도에 영향을 준다.",
+        "결합 위치·사슬 크기·분포·표적 활성 보존을 확인한다. 차폐로 결합 활성이 낮아질 수 있고 반감기 연장은 물질별 검증이 필요하다.",
+        "manual500-pegylation-steric-shielding"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "pegylation steric shielding"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "pegylation-steric-shielding",
+        "name_en": "pegylation steric shielding",
+        "aliases": [
+          "PEG 사슬의 수화·입체 차폐",
+          "pegylation steric shielding"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual500-pegylation-steric-shielding",
+            "title": "PEG-based Changes to beta-sheet Protein Conformational and Proteolytic Stability Depend on Conjugation Strategy and Location",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6330093/",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-065349-A1",
+            "title": "Coagonistas del receptor de glucagon/glp-1",
+            "url": "https://patents.google.com/patent/AR065349A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "ee3bcafdb9e7bfa9122b579ce1d747769fd35c6e47d79b900f138c98877701d9",
+            "review_note": "기존 검토: glucagon·GLP1 수용체 공동 작용을 명시한다. PEG 결합의 수화·입체 차폐는 별도 후보이다. 문헌 대조 후 원리 연결: PEG 사슬의 수화·입체 차폐: 분자에 연결된 PEG의 유연한 수화 사슬이 주변 접근과 유효 크기를 바꾸어 단백질 분해·응집·제거 속도에 영향을 준다. 결합 위치·사슬 크기·분포·표적 활성 보존을 확인한다. 차폐로 결합 활성이 낮아질 수 있고 반감기 연장은 물질별 검증이 필요하다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-080592-A1",
+            "title": "Peptido con actividad para el gip-r y glp-1-r, formulacion famaceutica que lo comprende, su uso para preparar un medicamento util para el tratamiento de diabetes mellitus y para inducir la perdida de peso",
+            "url": "https://patents.google.com/patent/AR080592A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "5a732176c1cfb02f80219b9f45d6b0200f6e6ae5fa47a3cad9e3e0a23753748d",
+            "review_note": "GIP·GLP1 수용체 작용과 선택적 PEG 결합을 제시한다. 임상적 유효성은 일반화하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-084576-A1",
+            "title": "Materiales y metodos para conjugar un derivado de acido graso hidrosoluble a una proteina",
+            "url": "https://patents.google.com/patent/AR084576A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "24bb78d0b58cb93f6d3095de03e129010b5e02a971074ecac19f7df8115956e7",
+            "review_note": "기존 초록 검토: 말단 알코올 산화 후 옥심 결합과 PEG 접합. 알부민 결합 및 산화 단계는 별도 후보로 검토한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 알부민 결합에 의한 체내 잔류 조절: 분자가 혈중 알부민과 가역적으로 결합하면 자유 분율과 분포·제거 경로가 달라져 순환 반감기가 길어질 수 있다. 친화도·해리·종 차이·대사·약리 활성에 의존한다. 항원 표적 전달이나 분자 자체 분해 억제와 구분하며 결합만으로 반감기 연장을 보장하지 않는다.; 알코올 산화에 의한 카보닐 형성: 일차·이차 알코올의 산화로 탄소·산소 이중결합이 형성되어 각각 알데하이드 또는 케톤으로 전환될 수 있다. 일차 알코올은 조건에 따라 산까지 추가 산화될 수 있다. 탈수 알켄 형성과 결합 변화가 다르며 일반 삼차 알코올에는 같은 전환을 적용하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    }
+  ]
+}

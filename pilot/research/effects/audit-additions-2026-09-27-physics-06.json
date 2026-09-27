@@ -1,0 +1,121 @@
+{
+  "batch": "additions-2026-09-27-physics-06.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1850,
+  "added": 8,
+  "after": 1858,
+  "target": 2000,
+  "source_sha256": "65044ee7e710faed2de38f9019436d01932d2d8e3a4ac07aca4d4597199bfdff",
+  "decisions": [
+    {
+      "key": "weak-nucleon-conversion-beta-emission",
+      "group": 7,
+      "related_keys": [
+        "radioactive-decay",
+        "neutron-activation-radionuclide-production",
+        "nuclear-fission-binding-energy-release",
+        "nuclear-fusion-binding-energy-release"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "방사성 붕괴라는 결과의 부모 안에서 전하가 다른 핵자 상태와 경입자 장을 연결하는 약한 전이 경로를 특정한다. 핵 포획·분열·융합 및 단순 여기 에너지 방출과 다르며 핵종별 변형은 추가 계수하지 않는다.",
+      "source_url": "https://virgilio.mib.infn.it/~zanotti/FNSN/FNSN_files/FNSN/Beta-decay/Fermi-beta-decay-1934.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "nuclear-energy-direct-electron-internal-conversion",
+      "group": 13,
+      "related_keys": [
+        "radioactive-decay",
+        "photoelectric-emission",
+        "auger-nonradiative-carrier-recombination",
+        "conical-intersection-internal-conversion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "에너지원이 핵의 들뜸이고 수용체가 원자 전자인 비복사 결합이다. 입사 광자 흡수·전자정공 재결합의 제삼 운반자 가열·분자 전자면 사이 내부전환과 구별하며 핵시계라는 응용을 별도 계수하지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1905.06308",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "radiative-spin-flip-asymmetry-polarization",
+      "group": 14,
+      "related_keys": [
+        "selective-optical-pumping-population-redistribution",
+        "self-emitted-radiation-reaction-backaction",
+        "rashba-edelstein-current-spin-accumulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "궤도 반동이라는 복사 역작용 부모에서 양자 스핀 전이율 비대칭을 특정한다. 결합 원자의 선택 흡수·전도 밴드의 전류 점유 편향과 다르며 저장고리와 레이저 구현을 나누어 세지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1805.02027",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "pressure-anisotropy-negative-tension-firehose-instability",
+      "group": 11,
+      "related_keys": [
+        "anisotropic-plasma-weibel-magnetization",
+        "magnetic-tension-alfven-wave",
+        "magnetic-tension-differential-rotation-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "압력 비등방이라는 공통 에너지원 중 유한 배경장의 장력 부호가 바뀌는 파이어호스 경로이다. 바이벨 전류 필라멘트 생성·안정 알벤 전파·차등 회전의 각운동량 교환과 구별한다.",
+      "source_url": "https://arxiv.org/pdf/1002.4017",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "neutral-current-coherent-neutrino-nuclear-recoil",
+      "group": 12,
+      "related_keys": [
+        "elastic-nuclear-collision-neutron-moderation",
+        "wave-interference",
+        "dicke-collective-radiative-decay",
+        "mass-flavor-basis-mismatch-neutrino-oscillation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "간섭의 포괄 원리 안에서 중성 전류가 핵 전체의 약전하를 결맞게 탐침하는 산란을 특정한다. 중성자의 핵 충돌·방출체 집단 붕괴·자유 전파 중 맛 혼합과 다르며 핵종별 검출기를 나누지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1708.01294",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "nonzero-scalar-vacuum-gauge-field-mass",
+      "group": 14,
+      "related_keys": [
+        "superconducting-order-amplitude-higgs-oscillation",
+        "phonon-mediated-cooper-pair-condensation",
+        "superconductivity",
+        "electron-charge-separation-langmuir-oscillation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "질서 크기의 히그스 진폭 진동과 달리 위상·게이지 결합이 벡터장 질량을 만드는 경로이다. 쿠퍼쌍 인력의 생성이나 전하 분리의 정전 복원력과 구별하며 초전도와의 앤더슨 유사성을 숨기지 않는다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.13.508/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "nonabelian-gauge-self-interaction-asymptotic-freedom",
+      "group": 14,
+      "related_keys": [
+        "debye-mobile-charge-screening",
+        "kondo-local-moment-screening",
+        "virtual-charged-loop-vacuum-birefringence"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "실제 이동 전하의 정전 재배치나 국소 스핀의 다체 차폐가 아니라 비가환 장 자체의 상호작용이 결합의 운동량 의존성을 정한다. 외부장 속 광자 편광 응답과도 다르며 일반 재규격화 계산법을 효과로 중복 계수하지 않는다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.30.1346/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "spin-admixed-state-scattering-elliott-relaxation",
+      "group": 14,
+      "related_keys": [
+        "rapid-fluctuation-motional-line-narrowing",
+        "rashba-inversion-asymmetric-spin-splitting",
+        "spin-orbit-crystal-field-magnetocrystalline-anisotropy",
+        "magnetic-relaxation-loss-heating"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "국소장 세차가 빠른 충돌로 평균되는 운동 축소와 달리 혼합된 고유상태 사이 산란 자체가 스핀을 바꾼다. 밴드 분열·평형 쉬운 축·교류장 입자 발열과 구별하며 재료별 이완을 추가 계수하지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1211.0826",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

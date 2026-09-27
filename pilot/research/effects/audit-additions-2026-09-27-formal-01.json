@@ -1,0 +1,49 @@
+{
+  "batch": "additions-2026-09-27-formal-01.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1870,
+  "added": 3,
+  "after": 1873,
+  "target": 2000,
+  "source_sha256": "0f6596099d2034827c8d756817c6866558249604a24fe3c0c96f090cbedf7494",
+  "decisions": [
+    {
+      "key": "epsilon-closed-subset-automaton-determinization",
+      "group": 19,
+      "related_keys": [
+        "finite-state-transducer-decoding",
+        "temporal-product-state-model-checking"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이미 주어진 전이망을 따라 출력하거나 두 망의 곱에서 위반을 찾는 대신 가능한 상태의 집합 자체를 한 상태로 올려 선택 분기를 결정적 전이로 바꾼다. 정규식별 구현을 추가 계수하지 않는다.",
+      "source_url": "https://www.cs.cornell.edu/courses/cs412/2008sp/lectures/lec03.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "mismatch-character-suffix-safe-pattern-shifting",
+      "group": 19,
+      "related_keys": [
+        "prefix-border-failure-link-pattern-matching",
+        "rolling-positional-modular-string-fingerprint"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "접두 경계로 상태를 되돌려 본문을 순차 읽는 경로와 달리 끝부터 얻은 문자·접미 정보를 근거로 아직 안 읽은 시작점들을 배제한다. 모듈러 지문 대조나 작은 알파벳용 변형은 별도 계수하지 않는다.",
+      "source_url": "https://www.cs.utexas.edu/~moore/publications/fstrpos.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "dotted-production-predict-scan-complete-chart",
+      "group": 19,
+      "related_keys": [
+        "optimal-substructure-dynamic-programming",
+        "syntactic-term-variable-unification",
+        "finite-state-transducer-decoding"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "부분결과 재사용은 동적계획과 공유하지만 최적 비용 점화식 대신 문법 규칙의 진행점·원점과 완료 구간 연결을 보존한다. 변수 치환 통일이나 유한 상태 전이만으로는 일반 재귀 문법을 표현하지 못한다.",
+      "source_url": "https://gawron.sdsu.edu/compling/week10/earley.htm",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-07.tsv",
+  "authoring": "Direct conversational reasoning and Korean authoring, no external LLM API or generated-content script.",
+  "scope_convention": "reference_section denotes the specific passages below. stored_search_excerpt means the cited passage was exposed by search, not by successful direct page reading. Source body retrieval and image inspection are not conflated.",
+  "comparison": "Candidate terms checked across all catalog groups and nearest principles read. Plasma buoyancy and thermal runaway are retained for explicit feedback pathways under broad parents. Granular cooling and radiative cooling share a reduced loss/compression structure; their explicitly different microscopic energy sinks are the proposed boundary, not different applications. Parent may consolidate if its final counting policy treats all sink mechanisms as one.",
+  "evidence": [
+    {
+      "key": "radiative-loss-compression-thermal-condensation",
+      "url": "https://adsabs.harvard.edu/pdf/1965ApJ...142..531F",
+      "scope": "reference_section",
+      "read": "Field 1965 original paper, pages 531-534 Introduction physical discussion and heat-loss equation, page 537 conduction stabilization discussion and equation 26. Full 37-page article not read.",
+      "quote": "condensations are indeed governed by the isobaric criterion",
+      "support": "Net loss depends on local density and temperature in an optically thin gas. Under nearly isobaric adjustment, cooling causes compression, which can strengthen losses and grow a cold dense condensation. The original analysis corrects earlier isochoric arguments and identifies conduction stabilization of sufficiently short wavelengths.",
+      "limitation": "No universal cooling-law slope is asserted. The card is the radiative, non-adiabatic condensation route and does not require self-gravity, equilibrium composition concavity, or buoyant overturn. Speculations in the 1965 paper about galaxy formation are not repeated."
+    },
+    {
+      "key": "inelastic-collision-cooling-granular-clustering",
+      "url": "https://arxiv.org/pdf/0704.0084",
+      "scope": "reference_section",
+      "read": "Original Fouxon et al. 2007 theory, pages 1-3: dilute granular model, restitution coefficient, validity inequalities, finite-size arrest, equations 2-4 and density-dependent collisional loss. PDF generation date 2018 is not treated as publication date.",
+      "quote": "Here particles lose energy to their internal degrees of freedom.",
+      "support": "Inelastic impacts remove granular kinetic energy. Equation 4 contains a loss proportional to density and granular temperature to power 3/2; together with the pressure equation and mass flow this permits unstable concentration. The paper derives nonlinear density growth and distinguishes it from ordinary shocks.",
+      "limitation": "The ideal hydrodynamic calculation assumes dilute nearly elastic grains and large scales. Excluded volume can arrest density growth; no actual infinite-density claim. The article itself notes the analogy to radiatively cooling gases. The separate proposed card rests on internal impact dissipation, not merely a new macroscopic carrier for radiation loss.",
+      "source_history": "Goldhirsch and Zanetti 1993 publisher abstract was retrieved and verified (10.1103/PhysRevLett.70.1619), but its full-text endpoint failed. Fouxon et al.'s original analytical study supplies the directly read mechanism. Review-only search passages were not used as the primary binding."
+    },
+    {
+      "key": "field-aligned-heat-exchange-magnetothermal-buoyancy",
+      "url": "https://arxiv.org/pdf/astro-ph/0106283",
+      "scope": "reference_section",
+      "read": "Balbus 2001 original theory, Section 2.1 Physical Description, Section 2.2 equations 1-8, Figure 2 caption and subsonic applicability discussion. Section 2.1 directly explains a displaced element bending field lines and receiving conducted heat.",
+      "quote": "the temperature gradient now has a component along the displaced field line",
+      "support": "Field-aligned heat exchange changes a displaced parcel's entropy and therefore its buoyancy. Upward-decreasing temperature can destabilize a layer with upward-increasing entropy; the weak magnetic field channels heat rather than supplying the driving energy.",
+      "limitation": "Magnetization, conduction closure, field geometry and tension matter. The paper's sentence saying temperature rather than angular momentum must increase upward contains an evident copy error; surrounding entropy discussion and Figure 2 establish the intended comparison. No separate field-orientation or HBI regime card is counted.",
+      "supplement": {"url": "https://arxiv.org/pdf/astro-ph/0507212", "scope": "reference_section", "title": "Nonlinear Evolution of the Magnetothermal Instability in Two Dimensions", "read": "Original 2005 simulation study Introduction, Section 4.1 temperature-profile evolution and Section 5 boundary dependence.", "support": "Numerical growth in entropy-stable, temperature-decreasing atmospheres and saturation near isothermality with adiabatic boundaries. Strong tension, isotropic conduction and sustained boundary heating change outcomes."}
+    },
+    {
+      "key": "self-gravity-negative-heat-capacity-thermal-runaway",
+      "url": "https://www.persee.fr/doc/bastr_0245-9787_1968_num_3_2_14542?pageId=T1_306",
+      "scope": "stored_search_excerpt",
+      "read": "Original Lynden-Bell 1968 three-page report, indexed page 306 text returned by source-specific search. Direct open of page 306 failed. Main page 305 was separately retrieved successfully, establishing heat loss, contraction and central heating.",
+      "quote": "the temperature difference increasing without limit as heat is transferred",
+      "support": "Page 306 explains that an outer reservoir with sufficiently large heat capacity warms more slowly than the center heats through losing energy, causing runaway. Page 305 describes gravity-held central contraction and heating as heat flows outward.",
+      "limitation": "Historical idealized gravitational gas/star-cluster model; no current observational claim or universal critical density ratio. Negative heat capacity alone does not imply every configuration is unstable. Direct MNRAS 1968 and Larson 1970 PDF endpoints failed, so this same-era original author report is bound with conservative search-only scope.",
+      "supplement": {"url": "https://www.persee.fr/doc/bastr_0245-9787_1968_num_3_2_14542", "scope": "reference_section", "read": "Retrieved article metadata and full OCR text of page 305.", "quote": "which will contract and get hotter", "support": "Central self-gravitating region heats on outward heat transfer; small outer heat capacity can restore equilibrium instead of runaway."}
+    },
+    {
+      "key": "gravitational-wave-energy-nonlinear-displacement-memory",
+      "url": "https://blackholes.tecnico.ulisboa.pt/gritting/pdf/gravitational_waves/Wiseman-Will_Christodoulous-nonlinear-gravitational-wave-memory-Evaluation-in-the-quadrupole-approximation.pdf",
+      "scope": "reference_section",
+      "read": "Original Wiseman and Will 1991 article, Introduction and heuristic relaxed-Einstein-equation derivation on pages R2945-R2946, equations 1-5. Full later source estimates were not used.",
+      "quote": "whose source is the energy in the gravitational waves themselves",
+      "support": "Quadratic and higher gravitational stress-energy terms source an additional wave field. Integrating the outgoing gravitational-wave energy flux yields a permanent change of the transverse-traceless field, corresponding to relative test-mass displacement memory.",
+      "limitation": "Theory, not a detection report. The paper distinguishes null-infinity and fixed-radius/finite-observation-time descriptions. The card does not state a universal relative amplitude or assert that the nonlinear signal always matches the oscillatory signal.",
+      "source_history": "Christodoulou 1991 and Wiseman-Will publisher records/abstracts were verified; publisher PDF endpoints failed. The working university reproduction contains the original Wiseman-Will article and supports the stated mechanism."
+    },
+    {
+      "key": "matched-spin-orbit-symmetry-persistent-helix",
+      "url": "https://arxiv.org/pdf/cond-mat/0606196",
+      "scope": "reference_section",
+      "read": "Original Bernevig, Orenstein and Zhang 2006 theory, PDF pages 1-3, Hamiltonians 1-3, shifted bands 5, conserved generators 6-9 and explicit precession-versus-displacement argument near Figure 2.",
+      "quote": "depends only on the net displacement",
+      "support": "Matching the two linear spin-orbit terms restores a finite-wavevector spin symmetry. Precession angle becomes a function of net displacement rather than path, so spin-independent scattering and interactions preserve the matched helical spin-density mode in the ideal model.",
+      "limitation": "Exact infinite lifetime assumes the specified symmetry; cubic terms, mismatched coupling and spin-dependent scattering break it. This is neither a pulsed spin echo nor generic topological edge protection.",
+      "supplement": {"url": "https://arxiv.org/abs/0903.4709", "scope": "publisher_abstract", "title": "Emergence of the persistent spin helix in semiconductor quantum wells", "read": "Full original Koralek et al. 2009 author abstract retrieved.", "support": "Experiment tunes Rashba and linear Dresselhaus terms and observes finite lifetime enhancement near symmetry, while explicitly identifying cubic and spin-dependent symmetry-breaking channels."}
+    }
+  ],
+  "exclusions": [
+    {"candidate": "Landau orbital diamagnetism", "decision": "hold", "nearest": ["landau-level-fermi-crossing-oscillation"], "reason": "Original candidate sources expose the same orbital Landau quantization and Fermi-surface reconstruction. Separating nonoscillatory susceptibility from oscillatory magnetization is currently too close to another observable of that route.", "source": "https://arxiv.org/abs/1807.08802", "scope": "stored_search_excerpt"},
+    {"candidate": "Hartmann layer", "decision": "hold", "nearest": ["lorentz-actuation", "viscous-damping"], "reason": "A geometry-specific balance of already represented Lorentz and viscous terms has not established a new microscopic route."},
+    {"candidate": "Primary Bjerknes force", "decision": "hold", "nearest": ["bubble-phase-secondary-bjerknes-force"], "reason": "External versus neighboring-bubble pressure gradient may only change the force source of the same volume/pressure phase mechanism; no new card authored."},
+    {"candidate": "Baroclinic instability", "decision": "pending", "reason": "Needs a primary-source boundary against represented potential-vorticity waves and shear/stratification routes; no row counted yet."}
+  ]
+}

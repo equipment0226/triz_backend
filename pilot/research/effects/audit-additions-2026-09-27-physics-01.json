@@ -1,0 +1,255 @@
+{
+  "batch": "additions-2026-09-27-physics-01.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1559,
+  "added": 19,
+  "after": 1578,
+  "target": 2000,
+  "source_sha256": "5c5e627e5f96a23341fe19c48e8b5cb8616acc553c27c703fe411be6a9388422",
+  "decisions": [
+    {
+      "key": "correlated-landau-fluid-fractional-charge",
+      "group": 14,
+      "related_keys": [
+        "quantum-hall",
+        "coulomb-ordered-wigner-crystallization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반적인 홀 저항 평탄화의 관측 카드보다 좁은 다체 상관 경로이며, 전자 결정 배열이나 정수 준위 채움만으로 생기지 않는 분수 전하 여기를 다룬다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.50.1395/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "one-dimensional-spin-charge-mode-separation",
+      "group": 14,
+      "related_keys": [
+        "collisionless-fermi-surface-zero-sound",
+        "spin-hall-current-conversion",
+        "one-dimensional-hardcore-boson-fermionization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "단일 밀도파나 스핀별 횡방향 힘이 아니라 일차원 상호작용이 전자의 두 자유도를 독립 집단 모드로 분해한다.",
+      "source_url": "https://www.nature.com/articles/nphys4062",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "mobile-electron-core-spin-double-exchange",
+      "group": 14,
+      "related_keys": [
+        "virtual-hopping-superexchange",
+        "conduction-mediated-rkky-exchange"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "가상 왕복 이동의 초교환이나 페르미 바다의 원거리 편극 전달과 달리 실제 이동 전자의 운동 에너지가 코어 스핀 배향에 의존하는 경로이다.",
+      "source_url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.100.675",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "fluctuation-selected-order-by-disorder",
+      "group": 14,
+      "related_keys": [
+        "frustrated-spin-glass-aging",
+        "critical-composition-fluctuation-force"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "무질서 결합의 준안정 상태 노화나 경계 사이 요동 힘이 아니라 축퇴한 벌크 배치의 자유에너지 차이를 요동이 만들어 질서를 선택한다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.167203",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "spin-ice-defect-monopole-fractionalization",
+      "group": 14,
+      "related_keys": [
+        "frustrated-spin-glass-aging",
+        "magnetic-dipole-alignment-torque"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "개별 쌍극자의 회전이나 유리성 노화가 아니라 상관된 격자의 규칙 위반 결함이 분리 가능한 유효 자기 전하로 작동하는 경로이다.",
+      "source_url": "https://www.nature.com/articles/nature06433",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "embedded-scar-eigenstate-nonthermal-recurrence",
+      "group": 14,
+      "related_keys": [
+        "integrability-conserved-rapidities-delayed-thermalization",
+        "discrete-spectrum-wavepacket-revival"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "계 전체의 추가 보존량이나 임의 이산 준위의 위상 재정렬과 달리 열적 스펙트럼 안의 특수 저열화 상태에 선택적으로 지지되는 다체 재귀이다.",
+      "source_url": "https://www.nature.com/articles/s41567-018-0137-5",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "interacting-disorder-many-body-localization",
+      "group": 14,
+      "related_keys": [
+        "disorder-interference-anderson-localization",
+        "integrability-conserved-rapidities-delayed-thermalization",
+        "mott-interaction-charge-localization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "비상호작용 파동의 산란 간섭이나 정수 채움 전하 갭만이 아니라 상호작용을 유지한 고립계의 비열화와 초기 상태 기억을 다룬다.",
+      "source_url": "https://arxiv.org/abs/1501.05661",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "superconducting-order-amplitude-higgs-oscillation",
+      "group": 14,
+      "related_keys": [
+        "superconductivity",
+        "josephson-effect",
+        "superconducting-wire-coherent-phase-slip"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "무저항 상태의 존재나 접합 위상차의 진화가 아니라 응축 질서변수 크기의 집단 복원 진동이다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.111.057002",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "vortex-lattice-shear-tkachenko-wave",
+      "group": 13,
+      "related_keys": [
+        "vortex-pair-bkt-unbinding",
+        "bose-einstein-macroscopic-occupation",
+        "collisionless-fermi-surface-zero-sound"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "열적 소용돌이 쌍 해리나 입자 밀도파와 달리 소용돌이 격자 자체의 위치 전단이 복원 좌표이다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.91.100402",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "single-valued-order-quantized-circulation",
+      "group": 11,
+      "related_keys": [
+        "vortex-pair-bkt-unbinding",
+        "superconducting-wire-coherent-phase-slip",
+        "superfluid-thermomechanical-fountain"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "소용돌이 쌍 해리나 위상 감김을 바꾸는 전이 자체가 아니라 닫힌 경로에서 허용되는 안정 순환값의 양자 제약이다.",
+      "source_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.66.329",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "excitation-spectrum-landau-superflow-threshold",
+      "group": 11,
+      "related_keys": [
+        "bose-einstein-macroscopic-occupation",
+        "superfluid-thermomechanical-fountain",
+        "landau-resonant-wave-particle-transfer"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "보스 점유나 온도차 압력 생성과 달리 여기 생성의 에너지·운동량 가능성을 판정하며 플라스마 속도 공명에 의한 감쇠와도 다르다.",
+      "source_url": "https://arxiv.org/pdf/cond-mat/9909109",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "phase-coherent-density-wave-supersolid-mode",
+      "group": 14,
+      "related_keys": [
+        "quantum-fluctuation-stabilized-self-bound-droplet",
+        "bose-einstein-macroscopic-occupation",
+        "phonon-hydrodynamic-second-sound"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고립 액적의 붕괴 방지나 포논 충돌의 열파가 아니라 자발 밀도 결정과 전역 초유체 위상 강성의 공존이 허용하는 상대 운동 모드이다.",
+      "source_url": "https://www.nature.com/articles/s41586-019-1569-5",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "strong-electric-field-vacuum-pair-tunneling",
+      "group": 14,
+      "related_keys": [
+        "photon-electron-positron-pair-creation",
+        "chiral-dirac-klein-transmission",
+        "electron-tunneling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입사 광자의 에너지로 만드는 쌍이나 이미 존재하는 입자의 장벽 투과와 달리 강한 배경장의 진공 불안정이 입자 수를 바꾸는 터널링이다.",
+      "source_url": "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.102.076015",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "domain-wall-internal-precession-walker-breakdown",
+      "group": 14,
+      "related_keys": [
+        "spin-transfer-torque",
+        "remanent-magnetic-recording",
+        "precessing-magnetization-spin-pumping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "토크 공급이나 스핀 유출 자체가 아니라 자벽 병진 좌표와 내부 배향의 결합이 만드는 안정 운동 한계이다.",
+      "source_url": "https://www.nature.com/articles/s41598-022-06275-8",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "topological-texture-gyrotropic-skyrmion-deflection",
+      "group": 14,
+      "related_keys": [
+        "hall-effect",
+        "intrinsic-berry-curvature-hall-current",
+        "dynamic-texture-spin-motive-voltage",
+        "spin-transfer-torque"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전하 운반자의 횡전압이나 움직이는 무늬가 유도하는 전압과 달리 위상 자기무늬 자체가 자이로 결합으로 횡이동한다.",
+      "source_url": "https://www.nature.com/articles/nphys3883",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "antiferromagnetic-anisotropy-spin-flop",
+      "group": 14,
+      "related_keys": [
+        "magnetic-dipole-alignment-torque",
+        "virtual-hopping-superexchange",
+        "ferroelastic-variant-switching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "교환을 생성하는 미시 경로나 기계적 변형 상태 전환이 아니라 반강자성 부격자의 집단 배향이 자계 아래 일차 전이하는 경로이다.",
+      "source_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.75.094425",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "rotating-mass-frame-dragging-precession",
+      "group": 1,
+      "related_keys": [
+        "gyroscopic-precession-torque",
+        "gravitational-potential-clock-rate-shift",
+        "gravity-gradient-sensing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자이로에 접촉 토크를 가하는 세차나 정적 퍼텐셜의 시계율 변화가 아니라 질량의 회전이 만드는 시공간 항에 의한 축·궤도 방향 변화이다.",
+      "source_url": "https://link.aps.org/accepted/10.1103/PhysRevLett.106.221101",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "self-gravity-pressure-jeans-instability",
+      "group": 11,
+      "related_keys": [
+        "rayleigh-taylor-density-acceleration-instability",
+        "pressure-driven-flow",
+        "pauli-degeneracy-quantum-pressure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 가속도에 놓인 밀도 경계의 전도와 달리 밀도 교란이 자체 중력장을 강화하며 압력파 복원과 경쟁한다.",
+      "source_url": "https://msp.org/involve/2019/12-7/involve-v12-n7-p02-s.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "gravitational-density-wake-dynamical-friction",
+      "group": 1,
+      "related_keys": [
+        "viscous-damping",
+        "basset-viscous-history-force",
+        "gravity-settling"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "표면 점성 전단이나 와도 확산 이력과 달리 질량체가 만든 중력 밀도 후류가 다시 질량체를 당겨 감속시킨다.",
+      "source_url": "https://arxiv.org/abs/astro-ph/9810324",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

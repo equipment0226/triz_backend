@@ -1,0 +1,195 @@
+{
+  "date": "2026-09-27",
+  "mode": "conversation_only",
+  "status": "ready_frozen",
+  "additions_file": "additions-2026-09-27-biology-08.tsv",
+  "canonical_mutated": false,
+  "count": 6,
+  "scope_note": "Only primary research supports affirmative rows. Opened PDF/body is reference_section; opened abstract is publisher_abstract; indexed primary content remains stored_search_excerpt even when long. No external LLM API. Stop further candidate research after this batch pending urgent workflow task.",
+  "evidence": [
+    {
+      "key": "leaving-group-assisted-front-face-glycosyl-transfer",
+      "title": "Mechanistic evidence for a front-side, SNi-type reaction in a retaining glycosyltransferase",
+      "url": "https://www.nature.com/articles/nchembio.628",
+      "scope": "publisher_abstract",
+      "doi": "10.1038/nchembio.628",
+      "retrieved_excerpt": "hydrogen bonding between leaving group and nucleophile",
+      "finding": "Opened abstract: kinetic isotope effects support a dissociative oxocarbenium-like transition state; leaving-group isotope effects and Brønsted/Taft relationships support nucleophile involvement and front-face attack in OtsA.",
+      "limits": "Does not assert a free long-lived carbocation or universal SNi operation in all retaining glycosyltransferases. No direct time-resolved structure of each elementary step was retrieved. Same-face stereochemistry alone is not evidence; the leaving-group/nucleophile coupled geometry is the distinguishing proposed pathway.",
+      "nearest_existing_keys": [
+        "chemical-glycosylation",
+        "nucleophilic-substitution",
+        "neighboring-group-bridged-intermediate-participation"
+      ],
+      "boundary": "Generic glycosylation specifies product connectivity; this pathway specifies dissociative front-face transfer assisted by leaving-group/nucleophile hydrogen bonding. Unlike neighboring-group participation it requires no covalent bridged substrate intermediate; unlike double displacement it requires no covalent glycosyl-enzyme intermediate. No substrate or linkage variants counted."
+    },
+    {
+      "key": "vinyl-ether-hydration-triggered-glycoside-cleavage",
+      "title": "Glycoside cleavage by a new mechanism in unsaturated glucuronyl hydrolases",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22047074/",
+      "scope": "stored_search_excerpt",
+      "doi": "10.1021/ja209067v",
+      "retrieved_excerpt": "inconsistent with either inverting or retaining direct hydrolase mechanisms at carbon 1",
+      "finding": "Indexed primary abstract reports solvent isotope/product studies, turnover of thioglycosides and inverted anomers, and hydration of a C-glycoside analogue supporting vinyl-ether hydration initiated glycosidic cleavage.",
+      "limits": "2014 primary follow-up revises the simple one-step hydration model: isotope effects require distinct first-irreversible and rate-determining steps. No intermediate accumulated in solution; a 1,2-epoxide pathway is proposed, not directly trapped. Row retains only hydration-initiated ring rearrangement/cleavage and explicitly qualifies microscopic intermediates. PubMed/PMC open was CAPTCHA, so indexed content is not labeled full text.",
+      "supplementary": [
+        {
+          "title": "Mechanistic Investigations of Unsaturated Glucuronyl Hydrolase from Clostridium perfringens",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4036275/",
+          "scope": "stored_search_excerpt",
+          "doi": "10.1074/jbc.M113.545293",
+          "finding": "No solution intermediate detected; KIEs suggest separate kinetic steps. Epoxide intermediate proposed; direct enzyme-glycosyl intermediate alternative investigated unsuccessfully."
+        }
+      ],
+      "nearest_existing_keys": [
+        "muramidase-peptidoglycan-cleavage",
+        "transient-nad-oxidation-elimination-glycoside-hydrolysis",
+        "glycan-cleavage-intramolecular-anhydro-closure"
+      ],
+      "boundary": "Hydration begins at the unsaturated C4/C5 vinyl ether rather than direct anomeric substitution. Subsequent unstable hemiacetal/hemiketal chemistry liberates the glycosidic substituent. GH4 first requires NAD oxidation/elimination; anhydro closure uses an internal hydroxyl attacking anomeric carbon. Family and anomer variants not split."
+    },
+    {
+      "key": "o-acylhydroxylamine-redox-neutral-nitrogen-coupling",
+      "title": "Molecular basis of enzymatic nitrogen-nitrogen formation by a family of zinc-binding cupin enzymes",
+      "url": "https://www.nature.com/articles/s41467-021-27523-x.pdf",
+      "scope": "reference_section",
+      "doi": "10.1038/s41467-021-27523-x",
+      "retrieved_excerpt": "redox-neutral intramolecular rearrangement",
+      "finding": "Opened official primary PDF, Results pages 2–6. ATP-dependent MetRS-like domain generates an unstable O-acylhydroxylamine ester; zinc-cupin converts it to an N–N product. Isotope-resolved fragmentation tracks hydroxylamine oxygen into product carboxyl oxygen. Unstable ester detected by LC-MS; stable N-acyl hydroxylamine is an off-pathway shunt. Domain separation and rescue distinguish the two catalytic functions.",
+      "limits": "Glutamate-carboxylate covalent nitrogen relay, proton shuttling and individual transition-state barriers are QM/MM models, supported by mutagenesis but not individually observed. Row explicitly qualifies these details. This is basic bond-transformation classification, without organism engineering, preparation or production instructions.",
+      "nearest_existing_keys": [
+        "adenylate-activated-trna-aminoacylation",
+        "atp-acyl-phosphate-amide-synthesis",
+        "aminotransferase-group-transfer"
+      ],
+      "boundary": "ATP acyl activation is a shared upstream reaction; the newly classified pathway is O-acylhydroxylamine N–O rearrangement to N–N linkage, distinct from aminoacyl transfer or amide synthesis. No separate card for substrate specificity, fused/separate domain architecture or downstream product application."
+    },
+    {
+      "key": "nicotinamide-c2-covalent-adduct-hydride-relay",
+      "title": "Direct evidence for a covalent ene adduct intermediate in NAD(P)H-dependent enzymes",
+      "url": "https://www.nature.com/articles/nchembio.1385",
+      "scope": "publisher_abstract",
+      "doi": "10.1038/nchembio.1385",
+      "retrieved_excerpt": "a covalent ene intermediate between NADPH and the substrate",
+      "finding": "Opened Nature publisher abstract through the .pdf URL redirect. NMR, HRMS and stopped-flow support a covalent NADPH/crotonyl-CoA intermediate and isolated intermediate catalytic competence. Original author thesis and subsequent primary study supply indexed C2 linkage and mechanistic qualifications.",
+      "limits": "Covalent C2 adduct formation is experimentally supported; a concerted pericyclic ene pathway is not uniquely established. An alternative is initial hydride transfer/enolate formation followed by covalent addition. Do not imply every NAD(P)H enzyme requires the adduct, or conflate productive C2 adduct with inhibitory C4 adduct. Stated relay applies to systems where catalytic competence is established.",
+      "supplementary": [
+        {
+          "url": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/81256ed5-0ebc-40be-a0fd-45ad86f63fcf/content",
+          "scope": "stored_search_excerpt",
+          "finding": "Original author thesis identifies Chapter II as the published Nature Chemical Biology 10:50–55 paper; indexed content supports C2 ene intermediate. Direct PDF retrieval failed; not claimed opened."
+        },
+        {
+          "title": "InhA, the enoyl-thioester reductase from Mycobacterium tuberculosis forms a covalent adduct during catalysis",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6222099/",
+          "scope": "stored_search_excerpt",
+          "doi": "10.1074/jbc.RA118.005405",
+          "finding": "Primary indexed discussion supports C2 adduct in wild type, not only mutant artifact, and expressly retains pericyclic versus stepwise hydride/Michael formation alternatives. Used only for chemical-pathway evidence, with no intervention or organism manipulation."
+        }
+      ],
+      "nearest_existing_keys": [
+        "enzyme-electron-transfer",
+        "carbonyl-ene-cyclization",
+        "bound-nad-oxidation-rotation-epimerization"
+      ],
+      "boundary": "Distinct from cofactor electron/hydride exchange alone: the cofactor itself temporarily bonds to substrate carbon at nicotinamide C2 and can release the productive reduction intermediate. Existing carbonyl-ene card forms a retained intramolecular ring; this row concerns reversible cofactor sequestration/release and does not require concerted ene chemistry.",
+      "boundary_attention": "Root should retain only if reversible covalent cofactor relay is accepted as the mechanistic distinction. Do not count solely because a biological enzyme performs an ene addition."
+    },
+    {
+      "key": "bridging-hydride-elimination-dinitrogen-activation",
+      "title": "Reductive Elimination of H2 Activates Nitrogenase to Reduce the N≡N Triple Bond: Characterization of the E4(4H) Janus Intermediate in Wild-Type Enzyme",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5024552/",
+      "scope": "stored_search_excerpt",
+      "doi": "10.1021/jacs.6b06362",
+      "retrieved_excerpt": "stored as bridging hydrides",
+      "finding": "Primary indexed body: trapped wild-type states, hydride spectroscopy and H2/N2 dependence support a reversible activation equilibrium coupling E4 hydride elimination with N2 reduction. This adds mechanistic evidence beyond earlier variant assignments.",
+      "limits": "Classifies the supported reductive elimination/oxidative addition framework without treating schematic atom positions or complete downstream N2-to-NH3 sequence as structurally settled. Photoinduced H2 release in a separate experiment is an investigative probe, not physiological light dependence.",
+      "supplementary": [
+        {
+          "title": "Photoinduced Reductive Elimination of H2 from the Nitrogenase Dihydride (Janus) State Involves a FeMo-cofactor-H2 Intermediate",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28177622/",
+          "scope": "publisher_abstract",
+          "doi": "10.1021/acs.inorgchem.6b02899",
+          "finding": "Opened abstract distinguishes photochemical trapped H2 complex from its proposed thermal-catalytic counterpart; supports restraint about microscopic sequencing."
+        },
+        {
+          "title": "Mechanism of N2 Reduction Catalyzed by Fe-Nitrogenase Involves Reductive Elimination of H2",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5837051/",
+          "scope": "stored_search_excerpt",
+          "doi": "10.1021/acs.biochem.7b01142",
+          "finding": "H2 inhibition and D2/N2-dependent HD generation extend evidence for coupled elimination/oxidative addition. Isozyme variants are not separate cards."
+        }
+      ],
+      "nearest_existing_keys": [
+        "biological-nitrogen-fixation",
+        "hydrogenase-metal-hydride-proton-splitting",
+        "metal-hydride-hydrolysis"
+      ],
+      "boundary": "A broad nitrogen-fixation card gives the overall ATP/electron-driven output. The specific pathway stores reducing equivalents as two hydrides then eliminates H2 while activating N2. It differs from hydride/proton heterolytic H2 splitting and water protonolysis.",
+      "boundary_attention": "This is a mechanistically specified activation pathway under a broad parent, not a nitrogenase species/cofactor or ammonia-use variant. Root adjudicates canonical granularity."
+    },
+    {
+      "key": "opposing-enzyme-saturation-zero-order-ultrasensitivity",
+      "title": "An amplified sensitivity arising from covalent modification in biological systems",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.78.11.6840",
+      "scope": "publisher_abstract",
+      "doi": "10.1073/pnas.78.11.6840",
+      "retrieved_excerpt": "much larger percentage changes in the amount of modified protein",
+      "finding": "Opened original 1981 primary theoretical abstract establishes sensitivity amplification in reversible covalent modification outside first-order kinetics. Indexed original author PDF identifies saturated converter enzymes as the zero-order source.",
+      "limits": "Saturation of opposing reactions and excess substrate are conditions, not guaranteed by the presence of two enzymes alone. Does not assert bistability, hysteresis, cooperative binding or a universal physiological switch. Primary 1986 reconstitution supplies experimental corroboration, without counting that biochemical substrate as another effect.",
+      "supplementary": [
+        {
+          "url": "https://utc.ulb.be/ARTICLES/1981_Goldbeter_PNAS.pdf",
+          "scope": "stored_search_excerpt",
+          "finding": "Author-hosted original primary PDF indexed text explicitly identifies saturation with protein substrate; direct retrieval failed."
+        },
+        {
+          "title": "Zero-order ultrasensitivity in the regulation of glycogen phosphorylase",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC323407/?page=1",
+          "scope": "stored_search_excerpt",
+          "doi": "10.1073/pnas.83.9.2865",
+          "finding": "Primary reconstitution using purified interconverting enzymes reports enhanced steady-state sensitivity due to zero-order effect."
+        }
+      ],
+      "nearest_existing_keys": [
+        "allosteric-cooperativity",
+        "substrate-limited-biochemical-rate",
+        "atp-dependent-protein-phosphorylation",
+        "phosphomonoester-enzymatic-dephosphorylation"
+      ],
+      "boundary": "Emergent rate-balance sensitivity of two opposing saturated flows requires no interacting binding sites. Distinct from substrate starvation and single phosphorylation/dephosphorylation chemistry. Multiple modification types are instances of one dynamic principle."
+    }
+  ],
+  "excluded_or_held": [
+    {
+      "candidate": "formylglycine-hydrate sulfate ester cleavage",
+      "status": "duplicate_excluded",
+      "nearest_key": "sulfatase-sulfate-ester-hydrolysis",
+      "reason": "Current canonical principle already explicitly specifies formylglycine hydration at the active site; adding a second FGly-sulfate pathway card would repeat it."
+    },
+    {
+      "candidate": "protein-crowding-induced membrane curvature",
+      "status": "boundary_excluded",
+      "nearest_key": "polymer-steric-dispersion-stabilization",
+      "reason": "Crowding/steric repulsion causing membrane curvature risks an output/application split of an existing physical principle. No independently established transduction pathway identified for this batch."
+    },
+    {
+      "candidate": "bilayer wedge insertion and curvature",
+      "status": "boundary_excluded",
+      "reason": "Differential area strain is already a general deformation principle; a protein amphipathic wedge alone does not establish a separate independent effect."
+    },
+    {
+      "candidate": "retaining glycosyltransferase substrate/anomer/family variants",
+      "status": "variant_excluded",
+      "reason": "Count one leaving-group-assisted front-face pathway; do not count enzyme family, sugar, linkage or product stereochemical variants independently."
+    },
+    {
+      "candidate": "nitrogenase cofactor/isozyme variants",
+      "status": "variant_excluded",
+      "reason": "Mo/Fe variants that share the supported H2 elimination coupling remain one mechanistic card, not separate nitrogen-fixation effects."
+    }
+  ],
+  "sha256_utf8_lf": "5670c87c3edbaec2ecf04509c181659cf35b77a2b94d8878272e5122117d7442",
+  "canonical_count_checked": 1924,
+  "validation": "6 unique rows; 10 fields; group 18; length limits; no canonical key collision; all nearest keys exist; source title/URL/scope/nearest-key correspondence pass"
+}

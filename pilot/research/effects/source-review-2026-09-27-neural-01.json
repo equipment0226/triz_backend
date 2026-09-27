@@ -1,0 +1,20 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "canonical_count_checked": 1917,
+  "observations": [
+    {"key": "residual-calcium-sensor-synaptic-facilitation", "scope": "reference_section", "read": "Author-hosted 2016 primary PDF pages 1-2, knockout versus wild-type residual calcium and initial release controls, rescue; Extended Data Figure 1 slow separate sensor. Not a claim that all facilitation is Syt7."},
+    {"key": "surround-inhibitory-network-spatial-contrast-selection", "scope": "stored_search_excerpt", "read": "Complete indexed original abstract on PubMed and publisher; GABAergic inner-retinal lateral inhibition, sodium-dependent lateral conduction and loss of small-stimulus preference on blockade. PubMed open rate-limited and publisher open redirected, so no full-text read claimed."},
+    {"key": "population-activity-divisive-neural-gain", "scope": "reference_section", "read": "Olsen original 2010 author PDF pp3-5 Eq2/3 and input-gain comparisons, Discussion on presynaptic locus. Supplemental Carandini/Heeger/Movshon 1997 author PDF p1 and pp19-20 biophysical feasibility discussion; shunting-only explanation is not established universally.", "supplement_url": "https://www.cns.nyu.edu/~tony/vns/readings/carandini-heeger-movshon-1997.pdf"},
+    {"key": "myelin-insulated-internode-nodal-regeneration", "scope": "reference_section", "read": "2017 eLife v2 official CDN PDF Introduction, morphology observations, Table1 and compartment electrical parameters. Node morphology measured; conduction changes predicted by model. No universal monotonic speed or learning causation claimed.", "failed_retrievals": "Publisher challenge, UCL PDF timeout and CDN v1 failure preceded successful v2 retrieval."},
+    {"key": "paired-connexon-intercellular-electrical-coupling", "scope": "reference_section", "read": "2016 original Nature Communications Results, Cx36 requirement, Figure7 and Methods quadruple current injection, monitored voltage transfer, coupling efficiency. Adjacent cells directly electrically connected; not fused into one cell."},
+    {"key": "extracellular-field-neighbor-membrane-coupling", "scope": "reference_section", "read": "2018 primary author PDF Summary and Results Figures5-6 extracellular recordings, copied waveform stimulation, severed axon and Na-channel-block controls; Discussion sign depends on geometry. Supplemental retinal hemichannel paper 2011 Discussion/alternative mechanisms read but not used to claim all retinal feedback is ephaptic.", "supplement_url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001107"},
+    {"key": "opsin-transducin-cyclic-nucleotide-channel-closure", "scope": "reference_section", "read": "Original JCI 1990 PDF Introduction explicit cascade and Results GTP-analogue activated PDE, Discussion restrictions. General phototransduction mechanism is described; experiments on tumor extracts are not a demonstration of vision."}
+  ],
+  "excluded": [
+    {"candidate": "NMDA magnesium voltage block", "reason": "Already covered by voltage-dependent-mobile-blocker-pore-rectification; ligand coincidence context alone does not justify another card."},
+    {"candidate": "Synaptic depression and spike timing dependent plasticity", "reason": "Exact canonical cards exist; no new count."},
+    {"candidate": "McGurk or multisensory weighted integration", "reason": "Observable alone does not establish an independent mechanism beyond existing sensor fusion; not counted."},
+    {"candidate": "Visual and olfactory normalization as separate effects", "reason": "Grouped as one pool-dependent divisive operation; implementation differences are conditions."}
+  ]
+}

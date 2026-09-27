@@ -1,0 +1,200 @@
+{
+  "date": "2026-09-27",
+  "mode": "conversation_only",
+  "status": "ready_frozen",
+  "additions_file": "additions-2026-09-27-biology-03.tsv",
+  "canonical_mutated": false,
+  "count": 20,
+  "scope_note": "All sources are primary studies. Search-index excerpts retain stored_search_excerpt even when the index includes body paragraphs. Opened PubMed author abstracts use publisher_abstract. No external LLM calls.",
+  "evidence": [
+    {
+      "key": "elongation-factor-coupled-ribosomal-translocation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30936299/",
+      "scope": "stored_search_excerpt",
+      "evidence": "EF-G is essential for enforcing coupled movement of the tRNAs and their mRNA codons",
+      "limits": "Primary 3.2-A structure without EF-G/GTP shows spontaneous chimeric-state motion and disrupted codon pairing. Do not claim GTP is the sole source of every mechanical displacement."
+    },
+    {
+      "key": "guide-rna-directed-uridine-insertion-editing",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8978701/",
+      "scope": "stored_search_excerpt",
+      "evidence": "predominant number of U insertions was determined by the number of guiding nucleotides",
+      "limits": "Primary cell-free editing and gRNA/UTP/ATP perturbations support cleavage-ligation with U derived from UTP; insertion card does not assert that this paper directly captured every editosome enzyme."
+    },
+    {
+      "key": "schiff-base-deoxyribose-phosphate-beta-elimination",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9556598/",
+      "scope": "publisher_abstract",
+      "evidence": "Lys72 as the predominant Schiff base nucleophile in the dRP lyase beta-elimination catalytic reaction",
+      "limits": "Opened abstract paragraphs. K72A loses over 90% lyase activity without loss of DNA binding; covalent imino mechanism inferred from directed mutants. Preincised abasic substrate, not universal oxidized-sugar repair."
+    },
+    {
+      "key": "phosphohistidine-dna-adduct-hydrolytic-release",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3265611/",
+      "scope": "reference_section",
+      "evidence": "His432Arg forms an observable and unique Tdp1-DNA adduct during catalysis",
+      "limits": "Opened Abstract and Introduction, especially catalytic Fig.1 discussion. Crystallographic free phosphohistidine is not itself a trapped DNA intermediate; biochemical mutant data support DNA covalent intermediate. Product 3-prime phosphate can need further processing."
+    },
+    {
+      "key": "protein-domain-swapped-oligomerization",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7833807/",
+      "scope": "publisher_abstract",
+      "evidence": "Two open monomers interact by \"domain swapping\" to form a compact, globular dimeric DT structure",
+      "limits": "Opened primary crystallographic abstract. Card is structural assembly only, without infection, toxin production, engineering, or potency claims. No assertion that domain exchange always propagates as a prion."
+    },
+    {
+      "key": "phosphoenzyme-bisphosphate-positional-exchange",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3066478/",
+      "scope": "stored_search_excerpt",
+      "evidence": "first from a phosphoserine residue of the protein to the substrate",
+      "limits": "Primary structure, biochemical activity and Fig.1 mechanism. Paper explicitly says only dephosphoserine was observed in these crystals; full bisphosphate cycle is mechanistic context supported by earlier kinetics, not directly filmed here. G16P reorientation need not preserve identity of original phosphate atom."
+    },
+    {
+      "key": "sacrificial-iron-sulfur-carbon-sulfur-insertion",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5003258/",
+      "scope": "stored_search_excerpt",
+      "evidence": "a sulfur atom that is still part of the cluster becomes covalently attached to C6",
+      "limits": "Primary resting and first-sulfur-inserted intermediate structures show lost auxiliary Fe and substrate-cluster covalent linkage. Does not generalize cluster destruction to every radical-SAM sulfur enzyme or claim in vivo cluster repair route settled."
+    },
+    {
+      "key": "tetrapyrrole-spiro-mediated-ring-inversion",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2852885/",
+      "scope": "stored_search_excerpt",
+      "evidence": "U3S catalyzed cyclization occurs with inversion of the fourth pyrrole ring",
+      "support_url": "https://pubs.rsc.org/en/content/articlelanding/1996/p1/p19960002079",
+      "support_scope": "stored_search_excerpt",
+      "limits": "Primary product structure and competitive spirolactam enantiomer experiments support proposed spiro path. No direct spiro-intermediate trapping; conditions explicitly retain model status."
+    },
+    {
+      "key": "heme-self-oxygenation-porphyrin-cleavage",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4745887/",
+      "scope": "stored_search_excerpt",
+      "evidence": "trapped hydroperoxy-heme state relaxes to other such states",
+      "limits": "Primary cryoreduction, EPR and kinetic comparison. Hydroperoxy decay accompanies meso-hydroxyheme product; ring-opening sequence is stated mechanistic context. Direct PMC open returned CAPTCHA, so not labeled full-text retrieval."
+    },
+    {
+      "key": "iron-catechol-alkylperoxo-aromatic-ring-cleavage",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2720167/",
+      "scope": "stored_search_excerpt",
+      "evidence": "key substrate-alkylperoxo-Fe2+ intermediate",
+      "limits": "Primary slow-substrate 4-nitrocatechol crystal with three states in separate subunits. Alkylperoxo state directly trapped; precise later Criegee rearrangement sequence remains mechanistic interpretation. Same net oxygen insertion alone would not distinguish from Baeyer-Villiger; adjacent metal-bound substrate/O2 redox coupling does."
+    },
+    {
+      "key": "methylation-succinimide-isoaspartyl-backbone-repair",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3472227/",
+      "scope": "stored_search_excerpt",
+      "evidence": "net result of the process is the conversion of the isomerized peptide to the normal peptide",
+      "limits": "Primary model-peptide experiment: normal linkage plus isoAsp after each hydrolysis; methylation repeats selectively. Racemization limits yield; do not claim complete restoration of all native proteins."
+    },
+    {
+      "key": "end-anchored-molecular-ruler-rna-cleavage",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16410517/",
+      "scope": "stored_search_excerpt",
+      "evidence": "cleaves a specified distance from the helical end",
+      "limits": "Primary intact Dicer crystal shows 65-A PAZ-to-RNaseIII span consistent with 25-bp substrate. Card abstracts geometric end-distance measurement, not every Dicer producing same RNA length or generic nuclease chemistry."
+    },
+    {
+      "key": "iron-sulfur-disulfide-one-to-two-electron-coupling",
+      "url": "https://www.nature.com/articles/nature05937",
+      "scope": "stored_search_excerpt",
+      "evidence": "forms a fifth ligand for an iron atom in the FTR [4Fe–4S] centre",
+      "limits": "Primary structures of one/two-electron-reduced states and four complexes. Boundary is transient fifth sulfur ligation that couples sequential single-electron supply to disulfide chemistry, not substrate-specific thiol exchange alone."
+    },
+    {
+      "key": "microtubule-lattice-extraction-repair-islands",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6510489/",
+      "scope": "stored_search_excerpt",
+      "evidence": "repaired spontaneously by guanosine triphosphate (GTP)-tubulin incorporation",
+      "limits": "Primary single-molecule TIRF and EM show lattice nanodamage/exchange and increased rescue. No guarantee of net polymer increase without soluble tubulin; boundary is body-lattice renewal, not ordinary end growth or motor-driven proteolysis."
+    },
+    {
+      "key": "molybdenum-hydroxide-sulfido-hydride-hydroxylation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2659234/",
+      "scope": "stored_search_excerpt",
+      "evidence": "concomitant hydride transfer to the Mo=S of the molybdenum center",
+      "limits": "Primary functional enzyme-lumazine turnover structure and nonfunctional desulfo-xanthine complex. Hydride/oxygen route supported by contextual rapid kinetics and reduced product Mo-OR adduct; exact timing not universally proven by static coordinates."
+    },
+    {
+      "key": "tryptophan-photoexcitation-salt-bridge-dissociation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22323738/",
+      "scope": "stored_search_excerpt",
+      "evidence": "Photoreception reversibly disrupts salt bridges, triggering dimer dissociation",
+      "support_url": "https://www.nature.com/articles/nature10931",
+      "support_scope": "stored_search_excerpt",
+      "limits": "Two primary structure/mutagenesis studies support intrinsic tryptophan absorption and salt-bridge destabilization. Do not assert one exact radical pair or proton-transfer sequence; later mechanistic models differ."
+    },
+    {
+      "key": "metastable-protein-sheath-lattice-contraction",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2670864/",
+      "scope": "stored_search_excerpt",
+      "evidence": "gp18 subunits slide over each other with no apparent change in their structure",
+      "support_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4568249/",
+      "support_scope": "stored_search_excerpt",
+      "limits": "Primary partial subunit crystal fitted to extended/contracted cryo-EM plus energy discussion. Do not claim tube necessarily crosses both membranes; later cryo-ET shows periplasm entry and separate inner-membrane remodeling. The generic metastable transition overlaps bistability, but explicit lattice-contact reorganization and axial tube stroke are retained for root boundary review."
+    },
+    {
+      "key": "plp-aminoacrylate-elimination-addition-substitution",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17567578/",
+      "scope": "stored_search_excerpt",
+      "evidence": "trap the alpha-aminoacrylate reaction intermediate and determine its structure by cryocrystallography",
+      "support_url": "https://www.sciencedirect.com/science/article/abs/pii/S002228369892037X",
+      "support_scope": "stored_search_excerpt",
+      "limits": "Primary aminoacrylate crystal and earlier OASS structure with half-reaction mechanism. Quinonoid intermediates are not claimed directly observed universally. All analogous beta-substitution substrates remain one card."
+    },
+    {
+      "key": "enzyme-confined-oxygen-carbon-phosphoryl-rearrangement",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12162742/",
+      "scope": "stored_search_excerpt",
+      "evidence": "pyruvyl C(3) adds to the same face of the phosphorus from which the C(2)O departs",
+      "support_url": "https://pubmed.ncbi.nlm.nih.gov/18331021/",
+      "support_scope": "stored_search_excerpt",
+      "limits": "Primary substrate-analogue structure and mutants oppose phosphoenzyme double displacement; subsequent QM/MM proposes dissociative metaphosphate transition state. Avoid calling free metaphosphate an experimentally trapped stable intermediate."
+    },
+    {
+      "key": "purine-hydrolytic-formate-loss-pterin-ring-expansion",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0022283602013037",
+      "scope": "stored_search_excerpt",
+      "evidence": "hydrolytic release of formate from GTP followed by cyclization to dihydroneopterin triphosphate",
+      "support_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5558430/",
+      "support_scope": "stored_search_excerpt",
+      "limits": "Primary substrate complexes and zinc-site variants plus later independent family active-site study. Later mutants distinguish early hydrolysis from Amadori/ring-closure function. Avoid obsolete 1995 cystine mechanism: essential zinc was discovered subsequently."
+    }
+  ],
+  "rejected_or_held": [
+    {
+      "candidate": "donor-strand-exchange pilus assembly",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16793551/",
+      "scope": "stored_search_excerpt",
+      "reason": "Excellent primary ternary-complex/kinetic evidence, but zip-in/zip-out beta-strand displacement may repeat toehold branch migration with a changed polymer; withheld rather than inflate count."
+    },
+    {
+      "candidate": "enolase dehydration",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10619443/",
+      "scope": "stored_search_excerpt",
+      "reason": "Metal-stabilized carbanion path is explicit, but currently too close to existing alcohol-dehydration-to-alkene plus Lewis-acid catalysis for confident additional counting."
+    },
+    {
+      "candidate": "nitrogenase hydride reductive elimination",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5444871/",
+      "scope": "stored_search_excerpt",
+      "reason": "Mechanistic evidence would improve existing biological-nitrogen-fixation; separate card would subdivide same specific enzyme process."
+    },
+    {
+      "candidate": "QueG epoxyqueuosine deoxygenation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8935625/",
+      "scope": "stored_search_excerpt",
+      "reason": "Organocobalt nucleophilic versus electron-transfer path remains contested across retrieved primary calculations; avoid selecting one as settled mechanism."
+    },
+    {
+      "candidate": "AlkB oxidative demethylation",
+      "reason": "Hydroxylation followed by spontaneous formaldehyde release may be substrate/damage-repair application of existing oxidative oxygen insertion, so no new card yet."
+    },
+    {
+      "candidate": "light-dependent protochlorophyllide reduction",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29363234/",
+      "scope": "stored_search_excerpt",
+      "reason": "Strong primary resolved intermediates support stepwise hydride transfer; held for separate comparison against photocatalysis and proton-coupled electron-transfer cards, rather than automatic inclusion."
+    }
+  ],
+  "sha256": "e577d8fe2423529c1fa2e6eb22b260bfa30167c071b1b1c9d9d20e7a5c37a06f"
+}

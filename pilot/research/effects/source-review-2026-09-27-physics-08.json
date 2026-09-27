@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-08.tsv",
+  "authoring": "Direct conversational reasoning and Korean authoring; no external LLM API or generated-content script.",
+  "scope_convention": "reference_section means the named portions of primary texts were retrieved and read. It does not mean every page or supplementary file was read. Failed scans and abstract-only searches are identified separately.",
+  "comparison": "All-group catalog searches and nearest-principle reading included disorder mechanics, convection, shock vorticity, ferroelectricity, lattice distortion, dipolar forces, spin pumping and exchange. Broad parents are not removed merely for encompassing a microscopic route. No universal carrier-wave or material-variant split is proposed.",
+  "evidence": [
+    {
+      "key": "nonaffine-force-balance-elastic-softening",
+      "url": "https://arxiv.org/pdf/1102.0162",
+      "scope": "reference_section",
+      "read": "Zaccone and Scossa-Romano 2011, Section II pages 1-2 equations 1-8, Section III.A central-force bonded-network assumptions. Published identity also checked against DOI 10.1103/PhysRevB.83.184205.",
+      "quote": "the neighboring atoms may exert a non-vanishing force-field",
+      "support": "Affine displacement in an asymmetric neighborhood leaves unbalanced local forces. Extra displacement restores equilibrium along a reversible minimum-energy path. Equations 7-8 subtract a Hessian-controlled nonaffine contribution from the affine elastic constant.",
+      "limitation": "The explicit model uses relaxed harmonic central bonds and decorrelated disorder. Its coordination threshold is not made a universal property of all solids. Permanent shear transformations, viscous loss and changing contact number are not required for this correction."
+    },
+    {
+      "key": "sloping-isentrope-available-potential-baroclinic-instability",
+      "url": "https://empslocal.ex.ac.uk/people/staff/gv219/classics.d/Eady49.pdf",
+      "scope": "reference_section",
+      "read": "Eady 1949 original, pages 38-41 rotating stable-stratification model and unstable disturbance structure; Section IV Energy Analysis, pages 50-51, particularly sloping overturning between horizontal and isentropic directions. DOI 10.1111/j.2153-3490.1949.tb01265.x metadata verified.",
+      "quote": "the isentropic surfaces are not horizontal",
+      "support": "Sloping displacements can release potential energy in a vertically stable thermal-wind state. Warm rising and cold descending fluid convert available potential energy into the disturbance. The energy argument alone provides a possibility or upper growth bound; continuity, momentum and boundaries restrict actual modes.",
+      "limitation": "This is the sustained rotating baroclinic instability route, not a duplicate claim for the misaligned-gradient vorticity source already explicit in Richtmyer-Meshkov. It is not a guarantee that every atmospheric flow or wavelength is unstable."
+    },
+    {
+      "key": "polar-optical-mode-collective-ferroelectric-instability",
+      "url": "https://arxiv.org/pdf/mtrl-th/9502004",
+      "scope": "reference_section",
+      "read": "Zhong, Vanderbilt and Rabe 1995 original manuscript: Section II pages 5-9 soft-mode coordinates and local, dipolar, short-range energies; page 14 positive isolated-mode stiffness but collective instability; pages 22-23 transition character and interaction tests.",
+      "quote": "instability actually comes from the intersite interactions between local modes",
+      "support": "The computed BaTiO3 instability is collective: long-range dipolar coupling competes with short-range restoring forces. The Hamiltonian includes anharmonic local amplitudes and strain. Eliminating dipolar coupling changes or removes the polar instability, depending on what other parameters are held fixed.",
+      "limitation": "BaTiO3 is explicitly intermediate between displacive and order-disorder limits and its transitions are first order. The card does not label it a pure displacement-only transition or assert zero mode frequency exactly at every transition.",
+      "source_history": "The Rutgers author copy endpoint returned a 12-page PDF with no readable text. The arXiv manuscript supplied actual passages. Cochran 1960 publisher abstract was found in search but its full original paper was not successfully opened; it is not the main source binding.",
+      "supplement": {"url": "https://garfield.library.upenn.edu/classics1986/A1986A666800001.pdf", "scope": "reference_section", "title": "Cochran 1986 author retrospective on Crystal stability and the theory of ferroelectricity", "read": "One-page first-person account, paragraphs describing shell-model instability, transverse optic mode at zero wave vector and subsequent neutron study.", "support": "The original author identifies the proposed soft-mode route. This is an author retrospective, not relabeled as the 1960 original study."}
+    },
+    {
+      "key": "exchange-coupled-spin-precession-magnon-wave",
+      "url": "https://arxiv.org/pdf/1903.00638",
+      "scope": "reference_section",
+      "read": "Chen et al. 2019 original experiment and theory: introduction, pages 4-6 transmission and exchange-dominated dispersion equation 1; pages 8-9 magnetization precession and dipolar coupling explanation. Supplementary information was not separately retrieved.",
+      "quote": "these ESWs obey the dispersion relation",
+      "support": "Propagating modes measured between antennas follow exchange-dipolar dispersion with an exchange-stiffness k-squared term. The authors describe collective magnetization precession. Exchange-dominated waves are intrinsically nonchiral in the bare film; directional excitation comes from nanowire-film dipolar coupling.",
+      "limitation": "The card describes the common exchange-mediated bulk wave, not the paper's special directional grating as another effect. Printed numeric stiffness units and instrument-specific values are omitted. Dispersion depends also on field, dipolar energy, anisotropy and geometry."
+    }
+  ],
+  "exclusions": [
+    {"candidate": "Geometrically necessary dislocations and indentation size strengthening", "reason": "Held against dislocation work hardening: the candidate adds a density-generation geometry but the current proposed strength path remains the same dislocation interaction resistance. No authored new card."},
+    {"candidate": "Asaro-Tiller-Grinfeld stressed-surface instability", "reason": "Held against existing strain-driven epitaxial island formation pending a stronger pathway boundary than substrate or surface geometry."},
+    {"candidate": "Basic baroclinic vorticity generation", "reason": "Already explicit in Richtmyer-Meshkov. Retained baroclinic instability is justified by the sustained sloping potential-energy-release feedback, not the shared baroclinic name."}
+  ],
+  "additional_audit": [
+    {
+      "candidate": "radiocarbon-source-apportionment",
+      "representative": "radioactive-decay",
+      "decision": "Recommended merge; parent reports integrated merge09 with IDs and sources retained.",
+      "url": "https://www.nist.gov/news-events/news/2017/09/new-method-identifying-carbon-compounds-derived-fossil-fuels",
+      "scope": "reference_section",
+      "read": "NIST original institutional research report, main body on fossil/modern radiocarbon proportions and cavity ring-down measurement, retrieved lines 125-152.",
+      "quote": "carbon compounds derived from fossil fuels",
+      "support": "Fossil-source distinction depends on depletion of radioactive carbon over age; spectroscopy measures the isotope ratio. The existing card also explicitly called itself an application of radioactive decay. The instrument's ring-down method is already separately represented.",
+      "limitation": "This report identifies the original study DOI 10.1021/acs.jpclett.7b02105; that original paper was not read for this audit. The merge judgment concerns the catalog's stated physical mechanism rather than denying the analytical method's practical novelty."
+    }
+  ]
+}

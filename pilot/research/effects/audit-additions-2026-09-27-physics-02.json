@@ -1,0 +1,269 @@
+{
+  "batch": "additions-2026-09-27-physics-02.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1627,
+  "added": 20,
+  "after": 1647,
+  "target": 2000,
+  "source_sha256": "adf981d83a57f0d0dcd8871374b8c10dfb3cc2807ae800c6e4d4ebe65b5bb277",
+  "decisions": [
+    {
+      "key": "anisotropic-viscous-torque-jeffery-orbit",
+      "group": 1,
+      "related_keys": [
+        "quincke-polarization-rotation-instability",
+        "shear-thinning",
+        "nonreciprocal-stokes-swimming"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "지연 전기 분극의 회전 불안정이나 능동 형상 주기가 아니라 비구형 수동 입자에 작용하는 점성 전단 토크의 배향 운동이다.",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/nearwall-dynamics-of-nonbrownian-rodlike-particle-suspensions-in-confined-shear-flows/A8CCBAC8EE1B726674E63A5A7010E8AA",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "finite-particle-flow-curvature-faxen-force",
+      "group": 1,
+      "related_keys": [
+        "basset-viscous-history-force",
+        "inertial-lift-cross-stream-migration"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "과거 가속도의 점성 기억이나 관성 횡력이 아니라 입자가 점이 아닌 데서 생기는 공간적 응력 평균화이다.",
+      "source_url": "https://arxiv.org/html/0811.4410v2",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "displaced-fluid-acceleration-added-mass",
+      "group": 1,
+      "related_keys": [
+        "basset-viscous-history-force",
+        "viscous-damping",
+        "archimedes-buoyancy"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "속도 비례 소산·과거 운동의 와도 확산·정적 부력과 달리 유체 운동에너지 증가가 만드는 순간 가속도 반력이다.",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/accurate-models-of-the-added-mass-force-of-a-uniform-random-distribution-of-spherical-particles-or-bubbles/DD838FAAFAA961C36BE91A020B221FCB",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "viscosity-stratified-interfacial-yih-instability",
+      "group": 11,
+      "related_keys": [
+        "kelvin-helmholtz-shear-instability",
+        "saffman-taylor-viscosity-front-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "관성 속도차의 켈빈·헬름홀츠나 다공성 전면 치환과 달리 평행 층상 전단의 점도 대비가 작은 관성에서도 불안정을 허용한다.",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/abs/instability-due-to-viscosity-stratification/F80EC4B5BA284BD622A042C1472D206A",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "oscillating-bubble-rectified-gas-diffusion",
+      "group": 11,
+      "related_keys": [
+        "cavitation",
+        "bubble-phase-secondary-bjerknes-force",
+        "gas-absorption"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기포 붕괴의 압력 집중이나 기포 사이 힘이 아니라 주기 운동이 확산 질량 유량을 정류하는 경로이다.",
+      "source_url": "https://authors.library.caltech.edu/records/pt1pa-nk061",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "stable-stratification-internal-buoyancy-wave",
+      "group": 13,
+      "related_keys": [
+        "density-stratification",
+        "rayleigh-taylor-density-acceleration-instability",
+        "faraday-parametric-surface-wave"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "정적 성층 유지의 부모 카드보다 좁은 부력 복원·분산 전파이며 불안정 밀도의 전복이나 자유표면 매개 여기와 다르다.",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/experimental-evidence-of-internal-wave-attractor-signatures-hidden-in-largeamplitude-multifrequency-wave-fields/08FEC37140FF38C7CA1E626235039D9F",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "coriolis-restored-inertial-wave",
+      "group": 13,
+      "related_keys": [
+        "potential-vorticity-gradient-rossby-wave",
+        "elliptic-strain-inertial-wave-instability",
+        "rapid-rotation-taylor-proudman-columnarity"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "로스비파의 잠재와도 구배나 타원 변형의 매개 에너지 공급 없이 일정한 배경 회전 자체가 복원 작용을 제공한다.",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/an-experimental-study-investigating-the-inertialwave-field-accompanying-vortex-rings-translating-through-a-rotating-fluid/F3D311C5F85E9F260F1612FFC1C2C2B6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "vortex-line-curvature-kelvin-wave",
+      "group": 13,
+      "related_keys": [
+        "vortex-lattice-shear-tkachenko-wave",
+        "single-valued-order-quantized-circulation",
+        "counter-rotating-vortex-interaction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "순환 양자화 자체나 여러 와선 격자의 전단파가 아니라 한 와선의 곡률·자기유도 속도가 만드는 굽힘파이다.",
+      "source_url": "https://arxiv.org/abs/cond-mat/0402208",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "shear-induced-transient-vortex-streak-amplification",
+      "group": 11,
+      "related_keys": [
+        "viscous-boundary-layer-tollmien-schlichting-growth",
+        "turbulent-transport-enhancement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "지수 성장하는 점성 고유모드와 달리 전단에 의한 리프트업·오르 과정의 유한 시간 에너지 증폭을 하나로 묶는다. 장치별로 분할하지 않는다.",
+      "source_url": "https://arxiv.org/html/2405.13545v1",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "phase-speed-matched-critical-layer-absorption",
+      "group": 11,
+      "related_keys": [
+        "landau-resonant-wave-particle-transfer",
+        "potential-vorticity-gradient-rossby-wave"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입자 속도 분포와 전기파 사이의 란다우 공명과 달리 공간적으로 변하는 유체 평균 전단층과 내부파 사이의 운동량 전달이다.",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/abs/critical-layer-for-internal-gravity-waves-in-a-shear-flow/8D72D50D8C40AFCC668E7047B2300EEF",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "phase-change-mass-injection-stefan-flow",
+      "group": 11,
+      "related_keys": [
+        "evaporative-cooling",
+        "evaporative-pinned-drop-ring-deposition",
+        "thermal-transpiration-pumping"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "잠열 제거·액적 내부 보충류·희박 기체 온도차 펌핑과 달리 상변화의 순질량 주입이 기체 전체의 이류를 만든다.",
+      "source_url": "https://re.public.polimi.it/retrieve/dce948b5-5588-454c-83cb-01792f7ee755/1-s2.0-S0017931024009451-main.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "pinned-dislocation-frank-read-loop-multiplication",
+      "group": 16,
+      "related_keys": [
+        "work-hardening",
+        "plastic-forming",
+        "screw-dislocation-cross-slip-plane-switching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전위끼리 이동을 방해하는 가공경화 결과나 면 전환과 달리 고정 구간의 휨·고리 방출·재생이 전위 수를 늘리는 구체 경로이다.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.79.722/fulltext",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "section-thinning-hardening-competition-necking",
+      "group": 6,
+      "related_keys": [
+        "plastic-heating-thermal-localization-feedback",
+        "work-hardening",
+        "stress-concentration-fracture"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "발열로 강도가 줄어드는 전단대나 미리 만든 노치가 아니라 변형 자체의 단면 감소와 경화 경쟁으로 인장 불균일이 성장한다.",
+      "source_url": "https://www.nature.com/articles/ncomms4580",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "nonlinear-elastic-surface-sulcification",
+      "group": 6,
+      "related_keys": [
+        "film-substrate-wrinkling-instability",
+        "compressive-euler-buckling",
+        "bistable-structure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "강성 박막·연성 기판의 선형 주기 좌굴이나 보 전체의 휨과 달리 균질 연성체 표면의 국소적 비선형 접힘 불안정이다.",
+      "source_url": "https://arxiv.org/abs/1008.0694",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "hydrostatic-tension-plastic-void-enlargement",
+      "group": 17,
+      "related_keys": [
+        "griffith-energy-release-fracture",
+        "kirkendall-diffusion-imbalance-voiding",
+        "polymer-void-fibril-craze-formation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "확산 불균형으로 빈자리를 만드는 경로나 고분자 피브릴 형성과 달리 기존 공극 주위 소성 유동이 정수압 인장에 의해 확대된다.",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/0022509669900337",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "plastic-wake-fatigue-crack-closure-shielding",
+      "group": 17,
+      "related_keys": [
+        "cyclic-plasticity-fatigue-crack-growth",
+        "fiber-bridging",
+        "crack-tip-transformation-toughening"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "피로 균열 성장의 부모 카드보다 좁은 후방 소성 흔적·면 접촉 차폐이며 섬유 인장 가교나 상변태 팽창을 필요로 하지 않는다.",
+      "source_url": "https://www.nature.com/articles/s41598-023-33761-4",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "adhesive-interface-schallamach-detachment-wave",
+      "group": 5,
+      "related_keys": [
+        "velocity-weakening-stick-slip-instability",
+        "interfacial-fracture-controlled-peeling",
+        "elastomer-contact-sealing"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "속도 약화 법칙만의 거시 불안정이나 영구 박리와 달리 국소 탈착·재접착 전파가 미끄럼 변위를 운반하는 계면 경로이다.",
+      "source_url": "https://arxiv.org/abs/1405.4953",
+      "retrieval_scope": "publisher_abstract"
+    },
+    {
+      "key": "lattice-barrier-kink-pair-dislocation-glide",
+      "group": 16,
+      "related_keys": [
+        "plastic-forming",
+        "screw-dislocation-cross-slip-plane-switching",
+        "vacancy-assisted-dislocation-climb",
+        "peierls-electron-lattice-dimerization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "면을 바꾸거나 공공을 흡수하는 이동과 달리 같은 면에서 격자 마찰을 넘는 국소 킹크 생성·전파이다. 전자계 이합체화와 이름만 같다.",
+      "source_url": "https://www.nature.com/articles/s41524-018-0125-4",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "particle-velocity-variance-gradient-turbophoresis",
+      "group": 9,
+      "related_keys": [
+        "inertial-lift-cross-stream-migration",
+        "shear-induced-collisional-particle-migration",
+        "turbulent-transport-enhancement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "평균 전단의 양력이나 농후 입자 충돌 응력이 아니라 불균질한 입자 속도 분산과 유한 응답시간이 만드는 드리프트이다.",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/abs/turbophoresis-of-small-inertial-particles-theoretical-considerations-and-application-to-wallmodelled-largeeddy-simulations/9C886AB2B3C469E174FF47C8A86CE347",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "three-dimensional-vorticity-line-stretching",
+      "group": 11,
+      "related_keys": [
+        "two-dimensional-inverse-energy-cascade",
+        "turbulent-transport-enhancement",
+        "elliptic-strain-inertial-wave-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "이차원 에너지 역전달이나 주기 변형의 관성파 매개 공명과 달리 삼차원 속도 구배가 와도 벡터를 직접 늘리는 운동학적 증폭 경로이다.",
+      "source_url": "https://arxiv.org/html/2102.06844v1",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1519,
+  "merged": 5,
+  "after": 1514,
+  "campaign": "2026-09-27",
+  "decisions_sha256": "8a0ead004bb495964d4a96130c33a1930e41838fe679951729d0faa0b40177be",
+  "decisions": [
+    {
+      "source": "electrostatic-mems-actuation",
+      "target": "electrostatic-chuck",
+      "reason": "두 기존 카드는 전극 사이 정전기 인력을 동일하게 기술하고 고정과 변위라는 용도만 다르다. 넓은 대표 명칭으로 통합하되 기존 ESC ID 1.4와 검색명 및 가동 공극의 풀인 조건을 유지한다.",
+      "target_fields": [
+        "정전기 인력에 의한 고정·구동(ESC 포함)",
+        "전극과 대상 사이의 정전기 인력이 가동 구조를 변위시키거나 척 표면에 대상을 밀착·고정한다.",
+        "전극·유전체·전압·공극·강성을 확인한다. 가동 구조의 풀인 불안정성과 부착, 척의 절연 파괴·잔류 전하·탈착을 관리한다."
+      ],
+      "original_card": [
+        "electrostatic-mems-actuation",
+        "정전 구동",
+        "전극 사이 정전기 인력으로 가동 구조를 변위시킨다.",
+        "절연과 가동 공극 필요. 풀인 불안정성과 부착을 피할 전압·강성 설계 필요.",
+        ""
+      ],
+      "original_metadata": {},
+      "original_evidence": {
+        "mechanism_key": "electrostatic-mems-actuation",
+        "name_en": "Electrostatic MEMS actuation",
+        "aliases": [
+          "정전 구동",
+          "electrostatic mems actuation",
+          "정전기 MEMS 구동",
+          "Electrostatic MEMS actuation"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-capacitor",
+            "title": "OpenStax · Capacitors and Capacitance",
+            "url": "https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section",
+            "accessed_at": "2026-09-11",
+            "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+          },
+          {
+            "identifier": "REF-esc",
+            "title": "COMSOL · Electrostatic Chuck",
+            "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.models.mems.electrostatic_chuck/electrostatic_chuck.html",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section",
+            "accessed_at": "2026-09-11",
+            "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "photodiode",
+      "target": "photovoltaic-conversion",
+      "reason": "광흡수로 생성한 전하의 분리·수집이라는 기전이 같고 전력 회수와 검출이라는 사용 목적만 다르다. 바이어스·암전류·대역폭 조건을 대표 카드에 보존한다.",
+      "target_fields": [
+        "광생성 전하의 분리·수집: 발전·광검출",
+        "흡수된 광자가 생성한 전하를 내부 전기장 등으로 분리·수집하면 전류를 얻어 광 검출이나 전력 회수에 이용할 수 있다.",
+        "흡수 대역·전하 수집 구조·재결합·온도를 확인한다. 검출에서는 바이어스·읽기 회로·암전류·포화·응답 속도를 평가하며 외부로 전자가 방출되는 광전효과와 구분한다."
+      ],
+      "original_card": [
+        "photodiode",
+        "광다이오드",
+        "흡수된 광자가 만든 전하를 수집해 빛을 전류로 바꾼다.",
+        "감응 파장과 바이어스·읽기 회로 필요. 암전류·포화·응답 속도 고려.",
+        ""
+      ],
+      "original_metadata": {},
+      "original_evidence": {
+        "mechanism_key": "photodiode",
+        "name_en": "Semiconductor photodiode",
+        "aliases": [
+          "광다이오드",
+          "photodiode",
+          "반도체 광다이오드",
+          "Semiconductor photodiode"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-semiconductor",
+            "title": "OpenStax · Semiconductor Devices",
+            "url": "https://openstax.org/books/university-physics-volume-3/pages/9-7-semiconductor-devices",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section",
+            "accessed_at": "2026-09-11",
+            "supports": "기초 메커니즘과 조건을 확인하기 위한 참고 자료; 산업별 성능 보증 아님"
+          },
+          {
+            "identifier": "AR-041311-A1",
+            "title": "Receptor remoto universal inalámbrico para el manejo de potencia.",
+            "url": "https://patents.google.com/patent/AR041311A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "677b219c8e3e19cae4f9b4fb531614553df2859999f28cb5456104aa3256492d",
+            "review_note": "입사광에 따라 광다이오드 전류를 만들고 증폭하여 릴레이를 구동하는 과정을 명시한다. 래치 동작은 음의 피드백으로 취급하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-048446-A1",
+            "title": "Dispositivos organicos fotosensibles",
+            "url": "https://patents.google.com/patent/AR048446A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "376c504dbdcbf8e27a7aea87154183cc57e55bad46f63932811bb3245b01d330",
+            "review_note": "양극·음극 사이 유기금속 활성층에서 조명에 따라 광생성 전류가 흐름을 명시한다. 광자 흡수 후 전하 수집에 의한 광전류 검출로 연결하며 태양전지 전력 효율이나 접합 구조는 확정하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-056143-A1",
+            "title": "Sistema de cronometraje con fotocelulas infrarrojas",
+            "url": "https://patents.google.com/patent/AR056143A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "43de6aad0952d9a72bdd8e2fa31731a361b35831926d9bdd763b3d3532814348",
+            "review_note": "변조 적외선의 차광 검출과 대역통과 필터·광검출기 전류 증폭을 명시한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-113151-A3",
+            "title": "Dispositivo con circuito electrónico de monitoreo constante de la presencia del conductor y pasajeros y del uso del cinturón de seguridad por parte de los mismos",
+            "url": "https://patents.google.com/patent/AR113151A3/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "ba3038e24053581a3d65abaafcb88777569a3b7fe72c2e9b368fd5795eb06f39",
+            "review_note": "적외선 발광·수광과 버클 스위치로 탑승·벨트 사용을 확인한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-113494-A1",
+            "title": "Sonda intraoperatoria para procedimientos quirúrgicos radioguiados",
+            "url": "https://patents.google.com/patent/AR113494A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "b5843f21ab19f290d217291f2ff38fc233b4ba15e007ebc42e58dcef8ef050eb",
+            "review_note": "문헌·중복 검토 후 연결: semiconductor-impact-ionization-multiplication; 강한 전기장에서 가속된 전하 운반자가 반도체 내부에서 추가 전자·정공 쌍을 만들면 충돌 이온화가 연쇄적으로 이어져 입력 전하를 증폭한다. 실리콘 광증배기의 미소 셀이 이를 이용한다. 바이어스·온도·재료·영역 폭에 의존한다. 가이거 모드에서는 소거·재충전이 필요하며 암계수·후속 펄스·포화가 있다. 진공 표면의 이차 전자 방출 증배와 발생 위치·메커니즘이 다르다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-118553-A1",
+            "title": "Control funcional y verificación de edad en dispositivos electrónicos a través de comunicación visual",
+            "url": "https://patents.google.com/patent/AR118553A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "f2dda43e93e3aa0e24a026464b8574a8637b5af74259cb4c9eee1aeffcb46c3a",
+            "review_note": "광다이오드 등으로 인증 신호를 감지한다. 부호·암호 방식은 미특정이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AT-501698-A1",
+            "title": "Multi-pulse analysis device comprises light emitting diodes as transmission diodes, and light receiving diodes",
+            "url": "https://patents.google.com/patent/AT501698A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "c1e5aeccf3b38aa9358670b0df85e3379355c4ef1f1cbeafa6cb7c4233670f02",
+            "review_note": "LED 구동에 동기화하여 수광 전류를 처리한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "time-domain-reflectometry",
+      "target": "time-of-flight",
+      "reason": "기존 TDR 카드가 전송선상의 비행시간 응용임을 명시하며 거리로 변환하는 동일한 시간 지연 원리다. 임피던스 반사 크기·극성의 보조 판독을 보존한다.",
+      "target_fields": [
+        "비행·통과시간 측정(ToF·TDR)",
+        "파동의 전파·반사 시간이나 대상의 두 위치 사이 통과 시간으로 거리·속도를 구한다. 전송선 시간영역 반사는 임피던스 불연속의 왕복 지연을 이용한다.",
+        "전파 속도 또는 검출점 간격과 시간 기준이 필요하다. 지연·분산·다중 반사·매질 변화·대응 오류를 보정한다. TDR 반사 크기·극성은 결함 성질의 보조 정보다."
+      ],
+      "original_card": [
+        "time-domain-reflectometry",
+        "시간 영역 반사에 의한 전송선 결함 위치 추정",
+        "전송선에 보낸 신호가 임피던스 불연속에서 반사되어 돌아오는 시간을 측정하면 전파 속도를 이용해 불연속 위치를 추정할 수 있다.",
+        "전파 속도·분산·다중 반사·대역폭 보정이 필요하다. 비행시간 측정의 전송선 응용이며 반사 크기·극성은 결함 성질의 보조 정보다.",
+        "manual600-time-domain-reflectometry"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "time domain reflectometry"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "time-domain-reflectometry",
+        "name_en": "time domain reflectometry",
+        "aliases": [
+          "시간 영역 반사에 의한 전송선 결함 위치 추정",
+          "time domain reflectometry"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual600-time-domain-reflectometry",
+            "title": "Tektronix: Understanding and Applying Time Domain Reflectometry",
+            "url": "https://download.tek.com/document/Understanding-Applying-TDR-Primer_48W-74128-0.pdf",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-078332-A1",
+            "title": "Sistema de control de integridad incorporado a bolsas para almacenamiento de granos y/o forrajes",
+            "url": "https://patents.google.com/patent/AR078332A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "24b08080fe16100e6d3eb16c81967b96fbba0f568c433f82f1cb42e07d652fad",
+            "review_note": "기존 초록 검토: 도전 띠의 단선과 시간영역 반사로 손상 위치를 찾고 태양전지로 전원 공급한다. 임피던스 불연속 반사 계측 후보로 기록한다. 문헌 대조 후 연결한 일반 원리(특허 세부 구현의 추가 입증은 아님): 시간 영역 반사에 의한 전송선 결함 위치 추정: 전송선에 보낸 신호가 임피던스 불연속에서 반사되어 돌아오는 시간을 측정하면 전파 속도를 이용해 불연속 위치를 추정할 수 있다. 전파 속도·분산·다중 반사·대역폭 보정이 필요하다. 비행시간 측정의 전송선 응용이며 반사 크기·극성은 결함 성질의 보조 정보다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "acoustophoresis",
+      "target": "acoustic-levitation",
+      "reason": "음향 방사력이라는 같은 기전을 중력 지지와 입자 집속·분리 용도로 나눈 항목이다. 기능군 1의 지지·이동 대표 카드로 통합하고 음향 대비·스트리밍 조건을 유지한다.",
+      "target_fields": [
+        "음향 방사력에 의한 부상·입자 이동",
+        "음장과 물체의 상호작용에 따른 음향 방사력으로 중력 등을 상쇄하거나 입자를 안정 위치로 이동시켜 집속·분리한다.",
+        "주파수·입경·밀도·압축률·음향 대비와 안정 평형을 확인한다. 중력·유동·방사력 크기를 비교하며 점성에 의한 음향 스트리밍과 구분한다."
+      ],
+      "original_card": [
+        "acoustophoresis",
+        "음향영동",
+        "입자의 음향 대비에 따른 방사력 차이로 음장 안에서 입자를 집속·분리한다.",
+        "주파수·입경·밀도·압축률 대비를 맞춘 음장 필요. 유동과 음향 스트리밍을 고려.",
+        "acoustophoresis"
+      ],
+      "original_metadata": {},
+      "original_evidence": {
+        "mechanism_key": "acoustophoresis",
+        "name_en": "acoustophoresis",
+        "aliases": [
+          "음향영동",
+          "acoustophoresis"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-acoustophoresis",
+            "title": "COMSOL · Acoustophoretic Radiation Force",
+            "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.particle/particle_ug_fluid_flow.08.47.html",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "photoluminescent-wavelength-conversion",
+      "target": "fluorescence-sensing",
+      "reason": "기존 파장 변환 카드도 형광 흡수·재방출을 설명하며 검출과 광출력이라는 용도 차이만 명시한다. 형광 대표 ID 및 누적된 소광·수명·온도 검출 출처를 보존한다.",
+      "target_fields": [
+        "광여기 형광의 파장 변환·상태 검출",
+        "광흡수로 여기된 물질이 빛을 재방출하면 출력 파장을 바꾸거나 발광 세기·파장·수명으로 상태를 읽을 수 있다. 효소 절단 소광 해제와 온도 의존 발광도 검출 응용이다.",
+        "여기·방출 대역·양자수율·농도 소광·광표백·기기 응답·다중 수명·배경을 확인한다. 소광 해제에는 표지·검량이 필요하며 모든 소광을 FRET로 보거나 방출 에너지가 입력을 넘는다고 가정하지 않는다."
+      ],
+      "original_card": [
+        "photoluminescent-wavelength-conversion",
+        "형광의 흡수·재방출에 의한 파장 변환",
+        "형광체가 빛을 흡수해 여기된 뒤 일부 에너지를 다른 파장의 빛으로 방출하면 출력 스펙트럼을 바꿀 수 있다. 자외선을 청색 가시광으로 바꾸어 겉보기 백색도를 높이는 데 이용한다.",
+        "여기 광원·방출 대역·양자수율·농도 소광·광열화를 확인한다. 총 방출 에너지가 입력 에너지를 넘는다는 뜻이 아니다. 형광을 읽는 검출 기능 및 화학 표백과 구별한다.",
+        "manual-final-photoluminescent-wavelength-conversion"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "형광의 흡수·재방출에 의한 파장 변환",
+          "photoluminescent wavelength conversion"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "photoluminescent-wavelength-conversion",
+        "name_en": "photoluminescent wavelength conversion",
+        "aliases": [
+          "형광의 흡수·재방출에 의한 파장 변환",
+          "photoluminescent wavelength conversion"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual-final-photoluminescent-wavelength-conversion",
+            "title": "Synthesis of novel stilbene-alkoxysilane fluorescent brighteners, and their performance on cotton fiber as fluorescent brightening and ultraviolet absorbing agents",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0143720811001914",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-099162-A1",
+            "title": "Composiciones detergentes",
+            "url": "https://patents.google.com/patent/AR099162A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "d6704ca9665a0064df9e5793366807d7de1d74a5b4c706663f159c95f33e90f1",
+            "review_note": "문헌·중복 검토 후 연결: photoluminescent-wavelength-conversion; 형광체가 빛을 흡수해 여기된 뒤 일부 에너지를 다른 파장의 빛으로 방출하면 출력 스펙트럼을 바꿀 수 있다. 자외선을 청색 가시광으로 바꾸어 겉보기 백색도를 높이는 데 이용한다. 여기 광원·방출 대역·양자수율·농도 소광·광열화를 확인한다. 총 방출 에너지가 입력 에너지를 넘는다는 뜻이 아니다. 형광을 읽는 검출 기능 및 화학 표백과 구별한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-06.tsv",
+  "authoring": "Direct conversational scientific reasoning and Korean authoring. No external LLM API or generated-content script.",
+  "scope_convention": "reference_section means the named retrieved passages, not full-paper reading. Only brief source quotations are stored; support and boundaries are authored paraphrases.",
+  "comparison": "Candidate terms searched across the entire current canonical catalog; nearest principles and conditions read, including nomenclature neighbors in chemistry. These are specific operative pathways under some broad parents, not eight independent fundamental laws. Structural nearest-key validation is distinct from semantic review.",
+  "evidence": [
+    {
+      "key": "weak-nucleon-conversion-beta-emission",
+      "url": "https://virgilio.mib.infn.it/~zanotti/FNSN/FNSN_files/FNSN/Beta-decay/Fermi-beta-decay-1934.pdf",
+      "scope": "reference_section",
+      "read": "Fermi original 1934 theory, Giovanni Gallavotti English translation May 2011 hosted by INFN. PDF pages 1-4 assumptions, operators and interaction Hamiltonian; page 7 Section 5 beta decay; final translator attribution. Equations 1, 9 and 10 connect nucleon conversion to lepton creation/annihilation.",
+      "quote": "a nuclear neutron is transformed into a proton",
+      "support": "Section 5 explicitly identifies nuclear neutron-to-proton conversion accompanied by emission of an electron and the historically named neutrino. The local interaction changes the nucleon state, unlike electrostatic attraction, nuclear capture, splitting or fusion. Nuclear species are not counted separately.",
+      "limitation": "Historical source predates modern antineutrino nomenclature and V-A electroweak theory. Several sentences in the translation incorrectly reverse proton/neutron labels, while Section 5 and the operator definitions establish the intended direction. The card uses the modern neutron beta-minus process confirmed by the supplementary original experiment abstract. No W-boson propagator or quark-level derivation is claimed from Fermi 1934. Beta-plus and electron capture are retained only as non-splitting boundaries, not separately derived here.",
+      "supplement": {"url": "https://arxiv.org/abs/2102.09758", "scope": "publisher_abstract", "title": "Precise Neutron Lifetime Measurement Using Pulsed Neutron Beams at J-PARC", "read": "Full original author abstract and publication record; proceedings of J-PARC Symposium 2019, submitted 2021.", "quote": "A neutron decays into a proton, an electron, and an anti-neutrino", "support": "Confirms modern daughter identities and weak-interaction assignment; no current lifetime discrepancy numbers are copied."},
+      "source_history": "Wilson 1968 translation DOI was verified, but Villanova and Fermilab mirror retrievals failed. Neither failed endpoint is represented as a body reading. INFN-hosted Gallavotti translation supplies the working binding."
+    },
+    {
+      "key": "nuclear-energy-direct-electron-internal-conversion",
+      "url": "https://arxiv.org/pdf/1905.06308",
+      "scope": "reference_section",
+      "read": "Original Seiferle et al. 2019 experiment, PDF pages 2-4: mechanism, charge neutralization opening the channel, 230Th control, energy-balance relation and atomic-state dependence.",
+      "quote": "the nuclear energy is transferred to the electronic shell with ionisation of the atom",
+      "support": "Nuclear de-excitation directly ionizes an atomic electron. Neutralization supplies more loosely bound electrons and opens the energy-allowed channel; electron kinetic energy depends on nuclear energy minus atomic ionization energy and initial/final electronic energies.",
+      "limitation": "Thorium experiment is evidence of the route, not a universal lifetime or an up-to-date nuclear transition energy standard. No distinct nuclear-clock application is counted. Molecular conical-intersection internal conversion is a name neighbor, not the same energy donor/acceptor pathway."
+    },
+    {
+      "key": "radiative-spin-flip-asymmetry-polarization",
+      "url": "https://arxiv.org/pdf/1805.02027",
+      "scope": "reference_section",
+      "read": "Original Seipt et al. 2018 theory: Introduction storage-ring Sokolov-Ternov mechanism; Section V.B.2 PDF pages 13-14 spin-flip rates, equations 53-55 and small-quantum-parameter limit.",
+      "quote": "the direction of the electron spin vector in relation to the strong field direction affects the spin-flip rates",
+      "support": "The spin-flip rate has terms odd in initial spin projection, producing unequal opposite transitions and net polarization under suitable field histories. The paper explicitly identifies radiative polarization as spin-resolved quantum radiation reaction.",
+      "limitation": "The new laser calculations are theory, not a laser-polarization experiment. Spin quantization direction, precession and pulse symmetry matter; symmetric histories can cancel a net signal. Storage-ring and laser implementations remain one card. Historical Sokolov-Ternov PDF retrieval failed and is not the bound source."
+    },
+    {
+      "key": "pressure-anisotropy-negative-tension-firehose-instability",
+      "url": "https://arxiv.org/pdf/1002.4017",
+      "scope": "reference_section",
+      "read": "Original Rosin et al. nonlinear theory, Sections 2.2-2.4 PDF pages 4-6, equations 18-27, and Section 4 equation 77. The source combines original nonlinear analysis with an explicit restatement of the classical long-wave criterion.",
+      "quote": "the associated stress opposes the Maxwell stress",
+      "support": "Excess parallel pressure subtracts from magnetic restoring tension. The squared Alfven frequency becomes negative after the long-wave threshold is crossed; transverse bending then grows instead of propagating.",
+      "limitation": "Finite gyroradius and kinetic corrections select scales and modify details. The paper discusses field-strength feedback in nonlinear saturation, so the card does not assume pitch-angle scattering is the universal saturation mechanism. Weibel also draws on velocity anisotropy but amplifies current filaments rather than reversing an existing field-line tension."
+    },
+    {
+      "key": "neutral-current-coherent-neutrino-nuclear-recoil",
+      "url": "https://arxiv.org/pdf/1708.01294",
+      "scope": "reference_section",
+      "read": "Original COHERENT 2017 experimental paper, first three PDF pages introduction and Figure 1 mechanism; pages 7-8 event excess and comparison. Supplementary appendices were not read in full.",
+      "quote": "a long-wavelength Z boson can probe the entire nucleus",
+      "support": "At momentum transfer too small to resolve the nucleus, neutral-current amplitudes from nucleons add coherently; the weak-charge squared enhancement makes low-energy elastic nuclear recoils observable.",
+      "limitation": "Neutron-number squared is an approximate low-momentum scaling, not exact for all nuclear form factors or energies. The new route changes neither nuclear species nor neutrino flavor through charged-current absorption. Broad wave interference is acknowledged as a parent; detector materials are not split."
+    },
+    {
+      "key": "nonzero-scalar-vacuum-gauge-field-mass",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.13.508/fulltext",
+      "scope": "reference_section",
+      "read": "Higgs original 1964 two-page paper through its references, excluding the following unrelated SU(6) article. Equations 1-4, nonzero vacuum solution, longitudinal mode and final quantization caveat read.",
+      "quote": "Equation (4) describes vector waves whose quanta have (bare) mass",
+      "support": "Gauge-covariant coupling around a nonzero scalar vacuum combines the phase and vector variables into a massive vector equation. Unbroken residual gauge directions can remain massless. The paper itself connects this to Anderson's superconducting analogy.",
+      "limitation": "Footnote explicitly says the note works mainly with classical equations and does not prove the quantized theory. No claim to explain all mass is made. The neighboring amplitude-Higgs card changes the order magnitude, whereas this card concerns phase/gauge longitudinal coupling; ordinary Langmuir charge-separation oscillation and BCS pairing are not re-labeled as extra examples."
+    },
+    {
+      "key": "nonabelian-gauge-self-interaction-asymptotic-freedom",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.30.1346/fulltext",
+      "scope": "reference_section",
+      "read": "Politzer original 1973 article pages 1346-1348: Yang-Mills Lagrangian, gauge self-coupling correction, beta-function equation 4 and running coupling discussion. Excludes preceding article references and following errata.",
+      "quote": "The effective coupling goes to zero for large momenta",
+      "support": "Explicit quantum-loop contributions, including gauge-boson self-coupling, give a negative weak-coupling beta function for a pure non-Abelian gauge theory and for sufficiently limited fermion content. This yields decreasing effective coupling at increasing momentum scale.",
+      "limitation": "The paper explicitly warns that perturbative coefficients near zero coupling do not establish finite-coupling behavior or the long-distance spectrum. No proof of confinement is inferred. Real-charge Debye rearrangement and local-moment Kondo screening have different microscopic actors and feedback."
+    },
+    {
+      "key": "spin-admixed-state-scattering-elliott-relaxation",
+      "url": "https://arxiv.org/pdf/1211.0826",
+      "scope": "reference_section",
+      "read": "Original Boross et al. theory, 2013 revision: PDF pages 1-4 introduction, equation 1 spin admixture, Hamiltonian scattering term, general result 15 and Discussion crossover. The later generated PDF date is not the research publication date.",
+      "quote": "an electron can flip its spin with probability",
+      "support": "Spin-orbit coupling mixes opposite-spin components across nearby bands. Momentum scattering from phonons or impurities can therefore induce spin transitions. In the resolved-band weak-mixing limit, spin decay rate increases with momentum scattering rate.",
+      "limitation": "This original general theory also derives crossover to motionally narrowed behavior; the two empirical rate scalings do not define universal mutually exclusive materials. Only the resolved-state Elliott pathway is proposed. The DP fast-precession averaging regime is not separately counted against existing motional narrowing. Elliott 1954 publisher metadata was verified but its PDF endpoint failed, so the modern original derivation supplies the source."
+    }
+  ],
+  "exclusions": [
+    {"candidate": "Dyak onov-Perel spin relaxation as another card", "decision": "hold", "reason": "The retrieved primary paper explicitly derives its fast-scattering limit through motional narrowing, already represented by rapid-fluctuation-motional-line-narrowing. No second material/scattering-regime count."},
+    {"candidate": "Pomeranchuk solidification cooling in helium-3", "decision": "hold", "reason": "Current proposed pressure/entropy phase-conversion route overlaps hydrostatic-pressure-barocaloric-response. A material example alone is insufficient."},
+    {"candidate": "Exchange bias", "decision": "exclude", "reason": "interfacial-exchange-bias-pinning already states interfacial coupling and hysteresis bias."},
+    {"candidate": "Basic gravitational tidal force", "decision": "exclude", "reason": "gravity-gradient-sensing already explicitly states differential gravity force and torque; a different use would be an application variant."},
+    {"candidate": "Separate beta signs, nuclear species, detector targets and laser/storage-ring polarization cards", "decision": "exclude", "reason": "Retained as conditions and examples of their common microscopic routes."}
+  ]
+}

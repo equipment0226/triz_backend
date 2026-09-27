@@ -1,0 +1,51 @@
+{
+  "batch": "additions-2026-09-27-physics-root-01.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1959,
+  "added": 3,
+  "after": 1962,
+  "target": 2000,
+  "source_sha256": "68f553e8c4c210a45e0b1389521604bcb1d23d3b1458d410e7ef774d7d6fc57a",
+  "decisions": [
+    {
+      "key": "low-energy-s-wave-phase-zero-scattering-minimum",
+      "group": 14,
+      "related_keys": [
+        "fano-discrete-continuum-interference",
+        "feshbach-bound-channel-scattering-tuning",
+        "wave-interference"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 두 광경로나 이산 공명·연속 배경의 상쇄를 재명명하지 않고 낮은 부분파 위상 영점과 고차파 억제의 동시 조건을 특정한다. 닫힌 결합 채널 공명이나 기체 종류별 변형은 별도로 세지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1408.1389",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "orbital-magnetization-self-consistent-condon-domains",
+      "group": 14,
+      "related_keys": [
+        "landau-level-fermi-crossing-oscillation",
+        "itinerant-exchange-band-polarization-stoner-instability",
+        "barkhausen-noise"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "준위 통과에 따른 자화 진동 관측에서 나아가 내부장 자기일관성이 균일 상태를 깨는 집단 전이다. 스핀 밴드 교환 분열이나 이미 있는 자벽의 탈고정과 구별하며 금속 종류별로 분리하지 않는다.",
+      "source_url": "https://arxiv.org/pdf/1003.4822",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "cathode-secondary-feedback-townsend-gas-breakdown",
+      "group": 14,
+      "related_keys": [
+        "gas-discharge-luminescence",
+        "secondary-electron-multiplication",
+        "semiconductor-impact-ionization-multiplication"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "발광 출력이나 증배 매질 변경만으로 분리하지 않고 기체 이온화와 음극 양이온 유래 전자 재생이 닫힌 순환을 만드는 자립 조건을 특정한다. 진공 표면 연쇄 증배·반도체 내부 전하 증배와 구분한다.",
+      "source_url": "https://arxiv.org/pdf/cond-mat/0205173",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

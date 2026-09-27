@@ -1,0 +1,96 @@
+{
+  "batch": "additions-2026-09-27-physics-07.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1867,
+  "added": 6,
+  "after": 1873,
+  "target": 2000,
+  "source_sha256": "8e96d7bca1031c3164486a5943235bf62af8e65bf1f6d3b8217cc1adc7be1958",
+  "decisions": [
+    {
+      "key": "radiative-loss-compression-thermal-condensation",
+      "group": 11,
+      "related_keys": [
+        "thermal-radiation",
+        "spinodal-composition-instability",
+        "self-gravity-pressure-jeans-instability",
+        "natural-convection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "광자를 통한 에너지 손실과 압축이 결합된 비평형 응축이다. 평형 혼합 자유에너지의 조성 곡률·자체 중력 인력·부력 순환이 필수인 경로와 다르며 천체 종류별 응축을 나누지 않는다.",
+      "source_url": "https://adsabs.harvard.edu/pdf/1965ApJ...142..531F",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "inelastic-collision-cooling-granular-clustering",
+      "group": 11,
+      "related_keys": [
+        "granular-jamming",
+        "density-slowing-motility-phase-separation",
+        "vibrated-granular-size-segregation",
+        "spinodal-composition-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "자가추진 감속·틈 통과 분급·정적 접촉망 형성 대신 비탄성 충돌의 운동에너지 손실이 응집을 구동한다. 복사냉각 응축과 손실·압축 구조는 유사하나 에너지 수용체가 입자 내부 자유도인 별도 미시 경로이다.",
+      "source_url": "https://arxiv.org/pdf/0704.0084",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "field-aligned-heat-exchange-magnetothermal-buoyancy",
+      "group": 11,
+      "related_keys": [
+        "natural-convection",
+        "density-stratification",
+        "double-diffusive-buoyancy-instability",
+        "anisotropic-conduction-electroconvection",
+        "magnetic-tension-differential-rotation-instability"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "부력이라는 부모 아래 자기력선의 변형이 열교환 경로를 바꾸는 피드백을 특정한다. 두 용질의 확산률 차·액정 공간전하·차등 회전 각운동량 교환과 다르며 자기장 배향별 불안정을 별도 계수하지 않는다.",
+      "source_url": "https://arxiv.org/pdf/astro-ph/0106283",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "self-gravity-negative-heat-capacity-thermal-runaway",
+      "group": 7,
+      "related_keys": [
+        "self-gravity-pressure-jeans-instability",
+        "gravitational-density-wake-dynamical-friction",
+        "heat-capacity-buffer",
+        "upper-bounded-spectrum-inverted-boltzmann-equilibrium"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "압력에 맞선 즉각적인 진스 성장과 달리 이미 묶인 계의 열 전달과 수축 가열이 반복되는 느린 열폭주이다. 후류 항력에 의한 단일 물체 감속·통상 현열 저장·역점유 음온도와 구별한다.",
+      "source_url": "https://www.persee.fr/doc/bastr_0245-9787_1968_num_3_2_14542?pageId=T1_306",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "gravitational-wave-energy-nonlinear-displacement-memory",
+      "group": 13,
+      "related_keys": [
+        "time-varying-mass-quadrupole-gravitational-radiation",
+        "gravity-gradient-sensing",
+        "spacetime-curvature-gravitational-light-deflection"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "질량 운동이 내는 선형 사중극자 파동에 더해 파동의 응력에너지가 다시 장을 만드는 자기결합 경로이다. 정적 중력 구배·빛의 궤적 편향과 다르며 기억의 검출 방식이나 원천 천체별로 나누지 않는다.",
+      "source_url": "https://blackholes.tecnico.ulisboa.pt/gritting/pdf/gravitational_waves/Wiseman-Will_Christodoulous-nonlinear-gravitational-wave-memory-Evaluation-in-the-quadrupole-approximation.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "matched-spin-orbit-symmetry-persistent-helix",
+      "group": 14,
+      "related_keys": [
+        "rashba-inversion-asymmetric-spin-splitting",
+        "spin-echo-coherent-refocusing",
+        "rapid-fluctuation-motional-line-narrowing",
+        "time-reversal-helical-edge-transport"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "스핀궤도 결합 자체나 평균 산란 시간만이 아니라 두 결합의 대칭 정합이 특정 공간 모드의 탈위상 경로를 없앤다. 반전 펄스 재집속·시간반전 위상 경계 수송과 다르며 결정 방향별 구현을 추가 계수하지 않는다.",
+      "source_url": "https://arxiv.org/pdf/cond-mat/0606196",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

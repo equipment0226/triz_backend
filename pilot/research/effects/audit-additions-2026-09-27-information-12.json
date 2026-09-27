@@ -1,0 +1,199 @@
+{
+  "batch": "additions-2026-09-27-information-12.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1927,
+  "added": 15,
+  "after": 1942,
+  "target": 2000,
+  "source_sha256": "00a13921f235d503c3704cd837f0108da975c82392783a4a19af9f9f41f13f94",
+  "decisions": [
+    {
+      "key": "coupled-resolution-telescoping-expectation",
+      "group": 19,
+      "related_keys": [
+        "known-mean-correlated-control-variate",
+        "multigrid-scale-separated-error-correction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "알려진 평균을 빼는 단일 제어변량과 달리 미지의 기대값을 해상도 차분의 망원합으로 분해해 각 수준을 별도 표본화한다. 결정론적 잔차의 다중격자 보정과도 입력·출력이 다르다.",
+      "source_url": "https://people.maths.ox.ac.uk/gilesm/files/OPRE_2008.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "survival-weighted-random-truncation-debiasing",
+      "group": 19,
+      "related_keys": [
+        "importance-density-ratio-sampling",
+        "step-size-leading-error-extrapolation",
+        "coupled-resolution-telescoping-expectation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "입력 분포를 바꾸거나 유한 개 근사의 선도 오차를 상쇄하는 대신 계산 깊이를 무작위화하고 포함확률 역수로 무한 차분합의 기대값을 보존한다.",
+      "source_url": "https://web.stanford.edu/~glynn/papers/2012/RheeG12.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "simultaneous-sign-perturbation-gradient-estimation",
+      "group": 19,
+      "related_keys": [
+        "imaginary-perturbation-complex-step-derivative",
+        "log-density-score-expectation-gradient",
+        "coordinatewise-local-search"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "함수 내부 도함수나 확률밀도 점수를 쓰지 않고 실제 실수 입력 두 개를 측정한다. 좌표를 하나씩 바꾸지 않는 랜덤 방향 결합과 성분별 역섭동이 핵심이다.",
+      "source_url": "https://www.jhuapl.edu/spsa/pdf-spsa/spall_an_overview.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "running-negative-supremum-skorokhod-regulation",
+      "group": 19,
+      "related_keys": [
+        "barrier-function-safe-set-invariance",
+        "queue-buffering"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "안전함수 도함수 제약으로 제어 입력을 고르는 방식과 달리 주어진 전체 경로의 누적 극값으로 반사 경계의 유일한 최소 규제 경로를 직접 구성한다.",
+      "source_url": "https://arxiv.org/pdf/0710.2977",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "first-hit-reflected-brownian-path-pairing",
+      "group": 19,
+      "related_keys": [
+        "joint-level-velocity-rice-crossing-intensity",
+        "running-negative-supremum-skorokhod-regulation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "미분 가능한 경로의 교차 강도를 적분하는 Rice 연산과 달리 거친 브라운 경로를 최초 도달점에서 일대일 대응한다. 경로를 비음수로 유지하는 누적 규제와도 다르다.",
+      "source_url": "https://www.normalesup.org/~thevenin/LectureNotes/Lecture_fin.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "inverse-quadratic-variation-martingale-clock",
+      "group": 19,
+      "related_keys": [
+        "quadratic-variation-ito-chain-correction",
+        "stochastic-exponential-drift-measure-change",
+        "inverse-variance-root-stabilizing-transform"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "상태값 함수나 경로 확률측도를 바꾸지 않고 누적 이차변동을 시계로 사용한다. 이토 연쇄 보정·Girsanov 드리프트 변경·분산안정화와 다른 변환 축이다.",
+      "source_url": "https://www.normalesup.org/~thevenin/LectureNotes/Lecture_fin.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "offspring-generating-function-extinction-fixed-point",
+      "group": 19,
+      "related_keys": [
+        "log-generating-function-connected-cumulants",
+        "stochastic-queue-waiting-time-estimation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "로그 생성함수의 미분으로 누적량을 추출하는 대신 독립 하위 계통의 동시 소멸을 자손 수에 대해 합성해 최소 고정점을 구한다. 평균 증식률만 비교하는 성장 모형과 다르다.",
+      "source_url": "https://arxiv.org/pdf/1506.05571",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "orthogonal-dynamics-memory-projection-identity",
+      "group": 19,
+      "related_keys": [
+        "singular-spectrum-low-rank-projection",
+        "invariant-center-graph-nonlinear-reduction",
+        "monomial-lift-carleman-linearization"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "변수를 버리거나 불변 그래프에 제한하는 대신 제거한 변수의 영향을 직교 전파와 시간 기억으로 보존한다. 저차 모형의 용도명이 아니라 비마르코프 연산 항등식이다.",
+      "source_url": "https://arxiv.org/pdf/1803.02826",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "scattering-data-evolution-inverse-pde-transform",
+      "group": 19,
+      "related_keys": [
+        "dispersion-nonlinearity-soliton-balance",
+        "logarithmic-derivative-burgers-heat-linearization",
+        "fourier-spectral-decomposition"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "물리적 솔리톤 유지나 선형 푸리에 전개가 아니라 보조 스펙트럼의 직접 산란→단순 시간 전파→비선형 역복원의 계산 경로이다. 로그 미분에 의한 열방정식 환원과도 다르다.",
+      "source_url": "https://arxiv.org/pdf/2206.01317",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "angle-exponent-schwarz-christoffel-mapping",
+      "group": 19,
+      "related_keys": [
+        "projective-coordinate-mapping",
+        "green-kernel-boundary-integral-representation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "직선을 직선으로 옮기는 유한차원 투영 행렬과 달리 모서리 각도를 분기 지수로 부호화한 해석함수 적분이다. 각도 일치만으로 변 길이까지 정해지는 것은 아니다.",
+      "source_url": "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1980_1.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "clockwise-odd-pfaffian-perfect-matching-count",
+      "group": 19,
+      "related_keys": [
+        "laplacian-cofactor-spanning-tree-count",
+        "odd-cycle-blossom-contraction-matching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "라플라시안 여인수로 나무를 세거나 홀수 순환을 축약해 한 매칭을 찾는 대신 평면 방향 부호로 모든 완전매칭의 파피안 상쇄를 제거한다.",
+      "source_url": "https://www.unige.ch/math/folks/cimasoni/spinI.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "indicial-root-frobenius-singular-series",
+      "group": 19,
+      "related_keys": [
+        "rapid-phase-amplitude-wkb-hierarchy",
+        "implicit-power-series-lagrange-inversion",
+        "overlap-subtracted-inner-outer-asymptotic-matching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "빠른 위상 점근 전개나 두 척도 해의 접합과 달리 특이 계수의 최저 차수로 비정수 지수를 결정하는 국소 수렴 급수 구성이다. 프로베니우스 유한체 인수분해와는 동명이원리다.",
+      "source_url": "https://dlmf.nist.gov/2.7.i",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "rectified-lie-symmetry-differential-order-reduction",
+      "group": 19,
+      "related_keys": [
+        "characteristic-curve-pde-to-ode-reduction",
+        "invariant-center-graph-nonlinear-reduction"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "특성곡선은 정규좌표 계산의 보조 단계이며 핵심은 대칭으로 종속변수 의존성을 제거해 ODE의 차수를 낮추는 것이다. 평형점 주변 불변다양체 축약과 조건·출력이 다르다.",
+      "source_url": "https://www.atlantis-press.com/journals/jnmp/125950533/view",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "double-exponential-endpoint-quadrature-map",
+      "group": 19,
+      "related_keys": [
+        "orthogonal-polynomial-node-gaussian-quadrature",
+        "endpoint-derivative-euler-maclaurin-summation",
+        "oscillatory-antiderivative-collocation-boundary-evaluation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "다항식 정확도를 맞춘 절점 선택이나 끝점 도함수 보정 대신 해석적 좌표와 야코비안으로 꼬리 감쇠를 설계한다. 다른 구간별 이중지수 변형은 별도 계수하지 않는다.",
+      "source_url": "https://www.kurims.kyoto-u.ac.jp/~prims/pdf/41-4/41-4-38.pdf",
+      "retrieval_scope": "reference_section"
+    },
+    {
+      "key": "dimension-exponent-nullspace-similarity-groups",
+      "group": 19,
+      "related_keys": [
+        "multiscale-property-upscaling",
+        "orthogonal-factorial-contrast-effect-isolation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "공간 평균이나 실험 대비가 아니라 단위 지수의 선형 제약을 풀어 곱셈 불변량을 만든다. Reynolds·Froude 등 개별 응용 무차원수는 별도 기전으로 세지 않는다.",
+      "source_url": "https://cseweb.ucsd.edu/~alchern/teaching/cse291_sp24/2-1DimensionalAnalysis.pdf",
+      "retrieval_scope": "reference_section"
+    }
+  ]
+}

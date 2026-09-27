@@ -1,0 +1,93 @@
+{
+  "date": "2026-09-27",
+  "batch": "additions-2026-09-27-physics-05.tsv",
+  "authoring": "Direct conversational scientific reasoning and Korean authoring; no external LLM API or generated-content script.",
+  "scope_convention": "reference_section identifies specific retrieved passages, not whole-paper reading. publisher_abstract includes an author's original arXiv abstract. Short quotations are retrieved evidence; support and limitations are authored paraphrases.",
+  "comparison": "Compared candidate terms across all canonical groups and read the nearest principles and conditions. Canonical count at nearest-card retrieval was 1798. This batch identifies specific pathways within broad physical parents, not eight unrelated fundamental laws. Mechanical key validation is separate from this semantic review.",
+  "evidence": [
+    {
+      "key": "uniform-acceleration-vacuum-detector-thermal-response",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevD.14.870/fulltext",
+      "scope": "reference_section",
+      "read": "Unruh 1976 original paper, Section III Particle Detectors, PDF pages 13-16: proper-time frequency definition, uniformly accelerated detector, equation 3.10 and energy source discussion.",
+      "quote": "the detector measures frequencies with respect to its own proper time",
+      "support": "Uniform acceleration in Minkowski vacuum yields the response of a thermal bath with temperature proportional to proper acceleration. In the inertial account, the excitation and emitted quantum receive energy from the external accelerating field.",
+      "limitation": "Theoretical field-detector model. No direct experimental confirmation is claimed. Black-hole collapse, moving boundary photon production and clock time dilation are distinct neighboring mechanisms; arbitrary nonuniform acceleration is not automatically thermal."
+    },
+    {
+      "key": "mass-flavor-basis-mismatch-neutrino-oscillation",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.81.1562/fulltext",
+      "scope": "reference_section",
+      "read": "Super-Kamiokande 1998 original experiment, PDF page 1 equation 1 and definitions, pages 4-5 L/E analysis and conclusions.",
+      "quote": "the mixing angle between the flavor eigenstates and the mass eigenstates",
+      "support": "Vacuum flavor-transition probability depends on mass-squared difference, mixing angle and distance/energy. Atmospheric muon-like event deficit and zenith dependence support an oscillation model. The card states the associated coherent mass/flavor basis mechanism rather than asserting every detail is measured in this paper.",
+      "limitation": "Paper explicitly could not distinguish muon-to-tau from muon-to-sterile oscillations in that sample. It neither determines all three-flavor parameters nor proves an absolute neutrino mass. Matter-induced resonance is not counted as another card."
+    },
+    {
+      "key": "muonic-molecule-nuclear-approach-catalyzed-fusion",
+      "url": "https://arxiv.org/pdf/physics/0104010",
+      "scope": "reference_section",
+      "read": "Original author manuscript submitted 2001: first-page abstract and introductory molecular mechanism, target/TOF experimental description. PDF's generated 2018 date is not treated as publication date.",
+      "quote": "The muon will be quickly captured by an atom, replacing the orbital electron.",
+      "support": "Large muon mass contracts the molecular ion, brings isotope nuclei close and screens their repulsion; fusion can leave the muon available for another cycle. Experiment measures resonant molecular formation through fusion events in solid HD.",
+      "limitation": "Formation rates, muon decay and alpha sticking limit cycling. No net-energy claim or universal cycle count. This is an approach/catalysis path within the broad fusion parent, not a second mass-defect energy law."
+    },
+    {
+      "key": "gyro-orbit-stochasticity-nonresonant-ion-heating",
+      "url": "https://arxiv.org/abs/1001.2069",
+      "scope": "publisher_abstract",
+      "read": "Original Chandran et al. 2010 author abstract, retrieved in full from arXiv; linked publication DOI 10.1088/0004-637X/720/1/503 verified in record. Full article was not read for this card.",
+      "quote": "frequencies smaller than the ion cyclotron frequency",
+      "support": "At perpendicular wavelengths near gyroradius and above sufficient fluctuation amplitude, ion orbits become chaotic and energy diffuses through interaction with the time-dependent electrostatic potential. The abstract directly contrasts conserved magnetic moment at weak fluctuation with its violation at stronger fluctuation.",
+      "limitation": "Phenomenology and test-particle simulations. The reported numerical threshold applies to those random-phase simulations, not all plasmas. Distinct from frequency-matched cyclotron absorption and phase-speed Landau resonance."
+    },
+    {
+      "key": "closed-shape-cycle-zero-momentum-reorientation",
+      "url": "https://arxiv.org/pdf/physics/9702010",
+      "scope": "reference_section",
+      "read": "Original Fecko 1997 manuscript: Introduction, Section 4 conserved momenta, Section 5.2 disc/internal point-mass example and Section 5.3 N-particle construction.",
+      "quote": "which is just vanishing of the total angular momentum of the system",
+      "support": "Internal shape coordinates determine compensating body rotation under zero total angular momentum. Section 5.2 explicitly integrates the connection around a closed shape loop and obtains a nonzero orientation change. The broad deformable-body formulation covers the classical falling-cat route.",
+      "limitation": "Mechanical theory, not a biological claim about every cat movement. Energy for deformation remains necessary. The result changes orientation and does not provide reactionless center-of-mass translation.",
+      "source_history": "Montgomery's original author-listed 1993 paper was located, but its image-only PDF yielded no usable text. Screenshot requests did not expose usable image content in the wrapper and are not claimed as reading. A public-file shell retrieval failed with WinError 10013 and was not escalated. Carl's Hamburg file identified itself as a review, so it was not used as the primary binding. Fecko's original derivation supplies the directly read source."
+    },
+    {
+      "key": "interaction-driven-fermi-surface-shape-instability",
+      "url": "https://jetp.ras.ru/cgi-bin/dn/e_008_02_0361.pdf",
+      "scope": "reference_section",
+      "read": "Original Pomeranchuk article, English JETP 8(2), pages 361-362, PDF starts with the end of an unrelated preceding article. Only the section beginning On the Stability of a Fermi Liquid and ending before Orlov's article is used. Equations 1-12 and surrounding derivation read.",
+      "quote": "The variations appearing in Eq. (1) are due to deformations of the Fermi surface",
+      "quote_note": "OCR delta-n mathematical symbols are omitted in this short normalized excerpt.",
+      "support": "The quadratic energy functional is decomposed into angular harmonics, giving mode-specific positivity conditions for Fermi-surface stability. The paper separately notes the spin l=0 criterion for absence of ferromagnetism; this card selects anisotropic shape channels to avoid duplicating the Stoner card.",
+      "limitation": "A negative deformation cost establishes instability, not a universal final nematic structure or transition temperature. Fermi-surface topology crossing and stable zero-sound propagation are different nearby cards."
+    },
+    {
+      "key": "traction-free-boundary-elastic-rayleigh-wave",
+      "url": "https://maths.nuigalway.ie/~destrade/Publis/destrade_04.pdf",
+      "scope": "reference_section",
+      "read": "Destrade 2001 original paper on author's university site, Introduction, Section III equations 6-15 for coupled displacement/traction and vanishing boundary values, Section IV equations 23-27 and isotropic limit.",
+      "quote": "The surface x2 = 0 is assumed to be free of tractions",
+      "quote_note": "Only PDF OCR equation spacing is normalized.",
+      "support": "The joint traction-free boundary and depth-decay conditions select a coupled elastic surface mode. The derived subsonic secular equation has a positive solution and recovers the isotropic incompressible Rayleigh result.",
+      "limitation": "The cited derivation is for an incompressible orthotropic half-space. The card does not claim a material-independent speed or apply this equation to thin plates. Love/Lamb/Stoneley modes are not added as shape variants.",
+      "source_history": "Rayleigh 1885 publisher metadata was verified, but its body was not accessible. A Zenodo reproduction failed retrieval. The fully retrieved modern original derivation is the binding source, not the inaccessible historical paper."
+    },
+    {
+      "key": "electron-current-induction-whistler-propagation",
+      "url": "https://arxiv.org/pdf/1104.4148",
+      "scope": "reference_section",
+      "read": "Cho 2011 original manuscript, Introduction equations 1-2, Numerical Method dispersion relation, Section 2 circular polarization equations 4-6. The automatically generated 2018 PDF date is not publication date.",
+      "quote": "fast electron flows carry all the current",
+      "support": "At sufficiently small ion scales, stationary ions and electron-carried current give a Hall induction equation. Its linear magnetic components form a dispersive propagating whistler mode, distinct from bulk-fluid-inertia Alfven dynamics and electrostatic charge-separation Langmuir dynamics.",
+      "limitation": "This selected electron-fluid limit neglects electron inertia; it is not asserted at all frequencies and wavelengths. Inverse cascade and polarization variants are not additional cards.",
+      "supplement": {"url": "https://authors.library.caltech.edu/records/erykt-app90", "scope": "publisher_abstract", "read": "Bellan 2013 author-repository abstract only.", "support": "Describes magnetic energy exchanging between orthogonal magnetic field components. Its PDF retrieval failed, so the card now binds the directly read Cho derivation."}
+    }
+  ],
+  "excluded_or_held": [
+    {"candidate": "Basset viscous history force", "decision": "exclude", "nearest": "basset-viscous-history-force", "reason": "Exact existing path: past acceleration stored in viscous vorticity diffusion."},
+    {"candidate": "Quantum-fluctuation stabilized droplet", "decision": "exclude", "nearest": "quantum-fluctuation-stabilized-self-bound-droplet", "reason": "Exact existing path found cross-group before authoring."},
+    {"candidate": "Quantum depletion as an additional card", "decision": "hold", "nearest": "quantum-fluctuation-stabilized-self-bound-droplet", "reason": "Ground-state interaction correlations underlie both depletion and the existing fluctuation correction; a new measured population alone was not accepted as enough independent pathway evidence."},
+    {"candidate": "Magnetic pumping heating", "decision": "hold for existing-card enrichment", "nearest": "moving-scatterer-fermi-acceleration", "url": "https://www.nature.com/articles/s41467-020-16660-4", "scope": "reference_section", "read": "Original 2020 Lichko/Egedal Introduction, magnetic pumping model, Discussion.", "quote": "This mathematical treatment reveals the underlying Fermi heating mechanism", "reason": "Compression-driven anisotropy and pitch-angle relaxation yield phase-lagged pressure work; this is useful detail, but the source itself identifies the Fermi process and the existing card already covers converging magnetic structures, scattering and trapping. No additional count claimed."},
+    {"candidate": "Taylor helicity-constrained relaxation", "decision": "hold", "nearest": "magnetic-reconnection-energy-release", "reason": "Primary Taylor publisher abstract retrieved but not adequate detail on the global helicity constraint. The relation to existing reconnection and inverse-cascade mechanisms needs further review; not counted."}
+  ]
+}

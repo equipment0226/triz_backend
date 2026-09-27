@@ -1,0 +1,80 @@
+{
+  "batch": "additions-2026-09-27-chemistry-03.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1534,
+  "added": 5,
+  "after": 1539,
+  "target": 2000,
+  "source_sha256": "c40211a84d569edce99c5b113e65f96f2a3f7f8c25d7bfdc7fe99f28fc0e0529",
+  "decisions": [
+    {
+      "key": "episulfone-extrusion-alkene-formation",
+      "group": 15,
+      "related_keys": [
+        "cyclic-transition-state-syn-elimination",
+        "sulfur-ylide-betaine-ring-closure"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일반 베타 제거와 달리 두 탄소를 연결하는 황 중심의 삼원환을 거친 후 황산화물 부분을 제거한다. 황 일리드로 에폭사이드를 만드는 경로와 다르다.",
+      "source_url": "https://publications.iupac.org/pac-2007/1996/pdf/6804x0825.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "heteroaryl-sulfone-smiles-olefination",
+      "group": 15,
+      "related_keys": [
+        "wittig-ylide-carbonyl-olefination",
+        "episulfone-extrusion-alkene-formation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "인 일리드의 사원환 분해나 에피설폰 삼원환 이탈과 달리 헤테로아릴의 분자 내 이동으로 설피네이트 이탈 경로를 연다.",
+      "source_url": "https://onlinelibrary.wiley.com/doi/10.1002/0471264180.or095.01",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "beta-hydroxysilane-silicon-assisted-olefination",
+      "group": 15,
+      "related_keys": [
+        "brook-silyl-migration-anion-relocation",
+        "wittig-ylide-carbonyl-olefination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "브룩 이동은 음이온 위치를 바꾸며 규소기를 분자에 남긴다. 여기서는 규소·산소 부분의 제거로 알켄을 만들며 인 일리드 경로와도 다르다.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4445900/",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "separated-pi-photochemical-cyclopropyl-rearrangement",
+      "group": 15,
+      "related_keys": [
+        "carbene-transfer-cyclopropanation",
+        "electrocyclic-conjugated-ring-switching"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "카벤을 외부 알켄에 붙이는 반응이나 연속 공액 사슬 말단의 전기고리화와 달리 포화 탄소로 분리된 파이계의 골격 이동이다.",
+      "source_url": "https://old.goldbook.iupac.org/pdf/D01745.pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "isotopic-vibrational-free-energy-partition",
+      "group": 9,
+      "related_keys": [
+        "mass-dependent-kinetic-isotope-effect",
+        "le-chatelier-equilibrium-shift"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "전이상태 장벽에 따른 반응 속도 차가 아니라 안정 화학종의 핵 운동 분배함수 차가 교환 평형을 바꾼다. 개별 원소 동위원소는 별도 계수하지 않는다.",
+      "source_url": "https://goldbook.iupac.org/terms/view/T06319",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ],
+  "reference_label_corrections": [
+    {
+      "key": "episulfone-extrusion-alkene-formation",
+      "before": "Recent studies of sulfonyl compounds, Pure and Applied Chemistry 68, 825–830, section 1",
+      "after": "Mechanisms of reactions of sulfonyl compounds with nucleophiles in protic media",
+      "evidence": "https://publications.iupac.org/pac/68/4/0825/index.html"
+    }
+  ]
+}

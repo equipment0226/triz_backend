@@ -1,0 +1,434 @@
+{
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1800,
+  "merged": 2,
+  "after": 1798,
+  "campaign": "2026-09-27",
+  "decisions_sha256": "0f36e5c11a4535f99efbd8079d61e15534948aa8e699b5c06da750e0df9b6d31",
+  "decisions": [
+    {
+      "source": "immune-checkpoint-blockade",
+      "target": "receptor-ligand-modulation",
+      "reason": "현재 체크포인트 카드는 CTLA-4의 억제성 기능 차단이라는 수용체 신호망 출력만 설명하며 리간드 세포간 제거·수용체 내재화·독립 인산화 경로를 특정하지 않는다. 표적과 면역 결과만 달리 세지 않고 활성·억제 조절 원리에 통합한다.",
+      "target_fields": [
+        "수용체·리간드 신호 조절",
+        "리간드가 수용체의 활성 상태를 바꾸거나 다른 리간드의 결합·작용을 방해해 신호를 조절한다. 패턴 인식 수용체의 면역 신호 유도와 억제성 체크포인트 차단도 표적의 신호망 역할에 따라 활성·억제를 바꾼다.",
+        "표적·에피토프·친화도·효능·농도·세포 맥락·세포내 위치·종·기저 활성·탈감작을 확인한다. 비표적 작용·과도한 염증·면역 독성을 고려하며 항원 특이 기억 및 임상 효과는 수용체 결합만으로 보장하지 않는다."
+      ],
+      "original_card": [
+        "immune-checkpoint-blockade",
+        "면역 체크포인트 차단",
+        "CTLA-4 같은 억제성 면역 조절 분자의 기능을 차단하면 T 세포 활성에 걸린 억제를 줄일 수 있다. 표적 결합만이 아니라 면역 신호망에서의 역할을 이용한다.",
+        "항체의 표적·에피토프와 세포 환경에 의존한다. 전임상 기전이 모든 환자의 효과를 보장하지 않으며 면역 관련 독성이 생길 수 있다.",
+        "manual400-checkpoint"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "면역 체크포인트",
+          "CTLA-4",
+          "checkpoint blockade"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "immune-checkpoint-blockade",
+        "name_en": "immune checkpoint blockade",
+        "aliases": [
+          "면역 체크포인트 차단",
+          "immune checkpoint blockade",
+          "면역 체크포인트",
+          "CTLA-4",
+          "checkpoint blockade"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual400-checkpoint",
+            "title": "Krummel and Allison (1996) · CTLA-4 engagement inhibits IL-2 accumulation and cell-cycle progression, original experiments",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/8676074/",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-060306-A1",
+            "title": "Terapia de combinacion de anticuerpos contra ctla4",
+            "url": "https://patents.google.com/patent/AR060306A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "5aa17f73281f3b5d7f7a3a50d022355d5c8e49d620893c05f322c78999afe38e",
+            "review_note": "CTLA-4 표적 항체 CP675206 또는 ipilimumab 병용을 명시한다. CTLA-4 억제 신호 차단은 원 논문과 표적을 대조한 기전 해석이며 환자별 임상 효과를 보장하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-083957-A1",
+            "title": "Tratamiento para modular las celulas nk y metodos para tratar malignidad hematologica",
+            "url": "https://patents.google.com/patent/AR083957A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "cde273cca92b453cb9e7c5e56362140d4d8e1fca6000939ba01eabf1cb105509",
+            "review_note": "NK 억제 수용체 신호를 차단해 표적 세포 반응을 높인다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-086582-A1",
+            "title": "Anticuerpos anti-kir para el tratamiento de trastornos inflamatorios y autoinmunes",
+            "url": "https://patents.google.com/patent/AR086582A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "0bf3f8cf6ec4a602dff7c0effb6064ed18152f23da16d2fc8887c037ca540871",
+            "review_note": "NK 세포의 억제성 KIR 수용체를 중화한다. 치료 결과는 별도 평가한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-098820-A1",
+            "title": "Anticuerpos contra pd-1 canino",
+            "url": "https://patents.google.com/patent/AR098820A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "3031916664cb20f8f750768ae1217716a8b48565de5e4d7969484ce305261feb",
+            "review_note": "개의 PD1 표적 항체를 이용하는 면역 체크포인트 적용이다. 종 차이를 신규 원리로 세지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-103675-A1",
+            "title": "Anticuerpos anti-ctla4 terapéuticos",
+            "url": "https://patents.google.com/patent/AR103675A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "7e66f8e8d429a87420be21d4fa15cf571749e5ecab69c132acf986658745a27e",
+            "review_note": "CTLA4·B7 결합 차단으로 면역 반응을 높이는 항체 및 발현을 명시한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-105053-A1",
+            "title": "Inmunomoduladores",
+            "url": "https://patents.google.com/patent/AR105053A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "005c2a89230dfa4bd25e630f8c77f68f8637dd0b7c406b462f70dc67e6043117",
+            "review_note": "PD1·PDL1 및 PDL1·CD80 결합을 억제하는 고리 펩타이드이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-107802-A1",
+            "title": "Inmunomoduladores",
+            "url": "https://patents.google.com/patent/AR107802A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "1aef1544ae64122bb75e5f6f66f8246bb1e785ac179e037135a7110db40ce55c",
+            "review_note": "PD1·PDL1 및 PDL1·CD80 상호작용을 억제한다. 펩타이드 가교는 준비된 입체구조 구속의 추가 사례다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-111485-A1",
+            "title": "Inhibidores pd-1 / pd-l1",
+            "url": "https://patents.google.com/patent/AR111485A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "d34f1f30c6bdb88533d671e8b0ffe39ecb7c3c235e6d70804b2ca91b2fcb5bae",
+            "review_note": "PD1·PDL1 상호작용 억제 화합물이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-113805-A1",
+            "title": "Composiciones y métodos para tratar cáncer hepático",
+            "url": "https://patents.google.com/patent/AR113805A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "0eb73cca38a5fecea9f70cdbf0a08e0160882869a2a3ebe2fae0bb96fd95dc6d",
+            "review_note": "종양용 바이러스와 PD1 항체의 조합이다. 바이러스 복제·용해의 기여는 별도 확인한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-116526-A1",
+            "title": "Anticuerpos anti-hla-g, composiciones que comprenden anticuerpos anti-hla-g y métodos de uso de anticuerpos anti-hla-g",
+            "url": "https://patents.google.com/patent/AR116526A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "69c3241139f960e82c1f719b5a2875b4cab3d651d80e7f4250fc12b6262525a0",
+            "review_note": "HLA G의 면역 억제 수용체 상호작용 차단이다. 항체 작용 수준으로만 연결하며 벡터 제작은 재구성하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-117774-A2",
+            "title": "Anticuerpos humanos que se unen al gen 3 de activación linfocitaria (lag-3) y los usos de estos",
+            "url": "https://patents.google.com/patent/AR117774A2/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "1b53d65604740592ceef03c10de81a879443f9249457b9adbcd9c8055734b02a",
+            "review_note": "LAG3와 MHC의 결합 차단에 의한 면역 조절이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-134638-A1",
+            "title": "Anticuerpo monoclonal anti-pd-1 y métodos de uso del mismo",
+            "url": "https://patents.google.com/patent/AR134638A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "d27c8f8ac6a7359de81635aa68851d26be2a671b76488c6352edb9b6b5930b88",
+            "review_note": "PD1 항체 면역 체크포인트의 응용이며 투여 일정의 우월성을 인정하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    },
+    {
+      "source": "innate-pattern-recognition",
+      "target": "receptor-ligand-modulation",
+      "reason": "현재 TLR 카드는 특정 분자 패턴 결합 후 세포내 신호가 유도된다는 일반 수용체 작용까지만 서술한다. MyD88 조립 등 별도 작동 경로는 수록하지 않았으므로 이량체화처럼 명시된 독립 중간단계가 있는 카드와 구분하여 통합한다.",
+      "original_card": [
+        "innate-pattern-recognition",
+        "패턴 인식 수용체의 선천 면역 신호",
+        "TLR 같은 수용체가 특정 분자 패턴을 인식해 세포내 신호와 염증·면역 반응을 유도한다.",
+        "수용체·분자 패턴·세포내 위치·종·용량에 의존한다. 과도한 염증과 비표적 반응을 고려하며 항원 특이 면역 기억과 구별한다.",
+        "manual500-innate-pattern-recognition"
+      ],
+      "original_metadata": {
+        "aliases": [
+          "innate pattern recognition"
+        ]
+      },
+      "original_evidence": {
+        "mechanism_key": "innate-pattern-recognition",
+        "name_en": "innate pattern recognition",
+        "aliases": [
+          "패턴 인식 수용체의 선천 면역 신호",
+          "innate pattern recognition"
+        ],
+        "sources": [
+          {
+            "identifier": "REF-manual500-innate-pattern-recognition",
+            "title": "Hemmi et al.: A Toll-like receptor recognizes bacterial DNA",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/11130078/",
+            "source_type": "REFERENCE",
+            "retrieval_scope": "reference_section"
+          },
+          {
+            "identifier": "AR-066676-A1",
+            "title": "Composicion antigenica liofilizada que contiene un agonista del receptor tipo toll",
+            "url": "https://patents.google.com/patent/AR066676A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "c70f4a58ce4373c347260f081a19e542bd18aa57dc201a8970bcf8d1a6f1f4c0",
+            "review_note": "기존 검토: 항원·TLR9 작용 올리고뉴클레오타이드의 동결건조 백신이다. 선천 면역의 패턴 인식 수용체 활성은 추가 후보이다. 문헌 대조 후 원리 연결: 패턴 인식 수용체의 선천 면역 신호: TLR 같은 수용체가 특정 분자 패턴을 인식해 세포내 신호와 염증·면역 반응을 유도한다. 수용체·분자 패턴·세포내 위치·종·용량에 의존한다. 과도한 염증과 비표적 반응을 고려하며 항원 특이 면역 기억과 구별한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-088220-A1",
+            "title": "Activacion de celulas dendriticas humanas por el receptor de dectina-1 o de tipo toll 2 (tlr2) en el control de la alergia y el asma",
+            "url": "https://patents.google.com/patent/AR088220A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "23b3898c80ef32614cc3375be7a6e0a24786de12404b6d19cbdbdc5720fb8a11",
+            "review_note": "Dectin-1·TLR2 신호와 항원 특이 면역 반응을 조절한다. 치료 성능이나 구체 생물 제작 조건은 다루지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-091569-A1",
+            "title": "Receptores de tipo toll",
+            "url": "https://patents.google.com/patent/AR091569A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "df19e6fa8a8e811f1feff57d3bd3897de302910ba906b45f1199cc218bc02d32",
+            "review_note": "Toll 계열 수용체의 핵산 패턴 인식이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-095640-A1",
+            "title": "Composiciones y método para modular la inmunidad en plantas",
+            "url": "https://patents.google.com/patent/AR095640A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "c4a5453e598b99ef8d5a4d70169811f9e1eb1fa2d6948c8f70dfd4ba38ff5b67",
+            "review_note": "아스카로사이드 신호에 따른 식물 방어 유도이다. 전신 방어 후보의 관련 사례이나 전신성은 초록만으로 단정하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-111910-A2",
+            "title": "Composición inmunogénica que comprende una formulación de adyuvante, composición de vacuna, procedimiento, usos, métodos",
+            "url": "https://patents.google.com/patent/AR111910A2/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "d3504f2e655e220c86174f4f1aa84981a858fd10e37b0bf74027f7906aadf8ae",
+            "review_note": "항원과 CpG 보조제의 면역 유도 조성이다. 제조·투여 조건을 재구성하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-112689-A1",
+            "title": "Agonistas del receptor tipo toll 7 (tlr7) que tienen porciones aromáticas ligadas al heteroátomo, conjugados de estos y métodos y usos de estos",
+            "url": "https://patents.google.com/patent/AR112689A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "d4902194c160161e40327a5faa7c3c83a075f865e3195ec21ea1df47f1b90bea",
+            "review_note": "TLR7 작용제가 선천 면역 신호를 활성화한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-113950-A1",
+            "title": "Composiciones inmunoestimulantes",
+            "url": "https://patents.google.com/patent/AR113950A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "2e49ea017e96749d00e82db7662d01d7d1cccb5342bd5d2b43e5e53e7329eaa4",
+            "review_note": "TLR21을 자극하는 조류용 면역 조성이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-114163-A1",
+            "title": "3’3’ dinucleótidos cíclicos con enlace de fosfonato que activan la proteína adaptadora sting",
+            "url": "https://patents.google.com/patent/AR114163A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "74aab08632fee2a351df36b6229c9a598cddd827fb5b3b43a21f977c0411d479",
+            "review_note": "고리형 디뉴클레오타이드의 STING 활성화이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-114463-A1",
+            "title": "Compuestos agonistas de sting",
+            "url": "https://patents.google.com/patent/AR114463A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "5442c59963434347503f817f65af1774c00c7ee4ac2b9d6af1ba8de0656759b9",
+            "review_note": "STING 신호를 활성화해 인터페론 반응을 유도한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-114995-A1",
+            "title": "2’3’ dinucleótidos cíclicos con enlace de fosfonato que activan la proteína adaptadora sting",
+            "url": "https://patents.google.com/patent/AR114995A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "09f7fe1e31d44367757c4b575b78234bdc5aeaf7299f1c1abfac52361de524b7",
+            "review_note": "STING 작용제로 선천 면역 신호를 조절한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-115693-A1",
+            "title": "Compuestos y composiciones para tratar condiciones asociadas con la actividad de sting",
+            "url": "https://patents.google.com/patent/AR115693A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "d091600ef9739fdf46d916ffb057773a4c7ad2f20f97651c0d9f53f4e4f96f41",
+            "review_note": "STING 선천 면역 신호의 길항 조절이다. 활성화와 억제 방향을 구분한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-117134-A1",
+            "title": "Receptores tipo quinasa quiméricos de reconocimiento de patrones",
+            "url": "https://patents.google.com/patent/AR117134A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "e1796373e1c0ad7cc9d86eecdd4f49b0785dfe199b46e20fc472fc332bdd293f",
+            "review_note": "식물의 패턴 인식 외부 도메인과 내부 키나아제 신호 도메인을 결합한다. 키메라 수용체 신호 결합 후보의 식물 사례이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-117573-A1",
+            "title": "Formas cristalinas de un inhibidor tlr7 / tlr8",
+            "url": "https://patents.google.com/patent/AR117573A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "0e94d48f5d8fbabaec3b429eec6174ed7c9705e91b151d213eb9ddd37556c6f2",
+            "review_note": "TLR7·8 억제제의 결정형이다. 결정형만으로 새로운 결정 전이 효과를 세지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-117633-A1",
+            "title": "Activadores de la vía inducible del gen rig-i del ácido retinoico y métodos de uso de los mismos",
+            "url": "https://patents.google.com/patent/AR117633A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "bbe3e4891f669410f5c0c3f968cdcf1fc749a9150fb49247bd36fc420f4940f6",
+            "review_note": "RIG-I 경로 활성화이다. 세부 결합 방식은 단정하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-117837-A1",
+            "title": "Compuestos y composiciones para tratar condiciones asociadas con la actividad de sting",
+            "url": "https://patents.google.com/patent/AR117837A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "21164a2ca554e8274453b55540559abbf61be42d40ff84a6729794f988d3c627",
+            "review_note": "STING 신호 억제 화합물이다. 복잡한 치환기 목록을 각각 효과로 세지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-119148-A1",
+            "title": "Compuestos heterocíclicos sustituidos y composiciones para tratar afecciones asociadas con la actividad de sting",
+            "url": "https://patents.google.com/patent/AR119148A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "7a96f9bc94aa8932ecee4332514ad2912460d1711bfe1889d55bd12e0e8c2f02",
+            "review_note": "STING 억제제의 구조 변형이다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-120540-A1",
+            "title": "Compuestos de 1,8-naftiridin-2-ona para el tratamiento de una enfermedad autoinmunitaria",
+            "url": "https://patents.google.com/patent/AR120540A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "5ce0fa536b2726be039d0e26bf3937fb3578c36a7b6187956993b1071a92f11c",
+            "review_note": "TLR7·8·9 길항으로 선천 면역 신호를 조절한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-132060-A1",
+            "title": "Compuestos heterocíclicos como antagonistas de sting",
+            "url": "https://patents.google.com/patent/AR132060A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "308734de0ae6210991913c93a3e727133e60328423051d5e2b5919b30c9ef39b",
+            "review_note": "STING 길항의 선천면역 신호 조절 범위만 연결한다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          },
+          {
+            "identifier": "AR-133191-A1",
+            "title": "Adyuvantes anfifilicos tlr7/8 y usos de estos",
+            "url": "https://patents.google.com/patent/AR133191A1/en",
+            "source_type": "PATENT",
+            "retrieval_scope": "stored_patent_abstract",
+            "review_method": "conversation_reasoning",
+            "source_fingerprint": "8b718c1086aadf046e098251f546b03d1f36092623683c4e98ad4883e895b8c5",
+            "review_note": "TLR7/8 자극의 선천면역 경로이며 예방 효능을 확정하지 않는다.",
+            "supports": "문헌에 등장하는 해당 원리의 응용 사례; 정본의 모든 조건이나 성능에 대한 실증 근거는 아님"
+          }
+        ],
+        "evidence_level": "참고 문헌과 편집 지식",
+        "verification_scope": "원리·조건을 직접 편집한 참고 지식. 개별 현장 성능·실증을 의미하지 않음."
+      }
+    }
+  ]
+}

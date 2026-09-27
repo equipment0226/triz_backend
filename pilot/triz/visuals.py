@@ -70,7 +70,7 @@ def _route(a, b, positions, rows, row_bounds, gutters, gap, lane, half_width=126
     return simplified
 
 
-def svg(title, nodes, edges=(), columns=3, *, divided=False, circles=False, show_edge_legend=True, guide_kind=None):
+def svg(title, nodes, edges=(), columns=3, *, divided=False, circles=False, show_edge_legend=True, numbered_edge_labels=True, guide_kind=None):
     from . import report_diagram_style as guide
     # Report diagrams reuse Introduction cards and layouts, with the original
     # node/edge tuples intact. Legacy callers may still request the plain theme.
@@ -131,7 +131,10 @@ def svg(title, nodes, edges=(), columns=3, *, divided=False, circles=False, show
         body.append(f'<path class="diagram-edge" data-source="{escape(str(a),quote=True)}" data-target="{escape(str(b),quote=True)}" data-label="{escape(str(text),quote=True)}" data-harmful="{str(bool(bad)).lower()}" d="{path}" fill="none" stroke="{color}" stroke-width="2" stroke-linejoin="round"{dash} marker-end="url(#{edge_marker})"/>')
         start, end = max(zip(points, points[1:]), key=lambda pair: abs(pair[0][0]-pair[1][0])+abs(pair[0][1]-pair[1][1]))
         lx, ly = (start[0]+end[0])/2, (start[1]+end[1])/2
-        badges.append(f'<circle class="diagram-edge-label" cx="{lx}" cy="{ly}" r="12" fill="white" stroke="{color}"/>' + label(i+1, lx, ly+4, size=11))
+        if numbered_edge_labels:
+            badges.append(f'<circle class="diagram-edge-label" cx="{lx}" cy="{ly}" r="12" fill="white" stroke="{color}"/>' + label(i+1, lx, ly+4, size=11))
+        elif text:
+            badges.append(label(text, lx, ly-10, size=11, pixels=100, color=color))
     for key, text, tone in nodes:
         x, y, h = positions[key]
         fill = {'bad':'#fbe8e7', 'good':'#e6f0fd', 'field':'#e0e8f7', 'changed':'#fff0d5', 'added':'#eae1f9'}.get(tone, '#fff')
@@ -247,7 +250,9 @@ def figures(state):
             compact=True, note='분석된 성장 단계의 위치를 표시한 개념도이며, 실측 성능이나 예측 수치가 아니다.'))
     from .ariz_report import diagrams as ariz_diagrams
     for diagram in ariz_diagrams(state):
-        add(diagram['key'], diagram['title'], diagram['nodes'], diagram['edges'], 3)
+        add(diagram['key'], diagram['title'], diagram['nodes'], diagram['edges'], 3,
+            show_edge_legend=diagram.get('show_edge_legend',True),
+            numbered_edge_labels=diagram.get('numbered_edge_labels',True))
         out[-1]['compact'] = True
     for i, c in enumerate(state.concepts):
         add(f"concept-{i}", c.title, [("goal", c.one_liner, "field")] +

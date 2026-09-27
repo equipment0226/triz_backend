@@ -1,0 +1,96 @@
+{
+  "batch": "additions-2026-09-27-chemistry-02.tsv",
+  "method": "conversation_reasoning",
+  "external_llm_calls": 0,
+  "before": 1512,
+  "added": 7,
+  "after": 1519,
+  "target": 2000,
+  "source_sha256": "7411d99748ccbb20f574e56e9d594d20219ac8de2dc0c32aac73ed72192865ed",
+  "decisions": [
+    {
+      "key": "directional-donor-hydrogen-acceptor-association",
+      "group": 15,
+      "related_keys": [
+        "hydrogen-bond-network-grotthuss-proton-relay",
+        "halogen-sigma-hole-directional-association"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "양성자가 이동하는 전도 경로와 달리 결합 상태의 인식·안정화이며 할로젠 시그마홀 접촉과 공여 원자가 다르다.",
+      "source_url": "https://goldbook.iupac.org/terms/view/H02899",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "aromatic-pi-surface-ion-stabilization",
+      "group": 15,
+      "related_keys": [
+        "cyclic-pi-delocalization-aromatic-stabilization",
+        "host-guest-inclusion"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "고리 내부 방향족 안정화와 달리 외부 이온의 결합이다. 양이온·파이와 음이온·파이 접촉은 이 표면 이온 상호작용 카드에서 함께 다룬다.",
+      "source_url": "https://www.nature.com/articles/ncomms4911",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "metal-ligand-pi-antibond-backdonation",
+      "group": 15,
+      "related_keys": [
+        "coordination-complexation",
+        "agostic-carbon-hydrogen-metal-coordination"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "일방향 전자쌍 배위 설명을 넘어 금속에서 파이 반결합으로 돌아가는 전자 밀도가 리간드를 활성화한다. C–H 시그마 배위와 구분한다.",
+      "source_url": "https://goldbook.iupac.org/terms/view/BT06997",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "ligand-bridged-inner-sphere-electron-transfer",
+      "group": 15,
+      "related_keys": [
+        "reorganization-marcus-inverted-transfer",
+        "coordination-complexation"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "재조직화 에너지에 따른 속도 변화나 착물 형성 자체와 달리 두 중심을 연결하는 리간드를 통한 전자 전달 경로를 다룬다.",
+      "source_url": "https://goldbook.iupac.org/terms/view/I03052/pdf",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "activated-hydrogen-cross-support-spillover",
+      "group": 15,
+      "related_keys": [
+        "catalytic-hydrogenation",
+        "hydrogen-bond-network-grotthuss-proton-relay"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "기질에 수소를 붙이는 전체 반응과 달리 해리 위치와 이용 위치 사이의 계면 이동을 다룬다. 수소결합망의 전하 전도와도 필요 조건이 다르다.",
+      "source_url": "https://www.nature.com/articles/s41467-022-29045-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "tensile-work-chemical-barrier-modulation",
+      "group": 15,
+      "related_keys": [
+        "force-stabilized-catch-bond",
+        "radical-induced-polymer-chain-scission"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "인장으로 결합 수명이 증가하는 생체 캐치 전환이나 라디칼 공격 절단과 달리 외력이 화학 반응 좌표의 에너지 장벽을 바꾸는 작동이다.",
+      "source_url": "https://www.nature.com/articles/s41467-018-05115-6",
+      "retrieval_scope": "stored_search_excerpt"
+    },
+    {
+      "key": "alkylidene-carbene-one-two-alkyne-rearrangement",
+      "group": 15,
+      "related_keys": [
+        "carbene-transfer-cyclopropanation",
+        "wolff-diazoketone-ketene-rearrangement"
+      ],
+      "decision": "KEEP_WITH_EXPLICIT_BOUNDARY",
+      "boundary": "외부 알켄의 삼원환화나 디아조케톤의 케텐 생성과 달리 알킬리덴 카벤에서 알카인으로 바뀌는 골격 이동이다. FBW·관련 전구체 변형을 별도 계수하지 않는다.",
+      "source_url": "https://pubs.acs.org/doi/abs/10.1021/acs.joc.6b01143",
+      "retrieval_scope": "stored_search_excerpt"
+    }
+  ]
+}

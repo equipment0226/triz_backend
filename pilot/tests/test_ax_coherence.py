@@ -116,7 +116,8 @@ def test_more_than_five_qualified_concepts_are_all_reported(dlc):
 def test_standard_track_selected_for_sufield_and_effects_deferred(dlc):
     dlc.analysis.su_fields=[SuFieldModel(s1='GPU',s2='냉각수',field='열',effect='USEFUL_INSUFFICIENT')]
     coordinator.route(RunContext(dlc))
-    assert dlc.control.enabled_tracks==['A_MATRIX','B_SEPARATION','C_STANDARDS']
+    assert dlc.control.enabled_tracks==['A_MATRIX','B_SEPARATION','C_STANDARDS','F_TRENDS','H_EFFECTS']
+    assert dlc.scratch['ax_coordination']['tracks']==['A_MATRIX','B_SEPARATION','C_STANDARDS']
     assert 'H_EFFECTS' in dlc.scratch['ax_coordination']['pending_tracks']
 
 

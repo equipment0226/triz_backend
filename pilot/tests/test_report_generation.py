@@ -55,6 +55,8 @@ def test_structured_narrative_completes_report_and_survives_resume(state, monkey
 
 @pytest.mark.parametrize("override", [None, "7000"])
 def test_larger_output_limits_are_scoped_to_ceca_and_ariz_validation(state, monkeypatch, override):
+    from ariz_fixtures import ariz_payload
+    from test_ariz_reformulation import model_review
     if override is not None:
         monkeypatch.setitem(settings.triz["analysis"], "ceca_max_tokens", override)
         monkeypatch.setitem(settings.triz["ariz"], "validation_max_tokens", override)
@@ -63,7 +65,11 @@ def test_larger_output_limits_are_scoped_to_ceca_and_ariz_validation(state, monk
 
     def respond(ctx, **kwargs):
         calls[kwargs["node"]] = kwargs
-        return {"solution_directions": ["실험 조건을 분리한다"]} if kwargs["node"] == "s5_ariz_p4" else {}
+        if kwargs["node"] == "s5_ariz_p6":
+            return model_review()
+        if kwargs["node"] in ("s5_ariz_p4", "s5_ariz_p7"):
+            return ariz_payload(int(kwargs["node"][-1]))
+        return {}
 
     monkeypatch.setattr(agent, "run_agent", respond)
     nodes.s3_analyze(RunContext(state))
@@ -72,5 +78,6 @@ def test_larger_output_limits_are_scoped_to_ceca_and_ariz_validation(state, monk
     expected = int(override) if override is not None else 32000
     expanded = {node: call["max_tokens"] for node, call in calls.items() if "max_tokens" in call}
     assert expanded == {"s3_ceca": expected,
+                        "s5_ariz_p6": int(settings.cfg("ariz.reformulation_max_tokens", 8000)),
                         "s5_ariz_p7": expected}
     assert "s3_function_model" in calls and "s5_ariz_p4" in calls

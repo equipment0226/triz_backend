@@ -71,6 +71,8 @@ cd pilot
 
 ## 검증
 
+ARIZ 실행기는 설정된 Part 1~5와 Part 7을 수행하며 각 필수 단계의 내용·상태·출력 형식을 검사한다. Part 6의 6.1~6.3 문제 재해석 제안은 D_ARIZ 실행 시 Part 5 이후, Part 7 이전에 항상 모델로 작성한다. 제안은 원래 문제를 변경하거나 이전 단계를 재실행하지 않는다. 검증할 해결 방향과 아이디어가 없으면 Part 7의 7.1~7.4는 평가하지 않고 생략 이유를 기록한다. Part 8·9는 지식 카탈로그에만 있으며 전용 실행기는 구현되어 있지 않다.
+
 ```powershell
 # 저장소 루트
 .venv/Scripts/python.exe -m pip install pytest

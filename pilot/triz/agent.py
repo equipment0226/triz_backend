@@ -206,6 +206,24 @@ def run_agent(
         prompt_vars.setdefault("contradictions", digest.contradictions_digest(state))
     from .ax.runtime import render_prompt
     base_user = render_prompt(state, prompt_id, **prompt_vars) + domain_context(state, node) + inject_block
+    if prompt_id in ('P_S5_TRACK_F', 'P_S5_TRACK_G', 'P_S5_TRACK_H'):
+        from .solve_contract import APPLICATION_CONTRACT
+        base_user += APPLICATION_CONTRACT
+        # Old pinned bodies may not contain these placeholders. Supply the
+        # problem contract in the actual request, without replacing their text.
+        from . import digest
+        base_user += '\n\n[S5 문제 입력 계약 v1]\n' + json.dumps({
+            'problem': digest.frame_digest(state),
+            'boundary': {
+                'user_confirmed': state.confirm.user_confirmed,
+                'target_system': digest.target_system(state),
+                'operative_zone': state.confirm.operative_zone,
+                'operative_time': state.confirm.operative_time,
+                'physical_scope': state.domain.physical_scope,
+                'user_amendments': state.confirm.user_amendments,
+            },
+            'contradictions': digest.contradictions_digest(state),
+        }, ensure_ascii=False, separators=(',', ':'))
     if node.startswith(("s1_", "s3_")):
         from . import rag
         base_user += rag.lessons_block(state)

@@ -34,19 +34,37 @@ def causal_packet(s):
     return [n.model_dump(exclude_defaults=True) for n in nodes if n.id in wanted]
 
 
+def idea_tracks(idea):
+    """Keep every originating track when a curator combines source ideas."""
+    tracks = idea.detail.get("source_tracks", [])
+    tracks = list(tracks) if isinstance(tracks, list) else []
+    tracks.extend(source.get("source_track", "") for source in idea.detail.get("source_details", [])
+                  if isinstance(source, dict))
+    tracks.append(idea.track)
+    return tuple(dict.fromkeys(t for t in tracks if isinstance(t, str) and t)) or ("",)
+
+
 def select_ideas(ideas, limit=40):
-    """Round-robin by addressed problem and mechanism/track, never by completion order."""
-    groups = defaultdict(list)
-    for idea in ideas:
-        groups[(tuple(sorted(idea.addresses)), idea.mechanism_key or idea.track)].append(idea)
+    """Balance source tracks, then problems and mechanisms within the existing cap.
+
+    Unique mechanism keys must not turn selection into a prefix of the A-to-H
+    execution order. This chooses inputs for review, not recommended solutions.
+    """
+    pending = [(i, idea, idea_tracks(idea), tuple(sorted(idea.addresses)),
+                idea.mechanism_key or idea.id) for i, idea in enumerate(ideas)]
+    track_counts, problem_counts, mechanism_counts = defaultdict(int), defaultdict(int), defaultdict(int)
     result = []
-    while groups and len(result) < limit:
-        for key in list(groups):
-            result.append(groups[key].pop(0))
-            if not groups[key]:
-                del groups[key]
-            if len(result) >= limit:
-                break
+    while pending and len(result) < limit:
+        chosen = min(pending, key=lambda row: (
+            min(track_counts[t] for t in row[2]), problem_counts[row[3]],
+            mechanism_counts[row[4]], row[0]))
+        pending.remove(chosen)
+        _, idea, tracks, problem, mechanism = chosen
+        result.append(idea)
+        for track in tracks:
+            track_counts[track] += 1
+        problem_counts[problem] += 1
+        mechanism_counts[mechanism] += 1
     return result
 
 
@@ -58,9 +76,10 @@ def idea_packet(i):
               "source_effect_id", "effect_name", "catalog_function", "catalog_conditions",
               "catalog_limitations", "catalog_sources", "catalog_evidence_level", "catalog_mechanism_key")
     packet["support"] = {k: i.detail[k] for k in fields if i.detail.get(k)}
+    packet["support"]["source_tracks"] = [track for track in idea_tracks(i) if track]
     if i.detail.get("source_details"):
         packet["support"]["source_details"] = [
-            {k: source[k] for k in ("source_idea_id", *fields) if source.get(k)}
+            {k: source[k] for k in ("source_idea_id", "source_track", *fields) if source.get(k)}
             for source in i.detail["source_details"]]
     return packet
 

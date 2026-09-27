@@ -3,7 +3,7 @@ import json
 import re
 
 PARTS={'1':'문제 분석','2':'작용 영역·시간과 자원','3':'이상해결책과 물리적 모순',
-       '4':'자원 동원과 해결 방향','5':'지식베이스 적용','6':'문제 재정의','7':'해결안 검증'}
+       '4':'자원 동원과 해결 방향','5':'지식베이스 적용','6':'문제 재해석 제안','7':'해결안 검증'}
 FIELDS={'idea_title':'해결안','ifr_satisfaction_pct':'IFR 충족도 (%)','is_tradeoff':'절충 여부',
         'constraint_ok':'제약 충족','note':'판정 근거','side_effects':'잠재 부작용',
         'title':'제목','idea':'적용안','name':'자원','resource':'자원','type':'종류',
@@ -51,7 +51,11 @@ def text_rows(value):
     return [[str(i+1),p] for i,p in enumerate(paragraphs)] or [['분석','기록 없음']]
 
 def _record(state,node,key):
+    boundary=state.scratch.get('ax_solve_start_seq')
+    bounded=isinstance(boundary,int) and not isinstance(boundary,bool) and boundary>=0
     for step in reversed(state.steps):
+        if bounded and step.seq<=boundary:
+            continue
         if step.node==node and isinstance(step.output_json,dict) and step.output_json.get(key):
             return step.output_json[key]
     return []

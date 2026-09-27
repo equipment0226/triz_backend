@@ -235,11 +235,94 @@ def check_separation(data: dict) -> list[str]:
 
 
 def check_ariz(data: dict, required_codes: list[str]) -> list[str]:
-    got = {s.get("step_code") for s in data.get("steps", [])}
-    missing = [c for c in required_codes if c not in got]
-    if missing:
-        return [f"DET-09: ARIZ 필수 스텝 누락: {', '.join(missing)}"]
-    return []
+    """Incomplete ARIZ execution must repair or stop, never finish with WARN."""
+    from .schema import ARIZStep
+    if not isinstance(data, dict) or not isinstance(data.get("steps"), list):
+        return ["FATAL-ARIZ: 결과는 steps 배열을 포함한 JSON 객체여야 한다."]
+    steps = data["steps"]
+    issues = []
+    for code in required_codes:
+        matches = [row for row in steps if isinstance(row, dict) and row.get("step_code") == code]
+        if len(matches) != 1:
+            issues.append(f"FATAL-ARIZ: 필수 스텝 {code}의 결과가 정확히 한 번 필요하다.")
+    for index, row in enumerate(steps, 1):
+        if not isinstance(row, dict):
+            issues.append(f"FATAL-ARIZ: steps의 {index}번째 결과는 객체여야 한다.")
+            continue
+        code = row.get("step_code")
+        if not isinstance(code, str) or not code.strip():
+            issues.append(f"FATAL-ARIZ: steps의 {index}번째 결과에 step_code가 필요하다.")
+        try:
+            parsed = ARIZStep.model_validate(row)
+        except ValueError:
+            issues.append(f"FATAL-ARIZ: {code} 결과의 필드·표 구조가 ARIZStep 형식에 맞지 않는다.")
+        else:
+            if any(len(cells) != len(parsed.table_columns) for cells in parsed.table_rows):
+                issues.append(f"FATAL-ARIZ: {code} 표의 각 행은 열 수와 같아야 한다.")
+        if (row.get("status") not in ("DONE", "SKIPPED", "BLOCKED")
+                or not isinstance(row.get("output"), str) or not row["output"].strip()):
+            issues.append(f"FATAL-ARIZ: {code}에 상태와 검토 내용 또는 미적용·차단 이유가 필요하다.")
+    return issues
+
+
+def check_ariz_part5(data: dict, required_codes: list[str]) -> list[str]:
+    """Part 5 must record each required review, including an honest no-idea result."""
+    from .schema import ARIZStep
+    if not isinstance(data, dict):
+        return ["FATAL-ARIZ5: Part5 결과는 JSON 객체여야 한다."]
+    steps = data.get("steps")
+    steps = steps if isinstance(steps, list) else []
+    issues = []
+    for code in required_codes:
+        matches = [row for row in steps if isinstance(row, dict) and row.get("step_code") == code]
+        if len(matches) != 1:
+            issues.append(f"FATAL-ARIZ5: 필수 스텝 {code}의 결과가 정확히 한 번 필요하다.")
+            continue
+        row = matches[0]
+        try:
+            ARIZStep.model_validate(row)
+        except ValueError:
+            issues.append(f"FATAL-ARIZ5: {code} 결과의 필드·표 구조가 ARIZStep 형식에 맞지 않는다.")
+        if (row.get("status") not in ("DONE", "SKIPPED", "BLOCKED")
+                or not isinstance(row.get("output"), str) or not row["output"].strip()):
+            issues.append(f"FATAL-ARIZ5: {code}에 상태와 검토 내용 또는 미적용·차단 이유가 필요하다.")
+    ideas = data.get("ideas")
+    if not isinstance(ideas, list):
+        issues.append("FATAL-ARIZ5: ideas는 배열이어야 한다. 도출한 아이디어가 없으면 []로 기록한다.")
+    elif ideas:
+        for idea in ideas:
+            if (not isinstance(idea, dict)
+                    or any(not isinstance(idea.get(k), str) or not idea[k].strip()
+                           for k in ("title", "idea"))
+                    or idea.get("source_step") not in ("5.1", "5.2", "5.3", "5.4")):
+                issues.append("FATAL-ARIZ5: 각 idea에 title·idea·유효한 source_step이 필요하다.")
+                break
+        final = data.get("final_ideas")
+        if not isinstance(final, list) or not any(isinstance(x, str) and x.strip() for x in final):
+            issues.append("FATAL-ARIZ5: ideas의 검증 대상 요약을 final_ideas 배열에 기록한다.")
+    else:
+        if data.get("final_ideas") != []:
+            issues.append("FATAL-ARIZ5: ideas가 비었으면 final_ideas도 빈 배열로 기록한다.")
+        if not isinstance(data.get("unresolved_reason"), str) or not data["unresolved_reason"].strip():
+            issues.append("FATAL-ARIZ5: 아이디어가 없으면 unresolved_reason에 지식베이스 적용 후에도 미해결인 이유를 기록한다.")
+    return issues
+
+
+def check_ariz_part6(data: dict) -> list[str]:
+    if not isinstance(data, dict) or not isinstance(data.get("items"), list):
+        return ["FATAL-ARIZ6: 6.1~6.3의 검토 근거와 제안을 items 배열로 기록한다."]
+    items = data["items"]
+    issues = []
+    for code in ("6.1", "6.2", "6.3"):
+        matches = [item for item in items if isinstance(item, dict) and item.get("step_code") == code]
+        if len(matches) != 1:
+            issues.append(f"FATAL-ARIZ6: {code} 검토 결과를 정확히 한 번 기록한다.")
+        elif any(not isinstance(matches[0].get(k), str) or not matches[0][k].strip()
+                 for k in ("observation", "suggestion")):
+            issues.append(f"FATAL-ARIZ6: {code}에 구체적인 observation과 suggestion이 필요하다.")
+    if len(items) != 3:
+        issues.append("FATAL-ARIZ6: items에는 6.1·6.2·6.3의 세 검토만 기록한다.")
+    return issues
 
 
 def _norm_resource(name: str) -> str:

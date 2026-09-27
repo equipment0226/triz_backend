@@ -347,17 +347,17 @@ def _env(labels: dict[str, str], keep_code: bool = False) -> Environment:
     return env
 
 
-def render_report(state: GlobalState, narrative: dict, template: str = "", *, diagram=None, references=None) -> str:
+def render_report(state: GlobalState, narrative: dict, template: str = "", *, diagram=None, references=None, detail=None) -> str:
     from .ax import enabled as ax_enabled
     if ax_enabled(state):
         from .ax.report import markdown
-        return markdown(state, diagram=diagram, references=references)
+        return markdown(state, diagram=diagram, references=references, detail=detail)
     from .visuals import figures
     from .report_style import reference_cards, report_state
     from .labels import display_value, executive_summary
     from .review_comments import by_concept
     from .reformulation import for_report, STEP_TITLES
-    show_reformulation = for_report(state) is not None
+    show_reformulation = for_report(state)
     labels = build_label_map(state)
     narrative = dict(narrative or {})
     if 'executive_summary' in narrative:
@@ -405,6 +405,8 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
         applied.append("진화 트렌드")
     if state.solve.fos_apps:
         applied.append("기능지향탐색(FOS)")
+    if state.solve.effect_apps:
+        applied.append("과학·기술 효과")
     if any(e.url for e in state.evidence):
         applied.append("문헌·특허 검색")
 
@@ -429,12 +431,13 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
         igrid=interaction_grid(state),
         figures=figures(state),
         diagram=diagram or (lambda key: ''),
+        detail=detail or (lambda body: '<details><summary>상세 분석 기록 · 펼치기/접기</summary>\n\n' + body + '\n\n</details>'),
         references=references or (lambda cid: '\n\n'.join(f"[{r['title']}]({r['url']})\n\n{r['description']}" for r in reference_cards(state, state.concept(cid)))),
         concept_indices={c.id: i for i, c in enumerate(state.concepts)},
         report_concepts=sorted(state.concepts, key=lambda c: evaluation_map[c.id].rank or 999 if c.id in evaluation_map else 999),
         evaluation_map=evaluation_map,
         reviewer_comments=by_concept(state),
-        problem_reformulation_review=state.evaluation.problem_reformulation_review if show_reformulation else None,
+        problem_reformulation_review=show_reformulation,
         reformulation_step_titles=STEP_TITLES,
     )
     from .report_style import plain_text

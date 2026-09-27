@@ -5,7 +5,83 @@ from . import ledger
 CONTEXT_KEYS = ('title', 'param_scheme', 'excluded_concepts', 's_curve', 'taboo',
                 'principle_patents', 'patent_additions', 'related_references',
                 'evidence_mappings', 'evidence_gaps', 'search_status',
-                'ax_coordination', 'ax_coherence', 'ax_recovery')
+                'ax_coordination', 'ax_coherence', 'ax_recovery',
+                'ax_track_execution', 'ax_solve_start_seq', 'ax_candidate_review')
+
+TRACK_LABELS = {
+    'A_MATRIX': '모순행렬·발명원리', 'B_SEPARATION': '분리 원리',
+    'C_STANDARDS': '76 표준해', 'D_ARIZ': 'ARIZ-85C', 'E_TRIMMING': '트리밍',
+    'F_TRENDS': '기술 진화 트렌드', 'G_FOS': '기능지향탐색·특성 전이',
+    'H_EFFECTS': '과학·기술 효과',
+}
+TRACK_STATUSES = {
+    'COMPLETED': '실행 완료', 'REVIEWED_NO_APPLICATION': '검토 완료·적용안 없음',
+    'NOT_APPLICABLE': '적용 대상 아님', 'PENDING': '실행 대기', 'FAILED': '실행 실패',
+    'UNRECORDED': '현재 실행 상태 기록 없음',
+}
+
+
+def execution_view(solve, control, scratch):
+    """Describe saved execution evidence without inferring model success or quality."""
+    records = scratch.get('ax_track_execution')
+    records = records if isinstance(records, dict) else {}
+    expected = set(records) if records else set(control.get('enabled_tracks') or [])
+    fields = {'A_MATRIX': 'principle_apps', 'B_SEPARATION': 'separation_apps',
+              'C_STANDARDS': 'standard_apps', 'F_TRENDS': 'trend_apps',
+              'G_FOS': 'fos_apps', 'H_EFFECTS': 'effect_apps'}
+    counts = {track: len(solve.get(field) or []) for track, field in fields.items()}
+    counts['D_ARIZ'] = len((solve.get('ariz') or {}).get('steps') or [])
+    counts['E_TRIMMING'] = sum(i.get('track') == 'E_TRIMMING' for i in solve.get('raw_ideas') or [])
+    views = {}
+    for track, name in TRACK_LABELS.items():
+        if track not in expected and not counts.get(track):
+            continue
+        record = records.get(track)
+        record = record if isinstance(record, dict) else {}
+        status = record.get('status', 'UNRECORDED')
+        status = status if status in TRACK_STATUSES else 'UNRECORDED'
+        reason = str(record.get('reason') or '').strip()
+        if not reason:
+            reason = {
+                'REVIEWED_NO_APPLICATION': '검토 결과 적용안이 없으나 구체적인 사유는 저장되지 않았다.',
+                'NOT_APPLICABLE': '적용 대상이 아닌 것으로 기록되었으나 구체적인 사유는 저장되지 않았다.',
+                'PENDING': '이번 해결 탐색에서 아직 실행 결과가 기록되지 않았다.',
+                'FAILED': '이번 해결 탐색의 실행 실패로 적용 결과를 확인할 수 없다.',
+                'UNRECORDED': '이전 형식에는 현재 회차의 실행 상태가 저장되지 않았다. 누적 호출 이력만으로 이번 실행을 판단할 수 없다.',
+                'COMPLETED': '이번 회차의 실행 완료 기록이 있다. 내용의 검증 여부는 별도로 확인한다.',
+            }[status]
+        empty = reason
+        if status == 'COMPLETED' and not counts.get(track):
+            empty = '실행 완료로 기록되었지만 이 절에 표시할 적용안 또는 ARIZ 단계가 저장되지 않았다. ' + reason
+        views[track] = {'track': track, 'name': name, 'status': status,
+                         'label': TRACK_STATUSES[status], 'reason': reason,
+                         'output_count': record.get('output_count', counts.get(track, 0)),
+                         'stored_count': counts.get(track, 0), 'empty_message': empty}
+    return views
+
+
+def trace_view(steps, scratch):
+    """The explicit S5 boundary separates earlier evidence from the current solve."""
+    # A report row must not retain another copy of every prompt/model response.
+    columns = ('seq', 'stage', 'label', 'agent_id', 'tier', 'verify_attempts',
+               'status', 'human_intervened')
+    rows = []
+    for step in steps:
+        row = {key: step[key] for key in columns if key in step}
+        if 'verdicts' in step:
+            row['verdicts'] = ([{'verdict': step['verdicts'][-1].get('verdict', '-')}]
+                               if step['verdicts'] else [])
+        rows.append(row)
+    boundary = scratch.get('ax_solve_start_seq')
+    if not isinstance(boundary, int) or isinstance(boundary, bool) or boundary < 0:
+        return {'bounded': False, 'groups': [{'title': '누적 실행 이력', 'steps': rows}]}
+    earlier = [step for step in rows if step.get('seq', 0) <= boundary]
+    current = [step for step in rows if step.get('seq', 0) > boundary]
+    groups = []
+    if earlier:
+        groups.append({'title': '이전 이력·이어받은 상위 단계', 'steps': earlier})
+    groups.append({'title': '현재 해결 탐색 회차', 'steps': current})
+    return {'bounded': True, 'start_seq': boundary, 'groups': groups}
 
 
 def context(state):
@@ -58,6 +134,8 @@ def project(state):
         'selection': v.get('selection', {}), 'metadata_missing': not bool(meta),
         'render_version': 'triz-full-ax-v2', 'coherence': v.get('coherence', {}),
         'effect_applicability': v.get('solve', {}).get('effect_applicability', [])}
+    scratch['ax_report_tracks'] = execution_view(v.get('solve', {}), meta.get('control', {}), scratch)
+    scratch['ax_report_trace'] = trace_view(meta.get('steps', []), scratch)
     scratch.setdefault('excluded_concepts', [
         {'idea': c.get('title', ''), 'reason': '; '.join(c.get('quality_issues', []))}
         for c in v.get('concepts', {}).get('excluded', [])])
@@ -78,11 +156,11 @@ def project(state):
     return result
 
 
-def markdown(state, *, diagram=None, references=None):
+def markdown(state, *, diagram=None, references=None, detail=None):
     from ..render import render_report
     projected = project(state)
     return render_report(projected, projected.report.narrative, template='report_full.md.j2',
-                         diagram=diagram, references=references)
+                         diagram=diagram, references=references, detail=detail)
 
 
 def html_report(state):

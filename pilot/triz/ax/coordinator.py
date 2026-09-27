@@ -100,41 +100,69 @@ def route(ctx):
         raise AbortRun('문제 범위를 먼저 확정해 주세요.')
     if not (state.definition.technical_contradictions or state.definition.physical_contradictions):
         raise AbortRun('해결안 탐색 전에 분석의 모순과 근거를 확인해 주세요.')
-    from .coherence import enabled as coherence_enabled
-    # DEEP includes ARIZ by contract. It must not compete for the last slot
-    # of a single optional expansion, independently of the final solution count.
-    tracks=['D_ARIZ'] if state.control.mode.value == 'DEEP' or 'D_ARIZ' in state.control.enabled_tracks else []
-    if state.definition.technical_contradictions:
-        tracks.append('A_MATRIX')
-    if state.definition.physical_contradictions:
-        tracks.append('B_SEPARATION')
-    pending=[]
-    if coherence_enabled(state):
-        if domain.physical_allowed(state) and state.analysis.su_fields:
-            tracks.append('C_STANDARDS')
-        if state.definition.trimming:
-            pending.append('E_TRIMMING')
-        if state.analysis.function_edges:
-            pending.append('G_FOS')
-        if 'D_ARIZ' not in tracks:
-            pending.append('D_ARIZ')
-    if 'H_EFFECTS' not in tracks:
-        tracks.append('H_EFFECTS')
-    pending=list(dict.fromkeys(tracks[3:]+pending))
-    tracks=tracks[:3]
+    if state.solve.tracks_run and not state.scratch.get('ax_track_execution'):
+        # Only an explicit S5 continuation reaches this boundary. Historical
+        # completed reports remain untouched. Old tracks_run admitted failed or
+        # partial calls, so it cannot establish the new completion contract.
+        from ..schema import SolveBundle
+        state.scratch['ax_solve_compatibility'] = {
+            'contract': 'mode-tracks-v1', 'previous_tracks': list(state.solve.tracks_run),
+            'reason': '구형 S5 완료 기록을 현재 출력 계약으로 재검증합니다. 동일한 검증 완료 호출은 캐시를 재사용합니다.'}
+        state.solve = SolveBundle()
+        for key in ('s_curve', 'ax_track_review_reasons', 'ax_track_execution', 'ax_idea_inventory',
+                    'ax_expansion_rounds', 'ax_expansion_deferred', 'ax_solve_start_seq'):
+            state.scratch.pop(key, None)
+    from ..solve_contract import plan
+    expected, required, skipped = plan(state)
+    branches=max(1,int(state.scratch['ax_bundle']['limits']['branches']))
+    tracks=required[:branches]
+    pending=required[branches:]
+    state.scratch.setdefault('ax_solve_start_seq',len(state.steps))
+    execution=state.scratch.setdefault('ax_track_execution',{})
+    for track in expected:
+        if track in skipped:
+            execution[track]={'status':'NOT_APPLICABLE','reason':skipped[track],'output_count':0}
+        else:
+            execution.setdefault(track,{'status':'PENDING','reason':'필수 분석 실행 대기','output_count':0})
     targets=[state.scratch['ax_members']['definition']]
     ticket=ActionTicket(action_type='GENERATE_BASELINE',target_version_ids=targets,
         parameters={'tracks':tracks,'preserve_requirements':True},expected_outputs=['CandidateVersion','ApplicabilityCheck'],
-        allowed_tools=['legacy_tracks','evidence_search'],reason='확정된 모순과 필요 기능에 연결되는 기준 경로를 최대 3개 실행한다.')
+        allowed_tools=['legacy_tracks','evidence_search'],reason='분석 모드의 필수 경로를 배치 크기 제한 안에서 순차 실행한다.')
     defer=ActionTicket(action_type='DEFER',target_version_ids=targets,parameters={},
         expected_outputs=['Blocker'],allowed_tools=[],reason='예산 또는 적용조건 부족으로 탐색을 보류한다.')
     chosen,did=decide(state,[ticket,defer],0,{'GENERATE_BASELINE','DEFER'},'s4.route')
     if chosen.action_type=='DEFER':
         raise AbortRun('추가 탐색을 보류했습니다. 조율 기록을 확인해 주세요.')
     state.scratch['ax_coordination']={'decision_id':did,'tracks':chosen.parameters['tracks'],'pending_tracks':pending,
+        'required_tracks':required,'expected_tracks':expected,'coverage_contract':'mode-tracks-v1',
         'reason':chosen.reason,'snapshot_id':state.scratch['ax_snapshot_id']}
-    state.control.enabled_tracks=list(chosen.parameters['tracks'])
+    state.control.enabled_tracks=required
     ctx.emit('coordination',**state.scratch['ax_coordination'])
+
+
+def complete_required(ctx):
+    """A branch limit bounds concurrency, never the number of required methods."""
+    state=ctx.state
+    plan=state.scratch['ax_coordination']
+    from ..nodes import _run_tracks
+    branches=max(1,int(state.scratch['ax_bundle']['limits']['branches']))
+    pending=[t for t in plan['required_tracks'] if t not in state.solve.tracks_run]
+    while pending:
+        selected=pending[:branches]
+        ticket=ActionTicket(action_type='GENERATE_BASELINE',
+            target_version_ids=[state.scratch['ax_members']['definition']],
+            parameters={'tracks':selected,'preserve_requirements':True},
+            expected_outputs=['CandidateVersion','ApplicabilityCheck'],
+            allowed_tools=['legacy_tracks'],reason='아직 수행하지 않은 분석 모드의 필수 경로를 실행한다.')
+        chosen,did=decide(state,[ticket],0,{'GENERATE_BASELINE'},'solve:required_batch')
+        _run_tracks(ctx,chosen.parameters['tracks'])
+        remaining=[t for t in plan['required_tracks'] if t not in state.solve.tracks_run]
+        if remaining==pending:
+            raise AbortRun('필수 분석 실행이 완료되지 않았습니다. S5에서 이어서 실행해 주세요.')
+        pending=remaining
+        plan['pending_tracks']=pending
+        plan.setdefault('batches',[]).append({'decision_id':did,'tracks':selected})
+    plan['pending_tracks']=[]
 
 
 def expand(ctx, need_more):

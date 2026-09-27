@@ -122,6 +122,7 @@ def test_s5_output_limit_reaches_provider_and_invalidates_only_changed_cache(sta
 
 def test_ariz_knowledge_call_keeps_tables_and_effect_binding_with_larger_limit(state, monkeypatch):
     from triz import knowledge
+    from test_ariz_reformulation import model_review
     monkeypatch.setattr(settings.tiers['T2'], 'max_tokens', 4000)
     monkeypatch.setitem(settings.triz['ariz'], 'enabled_parts', [5])
     effect = knowledge.effect_candidates(['electrostatic chuck ESC'], limit=1)[0]
@@ -133,13 +134,14 @@ def test_ariz_knowledge_call_keeps_tables_and_effect_binding_with_larger_limit(s
         'ideas': [dict(title='정전기 척 적용 검토', idea='잔류 전하와 해제 조건을 확인한다.',
             source_step='5.4', source_effect_id=effect['id'], effect_name=effect['name'],
             mechanism='전기장에 의한 인력', conditions=['잔류 전하 관리'])]}
-    create = install_sdk(monkeypatch, [response(data)])
+    create = install_sdk(monkeypatch, [response(data), response(model_review())])
     nodes._track_d_ariz(RunContext(state))
-    assert create.call_count == 1
-    assert create.call_args.kwargs['max_tokens'] == 32000
-    assert [s.step_code for s in state.solve.ariz.steps] == ['5.1', '5.2', '5.3', '5.4']
-    assert state.steps[-1].output_json['steps'][3]['table_rows'] == [['잔류 전하', '해제 확인']]
-    saved_idea = state.steps[-1].output_json['ideas'][0]
+    assert create.call_count == 2
+    assert create.call_args_list[0].kwargs['max_tokens'] == 32000
+    assert [s.step_code for s in state.solve.ariz.steps] == ['5.1', '5.2', '5.3', '5.4', '6.1', '6.2', '6.3']
+    part5_trace = next(step for step in state.steps if step.node == 's5_ariz_p5')
+    assert part5_trace.output_json['steps'][3]['table_rows'] == [['잔류 전하', '해제 확인']]
+    saved_idea = part5_trace.output_json['ideas'][0]
     assert saved_idea['source_effect_id'] == effect['id']
     assert '잔류 전하 관리' in saved_idea['conditions']
     assert effect['conditions'] in saved_idea['conditions']

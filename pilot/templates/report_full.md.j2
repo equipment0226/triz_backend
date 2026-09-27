@@ -290,6 +290,19 @@
 ---
 ## 4. 해결책 도출 과정
 
+{% set report_tracks = s.scratch.get('ax_report_tracks', {}) %}
+{% if report_tracks %}
+### 이번 회차의 기법별 실행 상태
+
+| 기법 | 실행 상태 | 산출 수 | 실행·판단 사유 |
+|---|---|---|---|
+{% for track in report_tracks.values() %}
+| {{ track.name | cell }} | {{ track.label | cell }} | {{ track.output_count | cell }} | {{ track.reason | cell }} |
+{% endfor %}
+
+실행 완료는 해당 기법의 처리 기록이다. 아이디어의 독립 검증이나 현장 실증을 뜻하지 않는다. 이전 회차의 호출 기록은 현재 회차의 실행 결과와 구분한다. 트리밍 후보 검토는 3.3절에, 구체화된 아이디어는 저장된 경우 4.8절에 표시한다.
+{% endif %}
+
 {% if viz.track_pie %}
 **해결 트랙별 아이디어 기여도**
 
@@ -298,8 +311,12 @@
 ```
 {% endif %}
 
-{% if s.solve.matrix_lookups %}
+{% if s.solve.matrix_lookups or s.solve.principle_apps or report_tracks.get('A_MATRIX') %}
 ### 4.1 모순 행렬 조회 및 발명원리
+
+{% if not s.solve.principle_apps and report_tracks.get('A_MATRIX') %}
+> **{{ report_tracks.A_MATRIX.label }}**: {{ report_tracks.A_MATRIX.empty_message }}
+{% endif %}
 
 {% for group in matrix_groups %}
 {% set m = group.lookup %}
@@ -335,8 +352,12 @@
 {% endfor %}
 {% endif %}
 
-{% if s.solve.separation_apps %}
+{% if s.solve.separation_apps or report_tracks.get('B_SEPARATION') %}
 ### 4.2 분리 원리 적용 (물리적 모순)
+
+{% if not s.solve.separation_apps %}
+> **{{ report_tracks.B_SEPARATION.label }}**: {{ report_tracks.B_SEPARATION.empty_message }}
+{% endif %}
 
 {% for group in separation_groups %}
 #### {{ group.title }}에 대한 분리원리 적용
@@ -352,8 +373,12 @@
 {% endfor %}
 {% endif %}
 
-{% if s.solve.standard_apps %}
+{% if s.solve.standard_apps or report_tracks.get('C_STANDARDS') %}
 ### 4.3 76 표준해 적용
+
+{% if not s.solve.standard_apps %}
+> **{{ report_tracks.C_STANDARDS.label }}**: {{ report_tracks.C_STANDARDS.empty_message }}
+{% endif %}
 
 {% for a in s.solve.standard_apps %}
 **{{ a.standard_code }} {{ a.standard_title }}**
@@ -365,8 +390,15 @@
 {% endfor %}
 {% endif %}
 
-{% if s.solve.ariz %}
+{% if s.solve.ariz or report_tracks.get('D_ARIZ') %}
 ### 4.4 ARIZ-85C 실행 기록
+
+{% if not s.solve.ariz or not s.solve.ariz.steps %}
+{% if report_tracks.get('D_ARIZ') %}
+> **{{ report_tracks.D_ARIZ.label }}**: {{ report_tracks.D_ARIZ.empty_message }}
+{% endif %}
+{% endif %}
+{% if s.solve.ariz %}
 
 {% for part in ariz_report.parts %}
 #### {{ part.title }}
@@ -383,9 +415,7 @@
 {{ diagram(step.key) }}
 
 {% if step.structured %}
-**상세 분석 기록**
-
-{{ step.output }}
+{{ detail(step.output) }}
 {% endif %}
 {% endfor %}
 {% endfor %}
@@ -445,9 +475,14 @@
 
 {% endif %}
 
-{% if s.solve.trend_apps %}
+{% endif %}
+
+{% if s.solve.trend_apps or report_tracks.get('F_TRENDS') %}
 ### 4.5 기술 진화 트렌드
 
+{% if not s.solve.trend_apps %}
+> **{{ report_tracks.F_TRENDS.label }}**: {{ report_tracks.F_TRENDS.empty_message }}
+{% else %}
 | 트렌드 | 현재 단계 | 다음 단계 | 아이디어 |
 |---|---|---|---|
 {% for a in ordered_trends %}
@@ -460,15 +495,25 @@
 {{ diagram('trends') }}
 {{ diagram('s-curve') }}
 {% endif %}
+{% endif %}
 
-{% if s.solve.fos_apps %}
+{% if s.solve.fos_apps or report_tracks.get('G_FOS') %}
 ### 4.6 기능지향탐색(FOS) / 특성 전이
 
+{% if not s.solve.fos_apps %}
+> **{{ report_tracks.G_FOS.label }}**: {{ report_tracks.G_FOS.empty_message }}
+{% endif %}
 {% for a in s.solve.fos_apps %}
 #### {{ a.leading_area }}({{ a.transferred_feature }})
 
 - 일반화 기능: {{ a.generalized_function }}
+{% if a.why_leading %}- 참조 분야의 선정 근거: {{ a.why_leading }}
+{% endif %}
 - 이식 시 조정: {{ a.adaptation_note }}
+{% if a.title or a.idea %}- 구체적 적용안: **{{ a.title or '적용안' }}** — {{ a.idea }}
+{% endif %}
+{% if a.conditions %}- 필요 조건·한계: {{ a.conditions | join(' / ') }}
+{% endif %}
 
 {% endfor %}
 {{ diagram('fos') }}
@@ -482,9 +527,12 @@
 {% endif %}
 
 ---
-{% if s.solve.effect_apps %}
+{% if s.solve.effect_apps or report_tracks.get('H_EFFECTS') %}
 ### 4.7 과학·기술 효과 적용
 
+{% if not s.solve.effect_apps %}
+> **{{ report_tracks.H_EFFECTS.label }}**: {{ report_tracks.H_EFFECTS.empty_message }}
+{% endif %}
 {% for group in effect_groups %}
 #### {{ group.title }}
 
@@ -498,6 +546,13 @@
 
 {% if s.solve.raw_ideas %}
 ### 4.8 원리에서 해결 아이디어로
+
+{% set candidate_review = s.scratch.get('ax_candidate_review', {}) %}
+{% if candidate_review.get('contract') == 'idea-retention-v1' %}
+도출 아이디어 **{{ candidate_review.available_ideas }}개** · 상세 검토 **{{ candidate_review.assigned_ideas }}개** · 미검토 **{{ candidate_review.unassigned_idea_ids | length }}개**.
+
+미검토는 부적합 판정이 아니며, 채택 전 상세 검토와 제약 확인이 필요하다. 아래 표는 상세 검토 대상으로 선정되지 않은 아이디어도 포함한다.
+{% endif %}
 
 | 아이디어 | 도출 기법 | 적용 원리·출처 | 해결하려는 모순 | 활용 자원 | 구체적 수단 |
 |---|---|---|---|---|---|
@@ -725,8 +780,6 @@
 
 {{ narrative.limitation_note or '' }}
 
-{% include 'report_reformulation.md.j2' %}
-
 {% set search_status = s.scratch.get('search_status', {}) %}
 {% if search_status.get('patent_status') in ('UNAVAILABLE', 'PARTIAL', 'UNKNOWN') %}
 **특허 검색 상태**
@@ -790,10 +843,24 @@ BigQuery 인증·권한 또는 사용 할당량을 확인해야 하므로 특허
 
 ## 부록 C. 추론 이력 (Step Trace)
 
+{% set report_trace = s.scratch.get('ax_report_trace', {}) %}
+{% if report_trace.get('bounded') %}
+현재 해결 탐색은 누적 {{ report_trace.start_seq }}번 기록 다음부터 시작한다. 이전 표에는 이어받은 상위 단계와 과거 재실행 결과가 함께 들어 있다. 과거 기법 호출이 완료되었더라도 현재 해결 탐색에서 다시 실행되었다는 뜻은 아니다.
+{% else %}
+이 표는 누적 호출 이력이다. 이전 형식에는 현재 해결 탐색의 시작 경계가 저장되지 않아 재실행 회차를 확정할 수 없다. 과거의 완료 기록을 현재 회차의 기법별 완료로 해석하지 않는다.
+{% endif %}
+
+모델 호출, 검색 도구 실행, 결정론적 조건 판정이 함께 기록될 수 있다. 실행 상태와 내용의 검증 결과는 별개이며, 검증란의 빈 값은 검증 통과를 뜻하지 않는다.
+
+{% set trace_groups = report_trace.get('groups', [{'title':'누적 실행 이력', 'steps':s.steps}]) %}
+{% for trace_group in trace_groups %}
+### {{ trace_group.title }}
+
 | # | 단계 | 작업 | 담당 관점 | 모델 티어 | 검증 | 시도 | 상태 |
 |---|---|---|---|---|---|---|---|
-{% for st_ in s.steps %}
-| {{ ( st_.seq ) | cell }} | {{ ( st_.stage ) | cell }} | {{ ( st_.label ) | cell }} | {{ ( st_.agent_id | hz ) | cell }} | {{ ( st_.tier ) | cell }} | {{ ( {'PASS':'통과','CONDITIONAL':'조건부','FAIL':'미통과','REPAIR':'보정'}.get(st_.verdicts[-1].get('verdict','-') if st_.verdicts else '-', '-') ) | cell }} | {{ ( st_.verify_attempts ) | cell }} | {{ ( {'OK':'완료','FAILED':'실패','SKIPPED':'건너뜀'}.get(st_.status, st_.status) ) | cell }}{{ ( ' 👤' if st_.human_intervened ) | cell }} |
+{% for st_ in trace_group.steps %}
+| {{ ( st_.seq ) | cell }} | {{ ( st_.stage ) | cell }} | {{ ( st_.label ) | cell }} | {{ ( st_.agent_id | hz ) | cell }} | {{ ( st_.tier ) | cell }} | {{ ( {'PASS':'통과','CONDITIONAL':'조건부','FAIL':'미통과','REPAIR':'보정','UNVERIFIED':'미검증'}.get(st_.verdicts[-1].get('verdict','-') if st_.verdicts else '-', '-') ) | cell }} | {{ ( st_.verify_attempts ) | cell }} | {{ ( {'OK':'완료','WARN':'완료·검증 주의','FAILED':'실패','SKIPPED':'건너뜀','RUNNING':'실행 중','WAITING_HUMAN':'입력 대기'}.get(st_.status, st_.status) ) | cell }}{{ ( ' 👤' if st_.human_intervened ) | cell }} |
+{% endfor %}
 {% endfor %}
 
 {% if s.scratch.get('ax_report_details') %}

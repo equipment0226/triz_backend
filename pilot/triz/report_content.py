@@ -88,8 +88,10 @@ def sections(state, figures):
         return register({'type': 'figure', 'figure': by_key[key]})
     def references(cid):
         return register({'type': 'html', 'html': references_html(state, state.concept(cid))})
+    def detail(body):
+        return register({'type': 'details', 'title': '상세 분석 기록', 'html': render_markdown(body)})
     markdown = render_report(state, state.report.narrative if state.report else {}, template='report_full.md.j2',
-                             diagram=diagram, references=references)
+                             diagram=diagram, references=references, detail=detail)
     markdown = re.sub(r'```mermaid\s*.*?```', '', markdown, flags=re.S)
     markdown = re.sub(r'</?(?:sub|details|summary)>|<br\s*/?>', '', markdown)
     out = []

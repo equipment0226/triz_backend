@@ -1,5 +1,9 @@
 # ARIZ execution routing correction
 
+Historical record of the first hotfix. Its final-solution-count Part 6 policy is
+superseded by [the subsequent workflow release](WORKFLOW_RELEASE_20260927.md).
+Current ARIZ always performs Part 6 inside S5, without restarting the problem.
+
 The requested pattern-glass 180-degree rotation run (`run-baa72a38ef40c8c63155ffc7a1dd25ee`, created 2026-09-27 00:35:17 UTC) completed in DEEP mode with four displayed concepts. The saved ARIZ product was null and no ARIZ model calls occurred. This was an execution omission, not a report rendering issue.
 
 Read-only review of all 59 stored projects belonging to the requesting owner found 34 DEEP runs: all 24 created through September 12 contained ARIZ execution records; all 10 created from September 16 onward lacked them. All 34 were completed. The former used the legacy workflow and the latter used `triz-ax-v3.1`.

@@ -400,21 +400,26 @@ def rerun_from(run_id, stage_key, instruction=""):
             # A new solve revision gets its own bounded expansion. Continuing
             # an interrupted revision still retains its completed round count.
             for key in ('ax_coordination', 'ax_expansion_rounds', 'ax_expansion_deferred',
-                        'ax_idea_inventory', 'ax_effect_applicability'):
+                        'ax_idea_inventory', 'ax_effect_applicability', 's_curve',
+                        'ax_track_execution', 'ax_track_review_reasons', 'ax_solve_start_seq',
+                        'ax_portfolio_trace', 'ax_solve_compatibility'):
                 state.scratch.pop(key, None)
         if idx <= 9:
             state.evidence = []
             for c in state.concepts:
                 c.evidence_ids = []
-            for key in ("patent_additions", "evidence_gaps"):
+            for key in ("patent_additions", "evidence_gaps", "evidence_mappings", "related_references"):
                 state.scratch.pop(key, None)
         state.scratch.pop("resume_payload", None)
         if idx <= 8:
             state.scratch.pop("gate_decisions", None)
-            for key in ('ax_recovery_complete','ax_recovery','ax_baseline_candidates','ax_applied_rules','ax_rule_patches'):
+            for key in ('ax_recovery_complete','ax_recovery','ax_recovery_phases','ax_baseline_candidates','ax_applied_rules','ax_rule_patches'):
                 state.scratch.pop(key,None)
         if idx <= 7:
+            state.scratch.pop('ax_candidate_review',None)
             state.scratch.pop('ax_excluded',None)
+            state.scratch.pop('ax_mechanisms',None)
+            state.scratch.pop('excluded_concepts',None)
         state.scratch["last_stage_seq"] = len(state.steps)
         if instruction:
             state.control.injected_agents.setdefault(f"stage:{stage_key}", []).append(

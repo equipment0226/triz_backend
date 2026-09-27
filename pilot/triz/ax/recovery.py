@@ -39,7 +39,8 @@ def run(ctx,phase='before_constraints'):
         from .coherence_recovery import run as repair
         return repair(ctx,phase)
     state=ctx.state
-    limits=state.scratch['ax_bundle']['limits']
+    from ..solve_contract import concept_review_limit
+    limits=dict(state.scratch['ax_bundle']['limits'], detailed_candidates=concept_review_limit(state))
     if state.scratch.get('ax_recovery_complete'): return
     state.scratch.setdefault('ax_baseline_candidates',[c.model_dump(mode='json') for c in state.concepts])
     source={c.id:c for c in state.concepts}

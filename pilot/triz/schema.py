@@ -412,6 +412,7 @@ class ARIZStep(BaseModel):
 
 
 class ARIZRun(BaseModel):
+    problem_reformulation_review: Optional[ProblemReformulationReview] = None
     verdicts: list[dict[str, Any]] = []
     steps: list[ARIZStep] = []
     conflict_pair: str = ""

@@ -91,7 +91,9 @@
 
 ## 4. 한계
 {{ narrative.limitation_note or '' }}
+{% if s.solve.ariz and s.solve.ariz.problem_reformulation_review %}
 {% include 'report_reformulation.md.j2' %}
+{% endif %}
 {% for w in s.control.warnings %}
 - ⚠️ {{ w }}
 {% endfor %}

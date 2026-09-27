@@ -52,7 +52,7 @@ def review_body(s,**overrides):
 
 def test_dlc_phase1_route_lineage_validation_and_report(dlc):
     coordinator.route(RunContext(dlc))
-    assert dlc.control.enabled_tracks==['A_MATRIX','B_SEPARATION','H_EFFECTS']
+    assert dlc.control.enabled_tracks==['A_MATRIX','B_SEPARATION','F_TRENDS','H_EFFECTS']
     history=ledger.decision_history(dlc.run_id,'local')
     assert history[0]['payload']['selection_mode']=='RULE_BASED'
     candidate(dlc)

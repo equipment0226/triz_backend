@@ -48,7 +48,8 @@ def bundle(state=None):
                     'presentation_target':5,'recovery_additions':4,'expansion_rounds':1,'portfolio_completion_v1':True},
           'source_hashes':{str(p.relative_to(root.parent)).replace('\\','/'):digest(p.read_text(encoding='utf-8')) for p in
                            [root/'nodes.py',root/'quality.py',root/'verify.py',root/'render.py',root/'reformulation.py',
-                            root/'display_terms.py',root/'report_style.py',
+                            root/'display_terms.py',root/'report_style.py',root/'solve_contract.py',root/'digest.py',
+                            root/'agent.py',root/'prompts_registry.py',root/'evidence.py',
                             root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
                             root/'ax/learning.py',root.parent/'templates/report_full.md.j2',
@@ -227,7 +228,11 @@ def before_stage(ctx,key):
 def render_prompt(state,prompt_id,**values):
     if not enabled(state):
         return prompts_registry.render(prompt_id,**values)
-    body=state.scratch['ax_bundle']['prompts'][prompt_id]
+    pinned=state.scratch['ax_bundle']['prompts']
+    # The new mandatory Part6 is the only explicitly allowed missing-prompt fallback.
+    body=(prompts_registry.raw(prompt_id) if prompt_id=='P_S5_ARIZ_PART6' and prompt_id not in pinned
+          else pinned[prompt_id])
+    body=prompts_registry.compatible_body(prompt_id,body)
     return prompts_registry.VAR.sub(lambda m:prompts_registry._stringify(values.get(m.group(1),'')),body)
 
 

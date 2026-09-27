@@ -57,12 +57,11 @@ tracks:
   escalation_tracks: [D_ARIZ, G_FOS, H_EFFECTS]
 
 ariz:
-  enabled_parts: [1, 2, 3, 4, 5, 7]   # 해법 도출 트랙. Part 6은 최종 보고서 부가 의견으로 처리.
+  enabled_parts: [1, 2, 3, 4, 5, 6, 7]   # Part6는 항상 제안을 기록하며 문제 변경·재실행은 하지 않는다.
   knowledge_max_tokens: 32000 # Part5의 표준해·효과 적용안, 표와 후속 근거를 완결.
   validation_max_tokens: 32000 # Part7의 모든 해결안 검증 결과를 완결
-  # 최종 보고서 Solution이 3개 이하면 기존 S8 순위 호출에서 6.1~6.3을 검토한다.
-  # 최종 개수가 확정되면 Part 6 조건 판정·제안 결과를 실행 기록에 남긴다.
-  # 보고서 제안만 기록하며 선행 분석 재실행이나 문제·제약 변경은 하지 않는다.
+  # Part5 다음에 Part6 모델 검토를 항상 수행하고, 원래 해결안에 대한 Part7로 진행한다.
+  # 문제 재해석 제안만 기록하며 선행 분석 재실행이나 문제·제약 변경은 하지 않는다.
 
 solve:
   max_escalations: 0          # 기본은 기존 호출 안에서 후보 교체. 필요 시 1로 심화 트랙 허용.

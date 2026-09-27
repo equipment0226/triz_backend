@@ -160,6 +160,8 @@ def attach(ctx, *, discover_sources=True):
         discover(ctx)
     records = st.scratch.get("evidence_candidates", [])
     st.scratch["patent_additions"] = []
+    st.scratch["related_references"] = []
+    st.scratch["evidence_mappings"] = {}
     if not records or not st.concepts:
         st.scratch["evidence_gaps"] = [{"title": c.title, "missing": sorted(required_kinds(st))} for c in st.concepts]
         return
@@ -189,7 +191,6 @@ def attach(ctx, *, discover_sources=True):
             default={}) or {}
         result["matches"].extend(m for m in batch.get("matches", []) if isinstance(m, dict) and m.get("concept_id") in ids and type(m.get('index')) is int and m['index'] in allowed_indices)
         result["additions"].extend(m for m in batch.get("additions", []) if isinstance(m,dict) and type(m.get('index')) is int and m['index'] in allowed_indices)
-    st.scratch["related_references"] = []
     # Never convert generic search links or unselected hits into supporting evidence.
     for match in result.get("matches", []):
         if not isinstance(match, dict):

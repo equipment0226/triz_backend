@@ -687,6 +687,12 @@ def _track_d_ariz(ctx: RunContext) -> None:
     def req(part_id: int) -> list[str]:
         return [s["code"] for s in K.ariz_part(part_id).get("steps", []) if s.get("required")]
 
+    def require_complete(data: dict, part_id: int) -> None:
+        # Transient provider failures can return the default without a checker.
+        issues = verify.check_ariz(data, req(part_id))
+        if issues:
+            raise AbortRun(f"ARIZ Part{part_id} 검토가 완전하지 않아 후속 분석을 중단합니다. " + "; ".join(issues))
+
     p1 = {}
     if 1 in parts_enabled:
         p1 = agent.run_agent(
@@ -699,6 +705,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
                   "key_contradiction": key_contra, "steps": K.ariz_part_steps_text(1)},
             default={},
         ) or {}
+        require_complete(p1, 1)
         run.steps += _ariz_steps(p1)
         run.conflict_pair = p1.get("conflict_pair", "")
 
@@ -714,6 +721,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
                   "operative_time": st.confirm.operative_time},
             default={},
         ) or {}
+        require_complete(p2, 2)
         run.steps += _ariz_steps(p2)
         run.operative_zone = p2.get("operative_zone", st.confirm.operative_zone)
         run.operative_time = p2.get("operative_time", st.confirm.operative_time)
@@ -728,6 +736,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
             vars={"part1": p1.get("steps", []), "part2": p2.get("steps", [])},
             default={},
         ) or {}
+        require_complete(p3, 3)
         run.steps += _ariz_steps(p3)
         run.ifr1 = p3.get("ifr1", "")
         run.ifr2 = p3.get("ifr2", "")
@@ -745,6 +754,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
                   "sfr_inventory": run.sfr_inventory or digest.resources_digest(st)},
             default={},
         ) or {}
+        require_complete(p4, 4)
         run.steps += _ariz_steps(p4)
         run.slp_model = p4.get("slp_model", "")
         run.solution_directions = _text_list(p4.get("solution_directions"))
@@ -771,6 +781,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
             ctx, node="s5_ariz_p5", label="ARIZ Part5 지식베이스 적용", stage=Stage.S5.value,
             agent_id="ariz_specialist", prompt_id="P_S5_ARIZ_PART5", tier="T2",
             max_tokens=int(cfg("ariz.knowledge_max_tokens", 16000)),
+            checker=lambda d: verify.check_ariz_part5(d, req(5)),
             normalizer=bind_part5,
             vars={"part4": p4.get("steps", []), "pc_macro": run.physical_contradiction_macro,
                   "pc_micro": run.physical_contradiction_micro,
@@ -781,24 +792,46 @@ def _track_d_ariz(ctx: RunContext) -> None:
             default={},
         ) or {}
         p5 = bind_part5(p5)
+        issues = verify.check_ariz_part5(p5, req(5))
+        if issues:
+            raise AbortRun("ARIZ Part5 검토가 완전하지 않아 후속 분석을 중단합니다. " + "; ".join(issues))
         run.steps += _ariz_steps(p5)
         run.final_ideas = _text_list(p5.get("final_ideas"))
+        run.unresolved_reason = p5.get("unresolved_reason", "")
         _add_ideas(st, "D_ARIZ", [{**i, "ref": f"ARIZ {i.get('source_step','5.x')}"}
                                   for i in (p5.get("ideas") or [])], ref_key="ref")
+
+    # Every ARIZ run records Part 6, including configurations pinned before it
+    # existed. Advice never mutates the problem or dispatches an earlier stage.
+    from . import reformulation
+    p6 = agent.run_agent(
+        ctx, node="s5_ariz_p6", label="ARIZ Part6 문제 재해석 제안", stage=Stage.S5.value,
+        agent_id="ariz_specialist", prompt_id="P_S5_ARIZ_PART6", tier="T2",
+        max_tokens=int(cfg("ariz.reformulation_max_tokens", 8000)),
+        checker=verify.check_ariz_part6,
+        vars={"problem_reformulation_context": reformulation.part6_context(st, run)},
+        default={},
+    ) or {}
+    issues = verify.check_ariz_part6(p6)
+    if issues:
+        raise AbortRun("ARIZ Part6 검토가 완전하지 않아 후속 분석을 중단합니다. " + "; ".join(issues))
+    reformulation.record_ariz(run, p6)
 
     if 7 in parts_enabled and (run.solution_directions or run.final_ideas):
         p7 = agent.run_agent(
             ctx, node="s5_ariz_p7", label="ARIZ Part7 해결안 검증", stage=Stage.S5.value,
             agent_id="ariz_specialist", prompt_id="P_S5_ARIZ_PART7", tier="T2",
             max_tokens=int(cfg("ariz.validation_max_tokens", 16000)),
+            checker=lambda d: verify.check_ariz(d, req(7)),
             vars={"ifr1": run.ifr1, "pc_macro": run.physical_contradiction_macro,
                   "pc_micro": run.physical_contradiction_micro,
                   "ideas": (run.final_ideas or []) + run.solution_directions},
             default={},
         ) or {}
+        require_complete(p7, 7)
         run.steps += _ariz_steps(p7)
         run.verdicts = [v for v in (p7.get('verdicts') or []) if isinstance(v, dict)]
-        for v in (p7.get("verdicts") or []):
+        for v in run.verdicts:
             for idea in st.solve.raw_ideas:
                 if idea.title == v.get("idea_title"):
                     idea.detail["ariz_verdict"] = v
@@ -807,6 +840,19 @@ def _track_d_ariz(ctx: RunContext) -> None:
                         idea.strongest_objection = v.get("note", "ARIZ 검토 미통과")
             if v.get("is_tradeoff"):
                 ctx.warn(f"ARIZ 7.2: '{v.get('idea_title')}'는 모순 해소가 아니라 절충으로 판정됨")
+    elif 7 in parts_enabled:
+        reason = "검증할 해결 방향이나 최종 아이디어가 도출되지 않아 해결안 평가를 실행하지 않았다."
+        if run.unresolved_reason:
+            reason += " 미해결 이유: " + run.unresolved_reason
+        skipped = [ARIZStep(step_code=item["code"], step_title=item["title"],
+                            status="SKIPPED", output=reason)
+                   for item in K.ariz_part(7).get("steps", []) if item.get("required")]
+        run.steps += skipped
+        trace = ctx.start_step(node="s5_ariz_p7", label="ARIZ Part7 평가 대상 없음",
+            stage=Stage.S5.value, agent_id="deterministic_review", prompt_id="", tier="")
+        trace.output_json = {"steps": [step.model_dump() for step in skipped],
+                             "verdicts": [], "skip_reason": reason}
+        ctx.finish_step(trace, "SKIPPED")
     st.solve.ariz = run
 
 
@@ -833,16 +879,19 @@ def _track_e(ctx: RunContext) -> None:
 
 
 def _track_f(ctx: RunContext) -> None:
+    from .solve_contract import check_applications
     st = ctx.state
     d = agent.run_agent(
         ctx, node="s5_track_f", label="Track F 진화 트렌드", stage=Stage.S5.value,
         agent_id="evolution_analyst", prompt_id="P_S5_TRACK_F", tier="T2",
+        checker=check_applications,
         vars={"target_system": digest.target_system(st),
               "components": digest.components_digest(st),
               "resources": digest.resources_digest(st),
               "trends_block": K.trends_block()},
         default={},
     ) or {}
+    _check_track_result(ctx, 'F_TRENDS', d)
     apps = d.get("applications") or []
     for a in apps:
         a["ref"] = f"{a.get('trend_id')} {a.get('trend_name')}"
@@ -853,16 +902,19 @@ def _track_f(ctx: RunContext) -> None:
 
 
 def _track_g(ctx: RunContext) -> None:
+    from .solve_contract import check_applications
     st = ctx.state
     d = agent.run_agent(
         ctx, node="s5_track_g", label="Track G 기능지향탐색(FOS)", stage=Stage.S5.value,
         agent_id="cross_domain_scout", prompt_id="P_S5_TRACK_G", tier="T2",
+        checker=check_applications,
         vars={"required_functions": _required_functions(st),
               "target_system": digest.target_system(st),
               "operating_env": st.domain.operating_env,
               "contradictions": digest.contradictions_digest(st)},
         default={},
     ) or {}
+    _check_track_result(ctx, 'G_FOS', d)
     apps = d.get("applications") or []
     for a in apps:
         a["ref"] = f"FOS/{a.get('leading_area','')}"
@@ -874,6 +926,7 @@ def _track_g(ctx: RunContext) -> None:
 
 
 def _track_h(ctx: RunContext) -> None:
+    from .solve_contract import check_applications
     from .catalog_binding import bind_effect
     st = ctx.state
     required = _required_functions(st)
@@ -883,6 +936,7 @@ def _track_h(ctx: RunContext) -> None:
     d = agent.run_agent(
         ctx, node="s5_track_h", label="Track H 효과(Effects) 적용", stage=Stage.S5.value,
         agent_id="effects_specialist", prompt_id="P_S5_TRACK_H", tier="T2",
+        checker=check_applications,
         normalizer=lambda data: bind_effect(data,catalog),
         vars={"required_functions": required,
               "target_system": digest.target_system(st),
@@ -890,11 +944,21 @@ def _track_h(ctx: RunContext) -> None:
               "effects_block": format_effects(catalog,len(K.effects()),sum(len(g['effects']) for g in K.effects()),len(K.standards()))},
         default={},
     ) or {}
-    apps = [a for a in bind_effect(d,catalog).get('applications',[]) if isinstance(a,dict)]
+    d = bind_effect(d,catalog)
+    _check_track_result(ctx, 'H_EFFECTS', d)
+    apps = [a for a in d.get('applications',[]) if isinstance(a,dict)]
     for a in apps:
         a["ref"] = f"효과/{a.get('effect_name','')}"
     st.solve.effect_apps += apps
     _add_ideas(st, "H_EFFECTS", apps, ref_key="ref")
+
+
+def _check_track_result(ctx, track, data):
+    from .solve_contract import check_applications
+    issues = check_applications(data)
+    if issues:
+        raise AbortRun(f'{track} 분석 결과가 불완전합니다: ' + ' / '.join(issues))
+    ctx.state.scratch.setdefault('ax_track_review_reasons', {})[track] = data.get('no_application_reason', '')
 
 
 TRACK_FUNCS = {
@@ -913,39 +977,51 @@ def s5_solve(ctx: RunContext) -> None:
         tracks = list(st.scratch['ax_coordination']['tracks'])
     elif st.control.mode.value == "DEEP" and "D_ARIZ" not in tracks:
         tracks.append("D_ARIZ")
-    if st.definition.technical_contradictions and "A_MATRIX" not in tracks:
+    if not ax_enabled(st) and st.definition.technical_contradictions and "A_MATRIX" not in tracks:
         tracks.append("A_MATRIX")
-    if st.definition.physical_contradictions and "B_SEPARATION" not in tracks:
+    if not ax_enabled(st) and st.definition.physical_contradictions and "B_SEPARATION" not in tracks:
         tracks.append("B_SEPARATION")
     if not ax_enabled(st) and domain.physical_allowed(st) and st.analysis.su_fields and "C_STANDARDS" not in tracks:
         tracks.append("C_STANDARDS")
 
     # Evidence planning consumes only pre-S5 facts; bounded track pool shares the call budget.
     st.scratch.setdefault("agent_cache", {})
+    st.scratch.setdefault('ax_solve_start_seq', len(st.steps))
     track_state = st.model_copy(deep=True)
     track_state.steps, track_state.cost, track_state.control = st.steps, st.cost, st.control
     track_state.scratch["agent_cache"] = st.scratch["agent_cache"]
     track_ctx = RunContext(track_state)
     track_ctx.lock, track_ctx.budget, track_ctx.call_slots = ctx.lock, ctx.budget, ctx.call_slots
-    with ThreadPoolExecutor(max_workers=2) as pool:
-        retrieval = pool.submit(_evidence, ctx)
-        _run_tracks(track_ctx, tracks)
-        retrieval.result()
-    st.solve = track_state.solve
+    try:
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            retrieval = pool.submit(_evidence, ctx)
+            _run_tracks(track_ctx, tracks)
+            retrieval.result()
+    finally:
+        # Preserve completed branches on interruption; continuation uses their
+        # results and does not add duplicate applications or repeat paid calls.
+        st.solve = track_state.solve
+        for key in ('ax_track_execution', 'ax_track_review_reasons'):
+            if key in track_state.scratch:
+                st.scratch[key] = track_state.scratch[key]
+        if 's_curve' in track_state.scratch:
+            st.scratch['s_curve'] = track_state.scratch['s_curve']
+    if ax_enabled(st):
+        from .ax.coordinator import complete_required
+        complete_required(ctx)
     if st.control.mode.value == "DEEP" and ("D_ARIZ" not in st.solve.tracks_run or st.solve.ariz is None):
         raise AbortRun("ARIZ 실행기록이 없어 심층 분석을 완료할 수 없습니다. S5에서 이어서 실행해 주세요.")
-    if "s_curve" in track_state.scratch:
-        st.scratch["s_curve"] = track_state.scratch["s_curve"]
     need_more = _merge(ctx)
     if ax_enabled(st):
         from .ax.coordinator import expand
         expand(ctx,need_more)
         st.scratch['ax_idea_inventory']=[i.model_dump(mode='json') for i in st.solve.raw_ideas]
-        st.solve.raw_ideas = digest.select_ideas(st.solve.raw_ideas, st.scratch['ax_bundle']['limits']['initial_candidates'])
+        # The concept review budget limits detailed review, not retention of
+        # generated ideas. Keep the complete inventory available in the report.
 
     retries = st.control.retry_count.get("s5_solve", 0)
     from .ax.coherence import enabled as coherence_enabled
-    if need_more and not coherence_enabled(st) and retries < int(cfg("solve.max_escalations", 0)):
+    if need_more and not ax_enabled(st) and not coherence_enabled(st) and retries < int(cfg("solve.max_escalations", 0)):
         st.control.retry_count["s5_solve"] = retries + 1
         extra = [t for t in cfg("tracks.escalation_tracks", ["D_ARIZ", "G_FOS", "H_EFFECTS"])
                  if t not in tracks]
@@ -964,12 +1040,14 @@ def s5_solve(ctx: RunContext) -> None:
 def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
     st = ctx.state
     seq = [t for t in ["A_MATRIX", "B_SEPARATION", "C_STANDARDS", "D_ARIZ", "E_TRIMMING",
-                       "F_TRENDS", "G_FOS", "H_EFFECTS"] if t in tracks]
+                       "F_TRENDS", "G_FOS", "H_EFFECTS"] if t in tracks and t not in st.solve.tracks_run]
     ctx.emit("tracks", tracks=seq)
     # Track outputs are isolated, then merged in catalog order. Sharing one mutable
     # idea list would let FOS relabel another track's ideas during parallel execution.
     from .schema import SolveBundle
     st.scratch.setdefault("agent_cache", {})
+    execution = st.scratch.setdefault('ax_track_execution', {})
+    first_seq = len(st.steps)
     with ctx.lock:
         branches = {t: st.model_copy(deep=True) for t in seq}
     def execute(t):
@@ -978,6 +1056,7 @@ def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
             return None
         branch = branches[t]
         branch.solve = SolveBundle()
+        branch.scratch.pop('s_curve', None)
         branch.steps, branch.cost, branch.control = st.steps, st.cost, st.control
         branch.scratch["agent_cache"] = st.scratch["agent_cache"]
         child = RunContext(branch)
@@ -985,28 +1064,46 @@ def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
         child.call_slots = ctx.call_slots
         try:
             fn(child)
-            return t, branch
-        except AbortRun:
-            raise
+            prefix = 's5_ariz_' if t == 'D_ARIZ' else 's5_track_' + t[0].lower()
+            failed = [step for step in st.steps if step.seq > first_seq and
+                      step.node.startswith(prefix) and step.status == 'FAILED']
+            if failed:
+                raise AbortRun(f'{t} 호출 실패로 분석이 완료되지 않았습니다. 이어서 실행해 주세요.')
+            return t, branch, None
         except Exception as exc:  # noqa: BLE001
-            ctx.warn(f"트랙 {t} 실행 중 오류: {exc}")
-            raise
+            if not isinstance(exc, AbortRun):
+                ctx.warn(f"트랙 {t} 실행 중 오류: {exc}")
+            return t, branch, exc
     if not seq:
         return
     with ThreadPoolExecutor(max_workers=max(1, min(int(cfg("run.parallel_workers", 4)), len(seq)))) as pool:
         results = list(pool.map(execute, seq))
+    failures = []
     for item in results:
         if not item:
             continue
-        t, branch = item
+        t, branch, failure = item
+        if failure:
+            execution[t] = {'status': 'FAILED', 'reason': str(failure), 'output_count': 0}
+            failures.append(failure)
+            continue
         for key in ("matrix_lookups", "principle_apps", "separation_apps", "standard_apps", "trend_apps", "fos_apps", "effect_apps", "raw_ideas", "gaps"):
             getattr(st.solve, key).extend(getattr(branch.solve, key))
         if branch.solve.ariz:
             st.solve.ariz = branch.solve.ariz
-        if "s_curve" in branch.scratch:
+        if t == 'F_TRENDS' and "s_curve" in branch.scratch:
             st.scratch["s_curve"] = branch.scratch["s_curve"]
         if t not in st.solve.tracks_run:
             st.solve.tracks_run.append(t)
+        from .solve_contract import application_count
+        count = application_count(branch, t)
+        reason = branch.scratch.get('ax_track_review_reasons', {}).get(t, '')
+        execution[t] = {'status': 'COMPLETED' if count else 'REVIEWED_NO_APPLICATION',
+                        'reason': reason or ('분석 결과를 저장했습니다.' if count else
+                            '트랙 수행 후 저장된 적용안이 없습니다. 실행 이력과 적용 조건을 확인하세요.'),
+                        'output_count': count}
+    if failures:
+        raise failures[0]
 
 
 def _evidence(ctx: RunContext) -> None:
@@ -1055,7 +1152,8 @@ def _merge(ctx: RunContext) -> bool:
             base = keep[0]
             prior_details = []
             for idea in keep:
-                prior_details.extend(idea.detail.get("source_details") or [dict(idea.detail, source_idea_id=idea.id)])
+                prior_details.extend(idea.detail.get("source_details") or [
+                    dict(idea.detail, source_idea_id=idea.id, source_track=idea.track)])
             status = m.get("resolution_status", "UNSUPPORTED")
             if status not in ("RESOLVED", "TRADEOFF", "UNSUPPORTED"):
                 status = "UNSUPPORTED"
@@ -1073,7 +1171,8 @@ def _merge(ctx: RunContext) -> bool:
                 addresses=m.get("addresses") or list(dict.fromkeys(v for i in keep for v in i.addresses)),
                 novelty_class=m.get("novelty_class") or (base.novelty_class if base else "NEW"),
                 feasibility_hint=m.get("feasibility_hint") or base.feasibility_hint,
-                detail={"source_details": prior_details},
+                detail={"source_details": prior_details,
+                        "source_tracks": list(dict.fromkeys(t for i in keep for t in digest.idea_tracks(i) if t))},
                 source_idea_ids=list(dict.fromkeys(k for i in keep for k in (i.source_idea_ids or [i.id]))),
                 mechanism_key=m.get("mechanism_key") or base.mechanism_key or base.id,
                 mechanism=m.get("mechanism") or base.mechanism,
@@ -1085,14 +1184,13 @@ def _merge(ctx: RunContext) -> bool:
                 resolution_status=status,
                 resolution_argument=m.get("resolution_argument", ""),
             ))
-        if st.scratch.get('ax_bundle',{}).get('limits',{}).get('portfolio_completion_v1'):
-            # A merge response is not an exclusion verdict. Keep unaccounted
-            # source ideas for the normal independent/constraint checks.
-            omitted=[idea for key,idea in by_id.items() if key not in used_keep_ids]
-            st.scratch.setdefault('ax_portfolio_trace',[]).append({
-                'stage':'merge','input_count':len(by_id),'merged_count':len(new_ideas),
-                'unaccounted_preserved':len(omitted)})
-            new_ideas.extend(omitted)
+        # An omitted source is not an exclusion verdict, including on old pinned
+        # bundles. Preserve it for bounded selection and independent checks.
+        omitted=[idea for key,idea in by_id.items() if key not in used_keep_ids]
+        st.scratch.setdefault('ax_portfolio_trace',[]).append({
+            'stage':'merge','input_count':len(by_id),'merged_count':len(new_ideas),
+            'unaccounted_preserved':len(omitted)})
+        new_ideas.extend(omitted)
         st.solve.raw_ideas = new_ideas
     st.solve.coverage_note = d.get("coverage_note", "")
     st.solve.gaps = list(dict.fromkeys(st.solve.gaps + _text_list(d.get("gaps"))))
@@ -1251,9 +1349,6 @@ def s8_evaluate(ctx: RunContext) -> None:
     st.evaluation.problem_reformulation_review = None
     if not st.concepts:
         ctx.warn("평가할 개념이 없다.")
-        from .reformulation import record, record_execution
-        record(st)
-        record_execution(ctx)
         ctx.persist()
         return
 
@@ -1315,13 +1410,7 @@ def _aggregate(st, scores: list[ReviewerScore]) -> list[ConceptEvaluation]:
 
 def _rank(ctx: RunContext) -> None:
     st = ctx.state
-    from . import reformulation
-    from .ax import enabled as ax_enabled
-    # AX reports display the candidates frozen before ranking, including
-    # conditional candidates. Legacy reports display the retained live list.
-    report_ids = list(dict.fromkeys(c.id for c in st.concepts)) if ax_enabled(st) else None
     keep = int(cfg("solutions.max_solutions", 10))
-    solution_count = len(report_ids) if report_ids is not None else min(keep, len({c.id for c in st.concepts}))
     st.evaluation.problem_reformulation_review = None
     table = [{
         "concept_id": e.concept_id,
@@ -1341,8 +1430,7 @@ def _rank(ctx: RunContext) -> None:
         vars={"aggregate_table": table, "concept_meta": meta,
               "dissent": [d for e in st.evaluation.evaluations for d in e.dissent][:10],
               "min_solutions": cfg("solutions.min_solutions", 5),
-              "max_solutions": cfg("solutions.max_solutions", 10),
-              "problem_reformulation_context": reformulation.rank_context(st, solution_count)},
+              "max_solutions": cfg("solutions.max_solutions", 10)},
         default=None,
     )
     if not isinstance(d, dict):
@@ -1362,8 +1450,6 @@ def _rank(ctx: RunContext) -> None:
     st.evaluation.evaluations = st.evaluation.evaluations[:keep]
     keep_ids = {e.concept_id for e in st.evaluation.evaluations}
     st.concepts = [c for c in st.concepts if c.id in keep_ids]
-    reformulation.record(st, d.get("problem_reformulation_review"), solution_ids=report_ids)
-    reformulation.record_execution(ctx, solution_ids=report_ids)
     ctx.emit("artifact", kind="RANKING",
              data=[{"rank": e.rank, "title": st.concept(e.concept_id).title if st.concept(e.concept_id) else "",
                     "score": e.total_score, "quadrant": e.quadrant}

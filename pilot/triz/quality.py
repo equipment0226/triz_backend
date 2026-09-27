@@ -13,8 +13,14 @@ def generate_concepts(ctx):
     from .ax import enabled as ax_enabled
     from .ax import coherence
     if ax_enabled(st):
-        target = st.scratch['ax_bundle']['limits']['detailed_candidates']
+        from .solve_contract import concept_review_limit
+        target = concept_review_limit(st)
     ideas = digest.select_ideas([i for i in st.solve.raw_ideas if i.resolution_status != "TRADEOFF"], target)
+    assigned_ids = {idea.id for idea in ideas}
+    st.scratch['ax_candidate_review'] = {
+        'contract': 'idea-retention-v1', 'available_ideas': len(st.solve.raw_ideas),
+        'assigned_ideas': len(ideas), 'review_limit': target,
+        'unassigned_idea_ids': [idea.id for idea in st.solve.raw_ideas if idea.id not in assigned_ids]}
     prior_limit = max(0, int(settings.cfg("feedback_rag.max_influenced_concepts", 3)))
     prior = rag.prior_cases_block(st) if prior_limit else ""
     groups = []

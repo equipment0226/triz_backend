@@ -22,6 +22,9 @@
 - 신규 자원은 '신규:'로 표시한다. 외부 검색의 존재만으로 maturity를 승격하지 않는다.
 - prior_case_ids: 제공된 과거 사례를 반영한 경우만 해당 ID. 없으면 빈 배열.
 - 신규성·개조 규모는 실제 해법에 맞게 분류한다. 특정 비율이나 기술 명칭을 강제하지 않는다.
+- novelty_class는 SAME_DOMAIN(동일 분야에서 알려진 원리 적용), CROSS_DOMAIN(다른 분야의 원리 전이), NEW(새로운 구성·원리 제안) 중 하나만 사용한다. ADAPTATION, DERIVATIVE 같은 별도 분류값을 만들지 않는다.
+- change_scale은 PARAMETER(설정·파라미터 변경), PARTIAL(일부 부품·공정 변경), REDESIGN(시스템 재설계) 중 하나만 사용한다. SUBSYSTEM은 허용값이 아니다.
+- maturity는 CONCEPT, PROTOTYPE_KNOWN, PROVEN_ELSEWHERE 중 하나만 사용한다. quality_status를 기록한다면 UNVERIFIED로 둔다. 근거 없이 신규성·성숙도를 높이거나 분류 오류를 이유로 아이디어를 제외하지 않는다.
 - diagram_mermaid는 빈 문자열. 시각화는 코드가 생성한다.
 {{coherence_contract}}
 {"concepts":[{"title":"","one_liner":"","description":"","working_principle":"","changes_to_system":[],"required_resources":[],"source_idea_ids":[],"mechanism_key":"","intervention_variable":"","resolution_argument":"","hypothesis_ids":[],"prior_case_ids":[],"triz_origin":[{"track":"","ref":""}],"addresses_contradictions":[],"novelty_class":"NEW","change_scale":"PARTIAL","expected_effect":"","assumptions":[],"open_risks":[],"maturity":"CONCEPT","evidence_ids":[],"diagram_mermaid":"","validation_plan":[{"metric":"","baseline":"","target":"","experiment":"","failure_criterion":""}],"transfer_conditions":[]}],"excluded":[{"source_idea_ids":[],"idea":"","reason":""}]}

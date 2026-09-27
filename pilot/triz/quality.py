@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import json
+from pydantic import ValidationError
 
 from .execution_config import ThreadPoolExecutor
 from . import agent, digest, rag, verify
@@ -42,9 +43,16 @@ def check_concept_batch(data, assigned_ids):
                     # Model-local IDs (often C1 in every batch) are not identities.
                     concept = ConceptSpec.model_validate({k: v for k, v in row.items() if k != 'id'})
                     if not concept.title.strip():
-                        raise ValueError('empty title')
-                except (ValueError, TypeError):
-                    issues.append(prefix + "해결 개념의 필드·제목을 확인하세요.")
+                        issues.append(prefix + f"아이디어 {ids[0]}: title에 비어 있지 않은 제목을 기록하세요.")
+                except ValidationError as exc:
+                    # Repair must see the precise field and accepted values. A
+                    # generic error caused repeated, paid retries of invalid enums.
+                    for error in exc.errors(include_url=False, include_input=False):
+                        field = '.'.join(str(part) for part in error['loc'])
+                        issues.append(prefix + f"아이디어 {ids[0]}: {field}: {error['msg']}. "
+                                      "해당 필드를 수정하고 모든 배정 아이디어의 완전한 JSON을 반환하세요.")
+                except (ValueError, TypeError) as exc:
+                    issues.append(prefix + f"아이디어 {ids[0]}: 해결 개념 형식 오류 ({type(exc).__name__}).")
             elif not isinstance(row.get('reason'), str) or not row['reason'].strip():
                 issues.append(prefix + "제외한 원본에는 구체적인 reason이 필요합니다.")
     missing = assigned_ids - covered

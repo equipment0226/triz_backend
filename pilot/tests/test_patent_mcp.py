@@ -53,7 +53,7 @@ def test_real_tools_list_auth_and_schema(mcp_client):
     assert response.status_code==200,response.text
     tools=response.json()['result']['tools']
     assert {t['name'] for t in tools}==set(OPERATIONS)|{'patent_open_case','patent_get_context'}
-    assert len(tools)==19
+    assert len(tools)==23
     for tool in tools:
         if tool['name'] in OPERATIONS:
             assert 'ticket' in tool['inputSchema']['properties']
@@ -74,7 +74,7 @@ def test_real_bootstrap_context_and_cross_owner_denial(mcp_client):
         'requested_artifact_ids':[case['artifacts']['application_questions']], 'purpose':'owner intake'}}}
     result=rpc(client,'tools/call',read).json()['result']
     assert not result.get('isError'),result
-    assert len(output(result)['artifacts'][0]['payload']['questions'])==3
+    assert len(output(result)['artifacts'][0]['payload']['questions'])==1
     other=rpc(client,'tools/call',read,owner='other-test').json()['result']
     assert other['isError']
     assert case['title'] not in json.dumps(other,ensure_ascii=False)

@@ -3,8 +3,8 @@ import asyncio
 from functools import lru_cache
 import json
 import os
-from sqlalchemy import select
-from .repository import Repository, tasks, cases
+from sqlalchemy import select, update
+from .repository import Repository, tasks, cases, now
 from .service import Service
 from .domain import PatentError
 
@@ -22,17 +22,26 @@ def tick():
     current.recover_expired()
     from .image_jobs import tick as image_tick
     image_tick(current)
-    with current.repo.engine.connect() as c:
+    with current.repo.engine.begin() as c:
         # A paused/dependency-blocked case must not starve unrelated cases.
-        candidates = c.execute(select(tasks.c.body, cases.c.owner_id, cases.c.body.label('case_body'))
-            .join(cases, tasks.c.case_id == cases.c.case_id).where(tasks.c.status == 'QUEUED')
+        candidates = c.execute(select(tasks.c.task_id, tasks.c.body, cases.c.owner_id, cases.c.body.label('case_body'))
+            .join(cases, tasks.c.case_id == cases.c.case_id).where(tasks.c.status == 'QUEUED', tasks.c.lease_until_ms <= now())
             .order_by(tasks.c.task_id))
         row = next((r for r in candidates if json.loads(r.case_body)['execution_status']
                     not in ('CANCELLED','PAUSED_USER','PAUSED_BUDGET','PAUSED_DEPENDENCY')), None)
+        if row and os.getenv('PATENT_ORCHESTRATOR', 'local') == 'n8n':
+            claimed = c.execute(update(tasks).where(tasks.c.task_id == row.task_id,
+                tasks.c.status == 'QUEUED', tasks.c.lease_until_ms <= now()).values(lease_until_ms=now()+60000))
+            if claimed.rowcount != 1:
+                return False
     if not row:
         return False
     try:
-        current.execute(row.owner_id, json.loads(row.body)['ticket'])
+        if os.getenv('PATENT_ORCHESTRATOR', 'local') == 'n8n':
+            from .dispatch import dispatch_task, node_for
+            dispatch_task(row.task_id, node_for(current, row.task_id))
+        else:
+            current.execute(row.owner_id, json.loads(row.body)['ticket'])
     except PatentError:
         pass
     return True

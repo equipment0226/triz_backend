@@ -108,7 +108,7 @@ def test_t3_provider_model_substitution_is_not_accepted_as_review():
     assert result['error']=='REVIEW_MODEL_IDENTITY_MISMATCH' and result['cost_micro_usd']==300
 
 
-@pytest.mark.parametrize('code',['PROVIDER_NOT_ALLOWED','REVIEW_COVERAGE_LIMIT'])
+@pytest.mark.parametrize('code',['PROVIDER_NOT_ALLOWED','REVIEW_COVERAGE_LIMIT','INPUT_TOKENIZER_UNAVAILABLE'])
 def test_t3_preflight_failure_restores_mandatory_review_reservation(patent,code):
     s,gateway,engine,_=patent;case=drafted(s)
     # Issue a required review on the current immutable readset without invoking it.

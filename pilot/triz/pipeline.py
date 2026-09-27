@@ -32,6 +32,7 @@ _RUNNING = {}
 _WAKEUPS = set()
 _thread_lock = threading.Lock()
 DISPATCH_GRACE_SECONDS = 180
+DISPATCH_ATTEMPTS = 3
 def stage_list():
     return [{"key": k, "label": label, "index": i} for i, (k, label, _) in enumerate(PIPELINE)]
 def envelope(state):
@@ -252,6 +253,47 @@ def _dispatch_failed(run_id, dispatch):
         if str(exc) != "Run is busy":
             raise
         return False  # An executing worker owns the state; recovery handles a later loss.
+def _dispatch_still_pending(run_id, dispatch):
+    """Do not resend a request already claimed, superseded, or deleted."""
+    try:
+        with store.run_lock(run_id):
+            state = store.load_state(run_id)
+            return bool(state and state.status == "QUEUED" and not state.pending
+                and state.scratch.get("dispatch_request") == dispatch
+                and state.scratch.get("execution_epoch", 0) == dispatch["epoch"]
+                and state.control.stage_index == dispatch["index"])
+    except RuntimeError as exc:
+        if str(exc) != "Run is busy":
+            raise
+        return False
+
+
+def _send_dispatch(run_id, dispatch, message):
+    if not settings.n8n_webhook_url or not settings.service_token:
+        raise RuntimeError("n8n webhook과 서비스 인증 설정이 필요합니다.")
+    for attempt in range(1, DISPATCH_ATTEMPTS + 1):
+        try:
+            response = httpx.post(settings.n8n_webhook_url, json=message,
+                headers={"Authorization": f"Bearer {settings.service_token}"}, timeout=15)
+            response.raise_for_status()
+            return
+        except (httpx.RequestError, httpx.HTTPStatusError) as exc:
+            status_code = exc.response.status_code if isinstance(exc, httpx.HTTPStatusError) else None
+            retryable = status_code is None or status_code in (408, 429) or status_code >= 500
+            # The first POST may have arrived even when its response was lost.
+            # Check the durable dispatch identity under the stage execution lock.
+            if not _dispatch_still_pending(run_id, dispatch):
+                return
+            events.emit(run_id, "dispatch_attempt_failed", attempt=attempt,
+                error_type=type(exc).__name__, status_code=status_code,
+                will_retry=retryable and attempt < DISPATCH_ATTEMPTS)
+            if not retryable or attempt == DISPATCH_ATTEMPTS:
+                raise
+            time.sleep(attempt)
+            if not _dispatch_still_pending(run_id, dispatch):
+                return
+
+
 def start(run_id):
     if settings.orchestrator == "n8n":
         with store.run_lock(run_id):
@@ -270,11 +312,7 @@ def start(run_id):
             store.save_state(state)
             message = envelope(state)
         try:
-            if not settings.n8n_webhook_url or not settings.service_token:
-                raise RuntimeError("n8n webhook과 서비스 인증 설정이 필요합니다.")
-            response = httpx.post(settings.n8n_webhook_url, json=message,
-                headers={"Authorization": f"Bearer {settings.service_token}"}, timeout=15)
-            response.raise_for_status()
+            _send_dispatch(run_id, dispatch, message)
         except Exception:
             if _dispatch_failed(run_id, dispatch):
                 raise

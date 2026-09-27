@@ -1,0 +1,184 @@
+{
+  "run_id": "run-364fd827a5a7",
+  "question": "DLC 데이터센터 냉각수 온도와 GPU 온도 상충 해결",
+  "verification": "offline replay of saved inputs; no new model or engineering test",
+  "catalog_groups": 19,
+  "catalog_effects": 269,
+  "required_functions": [
+    "칩 접합면과 냉각수 사이의 열경로 상에서, 이미 존재하는 온도차(열구배)와 계면 간극을 구동력으로 삼아 접촉 열저항과 대류 열저항을 국소적으로 낮추는, 정체를 특정하지 않은 기능적 요소(무엇인지 미정)",
+    "TIM(열계면재)가 콜드플레이트 베이스에 대해 '콜드플레이트 베이스로 열을 전도한다'를 충분히 수행한다",
+    "콜드플레이트 내부 유로가 냉각수(공급 유체)에 대해 '냉각수(공급 유체)로 열을 대류 전달한다'를 충분히 수행한다",
+    "콜드플레이트 내부 유로에 대한 '콜드플레이트별 유량을 불균등하게 배분한다'를 없애면서 기존 유익 기능을 유지한다"
+  ],
+  "shortlist_size": 24,
+  "matches_recorded_shortlist": true,
+  "single_local_replay_ms": 62.34,
+  "domain_counts": {
+    "PHYSICAL": 13,
+    "BIOLOGICAL": 11
+  },
+  "function_group_counts": {
+    "열을 전달하거나 온도를 제어한다": 7,
+    "생물학적 작용을 이용해 기능을 수행한다": 11,
+    "에너지를 변환하거나 저장한다": 1,
+    "재료를 접합하거나 형성한다": 1,
+    "물체를 지지·고정하거나 이동시킨다": 1,
+    "전하·전류·전기적 특성을 제어한다": 1,
+    "손상을 억제하거나 재료를 강화한다": 1,
+    "접촉 마찰을 줄인다": 1
+  },
+  "shortlist": [
+    {
+      "id": "7.1",
+      "name": "열전도",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "18.1",
+      "name": "효소 촉매",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "18.7",
+      "name": "전기천공",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "7.2",
+      "name": "강제 대류",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "8.11",
+      "name": "유체 터빈 동력 변환",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "18.3",
+      "name": "혐기성 소화",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "18.5",
+      "name": "생물막 분해",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "16.14",
+      "name": "브레이징",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "18.4",
+      "name": "광합성",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "1.1",
+      "name": "전자석 흡인형 자기부상",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "18.2",
+      "name": "발효",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "18.8",
+      "name": "생체분자 인식",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "7.6",
+      "name": "열사이펀",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "7.16",
+      "name": "진공 단열",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "7.3",
+      "name": "자연 대류",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "18.10",
+      "name": "효소 저해",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "18.12",
+      "name": "황화광 미생물 침출",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "18.6",
+      "name": "중합효소 연쇄반응(PCR)",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "18.13",
+      "name": "이온 채널 개폐 조절",
+      "domain": "BIOLOGICAL"
+    },
+    {
+      "id": "7.11",
+      "name": "응축 열전달",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "14.6",
+      "name": "마이스너 효과",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "17.9",
+      "name": "마르텐사이트 경화",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "5.2",
+      "name": "탄성유체윤활(EHL)",
+      "domain": "PHYSICAL"
+    },
+    {
+      "id": "7.25",
+      "name": "열음향 냉동",
+      "domain": "PHYSICAL"
+    }
+  ],
+  "effects_prompt_characters": 11031,
+  "track_usage_tokens": {
+    "input": 14460,
+    "output": 3490
+  },
+  "tracks": [
+    "A_MATRIX",
+    "B_SEPARATION",
+    "H_EFFECTS"
+  ],
+  "historical_bound_ids": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "provider_returned_ids": [
+    "[7.1]",
+    "[7.2]",
+    "[16.14]",
+    "[7.2]",
+    "[7.6]"
+  ],
+  "fixed_binding_offline_replay_ids": [
+    "7.1",
+    "7.2",
+    "16.14",
+    "7.2",
+    "7.6"
+  ],
+  "history_modified": false
+}

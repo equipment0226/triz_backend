@@ -6,6 +6,7 @@ import os
 from urllib.parse import urlparse
 import httpx
 from .domain import PatentError, canonical, digest
+from .input_tokens import measure
 
 
 @dataclass(frozen=True)
@@ -107,8 +108,8 @@ class Gateway:
                   'Do not invent measurements, identifiers or legal conclusions. Derived content is a proposal. '
                   'Return exactly the supplied JSON schema. ' + instruction + '\nSCHEMA\n' + canonical(schema))
         messages = [{'role': 'system', 'content': system}, {'role': 'user', 'content': canonical(context)}]
-        # UTF-8 byte count conservatively bounds tokenizer input; never truncate material.
-        if len(canonical(messages).encode()) + 128 > model.input_limit:
+        input_measurement = measure(model, messages)
+        if input_measurement['admission_tokens'] > model.input_limit:
             raise PatentError('REVIEW_COVERAGE_LIMIT', '전체 자료가 모델 입력 한도를 넘습니다. 검토 범위를 축약할 수 없습니다.')
         body = {'model': model.model, 'messages': messages, 'max_tokens': model.output_limit,
                 'response_format': {'type': 'json_object'}}
@@ -129,7 +130,8 @@ class Gateway:
             result = {'usage': usage, 'cost_micro_usd': model.cost(*tokens), 'provider_request_id': value.get('id'),
                 'provider_model':value.get('model'),
                 'boundary_contract':{'version':'patent-untrusted-data-v1','tools_enabled':False,
-                    'request_hash':digest(body),'data_hash':digest(context)}}
+                    'request_hash':digest(body),'data_hash':digest(context),
+                    'input_measurement':input_measurement}}
             if model.tier=='T3' and value.get('model')!=model.model:
                 return {**result,'error':'REVIEW_MODEL_IDENTITY_MISMATCH'}
             if choice.get('message',{}).get('tool_calls') or choice.get('message',{}).get('function_call'):

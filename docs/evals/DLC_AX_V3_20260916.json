@@ -1,0 +1,243 @@
+{
+  "cases": [
+    {
+      "phase": "phase1",
+      "run_id": "run-338e4beff084",
+      "status": "COMPLETED",
+      "stage_index": 13,
+      "cost": {
+        "limit_microusd": 600000,
+        "spent_microusd": 168826,
+        "reserved_microusd": 0,
+        "remaining_microusd": 431174,
+        "unknown_attempts": 0
+      },
+      "gates": {
+        "G1": {
+          "label": "문제 정의",
+          "status": "PASS"
+        },
+        "G2": {
+          "label": "문제 분석",
+          "status": "PASS"
+        },
+        "G3": {
+          "label": "해결안 도출",
+          "status": "PASS"
+        },
+        "G4": {
+          "label": "검증·선택",
+          "status": "CONDITIONAL"
+        }
+      },
+      "selection": {
+        "candidates": [
+          {
+            "candidate_id": "CPT-bfecb2f2",
+            "status": "CONDITIONAL",
+            "missing": [
+              "독립 기구 검토 미통과",
+              "필수 제약 검증 미완료",
+              "계획한 성능·적용 시험 결과 미등록"
+            ],
+            "obligations": [
+              {
+                "id": "CPT-bfecb2f2:test:0",
+                "description": {
+                  "metric": "동일 평균 공급 온도에서 피크 칩 온도, 칠러 전력, 표면-노점 차이",
+                  "baseline": "기존 고정 설정점 정상상태 운전",
+                  "target": "피크 칩 온도 상한 이하 유지 및 칠러 전력 감소(목표 수치 미정, 측정 후 설정)",
+                  "experiment": "동일 평균 공급 온도 조건에서 정상상태 운전과 펄스·사각파 운전을 교대 적용하여 세 지표를 동시 측정",
+                  "failure_criterion": "피크 칩 온도가 상한을 초과하거나 표면 온도가 노점 이하로 내려가는 구간이 발생하면 실패"
+                },
+                "status": "NOT_RUN",
+                "review_ids": [],
+                "required_for_recommendation": true
+              },
+              {
+                "id": "CPT-bfecb2f2:test:1",
+                "description": {
+                  "metric": "과도 응답 시간(설정점 계단 변경 후 칩 온도 정상상태 도달 시간)",
+                  "baseline": "미측정",
+                  "target": "변조 주기 설정을 위한 실측값 확보",
+                  "experiment": "공급 온도 설정점을 계단상으로 변경하고 칩 온도 응답을 기록",
+                  "failure_criterion": "과도 응답 시간이 변조 주기 후보보다 길어 준정상상태 가정이 성립하지 않으면 실패"
+                },
+                "status": "NOT_RUN",
+                "review_ids": [],
+                "required_for_recommendation": true
+              }
+            ],
+            "evidence_ids": [],
+            "quality_status": "REVISE",
+            "constraint_verdict": "CONDITIONAL"
+          },
+          {
+            "candidate_id": "CPT-57f0014e",
+            "status": "CONDITIONAL",
+            "missing": [
+              "독립 기구 검토 미통과",
+              "필수 제약 검증 미완료",
+              "계획한 성능·적용 시험 결과 미등록"
+            ],
+            "obligations": [
+              {
+                "id": "CPT-57f0014e:test:0",
+                "description": {
+                  "metric": "시스템 전체 전력(칠러+펌프) 및 칩 온도 상한 충족 여부",
+                  "baseline": "2차 소루프 없는 단일 루프 운전",
+                  "target": "칩 온도 상한 충족 유지 및 시스템 전체 전력 감소(목표 수치 미정, 측정 후 설정)",
+                  "experiment": "2차 소루프·계층 제어 도입 전후로 시스템 전체 전력과 칩 온도 상한 충족 여부를 동시 측정",
+                  "failure_criterion": "2차 소루프 부하가 1차 공급 온도 상향 이득을 상쇄해 시스템 전체 전력이 감소하지 않으면 실패"
+                },
+                "status": "NOT_RUN",
+                "review_ids": [],
+                "required_for_recommendation": true
+              }
+            ],
+            "evidence_ids": [],
+            "quality_status": "REVISE",
+            "constraint_verdict": "CONDITIONAL"
+          }
+        ],
+        "recommended": [],
+        "conditional": [
+          "CPT-bfecb2f2",
+          "CPT-57f0014e"
+        ],
+        "status": "COMPLETE",
+        "scope": "개념 검토와 실제 시험 결과를 구분한 판정"
+      },
+      "physical_testing": "NOT_PERFORMED",
+      "training_consent": "NO_TRAINING"
+    },
+    {
+      "phase": "phase2",
+      "run_id": "run-364fd827a5a7",
+      "status": "COMPLETED",
+      "stage_index": 13,
+      "cost": {
+        "limit_microusd": 431174,
+        "spent_microusd": 192855,
+        "reserved_microusd": 0,
+        "remaining_microusd": 238319,
+        "unknown_attempts": 0
+      },
+      "gates": {
+        "G1": {
+          "label": "문제 정의",
+          "status": "PASS"
+        },
+        "G2": {
+          "label": "문제 분석",
+          "status": "PASS"
+        },
+        "G3": {
+          "label": "해결안 도출",
+          "status": "CONDITIONAL"
+        },
+        "G4": {
+          "label": "검증·선택",
+          "status": "CONDITIONAL"
+        }
+      },
+      "selection": {
+        "candidates": [
+          {
+            "candidate_id": "CPT-a57e9732",
+            "status": "CONDITIONAL",
+            "missing": [
+              "독립 기구 검토 미통과",
+              "계획한 성능·적용 시험 결과 미등록"
+            ],
+            "obligations": [
+              {
+                "id": "CPT-a57e9732:test:0",
+                "description": {
+                  "metric": "CDU 총 냉동 부하 및 분기별 최고 GPU 온도",
+                  "baseline": "분기별 공급 온도 균일 운전 상태의 총 냉동 부하와 최고 GPU 온도",
+                  "target": "총 냉동 부하 감소와 최고 GPU 온도 상한 유지의 동시 성립(목표 수치 미제공, 측정으로 설정)",
+                  "experiment": "분기별 온도·유량 차등화 전후로 CDU 총 냉동 부하와 분기별 GPU 온도 분포를 동시 기록한다",
+                  "failure_criterion": "총 냉동 부하가 감소하지 않거나 최고 GPU 온도가 상한을 초과하면 실패"
+                },
+                "status": "NOT_RUN",
+                "review_ids": [],
+                "required_for_recommendation": true
+              },
+              {
+                "id": "CPT-a57e9732:test:1",
+                "description": {
+                  "metric": "분기별 GPU 온도 편차",
+                  "baseline": "차등화 이전 분기별 GPU 온도 편차",
+                  "target": "고편차 분기 편차 축소(목표 수치 미제공)",
+                  "experiment": "TIM 재도포·체결 압력 재설정·유량 재분배 전후로 분기별 GPU 온도 편차를 비교한다",
+                  "failure_criterion": "편차가 줄지 않거나 다른 분기 편차가 증가하면 실패"
+                },
+                "status": "NOT_RUN",
+                "review_ids": [],
+                "required_for_recommendation": true
+              }
+            ],
+            "evidence_ids": [],
+            "quality_status": "REVISE",
+            "constraint_verdict": "PASS"
+          },
+          {
+            "candidate_id": "CPT-f7c91be6",
+            "status": "CONDITIONAL",
+            "missing": [
+              "독립 기구 검토 미통과",
+              "필수 제약 검증 미완료",
+              "계획한 성능·적용 시험 결과 미등록"
+            ],
+            "obligations": [
+              {
+                "id": "CPT-f7c91be6:test:0",
+                "description": {
+                  "metric": "부하 스텝 변화 시 GPU 온도 최대 초과량 및 회복 시간",
+                  "baseline": "고정 공급 온도 운전의 스텝 응답",
+                  "target": "상한 초과 없이 회복(목표 수치 미제공)",
+                  "experiment": "부하 스텝 변화를 인가해 GPU 온도 최대 초과량과 회복 시간을 측정한다",
+                  "failure_criterion": "허용 상한을 초과하거나 회복 시간이 허용 범위를 넘으면 실패"
+                },
+                "status": "NOT_RUN",
+                "review_ids": [],
+                "required_for_recommendation": true
+              },
+              {
+                "id": "CPT-f7c91be6:test:1",
+                "description": {
+                  "metric": "클록 변동 폭(진동 여부)",
+                  "baseline": "스케줄 적용 전 클록 변동 폭",
+                  "target": "진동 없이 절감 성립(목표 수치 미제공)",
+                  "experiment": "임계 근처 전환 반복 구간에서 클록 변동 폭을 측정한다",
+                  "failure_criterion": "클록이 지속 진동하면 실패"
+                },
+                "status": "NOT_RUN",
+                "review_ids": [],
+                "required_for_recommendation": true
+              }
+            ],
+            "evidence_ids": [],
+            "quality_status": "REVISE",
+            "constraint_verdict": "CONDITIONAL"
+          }
+        ],
+        "recommended": [],
+        "conditional": [
+          "CPT-a57e9732",
+          "CPT-f7c91be6"
+        ],
+        "status": "COMPLETE",
+        "scope": "개념 검토와 실제 시험 결과를 구분한 판정"
+      },
+      "physical_testing": "NOT_PERFORMED",
+      "training_consent": "NO_TRAINING"
+    }
+  ],
+  "total_microusd": 361681,
+  "approved_limit_microusd": 600000,
+  "cost_basis": "usage_tokens_at_pinned_configured_rates",
+  "provider_billed_total": null,
+  "provider_billed_limit_verified": false
+}

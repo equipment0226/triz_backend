@@ -1,0 +1,98 @@
+{
+  "id": "KR_GENERAL_REVIEW_DRAFT_V1",
+  "version": "1",
+  "sections": [
+    {
+      "id": "title",
+      "heading": "발명의 명칭",
+      "source_paths": [
+        "concept.title"
+      ]
+    },
+    {
+      "id": "technical_field",
+      "heading": "기술분야",
+      "source_paths": [
+        "triz_context.domain",
+        "problem"
+      ]
+    },
+    {
+      "id": "background",
+      "heading": "발명의 배경이 되는 기술",
+      "source_paths": [
+        "problem",
+        "triz_context.analysis",
+        "references"
+      ]
+    },
+    {
+      "id": "problem",
+      "heading": "해결하려는 과제",
+      "source_paths": [
+        "problem",
+        "triz_context.definition",
+        "triz_context.constraints"
+      ]
+    },
+    {
+      "id": "solution",
+      "heading": "과제의 해결 수단",
+      "source_paths": [
+        "concept",
+        "triz_context.confirm"
+      ]
+    },
+    {
+      "id": "effects",
+      "heading": "발명의 효과",
+      "source_paths": [
+        "concept",
+        "triz_context.constraint_checks"
+      ]
+    },
+    {
+      "id": "drawing_description",
+      "heading": "도면의 간단한 설명",
+      "source_paths": [
+        "concept"
+      ]
+    },
+    {
+      "id": "embodiments",
+      "heading": "발명을 실시하기 위한 구체적인 내용",
+      "source_paths": [
+        "concept",
+        "triz_context.constraints",
+        "triz_context.clarifications",
+        "triz_context.attachments"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "form_id": "form14",
+      "artifact": "specification",
+      "fields": [
+        "applicant",
+        "inventors"
+      ]
+    },
+    {
+      "form_id": "form15",
+      "artifact": "specification",
+      "companion": "claims"
+    },
+    {
+      "form_id": "form16",
+      "artifact": "specification",
+      "fields": [
+        "abstract"
+      ]
+    },
+    {
+      "form_id": "form17",
+      "artifact": "drawings"
+    }
+  ]
+}

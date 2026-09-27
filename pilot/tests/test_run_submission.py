@@ -26,6 +26,7 @@ def submit(client, key, **kwargs):
 
 
 def test_dispatch_failure_still_returns_project_and_retry_reuses_it(client, monkeypatch):
+    monkeypatch.setattr(pipeline.time, 'sleep', lambda seconds: None)
     monkeypatch.setattr(settings, 'orchestrator', 'n8n')
     monkeypatch.setattr(settings, 'n8n_webhook_url', 'https://dispatcher.invalid/webhook')
     calls = []
@@ -40,7 +41,7 @@ def test_dispatch_failure_still_returns_project_and_retry_reuses_it(client, monk
     assert store.load_state(run_id).status == 'INTERRUPTED'
     retry = submit(client, key)
     assert retry.status_code == 202 and retry.json() == {'run_id': run_id, 'reused': True}
-    assert calls == [1]
+    assert calls == [1] * pipeline.DISPATCH_ATTEMPTS
     assert client.get(f'/api/runs/{run_id}/view').json()['status'] == 'INTERRUPTED'
     assert store.is_published(run_id)
 

@@ -67,6 +67,7 @@ def get_case(case_id: str, owner=Depends(principal)):
     case = s.repo.get(owner, case_id)
     material = s.material(owner, case)
     return {'case': case, 'material': material, 'approvals': s.approvals(owner, case),
+            'workflow': __import__('patent_draft.workflow', fromlist=['describe']).describe(s, owner, case, material, s.current_reviews(owner, case)),
             'intake': {'complete': intake_complete(material), 'pending_question_ids': [q['id'] for q in unanswered(material)]},
             'reviews': s.current_reviews(owner, case), 'attachment_requirements': __import__('patent_draft.forms', fromlist=['requirements']).requirements(material.get('facts', {}))}
 
@@ -109,11 +110,12 @@ async def attachment(case_id: str, file: UploadFile = File(...), expected_revisi
         s.put_asset(c, case, asset_id, name, mime, data)
         evidence={**payload,'asset_id':asset_id,'origin':'OWNER_PRIVATE_UPLOAD',**extracted}
         s.repo.append(c,case_id,'attachment',evidence)
-        s.invalidate(c,case,{'invention','questions','review_questions'},'ATTACHMENT_ADDED')
+        s.invalidate(c,case,{'synthesized_solution','invention','questions','review_questions'},'ATTACHMENT_ADDED')
         previous=case['artifacts'].get('attachments')
         s.repo.artifact(c,case,'attachments',{'documents':[*material.get('attachments',{}).get('documents',[]),evidence]},
                        [previous] if previous else [],producer='OWNER_UPLOAD')
         s.retire_stale_queued(c,case)
+        s.auto_resume(c,owner,case)
         return {'asset_id': asset_id, 'parse_status': extracted['parse_status']}
     return s.repo.mutate(owner, case_id, 'attachments', body, idempotency_key, save)
 
@@ -131,6 +133,27 @@ def download(case_id: str, asset_id: str, owner=Depends(principal)):
         'X-Content-Type-Options':'nosniff', 'Content-Disposition':'attachment; filename="patent-draft'+('.zip' if row['mime']=='application/zip' else '.bin')+'"'})
 
 
+@router.get('/cases/{case_id}/report/{format}')
+def report_download(case_id: str, format: str, version_id: str = '', owner=Depends(principal)):
+    s=service();case=s.repo.get(owner,case_id)
+    version_id=version_id or case['artifacts'].get('report')
+    if not version_id:
+        raise PatentError('REPORT_NOT_READY','통합 보고서를 작성 중입니다.',409)
+    record=s.repo.record(owner,case_id,version_id)
+    if record.get('artifact_type')!='report' or format not in record['payload'].get('files',{}):
+        raise PatentError('NOT_FOUND','보고서 파일을 찾을 수 없습니다.',404)
+    file=record['payload']['files'][format]
+    with s.repo.engine.connect() as conn:
+        row=conn.execute(select(assets).where(assets.c.case_id==case_id,assets.c.asset_id==file['asset_id'])).mappings().first()
+    if not row:raise PatentError('NOT_FOUND','보고서 파일을 찾을 수 없습니다.',404)
+    from urllib.parse import quote
+    extension=format if format in ('docx','pdf') else 'png'
+    name=quote(record['payload']['title']+'.'+extension,safe='')
+    disposition='attachment' if format in ('docx','pdf') else 'inline'
+    return Response(row['content'],media_type=row['mime'],headers={'Cache-Control':'private, no-store',
+        'X-Content-Type-Options':'nosniff','Content-Disposition':disposition+"; filename*=UTF-8''"+name})
+
+
 @router.get('/cases/{case_id}/artifacts/{version_id}')
 @router.get('/cases/{case_id}/exports/{version_id}')
 def record(case_id: str, version_id: str, owner=Depends(principal)):
@@ -146,6 +169,19 @@ def lineage(case_id: str, version_id: str, owner=Depends(principal)):
 @router.get('/cases/{case_id}/tasks/{task_id}')
 def task(case_id: str, task_id: str, owner=Depends(principal)):
     return service().task(owner, case_id, task_id)
+
+
+@router.get('/cases/{case_id}/keywords')
+def keyword_history(case_id: str, owner=Depends(principal)):
+    from .repository import keywords
+    s=service()
+    case=s.repo.get(owner,case_id)
+    with s.repo.engine.connect() as conn:
+        rows=conn.execute(select(keywords).where(keywords.c.case_id==case_id)
+                          .order_by(keywords.c.created_ms,keywords.c.keyword_id)).mappings().all()
+    return {'current_version_id':case['artifacts'].get('drafting_keywords'), 'items':[
+        {'version_id':r['version_id'],'source_version_id':r['source_version_id'],
+         'current':r['version_id']==case['artifacts'].get('drafting_keywords'),**json.loads(r['body'])} for r in rows]}
 
 
 @router.get('/cases/{case_id}/{collection}')
@@ -185,7 +221,7 @@ def collection(case_id: str, collection: str, owner=Depends(principal)):
 
 @router.post('/cases/{case_id}/{operation}')
 def mutate(case_id: str, operation: str, body: Mutation, owner=Depends(principal), idempotency_key: str = Header(default='')):
-    allowed = {'budget-authorizations','start','pause','resume','cancel','answers','patches','approvals','enrichment-requests','sample-image','exports','feedback','withdraw-attachment'}
+    allowed = {'budget-authorizations','start','pause','resume','cancel','answers','evidence-resolutions','patches','approvals','final-approval','enrichment-requests','sample-image','exports','reports','feedback','withdraw-attachment'}
     if operation not in allowed:
         raise PatentError('NOT_FOUND', '작업을 찾을 수 없습니다.', 404)
     return service().mutate(owner, case_id, operation, body.model_dump(), idempotency_key)
@@ -205,3 +241,9 @@ def execute(task_id: str):
     if not row:
         raise PatentError('NOT_FOUND', '작업을 찾을 수 없습니다.', 404)
     return s.execute(row.owner_id, json.loads(row.body)['ticket'])
+
+
+@internal.post('/workflow/{task_id}/execute', dependencies=[Depends(operator)])
+async def execute_workflow(task_id: str):
+    from .dispatch import execute_stage
+    return await execute_stage(service(), task_id)

@@ -6,6 +6,7 @@ documents are written/embedded. Never infer completeness from MAX(publication_da
 """
 from datetime import datetime
 import time
+from google.api_core.exceptions import BadRequest
 
 from . import patent_corpus as corpus
 from .tools import bigquery_patents as bq
@@ -63,6 +64,34 @@ def version(table):
                 format_version=FORMAT_VERSION, since=20000101)
 
 
+def source_pages(connection, table, source, progress, page_size, emit):
+    """Recover expired snapshot tokens only at a committed, unchanged-source offset."""
+    token = progress.get('page_token')
+    iterator = connection.list_rows(table, selected_fields=selected_fields(table),
+        page_size=page_size, page_token=token, timeout=60)
+    try:
+        for page in iterator.pages:
+            yield page, iterator
+    except BadRequest as exc:
+        messages = ' '.join(str(e.get('message', '')) for e in (exc.errors or []))
+        if not token or 'Invalid read time' not in messages or 'Cannot read before' not in messages:
+            raise
+        if version(connection.get_table(bq.TABLE, timeout=30)) != source:
+            raise RuntimeError('SOURCE_CHANGED_RESTART_IMPORT') from exc
+        # Read the durable token/count, including pages committed during this iterator.
+        committed = corpus.checkpoint('source')
+        if committed.get('source') != source or committed.get('complete'):
+            raise RuntimeError('SOURCE_CHANGED_RESTART_IMPORT') from exc
+        offset = committed.get('scanned')
+        if not isinstance(offset, int) or offset < 0 or offset >= source['rows']:
+            raise RuntimeError('INVALID_SOURCE_RESUME_OFFSET') from exc
+        emit(phase='RESUME_EXPIRED_TOKEN', scanned=offset, query_submitted=False)
+        iterator = connection.list_rows(table, selected_fields=selected_fields(table),
+            page_size=page_size, start_index=offset, timeout=60)
+        for page in iterator.pages:
+            yield page, iterator
+
+
 def probe(sample_rows=1000):
     connection = bq.client()
     try:
@@ -98,10 +127,8 @@ def import_pages(page_size=1000, max_pages=0, force=False, emit=lambda **kw: Non
             if progress.get('complete'):
                 emit(phase='SOURCE_UNCHANGED', scanned=progress['scanned'], query_submitted=False)
                 return progress
-            iterator = connection.list_rows(table, selected_fields=selected_fields(table),
-                page_size=page_size, page_token=progress.get('page_token'), timeout=60)
             pages = 0
-            for page in iterator.pages:
+            for page, iterator in source_pages(connection, table, source, progress, page_size, emit):
                 # Approximate DB statistics are a guard, not a volume quota replacement.
                 if corpus.capacity() >= settings.patent_db_max_bytes:
                     raise RuntimeError('PATENT_DATABASE_CAPACITY_LIMIT')

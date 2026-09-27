@@ -46,6 +46,7 @@ class LegacyReader:
         return value if isinstance(value, list) else []
 
     def preview(self, owner, run_id, concept_id):
+        from .workflow import source_context
         state = self.raw(owner, run_id)
         concept = next((x for x in self.concepts(state) if x.get('id') == concept_id), None)
         if concept is None:
@@ -55,6 +56,7 @@ class LegacyReader:
         with self.engine.connect() as c:
             published = c.execute(select(self.store.published_runs).where(self.store.published_runs.c.run_id == run_id)).mappings().first()
         payload = {'source_run_id': run_id, 'concept_id': concept_id, 'concept': concept,
+                   'triz_context': source_context(state, concept_id),
                    'problem': state.get('intake', {}).get('frame', {'raw_query': state.get('raw_query', '')}), 'references': evidence,
                    'raw_publication': {'origin': 'TRIZ_STUDIO_BETA', 'published_run': dict(published) if published else None},
                    'scope_note': '베타 자료는 이번 외부 공개이력 분석에서 제외합니다. 법적 공개 여부는 판단하지 않습니다.'}

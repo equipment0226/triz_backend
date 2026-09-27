@@ -37,6 +37,18 @@ def test_selection_never_skips_owner_input_or_requires_paid_model(patent):
     assert err.value.code == 'APPLICATION_CONTEXT_REQUIRED'
 
 
+@pytest.mark.parametrize('operation',['start','resume'])
+def test_unapproved_draft_reports_budget_step_not_missing_t3(patent,operation):
+    s,gateway,*_=patent
+    case,_=opened(s)
+    case=answered(s,case)
+    assert s.profile.models['T3'].reasoning and not case['model_config']
+    with pytest.raises(PatentError) as error:
+        change(s,case,operation)
+    assert error.value.code=='BUDGET_AUTHORIZATION'
+    assert not queued(s,case) and not gateway.calls
+
+
 @pytest.mark.parametrize('missing', list(APPLICATION_ANSWERS))
 def test_every_mandatory_answer_is_required(patent, missing):
     s, gateway, *_ = patent

@@ -203,3 +203,40 @@ def test_source_change_mid_page_does_not_advance_checkpoint(storage, monkeypatch
     with pytest.raises(RuntimeError, match='SOURCE_CHANGED'):
         ingest.import_pages()
     assert corpus.checkpoint('source') == {}
+
+
+@pytest.mark.parametrize('failure', ['expired', 'other', 'changed'])
+def test_expired_source_token_resumes_only_unchanged_committed_offset(storage, monkeypatch, failure):
+    from google.api_core.exceptions import BadRequest
+    table = SimpleNamespace(modified=SimpleNamespace(isoformat=lambda: 'v1'), num_rows=3,
+        schema=[SimpleNamespace(name=n) for n in ingest.FIELDS])
+    progress = dict(source=ingest.version(table), page_token='expired-token', scanned=2,
+                    accepted=0, changed=0, complete=False)
+    corpus.ingest([], progress)
+    class Expired:
+        @property
+        def pages(self):
+            message = 'Other bad request' if failure == 'other' else 'Invalid read time x. Cannot read before y'
+            raise BadRequest(message, errors=[{'message': message}])
+    calls = []
+    def rows(*args, **kwargs):
+        calls.append(kwargs)
+        if kwargs.get('page_token'): return Expired()
+        return Pages([(None, [dict(publication_number='US-7909155-B2', publication_date=20110322,
+            title_localized=[{'language':'en', 'text':'gasket'}])])])
+    revised = SimpleNamespace(modified=SimpleNamespace(isoformat=lambda: 'v2'), num_rows=3)
+    tables = iter([table, revised]) if failure == 'changed' else None
+    connection = SimpleNamespace(get_table=lambda *a, **kw: next(tables) if tables else table,
+        list_rows=rows, close=lambda: None)
+    monkeypatch.setattr(bq, 'client', lambda: connection)
+    if failure == 'expired':
+        ingest.import_pages()
+        assert calls[1]['start_index'] == 2 and 'page_token' not in calls[1]
+        assert corpus.checkpoint('source')['scanned'] == 3
+        assert corpus.checkpoint('source')['complete'] is True
+        assert corpus.status()['documents'] == 1
+    else:
+        with pytest.raises(BadRequest if failure == 'other' else RuntimeError):
+            ingest.import_pages()
+        assert len(calls) == 1
+        assert corpus.checkpoint('source') == progress

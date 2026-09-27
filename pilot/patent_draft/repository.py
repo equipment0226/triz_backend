@@ -37,6 +37,11 @@ image_jobs = Table('patent_draft_image_jobs', metadata,
     Column('job_id', String(64), primary_key=True), Column('case_id', String(64), nullable=False, unique=True),
     Column('status', String(32), nullable=False, index=True), Column('body', JSON_TEXT, nullable=False),
     Column('lease_until_ms', BigInteger, nullable=False), Column('fence', Integer, nullable=False))
+keywords = Table('patent_draft_keywords', metadata,
+    Column('version_id', String(64), primary_key=True), Column('keyword_id', String(160), primary_key=True),
+    Column('case_id', String(64), nullable=False, index=True), Column('term', String(200), nullable=False, index=True),
+    Column('category', String(32), nullable=False, index=True), Column('source_version_id', String(64), nullable=False),
+    Column('body', JSON_TEXT, nullable=False), Column('created_ms', BigInteger, nullable=False))
 TABLES = frozenset(metadata.tables)
 
 
@@ -52,7 +57,7 @@ class Repository:
     def migrate(self):
         # Explicit operator command only. No ALTER or schema-wide create_all.
         assert TABLES == {'patent_draft_cases', 'patent_draft_records', 'patent_draft_requests',
-                          'patent_draft_tasks', 'patent_draft_assets', 'patent_draft_public_cache', 'patent_draft_image_jobs'}
+                          'patent_draft_tasks', 'patent_draft_assets', 'patent_draft_public_cache', 'patent_draft_image_jobs', 'patent_draft_keywords'}
         metadata.create_all(self.engine, tables=[metadata.tables[n] for n in sorted(TABLES)])
 
     def get(self, owner, case_id, conn=None, lock=False):

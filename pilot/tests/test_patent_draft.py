@@ -44,6 +44,23 @@ class FakeGateway:
         outputs={'Invention':INVENTION,'Questions':{'questions':self.questions},'SearchPlan':{'queries':['GPU cooling plate'],'feature_ids':['F1'],'limitations':['abstract corpus']},
                  'ClaimChart':{'entries':[],'coverage_gaps':['fulltext needed']},'ClaimTree':CLAIMS,'DocumentAST':DOCUMENT,'DrawingSpec':DRAWINGS,
                  'Reconciliation':{'proposals':[],'questions':[],'unresolved_issue_ids':['test-issue']}}
+        if kind=='SynthesizedSolution':
+            outputs[kind]={'title':'GPU 냉각 루프 분리','problem':'냉각수와 GPU 온도 상충',
+                'revised_solution':'냉각판과 시설수 루프를 분리한다.','working_principle':'냉각판을 통해 열을 전달한다.',
+                'changes':[],'issues':[],'questions':[],
+                'facts':[{'id':'SF1','statement':'GPU에서 열을 전달하는 냉각판','category':'COMPONENT',
+                    'status':'SOURCE_PROPOSAL','basis':[{'artifact':'source','pointer':'/concept/description',
+                    'excerpt':context['source']['concept']['description']}],'rationale':'선택 해결안의 기술 구성을 정리함.'}]}
+        if kind=='DraftingKeywords':
+            outputs[kind]={'keywords':[{'id':'K01','term':'냉각판','category':'COMPONENT','definition':'GPU 열을 전달하는 구성요소',
+                'synonyms':['cooling plate'],'fact_ids':['SF1'],'target_sections':['solution','embodiments','claims'],
+                'rationale':'청구범위와 실시예에 공통으로 사용되는 핵심 구성'}],'terminology_rules':['냉각판 명칭을 일관되게 사용']}
+        if kind=='DocumentCoherence':
+            outputs[kind]={'summary':'Fixture coherence review', 'checks':[
+                {'id':'COH'+str(i),'dimension':dimension,'outcome':'PASS','explanation':'Fixture only',
+                 'basis':[{'artifact':'specification','pointer':'/abstract','excerpt':context['specification']['abstract']}],
+                 'affected_sections':['abstract'],'repair_instruction':''} for i,dimension in enumerate(
+                     ['PROBLEM_SOLUTION','MECHANISM_EFFECT','CLAIM_SUPPORT','TERMINOLOGY','CONTEXT_FLOW','DRAWING_ALIGNMENT'])]}
         if kind=='Review':
             role=next(r for r in ROLES if 'Use role '+r+'.' in instruction)
             if role==self.fail_role:
@@ -60,6 +77,12 @@ class FakeGateway:
                     for r in context['rule_obligations']]}
         else:
             result=outputs[kind]
+        if kind=='Invention' and 'synthesized_solution' in context:
+            result=copy.deepcopy(result)
+            for feature in result['features']:feature['source_ids']=['SF1']
+        if kind=='DocumentAST' and 'drafting_keywords' in context:
+            result=copy.deepcopy(result)
+            for section in result['sections']:section['source_ids']=['SF1','K01']
         return {'value':copy.deepcopy(result),'usage':{'prompt_tokens':100,'completion_tokens':100},'cost_micro_usd':300}
 
 
@@ -101,7 +124,7 @@ def patent(tmp_path,monkeypatch):
 def opened(s):
     source=s.legacy.preview('owner','source','C1')
     body={'source_run_id':'source','concept_id':'C1','expected_source_hash':source['source_hash'],
-          'purpose':'test draft','jurisdiction':'KR','profile':'KR_GENERAL'}
+          'purpose':'test draft','jurisdiction':'KR','profile':'KR_GENERAL','workflow_mode':'GUIDED'}
     return s.open('owner',body,'create-once'),body
 
 

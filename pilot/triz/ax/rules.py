@@ -8,7 +8,10 @@ from .contracts import RuleSpec,canonical,digest,Conflict
 
 def validate(spec,state):
     rule=RuleSpec.model_validate(spec)
-    catalog={e['id'] for g in state.scratch['ax_bundle']['effects'] for e in g['effects']}
+    entries=[e for g in state.scratch['ax_bundle']['effects'] for e in g['effects']]
+    catalog={e['id'] for e in entries}
+    aliases={legacy:e['id'] for e in entries for legacy in e.get('legacy_ids',[]) if legacy not in catalog}
+    rule.effect_ids=list(dict.fromkeys(aliases.get(e,e) for e in rule.effect_ids))
     if set(rule.effect_ids)-catalog: raise ValueError('Rule references unknown effects')
     for vid in rule.source_versions:
         # Every source must belong to the same owner/project, not a guessed global ID.

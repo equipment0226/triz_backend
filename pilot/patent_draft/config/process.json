@@ -1,0 +1,727 @@
+{
+  "version": "patent-authoring-v2",
+  "template": "kr_general",
+  "max_blocking_questions": 3,
+  "stages": [
+    {
+      "id": "P0",
+      "label": "자료 불러오기·변경 확인"
+    },
+    {
+      "id": "P1",
+      "label": "수정 해결안 종합·키워드 추출"
+    },
+    {
+      "id": "P2",
+      "label": "선행기술 근거"
+    },
+    {
+      "id": "P3",
+      "label": "문서 자동 작성"
+    },
+    {
+      "id": "P4",
+      "label": "독립 검토·보정"
+    },
+    {
+      "id": "P5",
+      "label": "최종 확인·저장"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "P0.1",
+      "label": "선택 해결안·문제 DB 조회",
+      "stage": "P0",
+      "type": "subprocess",
+      "inputs": [],
+      "outputs": [
+        "source"
+      ],
+      "tool": null,
+      "prompt": null,
+      "condition": null,
+      "review_role": null
+    },
+    {
+      "id": "P0.2",
+      "label": "서식별 근거 연결",
+      "stage": "P0",
+      "type": "subprocess",
+      "inputs": [
+        "source",
+        "workflow_contract"
+      ],
+      "outputs": [
+        "section_mapping"
+      ],
+      "tool": null,
+      "prompt": null,
+      "condition": null,
+      "review_role": null
+    },
+    {
+      "id": "G0",
+      "label": "선택 이후 변경사항 확인",
+      "stage": "P0",
+      "type": "gate",
+      "inputs": [
+        "source",
+        "section_mapping"
+      ],
+      "outputs": [
+        "application_context"
+      ],
+      "tool": null,
+      "prompt": null,
+      "condition": "사용자 변경사항 확인 + 실행 예산 승인",
+      "review_role": null
+    },
+    {
+      "id": "P1.0",
+      "label": "원본·보완 비교 및 수정 해결안 종합",
+      "stage": "P1",
+      "type": "subprocess",
+      "inputs": [
+        "source",
+        "application_context",
+        "answers",
+        "facts",
+        "attachments",
+        "section_mapping",
+        "drafting_template"
+      ],
+      "outputs": [
+        "synthesized_solution"
+      ],
+      "tool": "patent_synthesize_solution",
+      "prompt": "synthesized_solution",
+      "condition": null,
+      "review_role": null,
+      "automatic_only": true,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P1.K",
+      "label": "작성 키워드 추출·DB 이력 저장",
+      "stage": "P1",
+      "type": "subprocess",
+      "inputs": [
+        "synthesized_solution",
+        "drafting_template"
+      ],
+      "outputs": [
+        "drafting_keywords"
+      ],
+      "tool": "patent_extract_keywords",
+      "prompt": "drafting_keywords",
+      "condition": null,
+      "review_role": null,
+      "automatic_only": true,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P1.1",
+      "label": "발명 구성·작용·효과 정리",
+      "stage": "P1",
+      "type": "subprocess",
+      "inputs": [
+        "synthesized_solution",
+        "drafting_keywords",
+        "application_context",
+        "answers",
+        "attachments",
+        "drafting_template"
+      ],
+      "outputs": [
+        "invention"
+      ],
+      "tool": "patent_extract_invention",
+      "prompt": "invention",
+      "condition": null,
+      "review_role": null,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P1.2",
+      "label": "최소 보충질문 계획",
+      "stage": "P1",
+      "type": "subprocess",
+      "inputs": [
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "answers",
+        "application_context",
+        "drafting_template"
+      ],
+      "outputs": [
+        "questions"
+      ],
+      "tool": "patent_plan_questions",
+      "prompt": "questions",
+      "condition": null,
+      "review_role": null,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "G1",
+      "label": "초안 작성에 필요한 정보 충족",
+      "stage": "P1",
+      "type": "gate",
+      "inputs": [
+        "questions",
+        "answers"
+      ],
+      "outputs": [],
+      "tool": null,
+      "prompt": null,
+      "condition": "미답변 필수 질문이 없으면 자동 통과; 필요할 때만 최대 3개 질문",
+      "review_role": null
+    },
+    {
+      "id": "P2.1",
+      "label": "선행기술 검색 계획",
+      "stage": "P2",
+      "type": "subprocess",
+      "inputs": [
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "drafting_template"
+      ],
+      "outputs": [
+        "search_plan"
+      ],
+      "tool": "patent_plan_search",
+      "prompt": "search_plan",
+      "condition": null,
+      "review_role": null,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P2.2",
+      "label": "DB·검색 근거 수집",
+      "stage": "P2",
+      "type": "subprocess",
+      "inputs": [
+        "source",
+        "search_plan",
+        "drafting_template"
+      ],
+      "outputs": [
+        "sources"
+      ],
+      "tool": "patent_search_local",
+      "prompt": null,
+      "condition": null,
+      "review_role": null,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P2.3",
+      "label": "구성요소별 선행기술 비교",
+      "stage": "P2",
+      "type": "subprocess",
+      "inputs": [
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "sources",
+        "source_detail",
+        "drafting_template"
+      ],
+      "outputs": [
+        "claim_chart"
+      ],
+      "tool": "patent_build_claim_chart",
+      "prompt": "claim_chart",
+      "condition": null,
+      "review_role": null,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P3.1",
+      "label": "청구범위 초안",
+      "stage": "P3",
+      "type": "subprocess",
+      "inputs": [
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "claim_chart",
+        "application_context",
+        "facts",
+        "drafting_template"
+      ],
+      "outputs": [
+        "claims"
+      ],
+      "tool": "patent_draft_claims",
+      "prompt": "claims",
+      "condition": null,
+      "review_role": null,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P3.2",
+      "label": "명세서·요약·출원인 항목 작성",
+      "stage": "P3",
+      "type": "subprocess",
+      "inputs": [
+        "synthesized_solution",
+        "drafting_keywords",
+        "section_mapping",
+        "invention",
+        "claims",
+        "sources",
+        "facts",
+        "application_context",
+        "drafting_template"
+      ],
+      "outputs": [
+        "specification"
+      ],
+      "tool": "patent_draft_specification",
+      "prompt": "specification",
+      "condition": null,
+      "review_role": null,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P3.3",
+      "label": "구성요소 기반 도면 작성",
+      "stage": "P3",
+      "type": "subprocess",
+      "inputs": [
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "claims",
+        "specification",
+        "drafting_template"
+      ],
+      "outputs": [
+        "drawings"
+      ],
+      "tool": "patent_build_drawings",
+      "prompt": "drawings",
+      "condition": null,
+      "review_role": null,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P4.0",
+      "label": "문서 기술·문맥 흐름 검토",
+      "stage": "P4",
+      "type": "subprocess",
+      "inputs": [
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "claims",
+        "specification",
+        "drawings",
+        "drafting_template"
+      ],
+      "outputs": [
+        "document_coherence"
+      ],
+      "tool": "patent_review_document_flow",
+      "prompt": "document_coherence",
+      "condition": null,
+      "review_role": null,
+      "automatic_only": true,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P4.D",
+      "label": "통합 보고서·Word·PDF 저장",
+      "stage": "P4",
+      "type": "subprocess",
+      "inputs": [
+        "source",
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "claims",
+        "specification",
+        "drawings",
+        "facts",
+        "document_coherence",
+        "drafting_template"
+      ],
+      "outputs": [
+        "report"
+      ],
+      "tool": "patent_render_report",
+      "prompt": null,
+      "condition": null,
+      "review_role": null,
+      "automatic_only": true,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P4.1",
+      "label": "기술 내용 독립 검토",
+      "stage": "P4",
+      "type": "subprocess",
+      "inputs": [
+        "source",
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "claims",
+        "specification",
+        "drawings",
+        "sources",
+        "source_detail",
+        "application_context",
+        "facts",
+        "answers",
+        "attachments",
+        "document_coherence",
+        "drafting_template"
+      ],
+      "outputs": [
+        "TECHNICAL_CONTENT"
+      ],
+      "tool": "patent_review_content",
+      "prompt": "review_technical",
+      "condition": null,
+      "review_role": "TECHNICAL_CONTENT",
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P4.2",
+      "label": "특허 내용 독립 검토",
+      "stage": "P4",
+      "type": "subprocess",
+      "inputs": [
+        "source",
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "claims",
+        "specification",
+        "drawings",
+        "sources",
+        "source_detail",
+        "claim_chart",
+        "application_context",
+        "facts",
+        "answers",
+        "attachments",
+        "document_coherence",
+        "drafting_template"
+      ],
+      "outputs": [
+        "PATENT_CONTENT"
+      ],
+      "tool": "patent_review_content",
+      "prompt": "review_patent",
+      "condition": null,
+      "review_role": "PATENT_CONTENT",
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "G2",
+      "label": "검토 이슈 조정",
+      "stage": "P4",
+      "type": "gate",
+      "inputs": [
+        "TECHNICAL_CONTENT",
+        "PATENT_CONTENT"
+      ],
+      "outputs": [],
+      "tool": null,
+      "prompt": null,
+      "condition": "이슈가 없으면 통과; 있으면 P4.R에서 최대 2회 보정안·질문 생성",
+      "review_role": null
+    },
+    {
+      "id": "P4.R",
+      "label": "쟁점별 보정안·질문",
+      "stage": "P4",
+      "type": "subprocess",
+      "inputs": [
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "claims",
+        "specification",
+        "drawings",
+        "sources",
+        "document_coherence",
+        "drafting_template"
+      ],
+      "outputs": [
+        "reconciliation"
+      ],
+      "tool": "patent_reconcile_issues",
+      "prompt": "reconciliation",
+      "condition": null,
+      "review_role": null,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P4.3",
+      "label": "최종 일관성 검토",
+      "stage": "P4",
+      "type": "subprocess",
+      "inputs": [
+        "source",
+        "synthesized_solution",
+        "drafting_keywords",
+        "invention",
+        "claims",
+        "specification",
+        "drawings",
+        "sources",
+        "source_detail",
+        "claim_chart",
+        "application_context",
+        "facts",
+        "answers",
+        "attachments",
+        "document_coherence",
+        "drafting_template"
+      ],
+      "outputs": [
+        "GLOBAL_FINAL"
+      ],
+      "tool": "patent_final_review",
+      "prompt": "review_final",
+      "condition": null,
+      "review_role": "GLOBAL_FINAL",
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "G3",
+      "label": "최종 초안 사용자 확인",
+      "stage": "P5",
+      "type": "gate",
+      "inputs": [
+        "invention",
+        "claims",
+        "specification",
+        "drawings",
+        "GLOBAL_FINAL"
+      ],
+      "outputs": [],
+      "tool": null,
+      "prompt": null,
+      "condition": "현재 문서 내용 확인; 수정 시 관련 산출물과 검토 재생성",
+      "review_role": null
+    },
+    {
+      "id": "P5.1",
+      "label": "규칙·필수항목 검증",
+      "stage": "P5",
+      "type": "subprocess",
+      "inputs": [
+        "invention",
+        "claims",
+        "specification",
+        "drawings",
+        "drafting_template"
+      ],
+      "outputs": [
+        "checks"
+      ],
+      "tool": "patent_check_rules",
+      "prompt": null,
+      "condition": null,
+      "review_role": null,
+      "input_policy": "PINNED_TYPED_ARTIFACTS",
+      "output_policy": "SCHEMA_VALIDATED_VERSIONED_ARTIFACT"
+    },
+    {
+      "id": "P5.2",
+      "label": "통합 보고서 확인·Word/PDF 다운로드",
+      "stage": "P5",
+      "type": "subprocess",
+      "inputs": [
+        "report"
+      ],
+      "outputs": [
+        "report"
+      ],
+      "tool": null,
+      "prompt": null,
+      "condition": null,
+      "review_role": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "P0.1",
+      "to": "P0.2",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P0.2",
+      "to": "G0",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "G0",
+      "to": "P1.0",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P1.0",
+      "to": "P1.K",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P1.K",
+      "to": "P1.1",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P1.1",
+      "to": "P1.2",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P1.2",
+      "to": "G1",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "G1",
+      "to": "P2.1",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P2.1",
+      "to": "P2.2",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P2.2",
+      "to": "P2.3",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P2.3",
+      "to": "P3.1",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P3.1",
+      "to": "P3.2",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P3.2",
+      "to": "P3.3",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P3.3",
+      "to": "P4.0",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P4.0",
+      "to": "P4.D",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P4.D",
+      "to": "P4.1",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P4.1",
+      "to": "P4.2",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P4.2",
+      "to": "G2",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "G2",
+      "to": "P4.3",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P4.3",
+      "to": "G3",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "G3",
+      "to": "P5.1",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P5.1",
+      "to": "P5.2",
+      "when": "완료 / Gate 통과"
+    },
+    {
+      "from": "P1.0",
+      "to": "G1",
+      "when": "종합 검토에서 사용자 확인이 필요한 모순 발견"
+    },
+    {
+      "from": "G1",
+      "to": "P1.0",
+      "when": "보충 답변을 반영해 다시 종합"
+    },
+    {
+      "from": "G2",
+      "to": "P4.R",
+      "when": "기술·문맥·독립 검토 이슈"
+    },
+    {
+      "from": "P4.R",
+      "to": "P4.0",
+      "when": "보정안 적용 후 관련 단계 및 문맥 재검토"
+    },
+    {
+      "from": "G3",
+      "to": "P1.0",
+      "when": "해결안 변경사항 수정"
+    }
+  ],
+  "prompt_files": {
+    "common": "common.md",
+    "invention": "invention.md",
+    "questions": "questions.md",
+    "search_plan": "search_plan.md",
+    "claim_chart": "claim_chart.md",
+    "economics": "economics.md",
+    "claims": "claims.md",
+    "specification": "specification.md",
+    "drawings": "drawings.md",
+    "reconciliation": "reconciliation.md",
+    "review_technical": "review_technical.md",
+    "review_patent": "review_patent.md",
+    "review_final": "review_final.md",
+    "synthesized_solution": "synthesized_solution.md",
+    "drafting_keywords": "drafting_keywords.md",
+    "document_coherence": "document_coherence.md"
+  }
+}

@@ -35,6 +35,7 @@ class Strict(BaseModel):
 
 
 class Bootstrap(Strict):
+    workflow_mode: Literal['AUTOMATIC', 'GUIDED'] = 'AUTOMATIC'
     source_run_id: str = Field(min_length=1, max_length=160)
     concept_id: str = Field(min_length=1, max_length=160)
     expected_source_hash: str = Field(pattern=r'^[a-f0-9]{64}$')

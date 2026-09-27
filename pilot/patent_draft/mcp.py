@@ -1,4 +1,4 @@
-"""Nineteen typed MCP tools sharing the API governor, reducer and ACL."""
+"""Typed authoring and review MCP tools sharing the API governor, reducer and ACL."""
 from contextvars import ContextVar
 import json
 import os

@@ -101,6 +101,58 @@ def _n8n(monkeypatch):
     monkeypatch.setattr(settings, "orchestrator", "n8n")
     monkeypatch.setattr(settings, "n8n_webhook_url", "https://n8n.invalid/webhook")
     monkeypatch.setattr(settings, "service_token", "offline-token")
+    monkeypatch.setattr(pipeline.time, "sleep", lambda seconds: None)
+
+
+@pytest.mark.parametrize("kind", ["created", "confirm", "constraints"])
+@pytest.mark.parametrize("failure", ["connection", "timeout", "503", "429"])
+def test_transient_dispatch_recovers_without_manual_continue(state, monkeypatch, kind, failure):
+    _n8n(monkeypatch)
+    if kind != "created":
+        state.status = "WAITING_HUMAN"
+        state.pending = HumanInterrupt("CONFIRM" if kind == "confirm" else "DECIDE", "Confirm",
+            {} if kind == "confirm" else {"conditional": [{"concept_id": "C1"}]}).request
+        store.save_state(state)
+    calls = []
+    def send(*args, **kwargs):
+        calls.append(kwargs['json'])
+        if len(calls) < 3:
+            if failure == "connection":raise httpx.ConnectError("private details")
+            if failure == "timeout":raise httpx.ReadTimeout("private details")
+            return httpx.Response(int(failure), request=httpx.Request('POST','https://n8n.invalid'))
+        return httpx.Response(200, request=httpx.Request('POST','https://n8n.invalid'))
+    monkeypatch.setattr(pipeline.httpx, "post", send)
+    if kind == "created":pipeline.start(state.run_id)
+    else:assert pipeline.resume(state.run_id, {"confirmed": True} if kind == "confirm" else {"decisions": {"C1": "accept"}})
+    saved = store.load_state(state.run_id)
+    assert saved.status == "QUEUED" and saved.pending is None
+    assert len(calls) == 3 and calls[0] == calls[1] == calls[2]
+    assert "retry_notification_id" not in saved.scratch
+    if kind == "constraints":assert saved.scratch['resume_payload']['decisions'] == {'C1':'accept'}
+
+
+def test_nonretryable_dispatch_rejection_is_not_repeated(state, monkeypatch):
+    _n8n(monkeypatch)
+    calls = []
+    def rejected(*args, **kwargs):
+        calls.append(kwargs['json'])
+        return httpx.Response(401, request=httpx.Request('POST','https://n8n.invalid'))
+    monkeypatch.setattr(pipeline.httpx, "post", rejected)
+    with pytest.raises(httpx.HTTPStatusError):pipeline.start(state.run_id)
+    assert len(calls) == 1
+    assert store.load_state(state.run_id).status == "INTERRUPTED"
+
+
+def test_dispatch_does_not_retry_if_deleted_during_backoff(state, monkeypatch):
+    _n8n(monkeypatch)
+    calls = []
+    def unavailable(*args, **kwargs):
+        calls.append(kwargs['json'])
+        raise httpx.ConnectError('unavailable')
+    monkeypatch.setattr(pipeline.httpx, "post", unavailable)
+    monkeypatch.setattr(pipeline.time, "sleep", lambda seconds: store.delete_run(state.run_id))
+    pipeline.start(state.run_id)
+    assert len(calls) == 1 and store.load_state(state.run_id) is None
 
 
 def test_dispatch_timeout_does_not_overwrite_finished_stage(state, monkeypatch):

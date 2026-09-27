@@ -13,23 +13,35 @@ APPLICATION_QUESTIONS = [
      'affected_fields':['invention','claims','specification','drawings'],'blocking':True},
 ]
 
+DELTA_QUESTIONS = [{
+    'id': 'APPLICATION_CHANGES',
+    'question': '선택한 아이디어 이후 달라진 구성·동작·제약조건이나 새로 확인한 위험이 있나요?',
+    'reason': '기존 TRIZ 정보를 불러왔습니다. 달라진 부분만 함께 적거나 변경 없음을 선택해 주세요.',
+    'affected_fields': ['invention', 'claims', 'specification', 'drawings'], 'blocking': True,
+}]
+
 
 def complete(material):
     value = material.get('application_context', {})
     return bool(value.get('confirmed_by') and all(isinstance(value.get(q['id']), str) and value[q['id']].strip()
-                                                 for q in APPLICATION_QUESTIONS))
+                                                 for q in material.get('application_questions', {}).get('questions', APPLICATION_QUESTIONS)
+                                                 if q.get('blocking', True)))
 
 
 def questions(material):
     return (material.get('application_questions', {}).get('questions', APPLICATION_QUESTIONS)
+            + material.get('synthesis_questions', {}).get('questions', [])
             + material.get('questions', {}).get('questions', [])
+            + material.get('evidence_clarification', {}).get('questions', [])
             + material.get('review_questions', {}).get('questions', []))
 
 
 def unanswered(material):
     answers = material.get('answers', {})
+    unresolved = {i.get('question_id') for i in material.get('synthesized_solution', {}).get('issues', [])
+                  if i.get('blocking') and i.get('status') == 'OPEN'}
     return [q for q in questions(material) if q.get('blocking', True)
-            and not str(answers.get(q['id'], '')).strip()]
+            and (q['id'] in unresolved or not str(answers.get(q['id'], '')).strip())]
 
 
 def context_from_answers(owner, existing, answers):

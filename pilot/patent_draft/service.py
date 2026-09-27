@@ -12,13 +12,19 @@ from .domain import (Bootstrap, Mutation, Invention, ClaimTree, DocumentAST, Dra
 from .repository import Repository, cases, tasks, assets, now
 from .legacy import LegacyReader
 from .models import ModelProfile, Gateway, reserve, settle, balance
+from .input_tokens import PREFLIGHT_ERRORS
 from .sources import SourceService
 from .learning import LegacyLearningAdapter, feedback_event
-from . import forms, rules
-from .intake import (APPLICATION_QUESTIONS, complete as intake_complete, context_from_answers,
+from . import forms, rules, workflow
+from .authoring import SynthesizedSolution, DraftingKeywords, DocumentCoherence, validate_result
+from .intake import (APPLICATION_QUESTIONS, DELTA_QUESTIONS, complete as intake_complete, context_from_answers,
                      questions as intake_questions, unanswered)
 
 OPERATIONS = {
+    'patent_synthesize_solution': ('T2', 'synthesized_solution', SynthesizedSolution),
+    'patent_extract_keywords': ('T1', 'drafting_keywords', DraftingKeywords),
+    'patent_review_document_flow': ('T2', 'document_coherence', DocumentCoherence),
+    'patent_render_report': ('CODE', 'report', None),
     'patent_extract_invention': ('T1', 'invention', Invention),
     'patent_plan_questions': ('T1', 'questions', Questions),
     'patent_plan_search': ('T2', 'search_plan', SearchPlan),
@@ -38,19 +44,11 @@ OPERATIONS = {
     'patent_emit_feedback': ('CODE', 'feedback', None),
 }
 MATERIAL_TYPES = {'source', 'invention', 'facts', 'questions', 'review_questions', 'answers', 'search_plan', 'sources', 'sample_image', 'application_questions', 'application_context','attachments',
-                  'source_detail', 'claim_chart', 'economics', 'claims', 'specification', 'drawings'}
+                  'source_detail', 'claim_chart', 'economics', 'claims', 'specification', 'drawings', 'workflow_contract', 'section_mapping',
+                  'synthesized_solution','synthesis_questions','drafting_keywords','document_coherence','report','drafting_template','evidence_clarification'}
 SCHEMAS = {'invention': Invention, 'claims': ClaimTree, 'specification': DocumentAST, 'drawings': DrawingSpec,'facts':Facts}
-INSTRUCTIONS = {
-    'invention': 'Treat the selected solution as a starting proposal. Apply the owner application_context changes and constraints; preserve risks and unknowns. Extract only supported technical features. User answers are not measurements. New facts are DERIVED_PROPOSAL; effects are HYPOTHESIS unless an actual measurement source is supplied.',
-    'questions': 'Ask unresolved application changes, constraints, risks and missing technical, ownership and external disclosure facts. Read application_context and existing answers before asking follow-ups. Do not repeat answered questions. Unresolved risks remain unknown and must not become confirmed facts. Never ask about excluded TRIZ_STUDIO_BETA disclosure. Include unique stable question IDs (never APPLICATION_ prefix), why, affected fields and blocking status.',
-    'search_plan': 'Use at most four mechanism/synonym/classification queries across industries. Record corpus/fulltext and historical/nonpatent coverage gaps.',
-    'claim_chart': 'Compare individual technical features to individual documents and exact passages. Abstract-only evidence must remain UNKNOWN for full claim disclosure.',
-    'economics': 'Advisory only. No invented monetary valuations or probabilities. Mark uncertainty.',
-    'claims': 'Use an independent claim and supported dependent claims, with feature IDs and description support. Never invent technical facts. A draft scope requires separate owner approval.',
-    'specification': 'Use section IDs title,technical_field,background,problem,solution,effects,drawing_description,embodiments. Include abstract and available applicant/inventor facts. Never fabricate personal identifiers. Clearly separate prior art and proposals.',
-    'drawings': 'Produce a DrawingSpec. Nodes require id,label,feature_id; edges from,to,label. All features must exist. Provide one sample_prompt_en for black-and-white line art of existing geometry only. These are concept drawings pending technical/visual review. Do not claim official form validation.',
-    'reconciliation': 'Propose issue-specific typed patches or questions. You cannot remove rules, overrule reviews, grant approvals or declare readiness. Preserve unresolved issue IDs.',
-}
+from . import prompts_registry
+INSTRUCTIONS = prompts_registry.load_prompts()
 
 
 class Service:
@@ -71,7 +69,7 @@ class Service:
                 'kipris_configured': bool(os.getenv('KIPRIS_API_KEY')), 'kipris_live_validation': 'NOT_RUN',
                 'drawing_provider': 'STABLE_DIFFUSION_CPU', 'drawing_configured': bool(os.getenv('PATENT_DRAWING_URL')),
                 'learning': LegacyLearningAdapter().capabilities(), 'editor_validation': 'NOT_RUN',
-                'formats': ['DOCX','HTML','MARKDOWN','JSON','SVG','ZIP'], 'automatic_filing': False}
+                'formats': ['DOCX','PDF'], 'legacy_package_formats': ['HTML','MARKDOWN','JSON','SVG','ZIP'], 'automatic_filing': False}
 
     def open(self, owner, body, key):
         from .access import require_tester
@@ -87,6 +85,7 @@ class Service:
             raise PatentError('SOURCE_VERSION_CONFLICT', '해결안이 변경됐습니다. 미리보기를 다시 확인해 주세요.')
         case_id = ident('pat')
         case = {'case_id': case_id, 'owner_id': owner, 'visibility': 'PRIVATE', 'revision': 0, 'epoch': 1,
+            'workflow_mode': body['workflow_mode'],
             'title': source['concept'].get('title') or '특허 초안', 'purpose': body['purpose'],
             'source_run_id': body['source_run_id'], 'concept_id': body['concept_id'], 'source_hash': source['source_hash'],
             'profile': body['profile'], 'jurisdiction': 'KR', 'rulepack_version': rules.PACK['version'],
@@ -102,7 +101,16 @@ class Service:
             'legacy_schema_hash': self.legacy.schema_fingerprint()}
         with self.repo.engine.begin() as c:
             self.repo.artifact(c, case, 'source', source, producer='LEGACY_READ_ONLY')
-            self.repo.artifact(c, case, 'application_questions', {'questions':APPLICATION_QUESTIONS},
+            if workflow.automatic(case):
+                contract = workflow.load_contract()
+                case['workflow_inputs'] = {n['tool'] + ':' + str(n.get('review_role')): n['inputs']
+                                           for n in contract['nodes'] if n.get('tool')}
+                self.repo.artifact(c, case, 'workflow_contract', contract, producer='WORKFLOW_REGISTRY')
+                self.repo.artifact(c, case, 'drafting_template', {k:contract[k] for k in ('template_id','sections','documents')},
+                                   [case['artifacts']['workflow_contract']], producer='TEMPLATE_REGISTRY')
+                self.repo.artifact(c, case, 'section_mapping', workflow.mapping(source, contract),
+                                   [case['artifacts']['source'], case['artifacts']['workflow_contract']], producer='DB_TEMPLATE_MAPPING')
+            self.repo.artifact(c, case, 'application_questions', {'questions':DELTA_QUESTIONS if workflow.automatic(case) else APPLICATION_QUESTIONS},
                                [case['artifacts']['source']], producer='MANDATORY_OWNER_INTAKE')
             case['document_status'] = 'INCOMPLETE'
             c.execute(insert(cases).values(case_id=case_id, owner_id=owner, revision=0, epoch=1,
@@ -133,17 +141,25 @@ class Service:
     def invalidate(self, c, case, kinds, reason):
         """Retain the ledger; retire derived heads and unstarted stale tasks only."""
         dependents = {'facts': {'invention','questions','review_questions'},
+                      'synthesized_solution': {'synthesis_questions','drafting_keywords','invention','questions','review_questions'},
+                      'drafting_keywords': {'invention','search_plan','claims','specification'},
+                      'document_coherence': {'report'},
                       'invention': {'search_plan','sources','claim_chart','economics','claims','specification','drawings'},
                       'search_plan': {'sources','claim_chart'}, 'sources': {'claim_chart'},
                       'claims': {'specification','drawings'}, 'specification': {'drawings'},
                       'drawings': {'sample_image'}}
         affected = set(kinds)
+        if case['artifacts'].get('evidence_clarification'):
+            affected.add('evidence_clarification')
+        if affected & {'invention','claims','specification','drawings','facts','sources'}:
+            affected |= {'document_coherence','report'}
         while True:
             expanded = affected | set().union(*(dependents.get(k, set()) for k in affected))
             if expanded == affected:
                 break
             affected = expanded
         retired = {k: case['artifacts'].pop(k) for k in sorted(affected) if k in case['artifacts']}
+        if 'evidence_clarification' in retired:case.pop('evidence_gate',None)
         if retired:
             self.repo.append(c, case['case_id'], 'invalidation', {'reason': reason, 'retired_versions': retired})
         case['document_status'] = 'DRAFT_WITH_OPEN_ISSUES'
@@ -155,7 +171,7 @@ class Service:
         for row in c.execute(select(tasks).where(tasks.c.case_id == case['case_id'], tasks.c.status.in_(['QUEUED','HELD'])).with_for_update()).mappings():
             body = json.loads(row['body'])
             ticket = body['ticket']
-            if not cancel and ticket['epoch'] == case['epoch'] and set(ticket['read_version_ids']) == set(self.readset(case, ticket['review_role'])):
+            if not cancel and ticket['epoch'] == case['epoch'] and set(ticket['read_version_ids']) == set(self.readset(case, ticket['review_role'], ticket['tool_name'])):
                 continue
             reserved = body['reserved_micro_usd']
             case['budget']['reserved_micro_usd'] -= reserved
@@ -190,13 +206,19 @@ class Service:
                 current.append(review)
         return current
 
-    def readset(self, case, role=None):
+    def readset(self, case, role=None, tool=None):
+        if case.get('workflow_inputs'):
+            tool = tool or ('patent_final_review' if role == 'GLOBAL_FINAL' else 'patent_review_content' if role else None)
+            inputs = case['workflow_inputs'].get(str(tool) + ':' + str(role))
+            if inputs is not None:
+                kinds = (set(inputs) - {'workflow_contract'}) | {'drafting_template'}
+                return [v for k, v in sorted(case['artifacts'].items()) if k in kinds]
         if role == 'TECHNICAL_CONTENT':
             kinds = {'invention','claims','specification','drawings','sources','source_detail','application_context','facts','answers','attachments'}
         elif role == 'PATENT_CONTENT':
             kinds = {'source','invention','facts','claims','specification','drawings','sources','source_detail','claim_chart','sample_image','application_context','answers','attachments'}
         else:
-            kinds = MATERIAL_TYPES
+            kinds = MATERIAL_TYPES - {'report','evidence_clarification'}
         return [v for k, v in sorted(case['artifacts'].items()) if k in kinds]
 
     def runtime_checks(self, owner, case, material, c=None):
@@ -251,21 +273,24 @@ class Service:
             if len(retained)==len(documents):
                 raise PatentError('NOT_FOUND','현재 검토에 포함된 첨부자료를 찾을 수 없습니다.',404)
             previous=case['artifacts']['attachments']
-            self.invalidate(c,case,{'invention','questions','review_questions'},'ATTACHMENT_WITHDRAWN')
+            self.invalidate(c,case,{'synthesized_solution','invention','questions','review_questions'},'ATTACHMENT_WITHDRAWN')
             self.repo.artifact(c,case,'attachments',{'documents':retained},[previous],producer='OWNER_WITHDRAWAL')
             self.repo.append(c,case['case_id'],'attachment_withdrawal',payload)
             self.retire_stale_queued(c,case)
         elif operation in ('start', 'resume'):
             if case['execution_status'] in ('CANCELLED','COMPLETED'):
                 raise PatentError('TERMINAL_CASE', '종료된 실행은 재개할 수 없습니다.')
+            if material.get('evidence_clarification'):
+                case['execution_status'],case['waiting_for']='WAITING_HUMAN','EVIDENCE_CLARIFICATION'
+                return {'requires_evidence_resolution':True}
             if not intake_complete(material):
                 case['execution_status'], case['waiting_for'] = 'WAITING_HUMAN', 'APPLICATION_CONTEXT'
-                return {'required_question_ids': [q['id'] for q in APPLICATION_QUESTIONS]}
+                return {'required_question_ids': [q['id'] for q in unanswered(material)]}
             if os.getenv('PATENT_DISPATCH_ENABLED', 'false').lower() != 'true':
                 raise PatentError('DISPATCH_DISABLED', '특허 작업 실행이 아직 활성화되지 않았습니다.', 503)
-            profile = ModelProfile.pinned(case['model_config']).require()
             if not case['provider_authorization']:
                 raise PatentError('BUDGET_AUTHORIZATION', '특허 전용 실행 예산을 먼저 승인해야 합니다.')
+            profile = ModelProfile.pinned(case['model_config']).require()
             if not case['review_plan_reserved']:
                 plan = profile.review_plan()
                 if balance(case['budget']) < plan:
@@ -292,9 +317,18 @@ class Service:
                 raise PatentError('ANSWER_INVALID', '답변과 확인 사실만 저장할 수 있습니다.', 422)
             questions = {q['id'] for q in intake_questions(material)}
             answers = payload.get('answers', {})
-            if not isinstance(answers, dict) or set(answers) - questions or any(not isinstance(v, str) or len(v) > 8000 for v in answers.values()):
+            if not isinstance(answers, dict) or any(not isinstance(v, str) or len(v) > 8000 for v in answers.values()):
                 raise PatentError('ANSWER_INVALID', '질문 ID와 답변을 확인해 주세요.', 422)
             answers = {k: v.strip() for k, v in answers.items()}
+            if set(answers)&{q['id'] for q in material.get('evidence_clarification',{}).get('questions',[])}:
+                raise PatentError('EVIDENCE_RESOLUTION_REQUIRED','근거 불일치 확인 영역에서 각 항목의 반영 방법을 선택해 주세요.',422)
+            # Older clients submit their entire answer state. Generated questions
+            # change after synthesis; unchanged historical answers are harmless
+            # echoes, but an unknown or edited retired question must not be saved.
+            stored_answers = material.get('answers', {})
+            if any(k not in stored_answers or answers[k] != stored_answers[k] for k in set(answers) - questions):
+                raise PatentError('ANSWER_INVALID', '현재 질문에 해당하지 않는 답변이 있습니다. 질문 목록을 확인한 뒤 다시 저장해 주세요.', 422)
+            answers = {k: v for k, v in answers.items() if k in questions}
             combined = {**material.get('answers', {}), **answers}
             changed = {k for k in answers if answers[k] != material.get('answers', {}).get(k)}
             context = material.get('application_context', {})
@@ -308,8 +342,10 @@ class Service:
                 facts = {**facts, **payload['facts']}
                 facts=Facts.model_validate(facts).model_dump(exclude_unset=True)
             facts_changed = facts != material.get('facts', {})
+            if not changed and not facts_changed and not context_changed:
+                return {'ok': True}
             if context_changed:
-                self.invalidate(c, case, {'invention','questions','review_questions'}, 'APPLICATION_CONTEXT_CHANGED')
+                self.invalidate(c, case, {'synthesized_solution','invention','questions','review_questions'}, 'APPLICATION_CONTEXT_CHANGED')
                 # Remove obsolete generated answers, while retaining their ledger history.
                 combined = {k: v for k, v in combined.items() if k in {q['id'] for q in APPLICATION_QUESTIONS}}
             elif changed or facts_changed:
@@ -317,7 +353,9 @@ class Service:
                 # A generated question cannot remove owner facts or pinned input.
                 if 'facts' in affected:
                     affected = (affected - {'facts'}) | {'invention'}
-                self.invalidate(c, case, {'invention'} if facts_changed else affected, 'OWNER_INPUT_CHANGED')
+                if workflow.automatic(case):
+                    affected |= {'synthesized_solution'}
+                self.invalidate(c, case, ({'invention'} if facts_changed else set()) | affected, 'OWNER_INPUT_CHANGED')
             if context_changed:
                 self.repo.artifact(c, case, 'application_context', context, [case['artifacts']['application_questions']], producer='OWNER_INPUT')
             if combined != material.get('answers', {}):
@@ -326,6 +364,19 @@ class Service:
             if facts_changed:
                 self.repo.artifact(c, case, 'facts', facts)
             self.retire_stale_queued(c, case)
+        elif operation == 'evidence-resolutions':
+            if case['execution_status']=='CANCELLED':
+                raise PatentError('TERMINAL_CASE','취소된 실행의 입력은 변경할 수 없습니다.')
+            from .evidence_clarification import resolve
+            return resolve(self,c,owner,case,payload)
+        elif operation == 'final-approval':
+            if not workflow.automatic(case) or case.get('waiting_for') != 'FINAL_REVIEW':
+                raise PatentError('FINAL_REVIEW_REQUIRED', '자동 작성과 검토가 끝난 현재 초안을 확인해 주세요.')
+            if payload.get('content_hash') != digest({k: material.get(k) for k in ('invention','claims','specification','drawings')}):
+                raise PatentError('APPROVAL_SCOPE', '확인할 최종 초안이 변경됐습니다.')
+            for gate, target in (('G1','invention'), ('G2','claims')):
+                self.reduce(c, owner, case, 'approvals', {'approval_type':gate, 'content_hash':digest(material[target])})
+            self.plan(c, owner, case)
         elif operation == 'approvals':
             if not intake_complete(material):
                 raise PatentError('APPLICATION_CONTEXT_REQUIRED', '적용 변경사항·제약조건·위험요소를 먼저 직접 입력해 주세요.')
@@ -366,6 +417,7 @@ class Service:
                 'before_hash':patch.before_hash,'epoch':case['epoch']})
             self.retire_stale_queued(c, case)
             case['document_status'] = 'DRAFT_WITH_OPEN_ISSUES'
+            self.auto_resume(c, owner, case)
             return {'artifact_version_id': version}
         elif operation == 'enrichment-requests':
             if set(payload) != {'application_number','issue_id','missing_fields','authorized_api_calls'} or payload['authorized_api_calls'] != 1:
@@ -382,6 +434,21 @@ class Service:
                 if prior['dedupe_key'] == event['dedupe_key']:
                     return {'feedback_id': prior['id'], 'learning_status': 'TELEMETRY_ONLY'}
             return {'feedback_id': self.repo.append(c, case['case_id'], 'feedback', event), 'learning_status': 'TELEMETRY_ONLY'}
+        elif operation == 'reports':
+            if payload:
+                raise PatentError('REPORT_PAYLOAD','현재 저장된 초안으로 보고서를 생성합니다.',422)
+            from .report import render
+            result, files = render(case, material)
+            result['files'] = {}
+            for format, (mime, content) in files.items():
+                asset_id=ident('passet')
+                extension=format if format in ('docx','pdf') else 'png'
+                self.put_asset(c,case,asset_id,'patent-report.'+extension,mime,content)
+                result['files'][format]={'asset_id':asset_id,'mime':mime,'sha256':hashlib.sha256(content).hexdigest()}
+            document_status=case['document_status']
+            version=self.repo.artifact(c,case,'report',result,self.readset(case),producer='REPORT_RENDERER')
+            case['document_status']=document_status
+            return {'report_version_id':version}
         elif operation == 'exports':
             if payload.get('snapshot_id') != case['snapshot_id'] or payload.get('mode') not in ('ANNOTATED','REVIEWED'):
                 raise PatentError('EXPORT_SNAPSHOT', '현재 산출물 버전과 내보내기 종류를 확인해야 합니다.')
@@ -394,7 +461,15 @@ class Service:
             return {'export_id': export_id, 'manifest': manifest}
         else:
             raise PatentError('OPERATION_UNKNOWN', '지원하지 않는 사건 작업입니다.', 422)
+        if operation in ('answers','budget-authorizations','approvals','withdraw-attachment'):
+            self.auto_resume(c, owner, case)
         return {'ok': True}
+
+    def auto_resume(self, c, owner, case):
+        if (workflow.automatic(case) and intake_complete(self.material(owner, case, c)) and case.get('provider_authorization')
+                and case['execution_status'] not in ('PAUSED_USER','CANCELLED','COMPLETED')
+                and os.getenv('PATENT_DISPATCH_ENABLED', 'false').lower() == 'true'):
+            self.reduce(c, owner, case, 'resume', {})
 
     def put_asset(self, c, case, asset_id, name, mime, content):
         if len(content) > 20_000_000:
@@ -408,7 +483,7 @@ class Service:
         tier, kind, _ = OPERATIONS[tool]
         if tool == 'patent_review_content' and role not in ROLES[:2] or tool == 'patent_final_review' and role != 'GLOBAL_FINAL':
             raise PatentError('REVIEW_ROLE', '필수 검토 역할을 변경할 수 없습니다.')
-        readset = self.readset(case, role)
+        readset = self.readset(case, role, tool)
         reservation, reserved = None, 0
         if tier != 'CODE':
             profile = ModelProfile.pinned(case['model_config'])
@@ -417,6 +492,9 @@ class Service:
             reserved = reserve(case['budget'], profile.models[tier], is_review=tier == 'T3')
             reservation = ident('pbr')
         task_id = ident('ptask')
+        case['waiting_for'] = None
+        contract = self.material(case['owner_id'], case, c).get('workflow_contract', {})
+        node = next((n for n in contract.get('nodes', []) if n.get('tool') == tool and n.get('review_role') == role), {})
         payload_ref = self.repo.append(c, case['case_id'], 'task_payload', payload or {})
         ticket = TaskTicket(task_id=task_id, case_id=case['case_id'], epoch=case['epoch'], input_snapshot_id=case['snapshot_id'],
             input_hash=digest(readset), rule_pack_version=case['rulepack_version'], model_profile=PROFILE,
@@ -424,7 +502,9 @@ class Service:
             idempotency_key=task_id, operation_payload_ref=payload_ref, tool_name=tool, tier=tier,
             review_role=role, budget_reservation_id=reservation).model_dump()
         c.execute(insert(tasks).values(task_id=task_id, case_id=case['case_id'], status='QUEUED', lease_until_ms=0,
-            fence=0, body=canonical({'ticket': ticket, 'reserved_micro_usd': reserved, 'attempts': 0})))
+            fence=0, body=canonical({'ticket': ticket, 'reserved_micro_usd': reserved, 'attempts': 0,
+                                    'node_id': node.get('id'), 'workflow_hash': contract.get('contract_hash'),
+                                    'prompt_hash': digest(contract.get('prompts', {}).get(node.get('prompt'), ''))})))
         from .learning import govern_operation
         self.repo.append(c,case['case_id'],'governor_decision',{
             'task_id':task_id,'ticket_hash':digest(ticket),'policy_version':case['policy_version'],
@@ -432,73 +512,8 @@ class Service:
         return {'task_id': task_id, 'ticket': ticket}
 
     def plan(self, c, owner, case):
-        if case['execution_status'] not in ('QUEUED','RUNNING','WAITING_HUMAN'):
-            return
-        self.retire_stale_queued(c, case)
-        if c.execute(select(tasks.c.task_id).where(tasks.c.case_id == case['case_id'], tasks.c.status.in_(['QUEUED','RUNNING']))).first():
-            return
-        material = self.material(owner, case, c)
-        approvals = self.approvals(owner, case, c)
-        if not intake_complete(material):
-            case['execution_status'], case['waiting_for'] = 'WAITING_HUMAN', 'APPLICATION_CONTEXT'
-            return
-        if unanswered(material):
-            case['execution_status'], case['waiting_for'] = 'WAITING_HUMAN', 'QUESTIONS'
-            return
-        sequence = [('invention','patent_extract_invention'), ('questions','patent_plan_questions'),
-            ('search_plan','patent_plan_search'), ('sources','patent_search_local'), ('claim_chart','patent_build_claim_chart')]
-        for kind, operation in sequence:
-            if kind not in material:
-                self.issue(c, case, operation)
-                case['execution_status'] = 'QUEUED'
-                return
-        if approvals.get('G1') != digest(material['invention']):
-            case['execution_status'], case['waiting_for'] = 'WAITING_HUMAN', 'G1'
-            return
-        if 'claims' not in material:
-            self.issue(c, case, 'patent_draft_claims')
-            return
-        if approvals.get('G2') != digest(material['claims']):
-            case['execution_status'], case['waiting_for'] = 'WAITING_HUMAN', 'G2'
-            return
-        for kind, operation in [('specification','patent_draft_specification'), ('drawings','patent_build_drawings')]:
-            if kind not in material:
-                self.issue(c, case, operation)
-                return
-        current = {r['role']: r for r in self.current_reviews(owner, case, c)}
-        from .coverage import delivery_scope
-        scope=delivery_scope(case,material)
-        if not any(r.get('scope')==scope for r in self.repo.records(owner,case['case_id'],'delivery_scope',c)):
-            self.repo.append(c,case['case_id'],'delivery_scope',{'scope':scope,'content_manifest_hash':digest(scope)})
-        for role in ROLES[:2]:
-            if role not in current:
-                self.issue(c, case, 'patent_review_content', role)
-                return
-        issues = [f for r in self.current_reviews(owner, case, c) if r['role'] in ROLES
-                  for f in r['findings'] if f['outcome'] in ('FAIL','UNKNOWN')]
-        issues.extend({'rule_id':'CONTENT_TARGET','outcome':f['outcome'],
-                       'explanation':f['explanation'],'target_id':f['target_id'],
-                       'affected_artifacts':r['covered_artifact_ids']}
-                      for r in self.current_reviews(owner,case,c) if r['role'] in ROLES
-                      for f in r.get('target_checks',[]) if f['outcome'] in ('FAIL','UNKNOWN'))
-        if issues:
-            if case['repair_rounds'] < 2:
-                self.issue(c, case, 'patent_reconcile_issues', payload={'issues': issues})
-                case['repair_rounds'] += 1
-            else:
-                case['execution_status'], case['waiting_for'] = 'WAITING_HUMAN', 'OPEN_ISSUES'
-            return
-        if 'GLOBAL_FINAL' not in current:
-            self.issue(c, case, 'patent_final_review', 'GLOBAL_FINAL')
-            return
-        checks = self.runtime_checks(owner, case, material, c)
-        attachments_complete=all(d.get('parse_status')=='TEXT_EXTRACTED' for d in material.get('attachments',{}).get('documents',[]))
-        ready = attachments_complete and all(r['outcome'] in ('PASS','NOT_APPLICABLE') for r in checks if r['severity'] == 'BLOCKER') and all(
-            f['outcome'] in ('PASS','NOT_APPLICABLE') for r in self.current_reviews(owner, case, c)
-            for f in [*r['findings'],*r.get('target_checks',[])])
-        case['document_status'] = 'DRAFT_READY' if ready else 'DRAFT_WITH_OPEN_ISSUES'
-        case['execution_status'] = 'COMPLETED' if ready else 'WAITING_HUMAN'
-        case['waiting_for'] = None if ready else 'OPEN_ISSUES'
+        from .pipeline import advance
+        return advance(self, c, owner, case)
 
     def task(self, owner, case_id, task_id):
         self.repo.get(owner, case_id)
@@ -525,7 +540,7 @@ class Service:
                 raise PatentError('DISPATCH_DISABLED', '특허 실행이 비활성화됐습니다.', 503)
             if row['status'] != 'QUEUED' or case['execution_status'] in ('CANCELLED','PAUSED_USER','PAUSED_BUDGET','PAUSED_DEPENDENCY'):
                 raise PatentError('TASK_NOT_RUNNABLE', '현재 실행할 수 없는 작업입니다.')
-            if case['epoch'] != ticket['epoch'] or set(ticket['read_version_ids']) != set(self.readset(case, ticket['review_role'])):
+            if case['epoch'] != ticket['epoch'] or set(ticket['read_version_ids']) != set(self.readset(case, ticket['review_role'], ticket['tool_name'])):
                 raise PatentError('TASK_STALE', '입력 자료가 변경된 작업입니다.')
             if OPERATIONS[ticket['tool_name']][0] != 'CODE' and (not intake_complete(self.material(owner, case, c)) or unanswered(self.material(owner, case, c))):
                 raise PatentError('QUESTIONS_REQUIRED', '필수 사용자 입력이 완료되지 않았습니다.')
@@ -563,16 +578,16 @@ class Service:
         try:
             if tier != 'CODE':
                 model = ModelProfile.pinned(case['model_config']).models[tier]
-                instruction = INSTRUCTIONS.get(kind, '')
+                instruction = workflow.instruction(kind, material, INSTRUCTIONS.get(kind, ''))
+                if kind in ('synthesized_solution','document_coherence'):
+                    from .authoring import evidence_catalog
+                    context['evidence_catalog']=evidence_catalog(context)
+                    instruction += ('\nCitation contract: evidence_catalog contains exact input artifact/pointer/excerpt tuples. '
+                        'For basis, copy a relevant tuple verbatim. A pointer must end at a string leaf, never an object or array. '
+                        'Do not paraphrase excerpts or cite absent fields. All original inputs remain available; '
+                        'the catalog is a navigation aid, not additional evidence.')
                 if role:
-                    instruction = ('Independently review every listed obligation and every material artifact. '
-                        'Return exactly one finding per rule_id, all covered artifact version IDs and input snapshot. '
-                        'Do not treat missing evidence as PASS. NOT_APPLICABLE requires actual inapplicability evidence. '
-                        'For each semantic PASS/FAIL/NOT_APPLICABLE, cite source_spans with artifact_id, JSON pointer within that artifact and an exact excerpt (8-3000 characters). '
-                        'evidence_ids and affected_artifacts refer only to input artifact version IDs. ID presence alone does not prove semantic support. '
-                        'Return one target_check for every review_targets entry, preserving its target_id and content_hash. Check each claim, effect, paragraph and drawing; missing evidence is UNKNOWN. '
-                        'Use role '+role+'. '+('Review technical/engineering content without peer verdicts.' if role == ROLES[0] else
-                        'Review patent content independently.' if role == ROLES[1] else 'Perform final whole-package consistency review.'))
+                    instruction = prompts_registry.review_instruction(role, material)
                 charge = None  # Unknown until usage response; every failed attempt retains reservation.
                 response = self.gateway.generate(model, instruction, context, schema.model_json_schema())
                 charge = response['cost_micro_usd']
@@ -580,6 +595,13 @@ class Service:
                 if response.get('error'):
                     raise PatentError(response['error'], '모델 출력이 완성되지 않았습니다.', 503)
                 result = schema.model_validate(response['value']).model_dump()
+                validate_result(kind, result, context)
+                if kind == 'questions' and workflow.automatic(case):
+                    answered_ids = {k for k, v in material.get('answers', {}).items() if str(v).strip()}
+                    answered_ids |= {q['id'] for q in material.get('synthesis_questions',{}).get('questions',[])}
+                    result['questions'] = [q for q in result['questions'] if q['id'] not in answered_ids]
+                    if len(result['questions']) > material['workflow_contract']['max_blocking_questions']:
+                        raise PatentError('QUESTION_BATCH_LIMIT', '필수 질문을 한 번에 세 개 이하로 정리해야 합니다.', 503)
                 if kind == 'invention':
                     for feature in result['features']:
                         feature['provenance'] = 'DERIVED_PROPOSAL'
@@ -614,6 +636,9 @@ class Service:
                 result = self.sources.enrich(payload['application_number'], payload['issue_id'], payload['missing_fields'])
             elif kind == 'checks':
                 result = {'checks': self.runtime_checks(owner, case, material)}
+            elif kind == 'report':
+                from .report import render
+                result, report_files = render(case, material)
             elif kind == 'feedback':
                 result = feedback_event(case, payload)
             elif kind == 'export':
@@ -631,7 +656,7 @@ class Service:
             error = 'OUTPUT_SCHEMA_INVALID'
         except PatentError as exc:
             error = exc.code
-            if exc.code in ('PROVIDER_NOT_ALLOWED','REVIEW_COVERAGE_LIMIT'):
+            if exc.code in PREFLIGHT_ERRORS:
                 charge = 0
         except Exception:
             error = 'TASK_DEPENDENCY_FAILED'
@@ -641,14 +666,17 @@ class Service:
             if row['fence'] != fence or row['status'] != 'RUNNING':
                 raise PatentError('LEASE_LOST', '작업 임대가 만료됐습니다. 비용 확인이 필요합니다.')
             settle(current['budget'], body['reserved_micro_usd'], charge)
-            if tier=='T3' and charge==0 and error in ('PROVIDER_NOT_ALLOWED','REVIEW_COVERAGE_LIMIT') and current['execution_status']!='CANCELLED':
+            if error=='AUTHORING_EVIDENCE_INVALID' and result is not None:
+                self.repo.append(c,case_id,'authoring_rejection',{'task_id':task_id,'artifact_type':kind,
+                    'read_version_ids':ticket['read_version_ids'],'error_code':error,'candidate':result})
+            if tier=='T3' and charge==0 and error in PREFLIGHT_ERRORS and current['execution_status']!='CANCELLED':
                 current['budget']['review_plan_micro_usd']+=body['reserved_micro_usd']
             if provider_receipt:
                 self.repo.append(c,case_id,'provider_receipt',{'task_id':task_id,**provider_receipt})
             self.repo.append(c, case_id, 'cost', {'task_id': task_id, 'reservation_id': ticket['budget_reservation_id'],
                 'reserved_micro_usd': body['reserved_micro_usd'], 'actual_micro_usd': charge,
                 'status': 'UNKNOWN' if charge is None else 'ACCOUNTED', 'tier': tier})
-            stale = current['epoch'] != ticket['epoch'] or set(ticket['read_version_ids']) != set(self.readset(current, ticket['review_role'])) or current['execution_status'] in ('CANCELLED','PAUSED_USER')
+            stale = current['epoch'] != ticket['epoch'] or set(ticket['read_version_ids']) != set(self.readset(current, ticket['review_role'], ticket['tool_name'])) or current['execution_status'] in ('CANCELLED','PAUSED_USER')
             status = 'STALE' if stale else 'UNCERTAIN' if charge is None else 'FAILED' if error else 'COMPLETED'
             if not stale and not error:
                 if kind == 'review':
@@ -670,18 +698,38 @@ class Service:
                 elif kind == 'patch':
                     self.reduce(c, owner, current, 'apply-patch', result)
                 elif kind in MATERIAL_TYPES:
+                    if kind == 'report':
+                        result['files'] = {}
+                        for format, (mime, content) in report_files.items():
+                            asset_id = ident('passet')
+                            extension = format if format in ('docx','pdf') else 'png'
+                            self.put_asset(c, current, asset_id, 'patent-report.'+extension, mime, content)
+                            result['files'][format] = {'asset_id':asset_id,'mime':mime,'sha256':hashlib.sha256(content).hexdigest()}
                     if kind=='source_detail':
                         documents=dict(self.material(owner,current,c).get('source_detail',{}).get('documents',{}))
                         documents[result['application_number']]=result
                         result={'documents':documents}
-                    self.repo.artifact(c, current, kind, result, ticket['read_version_ids'], producer=ticket['tool_name'])
+                    version = self.repo.artifact(c, current, kind, result, ticket['read_version_ids'], producer=ticket['tool_name'])
+                    if kind == 'synthesized_solution':
+                        self.repo.artifact(c, current, 'synthesis_questions', {'questions':result['questions']}, [version], producer=ticket['tool_name'])
+                    if kind == 'drafting_keywords':
+                        from .repository import keywords
+                        for keyword in result['keywords']:
+                            c.execute(insert(keywords).values(version_id=version, keyword_id=keyword['id'], case_id=case_id,
+                                term=keyword['term'],category=keyword['category'],source_version_id=current['artifacts']['synthesized_solution'],
+                                body=canonical(keyword),created_ms=now()))
                     if kind == 'sources':
                         current['evidence_status'] = result['status']
                 else:
                     self.repo.append(c, case_id, kind, result)
             elif not stale:
-                current['execution_status'] = 'PAUSED_DEPENDENCY'
-                current['last_error'] = error or 'USAGE_UNKNOWN'
+                from .evidence_clarification import build,install
+                clarification=build(kind,result,context,ticket) if error=='AUTHORING_EVIDENCE_INVALID' and result is not None and charge is not None else None
+                if clarification:
+                    install(self,c,current,clarification)
+                else:
+                    current['execution_status'] = 'PAUSED_DEPENDENCY'
+                    current['last_error'] = error or 'USAGE_UNKNOWN'
             body['result'] = {'error_code': error, 'charged_micro_usd': charge}
             c.execute(update(tasks).where(tasks.c.task_id == task_id, tasks.c.fence == fence)
                       .values(status=status, body=canonical(body), lease_until_ms=0))

@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 import httpx
 from . import events, nodes, store
 from .domain import deep_dive
-from .context import AbortRun, HumanInterrupt, ProviderUnavailable, RunContext
+from .context import AbortRun, HumanInterrupt, ProviderUnavailable, UsageUncertain, RunContext
 from .schema import GlobalState, RunMode
 from .settings import settings
 
@@ -187,7 +187,7 @@ def execute_stage(run_id, stage_index, epoch=0):
         except AbortRun as exc:
             reason = ("분석 실행 예산에 도달했습니다. 실행 설정을 확인하고 이어서 실행해 주세요."
                       if "예산" in str(exc) else "분석이 중단되었습니다. 저장된 단계에서 다시 이어서 실행해 주세요.")
-            if str(exc).startswith('ARIZ Part'):
+            if isinstance(exc, UsageUncertain) or str(exc).startswith('ARIZ Part'):
                 reason = str(exc)
             _mark_interrupted(state, reason)
             ctx.warn(str(exc))
@@ -467,6 +467,35 @@ def inject_agent(run_id, node, role_name, instruction):
             {"role_name": role_name, "instruction": instruction})
         store.save_state(state)
     return True
+def _recover_step_journal(state):
+    """Restore durable step results omitted from the last parent checkpoint."""
+    import json
+    from sqlalchemy import select
+    from .schema import StepRecord
+    by_id = {step.step_id: step for step in state.steps}
+    with store.engine.connect() as connection:
+        rows = connection.execute(select(store.steps).where(store.steps.c.run_id == state.run_id)).mappings().all()
+    for row in rows:
+        prior = by_id.get(row['step_id'])
+        fields = prior.model_dump() if prior else {}
+        fields.update({key: value for key, value in row.items() if key in StepRecord.model_fields
+                       and (value is not None or key == 'ended_at')})
+        for key in ('input_slice', 'output_json', 'verdicts'):
+            fallback = [] if key == 'verdicts' else {}
+            value = fields.get(key)
+            fields[key] = (json.loads(value) if isinstance(value, str) else value) or fallback
+        saved = StepRecord.model_validate(fields)
+        if not prior or saved.status != 'RUNNING' or prior.status == 'RUNNING':
+            by_id[saved.step_id] = saved
+    state.steps = sorted(by_id.values(), key=lambda step: (step.seq, step.step_id))
+    for step in state.steps:
+        if step.status == 'RUNNING':
+            step.status = 'FAILED'
+            step.error = '실행 워커가 종료되어 이 호출의 완료를 확인하지 못했습니다.'
+            step.ended_at = datetime.now()
+            store.save_step(state.run_id, step)
+
+
 def recover_orphans():
     """Detect lost workers under the same lock that protects stage execution.
 
@@ -505,9 +534,21 @@ def recover_orphans():
                 if not active and time.time() - last_progress < DISPATCH_GRACE_SECONDS:
                     continue
                 _upgrade(state)
+                _recover_step_journal(state)
                 state.scratch.pop("execution_stage_active", None)
                 state.scratch.pop("execution_deadline", None)
-                _mark_interrupted(state, "분석 실행이 중단되었습니다. 저장된 단계에서 이어서 실행해 주세요.")
+                reason = '실행 워커가 종료되어 분석이 중단되었습니다. 완료된 분석은 보존되어 있습니다.'
+                from .ax import enabled as ax_enabled
+                if ax_enabled(state):
+                    from .ax import ledger
+                    usage = ledger.recover_interrupted(state)
+                    if usage['unknown_attempts']:
+                        reason += ' ' + str(UsageUncertain())
+                    else:
+                        reason += ' 저장된 단계에서 이어서 실행해 주세요.'
+                else:
+                    reason += ' 저장된 단계에서 이어서 실행해 주세요.'
+                _mark_interrupted(state, reason)
                 store.save_state(state)
                 _emit_retry(state)
                 recovered.append(state.run_id)

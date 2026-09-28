@@ -211,9 +211,33 @@ def advance_epoch(state, reason):
         if epoch != h['epoch'] + 1:
             raise Conflict('Epoch must advance exactly once')
         c.execute(update(heads).where(heads.c.run_id==state.run_id).values(epoch=epoch,revision=h['revision']+1))
-        c.execute(update(tasks).where(tasks.c.run_id==state.run_id,tasks.c.status=='RUNNING').values(status='UNKNOWN'))
+        _interrupt_tasks(c, state.run_id, reason)
         _event(c,state.run_id,'EPOCH_CHANGED',{'previous':h['epoch'],'epoch':epoch,'reason':reason})
         store._save_state_db(c,state)
+
+
+def _interrupt_tasks(c, run_id, reason):
+    pending = c.execute(select(tasks).where(tasks.c.run_id == run_id, tasks.c.status == 'RUNNING')).mappings().all()
+    for task in pending:
+        c.execute(update(tasks).where(tasks.c.task_id == task['task_id']).values(status='UNKNOWN'))
+        c.execute(update(attempts).where(attempts.c.task_id == task['task_id'],
+            attempts.c.fence == task['fence']).values(status='UNKNOWN'))
+        _event(c, run_id, 'USAGE_UNKNOWN', {'task_id': task['task_id'], 'reason': reason})
+
+
+def recover_interrupted(state):
+    """Caller holds the run lock and has established that its worker is gone."""
+    with transaction() as c:
+        h = _head(c, state.run_id, lock=True)
+        if h['epoch'] != state.scratch.get('execution_epoch', 0):
+            raise Conflict('Stale recovery epoch')
+        _interrupt_tasks(c, state.run_id, 'worker_lost')
+    summary = budget(state.run_id, state.user_id)
+    state.cost.total_usd = summary['spent_microusd'] / 1e6
+    state.cost.budget_usd = summary['limit_microusd'] / 1e6
+    state.cost.over_budget = state.cost.total_usd > state.cost.budget_usd
+    state.scratch['ax_interrupted_usage'] = summary
+    return summary
 
 
 def snapshot(run_id, snapshot_id, actor):

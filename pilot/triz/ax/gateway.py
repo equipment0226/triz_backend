@@ -3,7 +3,7 @@ import math
 import time
 from dataclasses import asdict
 from .. import llm, store
-from ..context import AbortRun, ProviderUnavailable
+from ..context import AbortRun, ProviderUnavailable, UsageUncertain
 from ..settings import settings
 from . import ledger
 from .contracts import Conflict,BudgetBusy
@@ -51,6 +51,8 @@ def chat(ctx, **kwargs):
             except Conflict as exc:
                 raise AbortRun(str(exc)) from exc
         if task.get('blocked'):
+            if task['blocked']=='UNKNOWN':
+                raise UsageUncertain()
             if task['blocked']=='FAILED' and task.get('actual') is not None:
                 stored=task.get('result') or {}
                 result=llm.recover_failed_json(stored.get('usage') or {}, kwargs.get('expect','object'))

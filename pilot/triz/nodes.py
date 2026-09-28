@@ -999,6 +999,18 @@ def s5_solve(ctx: RunContext) -> None:
     track_state.scratch["agent_cache"] = st.scratch["agent_cache"]
     track_ctx = RunContext(track_state)
     track_ctx.lock, track_ctx.budget, track_ctx.call_slots = ctx.lock, ctx.budget, ctx.call_slots
+    def persist_tracks():
+        # The evidence worker persists the parent concurrently. Publish merged
+        # track results to that same parent before saving, retaining its evidence.
+        with ctx.lock:
+            st.solve = track_state.solve
+            for key in ('ax_track_execution', 'ax_track_review_reasons', 'ax_action_results'):
+                if key in track_state.scratch:
+                    st.scratch[key] = track_state.scratch[key]
+            if 's_curve' in track_state.scratch:
+                st.scratch['s_curve'] = track_state.scratch['s_curve']
+        ctx.persist()
+    track_ctx.persist = persist_tracks
     try:
         with ThreadPoolExecutor(max_workers=2) as pool:
             retrieval = pool.submit(_evidence, ctx)
@@ -1007,12 +1019,7 @@ def s5_solve(ctx: RunContext) -> None:
     finally:
         # Preserve completed branches on interruption; continuation uses their
         # results and does not add duplicate applications or repeat paid calls.
-        st.solve = track_state.solve
-        for key in ('ax_track_execution', 'ax_track_review_reasons', 'ax_action_results'):
-            if key in track_state.scratch:
-                st.scratch[key] = track_state.scratch[key]
-        if 's_curve' in track_state.scratch:
-            st.scratch['s_curve'] = track_state.scratch['s_curve']
+        persist_tracks()
     if ax_enabled(st):
         from .ax.coordinator import complete_required
         complete_required(ctx)
@@ -1072,6 +1079,7 @@ def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
         child = RunContext(branch)
         child.lock, child.budget = ctx.lock, ctx.budget
         child.call_slots = ctx.call_slots
+        child.persist = ctx.persist
         try:
             if contract(st):
                 from .ax.action_runtime import executing, active_action
@@ -1127,6 +1135,9 @@ def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
                         'reason': reason or ('분석 결과를 저장했습니다.' if count else
                             '트랙 수행 후 저장된 적용안이 없습니다. 실행 이력과 적용 조건을 확인하세요.'),
                         'output_count': count}
+    # Persist the parent after merging each finished batch. Child branches must
+    # never replace this checkpoint with their isolated SolveBundle.
+    ctx.persist()
     if failures:
         raise failures[0]
 

@@ -21,6 +21,14 @@ class AbortRun(Exception):
     pass
 
 
+class UsageUncertain(AbortRun):
+    """A lost provider response retains its reservation and cannot be retried blindly."""
+
+    def __init__(self):
+        super().__init__('마지막 모델 호출의 응답·과금 상태를 확인할 수 없어 재호출을 보류했습니다. '
+                         '완료된 분석은 보존되어 있으며, 호출 상태 확인 후 이어서 실행할 수 있습니다.')
+
+
 class ProviderUnavailable(AbortRun):
     """Only known provider failures may supply a public interruption reason."""
     REASONS = {
@@ -56,6 +64,9 @@ class RunContext:
             step = StepRecord(seq=seq, stage=stage, node=node, label=label, agent_id=agent_id,
                               prompt_id=prompt_id, tier=tier, status="RUNNING")
             self.state.steps.append(step)
+        # The stage checkpoint can be older than an in-flight call on restart.
+        # Journal the start as well as the finish so no step disappears.
+        store.save_step(self.state.run_id, step)
         self.emit("node_start", step_id=step.step_id, seq=seq, stage=stage, node=node,
                   label=label, agent=agent_id, tier=tier)
         return step

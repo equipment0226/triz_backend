@@ -37,22 +37,34 @@ def patch(rule,domain,functions):
 
 
 def apply(state):
+    from .mode_contract import contract
+    modern=bool(contract(state))
     used=state.scratch.setdefault('ax_applied_rules',[])
     functions={a.get('catalog_function') for a in state.solve.effect_apps}
+    if modern:
+        functions.update(a['intended_function'] for a in state.scratch.get('ax_effect_applications',[]))
     protected=digest(state.constraints.model_dump(mode='json'))
     added=[]
     for stored in state.scratch['ax_bundle'].get('rule_catalog',[])[:12]:
         version=stored['version_id']
-        if version in used: continue
+        if not modern and version in used: continue
         spec={k:v for k,v in stored.items() if k!='version_id'}
         rule=validate(spec,state)
         result=patch(spec,state.domain.problem_type,functions)
         if not result['matched']: continue
         for c in state.concepts:
+            if modern:
+                matching = [a for a in state.scratch.get('ax_effect_applications', [])
+                            if a['candidate_id'] == c.id and a['effect_id'] in rule.effect_ids]
+                if not matching or version+':'+c.id in used:
+                    continue
+                used.append(version+':'+c.id)
             for obligation in result['obligations']:
                 c.validation_plan.append({'metric':rule.provided_function,'experiment':obligation['text'],
                     'failure_criterion':'적용 조건 또는 보호 요구를 충족하지 못함','rule_version_id':version})
-        used.append(version); added.append({'version_id':version,'patch':result})
+        if not modern:
+            used.append(version)
+        added.append({'version_id':version,'patch':result})
     if digest(state.constraints.model_dump(mode='json'))!=protected:
         raise Conflict('Rule modified protected requirements')
     state.scratch['ax_rule_patches']=added
@@ -68,8 +80,8 @@ def research_project(tenant,project):
     """
     groups=defaultdict(list)
     with ledger.store.engine.connect() as connection:
-        heads=connection.execute(select(ledger.heads).where(ledger.heads.c.tenant_id==tenant,
-            ledger.heads.c.project_id==project)).mappings().all()
+        heads=connection.execute(select(ledger.heads.c.run_id,ledger.heads.c.owner_id).where(ledger.heads.c.tenant_id==tenant,
+            ledger.heads.c.project_id==project,ledger.heads.c.run_id.in_(select(ledger.reviews.c.run_id)))).mappings().all()
     for h in heads:
         state=ledger.store.load_state(h['run_id'])
         if not state or state.scratch.get('acceptance_fixture'): continue

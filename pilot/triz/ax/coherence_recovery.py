@@ -41,39 +41,79 @@ def targets(state, phase):
     return output
 
 
+def _fingerprint(state):
+    from .action_runtime import episode
+    return digest([episode(state), [c.model_dump(mode='json') for c in state.concepts],
+                   state.constraints.model_dump(mode='json'), state.scratch.get('ax_constraint_failures', {})])
+
+
+def _choices(ctx, phase, limits, journal):
+    state = ctx.state
+    from .mode_contract import contract
+    modern = bool(contract(state))
+    for _ in range(max(1, limits['recovery_targets'] * limits['repairs_per_blocker'])):
+        if modern and state.scratch.get('ax_optional_deferred_budget'):
+            return
+        options = []
+        for target in targets(state, phase):
+            blocker = 'gap-' + digest([target['candidate_id'], target['gaps'], target['obligation_ids']])[:24]
+            prior = [x for x in journal if x.get('blocker_id') == blocker and x.get('attempt')]
+            if any(x.get('status') == 'PROPOSED_REQUIRES_GATE' for x in prior) or len(prior) >= limits['repairs_per_blocker']:
+                continue
+            options.append((target, blocker, len(prior)))
+        if not options or sum(x.get('status') == 'PROPOSED_REQUIRES_GATE' for x in journal) >= limits.get('recovery_additions', 4):
+            return
+        if modern and state.scratch.get('ax_optional_sequence', 0) >= limits['max_optional_rounds']:
+            return
+        if ledger.budget(state.run_id)['remaining_microusd'] < limits['validation_reserve_microusd'] + 100000:
+            journal.append(dict(blocker_id=options[0][1], candidate_id=options[0][0]['candidate_id'],
+                                phase=phase, status='DEFERRED_BUDGET'))
+            return
+        members = state.scratch['ax_members']
+        refs = [members[k] for k in ('definition', 'concepts', 'constraints') if k in members]
+        tickets = [ActionTicket(action_type=target['action'], target_version_ids=refs,
+            parameters={'attempt':attempt + 1, 'depth':1, 'candidate_id':target['candidate_id'],
+                'optional':True, 'obligation_ids':target['obligation_ids'],
+                'gap_kinds':[g['kind'] for g in target['gaps']],
+                'ancestor_regression_checks':['original_improvement','original_protected_side','hard_constraints']},
+            expected_outputs=['CandidateVersion','CoherenceReview'], allowed_tools=['candidate_repair'],
+            reserved_microusd=100000, model_role='REASONING' if modern else 'FLASH',
+            reason='?? ??? ??? ??? ?? ??? ????.') for target, blocker, attempt in options]
+        if modern:
+            tickets.append(coordinator.defer_ticket(state))
+        else:
+            tickets = tickets[:1]
+        chosen, did = coordinator.decide(state, tickets, 0, {t.action_type for t in tickets}, 'coherence:' + phase)
+        if chosen.action_type == 'DEFER':
+            journal.append(dict(phase=phase, status='DEFER_OPTIONAL', decision_id=did))
+            return
+        index = next(i for i, (target, _, _) in enumerate(options) if target['candidate_id'] == chosen.parameters['candidate_id'])
+        target, blocker, attempt = options[index]
+        entry = dict(blocker_id=blocker, candidate_id=target['candidate_id'], phase=phase,
+                     obligation_ids=target['obligation_ids'], gap_kinds=[g['kind'] for g in target['gaps']])
+        yield target, blocker, attempt, chosen, did, entry
+
+
 def run(ctx, phase):
-    state=ctx.state
-    limits=state.scratch['ax_bundle']['limits']
-    complete=state.scratch.setdefault('ax_recovery_phases',[])
-    if phase in complete:
+    from .mode_contract import optional_enabled, contract
+    from .action_runtime import executing, tier
+    if not optional_enabled(ctx.state):
         return []
-    state.scratch.setdefault('ax_baseline_candidates',[c.model_dump(mode='json') for c in state.concepts])
-    journal=state.scratch.setdefault('ax_recovery',[])
-    protected=digest(state.constraints.model_dump(mode='json'))
-    added=[]
-    for target in targets(state,phase)[:limits['recovery_targets']]:
-        blocker='gap-'+digest([target['candidate_id'],target['gaps'],target['obligation_ids']])[:24]
-        prior=[x for x in journal if x.get('blocker_id')==blocker and x.get('attempt')]
-        for attempt in range(len(prior),limits['repairs_per_blocker']):
-            if sum(x.get('status')=='PROPOSED_REQUIRES_GATE' for x in journal)>=limits.get('recovery_additions',4):
-                break
-            entry={'blocker_id':blocker,'candidate_id':target['candidate_id'],'phase':phase,
-                   'obligation_ids':target['obligation_ids'],'gap_kinds':[g['kind'] for g in target['gaps']]}
-            if ledger.budget(state.run_id)['remaining_microusd']<limits['validation_reserve_microusd']+100000:
-                journal.append(dict(entry,status='DEFERRED_BUDGET'))
-                break
-            members=state.scratch['ax_members']
-            refs=[members[k] for k in ('definition','concepts','constraints') if k in members]
-            ticket=ActionTicket(action_type=target['action'],target_version_ids=refs,
-                parameters={'attempt':attempt+1,'depth':1,'candidate_id':target['candidate_id'],
-                    'obligation_ids':target['obligation_ids'],'gap_kinds':entry['gap_kinds'],
-                    'ancestor_regression_checks':['original_improvement','original_protected_side','hard_constraints']},
-                expected_outputs=['CandidateVersion','CoherenceReview'],allowed_tools=['candidate_repair'],
-                reserved_microusd=100000,model_role='FLASH',reason='원래 문제의 누락된 연결과 보호 조건을 보완한다.')
-            chosen,did=coordinator.decide(state,[ticket],0,{target['action']},'coherence:'+blocker)
+    state = ctx.state
+    limits = state.scratch['ax_bundle']['limits']
+    complete = state.scratch.setdefault('ax_recovery_phases', [])
+    fingerprints = state.scratch.setdefault('ax_recovery_fingerprints', {})
+    if (contract(state) and fingerprints.get(phase) == _fingerprint(state)) or (not contract(state) and phase in complete):
+        return []
+    state.scratch.setdefault('ax_baseline_candidates', [c.model_dump(mode='json') for c in state.concepts])
+    journal = state.scratch.setdefault('ax_recovery', [])
+    protected = digest(state.constraints.model_dump(mode='json'))
+    added = []
+    for target, blocker, attempt, chosen, did, entry in _choices(ctx, phase, limits, journal):
+        with executing(ctx, chosen, did, context='coherence:' + phase):
             from .. import agent
             raw=agent.run_agent(ctx,node='ax_repair_'+blocker+'_'+str(attempt),label='미해결 부분 보완',
-                stage='S6_CONCEPT',agent_id='effects_specialist',prompt_id='P_AX_RECOVERY',tier='T2',
+                stage='S6_CONCEPT',agent_id='effects_specialist',prompt_id='P_AX_RECOVERY',tier=tier(state, chosen),
                 vars={'action':chosen.action_type,'baseline':target['baseline'].model_dump(mode='json') if target['baseline'] else {},
                       'blockers':target['gaps'],'requirements':state.constraints.model_dump(mode='json'),
                       'analysis':{'obligations':coherence.obligations(state),
@@ -128,9 +168,11 @@ def run(ctx, phase):
                 state.concepts.append(repaired)
                 state.scratch.setdefault('ax_mechanisms',{})[repaired.id]=proposal.coherence.model_dump(mode='json')
                 added.append(repaired.id)
-                break
-    complete.append(phase)
+                continue
+    if phase not in complete:
+        complete.append(phase)
+    fingerprints[phase] = _fingerprint(state)
     from .runtime import DEPENDENCIES, section
-    ledger.capture(state,{'concepts':section(state,'concepts'),'coherence':coherence.assess(state)},
-                   DEPENDENCIES,'coherence_recovery:'+phase)
+    ledger.capture(state, {'concepts':section(state, 'concepts'), 'coherence':coherence.assess(state)},
+                   DEPENDENCIES, 'coherence_recovery:' + phase)
     return added

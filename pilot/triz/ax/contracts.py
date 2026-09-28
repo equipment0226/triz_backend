@@ -34,17 +34,19 @@ class Contract(BaseModel):
 
 class ActionTicket(Contract):
     action_type: str
+    action_instance_id: str = ''
+    input_snapshot_id: str = ''
     target_version_ids: list[str] = Field(default_factory=list)
     parameters: dict[str, Any] = Field(default_factory=dict)
     expected_outputs: list[str]
     allowed_tools: list[str]
-    model_role: Literal['CODE', 'LITE', 'FLASH', 'EXPERT', 'HUMAN'] = 'CODE'
+    model_role: Literal['CODE', 'LITE', 'FLASH', 'EXPERT', 'HUMAN', 'REASONING', 'INDEPENDENT_REVIEW'] = 'CODE'
     reserved_microusd: int = Field(default=0, ge=0)
     reason: str = Field(min_length=1, max_length=1500)
 
     @model_validator(mode='after')
     def known_action(self):
-        if self.action_type not in ACTIONS:
+        if self.action_type not in ACTIONS + ('MERGE_IDEAS',):
             raise ValueError('Unknown action')
         if len(set(self.target_version_ids)) != len(self.target_version_ids):
             raise ValueError('Duplicate target version')

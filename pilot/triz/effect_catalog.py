@@ -62,6 +62,10 @@ def format_effects(entries, total_groups, total_effects, standard_count):
             value=e.get(key)
             if value: lines.append(f'{label}: '+(' / '.join(value) if isinstance(value,list) else str(value)))
         if e.get('evidence_level'): lines.append('근거 수준: '+e['evidence_level'])
+        history=e.get('applicability_history',{})
+        if history.get('independent_runs'):
+            lines.append(f"조건부 적용 이력: 호환 맥락 {history['independent_runs']}건, 검토 보정 {history['score']:.3f}. "
+                         "사용자 보고의 개념 검토이며 현장 실증·현재 조건 충족·성공확률을 뜻하지 않는다.")
         sources=e.get('sources',[])
         for source in sources[:4]:
             lines.append(f"출처 [{source.get('identifier') or source.get('title')}]: {source.get('url','')} (범위: {source.get('retrieval_scope','reference_document')})")

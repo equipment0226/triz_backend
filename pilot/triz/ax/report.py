@@ -7,7 +7,8 @@ CONTEXT_KEYS = ('title', 'param_scheme', 'excluded_concepts', 's_curve', 'taboo'
                 'evidence_mappings', 'evidence_gaps', 'search_status',
                 'ax_coordination', 'ax_coherence', 'ax_recovery',
                 'ax_track_execution', 'ax_solve_start_seq', 'ax_candidate_review',
-                'idea_consolidation', 'constraint_normalization')
+                'idea_consolidation', 'constraint_normalization', 'ax_idea_inventory',
+                'ax_effect_applications', 'ax_action_results', 'semantic_episode_id')
 
 TRACK_LABELS = {
     'A_MATRIX': '모순행렬·발명원리', 'B_SEPARATION': '분리 원리',
@@ -19,6 +20,7 @@ TRACK_STATUSES = {
     'COMPLETED': '실행 완료', 'REVIEWED_NO_APPLICATION': '검토 완료·적용안 없음',
     'NOT_APPLICABLE': '적용 대상 아님', 'PENDING': '실행 대기', 'FAILED': '실행 실패',
     'UNRECORDED': '현재 실행 상태 기록 없음',
+    'BLOCKED_MISSING_INPUT': '선행 입력 부족·재개 필요', 'NOT_RUN_BUDGET': '예산 부족·미실행',
 }
 
 
@@ -50,6 +52,8 @@ def execution_view(solve, control, scratch):
                 'FAILED': '이번 해결 탐색의 실행 실패로 적용 결과를 확인할 수 없다.',
                 'UNRECORDED': '이전 형식에는 현재 회차의 실행 상태가 저장되지 않았다. 누적 호출 이력만으로 이번 실행을 판단할 수 없다.',
                 'COMPLETED': '이번 회차의 실행 완료 기록이 있다. 내용의 검증 여부는 별도로 확인한다.',
+                'BLOCKED_MISSING_INPUT': '필수 기법의 선행 입력이 부족하여 분석이 부분 완료되었습니다.',
+                'NOT_RUN_BUDGET': '예산 부족으로 필수 기법이 미실행 상태입니다.',
             }[status]
         empty = reason
         if status == 'COMPLETED' and not counts.get(track):
@@ -87,7 +91,10 @@ def trace_view(steps, scratch):
 
 def context(state):
     """Capture report-only metadata alongside the selection, before rendering."""
+    from .mode_contract import coverage
+    from .runtime import diagnostics
     return {'created_at': state.created_at.isoformat(),
+            'mode_coverage':coverage(state), 'learning_summary':diagnostics(state),
             'cost': state.cost.model_dump(mode='json'),
             'control': state.control.model_dump(mode='json'),
             'steps': [s.model_dump(mode='json') for s in state.steps],
@@ -137,6 +144,7 @@ def project(state):
         'effect_applicability': v.get('solve', {}).get('effect_applicability', [])}
     scratch['ax_report_tracks'] = execution_view(v.get('solve', {}), meta.get('control', {}), scratch)
     scratch['ax_report_trace'] = trace_view(meta.get('steps', []), scratch)
+    scratch['ax_report_mode_coverage'] = copy.deepcopy(meta.get('mode_coverage', {}))
     scratch.setdefault('excluded_concepts', [
         {'idea': c.get('title', ''), 'reason': '; '.join(c.get('quality_issues', []))}
         for c in v.get('concepts', {}).get('excluded', [])])

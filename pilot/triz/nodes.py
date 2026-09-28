@@ -58,7 +58,12 @@ def s0_bootstrap(ctx: RunContext) -> None:
 
     tracks = cfg(f"tracks.{st.control.mode.value}", ["A_MATRIX", "B_SEPARATION", "E_TRIMMING"])
     st.control.enabled_tracks = domain.select_tracks(st, tracks)
-    st.cost.budget_usd = float(cfg("run.budget_usd", 3.0))
+    from .ax import enabled as ax_enabled
+    if not ax_enabled(st):
+        st.cost.budget_usd = float(cfg("run.budget_usd", 3.0))
+    from .ax.mode_contract import contract
+    if contract(st):
+        st.control.enabled_tracks = list(contract(st)['profile']['tracks'])
     ctx.emit("plan", mode=st.control.mode.value, tracks=st.control.enabled_tracks,
              title=st.scratch["title"])
     ctx.persist()
@@ -676,6 +681,8 @@ def _track_c(ctx: RunContext) -> None:
 
 
 def _track_d_ariz(ctx: RunContext) -> None:
+    from .ax.mode_contract import validate_tracks
+    validate_tracks(ctx.state, ['D_ARIZ'])
     st = ctx.state
     run = ARIZRun()
     parts_enabled = cfg("ariz.enabled_parts", [1, 2, 3, 4, 5, 7])
@@ -1001,7 +1008,7 @@ def s5_solve(ctx: RunContext) -> None:
         # Preserve completed branches on interruption; continuation uses their
         # results and does not add duplicate applications or repeat paid calls.
         st.solve = track_state.solve
-        for key in ('ax_track_execution', 'ax_track_review_reasons'):
+        for key in ('ax_track_execution', 'ax_track_review_reasons', 'ax_action_results'):
             if key in track_state.scratch:
                 st.scratch[key] = track_state.scratch[key]
         if 's_curve' in track_state.scratch:
@@ -1015,7 +1022,9 @@ def s5_solve(ctx: RunContext) -> None:
     if ax_enabled(st):
         from .ax.coordinator import expand
         expand(ctx,need_more)
-        st.scratch['ax_idea_inventory']=[i.model_dump(mode='json') for i in st.solve.raw_ideas]
+        from .ax.mode_contract import contract
+        if not contract(st):
+            st.scratch['ax_idea_inventory']=[i.model_dump(mode='json') for i in st.solve.raw_ideas]
         # Every consolidated idea remains available for detailed review.
 
     retries = st.control.retry_count.get("s5_solve", 0)
@@ -1038,6 +1047,8 @@ def s5_solve(ctx: RunContext) -> None:
 
 def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
     st = ctx.state
+    from .ax.mode_contract import contract, validate_tracks
+    validate_tracks(st, tracks)
     seq = [t for t in ["A_MATRIX", "B_SEPARATION", "C_STANDARDS", "D_ARIZ", "E_TRIMMING",
                        "F_TRENDS", "G_FOS", "H_EFFECTS"] if t in tracks and t not in st.solve.tracks_run]
     ctx.emit("tracks", tracks=seq)
@@ -1062,7 +1073,19 @@ def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
         child.lock, child.budget = ctx.lock, ctx.budget
         child.call_slots = ctx.call_slots
         try:
-            fn(child)
+            if contract(st):
+                from .ax.action_runtime import executing, active_action
+                from .ax.contracts import ActionTicket
+                ticket = ActionTicket(action_type='GENERATE_BASELINE', parameters={'tracks':[t]},
+                    target_version_ids=[st.scratch['ax_members']['definition']], model_role='REASONING',
+                    expected_outputs=['TrackResult'], allowed_tools=['legacy_tracks'], reason='모드별 필수 기법 실행')
+                if active_action.get():
+                    fn(child)
+                else:
+                    with executing(child, ticket, context='track:' + t, optional=False):
+                        fn(child)
+            else:
+                fn(child)
             prefix = 's5_ariz_' if t == 'D_ARIZ' else 's5_track_' + t[0].lower()
             failed = [step for step in st.steps if step.seq > first_seq and
                       step.node.startswith(prefix) and step.status == 'FAILED']
@@ -1082,8 +1105,11 @@ def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
         if not item:
             continue
         t, branch, failure = item
+        if contract(st):
+            st.scratch.setdefault('ax_action_results', {}).update(branch.scratch.get('ax_action_results', {}))
         if failure:
-            execution[t] = {'status': 'FAILED', 'reason': str(failure), 'output_count': 0}
+            budget_failure = 'budget' in str(failure).lower() or '예산' in str(failure)
+            execution[t] = {'status': 'NOT_RUN_BUDGET' if budget_failure else 'FAILED', 'reason': str(failure), 'output_count': 0}
             failures.append(failure)
             continue
         for key in ("matrix_lookups", "principle_apps", "separation_apps", "standard_apps", "trend_apps", "fos_apps", "effect_apps", "raw_ideas", "gaps"):
@@ -1116,7 +1142,20 @@ def _merge(ctx: RunContext) -> bool:
         ctx.warn("도출된 아이디어가 없다.")
         return True
     from .idea_consolidation import consolidate
-    d = consolidate(ctx)
+    from .ax.mode_contract import contract
+    if contract(st):
+        from .ax.action_runtime import executing
+        from .ax.contracts import ActionTicket
+        parents = sorted(st.scratch.get('ax_action_results', {}))
+        ticket = ActionTicket(action_type='MERGE_IDEAS',model_role='REASONING',
+            parameters={'parent_action_instance_ids':parents, 'inventory_hash':digest_json(st.solve.raw_ideas)},
+            target_version_ids=list(st.scratch.get('ax_members',{}).values()),
+            expected_outputs=['MergedFamilies','RawDisposition'],allowed_tools=['legacy_tracks'],
+            reason='전 원안의 기구·조건·출처를 비교해 대표안과 보류 이유를 보존한다.')
+        with executing(ctx,ticket,context='solve:merge',optional=False):
+            d = consolidate(ctx)
+    else:
+        d = consolidate(ctx)
     st.solve.coverage_note = d.get("coverage_note", "")
     st.solve.gaps = list(dict.fromkeys(st.solve.gaps + _text_list(d.get("gaps"))))
     covered = {cid for i in st.solve.raw_ideas if i.resolution_status == "RESOLVED" for cid in i.addresses}
@@ -1127,6 +1166,11 @@ def _merge(ctx: RunContext) -> bool:
                                              "tracks": st.solve.tracks_run,
                                              "need_more": need_more})
     return need_more
+
+
+def digest_json(ideas):
+    from .ax.contracts import digest as fingerprint
+    return fingerprint([i.model_dump(mode='json') for i in ideas])
 
 
 # ════════════════════════════════════════════════ S6
@@ -1146,12 +1190,26 @@ def s7_gate(ctx: RunContext) -> None:
     st = ctx.state
     ctx.set_stage(Stage.S7.value)
 
-    payload = ctx.resume_payload()
+    payload = ctx.resume_payload() or st.scratch.get('ax_gate_response_pending')
     if payload:
         decisions = payload.get("decisions") or {}
         expected = {c.concept_id for c in st.constraint_checks if c.verdict == 'CONDITIONAL'}
-        if set(decisions) != expected or any(v not in ('accept', 'drop') for v in decisions.values()):
+        recorded = st.scratch.get('ax_gate_response_recorded')
+        if not recorded and (set(decisions) != expected or any(v not in ('accept', 'drop') for v in decisions.values())):
             raise ValueError("보류된 모든 해결책의 유지·제외 판정이 필요합니다.")
+        from .ax.effect_history import user_reviews
+        from .ax.mode_contract import contract
+        if contract(st):
+            st.scratch['ax_gate_response_pending'] = payload
+        if recorded:
+            changed = st.scratch.get('ax_gate_delta_pending', [])
+        else:
+            changed = user_reviews(st, payload.get('application_reviews', []), decisions,
+                                   st.scratch.get('ax_response_origin', 'legacy-' + _gate_fingerprint(st)))
+            if contract(st):
+                st.scratch['ax_gate_response_recorded'] = True
+                st.scratch['ax_gate_delta_pending'] = changed
+                ctx.persist()
         for cid, choice in decisions.items():
             chk = st.check_for(cid)
             if not chk:
@@ -1166,6 +1224,10 @@ def s7_gate(ctx: RunContext) -> None:
                     st.scratch.setdefault('excluded_concepts', []).append({'idea': concept.title, 'reason': '제약 검토에서 사용자가 제외함'})
                 st.concepts = [c for c in st.concepts if c.id != cid]
                 st.constraint_checks = [c for c in st.constraint_checks if c.concept_id != cid]
+        if changed:
+            _recheck_effect_conditions(ctx, changed)
+        for key in ('ax_gate_response_pending','ax_gate_response_recorded','ax_gate_delta_pending'):
+            st.scratch.pop(key,None)
         st.scratch['gate_decisions'] = {'decisions': dict(decisions), 'fingerprint': _gate_fingerprint(st)}
         # Preserve failed model-call records. A complete human decision resolves only
         # gate-call failures, without declaring the retained concepts compliant.
@@ -1183,6 +1245,8 @@ def s7_gate(ctx: RunContext) -> None:
     if not st.constraints.items:
         st.constraint_checks = [ConstraintCheckResult(concept_id=c.id, verdict="PASS")
                                 for c in st.concepts]
+        from .ax.effect_history import gate_reviews
+        gate_reviews(st, 's7_gate')
         return
 
     concepts = digest.concepts_for_gate(st)
@@ -1190,11 +1254,14 @@ def s7_gate(ctx: RunContext) -> None:
                            int(cfg('constraints.max_pairs_per_call', 24)) // max(1, len(st.constraints.items))))
     def gate_batch(start):
         batch = concepts[start:start+batch_size]
+        condition_facts = st.scratch.get('ax_condition_facts', {})
         d = agent.run_agent(
             ctx, node=f"s7_gate_{start // batch_size + 1}", label=f"제약 검토 {start+1}–{start+len(batch)}/{len(concepts)}", stage=Stage.S7.value,
             agent_id="gatekeeper", prompt_id="P_S7_GATEKEEPER", tier="T2",
             system_override="You are a strict compliance gatekeeper. Output JSON only. "
-                            "Judge only constraint compliance, nothing else.",
+                            "Judge only constraint compliance, nothing else. "
+                            + ("The following facts are USER_REPORTED, not measured proof. Preserve unresolved obligations: "
+                               + json.dumps(condition_facts, ensure_ascii=False) if condition_facts else ""),
             vars={"constraints_full": verify.constraints_full(st), "concepts_for_gate": batch}, default={}) or {}
         ids = {c['concept_id'] for c in batch}
         return [r for r in build_list(ConstraintCheckResult, d.get('results')) if r.concept_id in ids]
@@ -1241,6 +1308,8 @@ def s7_gate(ctx: RunContext) -> None:
                 r.per_constraint.append({"constraint_id": con.id, "verdict": "FAIL",
                                          "reason": f"수치 자동검증: {msg}"})
     st.constraint_checks = results
+    from .ax.effect_history import gate_reviews
+    gate_reviews(st, 's7_gate')
 
     failed = [r for r in results if r.verdict == "FAIL"]
     cond = [r for r in results if r.verdict == "CONDITIONAL"]
@@ -1273,8 +1342,39 @@ def s7_gate(ctx: RunContext) -> None:
                 "per_constraint": r.per_constraint,
             } for r in cond],
             "constraints": verify.constraints_full(st),
+            "effect_applications": [{k:a[k] for k in ('application_id','candidate_id','effect_id','intended_function','conditions')}
+                for a in st.scratch.get('ax_effect_applications', []) if a['candidate_id'] in {r.concept_id for r in cond}],
         }, Stage.S7.value)
     ctx.persist()
+
+
+def _recheck_effect_conditions(ctx, candidate_ids):
+    """Only changed candidates revisit the existing S7 handler; no new HITL gate."""
+    st = ctx.state
+    branch = st.model_copy(deep=True)
+    branch.concepts = [c for c in branch.concepts if c.id in candidate_ids]
+    branch.constraint_checks = []
+    branch.scratch.pop('resume_payload', None)
+    branch.scratch.pop('gate_decisions', None)
+    for key in ('ax_gate_response_pending','ax_gate_response_recorded','ax_gate_delta_pending'):
+        branch.scratch.pop(key,None)
+    branch.scratch['ax_autonomous_gate'] = True
+    branch.steps, branch.cost, branch.control = st.steps, st.cost, st.control
+    child = RunContext(branch)
+    child.lock, child.budget, child.call_slots = ctx.lock, ctx.budget, ctx.call_slots
+    child.persist = ctx.persist
+    s7_gate(child)
+    # A user-reported condition is insufficient to promote the whole candidate.
+    for check in branch.constraint_checks:
+        if check.verdict == 'PASS':
+            check.verdict = 'CONDITIONAL'
+            check.mitigation = '사용자 보고 조건을 반영했습니다. 다른 의무와 실증은 별도로 확인해야 합니다.'
+        check.requires_user_decision = False
+    st.concepts = [c for c in st.concepts if c.id not in candidate_ids] + branch.concepts
+    st.constraint_checks = [c for c in st.constraint_checks if c.concept_id not in candidate_ids] + branch.constraint_checks
+    for key in ('ax_excluded', 'ax_constraint_failures', 'excluded_concepts'):
+        if key in branch.scratch:
+            st.scratch[key] = branch.scratch[key]
 
 
 # ════════════════════════════════════════════════ S8

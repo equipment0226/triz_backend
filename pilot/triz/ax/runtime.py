@@ -55,12 +55,34 @@ def bundle(state=None):
                             root/'agent.py',root/'prompts_registry.py',root/'evidence.py',root/'idea_consolidation.py',
                             root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
-                            root/'ax/learning.py',root.parent/'templates/report_full.md.j2',
+                            root/'ax/learning.py',root/'ax/mode_contract.py',root/'ax/action_runtime.py',
+                            root/'ax/routing_q.py',root/'ax/effect_history.py',root/'ax/effect_ranker.py',
+                            root/'ax/registry.py',root/'ax/worker.py',root.parent/'templates/report_full.md.j2',
                             root.parent/'templates/report_reformulation.md.j2',
                             root.parent/'templates/report.html.j2',root.parent/'templates/report_ax_appendix.md.j2']}}
+    if state is not None and settings.triz.get('ax', {}).get('run_contract_version', 'ax-run-v2') == 'ax-run-v2':
+        from .mode_contract import pin
+        data['run_contract'] = pin(state.control.mode.value,
+            smart=settings.triz.get('ax', {}).get('smart_orchestration_enabled', True))
+        data['feature_schema'] = 'ax-state-action-v3'
+        data['action_catalog'] = 'ax-action-instances-v3'
+        data['limits'].update({k: v for k, v in data['run_contract']['profile'].items() if k != 'tracks'})
+        data['effect_history_cutoff'] = __import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat()
     if state is not None:
         from .registry import for_run
         data.update(for_run(state,feature_schema=data['feature_schema']))
+        if data.get('run_contract'):
+            rc = data['run_contract']
+            if not rc['smart_orchestration_enabled']:
+                data['policy'] = None
+                data.pop('shadow_policy', None)
+                data['policy_version'] = 'rules-v1'
+            elif data.get('policy'):
+                rc['routing_policy_mode'] = 'CANARY'
+            elif data.get('shadow_policy'):
+                rc['routing_policy_mode'] = 'SHADOW'
+            if rc['mode']!='DEEP':
+                rc['effect_reranking_mode']='ACTIVE' if data.get('effect_ranker') else 'SHADOW' if data.get('shadow_effect_ranker') else 'BASELINE'
     data['bundle_id']='bundle-'+digest(data)
     return data
 
@@ -68,6 +90,10 @@ def bundle(state=None):
 def initialize(state):
     state.scratch['workflow_version']=WORKFLOW
     state.scratch['ax_bundle']=bundle(state)
+    if state.scratch['ax_bundle'].get('run_contract'):
+        state.scratch['mode_locked'] = True
+        state.scratch['semantic_episode_id'] = state.run_id + ':0'
+        state.scratch['semantic_generation'] = 0
     state.cost.budget_usd=float(state.scratch['ax_bundle']['config'].get('ax',{}).get('hard_budget_usd',2.0))
     state.scratch['ax_gates']={key:{'label':label,'status':'NOT_RUN'} for key,label,_ in GATES}
     ledger.bootstrap(state,state.scratch['ax_bundle'])
@@ -85,7 +111,11 @@ def section(state,key):
     if key=='constraints':
         return {'requirements':dump(state.constraints),'results':[dump(x) for x in state.constraint_checks]}
     if key=='concepts':
+        from .mode_contract import contract
+        from .action_runtime import candidate_actions
         return {'candidates':[dump(x) for x in state.concepts],
+                'candidate_actions':{c.id:candidate_actions(state,c) for c in state.concepts} if contract(state) else {},
+                'action_results':state.scratch.get('ax_action_results',{}),
                 'excluded':state.scratch.get('ax_excluded',[]),
                 'baseline':state.scratch.get('ax_baseline_candidates',[]),
                 'recovery':state.scratch.get('ax_recovery',[]),
@@ -100,7 +130,10 @@ def section(state,key):
         from .coherence import assess
         return assess(state)
     if key=='solve':
-        return dict(dump(state.solve),effect_applicability=state.scratch.get('ax_effect_applicability',[]))
+        return dict(dump(state.solve),effect_applicability=state.scratch.get('ax_effect_applicability',[]),
+                    effect_applications=state.scratch.get('ax_effect_applications',[]),
+                    raw_inventory=state.scratch.get('ax_idea_inventory', []),
+                    action_results=state.scratch.get('ax_action_results', {}))
     value=getattr(state,key)
     return dump(value) if value is not None else {}
 
@@ -117,6 +150,13 @@ def descendants(keys):
 def checkpoint(state,stage,*,interrupted=False):
     if not enabled(state):
         return
+    from .mode_contract import contract
+    if contract(state) and stage in ('s5_solve','s6_concept','s8_references'):
+        from .effect_history import collect, gate_reviews
+        if stage == 's5_solve':
+            collect(state)
+        else:
+            gate_reviews(state, stage)
     keys=OUTPUTS.get(stage,())
     sections={key:section(state,key) for key in keys}
     # Remove dependent members whenever a producer is rerun, even if text repeats.
@@ -155,6 +195,17 @@ def checkpoint(state,stage,*,interrupted=False):
             else:
                 gates[key]={'label':label,'status':'RUNNING'}
     ledger.capture(state,sections,DEPENDENCIES,stage+(':interrupted' if interrupted else ''),invalidated=invalidated)
+    if contract(state):
+        from .action_runtime import emit
+        for aid,result in state.scratch.get('ax_action_results',{}).items():
+            outputs=[]
+            if 'solve' in keys and result.get('produced_raw_idea_ids'):
+                outputs.append(state.scratch['ax_members']['solve'])
+            if 'concepts' in keys and result.get('candidate_ids'):
+                outputs.append(state.scratch['ax_members']['concepts'])
+            if outputs:
+                emit(state,'ACTION_OUTPUT_LINKED',dict(action_instance_id=aid,output_version_ids=outputs,
+                    parent_action_instance_ids=result.get('parent_action_instance_ids',[])))
 
 
 def before_stage(ctx,key):
@@ -182,6 +233,15 @@ def before_stage(ctx,key):
             'reason':'정본의 적용 조건과 현장 측정값 대조 전; 검색·생성만으로 통과하지 않음',
             'validation_obligations':['운전 범위와 자원 충족 확인','효과와 후보 기구 연결 확인']}
             for a in state.solve.effect_apps]
+        from .mode_contract import contract
+        if contract(state):
+            from .effect_history import collect
+            apps=collect(state)
+            state.scratch['ax_effect_applicability'] = [dict(id=a['application_id'],source_effect_id=a['effect_id'],
+                required_function=a['intended_function'],mechanism=a['applied_mechanism'],
+                conditions=[c['text'] for c in a['conditions']],status='UNKNOWN',sources=[],
+                reason='조건과 구현 연결은 개념 검토 대상이며 실증을 뜻하지 않습니다.',
+                validation_obligations=['운전 조건 확인','원래 모순 양측의 독립 검토']) for a in apps]
         ledger.capture(state,{'solve':section(state,'solve')},DEPENDENCIES,'effect_applicability')
     if key=='s8_references':
         from .coherence import enabled as coherence_enabled
@@ -209,11 +269,17 @@ def before_stage(ctx,key):
                 checkpoint(state,'s7_gate')
         from .coordinator import stage_action
         stage_action(state,'FETCH_EVIDENCE','concepts')
-    if key=='s7_gate' and not state.scratch.get('resume_payload'):
+    if key=='s7_gate' and not state.scratch.get('resume_payload') and not state.scratch.get('ax_gate_response_pending'):
         from . import recovery,rules
         recovery.run(ctx)
         rules.apply(state)
     if key=='s9_report':
+        from .mode_contract import contract
+        if contract(state) and state.scratch.get('ax_optional_previous'):
+            from .action_runtime import emit, episode
+            emit(state,'OPTIONAL_TRANSITION',dict(semantic_episode_id=episode(state),
+                decision_id=state.scratch['ax_optional_previous'],next_decision_id=None,terminal_reason='OPTIONAL_PHASES_COMPLETED'))
+            state.scratch.pop('ax_optional_previous',None)
         from .validation import selection
         from .coherence import enabled as coherence_enabled
         if coherence_enabled(state):
@@ -250,8 +316,9 @@ def effect_candidates(state,required,limit=6):
     groups=[dict(g,effects=[dict(b['effect_sources'].get(e['id'],{}),**e) for e in g['effects']
         if allowed is None or e.get('domain') in allowed]) for g in b['effects']]
     from .coherence import enabled as coherence_enabled
+    from .effect_history import rerank
     if not coherence_enabled(state) or len(required)<2:
-        return select_effects(groups,required,limit=limit*4)
+        return rerank(state, select_effects(groups,required,limit=limit*4), required)
     # Global catalog access per function prevents a common function swallowing
     # a less common one; industry names never restrict eligible effects.
     pools=[select_effects(groups,[function],limit=limit*4) for function in required]
@@ -261,14 +328,17 @@ def effect_candidates(state,required,limit=6):
             if rank<len(pool) and pool[rank]['id'] not in seen:
                 output.append(pool[rank]); seen.add(pool[rank]['id'])
                 if len(output)>=limit*4:
-                    return output
-    return output
+                    return rerank(state, output, required)
+    return rerank(state, output, required)
 
 
 def public_view(state):
     if not enabled(state):
         return None
+    from .mode_contract import coverage, contract
     return {'workflow':state.scratch['workflow_version'],
+            'run_contract':contract(state), 'mode_coverage':coverage(state),
+            'diagnostics':diagnostics(state),
             'release_version':state.scratch['ax_bundle'].get('release_version',state.scratch['workflow_version']),
             'snapshot_id':state.scratch.get('ax_snapshot_id'),
             'epoch':state.scratch.get('execution_epoch',0),'gates':state.scratch.get('ax_gates',{}),
@@ -279,3 +349,27 @@ def public_view(state):
                         'mode':'POLICY' if state.scratch['ax_bundle'].get('policy') else 'RULE_BASED',
                         'updates_apply_to':'next_run'},
             'report_snapshot_id':state.scratch.get('ax_report_snapshot_id')}
+
+
+def diagnostics(state):
+    """Read-only counts; no collection, training, mutation or prompt disclosure."""
+    from .mode_contract import contract, coverage
+    if not contract(state):
+        return {}
+    results=list(state.scratch.get('ax_action_results',{}).values())
+    portfolio=state.scratch.get('idea_consolidation',{})
+    bundle=state.scratch['ax_bundle']
+    return dict(mode_coverage=coverage(state), raw_idea_count=len(state.scratch.get('ax_idea_inventory',[])),
+        merged_family_count=len(state.solve.raw_ideas), detailed_candidate_count=len(state.concepts),
+        final_count=len(state.scratch.get('ax_selection',{}).get('recommended',[])),
+        unaccounted_raw_count=len(portfolio.get('unaccounted_idea_ids',[])),
+        uncovered_obligation_count=len(state.scratch.get('ax_coherence',{}).get('coverage_gaps',[])),
+        mandatory_actions=sum(not r['optional'] for r in results), optional_actions=sum(r['optional'] for r in results),
+        unknown_usage_actions=sum(r.get('usage_status')=='UNKNOWN' for r in results),
+        policy_usage=state.scratch.get('ax_policy_usage',{'selection_mode':'NOT_USED'}),
+        effect_applications=len(state.scratch.get('ax_effect_applications',[])),
+        effect_history_hits=sum(e.get('independent_runs',0)>0 for sel in state.scratch.get('ax_effect_selections',{}).values() for e in sel['candidates']),
+        effect_ranker_version=bundle.get('effect_ranker_version'),
+        routing_mode=contract(state)['routing_policy_mode'],effect_mode=contract(state)['effect_reranking_mode'],
+        routing_readiness='DEPLOYED' if bundle.get('policy') else 'SHADOW' if bundle.get('shadow_policy') else 'COLLECTING',
+        effect_readiness='DEPLOYED' if bundle.get('effect_ranker') else 'SHADOW' if bundle.get('shadow_effect_ranker') else 'COLLECTING')

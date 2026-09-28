@@ -17,6 +17,11 @@ audit=ledger.table('registry_audit',Column('audit_id',String(80),primary_key=Tru
     Column('created_at',String(40),nullable=False))
 shadow=ledger.table('shadow_observations',Column('policy_id',String(80),primary_key=True),
     Column('decision_id',String(80),primary_key=True),Column('payload',ledger.JSON,nullable=False))
+task_pointers=ledger.table('task_deployments',Column('scope',String(80),primary_key=True),
+    Column('task_kind',String(32),nullable=False),Column('feature_schema',String(80),nullable=False),
+    Column('tenant_id',String(64),nullable=False),Column('project_id',String(64),nullable=False),
+    Column('policy_id',String(80)),Column('previous_policy_id',String(80)),
+    Column('shadow_policy_id',String(80)),Column('canary_percent',Integer,nullable=False))
 
 
 def scope(tenant,project):
@@ -69,7 +74,14 @@ def reviews_current(payload,tenant,project,c):
         .where(ledger.heads.c.tenant_id==tenant,ledger.heads.c.project_id==project)).mappings().all()
     superseded={json.loads(r['payload']).get('supersedes_event_id') for r in rows}
     valid={r['event_id'] for r in rows if r['event_id'] not in superseded and json.loads(r['payload'])['consent']=='PROJECT_ONLY'}
-    return set(ids)<=valid
+    from .effect_history import applications as effect_apps, reviews as effect_reviews
+    effect_rows=c.execute(select(effect_reviews).join(effect_apps,effect_apps.c.application_id==effect_reviews.c.application_id)
+        .join(ledger.store.runs,ledger.store.runs.c.run_id==effect_apps.c.run_id)
+        .where(effect_apps.c.tenant_id==tenant,effect_apps.c.project_id==project)).mappings().all()
+    superseded_effect={json.loads(r['payload']).get('supersedes_event_id') for r in effect_rows}
+    valid.update(r['event_id'] for r in effect_rows if r['event_id'] not in superseded_effect
+                 and json.loads(r['payload']).get('training_consent')=='PROJECT_ONLY')
+    return set(ids)<=valid and not payload.get('synthetic',False)
 
 
 def train_project(tenant,project,feature_schema='ax-features-v1'):
@@ -86,11 +98,7 @@ def train_project(tenant,project,feature_schema='ax-features-v1'):
         'offline_eligible':eligible,'review_ids':sorted({r for s in manifest['samples'] for r in s['review_ids']})}
     policy_id=put('policy',tenant,project,payload)
     if eligible:
-        with ledger.transaction() as c:
-            p=_pointer(c,tenant,project)
-            if reviews_current(payload,tenant,project,c):
-                c.execute(update(pointers).where(pointers.c.scope==p['scope']).values(shadow_policy_id=policy_id))
-                _audit(c,tenant,project,{'action':'SHADOW','policy_id':policy_id})
+        set_task_shadow(tenant,project,'routing_q',feature_schema,policy_id)
     return {'status':'SHADOW' if eligible else 'EVALUATION_FAILED','policy_id':policy_id,
         'evaluation':evaluation,'parameters_changed':model['training']['parameters_changed']}
 
@@ -101,8 +109,9 @@ def for_run(state,feature_schema='ax-features-v1'):
     ledger.init()
     with ledger.store.engine.connect() as c:
         pointer=c.execute(select(pointers).where(pointers.c.scope==scope(tenant,project))).mappings().first()
-        if not pointer: return {}
         result={}
+        if not pointer:
+            pointer={'policy_id':None,'shadow_policy_id':None,'rule_ids':'[]','canary_percent':0}
         for field in ('policy_id','shadow_policy_id'):
             vid=pointer[field]
             if not vid: continue
@@ -118,7 +127,83 @@ def for_run(state,feature_schema='ax-features-v1'):
             if reviews_current(payload,tenant,project,c):
                 result['rule_catalog'].append(dict(payload['rule'],version_id=vid))
         result['rule_catalog_version']='rules-'+digest(result['rule_catalog'])[:32]
+        result.update(_task_models(c,state,tenant,project,'routing_q',feature_schema))
+        from .effect_ranker import SCHEMA
+        result.update(_task_models(c,state,tenant,project,'effect_ranker',SCHEMA))
         return result
+
+
+def task_scope(tenant,project,kind,schema):
+    return digest([tenant,project,kind,schema])
+
+
+def _task_pointer(c,tenant,project,kind,schema):
+    key=task_scope(tenant,project,kind,schema)
+    row=c.execute(select(task_pointers).where(task_pointers.c.scope==key).with_for_update()).mappings().first()
+    if row:
+        return dict(row)
+    value=dict(scope=key,tenant_id=tenant,project_id=project,task_kind=kind,feature_schema=schema,
+        policy_id=None,previous_policy_id=None,shadow_policy_id=None,canary_percent=0)
+    c.execute(task_pointers.insert().values(**value))
+    return value
+
+
+def set_task_shadow(tenant,project,kind,schema,vid):
+    with ledger.transaction() as c:
+        payload=get(vid,tenant,project,c)['payload']
+        if not payload.get('offline_eligible') or not reviews_current(payload,tenant,project,c):
+            raise Conflict('Ineligible or withdrawn training data')
+        if payload['model'].get('feature_schema')!=schema:
+            raise Conflict('Task schema mismatch')
+        p=_task_pointer(c,tenant,project,kind,schema)
+        c.execute(update(task_pointers).where(task_pointers.c.scope==p['scope']).values(shadow_policy_id=vid))
+        _audit(c,tenant,project,dict(action='SHADOW',task_kind=kind,feature_schema=schema,policy_id=vid))
+
+
+def _task_models(c,state,tenant,project,kind,schema):
+    p=c.execute(select(task_pointers).where(task_pointers.c.scope==task_scope(tenant,project,kind,schema))).mappings().first()
+    result={}
+    if not p:
+        return result
+    for field in ('policy_id','shadow_policy_id'):
+        if not p[field]:
+            continue
+        payload=get(p[field],tenant,project,c)['payload']
+        if not payload.get('offline_eligible') or not reviews_current(payload,tenant,project,c):
+            continue
+        if payload['model'].get('feature_schema')!=schema:
+            continue
+        if field=='policy_id' and int(digest(state.run_id)[:8],16)%100>=p['canary_percent']:
+            continue
+        key=('policy' if field=='policy_id' else 'shadow_policy') if kind=='routing_q' else (
+            'effect_ranker' if field=='policy_id' else 'shadow_effect_ranker')
+        result[key]=payload['model']; result[key+'_version']=p[field]
+    return result
+
+
+def promote_task(tenant,project,kind,schema,vid,actor,reason,percent=10):
+    if not actor or not reason.strip() or not 1<=percent<=25:
+        raise ValueError('Operator, rationale and bounded canary required')
+    with ledger.transaction() as c:
+        payload=get(vid,tenant,project,c)['payload']
+        if payload['model'].get('feature_schema')!=schema or not payload.get('offline_eligible') or not reviews_current(payload,tenant,project,c):
+            raise Conflict('Ineligible model/schema/consent')
+        observations=[json.loads(v) for v in c.execute(select(shadow.c.payload).where(shadow.c.policy_id==vid)).scalars()]
+        if len(observations)<20 or len({r['run_id'] for r in observations})<5 or any(not r.get('legal') or not r.get('supported') for r in observations):
+            raise Conflict('Insufficient clean shadow runs')
+        p=_task_pointer(c,tenant,project,kind,schema)
+        c.execute(update(task_pointers).where(task_pointers.c.scope==p['scope']).values(previous_policy_id=p['policy_id'],policy_id=vid,canary_percent=percent))
+        _audit(c,tenant,project,dict(action='CANARY',task_kind=kind,feature_schema=schema,policy_id=vid,actor=actor,reason=reason))
+
+
+def rollback_task(tenant,project,kind,schema,actor,reason):
+    if not actor or not reason.strip():
+        raise ValueError('Operator and rationale required')
+    with ledger.transaction() as c:
+        p=_task_pointer(c,tenant,project,kind,schema)
+        c.execute(update(task_pointers).where(task_pointers.c.scope==p['scope']).values(policy_id=p['previous_policy_id'],
+            previous_policy_id=None,shadow_policy_id=None,canary_percent=10 if p['previous_policy_id'] else 0))
+        _audit(c,tenant,project,dict(action='ROLLBACK',task_kind=kind,feature_schema=schema,actor=actor,reason=reason))
 
 
 def observe_shadow(policy_id,decision_id,payload):

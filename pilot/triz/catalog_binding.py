@@ -44,7 +44,9 @@ def bind_effect(data, catalog):
             source_id=source_id.strip()
             if source_id.startswith('[') and source_id.endswith(']'):
                 source_id=source_id[1:-1].strip()
-        source=by_id.get(source_id) or by_name.get(app.get('effect_name'))
+        source=by_id.get(source_id) if source_id else by_name.get(app.get('effect_name'))
+        if source_id and not source:
+            app['proposed_effect_id'] = source_id
         app['source_effect_id']=source['id'] if source else None
         app['catalog_sources']=source.get('sources',[]) if source else []
         app['catalog_evidence_level']=source.get('evidence_level','기초 참고자료') if source else '카탈로그 외 추가 가설'

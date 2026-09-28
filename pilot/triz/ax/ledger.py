@@ -78,6 +78,7 @@ def init():
     from . import outbox  # Register additive consumer tables before schema creation.
     from . import registry
     from . import worker
+    from . import effect_history
     metadata.create_all(store.engine)
     if store.engine.dialect.name == 'mysql':
         # MySQL FLOAT cannot round-trip Unix epoch seconds accurately enough for
@@ -177,7 +178,10 @@ def capture(state, sections, dependencies, reason, *, invalidated=(), projection
                 supersedes=prior_members.get(key), created_at=now(), available_at=now(),
                 provenance=canonical({'workflow':state.scratch['workflow_version'],
                     'bundle_id':json.loads(h['bundle'])['bundle_id'], 'reason':reason,
-                    'decision_id':state.scratch.get('ax_last_decision'),
+                    'decision_id':None if state.scratch.get('ax_bundle',{}).get('run_contract') else state.scratch.get('ax_last_decision'),
+                    'action_instance_ids': sorted(state.scratch.get('ax_action_results', {})),
+                    'decision_ids': sorted({r['decision_id'] for r in state.scratch.get('ax_action_results', {}).values() if r.get('decision_id')}),
+                    'semantic_episode_id':state.scratch.get('semantic_episode_id'),
                     'evidence_status':'ASSERTED', 'approval_status':'UNREVIEWED'})))
             for parent in parents:
                 c.execute(edges.insert().values(parent_id=parent, child_id=version, relation='depends_on',run_id=state.run_id))
@@ -259,8 +263,19 @@ def budget(run_id,actor=None):
             'unknown_attempts':sum(r.status=='UNKNOWN' for r in rows)}
 
 
-def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=0):
+def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=0,optional_limit=None):
     task_id='task-'+digest([run_id,epoch,request])[:60]
+    if request.get('action_context'):
+        # Transport retries keep one logical paid call. Semantic changes retain
+        # new action/input identities; UNKNOWN reservations never become free.
+        import copy
+        stable=copy.deepcopy(request)
+        stable.pop('decision_id',None)
+        action=stable['action_context']
+        for key in ('execution_epoch','input_snapshot_id','decision_id'):
+            action.pop(key,None)
+        action.get('ticket',{}).pop('input_snapshot_id',None)
+        task_id='task-'+digest([run_id,action['semantic_episode_id'],stable])[:60]
     with transaction() as c:
         h=_head(c,run_id,lock=True)
         if epoch!=h['epoch']:
@@ -275,6 +290,16 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
                 _event(c,run_id,'USAGE_UNKNOWN',{'task_id':task_id})
                 return {'task_id':task_id,'blocked':'UNKNOWN'}
             return {'task_id':task_id,'blocked':old['status']}
+        if optional_limit is not None:
+            optional_rows=c.execute(select(attempts.c.details,tasks.c.reserve)
+                .join(tasks,tasks.c.task_id==attempts.c.task_id).where(attempts.c.run_id==run_id)).all()
+            committed=0
+            for details,held in optional_rows:
+                detail=json.loads(details)
+                if detail.get('request',{}).get('action_context',{}).get('optional'):
+                    committed+=detail['actual_microusd'] if detail.get('actual_microusd') is not None else held
+            if committed+reserve>optional_limit:
+                raise Conflict('Optional AX budget exhausted; reservations and unknown costs retained')
         rows=c.execute(select(tasks.c.status,tasks.c.reserve,tasks.c.actual).where(tasks.c.run_id==run_id)).all()
         used=sum((r.actual or 0)+(r.reserve if r.status in ('RUNNING','UNKNOWN') else 0) for r in rows)
         if reserve<0 or used+reserve+minimum_remaining>h['budget']:
@@ -358,13 +383,19 @@ def submit_review(run_id,actor,body):
                 decisions.c.decision_id==body.decision_id)).mappings().first()
             if not decision:
                 raise Conflict('Unknown decision')
+            if body.candidate_id and target['payload'].get('candidate_actions'):
+                action_ids=target['payload']['candidate_actions'].get(body.candidate_id,[])
+                results=target['payload'].get('action_results',{})
+                if not any(results.get(aid,{}).get('decision_id')==body.decision_id for aid in action_ids):
+                    raise Conflict('Decision did not produce the exact reviewed candidate or its raw ancestors')
             todo=[body.target_version_id]; seen=set(); causal=False
             while todo:
                 version=todo.pop()
                 if version in seen: continue
                 seen.add(version)
                 item=_artifact(c,run_id,version)
-                causal |= item['provenance'].get('decision_id')==body.decision_id
+                causal |= (item['provenance'].get('decision_id')==body.decision_id or
+                           body.decision_id in item['provenance'].get('decision_ids', []))
                 todo.extend(item['parents'])
             if not causal:
                 raise Conflict('Review target was not produced by this decision or its descendants')

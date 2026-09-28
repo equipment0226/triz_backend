@@ -53,6 +53,8 @@ def create_run(raw_query, *, mode=None, user_id="local", attachments=None, workf
     if mode:
         state.control.mode = RunMode[mode.upper()]
         state.scratch["mode_locked"] = True
+    else:
+        state.control.mode = RunMode[str(settings.triz.get('run',{}).get('default_mode','FULL')).upper()]
     state.intake.attachments = attachments or []
     store.create_run(state)
     return finish_creation(state, workflow_version=workflow_version)
@@ -353,6 +355,12 @@ def resume(run_id, payload):
             decisions = payload.get('decisions')
             if not isinstance(decisions, dict) or set(decisions) != expected or any(v not in ('accept', 'drop') for v in decisions.values()):
                 raise ValueError("보류된 모든 해결책의 유지·제외 판정을 선택해 주세요.")
+            from .ax.effect_history import validate_reviews
+            if payload.get('application_reviews'):
+                validate_reviews(state, payload['application_reviews'])
+            state.scratch['ax_response_origin'] = state.pending.interrupt_id
+            from .ax.contracts import now
+            state.scratch['ax_response_received_at'] = now()
         state.scratch["resume_payload"] = payload
         state.scratch["resume_after_seq"] = len(state.steps)
         state.pending = None
@@ -386,6 +394,27 @@ def rerun_from(run_id, stage_key, instruction=""):
     def apply(state):
         if state.status in ("RUNNING", "QUEUED"):
             return False
+        from .ax.mode_contract import contract
+        if contract(state):
+            import copy
+            keys = [k for k in state.scratch if k.startswith('ax_') and k not in
+                    ('ax_bundle', 'ax_members', 'ax_snapshot_id', 'ax_project_id', 'ax_semantic_archive')]
+            state.scratch.setdefault('ax_semantic_archive', []).append({
+                'episode_id': state.scratch['semantic_episode_id'], 'stage': stage_key,
+                'snapshot_id': state.scratch.get('ax_snapshot_id'),
+                'projection': {k: copy.deepcopy(state.scratch[k]) for k in keys}})
+            state.scratch['semantic_generation'] = state.scratch.get('semantic_generation', 0) + 1
+            state.scratch['semantic_episode_id'] = state.run_id + ':' + str(state.scratch['semantic_generation'])
+            for key in ('ax_optional_previous', 'ax_optional_sequence', 'ax_optional_deferred_budget', 'ax_selection', 'ax_coherence', 'ax_report_snapshot_id'):
+                state.scratch.pop(key, None)
+            if idx <= 8:
+                for key in ('ax_recovery_fingerprints', 'ax_constraint_failures', 'ax_action_results',
+                            'ax_effect_applications', 'ax_effect_reviews', 'ax_effect_selections', 'ax_condition_facts',
+                            'ax_gate_response_pending','ax_gate_response_recorded','ax_gate_delta_pending'):
+                    state.scratch.pop(key, None)
+            if idx <= 6:
+                for key in ('prior_case_ids', 'ax_blocked_tracks'):
+                    state.scratch.pop(key, None)
         state.scratch.pop("review_refresh", None)
         state.control.stage_index = idx
         state.pending = None

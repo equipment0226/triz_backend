@@ -11,7 +11,11 @@ from triz.ax.contracts import ActionTicket,Review,Conflict,AccessDenied
 
 
 @pytest.fixture
-def dlc():
+def dlc(monkeypatch):
+    # These are persisted-v1 characterization fixtures; new-run v2 is exercised
+    # separately in test_ax_refactor.py without silently migrating old bundles.
+    from triz.settings import settings
+    monkeypatch.setitem(settings.triz['ax'], 'run_contract_version', 'legacy')
     s=pipeline.create_run('DLC 데이터센터 냉각수 온도와 GPU 온도 상충 해결',workflow_version=WORKFLOW)
     s.domain.problem_type='PHYSICAL_TECHNICAL'
     s.domain.target_system='DLC GPU 냉각수 회로'

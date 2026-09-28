@@ -34,6 +34,9 @@ def complementary(left,right,external_functions):
 
 
 def run(ctx,phase='before_constraints'):
+    from .mode_contract import optional_enabled
+    if not optional_enabled(ctx.state):
+        return []
     from .coherence import enabled as coherence_enabled
     if coherence_enabled(ctx.state):
         from .coherence_recovery import run as repair

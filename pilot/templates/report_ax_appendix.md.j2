@@ -5,6 +5,13 @@
 
 기대 효과와 작동 기구는 설계 가설이다. 개념의 독립 검토와 실제 시험 결과를 구분한다.
 
+{% set mode_coverage = s.scratch.get('ax_report_mode_coverage', {}) %}
+{% if mode_coverage %}
+분석 범위: {{ {'LITE':'빠른','FULL':'표준','DEEP':'심층'}.get(mode_coverage.mode, mode_coverage.mode) }} ·
+{% if mode_coverage.complete %}모드의 적용 가능 필수 기법 실행 완료{% else %}필수 기법 부분 완료 — 미입력·실패·예산 미실행 항목은 단계별 기록에서 확인{% endif %}.
+이는 개념 검토 통과 또는 실증 완료와 별개다.
+{% endif %}
+
 {% if details.missing %}
 **기록 누락 또는 미고정 항목**
 {% for item in details.missing %}

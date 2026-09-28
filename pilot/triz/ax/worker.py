@@ -10,7 +10,7 @@ queue=ledger.table('learning_queue',Column('scope',String(80),primary_key=True),
 
 
 def consume(c,event):
-    if event['event_type']!='REVIEW_CONFIRMED': return
+    if event['event_type'] not in ('REVIEW_CONFIRMED','EFFECT_REVIEW_CONFIRMED','OPTIONAL_TRANSITION'): return
     h=ledger._head(c,event['run_id'],lock=True)
     key=registry.scope(h['tenant_id'],h['project_id'])
     row=c.execute(select(queue).where(queue.c.scope==key).with_for_update()).mappings().first()
@@ -34,9 +34,13 @@ def tick(max_events=100,max_projects=1):
     for item in work:
         policy=registry.train_project(item['tenant_id'],item['project_id'])
         coherence_policy=registry.train_project(item['tenant_id'],item['project_id'],feature_schema='ax-features-v2')
+        routing_policy=registry.train_project(item['tenant_id'],item['project_id'],feature_schema='ax-state-action-v3')
+        from . import effect_ranker
+        effect_model=effect_ranker.train_project(item['tenant_id'],item['project_id'])
         evolved=rules.research_project(item['tenant_id'],item['project_id'])
         with ledger.transaction() as c:
             c.execute(update(queue).where(queue.c.scope==item['scope'],queue.c.processed_revision<item['revision'])
                 .values(processed_revision=item['revision']))
-        results.append({'scope':item['scope'],'policy':policy,'coherence_policy':coherence_policy,'rules':evolved})
+        results.append({'scope':item['scope'],'policy':policy,'coherence_policy':coherence_policy,
+                        'routing_policy':routing_policy,'effect_ranker':effect_model,'rules':evolved})
     return {'delivered':delivered,'projects':results,'external_llm_calls':0,'at':now()}

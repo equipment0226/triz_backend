@@ -231,6 +231,11 @@ def consolidate(ctx):
                 sources.append(RawIdea.model_validate(raw))
                 current_ids.add(raw['id'])
     input_ids = [idea.id for idea in sources]
+    from .ax.mode_contract import contract
+    if contract(state):
+        inventory = {row['source_idea_id']: row for row in state.scratch.get('ax_idea_inventory', [])}
+        inventory.update({row['source_idea_id']: row for row in _sources(sources)})
+        state.scratch['ax_idea_inventory'] = list(inventory.values())
     if len(input_ids) != len(set(input_ids)):
         raise AbortRun("아이디어 원안 ID가 중복되어 전건 통합을 중단합니다. 원안을 보존했습니다.")
     if not sources:

@@ -23,16 +23,17 @@ def view(state):
         report = report_state(project(state))
     else:
         report = report_state(state)
-    labels = build_label_map(state)
+    source = report if ax_enabled(state) and state.report else state
+    labels = build_label_map(source)
     def human(value):
         return humanize(str(value or ""), labels)
     solutions = []
     reviewer_comments = by_concept(report)
-    for number, c in enumerate(state.concepts, 1):
-        e = next((e for e in state.evaluation.evaluations if e.concept_id == c.id), None)
-        check = state.check_for(c.id)
+    for number, c in enumerate(source.concepts, 1):
+        e = next((e for e in source.evaluation.evaluations if e.concept_id == c.id), None)
+        check = source.check_for(c.id)
         solutions.append(dict(key=c.id, number=number, display_label=labels[c.id], title=c.title, summary=c.one_liner,
-            reference_cards=reference_cards(state, c),
+            reference_cards=reference_cards(source, c),
             description=human(c.description), mechanism=human(c.working_principle),
             changes=c.changes_to_system, effect=c.expected_effect, assumptions=c.assumptions,
             risks=c.open_risks, validation=c.validation_plan, transfer_conditions=c.transfer_conditions,
@@ -44,7 +45,7 @@ def view(state):
             quadrant=QUADRANT_KO.get(e.quadrant, "") if e else "",
             evidence=[dict(title=r.title, url=r.url, kind="특허" if r.source_type == "PATENT" else "논문",
                 identifier=r.identifier, scope=r.evidence_scope, verified=r.verified,
-                mechanism=state.scratch.get("evidence_mappings", {}).get(c.id, {}).get(r.identifier, {}).get("mechanism", r.claim)) for r in state.evidences(c.evidence_ids)
+                mechanism=source.scratch.get("evidence_mappings", {}).get(c.id, {}).get(r.identifier, {}).get("mechanism", r.claim)) for r in source.evidences(c.evidence_ids)
                 if r.url.startswith(("https://", "http://")) and r.identifier and r.source_type in ("PATENT", "PAPER")]))
     steps = stage_list()
     index = state.control.stage_index
@@ -54,20 +55,20 @@ def view(state):
     diagrams = [f for f in visuals.figures(report) if f['key'] != 'nine-windows']
     from .ax.runtime import public_view
     ax = public_view(state)
-    result = dict(run_id=state.run_id, title=state.scratch.get("title") or state.raw_query[:60],
-        query=state.raw_query, industry=state.domain.industry, system=state.domain.target_system,
+    result = dict(run_id=state.run_id, title=source.scratch.get("title") or source.raw_query[:60],
+        query=source.raw_query, industry=source.domain.industry, system=source.domain.target_system,
         status=state.status, stage_index=index, stages=steps, guide=message,
         pending=state.pending.model_dump(mode="json") if state.pending else None,
         profile=state.scratch.get("industry_profile", {}),
-        problem=human(state.intake.frame.restated_problem), symptom=state.intake.frame.symptom,
-        constraints=[c.statement for c in state.constraints.items],
-        reviewers=[dict(role=p.role_name, mandate=p.mandate, avatar=i % 6) for i, p in enumerate(state.evaluation.reviewers)],
+        problem=human(source.intake.frame.restated_problem), symptom=source.intake.frame.symptom,
+        constraints=[c.statement for c in source.constraints.items],
+        reviewers=[dict(role=p.role_name, mandate=p.mandate, avatar=i % 6) for i, p in enumerate(source.evaluation.reviewers)],
         solutions=sorted(solutions, key=lambda c: c["rank"] or 999), figures=diagrams,
         report_sections=sections(report, diagrams) if state.report else [],
         summary=plain_text(human(report.report.narrative.get("executive_summary", ""))) if state.report else "",
-        report_ready=bool(state.report), additions=state.scratch.get("patent_additions", []),
-        evidence_gaps=state.scratch.get("evidence_gaps", []), search_status=report.scratch['search_status'],
-        related_references=state.scratch.get("related_references", []),
+        report_ready=bool(state.report), additions=source.scratch.get("patent_additions", []),
+        evidence_gaps=source.scratch.get("evidence_gaps", []), search_status=report.scratch['search_status'],
+        related_references=source.scratch.get("related_references", []),
         warnings=[human(w) for w in state.control.warnings],
         review_status={"checked": sum(s.status == "OK" for s in state.steps), "unverified": sum(s.status == "WARN" for s in state.steps)})
     if result['pending']:
@@ -76,7 +77,10 @@ def view(state):
                 item['display_label'] = labels.get(item.get('concept_id'), human(item.get('title')))
     if ax:
         from .ax.validation import selection
-        status=state.scratch.get('ax_selection') or selection(state)
+        status=(source.scratch.get('ax_report_details',{}).get('selection') if state.report else None) or state.scratch.get('ax_selection') or selection(state)
+        if state.report:
+            ax['selection']=status
+            ax['mode_coverage']=source.scratch.get('ax_report_mode_coverage',{})
         by_id={r['candidate_id']:r for r in status['candidates']}
         for c in result['solutions']:
             row=by_id.get(c['key'],{'status':'CONDITIONAL','missing':['검증·선택 미완료']})

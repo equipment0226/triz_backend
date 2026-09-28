@@ -13,6 +13,14 @@ def chat(ctx, **kwargs):
     node=kwargs.pop('_node','independent_verifier')
     state=ctx.state
     bundle=state.scratch['ax_bundle']
+    from .action_runtime import active_action
+    action_context = active_action.get()
+    if action_context:
+        role='INDEPENDENT_REVIEW' if node=='independent_verifier' else action_context['ticket']['model_role']
+        expected=bundle.get('run_contract',{}).get('model_roles',{}).get(role)
+        if expected and kwargs.get('tier','T2')!=expected:
+            raise AbortRun('선택된 작업의 모델 역할과 실제 호출 설정이 일치하지 않습니다.')
+        action_context=dict(action_context,call_model_role=role,actual_tier=kwargs.get('tier','T2'))
     config=bundle['models'][kwargs.get('tier','T2')]
     attempts=max(1,int(bundle['config'].get('ax',{}).get('max_provider_attempts',2)))
     request=dict(kwargs,model_config=config,retries=attempts)
@@ -29,10 +37,12 @@ def chat(ctx, **kwargs):
                   time.time()+max(390,settings.timeout*attempts+30))
         while True:
             try:
+                optional_limit=bundle['limits']['optional_budget_microusd'] if action_context and action_context.get('optional') else None
                 task=ledger.acquire(state.run_id,state.scratch.get('execution_epoch',0),
                                     {'node':node,'request':request,'bundle_id':bundle['bundle_id'],
-                                     'decision_id':state.scratch.get('ax_last_decision')},
-                                    reserve,minimum_remaining=hold)
+                                     'decision_id':action_context.get('decision_id') if action_context else state.scratch.get('ax_last_decision'),
+                                     **({'action_context':action_context} if action_context else {})},
+                                    reserve,minimum_remaining=hold,optional_limit=optional_limit)
                 break
             except BudgetBusy as exc:
                 if time.time()>=until:

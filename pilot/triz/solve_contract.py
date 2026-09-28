@@ -14,6 +14,11 @@ OUTPUT_FIELDS = dict(zip(TRACKS, ('principle_apps', 'separation_apps', 'standard
 
 
 def plan(state):
+    from .ax.mode_contract import contract, execution_plan
+    if contract(state):
+        expected, required, skipped, blocked = execution_plan(state)
+        state.scratch['ax_blocked_tracks'] = blocked
+        return expected, required, skipped
     mode = state.control.mode.value
     expected = list(dict.fromkeys(DEFAULTS[mode] + list(settings.cfg('tracks.' + mode, []))
                                   + list(state.control.enabled_tracks)))

@@ -12,6 +12,8 @@ run:
 
 ax:
   enabled: true              # 신규 실행만 AX. TRIZ_AX_ENABLED=false로 신규 실행 롤백 가능.
+  run_contract_version: ax-run-v2 # 새 실행: ax/mode_contract.py의 버전 프로파일을 고정. legacy는 이전 계약.
+  smart_orchestration_enabled: true # DEEP은 항상 false로 pin; 공통 검토·정산·원본 보존 유지.
   hard_budget_usd: 2.0       # 프로젝트별 모델 API 비용. 기존 서버·DB·벡터 인프라 고정비는 별도.
   max_provider_attempts: 2
   coordinator_hitl: false
@@ -46,7 +48,8 @@ definition:
   max_key_problems: 3
 
 tracks:
-  # 모드별 기본 활성 트랙
+  # 구버전/비-AX 실행의 호환 기본값. ax-run-v2의 유일한 모드 프로파일은
+  # triz/ax/mode_contract.py: LITE=A/B/E/H, FULL=A/B/C/E/F/G/H, DEEP=전 기법.
   LITE: [A_MATRIX, B_SEPARATION, E_TRIMMING]
   FULL: [A_MATRIX, B_SEPARATION, C_STANDARDS, E_TRIMMING, F_TRENDS, H_EFFECTS]
   DEEP: [A_MATRIX, B_SEPARATION, C_STANDARDS, D_ARIZ, E_TRIMMING, F_TRENDS, G_FOS, H_EFFECTS]

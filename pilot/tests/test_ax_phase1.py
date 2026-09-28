@@ -17,6 +17,8 @@ def dlc(monkeypatch):
     from triz.settings import settings
     monkeypatch.setitem(settings.triz['ax'], 'run_contract_version', 'legacy')
     s=pipeline.create_run('DLC 데이터센터 냉각수 온도와 GPU 온도 상충 해결',workflow_version=WORKFLOW)
+    # Characterize bundles pinned before explicit effect adoption was required.
+    s.scratch['ax_bundle'].pop('concept_effect_contract',None)
     s.domain.problem_type='PHYSICAL_TECHNICAL'
     s.domain.target_system='DLC GPU 냉각수 회로'
     s.confirm.user_confirmed=True

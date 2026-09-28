@@ -68,13 +68,10 @@ def collect(state):
     if not contract(state):
         return []
     catalog = _catalog(state)
-    raw = {}
-    for row in state.scratch.get('ax_idea_inventory', []):
-        raw[row.get('source_idea_id') or row.get('id')] = copy.deepcopy(row)
-    for idea in state.solve.raw_ideas:
-        rows = idea.detail.get('source_details') or [dict(idea.detail, source_idea_id=idea.id, source_track=idea.track)]
-        for row in rows:
-            raw[row.get('source_idea_id') or idea.id] = copy.deepcopy(row)
+    from .source_lineage import trace
+    raw = trace(state)['records']
+    candidate_sources = {candidate.id: trace(state, candidate.source_idea_ids)
+                         for candidate in state.concepts}
     # H's structured output is also retained before any raw idea has been merged.
     for index, app in enumerate(state.solve.effect_apps):
         if not any(row.get('source_effect_id') == app.get('source_effect_id') and
@@ -97,12 +94,8 @@ def collect(state):
             conditions = [conditions]
         linked = []
         for candidate in state.concepts:
-            ids = set(candidate.source_idea_ids)
-            for idea in state.solve.raw_ideas:
-                if idea.id in ids:
-                    ids.update(idea.source_idea_ids)
-                    ids.update(r.get('source_idea_id') for r in idea.detail.get('source_details', []))
-            if raw_id in ids:
+            sources = candidate_sources[candidate.id]
+            if sources['complete'] and raw_id in sources['leaves']:
                 linked.append(candidate)
         for candidate in linked or [None]:
             candidate_version = digest(candidate.model_dump(mode='json')) if candidate else None

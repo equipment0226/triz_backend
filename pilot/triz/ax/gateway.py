@@ -46,13 +46,16 @@ def chat(ctx, **kwargs):
         while True:
             try:
                 optional_limit=bundle['limits']['optional_budget_microusd'] if action_context and action_context.get('optional') else None
+                from ..rag import case_sources_current
                 task=ledger.acquire(state.run_id,state.scratch.get('execution_epoch',0),
                                     {'node':node,'request':request,'bundle_id':bundle['bundle_id'],
                                      'decision_id':action_context.get('decision_id') if action_context else state.scratch.get('ax_last_decision'),
                                      **({'action_context':action_context} if action_context else {})},
                                     reserve,minimum_remaining=hold,optional_limit=optional_limit,
                                     generation_limit=bundle['limits'].get('generation_budget_microusd')
-                                        if action_context and action_context.get('plan_class')=='INITIAL_SELECTION' else None)
+                                        if action_context and action_context.get('plan_class')=='INITIAL_SELECTION' else None,
+                                    preflight=lambda: None if case_sources_current(state, request_text=kwargs['user'])
+                                        else 'STALE_FEEDBACK_CASE')
                 break
             except BudgetBusy as exc:
                 if time.time()>=until:
@@ -61,6 +64,8 @@ def chat(ctx, **kwargs):
             except Conflict as exc:
                 raise AbortRun(str(exc)) from exc
         if task.get('blocked'):
+            if task['blocked']=='STALE_FEEDBACK_CASE':
+                raise AbortRun('참조 사례의 최신 피드백이 변경되어 추가 모델 호출을 보류했습니다. 최신 사례로 입력을 갱신해야 합니다.')
             if task['blocked']=='UNKNOWN':
                 raise UsageUncertain()
             if task['blocked']=='FAILED' and task.get('actual') is not None:

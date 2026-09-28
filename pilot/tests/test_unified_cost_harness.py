@@ -31,7 +31,11 @@ def test_C01_C04_C05_C10_C14_equal_model_price_review_cost_harness(adaptive_run,
                 deferred=[],need_more=False,gaps=[],coverage_note='fixture')
         if prompt=='P_S6_CONCEPT':
             data=dict(concepts=[dict(title='전도 연결부',working_principle=mechanism,source_idea_ids=[i['id']],
-                addresses_contradictions=['TC1'],resolution_argument='원래 두 요구 모두 시험',validation_plan=[{'experiment':'열 저항 측정'}],active_effect_ids=['E1']) for i in variables['ideas']],excluded=[])
+                addresses_contradictions=['TC1'],resolution_argument='원래 두 요구 모두 시험',validation_plan=[{'experiment':'열 저항 측정'}],
+                # The fixture adopts E1 only when this assigned source records it.
+                active_effect_ids=['E1'] if any(source.get('source_effect_id')=='E1'
+                    for source in [i.get('support',{}),*i.get('support',{}).get('source_details',[])]) else [])
+                for i in variables['ideas']],excluded=[])
         if prompt=='VERIFIER':
             audit=next((s for state in states for s in reversed(state.steps) if s.node=='s6_quality' and s.status=='RUNNING'),None)
             if audit: data['per_concept']=[dict(concept_id=c['concept_id'],verdict='PASS') for c in audit.input_slice['concepts']]

@@ -40,6 +40,8 @@ def bundle(state=None):
     root=Path(__file__).resolve().parents[1]
     data={'workflow':WORKFLOW,'release_version':RELEASE,'coherence_contract':'coherence-v1','coordinator_hitl':False,'policy_version':'rules-v1','feature_schema':'ax-features-v2',
           'action_catalog':'ax-actions-v1','rule_catalog_version':'empty-v1',
+          'concept_effect_contract':'explicit-active-effects-v1',
+          'rag_case_contract':'latest-final-feedback-case-v2',
           'rule_catalog':[], 'policy':None,
           'models':{t:{k:getattr(c,k) for k in MODEL_FIELDS} for t,c in settings.tiers.items()},
           'prompts':{p:prompts_registry.raw(p) for p in prompts_registry.list_prompts()},
@@ -59,6 +61,8 @@ def bundle(state=None):
                             root/'ax/routing_q.py',root/'ax/exploration_context.py',root/'ax/usage_recovery.py',root/'ax/effect_history.py',root/'ax/effect_ranker.py',
                             root/'ax/registry.py',root/'ax/worker.py',root/'ax/feedback_events.py',root/'ax/learning_outcomes.py',
                             root/'ax/adaptive_tracks.py',root/'ax/incremental_review.py',
+                            root/'ax/concept_effects.py',root/'ax/source_lineage.py',root/'ax/recovery.py',
+                            root/'rag.py',root/'store.py',root/'ax/ledger.py',
                             root/'ax/candidate_disposition.py',root/'ax/confirmed_context.py',root/'ax/track_cost.py',root/'ax/gateway.py',root.parent/'templates/report_full.md.j2',
                             root.parent/'templates/report_reformulation.md.j2',
                             root.parent/'templates/report.html.j2',root.parent/'templates/report_ax_appendix.md.j2']}}

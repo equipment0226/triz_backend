@@ -453,6 +453,7 @@ def test_full_q_selects_other_candidate_actual_repair_and_independent_audit(newr
     s.scratch['ax_mechanisms']['C2']=copy.deepcopy(s.scratch['ax_mechanisms']['DLC-1'])
     baseline=copy.deepcopy(s.concepts)
     raw=proposal(s)
+    raw['active_effect_ids']=[]  # This new-run fixture has no saved scientific-effect source.
     calls=[]; audits=[]
     def provider(ctx,**kw):
         calls.append((kw['vars']['baseline']['id'],kw['tier']))

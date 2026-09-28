@@ -18,6 +18,8 @@ def test_completed_s6_call_replays_across_resume_and_retains_objection(newrun, m
     monkeypatch.setitem(settings.triz['verification'], 'max_repair_attempts', 0)
     monkeypatch.setattr(rag, 'prior_cases_block', lambda state: '')
     state = newrun()
+    # This is a persisted pre-contract run, as in the BCI production replay.
+    state.scratch['ax_bundle'].pop('concept_effect_contract', None)
     representative = RawIdea(id='R', title='Representative', idea='Fixture mechanism',
         source_idea_ids=['R', 'L'], mechanism_key='fixture-mechanism')
     state.solve.raw_ideas = [representative]

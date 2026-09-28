@@ -365,12 +365,27 @@ def save_feedback(run_id, concept_id, rating, adopted, tags, comment):
     with engine.begin() as c:
         c.execute(feedback.insert().values(run_id=run_id, concept_id=concept_id, rating=rating,
             adopted=adopted, reason_tags=_json(tags), comment=comment, created_at=_now()))
-def rag_upsert(doc_id, collection, doc, meta, weight=1.0):
+def rag_deactivate(doc_ids, *, connection=None, superseded_by=None):
+    """Retain old case text for audit while atomically withdrawing its use."""
+    if connection is None:
+        init()
+        with engine.begin() as c:
+            return rag_deactivate(doc_ids, connection=c, superseded_by=superseded_by)
+    for row in connection.execute(select(rag_docs.c.id, rag_docs.c.meta).where(rag_docs.c.id.in_(doc_ids))).mappings():
+        meta = json.loads(row['meta'] or '{}')
+        meta.update(retrieval_active=False, superseded_by_evaluation_id=superseded_by)
+        connection.execute(update(rag_docs).where(rag_docs.c.id == row['id']).values(meta=_json(meta)))
+
+
+def rag_upsert(doc_id, collection, doc, meta, weight=1.0, *, deactivate_ids=(), connection=None):
     init()
-    with engine.begin() as c:
-        count = c.execute(select(rag_docs.c.usage_count).where(rag_docs.c.id == doc_id)).scalar() or 0
-        _upsert(c, rag_docs, dict(id=doc_id, collection=collection, doc=doc, meta=_json(meta),
-            weight=weight, usage_count=count, created_at=_now()))
+    if connection is None:
+        with engine.begin() as c:
+            return rag_upsert(doc_id, collection, doc, meta, weight, deactivate_ids=deactivate_ids, connection=c)
+    rag_deactivate(deactivate_ids, connection=connection, superseded_by=meta.get('source_evaluation_id'))
+    count = connection.execute(select(rag_docs.c.usage_count).where(rag_docs.c.id == doc_id)).scalar() or 0
+    _upsert(connection, rag_docs, dict(id=doc_id, collection=collection, doc=doc, meta=_json(meta),
+        weight=weight, usage_count=count, created_at=_now()))
 def rag_all(collection):
     init()
     with engine.connect() as c:

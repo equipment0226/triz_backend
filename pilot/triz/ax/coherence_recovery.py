@@ -1,9 +1,9 @@
 """Repair explicit gaps with bounded existing agents; retain every baseline."""
 import copy
 from pydantic import Field
-from . import coherence, coordinator, ledger
+from . import coherence, coordinator, ledger, concept_effects
 from .contracts import ActionTicket, digest
-from .recovery import Proposal
+from .recovery import Proposal, effect_analysis, effect_errors
 from ..schema import ConceptSpec
 from ..context import RunContext
 
@@ -11,6 +11,10 @@ from ..context import RunContext
 class RepairProposal(Proposal):
     addresses_contradictions: list[str] = Field(min_length=1)
     coherence: coherence.Mechanism
+
+
+class EffectRepairProposal(RepairProposal):
+    active_effect_ids: list[str] = Field(description='Explicit IDs of source effects retained in this proposal; [] when none are retained.')
 
 
 def targets(state, phase):
@@ -125,18 +129,24 @@ def run(ctx, phase):
     for target, blocker, attempt, chosen, did, entry in _choices(ctx, phase, limits, journal):
         with executing(ctx, chosen, did, context='coherence:' + phase):
             from .. import agent
+            source_ids=list(target['baseline'].source_idea_ids) if target['baseline'] else []
+            proposal_model=EffectRepairProposal if concept_effects.enabled(state) else RepairProposal
             raw=agent.run_agent(ctx,node='ax_repair_'+blocker+'_'+str(attempt),label='미해결 부분 보완',
                 stage='S6_CONCEPT',agent_id='effects_specialist',prompt_id='P_AX_RECOVERY',tier=tier(state, chosen),
                 vars={'action':chosen.action_type,'baseline':target['baseline'].model_dump(mode='json') if target['baseline'] else {},
                       'blockers':target['gaps'],'requirements':state.constraints.model_dump(mode='json'),
-                      'analysis':{'obligations':coherence.obligations(state),
+                      'analysis':effect_analysis(state,source_ids,{'obligations':coherence.obligations(state),
                           'resources':[r.model_dump(mode='json') for r in state.analysis.resources],
                           'existing_mechanisms':[c.working_principle for c in state.concepts],
-                          'contract':coherence.contract_instruction(state)},
-                      'schema':RepairProposal.model_json_schema()},default={}) or {}
+                          'contract':coherence.contract_instruction(state)}),
+                      'schema':proposal_model.model_json_schema()},default={}) or {}
             entry.update(decision_id=did,action=target['action'],attempt=attempt+1,status='INVALID_PROPOSAL')
+            errors=effect_errors(state,source_ids,raw)
+            if errors:
+                journal.append(dict(entry,effect_contract_errors=errors))
+                continue
             try:
-                proposal=RepairProposal.model_validate(raw)
+                proposal=proposal_model.model_validate(raw)
             except ValueError:
                 journal.append(entry)
                 continue

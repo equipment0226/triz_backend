@@ -163,10 +163,8 @@ def tier(state, ticket):
 
 
 def candidate_actions(state, candidate):
-    leaves=set(candidate.source_idea_ids)
-    for idea in state.solve.raw_ideas:
-        if idea.id in leaves:
-            leaves.update(idea.source_idea_ids)
-            leaves.update(r.get('source_idea_id') for r in idea.detail.get('source_details', []))
+    from .source_lineage import trace
+    sources = trace(state, candidate.source_idea_ids)
+    leaves = set(sources['leaves']) if sources['complete'] else set()
     return sorted(aid for aid,result in state.scratch.get('ax_action_results',{}).items()
         if candidate.id in result.get('candidate_ids',[]) or leaves.intersection(result.get('produced_raw_idea_ids',[])))

@@ -206,6 +206,10 @@ def run_agent(
         prompt_vars.setdefault("contradictions", digest.contradictions_digest(state))
     from .ax.runtime import render_prompt
     base_user = render_prompt(state, prompt_id, **prompt_vars) + domain_context(state, node) + inject_block
+    from .ax import concept_effects
+    explicit_effects = prompt_id == 'P_S6_CONCEPT' and concept_effects.enabled(state)
+    if explicit_effects:
+        base_user += concept_effects.instruction(state, [row['id'] for row in prompt_vars.get('ideas', [])])
     if prompt_id == "P_S5_MERGE":
         from .idea_consolidation import CONSOLIDATION_CONTRACT
         # Earlier requests for many ideas apply to generation, while the later
@@ -268,6 +272,12 @@ def run_agent(
         settings.triz.get("verification", {}), *([repair_attempts] if repair_attempts is not None else [])],
         sort_keys=True, default=str).encode()).hexdigest()
     cache = state.scratch.setdefault("agent_cache", {})
+    if explicit_effects:
+        # Keep the legacy checker source/cache identity unchanged. The pinned
+        # new prompt already versions this stricter output contract.
+        coverage_checker = checker
+        checker = lambda value: ((coverage_checker(value) if coverage_checker else []) +
+                                 concept_effects.check_batch(state, value))
     if cache_key in cache:
         from . import store
         previous = store.get_step(state.run_id, cache[cache_key])

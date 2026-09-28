@@ -23,6 +23,8 @@ def generate(ctx):
         evidence=[e.model_dump(mode='json') for e in state.evidence],models=bundle['models'],
         prompts=bundle['prompts'],rubrics=bundle['rubrics'],review_policy=bundle['config'].get('verification'),
         prior_cases=state.scratch.get('prior_case_ids',[]),injected_instructions=state.control.injected_agents)
+    if bundle.get('concept_effect_contract'):
+        common['concept_effect_contract'] = bundle['concept_effect_contract']
     keys={i.id:digest([CONTRACT,common,i.model_dump(mode='json')]) for i in ideas}
     cache=state.scratch.setdefault('adaptive_concept_cache',{})
     changed=[i for i in ideas if not cache.get(keys[i.id],{}).get('complete') or

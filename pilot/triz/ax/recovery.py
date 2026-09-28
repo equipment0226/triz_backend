@@ -4,7 +4,7 @@ from pydantic import Field
 from .. import agent
 from ..context import RunContext
 from ..schema import ConceptSpec
-from . import ledger,coordinator
+from . import ledger,coordinator,concept_effects
 from .contracts import Contract,ActionTicket,digest
 
 
@@ -20,6 +20,27 @@ class Proposal(Contract):
     provided_functions: list[str]=Field(max_length=12)
     required_functions: list[str]=Field(max_length=12)
     subproblem: str=''
+
+
+class EffectProposal(Proposal):
+    active_effect_ids: list[str] = Field(description='Explicit IDs of source effects retained in this proposal; [] when none are retained.')
+
+
+def effect_analysis(state, source_ids, analysis):
+    """Extend only new-contract requests; old request variables stay unchanged."""
+    if not concept_effects.enabled(state):
+        return analysis
+    return dict(analysis, source_effects=concept_effects.sources(state, source_ids),
+        effect_contract='active_effect_ids is required. Include only source_effect_id values from source_effects '
+        'that the proposed working principle actually retains. Reassess adoption after the repair or joint design; '
+        'do not inherit the baseline list or label every exposed effect as used. Return [] if none are retained. '
+        'Preserve unverified conditions and hypotheses; listing an effect is not validation of technical performance.')
+
+
+def effect_errors(state, source_ids, raw):
+    if not concept_effects.enabled(state):
+        return []
+    return concept_effects.validate(raw, concept_effects.allowed(state, source_ids))
 
 
 def complementary(left,right,external_functions):
@@ -74,17 +95,23 @@ def run(ctx,phase='before_constraints'):
             if chosen.action_type=='DEFER':
                 journal.append({'blocker_id':blocker_id,'candidate_id':baseline.id,'status':'DEFERRED','decision_id':did})
                 break
+            source_ids=list(baseline.source_idea_ids)
+            proposal_model=EffectProposal if concept_effects.enabled(state) else Proposal
             raw=agent.run_agent(ctx,node='ax_recovery_'+baseline.id+'_'+str(attempt),label='기구 복구',
                 stage='S6_CONCEPT',agent_id='effects_specialist',prompt_id='P_AX_RECOVERY',tier='T2',
                 vars={'action':chosen.action_type,'baseline':baseline.model_dump(mode='json'),
                       'blockers':blockers,'requirements':state.constraints.model_dump(mode='json'),
-                      'analysis':{'contradictions':state.definition.model_dump(mode='json'),
-                                  'resources':[r.model_dump(mode='json') for r in state.analysis.resources]},
-                      'schema':Proposal.model_json_schema()},default={}) or {}
+                      'analysis':effect_analysis(state,source_ids,{'contradictions':state.definition.model_dump(mode='json'),
+                                  'resources':[r.model_dump(mode='json') for r in state.analysis.resources]}),
+                      'schema':proposal_model.model_json_schema()},default={}) or {}
             entry={'blocker_id':blocker_id,'candidate_id':baseline.id,'decision_id':did,
                 'action':chosen.action_type,'attempt':attempt+1,'depth':1,'status':'INVALID_PROPOSAL'}
+            errors=effect_errors(state,source_ids,raw)
+            if errors:
+                journal.append(dict(entry,effect_contract_errors=errors))
+                continue
             try:
-                proposal=Proposal.model_validate(raw)
+                proposal=proposal_model.model_validate(raw)
             except ValueError:
                 journal.append(entry)
                 continue
@@ -133,21 +160,31 @@ def codesign(ctx,left,right,baselines):
         expected_outputs=['CandidateVersion','InteractionCheck'],allowed_tools=['candidate_repair'],
         reserved_microusd=50000,model_role='FLASH',reason='서로 보완하는 기능과 외부 시작 자원이 확인된 두 기구를 공동 설계한다.')
     chosen,did=coordinator.decide(state,[ticket],0,{'CO_DESIGN'},'recovery:codesign')
+    source_ids=list(dict.fromkeys(sid for row in (left,right)
+        for sid in baselines[row['candidate_id']].source_idea_ids))
+    proposal_model=EffectProposal if concept_effects.enabled(state) else Proposal
     raw=agent.run_agent(ctx,node='ax_codesign',label='상호작용 공동 설계',stage='S6_CONCEPT',agent_id='effects_specialist',
         prompt_id='P_AX_RECOVERY',tier='T2',vars={'action':chosen.action_type,
             'baseline':[baselines[x['candidate_id']].model_dump(mode='json') for x in (left,right)],
             'blockers':[left['proposal'],right['proposal']],'requirements':state.constraints.model_dump(mode='json'),
-            'analysis':{'external_resources':[r.name for r in state.analysis.resources]},'schema':Proposal.model_json_schema()},default={}) or {}
+            'analysis':effect_analysis(state,source_ids,{'external_resources':[r.name for r in state.analysis.resources]}),
+            'schema':proposal_model.model_json_schema()},default={}) or {}
     entry={'action':'CO_DESIGN','blocker_id':'joint-'+digest([left['blocker_id'],right['blocker_id']])[:24],
         'candidate_id':left['candidate_id'],'partners':[left['candidate_id'],right['candidate_id']],
         'decision_id':did,'status':'INVALID_PROPOSAL','depth':2}
+    errors=effect_errors(state,source_ids,raw)
+    if errors:
+        state.scratch['ax_recovery'].append(dict(entry,effect_contract_errors=errors))
+        return
     try:
-        proposal=Proposal.model_validate(raw)
+        proposal=proposal_model.model_validate(raw)
     except ValueError:
         state.scratch['ax_recovery'].append(entry)
         return
     base=baselines[left['candidate_id']].model_dump(mode='json')
     base.update({k:v for k,v in proposal.model_dump(mode='json').items() if k in ConceptSpec.model_fields})
+    if concept_effects.enabled(state):
+        base['source_idea_ids']=source_ids
     base.update(id='CPT-AX-'+digest([did,raw])[:12],quality_status='UNVERIFIED',quality_issues=[],evidence_ids=[],
         expected_effect='공동 설계의 상호작용과 성능은 독립 검증 및 시험 필요')
     from ..quality import audit_concepts

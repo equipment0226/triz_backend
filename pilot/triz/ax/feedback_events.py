@@ -33,47 +33,26 @@ def consent(state, payload=None):
 def lineage(state, candidate):
     """Follow stored IDs; no title matching or reconstruction of missing producers."""
     from .effect_history import applications
-    inventory = {r.get('id') or r.get('source_idea_id'): r for r in state.scratch.get('ax_idea_inventory', [])}
-    inventory.update({i.id:i.model_dump(mode='json') for i in state.solve.raw_ideas})
-    leaves, versions, missing, visiting = set(), set(), set(), set()
-    def walk(ident):
-        if not ident or ident in visiting:
-            return
-        visiting.add(ident)
-        raw = inventory.get(ident)
-        if raw is None:
-            missing.add(ident); return
-        versions.add(digest(raw))
-        source = set(raw.get('source_idea_ids', [])) - {ident}
-        details = raw.get('detail', {}).get('source_details', [])
-        for detail in details:
-            sid = detail.get('source_idea_id')
-            if sid and sid not in inventory:
-                inventory[sid] = dict(detail, id=sid)
-            if sid and sid != ident:
-                source.add(sid)
-        if source:
-            for sid in sorted(source): walk(sid)
-        else:
-            leaves.add(ident)
-    for ident in candidate.source_idea_ids: walk(ident)
+    from .source_lineage import trace
+    source = trace(state, candidate.source_idea_ids)
+    leaves = set(source['leaves'])
     actions = candidate_actions(state, candidate)
-    active = set(candidate.active_effect_ids)
+    active = set(candidate.active_effect_ids) if source['complete'] else set()
     with ledger.store.engine.connect() as c:
         apps = [json.loads(r) for r in c.execute(select(applications.c.payload).where(applications.c.run_id == state.run_id)).scalars()]
     apps = [a for a in apps if a.get('candidate_id') == candidate.id and a.get('effect_id') in active
             and a.get('candidate_version') == digest(candidate.model_dump(mode='json'))
             and a.get('catalog_status') == 'BOUND' and set(a.get('source_raw_idea_ids', [])) <= leaves
             and a.get('semantic_episode_id') == episode(state)]
-    # Versions collected before audit may differ only by the subsequent verdict.
-    # The snapshot in this event is authoritative; the application remains a source reference.
+    # Only applications collected for this exact candidate and episode qualify.
     unique = {}
     for app in sorted(apps, key=lambda a:a['application_id']):
         unique.setdefault(app['effect_id'], app)
     return dict(source_raw_idea_ids=sorted(leaves), source_action_instance_ids=actions,
-        merge_versions=sorted(versions), active_effect_application_ids=sorted(a['application_id'] for a in unique.values()),
-        active_effect_ids=sorted(unique), attribution='OBSERVED_JOINT_LINEAGE' if leaves and actions and not missing else 'UNKNOWN_ATTRIBUTION',
-        missing_source_ids=sorted(missing), mechanism_key=candidate.mechanism_key or digest(candidate.working_principle),
+        merge_versions=source['versions'], active_effect_application_ids=sorted(a['application_id'] for a in unique.values()),
+        active_effect_ids=sorted(unique), attribution='OBSERVED_JOINT_LINEAGE' if leaves and actions and source['complete'] else 'UNKNOWN_ATTRIBUTION',
+        missing_source_ids=source['missing'], source_lineage_cycles=source['cycles'], source_lineage_conflicts=source['conflicts'],
+        mechanism_key=candidate.mechanism_key or digest(candidate.working_principle),
         candidate_snapshot=candidate.model_dump(mode='json'))
 
 
@@ -239,34 +218,109 @@ def current(tenant, project, cutoff=None, *, include_synthetic=False):
             and r['training_consent_scope']=='PROJECT_ONLY' and (include_synthetic or not r['synthetic'])]
 
 
+def meeting_review_sources(state, scores):
+    """Read-only provenance check for accepted scores, including policy-only WARN.
+
+    A skipped optional rubric does not discard a complete, validated review.
+    Other warnings, partial meetings and historical/mismatched outputs abstain.
+    """
+    if not unified(state): return []
+    from .. import meeting as protocol, digest as packets, domain, verify
+    from .usage_recovery import request_episode
+    import hashlib
+    meeting = state.evaluation.meeting
+    roles = state.evaluation.reviewers
+    if (meeting.status != 'COMPLETED' or not roles or
+            len({p.persona_id for p in roles}) != len(roles) or
+            len({p.role_name for p in roles}) != len(roles) or
+            len(meeting.final_reviews) != len(roles) or
+            {r.reviewer_id for r in meeting.final_reviews} != {p.persona_id for p in roles}):
+        return []
+    if ledger.head(state.run_id, state.user_id)['epoch'] != state.scratch.get('execution_epoch', 0):
+        return []
+    phase = 'independent' if meeting.rounds == 0 else 'final'
+    expected_prompt = 'P_S8_REVIEW' if phase == 'independent' else 'P_S8_MEETING_FINAL'
+    concept_ids = {c.id for c in state.concepts}
+    common = dict(industry=state.domain.industry, problem_type=domain.problem_type(state),
+        physical_scope=state.domain.physical_scope, restated_problem=state.intake.frame.restated_problem,
+        target_system=packets.target_system(state), operating_env=state.domain.operating_env,
+        constraints_block=verify.constraints_block(state), concepts_blind=packets.concepts_blind(state),
+        facts_packet=packets.facts_packet(state), evidence_packet=protocol._evidence_packet(state),
+        success_criteria=state.intake.frame.success_criteria,
+        requirements=[dict(improve=t.then_good,preserve=t.but_bad) for t in state.definition.technical_contradictions])
+    # The meeting intentionally permits transport resume of the same semantic
+    # inputs. A paid request from a different semantic episode is not its source.
+    with ledger.store.engine.connect() as connection:
+        requests = [json.loads(value).get('request', {}) for value in connection.execute(
+            select(ledger.attempts.c.details).where(ledger.attempts.c.run_id == state.run_id)).scalars()]
+    requests = [r['request'] for r in requests if r.get('node') == 's8_review_' + phase
+                and request_episode(r) == episode(state) and isinstance(r.get('request'), dict)]
+    output = []
+    for role in roles:
+        key = phase + ':' + role.persona_id
+        accepted = meeting.completed_calls.get(key)
+        final = next(r for r in meeting.final_reviews if r.reviewer_id == role.persona_id)
+        if final.reviewer_role != role.role_name or not isinstance(accepted, dict): continue
+        validate = (lambda data, ids: protocol._check_independent(data, role, ids)) if phase == 'independent' else (
+            lambda data, ids: verify.check_review(data, ids, role.dimensions))
+        if validate(accepted, concept_ids): continue
+        accepted_scores = {canonical(row.model_dump(mode='json')) for row in protocol._scores(accepted, role)}
+        final_scores = {canonical(row.model_dump(mode='json')) for row in final.scores}
+        if (accepted_scores != final_scores or len(final_scores) != len(final.scores)
+                or len(accepted_scores) != len(accepted['scores'])): continue
+        role_values = dict(role_id=role.persona_id, role_name=role.role_name, seniority=role.seniority,
+            mandate=role.mandate, bias_note=role.bias_note, dimensions=list(role.dimensions), veto_power=role.veto_power)
+        steps = []
+        for step in reversed(state.steps):
+            if (step.node != 's8_review_' + phase or step.agent_id != 'persona::' + role.persona_id
+                    or step.prompt_id != expected_prompt or step.error): continue
+            verdict = step.verdicts[-1] if step.verdicts else {}
+            if any(v.get('fatal_flaws') for v in step.verdicts): continue
+            if step.status == 'WARN':
+                if not (verdict.get('verdict') == 'UNVERIFIED' and verdict.get('source') == 'policy'
+                        and verdict.get('skipped') is True and not verdict.get('revision_instructions')): continue
+            elif step.status not in ('OK', 'SKIPPED'):
+                continue
+            values = step.input_slice.get('vars', {})
+            if any(values.get(k) != v for k, v in {**common, **role_values}.items()): continue
+            semantic = {k: v for k, v in values.items() if k not in (
+                'followup_options','summary_options','dimension_rubric','answer_evidence_options',
+                'review_concept_ids','include_communication_summary')}
+            call_hash = hashlib.sha256(json.dumps(semantic,sort_keys=True,ensure_ascii=False,default=str).encode()).hexdigest()
+            if meeting.completed_call_inputs.get(key) != call_hash: continue
+            ids = values.get('review_concept_ids')
+            if not isinstance(ids,list) or not ids or not set(ids) <= concept_ids: continue
+            if validate(step.output_json,set(ids)): continue
+            if not any(r.get('system') == step.input_slice.get('system') and
+                (r.get('user') == step.input_slice.get('user') or
+                 str(r.get('user','')).startswith(str(step.input_slice.get('user')) + '\n\n')) for r in requests): continue
+            actual = {canonical(row.model_dump(mode='json')) for row in protocol._scores(step.output_json,role)}
+            steps.append((step,actual))
+        for score in scores:
+            raw = score.model_dump(mode='json')
+            if score.reviewer_role != role.role_name or not state.concept(score.concept_id): continue
+            marker = canonical(raw)
+            if marker not in accepted_scores or marker not in final_scores: continue
+            source = next((step for step,actual in steps if marker in actual),None)
+            if source is not None: output.append((state.concept(score.concept_id),raw,source))
+    return output
+
+
 def meeting_reviews(state, scores):
-    if not unified(state): return
+    sources = meeting_review_sources(state, scores)
+    if not sources: return
     from .effect_history import collect
     collect(state)
-    for score in scores:
-        candidate = state.concept(score.concept_id)
-        if candidate is None: continue
-        raw = score.model_dump(mode='json')
-        persona=next((p.persona_id for p in state.evaluation.reviewers if p.role_name==score.reviewer_role),None)
-        # Link the actual score to a stored meeting output, not to the aggregate.
-        step = next((s for s in reversed(state.steps) if s.status in ('OK','SKIPPED')
-                     and canonical(raw) in canonical(s.output_json)), None)
-        if step is None:
-            # Meeting outputs may include other fields; match all supplied score fields.
-            def contains(value):
-                if isinstance(value,dict):
-                    core=('concept_id','dimension','score','rationale')
-                    return all(value.get(k)==raw[k] for k in core) or any(contains(v) for v in value.values())
-                return isinstance(value,list) and any(contains(v) for v in value)
-            step = next((s for s in reversed(state.steps) if s.status in ('OK','SKIPPED')
-                and s.agent_id=='persona::'+str(persona) and contains(s.output_json)),None)
-        if step is None: continue
+    for candidate,raw,step in sources:
         with ledger.transaction() as c:
             _write(c,state,candidate,origin='meeting-'+digest([step.step_id,raw]),stage='s8_evaluate',
-                dimension='evaluation_quality',value=max(-1.,min(1.,(score.score-3)/2)),
-                evidence='MODEL_REVIEW_PROXY',scope=consent(state),reviewer=score.reviewer_role+':'+score.dimension,
+                dimension='evaluation_quality',value=(raw['score']-3)/2,
+                evidence='MODEL_REVIEW_PROXY',scope=consent(state),reviewer=raw['reviewer_role']+':'+raw['dimension'],
                 source_step_id=step.step_id,detail={'actual_review':raw,'rubric':state.scratch['ax_bundle']['rubrics'],
-                'normalization':'rating-1-to-5-v1'},lineage_data=lineage(state,candidate))
+                'normalization':'rating-1-to-5-v1','source_status':step.status,
+                'source_verdict':step.verdicts[-1] if step.verdicts else {},
+                'meeting_input_hash':state.evaluation.meeting.input_hash,
+                'meeting_context_hash':state.evaluation.meeting.context_hash},lineage_data=lineage(state,candidate))
 
 
 def revise(run_id, owner, event_id, *, consent_scope, reason, value=None, correct_value=False):

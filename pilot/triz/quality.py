@@ -131,6 +131,91 @@ def generate_concepts(ctx):
     return _generate_concepts(ctx)
 
 
+def _concept_variables(st, assigned, facts, contradictions, prior):
+    from .ax import coherence
+    return {"industry": st.domain.industry, "target_system": digest.target_system(st),
+        "super_system": st.domain.super_system, "operating_env": st.domain.operating_env,
+        "components": digest.components_digest(st), "resources": digest.resources_digest(st),
+        "facts": facts, "contradictions": contradictions,
+        "ideas": [digest.idea_packet(i) for i in assigned],
+        "evidence_digest": digest.relevant_evidence(st, assigned),
+        "prior_cases_block": prior, "taboo_block": verify.taboo_block(st),
+        "batch_size": len(assigned),
+        "batch_note": "배정 항목은 이미 의미 통합한 독립 아이디어다. 모든 항목을 각각 검토하며 재결합하지 않는다. concepts와 excluded의 각 항목은 source_idea_ids에 배정 ID를 정확히 1개만 기록한다. 모든 배정 ID를 정확히 한 번 판정하고, 성립하지 않으면 해당 ID의 구체적인 reason을 기록한다. 다른 배치의 아이디어는 만들지 않는다. active_effect_ids에는 최종 작동 기구에 실제 남긴 source_details의 source_effect_id만 기록한다. 단순 노출되었거나 제거한 효과는 넣지 않는다.",
+        "coherence_contract": coherence.contract_instruction(st)}
+
+
+def _saved_prior_replay(st, ideas, facts, contradictions, prior_limit):
+    """Reuse actual historical RAG bytes only for a usable, already-paid S6 call.
+
+    Retrieval scores can change without any analysis input changing. Preserve
+    that completed request's first batch; never pin stale cases for a new call.
+    """
+    from .ax import concept_effects, ledger
+    from .ax.action_runtime import active_action
+    from .ax.mode_contract import unified
+    if not unified(st) or concept_effects.enabled(st) or active_action.get():
+        return None
+    from .domain import context, problem_type, physical_allowed
+    from .ax.runtime import render_prompt
+    from .ax.usage_recovery import stage_request_identity
+    from sqlalchemy import select
+    saved = [step for step in reversed(st.steps) if step.node == 's6_concept'
+             and step.prompt_id == 'P_S6_CONCEPT' and step.label.startswith('해결 개념 구체화 (1/')]
+    if not saved:
+        return None
+    with ledger.store.engine.connect() as connection:
+        rows = connection.execute(select(ledger.tasks.c.result, ledger.attempts.c.details)
+            .join(ledger.attempts, ledger.attempts.c.task_id == ledger.tasks.c.task_id)
+            .where(ledger.tasks.c.run_id == st.run_id, ledger.tasks.c.status == 'COMPLETED',
+                   ledger.tasks.c.actual.is_not(None))).all()
+    completed = {}
+    for result, detail in rows:
+        request = json.loads(detail).get('request', {})
+        if request.get('node') == 's6_concept':
+            identity = stage_request_identity(request)
+            if identity:
+                completed[identity] = json.loads(result)
+    bundle = st.scratch['ax_bundle']
+    for step in saved:
+        stored = step.input_slice.get('vars', {})
+        prior = stored.get('prior_cases_block')
+        if not isinstance(prior, str) or (prior and not prior_limit):
+            continue
+        size = min(len(ideas), min(5, prior_limit) if prior else 5)
+        if not size or stored.get('batch_size') != size:
+            continue
+        assigned = ideas[:size]
+        variables = _concept_variables(st, assigned, facts, contradictions, prior)
+        if variables != stored:
+            continue
+        user = render_prompt(st, 'P_S6_CONCEPT', problem_type=problem_type(st),
+            physical_scope=st.domain.physical_scope, physical_allowed=physical_allowed(st), **variables)
+        user += context(st, 's6_concept')
+        injected = list(st.control.injected_agents.get('s6_concept') or [])
+        injected += list(st.control.injected_agents.get('stage:' + st.scratch.get('stage_key', '')) or [])
+        if injected:
+            user += "\n\n[추가 투입된 전문가의 관점 — 반드시 반영하라]\n" + "\n".join(
+                f"- {a.get('role_name','전문가')}: {a.get('instruction','')}" for a in injected)
+        system = render_prompt(st, 'P_COMMON_PREAMBLE', lang=st.control.lang,
+            problem_type=problem_type(st), physical_scope=st.domain.physical_scope,
+            constraints_block=verify.constraints_block(st))
+        if user != step.input_slice.get('user') or system != step.input_slice.get('system'):
+            continue
+        request = dict(node='s6_concept', bundle_id=bundle['bundle_id'], request=dict(
+            system=system, user=user, tier='T2', expect='object', temperature=None,
+            max_tokens=max(4000, int(settings.cfg('solutions.concept_max_tokens', 8000))),
+            model_config=bundle['models']['T2'],
+            retries=max(1, int(bundle['config'].get('ax', {}).get('max_provider_attempts', 2))),
+            semantic_episode_id=st.scratch['semantic_episode_id']))
+        result = completed.get(stage_request_identity(request))
+        if result is not None:
+            data = normalize_concept_lineage(result.get('data'), assigned, st.solve.raw_ideas)
+            if not check_concept_batch(data, {idea.id for idea in assigned}):
+                return prior
+    return None
+
+
 def _generate_concepts(ctx, ideas_override=None):
     st = ctx.state
     from .idea_consolidation import ensure_consolidated
@@ -149,15 +234,16 @@ def _generate_concepts(ctx, ideas_override=None):
         'unreviewed_idea_ids': [i.id for i in ideas],
         'source_lineage': {i.id: list(i.source_idea_ids or [i.id]) for i in ideas}}
     prior_limit = max(0, int(settings.cfg("feedback_rag.max_influenced_concepts", 3)))
-    prior = rag.prior_cases_block(st) if prior_limit else ""
+    facts = digest.facts_packet(st)
+    contradictions = digest.contradictions_digest(st)
+    saved_prior = _saved_prior_replay(st, ideas, facts, contradictions, prior_limit)
+    prior = saved_prior if saved_prior is not None else rag.prior_cases_block(st) if prior_limit else ""
     groups = []
     cursor = 0
     while cursor < len(ideas):
         size = min(5, prior_limit) if not groups and prior else 5
         groups.append(ideas[cursor:cursor + size])
         cursor += size
-    facts = digest.facts_packet(st)
-    contradictions = digest.contradictions_digest(st)
 
     def generate(item):
         number, assigned = item
@@ -166,20 +252,14 @@ def _generate_concepts(ctx, ideas_override=None):
         result = agent.run_agent(ctx, node="s6_concept", label=f"해결 개념 구체화 ({number+1}/{len(groups)})",
             stage=Stage.S6.value, agent_id="concept_architect", prompt_id="P_S6_CONCEPT", tier="T2",
             max_tokens=max(4000,int(settings.cfg('solutions.concept_max_tokens',8000))),
-            vars={"industry": st.domain.industry, "target_system": digest.target_system(st),
-                "super_system": st.domain.super_system, "operating_env": st.domain.operating_env,
-                "components": digest.components_digest(st), "resources": digest.resources_digest(st),
-                "facts": facts, "contradictions": contradictions,
-                "ideas": [digest.idea_packet(i) for i in assigned],
-                "evidence_digest": digest.relevant_evidence(st, assigned),
-                "prior_cases_block": batch_prior, "taboo_block": verify.taboo_block(st),
-                "batch_size": len(assigned),
-                "batch_note": "배정 항목은 이미 의미 통합한 독립 아이디어다. 모든 항목을 각각 검토하며 재결합하지 않는다. concepts와 excluded의 각 항목은 source_idea_ids에 배정 ID를 정확히 1개만 기록한다. 모든 배정 ID를 정확히 한 번 판정하고, 성립하지 않으면 해당 ID의 구체적인 reason을 기록한다. 다른 배치의 아이디어는 만들지 않는다. active_effect_ids에는 최종 작동 기구에 실제 남긴 source_details의 source_effect_id만 기록한다. 단순 노출되었거나 제거한 효과는 넣지 않는다.",
-                "coherence_contract": coherence.contract_instruction(st)},
+            vars=_concept_variables(st, assigned, facts, contradictions, batch_prior),
             checker=lambda data: check_concept_batch(data, ids),
             normalizer=lambda data: normalize_concept_lineage(data, assigned, st.solve.raw_ideas),
             default={}) or {}
         issues = check_concept_batch(result, ids)
+        from .ax import concept_effects
+        if concept_effects.enabled(st):
+            issues += concept_effects.check_batch(st, result)
         if issues:
             raise AbortRun("상세 검토에서 원본별 판정이 완결되지 않았습니다. " + '; '.join(issues))
         with ctx.lock:
@@ -213,7 +293,13 @@ def _generate_concepts(ctx, ideas_override=None):
                     return ({value['source_effect_id']} if value.get('source_effect_id') else set()).union(*(effect_ids(v) for v in value.values()))
                 return set().union(*(effect_ids(v) for v in value)) if isinstance(value,list) else set()
             source_effects = set().union(*(effect_ids(i.detail) for i in sources))
-            c.active_effect_ids = sorted(set(c.active_effect_ids) & source_effects)
+            from .ax import concept_effects
+            if concept_effects.enabled(st):
+                # Strict validation above rejects invalid attribution rather
+                # than silently changing the model's explicit adoption claim.
+                c.active_effect_ids = sorted(c.active_effect_ids)
+            else:
+                c.active_effect_ids = sorted(set(c.active_effect_ids) & source_effects)
             key = tuple(sorted(i.mechanism_key or i.id for i in sources))
             c.mechanism_key = " + ".join(key)
             if coherence.enabled(st):

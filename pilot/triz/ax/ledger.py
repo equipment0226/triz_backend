@@ -287,7 +287,7 @@ def budget(run_id,actor=None):
             'unknown_attempts':sum(r.status=='UNKNOWN' for r in rows)}
 
 
-def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=0,optional_limit=None,generation_limit=None):
+def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=0,optional_limit=None,generation_limit=None,preflight=None):
     from .usage_recovery import stage_request_identity
     stage_identity = stage_request_identity(request)
     task_id='task-'+digest([run_id,epoch,request])[:60]
@@ -351,6 +351,16 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
                 _event(c,run_id,'USAGE_UNKNOWN',{'task_id':task_id})
                 return {'task_id':task_id,'blocked':'UNKNOWN'}
             return {'task_id':task_id,'blocked':old['status']}
+        if preflight is not None:
+            reason = preflight()
+            if reason:
+                # No task/reservation is created. Refreshing reference metadata
+                # can safely retry the identical request without a stuck FAILED
+                # paid-call identity; existing paid/UNKNOWN calls above retain
+                # their original replay and reconciliation semantics.
+                _event(c, run_id, 'ACTION_PREFLIGHT_BLOCKED', {'input_hash':digest(request),
+                    'reason':reason, 'provider_called':False, 'reserved_microusd':0})
+                return {'blocked':reason}
         if optional_limit is not None:
             optional_rows=c.execute(select(attempts.c.details,tasks.c.reserve)
                 .join(tasks,tasks.c.task_id==attempts.c.task_id).where(attempts.c.run_id==run_id)).all()

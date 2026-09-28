@@ -201,7 +201,7 @@ def test_M10_C06_C11_incremental_generation_preserves_unchanged_review(adaptive_
     generated=[];audited=[]
     def respond(ctx,**kw):
         ids=[i['id'] for i in kw['vars']['ideas']];generated.extend(ids)
-        return {'concepts':[{'title':i['title'],'source_idea_ids':[i['id']], 'working_principle':i['idea'],
+        return {'concepts':[{'title':i['title'],'source_idea_ids':[i['id']], 'working_principle':i['idea'],'active_effect_ids':[],
             'addresses_contradictions':['TC1'],'resolution_argument':'test both requirements','validation_plan':[{'experiment':'comparison'}]}
             for i in kw['vars']['ideas']], 'excluded':[]}
     def review(ctx,rubric,data,facts):

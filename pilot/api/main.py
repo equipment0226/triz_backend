@@ -233,12 +233,13 @@ def _submission_run_id(user_id, request_id):
                      if request_id else uuid.uuid4().hex[:12])
 
 
-def _create_submission(query, mode, attachments, user_id, public_consent, request_id, training_consent='NO_TRAINING', explicit_required_tracks=()):
+def _create_submission(query, mode, attachments, user_id, public_consent, request_id, training_consent=None, explicit_required_tracks=()):
+    effective_training = 'PROJECT_ONLY' if training_consent is None else training_consent
     fingerprint = hashlib.sha256(json.dumps({
         'query': query.strip(), 'mode': mode, 'public_consent': public_consent,
         'files': [(a.filename, a.sha256) for a in attachments],
-        **({'training_consent':training_consent,'explicit_required_tracks':sorted(set(explicit_required_tracks))}
-           if training_consent!='NO_TRAINING' or explicit_required_tracks else {}),
+        **({'training_consent':effective_training,'explicit_required_tracks':sorted(set(explicit_required_tracks))}
+           if effective_training!='NO_TRAINING' or explicit_required_tracks else {}),
     }, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     # Scope retry identity to the authenticated owner, including across workers.
     run_id = _submission_run_id(user_id, request_id)
@@ -273,7 +274,7 @@ async def create_run(
     query: str = Form(...),
     mode: Optional[str] = Form(None),
     public_consent: bool = Form(False),
-    training_consent: Annotated[Literal['NO_TRAINING','PROJECT_ONLY'], Form()] = 'NO_TRAINING',
+    training_consent: Annotated[Literal['NO_TRAINING','PROJECT_ONLY'] | None, Form()] = None,
     explicit_required_tracks: Annotated[list[str], Form()] = [],
     files: list[UploadFile] = File(default=[]),
     idempotency_key: str = Header(default='', max_length=128),

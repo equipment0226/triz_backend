@@ -78,7 +78,7 @@ def lineage(state, candidate):
 
 
 def _write(c, state, candidate, *, origin, stage, dimension, value, evidence, scope,
-           reviewer='USER', source_step_id=None, detail=None, supersedes=None, lineage_data=None):
+           reviewer='USER', source_step_id=None, detail=None, supersedes=None, lineage_data=None, consent_version=None):
     head = ledger._head(c, state.run_id, lock=True)
     ledger.authorize(head, state.user_id)
     if head['epoch'] != state.scratch.get('execution_epoch', 0):
@@ -102,7 +102,7 @@ def _write(c, state, candidate, *, origin, stage, dimension, value, evidence, sc
         reviewer_model_and_rubric_version=detail or {}, dimension=dimension, observed_value=value,
         observed_mask=value is not None, evidence_level=evidence, source_step_id=source_step_id,
         source_event_id=origin, evidence_refs=sorted(candidate.evidence_ids), created_at=stamp, label_available_at=stamp,
-        training_consent_scope=scope, consent_version='explicit-project-consent-v1',
+        training_consent_scope=scope, consent_version=consent_version or state.scratch.get('training_consent_version','explicit-project-consent-v1'),
         synthetic=bool(state.scratch.get('synthetic') or state.scratch.get('acceptance_fixture')),
         problem_family=problem_family(state),
         **(lineage_data or {}))
@@ -125,9 +125,11 @@ def user_decisions(state, decisions, payload, origin):
         if not prior: ledger._event(c,state.run_id,'GATE_DECISIONS_SUBMITTED',content,event_id=submission)
         ids = [_write(c, state, state.concept(cid), origin=submission, stage='s7_user', dimension='user_utility',
             value=settings['keep' if choice=='accept' else 'drop'], evidence='EXPLICIT_USER_PREFERENCE', scope=scope,
-            detail={'normalization':'weak-keep-drop-v1','choice':choice}, lineage_data=facts[cid])
+            detail={'normalization':'weak-keep-drop-v1','choice':choice}, lineage_data=facts[cid],
+            consent_version='explicit-project-consent-v1' if payload.get('training_consent') is not None else None)
             for cid, choice in sorted(decisions.items()) if cid in facts and choice in ('accept','drop')]
     state.scratch['training_consent'] = scope
+    if payload.get('training_consent') is not None: state.scratch['training_consent_version']='explicit-project-consent-v1'
     return ids
 
 
@@ -158,11 +160,13 @@ def final_feedback(state, payload):
             ids.append(_write(c, state, candidate, origin=submission, stage='s10_feedback', dimension='user_utility',
                 value=value, evidence='EXPLICIT_USER_PREFERENCE' if value is not None else 'UNOBSERVED', scope=scope,
                 detail={'normalization':'rating-1-to-5-v1','rating':rating,'adopted_explicit':row.get('adopted_explicit',False)},
-                lineage_data=facts[candidate.id]))
+                lineage_data=facts[candidate.id],
+                consent_version='explicit-project-consent-v1' if payload.get('training_consent') is not None else None))
             c.execute(ledger.store.feedback.insert().values(run_id=state.run_id, concept_id=candidate.id,
                 rating=rating if type(rating) is int else 0, adopted=row.get('adopted'),
                 reason_tags=canonical(row.get('reason_tags',[])), comment=row.get('comment',''), created_at=ledger.store._now()))
     state.scratch['training_consent'] = scope
+    if payload.get('training_consent') is not None: state.scratch['training_consent_version']='explicit-project-consent-v1'
     return True
 
 
@@ -206,7 +210,7 @@ def recorded_test(c,state,candidate,body):
         value={'PASS':1.,'FAIL':-1.}.get(body.result),evidence='USER_REPORTED_TEST_NOT_INDEPENDENTLY_VALIDATED',
         scope=body.consent,reviewer='USER_REPORTED_TEST:'+str(body.obligation_id),supersedes=previous,
         detail={'actual_submission':body.model_dump(mode='json'),'normalization':'ordinal-reported-result-v1'},
-        lineage_data=lineage(state,candidate))
+        lineage_data=lineage(state,candidate),consent_version='explicit-project-consent-v1')
 
 
 def current(tenant, project, cutoff=None, *, include_synthetic=False):
@@ -263,7 +267,7 @@ def revise(run_id, owner, event_id, *, consent_scope, reason, value=None, correc
             ledger.events.c.run_id==run_id,ledger.events.c.event_type==KIND)).scalar()
         if not old: raise ValueError('Evaluation not found in this run')
         old=json.loads(old)
-        revision=dict(old,supersedes_event_id=event_id,training_consent_scope=consent_scope,
+        revision=dict(old,supersedes_event_id=event_id,training_consent_scope=consent_scope,consent_version='explicit-project-consent-v1',
             observed_value=value if correct_value else old['observed_value'],correction_reason=reason)
         revision['observed_mask']=revision['observed_value'] is not None
         eid='eval-'+digest([event_id,consent_scope,reason,value,correct_value])[:56]

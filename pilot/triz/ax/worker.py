@@ -17,8 +17,8 @@ task_queue=ledger.table('learning_task_queue',Column('scope',String(80),primary_
 def consume(c,event):
     if event['event_type'] in ('COMMON_EVALUATION','COMMON_EVALUATION_REVISED','ADAPTIVE_EPISODE_CLOSED','USAGE_RECONCILED'):
         h=ledger._head(c,event['run_id'],lock=True)
-        if json.loads(h['bundle']).get('feature_schema')!='ax-state-action-v4': return
-        for kind,schema in (('routing_q','ax-state-action-v4'),('effect_ranker','effect-application-utility-v2')):
+        if json.loads(h['bundle']).get('feature_schema') not in ('ax-state-action-v4','ax-state-action-v5'): return
+        for kind,schema in (('routing_q',json.loads(h['bundle'])['feature_schema']),('effect_ranker','effect-application-utility-v2')):
             key=registry.task_scope(h['tenant_id'],h['project_id'],kind,schema)
             row=c.execute(select(task_queue).where(task_queue.c.scope==key).with_for_update()).mappings().first()
             if row:
@@ -29,7 +29,7 @@ def consume(c,event):
         return
     if event['event_type'] not in ('REVIEW_CONFIRMED','EFFECT_REVIEW_CONFIRMED','OPTIONAL_TRANSITION'): return
     h=ledger._head(c,event['run_id'],lock=True)
-    if json.loads(h['bundle']).get('feature_schema')=='ax-state-action-v4': return
+    if json.loads(h['bundle']).get('feature_schema') in ('ax-state-action-v4','ax-state-action-v5'): return
     key=registry.scope(h['tenant_id'],h['project_id'])
     row=c.execute(select(queue).where(queue.c.scope==key).with_for_update()).mappings().first()
     if row:

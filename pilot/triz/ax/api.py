@@ -67,7 +67,7 @@ def diagnostics(run_id: str,request: Request):
     return dict(runtime.diagnostics(store.load_state(run_id)),budget=ledger.budget(run_id,actor(request)),
         routing_learning=learning.readiness(learning.dataset(h['tenant_id'],h['project_id'],feature_schema=schema)),
         effect_learning=effect_ranker.readiness(effect_ranker.dataset(h['tenant_id'],h['project_id'],
-            schema=effect_ranker.UTILITY_SCHEMA if schema=='ax-state-action-v4' else effect_ranker.SCHEMA)))
+            schema=effect_ranker.UTILITY_SCHEMA if schema in ('ax-state-action-v4','ax-state-action-v5') else effect_ranker.SCHEMA)))
 
 
 @router.get('/evaluations')

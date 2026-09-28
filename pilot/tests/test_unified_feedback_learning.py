@@ -103,6 +103,7 @@ def test_U05_U10_missing_defaults_are_unobserved(adaptive_run,row):
 
 def test_U06_U11_D10_drop_retains_lineage_and_no_consent_is_excluded(adaptive_run):
     state=adaptive_run();value=candidate(state)
+    state.scratch['training_consent']='NO_TRAINING'  # Explicit opt-out; new runs default to project scope.
     state.scratch['resume_payload']={'decisions':{value.id:'drop'}}
     nodes.s7_gate(RunContext(state))
     assert not state.concepts

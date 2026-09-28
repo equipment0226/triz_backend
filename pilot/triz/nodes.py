@@ -1177,16 +1177,24 @@ def _merge(ctx: RunContext) -> bool:
     from .idea_consolidation import consolidate
     from .ax.mode_contract import contract
     if contract(st):
-        from .ax.action_runtime import executing
+        from .ax.action_runtime import executing, episode
         from .ax.contracts import ActionTicket
-        parents = sorted(st.scratch.get('ax_action_results', {}))
-        ticket = ActionTicket(action_type='MERGE_IDEAS',model_role='REASONING',
-            parameters={'parent_action_instance_ids':parents, 'inventory_hash':digest_json(st.solve.raw_ideas)},
-            target_version_ids=list(st.scratch.get('ax_members',{}).values()),
-            expected_outputs=['MergedFamilies','RawDisposition'],allowed_tools=['legacy_tracks'],
-            reason='전 원안의 기구·조건·출처를 비교해 대표안과 보류 이유를 보존한다.')
+        inventory=digest_json(st.solve.raw_ideas)
+        pending=st.scratch.get('ax_merge_pending',{})
+        if pending.get('inventory_hash')==inventory and pending.get('semantic_episode_id')==episode(st):
+            ticket=ActionTicket.model_validate(pending['ticket'])
+        else:
+            parents = sorted(st.scratch.get('ax_action_results', {}))
+            ticket = ActionTicket(action_type='MERGE_IDEAS',model_role='REASONING',
+                parameters={'parent_action_instance_ids':parents, 'inventory_hash':inventory},
+                target_version_ids=list(st.scratch.get('ax_members',{}).values()),
+                expected_outputs=['MergedFamilies','RawDisposition'],allowed_tools=['legacy_tracks'],
+                reason='전 원안의 기구·조건·출처를 비교해 대표안과 보류 이유를 보존한다.')
+            st.scratch['ax_merge_pending']=dict(inventory_hash=inventory,semantic_episode_id=episode(st),ticket=ticket.model_dump(mode='json'))
+            ctx.persist()
         with executing(ctx,ticket,context='solve:merge',optional=False):
             d = consolidate(ctx)
+        st.scratch.pop('ax_merge_pending',None)
     else:
         d = consolidate(ctx)
     st.solve.coverage_note = d.get("coverage_note", "")
@@ -1262,6 +1270,9 @@ def s7_gate(ctx: RunContext) -> None:
                 if unified(st): st.scratch.setdefault('adaptive_dropped_candidates',[]).append(cid)
                 concept = st.concept(cid)
                 if concept:
+                    if unified(st):
+                        from .ax.candidate_disposition import record
+                        record(st,concept,'USER_DROP','제약 검토에서 사용자가 제외함',st.scratch.get('ax_response_origin'))
                     st.scratch.setdefault('excluded_concepts', []).append({'idea': concept.title, 'reason': '제약 검토에서 사용자가 제외함'})
                 st.concepts = [c for c in st.concepts if c.id != cid]
                 st.constraint_checks = [c for c in st.constraint_checks if c.concept_id != cid]
@@ -1283,6 +1294,9 @@ def s7_gate(ctx: RunContext) -> None:
 
     if st.scratch.get('gate_decisions', {}).get('fingerprint') == _gate_fingerprint(st):
         return
+
+    from .ax.mode_contract import unified
+    if unified(st): st.scratch['adaptive_gate_cohort']=[c.id for c in st.concepts]
 
     if not st.constraints.items:
         st.constraint_checks = [ConstraintCheckResult(concept_id=c.id, verdict="PASS")
@@ -1385,9 +1399,11 @@ def s7_gate(ctx: RunContext) -> None:
              data={"pass": len(passed), "conditional": len(cond), "fail": len(failed)})
 
     for r in failed:  # 제약 위반 개념은 폐기
-        if unified(st): st.scratch.setdefault('adaptive_dropped_candidates',[]).append(r.concept_id)
         c = by_id.get(r.concept_id)
         if c:
+            if unified(st):
+                from .ax.candidate_disposition import record
+                record(st,c,'CONSTRAINT_FAIL',r.model_dump(mode='json'),review_sources.get(c.id))
             from .ax import enabled as ax_enabled
             if ax_enabled(st):
                 st.scratch.setdefault('ax_excluded', []).append(c.model_dump(mode='json'))

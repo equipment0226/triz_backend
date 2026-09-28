@@ -11,7 +11,20 @@ REWARD = 'candidate-utility-cost-v2'
 def outcome(events, settings, active_candidates=None):
     """Pure, order-independent projection. Missing user answers remain masked."""
     groups = defaultdict(list)
+    latest={}; completed=set(); designs={}
     for event in events:
+        revision=event.get('review_revision',{})
+        if event.get('evaluation_stage','').startswith('s6_') and revision:
+            key=(event.get('run_id'),event.get('semantic_episode_id'),event['candidate_id'])
+            latest[key]=max(latest.get(key,0),revision.get('revision',0))
+            if event.get('dimension')=='coverage_quality': completed.add((key,revision.get('revision',0)))
+            if key not in designs or revision.get('revision',0)>=designs[key][0]: designs[key]=(revision.get('revision',0),event.get('candidate_version'))
+    for event in events:
+        key=(event.get('run_id'),event.get('semantic_episode_id'),event['candidate_id'])
+        if event['dimension'] in ('concept_quality','coverage_quality','constraint_quality','evaluation_quality') and key in latest:
+            if event.get('review_revision',{}).get('revision',0)!=latest[key]: continue
+            if (key,latest[key]) not in completed: continue
+        if event['dimension']=='user_utility' and key in designs and event.get('candidate_version')!=designs[key][1]: continue
         if event.get('observed_mask') and event.get('observed_value') is not None:
             groups[event.get('mechanism_key') or event['candidate_version']].append(event)
     components = []
@@ -40,6 +53,7 @@ def outcome(events, settings, active_candidates=None):
     u = sum(utility)/len(utility) if utility else None
     value = settings['quality_weight']*(q or 0)+settings['utility_weight']*(u or 0)
     return dict(contract=REWARD, components=components, concept_quality=q,user_utility=u,
+        review_projection_contract='current-review-projection-v2' if latest else 'legacy-review-projection-v1',
         masks=dict(concept_quality=q is not None,user_utility=u is not None), total=max(-1.,min(1.,value)),
         aggregation='mean-over-unique-recorded-mechanisms-v1',weights=settings,
         source_event_ids=sorted({eid for row in components for eid in row['source_event_ids']}),
@@ -54,7 +68,7 @@ def _split(rows):
     return rows, limited
 
 
-def q_dataset(tenant, project, cutoff=None, *, include_synthetic=False):
+def q_dataset(tenant, project, cutoff=None, *, include_synthetic=False, schema=routing_q.CONFIRMED_SCHEMA):
     cutoff = cutoff or now()
     labels = feedback_events.current(tenant,project,cutoff,include_synthetic=include_synthetic)
     samples, excluded = [], Counter()
@@ -62,14 +76,14 @@ def q_dataset(tenant, project, cutoff=None, *, include_synthetic=False):
         heads = c.execute(select(ledger.heads).where(ledger.heads.c.tenant_id==tenant,ledger.heads.c.project_id==project)).mappings().all()
     for head in heads:
         bundle = json.loads(head['bundle'])
-        if bundle.get('feature_schema')!=routing_q.ADAPTIVE_SCHEMA: continue
+        if bundle.get('feature_schema')!=schema: continue
         with ledger.store.engine.connect() as c:
             stream = [dict(r,payload=json.loads(r['payload'])) for r in c.execute(select(ledger.events).where(
                 ledger.events.c.run_id==head['run_id'],ledger.events.c.created_at<=cutoff)).mappings()]
             tasks = [dict(r) for r in c.execute(select(ledger.tasks).where(ledger.tasks.c.run_id==head['run_id'],ledger.tasks.c.created_at<=cutoff)).mappings()]
             task_episodes={r.task_id:json.loads(r.details).get('request',{}).get('request',{}).get('semantic_episode_id')
                 for r in c.execute(select(ledger.attempts.c.task_id,ledger.attempts.c.details).where(ledger.attempts.c.run_id==head['run_id']))}
-        decisions = [d for d in ledger.decision_history(head['run_id'],head['owner_id']) if d['created_at']<=cutoff and d['payload'].get('feature_schema')==routing_q.ADAPTIVE_SCHEMA]
+        decisions = [d for d in ledger.decision_history(head['run_id'],head['owner_id']) if d['created_at']<=cutoff and d['payload'].get('feature_schema')==schema]
         episodes = defaultdict(list)
         for d in decisions: episodes[d['payload']['semantic_episode_id']].append(d)
         results = {e['payload']['action_instance_id']:e['payload'] for e in stream if e['event_type']=='ACTION_INSTANCE_RESULT'}
@@ -116,17 +130,17 @@ def q_dataset(tenant, project, cutoff=None, *, include_synthetic=False):
                     action=routing_q.support_key(tickets[p['executed_index']]),
                     next_features=nxt['features'] if nxt else p['features'],next_actions=[a['ticket'] for a in nxt['actions']] if nxt else [],
                     next_permitted=nxt['permitted_actions'] if nxt else [],next_rule_preferred=nxt.get('rule_preferred') if nxt else None,
-                    next_semantic_episode_id=episode,next_contracts=routing_q.contracts(routing_q.ADAPTIVE_SCHEMA),
+                    next_semantic_episode_id=episode,next_contracts=routing_q.contracts(schema),
                     terminal=terminal,terminal_reason='MANDATORY_REVIEW_AND_REPORT_COMPLETED' if terminal else None,
                     reward=-penalty+(summary['total'] if terminal else 0), reward_revision=revision,
                     dimensions=dict(normalized_cost=penalty,actual_microusd=actual,task_ids=sorted(t['task_id'] for t in costs),terminal_outcome=summary if terminal else None),
-                    feature_schema=routing_q.ADAPTIVE_SCHEMA, group=events[0]['problem_family'],maturity=summary['maturity'],
+                    feature_schema=schema, group=events[0]['problem_family'],maturity=summary['maturity'],
                     available_at=max([end['created_at']]+[r['label_available_at'] for r in events]+[t['settled_at'] for t in costs]),
                     review_ids=summary['source_event_ids'],behavior_probability=None,selection_mode=p['selection_mode'],
                     synthetic=any(r.get('synthetic') for r in events),
-                    **routing_q.contracts(routing_q.ADAPTIVE_SCHEMA)))
+                    **routing_q.contracts(schema)))
     samples,limited=_split(samples);excluded['cpu_batch_limit']+=limited
-    return dict(schema='ax-dataset-v4',feature_schema=routing_q.ADAPTIVE_SCHEMA,task_kind='routing_q',samples=samples,
+    return dict(schema='ax-dataset-v4',feature_schema=schema,task_kind='routing_q',samples=samples,
         synthetic=include_synthetic,excluded=dict(excluded),cutoff=cutoff,tenant_id=tenant,project_id=project)
 
 
@@ -150,7 +164,9 @@ def effect_dataset(tenant, project, cutoff=None, *, include_synthetic=False):
             excluded['unknown_attribution']+=1;continue
         head=ledger.head(row['run_id'])
         settings=head['bundle']['run_contract']['feedback_settings']
-        summary=outcome(observed,settings)
+        summary=outcome(rows,settings)
+        if not any(summary['masks'].values()):
+            excluded['no_current_observed_revision']+=1;continue
         with ledger.store.engine.connect() as c:
             unsettled=c.execute(select(ledger.tasks.c.task_id).where(ledger.tasks.c.run_id==row['run_id'],
                 ledger.tasks.c.created_at<=cutoff, or_(ledger.tasks.c.actual.is_(None),

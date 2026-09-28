@@ -98,6 +98,7 @@ def _write(c, state, candidate, *, origin, stage, dimension, value, evidence, sc
     data = dict(contract=VERSION, event_id=eid, logical_observation_key=key, supersedes_event_id=supersedes,
         run_id=state.run_id, tenant_id=head['tenant_id'], project_id=head['project_id'], semantic_episode_id=episode(state),
         candidate_id=candidate.id, candidate_version=version, source_snapshot_id=head['snapshot_id'],
+        review_revision=dict(state.scratch.get('candidate_review_revisions',{}).get(candidate.id,{})),
         evaluation_stage=stage, reviewer_type=reviewer,
         reviewer_model_and_rubric_version=detail or {}, dimension=dimension, observed_value=value,
         observed_mask=value is not None, evidence_level=evidence, source_step_id=source_step_id,
@@ -197,6 +198,19 @@ def coverage_review(state,candidate,step_id,checks):
             scope=consent(state),reviewer='DETERMINISTIC_OBLIGATION_CHECK',source_step_id=step_id,
             detail={'normalization':'ordinal-completeness-v1','actual_checks':checks,'issues':candidate.quality_issues},
             lineage_data=lineage(state,candidate))
+
+
+def invalidate_review(state,candidate,revision):
+    """An observed input invalidation is not an independent model review."""
+    if not unified(state): return
+    from .effect_history import collect
+    collect(state)
+    facts=lineage(state,candidate)
+    with ledger.transaction() as connection:
+        return _write(connection,state,candidate,origin='input-change-'+digest([candidate.id,revision]),
+            stage='s6_input_invalidated',dimension='review_validity',value=None,
+            evidence='DETERMINISTIC_INPUT_CHANGE',scope=consent(state),reviewer='INPUT_VALIDITY_CHECK',
+            detail={'current_review_input':dict(revision),'reason':'review_input_changed'},lineage_data=facts)
 
 
 def recorded_test(c,state,candidate,body):

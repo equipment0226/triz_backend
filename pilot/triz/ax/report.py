@@ -8,7 +8,8 @@ CONTEXT_KEYS = ('title', 'param_scheme', 'excluded_concepts', 's_curve', 'taboo'
                 'ax_coordination', 'ax_coherence', 'ax_recovery',
                 'ax_track_execution', 'ax_solve_start_seq', 'ax_candidate_review',
                 'idea_consolidation', 'constraint_normalization', 'ax_idea_inventory',
-                'ax_effect_applications', 'ax_action_results', 'semantic_episode_id')
+                'ax_effect_applications', 'ax_action_results', 'semantic_episode_id',
+                'candidate_review_revisions','candidate_dispositions')
 
 TRACK_LABELS = {
     'A_MATRIX': '모순행렬·발명원리', 'B_SEPARATION': '분리 원리',

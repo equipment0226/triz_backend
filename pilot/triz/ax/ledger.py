@@ -298,7 +298,7 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
         stable=copy.deepcopy(request)
         stable.pop('decision_id',None)
         action=stable['action_context']
-        for key in ('execution_epoch','input_snapshot_id','decision_id'):
+        for key in ('execution_epoch','input_snapshot_id','decision_id','cost_comparison'):
             action.pop(key,None)
         action.get('ticket',{}).pop('input_snapshot_id',None)
         if action.get('exploration_contract') == 'triz-targeted-expansion-v1':

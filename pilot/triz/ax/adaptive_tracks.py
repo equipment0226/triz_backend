@@ -1,17 +1,15 @@
 """Sequential real track choices; S5 stop hands off to mandatory review."""
-import json
-import math
 import re
-from sqlalchemy import select
 from . import ledger, mode_contract
 from .contracts import ActionTicket, digest, now
 from .action_runtime import executing, episode, emit
 
 
 def state_features(state, phase):
-    from .routing_q import ADAPTIVE_SCHEMA
+    from .routing_q import ADAPTIVE_SCHEMA, CONFIRMED_SCHEMA
     budget = ledger.budget(state.run_id, state.user_id)
-    return dict(schema=ADAPTIVE_SCHEMA, mode=state.control.mode.value, phase=phase,
+    schema=state.scratch['ax_bundle'].get('feature_schema',ADAPTIVE_SCHEMA)
+    result=dict(schema=schema, mode=state.control.mode.value, phase=phase,
         domain=state.domain.problem_type, remaining=budget['remaining_microusd']/max(1,budget['limit_microusd']),
         actual_microusd=budget['spent_microusd'], unresolved_reserve=budget['reserved_microusd'],
         mandatory_review_reserve=state.scratch['ax_bundle']['limits']['validation_reserve_microusd'],
@@ -21,6 +19,10 @@ def state_features(state, phase):
         candidates={c.id:dict(quality=c.quality_status,conditional=bool(state.check_for(c.id) and state.check_for(c.id).verdict=='CONDITIONAL')) for c in state.concepts},
         attempts=len(state.scratch.get('ax_recovery',[]))/6,
         search_status=state.scratch.get('adaptive_search',{}).get('status','PENDING'))
+    if schema==CONFIRMED_SCHEMA:
+        from .confirmed_context import build
+        result['confirmed_context']=build(state)
+    return result
 
 
 def prepare(state):
@@ -37,24 +39,9 @@ def prepare(state):
     return eligible, required
 
 
-def estimate(state, track):
-    """An explicit prior, optionally informed by settled calls; never actual usage."""
-    config = state.scratch['ax_bundle']['models']['T2']
-    prior = math.ceil(((len(state.raw_query.encode())+16000)*config['cost_in'] + config['max_tokens']*config['cost_out'])
-                      * state.scratch['ax_bundle']['config']['ax'].get('max_provider_attempts',2))
-    with ledger.store.engine.connect() as c:
-        rows = c.execute(select(ledger.tasks.c.actual,ledger.attempts.c.details).join(ledger.attempts,ledger.attempts.c.task_id==ledger.tasks.c.task_id)
-            .join(ledger.heads,ledger.heads.c.run_id==ledger.tasks.c.run_id)
-            .where(ledger.heads.c.owner_id==state.user_id,ledger.heads.c.project_id==state.scratch.get('ax_project_id',state.user_id),ledger.tasks.c.actual.is_not(None))).all()
-    observed=[]
-    for row in rows:
-        request=json.loads(row.details).get('request',{})
-        if not isinstance(request,dict) or not isinstance(request.get('request',{}),dict): continue
-        if (request.get('request',{}).get('model_config',{}).get('model')==config['model']
-            and track in request.get('action_context',{}).get('ticket',{}).get('parameters',{}).get('tracks',[])):
-            observed.append(row.actual)
-    return dict(estimated=True, prior_microusd=prior, estimate_microusd=sorted(observed)[len(observed)//2] if observed else prior,
-                reservation_microusd=max(prior,max(observed,default=0)), support=len(observed), basis='pinned-price-token-prior-and-settled-usage-v1')
+def estimate(state, track, history=None):
+    from .track_cost import estimate as execution_estimate
+    return execution_estimate(state,track,history)
 
 
 def proposals(state, phase='initial'):
@@ -62,8 +49,10 @@ def proposals(state, phase='initial'):
     pending = [t for t in eligible if t not in state.solve.tracks_run]
     rows = []
     required_pending = [t for t in required if t in pending]
+    from .track_cost import observations
+    history=observations(state)
     for track in required_pending or pending:
-        cost = estimate(state,track)
+        cost = estimate(state,track,history)
         parameters = dict(tracks=[track], plan_class='INITIAL_SELECTION' if phase=='initial' else 'FOLLOWUP_SELECTION',
                           cost_estimate=cost, depth=1, preserve_requirements=True)
         if phase!='initial':
@@ -99,25 +88,25 @@ def run(ctx, *, phase='initial', max_steps=None):
     search['status'] = 'SEARCHING'
     cap = max_steps if max_steps is not None else len(mode_contract.contract(state)['profile']['tracks'])+1
     for _ in range(cap):
-        tickets = proposals(state,phase)
-        legal = [i for i,t in enumerate(tickets) if feasible(state,t,handlers={'RUN_TRACK','STOP_EXPLORATION'}) is None]
-        if not legal:
-            reasons = [feasible(state,t,handlers={'RUN_TRACK','STOP_EXPLORATION'}) for t in tickets]
-            budget_reasons = {'generation_budget','validation_reserve','optional_phase_budget','budget_limit'}
-            search['status'] = 'PARTIAL_BUDGET' if any(r in budget_reasons for r in reasons) else 'BLOCKED_MISSING_INPUT'
-            for t in tickets:
-                for track in t.parameters.get('tracks',[]):
-                    state.scratch['ax_track_execution'][track] = dict(status='NOT_RUN_BUDGET' if search['status']=='PARTIAL_BUDGET' else 'BLOCKED_MISSING_INPUT',reason='; '.join(str(r) for r in reasons),output_count=0)
-            break
-        stop = next((i for i in legal if tickets[i].action_type=='STOP_EXPLORATION'),None)
-        run_indices = [i for i in legal if tickets[i].action_type=='RUN_TRACK']
-        preferred = stop if stop is not None and (not search.get('need_more') or not run_indices) else min(run_indices or legal,
-            key=lambda i:(tickets[i].parameters.get('cost_estimate',{}).get('estimate_microusd',0),i))
-        # Persist the selected action before dispatch. A resume never reselects an unfinished decision.
         pending = search.get('pending')
         if pending:
             ticket, did = ActionTicket.model_validate(pending['ticket']), pending['decision_id']
         else:
+            tickets = proposals(state,phase)
+            legal = [i for i,t in enumerate(tickets) if feasible(state,t,handlers={'RUN_TRACK','STOP_EXPLORATION'}) is None]
+            if not legal:
+                reasons = [feasible(state,t,handlers={'RUN_TRACK','STOP_EXPLORATION'}) for t in tickets]
+                budget_reasons = {'generation_budget','validation_reserve','optional_phase_budget','budget_limit'}
+                search['status'] = 'PARTIAL_BUDGET' if any(r in budget_reasons for r in reasons) else 'BLOCKED_MISSING_INPUT'
+                search['stop_reason']=search['status']
+                for t in tickets:
+                    for track in t.parameters.get('tracks',[]):
+                        state.scratch['ax_track_execution'][track] = dict(status='NOT_RUN_BUDGET' if search['status']=='PARTIAL_BUDGET' else 'BLOCKED_MISSING_INPUT',reason='; '.join(str(r) for r in reasons),output_count=0)
+                break
+            stop = next((i for i in legal if tickets[i].action_type=='STOP_EXPLORATION'),None)
+            run_indices = [i for i in legal if tickets[i].action_type=='RUN_TRACK']
+            preferred = stop if stop is not None and (not search.get('need_more') or not run_indices) else min(run_indices or legal,
+                key=lambda i:(tickets[i].parameters.get('cost_estimate',{}).get('estimate_microusd',0),i))
             ticket, did = decide(state,tickets,preferred,{'RUN_TRACK','STOP_EXPLORATION'},'adaptive:'+phase)
             search['pending'] = dict(ticket=ticket.model_dump(mode='json'),decision_id=did)
             ctx.persist()
@@ -129,6 +118,7 @@ def run(ctx, *, phase='initial', max_steps=None):
                 else:
                     search['status'] = 'READY_FOR_REVIEW' if state.solve.tracks_run else 'NO_APPLICABLE_TRACKS'
                     search['technical_success'] = False
+                    search['stop_reason']='SEARCH_POLICY_STOP' if state.solve.tracks_run else 'NO_APPLICABLE_TRACKS'
         except AbortRun as exc:
             if not any(reason in str(exc) for reason in ('Initial generation budget','Insufficient budget','Optional AX budget')):
                 raise  # UNKNOWN/provider failures retain their explicit recovery path.
@@ -137,10 +127,11 @@ def run(ctx, *, phase='initial', max_steps=None):
                 state.scratch['ax_track_execution'][track]=dict(status='NOT_RUN_BUDGET',reason=str(exc),output_count=0)
             search.pop('pending',None)
             break
-        search.pop('pending',None)
         if ticket.action_type=='STOP_EXPLORATION':
+            search.pop('pending',None)
             break
         search['need_more'] = nodes._merge(ctx)
+        search.pop('pending',None)
         # Merge is outside the selected producer action, retaining its own accounting identity.
         ctx.persist()
     for t, row in state.scratch['ax_track_execution'].items():
@@ -160,7 +151,11 @@ def followup(ctx, phase):
     if not mode_contract.optional_enabled(state): return []
     if state.scratch.get('resume_payload') or state.scratch.get('ax_gate_response_pending'): return []
     # A human rejection is not permission to recreate the same dropped portfolio.
-    if not state.concepts and state.scratch.get('adaptive_dropped_candidates'): return []
+    from .candidate_disposition import all_user_dropped
+    if all_user_dropped(state):
+        search.update(status='USER_DECLINED',stop_reason='ALL_EXPLICIT_USER_DROP')
+        ctx.persist()
+        return []
     key=digest([phase,[c.model_dump(mode='json') for c in state.concepts],state.constraints.model_dump(mode='json')])
     processed=search.setdefault('reviewed_inputs',[])
     if key in processed: return []
@@ -177,6 +172,8 @@ def followup(ctx, phase):
     if gaps and search.get('status')!='PARTIAL_BUDGET':
         repair(ctx,phase)
     if search.get('status')=='SEARCHING': search['status']='READY_FOR_REVIEW'
+    if not state.concepts and search.get('status')=='READY_FOR_REVIEW':
+        search['stop_reason']='NO_CURRENT_TECHNICAL_CANDIDATES'
     processed.append(key)
     processed.append(digest([phase,[c.model_dump(mode='json') for c in state.concepts],state.constraints.model_dump(mode='json')]))
     ctx.persist()

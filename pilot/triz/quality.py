@@ -173,6 +173,10 @@ def _generate_concepts(ctx, ideas_override=None):
             else:
                 c.prior_case_ids = [i for i in c.prior_case_ids if i in st.scratch.get("prior_case_ids", [])]
             made.append(c)
+            review_inputs=st.scratch.get('review_inputs',{})
+            refs=[review_inputs[i] for i in c.source_idea_ids if i in review_inputs]
+            if refs:
+                st.scratch.setdefault('candidate_review_revisions',{})[c.id]=dict(refs[0])
         excluded.extend(dict(row, idea=row.get('idea') or ' / '.join(
             allowed[i].title for i in row['source_idea_ids'])) for row in data.get('excluded', []))
     if len({c.id for c in made}) != len(made):
@@ -226,6 +230,9 @@ def audit_concepts(ctx):
                 'rubric': settings.rubric('R6_CONCEPT'), 'policy': settings.cfg('verification', {}),
                 'model': model,
                 'prompt': prompt, 'instruction': instruction}
+    if st.scratch.get('review_inputs'):
+        identity.update(review_contract='current-review-projection-v2',
+            evidence=[e.model_dump(mode='json') for e in st.evidence])
     groups, group, length = [], [], 0
     for packet in packets:
         size = len(json.dumps(packet, ensure_ascii=False, default=str))
@@ -343,6 +350,10 @@ def audit_concepts(ctx):
         from .ax.feedback_events import coverage_review
         coverage_review(st,c,review_steps[c.id],coherence_checks.get(c.id,{}))
         if c.quality_status == "REJECT":
+            from .ax.mode_contract import unified
+            if unified(st):
+                from .ax.candidate_disposition import record
+                record(st,c,'QUALITY_REJECT',list(c.quality_issues),review_steps[c.id])
             from .ax import enabled as ax_enabled
             if ax_enabled(st):
                 st.scratch.setdefault('ax_excluded', []).append(c.model_dump(mode='json'))

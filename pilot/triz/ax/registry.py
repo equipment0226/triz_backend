@@ -138,7 +138,7 @@ def for_run(state,feature_schema='ax-features-v1'):
             if not compatible_model(payload['model']):
                 result['policy_fallback_reason'] = 'incompatible_support_backup_or_handler_contract'
                 continue
-            if not reviews_current(payload,tenant,project,c): continue
+            if not eligible_payload(payload) or not reviews_current(payload,tenant,project,c): continue
             if field=='policy_id' and int(digest(state.run_id)[:8],16)%100>=pointer['canary_percent']: continue
             result['policy' if field=='policy_id' else 'shadow_policy']=payload['model']
             result['policy_version' if field=='policy_id' else 'shadow_policy_version']=vid
@@ -150,7 +150,7 @@ def for_run(state,feature_schema='ax-features-v1'):
         result['rule_catalog_version']='rules-'+digest(result['rule_catalog'])[:32]
         result.update(_task_models(c,state,tenant,project,'routing_q',feature_schema))
         from .effect_ranker import SCHEMA, UTILITY_SCHEMA
-        if feature_schema=='ax-state-action-v4': SCHEMA=UTILITY_SCHEMA
+        if feature_schema in ('ax-state-action-v4','ax-state-action-v5'): SCHEMA=UTILITY_SCHEMA
         result.update(_task_models(c,state,tenant,project,'effect_ranker',SCHEMA))
         return result
 
@@ -162,7 +162,7 @@ def task_scope(tenant,project,kind,schema):
 def compatible_model(model):
     """Artifacts remain readable; new deployment requires target semantics too."""
     from . import routing_q
-    if model.get('feature_schema') in (routing_q.SCHEMA,routing_q.ADAPTIVE_SCHEMA):
+    if model.get('feature_schema') in (routing_q.SCHEMA,*routing_q.ADAPTIVE_SCHEMAS):
         if model.get('training', {}).get('unversioned_observations', 0):
             return False  # Direct offline fixtures are not deployment evidence.
         try:
@@ -171,6 +171,16 @@ def compatible_model(model):
             return False
     if model.get('feature_schema')=='effect-application-utility-v2' and model.get('target_contract')!='candidate-utility-cost-v2':
         return False
+    return True
+
+
+def eligible_payload(payload):
+    if not payload.get('offline_eligible') or payload.get('synthetic'): return False
+    from .effect_ranker import UTILITY_SCHEMA,eligibility
+    model=payload.get('model',{})
+    if model.get('feature_schema')==UTILITY_SCHEMA:
+        gate=eligibility(model,payload.get('evaluation',{}),payload.get('readiness',{}))
+        return gate['eligible'] and payload.get('eligibility')==gate
     return True
 
 
@@ -186,9 +196,10 @@ def _task_pointer(c,tenant,project,kind,schema):
 
 
 def set_task_shadow(tenant,project,kind,schema,vid):
+    if (kind=='effect_ranker')!=schema.startswith('effect-'): raise Conflict('Task kind/schema mismatch')
     with ledger.transaction() as c:
         payload=get(vid,tenant,project,c)['payload']
-        if not payload.get('offline_eligible') or not reviews_current(payload,tenant,project,c):
+        if not eligible_payload(payload) or not reviews_current(payload,tenant,project,c):
             raise Conflict('Ineligible or withdrawn training data')
         if payload['model'].get('feature_schema')!=schema or not compatible_model(payload['model']):
             raise Conflict('Task schema mismatch')
@@ -206,7 +217,7 @@ def _task_models(c,state,tenant,project,kind,schema):
         if not p[field]:
             continue
         payload=get(p[field],tenant,project,c)['payload']
-        if not payload.get('offline_eligible') or not reviews_current(payload,tenant,project,c):
+        if not eligible_payload(payload) or not reviews_current(payload,tenant,project,c):
             continue
         if payload['model'].get('feature_schema')!=schema or not compatible_model(payload['model']):
             if kind == 'routing_q':
@@ -221,11 +232,12 @@ def _task_models(c,state,tenant,project,kind,schema):
 
 
 def promote_task(tenant,project,kind,schema,vid,actor,reason,percent=10):
+    if (kind=='effect_ranker')!=schema.startswith('effect-'): raise Conflict('Task kind/schema mismatch')
     if not actor or not reason.strip() or not 1<=percent<=25:
         raise ValueError('Operator, rationale and bounded canary required')
     with ledger.transaction() as c:
         payload=get(vid,tenant,project,c)['payload']
-        if payload['model'].get('feature_schema')!=schema or not compatible_model(payload['model']) or not payload.get('offline_eligible') or not reviews_current(payload,tenant,project,c):
+        if payload['model'].get('feature_schema')!=schema or not compatible_model(payload['model']) or not eligible_payload(payload) or not reviews_current(payload,tenant,project,c):
             raise Conflict('Ineligible model/schema/consent')
         observations=[json.loads(v) for v in c.execute(select(shadow.c.payload).where(shadow.c.policy_id==vid)).scalars()]
         if len(observations)<20 or len({r['run_id'] for r in observations})<5 or any(not r.get('legal') or not r.get('supported') for r in observations):
@@ -256,10 +268,12 @@ def promote_policy(tenant,project,policy_id,actor,reason,percent=10):
     with ledger.transaction() as c:
         p=_pointer(c,tenant,project)
         data=get(policy_id,tenant,project,c)['payload']
+        if data.get('model',{}).get('feature_schema','').startswith('effect-'):
+            raise Conflict('Effect models require their separate task pointer')
         if not compatible_model(data['model']):
             raise Conflict('Incompatible support/backup/handler contract')
         observations=[json.loads(v) for v in c.execute(select(shadow.c.payload).where(shadow.c.policy_id==policy_id)).scalars()]
-        if not data.get('offline_eligible') or not reviews_current(data,tenant,project,c): raise Conflict('Offline data not eligible or consent withdrawn')
+        if not eligible_payload(data) or not reviews_current(data,tenant,project,c): raise Conflict('Offline data not eligible or consent withdrawn')
         if len(observations)<20 or len({o['run_id'] for o in observations})<5 or any(not o['legal'] or not o['supported'] for o in observations):
             raise Conflict('Insufficient clean shadow runs')
         c.execute(update(pointers).where(pointers.c.scope==p['scope']).values(previous_policy_id=p['policy_id'],

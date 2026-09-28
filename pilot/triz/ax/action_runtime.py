@@ -34,12 +34,14 @@ def emit(state, kind, payload):
 
 def usage(state, action_id):
     with ledger.store.engine.connect() as c:
-        rows = c.execute(select(ledger.attempts.c.details).where(ledger.attempts.c.run_id == state.run_id)).scalars()
-        calls = [json.loads(row) for row in rows]
-    calls = [row for row in calls if row.get('request', {}).get('action_context', {}).get('action_instance_id') == action_id]
+        rows = c.execute(select(ledger.attempts.c.task_id,ledger.attempts.c.details).where(ledger.attempts.c.run_id == state.run_id))
+        records = [(row.task_id,json.loads(row.details)) for row in rows]
+    records = [(tid,row) for tid,row in records if isinstance(row.get('request'),dict) and row['request'].get('action_context', {}).get('action_instance_id') == action_id]
+    calls = [row for tid,row in records]
     unknown = any(row.get('actual_microusd') is None for row in calls)
     return {'actual_microusd': None if unknown else sum(row['actual_microusd'] for row in calls),
-            'usage_status': 'UNKNOWN' if unknown else 'SETTLED', 'attempts': len(calls)}
+            'usage_status': 'UNKNOWN' if unknown else 'SETTLED', 'attempts': len(calls),
+            'task_ids': sorted({tid for tid,row in records})}
 
 
 def optional_commitment(state):
@@ -91,6 +93,8 @@ def executing(ctx, ticket, decision_id=None, *, context='optional', optional=Tru
                  policy_version=state.scratch['ax_bundle']['policy_version'],
                  ticket=ticket.model_dump(mode='json'), optional=optional,
                  plan_class=ticket.parameters.get('plan_class', 'OPTIONAL' if optional else 'FORCED_BASELINE'))
+    from .track_cost import comparison
+    value['cost_comparison']=comparison(state)
     if targeted:
         value.update(semantic_context_hash=ticket.parameters['semantic_context_hash'],
                      exploration_contract=targeted['schema'])
@@ -108,6 +112,9 @@ def executing(ctx, ticket, decision_id=None, *, context='optional', optional=Tru
     token = active_action.set(value)
     before = {i.id for i in state.solve.raw_ideas}
     before_candidates = {c.id for c in state.concepts}
+    before_steps={s.step_id for s in state.steps}
+    previous_result=state.scratch.get('ax_action_results',{}).get(action_id,{})
+    reused_result=previous_result if previous_result.get('status')=='COMPLETED' else {}
     before_solve=state.solve.model_copy(deep=True)
     before_concepts=copy.deepcopy(state.concepts)
     before_mechanisms=copy.deepcopy(state.scratch.get('ax_mechanisms',{}))
@@ -134,10 +141,13 @@ def executing(ctx, ticket, decision_id=None, *, context='optional', optional=Tru
             raise
     finally:
         active_action.reset(token)
-        result.update(produced_raw_idea_ids=sorted({i.id for i in state.solve.raw_ideas} - before),
-                      candidate_ids=sorted({c.id for c in state.concepts} - before_candidates),
+        result.update(produced_raw_idea_ids=sorted(({i.id for i in state.solve.raw_ideas} - before)|set(reused_result.get('produced_raw_idea_ids',[]))),
+                      candidate_ids=sorted(({c.id for c in state.concepts} - before_candidates)|set(reused_result.get('candidate_ids',[]))),
                       wallclock_seconds=round(time.monotonic() - started, 6), completed_at=now(),
                       **usage(state, action_id))
+        prefixes=['s5_ariz_' if t=='D_ARIZ' else 's5_track_'+t[0].lower() for t in ticket.parameters.get('tracks',[])]
+        result['producer_step_statuses']=[dict(step_id=s.step_id,node=s.node,status=s.status) for s in state.steps
+            if s.step_id not in before_steps and any(s.node.startswith(prefix) for prefix in prefixes)]
         if targeted and result['status'] == 'COMPLETED' and not result['produced_raw_idea_ids']:
             result['contribution_status'] = 'NO_NEW_INFORMATION'
             result['no_application_reasons'] = dict(state.scratch.get('ax_track_review_reasons', {}))

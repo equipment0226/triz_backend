@@ -58,7 +58,8 @@ def bundle(state=None):
                             root/'ax/learning.py',root/'ax/mode_contract.py',root/'ax/action_runtime.py',
                             root/'ax/routing_q.py',root/'ax/exploration_context.py',root/'ax/usage_recovery.py',root/'ax/effect_history.py',root/'ax/effect_ranker.py',
                             root/'ax/registry.py',root/'ax/worker.py',root/'ax/feedback_events.py',root/'ax/learning_outcomes.py',
-                            root/'ax/adaptive_tracks.py',root/'ax/incremental_review.py',root.parent/'templates/report_full.md.j2',
+                            root/'ax/adaptive_tracks.py',root/'ax/incremental_review.py',
+                            root/'ax/candidate_disposition.py',root/'ax/confirmed_context.py',root/'ax/track_cost.py',root/'ax/gateway.py',root.parent/'templates/report_full.md.j2',
                             root.parent/'templates/report_reformulation.md.j2',
                             root.parent/'templates/report.html.j2',root.parent/'templates/report_ax_appendix.md.j2']}}
     if state is not None and settings.triz.get('ax', {}).get('run_contract_version', 'ax-run-v2') in ('ax-run-v2','ax-run-v3'):
@@ -71,7 +72,7 @@ def bundle(state=None):
         from .routing_q import contracts
         data.update(contracts())
         if data['run_contract']['version']=='ax-run-v3':
-            data['feature_schema'] = 'ax-state-action-v4'
+            data['feature_schema'] = 'ax-state-action-v5'
             data.update(contracts(data['feature_schema']))
         data['action_catalog'] = 'ax-action-instances-v3'
         data['limits'].update({k: v for k, v in data['run_contract']['profile'].items() if k != 'tracks'})
@@ -122,6 +123,7 @@ def section(state,key):
         from .mode_contract import contract
         from .action_runtime import candidate_actions
         return {'candidates':[dump(x) for x in state.concepts],
+                **({k:state.scratch[k] for k in ('candidate_review_revisions','candidate_dispositions') if k in state.scratch}),
                 'candidate_actions':{c.id:candidate_actions(state,c) for c in state.concepts} if contract(state) else {},
                 'action_results':state.scratch.get('ax_action_results',{}),
                 'excluded':state.scratch.get('ax_excluded',[]),
@@ -410,7 +412,9 @@ def diagnostics(state):
             unresolved_reserve=budget['reserved_microusd'],remaining_budget=budget['remaining_microusd'],
             mandatory_review_reserve=bundle['limits']['validation_reserve_microusd'],
             live_quality_cost_evaluation='not_evaluated_live')
-    return dict(mode_coverage=coverage(state), raw_idea_count=len(state.scratch.get('ax_idea_inventory',[])),
+    return dict(feature_schema=bundle.get('feature_schema'),context_contract=bundle.get('context_contract'),
+        cost_contract=bundle.get('cost_contract'),effect_evaluation_contract=(bundle.get('effect_ranker') or {}).get('evaluation_contract'),
+        mode_coverage=coverage(state), raw_idea_count=len(state.scratch.get('ax_idea_inventory',[])),
         merged_family_count=len(state.solve.raw_ideas), detailed_candidate_count=len(state.concepts),
         final_count=len(state.scratch.get('ax_selection',{}).get('recommended',[])),
         unaccounted_raw_count=len(portfolio.get('unaccounted_idea_ids',[])),

@@ -38,7 +38,15 @@ def targets(state, phase):
                 'obligation_ids':[o['id'] for o in assessment['obligations'] if set(o['contradiction_ids'])&set(c.addresses_contradictions)],
                 'gaps':[{'kind':'CONSTRAINT_FAILURE','description':failures[c.id]}],'action':'REPAIR_CANDIDATE'})
     # Repair actual coverage and design gaps; never generate candidates to fill a quota.
-    return output
+    from .candidate_disposition import records
+    dispositions=records(state)
+    for row in dispositions:
+        if row['reason_kind']=='QUALITY_REJECT' and row.get('candidate_snapshot') and not any(t['candidate_id']==row['candidate_id'] for t in output):
+            c=ConceptSpec.model_validate(row['candidate_snapshot'])
+            output.append(dict(candidate_id=c.id,baseline=c,obligation_ids=[o['id'] for o in assessment['obligations'] if set(o['contradiction_ids'])&set(c.addresses_contradictions)],
+                gaps=[{'kind':'QUALITY_REVIEW','description':str(row['observed_reason'])}],action='REPAIR_CANDIDATE'))
+    user_ids={r['candidate_id'] for r in dispositions if r['reason_kind']=='USER_DROP'}
+    return [t for t in output if t['candidate_id'] not in user_ids]
 
 
 def _fingerprint(state):
@@ -148,6 +156,10 @@ def run(ctx, phase):
                 source_idea_ids=list(target['baseline'].source_idea_ids) if target['baseline'] else [],
                 mechanism_key=digest([proposal.coherence.intervention,proposal.coherence.target,proposal.coherence.changed_variable]))
             repaired=ConceptSpec.model_validate(data)
+            from .candidate_disposition import blocked
+            if blocked(state,repaired):
+                journal.append(dict(entry,status='EXCLUDED_DESIGN'))
+                continue
             branch=state.model_copy(deep=True)
             branch.concepts=[repaired]
             branch.scratch['s6_quality_batches']=state.scratch.setdefault('s6_quality_batches',{})

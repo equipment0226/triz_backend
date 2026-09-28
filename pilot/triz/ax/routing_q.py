@@ -6,6 +6,8 @@ from .contracts import digest
 
 SCHEMA = 'ax-state-action-v3'
 ADAPTIVE_SCHEMA = 'ax-state-action-v4'
+CONFIRMED_SCHEMA = 'ax-state-action-v5'
+ADAPTIVE_SCHEMAS = (ADAPTIVE_SCHEMA, CONFIRMED_SCHEMA)
 DIMENSIONS = 512
 REWARD_CONTRACT = 'concept-proxy-cost-v1'
 SUPPORT_CONTRACT = 'action-region-support-v1'
@@ -16,9 +18,11 @@ SUPPORT_SETTINGS = {'version': SUPPORT_CONTRACT, 'minimum_count': 4}
 def contracts(schema=SCHEMA):
     value = dict(support_contract=SUPPORT_CONTRACT, backup_contract=BACKUP_CONTRACT,
                 support_settings=dict(SUPPORT_SETTINGS), exploration_contract='triz-targeted-expansion-v1')
-    if schema == ADAPTIVE_SCHEMA:
+    if schema in ADAPTIVE_SCHEMAS:
         value.update(mode_contract='triz-modes-v3-adaptive-feedback', feedback_contract='common-candidate-evaluation-v1',
                      reward_contract='candidate-utility-cost-v2', handler_contract='adaptive-track-handlers-v1')
+    if schema == CONFIRMED_SCHEMA:
+        value.update(context_contract='confirmed-context-v1',cost_contract='track-execution-cost-v2')
     return value
 
 
@@ -32,7 +36,7 @@ def validate_contract(policy):
 
 
 def _legal(features, tickets, permitted):
-    if not isinstance(features, dict) or features.get('schema') not in (SCHEMA, ADAPTIVE_SCHEMA):
+    if not isinstance(features, dict) or features.get('schema') not in (SCHEMA, *ADAPTIVE_SCHEMAS):
         raise ValueError('incompatible_contract')
     if (not isinstance(permitted, list) or any(type(i) is not int or i < 0 or i >= len(tickets) for i in permitted)
             or len(set(permitted)) != len(permitted)):
@@ -156,7 +160,7 @@ def support_region(features,ticket):
 
 
 def phi(state, ticket):
-    if not isinstance(state, dict) or state.get('schema') not in (SCHEMA, ADAPTIVE_SCHEMA):
+    if not isinstance(state, dict) or state.get('schema') not in (SCHEMA, *ADAPTIVE_SCHEMAS):
         raise ValueError('Routing state schema mismatch')
     p = ticket.get('parameters', {})
     target = p.get('candidate_id', '')
@@ -169,9 +173,12 @@ def phi(state, ticket):
     context = ['mode=' + state.get('mode', 'UNKNOWN'), 'phase=' + state.get('phase', 'optional')]
     context += ['gap=' + x for x in state.get('gaps', [])]
     context += ['done=' + x for x in state.get('tracks', [])]
-    if state['schema'] == ADAPTIVE_SCHEMA:
+    if state['schema'] in ADAPTIVE_SCHEMAS:
         context += ['problem='+x for x in state.get('problem_terms', [])]
         context += ['review='+str(state.get('review_available',False)), 'search='+state.get('search_status','PENDING')]
+    if state['schema'] == CONFIRMED_SCHEMA:
+        context += ['domain='+state.get('domain','UNKNOWN')]
+        context += ['confirmed='+x for x in state.get('confirmed_context',{}).get('tokens',[])]
     terms = {x: 1.0 for x in action}
     terms.update({s + '*' + a: 1.0 for s in context for a in action})
     for a in action:
@@ -190,7 +197,7 @@ def phi(state, ticket):
 
 
 def validate(policy):
-    if (policy.get('feature_schema') not in (SCHEMA, ADAPTIVE_SCHEMA) or len(policy.get('weights', [])) != DIMENSIONS
+    if (policy.get('feature_schema') not in (SCHEMA, *ADAPTIVE_SCHEMAS) or len(policy.get('weights', [])) != DIMENSIONS
             or any(not math.isfinite(w) for w in policy['weights'])):
         raise ValueError('Incompatible routing checkpoint; no padding is permitted')
 
@@ -245,14 +252,14 @@ def support_model(samples):
             raise ValueError('Invalid logged action or reward')
         if row['features']['schema'] != schema:
             raise ValueError('Mixed feature schema')
-        if schema == ADAPTIVE_SCHEMA and row.get('synthetic'):
+        if schema in ADAPTIVE_SCHEMAS and row.get('synthetic'):
             raise ValueError('Synthetic data is not training support')
         for key, expected in contracts(schema).items():
             if key in row and row[key] != expected:
                 raise ValueError('Mixed support/backup/handler contracts')
         phi(row['features'], actions[index])
         action_key=support_key(actions[index]);region_key=support_region(row['features'],actions[index])
-        if schema == ADAPTIVE_SCHEMA:
+        if schema in ADAPTIVE_SCHEMAS:
             family=row.get('group')
             if not family: raise ValueError('Independent problem family required')
             if (family,action_key) not in seen_actions: counts[action_key]+=1

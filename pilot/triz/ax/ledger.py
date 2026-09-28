@@ -288,6 +288,8 @@ def budget(run_id,actor=None):
 
 
 def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=0,optional_limit=None,generation_limit=None):
+    from .usage_recovery import stage_request_identity
+    stage_identity = stage_request_identity(request)
     task_id='task-'+digest([run_id,epoch,request])[:60]
     if request.get('action_context'):
         # Transport retries keep one logical paid call. Semantic changes retain
@@ -308,11 +310,26 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
                 'handler_id', 'mode_profile_version', 'optional',
                 'exploration_contract', 'semantic_context_hash') if key in action}
         task_id='task-'+digest([run_id,action['semantic_episode_id'],stable])[:60]
+    elif stage_identity:
+        task_id='task-'+digest([run_id,'stage-call-v1',stage_identity])[:60]
     with transaction() as c:
         h=_head(c,run_id,lock=True)
         if epoch!=h['epoch']:
             raise Conflict('Stale action epoch')
         old=c.execute(select(tasks).where(tasks.c.task_id==task_id)).mappings().first()
+        if old is None and stage_identity:
+            # Earlier v3 stage calls included transport epoch in their task ID.
+            # Reuse the exact saved request across resume; never lose its UNKNOWN
+            # reservation or bypass the authorized one-time retry child.
+            previous=c.execute(select(tasks,attempts.c.details).join(attempts,attempts.c.task_id==tasks.c.task_id)
+                .where(tasks.c.run_id==run_id)).mappings().all()
+            matching={r['task_id']:r for r in previous if not r['task_id'].startswith('task-retry-')
+                and stage_request_identity(json.loads(r['details']).get('request'))==stage_identity}
+            if len(matching)>1:
+                raise Conflict('Multiple stored calls match this request; usage reconciliation required')
+            if matching:
+                old=next(iter(matching.values()))
+                task_id=old['task_id']
         recovery = None
         if old and old['status'] in ('UNKNOWN', 'RECONCILED', 'STALE', 'FAILED', 'COMPLETED'):
             from .usage_recovery import redirect

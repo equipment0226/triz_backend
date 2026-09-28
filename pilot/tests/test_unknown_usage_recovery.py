@@ -173,6 +173,45 @@ def test_expired_lease_updates_task_and_attempt_together(newrun):
         assert c.execute(select(ledger.attempts.c.status).where(ledger.attempts.c.task_id == task['task_id'])).scalar_one() == 'UNKNOWN'
 
 
+@pytest.mark.parametrize('retry_status', ['COMPLETED', 'UNKNOWN'])
+def test_v3_stage_call_recovers_old_epoch_key_without_losing_reserve(newrun, monkeypatch, retry_status):
+    from triz.ax import usage_recovery
+    state = newrun()
+    request = dict(node='s3_constraints', decision_id=None,
+        request={'user':'exact frozen stage request','semantic_episode_id':state.scratch['semantic_episode_id']})
+    # Record the actual pre-fix epoch-based journal format in the isolated DB.
+    with monkeypatch.context() as prior:
+        prior.setattr(usage_recovery, 'stage_request_identity', lambda request: None)
+        task = ledger.acquire(state.run_id, 0, request, 99044)
+    ledger.settle(task, {}, None, status='UNKNOWN')
+    state.status='INTERRUPTED';store.save_state(state)
+    assert usage_recovery.describe(state.run_id,state.user_id)['items'][0]['can_authorize']
+    state.scratch['execution_epoch']=1;ledger.advance_epoch(state,'fixture resume');store.save_state(state)
+    assert ledger.acquire(state.run_id,1,request,99044)['blocked']=='UNKNOWN'
+    approved=approve(state,task)
+    child=ledger.acquire(state.run_id,1,request,99044)
+    assert child['task_id']==approved['retry_task_id']
+    assert ledger.budget(state.run_id)['reserved_microusd']==198088
+    ledger.settle(child,{'fixture':True},10 if retry_status=='COMPLETED' else None,status=retry_status)
+    state.scratch['execution_epoch']=2;ledger.advance_epoch(state,'fixture transport retry');store.save_state(state)
+    replay=ledger.acquire(state.run_id,2,request,99044)
+    assert replay['task_id']==child['task_id']
+    if retry_status=='COMPLETED':
+        assert replay['cached'] and ledger.budget(state.run_id)['reserved_microusd']==99044
+    else:
+        assert replay['blocked']=='UNKNOWN'
+        assert not usage_recovery.describe(state.run_id,state.user_id)['items'][0]['can_authorize']
+        assert ledger.budget(state.run_id)['reserved_microusd']==198088
+
+
+def test_conflicting_recorded_episode_cannot_authorize_recovery():
+    from triz.ax.usage_recovery import request_episode, stage_request_identity
+    request={'action_context':{'semantic_episode_id':'old'},'request':{'semantic_episode_id':'new'}}
+    assert request_episode(request) is None
+    assert stage_request_identity(request) is None
+    assert request_episode({'request':'legacy text'}) is None
+
+
 def test_concurrent_acquire_allocates_only_one_retry(newrun):
     from concurrent.futures import ThreadPoolExecutor
     state = newrun(); task, request = lost_call(state); approve(state, task)

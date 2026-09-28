@@ -24,10 +24,28 @@ def _request(c, task):
     return json.loads(raw).get('request', {}) if raw else {}
 
 
+def request_episode(request):
+    """Read the recorded episode in both action and v3 stage-call journals."""
+    if not isinstance(request, dict): return None
+    action = request.get('action_context') or {}
+    provider = request.get('request') or {}
+    if not isinstance(action, dict) or not isinstance(provider, dict): return None
+    values = [v for v in (action.get('semantic_episode_id'), provider.get('semantic_episode_id')) if v is not None]
+    if not values or any(not isinstance(v, str) or not v for v in values) or len(set(values)) != 1:
+        return None
+    return values[0]
+
+
+def stage_request_identity(request):
+    if not isinstance(request, dict) or request.get('action_context') or not request_episode(request):
+        return None
+    return digest({k:v for k,v in request.items() if k != 'decision_id'})
+
+
 def _eligible(task, request, episode):
     # A retry of the retry requires investigation; never form an unbounded chain.
     return (bool(episode) and not task['task_id'].startswith('task-retry-') and task['status'] in ('UNKNOWN', 'RECONCILED')
-            and request.get('action_context', {}).get('semantic_episode_id') == episode)
+            and request_episode(request) == episode)
 
 
 def blocking_count(state):
@@ -109,7 +127,7 @@ def authorize(run_id, actor, task_id, expected_epoch, *, acknowledge_possible_du
 def redirect(c, run_id, task, request, reserve):
     """Called under the AX head lock. Does not allocate or settle either task."""
     value = approval(c, run_id, task['task_id'])
-    episode = request.get('action_context', {}).get('semantic_episode_id')
+    episode = request_episode(request)
     if not episode or not value or value.get('semantic_episode_id') != episode:
         return None
     if reserve > value['max_reserve_microusd']:

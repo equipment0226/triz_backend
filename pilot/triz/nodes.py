@@ -108,6 +108,8 @@ def s1_extract(ctx: RunContext) -> None:
     f = data.get("frame") or {}
     st.intake.frame = build(ProblemFrame, f, raw_query=st.raw_query) or ProblemFrame(
         raw_query=st.raw_query)
+    from .titles import refresh_fallback_title
+    refresh_fallback_title(st)
     cs = (data.get("constraints") or {})
     items = build_list(Constraint, cs.get("items"))
     st.constraints = ConstraintSet(items=items, open_questions=cs.get("open_questions") or [])

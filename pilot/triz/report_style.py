@@ -66,6 +66,8 @@ def report_state(state):
         result.report.narrative['executive_summary'] = plain_text(executive_summary(
             state.report.narrative['executive_summary'], state))
     result.scratch = dict(state.scratch)
+    from .titles import display_title
+    result.scratch['title'] = display_title(state)
     from .evidence import search_summary
     result.scratch['search_status'] = search_summary(state)
     for key in ('title', 'excluded_concepts', 's_curve', 'taboo', 'principle_patents', 'patent_additions', 'related_references', 'evidence_mappings'):

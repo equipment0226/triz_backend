@@ -55,7 +55,8 @@ def view(state):
     diagrams = [f for f in visuals.figures(report) if f['key'] != 'nine-windows']
     from .ax.runtime import public_view
     ax = public_view(state)
-    result = dict(run_id=state.run_id, title=source.scratch.get("title") or source.raw_query[:60],
+    from .titles import display_title
+    result = dict(run_id=state.run_id, title=display_title(source),
         query=source.raw_query, industry=source.domain.industry, system=source.domain.target_system,
         status=state.status, stage_index=index, stages=steps, guide=message,
         pending=state.pending.model_dump(mode="json") if state.pending else None,

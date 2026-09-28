@@ -141,8 +141,35 @@ def list_runs(limit=50, user_id=None):
     if user_id is not None:
         query = query.where(runs.c.user_id == user_id)
     with engine.connect() as c:
-        return [dict(r) for r in c.execute(query.order_by(runs.c.started_at.desc())
+        rows = [dict(r) for r in c.execute(query.order_by(runs.c.started_at.desc())
             .limit(max(1, min(limit, 1000)))).mappings()]
+    for row in rows:
+        row['title'] = _display_run_title(row['run_id'], row['title'])
+    return rows
+
+
+def _display_run_title(run_id, title):
+    """Correct known fallback labels without rewriting or hydrating checkpoints."""
+    from types import SimpleNamespace
+    from .titles import display_title, fallback_shape
+    if not fallback_shape(title):
+        return title
+    paths = {'source': '$.scratch.title_source', 'title': '$.scratch.title',
+             'domain': '$.domain', 'query': '$.raw_query'}
+    with engine.connect() as c:
+        row = c.execute(select(*(func.json_extract(states.c.state_json, path).label(key)
+            for key, path in paths.items())).where(states.c.run_id == run_id)).mappings().first()
+    if not row:
+        return title
+    values = {key: json.loads(row[key]) if engine.dialect.name == 'mysql' and isinstance(row[key], str)
+              else row[key] for key in paths}
+    domain = values['domain']
+    if isinstance(domain, str):
+        domain = json.loads(domain)
+    if values['title'] != title or not isinstance(domain, dict):
+        return title
+    return display_title(SimpleNamespace(raw_query=values['query'] or '',
+        domain=SimpleNamespace(**domain), scratch={'title': title, 'title_source': values['source']}))
 
 def _list_display_labels(run_id, values):
     """Ordinary project titles need no multi-megabyte checkpoint hydration."""
@@ -180,6 +207,7 @@ def runs_page(page=1, search='', user_id=None, public=False):
     from .labels import display_value
     items = []
     for row in rows:
+        row['title'] = _display_run_title(row['run_id'], row['title'])
         labels = _list_display_labels(row['run_id'], (row.get(k) for k in ('title', 'industry', 'target_system')))
         items.append(display_value({k: row.get(k) for k in fields}, labels))
     return dict(items=items, total=total, page=page, page_size=20)
@@ -200,6 +228,7 @@ def pending_notifications(user_id):
             .order_by(runs.c.started_at.desc())).mappings().all()
     out = []
     for row in rows:
+        project_title = _display_run_title(row['run_id'], row['title'])
         fields = {key: json.loads(row[key]) if engine.dialect.name == 'mysql' and isinstance(row[key], str)
                   else row[key] for key in paths}
         from .labels import humanize
@@ -207,14 +236,14 @@ def pending_notifications(user_id):
         def human(value):
             return humanize(str(value or ''), labels)
         if fields['pending_id']:
-            out.append(dict(id=fields['pending_id'], run_id=row['run_id'], project_title=human(row['title']),
+            out.append(dict(id=fields['pending_id'], run_id=row['run_id'], project_title=human(project_title),
                 title=human(fields['pending_title']) or '분석 검토', kind=fields['pending_kind'] or 'REVIEW'))
         elif row['status'] in ('FAILED', 'INTERRUPTED'):
             # Legacy failures need stable IDs too; subsequent retries increment epoch.
             notice_id = fields['retry_id'] or (
                 f"retry:{row['run_id']}:{fields['epoch'] or 0}:"
                 f"{fields['stage_index'] or 0}:{row['status']}")
-            out.append(dict(id=notice_id, run_id=row['run_id'], project_title=human(row['title']),
+            out.append(dict(id=notice_id, run_id=row['run_id'], project_title=human(project_title),
                 title='분석 재시도', kind='RETRY_REQUIRED', status=row['status'],
                 description=human(fields['reason']) or '분석이 중단되었습니다. 저장된 내용에서 이어서 실행해 주세요.',
                 action_label='이어서 확인'))
@@ -241,8 +270,11 @@ def is_published(run_id):
 def public_runs_list():
     init()
     with engine.connect() as c:
-        return [dict(row) for row in c.execute(select(runs).join(published_runs, runs.c.run_id == published_runs.c.run_id)
+        rows = [dict(row) for row in c.execute(select(runs).join(published_runs, runs.c.run_id == published_runs.c.run_id)
             .order_by(runs.c.started_at.desc()).limit(1000)).mappings()]
+    for row in rows:
+        row['title'] = _display_run_title(row['run_id'], row['title'])
+    return rows
 
 def create_session(subject, email, name):
     import hashlib, secrets, time

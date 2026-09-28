@@ -2,7 +2,7 @@
 import copy
 from . import ledger
 
-CONTEXT_KEYS = ('title', 'param_scheme', 'excluded_concepts', 's_curve', 'taboo',
+CONTEXT_KEYS = ('title', 'title_source', 'param_scheme', 'excluded_concepts', 's_curve', 'taboo',
                 'principle_patents', 'patent_additions', 'related_references',
                 'evidence_mappings', 'evidence_gaps', 'search_status',
                 'ax_coordination', 'ax_coherence', 'ax_recovery',

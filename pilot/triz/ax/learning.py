@@ -159,7 +159,18 @@ def readiness(manifest):
     eligible_maturity = ('TECHNICAL','CONCEPT_PROXY') if manifest.get('feature_schema')=='ax-state-action-v3' else ('TECHNICAL',)
     if sum(s['maturity'] in eligible_maturity for s in samples)<8: reasons.append('insufficient_technical_observations')
     if {s['group'] for s in training}&{s['group'] for s in holdout}: reasons.append('split_leakage')
-    return {'ready':not reasons,'reasons':reasons,'action_support':dict(counts),'samples':len(samples)}
+    td = None
+    if manifest.get('feature_schema') == 'ax-state-action-v3':
+        from . import routing_q
+        try:
+            model = routing_q.support_model(training)
+            td = {split: sum(routing_q.next_state_backup(support_model=model, value_model=model, transition=s)['value'] is not None
+                            for s in rows) for split, rows in (('train', training), ('holdout', holdout))}
+            if not td['train']: reasons.append('no_usable_td_rows')
+            if not td['holdout']: reasons.append('no_usable_evaluation_rows')
+        except (ValueError, KeyError, TypeError):
+            reasons.append('incompatible_training_contract')
+    return {'ready':not reasons,'reasons':reasons,'action_support':dict(counts),'samples':len(samples), 'td_usable':td}
 
 
 def train(samples,*,epochs=180,learning_rate=.025,discount=.8,alpha=.05,feature_schema=None):

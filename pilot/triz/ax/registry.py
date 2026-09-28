@@ -91,9 +91,11 @@ def train_project(tenant,project,feature_schema='ax-features-v1'):
     if not ready['ready']: return dict(ready,status='COLLECTING')
     dataset_id=put('dataset',tenant,project,manifest)
     model=learning.train([s for s in manifest['samples'] if s['split']=='train'],feature_schema=feature_schema)
+    if model['training'].get('status') == 'COLLECTING':
+        return dict(status='COLLECTING', training=model['training'], dataset_id=dataset_id)
     evaluation=learning.evaluate(model,[s for s in manifest['samples'] if s['split']=='holdout'])
     eligible=(model['training']['parameters_changed'] and evaluation['logged_action_support']==1 and
-        evaluation['bellman_mse'] is not None and evaluation['bellman_mse']<=evaluation['zero_q_mse'])
+        evaluation['bellman_mse'] is not None and evaluation['bellman_mse']<=evaluation.get('zero_prediction_same_target_mse', evaluation.get('zero_q_mse')))
     payload={'model':model,'dataset_id':dataset_id,'readiness':ready,'evaluation':evaluation,
         'offline_eligible':eligible,'review_ids':sorted({r for s in manifest['samples'] for r in s['review_ids']})}
     policy_id=put('policy',tenant,project,payload)
@@ -117,6 +119,9 @@ def for_run(state,feature_schema='ax-features-v1'):
             if not vid: continue
             payload=get(vid,tenant,project,c)['payload']
             if payload['model'].get('feature_schema','ax-features-v1')!=feature_schema: continue
+            if not compatible_model(payload['model']):
+                result['policy_fallback_reason'] = 'incompatible_support_backup_or_handler_contract'
+                continue
             if not reviews_current(payload,tenant,project,c): continue
             if field=='policy_id' and int(digest(state.run_id)[:8],16)%100>=pointer['canary_percent']: continue
             result['policy' if field=='policy_id' else 'shadow_policy']=payload['model']
@@ -137,6 +142,19 @@ def task_scope(tenant,project,kind,schema):
     return digest([tenant,project,kind,schema])
 
 
+def compatible_model(model):
+    """Artifacts remain readable; new deployment requires target semantics too."""
+    from . import routing_q
+    if model.get('feature_schema') == routing_q.SCHEMA:
+        if model.get('training', {}).get('unversioned_observations', 0):
+            return False  # Direct offline fixtures are not deployment evidence.
+        try:
+            routing_q.validate_contract(model)
+        except (ValueError, TypeError, KeyError):
+            return False
+    return True
+
+
 def _task_pointer(c,tenant,project,kind,schema):
     key=task_scope(tenant,project,kind,schema)
     row=c.execute(select(task_pointers).where(task_pointers.c.scope==key).with_for_update()).mappings().first()
@@ -153,7 +171,7 @@ def set_task_shadow(tenant,project,kind,schema,vid):
         payload=get(vid,tenant,project,c)['payload']
         if not payload.get('offline_eligible') or not reviews_current(payload,tenant,project,c):
             raise Conflict('Ineligible or withdrawn training data')
-        if payload['model'].get('feature_schema')!=schema:
+        if payload['model'].get('feature_schema')!=schema or not compatible_model(payload['model']):
             raise Conflict('Task schema mismatch')
         p=_task_pointer(c,tenant,project,kind,schema)
         c.execute(update(task_pointers).where(task_pointers.c.scope==p['scope']).values(shadow_policy_id=vid))
@@ -171,7 +189,9 @@ def _task_models(c,state,tenant,project,kind,schema):
         payload=get(p[field],tenant,project,c)['payload']
         if not payload.get('offline_eligible') or not reviews_current(payload,tenant,project,c):
             continue
-        if payload['model'].get('feature_schema')!=schema:
+        if payload['model'].get('feature_schema')!=schema or not compatible_model(payload['model']):
+            if kind == 'routing_q':
+                result['policy_fallback_reason'] = 'incompatible_support_backup_or_handler_contract'
             continue
         if field=='policy_id' and int(digest(state.run_id)[:8],16)%100>=p['canary_percent']:
             continue
@@ -186,7 +206,7 @@ def promote_task(tenant,project,kind,schema,vid,actor,reason,percent=10):
         raise ValueError('Operator, rationale and bounded canary required')
     with ledger.transaction() as c:
         payload=get(vid,tenant,project,c)['payload']
-        if payload['model'].get('feature_schema')!=schema or not payload.get('offline_eligible') or not reviews_current(payload,tenant,project,c):
+        if payload['model'].get('feature_schema')!=schema or not compatible_model(payload['model']) or not payload.get('offline_eligible') or not reviews_current(payload,tenant,project,c):
             raise Conflict('Ineligible model/schema/consent')
         observations=[json.loads(v) for v in c.execute(select(shadow.c.payload).where(shadow.c.policy_id==vid)).scalars()]
         if len(observations)<20 or len({r['run_id'] for r in observations})<5 or any(not r.get('legal') or not r.get('supported') for r in observations):
@@ -217,6 +237,8 @@ def promote_policy(tenant,project,policy_id,actor,reason,percent=10):
     with ledger.transaction() as c:
         p=_pointer(c,tenant,project)
         data=get(policy_id,tenant,project,c)['payload']
+        if not compatible_model(data['model']):
+            raise Conflict('Incompatible support/backup/handler contract')
         observations=[json.loads(v) for v in c.execute(select(shadow.c.payload).where(shadow.c.policy_id==policy_id)).scalars()]
         if not data.get('offline_eligible') or not reviews_current(data,tenant,project,c): raise Conflict('Offline data not eligible or consent withdrawn')
         if len(observations)<20 or len({o['run_id'] for o in observations})<5 or any(not o['legal'] or not o['supported'] for o in observations):

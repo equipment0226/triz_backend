@@ -131,3 +131,22 @@ def test_deployment_guard_rejects_active_work_and_allows_human_wait(state):
     state.status = 'WAITING_HUMAN'
     store.save_state(state)
     assert state.run_id not in [r['run_id'] for r in readiness()['active_runs']]
+
+
+def test_unknown_h_blocks_stage_before_retrieval_or_other_paid_work(newrun, monkeypatch):
+    state = newrun()
+    state.status = 'RUNNING'
+    state.control.stage_index = 0
+    state.solve.tracks_run = ['A_MATRIX', 'B_SEPARATION', 'C_STANDARDS', 'E_TRIMMING', 'F_TRENDS', 'G_FOS']
+    task = ledger.acquire(state.run_id, state.scratch['execution_epoch'], {'node': 's5_track_h'}, 133379)
+    ledger.settle(task, {'error': 'worker_lost'}, None, status='UNKNOWN')
+    store.save_state(state)
+    invoked = []
+    monkeypatch.setattr(pipeline, 'PIPELINE', [('s5_solve', 'Solve', lambda ctx: invoked.append('retrieval_and_tracks'))])
+    result = pipeline.execute_stage(state.run_id, 0, state.scratch['execution_epoch'])
+    assert invoked == []
+    assert result['status'] == 'INTERRUPTED'
+    recovered = store.load_state(state.run_id)
+    assert '과금 상태' in recovered.scratch['interruption_reason']
+    assert recovered.solve.tracks_run == state.solve.tracks_run
+    assert ledger.budget(state.run_id)['reserved_microusd'] == 133379

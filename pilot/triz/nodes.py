@@ -487,6 +487,10 @@ def _selected_contradiction_ids(st) -> set[str]:
 
 
 def _pick_tcs(st, limit: int = 3) -> list[TechnicalContradiction]:
+    from .ax.exploration_context import current, target_tcs
+    targeted = current(st)
+    if targeted:
+        return sorted(target_tcs(st, targeted), key=lambda t: -t.severity)[:limit]
     sel = _selected_contradiction_ids(st)
     tcs = [t for t in st.definition.technical_contradictions if t.id in sel] or \
         st.definition.technical_contradictions
@@ -501,6 +505,10 @@ def _pick_pcs(st, limit: int = 2) -> list[PhysicalContradiction]:
 
 
 def _required_functions(st) -> list[str]:
+    from .ax.exploration_context import current
+    targeted = current(st)
+    if targeted:
+        return list(targeted['required_functions'])
     out = []
     if st.definition.ifr and st.definition.ifr.x_element:
         out.append(st.definition.ifr.x_element)
@@ -521,7 +529,7 @@ def _add_ideas(st, track: str, apps: list[dict], *, ref_key: str, title_key: str
         idea_text = a.get(idea_key) or ""
         if not idea_text:
             continue
-        st.solve.raw_ideas.append(RawIdea(
+        idea = RawIdea(
             track=track,
             source_ref=str(a.get(ref_key, "")),
             title=(a.get(title_key) or idea_text[:24]),
@@ -537,7 +545,15 @@ def _add_ideas(st, track: str, apps: list[dict], *, ref_key: str, title_key: str
             strongest_objection=a.get("strongest_objection") or a.get("self_rebuttal", ""),
             validation_test=a.get("validation_test", ""),
             hypothesis_ids=a.get("hypothesis_ids") or [],
-        ))
+        )
+        from .ax.exploration_context import current
+        targeted = current(st)
+        if targeted:
+            from .ax.contracts import digest as semantic_digest
+            idea.id = 'raw-target-' + semantic_digest([track, targeted, a, addresses])[:32]
+            if any(previous.id == idea.id for previous in st.solve.raw_ideas):
+                continue
+        st.solve.raw_ideas.append(idea)
         n += 1
     return n
 
@@ -1131,6 +1147,7 @@ def _run_tracks(ctx: RunContext, tracks: list[str]) -> None:
         from .solve_contract import application_count
         count = application_count(branch, t)
         reason = branch.scratch.get('ax_track_review_reasons', {}).get(t, '')
+        st.scratch.setdefault('ax_track_review_reasons', {})[t] = reason
         execution[t] = {'status': 'COMPLETED' if count else 'REVIEWED_NO_APPLICATION',
                         'reason': reason or ('분석 결과를 저장했습니다.' if count else
                             '트랙 수행 후 저장된 적용안이 없습니다. 실행 이력과 적용 조건을 확인하세요.'),

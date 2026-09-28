@@ -2,7 +2,7 @@
 from ..context import AbortRun
 from .. import domain
 from . import ledger
-from .contracts import ActionTicket, ACTIONS
+from .contracts import ActionTicket, ACTIONS, Conflict, digest
 
 TRACKS=('A_MATRIX','B_SEPARATION','C_STANDARDS','D_ARIZ','E_TRIMMING','F_TRENDS','G_FOS','H_EFFECTS')
 HANDLERS = {
@@ -291,9 +291,12 @@ def _decide_instances(state, proposals, preferred, handlers, context):
     fs = routing_q.state_features(state, context)
     tickets = [r['ticket'] for r in rows]
     mode = 'FORCED' if len(permitted) == 1 else 'RULE_BASED'
-    scores, fallback = {}, None
+    scores, fallback = {}, b.get('policy_fallback_reason')
+    choose_q = routing_q.choose if b.get('backup_contract') == routing_q.BACKUP_CONTRACT else routing_q.choose_legacy
     if b.get('policy') and len(permitted) > 1:
-        chosen, scores, fallback = routing_q.choose(b['policy'], fs, tickets, permitted, chosen)
+        chosen, scores, fallback = choose_q(b['policy'], fs, tickets, permitted, chosen)
+        if chosen not in permitted:
+            chosen, scores, fallback = rule_preferred, {}, 'incompatible_policy_selection'
         if fallback is None:
             mode = 'POLICY_DETERMINISTIC'
     payload = dict(snapshot_id=state.scratch['ax_snapshot_id'], context=context, bundle_id=b['bundle_id'],
@@ -303,6 +306,7 @@ def _decide_instances(state, proposals, preferred, handlers, context):
         policy_kind='routing_q', behavior_probability=None, governor_override=False, override_reason=None,
         semantic_episode_id=episode(state), decision_sequence=state.scratch.get('ax_optional_sequence', 0),
         executed_action_instance=proposals[chosen].action_instance_id)
+    payload.update({k: b[k] for k in routing_q.contracts() if k in b})
     did = ledger.record_decision(state, payload)
     previous = state.scratch.get('ax_optional_previous')
     if previous and previous != did:
@@ -320,7 +324,7 @@ def _decide_instances(state, proposals, preferred, handlers, context):
         state.scratch.pop('ax_optional_previous', None)
     if b.get('shadow_policy') and len(permitted) > 1:
         from .registry import observe_shadow
-        index, shadow_scores, why = routing_q.choose(b['shadow_policy'], fs, tickets, permitted, rule_preferred)
+        index, shadow_scores, why = choose_q(b['shadow_policy'], fs, tickets, permitted, rule_preferred)
         observe_shadow(b['shadow_policy_version'], did, dict(run_id=state.run_id, chosen_index=index,
             executed_index=chosen, legal=index in permitted, supported=why is None, scores=shadow_scores,
             counterfactual_result=None))
@@ -353,6 +357,16 @@ def _expand_instances(ctx, need_more):
         expected_outputs=['RawIdea'], allowed_tools=['legacy_tracks'], reserved_microusd=100000,
         reason='미대응 모순에 대해 허용된 기법으로 다른 적용 경로를 탐색한다.')
         for t in contract(state)['profile']['tracks'] if t in ('H_EFFECTS', 'G_FOS', 'A_MATRIX')]
+    from . import exploration_context as exploration
+    if exploration.enabled(state):
+        try:
+            frozen = exploration.build(state, [o['id'] for o in gaps], ['UNCOVERED_OBLIGATION'])
+        except Conflict as exc:
+            state.scratch['ax_expansion_deferred'] = str(exc)
+            return False
+        for proposal in proposals:
+            proposal.parameters.update(exploration_context=frozen, semantic_context_hash=digest(frozen))
+        proposals = [p for p in proposals if p.parameters['tracks'] != ['A_MATRIX'] or exploration.target_tcs(state, frozen)]
     proposals.append(defer_ticket(state))
     chosen, did = decide(state, proposals, 0, {'SOLVE_SUBPROBLEM','DEFER'}, 'solve:coverage_expansion')
     if chosen.action_type == 'DEFER':
@@ -365,8 +379,10 @@ def _expand_instances(ctx, need_more):
     branch.solve = SolveBundle()
     branch.solve.gaps = ['미대응 모순: ' + ', '.join(chosen.parameters['obligation_ids'])]
     branch.steps, branch.cost, branch.control = state.steps, state.cost, state.control
+    branch.scratch['agent_cache'] = state.scratch.setdefault('agent_cache', {})
     child = RunContext(branch)
     child.lock, child.budget, child.call_slots = ctx.lock, ctx.budget, ctx.call_slots
+    child.persist = ctx.persist  # A partial optional branch must never overwrite the parent inventory.
     with executing(child, chosen, did, context='solve:coverage_expansion'):
         _run_tracks(child, chosen.parameters['tracks'])
     if branch.scratch.get('ax_optional_deferred_budget'):
@@ -375,7 +391,16 @@ def _expand_instances(ctx, need_more):
         return False
     # Existing ideas remain inputs to the same complete merge/quality path.
     for key in ('matrix_lookups','principle_apps','separation_apps','standard_apps','trend_apps','fos_apps','effect_apps','raw_ideas'):
-        getattr(state.solve, key).extend(getattr(branch.solve, key))
+        existing = getattr(state.solve, key)
+        seen = {digest(x.model_dump(mode='json') if hasattr(x, 'model_dump') else x) for x in existing}
+        ids = {x.id for x in existing if hasattr(x, 'id')}
+        for item in getattr(branch.solve, key):
+            fingerprint = digest(item.model_dump(mode='json') if hasattr(item, 'model_dump') else item)
+            if fingerprint not in seen and (not hasattr(item, 'id') or item.id not in ids):
+                existing.append(item)
+                seen.add(fingerprint)
+                if hasattr(item, 'id'):
+                    ids.add(item.id)
     state.scratch.setdefault('ax_action_results', {}).update(branch.scratch.get('ax_action_results', {}))
     state.scratch['ax_expansion_rounds'] = rounds + 1
     state.scratch['ax_coordination'].setdefault('expansions', []).append({'decision_id':did,'tracks':chosen.parameters['tracks']})

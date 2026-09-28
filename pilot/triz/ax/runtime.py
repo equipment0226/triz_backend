@@ -56,7 +56,7 @@ def bundle(state=None):
                             root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
                             root/'ax/learning.py',root/'ax/mode_contract.py',root/'ax/action_runtime.py',
-                            root/'ax/routing_q.py',root/'ax/effect_history.py',root/'ax/effect_ranker.py',
+                            root/'ax/routing_q.py',root/'ax/exploration_context.py',root/'ax/effect_history.py',root/'ax/effect_ranker.py',
                             root/'ax/registry.py',root/'ax/worker.py',root.parent/'templates/report_full.md.j2',
                             root.parent/'templates/report_reformulation.md.j2',
                             root.parent/'templates/report.html.j2',root.parent/'templates/report_ax_appendix.md.j2']}}
@@ -65,6 +65,8 @@ def bundle(state=None):
         data['run_contract'] = pin(state.control.mode.value,
             smart=settings.triz.get('ax', {}).get('smart_orchestration_enabled', True))
         data['feature_schema'] = 'ax-state-action-v3'
+        from .routing_q import contracts
+        data.update(contracts())
         data['action_catalog'] = 'ax-action-instances-v3'
         data['limits'].update({k: v for k, v in data['run_contract']['profile'].items() if k != 'tracks'})
         data['effect_history_cutoff'] = __import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat()

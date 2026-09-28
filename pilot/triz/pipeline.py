@@ -159,6 +159,16 @@ def execute_stage(run_id, stage_index, epoch=0):
         try:
             if remaining <= 0:
                 raise AbortRun("분석 실행 시간 예산에 도달했습니다. 이어서 실행해 주세요.")
+            from .ax import enabled as ax_enabled
+            if ax_enabled(state):
+                from .ax.ledger import budget
+                usage = budget(state.run_id, state.user_id)
+                if usage['unknown_attempts']:
+                    # A retry must not pay for retrieval/other tracks before
+                    # eventually reaching the same blocked UNKNOWN call.
+                    state.scratch['ax_interrupted_usage'] = usage
+                    state.cost.total_usd = usage['spent_microusd'] / 1e6
+                    raise UsageUncertain()
             from .ax import runtime as ax_runtime
             ax_runtime.before_stage(ctx, key)
             fn(ctx)

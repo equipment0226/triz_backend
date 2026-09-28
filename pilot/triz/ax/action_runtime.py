@@ -73,6 +73,12 @@ def executing(ctx, ticket, decision_id=None, *, context='optional', optional=Tru
     if h['epoch'] != state.scratch.get('execution_epoch', 0) or h['snapshot_id'] != state.scratch.get('ax_snapshot_id'):
         raise Conflict('Action input version changed')
     action_id = ticket.action_instance_id or identity(state, ticket, context)
+    from .exploration_context import enabled as targeted_enabled, validate as validate_targeted
+    targeted = ticket.parameters.get('exploration_context') if targeted_enabled(state) else None
+    if targeted:
+        validate_targeted(targeted, ticket.parameters.get('semantic_context_hash'), state)
+    elif targeted_enabled(state) and optional and context == 'solve:coverage_expansion':
+        raise Conflict('Targeted expansion context is required')
     parent = active_action.get() or {}
     value = dict(run_id=state.run_id, tenant_id=h['tenant_id'], project_id=h['project_id'],
                  semantic_episode_id=episode(state), execution_epoch=h['epoch'],
@@ -84,6 +90,9 @@ def executing(ctx, ticket, decision_id=None, *, context='optional', optional=Tru
                  mode_profile_version=contract(state)['mode_profile_version'],
                  policy_version=state.scratch['ax_bundle']['policy_version'],
                  ticket=ticket.model_dump(mode='json'), optional=optional)
+    if targeted:
+        value.update(semantic_context_hash=ticket.parameters['semantic_context_hash'],
+                     exploration_contract=targeted['schema'])
     previous = state.scratch.get('ax_action_results', {}).get(action_id)
     if context.startswith('track:') and ticket.action_type == 'GENERATE_BASELINE' and previous:
         # A partial S5 checkpoint adds solve output and invalidates derived
@@ -128,6 +137,9 @@ def executing(ctx, ticket, decision_id=None, *, context='optional', optional=Tru
                       candidate_ids=sorted({c.id for c in state.concepts} - before_candidates),
                       wallclock_seconds=round(time.monotonic() - started, 6), completed_at=now(),
                       **usage(state, action_id))
+        if targeted and result['status'] == 'COMPLETED' and not result['produced_raw_idea_ids']:
+            result['contribution_status'] = 'NO_NEW_INFORMATION'
+            result['no_application_reasons'] = dict(state.scratch.get('ax_track_review_reasons', {}))
         # A stale result remains immutable accounting evidence, never a live projection.
         current = ledger.head(state.run_id, state.user_id)
         if current['epoch'] == h['epoch']:

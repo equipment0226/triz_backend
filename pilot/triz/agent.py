@@ -238,8 +238,16 @@ def run_agent(
         problem_type=problem_type(state), physical_scope=state.domain.physical_scope,
         constraints_block=verify.constraints_block(state),
     )
+    from .ax.exploration_context import current, render, PROMPTS, SCHEMA as expansion_schema
+    targeted = current(state) if prompt_id in PROMPTS else None
+    if targeted:
+        base_user += render(targeted)
     step.input_slice = {"prompt_id": prompt_id, "vars": vars or {}, "system": system,
                         "user": base_user, "prompt_hash": hashlib.sha256(base_user.encode()).hexdigest()}
+    if targeted:
+        from .ax.contracts import digest as context_digest
+        step.input_slice.update(exploration_context=targeted, semantic_context_hash=context_digest(targeted),
+                                exploration_contract=expansion_schema, provider_payload_hash=context_digest([system, base_user]))
     # Cache successful, identical calls within this run only. Changes to prompts, inputs,
     # models or review policy invalidate the cache; no cross-user data sharing.
     import inspect

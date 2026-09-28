@@ -299,6 +299,14 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
         for key in ('execution_epoch','input_snapshot_id','decision_id'):
             action.pop(key,None)
         action.get('ticket',{}).pop('input_snapshot_id',None)
+        if action.get('exploration_contract') == 'triz-targeted-expansion-v1':
+            # The actual rendered request + frozen intent define this paid job.
+            # Preserve run/tenant/project/episode and model configuration, remove
+            # only audit identities and unrelated output-version advancement.
+            stable['action_context'] = {key: action[key] for key in (
+                'run_id', 'tenant_id', 'project_id', 'semantic_episode_id',
+                'handler_id', 'mode_profile_version', 'optional',
+                'exploration_contract', 'semantic_context_hash') if key in action}
         task_id='task-'+digest([run_id,action['semantic_episode_id'],stable])[:60]
     with transaction() as c:
         h=_head(c,run_id,lock=True)

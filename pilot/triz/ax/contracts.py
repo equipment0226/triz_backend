@@ -46,7 +46,7 @@ class ActionTicket(Contract):
 
     @model_validator(mode='after')
     def known_action(self):
-        if self.action_type not in ACTIONS + ('MERGE_IDEAS',):
+        if self.action_type not in ACTIONS + ('MERGE_IDEAS','RUN_TRACK','STOP_EXPLORATION'):
             raise ValueError('Unknown action')
         if len(set(self.target_version_ids)) != len(self.target_version_ids):
             raise ValueError('Duplicate target version')

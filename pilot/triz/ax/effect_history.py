@@ -265,7 +265,8 @@ def rerank(state, candidates, required):
         return candidates
     h = ledger.head(state.run_id, state.user_id); b = state.scratch['ax_bundle']
     ctx = structured_context(state)
-    history = observations(h['tenant_id'], h['project_id'], cutoff=b['effect_history_cutoff'])
+    from .mode_contract import unified
+    history = [] if unified(state) else observations(h['tenant_id'], h['project_id'], cutoff=b['effect_history_cutoff'])
     scores = defaultdict(dict)
     for row in history:
         app = row['application']
@@ -303,6 +304,12 @@ def rerank(state, candidates, required):
         selection_method='ADVISORY' if state.control.mode.value == 'DEEP' else 'BOUNDED_HISTORY',
         model_version=b.get('effect_ranker_version'), propensity=None, used=False,
         exposed_ids=[e['id'] for _,e,_ in scored])
+    if unified(state):
+        from .action_runtime import active_action
+        value.update(contract='effect-selection-v2',feature_snapshot=ctx,
+            catalog_version=digest(b['effects']),source_action_instance_id=(active_action.get() or {}).get('action_instance_id'),
+            catalog_definitions={e['id']:copy.deepcopy(e) for e in candidates},
+            selection_method='ADVISORY' if state.control.mode.value=='DEEP' else 'LEARNED_UTILITY' if model else 'LEXICAL_FALLBACK')
     sid = 'esel-' + digest([state.run_id, value])[:56]
     with ledger.transaction() as c:
         if not c.execute(select(selections.c.selection_id).where(selections.c.selection_id == sid)).first():

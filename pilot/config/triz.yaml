@@ -12,7 +12,11 @@ run:
 
 ax:
   enabled: true              # 신규 실행만 AX. TRIZ_AX_ENABLED=false로 신규 실행 롤백 가능.
-  run_contract_version: ax-run-v2 # 새 실행: ax/mode_contract.py의 버전 프로파일을 고정. legacy는 이전 계약.
+  run_contract_version: ax-run-v3 # 신규 실행만 적응형 계약. 저장된 v2/legacy 실행은 해당 계약 유지.
+  adaptive:
+    minimum_initial_tracks: {LITE: 1, FULL: 2}
+    generation_budget_microusd: {LITE: 600000, FULL: 1200000}
+    feedback: {keep: 0.1, drop: -0.1, quality_weight: 0.7, utility_weight: 0.3, lambda_cost: 1.0}
   smart_orchestration_enabled: true # DEEP은 항상 false로 pin; 공통 검토·정산·원본 보존 유지.
   hard_budget_usd: 2.0       # 프로젝트별 모델 API 비용. 기존 서버·DB·벡터 인프라 고정비는 별도.
   max_provider_attempts: 2

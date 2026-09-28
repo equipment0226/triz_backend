@@ -10,15 +10,16 @@ HANDLERS = {
     'repair-v1': {'callable':'coherence_recovery.run','model_role':'REASONING','tools':['candidate_repair']},
     'merge-v1': {'callable':'nodes._merge','model_role':'REASONING','tools':['legacy_tracks']},
     'defer-v1': {'callable':None,'model_role':'CODE','tools':[]},
+    'phase-stop-v1': {'callable':'adaptive_tracks.run','model_role':'CODE','tools':[]},
 }
 
 
 def handler_id(ticket):
-    if ticket.action_type=='GENERATE_BASELINE' or (ticket.action_type=='SOLVE_SUBPROBLEM' and ticket.parameters.get('tracks')):
+    if ticket.action_type in ('GENERATE_BASELINE','RUN_TRACK') or (ticket.action_type=='SOLVE_SUBPROBLEM' and ticket.parameters.get('tracks')):
         return 'tracks-v1'
     if ticket.action_type in ('REPAIR_CANDIDATE','SOLVE_SUBPROBLEM'):
         return 'repair-v1'
-    return {'MERGE_IDEAS':'merge-v1','DEFER':'defer-v1'}.get(ticket.action_type)
+    return {'MERGE_IDEAS':'merge-v1','DEFER':'defer-v1','STOP_EXPLORATION':'phase-stop-v1'}.get(ticket.action_type)
 
 
 def features(state):
@@ -41,6 +42,35 @@ def features(state):
 def feasible(state,ticket,*,handlers):
     """Return a reason on rejection. No policy controls these checks."""
     b=state.scratch['ax_bundle']
+    from .mode_contract import adaptive
+    if ticket.action_type in ('RUN_TRACK','STOP_EXPLORATION') and not adaptive(state):
+        return 'adaptive_mode_required'
+    if adaptive(state) and ticket.action_type=='STOP_EXPLORATION':
+        from .mode_contract import execution_plan, contract
+        expected,required,skipped,blocked=execution_plan(state)
+        obligations=set(contract(state).get('explicit_required_tracks',[]))-set(skipped)
+        eligible=set(expected)-set(skipped)-set(blocked)
+        minimum=min(contract(state)['minimum_initial_tracks'],len(eligible))
+        if not obligations<=set(state.solve.tracks_run): return 'explicit_required_tracks_incomplete'
+        if len(set(state.solve.tracks_run)&eligible)<minimum or (not eligible and blocked):
+            return 'minimum_exploration_incomplete'
+    if adaptive(state) and ticket.action_type=='RUN_TRACK':
+        from .mode_contract import execution_plan
+        expected, required, skipped, blocked = execution_plan(state)
+        tracks = ticket.parameters.get('tracks', [])
+        if not tracks or any(t not in expected or t in skipped or t in blocked for t in tracks):
+            return 'track_not_eligible'
+        if ticket.reserved_microusd+b['limits']['validation_reserve_microusd'] > ledger.budget(state.run_id)['remaining_microusd']:
+            return 'validation_reserve'
+        if ticket.parameters.get('plan_class')=='INITIAL_SELECTION':
+            from .action_runtime import usage
+            used = sum(r.get('actual_microusd') or 0 for r in state.scratch.get('ax_action_results',{}).values() if r.get('plan_class')=='INITIAL_SELECTION')
+            if used+ticket.reserved_microusd>b['limits']['generation_budget_microusd']:
+                return 'generation_budget'
+        else:
+            from .action_runtime import optional_commitment
+            if optional_commitment(state)+ticket.reserved_microusd>b['limits']['optional_budget_microusd']:
+                return 'optional_phase_budget'
     from .mode_contract import contract, optional_enabled, validate_tracks
     if contract(state):
         if ticket.action_type=='CO_DESIGN':
@@ -55,7 +85,7 @@ def feasible(state,ticket,*,handlers):
             return 'optional_disabled'
         if ticket.action_type in ('REPAIR_CANDIDATE','SOLVE_SUBPROBLEM','CO_DESIGN') and state.scratch.get('ax_coordination'):
             from .mode_contract import coverage
-            if not coverage(state)['complete']:
+            if not adaptive(state) and not coverage(state)['complete']:
                 return 'mandatory_coverage_incomplete'
         if ticket.action_type in ('REPAIR_CANDIDATE','SOLVE_SUBPROBLEM','CO_DESIGN'):
             from .action_runtime import optional_commitment
@@ -139,6 +169,11 @@ def route(ctx):
         raise AbortRun('문제 범위를 먼저 확정해 주세요.')
     if not (state.definition.technical_contradictions or state.definition.physical_contradictions):
         raise AbortRun('해결안 탐색 전에 분석의 모순과 근거를 확인해 주세요.')
+    from .mode_contract import adaptive
+    if adaptive(state):
+        from .adaptive_tracks import prepare
+        prepare(state)
+        return
     if state.solve.tracks_run and not state.scratch.get('ax_track_execution'):
         # Only an explicit S5 continuation reaches this boundary. Historical
         # completed reports remain untouched. Old tracks_run admitted failed or
@@ -189,6 +224,9 @@ def route(ctx):
 def complete_required(ctx):
     """A branch limit bounds concurrency, never the number of required methods."""
     state=ctx.state
+    from .mode_contract import adaptive
+    if adaptive(state):
+        return
     plan=state.scratch['ax_coordination']
     from ..nodes import _run_tracks
     branches=max(1,int(state.scratch['ax_bundle']['limits']['branches']))
@@ -273,8 +311,8 @@ def stage_action(state,action_type,target):
 def _decide_instances(state, proposals, preferred, handlers, context):
     from . import routing_q
     from .action_runtime import identity, episode, emit
-    from .mode_contract import optional_enabled
-    if not optional_enabled(state):
+    from .mode_contract import optional_enabled, adaptive
+    if not optional_enabled(state) and not adaptive(state):
         raise AbortRun('이 모드에서는 선택적 AX 작업을 실행하지 않습니다.')
     proposals = [p.model_copy(update={'action_instance_id': identity(state, p, context),
                     'input_snapshot_id': state.scratch['ax_snapshot_id']}) for p in proposals]
@@ -291,7 +329,7 @@ def _decide_instances(state, proposals, preferred, handlers, context):
     fs = routing_q.state_features(state, context)
     tickets = [r['ticket'] for r in rows]
     mode = 'FORCED' if len(permitted) == 1 else 'RULE_BASED'
-    scores, fallback = {}, b.get('policy_fallback_reason')
+    scores, fallback = {}, b.get('policy_fallback_reason') or ('missing_eligible_policy' if adaptive(state) else None)
     choose_q = routing_q.choose if b.get('backup_contract') == routing_q.BACKUP_CONTRACT else routing_q.choose_legacy
     if b.get('policy') and len(permitted) > 1:
         chosen, scores, fallback = choose_q(b['policy'], fs, tickets, permitted, chosen)
@@ -300,13 +338,13 @@ def _decide_instances(state, proposals, preferred, handlers, context):
         if fallback is None:
             mode = 'POLICY_DETERMINISTIC'
     payload = dict(snapshot_id=state.scratch['ax_snapshot_id'], context=context, bundle_id=b['bundle_id'],
-        policy_version=b['policy_version'], feature_schema=routing_q.SCHEMA, features=fs,
+        policy_version=b['policy_version'], feature_schema=fs['schema'], features=fs,
         actions=rows, proposed_index=chosen, executed_index=chosen, rule_preferred=rule_preferred,
         model_scores=scores, permitted_actions=permitted, selection_mode=mode, fallback_reason=fallback,
         policy_kind='routing_q', behavior_probability=None, governor_override=False, override_reason=None,
         semantic_episode_id=episode(state), decision_sequence=state.scratch.get('ax_optional_sequence', 0),
         executed_action_instance=proposals[chosen].action_instance_id)
-    payload.update({k: b[k] for k in routing_q.contracts() if k in b})
+    payload.update({k: b[k] for k in routing_q.contracts(fs['schema']) if k in b})
     did = ledger.record_decision(state, payload)
     previous = state.scratch.get('ax_optional_previous')
     if previous and previous != did:

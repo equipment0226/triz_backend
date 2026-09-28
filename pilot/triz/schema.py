@@ -473,6 +473,7 @@ class EvidenceCard(BaseModel):
 # ────────────────────────────────────────────── S6~S8
 class ConceptSpec(BaseModel):
     source_idea_ids: list[str] = []
+    active_effect_ids: list[str] = []  # Explicitly retained in the final mechanism; never inferred from exposure.
     mechanism_key: str = ""
     intervention_variable: str = ""
     resolution_argument: str = ""
@@ -638,6 +639,7 @@ class SolutionFeedback(BaseModel):
     concept_id: str = ""
     rating: int = 3
     adopted: Optional[bool] = None
+    adopted_explicit: bool = False
     comment: str = ""
     reason_tags: list[str] = []
 

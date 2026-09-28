@@ -3,6 +3,8 @@ from copy import deepcopy
 
 VERSION = 'ax-run-v2'
 PROFILE_VERSION = 'triz-modes-v2'
+ADAPTIVE_VERSION = 'ax-run-v3'
+ADAPTIVE_PROFILE = 'triz-modes-v3-adaptive-feedback'
 TRACKS = ('A_MATRIX', 'B_SEPARATION', 'C_STANDARDS', 'D_ARIZ',
           'E_TRIMMING', 'F_TRENDS', 'G_FOS', 'H_EFFECTS')
 PROFILES = {
@@ -19,7 +21,15 @@ PROFILES = {
 
 def contract(state):
     value = state.scratch.get('ax_bundle', {}).get('run_contract', {})
-    return value if value.get('version') == VERSION else {}
+    return value if value.get('version') in (VERSION, ADAPTIVE_VERSION) else {}
+
+
+def unified(state):
+    return contract(state).get('version') == ADAPTIVE_VERSION
+
+
+def adaptive(state):
+    return unified(state) and contract(state)['mode'] != 'DEEP'
 
 
 def optional_enabled(state):
@@ -27,10 +37,10 @@ def optional_enabled(state):
     return value.get('smart_orchestration_enabled', True)
 
 
-def pin(mode, *, smart=True):
+def pin(mode, *, smart=True, version=VERSION, settings=None, required=()):
     profile = deepcopy(PROFILES[mode])
     optional = smart and mode != 'DEEP'
-    return dict(version=VERSION, mode_profile_version=PROFILE_VERSION, mode=mode,
+    result = dict(version=version, mode_profile_version=PROFILE_VERSION, mode=mode,
                 profile=profile, trace_and_snapshot_enabled=True, coherence_checks_enabled=True,
                 portfolio_preservation_enabled=True, smart_orchestration_enabled=optional,
                 routing_policy_mode='RULE_BASED' if optional else 'OFF',
@@ -39,6 +49,16 @@ def pin(mode, *, smart=True):
                 training_collection_scope='PROJECT_ONLY_WITH_EXPLICIT_CONSENT',
                 model_roles={'LITE': 'T1', 'REASONING': 'T2', 'INDEPENDENT_REVIEW': 'T3',
                              'FLASH': 'T2', 'EXPERT': 'T2'})
+    if version == ADAPTIVE_VERSION:
+        options = settings or {}
+        if set(required) - set(profile['tracks']):
+            raise ValueError('Explicit required track is forbidden by this mode')
+        result.update(mode_profile_version=ADAPTIVE_PROFILE, explicit_required_tracks=sorted(set(required)),
+            minimum_initial_tracks=int(options.get('minimum_initial_tracks', {}).get(mode, 1 if mode == 'LITE' else 2)),
+            feedback_contract='common-candidate-evaluation-v1', reward_contract='candidate-utility-cost-v2',
+            feedback_settings=deepcopy(options.get('feedback', {'keep':.1,'drop':-.1,'quality_weight':.7,'utility_weight':.3,'lambda_cost':1.0})))
+        result['profile']['generation_budget_microusd'] = int(options.get('generation_budget_microusd', {}).get(mode, 600000 if mode == 'LITE' else 1200000))
+    return result
 
 
 def execution_plan(state):
@@ -54,7 +74,8 @@ def execution_plan(state):
               or (track == 'C_STANDARDS' and not state.analysis.su_fields)
               or (track == 'E_TRIMMING' and not state.definition.trimming)):
             blocked[track] = '기법 실행에 필요한 선행 분석 입력이 없습니다. 적용 불가로 간주하지 않습니다.'
-    required = [t for t in expected if t not in skipped and t not in blocked]
+    obligations = expected if not adaptive(state) else value.get('explicit_required_tracks', [])
+    required = [t for t in obligations if t not in skipped and t not in blocked]
     return expected, required, skipped, blocked
 
 
@@ -75,11 +96,23 @@ def coverage(state):
     execution = state.scratch.get('ax_track_execution', {})
     planned = value['profile']['tracks']
     buckets = {key: [] for key in ('executed', 'not_applicable', 'blocked_missing_input',
-                                  'failed', 'budget_unrun', 'pending')}
+                                  'failed', 'budget_unrun', 'pending', 'not_selected')}
     names = {'COMPLETED': 'executed', 'REVIEWED_NO_APPLICATION': 'executed',
              'NOT_APPLICABLE': 'not_applicable', 'BLOCKED_MISSING_INPUT': 'blocked_missing_input',
-             'FAILED': 'failed', 'NOT_RUN_BUDGET': 'budget_unrun'}
+             'FAILED': 'failed', 'NOT_RUN_BUDGET': 'budget_unrun', 'NOT_SELECTED_BY_POLICY':'not_selected'}
     for track in planned:
         buckets[names.get(execution.get(track, {}).get('status'), 'pending')].append(track)
-    return dict(contract=PROFILE_VERSION, mode=value['mode'], planned=planned, **buckets,
-                complete=not any(buckets[k] for k in ('blocked_missing_input', 'failed', 'budget_unrun', 'pending')))
+    complete = not any(buckets[k] for k in ('blocked_missing_input', 'failed', 'budget_unrun', 'pending'))
+    result = dict(contract=value['mode_profile_version'], mode=value['mode'], planned=planned, **buckets, complete=complete)
+    if unified(state):
+        _, required, skipped, blocked = execution_plan(state)
+        phase = state.scratch.get('adaptive_search', {}).get('status', 'PENDING')
+        result.update(eligible_tracks=[t for t in planned if t not in skipped and t not in blocked],
+            required_tracks=list(planned) if value['mode']=='DEEP' else value.get('explicit_required_tracks', []),
+            executed_tracks=buckets['executed'], omitted_tracks={t:execution.get(t, {}).get('status', 'PENDING') for t in planned if t not in buckets['executed']},
+            method_coverage=complete and not buckets['not_selected'], search_status=phase if adaptive(state) else ('COMPLETED' if complete else 'INCOMPLETE'),
+            candidate_review_status=state.scratch.get('ax_candidate_review', {}), report_completion=bool(state.report))
+        if adaptive(state):
+            obligations = set(value.get('explicit_required_tracks', [])) - set(skipped)
+            result['complete'] = phase in ('READY_FOR_REVIEW','NO_APPLICABLE_TRACKS') and obligations <= set(buckets['executed'])
+    return result

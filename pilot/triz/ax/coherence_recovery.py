@@ -85,6 +85,11 @@ def _choices(ctx, phase, limits, journal):
             tickets = tickets[:1]
         chosen, did = coordinator.decide(state, tickets, 0, {t.action_type for t in tickets}, 'coherence:' + phase)
         if chosen.action_type == 'DEFER':
+            from .mode_contract import adaptive
+            if adaptive(state):
+                from .action_runtime import executing
+                with executing(ctx,chosen,did,context='coherence:'+phase):
+                    pass
             journal.append(dict(phase=phase, status='DEFER_OPTIONAL', decision_id=did))
             return
         index = next(i for i, (target, _, _) in enumerate(options) if target['candidate_id'] == chosen.parameters['candidate_id'])

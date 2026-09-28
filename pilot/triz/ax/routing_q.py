@@ -5,6 +5,7 @@ from collections import Counter
 from .contracts import digest
 
 SCHEMA = 'ax-state-action-v3'
+ADAPTIVE_SCHEMA = 'ax-state-action-v4'
 DIMENSIONS = 512
 REWARD_CONTRACT = 'concept-proxy-cost-v1'
 SUPPORT_CONTRACT = 'action-region-support-v1'
@@ -12,14 +13,18 @@ BACKUP_CONTRACT = 'supported-rule-backup-v1'
 SUPPORT_SETTINGS = {'version': SUPPORT_CONTRACT, 'minimum_count': 4}
 
 
-def contracts():
-    return dict(support_contract=SUPPORT_CONTRACT, backup_contract=BACKUP_CONTRACT,
+def contracts(schema=SCHEMA):
+    value = dict(support_contract=SUPPORT_CONTRACT, backup_contract=BACKUP_CONTRACT,
                 support_settings=dict(SUPPORT_SETTINGS), exploration_contract='triz-targeted-expansion-v1')
+    if schema == ADAPTIVE_SCHEMA:
+        value.update(mode_contract='triz-modes-v3-adaptive-feedback', feedback_contract='common-candidate-evaluation-v1',
+                     reward_contract='candidate-utility-cost-v2', handler_contract='adaptive-track-handlers-v1')
+    return value
 
 
 def validate_contract(policy):
     validate(policy)
-    if any(policy.get(k) != v for k, v in contracts().items()):
+    if any(policy.get(k) != v for k, v in contracts(policy.get('feature_schema')).items()):
         raise ValueError('Incompatible support/backup/handler contract')
     for table in ('support', 'state_support'):
         if not isinstance(policy.get(table), dict) or any(type(n) is not int or n < 0 for n in policy[table].values()):
@@ -27,7 +32,7 @@ def validate_contract(policy):
 
 
 def _legal(features, tickets, permitted):
-    if not isinstance(features, dict) or features.get('schema') != SCHEMA:
+    if not isinstance(features, dict) or features.get('schema') not in (SCHEMA, ADAPTIVE_SCHEMA):
         raise ValueError('incompatible_contract')
     if (not isinstance(permitted, list) or any(type(i) is not int or i < 0 or i >= len(tickets) for i in permitted)
             or len(set(permitted)) != len(permitted)):
@@ -52,6 +57,8 @@ def supported_action_indices(policy, features, tickets, permitted):
         legal = _legal(features, tickets, permitted)
         result['legal'] = legal
         validate_contract(policy)
+        if policy['feature_schema'] != features['schema']:
+            raise ValueError('Incompatible state and policy')
         seen = set()
         for i, ticket in enumerate(tickets):
             if i not in legal:
@@ -90,10 +97,10 @@ def next_state_backup(*, support_model, value_model, transition):
         return answer('SKIP_INVALID_TRANSITION', reason='cross_episode')
     if any(k not in transition for k in ('next_features', 'next_actions', 'next_permitted')):
         return answer('SKIP_INVALID_TRANSITION', reason='incomplete_next_decision')
-    for key, expected in contracts().items():
+    for key, expected in contracts(transition['next_features'].get('schema')).items():
         if key in transition and transition[key] != expected:
             return answer('SKIP_INVALID_TRANSITION', reason='incompatible_contract')
-    if 'next_contracts' in transition and transition['next_contracts'] != contracts():
+    if 'next_contracts' in transition and transition['next_contracts'] != contracts(transition['next_features'].get('schema')):
         return answer('SKIP_INVALID_TRANSITION', reason='incompatible_next_contract')
     actions = transition['next_actions']; features = transition['next_features']
     audit = supported_action_indices(support_model, features, actions, transition['next_permitted'])
@@ -120,6 +127,10 @@ def next_state_backup(*, support_model, value_model, transition):
 
 
 def state_features(state, phase='optional'):
+    from .mode_contract import adaptive
+    if adaptive(state):
+        from .adaptive_tracks import state_features as adaptive_features
+        return adaptive_features(state, phase)
     from .coherence import assess
     report = assess(state)
     return {'schema': SCHEMA, 'mode': state.control.mode.value, 'phase': phase,
@@ -145,7 +156,7 @@ def support_region(features,ticket):
 
 
 def phi(state, ticket):
-    if not isinstance(state, dict) or state.get('schema') != SCHEMA:
+    if not isinstance(state, dict) or state.get('schema') not in (SCHEMA, ADAPTIVE_SCHEMA):
         raise ValueError('Routing state schema mismatch')
     p = ticket.get('parameters', {})
     target = p.get('candidate_id', '')
@@ -154,10 +165,13 @@ def phi(state, ticket):
     action += ['gap=' + x for x in p.get('gap_kinds', [])]
     action += ['function=' + x for x in p.get('required_functions', [])]
     if target:
-        action += ['target=' + target, 'target_quality=' + state.get('candidates', {}).get(target, {}).get('quality', 'UNKNOWN')]
+        action += (['target=' + target] if state['schema'] == SCHEMA else []) + ['target_quality=' + state.get('candidates', {}).get(target, {}).get('quality', 'UNKNOWN')]
     context = ['mode=' + state.get('mode', 'UNKNOWN'), 'phase=' + state.get('phase', 'optional')]
     context += ['gap=' + x for x in state.get('gaps', [])]
     context += ['done=' + x for x in state.get('tracks', [])]
+    if state['schema'] == ADAPTIVE_SCHEMA:
+        context += ['problem='+x for x in state.get('problem_terms', [])]
+        context += ['review='+str(state.get('review_available',False)), 'search='+state.get('search_status','PENDING')]
     terms = {x: 1.0 for x in action}
     terms.update({s + '*' + a: 1.0 for s in context for a in action})
     for a in action:
@@ -176,7 +190,7 @@ def phi(state, ticket):
 
 
 def validate(policy):
-    if (policy.get('feature_schema') != SCHEMA or len(policy.get('weights', [])) != DIMENSIONS
+    if (policy.get('feature_schema') not in (SCHEMA, ADAPTIVE_SCHEMA) or len(policy.get('weights', [])) != DIMENSIONS
             or any(not math.isfinite(w) for w in policy['weights'])):
         raise ValueError('Incompatible routing checkpoint; no padding is permitted')
 
@@ -221,19 +235,33 @@ def choose(policy, features, tickets, permitted, preferred):
 def support_model(samples):
     """Only eligible observations from the training partition contribute counts."""
     counts, regions = Counter(), Counter()
+    seen_actions, seen_regions = set(), set()
+    schema = samples[0]['features']['schema'] if samples else SCHEMA
     for row in samples:
         if row.get('split', 'train') != 'train':
             raise ValueError('Holdout observations cannot build support')
         actions = row['actions']; index = row['executed_index']
         if type(index) is not int or index not in _legal(row['features'], actions, row['permitted']) or not math.isfinite(row['reward']):
             raise ValueError('Invalid logged action or reward')
-        for key, expected in contracts().items():
+        if row['features']['schema'] != schema:
+            raise ValueError('Mixed feature schema')
+        if schema == ADAPTIVE_SCHEMA and row.get('synthetic'):
+            raise ValueError('Synthetic data is not training support')
+        for key, expected in contracts(schema).items():
             if key in row and row[key] != expected:
                 raise ValueError('Mixed support/backup/handler contracts')
         phi(row['features'], actions[index])
-        counts[support_key(actions[index])] += 1
-        regions[support_region(row['features'], actions[index])] += 1
-    return dict(contracts(), feature_schema=SCHEMA, weights=[0.] * DIMENSIONS,
+        action_key=support_key(actions[index]);region_key=support_region(row['features'],actions[index])
+        if schema == ADAPTIVE_SCHEMA:
+            family=row.get('group')
+            if not family: raise ValueError('Independent problem family required')
+            if (family,action_key) not in seen_actions: counts[action_key]+=1
+            if (family,region_key) not in seen_regions: regions[region_key]+=1
+            seen_actions.add((family,action_key));seen_regions.add((family,region_key))
+        else:
+            counts[action_key] += 1
+            regions[region_key] += 1
+    return dict(contracts(schema), feature_schema=schema, weights=[0.] * DIMENSIONS,
                 support=dict(counts), state_support=dict(regions))
 
 
@@ -288,11 +316,11 @@ def train(samples, *, epochs=180, learning_rate=.05, discount=.8, alpha=.03):
         if epoch % 10 == 0:
             target = list(weights)
         losses.append(loss / len(rows) if rows else None)
-    return dict(model, **{'algorithm': 'linear-conservative-state-action-q-v3', 'feature_schema': SCHEMA,
+    return dict(model, **{'algorithm': 'linear-conservative-state-action-q-v3', 'feature_schema': model['feature_schema'],
             'weights': weights, 'discount': discount, 'alpha': alpha,
-            'epochs': epochs, 'reward_contract': REWARD_CONTRACT,
+            'epochs': epochs, 'reward_contract': contracts(model['feature_schema']).get('reward_contract', REWARD_CONTRACT),
             'training': {**_metrics(model, samples, backups), 'status': 'TRAINED' if rows else 'COLLECTING',
-                         'unversioned_observations': sum(any(k not in r for k in contracts()) for r in samples),
+                         'unversioned_observations': sum(any(k not in r for k in contracts(model['feature_schema'])) for r in samples),
                          'parameters_changed': initial != digest(weights),
                          'loss_first': losses[0], 'loss_last': losses[-1]},
             'support_actions': sorted({r['actions'][r['executed_index']]['action_type'] for r in samples})})
@@ -408,7 +436,7 @@ def dataset(tenant, project, cutoff=None):
                             or next_row['created_at'] < d['created_at']):
                 td_exclusion = 'cross_episode_or_future_transition'
                 next_row = None
-            unique={j['origin']:j for j in judgments}
+            unique={(j['origin'],j['id']):j for j in judgments}
             judgments=list(unique.values())
             # Conservative aggregation: an explicit negative is not outweighed by popularity.
             quality=min(j['value'] for j in judgments)

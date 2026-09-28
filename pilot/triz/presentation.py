@@ -88,6 +88,22 @@ def view(state):
             c['quadrant']=''
             c['validation_missing']=row['missing']
             c['constraint_status']={'PASS':'제약 충족','CONDITIONAL':'조건 확인 필요','FAIL':'제약 위반'}.get(row.get('constraint_verdict'),'검토 전')
+    # Product prose needs the same enum/field translation as the report. Keep
+    # wire identities, URLs and submitted controls intact.
+    from .display_terms import display_text
+    from .render import _ENUM_KO
+    from .labels import _structural
+    def readable(value):
+        if isinstance(value,str): return display_text(value,_ENUM_KO)
+        if isinstance(value,list): return [readable(v) for v in value]
+        if isinstance(value,dict): return {k:v if _structural(k) else readable(v) for k,v in value.items()}
+        return value
+    for solution in result['solutions']:
+        for key in ('title','summary','description','mechanism','changes','effect','assumptions','risks',
+                    'validation','transfer_conditions','validation_missing','reviewer_comments','evidence','reference_cards'):
+            if key in solution: solution[key]=readable(solution[key])
+    for key in ('constraints','additions','related_references'):
+        result[key]=readable(result[key])
     result=display_value(result,labels)
     result['ax']=ax  # Version/decision identifiers must never be humanized.
     return result

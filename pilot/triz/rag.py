@@ -56,6 +56,9 @@ def _idf(docs: list[str]) -> dict[str, float]:
 # ─────────────────────────────── 쓰기
 def write_feedback(state, distill: dict) -> int:
     from .domain import problem_type
+    from .ax.mode_contract import unified
+    from .ax.feedback_events import current
+    observations=current(state.user_id,state.scratch.get('ax_project_id',state.user_id)) if unified(state) else []
     if not settings.cfg("feedback_rag.enabled", True) or not state.feedback:
         return 0
     min_rating = int(settings.cfg("feedback_rag.min_rating_to_store", 4))
@@ -68,12 +71,16 @@ def write_feedback(state, distill: dict) -> int:
         concept = state.concept(fb.concept_id)
         if not concept:
             continue
+        refs=[r['event_id'] for r in observations if r['run_id']==state.run_id and r['candidate_id']==concept.id
+              and r['evaluation_stage']=='s10_feedback' and r['observed_mask']]
+        if unified(state) and not refs: continue
         context = {"problem_type": problem_type(state), "conditions": concept.assumptions,
                    "contradiction_structure": [t.coupling_mechanism or t.label for t in state.definition.technical_contradictions],
                    "domain_lesson": distill.get("domain_lesson", ""),
                    "accepted_patterns": distill.get("accepted_patterns", []),
                    "rejected_patterns": distill.get("rejected_patterns", []),
                    "feedback_status": "USER_PREFERENCE_NOT_VALIDATION"}
+        if unified(state): context.update(common_evaluation_ids=refs,project_id=state.scratch.get('ax_project_id',state.user_id))
         if fb.rating >= min_rating:
             weight = min(wmax, 1.0 + 0.05 * (fb.rating - 3) + (0.05 if fb.adopted else 0.0))
             store.rag_upsert(
@@ -111,10 +118,12 @@ def write_feedback(state, distill: dict) -> int:
 
 # ─────────────────────────────── 읽기
 def retrieve(query: str, collection: str = COLLECTION, k: int | None = None,
-             industry: str = "", user_id: str = "", problem_type: str = "", conditions=()) -> list[dict]:
+             industry: str = "", user_id: str = "", problem_type: str = "", conditions=(), require_common=False) -> list[dict]:
     if not settings.cfg("feedback_rag.enabled", True):
         return []
     docs = store.rag_all(collection)
+    if require_common: docs=[d for d in docs if d.get('meta',{}).get('common_evaluation_ids')]
+    docs = [d for d in docs if _case_allowed(d.get('meta',{}),user_id)]
     if settings.require_user_auth or user_id:
         docs = [d for d in docs if d.get("meta", {}).get("user_id") == user_id and user_id]
     if not docs:
@@ -146,6 +155,20 @@ def retrieve(query: str, collection: str = COLLECTION, k: int | None = None,
     return out
 
 
+def _case_allowed(meta,user_id):
+    refs=meta.get('common_evaluation_ids')
+    if refs is None: return True  # Preserve legacy service records and adapters.
+    from .ax.feedback_events import current
+    return bool(user_id and refs and set(refs)<={r['event_id'] for r in current(user_id,meta.get('project_id',user_id))})
+
+
+def case_permissions_current(state):
+    ids=set(state.scratch.get('prior_case_ids',[]))
+    if not ids: return True
+    docs={d['id']:d for collection in (COLLECTION,FAILURES) for d in store.rag_all(collection)}
+    return all(i in docs and _case_allowed(docs[i].get('meta',{}),state.user_id) for i in ids)
+
+
 def prior_cases_block(state) -> str:
     from .domain import problem_type
     """S6 개념 구체화 프롬프트에 주입할 과거 사례 블록(과적합 방지 규칙 포함)."""
@@ -154,6 +177,8 @@ def prior_cases_block(state) -> str:
     query = f"{state.intake.frame.restated_problem} {' '.join(c.label for c in state.definition.technical_contradictions[:2])}"
     options = dict(industry=state.domain.industry, user_id=state.user_id, problem_type=problem_type(state),
                    conditions=[c.statement for c in state.constraints.items])
+    from .ax.mode_contract import unified
+    options['require_common']=unified(state)
     hits = retrieve(query, **options)
     fails = retrieve(query, collection=FAILURES, k=2, **options)
     state.scratch["prior_case_ids"] = [h['id'] for h in hits + fails]
@@ -179,8 +204,10 @@ def prior_cases_block(state) -> str:
 
 def lessons_block(state):
     from .domain import problem_type
+    from .ax.mode_contract import unified
     hits = retrieve(state.raw_query, collection=FAILURES, k=2, industry=state.domain.industry,
-                    user_id=state.user_id, problem_type=problem_type(state))
+                    user_id=state.user_id, problem_type=problem_type(state),require_common=unified(state))
+    state.scratch['prior_case_ids']=sorted(set(state.scratch.get('prior_case_ids',[]))|{h['id'] for h in hits})
     return "\n[과거 사용자 피드백의 가설성 교훈 — 사실·절대 금지로 승격하지 않는다]\n" + "\n".join(
         f"- {h['meta'].get('domain_lesson','')} / 실패 패턴: {h['meta'].get('rejected_patterns',[])} / 적용 조건: {h['meta'].get('conditions',[])}"
         for h in hits) if hits else ""

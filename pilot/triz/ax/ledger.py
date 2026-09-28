@@ -287,7 +287,7 @@ def budget(run_id,actor=None):
             'unknown_attempts':sum(r.status=='UNKNOWN' for r in rows)}
 
 
-def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=0,optional_limit=None):
+def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=0,optional_limit=None,generation_limit=None):
     task_id='task-'+digest([run_id,epoch,request])[:60]
     if request.get('action_context'):
         # Transport retries keep one logical paid call. Semantic changes retain
@@ -344,6 +344,18 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
                     committed+=detail['actual_microusd'] if detail.get('actual_microusd') is not None else held
             if committed+reserve>optional_limit:
                 raise Conflict('Optional AX budget exhausted; reservations and unknown costs retained')
+        if generation_limit is not None:
+            rows=c.execute(select(tasks.c.task_id,tasks.c.actual,tasks.c.reserve,attempts.c.details)
+                .join(attempts,attempts.c.task_id==tasks.c.task_id).where(tasks.c.run_id==run_id)).all()
+            counted=set();committed=0
+            current_episode=request.get('request',{}).get('semantic_episode_id')
+            for row in rows:
+                action=json.loads(row.details).get('request',{}).get('action_context',{})
+                if row.task_id not in counted and action.get('plan_class')=='INITIAL_SELECTION' and action.get('semantic_episode_id')==current_episode:
+                    committed+=row.actual if row.actual is not None else row.reserve
+                    counted.add(row.task_id)
+            if committed+reserve>generation_limit:
+                raise Conflict('Initial generation budget exhausted; unknown reservations retained')
         rows=c.execute(select(tasks.c.status,tasks.c.reserve,tasks.c.actual).where(tasks.c.run_id==run_id)).all()
         used=sum((r.actual or 0)+(r.reserve if r.status in ('RUNNING','UNKNOWN') else 0) for r in rows)
         if reserve<0 or used+reserve+minimum_remaining>h['budget']:
@@ -455,6 +467,12 @@ def submit_review(run_id,actor,body):
         c.execute(reviews.insert().values(event_id=body.event_id,run_id=run_id,actor_id=actor,
             payload=canonical(payload),content_hash=fingerprint,created_at=now()))
         _event(c,run_id,'REVIEW_CONFIRMED',{'review_id':body.event_id})
+        if body.candidate_id and body.decision_type in ('RECORD_TEST_RESULT','RECORD_FIELD_RESULT'):
+            from ..schema import GlobalState,ConceptSpec
+            from .feedback_events import recorded_test
+            raw_state=c.execute(select(store.states.c.state_json).where(store.states.c.run_id==run_id)).scalar()
+            if raw_state:
+                recorded_test(c,GlobalState.model_validate_json(raw_state),ConceptSpec.model_validate(candidate),body)
         return {'event_id':body.event_id,'duplicate':False,'applied_to_artifact':False}
 
 

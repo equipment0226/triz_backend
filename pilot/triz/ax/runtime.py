@@ -57,16 +57,22 @@ def bundle(state=None):
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
                             root/'ax/learning.py',root/'ax/mode_contract.py',root/'ax/action_runtime.py',
                             root/'ax/routing_q.py',root/'ax/exploration_context.py',root/'ax/usage_recovery.py',root/'ax/effect_history.py',root/'ax/effect_ranker.py',
-                            root/'ax/registry.py',root/'ax/worker.py',root.parent/'templates/report_full.md.j2',
+                            root/'ax/registry.py',root/'ax/worker.py',root/'ax/feedback_events.py',root/'ax/learning_outcomes.py',
+                            root/'ax/adaptive_tracks.py',root/'ax/incremental_review.py',root.parent/'templates/report_full.md.j2',
                             root.parent/'templates/report_reformulation.md.j2',
                             root.parent/'templates/report.html.j2',root.parent/'templates/report_ax_appendix.md.j2']}}
-    if state is not None and settings.triz.get('ax', {}).get('run_contract_version', 'ax-run-v2') == 'ax-run-v2':
+    if state is not None and settings.triz.get('ax', {}).get('run_contract_version', 'ax-run-v2') in ('ax-run-v2','ax-run-v3'):
         from .mode_contract import pin
         data['run_contract'] = pin(state.control.mode.value,
-            smart=settings.triz.get('ax', {}).get('smart_orchestration_enabled', True))
+            smart=settings.triz.get('ax', {}).get('smart_orchestration_enabled', True),
+            version=settings.triz['ax']['run_contract_version'], settings=settings.triz['ax'].get('adaptive', {}),
+            required=state.scratch.get('explicit_required_tracks', []))
         data['feature_schema'] = 'ax-state-action-v3'
         from .routing_q import contracts
         data.update(contracts())
+        if data['run_contract']['version']=='ax-run-v3':
+            data['feature_schema'] = 'ax-state-action-v4'
+            data.update(contracts(data['feature_schema']))
         data['action_catalog'] = 'ax-action-instances-v3'
         data['limits'].update({k: v for k, v in data['run_contract']['profile'].items() if k != 'tracks'})
         data['effect_history_cutoff'] = __import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat()
@@ -197,6 +203,12 @@ def checkpoint(state,stage,*,interrupted=False):
             else:
                 gates[key]={'label':label,'status':'RUNNING'}
     ledger.capture(state,sections,DEPENDENCIES,stage+(':interrupted' if interrupted else ''),invalidated=invalidated)
+    from .mode_contract import adaptive
+    if adaptive(state) and stage=='s9_report' and not interrupted:
+        from .action_runtime import emit, episode
+        emit(state,'ADAPTIVE_EPISODE_CLOSED',dict(semantic_episode_id=episode(state),
+            candidate_ids=sorted(c.id for c in state.concepts), terminal_decision_id=state.scratch.get('ax_optional_previous'),
+            report_snapshot_id=state.scratch['ax_snapshot_id']))
     if contract(state):
         from .action_runtime import emit
         for aid,result in state.scratch.get('ax_action_results',{}).items():
@@ -247,7 +259,19 @@ def before_stage(ctx,key):
         ledger.capture(state,{'solve':section(state,'solve')},DEPENDENCIES,'effect_applicability')
     if key=='s8_references':
         from .coherence import enabled as coherence_enabled
-        if coherence_enabled(state):
+        from .mode_contract import adaptive
+        if adaptive(state):
+            from .adaptive_tracks import followup
+            if state.scratch.get('adaptive_gate_pending_ids') and (state.scratch.get('resume_payload') or state.scratch.get('ax_gate_response_pending')):
+                from ..nodes import s7_gate
+                s7_gate(ctx)
+                checkpoint(state,'s7_gate')
+            added=followup(ctx,'after_constraints')
+            if added:
+                from ..nodes import s7_gate
+                s7_gate(ctx)
+                checkpoint(state,'s7_gate')
+        elif coherence_enabled(state):
             from . import recovery
             added=recovery.run(ctx,phase='after_constraints')
             if added:
@@ -273,11 +297,17 @@ def before_stage(ctx,key):
         stage_action(state,'FETCH_EVIDENCE','concepts')
     if key=='s7_gate' and not state.scratch.get('resume_payload') and not state.scratch.get('ax_gate_response_pending'):
         from . import recovery,rules
-        recovery.run(ctx)
+        from .mode_contract import adaptive
+        if adaptive(state):
+            from .adaptive_tracks import followup
+            followup(ctx,'after_concepts')
+        else:
+            recovery.run(ctx)
         rules.apply(state)
     if key=='s9_report':
         from .mode_contract import contract
-        if contract(state) and state.scratch.get('ax_optional_previous'):
+        from .mode_contract import adaptive
+        if contract(state) and not adaptive(state) and state.scratch.get('ax_optional_previous'):
             from .action_runtime import emit, episode
             emit(state,'OPTIONAL_TRANSITION',dict(semantic_episode_id=episode(state),
                 decision_id=state.scratch['ax_optional_previous'],next_decision_id=None,terminal_reason='OPTIONAL_PHASES_COMPLETED'))
@@ -361,6 +391,25 @@ def diagnostics(state):
     results=list(state.scratch.get('ax_action_results',{}).values())
     portfolio=state.scratch.get('idea_consolidation',{})
     bundle=state.scratch['ax_bundle']
+    from .mode_contract import unified
+    extra={}
+    if unified(state):
+        import json
+        from collections import Counter
+        from sqlalchemy import select
+        from .feedback_events import KIND
+        with ledger.store.engine.connect() as c:
+            rows=[json.loads(r) for r in c.execute(select(ledger.events.c.payload).where(
+                ledger.events.c.run_id==state.run_id,ledger.events.c.event_type==KIND)).scalars()]
+        budget=ledger.budget(state.run_id,state.user_id)
+        extra=dict(common_evaluation_count_by_source=dict(Counter(r['evaluation_stage'] for r in rows)),
+            missing_or_rejected_label_reasons=dict(Counter('unobserved' if not r['observed_mask'] else 'no_training_consent'
+                for r in rows if not r['observed_mask'] or r['training_consent_scope']=='NO_TRAINING')),
+            candidate_to_action_effect_lineage_integrity=dict(Counter(r.get('attribution','UNKNOWN_ATTRIBUTION') for r in rows)),
+            reward_contract=contract(state)['reward_contract'],actual_cost=budget['spent_microusd'],
+            unresolved_reserve=budget['reserved_microusd'],remaining_budget=budget['remaining_microusd'],
+            mandatory_review_reserve=bundle['limits']['validation_reserve_microusd'],
+            live_quality_cost_evaluation='not_evaluated_live')
     return dict(mode_coverage=coverage(state), raw_idea_count=len(state.scratch.get('ax_idea_inventory',[])),
         merged_family_count=len(state.solve.raw_ideas), detailed_candidate_count=len(state.concepts),
         final_count=len(state.scratch.get('ax_selection',{}).get('recommended',[])),
@@ -374,4 +423,4 @@ def diagnostics(state):
         effect_ranker_version=bundle.get('effect_ranker_version'),
         routing_mode=contract(state)['routing_policy_mode'],effect_mode=contract(state)['effect_reranking_mode'],
         routing_readiness='DEPLOYED' if bundle.get('policy') else 'SHADOW' if bundle.get('shadow_policy') else 'COLLECTING',
-        effect_readiness='DEPLOYED' if bundle.get('effect_ranker') else 'SHADOW' if bundle.get('shadow_effect_ranker') else 'COLLECTING')
+        effect_readiness='DEPLOYED' if bundle.get('effect_ranker') else 'SHADOW' if bundle.get('shadow_effect_ranker') else 'COLLECTING', **extra)

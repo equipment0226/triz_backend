@@ -31,3 +31,16 @@ def test_reports_keep_raw_enum_and_render_readable_fields(state):
         assert '변경 범위' in text and '파라미터 조정' in text and '국부적 변경' in text
         assert not re.search(r'QUICK_WIN|BIG_BET|change_scale\s*=',text)
     assert state.model_dump_json()==original
+
+
+def test_sufield_names_survive_field_enum_translation_and_frozen_report_render(state):
+    prose = 'Su-Field 분석 / Su-장 분석 / 물질-장 분석 / 물질–장 모델'
+    expected = 'Su-Field 분석 / Su-Field 분석 / 물질-장 모델 / 물질-장 모델'
+    assert display_text(prose, {'FIELD':'장'}) == expected
+    assert display_text(expected, {'FIELD':'장'}) == expected
+    state.report = ReportArtifact(narrative={'executive_summary':prose})
+    original = state.model_dump_json()
+    for rendered in (render.render_report(state, state.report.narrative), render.render_html(state)):
+        assert 'Su-Field' in rendered and '물질-장 모델' in rendered
+        assert 'Su-장' not in rendered
+    assert state.model_dump_json() == original

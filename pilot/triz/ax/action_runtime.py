@@ -89,7 +89,8 @@ def executing(ctx, ticket, decision_id=None, *, context='optional', optional=Tru
                  input_snapshot_id=h['snapshot_id'], exact_input_versions=dict(state.scratch.get('ax_members', {})),
                  mode_profile_version=contract(state)['mode_profile_version'],
                  policy_version=state.scratch['ax_bundle']['policy_version'],
-                 ticket=ticket.model_dump(mode='json'), optional=optional)
+                 ticket=ticket.model_dump(mode='json'), optional=optional,
+                 plan_class=ticket.parameters.get('plan_class', 'OPTIONAL' if optional else 'FORCED_BASELINE'))
     if targeted:
         value.update(semantic_context_hash=ticket.parameters['semantic_context_hash'],
                      exploration_contract=targeted['schema'])

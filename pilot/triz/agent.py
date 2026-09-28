@@ -239,7 +239,9 @@ def run_agent(
         constraints_block=verify.constraints_block(state),
     )
     from .ax.exploration_context import current, render, PROMPTS, SCHEMA as expansion_schema
-    targeted = current(state) if prompt_id in PROMPTS else None
+    from .ax.mode_contract import unified
+    expansion_prompts = PROMPTS | ({'P_S5_TRACK_B','P_S5_TRACK_C','P_S5_TRACK_E','P_S5_TRACK_F'} if unified(state) else set())
+    targeted = current(state) if prompt_id in expansion_prompts else None
     if targeted:
         base_user += render(targeted)
     step.input_slice = {"prompt_id": prompt_id, "vars": vars or {}, "system": system,

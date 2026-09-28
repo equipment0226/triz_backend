@@ -39,6 +39,9 @@ def choose(policy,x,actions,permitted,preferred=None):
 
 
 def dataset(tenant_id,project_id,*,cutoff=None,feature_schema='ax-features-v1'):
+    if feature_schema=='ax-state-action-v4':
+        from .learning_outcomes import q_dataset
+        return q_dataset(tenant_id,project_id,cutoff)
     if feature_schema=='ax-state-action-v3':
         from .routing_q import dataset as build
         return build(tenant_id,project_id,cutoff)
@@ -156,11 +159,11 @@ def readiness(manifest):
     if len({s['group'] for s in samples})<8: reasons.append('insufficient_independent_problems')
     if len({s['group'] for s in holdout})<2: reasons.append('insufficient_time_holdout')
     if len([a for a,n in counts.items() if n>=4])<2: reasons.append('insufficient_action_support')
-    eligible_maturity = ('TECHNICAL','CONCEPT_PROXY') if manifest.get('feature_schema')=='ax-state-action-v3' else ('TECHNICAL',)
+    eligible_maturity = ('TECHNICAL','CONCEPT_PROXY','MODEL_REVIEW_PROXY','USER_BACKED','USER_REPORTED_TEST') if manifest.get('feature_schema') in ('ax-state-action-v3','ax-state-action-v4') else ('TECHNICAL',)
     if sum(s['maturity'] in eligible_maturity for s in samples)<8: reasons.append('insufficient_technical_observations')
     if {s['group'] for s in training}&{s['group'] for s in holdout}: reasons.append('split_leakage')
     td = None
-    if manifest.get('feature_schema') == 'ax-state-action-v3':
+    if manifest.get('feature_schema') in ('ax-state-action-v3','ax-state-action-v4'):
         from . import routing_q
         try:
             model = routing_q.support_model(training)
@@ -177,7 +180,7 @@ def train(samples,*,epochs=180,learning_rate=.025,discount=.8,alpha=.05,feature_
     if not samples or epochs<1 or epochs>2000:
         raise ValueError('Bounded nonempty training batch required')
     feature_schema=feature_schema or samples[0].get('feature_schema','ax-features-v1')
-    if feature_schema=='ax-state-action-v3':
+    if feature_schema in ('ax-state-action-v3','ax-state-action-v4'):
         from .routing_q import train as fit
         return fit(samples,epochs=epochs,learning_rate=learning_rate,discount=discount,alpha=alpha)
     size=FEATURE_SCHEMAS[feature_schema]
@@ -222,7 +225,7 @@ def train(samples,*,epochs=180,learning_rate=.025,discount=.8,alpha=.05,feature_
 
 
 def evaluate(policy,samples):
-    if policy.get('feature_schema')=='ax-state-action-v3':
+    if policy.get('feature_schema') in ('ax-state-action-v3','ax-state-action-v4'):
         from .routing_q import evaluate as check
         return check(policy,samples)
     errors=[]; baseline=[]; supported=0

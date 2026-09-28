@@ -40,7 +40,7 @@ def envelope(state):
                 epoch=state.scratch.get("execution_epoch", 0), status=state.status,
                 continue_execution=state.status == "RUNNING" and not state.pending)
 def create_run(raw_query, *, mode=None, user_id="local", attachments=None, workflow_version=None,
-               run_id=None, creation_fingerprint=None):
+               run_id=None, creation_fingerprint=None, training_consent='NO_TRAINING', explicit_required_tracks=()):
     if not raw_query.strip():
         raise ValueError("문제를 입력해 주세요.")
     state = GlobalState(run_id=run_id or f"run-{uuid.uuid4().hex[:12]}", user_id=user_id, raw_query=raw_query)
@@ -56,6 +56,11 @@ def create_run(raw_query, *, mode=None, user_id="local", attachments=None, workf
     else:
         state.control.mode = RunMode[str(settings.triz.get('run',{}).get('default_mode','FULL')).upper()]
     state.intake.attachments = attachments or []
+    if training_consent not in ('NO_TRAINING','PROJECT_ONLY'):
+        raise ValueError('Invalid training consent')
+    from .ax.mode_contract import pin, ADAPTIVE_VERSION
+    pin(state.control.mode.value,version=ADAPTIVE_VERSION,required=explicit_required_tracks)
+    state.scratch.update(training_consent=training_consent,explicit_required_tracks=sorted(set(explicit_required_tracks)))
     store.create_run(state)
     return finish_creation(state, workflow_version=workflow_version)
 
@@ -416,17 +421,20 @@ def rerun_from(run_id, stage_key, instruction=""):
                 'episode_id': state.scratch['semantic_episode_id'], 'stage': stage_key,
                 'snapshot_id': state.scratch.get('ax_snapshot_id'),
                 'projection': {k: copy.deepcopy(state.scratch[k]) for k in keys}})
-            state.scratch['semantic_generation'] = state.scratch.get('semantic_generation', 0) + 1
-            state.scratch['semantic_episode_id'] = state.run_id + ':' + str(state.scratch['semantic_generation'])
+            from .ax.mode_contract import unified
+            if not unified(state) or idx<=8:
+                state.scratch['semantic_generation'] = state.scratch.get('semantic_generation', 0) + 1
+                state.scratch['semantic_episode_id'] = state.run_id + ':' + str(state.scratch['semantic_generation'])
             for key in ('ax_optional_previous', 'ax_optional_sequence', 'ax_optional_deferred_budget', 'ax_selection', 'ax_coherence', 'ax_report_snapshot_id'):
                 state.scratch.pop(key, None)
             if idx <= 8:
                 for key in ('ax_recovery_fingerprints', 'ax_constraint_failures', 'ax_action_results',
                             'ax_effect_applications', 'ax_effect_reviews', 'ax_effect_selections', 'ax_condition_facts',
-                            'ax_gate_response_pending','ax_gate_response_recorded','ax_gate_delta_pending'):
+                            'ax_gate_response_pending','ax_gate_response_recorded','ax_gate_delta_pending',
+                            'adaptive_gate_pending_ids','adaptive_dropped_candidates'):
                     state.scratch.pop(key, None)
             if idx <= 6:
-                for key in ('prior_case_ids', 'ax_blocked_tracks'):
+                for key in ('prior_case_ids', 'ax_blocked_tracks','adaptive_search'):
                     state.scratch.pop(key, None)
         state.scratch.pop("review_refresh", None)
         state.control.stage_index = idx
@@ -552,7 +560,18 @@ def recover_orphans():
                 from .ax import enabled as ax_enabled
                 if ax_enabled(state):
                     from .ax import ledger
-                    usage = ledger.recover_interrupted(state)
+                    try:
+                        usage = ledger.recover_interrupted(state)
+                    except ValueError as exc:
+                        if str(exc)!='AX run not found': raise
+                        # A damaged/deleted journal for one legacy checkpoint must
+                        # not stop recovery of every other owner's run. Never
+                        # rebuild its usage as zero or launch a replacement call.
+                        _mark_interrupted(state,'실행 원장이 없어 비용·실행 상태를 확인할 수 없습니다. 원장 복구가 필요합니다.')
+                        store.save_state(state)
+                        _emit_retry(state)
+                        recovered.append(state.run_id)
+                        continue
                     if usage['unknown_attempts']:
                         reason += ' ' + str(UsageUncertain())
                     else:

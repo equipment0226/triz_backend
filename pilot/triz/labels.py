@@ -10,10 +10,10 @@ _KINDS = {
     'TC': '기술모순', 'PC': '물리모순', 'CPT': '해결안', 'CB': '해결안',
     'IDEA': '아이디어', 'KP': '핵심문제', 'CON': '제약', 'SU': '물질장모델',
     'EV': '근거', 'TR': '트리밍', 'PER': '검토자', 'STP': '분석 단계',
-    'INT': '확인 요청', 'SYS': '대상 시스템', 'ATT': '첨부자료', 'RUN': '분석',
+    'INT': '확인 요청', 'SYS': '대상 시스템', 'ATT': '첨부자료', 'RUN': '분석', 'RAW':'원안',
 }
-ID_RE = re.compile(r'(?<![A-Za-z0-9_])(?:' + '|'.join(_KINDS) +
-                   r')-[A-Za-z0-9]{6,32}(?![A-Za-z0-9_])', re.I)
+ID_RE = re.compile(r'(?<![A-Za-z0-9_])(?:raw-(?:[a-z0-9]+-)*[a-f0-9]{8,64}|(?:' + '|'.join(_KINDS) +
+                   r')-(?:[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}|[A-Za-z0-9]{6,32}))(?![A-Za-z0-9_])', re.I)
 _STRUCTURAL = {'id', 'key', 'identifier', 'url', 'href', 'parents', 'addresses',
                'source_ref', 'blocked_by', 'violated_ids', 'markdown', 'html', 'svg',
                'diagram_mermaid', 'mermaid', 'function_mermaid', 'completed_calls',
@@ -62,6 +62,15 @@ def build_label_map(state) -> dict[str, str]:
         add(c.id, '해결안', i, c.title, c.one_liner, c.working_principle, c.description)
     for i, c in enumerate(state.solve.raw_ideas, 1):
         add(c.id, '아이디어', i, c.title, c.idea)
+    # Retained merge leaves remain available for human-readable provenance.
+    sources = list(state.scratch.get('ax_idea_inventory', []))
+    sources += state.scratch.get('idea_consolidation', {}).get('source_ideas', [])
+    for idea in state.solve.raw_ideas:
+        sources += idea.detail.get('source_details', [])
+    for i, row in enumerate(sources, 1):
+        ident = row.get('source_idea_id') or row.get('id')
+        if ident and ident not in labels:
+            add(ident, '원안', i, row.get('title'), row.get('idea'), row.get('mechanism'))
     for i, c in enumerate(state.evidence, 1):
         add(c.id, '근거', i, c.title, c.claim)
     for c in state.evaluation.reviewers:

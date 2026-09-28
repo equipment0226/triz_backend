@@ -67,12 +67,21 @@ def _identity(value):
 
 
 def generate_concepts(ctx):
+    from .ax.mode_contract import unified
+    if unified(ctx.state):
+        from .ax.incremental_review import generate
+        return generate(ctx)
+    return _generate_concepts(ctx)
+
+
+def _generate_concepts(ctx, ideas_override=None):
     st = ctx.state
     from .idea_consolidation import ensure_consolidated
     ctx.set_stage(Stage.S6.value)
-    ensure_consolidated(ctx)
+    if ideas_override is None:
+        ensure_consolidated(ctx)
     from .ax import coherence
-    ideas = list(st.solve.raw_ideas)
+    ideas = list(st.solve.raw_ideas if ideas_override is None else ideas_override)
     assigned_ids = {idea.id for idea in ideas}
     if len(assigned_ids) != len(ideas):
         raise AbortRun("S6 원본 아이디어 ID가 중복되어 전체 검토를 시작할 수 없습니다.")
@@ -108,7 +117,7 @@ def generate_concepts(ctx):
                 "evidence_digest": digest.relevant_evidence(st, assigned),
                 "prior_cases_block": batch_prior, "taboo_block": verify.taboo_block(st),
                 "batch_size": len(assigned),
-                "batch_note": "배정 항목은 이미 의미 통합한 독립 아이디어다. 모든 항목을 각각 검토하며 재결합하지 않는다. concepts와 excluded의 각 항목은 source_idea_ids에 배정 ID를 정확히 1개만 기록한다. 모든 배정 ID를 정확히 한 번 판정하고, 성립하지 않으면 해당 ID의 구체적인 reason을 기록한다. 다른 배치의 아이디어는 만들지 않는다.",
+                "batch_note": "배정 항목은 이미 의미 통합한 독립 아이디어다. 모든 항목을 각각 검토하며 재결합하지 않는다. concepts와 excluded의 각 항목은 source_idea_ids에 배정 ID를 정확히 1개만 기록한다. 모든 배정 ID를 정확히 한 번 판정하고, 성립하지 않으면 해당 ID의 구체적인 reason을 기록한다. 다른 배치의 아이디어는 만들지 않는다. active_effect_ids에는 최종 작동 기구에 실제 남긴 source_details의 source_effect_id만 기록한다. 단순 노출되었거나 제거한 효과는 넣지 않는다.",
                 "coherence_contract": coherence.contract_instruction(st)},
             checker=lambda data: check_concept_batch(data, ids),
             default={}) or {}
@@ -139,6 +148,12 @@ def generate_concepts(ctx):
                 st.run_id, sorted(payload['source_idea_ids']), payload])[:16]))
             source_ids = set(c.source_idea_ids)
             sources = [allowed[i] for i in sorted(source_ids)]
+            def effect_ids(value):
+                if isinstance(value,dict):
+                    return ({value['source_effect_id']} if value.get('source_effect_id') else set()).union(*(effect_ids(v) for v in value.values()))
+                return set().union(*(effect_ids(v) for v in value)) if isinstance(value,list) else set()
+            source_effects = set().union(*(effect_ids(i.detail) for i in sources))
+            c.active_effect_ids = sorted(set(c.active_effect_ids) & source_effects)
             key = tuple(sorted(i.mechanism_key or i.id for i in sources))
             c.mechanism_key = " + ".join(key)
             if coherence.enabled(st):
@@ -222,7 +237,7 @@ def audit_concepts(ctx):
     if group:
         groups.append(group)
     cache = st.scratch.setdefault('s6_quality_batches', {})
-    all_verdicts, audited = {}, []
+    all_verdicts, audited, review_steps = {}, [], {}
     progress = st.scratch.get('ax_candidate_review')
     if progress and progress.get('contract') == 'idea-retention-v2':
         progress.update(audit_completed_concept_ids=[], audit_unreviewed_concept_ids=[c.id for c in st.concepts])
@@ -268,6 +283,7 @@ def audit_concepts(ctx):
         by_id = {r['concept_id']: r for r in rows}
         for cid in ids:
             all_verdicts[cid] = (verdict, by_id.get(cid, {}), localized_fatal)
+            review_steps[cid] = step.step_id
         if not unlocated_fatal and verdict.get('verdict') in ('PASS', 'REVISE', 'REJECT'):
             audited.extend(cid for cid in row_ids if by_id[cid].get('verdict') in ('PASS', 'REVISE', 'REJECT'))
         if progress and progress.get('contract') == 'idea-retention-v2':
@@ -275,6 +291,12 @@ def audit_concepts(ctx):
             progress['audit_unreviewed_concept_ids'] = [c.id for c in st.concepts if c.id not in audited]
         step.output_json = verdict
         step.verdicts = [verdict]
+        from .ax.feedback_events import model_review
+        for row in rows:
+            candidate = st.concept(row.get('concept_id'))
+            if candidate:
+                model_review(st, candidate, row, stage='s6_quality', step_id=step.step_id,
+                             rubric=identity['rubric'], model=identity['model'])
         ctx.finish_step(step, 'SKIPPED' if reused and complete else
                         'OK' if complete and verdict.get('verdict') == 'PASS' else 'WARN')
         ctx.persist()
@@ -318,6 +340,8 @@ def audit_concepts(ctx):
                 if c.quality_status not in ('REJECT', 'UNVERIFIED'):
                     c.quality_status = "REVISE"
                 c.quality_issues.append(f"기존 자원 확인 또는 신규 도입 표시 필요: {name}")
+        from .ax.feedback_events import coverage_review
+        coverage_review(st,c,review_steps[c.id],coherence_checks.get(c.id,{}))
         if c.quality_status == "REJECT":
             from .ax import enabled as ax_enabled
             if ax_enabled(st):

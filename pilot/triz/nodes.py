@@ -994,6 +994,11 @@ TRACK_FUNCS = {
 def s5_solve(ctx: RunContext) -> None:
     st = ctx.state
     ctx.set_stage(Stage.S5.value)
+    from .ax.mode_contract import adaptive
+    if adaptive(st):
+        from .ax.adaptive_tracks import run
+        run(ctx)
+        return
     tracks = domain.select_tracks(st, st.control.enabled_tracks)
     from .ax import enabled as ax_enabled
     if ax_enabled(st):
@@ -1221,7 +1226,7 @@ def s7_gate(ctx: RunContext) -> None:
     payload = ctx.resume_payload() or st.scratch.get('ax_gate_response_pending')
     if payload:
         decisions = payload.get("decisions") or {}
-        expected = {c.concept_id for c in st.constraint_checks if c.verdict == 'CONDITIONAL'}
+        expected = set(st.scratch.get('adaptive_gate_pending_ids', [c.concept_id for c in st.constraint_checks if c.verdict == 'CONDITIONAL']))
         recorded = st.scratch.get('ax_gate_response_recorded')
         if not recorded and (set(decisions) != expected or any(v not in ('accept', 'drop') for v in decisions.values())):
             raise ValueError("보류된 모든 해결책의 유지·제외 판정이 필요합니다.")
@@ -1232,8 +1237,14 @@ def s7_gate(ctx: RunContext) -> None:
         if recorded:
             changed = st.scratch.get('ax_gate_delta_pending', [])
         else:
-            changed = user_reviews(st, payload.get('application_reviews', []), decisions,
-                                   st.scratch.get('ax_response_origin', 'legacy-' + _gate_fingerprint(st)))
+            from .ax.mode_contract import unified
+            if unified(st):
+                from .ax.feedback_events import user_decisions
+                user_decisions(st, decisions, payload, st.scratch.get('ax_response_origin', 'gate-' + _gate_fingerprint(st)))
+                changed = []
+            else:
+                changed = user_reviews(st, payload.get('application_reviews', []), decisions,
+                                       st.scratch.get('ax_response_origin', 'legacy-' + _gate_fingerprint(st)))
             if contract(st):
                 st.scratch['ax_gate_response_recorded'] = True
                 st.scratch['ax_gate_delta_pending'] = changed
@@ -1247,6 +1258,8 @@ def s7_gate(ctx: RunContext) -> None:
                 chk.verdict = "CONDITIONAL"
                 chk.requires_user_decision = False
             elif choice == "drop":
+                from .ax.mode_contract import unified
+                if unified(st): st.scratch.setdefault('adaptive_dropped_candidates',[]).append(cid)
                 concept = st.concept(cid)
                 if concept:
                     st.scratch.setdefault('excluded_concepts', []).append({'idea': concept.title, 'reason': '제약 검토에서 사용자가 제외함'})
@@ -1257,6 +1270,7 @@ def s7_gate(ctx: RunContext) -> None:
         for key in ('ax_gate_response_pending','ax_gate_response_recorded','ax_gate_delta_pending'):
             st.scratch.pop(key,None)
         st.scratch['gate_decisions'] = {'decisions': dict(decisions), 'fingerprint': _gate_fingerprint(st)}
+        st.scratch.pop('adaptive_gate_pending_ids',None)
         # Preserve failed model-call records. A complete human decision resolves only
         # gate-call failures, without declaring the retained concepts compliant.
         resolved = st.scratch.setdefault('resolved_step_failures', {})
@@ -1278,6 +1292,15 @@ def s7_gate(ctx: RunContext) -> None:
         return
 
     concepts = digest.concepts_for_gate(st)
+    from .ax.mode_contract import unified
+    from .ax.contracts import digest as hash_input
+    gate_cache=st.scratch.setdefault('adaptive_gate_cache',{}) if unified(st) else {}
+    gate_keys={c['concept_id']:hash_input([c,verify.constraints_full(st),st.scratch.get('ax_condition_facts',{}),
+        st.scratch.get('ax_bundle',{}).get('models'),st.scratch.get('ax_bundle',{}).get('prompts',{}).get('P_S7_GATEKEEPER')]) for c in concepts}
+    reused_ids={cid for cid,key in gate_keys.items() if key in gate_cache}
+    cached_results=[ConstraintCheckResult.model_validate(r) for cid in reused_ids for r in gate_cache[gate_keys[cid]]]
+    review_sources={}
+    concepts=[c for c in concepts if c['concept_id'] not in reused_ids]
     batch_size = max(1, min(int(cfg('constraints.max_concepts_per_call', 2)),
                            int(cfg('constraints.max_pairs_per_call', 24)) // max(1, len(st.constraints.items))))
     def gate_batch(start):
@@ -1292,10 +1315,20 @@ def s7_gate(ctx: RunContext) -> None:
                                + json.dumps(condition_facts, ensure_ascii=False) if condition_facts else ""),
             vars={"constraints_full": verify.constraints_full(st), "concepts_for_gate": batch}, default={}) or {}
         ids = {c['concept_id'] for c in batch}
-        return [r for r in build_list(ConstraintCheckResult, d.get('results')) if r.concept_id in ids]
+        step = next((s for s in reversed(st.steps) if s.node==f's7_gate_{start // batch_size + 1}' and s.status in ('OK','SKIPPED')), None)
+        if step:
+            for row in d.get('results',[]):
+                if isinstance(row,dict) and row.get('concept_id') in ids:
+                    review_sources[row['concept_id']]=step.step_id
+        parsed=[r for r in build_list(ConstraintCheckResult, d.get('results')) if r.concept_id in ids]
+        if unified(st):
+            for cid in ids:
+                rows=[r.model_dump(mode='json') for r in parsed if r.concept_id==cid]
+                if rows: gate_cache[gate_keys[cid]]=rows
+        return parsed
 
     with ThreadPoolExecutor(max_workers=max(1, int(cfg("run.parallel_workers", 4)))) as pool:
-        raw_results = [r for batch in pool.map(gate_batch, range(0, len(concepts), batch_size)) for r in batch]
+        raw_results = cached_results + [r for batch in pool.map(gate_batch, range(0, len(concepts), batch_size)) for r in batch]
 
     results: list[ConstraintCheckResult] = []
     by_id = {c.id: c for c in st.concepts}
@@ -1336,6 +1369,12 @@ def s7_gate(ctx: RunContext) -> None:
                 r.per_constraint.append({"constraint_id": con.id, "verdict": "FAIL",
                                          "reason": f"수치 자동검증: {msg}"})
     st.constraint_checks = results
+    from .ax.feedback_events import model_review
+    for row in results:
+        if row.concept_id in review_sources:
+            model_review(st,st.concept(row.concept_id),row.model_dump(mode='json'),stage='s7_gate',
+                step_id=review_sources[row.concept_id],rubric='P_S7_GATEKEEPER+normalized-hard-constraints-v1',
+                model=st.scratch.get('ax_bundle',{}).get('models',{}).get('T2'))
     from .ax.effect_history import gate_reviews
     gate_reviews(st, 's7_gate')
 
@@ -1346,6 +1385,7 @@ def s7_gate(ctx: RunContext) -> None:
              data={"pass": len(passed), "conditional": len(cond), "fail": len(failed)})
 
     for r in failed:  # 제약 위반 개념은 폐기
+        if unified(st): st.scratch.setdefault('adaptive_dropped_candidates',[]).append(r.concept_id)
         c = by_id.get(r.concept_id)
         if c:
             from .ax import enabled as ax_enabled
@@ -1359,7 +1399,13 @@ def s7_gate(ctx: RunContext) -> None:
     st.constraint_checks = [r for r in results if r.verdict != "FAIL"]
 
     min_pass = int(cfg("constraints.min_passing_concepts", 5))
+    if unified(st):
+        accepted=st.scratch.get('gate_decisions',{}).get('decisions',{})
+        cond=[r for r in cond if not (r.concept_id in reused_ids and accepted.get(r.concept_id)=='accept')]
+        for r in st.constraint_checks:
+            if r.concept_id in reused_ids and accepted.get(r.concept_id)=='accept': r.requires_user_decision=False
     if cond and not st.scratch.get('ax_autonomous_gate') and (len(passed) < min_pass or any(r.requires_user_decision for r in cond)):
+        if unified(st): st.scratch['adaptive_gate_pending_ids']=[r.concept_id for r in cond]
         ctx.persist()
         raise HumanInterrupt("DECIDE", "제약 판정이 보류된 해결책을 확인해 주세요", {
             "conditional": [{
@@ -1370,8 +1416,6 @@ def s7_gate(ctx: RunContext) -> None:
                 "per_constraint": r.per_constraint,
             } for r in cond],
             "constraints": verify.constraints_full(st),
-            "effect_applications": [{k:a[k] for k in ('application_id','candidate_id','effect_id','intended_function','conditions')}
-                for a in st.scratch.get('ax_effect_applications', []) if a['candidate_id'] in {r.concept_id for r in cond}],
         }, Stage.S7.value)
     ctx.persist()
 
@@ -1418,6 +1462,8 @@ def s8_evaluate(ctx: RunContext) -> None:
     from .meeting import evaluate
 
     all_scores = evaluate(ctx)
+    from .ax.feedback_events import meeting_reviews
+    meeting_reviews(st,all_scores)
 
     st.evaluation.evaluations = _aggregate(st, all_scores)
     _rank(ctx)
@@ -1639,6 +1685,13 @@ def record_feedback(st, payload: dict, distill: dict | None = None) -> int:
             elif item.rating <= 2:
                 fb.distilled["rejected_patterns"].extend([item.comment] if item.comment else item.reason_tags)
     st.feedback = fb
+    from .ax.mode_contract import unified
+    if unified(st):
+        from .ax.feedback_events import final_feedback
+        changed = final_feedback(st, payload)
+        if not changed or st.scratch.get('training_consent') != 'PROJECT_ONLY':
+            return 0
+        return rag.write_feedback(st, fb.distilled)
     for s in fb.solution_feedback:
         store.save_feedback(st.run_id, s.concept_id, s.rating, s.adopted, s.reason_tags, s.comment)
     return rag.write_feedback(st, fb.distilled)

@@ -9,7 +9,7 @@ import hashlib
 import secrets
 from contextlib import asynccontextmanager, suppress, AsyncExitStack
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Optional, Literal, Annotated
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Header, Depends, Request, Query, BackgroundTasks
 from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse, JSONResponse, HTMLResponse
@@ -172,6 +172,8 @@ class InjectBody(BaseModel):
 
 
 class FeedbackBody(BaseModel):
+    submission_id: str | None = None
+    training_consent: Literal['NO_TRAINING', 'PROJECT_ONLY'] | None = None
     overall_rating: int = 0
     missing_perspective: str = ""
     would_reuse: Optional[bool] = None
@@ -231,10 +233,12 @@ def _submission_run_id(user_id, request_id):
                      if request_id else uuid.uuid4().hex[:12])
 
 
-def _create_submission(query, mode, attachments, user_id, public_consent, request_id):
+def _create_submission(query, mode, attachments, user_id, public_consent, request_id, training_consent='NO_TRAINING', explicit_required_tracks=()):
     fingerprint = hashlib.sha256(json.dumps({
         'query': query.strip(), 'mode': mode, 'public_consent': public_consent,
         'files': [(a.filename, a.sha256) for a in attachments],
+        **({'training_consent':training_consent,'explicit_required_tracks':sorted(set(explicit_required_tracks))}
+           if training_consent!='NO_TRAINING' or explicit_required_tracks else {}),
     }, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     # Scope retry identity to the authenticated owner, including across workers.
     run_id = _submission_run_id(user_id, request_id)
@@ -251,7 +255,8 @@ def _create_submission(query, mode, attachments, user_id, public_consent, reques
                     store.publish_run(run_id, user_id)
                 return state.run_id, setup_pending
             state = pipeline.create_run(query.strip(), mode=mode, attachments=attachments,
-                user_id=user_id, run_id=run_id, creation_fingerprint=fingerprint)
+                user_id=user_id, run_id=run_id, creation_fingerprint=fingerprint,
+                training_consent=training_consent, explicit_required_tracks=explicit_required_tracks)
             if public_consent:
                 store.publish_run(state.run_id, user_id)
             return state.run_id, True
@@ -268,6 +273,8 @@ async def create_run(
     query: str = Form(...),
     mode: Optional[str] = Form(None),
     public_consent: bool = Form(False),
+    training_consent: Annotated[Literal['NO_TRAINING','PROJECT_ONLY'], Form()] = 'NO_TRAINING',
+    explicit_required_tracks: Annotated[list[str], Form()] = [],
     files: list[UploadFile] = File(default=[]),
     idempotency_key: str = Header(default='', max_length=128),
 ) -> dict:
@@ -309,7 +316,7 @@ async def create_run(
     run_id = None
     try:
         run_id, created = await asyncio.to_thread(_create_submission, query, mode, attachments,
-            user_id, public_consent, idempotency_key)
+            user_id, public_consent, idempotency_key, training_consent, explicit_required_tracks)
     finally:
         if attachments and (run_id or idempotency_key):
             saved = await asyncio.to_thread(store.load_state, run_id or _submission_run_id(user_id, idempotency_key))
@@ -544,6 +551,25 @@ def submit_feedback(run_id: str, body: FeedbackBody) -> dict:
         written = nodes.record_feedback(state, body.model_dump())
         store.save_state(state)
     return {"ok": True, "mode": "post_run", "records": written}
+
+
+class EvaluationRevisionBody(BaseModel):
+    training_consent: Literal['NO_TRAINING','PROJECT_ONLY']
+    reason: str
+    value: float | None = None
+    correct_value: bool = False
+
+
+@app.post('/api/runs/{run_id}/evaluations/{event_id}/revision')
+def revise_evaluation(run_id: str,event_id: str,body: EvaluationRevisionBody,request: Request):
+    from triz.ax.feedback_events import revise
+    from triz.ax.contracts import Conflict
+    try:
+        eid=revise(run_id,getattr(request.state,'user_id','local'),event_id,
+            consent_scope=body.training_consent,reason=body.reason,value=body.value,correct_value=body.correct_value)
+        return {'event_id':eid,'frozen_report_changed':False}
+    except (ValueError,Conflict) as exc:
+        raise HTTPException(409,str(exc)) from exc
 
 
 @app.get("/api/rag")

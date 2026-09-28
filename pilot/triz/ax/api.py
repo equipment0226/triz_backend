@@ -63,9 +63,22 @@ def diagnostics(run_id: str,request: Request):
     h=scoped(run_id,request)
     from .. import store
     from . import runtime,learning,effect_ranker
+    schema=h['bundle'].get('feature_schema','ax-state-action-v3')
     return dict(runtime.diagnostics(store.load_state(run_id)),budget=ledger.budget(run_id,actor(request)),
-        routing_learning=learning.readiness(learning.dataset(h['tenant_id'],h['project_id'],feature_schema='ax-state-action-v3')),
-        effect_learning=effect_ranker.readiness(effect_ranker.dataset(h['tenant_id'],h['project_id'])))
+        routing_learning=learning.readiness(learning.dataset(h['tenant_id'],h['project_id'],feature_schema=schema)),
+        effect_learning=effect_ranker.readiness(effect_ranker.dataset(h['tenant_id'],h['project_id'],
+            schema=effect_ranker.UTILITY_SCHEMA if schema=='ax-state-action-v4' else effect_ranker.SCHEMA)))
+
+
+@router.get('/evaluations')
+def common_evaluations(run_id: str,request: Request):
+    scoped(run_id,request)
+    import json
+    from sqlalchemy import select
+    from .feedback_events import KIND
+    with ledger.store.engine.connect() as c:
+        return {'evaluations':[json.loads(p) for p in c.execute(select(ledger.events.c.payload).where(
+            ledger.events.c.run_id==run_id,ledger.events.c.event_type==KIND)).scalars()]}
 
 
 @router.get('/effect-reviews')

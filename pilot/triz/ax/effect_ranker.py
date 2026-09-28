@@ -4,6 +4,7 @@ from collections import Counter
 from .contracts import digest, now
 
 SCHEMA = 'effect-context-ranker-v1'
+UTILITY_SCHEMA = 'effect-application-utility-v2'
 DIMENSIONS = 256
 
 
@@ -31,7 +32,10 @@ def features(context, effect):
     return {k:v / length for k,v in vector.items()}
 
 
-def dataset(tenant, project, cutoff=None):
+def dataset(tenant, project, cutoff=None, *, schema=SCHEMA):
+    if schema == UTILITY_SCHEMA:
+        from .learning_outcomes import effect_dataset
+        return effect_dataset(tenant,project,cutoff)
     from .effect_history import observations
     cutoff = cutoff or now()
     rows = observations(tenant, project, cutoff=cutoff)
@@ -74,7 +78,7 @@ def readiness(manifest):
     if manifest.get('synthetic'):
         reasons.append('synthetic_dataset')
     if len(rows) < 16:
-        reasons.append('fewer_than_16_explicit_condition_reviews')
+        reasons.append('fewer_than_16_common_evaluations' if manifest.get('schema')==UTILITY_SCHEMA else 'fewer_than_16_explicit_condition_reviews')
     if len({r['group'] for r in train}) < 4 or len({r['group'] for r in holdout}) < 2:
         reasons.append('insufficient_independent_time_holdout')
     if len({r['label'] for r in train}) < 2:
@@ -85,27 +89,35 @@ def readiness(manifest):
 def train(samples, epochs=200, rate=.1, regularization=.01):
     if not samples or len(samples)>2000 or not 1 <= epochs <= 2000:
         raise ValueError('Bounded nonempty effect dataset required')
+    schema = samples[0].get('feature_schema', SCHEMA)
+    if schema not in (SCHEMA,UTILITY_SCHEMA) or any(r.get('feature_schema',SCHEMA)!=schema or r.get('split','train')!='train' for r in samples):
+        raise ValueError('Incompatible effect training partition/schema')
+    if any(r.get('synthetic') for r in samples):
+        raise ValueError('Synthetic event projections cannot establish effect support')
     weights = [0.0] * DIMENSIONS; initial = digest(weights); losses = []
+    total_weight = sum(s.get('sample_weight',1.) for s in samples)
     for _ in range(epochs):
         gradients = [regularization * w for w in weights]; loss = 0
         for row in samples:
             x = row['features']
-            if row['label'] not in (-1, 1):
+            if (schema==SCHEMA and row['label'] not in (-1, 1)) or not math.isfinite(row['label']) or not -1 <= row['label'] <= 1:
                 raise ValueError('UNKNOWN and adoption labels cannot train applicability')
             error = sum(weights[int(i)] * v for i,v in x.items()) - row['label']
-            loss += error ** 2
+            weight = row.get('sample_weight',1.)
+            loss += weight * error ** 2
             for i,v in x.items():
-                gradients[int(i)] += error * v / len(samples)
+                gradients[int(i)] += weight * error * v / max(1e-9,total_weight)
         weights = [w - rate * g for w,g in zip(weights, gradients)]
         losses.append(loss / len(samples))
-    return dict(feature_schema=SCHEMA, algorithm='regularized-linear-condition-proxy-v1', weights=weights,
+    return dict(feature_schema=schema, algorithm='regularized-linear-application-utility-v2' if schema==UTILITY_SCHEMA else 'regularized-linear-condition-proxy-v1', weights=weights,
+                target_contract='candidate-utility-cost-v2' if schema==UTILITY_SCHEMA else 'condition-proxy-v1',
                 supported_effects=sorted({s['effect_id'] for s in samples}),
                 supported_contexts=sorted({compatibility_key(s['context']) for s in samples}),
                 training=dict(parameters_changed=initial != digest(weights), loss_first=losses[0], loss_last=losses[-1]))
 
 
 def predict(model, context, effect):
-    if (model.get('feature_schema') != SCHEMA or len(model.get('weights', [])) != DIMENSIONS
+    if (model.get('feature_schema') not in (SCHEMA,UTILITY_SCHEMA) or len(model.get('weights', [])) != DIMENSIONS
             or any(not math.isfinite(w) for w in model['weights'])):
         return 0.0
     if effect.get('id', effect.get('effect_id')) not in model['supported_effects'] or compatibility_key(context) not in model['supported_contexts']:
@@ -119,9 +131,9 @@ def evaluate(model, rows):
                 ranking_metric=None, field_improvement_established=False)
 
 
-def train_project(tenant, project):
+def train_project(tenant, project, *, schema=SCHEMA):
     from . import registry
-    manifest = dataset(tenant, project); ready = readiness(manifest)
+    manifest = dataset(tenant, project, schema=schema); ready = readiness(manifest)
     if not ready['ready']:
         return dict(ready, status='COLLECTING')
     dataset_id = registry.put('effect_dataset', tenant, project, manifest)
@@ -133,5 +145,5 @@ def train_project(tenant, project):
         review_ids=sorted({rid for s in manifest['samples'] for rid in s['review_ids']}))
     vid = registry.put('effect_ranker', tenant, project, payload)
     if eligible:
-        registry.set_task_shadow(tenant, project, 'effect_ranker', SCHEMA, vid)
+        registry.set_task_shadow(tenant, project, 'effect_ranker', schema, vid)
     return dict(status='SHADOW' if eligible else 'EVALUATION_FAILED', version_id=vid, evaluation=evaluation)

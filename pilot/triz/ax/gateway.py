@@ -12,6 +12,12 @@ from .contracts import Conflict,BudgetBusy
 def chat(ctx, **kwargs):
     node=kwargs.pop('_node','independent_verifier')
     state=ctx.state
+    from .registry import pinned_permissions_current
+    if not pinned_permissions_current(state):
+        raise AbortRun('고정된 학습 모델의 피드백 동의가 변경되었습니다. 새 분석은 현재 적격 정책 또는 규칙으로 시작해 주세요.')
+    from ..rag import case_permissions_current
+    if not case_permissions_current(state):
+        raise AbortRun('참조 사례의 학습 동의가 변경되어 이 입력으로 추가 모델 호출을 진행할 수 없습니다.')
     bundle=state.scratch['ax_bundle']
     from .action_runtime import active_action
     action_context = active_action.get()
@@ -24,6 +30,8 @@ def chat(ctx, **kwargs):
     config=bundle['models'][kwargs.get('tier','T2')]
     attempts=max(1,int(bundle['config'].get('ax',{}).get('max_provider_attempts',2)))
     request=dict(kwargs,model_config=config,retries=attempts)
+    from .mode_contract import unified
+    if unified(state): request['semantic_episode_id']=state.scratch['semantic_episode_id']
     bound=len((kwargs['system']+kwargs['user']).encode('utf-8'))+16000
     reserve=math.ceil((bound*config['cost_in']+(kwargs.get('max_tokens') or config['max_tokens'])*config['cost_out'])*attempts)
     validation=node.startswith(('s7_','s8_','s9_')) or node=='independent_verifier'
@@ -42,7 +50,9 @@ def chat(ctx, **kwargs):
                                     {'node':node,'request':request,'bundle_id':bundle['bundle_id'],
                                      'decision_id':action_context.get('decision_id') if action_context else state.scratch.get('ax_last_decision'),
                                      **({'action_context':action_context} if action_context else {})},
-                                    reserve,minimum_remaining=hold,optional_limit=optional_limit)
+                                    reserve,minimum_remaining=hold,optional_limit=optional_limit,
+                                    generation_limit=bundle['limits'].get('generation_budget_microusd')
+                                        if action_context and action_context.get('plan_class')=='INITIAL_SELECTION' else None)
                 break
             except BudgetBusy as exc:
                 if time.time()>=until:
@@ -78,7 +88,7 @@ def chat(ctx, **kwargs):
             result.meta=dict(result.meta,durable_replay=True)
             return result
         try:
-            result=llm.chat_json(**request)
+            result=llm.chat_json(**{k:v for k,v in request.items() if k!='semantic_episode_id'})
         except BaseException as exc:
             usage=getattr(exc,'usage',None)
             requests=usage.meta.get('requests',[]) if usage else []

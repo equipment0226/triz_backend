@@ -8,6 +8,16 @@ import pytest
 from fastapi.testclient import TestClient
 from triz import render, store, visuals
 from triz.labels import build_label_map, humanize, label_of
+
+
+def test_raw_target_leaf_ids_are_readable_in_merge_and_patent_solution_cards(state):
+    state.scratch['ax_idea_inventory'] = [{'source_idea_id':'raw-target-167a2532','title':'전자기 구동으로 기계 접촉 대체'}]
+    labels = build_label_map(state)
+    text = humanize('raw-target-167a2532는 원리28 기계→전자기 대체 관점', labels)
+    assert 'raw-target-' not in text and '전자기 구동으로 기계 접촉 대체' in text
+    assert humanize('raw-target-deadbeef', {}) == '원안 (내용 확인 필요)'
+    url = 'https://example.com/raw-target-167a2532'
+    assert humanize(url, labels) == url
 from triz.presentation import view
 from triz.schema import ConceptSpec, ConceptEvaluation, HumanRequest, ReportArtifact, SystemCandidate, RunMode
 
@@ -136,3 +146,24 @@ def test_downloads_context_library_and_notifications_use_current_display(referen
     _assert_display_clean(store.runs_page(user_id=state.user_id))
     _assert_display_clean(store.pending_notifications(state.user_id))
     assert store.load_state(state.run_id).model_dump_json() == original
+
+
+def test_patent_solution_prose_and_idea_to_solution_hide_codes(state):
+    from triz import presentation
+    from triz.schema import ConceptSpec
+    state.scratch['ax_idea_inventory']=[{'source_idea_id':'raw-target-167a2532','title':'전자기 구동으로 기계 접촉 대체'}]
+    code='raw-target-167a2532는 원리28 기계→전자기 대체 관점'
+    state.concepts=[ConceptSpec(id='CPT-abcdef12',title='특허에서 제안된 해결안',description=code,
+        assumptions=['constraint_id=CON-abcdef12; verdict=CONDITIONAL; HARD 제약'],working_principle=code)]
+    state.scratch['patent_additions']=[{'title':'추가 특허 해결안','constraints':[code,'change_scale=PARTIAL'],
+        'identifier':'US20240123456A1','url':'https://patents.google.com/patent/US20240123456A1/en'}]
+    original=state.model_dump_json()
+    view=presentation.view(state)
+    assert 'raw-target-' not in json.dumps(view['solutions'],ensure_ascii=False)
+    assert '전자기 구동으로 기계 접촉 대체' in view['solutions'][0]['description']
+    assert view['solutions'][0]['key']=='CPT-abcdef12'
+    assert all(token not in str(view['solutions'][0]['assumptions']) for token in ('constraint_id','CONDITIONAL','HARD','CON-abcdef12'))
+    assert 'raw-target-' not in str(view['additions'])
+    assert view['additions'][0]['identifier']=='US20240123456A1'
+    assert view['additions'][0]['url']=='https://patents.google.com/patent/US20240123456A1/en'
+    assert state.model_dump_json()==original

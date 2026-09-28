@@ -2,6 +2,9 @@
 import re
 
 TERMS={
+    'Su-Field':'Su-Field', 'Su-장':'Su-Field', 'Su–장':'Su-Field',
+    '물질-장 분석':'물질-장 모델', '물질–장 분석':'물질-장 모델', '물질–장 모델':'물질-장 모델',
+    'HARD':'필수', 'SOFT':'선호', 'CONDITIONAL':'조건부', 'UNSUPPORTED':'근거 미확보',
     'QUICK_WIN':'QUICK WIN','BIG_BET':'BIG BET','FILL_IN':'FILL IN',
     'PARAMETER':'파라미터 조정','PARTIAL':'국부적 변경','REDESIGN':'구조 재설계',
     'PHYSICAL_TECHNICAL':'물리·공학 문제','INFORMATION_SOFTWARE':'정보·소프트웨어 문제',
@@ -27,6 +30,9 @@ TERMS={
     'S0_RESEARCH':'산업·기술 심층 검토','S7_GATE':'제약 검토',
 }
 FIELDS={
+    'verdict':'판정', 'condition_id':'조건', 'evidence_level':'근거 수준', 'source_idea_ids':'원안 출처',
+    'constraint_id':'제약', 'constraint_ids':'제약 목록', 'requires_user_decision':'사용자 판단 필요',
+    'per_constraint':'제약별 검토', 'violated_ids':'위반 제약', 'mitigation':'보완 방안',
     'change_scale':'변경 범위','novelty_class':'접근 분야','quality_status':'검토 상태',
     'evidence_status':'근거 수준','evidence_scope':'근거 범위','source_type':'출처 유형',
     'working_principle':'작동 원리','expected_effect':'기대 효과','validation_plan':'검증 계획',
@@ -49,7 +55,7 @@ def display_text(value,extra=None):
     lookup={k.casefold():v for k,v in terms.items()}
     def prose(text):
         text=_FIELDS.sub(lambda m:FIELDS[m[1]]+': ',text)
-        return pattern.sub(lambda m:lookup[m[0].casefold()],text)
+        return pattern.sub(lambda m:m[0] if m[0] in ('hard','soft') else lookup[m[0].casefold()],text)
     def chunk(text):
         # Internal badges are sometimes quoted as inline code. Render those as
         # prose while leaving actual variable names and formulas untouched.

@@ -81,7 +81,23 @@ def reviews_current(payload,tenant,project,c):
     superseded_effect={json.loads(r['payload']).get('supersedes_event_id') for r in effect_rows}
     valid.update(r['event_id'] for r in effect_rows if r['event_id'] not in superseded_effect
                  and json.loads(r['payload']).get('training_consent')=='PROJECT_ONLY')
+    from .feedback_events import current
+    valid.update(r['event_id'] for r in current(tenant,project))
     return set(ids)<=valid and not payload.get('synthetic',False)
+
+
+def pinned_permissions_current(state):
+    """Consent is live permission, even when the model/input bundle is frozen."""
+    from .mode_contract import unified
+    if not unified(state): return True
+    bundle=state.scratch['ax_bundle'];project=state.scratch.get('ax_project_id',state.user_id)
+    with ledger.store.engine.connect() as c:
+        for model,version in (('policy','policy_version'),('effect_ranker','effect_ranker_version')):
+            if not bundle.get(model): continue
+            try: payload=get(bundle[version],state.user_id,project,c)['payload']
+            except (KeyError,ValueError): return False
+            if not reviews_current(payload,state.user_id,project,c): return False
+    return True
 
 
 def train_project(tenant,project,feature_schema='ax-features-v1'):
@@ -133,7 +149,8 @@ def for_run(state,feature_schema='ax-features-v1'):
                 result['rule_catalog'].append(dict(payload['rule'],version_id=vid))
         result['rule_catalog_version']='rules-'+digest(result['rule_catalog'])[:32]
         result.update(_task_models(c,state,tenant,project,'routing_q',feature_schema))
-        from .effect_ranker import SCHEMA
+        from .effect_ranker import SCHEMA, UTILITY_SCHEMA
+        if feature_schema=='ax-state-action-v4': SCHEMA=UTILITY_SCHEMA
         result.update(_task_models(c,state,tenant,project,'effect_ranker',SCHEMA))
         return result
 
@@ -145,13 +162,15 @@ def task_scope(tenant,project,kind,schema):
 def compatible_model(model):
     """Artifacts remain readable; new deployment requires target semantics too."""
     from . import routing_q
-    if model.get('feature_schema') == routing_q.SCHEMA:
+    if model.get('feature_schema') in (routing_q.SCHEMA,routing_q.ADAPTIVE_SCHEMA):
         if model.get('training', {}).get('unversioned_observations', 0):
             return False  # Direct offline fixtures are not deployment evidence.
         try:
             routing_q.validate_contract(model)
         except (ValueError, TypeError, KeyError):
             return False
+    if model.get('feature_schema')=='effect-application-utility-v2' and model.get('target_contract')!='candidate-utility-cost-v2':
+        return False
     return True
 
 

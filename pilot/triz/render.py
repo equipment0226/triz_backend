@@ -384,7 +384,7 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
     if state.analysis.function_edges:
         applied.append("기능분석(Function Analysis)")
     if state.analysis.su_fields:
-        applied.append("물질-장 분석(Su-Field)")
+        applied.append("Su-Field 분석(물질-장 모델)")
     if state.analysis.ceca:
         applied.append("인과사슬분석(CECA)")
     if any(c.source == "DOMAIN" for c in state.constraints.items):

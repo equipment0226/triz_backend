@@ -84,6 +84,16 @@ def executing(ctx, ticket, decision_id=None, *, context='optional', optional=Tru
                  mode_profile_version=contract(state)['mode_profile_version'],
                  policy_version=state.scratch['ax_bundle']['policy_version'],
                  ticket=ticket.model_dump(mode='json'), optional=optional)
+    previous = state.scratch.get('ax_action_results', {}).get(action_id)
+    if context.startswith('track:') and ticket.action_type == 'GENERATE_BASELINE' and previous:
+        # A partial S5 checkpoint adds solve output and invalidates derived
+        # coherence. Neither changes the inputs of the unfinished base track.
+        # Keep its original read set so transport resume reuses paid calls.
+        prior_inputs = previous.get('exact_input_versions', {})
+        inputs = ('input', 'problem', 'analysis', 'definition')
+        if (previous.get('semantic_episode_id') == episode(state)
+                and prior_inputs and all(prior_inputs.get(k) == state.scratch['ax_members'].get(k) for k in inputs)):
+            value['exact_input_versions'] = dict(prior_inputs)
     emit(state, 'ACTION_INSTANCE_STARTED', value)
     token = active_action.set(value)
     before = {i.id for i in state.solve.raw_ideas}

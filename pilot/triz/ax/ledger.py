@@ -284,6 +284,10 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
         if old:
             if old['status']=='COMPLETED':
                 return dict(old,cached=True,result=json.loads(old['result']))
+            if old['status']=='FAILED' and old['actual'] is not None:
+                # A newer parser may recover a fully received response. Return
+                # the immutable failure evidence; never reserve or pay again.
+                return dict(old,blocked='FAILED',result=json.loads(old['result']))
             if old['status']=='RUNNING' and old['lease_until']<time.time():
                 # No automatic second paid attempt after an ambiguous process loss.
                 c.execute(update(tasks).where(tasks.c.task_id==task_id).values(status='UNKNOWN'))

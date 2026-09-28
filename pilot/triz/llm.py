@@ -89,6 +89,90 @@ def _loads_with_extra_closers(text: str) -> Any:
             text = text[:pos] + text[pos + 1:]
 
 
+def _unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError("Ambiguous duplicate JSON field: " + key)
+        result[key] = value
+    return result
+
+
+def _insert_table_rows(text: str, error: json.JSONDecodeError) -> str:
+    """Restore only an omitted table_rows label around complete string rows."""
+    pos = error.pos
+    if error.msg != 'Expecting property name enclosed in double quotes' or text[pos:pos + 1] != '[':
+        raise error
+    stack = []
+    in_string = escaped = False
+    for index, ch in enumerate(text[:pos]):
+        if in_string:
+            if escaped:
+                escaped = False
+            elif ch == '\\':
+                escaped = True
+            elif ch == '"':
+                in_string = False
+        elif ch == '"':
+            in_string = True
+        elif ch in '{[':
+            stack.append((ch, index))
+        elif ch in '}]':
+            if not stack or stack.pop()[0] != {'}': '{', ']': '['}[ch]:
+                raise error
+    if not stack or stack[-1][0] != '{':
+        raise error
+    prefix = text[stack[-1][1]:pos].rstrip()
+    if not prefix.endswith(','):
+        raise error
+    fields = json.loads(prefix[:-1] + '}', object_pairs_hook=_unique_object)
+    columns = fields.get('table_columns')
+    if (not fields or next(reversed(fields)) != 'table_columns' or 'table_rows' in fields
+            or not isinstance(columns, list) or not columns or not all(isinstance(c, str) for c in columns)):
+        raise error
+    decoder = json.JSONDecoder()
+    cursor = pos
+    while True:
+        row, end = decoder.raw_decode(text, cursor)
+        if not isinstance(row, list) or len(row) != len(columns) or not all(isinstance(cell, str) for cell in row):
+            raise error
+        cursor = end
+        while cursor < len(text) and text[cursor].isspace():
+            cursor += 1
+        if text[cursor:cursor + 1] == ',':
+            following = cursor + 1
+            while following < len(text) and text[following].isspace():
+                following += 1
+            if text[following:following + 1] == '[':
+                cursor = following
+                continue
+        break
+    # Retain an existing outer rows closer, or insert one before an object
+    # delimiter. Never invent cells, discard a row, or close a truncated root.
+    if text[cursor:cursor + 1] == ']':
+        return text[:pos] + '"table_rows":[' + text[pos:]
+    if text[cursor:cursor + 1] in ('}', ','):
+        return text[:pos] + '"table_rows":[' + text[pos:cursor] + ']' + text[cursor:]
+    raise error
+
+
+def _loads_response(text: str) -> Any:
+    try:
+        return _loads_with_extra_closers(text)
+    except json.JSONDecodeError as original:
+        repaired = text
+        # ARIZ can return this omission in several independently complete tables.
+        for _ in range(16):
+            try:
+                return json.loads(repaired, object_pairs_hook=_unique_object)
+            except json.JSONDecodeError as exc:
+                try:
+                    repaired = _insert_table_rows(repaired, exc)
+                except (ValueError, IndexError):
+                    raise original
+        raise original
+
+
 def extract_json(text: str) -> Any:
     """모델 출력에서 JSON 객체/배열을 최대한 관대하게 뽑아낸다."""
     if not text:
@@ -102,7 +186,7 @@ def extract_json(text: str) -> Any:
     for cand in candidates:
         cand = cand.strip()
         try:
-            return _loads_with_extra_closers(cand)
+            return _loads_response(cand)
         except json.JSONDecodeError:
             pass
         # 첫 {..} 또는 [..] 블록 스캔
@@ -133,9 +217,9 @@ def extract_json(text: str) -> Any:
                 if depth == 0:
                     chunk = cand[start : i + 1]
                     try:
-                        return _loads_with_extra_closers(chunk)
-                    except json.JSONDecodeError:
-                        raise ValueError("JSON root container is malformed")
+                        return _loads_response(chunk)
+                    except json.JSONDecodeError as exc:
+                        raise ValueError(f"JSON root container is malformed: {exc.msg} at character {start + exc.pos}") from exc
     salvaged = salvage_truncated(text)
     if salvaged is not None:
         return salvaged
@@ -183,6 +267,36 @@ def salvage_truncated(text: str) -> Any:
 def _price(tier: str, tin: int, tout: int, config=None) -> float:
     tc = settings.tiers[tier]
     return (tin / 1_000_000) * (config['cost_in'] if config else tc.cost_in) + (tout / 1_000_000) * (config['cost_out'] if config else tc.cost_out)
+
+
+def _repair_excerpt(text: str, error: Exception) -> str:
+    cause = error if isinstance(error, json.JSONDecodeError) else error.__cause__
+    if isinstance(cause, json.JSONDecodeError) and cause.pos > 3000:
+        # Keep the retry payload within the existing 4,000-character allowance,
+        # but include the actual error even when it occurs late in the output.
+        nearby = cause.doc[max(0, cause.pos - 300):cause.pos + 600]
+        return text[:3000] + '\n[JSON 오류 위치 주변]\n' + nearby
+    return text[:4000]
+
+
+def recover_failed_json(usage: dict, expect: str = 'object') -> LLMResult | None:
+    """Reparse a fully received, accounted response without a provider call."""
+    records = usage.get('meta', {}).get('requests', [])
+    if (not str(usage.get('raw_error', '')).startswith('ValueError: JSON root container is malformed')
+            or not records or not all(r.get('usage') for r in records)
+            or records[-1].get('finish_reason') != 'stop'
+            or records[-1].get('response') != usage.get('text')):
+        return None
+    try:
+        data = _loads_response(usage['text'].strip())
+    except (ValueError, TypeError):
+        return None
+    if not isinstance(data, dict if expect == 'object' else list):
+        return None
+    result = LLMResult(**usage)
+    result.data = data
+    result.meta = dict(result.meta, durable_replay=True, format_recovery='complete-json-v1')
+    return result
 
 
 def chat_json(
@@ -298,11 +412,14 @@ def chat_json(
                 messages = [
                     {"role": "system", "content": system},
                     {"role": "user", "content": user},
-                    {"role": "assistant", "content": text[:4000]},
+                    {"role": "assistant", "content": _repair_excerpt(text, exc)},
                     {
                         "role": "user",
                         "content": "직전 응답이 유효한 JSON이 아니었다. 설명 없이 "
-                        f"{'JSON 배열' if expect == 'array' else 'JSON 객체'}만 다시 출력하라.",
+                        f"{'JSON 배열' if expect == 'array' else 'JSON 객체'}만 다시 출력하라. "
+                        f"파서 오류: {last_err[:240]}. "
+                        '표는 "table_columns":["열"],"table_rows":[["셀"]] 형식이며 '
+                        '키 없는 행 배열을 쓰지 마라. 요청된 모든 단계와 내용은 유지하라.',
                     },
                 ]
             time.sleep(1.5 * (attempt + 1))

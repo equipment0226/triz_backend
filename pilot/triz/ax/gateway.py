@@ -51,6 +51,24 @@ def chat(ctx, **kwargs):
             except Conflict as exc:
                 raise AbortRun(str(exc)) from exc
         if task.get('blocked'):
+            if task['blocked']=='FAILED' and task.get('actual') is not None:
+                stored=task.get('result') or {}
+                result=llm.recover_failed_json(stored.get('usage') or {}, kwargs.get('expect','object'))
+                if result is not None:
+                    from .contracts import digest
+                    from sqlalchemy import select
+                    event_id='evt-'+digest([task['task_id'],'complete-json-v1'])[:60]
+                    with ledger.transaction() as connection:
+                        head=ledger._head(connection,state.run_id,lock=True)
+                        if head['epoch']!=state.scratch.get('execution_epoch',0):
+                            raise Conflict('Stale format recovery epoch')
+                        if not connection.execute(select(ledger.events.c.event_id).where(ledger.events.c.event_id==event_id)).first():
+                            ledger._event(connection,state.run_id,'ACTION_FORMAT_RECOVERED',
+                                {'task_id':task['task_id'],'recovery_version':'complete-json-v1',
+                                 'data_hash':digest(result.data),'additional_cost_microusd':0},event_id=event_id)
+                    with ctx.lock:
+                        state.cost.total_usd=ledger.budget(state.run_id)['spent_microusd']/1e6
+                    return result
             raise AbortRun('이 호출의 실행 또는 과금 상태를 확인해야 합니다. 중복 호출을 보류했습니다.')
         if task.get('cached'):
             state.cost.total_usd=ledger.budget(state.run_id)['spent_microusd']/1e6

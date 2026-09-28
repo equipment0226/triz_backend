@@ -21,6 +21,14 @@ class AbortRun(Exception):
     pass
 
 
+class ConceptReviewIncomplete(AbortRun):
+    """A public, fixed explanation without internal IDs or model response text."""
+
+    def __init__(self):
+        super().__init__('해결안 구체화 응답의 원안 연결 또는 필수 항목 검증에 실패했습니다. '
+                         '완료된 검토 묶음은 보존되어 있으며, 저장된 단계에서 재개할 수 있습니다.')
+
+
 class UsageUncertain(AbortRun):
     """A lost provider response retains its reservation and cannot be retried blindly."""
 

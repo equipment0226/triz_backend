@@ -386,6 +386,9 @@ def run_agent(
                 step.output_json = _as_dict(data)
                 step.error = "치명적 분석 결함이 수리되지 않았습니다."
                 ctx.finish_step(step, "FAILED")
+                if node == 's6_concept' and any(str(i).startswith('FATAL-S6-COVERAGE:') for i in issues):
+                    from .context import ConceptReviewIncomplete
+                    raise ConceptReviewIncomplete()
                 raise AbortRun(f"{label}: 치명적 결함이 남아 후속 분석을 중단합니다.")
             if settings.cfg("verification.escalate_tier_on_fail", True) and cur_tier != "T2" and not step.escalated and not ctx.state.cost.over_budget:
                 cur_tier = _promote(cur_tier)

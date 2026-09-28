@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 import httpx
 from . import events, nodes, store
 from .domain import deep_dive
-from .context import AbortRun, HumanInterrupt, ProviderUnavailable, UsageUncertain, RunContext
+from .context import AbortRun, HumanInterrupt, ProviderUnavailable, UsageUncertain, ConceptReviewIncomplete, RunContext
 from .schema import GlobalState, RunMode
 from .settings import settings
 
@@ -207,7 +207,7 @@ def execute_stage(run_id, stage_index, epoch=0):
         except AbortRun as exc:
             reason = ("분석 실행 예산에 도달했습니다. 실행 설정을 확인하고 이어서 실행해 주세요."
                       if "예산" in str(exc) else "분석이 중단되었습니다. 저장된 단계에서 다시 이어서 실행해 주세요.")
-            if isinstance(exc, UsageUncertain) or str(exc).startswith('ARIZ Part'):
+            if isinstance(exc, (UsageUncertain, ConceptReviewIncomplete)) or str(exc).startswith('ARIZ Part'):
                 reason = str(exc)
             _mark_interrupted(state, reason)
             ctx.warn(str(exc))

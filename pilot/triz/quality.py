@@ -66,6 +66,63 @@ def _identity(value):
                                      default=str).encode()).hexdigest()
 
 
+def normalize_concept_lineage(data, assigned, portfolio=None):
+    """Keep a merged source's objection without treating it as another candidate.
+
+    Only a unique leaf below an explicitly returned representative is eligible.
+    Unknown IDs, other representatives and incomplete coverage remain errors.
+    The paid response and input identities are untouched.
+    """
+    if not isinstance(data, dict) or not isinstance(data.get('concepts'), list) or not isinstance(data.get('excluded'), list):
+        return data
+    assigned_ids = {idea.id for idea in assigned}
+    all_ideas = list(assigned if portfolio is None else portfolio)
+    representative_ids = assigned_ids | {idea.id for idea in all_ideas}
+    owners = {}
+    for idea in all_ideas:
+        for leaf in idea.source_idea_ids:
+            owners.setdefault(leaf, set()).add(idea.id)
+    counts, concepts = {}, {}
+    for kind in ('concepts', 'excluded'):
+        for row in data[kind]:
+            ids = row.get('source_idea_ids') if isinstance(row, dict) else None
+            if isinstance(ids, list) and len(ids) == 1 and isinstance(ids[0], str):
+                counts[ids[0]] = counts.get(ids[0], 0) + 1
+                if kind == 'concepts':
+                    concepts[ids[0]] = row
+    result = copy.deepcopy(data)
+    moved, kept = [], []
+    for row in result['excluded']:
+        ids = row.get('source_idea_ids') if isinstance(row, dict) else None
+        leaf = ids[0] if isinstance(ids, list) and len(ids) == 1 and isinstance(ids[0], str) else None
+        parents = owners.get(leaf, set())
+        parent = next(iter(parents)) if len(parents) == 1 else None
+        reason = row.get('reason') if isinstance(row, dict) else None
+        if (not leaf or leaf in representative_ids or counts.get(leaf) != 1 or
+                parent not in assigned_ids or parent not in concepts or counts.get(parent) != 1 or
+                not isinstance(reason, str) or not reason.strip()):
+            kept.append(row)
+            continue
+        owner = next(c for c in result['concepts'] if isinstance(c, dict) and c.get('source_idea_ids') == [parent])
+        risks = owner.get('open_risks', [])
+        if not isinstance(risks, list) or any(not isinstance(r, str) for r in risks):
+            return data
+        risk = '통합 원안의 제외 의견: ' + reason
+        owner['open_risks'] = list(dict.fromkeys([*risks, risk]))
+        moved.append(dict(representative_id=parent, source_idea_id=leaf,
+                          original_exclusion=row))
+    if not moved:
+        return data
+    result['excluded'] = kept
+    if check_concept_batch(result, assigned_ids):
+        return data
+    prior_notes = data.get('source_lineage_reviews') or []
+    if not isinstance(prior_notes, list) or any(not isinstance(r, dict) for r in prior_notes):
+        return data
+    result['source_lineage_reviews'] = list({_identity(row): row for row in copy.deepcopy(prior_notes) + moved}.values())
+    return result
+
+
 def generate_concepts(ctx):
     from .ax.mode_contract import unified
     if unified(ctx.state):
@@ -120,6 +177,7 @@ def _generate_concepts(ctx, ideas_override=None):
                 "batch_note": "배정 항목은 이미 의미 통합한 독립 아이디어다. 모든 항목을 각각 검토하며 재결합하지 않는다. concepts와 excluded의 각 항목은 source_idea_ids에 배정 ID를 정확히 1개만 기록한다. 모든 배정 ID를 정확히 한 번 판정하고, 성립하지 않으면 해당 ID의 구체적인 reason을 기록한다. 다른 배치의 아이디어는 만들지 않는다. active_effect_ids에는 최종 작동 기구에 실제 남긴 source_details의 source_effect_id만 기록한다. 단순 노출되었거나 제거한 효과는 넣지 않는다.",
                 "coherence_contract": coherence.contract_instruction(st)},
             checker=lambda data: check_concept_batch(data, ids),
+            normalizer=lambda data: normalize_concept_lineage(data, assigned, st.solve.raw_ideas),
             default={}) or {}
         issues = check_concept_batch(result, ids)
         if issues:
@@ -140,6 +198,8 @@ def _generate_concepts(ctx, ideas_override=None):
         results = list(pool.map(generate, enumerate(groups)))
     for assigned, data, prior_allowed in results:
         allowed = {i.id: i for i in assigned}
+        lineage_records = data.get('source_lineage_reviews')
+        lineage_records = lineage_records if isinstance(lineage_records, list) else []
         for raw in data['concepts']:
             # Stable IDs allow independent audit checkpoints to survive a resumed
             # generation stage that reuses its completed model calls.
@@ -173,6 +233,10 @@ def _generate_concepts(ctx, ideas_override=None):
             else:
                 c.prior_case_ids = [i for i in c.prior_case_ids if i in st.scratch.get("prior_case_ids", [])]
             made.append(c)
+            lineage_notes = [r for r in lineage_records
+                             if isinstance(r, dict) and r.get('representative_id') in c.source_idea_ids]
+            if lineage_notes:
+                st.scratch.setdefault('s6_lineage_reviews', {})[c.id] = copy.deepcopy(lineage_notes)
             review_inputs=st.scratch.get('review_inputs',{})
             refs=[review_inputs[i] for i in c.source_idea_ids if i in review_inputs]
             if refs:

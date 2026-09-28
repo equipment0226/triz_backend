@@ -57,7 +57,7 @@ def generate(ctx):
         child.lock,child.budget,child.call_slots=ctx.lock,ctx.budget,ctx.call_slots
         child.persist=ctx.persist
         quality._generate_concepts(child,ideas_override=changed)
-        for name in ('ax_mechanisms','ax_action_results'):
+        for name in ('ax_mechanisms','ax_action_results','s6_lineage_reviews'):
             state.scratch.setdefault(name,{}).update(branch.scratch.get(name,{}))
         for idea in changed:
             cache[keys[idea.id]]=dict(contract=CONTRACT,source_idea_id=idea.id,

@@ -82,6 +82,7 @@ def _write(c, state, candidate, *, origin, stage, dimension, value, evidence, sc
         reviewer_model_and_rubric_version=detail or {}, dimension=dimension, observed_value=value,
         observed_mask=value is not None, evidence_level=evidence, source_step_id=source_step_id,
         source_event_id=origin, evidence_refs=sorted(candidate.evidence_ids), created_at=stamp, label_available_at=stamp,
+        candidate_observed_at=stamp,
         training_consent_scope=scope, consent_version=consent_version or state.scratch.get('training_consent_version','explicit-project-consent-v1'),
         synthetic=bool(state.scratch.get('synthetic') or state.scratch.get('acceptance_fixture')),
         problem_family=problem_family(state),
@@ -212,10 +213,27 @@ def current(tenant, project, cutoff=None, *, include_synthetic=False):
         rows = c.execute(select(ledger.events.c.payload).join(ledger.heads,ledger.heads.c.run_id==ledger.events.c.run_id)
             .where(ledger.events.c.event_type==KIND,ledger.heads.c.tenant_id==tenant,ledger.heads.c.project_id==project)).scalars().all()
     values = [json.loads(r) for r in rows]
-    superseded = {r.get('supersedes_event_id') for r in values}
-    # Withdrawal invalidates eligibility now, even for an older training cutoff.
-    return [r for r in values if r['event_id'] not in superseded and r['label_available_at'] <= cutoff
-            and r['training_consent_scope']=='PROJECT_ONLY' and (include_synthetic or not r['synthetic'])]
+    by_id = {r['event_id']:r for r in values}
+    # A future score correction is unavailable at an earlier cutoff. Privacy
+    # withdrawals still revoke the entire correction chain immediately.
+    superseded = {r.get('supersedes_event_id') for r in values if r['label_available_at'] <= cutoff}
+    for row in values:
+        if row['training_consent_scope'] != 'NO_TRAINING': continue
+        previous = row.get('supersedes_event_id')
+        seen = set()
+        while previous and previous not in seen:
+            seen.add(previous); superseded.add(previous)
+            previous = by_id.get(previous, {}).get('supersedes_event_id')
+    for row in values:
+        # Older stored corrections predate candidate_observed_at. Recover the
+        # timestamp from their immutable source, without rewriting the ledger.
+        source = row; seen = set()
+        while source.get('supersedes_event_id') in by_id and source['event_id'] not in seen:
+            seen.add(source['event_id']); source = by_id[source['supersedes_event_id']]
+        row['candidate_observed_at'] = source.get('candidate_observed_at', source['created_at'])
+    from .evaluation_integrity import project_evaluations
+    return project_evaluations([r for r in values if r['event_id'] not in superseded and r['label_available_at'] <= cutoff
+            and r['training_consent_scope']=='PROJECT_ONLY' and (include_synthetic or not r['synthetic'])])
 
 
 def meeting_review_sources(state, scores):
@@ -336,7 +354,8 @@ def revise(run_id, owner, event_id, *, consent_scope, reason, value=None, correc
         if not old: raise ValueError('Evaluation not found in this run')
         old=json.loads(old)
         revision=dict(old,supersedes_event_id=event_id,training_consent_scope=consent_scope,consent_version='explicit-project-consent-v1',
-            observed_value=value if correct_value else old['observed_value'],correction_reason=reason)
+            observed_value=value if correct_value else old['observed_value'],correction_reason=reason,
+            candidate_observed_at=old.get('candidate_observed_at',old['created_at']))
         revision['observed_mask']=revision['observed_value'] is not None
         eid='eval-'+digest([event_id,consent_scope,reason,value,correct_value])[:56]
         if not c.execute(select(ledger.events.c.event_id).where(ledger.events.c.event_id==eid)).first():

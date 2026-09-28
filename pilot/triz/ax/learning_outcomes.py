@@ -3,43 +3,78 @@ import json
 from collections import Counter, defaultdict
 from sqlalchemy import select, or_
 from . import ledger, feedback_events, routing_q
-from .contracts import digest, now
+from .contracts import CANDIDATE_PROJECTION, LEARNING_INTEGRITY, digest, now
 
 REWARD = 'candidate-utility-cost-v2'
+
+
+def _candidate_key(event):
+    return (event.get('run_id'), event.get('semantic_episode_id'), event['candidate_id'])
+
+
+def _candidate_order(event):
+    # Correcting a score changes label availability, not the observed design.
+    return (event.get('review_revision', {}).get('revision', 0),
+            event.get('candidate_observed_at', event.get('created_at', event['label_available_at'])),
+            event['event_id'])
+
+
+def _current_candidates(events):
+    current = {}
+    for event in events:
+        key = _candidate_key(event)
+        if key not in current or _candidate_order(event) > _candidate_order(current[key]):
+            current[key] = event
+    return current
 
 
 def outcome(events, settings, active_candidates=None):
     """Pure, order-independent projection. Missing user answers remain masked."""
     groups = defaultdict(list)
-    latest={}; completed=set(); designs={}
+    latest={}; completed=set()
+    current = _current_candidates(events)
+    excluded = Counter()
     for event in events:
         revision=event.get('review_revision',{})
         if event.get('evaluation_stage','').startswith('s6_') and revision:
-            key=(event.get('run_id'),event.get('semantic_episode_id'),event['candidate_id'])
+            key=_candidate_key(event)
             latest[key]=max(latest.get(key,0),revision.get('revision',0))
-            if event.get('dimension')=='coverage_quality': completed.add((key,revision.get('revision',0)))
-            if key not in designs or revision.get('revision',0)>=designs[key][0]: designs[key]=(revision.get('revision',0),event.get('candidate_version'))
+            if event.get('dimension')=='coverage_quality':
+                completed.add((key,revision.get('revision',0),event.get('candidate_version')))
     for event in events:
-        key=(event.get('run_id'),event.get('semantic_episode_id'),event['candidate_id'])
+        key=_candidate_key(event)
+        target = current[key]
+        # The final user rates the final saved candidate, which may have gained
+        # evidence or material transfer conditions after S6. Keep that utility,
+        # but never carry an older design's quality or preference into it.
+        if event.get('candidate_version') != target.get('candidate_version'):
+            excluded['different_candidate_version'] += 1
+            continue
+        # A recorded preference for the exact same design survives a later
+        # review-context change; it cannot promote that design's quality.
+        if (event['dimension'] != 'user_utility' and
+                event.get('review_revision', {}).get('revision', 0) != target.get('review_revision', {}).get('revision', 0)):
+            excluded['different_review_revision'] += 1
+            continue
         if event['dimension'] in ('concept_quality','coverage_quality','constraint_quality','evaluation_quality') and key in latest:
             if event.get('review_revision',{}).get('revision',0)!=latest[key]: continue
-            if (key,latest[key]) not in completed: continue
-        if event['dimension']=='user_utility' and key in designs and event.get('candidate_version')!=designs[key][1]: continue
+            if (key,latest[key],event.get('candidate_version')) not in completed:
+                excluded['incomplete_current_review'] += 1
+                continue
         if event.get('observed_mask') and event.get('observed_value') is not None:
             groups[event.get('mechanism_key') or event['candidate_version']].append(event)
     components = []
     for mechanism, rows in sorted(groups.items()):
         utilities = [r for r in rows if r['dimension']=='user_utility']
-        final = [r for r in utilities if r['evaluation_stage']=='s10_feedback']
         user_by_candidate={}
-        for row in sorted(final or utilities,key=lambda r:(r['label_available_at'],r['event_id'])):
-            user_by_candidate[row['candidate_id']]=row
+        for row in sorted(utilities,key=lambda r:(r['evaluation_stage']=='s10_feedback',r['label_available_at'],r['event_id'])):
+            user_by_candidate[_candidate_key(row)]=row
         utility_values=sorted({r['observed_value'] for r in user_by_candidate.values()})
         utility_value=sum(utility_values)/len(utility_values) if utility_values else None
         qualities = [r for r in rows if r['dimension'] in ('concept_quality','constraint_quality','evaluation_quality','coverage_quality','reported_test_result')]
         by_dimension = {}
         for row in sorted(qualities,key=lambda r:(r['label_available_at'],r['event_id'])):
-            by_dimension[(row['dimension'],row['reviewer_type'],row['candidate_id'])] = row
+            by_dimension[(row['dimension'],row['reviewer_type'],_candidate_key(row))] = row
         quality = min((r['observed_value'] for r in by_dimension.values()), default=None)
         if active_candidates is not None and not any(r['candidate_id'] in active_candidates for r in rows) and quality is not None:
             quality = min(0.,quality)
@@ -52,12 +87,20 @@ def outcome(events, settings, active_candidates=None):
     q = sum(quality)/len(quality) if quality else None
     u = sum(utility)/len(utility) if utility else None
     value = settings['quality_weight']*(q or 0)+settings['utility_weight']*(u or 0)
+    source_event_ids = sorted({eid for row in components for eid in row['source_event_ids']})
+    observed_test = any(r['dimension']=='reported_test_result' and r['event_id'] in source_event_ids for r in events)
     return dict(contract=REWARD, components=components, concept_quality=q,user_utility=u,
+        candidate_projection_contract=CANDIDATE_PROJECTION,
+        learning_integrity_contract=LEARNING_INTEGRITY,
+        candidate_projections=[dict(run_id=key[0],semantic_episode_id=key[1],candidate_id=key[2],
+            candidate_version=row['candidate_version'],review_revision=row.get('review_revision',{}),
+            source_event_id=row['event_id']) for key,row in sorted(current.items())],
+        excluded=dict(sorted(excluded.items())),
         review_projection_contract='current-review-projection-v2' if latest else 'legacy-review-projection-v1',
         masks=dict(concept_quality=q is not None,user_utility=u is not None), total=max(-1.,min(1.,value)),
         aggregation='mean-over-unique-recorded-mechanisms-v1',weights=settings,
-        source_event_ids=sorted({eid for row in components for eid in row['source_event_ids']}),
-        maturity='USER_BACKED' if utility else 'USER_REPORTED_TEST' if any(r['dimension']=='reported_test_result' for r in events) else 'MODEL_REVIEW_PROXY' if quality else 'UNOBSERVED')
+        source_event_ids=source_event_ids,
+        maturity='USER_BACKED' if utility else 'USER_REPORTED_TEST' if observed_test else 'MODEL_REVIEW_PROXY' if quality else 'UNOBSERVED')
 
 
 def _split(rows):
@@ -112,7 +155,7 @@ def q_dataset(tenant, project, cutoff=None, *, include_synthetic=False, schema=r
             if any(t['actual'] is None or not t['settled_at'] or t['settled_at']>cutoff for t in eligible_tasks):
                 excluded['unsettled_usage']+=1; continue
             summary = outcome(events,bundle['run_contract']['feedback_settings'],end['payload']['candidate_ids'])
-            if summary['maturity']=='UNOBSERVED':
+            if summary['maturity']=='UNOBSERVED' or not any(summary['masks'].values()):
                 excluded['unobserved_reward']+=1; continue
             if any(not results.get(d['payload']['executed_action_instance']) or results[d['payload']['executed_action_instance']]['status']!='COMPLETED' for d in ds):
                 excluded['missing_or_failed_action_result']+=1; continue
@@ -155,9 +198,20 @@ def effect_dataset(tenant, project, cutoff=None, *, include_synthetic=False):
         for r in c.execute(select(effect_history.selections).where(effect_history.selections.c.created_at<=cutoff)).mappings():
             selections.setdefault(r['run_id'],[]).append(dict(json.loads(r['payload']),created_at=r['created_at'],selection_id=r['selection_id']))
     grouped=defaultdict(list)
-    for r in labels: grouped[(r['run_id'],r['semantic_episode_id'],r.get('mechanism_key') or r['candidate_version'])].append(r)
+    current = _current_candidates(labels)
+    for r in labels:
+        # A design may change its mechanism key as well as its active effects.
+        # Resolve its version before partitioning candidates, otherwise an old
+        # partition cannot see the newer candidate and keeps obsolete labels.
+        if r['candidate_version'] != current[_candidate_key(r)]['candidate_version']:
+            excluded['different_candidate_version'] += 1
+            continue
+        # Sharing a mechanism does not mean candidates adopted the same effects.
+        # Q retains mechanism aggregation; effect credit belongs to the exact
+        # candidate and is split only among that candidate's active effects.
+        grouped[(*_candidate_key(r),r['candidate_version'])].append(r)
     for _, rows in sorted(grouped.items()):
-        row=max(rows,key=lambda r:(r['label_available_at'],r['event_id']))
+        row=max(rows,key=_candidate_order)
         observed=[r for r in rows if r['observed_mask']]
         if not observed: excluded['unobserved']+=1;continue
         if row['attribution']=='UNKNOWN_ATTRIBUTION':
@@ -172,10 +226,17 @@ def effect_dataset(tenant, project, cutoff=None, *, include_synthetic=False):
                 ledger.tasks.c.created_at<=cutoff, or_(ledger.tasks.c.actual.is_(None),
                 ledger.tasks.c.settled_at.is_(None), ledger.tasks.c.settled_at>cutoff))).first()
         if unsettled: excluded['unsettled_usage']+=1;continue
-        active={apps[aid]['effect_id']:apps[aid] for aid in row['active_effect_application_ids'] if aid in apps}
+        # Effect applications use the full saved snapshot digest, whereas the
+        # evaluation design version excludes only derived quality flags.
+        snapshot = row.get('candidate_snapshot')
+        active={apps[aid]['effect_id']:apps[aid] for aid in row['active_effect_application_ids'] if aid in apps
+            and snapshot and apps[aid].get('candidate_version') == digest(snapshot)
+            and apps[aid].get('candidate_id') == row['candidate_id']
+            and apps[aid].get('run_id') == row['run_id']
+            and apps[aid].get('semantic_episode_id') == row['semantic_episode_id']}
         for effect,app in sorted(active.items()):
             pre=[s for s in selections.get(row['run_id'],[]) if effect in s.get('exposed_ids',[])
-                and s['created_at']<=row['created_at'] and s.get('feature_snapshot')
+                and s['created_at']<=row.get('candidate_observed_at',row['created_at']) and s.get('feature_snapshot')
                 and s.get('semantic_episode_id')==row['semantic_episode_id']
                 and s.get('catalog_version')==app['catalog_version']
                 and s.get('source_action_instance_id') in app.get('action_instance_ids',[])]
@@ -185,7 +246,10 @@ def effect_dataset(tenant, project, cutoff=None, *, include_synthetic=False):
             if not definition: excluded['missing_catalog_definition']+=1;continue
             samples.append(dict(feature_schema='effect-application-utility-v2',features=effect_ranker.features(context,definition),
                 context=context,application=definition,effect_id=effect,label=summary['total'],dimension='candidate_application_utility',
-                sample_weight=1/max(1,len(active)),group=row['problem_family'],run_id=row['run_id'],available_at=row['label_available_at'],
+                sample_weight=1/max(1,len(active)),group=row['problem_family'],run_id=row['run_id'],available_at=max(r['label_available_at'] for r in rows),
+                semantic_episode_id=row['semantic_episode_id'],candidate_id=row['candidate_id'],candidate_version=row['candidate_version'],
+                candidate_projection_contract=CANDIDATE_PROJECTION,
+                learning_integrity_contract=LEARNING_INTEGRITY,
                 review_ids=summary['source_event_ids'],selection_id=selected['selection_id'],application_id=app['application_id'],
                 synthetic=any(r.get('synthetic') for r in rows),
                 maturity=summary['maturity'],outcome=summary,attribution='SHARED_CANDIDATE_PROXY_NOT_INDIVIDUAL_PROOF'))

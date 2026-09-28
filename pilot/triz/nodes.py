@@ -183,6 +183,8 @@ def s2_confirm(ctx: RunContext) -> None:
         if payload.get("problem_zone"):
             st.confirm.problem_zone = payload["problem_zone"]
         st.confirm.user_confirmed = True
+        from .titles import refresh_fallback_title
+        refresh_fallback_title(st)
         ctx.persist()
         return
 
@@ -1375,21 +1377,43 @@ def s7_gate(ctx: RunContext) -> None:
         c = by_id.get(r.concept_id)
         if not c:
             continue
-        blob = " ".join([c.description, c.expected_effect, " ".join(c.changes_to_system)])
+        # Separate fields: an observation in one must not qualify a target or
+        # parameter in another as a measured result.
+        blob = "\n".join([c.description, c.expected_effect, *c.changes_to_system])
         for con in st.constraints.hard_items():
             msg = verify.numeric_violation(blob, con)
             if msg:
                 r.verdict = "FAIL"
+                r.requires_user_decision = False
                 if con.id not in r.violated_ids:
                     r.violated_ids.append(con.id)
+                diagnostic = next(d for d in diagnostics if d['concept_id'] == r.concept_id)
+                diagnostic.setdefault('numeric_overrides', []).append({
+                    'constraint_id': con.id, 'reason': msg,
+                    'constraint': con.model_dump(mode='json'), 'source_text': blob,
+                    'previous_rows': [row for row in r.per_constraint if row.get('constraint_id') == con.id]})
+                # Keep one authoritative row, with the original AI decision in
+                # diagnostics and its saved step, rather than UNKNOWN + FAIL.
+                r.per_constraint = [row for row in r.per_constraint if row.get('constraint_id') != con.id]
                 r.per_constraint.append({"constraint_id": con.id, "verdict": "FAIL",
                                          "reason": f"수치 자동검증: {msg}"})
+                diagnostic['normalized_verdict'] = 'FAIL'
+                if con.id not in diagnostic['hard_failure_ids']:
+                    diagnostic['hard_failure_ids'].append(con.id)
+                for key in ('hard_unknown_ids', 'unresolved_constraint_ids', 'missing_hard_ids', 'missing_constraint_ids'):
+                    diagnostic[key] = [cid for cid in diagnostic[key] if cid != con.id]
     st.constraint_checks = results
     from .ax.feedback_events import model_review
     for row in results:
         if row.concept_id in review_sources:
-            model_review(st,st.concept(row.concept_id),row.model_dump(mode='json'),stage='s7_gate',
-                step_id=review_sources[row.concept_id],rubric='P_S7_GATEKEEPER+normalized-hard-constraints-v1',
+            diagnostic = next(d for d in diagnostics if d['concept_id'] == row.concept_id)
+            review = row.model_dump(mode='json')
+            # This code-owned marker is added after parsing the model response.
+            # Store enough evidence to replay any override when building labels.
+            review['numeric_validation'] = {'contract': verify.NUMERIC_VALIDATION_CONTRACT,
+                'overrides': diagnostic.get('numeric_overrides', [])}
+            model_review(st,st.concept(row.concept_id),review,stage='s7_gate',
+                step_id=review_sources[row.concept_id],rubric='P_S7_GATEKEEPER+'+verify.NUMERIC_VALIDATION_CONTRACT,
                 model=st.scratch.get('ax_bundle',{}).get('models',{}).get('T2'))
     from .ax.effect_history import gate_reviews
     gate_reviews(st, 's7_gate')

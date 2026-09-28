@@ -151,8 +151,8 @@ def list_runs(limit=50, user_id=None):
 def _display_run_title(run_id, title):
     """Correct known fallback labels without rewriting or hydrating checkpoints."""
     from types import SimpleNamespace
-    from .titles import display_title, fallback_shape
-    if not fallback_shape(title):
+    from .titles import display_title, fallback_shape, needs_identity_projection
+    if not fallback_shape(title) and not needs_identity_projection(title):
         return title
     paths = {'source': '$.scratch.title_source', 'title': '$.scratch.title',
              'domain': '$.domain', 'query': '$.raw_query', 'confirm': '$.confirm'}

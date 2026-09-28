@@ -169,8 +169,12 @@ def compatible_model(model):
             routing_q.validate_contract(model)
         except (ValueError, TypeError, KeyError):
             return False
-    if model.get('feature_schema')=='effect-application-utility-v2' and model.get('target_contract')!='candidate-utility-cost-v2':
-        return False
+    if model.get('feature_schema')=='effect-application-utility-v2':
+        from .contracts import CANDIDATE_PROJECTION, LEARNING_INTEGRITY
+        if (model.get('target_contract')!='candidate-utility-cost-v2'
+                or model.get('candidate_projection_contract')!=CANDIDATE_PROJECTION
+                or model.get('learning_integrity_contract')!=LEARNING_INTEGRITY):
+            return False
     return True
 
 

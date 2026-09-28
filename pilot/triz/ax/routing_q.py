@@ -2,7 +2,7 @@
 import copy
 import math
 from collections import Counter
-from .contracts import digest
+from .contracts import CANDIDATE_PROJECTION, LEARNING_INTEGRITY, digest
 
 SCHEMA = 'ax-state-action-v3'
 ADAPTIVE_SCHEMA = 'ax-state-action-v4'
@@ -20,7 +20,8 @@ def contracts(schema=SCHEMA):
                 support_settings=dict(SUPPORT_SETTINGS), exploration_contract='triz-targeted-expansion-v1')
     if schema in ADAPTIVE_SCHEMAS:
         value.update(mode_contract='triz-modes-v3-adaptive-feedback', feedback_contract='common-candidate-evaluation-v1',
-                     reward_contract='candidate-utility-cost-v2', handler_contract='adaptive-track-handlers-v1')
+                     reward_contract='candidate-utility-cost-v2', handler_contract='adaptive-track-handlers-v1',
+                     candidate_projection_contract=CANDIDATE_PROJECTION,learning_integrity_contract=LEARNING_INTEGRITY)
     if schema == CONFIRMED_SCHEMA:
         value.update(context_contract='confirmed-context-v1',cost_contract='track-execution-cost-v2')
     return value

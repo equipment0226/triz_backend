@@ -5,6 +5,9 @@ import json
 from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+CANDIDATE_PROJECTION = 'observed-candidate-version-v1'
+LEARNING_INTEGRITY = 'numeric-review-provenance-v1'
+
 ACTIONS = ('GENERATE_BASELINE', 'CHALLENGE_MEANS', 'CHECK_APPLICABILITY',
            'SOLVE_SUBPROBLEM', 'REPAIR_CANDIDATE', 'CO_DESIGN', 'FETCH_EVIDENCE',
            'RUN_TEST', 'ASK_HUMAN', 'PROPOSE_RULE', 'FINALIZE', 'DEFER')

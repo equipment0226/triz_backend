@@ -1,7 +1,7 @@
 """Small condition-applicability regressor, separate from execution-strategy Q."""
 import math
 from collections import Counter
-from .contracts import digest, now
+from .contracts import CANDIDATE_PROJECTION, LEARNING_INTEGRITY, digest, now
 
 SCHEMA = 'effect-context-ranker-v1'
 UTILITY_SCHEMA = 'effect-application-utility-v2'
@@ -142,6 +142,8 @@ def train(samples, epochs=200, rate=.1, regularization=.01):
         losses.append(loss / total_weight)
     return dict(feature_schema=schema, algorithm='regularized-linear-application-utility-v2' if schema==UTILITY_SCHEMA else 'regularized-linear-condition-proxy-v1', weights=weights,
                 target_contract='candidate-utility-cost-v2' if schema==UTILITY_SCHEMA else 'condition-proxy-v1',
+                candidate_projection_contract=CANDIDATE_PROJECTION if schema==UTILITY_SCHEMA else None,
+                learning_integrity_contract=LEARNING_INTEGRITY if schema==UTILITY_SCHEMA else None,
                 evaluation_contract=EVALUATION_CONTRACT if schema==UTILITY_SCHEMA else None,
                 train_weighted_mean=sum(r.get('sample_weight',1.)*r['label'] for r in samples)/total_weight,
                 supported_effects=sorted({s['effect_id'] for s in samples}),
@@ -163,6 +165,10 @@ def prediction(model,context,effect):
 
 
 def predict(model, context, effect):
+    if model.get('feature_schema') == UTILITY_SCHEMA and (
+            model.get('candidate_projection_contract') != CANDIDATE_PROJECTION or
+            model.get('learning_integrity_contract') != LEARNING_INTEGRITY):
+        return 0.0
     if (model.get('feature_schema') not in (SCHEMA,UTILITY_SCHEMA) or len(model.get('weights', [])) != DIMENSIONS
             or any(not math.isfinite(w) for w in model['weights'])):
         return 0.0
@@ -207,6 +213,8 @@ def eligibility(model,evaluation,ready):
     weights=model.get('weights',[])
     if not isinstance(weights,list) or len(weights)!=DIMENSIONS or any(type(w) not in (int,float) or not math.isfinite(w) for w in weights): reasons.append('invalid_model')
     if (model.get('feature_schema')!=UTILITY_SCHEMA or model.get('target_contract')!='candidate-utility-cost-v2'
+        or model.get('candidate_projection_contract')!=CANDIDATE_PROJECTION
+        or model.get('learning_integrity_contract')!=LEARNING_INTEGRITY
         or not model.get('supported_effects') or not model.get('supported_contexts')
         or type(model.get('train_weighted_mean')) not in (int,float) or not math.isfinite(model['train_weighted_mean'])
         or model.get('train_weighted_mean')!=evaluation.get('train_weighted_mean')):

@@ -277,10 +277,14 @@ def rerank(state, candidates, required):
         scored.append((index, annotated, adjustment))
     from . import effect_ranker
     model = b.get('effect_ranker')
+    from .registry import compatible_model
+    incompatible = bool(model and not compatible_model(model))
+    if incompatible: model = None
     if model:
         for index, effect, adjustment in scored:
             effect['applicability_history']['model_score'] = effect_ranker.predict(model, ctx, effect)
     shadow_model=b.get('shadow_effect_ranker')
+    if shadow_model and not compatible_model(shadow_model): shadow_model = None
     if shadow_model:
         from .registry import observe_shadow
         shadow_scores={effect['id']:effect_ranker.predict(shadow_model,ctx,effect) for _,effect,_ in scored}
@@ -295,7 +299,8 @@ def rerank(state, candidates, required):
         required_functions=list(required), problem_signature=digest(ctx),
         candidates=[dict(effect_id=e['id'], lexical_rank=i, **e['applicability_history']) for i,e,_ in scored],
         selection_method='ADVISORY' if state.control.mode.value == 'DEEP' else 'BOUNDED_HISTORY',
-        model_version=b.get('effect_ranker_version'), propensity=None, used=False,
+        model_version=b.get('effect_ranker_version') if model else None, propensity=None, used=False,
+        model_fallback_reason='incompatible_model_contract' if incompatible else None,
         exposed_ids=[e['id'] for _,e,_ in scored])
     if unified(state):
         from .action_runtime import active_action

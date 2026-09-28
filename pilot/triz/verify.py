@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import math
 import re
+from decimal import Decimal, InvalidOperation
 from typing import Any, Callable, Optional
 
 from . import knowledge as K
@@ -528,31 +529,86 @@ def check_review(data: dict, concept_ids: set[str], dimensions: Optional[list[st
 
 
 # ──────────────────────────────── 제약 사후 검사(코드)
-NUM = re.compile(r"(-?\d+(?:\.\d+)?)")
+_MEASURED_NUMBER = r"[+-]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?:[eE][+-]?\d+)?"
+NUMERIC_VALIDATION_CONTRACT = 'parameter-bound-observed-values-v1'
+_OBSERVATION = re.compile(
+    r"실측|측정\s*(?:값|치|결과|됨|되었|되었다|됐다)|관측\s*(?:값|치|결과|됨|되었|되었다|됐다)"
+    r"|\b(?:measured|observed)\b", re.I)
+_UNCONFIRMED_NUMBER = re.compile(
+    r"목표|예상|추정|가정|미측정|미확인|미검증|불확|오차|예시|가령|설계값|설정값|기준값|기준선|요구값|"
+    r"(?:개선|변경|적용)\s*전|"
+    r"측정\s*(?:예정|계획|필요|전)|검증\s*(?:예정|계획|필요|전)|"
+    r"확인\s*(?:예정|필요)|여부|아직|않|아니|아님|아닌|없|만약|경우|"
+    r"\b(?:target|expected|estimated|assumed|unmeasured|unverified|uncertain|"
+    r"hypothetical|planned|not|if|before|baseline)\b", re.I)
+
+
+def _numeric_decimal(value: str) -> Optional[Decimal]:
+    if not re.fullmatch(_MEASURED_NUMBER, value):
+        return None
+    try:
+        result = Decimal(value.replace(',', ''))
+    except InvalidOperation:
+        return None
+    return result if result.is_finite() else None
 
 
 def numeric_violation(text: str, c: Constraint) -> Optional[str]:
-    """개념 본문에서 제약 파라미터와 같은 문맥의 수치를 찾아 단순 비교한다(보조 수단)."""
-    if c.operator == "none" or not c.value or not c.parameter:
+    """Only explicit measured values can override an uncertain model verdict.
+
+    Free prose is not a measurement table: an ID, target, another parameter or
+    nearby unit cannot establish failure. Deliberately abstain for conversions,
+    open bounds, uncertainty and unsupported phrasing; the AI/HITL review still
+    handles those. A None result does not establish compliance.
+    """
+    if c.operator not in ('<=', '>=', '==', '!=') or not c.parameter.strip() or not c.unit.strip():
         return None
-    try:
-        limit = float(c.value)
-    except ValueError:
+    limit = _numeric_decimal(c.value.strip())
+    if limit is None:
         return None
-    for line in text.split("\n"):
-        if c.parameter and c.parameter in line:
-            for m in NUM.finditer(line):
-                val = float(m.group(1))
-                if c.unit and c.unit not in line:
-                    continue
-                bad = (
-                    (c.operator == ">=" and val < limit)
-                    or (c.operator == "<=" and val > limit)
-                    or (c.operator == "==" and val != limit)
-                    or (c.operator == "!=" and val == limit)
-                )
-                if bad:
-                    return f"{c.parameter} {val}{c.unit} 는 제약 {c.operator} {limit}{c.unit} 위반"
+
+    # An exact unit must belong to this quantity, not somewhere in the sentence.
+    # Preserve unit case (mW and MW are different). Do not accept m as mm or m/s.
+    unit = re.escape(c.unit.strip())
+    unit_end = r"(?![A-Za-z0-9_%/·^²³⁻])"
+    glue = (r"(?:은|는|이|가|의)?\s*"
+            r"(?:(?:실측|측정|관측)\s*(?:값|치|결과)?(?:은|는|이|가)?\s*)?"
+            r"(?:(?:was|is|measured|observed)\s+)*(?:[:=]\s*)?")
+    # A scoped constraint also needs its saved location bound to the parameter.
+    # A measured external temperature cannot reject an internal-temperature rule.
+    zone = (re.escape(c.zone.strip()) + r'(?:의)?\s*[:：]?\s*') if c.zone.strip() else ''
+    start = r"(?<![\w-])" + zone + re.escape(c.parameter.strip()) + glue
+    measured = re.compile(start + rf"(?P<low>{_MEASURED_NUMBER})\s*"
+        rf"(?:(?:{unit})?\s*(?:~|～|–|—|\bto\b)\s*(?P<high>{_MEASURED_NUMBER})\s*)?"
+        + unit + unit_end, re.I if not re.search('[A-Za-z]', c.unit) else 0)
+    # Decimal points and thousands separators must stay inside their quantity.
+    clauses = re.split(r"[\n;!?。]|(?<!\d)\.(?!\d)|(?<=\d)\.(?!\d)|,(?!\d)", text)
+    for clause in clauses:
+        if not _OBSERVATION.search(clause) or _UNCONFIRMED_NUMBER.search(clause):
+            continue
+        for match in measured.finditer(clause):
+            suffix = clause[match.end():].lstrip()
+            # Neither endpoints of an open bound nor an error bar are a point
+            # measurement. Also reject malformed/unsupported compound units.
+            if re.match(r"(?:이상|이하|초과|미만|내외|정도|까지|부터|에서|보다|±|\+/-|~|～|–|—|-|/|\^|\bto\b)", suffix):
+                continue
+            if re.match(r'[A-Za-z]', suffix) and not re.match(r'(?:was|is|measured|observed)\b', suffix, re.I):
+                continue
+            # Korean units can also be prefixes of a different word (개/개수).
+            if re.search('[가-힣]$', c.unit) and re.match('[가-힣]', suffix) and not re.match(r'(?:은|는|이|가|로|으로|였|임|이다)', suffix):
+                continue
+            low = _numeric_decimal(match['low'])
+            high = _numeric_decimal(match['high']) if match['high'] else low
+            if low is None or high is None or low > high:
+                continue
+            # A range proves failure only if its entire interval violates.
+            bad = ((c.operator == '>=' and high < limit)
+                or (c.operator == '<=' and low > limit)
+                or (c.operator == '==' and not low <= limit <= high)
+                or (c.operator == '!=' and low == high == limit))
+            if bad:
+                value = str(low) if low == high else f'{low}~{high}'
+                return f"{c.parameter} 실측값 {value}{c.unit} 는 제약 {c.operator} {limit}{c.unit} 위반"
     return None
 
 

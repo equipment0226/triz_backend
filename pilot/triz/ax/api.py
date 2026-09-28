@@ -24,6 +24,31 @@ def scoped(run_id,request):
         raise HTTPException(404,'실행 기록이 없습니다.')
 
 
+class UnknownRetry(Contract):
+    task_id: str
+    expected_epoch: int
+    acknowledge_possible_duplicate_charge: Literal[True]
+
+
+@router.get('/usage-recovery')
+def usage_recovery_status(run_id: str, request: Request):
+    scoped(run_id, request)
+    from .usage_recovery import describe
+    return describe(run_id, actor(request))
+
+
+@router.post('/usage-recovery')
+def authorize_usage_retry(run_id: str, body: UnknownRetry, request: Request):
+    scoped(run_id, request)
+    from .usage_recovery import authorize
+    try:
+        return authorize(run_id, actor(request), **body.model_dump())
+    except Conflict as exc:
+        raise HTTPException(409, str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(422, str(exc)) from exc
+
+
 @router.get('')
 def overview(run_id: str,request: Request):
     h=scoped(run_id,request)

@@ -56,7 +56,7 @@ def bundle(state=None):
                             root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
                             root/'ax/learning.py',root/'ax/mode_contract.py',root/'ax/action_runtime.py',
-                            root/'ax/routing_q.py',root/'ax/exploration_context.py',root/'ax/effect_history.py',root/'ax/effect_ranker.py',
+                            root/'ax/routing_q.py',root/'ax/exploration_context.py',root/'ax/usage_recovery.py',root/'ax/effect_history.py',root/'ax/effect_ranker.py',
                             root/'ax/registry.py',root/'ax/worker.py',root.parent/'templates/report_full.md.j2',
                             root.parent/'templates/report_reformulation.md.j2',
                             root.parent/'templates/report.html.j2',root.parent/'templates/report_ax_appendix.md.j2']}}

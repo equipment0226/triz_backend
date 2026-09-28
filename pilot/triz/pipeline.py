@@ -163,7 +163,8 @@ def execute_stage(run_id, stage_index, epoch=0):
             if ax_enabled(state):
                 from .ax.ledger import budget
                 usage = budget(state.run_id, state.user_id)
-                if usage['unknown_attempts']:
+                from .ax.usage_recovery import blocking_count
+                if usage['unknown_attempts'] and blocking_count(state):
                     # A retry must not pay for retrieval/other tracks before
                     # eventually reaching the same blocked UNKNOWN call.
                     state.scratch['ax_interrupted_usage'] = usage

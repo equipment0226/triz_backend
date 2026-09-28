@@ -313,6 +313,13 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
         if epoch!=h['epoch']:
             raise Conflict('Stale action epoch')
         old=c.execute(select(tasks).where(tasks.c.task_id==task_id)).mappings().first()
+        recovery = None
+        if old and old['status'] in ('UNKNOWN', 'RECONCILED', 'STALE', 'FAILED', 'COMPLETED'):
+            from .usage_recovery import redirect
+            recovery = redirect(c, run_id, old, request, reserve)
+            if recovery:
+                task_id = recovery['retry_task_id']
+                old = c.execute(select(tasks).where(tasks.c.task_id == task_id)).mappings().first()
         if old:
             if old['status']=='COMPLETED':
                 return dict(old,cached=True,result=json.loads(old['result']))
@@ -323,6 +330,7 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
             if old['status']=='RUNNING' and old['lease_until']<time.time():
                 # No automatic second paid attempt after an ambiguous process loss.
                 c.execute(update(tasks).where(tasks.c.task_id==task_id).values(status='UNKNOWN'))
+                c.execute(update(attempts).where(attempts.c.task_id==task_id, attempts.c.fence==old['fence']).values(status='UNKNOWN'))
                 _event(c,run_id,'USAGE_UNKNOWN',{'task_id':task_id})
                 return {'task_id':task_id,'blocked':'UNKNOWN'}
             return {'task_id':task_id,'blocked':old['status']}
@@ -348,7 +356,8 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
             reserve=reserve,created_at=now())
         c.execute(tasks.insert().values(**record))
         c.execute(attempts.insert().values(attempt_id=task_id+'-1',task_id=task_id,run_id=run_id,
-            fence=1,status='RUNNING',details=canonical({'request':request,'snapshot_id':h['snapshot_id']})))
+            fence=1,status='RUNNING',details=canonical({'request':request,'snapshot_id':h['snapshot_id'],
+                **({'retry_of_task_id':recovery['task_id'], 'authorization_event_id':'usage-retry-' + digest(recovery['task_id'])[:48]} if recovery else {})})))
         _event(c,run_id,'ACTION_RESERVED',{'task_id':task_id,'reserve':reserve})
         return dict(record,cached=False)
 
@@ -476,5 +485,9 @@ def reconcile(task_id, actual_microusd, evidence, actor):
             raise Conflict('Only an unknown or expired task can be reconciled')
         c.execute(update(tasks).where(tasks.c.task_id==task_id).values(status='RECONCILED',
             actual=actual_microusd,settled_at=now(),fence=row['fence']+1))
+        previous = c.execute(select(attempts.c.details).where(attempts.c.task_id == task_id,
+            attempts.c.fence == row['fence'])).scalar_one()
+        c.execute(update(attempts).where(attempts.c.task_id == task_id, attempts.c.fence == row['fence']).values(
+            status='RECONCILED', details=canonical({**json.loads(previous), 'actual_microusd':actual_microusd})))
         _event(c,row['run_id'],'USAGE_RECONCILED',{'task_id':task_id,'actual_microusd':actual_microusd,
             'evidence':evidence,'actor':actor})

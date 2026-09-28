@@ -155,7 +155,7 @@ def _display_run_title(run_id, title):
     if not fallback_shape(title):
         return title
     paths = {'source': '$.scratch.title_source', 'title': '$.scratch.title',
-             'domain': '$.domain', 'query': '$.raw_query'}
+             'domain': '$.domain', 'query': '$.raw_query', 'confirm': '$.confirm'}
     with engine.connect() as c:
         row = c.execute(select(*(func.json_extract(states.c.state_json, path).label(key)
             for key, path in paths.items())).where(states.c.run_id == run_id)).mappings().first()
@@ -168,8 +168,12 @@ def _display_run_title(run_id, title):
         domain = json.loads(domain)
     if values['title'] != title or not isinstance(domain, dict):
         return title
+    confirmed = values['confirm']
+    if isinstance(confirmed, str):
+        confirmed = json.loads(confirmed)
     return display_title(SimpleNamespace(raw_query=values['query'] or '',
-        domain=SimpleNamespace(**domain), scratch={'title': title, 'title_source': values['source']}))
+        domain=SimpleNamespace(**domain), confirm=confirmed,
+        scratch={'title': title, 'title_source': values['source']}))
 
 def _list_display_labels(run_id, values):
     """Ordinary project titles need no multi-megabyte checkpoint hydration."""

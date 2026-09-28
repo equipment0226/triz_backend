@@ -39,6 +39,15 @@ def valid_title(title, query=''):
 def fallback_title(state):
     # Before S1 there may be no identified system. Do not turn greetings,
     # introductions or arbitrary opening words into a technical project name.
+    confirmed = getattr(state, 'confirm', None)
+    if hasattr(confirmed, 'model_dump'):
+        confirmed = confirmed.model_dump()
+    if isinstance(confirmed, dict) and confirmed.get('user_confirmed') and confirmed.get('chosen_candidate_id'):
+        for candidate in confirmed.get('candidates') or []:
+            if isinstance(candidate, dict) and candidate.get('id') == confirmed['chosen_candidate_id']:
+                title = _system_title(candidate.get('name'))
+                if title:
+                    return title
     for key in ('target_system', 'sub_domain', 'super_system'):
         title = _system_title(getattr(state.domain, key, ''))
         if title:

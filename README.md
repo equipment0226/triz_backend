@@ -32,6 +32,7 @@ flowchart LR
 | 제품의 목표와 지원 범위 | [기획안](docs/PRODUCT.md) |
 | API·MCP·노드·DB 연결 이해 | [전체 설계](docs/ARCHITECTURE.md) |
 | Stage별 입력·출력·중간 검증 확인 | [13개 Stage 흐름도](docs/STAGES.md) |
+| 실제 분석의 Stage·하위 처리 데이터 확인 | [실행 사례와 샘플 데이터](docs/sample-data/README.md) |
 | 코드 위치와 모듈별 책임 확인 | [모듈 세부 설계](docs/MODULES.md) |
 | 보상·quality·가중치·학습 적용 확인 | [피드백과 학습](docs/LEARNING.md) |
 | 빠른·표준·심층 비교 | [모드별 흐름도](docs/MODES.md) |

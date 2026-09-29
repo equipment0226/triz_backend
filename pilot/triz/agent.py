@@ -323,6 +323,12 @@ def run_agent(
             ctx.finish_step(step, "FAILED")
             ctx.warn(f"{label}: LLM 호출 실패 → 기본값으로 진행 ({exc})")
             return default
+        if res.meta.get('durable_replay'):
+            step.input_slice['replay_source'] = {
+                'task_id': res.meta.get('source_task_id'),
+                'usage': res.meta.get('replay_source_usage'),
+                'new_provider_calls': 0,
+            }
         data = res.data
         if expect == "object" and isinstance(data, list):
             # Durable results may contain an array extracted by an older parser.

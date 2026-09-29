@@ -13,6 +13,22 @@ from sqlalchemy.dialects.mysql import LONGTEXT
 from .. import store
 from .contracts import canonical, digest, now, Conflict, AccessDenied, Review, BudgetBusy
 
+
+class BudgetRejected(Conflict):
+    """Preserve Conflict compatibility while identifying an unaffordable new call."""
+
+    def __init__(self, message, *, scope, limit, spent, reserved, requested, validation=0, node=''):
+        super().__init__(message)
+        self.details = {
+            'reason_code': 'BUDGET_RESERVATION_REJECTED', 'scope': scope, 'node': node,
+            'limit_microusd': limit, 'spent_microusd': spent,
+            'reserved_microusd': reserved, 'requested_microusd': requested,
+            'validation_reserve_microusd': validation,
+            'remaining_microusd': max(0, limit - spent - reserved),
+            'shortfall_microusd': max(0, spent + reserved + requested + validation - limit),
+        }
+
+
 metadata = MetaData()
 JSON = Text().with_variant(LONGTEXT(), 'mysql')
 
@@ -288,8 +304,9 @@ def budget(run_id,actor=None):
 
 
 def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=0,optional_limit=None,generation_limit=None,preflight=None):
-    from .usage_recovery import stage_request_identity
+    from .usage_recovery import stage_request_identity, request_episode
     stage_identity = stage_request_identity(request)
+    legacy_stage = bool(stage_identity) and not request_episode(request)
     task_id='task-'+digest([run_id,epoch,request])[:60]
     if request.get('action_context'):
         # Transport retries keep one logical paid call. Semantic changes retain
@@ -317,8 +334,8 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
         if epoch!=h['epoch']:
             raise Conflict('Stale action epoch')
         old=c.execute(select(tasks).where(tasks.c.task_id==task_id)).mappings().first()
-        if old is None and stage_identity:
-            # Earlier v3 stage calls included transport epoch in their task ID.
+        if stage_identity and (old is None or legacy_stage):
+            # Earlier stage calls included transport epoch in their task ID.
             # Reuse the exact saved request across resume; never lose its UNKNOWN
             # reservation or bypass the authorized one-time retry child.
             previous=c.execute(select(tasks,attempts.c.details).join(attempts,attempts.c.task_id==tasks.c.task_id)
@@ -326,7 +343,15 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
             matching={r['task_id']:r for r in previous if not r['task_id'].startswith('task-retry-')
                 and stage_request_identity(json.loads(r['details']).get('request'))==stage_identity}
             if len(matching)>1:
-                raise Conflict('Multiple stored calls match this request; usage reconciliation required')
+                if not legacy_stage or any(r['status']!='COMPLETED' or r['actual'] is None
+                                           or not r['result'] for r in matching.values()):
+                    raise Conflict('Multiple stored calls match this request; usage reconciliation required')
+                # Legacy resumes could pay for identical inputs more than once.
+                # Pin the first completed response: later ARIZ Parts may already
+                # have been paid using that response. Retain every charge/row.
+                earliest=min(matching.values(),key=lambda r:(r['settled_at'] or r['created_at'],
+                                                            r['created_at'],r['task_id']))
+                matching={earliest['task_id']:earliest}
             if matching:
                 old=next(iter(matching.values()))
                 task_id=old['task_id']
@@ -339,7 +364,11 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
                 old = c.execute(select(tasks).where(tasks.c.task_id == task_id)).mappings().first()
         if old:
             if old['status']=='COMPLETED':
-                return dict(old,cached=True,result=json.loads(old['result']))
+                result=json.loads(old['result'])
+                if legacy_stage:
+                    from .usage_recovery import legacy_replay_result
+                    result=legacy_replay_result(result)
+                return dict(old,cached=True,result=result)
             if old['status']=='FAILED' and old['actual'] is not None:
                 # A newer parser may recover a fully received response. Return
                 # the immutable failure evidence; never reserve or pay again.
@@ -364,32 +393,46 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
         if optional_limit is not None:
             optional_rows=c.execute(select(attempts.c.details,tasks.c.reserve)
                 .join(tasks,tasks.c.task_id==attempts.c.task_id).where(attempts.c.run_id==run_id)).all()
-            committed=0
+            committed=0; optional_spent=0; optional_reserved=0
             for details,held in optional_rows:
                 detail=json.loads(details)
                 if detail.get('request',{}).get('action_context',{}).get('optional'):
-                    committed+=detail['actual_microusd'] if detail.get('actual_microusd') is not None else held
+                    actual = detail.get('actual_microusd')
+                    committed+=actual if actual is not None else held
+                    optional_spent+=actual if actual is not None else 0
+                    optional_reserved+=held if actual is None else 0
             if committed+reserve>optional_limit:
-                raise Conflict('Optional AX budget exhausted; reservations and unknown costs retained')
+                raise BudgetRejected('Optional AX budget exhausted; reservations and unknown costs retained',
+                    scope='optional', limit=optional_limit, spent=optional_spent,
+                    reserved=optional_reserved, requested=reserve, node=request.get('node', ''))
         if generation_limit is not None:
             rows=c.execute(select(tasks.c.task_id,tasks.c.actual,tasks.c.reserve,attempts.c.details)
                 .join(attempts,attempts.c.task_id==tasks.c.task_id).where(tasks.c.run_id==run_id)).all()
-            counted=set();committed=0
+            counted=set();committed=0; generation_spent=0; generation_reserved=0
             current_episode=request.get('request',{}).get('semantic_episode_id')
             for row in rows:
                 action=json.loads(row.details).get('request',{}).get('action_context',{})
                 if row.task_id not in counted and action.get('plan_class')=='INITIAL_SELECTION' and action.get('semantic_episode_id')==current_episode:
                     committed+=row.actual if row.actual is not None else row.reserve
+                    generation_spent+=row.actual if row.actual is not None else 0
+                    generation_reserved+=row.reserve if row.actual is None else 0
                     counted.add(row.task_id)
             if committed+reserve>generation_limit:
-                raise Conflict('Initial generation budget exhausted; unknown reservations retained')
+                raise BudgetRejected('Initial generation budget exhausted; unknown reservations retained',
+                    scope='initial_generation', limit=generation_limit, spent=generation_spent,
+                    reserved=generation_reserved, requested=reserve, node=request.get('node', ''))
         rows=c.execute(select(tasks.c.status,tasks.c.reserve,tasks.c.actual).where(tasks.c.run_id==run_id)).all()
         used=sum((r.actual or 0)+(r.reserve if r.status in ('RUNNING','UNKNOWN') else 0) for r in rows)
         if reserve<0 or used+reserve+minimum_remaining>h['budget']:
             committed=sum((r.actual or 0)+(r.reserve if r.status=='UNKNOWN' else 0) for r in rows)
             if reserve>=0 and committed+reserve+minimum_remaining<=h['budget'] and any(r.status=='RUNNING' for r in rows):
                 raise BudgetBusy('Waiting for in-flight cost reservations to settle')
-            raise Conflict('Insufficient budget; required validation reserve retained')
+            if reserve < 0:
+                raise Conflict('Insufficient budget; required validation reserve retained')
+            raise BudgetRejected('Insufficient budget; required validation reserve retained',
+                scope='project', limit=h['budget'], spent=sum(r.actual or 0 for r in rows),
+                reserved=sum(r.reserve for r in rows if r.status in ('RUNNING', 'UNKNOWN')),
+                requested=reserve, validation=minimum_remaining, node=request.get('node', ''))
         record=dict(task_id=task_id,run_id=run_id,epoch=epoch,input_snapshot=h['snapshot_id'],
             input_hash=digest(request),status='RUNNING',fence=1,lease_until=time.time()+lease_seconds,
             reserve=reserve,created_at=now())

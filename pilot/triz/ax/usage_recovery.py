@@ -37,9 +37,40 @@ def request_episode(request):
 
 
 def stage_request_identity(request):
-    if not isinstance(request, dict) or request.get('action_context') or not request_episode(request):
+    if not isinstance(request, dict) or request.get('action_context'):
         return None
+    if not request_episode(request):
+        # Pre-contract AX runs have no semantic episode. Only a complete saved
+        # provider request establishes identity; never broaden a partial journal
+        # record or an invalid episode into a reusable legacy call.
+        provider = request.get('request')
+        if (not isinstance(provider, dict) or 'semantic_episode_id' in provider
+                or not isinstance(request.get('node'), str) or not request['node']
+                or not isinstance(request.get('bundle_id'), str) or not request['bundle_id']
+                or not all(isinstance(provider.get(key), str) for key in ('system', 'user', 'tier', 'expect'))
+                or not isinstance(provider.get('model_config'), dict) or not provider['model_config']):
+            return None
+    # Keep every provider option and the pinned bundle. Epoch and decision are
+    # transport/audit identities, not permission to pay for the same call again.
     return digest({k:v for k,v in request.items() if k != 'decision_id'})
+
+
+def legacy_replay_result(result):
+    """Restore response key order only from an equivalent saved provider text.
+
+    The journal canonicalizes JSON keys, while downstream prompt rendering
+    preserves insertion order. Reusing the original text's order keeps already
+    paid dependent requests byte-identical. Never replace data with a different
+    response or change the immutable stored result.
+    """
+    if not isinstance(result, dict) or not isinstance(result.get('text'), str) or 'data' not in result:
+        return result
+    try:
+        original = json.loads(result['text'])
+        equivalent = digest(original) == digest(result['data'])
+    except (TypeError, ValueError):
+        return result
+    return dict(result, data=original) if equivalent else result
 
 
 def _eligible(task, request, episode):

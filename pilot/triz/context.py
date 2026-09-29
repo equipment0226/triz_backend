@@ -21,6 +21,22 @@ class AbortRun(Exception):
     pass
 
 
+class BudgetExhausted(AbortRun):
+    """A rejected reservation with amounts observed atomically in the ledger."""
+
+    def __init__(self, details: dict[str, Any]):
+        self.details = dict(details)
+        label = {'optional': '추가 탐색', 'initial_generation': '초기 생성'}.get(
+            details['scope'], '프로젝트')
+        money = lambda key: f"${details[key] / 1_000_000:.6f}"
+        super().__init__(
+            f"추가 모델 호출 예산이 부족해 분석을 중단했습니다. {label} 한도 {money('limit_microusd')}, "
+            f"정산액 {money('spent_microusd')}, 진행·미확인 호출 예약액 {money('reserved_microusd')}, "
+            f"필수 검토 보존 예산 {money('validation_reserve_microusd')}, "
+            f"이번 호출 예약액 {money('requested_microusd')}으로 {money('shortfall_microusd')}가 부족합니다. "
+            '완료된 분석은 보존되어 있습니다.')
+
+
 class ConceptReviewIncomplete(AbortRun):
     """A public, fixed explanation without internal IDs or model response text."""
 

@@ -62,7 +62,13 @@ def test_paid_replay_preserves_changed_retrieval_bytes_and_batch_boundaries(newr
     monkeypatch.setattr(llm, 'chat_json', lambda **kw: pytest.fail('Historical paid replay called provider'))
     quality._generate_concepts(RunContext(state), ideas_override=ideas)
     after = [step.input_slice for step in state.steps if step.node == 's6_concept'][-2:]
-    assert after == before
+    assert [{key: value for key, value in row.items() if key != 'replay_source'}
+            for row in after] == before
+    # The failed first batch uses the paid journal; an already accepted second
+    # batch may use the existing agent cache without calling the gateway.
+    replay_sources = [row['replay_source'] for row in after if 'replay_source' in row]
+    assert replay_sources and all(source['task_id'] and source['new_provider_calls'] == 0
+                                  for source in replay_sources)
     assert len(state.concepts) == 6 and len(requests) == 2 and len(retrieved) == 1
     assert ledger.budget(state.run_id)['spent_microusd'] == cost_before
     with store.engine.connect() as connection:

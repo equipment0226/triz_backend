@@ -3,7 +3,7 @@ import math
 import time
 from dataclasses import asdict
 from .. import llm, store
-from ..context import AbortRun, ProviderUnavailable, UsageUncertain
+from ..context import AbortRun, BudgetExhausted, ProviderUnavailable, UsageUncertain
 from ..settings import settings
 from . import ledger
 from .contracts import Conflict,BudgetBusy
@@ -61,6 +61,8 @@ def chat(ctx, **kwargs):
                 if time.time()>=until:
                     raise AbortRun('진행 중 호출의 비용 예약 정산을 기다리다 시간 예산에 도달했습니다.') from exc
                 time.sleep(.2)
+            except ledger.BudgetRejected as exc:
+                raise BudgetExhausted(exc.details) from exc
             except Conflict as exc:
                 raise AbortRun(str(exc)) from exc
         if task.get('blocked'):
@@ -90,7 +92,13 @@ def chat(ctx, **kwargs):
         if task.get('cached'):
             state.cost.total_usd=ledger.budget(state.run_id)['spent_microusd']/1e6
             result=llm.LLMResult(**task['result'])
-            result.meta=dict(result.meta,durable_replay=True)
+            result.meta=dict(result.meta,durable_replay=True,source_task_id=task['task_id'],
+                replay_source_usage={'tokens_in':result.tokens_in,'tokens_out':result.tokens_out,
+                    'cost_usd':result.cost_usd,'settled_microusd':task.get('actual')})
+            # The paid source remains immutable in the ledger. This replay made
+            # no provider call; downstream step records must not charge it again.
+            result.tokens_in=result.tokens_out=0
+            result.cost_usd=0.0
             return result
         try:
             result=llm.chat_json(**{k:v for k,v in request.items() if k!='semantic_episode_id'})

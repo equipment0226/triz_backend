@@ -347,7 +347,6 @@ def separation_candidate_names(state, contradiction) -> list[str]:
 
 def _env(labels: dict[str, str], keep_code: bool = False) -> Environment:
     from .separation_contract import display_name as separation_name
-    from .standard_diagrams import supplemental_details
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_DIR)),
         autoescape=select_autoescape(enabled_extensions=(), default=False),
@@ -361,7 +360,6 @@ def _env(labels: dict[str, str], keep_code: bool = False) -> Environment:
         separation_name=separation_name,
         separation_candidate_names=separation_candidate_names,
         standard_reference=lambda app: next((row for row in K.standards() if row['code'] == app.get('standard_code')), None),
-        standard_reference_details=lambda source: supplemental_details(source) if source else [],
         now=datetime.now().strftime("%Y-%m-%d %H:%M"),
         TRACK_KO=TRACK_KO, QUADRANT_KO=QUADRANT_KO, NOVELTY_KO=NOVELTY_KO,
         SCALE_KO=SCALE_KO, CATEGORY_KO=CATEGORY_KO, LEVEL_KO=LEVEL_KO,

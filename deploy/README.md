@@ -1,78 +1,9 @@
-# GitHub 분리 저장소 → Railway 배포
+# 배포 안내
 
-운영 주소: https://trizfront-production.up.railway.app
-n8n: https://primary-production-5df6a.up.railway.app
-로컬 데모 접속 계정: `.deployment/demo-access.txt` (Git 제외).
+현행 설정·로컬 실행·배포 확인·중단 복구는 [운영 안내](../docs/OPERATIONS.md)에서 관리합니다. 최근 배포와 검증 범위는 [변경 기록](../docs/CHANGELOG.md)과 [검증 기록](../docs/VALIDATION.md)을 보세요.
 
-## 1. 소스
+백엔드 저장소 루트의 `Dockerfile`과 `railway.json`이 빌드·실행 기준입니다. `deploy/n8n/`은 TRIZ 및 특허 작성의 실행 연결 정의를 보관합니다. 모델 키·서비스 토큰·DB 자격증명은 저장소에 넣지 않습니다.
 
-- Backend: https://github.com/equipment0226/triz_backend
-- Frontend: https://github.com/equipment0226/triz_front
+분석이 진행 중이면 저장된 실행과 사용량 상태를 먼저 확인하세요. 배포 전 `pilot/scripts/deployment_readiness.py`로 활동 중인 실행을 읽기 전용으로 확인하고, 배포 후 `/healthz` 및 배포한 코드 버전을 대조합니다. 상세 절차는 운영 안내에 있습니다.
 
-각 저장소의 main 브랜치, 루트 Dockerfile, railway.json을 사용한다. 원본 작업공간에서는
-`python deploy/export_repositories.py`로 `release/`의 두 clone을 갱신한다.
-피드백 원문·실제 환경변수·로컬 데이터는 복사하지 않는다.
-
-## 2. 기존 Railway 프로젝트
-
-피드백의 PostgreSQL·Redis 서비스 ID와 일치하는 `elegant-freedom`의 production 환경을 사용한다.
-기존 Primary/Worker(n8n), MySQL, Postgres, Redis를 유지한다.
-
-## 3. Backend
-
-GitHub backend 저장소를 연결하고 `/data` 영구 볼륨을 붙인다. 단일 replica를 사용한다.
-API와 MCP는 동일 프로세스에서 `/agent/mcp`로 제공되므로 파일이 동일 볼륨에 남는다.
-장시간 도구는 별도 스레드에서 실행하며 IPv4·IPv6 이중 리스너를 사용한다.
-
-| 환경변수 | 값 |
-|---|---|
-| PORT | 8000 |
-| APP_HOST | :: |
-| ORCHESTRATOR | n8n |
-| TRIZ_EMBED_MCP | true |
-| TRIZ_MCP_URL | http://127.0.0.1:8000/agent/mcp |
-| STORAGE_DIR | /data/storage |
-| MYSQLHOST / MYSQLPORT / MYSQLDATABASE / MYSQLUSER / MYSQLPASSWORD | MySQL 서비스의 동일 변수에 대한 Railway reference |
-| N8N_DISPATCH_URL | http://primary.railway.internal:5678/webhook/triz-dispatch |
-| TRIZ_SERVICE_TOKEN | n8n credential과 같은 임의 토큰 |
-| TRIZ_APP_TOKEN | Frontend gateway와 같은 별도 임의 토큰 |
-| LLM_API_KEY / LLM_BASE_URL / LLM_MODEL_T1,T2,T3 | 사용 중인 공급자 설정 |
-
-Backend에는 공개 도메인이 필요 없다. healthcheck `/healthz`는 DB 연결을 확인한다.
-
-## 4. n8n
-
-Primary와 Worker의 기존 PostgreSQL·Redis·encryption key는 유지한다.
-`TRIZ_API_URL=http://<backend-private-domain>:8000`, `N8N_BLOCK_ENV_ACCESS_IN_NODE=false`를 설정한다.
-Primary의 `WEBHOOK_URL`은 기존 공개 HTTPS 도메인으로 설정한다.
-`deploy/n8n/triz-workflow.json`을 import하고 webhook과 HTTP 노드에 동일 Header Auth credential
-(`Authorization: Bearer <TRIZ_SERVICE_TOKEN>`)을 연결한 다음 publish한다.
-CLI publish 후에는 Primary 재시작으로 production webhook 등록을 확인한다.
-
-## 5. Frontend
-
-GitHub front 저장소를 연결한다. PORT=8080, BACKEND_URL=백엔드 private URL,
-TRIZ_APP_TOKEN=백엔드와 동일, DEMO_USERNAME/DEMO_PASSWORD=데모 접근 계정을 설정한다.
-Generate Domain으로 HTTPS 주소를 생성한다. 로그인 후 문제·첨부·보고서 모두 이 주소로 접근한다.
-
-## 6. 실제 구동 확인
-
-1. Frontend와 Backend healthcheck 통과.
-2. 로그인 후 화면과 DB 이력 조회 성공.
-3. 문제 1건 전송 → n8n worker → MCP → MySQL 기록.
-4. 사전 질문에서 WAITING_HUMAN → 답변 후 다음 단계 진행.
-5. 같은 epoch/stage 재시도에서 유료 작업 중복 실행 방지.
-6. 첨부·단계·호출 기록과 보고서가 `/data/storage`에 보존.
-
-GitHub push 성공과 서비스 구동 성공은 별도로 기록한다. 실제 호출 없이는 LLM 품질·비용을 확정하지 않는다.
-
-공식 안내: [GitHub/Docker 서비스](https://docs.railway.com/services),
-[환경변수 참조](https://docs.railway.com/variables), [CLI](https://docs.railway.com/cli).
-
-## BigQuery 특허 조회
-
-> 현재 운영은 `PATENT_SEARCH_PROVIDER=vector`이다. 이 절은 이전 연결 기록이다. [MySQL·Qdrant 적재 및 갱신 가이드](../docs/PATENT_VECTOR_STORAGE.md)를 우선 참고한다.
-
-공개 특허 DB 복제 없이 조회하는 선택형 공급자를 지원한다. triz_backend에 서비스 계정 인증과
-쿼리 프로젝트를 등록한 뒤 dry run과 샘플 조회를 통과하면 `PATENT_SEARCH_PROVIDER=bigquery`로 전환한다.
-상한을 초과하면 쿼리를 실행하지 않는다. [설정·비용 제한·검증 절차](../docs/BIGQUERY_PATENT_SEARCH.md)를 참고한다.
+작업공간의 `release/` 복사본은 Git 기준 원본이 아닙니다. 오래된 복사본을 최신 체크아웃에 덮어쓰지 않습니다. 문서와 코드 변경은 최신 브랜치의 diff를 확인한 뒤 커밋합니다.

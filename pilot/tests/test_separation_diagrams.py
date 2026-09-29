@@ -97,32 +97,46 @@ def test_report_uses_only_saved_approaches_and_preserves_saved_application_rows(
         title='Saved option', how='Saved timing sequence', idea='Saved design idea', supporting_principles=[9],
         catalog_version=K.separation()['TIME']['catalog_version'], approach_name='시간 분리'),
         dict(kind='BYPASS', source_pc_id=pc.id, applicable=False, not_applicable_reason='Saved missing evidence',
-        supporting_principles=[], catalog_version=K.separation()['BYPASS']['catalog_version'], approach_name='모순 요구 우회')]
+        supporting_principles=[], catalog_version=K.separation()['BYPASS']['catalog_version'], approach_name='모순 요구 우회'),
+        dict(kind='TIME', source_pc_id=pc.id, applicable=True,
+        title='Second saved option', how='Second timing sequence', idea='Second design idea', supporting_principles=[10],
+        catalog_version=K.separation()['TIME']['catalog_version'], approach_name='시간 분리')]
     state.report = ReportArtifact()
     if frozen:
         freeze(state)
     before = state.model_dump_json()
     report = view(state)
-    figure = next(f for f in report['figures'] if f['key']=='separation-0')
-    assert [r.get('data-approach-kind') for r in roots(figure['svg'])] == ['TIME','BYPASS']
+    figures = [f for f in report['figures'] if f['key'].startswith('separation-')]
+    assert [f['key'] for f in figures] == ['separation-0-application-0', 'separation-0-application-2']
+    for figure in figures:
+        svg = ET.fromstring(figure['svg'])
+        assert svg.get('data-diagram') == 'separation-application'
+        assert svg.get('data-approach-kind') == 'TIME'
+        assert not roots(figure['svg'])
+        assert 'Saved missing evidence' not in ''.join(svg.itertext())
+    figure_text = [''.join(ET.fromstring(f['svg']).itertext()) for f in figures]
+    assert 'Saved timing sequence' in figure_text[0] and 'Saved design idea' in figure_text[0]
+    assert 'Second timing sequence' in figure_text[1] and 'Second design idea' in figure_text[1]
+    assert 'Second timing sequence' not in figure_text[0] and 'Saved timing sequence' not in figure_text[1]
     used = [b['figure']['key'] for section in report['report_sections'] for b in section['blocks'] if b['type']=='figure']
-    assert used.count('separation-0') == 1
+    assert 'separation-0' not in used
+    assert all(used.count(figure['key']) == 1 for figure in figures)
     markdown = render.render_report(state, {})
-    for text in ('Saved timing sequence','Saved design idea','Saved missing evidence'):
-        assert text in markdown and text not in figure['svg']
+    for text in ('Saved timing sequence','Saved design idea','Saved missing evidence',
+                 'Second timing sequence','Second design idea'):
+        assert text in markdown
     assert '5가지 분리와 2가지 보완' in markdown
     assert state.model_dump_json() == before
 
 
 @pytest.mark.parametrize('frozen', [False, True])
-def test_standard_reference_details_are_placed_once_with_saved_model_untouched(state, frozen):
+def test_standard_report_keeps_only_saved_application_diagrams_without_catalog_references(state, frozen):
     from triz import render
     from triz.presentation import view
     from triz.schema import ReportArtifact
-    from triz.standard_diagrams import supplemental_details
     from test_ax_full_report import freeze
-    # Both official numbered substandards, unnumbered alternatives and an
-    # ordered development sequence must survive the full report path.
+    # Catalog details remain in the introduction. Reports retain actual saved
+    # models and application text, without filling gaps with generic diagrams.
     codes = ['5.1.1','5.4.2','3.1.1']
     catalog = {row['code']:row for row in K.standards()}
     model = {'nodes':[{'id':'S1','label':'Saved existing body'}, {'id':'F','label':'Saved existing action'}],
@@ -138,24 +152,22 @@ def test_standard_reference_details_are_placed_once_with_saved_model_untouched(s
     by_key = {f['key']:f for f in report['figures']}
     used = [b['figure']['key'] for section in report['report_sections'] for b in section['blocks'] if b['type']=='figure']
     assert '저장된 작용 방향' in ''.join(ET.fromstring(by_key['standard-0']['svg']).itertext())
-    assert 'reference-standard-0' in used
-    count = 0
-    for i, code in enumerate(codes):
-        for detail in supplemental_details(catalog[code]):
-            key = f"reference-standard-{i}-{detail['key']}"
-            assert used.count(key) == 1 and key in by_key
-            assert '실제 적용' in by_key[key]['note'] or '실제 적용' in by_key[key]['svg'] or '실행하거나 적용' in by_key[key]['note']
-            count += 1
-    assert count >= 9
+    assert ET.fromstring(by_key['standard-0']['svg']).get('data-diagram') == 'standard-application'
+    assert used.count('standard-0') == 1
+    assert 'standard-1' not in by_key and 'standard-2' not in by_key
+    assert not any(key.startswith('reference-standard-') for key in by_key)
+    assert not any(key.startswith('reference-standard-') for key in used)
     markdown = render.render_report(state, {})
-    assert '저장된 적용 기록' in markdown and '표준해 참고 설명' in markdown
-    assert '5.1.1.9' in markdown and '5.1.1.10' not in markdown
-    assert 'Saved actual option 5.1.1' in markdown
+    assert '적용 내용' in markdown and '표준해 참고 설명' not in markdown
+    assert all('Saved actual option '+code in markdown for code in codes)
+    assert all('Saved transformation '+code in markdown for code in codes)
+    assert all(catalog[code]['title_ko'] in markdown for code in codes)
+    assert '공식 하위 기법·번호 없는 분기·개발 순서' not in markdown
     assert catalog['5.4.2']['conditions'] in markdown
     assert state.model_dump_json() == before
 
 
-def test_repeated_standard_keeps_each_actual_application_but_shares_reference_once(state):
+def test_repeated_standard_keeps_each_actual_application_without_catalog_reference(state):
     from triz.presentation import view
     from triz.render import render_report
     from triz.schema import ReportArtifact
@@ -167,10 +179,10 @@ def test_repeated_standard_keeps_each_actual_application_but_shares_reference_on
     report = view(state)
     keys = [f['key'] for f in report['figures']]
     assert [key for key in keys if key.startswith('standard-')] == ['standard-0','standard-1']
-    assert 'reference-standard-0' in keys
-    assert sum(key.endswith('sub-5.1.1.9') for key in keys) == 1
-    assert not any(key.startswith(('reference-standard-1','reference-standard-2')) for key in keys)
+    assert not any(key.startswith('reference-standard-') for key in keys)
+    assert all(ET.fromstring(f['svg']).get('data-diagram') == 'standard-application'
+               for f in report['figures'] if f['key'].startswith('standard-'))
     markdown = render_report(state, {})
     assert all('Saved option '+str(i) in markdown for i in range(3))
-    assert '앞선 같은 표준해의 참고 설명' in markdown
+    assert '앞선 같은 표준해의 참고 설명' not in markdown
     assert state.model_dump_json() == before

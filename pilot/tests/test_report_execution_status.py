@@ -119,7 +119,7 @@ def test_legacy_trace_warns_and_fos_keeps_application_and_conditions(state, monk
     markdown = report.markdown(state)
     for value in ['참조 선정 근거', '구체적 적용안 제목', '저장된 구체적 기구', '온도 조건 / 재료 조건']:
         assert value in markdown
-    assert '재실행 회차를 확정할 수 없다' in markdown
+    assert '회차 경계가 없어 현재 탐색의 실행 범위를 확정할 수 없다' in markdown
     assert '현재 실행 상태 기록 없음' in markdown
     assert '### 현재 해결 탐색 회차' not in markdown
     # Legacy FOS conditions were also stored as a string; preserve it intact.
@@ -167,8 +167,8 @@ def test_full_candidate_review_reports_completion_without_count_selection(state,
     markdown = report.markdown(state)
     section = markdown.split('### 4.8 원리에서 해결 아이디어로', 1)[1].split('## 5.', 1)[0]
     assert '중복 통합 후 아이디어 **15개** · 상세 검토 완료 **10개** · 미완료 **5개**' in section
-    assert '개수 제한 없이 모두 상세 검토' in section
-    assert 'hard·soft 제약 검문' in section
+    assert '모든 아이디어를 검토 대상으로' in section
+    assert '필수·선호 제약을 확인한다' in section
     assert all(idea.title in section for idea in state.solve.raw_ideas)
 
 

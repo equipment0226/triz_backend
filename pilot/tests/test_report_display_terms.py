@@ -34,8 +34,8 @@ def test_reports_keep_raw_enum_and_render_readable_fields(state):
 
 
 def test_sufield_names_survive_field_enum_translation_and_frozen_report_render(state):
-    prose = 'Su-Field 분석 / Su-장 분석 / 물질-장 분석 / 물질–장 모델'
-    expected = 'Su-Field 분석 / Su-Field 분석 / 물질-장 모델 / 물질-장 모델'
+    prose = 'Su-Field 분석 / Su-장 분석 / 물질-장 분석 / 물질–장 모델 / Fe-Field / E-Field'
+    expected = 'Su-Field 분석 / Su-Field 분석 / 물질-장 모델 / 물질-장 모델 / Fe-Field / E-Field'
     assert display_text(prose, {'FIELD':'장'}) == expected
     assert display_text(expected, {'FIELD':'장'}) == expected
     state.report = ReportArtifact(narrative={'executive_summary':prose})
@@ -43,4 +43,6 @@ def test_sufield_names_survive_field_enum_translation_and_frozen_report_render(s
     for rendered in (render.render_report(state, state.report.narrative), render.render_html(state)):
         assert 'Su-Field' in rendered and '물질-장 모델' in rendered
         assert 'Su-장' not in rendered
+        assert 'Fe-Field' in rendered and 'E-Field' in rendered
+        assert 'Fe-장' not in rendered and 'E-장' not in rendered
     assert state.model_dump_json() == original

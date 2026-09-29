@@ -224,39 +224,17 @@ def figures(state):
         add(group['key'], group['title'] + '에 대한 모순행렬 결과 조회', [("pair", param_name(lookup.improving_param_id) + " 개선 / " + param_name(lookup.worsening_param_id) + " 악화", "field")] +
             [(str(pid), principle_name(pid), "good") for pid in lookup.principle_ids],
             [("pair", str(pid), "추천 원리", False) for pid in lookup.principle_ids])
+    from .separation_application_diagrams import render_application as separation_application
     for group in separation_groups(state):
-        from .separation_diagrams import for_applications
-        out.append(dict(key=group['key'], title=group['title'] + ' · 물리적 모순 해결 접근',
-            compact=True, svg=for_applications(group['apps']),
-            note='저장된 검토 항목의 의미를 설명하는 개념도이다. 실제 적용안·미적용 사유와 검증 결과는 별도의 검토 기록을 따른다.'))
-    seen_standard_references = set()
+        for entry in group['diagrams']:
+            out.append(dict(key=entry['key'], **separation_application(
+                entry['application'], contradiction=entry['contradiction'])))
     for i, app in enumerate(state.solve.standard_apps):
-        from .knowledge import standards
-        from .standard_diagrams import render_standard, supplemental_details, render_standard_detail
-        source = next((s for s in standards() if s['code']==app.get('standard_code')),None)
-        first_reference = source and source['code'] not in seen_standard_references
-        if source:
-            seen_standard_references.add(source['code'])
         if app.get('resulting_su_field') or app.get('resulting_model'):
+            from .knowledge import standards
             from .standard_application_diagrams import render_application
+            source = next((s for s in standards() if s['code']==app.get('standard_code')),None)
             out.append(dict(key=f'standard-{i}',**render_application(state,app,source)))
-        elif first_reference:
-            out.append(dict(key=f'standard-{i}',title=f"{source['code']} {source['title_ko']} · 표준해 개념 구조",
-                compact=True,svg=render_standard(source),
-                note='구체적인 적용 구조가 저장되지 않아 표준해의 기본 구성만 표시합니다.'))
-        if first_reference:
-            # The stored application graph above is never replaced by a catalog
-            # example. References and official subordinate/variant structures
-            # have distinct keys and explicit concept-only captions.
-            if app.get('resulting_su_field') or app.get('resulting_model'):
-                out.append(dict(key=f'reference-standard-{i}', title=f"{source['code']} {source['title_ko']} · 표준해 참고 개념",
-                    compact=True, svg=render_standard(source),
-                    note='표준해 설명용 개념도이며 저장된 적용 결과나 검증된 설계를 나타내지 않는다.'))
-            for detail in supplemental_details(source):
-                out.append(dict(key=f"reference-standard-{i}-{detail['key']}",
-                    title=f"{source['code']} · {detail['title']}", compact=True,
-                    svg=render_standard_detail(source, detail['key']),
-                    note='원전에 근거한 하위 기법·분기·개발 순서의 설명이다. 이번 분석에서 이 방법을 실행하거나 적용했다고 뜻하지 않는다.'))
     add('fos', '타산업 기능 이식', [(str(i), str(item.get('leading_area') or '산업 미확인') + '\n' +
         str(item.get('transferred_feature') or item.get('idea') or item.get('title') or '적용 내용 보완 필요'), 'good')
         for i,item in enumerate(state.solve.fos_apps)], divided=True)

@@ -39,8 +39,20 @@ def test_all_report_templates_keep_original_graphs_and_state(monkeypatch):
     html = render_html(state)
     assert state.model_dump_json() == before
     assert {'function','sufield','ceca','resources','flow','contradiction','physical-contradiction',
-            'trimming','matrix','separation','ariz','trends','fos','validation'} <= set(compared)
+            'trimming','matrix','ariz','trends','fos','validation'} <= set(compared)
+    # Each applicable saved approach gets its own application diagram. Reviews
+    # that rejected an approach remain in the report table, without a diagram.
+    separation = [f for f in data['figures'] if f['key'].startswith('separation-')]
+    assert [f['key'] for f in separation] == ['separation-0-application-0', 'separation-0-application-1']
+    for figure, application in zip(separation, state.solve.separation_apps[:2]):
+        root = ET.fromstring(figure['svg'])
+        assert root.get('data-diagram') == 'separation-application'
+        assert root.get('data-approach-kind') == application['kind']
+        assert application['title'].replace(' ', '') in ''.join(root.itertext()).replace(' ', '')
+        assert 'data-diagram="separation-concept-group"' not in figure['svg']
     rendered = [b['figure']['key'] for s in data['report_sections'] for b in s['blocks'] if b['type']=='figure']
+    assert all(rendered.count(figure['key']) == 1 for figure in separation)
+    assert 'separation-0' not in rendered
     assert rendered.count('quadrant') == 1
     assert html.count('data-guide-kind="quadrant"') == 1
 

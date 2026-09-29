@@ -74,8 +74,11 @@ def test_all_seven_report_labels_and_actual_principles_do_not_relabel_as_separat
     assert next(r for r in rows if r.startswith('| 모순 요구 우회 |')).split('|')[-2].strip() == '24'
     assert '우회 분리' not in markdown and '동시 충족 분리' not in markdown
     assert all(kind not in '\n'.join(rows) for kind in NAMES)
-    figure = next(f for f in view(state)['figures'] if f['key'] == 'separation-0')
-    assert '물리적 모순 해결 접근' in figure['title']
+    figures = [f for f in view(state)['figures'] if f['key'].startswith('separation-')]
+    assert [f['key'] for f in figures] == [f'separation-0-application-{i}' for i in (0,1,2,3,5,6)]
+    for figure, index in zip(figures, (0,1,2,3,5,6)):
+        app = state.solve.separation_apps[index]
+        assert app['title'] in figure['title'] and app['approach_name'] in figure['title']
     assert state.model_dump_json() == before
     if frozen:
         state.solve.separation_apps.clear()
@@ -111,7 +114,8 @@ def test_legacy_condition_and_mixed_pc_reports_keep_provenance_and_unknown_names
     assert state.solve.raw_ideas[0].source_ref == 'CONDITION 분리'
     assert state.model_dump_json() == before
     figures = [f for f in visuals.figures(state) if f['key'].startswith('separation-')]
-    assert [f['key'] for f in figures] == ['separation-0','separation-1']
+    assert [f['key'] for f in figures] == [f'separation-0-application-{i}' for i in range(4)] + [
+        f'separation-1-application-{i}' for i in (0,1,2,3,5,6)]
 
 
 def test_versioned_track_b_metadata_survives_merge_digest_s6_and_storage(state, monkeypatch):

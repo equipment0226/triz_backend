@@ -3,6 +3,7 @@ import re
 
 TERMS={
     'Su-Field':'Su-Field', 'Su-장':'Su-Field', 'Su–장':'Su-Field',
+    'Fe-Field':'Fe-Field', 'E-Field':'E-Field',
     '물질-장 분석':'물질-장 모델', '물질–장 분석':'물질-장 모델', '물질–장 모델':'물질-장 모델',
     'HARD':'필수', 'SOFT':'선호', 'CONDITIONAL':'조건부', 'UNSUPPORTED':'근거 미확보',
     'QUICK_WIN':'QUICK WIN','BIG_BET':'BIG BET','FILL_IN':'FILL IN',

@@ -1,34 +1,63 @@
-# v2 로컬 검증 기록
+# 검증 기록
 
-기준일: 2026-09-08. Windows, Python 3.11, Node 24, Microsoft Edge headless.
+갱신일: 2026-09-30. 보고서 수정과 문서 정비의 확인 범위입니다. 운영 비용 절감이나 기술적 성능 향상을 입증하는 자료와는 구분합니다.
 
-| 검증 | 결과 |
+## 보고서 수정
+
+| 항목 | 결과 | 확인한 내용 |
+|---|---|---|
+| 관련 회귀 테스트 | **346개 통과** | 분리 적용 도식·해결안 계보·표준해·보고서·표시 용어·기법 실행 상태 |
+| 최종 표시 수정 후 재검증 | **210개 통과** | 해결 범위 서술 제거, 최종 해결안의 중복 분리 도식 제거, 기존 도식·출력·상태 보존 |
+| 브라우저 확인 | **1440px / 390px 통과** | JavaScript 오류 0, 도식 텍스트 넘침 0 |
+| Introduction 자산 | **185개 기존 도식 해시 동일** | 보고서 변경으로 설명용 자료가 바뀌지 않음 |
+| 유료 모델 호출 | **0회** | 저장 데이터와 합성 fixture로 검사 |
+| 운영 분석·피드백 데이터 변경 | **0건** | 새 분석·재추론·피드백 제출·운영 데이터 보정 미실행 |
+
+분리원리는 `applicable=True`인 저장 적용안에 한해 도식을 만듭니다. 같은 원리라도 실제 적용 내용이 다르면 각각 다르게 표시합니다. 도식은 기법별 아이디어 섹션에만 남기고 최종 해결안에는 반복하지 않습니다. 타산업 기능 이식 뒤의 해결 범위·탐색 보완 서술도 보고서에서 제외합니다. 원본 상태와 기존 해결안 도식은 보존합니다.
+
+76표준해는 저장된 `resulting_su_field` 또는 `resulting_model`이 있을 때 적용 그림을 표시합니다. 일반 표준해 그림, 하위 대안·분기·발전 순서 참고 그림은 보고서에 덧붙이지 않습니다. S3 물질-장 모델은 유지합니다.
+
+주요 테스트: [분리 도식](../pilot/tests/test_separation_application_diagrams.py), [해결안 계보](../pilot/tests/test_separation_solution_groups.py), [해결안별 보고서](../pilot/tests/test_solution_specific_separation_report.py), [표준해 도식](../pilot/tests/test_standard_diagrams.py), [보고서·Introduction 분리](../pilot/tests/test_report_introduction_design.py).
+
+## 문서·흐름도
+
+| 항목 | 결과 |
 |---|---|
-| 기존 오프라인 스모크 | 8개 통과 |
-| 백엔드 회귀 테스트 | 30개 통과 (배포 인증·PORT·MCP 비동기 실행 포함) |
-| 실제 MCP 초기화·도구 호출 | 백엔드 테스트에 포함, ASGI transport 사용 |
-| 브라우저 시나리오 | 5개 통과 |
-| React/Vite production build | 성공 |
-| n8n workflow JSON 참조 | 5개 노드 및 모든 연결 참조 확인 |
-| Compose YAML | 7개 서비스 파싱 확인 |
-| MySQL DDL | SQLAlchemy MySQL dialect 컴파일 확인 |
-| 기존 PoC 저장 데이터 | 기존 6개 실행의 상태 조회 확인; 실제 모델을 통한 재개는 미실행 |
-| 운영용 프런트 gateway | 실제 HTTP 인증·프록시·내부 경로 격리 테스트 통과 |
-| 동일 서비스의 MCP | API lifespan + 52개 도구 + 실제 프로토콜 호출 통과 |
-| IPv4/IPv6 리스너 | 실제 로컬 서버 양쪽 접속 통과 |
+| UI Stage 순서 | `pipeline.PIPELINE`의 13개 항목과 AST 대조 |
+| Stage 상세 흐름 | 13개 모두 입력·출력 표와 개별 흐름도 포함 |
+| 전체 흐름 | 중간 검증, 과학효과, 특허·논문 검색 위치 표기 |
+| 학습 흐름 | AI 검토, 제약 keep/drop, 해결안 피드백을 효과/Q 각각의 데이터·보상에 연결 |
+| 모드 흐름 | 빠른·표준·심층 각각 작성; 빠른·표준 도식에 보상·학습 계수 표기 |
+| Mermaid | **27개 실제 브라우저 렌더·독립 SVG XML 검사 통과** |
+| 가독성 표본 | Stage 도식 2개에서 한글·영문·화살표·라벨 확인 |
+| 코드 근거 | 모드 계약, 검증기, 평가 수집, quality, Q/효과 학습, worker·registry 호출 대조 |
 
-회귀 테스트의 DB는 임시 SQLite이고 모델 호출은 fixture다. MySQL DDL 컴파일은 실제 MySQL 실행 검증이 아니다. MCP 프로토콜 테스트는 공식 SDK client의 initialize/call과 서버 처리를 사용하지만 외부 네트워크/프록시 테스트는 아니다.
+T등급과 실제 모델명, AX와 Q-learning, 보고서 총점과 학습 quality, 학습 생성과 활성 정책 사용을 구분했습니다. 현재 AI 검토는 효과 학습뿐 아니라 Q의 회차 최종 quality에도 기여합니다.
 
-브라우저 테스트는 1440px 데스크톱 홈과 390px 모바일 화면, 메뉴 이동, 문제/첨부 전송, 이력 조회, 역질의 답변, 내부 코드 비노출, SVG·근거 부족·보고서 링크를 확인한다. 캡처는 `frontend/test-results/landing-desktop.png`, `frontend/test-results/intake-mobile.png`에 생성된다. 해당 분석 데이터는 실제 모델 응답이 아니다.
+## 검증 산출물
 
-로컬 Docker Compose 자체는 미실행이다. 이후 Railway 배포에서 MySQL/PostgreSQL/Redis/n8n을 연결하고 workflow import·publish, 실제 큐 전달, DeepSeek 호출, 질문 대기·재개와 DB/파일 저장을 확인했다. 가상 입력 1건은 해결안 10개·도식 29개·평가자 6명의 보고서 생성과 HTML/ZIP 다운로드까지 확인했다. 특허 API 품질과 산업별 정확도·비용 비교 평가는 별도다. 연결 절차는 [Railway 배포 안내](../deploy/RAILWAY.md), 운영 확인 내역은 [배포 기록](DEPLOYMENT_STATUS.md)에 있다.
+다음은 작업공간에 보관한 로컬 자료입니다. 배포용 백엔드 Git에는 포함하지 않습니다.
 
-재현:
+| 로컬 경로 | 내용 |
+|---|---|
+| `.deployment/report-application-20260929/regressions-final.xml` | 최종 회귀 결과 346 pass |
+| `.deployment/report-application-20260929/browser-verification.json` | 화면별 렌더 결과 |
+| `.deployment/report-application-20260929/change-manifest.json` | 보고서 변경 경로·해시 |
+| `.deployment/docs-refresh-20260929/report-final-regressions.xml` | 최종 추가 수정 후 210 pass |
+| `.deployment/report-final-20260930/change-manifest.json` | 최종 배포 코드·테스트 해시 |
+| `.deployment/report-final-20260930/browser-verification.json` | 최종 표시 수정 후 데스크톱·모바일 확인 |
+| `.deployment/public-report-final-20260930.json` | 공개 보고서 3건의 최종 표시 확인 |
+| `.deployment/docs-refresh-20260929/stage-evidence.json` | Stage와 소스 근거 |
+| `.deployment/docs-refresh-20260929/learning-evidence.json` | 학습 수식·호출·링크 근거 |
+| `.deployment/docs-refresh-20260929/mermaid-render-results.json` | 실제 렌더와 SVG 검사 |
+| `.deployment/docs-refresh-20260929/rendered/` | SVG 27개와 표본 PNG |
+| `.deployment/docs-refresh-20260929/cleanup-manifest.json` | 삭제 파일·해시·대체 사유 |
+| `.deployment/docs-refresh-20260929/superseded-documents.zip` | 정리 전 Markdown 원본 |
 
-```powershell
-.venv/Scripts/python.exe -m pytest pilot/tests -q
-.venv/Scripts/python.exe pilot/scripts/smoke.py
-cd frontend
-npm.cmd run build
-npm.cmd test
-```
+Git에 있던 문서는 이전 커밋에서도 복구할 수 있습니다. 런타임 프롬프트·라이선스·원전 검토·연구 자료·PDF는 삭제 대상에서 제외했습니다.
+
+## 확인 범위의 한계
+
+전체 테스트 스위트를 다시 실행한 것은 아닙니다. 보고서 변경에 관련된 회귀 범위와 문서 검증을 수행했습니다. 기존 기록의 렌더 동작은 확인하되, 유료 모델로 새 문제를 생성해 끝까지 실행하는 검증은 하지 않았습니다.
+
+운영 비용·품질 개선, 정책 활성화율, 학습 표본 증가 효과를 새로 실험하지 않았습니다. 실제 반영을 판단하려면 공통 평가 → 유효 자료셋 → 검증 모델 → 활성 포인터 → 다음 실행의 선택을 연결해야 합니다. [학습 문서](LEARNING.md)에 확인 순서가 있고, 배포 결과는 [변경 기록](CHANGELOG.md)에 있습니다.

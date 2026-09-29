@@ -92,7 +92,7 @@ def test_merged_diagram_does_not_invent_transformation_or_choose_wrong_original(
     assert '변환 후' not in invalid['svg'] and '검증 실패' in invalid['note']
 
 
-def test_all_76_reference_diagrams_match_frontend_assets_and_report_numbers(state):
+def test_all_76_reference_assets_remain_available_without_inventing_report_applications(state):
     catalog=K.standards()
     specs=validate_specs(catalog)
     assert len(specs)==76
@@ -114,18 +114,21 @@ def test_all_76_reference_diagrams_match_frontend_assets_and_report_numbers(stat
     state.solve.standard_apps=[dict(standard_code=e['code'],standard_title='잘못된 모델 제목',idea='적용안') for e in reversed(catalog)]
     before=state.model_dump_json()
     result=visuals.figures(state)
-    figures={f['key']:f for f in result}
-    for i,entry in enumerate(reversed(catalog)):
-        figure=figures[f'standard-{i}']
-        assert figure['svg']==render_standard(entry)
-        assert entry['title_ko'] in figure['title']
+    assert not any(f['key'].startswith(('standard-','reference-standard-')) for f in result)
     assert before==state.model_dump_json()
-    # Reports must reference every figure in their content, not just create SVGs.
+    # Missing application structures do not gain generic reference figures;
+    # canonical names and the saved application text still survive reporting.
     from triz.presentation import view
+    from triz.render import render_report
     state.report=ReportArtifact()
     sections=view(state)['report_sections']
     actual=[b['figure']['key'] for section in sections for b in section['blocks'] if b.get('type')=='figure']
-    assert len([k for k in actual if k.startswith('standard-')])==76
+    assert not any(k.startswith(('standard-','reference-standard-')) for k in actual)
+    markdown=render_report(state,{})
+    assert all(entry['title_ko'].replace('물질–장 모델', '물질-장 모델') in markdown for entry in catalog)
+    assert 'Fe-Field' in markdown and 'E-Field' in markdown
+    assert 'Fe-장' not in markdown and 'E-장' not in markdown
+    assert '잘못된 모델 제목' not in markdown
 
 
 def test_standard_diagrams_represent_distinct_mechanisms_not_only_changed_titles():

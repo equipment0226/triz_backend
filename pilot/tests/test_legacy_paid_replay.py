@@ -141,8 +141,10 @@ def test_key_order_restore_cannot_change_saved_values(text):
     assert usage_recovery.legacy_replay_result(saved) is saved
 
 
-def test_key_order_restore_uses_equivalent_original_text_without_mutation():
+@pytest.mark.parametrize('wrapper', ['{}', '```json\n{}\n```', 'Saved response follows:\n{}'])
+def test_key_order_restore_uses_equivalent_original_text_without_mutation(wrapper):
     saved = {'data': {'a': 1, 'z': {'a': 2, 'z': 3}}, 'text': '{"z":{"z":3,"a":2},"a":1}'}
+    saved['text'] = wrapper.format(saved['text'])
     restored = usage_recovery.legacy_replay_result(saved)
     assert restored == saved
     assert list(restored['data']) == ['z', 'a']

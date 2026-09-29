@@ -66,7 +66,8 @@ def legacy_replay_result(result):
     if not isinstance(result, dict) or not isinstance(result.get('text'), str) or 'data' not in result:
         return result
     try:
-        original = json.loads(result['text'])
+        from ..llm import extract_json
+        original = extract_json(result['text'])
         equivalent = digest(original) == digest(result['data'])
     except (TypeError, ValueError):
         return result

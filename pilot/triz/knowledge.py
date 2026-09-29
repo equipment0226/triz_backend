@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import json
+from copy import deepcopy
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
@@ -116,65 +117,95 @@ SU_TO_TAGS = {
 }
 
 
+# Application search directions, NOT official applicability scores. Each code
+# refers to the same-numbered primary-source section; its additional premises
+# remain in the canonical conditions. Never infer those premises from a tag.
+STANDARD_HINT_RULES = {
+    "INCOMPLETE": ("1.1.1",),
+    "USEFUL_INSUFFICIENT": (
+        "1.1.2", "1.1.3", "1.1.4", "1.1.5", "1.1.7",
+        "2.1.1", "2.1.2", "2.2.1", "2.2.2", "2.2.3", "2.2.4",
+        "2.2.5", "2.2.6", "2.3.1", "2.3.2", "2.3.3",
+    ),
+    "HARMFUL": ("1.2.1", "1.2.2", "1.2.3", "1.2.4", "1.2.5"),
+    "EXCESSIVE": ("1.1.6", "1.1.8", "2.2.1"),
+    "MEASUREMENT": (
+        "4.1.1", "4.1.2", "4.1.3", "4.2.1", "4.2.2", "4.2.3", "4.2.4",
+        "4.3.1", "4.3.2", "4.3.3", "4.4.1", "4.4.2", "4.4.3",
+        "4.4.4", "4.4.5", "4.5.1", "4.5.2",
+    ),
+}
+
+
 def standard_hints(completeness: str, effect: str) -> list[str]:
-    hints: list[str] = []
-    if completeness in ("MISSING_S2", "MISSING_F", "INCOMPLETE"):
-        hints += ["1.1.1", "1.1.2", "1.1.3"]
-    if effect == "USEFUL_INSUFFICIENT":
-        hints += ["1.1.4", "1.1.5", "2.1.1", "2.1.2", "2.2.1", "2.2.2", "2.2.4"]
-    if effect == "HARMFUL":
-        hints += ["1.2.1", "1.2.2", "1.2.3", "1.2.4"]
-    if effect == "EXCESSIVE":
-        hints += ["1.1.6", "1.1.7", "1.1.8", "2.2.1"]
-    if effect == "MEASUREMENT":
-        hints += ["4.1.1", "4.1.2", "4.1.3", "4.2.1", "4.2.2", "4.3.1"]
-    return hints
+    hints = list(STANDARD_HINT_RULES["INCOMPLETE"]) if completeness in SU_TO_TAGS else []
+    hints.extend(STANDARD_HINT_RULES.get(effect, ()) if effect != "INCOMPLETE" else ())
+    return list(dict.fromkeys(hints))
+
+
+def _standard_search_text(item: dict) -> str:
+    """Only mechanism/condition text, without audit metadata or source URLs."""
+    parts = [item["description"], item["transformation"]]
+    for child in [*item.get("substandards", []), *item.get("variants", [])]:
+        parts.extend(str(child.get(key, "")) for key in ("title_ko", "transformation", "conditions"))
+    parts.extend(item.get("development_sequence", []))
+    return " ".join(parts)
 
 
 def candidate_standards(completeness: str, effect: str, limit: int = 12, required_functions=()) -> list[dict]:
-    """Search all 76 standards; preserve a few state-based starting directions."""
+    """Return unconfirmed candidates, keeping state anchors in a global search."""
     if limit <= 0:
         return []
-    tags = set(SU_TO_TAGS.get(completeness, [])) | {effect}
-    hint_codes = set(standard_hints(completeness, effect))
-    scored: list[tuple[int, dict]] = []
-    for st in standards():
-        score = 0
-        if st["code"] in hint_codes:
-            score += 3
-        if tags & set(st.get("applicability", [])):
-            score += 2
-        if st.get("verified"):
-            score += 1
-        if score:
-            scored.append((score, st))
-    scored.sort(key=lambda x: -x[0])
-    picked = [st for _, st in scored[:limit]]
-    if any(str(q).strip() for q in required_functions):
-        from .effect_catalog import select_effects
-        catalog = standards()
-        entries = [dict(id=s['code'],name=s['title_ko'],principle=s['description']+' '+s['transformation'],
-                        conditions=s['conditions'],domain='PHYSICAL') for s in catalog]
-        ranked = select_effects([dict(function_ko='표준해 적용',effects=entries)],required_functions,limit=len(entries))
-        by_code = {s['code']:s for s in catalog}
-        # Most slots follow the actual function and resources, so class 4/5 and
-        # newly completed standards are not buried by static early-code hints.
-        ordered = [by_code[e['id']] for e in ranked[:max(1,limit-3)]] + picked[:3] + [by_code[e['id']] for e in ranked]
-        unique = {}
-        for item in ordered:
-            unique.setdefault(item['code'],item)
-        picked = list(unique.values())[:limit]
-    if not picked:
-        picked = [st for st in standards() if st.get("verified")][:limit]
-    return picked
+    catalog = standards()
+    by_code = {s['code']: s for s in catalog}
+    hints = [code for code in standard_hints(completeness, effect) if code in by_code]
+    # With one slot, examine whether measurement is needed before completing a
+    # measuring model. With two slots both independent directions survive.
+    anchors = (["4.1.1"] if effect == "MEASUREMENT" else [])
+    anchors += ["1.1.1"] if completeness in SU_TO_TAGS else []
+    anchors = [code for code in anchors if code in by_code][:limit]
+    state_order = list(dict.fromkeys(anchors + hints))
+    queries = [str(q).strip() for q in required_functions if str(q).strip()]
+    matched = set()
+    if queries:
+        from .effect_catalog import select_effects, terms
+        entries = [dict(id=s['code'], name=s['title_ko'], principle=_standard_search_text(s),
+                        conditions=s['conditions'], domain='PHYSICAL') for s in catalog]
+        ranked = select_effects([dict(function_ko='표준해 적용', effects=entries)], queries, limit=len(entries))
+        query_terms = set(terms(' '.join(queries)))
+        matched = {e['id'] for e in entries if query_terms.intersection(terms(
+            ' '.join((e['name'], e['principle'], e['conditions']))))}
+        reserved = min(limit, len(state_order), max(len(anchors), min(3, limit // 4)))
+        state_picks = state_order[:reserved]
+        functional = [e['id'] for e in ranked if e['id'] not in state_picks]
+        order = anchors + functional[:limit-reserved] + state_picks + functional
+    else:
+        order = state_order or list(by_code)
+    result = []
+    for code in list(dict.fromkeys(order))[:limit]:
+        item = deepcopy(by_code[code])
+        item['candidate_basis'] = (["state_hint"] if code in hints else []) + (["function_search"] if code in matched else [])
+        if not item['candidate_basis']:
+            item['candidate_basis'] = ["catalog_exploration"]
+        item['candidate_status'] = 'UNCONFIRMED'
+        result.append(item)
+    return result
 
 
 def standards_block(items: list[dict]) -> str:
-    return "\n".join(
-        f"{s['code']} {s['title_ko']}: {s['description']}\n   모델 변환: {s.get('transformation','-')}"
-        f"\n   조건: {s.get('conditions','미확인')}\n   한계: {s.get('limitations','미확인')}"
-        for s in items
-    )
+    lines = []
+    for s in items:
+        lines.append(f"{s['code']} {s['title_ko']}: {s['description']}\n   모델 변환: {s.get('transformation','-')}"
+                     f"\n   조건: {s.get('conditions','미확인')}\n   한계: {s.get('limitations','미확인')} (편집상 공학 검토)")
+        basis = ', '.join(s.get('candidate_basis', ['caller_selection']))
+        lines.append(f"   후보 근거: {basis}; 조건 충족 미확인")
+        for child in s.get('substandards', []):
+            lines.append(f"   하위 {child['code']} {child['title_ko']}: {child['transformation']} / 조건: {child['conditions']}")
+        for variant in s.get('variants', []):
+            lines.append(f"   분기 {variant['title_ko']}: {variant['transformation']} / 조건: {variant['conditions']}")
+        if s.get('development_sequence'):
+            lines.append('   원전 발전 순서: ' + ' → '.join(s['development_sequence']))
+    return '\n'.join(lines)
 
 
 def standard_codes() -> set[str]:

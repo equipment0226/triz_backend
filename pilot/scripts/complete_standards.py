@@ -89,6 +89,11 @@ ROWS = '''
 
 def build():
     path = Path(__file__).resolve().parents[1] / 'triz/knowledge/standards_76.json'
+    if path.exists():
+        current = json.loads(path.read_text(encoding='utf-8'))
+        if any(any(key in item for key in ('source_review', 'substandards', 'variants', 'development_sequence'))
+               for item in current.get('standards', [])):
+            raise SystemExit('Refusing to overwrite source-reviewed standards with legacy ROWS. Edit the canonical JSON instead.')
     sources = [
         {'title':'MATRIZ · Standard inventive solutions (SIS)', 'url':'https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/substance-field-modeling/standard-inventive-solutions/'},
         {'title':'G. S. Altshuller Foundation · 76 standards', 'url':'https://www.altshuller.ru/triz/standards.asp'},

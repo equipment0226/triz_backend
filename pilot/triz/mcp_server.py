@@ -2,6 +2,8 @@
 import os
 import secrets
 import asyncio
+import re
+from copy import deepcopy
 from functools import wraps
 from mcp.server.fastmcp import FastMCP
 from starlette.responses import JSONResponse
@@ -101,6 +103,45 @@ def triz_render_report(run_id: str) -> dict:
         store.save_state(state)
         return {"markdown": markdown, "report_url": f"/api/runs/{run_id}/report?format=html"}
 
+def _sufield_hints(result):
+    result = deepcopy(result)
+    if isinstance(result, dict):
+        for model in result.get('su_fields') or []:
+            if isinstance(model, dict):
+                model['standard_class_hint'] = knowledge.standard_hints(
+                    model.get('completeness', 'COMPLETE'), model.get('effect', 'USEFUL_INSUFFICIENT'))
+    return result
+
+
+def _track_c_candidates(variables):
+    """Accept explicit parent headers/code lists; never infer codes from prose."""
+    body = variables['standards_block']
+    if not isinstance(body, str):
+        raise ValueError('standards_block must be text containing explicit parent codes, or empty for selection')
+    if not body.strip():
+        resources = variables['resources']
+        return knowledge.candidate_standards(variables['completeness'], variables['effect'],
+            required_functions=[str(variables[k] or '') for k in ('s1', 's2', 'field')] +
+                ([str(r) for r in resources] if isinstance(resources, list) else [str(resources or '')]))
+    # A bare comma/space-separated code list or standards_block's unindented
+    # parent headers are unambiguous. Indented canonical detail lines are not IDs.
+    if re.fullmatch(r'\s*\d+(?:\.\d+){2,}(?:[\s,]+\d+(?:\.\d+){2,})*\s*', body):
+        codes = re.findall(r'\d+(?:\.\d+){2,}', body)
+    else:
+        codes = []
+        for line in body.splitlines():
+            if not line.strip() or line[0].isspace():
+                continue
+            match = re.match(r'^(\d+(?:\.\d+){2,})(?=\s|$)', line)
+            if not match:
+                raise ValueError('Ambiguous standards_block: use explicit parent-code headers or a code list')
+            codes.append(match.group(1))
+    by_code = {s['code']: s for s in knowledge.standards()}
+    if not codes or any(code not in by_code for code in codes):
+        raise ValueError('standards_block must select valid parent standard codes only')
+    return [deepcopy(by_code[code]) for code in dict.fromkeys(codes)]
+
+
 def register_prompt(prompt_id):
     node = prompt_id.removeprefix("P_").lower()
     required = sorted(set(P.VAR.findall(P.raw(prompt_id))))
@@ -112,9 +153,32 @@ def register_prompt(prompt_id):
             state = store.load_state(run_id)
             if not state:
                 raise ValueError("Unknown run")
+            options = {}
+            call_variables = variables
+            if prompt_id == 'P_S3_SUFIELD':
+                options['normalizer'] = _sufield_hints
+            elif prompt_id == 'P_S5_TRACK_C':
+                from .catalog_binding import bind_standard
+                from .verify import check_standards
+                candidates = _track_c_candidates(variables)
+                if not candidates:
+                    raise ValueError('No valid parent standards available for Track C')
+                allowed = [s['code'] for s in candidates]
+                call_variables = dict(variables, standards_block=knowledge.standards_block(candidates))
+                options['normalizer'] = lambda data: bind_standard(data, candidates)
             result = agent.run_agent(RunContext(state), node=node, label=node.replace("_", " "),
                 stage=state.control.current_stage, agent_id=f"mcp::{node}", prompt_id=prompt_id,
-                vars=variables, tier=agent.routed_tier(node), default={})
+                vars=call_variables, tier=agent.routed_tier(node), default={}, **options)
+            if prompt_id == 'P_S3_SUFIELD':
+                result = _sufield_hints(result)
+            elif prompt_id == 'P_S5_TRACK_C':
+                result = bind_standard(result, candidates)
+                # Validate after the existing single direct call: attaching a
+                # checker to run_agent would add paid repair attempts here.
+                issues = check_standards(result, allowed)
+                if issues:
+                    store.save_state(state)
+                    raise ValueError('; '.join(issues))
             store.save_state(state)
             return {"artifact": result, "run_id": run_id}
     mcp.add_tool(threaded(invoke), name=f"triz_{node}", description=(

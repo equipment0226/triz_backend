@@ -1,6 +1,93 @@
 {
-  "TIME": {"name_ko": "시간 분리", "question": "상반된 두 상태를 서로 다른 시간에 만족시킬 수 있는가?", "principles": [15, 10, 9, 19, 20, 34, 11, 21, 26, 37]},
-  "SPACE": {"name_ko": "공간 분리", "question": "상반된 두 상태를 서로 다른 위치·부분에서 만족시킬 수 있는가?", "principles": [1, 2, 3, 4, 7, 17, 13, 30, 14, 24]},
-  "CONDITION": {"name_ko": "조건 분리", "question": "특정 조건(온도·하중·속도·상태)에서만 다르게 거동하게 할 수 있는가?", "principles": [32, 35, 36, 31, 38, 39, 28, 29, 18, 23]},
-  "SYSTEM_LEVEL": {"name_ko": "시스템 수준 분리", "question": "부분에서는 A, 전체에서는 B가 성립하게 할 수 있는가? 상위시스템 전이 또는 역시스템은?", "principles": [1, 5, 6, 25, 33, 40, 3, 12, 22, 27]}
+  "SPACE": {
+    "name_ko": "공간 분리",
+    "name_en": "Separating in space",
+    "family": "SEPARATE",
+    "description": "상반된 요구가 서로 다른 공간 위치에 적용되는지 확인하고 위치별로 요구를 충족한다.",
+    "question": "어디에서?",
+    "principles": [1, 2, 3, 7, 4, 17],
+    "selection_policy": "RECOMMENDED_FIRST",
+    "source_url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/contradictions/physical-contradiction-6056/algorithm-for-resolving-physical-contradictions/",
+    "source_section": "Separating in space",
+    "source_accessed_on": "2026-09-29",
+    "catalog_version": "matriz-pc-7-2026-09-29"
+  },
+  "TIME": {
+    "name_ko": "시간 분리",
+    "name_en": "Separating in time",
+    "family": "SEPARATE",
+    "description": "상반된 요구가 서로 다른 시점에 필요한지 확인하고 시점별로 요구를 충족한다.",
+    "question": "언제?",
+    "principles": [9, 10, 11, 15, 34],
+    "selection_policy": "RECOMMENDED_FIRST",
+    "source_url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/contradictions/physical-contradiction-6056/algorithm-for-resolving-physical-contradictions/",
+    "source_section": "Separating in time",
+    "source_accessed_on": "2026-09-29",
+    "catalog_version": "matriz-pc-7-2026-09-29"
+  },
+  "CONDITION": {
+    "name_ko": "관계(조건) 분리",
+    "name_en": "Separating in relation (conditions)",
+    "family": "SEPARATE",
+    "description": "상반된 요구가 서로 다른 대상에 대해 적용되는 관계를 식별한다. 온도·하중의 임계값 변화만으로 관계 분리라고 판정하지 않는다.",
+    "question": "누구에게 / 어떤 대상에 대해?",
+    "principles": [3, 17, 19, 31, 32, 40],
+    "selection_policy": "RECOMMENDED_FIRST",
+    "source_url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/contradictions/physical-contradiction-6056/algorithm-for-resolving-physical-contradictions/",
+    "source_section": "Separating in relation (conditions)",
+    "source_accessed_on": "2026-09-29",
+    "catalog_version": "matriz-pc-7-2026-09-29"
+  },
+  "DIRECTION": {
+    "name_ko": "방향 분리",
+    "name_en": "Separating in direction",
+    "family": "SEPARATE",
+    "description": "상반된 요구가 서로 다른 작용 방향에 적용되는지 확인하고 방향별로 요구를 충족한다.",
+    "question": "어느 방향으로?",
+    "principles": [4, 14, 17, 32, 35, 40],
+    "selection_policy": "RECOMMENDED_FIRST",
+    "source_url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/contradictions/physical-contradiction-6056/algorithm-for-resolving-physical-contradictions/",
+    "source_section": "Separating in direction",
+    "source_accessed_on": "2026-09-29",
+    "catalog_version": "matriz-pc-7-2026-09-29"
+  },
+  "SYSTEM_LEVEL": {
+    "name_ko": "시스템 수준 분리",
+    "name_en": "Separating at the system level",
+    "family": "SEPARATE",
+    "description": "시스템 수준에서 상반된 요구를 분리하는 접근을 항상 검토한다. 질문의 답으로 사전 제외하지 않으며 실제 적용안의 성립을 보장하는 뜻은 아니다.",
+    "question": "공식 제어 질문 없음. 항상 검토한다.",
+    "principles": [1, 5, 12, 33],
+    "selection_policy": "RECOMMENDED_FIRST",
+    "source_url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/contradictions/physical-contradiction-6056/algorithm-for-resolving-physical-contradictions/",
+    "source_section": "Separating at the system level",
+    "source_accessed_on": "2026-09-29",
+    "catalog_version": "matriz-pc-7-2026-09-29"
+  },
+  "SATISFY": {
+    "name_ko": "상반 요구의 동시 충족",
+    "name_en": "Satisfying the contradictory demands",
+    "family": "SATISFY",
+    "description": "두 요구를 함께 만족시키는 기능적 인과 경로를 찾는다. 같은 대상·속성·조건에서 A와 not-A가 설명 없이 동시에 성립한다고 주장하지 않는다.",
+    "question": "공식 제어 질문은 제시되지 않는다. 두 요구의 동시 충족 메커니즘을 검토한다.",
+    "principles": [13, 28, 35, 36, 37, 38, 39],
+    "selection_policy": "RECOMMENDED_FIRST",
+    "source_url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/contradictions/physical-contradiction-6056/algorithm-for-resolving-physical-contradictions/",
+    "source_section": "Satisfying the contradictory demands",
+    "source_accessed_on": "2026-09-29",
+    "catalog_version": "matriz-pc-7-2026-09-29"
+  },
+  "BYPASS": {
+    "name_ko": "모순 요구 우회",
+    "name_en": "Bypassing the contradictory demands",
+    "family": "BYPASS",
+    "description": "필요한 기능을 다른 방식으로 실현하여 기존 물리적 모순의 전제를 불필요하게 만든다. 상위 목적·필수 기능·승인된 제약을 삭제하는 것은 우회 해결이 아니다.",
+    "question": "공식 제어 질문은 제시되지 않는다. 기능 실현 방식을 바꾸어 모순을 불필요하게 만들 수 있는지 검토한다.",
+    "principles": [],
+    "selection_policy": "UNRESTRICTED",
+    "source_url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/contradictions/physical-contradiction-6056/algorithm-for-resolving-physical-contradictions/",
+    "source_section": "Bypassing the contradictory demands",
+    "source_accessed_on": "2026-09-29",
+    "catalog_version": "matriz-pc-7-2026-09-29"
+  }
 }

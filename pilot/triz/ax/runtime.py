@@ -47,6 +47,7 @@ def bundle(state=None):
           'prompts':{p:prompts_registry.raw(p) for p in prompts_registry.list_prompts()},
           'effects':copy.deepcopy(knowledge.effects()),
           'effect_sources':copy.deepcopy(knowledge._load('effects_sources.json')),
+          'separation_catalog':copy.deepcopy(knowledge.separation()),
           'config':copy.deepcopy(settings.triz),'rubrics':copy.deepcopy(settings.rubrics),
           'limits':{'branches':3,'recovery_targets':2,'repairs_per_blocker':2,'depth':2,
                     'validation_reserve_microusd':120000,'idea_review_policy':'full-idea-review-v1',
@@ -54,7 +55,7 @@ def bundle(state=None):
           'source_hashes':{str(p.relative_to(root.parent)).replace('\\','/'):digest(p.read_text(encoding='utf-8')) for p in
                            [root/'nodes.py',root/'quality.py',root/'verify.py',root/'render.py',root/'reformulation.py',
                             root/'display_terms.py',root/'report_style.py',root/'solve_contract.py',root/'digest.py',
-                            root/'agent.py',root/'prompts_registry.py',root/'evidence.py',root/'idea_consolidation.py',
+                            root/'agent.py',root/'prompts_registry.py',root/'evidence.py',root/'idea_consolidation.py',root/'separation_contract.py',
                             root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
                             root/'ax/learning.py',root/'ax/mode_contract.py',root/'ax/action_runtime.py',

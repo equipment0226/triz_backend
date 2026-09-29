@@ -29,7 +29,9 @@
   나쁜 예: "높음", "고압력 상태임" (명사형·명사구 금지)
 - scale: MACRO(시스템 거동) | MICRO(유형에 맞는 최소 작용 단위: 계면, 상태 전이, 개별 의사결정). 비기술 문제에 입자/분자를 강요하지 않는다.
 - derived_from_tc_label: 기술적 모순을 심화시켜 얻었다면 그 label
-- separation_candidates: TIME / SPACE / CONDITION / SYSTEM_LEVEL 중 가능성이 보이는 것
+- separation_candidates: SPACE / TIME / CONDITION / DIRECTION / SYSTEM_LEVEL / SATISFY / BYPASS 중 가능성이 보이는 접근의 힌트.
+  CONDITION은 서로 다른 대상에 요구가 적용되는 관계(조건) 분리이며, SYSTEM_LEVEL은 공식 제어 질문 없이 항상 검토한다.
+  이 힌트는 S5의 7개 접근 검토를 제한하는 허용 목록이 아니다. 분리 5개, 동시 충족(SATISFY), 우회(BYPASS)를 구별한다.
 
 --- C. 도출 규칙 ---
 1. 실제로 동일 요소의 동일 속성에 상반 요구가 성립할 때만 물리적 모순으로 심화한다. 조직 문제는 같은 행위자·규칙의 동일 속성에 대한 상반 요구를 적는다. 성립하지 않으면 physical_not_applicable_reason에 이유를 적고 빈 배열을 허용한다.

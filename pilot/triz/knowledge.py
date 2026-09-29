@@ -217,12 +217,27 @@ def separation() -> dict:
     return _load("separation.json")
 
 
-def separation_block() -> str:
-    return "\n".join(
-        f"- {k} ({v['name_ko']}): {v['question']}\n   연계 발명원리: "
-        + ", ".join(f"{p}({principle_name(p)})" for p in v["principles"])
-        for k, v in separation().items()
-    )
+def separation_block(*, catalog=None) -> str:
+    catalog = separation() if catalog is None else catalog
+    if not any(row.get('catalog_version') for row in catalog.values()):
+        # Keep the old rendered knowledge bytes for immutable four-kind pins.
+        return "\n".join(
+            f"- {k} ({v['name_ko']}): {v['question']}\n   연계 발명원리: "
+            + ", ".join(f"{p}({principle_name(p)})" for p in v["principles"])
+            for k, v in catalog.items())
+    lines = ['물리적 모순 해결 접근: 분리·동시 충족·우회를 구분한다. 권장 원리는 실제 사용 목록이 아니다.']
+    for kind, row in catalog.items():
+        recommended = ', '.join(f"{pid}({principle_name(pid)})" for pid in row['principles'])
+        if row['selection_policy'] == 'UNRESTRICTED':
+            recommended = '고정 권장 묶음 없음; 아래 40원리 전체 탐색 가능'
+        lines.append(f"- {kind} ({row['name_ko']}; {row['family']}): {row['description']}"
+                     f"\n   제어 안내: {row['question']}\n   원문 권장 원리: {recommended}"
+                     f"\n   출처 절: {row['source_section']}")
+    sources = dict.fromkeys((row['source_url'], row['source_accessed_on'], row['catalog_version']) for row in catalog.values())
+    for url, accessed, version in sources:
+        lines.append(f'출처: {url} / 확인일: {accessed} / 프로젝트 내부 스냅샷: {version} (협회 공식 판번호 아님)')
+    lines.append('40원리 간략 정의 — 반복 원리도 한 번만 기재; BYPASS 이외에는 원문 권장 집합 우선:\n'+all_principles_brief())
+    return '\n'.join(lines)
 
 
 def trends() -> list[dict]:

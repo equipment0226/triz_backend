@@ -321,7 +321,33 @@ def viz_bundle(s: GlobalState) -> dict:
 
 
 # ──────────────────────────────────── 환경
+def separation_candidate_names(state, contradiction) -> list[str]:
+    """Name stored S4 hints using linked evidence, without reclassifying them."""
+    from .separation_contract import canonical_kind, display_name
+    from .ax import enabled as ax_enabled
+    bundle = state.scratch.get('ax_bundle', {})
+    pinned = bundle.get('separation_catalog', {}) if ax_enabled(state) and isinstance(bundle, dict) else {}
+    names = []
+    for candidate in contradiction.separation_candidates:
+        kind = canonical_kind(candidate)
+        linked = next((app for app in state.solve.separation_apps
+                       if app.get('source_pc_id') == contradiction.id
+                       and canonical_kind(app.get('kind')) == kind), None)
+        if linked is not None:
+            names.append(display_name(linked))
+            continue
+        row = pinned.get(kind) if isinstance(pinned, dict) else None
+        app = {'kind':kind}
+        if isinstance(row, dict) and row.get('catalog_version'):
+            app.update(catalog_version=row['catalog_version'], approach_name=row.get('name_ko'),
+                       approach_family=row.get('family'))
+        names.append(display_name(app))
+    return names
+
+
 def _env(labels: dict[str, str], keep_code: bool = False) -> Environment:
+    from .separation_contract import display_name as separation_name
+    from .standard_diagrams import supplemental_details
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_DIR)),
         autoescape=select_autoescape(enabled_extensions=(), default=False),
@@ -332,6 +358,10 @@ def _env(labels: dict[str, str], keep_code: bool = False) -> Environment:
     env.globals.update(
         param=lambda pid, scheme="ENG_39": K.param_name(pid, scheme),
         principle=lambda pid: K.principle_name(pid),
+        separation_name=separation_name,
+        separation_candidate_names=separation_candidate_names,
+        standard_reference=lambda app: next((row for row in K.standards() if row['code'] == app.get('standard_code')), None),
+        standard_reference_details=lambda source: supplemental_details(source) if source else [],
         now=datetime.now().strftime("%Y-%m-%d %H:%M"),
         TRACK_KO=TRACK_KO, QUADRANT_KO=QUADRANT_KO, NOVELTY_KO=NOVELTY_KO,
         SCALE_KO=SCALE_KO, CATEGORY_KO=CATEGORY_KO, LEVEL_KO=LEVEL_KO,

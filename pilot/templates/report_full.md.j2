@@ -251,7 +251,7 @@
 > **{{ p.state_a | pred }}** — {{ p.reason_a }}
 > 동시에 **{{ p.state_b | pred }}** — {{ p.reason_b }}
 
-검토 분리 원리: {{ p.separation_candidates | join(', ') }}
+검토 해결 접근: {{ separation_candidate_names(s, p) | join(', ') }}
 
 {{ diagram('pc-' ~ loop.index0) }}
 
@@ -353,21 +353,23 @@
 {% endif %}
 
 {% if s.solve.separation_apps or report_tracks.get('B_SEPARATION') %}
-### 4.2 분리 원리 적용 (물리적 모순)
+### 4.2 물리적 모순 해결 접근
+
+현재 분류는 5가지 분리와 2가지 보완 접근을 구분한다. 개념도는 저장된 검토 항목의 의미를 설명하며, 과거 기록의 조건 분리는 당시 의미를 유지한다.
 
 {% if not s.solve.separation_apps %}
 > **{{ report_tracks.B_SEPARATION.label }}**: {{ report_tracks.B_SEPARATION.empty_message }}
 {% endif %}
 
 {% for group in separation_groups %}
-#### {{ group.title }}에 대한 분리원리 적용
+#### {{ group.title }}에 대한 해결 접근
 
 {{ group.contradiction }}
 
-| 분리 원리 | 적용 | 분리 방식 | 아이디어 | 연계 발명원리 |
+| 해결 접근 | 적용 | 해결 방식 | 아이디어 | 실제 사용 발명원리 |
 |---|---|---|---|---|
 {% for a in group.apps %}
-| {{ ( {'TIME':'시간 분리','SPACE':'공간 분리','CONDITION':'조건 분리','SYSTEM_LEVEL':'시스템 수준 분리'}.get(a.kind, a.kind) ) | cell }} | {{ ( '○' if a.applicable else '✗' ) | cell }} | {{ ( a.how or a.not_applicable_reason ) | cell }} | {{ ( a.idea ) | cell }} | {{ ( (a.supporting_principles or []) | join(', ') ) | cell }} |
+| {{ separation_name(a) | cell }} | {{ ( '○' if a.applicable else '✗' ) | cell }} | {{ ( (a.how or '') ~ (' / ' if a.how and a.not_applicable_reason else '') ~ (('미적용 사유: ' ~ a.not_applicable_reason) if a.not_applicable_reason else '') ) | cell }} | {{ ( (a.title or '') ~ (' · ' if a.title and a.idea else '') ~ (a.idea or '') ) | cell }} | {{ ( (a.supporting_principles or []) | join(', ') ) | cell }} |
 {% endfor %}
 {{ diagram(group.key) }}
 {% endfor %}
@@ -380,13 +382,72 @@
 > **{{ report_tracks.C_STANDARDS.label }}**: {{ report_tracks.C_STANDARDS.empty_message }}
 {% endif %}
 
+{% set standard_seen = namespace(codes=[]) %}
 {% for a in s.solve.standard_apps %}
-**{{ a.standard_code }} {{ a.standard_title }}**
+{% set standard_index = loop.index0 %}
+{% set standard_source = standard_reference(a) %}
+{% set show_standard_reference = standard_source and a.standard_code not in standard_seen.codes %}
+{% if show_standard_reference %}
+{% set standard_seen.codes = standard_seen.codes + [a.standard_code] %}
+{% endif %}
+**{{ a.standard_code }} {{ standard_source.title_ko if standard_source else a.standard_title }}**
+
+**저장된 적용 기록**
+
 - 모델 변환: `{{ a.transformation }}`
 - 변환 결과: `{{ a.resulting_su_field }}`
 - 적용안: {{ a.idea }}
 
-{{ diagram('standard-' ~ loop.index0) }}
+{{ diagram('standard-' ~ standard_index) }}
+
+{% if show_standard_reference %}
+**표준해 참고 설명 · 적용 결과와 구분**
+
+{% if standard_source.description %}
+- 표준해 정의: {{ standard_source.description }}
+{% endif %}
+- 원전의 변환 기법: {{ standard_source.transformation }}
+- 적용 조건: {{ standard_source.conditions | join(' / ') }}
+{% if standard_source.limitations %}
+- 편집상 주의·한계: {{ standard_source.limitations | join(' / ') }}
+{% endif %}
+{% if standard_source.notes %}
+- 해설 메모: {{ standard_source.notes | join(' / ') }}
+{% endif %}
+{% if standard_source.source_review and standard_source.source_review.summary %}
+- 현재 카탈로그의 원전 대조 메모: {{ standard_source.source_review.summary }}
+{% endif %}
+{% if a.resulting_su_field or a.resulting_model %}
+{{ diagram('reference-standard-' ~ standard_index) }}
+{% endif %}
+
+{% for reference in standard_reference_details(standard_source) %}
+**{% if reference.kind == 'substandard' %}{{ reference.code }} · {% elif reference.kind == 'variant' %}대안 분기 · {% endif %}{{ reference.title }}**
+
+{% if reference.transformation %}
+{{ reference.transformation }}
+{% endif %}
+{% if reference.conditions %}
+적용 전제: {{ reference.conditions | join(' / ') }}
+{% endif %}
+{% if reference.steps %}
+{% for step in reference.steps %}
+{{ loop.index }}. {{ step }}
+{% endfor %}
+{% endif %}
+
+{{ diagram('reference-standard-' ~ standard_index ~ '-' ~ reference.key) }}
+{% endfor %}
+
+위 참고도식은 해당 표준해의 공식 하위 기법·번호 없는 분기·개발 순서를 설명한다. 이번 분석에서 각 방법을 실제 적용했다는 의미는 아니다.
+{% for source in standard_source.sources %}
+{% if source.url %}
+[{{ source.title or source.url }}]({{ source.url }}){% if source.section %} · {{ source.section }}{% endif %}
+{% endif %}
+{% endfor %}
+{% elif standard_source %}
+표준해 {{ a.standard_code }}의 일반 개념과 하위 기법은 앞선 같은 표준해의 참고 설명을 따른다. 위 적용 기록은 별도로 보존한다.
+{% endif %}
 {% endfor %}
 {% endif %}
 

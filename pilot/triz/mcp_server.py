@@ -78,6 +78,12 @@ def triz_parse_attachment(run_id: str, attachment_id: str) -> dict:
 @threaded
 def triz_verify_artifact(run_id: str, rubric_id: str, artifact: dict, facts: str = "") -> dict:
     """Independently audit an artifact and archive model usage and verdict."""
+    if rubric_id == 'R5_B':
+        with store.run_lock(run_id):
+            state = store.load_state(run_id)
+            if not state:
+                raise ValueError("Unknown run")
+            return _verify_separation_artifact(state, artifact, facts)
     if not settings.rubric(rubric_id):
         raise ValueError("Unknown rubric")
     with store.run_lock(run_id):
@@ -142,6 +148,57 @@ def _track_c_candidates(variables):
     return [deepcopy(by_code[code]) for code in dict.fromkeys(codes)]
 
 
+def _track_b_artifact(state, node, prompt_id, variables):
+    """Direct Track B keeps its run's catalog, prompt and rubric in one profile."""
+    from . import separation_contract as SC, verify
+    from .context import AbortRun
+    from .ax import enabled as ax_enabled
+    from .execution_config import profile
+    token = profile.set(state.scratch.get('ax_bundle') if ax_enabled(state) else None)
+    try:
+        catalog = SC.catalog_for(state)
+        call_variables = dict(variables, separation_block=knowledge.separation_block(catalog=catalog))
+        normalize = lambda data: SC.normalize(data, catalog=catalog)
+        check = lambda data: verify.check_separation(data, catalog=catalog)
+        result = agent.run_agent(RunContext(state), node=node, label=node.replace('_', ' '),
+            stage=state.control.current_stage, agent_id=f'mcp::{node}', prompt_id=prompt_id,
+            vars=call_variables, tier=agent.routed_tier(node), default={},
+            normalizer=normalize, checker=check, rubric_id='R5_B')
+        result = normalize(result)
+        issues = check(result)
+        if issues:
+            raise AbortRun('; '.join(issues))
+        return {'artifact': result, 'run_id': state.run_id}
+    finally:
+        try:
+            store.save_state(state)
+        finally:
+            profile.reset(token)
+
+
+def _verify_separation_artifact(state, artifact, facts):
+    """A model verdict cannot waive the run-local Track B data contract."""
+    from . import separation_contract as SC, verify
+    from .ax import enabled as ax_enabled
+    from .execution_config import profile
+    token = profile.set(state.scratch.get('ax_bundle') if ax_enabled(state) else None)
+    try:
+        if not settings.rubric('R5_B'):
+            raise ValueError('Unknown rubric')
+        catalog = SC.catalog_for(state)
+        normalized = SC.normalize(artifact, catalog=catalog)
+        issues = verify.check_separation(normalized, catalog=catalog)
+        if issues:
+            return {'verdict': 'REJECT', 'score': 0.0, 'source': 'deterministic',
+                    'fatal_flaws': issues, 'revision_instructions': issues}
+        return agent.verify_artifact(RunContext(state), 'R5_B', normalized, facts)
+    finally:
+        try:
+            store.save_state(state)
+        finally:
+            profile.reset(token)
+
+
 def register_prompt(prompt_id):
     node = prompt_id.removeprefix("P_").lower()
     required = sorted(set(P.VAR.findall(P.raw(prompt_id))))
@@ -153,6 +210,8 @@ def register_prompt(prompt_id):
             state = store.load_state(run_id)
             if not state:
                 raise ValueError("Unknown run")
+            if prompt_id == 'P_S5_TRACK_B':
+                return _track_b_artifact(state, node, prompt_id, variables)
             options = {}
             call_variables = variables
             if prompt_id == 'P_S3_SUFIELD':

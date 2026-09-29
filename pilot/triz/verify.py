@@ -327,12 +327,9 @@ def check_standards(data: dict, allowed=None) -> list[str]:
     return issues[:8]
 
 
-def check_separation(data: dict) -> list[str]:
-    kinds = {a.get("kind") for a in data.get("applications", [])}
-    missing = {"TIME", "SPACE", "CONDITION", "SYSTEM_LEVEL"} - kinds
-    if missing:
-        return [f"DET-B1: 다음 분리 원리가 검토되지 않았다: {', '.join(sorted(missing))}"]
-    return []
+def check_separation(data: dict, *, catalog=None) -> list[str]:
+    from .separation_contract import check
+    return check(data, catalog=catalog)
 
 
 def check_ariz(data: dict, required_codes: list[str]) -> list[str]:

@@ -639,28 +639,37 @@ def _track_a(ctx: RunContext) -> None:
 
 
 def _track_b(ctx: RunContext) -> None:
+    from . import separation_contract as separation
     st = ctx.state
+    catalog = separation.catalog_for(st)
     for pc in _pick_pcs(st):
         d = agent.run_agent(
             ctx, node="s5_track_b", label=f"Track B 분리원리({pc.id})", stage=Stage.S5.value,
             agent_id="inventor_b", prompt_id="P_S5_TRACK_B", tier="T2", rubric_id="R5_B",
-            checker=verify.check_separation,
+            checker=lambda data: verify.check_separation(data, catalog=catalog),
+            normalizer=lambda data: separation.normalize(data, catalog=catalog),
             vars={"element": pc.element, "parameter": pc.parameter,
                   "state_a": pc.state_a, "reason_a": pc.reason_a,
                   "state_b": pc.state_b, "reason_b": pc.reason_b, "scale": pc.scale,
                   "target_system": digest.target_system(st),
                   "resources": digest.resources_digest(st),
                   "su_fields": digest.su_fields_digest(st),
-                  "separation_block": K.separation_block()},
+                  "separation_block": K.separation_block(catalog=catalog)},
             default={},
-        ) or {}
+        )
+        d = separation.normalize(d, catalog=catalog)
+        issues = verify.check_separation(d, catalog=catalog)
+        if issues and not separation.is_legacy(catalog):
+            raise AbortRun('물리적 모순 해결 접근 검토가 완전하지 않습니다. ' + '; '.join(issues))
+        d = d if isinstance(d, dict) else {}
         if d.get("redefine_hint"):
             st.solve.gaps.append(d["redefine_hint"])
         for application in d.get('applications') or []:
-            application['source_pc_id'] = pc.id
-        apps = [a for a in (d.get("applications") or []) if a.get("applicable")]
+            if isinstance(application, dict):
+                application['source_pc_id'] = pc.id
+        apps = [a for a in (d.get("applications") or []) if isinstance(a, dict) and a.get("applicable") is True]
         for a in apps:
-            a["ref"] = f"{a.get('kind')} 분리"
+            a["ref"] = separation.display_name(a)
         st.solve.separation_apps += (d.get("applications") or [])
         _add_ideas(st, "B_SEPARATION", apps, ref_key="ref", addresses=[pc.id])
 
@@ -790,6 +799,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
 
     if 5 in parts_enabled:
         from .catalog_binding import bind_effect, bind_standard
+        from .separation_contract import catalog_for as separation_catalog_for
         su = st.analysis.su_fields[0] if st.analysis.su_fields else None
         cands = K.candidate_standards(su.completeness if su else '',su.effect if su else '',
             required_functions=[*_required_functions(st),run.physical_contradiction_macro,run.physical_contradiction_micro])
@@ -814,7 +824,7 @@ def _track_d_ariz(ctx: RunContext) -> None:
                   "pc_micro": run.physical_contradiction_micro,
                   "sfr_inventory": run.sfr_inventory,
                   "standards_block": K.standards_block(cands),
-                  "separation_block": K.separation_block(),
+                  "separation_block": K.separation_block(catalog=separation_catalog_for(st)),
                   "effects_block": format_effects(effect_cands,len(K.effects()),sum(len(g['effects']) for g in K.effects()),len(K.standards()))},
             default={},
         ) or {}
@@ -1640,7 +1650,8 @@ def _applied_principles(st) -> list[dict]:
             add(f"발명원리 {pid} {K.principle_name(int(pid))}", a.get("interpretation", ""))
     for a in st.solve.separation_apps:
         if a.get('applicable') is not False:
-            add(f"분리원리 {a.get('kind') or a.get('separation_type', '')}", a.get("how") or a.get("interpretation", ""))
+            from .separation_contract import display_name
+            add(display_name(a), a.get("how") or a.get("interpretation", ""))
     for a in st.solve.standard_apps:
         add(f"표준해 {a.get('standard_code') or a.get('standard_id', '')} {a.get('standard_title','')}", a.get("transformation") or a.get("interpretation", ""))
     for a in st.solve.effect_apps:

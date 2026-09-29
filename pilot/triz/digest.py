@@ -76,10 +76,22 @@ def idea_packet(i):
               "source_effect_id", "effect_name", "catalog_function", "catalog_conditions",
               "catalog_limitations", "catalog_sources", "catalog_evidence_level", "catalog_mechanism_key")
     packet["support"] = {k: i.detail[k] for k in fields if i.detail.get(k)}
+    # Versioned Track B provenance must reach S6, including BYPASS's meaningful
+    # empty recommendation list. Leave historical, unversioned packets intact.
+    separation_fields = ("kind", "source_pc_id", "supporting_principles", "catalog_version",
+                         "approach_name", "approach_family", "recommended_principles",
+                         "principle_selection_policy", "principle_selection_status",
+                         "principle_selection_reason")
+    def separation_support(source):
+        if not source.get("catalog_version") or not source.get("approach_family"):
+            return {}
+        return {key: source[key] for key in separation_fields if key in source}
+    packet["support"].update(separation_support(i.detail))
     packet["support"]["source_tracks"] = [track for track in idea_tracks(i) if track]
     if i.detail.get("source_details"):
         packet["support"]["source_details"] = [
-            {k: source[k] for k in ("source_idea_id", "source_track", *fields) if source.get(k)}
+            {**{k: source[k] for k in ("source_idea_id", "source_track", *fields) if source.get(k)},
+             **separation_support(source)}
             for source in i.detail["source_details"]]
     return packet
 

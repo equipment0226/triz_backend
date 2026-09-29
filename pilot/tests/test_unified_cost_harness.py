@@ -24,7 +24,13 @@ def test_C01_C04_C05_C10_C14_equal_model_price_review_cost_harness(adaptive_run,
         app=dict(idea=mechanism,principle_id=1,effect_id='E1',effect_name='First',mechanism_key='contact',
             conditions=['접촉 저항 시험'],strongest_objection='미검증',validation_test='열 저항 시험',application='접촉면 변경',principle='전도')
         data=dict(verdict='PASS',score=1.,applications=[app],principle_ids=[1])
-        if prompt=='P_S5_TRACK_B': data['applications']=[dict(app,kind=k,applicable=k=='TIME') for k in ('TIME','SPACE','CONDITION','SYSTEM_LEVEL')]
+        if prompt=='P_S5_TRACK_B':
+            data['applications']=[dict(app,kind=k,applicable=k=='TIME',
+                how='접촉 전 유연 연결부를 미리 설치하고 가동 중 접촉 저항을 확인한다.' if k=='TIME' else '',
+                title='전도 연결부 사전 설치' if k=='TIME' else '',
+                supporting_principles=[9] if k=='TIME' else [],
+                not_applicable_reason='' if k=='TIME' else '이 모의 입력에서 해당 접근의 적용 조건은 확인되지 않았다.')
+                for k in ('SPACE','TIME','CONDITION','DIRECTION','SYSTEM_LEVEL','SATISFY','BYPASS')]
         if prompt=='P_S5_MERGE':
             ids=variables['allowed_idea_ids']
             data.update(ideas=[dict(keep_ids=ids,title='전도 연결부',idea=mechanism,merge_reason='same fixture mechanism and conditions',selection_reason='testable')],

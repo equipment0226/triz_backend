@@ -140,7 +140,7 @@ def test_standard_diagrams_represent_distinct_mechanisms_not_only_changed_titles
     assert '전기장' in specs['2.4.12']['after']['title']
     assert {n['id'] for n in specs['5.4.2']['after']['nodes']}=={'E','C','I','R'}
     assert specs['5.4.1']['after']['edges'][0]['style']=='both'
-    assert specs['4.5.2']['after']['nodes'][-1]['label'].endswith('d²x/dt²')
+    assert specs['4.5.2']['after']['nodes'][-1]['label'].endswith('f″(x)')
 
 
 def test_structured_model_keeps_prime_fields_directions_and_split_substances(state):

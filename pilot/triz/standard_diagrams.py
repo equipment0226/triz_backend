@@ -1,8 +1,9 @@
 """One portable SVG renderer for the public library and report references."""
 from html import escape
-import math
+from copy import deepcopy
 
 from .standard_diagram_specs import specifications
+from .standard_detail_specs import detail_specifications
 from .visuals import label, wrap
 
 KINDS = {'substance','field','missing','composite','layer','environment','process',
@@ -73,53 +74,217 @@ def glyph(kind, x, y):
     return f'<g transform="translate({x},{y})">'+''.join(body)+'</g>'
 
 
+def _marker(marker):
+    return f'<defs><marker id="{marker}" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>'
+
+
+def _graph_panel(graph, title, top, marker, *, attributes='', before=False):
+    """Draw an explicit mechanism graph; each long edge gets its own lane."""
+    count = len(graph['nodes'])
+    indices = {node['id']: i for i, node in enumerate(graph['nodes'])}
+    long_edges = [i for i, edge in enumerate(graph['edges'])
+                  if abs(indices[edge['source']] - indices[edge['target']]) > 1]
+    heading_height = len(wrap(title, 688, 17)) * 27
+    node_y = top + heading_height + 100 + len(long_edges) * 22
+    positions = {node['id']: (60 + (i + .5) * 640 / count, node_y)
+                 for i, node in enumerate(graph['nodes'])}
+    node_width = min(178, 640 / count - 12)
+    node_lines = max(len(wrap(node['label'], node_width, 17)) for node in graph['nodes'])
+    legend_top = node_y + 75 + node_lines * 27
+    legend_lines = [line for i, edge in enumerate(graph['edges'])
+                    for line in wrap(f"{i + 1}  {edge['label']}", 650, 15)]
+    height = legend_top - top + len(legend_lines) * 25 + 16
+    fill = '#f4f5ef' if before else '#ecf3e1'
+    body = [f'<g {attributes}>', f'<rect x="16" y="{top}" width="728" height="{height}" rx="18" fill="{fill}" stroke="#d8e2cd"/>',
+            label(title, 37, top + 33, size=17, anchor='start', pixels=688)]
+    for i, edge in enumerate(graph['edges']):
+        x1, y1 = positions[edge['source']]
+        x2, y2 = positions[edge['target']]
+        direction = 1 if x2 > x1 else -1
+        if i in long_edges:
+            cy = node_y - 91 - long_edges.index(i) * 22
+            d = f'M{x1},{y1 - 43} C{x1},{cy} {x2},{cy} {x2},{y2 - 43}'
+            lx, ly = (x1 + x2) / 2, (y1 - 43) * .25 + cy * .75
+        else:
+            d = f'M{x1 + direction * 47},{y1} L{x2 - direction * 47},{y2}'
+            lx, ly = (x1 + x2) / 2, y1
+        color = '#b05f51' if edge['style'] == 'harmful' else '#547957'
+        dash = ' stroke-dasharray="5 5"' if edge['style'] == 'harmful' else ''
+        ends = '' if edge['style'] == 'link' else f' marker-end="url(#{marker})"'
+        if edge['style'] == 'both':
+            ends += f' marker-start="url(#{marker})"'
+        body.extend([f'<path class="sis-edge" data-source="{escape(edge["source"], quote=True)}" data-target="{escape(edge["target"], quote=True)}" data-style="{edge["style"]}" d="{d}" fill="none" stroke="{color}" stroke-width="2"{dash}{ends}/>',
+                     f'<circle cx="{lx}" cy="{ly}" r="11" fill="white" stroke="{color}"/>',
+                     label(i + 1, lx, ly + 4, size=12, color=color)])
+    for node in graph['nodes']:
+        x, y = positions[node['id']]
+        border = ' stroke-dasharray="4 4"' if node['kind'] == 'missing' else ''
+        body.extend([f'<g class="sis-node" data-node="{escape(node["id"], quote=True)}" data-kind="{node["kind"]}"><title>{escape(node["label"])}</title>',
+                     f'<circle cx="{x}" cy="{y}" r="43" fill="white" stroke="#ccd9bd"{border}/>',
+                     glyph(node['kind'], x, y), label(node['label'], x, y + 70, size=17, pixels=node_width), '</g>'])
+    for i, line in enumerate(legend_lines):
+        body.append(label(line, 43, legend_top + i * 25, size=15, anchor='start', pixels=650, color='#61765a'))
+    body.append('</g>')
+    return body, top + height
+
+
+def _paragraph(body, text, top, *, color='#647b55', size=16):
+    if not text:
+        return top
+    body.append(label(text, 32, top, size=size, anchor='start', pixels=690, color=color))
+    return top + len(wrap(text, 690, size)) * size * 1.55 + 12
+
+
+def _svg(body, title, code, height, *, detail_key=None):
+    detail_attr = f' data-standard-detail="{escape(detail_key, quote=True)}"' if detail_key else ''
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 {height}" role="img" '
+            f'aria-label="{escape(title, quote=True)} 개념도" data-standard-code="{escape(code, quote=True)}"{detail_attr} '
+            f'style="font-family:Arial,Malgun Gothic,sans-serif"><title>{escape(title)} · 개념도</title>'
+            '<rect width="100%" height="100%" rx="20" fill="#fcfdf8"/>' + ''.join(body) + '</svg>')
+
+
 def render_standard(standard, spec=None):
     code = standard['code']
     spec = spec or specifications()[code]
     assert spec['code'] == code
-    marker = 'sis-' + code.replace('.','-')
-    width = 760
-    title = f"{code} {standard['title_ko']}"
-    body = [f'<defs><marker id="{marker}" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>']
-    body += [label('STANDARD '+code,30,31,size=13,anchor='start',color='#6a8654'),label(standard['title_ko'],30,63,size=21,anchor='start',pixels=700)]
-    top = 90 + (len(wrap(standard['title_ko'],700,21))-1)*32
-    for phase in ('before','after'):
-        graph = spec[phase]
-        node_count = len(graph['nodes'])
-        positions = {n['id']:(60+(i+.5)*640/node_count,top+139) for i,n in enumerate(graph['nodes'])}
-        lines = [f"{i+1}  {e['label']}" for i,e in enumerate(graph['edges'])]
-        legend_lines = [line for item in lines for line in wrap(item,650,15)]
-        node_lines = max(len(wrap(n['label'],min(160,640/node_count-12),17)) for n in graph['nodes'])
-        legend_top = top + 201 + node_lines*25
-        panel_height = legend_top-top + len(legend_lines)*25 + 20
-        body += [f'<g data-standard="{code}" data-phase="{phase}">',f'<rect x="16" y="{top}" width="728" height="{panel_height}" rx="18" fill="{"#f4f5ef" if phase=="before" else "#ecf3e1"}" stroke="#d8e2cd"/>',label(('변환 전 · ' if phase=='before' else '변환 후 · ')+graph['title'],37,top+33,size=17,anchor='start',pixels=688)]
-        for i,e in enumerate(graph['edges']):
-            x1,y1=positions[e['source']]; x2,y2=positions[e['target']]
-            direction=1 if x2>x1 else -1
-            gap=abs(x2-x1)
-            if gap > 640/node_count*1.1:
-                sx,ex=x1,x2; sy=ey=y1-43
-                cy=y1-91
-                d=f'M{sx},{sy} C{sx},{cy} {ex},{cy} {ex},{ey}'
-                lx,ly=(sx+ex)/2,cy+10
-            else:
-                sx,ex=x1+direction*47,x2-direction*47
-                sy=ey=y1; d=f'M{sx},{sy} L{ex},{ey}'
-                lx,ly=(sx+ex)/2,y1
-            color='#b05f51' if e['style']=='harmful' else '#547957'
-            dash=' stroke-dasharray="5 5"' if e['style']=='harmful' else ''
-            ends='' if e['style']=='link' else f' marker-end="url(#{marker})"'
-            if e['style']=='both': ends+=f' marker-start="url(#{marker})"'
-            body += [f'<path class="sis-edge" data-source="{e["source"]}" data-target="{e["target"]}" d="{d}" fill="none" stroke="{color}" stroke-width="2"{dash}{ends}/>',f'<circle cx="{lx}" cy="{ly}" r="11" fill="white" stroke="{color}"/>',label(i+1,lx,ly+4,size=12,color=color)]
-        for node in graph['nodes']:
-            x,y=positions[node['id']]
-            border = ' stroke-dasharray="4 4"' if node['kind']=='missing' else ''
-            body += [f'<g class="sis-node" data-node="{escape(node["id"],quote=True)}" data-kind="{node["kind"]}"><title>{escape(node["label"])}</title>',f'<circle cx="{x}" cy="{y}" r="43" fill="white" stroke="#ccd9bd"{border}/>',glyph(node['kind'],x,y),label(node['label'],x,y+70,size=17,pixels=min(160,640/node_count-12)), '</g>']
-        for i,line in enumerate(legend_lines): body.append(label(line,43,legend_top+i*25,size=15,anchor='start',pixels=650,color='#61765a'))
+    marker = 'sis-' + code.replace('.', '-')
+    body = [_marker(marker), label('STANDARD ' + code, 30, 31, size=13, anchor='start', color='#6a8654'),
+            label(standard['title_ko'], 30, 63, size=21, anchor='start', pixels=700)]
+    top = 93 + (len(wrap(standard['title_ko'], 700, 21)) - 1) * 33
+    for phase in ('before', 'after'):
+        heading = ('변환 전 · ' if phase == 'before' else '변환 후 · ') + spec[phase]['title']
+        panel, bottom = _graph_panel(spec[phase], heading, top, marker,
+                                     attributes=f'data-standard="{code}" data-phase="{phase}"', before=phase == 'before')
+        body.extend(panel)
+        top = bottom + 45
+        if phase == 'before':
+            body.append(f'<path d="M380,{bottom + 9} V{top - 9}" stroke="#6f8b53" stroke-width="2" marker-end="url(#{marker})"/>')
+    top = _paragraph(body, spec['note'], top - 6)
+    top = _paragraph(body, '변환 원리 · ' + standard.get('transformation', ''), top)
+    top = _paragraph(body, '원전 적용 조건 · ' + standard.get('conditions', ''), top)
+    top = _paragraph(body, '개념도 · 표준해의 관계를 설명하며 실제 적용·검증 결과가 아닙니다. 분기와 하위 방법은 각 상세 도식에서 확인합니다.', top, size=13)
+    return _svg(body, f"{code} {standard['title_ko']}", code, top + 8)
+
+
+def supplemental_details(standard):
+    """Stable metadata for separately rendered official methods and branches.
+
+    Variant keys are stable editorial indexes within this catalog snapshot.
+    They intentionally have no ``code`` so they cannot become official numbers.
+    """
+    details = []
+    parent_code = standard['code']
+    for sub in standard.get('substandards', []):
+        details.append(dict(key='sub-' + sub['code'], kind='substandard', code=sub['code'],
+                            parent_code=parent_code, title=sub['title_ko'],
+                            transformation=sub.get('transformation', ''), conditions=sub.get('conditions', ''),
+                            sources=deepcopy(sub.get('sources', []))))
+    for i, variant in enumerate(standard.get('variants', []), 1):
+        details.append(dict(key=f'variant-{i}', kind='variant', parent_code=parent_code,
+                            title=variant['title_ko'], transformation=variant.get('transformation', ''),
+                            conditions=variant.get('conditions', ''), sources=deepcopy(variant.get('sources', []))))
+    if standard.get('development_sequence'):
+        details.append(dict(key='sequence', kind='sequence', parent_code=parent_code, title='발전·적용 순서',
+                            transformation=standard.get('transformation', ''), conditions=standard.get('conditions', ''),
+                            sources=deepcopy(standard.get('sources', [])), steps=list(standard['development_sequence'])))
+    return details
+
+
+# Physical motifs for each explicitly reviewed sequence; unknown groups fail
+# rather than receiving an invented generic physical interpretation.
+SEQUENCE_KINDS = {
+    '2.2.3': ['substance', 'hollow', 'porous', 'capillary', 'pattern'],
+    '2.2.4': ['flexible', 'flexible', 'flexible'],
+    '2.4.2': [['particles', 'particles', 'particles'], ['substance', 'segmented', 'particles', 'fluid']],
+    '2.4.11': ['current', 'composite', 'environment', 'pulse', 'pattern', 'wave'],
+    '3.1.3': ['system', 'gradient', 'composite', 'system'],
+    '3.1.4': ['system', 'segmented', 'substance', 'system'],
+    '4.5.2': ['sensor', 'sensor', 'sensor'],
+    '5.2.1': ['field', 'environment', 'substance'],
+    '5.2.2': ['environment', 'substance'],
+    '5.2.3': ['field', 'environment', 'substance'],
+    '5.3.5': ['phase', 'phase'],
+    '5.4.2': ['energy', 'critical'],
+    '5.5.2': ['missing', 'particles'],
+}
+
+
+def _sequence_paths(code, steps):
+    if code == '2.4.2':
+        # These are two independent development axes, not consecutive stages.
+        assert len(steps) == 2
+        return [(step.split(':', 1)[0], [part.strip() for part in step.split(':', 1)[1].split('→')])
+                for step in steps]
+    return [('발전·적용 경로', steps)]
+
+
+def _sequence(body, code, steps, top, marker):
+    paths = _sequence_paths(code, steps)
+    kinds = SEQUENCE_KINDS[code]
+    for path_index, (path_title, stages) in enumerate(paths):
+        motif_kinds = kinds[path_index] if code == '2.4.2' else kinds
+        assert len(motif_kinds) == len(stages), f'Unreviewed development sequence: {code}'
+        body.append(f'<g data-sequence-path="{path_index + 1}">')
+        top = _paragraph(body, path_title, top, size=17)
+        for i, (stage, kind) in enumerate(zip(stages, motif_kinds)):
+            height = max(98, 30 + len(wrap(stage, 548, 17)) * 27)
+            body.extend([f'<g data-sequence-stage="{i + 1}" data-kind="{kind}">',
+                         f'<rect x="32" y="{top}" width="696" height="{height}" rx="15" fill="#ecf3e1" stroke="#d8e2cd"/>',
+                         glyph(kind, 85, top + height / 2),
+                         label(stage, 137, top + 32, size=17, anchor='start', pixels=548), '</g>'])
+            top += height
+            if i < len(stages) - 1:
+                transition = '이 경로로 불가능하면' if code.startswith('5.2.') else '다음 단계'
+                body.extend([f'<path class="sequence-edge" data-source-stage="{i + 1}" data-target-stage="{i + 2}" d="M85,{top + 5} V{top + 36}" stroke="#547957" stroke-width="2" fill="none" marker-end="url(#{marker})"/>',
+                             label(transition, 117, top + 25, size=13, anchor='start')])
+                top += 44
         body.append('</g>')
-        top += panel_height + 45
-        if phase=='before': body += [f'<path d="M380,{top-36} V{top-9}" stroke="#6f8b53" stroke-width="2" marker-end="url(#{marker})"/>']
-    note_lines = wrap(spec['note'],690,16)
-    body += [label(spec['note'],32,top-5,size=16,anchor='start',pixels=690,color='#647b55')]
-    height = top + len(note_lines)*25 + 12
-    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{escape(title,quote=True)} 구조도" data-standard-code="{code}" style="font-family:Arial,Malgun Gothic,sans-serif"><title>{escape(title)} · 개념 변환</title><rect width="100%" height="100%" rx="20" fill="#fcfdf8"/>'+''.join(body)+'</svg>'
+        top += 35
+    return top
+
+
+def validate_detail_specs(catalog):
+    specs = detail_specifications()
+    expected = {item['code'] + '--' + detail['key'] for item in catalog
+                for detail in supplemental_details(item) if detail['kind'] != 'sequence'}
+    assert set(specs) == expected, f'Detail diagram/catalog mismatch: {set(specs) ^ expected}'
+    for key, graph in specs.items():
+        ids = {node['id'] for node in graph['nodes']}
+        assert len(ids) == len(graph['nodes']) and 1 <= len(ids) <= 4, key
+        assert all(node['kind'] in KINDS and node['label'] for node in graph['nodes']), key
+        assert graph['edges'], key
+        assert all(edge['source'] in ids and edge['target'] in ids and
+                   edge['style'] in ('action', 'harmful', 'link', 'both') for edge in graph['edges']), key
+    sequences = {item['code'] for item in catalog if item.get('development_sequence')}
+    assert sequences == set(SEQUENCE_KINDS), f'Unreviewed sequences: {sequences ^ set(SEQUENCE_KINDS)}'
+    return specs
+
+
+def render_standard_detail(standard, detail_key):
+    detail = next((item for item in supplemental_details(standard) if item['key'] == detail_key), None)
+    if detail is None:
+        raise KeyError(f"Unknown standard detail: {standard['code']}--{detail_key}")
+    code = standard['code']
+    marker = 'sis-detail-' + code.replace('.', '-') + '-' + detail_key.replace('.', '-')
+    kind_title = {'substandard': '공식 하위 방법', 'variant': '원전의 대안 분기 · 별도 공식 번호 없음',
+                  'sequence': '원전의 발전·적용 순서'}[detail['kind']]
+    heading = detail.get('code', code) + ' · ' + detail['title']
+    body = [_marker(marker), label(kind_title, 30, 31, size=13, anchor='start', color='#6a8654'),
+            label(heading, 30, 63, size=21, anchor='start', pixels=700)]
+    top = 93 + (len(wrap(heading, 700, 21)) - 1) * 33
+    if detail['kind'] == 'sequence':
+        graph = specifications()[code]['after']
+        graph_title = '변환 기전 · ' + graph['title']
+    else:
+        # No guessed fallback for a branch absent from the reviewed graph table.
+        graph = detail_specifications()[code + '--' + detail_key]
+        graph_title = '변환 기전 · ' + detail['title']
+    panel, top = _graph_panel(graph, graph_title, top, marker, attributes='data-detail-mechanism="true"')
+    body.extend(panel)
+    top += 35
+    if detail['kind'] == 'sequence':
+        top = _sequence(body, code, detail['steps'], top, marker)
+    top = _paragraph(body, '변환 원리 · ' + detail['transformation'], top)
+    top = _paragraph(body, '원전 적용 조건 · ' + detail['conditions'], top)
+    top = _paragraph(body, '개념도 · 실제 적용·검증 결과가 아닙니다. 화살표의 의미는 각 관계 설명을 따릅니다.', top, size=13)
+    return _svg(body, heading, code, top + 8, detail_key=detail_key)

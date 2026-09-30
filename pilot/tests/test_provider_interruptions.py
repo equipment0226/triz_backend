@@ -44,16 +44,17 @@ def run_node(ctx, node="test_generate", **kwargs):
         prompt_id="P_S0_BOOTSTRAP", vars={"raw_query": "saved observation"}, **kwargs)
 
 
-def test_pinned_provider_mode_and_prices_survive_runtime_changes(monkeypatch):
+def test_pinned_flash_mode_is_preserved_with_requested_offpeak_prices(monkeypatch):
     create=Mock(return_value=response({'ok':True}))
     monkeypatch.setattr(llm,'_client',lambda *args:SimpleNamespace(
         chat=SimpleNamespace(completions=SimpleNamespace(create=create))))
     monkeypatch.setattr(settings.tiers['T2'],'thinking_mode','enabled')
     result=CHAT_JSON(system='JSON',user='test',retries=1,model_config={
-        'model':'deepseek-flash','thinking_mode':'disabled','cost_in':.3,'cost_out':1.2})
+        'model':'deepseek-flash','base_url':'https://api.deepseek.com/v1',
+        'thinking_mode':'disabled','cost_in':.3,'cost_out':1.2})
     assert create.call_args.kwargs['model']=='deepseek-flash'
     assert create.call_args.kwargs['extra_body']=={'thinking':{'type':'disabled'}}
-    assert result.cost_usd==pytest.approx((10*.3+20*1.2)/1_000_000)
+    assert result.cost_usd==pytest.approx((10*.15+20*.6)/1_000_000)
 
 
 def test_unspecified_provider_mode_keeps_existing_request(monkeypatch):

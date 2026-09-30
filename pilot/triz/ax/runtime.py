@@ -29,7 +29,7 @@ OUTPUTS = {
     's9_report':('report',), 's10_feedback':('feedback',),
 }
 MODEL_FIELDS=('model','base_url','temperature','max_tokens','json_mode',
-              'supports_temperature','token_parameter','thinking_mode','cost_in','cost_out')
+              'supports_temperature','token_parameter','thinking_mode','cost_in','cost_out','cost_cache_in')
 
 
 def new_runs_enabled():
@@ -55,7 +55,8 @@ def bundle(state=None):
           'source_hashes':{str(p.relative_to(root.parent)).replace('\\','/'):digest(p.read_text(encoding='utf-8')) for p in
                            [root/'nodes.py',root/'quality.py',root/'verify.py',root/'render.py',root/'reformulation.py',
                             root/'display_terms.py',root/'report_style.py',root/'solve_contract.py',root/'digest.py',
-                            root/'agent.py',root/'prompts_registry.py',root/'evidence.py',root/'idea_consolidation.py',root/'separation_contract.py',
+                            root/'agent.py',root/'llm.py',root/'model_pricing.py',root/'settings.py',
+                            root/'prompts_registry.py',root/'evidence.py',root/'idea_consolidation.py',root/'separation_contract.py',
                             root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
                             root/'ax/learning.py',root/'ax/mode_contract.py',root/'ax/action_runtime.py',

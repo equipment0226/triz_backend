@@ -52,6 +52,10 @@ class TierConfig:
             raise ValueError(f'Invalid LLM_THINKING_MODE_{tier}')
         self.cost_in = _env_f(f"COST_IN_PER_M_{tier}", 0.28)
         self.cost_out = _env_f(f"COST_OUT_PER_M_{tier}", 0.42)
+        from .model_pricing import resolve
+        rates = resolve(vars(self))
+        self.cost_in, self.cost_out = rates['input_per_m'], rates['output_per_m']
+        self.cost_cache_in = rates['cached_input_per_m']
 
     def __repr__(self) -> str:  # pragma: no cover
         return f"<Tier {self.tier} model={self.model}>"

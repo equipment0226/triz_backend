@@ -5,6 +5,7 @@ import json
 import os
 from urllib.parse import urlparse
 import httpx
+from triz import model_pricing
 from .domain import PatentError, canonical, digest
 from .input_tokens import measure
 
@@ -21,8 +22,15 @@ class Model:
     output_limit: int
     reasoning: bool = False
 
+    def pricing(self, usage):
+        rates = model_pricing.resolve({'model': self.model, 'base_url': self.base_url,
+            'cost_in': self.input_price, 'cost_out': self.output_price})
+        return model_pricing.calculate(usage, rates)
+
     def cost(self, input_tokens, output_tokens):
-        return int((Decimal(self.input_price) * input_tokens + Decimal(self.output_price) * output_tokens)
+        # Reservations have no observed cache usage; reserve the full miss price.
+        pricing = self.pricing({'prompt_tokens': input_tokens, 'completion_tokens': output_tokens})
+        return int((Decimal(pricing['cost_usd']) * 1_000_000)
                    .to_integral_value(rounding=ROUND_CEILING))
 
     def public(self):
@@ -127,11 +135,13 @@ class Gateway:
             if any(type(n) is not int or n < 0 for n in tokens):
                 raise PatentError('USAGE_UNKNOWN', '모델 사용량을 확인할 수 없어 예약 예산을 유지합니다.', 503)
             choice = value['choices'][0]
-            result = {'usage': usage, 'cost_micro_usd': model.cost(*tokens), 'provider_request_id': value.get('id'),
+            pricing = model.pricing(usage)
+            charge = int((Decimal(pricing['cost_usd']) * 1_000_000).to_integral_value(rounding=ROUND_CEILING))
+            result = {'usage': usage, 'cost_micro_usd': charge, 'provider_request_id': value.get('id'),
                 'provider_model':value.get('model'),
                 'boundary_contract':{'version':'patent-untrusted-data-v1','tools_enabled':False,
                     'request_hash':digest(body),'data_hash':digest(context),
-                    'input_measurement':input_measurement}}
+                    'input_measurement':input_measurement,'pricing':pricing}}
             if model.tier=='T3' and value.get('model')!=model.model:
                 return {**result,'error':'REVIEW_MODEL_IDENTITY_MISMATCH'}
             if choice.get('message',{}).get('tool_calls') or choice.get('message',{}).get('function_call'):

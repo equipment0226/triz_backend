@@ -11,12 +11,14 @@ import logging
 import re
 import time
 from dataclasses import dataclass, field
+from decimal import Decimal
 from functools import lru_cache
 from typing import Any
 
 from openai import OpenAI
 
 from .settings import settings
+from . import model_pricing
 
 log = logging.getLogger("triz.llm")
 
@@ -266,7 +268,8 @@ def salvage_truncated(text: str) -> Any:
 
 def _price(tier: str, tin: int, tout: int, config=None) -> float:
     tc = settings.tiers[tier]
-    return (tin / 1_000_000) * (config['cost_in'] if config else tc.cost_in) + (tout / 1_000_000) * (config['cost_out'] if config else tc.cost_out)
+    rates = model_pricing.resolve(model_pricing.configured(vars(tc), config))
+    return float(model_pricing.calculate({'prompt_tokens':tin, 'completion_tokens':tout}, rates)['cost_usd'])
 
 
 def _repair_excerpt(text: str, error: Exception) -> str:
@@ -283,7 +286,7 @@ def recover_failed_json(usage: dict, expect: str = 'object') -> LLMResult | None
     """Reparse a fully received, accounted response without a provider call."""
     records = usage.get('meta', {}).get('requests', [])
     if (not str(usage.get('raw_error', '')).startswith('ValueError: JSON root container is malformed')
-            or not records or not all(r.get('usage') for r in records)
+            or not records or not all(r.get('usage') and not r.get('pricing_error') for r in records)
             or records[-1].get('finish_reason') != 'stop'
             or records[-1].get('response') != usage.get('text')):
         return None
@@ -313,12 +316,14 @@ def chat_json(
     tc = settings.tiers[tier]
     if model_config:
         from types import SimpleNamespace
-        tc = SimpleNamespace(**{**vars(tc), **model_config})
+        tc = SimpleNamespace(**model_pricing.configured(vars(tc), model_config))
     is_reasoner = "reason" in tc.model.lower()
     attempts = retries if retries is not None else settings.max_retries
     messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
     tokens_in = tokens_out = 0
+    rates = model_pricing.resolve(vars(tc))
+    cost_usd = Decimal(0)
     last_err = ""
     text = ""
     truncated = False
@@ -350,14 +355,22 @@ def chat_json(
             text = (choice.message.content or "").strip()
             truncated = getattr(choice, "finish_reason", "") == "length"
             usage = getattr(resp, "usage", None)
+            usage_data = model_pricing.usage_dict(usage)
             request_records.append({"request": kwargs, "response": text,
                 "provider_model":getattr(resp,'model',None),
                 "finish_reason": getattr(choice, "finish_reason", ""),
-                "usage": usage.model_dump() if usage and hasattr(usage, "model_dump") else {},
+                "usage": usage_data,
                 "elapsed": elapsed})
             if usage:
-                tokens_in += getattr(usage, "prompt_tokens", 0) or 0
-                tokens_out += getattr(usage, "completion_tokens", 0) or 0
+                try:
+                    charge = model_pricing.calculate(usage_data, rates)
+                except model_pricing.ProviderUsageError:
+                    request_records[-1]['pricing_error'] = 'invalid_provider_token_counts'
+                    raise
+                request_records[-1]['pricing'] = charge
+                tokens_in += charge['input_tokens']
+                tokens_out += charge['output_tokens']
+                cost_usd += Decimal(charge['cost_usd'])
             if truncated:
                 raise ValueError("응답 출력 한도 초과: 부분 JSON을 성공으로 처리하지 않습니다")
             data = extract_json(text)
@@ -378,10 +391,10 @@ def chat_json(
                 model=tc.model,
                 tokens_in=tokens_in,
                 tokens_out=tokens_out,
-                cost_usd=_price(tier, tokens_in, tokens_out, model_config),
+                cost_usd=float(cost_usd),
                 meta={"elapsed": round(elapsed, 2), "attempt": attempt + 1,
                       "requested_model":tc.model,"provider_model":getattr(resp,'model',None),
-                      "cost_basis":"configured_token_rates",
+                      "cost_basis":rates['basis'], "pricing_rates":rates,
                       "truncated": truncated, "requests": request_records},
             )
         except Exception as exc:  # noqa: BLE001
@@ -393,7 +406,8 @@ def chat_json(
                     "error_type": type(exc).__name__, "elapsed": time.time() - t0})
             log.warning("LLM 호출 실패 (tier=%s, %d/%d): %s%s", tier, attempt + 1, attempts,
                         last_err, " [출력 길이 초과]" if truncated else "")
-            if status_code in (401, 402, 403) or attempt + 1 >= attempts:
+            if (isinstance(exc, model_pricing.ProviderUsageError) or
+                    status_code in (401, 402, 403) or attempt + 1 >= attempts):
                 break
             if truncated:  # 잘렸으면 분량을 줄여 다시 요청
                 messages = [
@@ -428,8 +442,9 @@ def chat_json(
     error.usage = LLMResult(data=None, text=text, tier=tier, model=tc.model,
                            tokens_in=tokens_in, tokens_out=tokens_out, raw_error=last_err,
                            meta={"requests": request_records, "attempt": actual_attempts,
+                                 "cost_basis":rates['basis'], "pricing_rates":rates,
                                  "status_code": status_code, "terminal": error.terminal},
-                           cost_usd=_price(tier, tokens_in, tokens_out, model_config))
+                           cost_usd=float(cost_usd))
     raise error
 
 

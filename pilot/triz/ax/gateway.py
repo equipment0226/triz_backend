@@ -1,8 +1,8 @@
 """Durable paid-call reservation, idempotent result reuse and unknown usage."""
-import math
 import time
 from dataclasses import asdict
 from .. import llm, store
+from ..model_pricing import to_microusd
 from ..context import AbortRun, BudgetExhausted, ProviderUnavailable, UsageUncertain
 from ..settings import settings
 from . import ledger
@@ -33,7 +33,8 @@ def chat(ctx, **kwargs):
     from .mode_contract import unified
     if unified(state): request['semantic_episode_id']=state.scratch['semantic_episode_id']
     bound=len((kwargs['system']+kwargs['user']).encode('utf-8'))+16000
-    reserve=math.ceil((bound*config['cost_in']+(kwargs.get('max_tokens') or config['max_tokens'])*config['cost_out'])*attempts)
+    from ..model_pricing import reserve_microusd
+    reserve=reserve_microusd(config,bound,kwargs.get('max_tokens') or config['max_tokens'],attempts)
     validation=node.startswith(('s7_','s8_','s9_')) or node=='independent_verifier'
     hold=0 if validation else bundle['limits']['validation_reserve_microusd']
     with ctx.call_slots:
@@ -87,6 +88,11 @@ def chat(ctx, **kwargs):
                                  'data_hash':digest(result.data),'additional_cost_microusd':0},event_id=event_id)
                     with ctx.lock:
                         state.cost.total_usd=ledger.budget(state.run_id)['spent_microusd']/1e6
+                    result.meta=dict(result.meta,source_task_id=task['task_id'],
+                        replay_source_usage={'tokens_in':result.tokens_in,'tokens_out':result.tokens_out,
+                            'cost_usd':result.cost_usd,'settled_microusd':task.get('actual')})
+                    result.tokens_in=result.tokens_out=0
+                    result.cost_usd=0.0
                     return result
             raise AbortRun('이 호출의 실행 또는 과금 상태를 확인해야 합니다. 중복 호출을 보류했습니다.')
         if task.get('cached'):
@@ -105,10 +111,10 @@ def chat(ctx, **kwargs):
         except BaseException as exc:
             usage=getattr(exc,'usage',None)
             requests=usage.meta.get('requests',[]) if usage else []
-            known=bool(requests) and all(r.get('usage') or r.get('status_code') in (401,402,403) for r in requests)
+            known=bool(requests) and all((r.get('usage') and not r.get('pricing_error')) or r.get('status_code') in (401,402,403) for r in requests)
             # A terminal account rejection with no accepted response has no output charge.
             rejected=isinstance(exc,llm.LLMError) and exc.terminal and not requests
-            actual=math.ceil(usage.cost_usd*1e6) if known else (0 if rejected else None)
+            actual=to_microusd(usage.cost_usd) if known else (0 if rejected else None)
             ledger.settle(task,{'error':type(exc).__name__,'usage':asdict(usage) if usage else None},
                           actual,status='FAILED' if actual is not None else 'UNKNOWN')
             with ctx.lock:
@@ -119,10 +125,10 @@ def chat(ctx, **kwargs):
                 raise ProviderUnavailable(exc.status_code,usage=usage) from exc
             raise
         requests=result.meta.get('requests',[])
-        if any(not r.get('usage') and r.get('status_code') not in (401,402,403) for r in requests):
+        if any((not r.get('usage') or r.get('pricing_error')) and r.get('status_code') not in (401,402,403) for r in requests):
             ledger.settle(task,asdict(result),None,status='UNKNOWN')
             raise AbortRun('일부 호출의 사용량이 미확인 상태입니다. 비용 예약을 유지합니다.')
-        ledger.settle(task,asdict(result),math.ceil(result.cost_usd*1e6))
+        ledger.settle(task,asdict(result),to_microusd(result.cost_usd))
         with ctx.lock:
             state.cost.total_usd=ledger.budget(state.run_id)['spent_microusd']/1e6
             state.cost.request_count+=result.meta.get('attempt') or 1

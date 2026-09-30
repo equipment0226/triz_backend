@@ -34,7 +34,8 @@ def tracked_chat(ctx, **kwargs):
     max_output = kwargs.get("max_tokens") or tc.max_tokens
     # UTF-8 bytes are a conservative token upper bound; include retry payload overhead.
     input_bound = len((kwargs["system"] + kwargs["user"]).encode("utf-8")) + 16000
-    reserve = (input_bound * tc.cost_in + max_output * tc.cost_out) / 1_000_000 * settings.max_retries
+    from .model_pricing import reserve_microusd
+    reserve = reserve_microusd(vars(tc), input_bound, max_output, settings.max_retries) / 1_000_000
     with ctx.lock:
         if ctx.budget.get("provider_status"):
             raise ProviderUnavailable(ctx.budget["provider_status"])

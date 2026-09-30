@@ -1,6 +1,5 @@
 """Estimate completed producer executions from unique settled ledger tasks."""
 import json
-import math
 from collections import Counter
 from sqlalchemy import select
 from . import ledger
@@ -13,9 +12,11 @@ MAX_ROWS=10000
 
 def comparison(state):
     from .confirmed_context import build
+    from ..model_pricing import resolve
     bundle=state.scratch['ax_bundle']
     size=len(json.dumps(build(state)['tokens'],ensure_ascii=False).encode('utf-8'))+len(state.raw_query.encode('utf-8'))
     return dict(contract=CONTRACT,models=digest(bundle['models']),prompts=digest(bundle['prompts']),
+        pricing=digest({tier:resolve(config) for tier,config in bundle['models'].items()}),
         node_contract=digest({k:v for k,v in bundle.get('source_hashes',{}).items() if k.endswith(('nodes.py','agent.py','gateway.py'))}),
         input_size_bucket=max(0,size.bit_length()-1),input_size_kind='utf8_bytes_proxy')
 
@@ -36,7 +37,8 @@ def prior(state,track):
     if track in ('A_MATRIX','B_SEPARATION','C_STANDARDS'):
         plan.append(dict(node='independent_verifier',tier='T3',calls=count,max_tokens=int(cfg.get('verification',{}).get('max_tokens',models['T3']['max_tokens']))))
     for p in plan: p.update(provider_attempt_cap=attempts,agent_revision_cap=revisions)
-    total=sum(math.ceil((size*models[p['tier']]['cost_in']+p['max_tokens']*models[p['tier']]['cost_out'])*attempts)*p['calls']*revisions for p in plan)
+    from ..model_pricing import reserve_microusd
+    total=sum(reserve_microusd(models[p['tier']],size,p['max_tokens'],attempts)*p['calls']*revisions for p in plan)
     return total,plan
 
 

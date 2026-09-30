@@ -38,7 +38,7 @@ OCR에는 Tesseract 실행 파일과 필요한 언어팩이 별도로 필요하�
 | 공통 LLM | `LLM_API_KEY`, `LLM_BASE_URL=https://api.deepseek.com/v1`, `LLM_TIMEOUT_SEC=300`, `LLM_MAX_RETRIES=2` |
 | tier별 LLM | `LLM_MODEL_T1/T2/T3`의 **코드 기본은 모두 `deepseek-chat`**. 각 `LLM_API_KEY_T*`, `LLM_BASE_URL_T*`가 공통 값을 우선한다. 이는 운영 모델 확정값이 아니다. |
 | 출력·추론 옵션 | `LLM_MAX_TOKENS_T1=16000`, T2/T3 `32000`; `LLM_TEMPERATURE_T1/T2/T3=0.1/0.3/0.7`. `LLM_JSON_MODE_T*`, `LLM_SUPPORTS_TEMPERATURE_T*`, `LLM_TOKEN_PARAMETER_T*`, `LLM_THINKING_MODE_T*` 지원. thinking 값은 빈 문자열/`enabled`/`disabled` |
-| 가격 설정 | `COST_IN_PER_M_T*`, `COST_OUT_PER_M_T*`. 기본 0.28/0.42 USD/백만 토큰. 해당 공급자의 실제 요금과 일치하는지 운영자가 확인해야 한다. |
+| 가격 설정 | `COST_IN_PER_M_T*`, `COST_OUT_PER_M_T*`. 기본 0.28/0.42 USD/백만 토큰. 공식 DeepSeek Flash는 아래 비피크 산정 기준이 우선한다. 다른 모델은 설정 단가를 유지한다. |
 | 실행 기본 변경 | `TRIZ_DEFAULT_MODE`, `PIPELINE_PARALLEL_WORKERS`, `TRIZ_PROJECT_BUDGET_USD`. 금액 값은 새 실행의 `run.budget_usd`와 `ax.hard_budget_usd`를 함께 설정한다. |
 | AX | `TRIZ_AX_ENABLED`는 **새 실행**의 AX 활성화에 사용. `TRIZ_AX_WORKER_ENABLED` 기본 true는 API의 별도 worker 감시를 제어. 나머지 계약은 [triz.yaml](../pilot/config/triz.yaml)과 [mode_contract.py](../pilot/triz/ax/mode_contract.py) |
 | 일반 웹 검색 | `SEARCH_PROVIDER=none`; `tavily`와 `TAVILY_API_KEY`로 일반 웹 검색 활성화 |
@@ -50,6 +50,16 @@ OCR에는 Tesseract 실행 파일과 필요한 언어팩이 별도로 필요하�
 분석 중 최대 출력은 tier 기본값 외에도 `solutions.track_max_tokens`, `analysis.ceca_max_tokens` 등 호출별 설정의 영향을 받는다. T1/T2/T3는 코드상 역할 분류이지 서로 다른 상용 모델 이름을 보장하는 등급이 아니다.
 
 현재 YAML의 새 프로젝트 예산 기본은 2 USD, 활성 실행 시간 예산은 90분이다. 환경변수와 실행별 bundle이 우선할 수 있다. 설정 변경이나 재개가 기존 프로젝트의 누적 비용·금액 한도를 초기화하지 않는다.
+
+## Flash 테스트 비용 산정
+
+공식 `api.deepseek.com`의 `deepseek-flash`, `deepseek-v4-flash`, `deepseek-v4-flash-vision-exp`는 요청에 따라 **비피크 단가를 고정 적용**한다. 2026-09-30 확인한 [공식 가격표](https://api-docs.deepseek.com/quick_start/pricing/) 기준으로, 100만 토큰당 입력 캐시 미적중 $0.15, 적중 $0.003, 출력 $0.60이다. 피크 시간대도 프로그램은 이 기준으로 추정하므로 실제 공급자 청구액과 다를 수 있다. Pro 등 다른 모델은 기존 설정 단가를 따른다.
+
+계산식은 `(미적중 입력 × 0.15 + 적중 입력 × 0.003 + 출력 × 0.60) / 1,000,000` USD다. 출력에 포함된 reasoning 토큰은 다시 더하지 않는다. 캐시 사용량은 API 응답의 hit/miss 또는 `prompt_tokens_details.cached_tokens`로 확인한다. 카운터가 없거나 서로 맞지 않으면 캐시 사용량을 미확인으로 남기고 전체 입력에 미적중 단가를 적용한다.
+
+TRIZ 분석과 특허 초안 작성이 같은 [계산 모듈](../pilot/triz/model_pricing.py)을 사용한다. 호출 전 예약액은 예상 캐시 할인을 넣지 않으며, 호출 후에는 각 응답의 실제 토큰과 캐시 카운터로 정산한다. 재시도 중 발생한 사용량도 합산한다. 계산 단가와 캐시 근거는 TRIZ 호출의 `meta.requests[].pricing`, 특허 호출의 `provider_receipt.boundary_contract.pricing`에 저장한다.
+
+이 정책은 적용 이후 새 호출부터 사용한다. 이전에 저장된 비용·정산·학습 보상은 소급 수정하지 않는다. 진행 중인 분석의 기존 모델·추론 설정과 이미 완료된 호출의 재사용도 유지한다. 트랙 비용 예측은 단가 기준이 다른 과거 표본을 섞지 않는다. 표시 금액이 줄었다는 사실만으로 실제 추론 사용량이나 품질이 개선됐다고 판단하지 않는다.
 
 ## DB, 파일, 검색 구성
 

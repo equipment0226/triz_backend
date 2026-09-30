@@ -52,6 +52,7 @@ def test_ambiguous_or_incomplete_tables_are_not_accepted(raw):
 
 def usage(raw):
     return llm.LLMResult(data=None, text=raw, model='offline', tier='T2', cost_usd=.01,
+        tokens_in=100, tokens_out=100,
         raw_error='ValueError: JSON root container is malformed',
         meta={'attempt': 2, 'requests': [{'response': raw, 'finish_reason': 'stop',
                                        'usage': {'prompt_tokens': 100, 'completion_tokens': 100}}]})
@@ -103,7 +104,13 @@ def test_settled_failed_response_replays_without_new_charge(newrun, monkeypatch)
         recovered = gateway.chat(ctx, **request)
         assert recovered.data == expected
         assert recovered.meta['durable_replay'] is True
-        assert gateway.chat(ctx, **request).data == expected
+        assert (recovered.tokens_in, recovered.tokens_out, recovered.cost_usd) == (0, 0, 0)
+        assert recovered.meta['replay_source_usage'] == {
+            'tokens_in': 100, 'tokens_out': 100, 'cost_usd': .01, 'settled_microusd': 10000}
+        again = gateway.chat(ctx, **request)
+        assert again.data == expected
+        assert (again.tokens_in, again.tokens_out, again.cost_usd) == (0, 0, 0)
+        assert again.meta['replay_source_usage'] == recovered.meta['replay_source_usage']
     assert len(paid) == 1
     assert ledger.budget(state.run_id) == before
     with store.engine.connect() as connection:
@@ -111,6 +118,9 @@ def test_settled_failed_response_replays_without_new_charge(newrun, monkeypatch)
         audit = connection.execute(select(ledger.events).where(ledger.events.c.run_id == state.run_id,
             ledger.events.c.event_type == 'ACTION_FORMAT_RECOVERED')).mappings().all()
     assert len(tasks) == 1 and tasks[0]['status'] == 'FAILED' and tasks[0]['actual'] == 10000
+    assert recovered.meta['source_task_id'] == tasks[0]['task_id']
+    original = json.loads(tasks[0]['result'])['usage']
+    assert (original['tokens_in'], original['tokens_out'], original['cost_usd']) == (100, 100, .01)
     assert len(audit) == 1
 
 

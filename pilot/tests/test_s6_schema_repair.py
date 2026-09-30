@@ -1,8 +1,7 @@
 """Regressions for production S6 classification failures, without paid calls."""
 import copy
-from types import SimpleNamespace
 import pytest
-from triz import prompts_registry, quality
+from triz import llm, prompts_registry, quality
 from triz.schema import ConceptSpec
 
 
@@ -62,7 +61,7 @@ def test_agent_repair_receives_actionable_errors_and_preserves_coverage(state, m
                 'CROSS_DOMAIN', 'I2', 'change_scale', 'PARAMETER', 'PARTIAL', 'REDESIGN'))
             data['concepts'][0]['novelty_class'] = 'SAME_DOMAIN'
             data['concepts'][1]['change_scale'] = 'PARTIAL'
-        return SimpleNamespace(data=data, model='offline', tokens_in=1, tokens_out=1, cost_usd=0)
+        return llm.LLMResult(data=data, text='', model='offline', tokens_in=1, tokens_out=1, cost_usd=0)
     monkeypatch.setattr(agent, 'tracked_chat', respond)
     result = agent.run_agent(RunContext(state), node='s6_concept', label='S6 repair',
         stage='S6_CONCEPT', agent_id='concept_architect', prompt_id='P_S6_CONCEPT',

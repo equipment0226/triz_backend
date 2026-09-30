@@ -32,7 +32,7 @@ def check_concept_batch(data, assigned_ids):
         return [prefix + "excluded 배열을 반환해야 합니다."]
     issues, covered = [], set()
     for kind in ('concepts', 'excluded'):
-        for row in data.get(kind, []):
+        for row_index, row in enumerate(data.get(kind, [])):
             if not isinstance(row, dict):
                 issues.append(prefix + f"{kind} 항목은 객체여야 합니다.")
                 continue
@@ -48,7 +48,13 @@ def check_concept_batch(data, assigned_ids):
             if len(set(ids)) != len(ids) or covered.intersection(ids):
                 issues.append(prefix + "하나의 배정 아이디어를 두 번 판정할 수 없습니다.")
             if set(ids) - assigned_ids:
-                issues.append(prefix + "배정되지 않은 아이디어 ID를 사용했습니다.")
+                unexpected = json.dumps(sorted(set(ids) - assigned_ids), ensure_ascii=False)
+                permitted = json.dumps(sorted(assigned_ids), ensure_ascii=False)
+                issues.append(prefix + f"{kind}[{row_index}].source_idea_ids의 미배정 ID: {unexpected}. "
+                              f"허용 대표 ID: {permitted}. 입력 ideas의 id만 독립 판정 대상이며, "
+                              "source_idea_ids에 함께 기록된 통합 전 원안 ID는 별도 해결안으로 추가하지 마세요. "
+                              "다른 후보의 ID나 과학효과를 복사해 연결하지 말고 배정 대표마다 정확히 한 번 "
+                              "판정한 완전한 concepts/excluded JSON을 반환하세요.")
             covered.update(ids)
             if kind == 'concepts':
                 try:

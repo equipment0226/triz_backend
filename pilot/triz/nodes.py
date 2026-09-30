@@ -1681,6 +1681,10 @@ def s9_report(ctx: RunContext) -> None:
         return
     top = [{"title": (st.concept(e.concept_id).title if st.concept(e.concept_id) else ""),
             "one_liner": (st.concept(e.concept_id).one_liner if st.concept(e.concept_id) else ""),
+            "description": (st.concept(e.concept_id).description if st.concept(e.concept_id) else ""),
+            "working_principle": (st.concept(e.concept_id).working_principle if st.concept(e.concept_id) else ""),
+            "changes_to_system": (st.concept(e.concept_id).changes_to_system if st.concept(e.concept_id) else []),
+            "quality_issues": (st.concept(e.concept_id).quality_issues if st.concept(e.concept_id) else []),
             "expected_effect": (st.concept(e.concept_id).expected_effect if st.concept(e.concept_id) else ""),
             "score": e.total_score, "quadrant": e.quadrant}
            for e in st.evaluation.evaluations[:3]]

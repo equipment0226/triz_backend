@@ -246,7 +246,7 @@ def test_generation_resumes_with_completed_model_calls_from_persisted_cache(stat
             failed = True
             raise AbortRun('interrupted')
         return SimpleNamespace(data={'concepts': [_concept(i, tc) for i in rows], 'excluded': []},
-                               tokens_in=1, tokens_out=1, cost_usd=0, model='offline')
+                               tokens_in=1, tokens_out=1, cost_usd=0, model='offline', meta={})
     monkeypatch.setattr(agent, 'tracked_chat', chat)
     with pytest.raises(AbortRun, match='interrupted'):
         quality.generate_concepts(RunContext(state))

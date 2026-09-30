@@ -36,7 +36,7 @@ def test_all_sources_preserved_agent_can_select_late_ideas_and_sixteen_are_defer
     markdown=render.render_report(state, {}, template='report_full.md.j2')
     assert all(f'original-{i}' in markdown for i in range(26))
     assert '최대 10개' in markdown and '상세검토 보류' in markdown
-    assert '<details><summary>전체 원안' in markdown
+    assert '<details><summary>원안별 통합·선정·보류 사유</summary>' in markdown
     assert '<details open' not in markdown
     state.intake.frame.symptom = 'Updated operating condition'
     merge.ensure_consolidated(RunContext(state))
@@ -80,7 +80,7 @@ def test_agent_repairs_eleven_outputs_to_ten_with_explicit_deferred_source(state
     def chat(ctx,**kw):
         calls.append(kw['user'])
         data={'ideas':[{'keep_ids':[i]} for i in ids]} if len(calls)==1 else response(ids)
-        return SimpleNamespace(data=data,tokens_in=1,tokens_out=1,cost_usd=0,model='offline')
+        return SimpleNamespace(data=data,tokens_in=1,tokens_out=1,cost_usd=0,model='offline',meta={})
     monkeypatch.setattr(agent,'tracked_chat',chat)
     monkeypatch.setattr(agent,'verify_artifact',lambda *a,**kw:{'verdict':'PASS'})
     merge.consolidate(RunContext(state))

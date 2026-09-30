@@ -11,6 +11,18 @@ from .schema import ConceptSpec, Stage
 from .settings import settings
 
 
+PARAMETER_DIRECTION_INSTRUCTION = (
+    "변수별로 물리량·변경 방향(증가/감소/유지/조건부/미확정)·기준 상태·단위·적용 조건을 구분한다. "
+    "가속도와 가속 시간처럼 관련돼도 서로 다른 물리량을 같은 것으로 취급하지 않는다. "
+    "시간·공간·운전 조건이 다르면 방향을 각각 명시하고, 근거 없이 시간은 감소·속도는 증가 같은 규칙을 적용하지 않는다. "
+    "title, one_liner, description, working_principle, intervention_variable, changes_to_system, expected_effect, "
+    "validation_plan 사이에서 변수와 증감 방향·수치·단위·부등호·조건이 일치하는지 확인한다. "
+    "방향이 다른 변수들을 한 개의 상향/하향 동사로 묶지 않는다. 방향이 확정되지 않은 변수는 조정·탐색 대상으로 쓰고 임의로 정하지 않는다. "
+    "문장들끼리 일치해도 조작의 직접 효과와 최종 성능의 인과 경로가 성립하는지 별도로 검토한다. "
+    "목표·계산 예측·측정 결과를 구분하고 미검증 목표를 달성한 사실로 바꾸지 않는다."
+)
+
+
 def check_concept_batch(data, assigned_ids):
     """Keep each consolidated idea independent, with one explicit disposition."""
     prefix = "FATAL-S6-COVERAGE: "
@@ -348,7 +360,13 @@ def audit_concepts(ctx):
     st = ctx.state
     if not st.concepts:
         return
-    packets = [{"concept_id": c.id, "title": c.title, "working_principle": c.working_principle,
+    sources = {idea.id: idea for idea in st.solve.raw_ideas}
+    packets = [{"concept_id": c.id, "title": c.title, "one_liner": c.one_liner,
+        "description": c.description, "intervention_variable": c.intervention_variable,
+        "source_idea_ids": c.source_idea_ids, "working_principle": c.working_principle,
+        "source_proposals": [{field: getattr(sources[sid], field) for field in (
+            'id', 'idea', 'mechanism', 'intervention_variable', 'conditions', 'strongest_objection', 'validation_test')}
+            for sid in c.source_idea_ids if sid in sources],
         "changes_to_system": c.changes_to_system, "required_resources": c.required_resources,
         "addresses_contradictions": c.addresses_contradictions, "resolution_argument": c.resolution_argument,
         "expected_effect": c.expected_effect, "assumptions": c.assumptions, "open_risks": c.open_risks,
@@ -364,6 +382,12 @@ def audit_concepts(ctx):
         "조건의 적용 범위와 원인 가설을 독립 검토한다. 경로 문자열의 존재는 타당성 증명이 아니다. "
         "미실험은 설계 불성립과 구분한다. 능동 구동 누락은 수동/진단안에 적용하지 않는다." if coherence.enabled(st)
         else "후보별 판단을 per_concept에 반드시 기록한다.")
+    instruction += ("\n" + PARAMETER_DIRECTION_INSTRUCTION +
+        " source_proposals는 원안의 주장이지 관측 사실이나 정답이 아니다. 원안과 개념의 방향 차이도 조건·인과 근거로 검토한다. "
+        " 명시적인 방향 충돌이나 근거 없는 달성 단정은 해당 후보의 issues에 필드명·변수·문제 표현과 필요한 수정을 기록하고 "
+        "전역 점수와 관계없이 해당 후보를 최소 REVISE로 판정한다. 성립 불가능 또는 필수 제약 위반이 명확할 때만 fatal_flaws로 구분한다. "
+        "서로 다른 조건에서 상반 방향이 필요한 설계는 조건이 명시되어 있으면 그 자체로 결함이 아니다. "
+        "근거가 부족하면 미확정으로 남기고 올바른 방향이나 수치를 지어내지 않는다.")
     from . import domain, prompts_registry
     prompt = st.scratch.get('ax_bundle', {}).get('prompts', {}).get(
         'P_VERIFIER_GENERIC', prompts_registry.raw('P_VERIFIER_GENERIC'))
@@ -374,7 +398,7 @@ def audit_concepts(ctx):
         model = {key: getattr(settings.tiers['T3'], key) for key in (
             'model', 'base_url', 'temperature', 'max_tokens', 'json_mode',
             'supports_temperature', 'token_parameter', 'thinking_mode')}
-    identity = {'contract': 's6-audit-batches-v2', 'facts': digest.facts_packet(st),
+    identity = {'contract': 's6-audit-batches-v3-directions', 'facts': digest.facts_packet(st),
                 'causal': digest.causal_packet(st), 'contradictions': digest.contradictions_digest(st),
                 'constraints': verify.constraints_block(st), 'problem_type': domain.problem_type(st),
                 'rubric': settings.rubric('R6_CONCEPT'), 'policy': settings.cfg('verification', {}),
@@ -402,7 +426,8 @@ def audit_concepts(ctx):
         key = _identity([identity, batch])
         step = ctx.start_step(node='s6_quality', label=f'독립 품질 검토 ({number}/{len(groups)})',
             stage=Stage.S6.value, agent_id='independent_auditor', prompt_id='P_VERIFIER_GENERIC', tier='T3')
-        step.input_slice = {'concepts': batch, 'facts': identity['facts'], 'input_hash': key}
+        step.input_slice = {'concepts': batch, 'facts': identity['facts'], 'input_hash': key,
+                            'audit_contract': identity['contract'], 'review_instruction': instruction}
         reused = key in cache
         try:
             verdict = copy.deepcopy(cache[key]) if reused else agent.verify_artifact(

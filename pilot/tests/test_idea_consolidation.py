@@ -181,7 +181,7 @@ def test_actual_agent_repairs_missing_coverage_or_stops_without_partial_commit(s
         if len(calls) > 1 and repair_succeeds:
             rows.append({"keep_ids": ["B"]})
         return SimpleNamespace(data={"ideas": rows}, tokens_in=10, tokens_out=20,
-                               cost_usd=0, model="offline-test")
+                               cost_usd=0, model="offline-test", meta={})
 
     monkeypatch.setattr(agent, "tracked_chat", chat)
     monkeypatch.setattr(agent, "verify_artifact", lambda *a, **kw: {"verdict": "PASS"})

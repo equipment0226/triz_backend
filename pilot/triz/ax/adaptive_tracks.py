@@ -89,8 +89,16 @@ def run(ctx, *, phase='initial', max_steps=None):
     cap = max_steps if max_steps is not None else len(mode_contract.contract(state)['profile']['tracks'])+1
     for _ in range(cap):
         pending = search.get('pending')
+        continuing = bool(pending)
         if pending:
             ticket, did = ActionTicket.model_validate(pending['ticket']), pending['decision_id']
+            from .action_runtime import completed_pending
+            if (phase == 'initial' and ticket.action_type == 'RUN_TRACK'
+                    and completed_pending(state, ticket, did, context='adaptive:'+phase)):
+                search['need_more'] = nodes._merge(ctx)
+                search.pop('pending', None)
+                ctx.persist()
+                continue
         else:
             tickets = proposals(state,phase)
             legal = [i for i,t in enumerate(tickets) if feasible(state,t,handlers={'RUN_TRACK','STOP_EXPLORATION'}) is None]
@@ -112,7 +120,8 @@ def run(ctx, *, phase='initial', max_steps=None):
             ctx.persist()
         from ..context import AbortRun
         try:
-            with executing(ctx,ticket,did,context='adaptive:'+phase,optional=phase!='initial'):
+            with executing(ctx,ticket,did,context='adaptive:'+phase,optional=phase!='initial',
+                           resume=continuing and phase=='initial' and ticket.action_type=='RUN_TRACK'):
                 if ticket.action_type=='RUN_TRACK':
                     nodes._run_tracks(ctx,ticket.parameters['tracks'])
                 else:

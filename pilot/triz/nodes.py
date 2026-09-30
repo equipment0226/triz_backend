@@ -1195,7 +1195,8 @@ def _merge(ctx: RunContext) -> bool:
         from .ax.contracts import ActionTicket
         inventory=digest_json(st.solve.raw_ideas)
         pending=st.scratch.get('ax_merge_pending',{})
-        if pending.get('inventory_hash')==inventory and pending.get('semantic_episode_id')==episode(st):
+        continuing = pending.get('inventory_hash')==inventory and pending.get('semantic_episode_id')==episode(st)
+        if continuing:
             ticket=ActionTicket.model_validate(pending['ticket'])
         else:
             parents = sorted(st.scratch.get('ax_action_results', {}))
@@ -1206,7 +1207,7 @@ def _merge(ctx: RunContext) -> bool:
                 reason='전 원안의 기구·조건·출처를 비교해 대표안과 보류 이유를 보존한다.')
             st.scratch['ax_merge_pending']=dict(inventory_hash=inventory,semantic_episode_id=episode(st),ticket=ticket.model_dump(mode='json'))
             ctx.persist()
-        with executing(ctx,ticket,context='solve:merge',optional=False):
+        with executing(ctx,ticket,context='solve:merge',optional=False,resume=continuing):
             d = consolidate(ctx)
         st.scratch.pop('ax_merge_pending',None)
     else:

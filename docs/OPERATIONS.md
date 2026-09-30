@@ -22,6 +22,8 @@ Set-Location pilot
 
 OCR에는 Tesseract 실행 파일과 필요한 언어팩이 별도로 필요하다. `OCR_LANG` 기본값은 `eng`이며 한국어 자료에 필요한 언어팩과 값을 맞춘다. Docker 정의는 Tesseract·한국어 언어팩·나눔 글꼴을 설치한다. 특허 임베딩은 최초 사용 시 고정된 모델 파일을 내려받을 수 있어 저장 공간과 외부 다운로드 연결이 필요하다.
 
+첨부 추출은 별도 worker에서 실행한다. 시간·메모리·동시 실행 설정과 실패 파일의 정리 범위는 [보안 점검](SECURITY.md)을 참고한다. 기존 프로젝트의 첨부는 이 정리 대상이 아니다.
+
 프런트 개발 서버는 별도 저장소에서 `npm ci`, `npm run dev`로 시작한다. 해당 [Vite 설정](https://github.com/equipment0226/triz_front/blob/5f4039073aee7a5168378d1035f18e3336980ef9/vite.config.js)은 `/api`를 `127.0.0.1:8000`으로 전달한다. 운영 [server.mjs](https://github.com/equipment0226/triz_front/blob/5f4039073aee7a5168378d1035f18e3336980ef9/server.mjs)는 `BACKEND_URL`과 서버 보관 `TRIZ_APP_TOKEN`, 로그인 세션을 사용한다. 비밀값을 브라우저 번들에 넣지 않는다.
 
 ## 설정 우선순위와 실제 환경변수

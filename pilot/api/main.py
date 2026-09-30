@@ -233,7 +233,7 @@ def _submission_run_id(user_id, request_id):
                      if request_id else uuid.uuid4().hex[:12])
 
 
-def _create_submission(query, mode, attachments, user_id, public_consent, request_id, training_consent=None, explicit_required_tracks=()):
+def _create_submission(query, mode, attachments, user_id, public_consent, request_id, training_consent=None, explicit_required_tracks=(), *, submission_run_id=None):
     effective_training = 'PROJECT_ONLY' if training_consent is None else training_consent
     fingerprint = hashlib.sha256(json.dumps({
         'query': query.strip(), 'mode': mode, 'public_consent': public_consent,
@@ -242,7 +242,7 @@ def _create_submission(query, mode, attachments, user_id, public_consent, reques
            if effective_training!='NO_TRAINING' or explicit_required_tracks else {}),
     }, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     # Scope retry identity to the authenticated owner, including across workers.
-    run_id = _submission_run_id(user_id, request_id)
+    run_id = submission_run_id or _submission_run_id(user_id, request_id)
     try:
         with store.run_lock('create:' + run_id):
             state = store.load_state(run_id)
@@ -265,6 +265,23 @@ def _create_submission(query, mode, attachments, user_id, public_consent, reques
         if str(exc) == 'Run is busy':
             raise HTTPException(409, '같은 문제를 접수하고 있습니다. 잠시 후 다시 확인해 주세요.') from exc
         raise
+
+
+def _cleanup_submission_uploads(paths, run_id=None):
+    """Only remove files created by this request and proven not to be linked."""
+    owned = set()
+    if run_id:
+        try:
+            saved = store.load_state(run_id)
+        except Exception:
+            # An unavailable ownership record is not proof that a file is unused.
+            import logging
+            logging.getLogger(__name__).warning('Upload cleanup deferred: project ownership unavailable')
+            return
+        owned = {a.storage_path for a in saved.intake.attachments} if saved else set()
+    for path in paths:
+        if path.name not in owned:
+            path.unlink(missing_ok=True)
 
 
 @app.post("/api/runs", status_code=202)
@@ -293,38 +310,48 @@ async def create_run(
     attachments: list[Attachment] = []
     updir = settings.storage_dir / "uploads"
     updir.mkdir(parents=True, exist_ok=True)
-    for f in files or []:
-        if not f.filename:
-            continue
-        ext = Path(f.filename).suffix.lower()
-        if ext not in docparse.ALLOWED_EXT:
-            raise HTTPException(415, "지원하지 않는 첨부 형식입니다.")
-        safe = f"{uuid.uuid4().hex}{ext}"
-        dest = updir / safe
-        data = await f.read(settings.max_upload_bytes + 1)
-        if len(data) > settings.max_upload_bytes:
-            raise HTTPException(413, "첨부 파일 크기 제한을 초과했습니다.")
-        dest.write_bytes(data)
-        try:
-            text, facts = await asyncio.to_thread(docparse.extract, dest, f.filename)
-        except Exception as exc:
-            raise HTTPException(422, "첨부 내용을 읽을 수 없습니다. 파일 형식을 확인해 주세요.") from exc
-        attachments.append(Attachment(filename=f.filename, mime=f.content_type or "",
-                                      kind=docparse.kind_of(f.filename),
-                                      extracted_text=text, extracted_facts=facts,
-                                      storage_path=safe, sha256=hashlib.sha256(data).hexdigest()))
     user_id = getattr(request.state, 'user_id', 'local')
-    run_id = None
+    # Know the record to inspect even if initialization persists and then fails.
+    submission_run_id = _submission_run_id(user_id, idempotency_key)
+    created_paths = []
+    submission_started = submission_settled = False
     try:
-        run_id, created = await asyncio.to_thread(_create_submission, query, mode, attachments,
-            user_id, public_consent, idempotency_key, training_consent, explicit_required_tracks)
+        for f in files or []:
+            if not f.filename:
+                continue
+            ext = Path(f.filename).suffix.lower()
+            if ext not in docparse.ALLOWED_EXT:
+                raise HTTPException(415, "지원하지 않는 첨부 형식입니다.")
+            safe = f"{uuid.uuid4().hex}{ext}"
+            dest = updir / safe
+            data = await f.read(settings.max_upload_bytes + 1)
+            if len(data) > settings.max_upload_bytes:
+                raise HTTPException(413, "첨부 파일 크기 제한을 초과했습니다.")
+            created_paths.append(dest)
+            dest.write_bytes(data)
+            try:
+                text, facts = await asyncio.to_thread(docparse.extract, dest, f.filename)
+            except Exception as exc:
+                raise HTTPException(422, "첨부 내용을 읽을 수 없습니다. 파일 형식을 확인해 주세요.") from exc
+            attachments.append(Attachment(filename=f.filename, mime=f.content_type or "",
+                                          kind=docparse.kind_of(f.filename),
+                                          extracted_text=text, extracted_facts=facts,
+                                          storage_path=safe, sha256=hashlib.sha256(data).hexdigest()))
+        submission_started = True
+        try:
+            run_id, created = await asyncio.to_thread(_create_submission, query, mode, attachments,
+                user_id, public_consent, idempotency_key, training_consent, explicit_required_tracks,
+                submission_run_id=submission_run_id)
+        except Exception:
+            submission_settled = True
+            raise
+        submission_settled = True
     finally:
-        if attachments and (run_id or idempotency_key):
-            saved = await asyncio.to_thread(store.load_state, run_id or _submission_run_id(user_id, idempotency_key))
-            owned = {a.storage_path for a in saved.intake.attachments} if saved else set()
-            for attachment in attachments:
-                if attachment.storage_path not in owned:
-                    (updir / attachment.storage_path).unlink(missing_ok=True)
+        if created_paths and (not submission_started or submission_settled):
+            await asyncio.to_thread(_cleanup_submission_uploads, created_paths,
+                                    submission_run_id if submission_started else None)
+        # Cancellation cannot stop a creation thread already writing its record.
+        # Preserve its files until their ownership can be established.
     if created:
         background_tasks.add_task(_start_created_run, run_id)
     return {"run_id": run_id, "reused": not created}

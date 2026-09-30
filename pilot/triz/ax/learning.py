@@ -108,15 +108,29 @@ def dataset(tenant_id,project_id,*,cutoff=None,feature_schema='ax-features-v1'):
             chosen=technical or labels
             value=sum(x[1] for x in chosen)/len(chosen)
             with ledger.store.engine.connect() as c:
-                attempts=c.execute(select(ledger.attempts.c.details).where(ledger.attempts.c.run_id==h['run_id'])).scalars().all()
-            usage=[json.loads(a) for a in attempts if json.loads(a).get('request',{}).get('decision_id')==d['decision_id']]
+                from .cost_restatements import overrides, available_at
+                corrections=overrides(c,h['run_id'],cutoff)
+                cost_available_at=available_at(c,h['run_id'],cutoff) if corrections else ''
+                attempts=c.execute(select(ledger.attempts.c.task_id,ledger.attempts.c.details).where(ledger.attempts.c.run_id==h['run_id'])).all()
+            usage=[]; corrected_tasks=set()
+            for attempt in attempts:
+                detail=json.loads(attempt.details)
+                if detail.get('request',{}).get('decision_id')!=d['decision_id']:
+                    continue
+                if attempt.task_id in corrections:
+                    if attempt.task_id in corrected_tasks:
+                        continue
+                    corrected_tasks.add(attempt.task_id)
+                # A correction belongs to the settled physical task, including
+                # when an earlier lease attempt had no individual settlement.
+                usage.append(dict(detail,actual_microusd=corrections.get(attempt.task_id,detail.get('actual_microusd'))))
             if any(a.get('actual_microusd') is None for a in usage):
                 exclusions['unsettled_usage']+=1
                 continue
             cost=sum(a.get('actual_microusd',0) for a in usage)/1e6
             group=state.scratch.get('ax_problem_group') or digest(' '.join(state.raw_query.lower().split()))
             samples.append({'decision_id':d['decision_id'],'run_id':h['run_id'],'group':group,
-                'available_at':d['created_at'],'features':p['features'],'action':selected['ticket']['action_type'],
+                'available_at':max(d['created_at'],cost_available_at),'features':p['features'],'action':selected['ticket']['action_type'],
                 'allowed':list(dict.fromkeys(a['ticket']['action_type'] for a in p['actions'] if a['allowed'])),
                 'next_features':nxt['features'] if nxt else [0.0]*size,
                 'next_allowed':list(dict.fromkeys(a['ticket']['action_type'] for a in nxt['actions'] if a['allowed'])) if nxt else [],

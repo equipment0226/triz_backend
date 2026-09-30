@@ -33,27 +33,38 @@ def emit(state, kind, payload):
 
 
 def usage(state, action_id):
+    from .cost_restatements import effective, overrides
     with ledger.store.engine.connect() as c:
-        rows = c.execute(select(ledger.attempts.c.task_id,ledger.attempts.c.details).where(ledger.attempts.c.run_id == state.run_id))
-        records = [(row.task_id,json.loads(row.details)) for row in rows]
-    records = [(tid,row) for tid,row in records if isinstance(row.get('request'),dict) and row['request'].get('action_context', {}).get('action_instance_id') == action_id]
-    calls = [row for tid,row in records]
-    unknown = any(row.get('actual_microusd') is None for row in calls)
-    return {'actual_microusd': None if unknown else sum(row['actual_microusd'] for row in calls),
-            'usage_status': 'UNKNOWN' if unknown else 'SETTLED', 'attempts': len(calls),
-            'task_ids': sorted({tid for tid,row in records})}
+        rows = c.execute(select(ledger.tasks.c.task_id,ledger.tasks.c.actual,ledger.attempts.c.details)
+            .join(ledger.tasks,ledger.tasks.c.task_id==ledger.attempts.c.task_id)
+            .where(ledger.attempts.c.run_id == state.run_id)).all()
+        corrections=overrides(c,state.run_id)
+    calls={}; attempts=0
+    for row in rows:
+        detail=json.loads(row.details)
+        if isinstance(detail.get('request'),dict) and detail['request'].get('action_context',{}).get('action_instance_id') == action_id:
+            calls[row.task_id]=effective(row.actual,row.task_id,corrections)
+            attempts+=1
+    unknown=any(value is None for value in calls.values())
+    return {'actual_microusd': None if unknown else sum(calls.values()),
+            'usage_status': 'UNKNOWN' if unknown else 'SETTLED', 'attempts': attempts,
+            'task_ids': sorted(calls)}
 
 
 def optional_commitment(state):
+    from .cost_restatements import effective, overrides
     with ledger.store.engine.connect() as c:
-        rows=c.execute(select(ledger.attempts.c.details,ledger.tasks.c.reserve)
+        rows=c.execute(select(ledger.tasks.c.task_id,ledger.tasks.c.actual,ledger.attempts.c.details,ledger.tasks.c.reserve)
             .join(ledger.tasks,ledger.tasks.c.task_id==ledger.attempts.c.task_id)
             .where(ledger.attempts.c.run_id==state.run_id)).all()
-    total=0
-    for details,reserve in rows:
-        row=json.loads(details)
-        if row.get('request',{}).get('action_context',{}).get('optional'):
-            total+=row['actual_microusd'] if row.get('actual_microusd') is not None else reserve
+        corrections=overrides(c,state.run_id)
+    total=0; counted=set()
+    for row in rows:
+        detail=json.loads(row.details)
+        if row.task_id not in counted and detail.get('request',{}).get('action_context',{}).get('optional'):
+            actual=effective(row.actual,row.task_id,corrections)
+            total+=actual if actual is not None else row.reserve
+            counted.add(row.task_id)
     return total
 
 

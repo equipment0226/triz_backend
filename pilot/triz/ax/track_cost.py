@@ -59,6 +59,9 @@ def observations(state,cutoff=None):
             events=c.execute(select(ledger.events).where(ledger.events.c.run_id==head['run_id'],
                 ledger.events.c.event_type=='ACTION_INSTANCE_RESULT',ledger.events.c.created_at<=cutoff).limit(MAX_ROWS+1)).mappings().all()
             tasks=c.execute(select(ledger.tasks).where(ledger.tasks.c.run_id==head['run_id']).limit(MAX_ROWS+1)).mappings().all()
+            from .cost_restatements import overrides, effective
+            corrections=overrides(c,head['run_id'],cutoff)
+            tasks=[dict(t,actual=effective(t['actual'],t['task_id'],corrections)) for t in tasks]
             attempts=c.execute(select(ledger.attempts).where(ledger.attempts.c.run_id==head['run_id']).limit(MAX_ROWS+1)).mappings().all()
             if any(len(rows)>MAX_ROWS for rows in (events,tasks,attempts)):
                 excluded['bounded_query_overflow']+=1;continue

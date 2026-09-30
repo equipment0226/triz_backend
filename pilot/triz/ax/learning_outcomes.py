@@ -121,9 +121,14 @@ def q_dataset(tenant, project, cutoff=None, *, include_synthetic=False, schema=r
         bundle = json.loads(head['bundle'])
         if bundle.get('feature_schema')!=schema: continue
         with ledger.store.engine.connect() as c:
+            from .cost_restatements import overrides, effective, available_at
+            corrections = overrides(c, head['run_id'], cutoff)
+            cost_available_at = available_at(c, head['run_id'], cutoff) if corrections else ''
             stream = [dict(r,payload=json.loads(r['payload'])) for r in c.execute(select(ledger.events).where(
                 ledger.events.c.run_id==head['run_id'],ledger.events.c.created_at<=cutoff)).mappings()]
             tasks = [dict(r) for r in c.execute(select(ledger.tasks).where(ledger.tasks.c.run_id==head['run_id'],ledger.tasks.c.created_at<=cutoff)).mappings()]
+            for task in tasks:
+                task['actual'] = effective(task['actual'], task['task_id'], corrections)
             task_episodes={r.task_id:json.loads(r.details).get('request',{}).get('request',{}).get('semantic_episode_id')
                 for r in c.execute(select(ledger.attempts.c.task_id,ledger.attempts.c.details).where(ledger.attempts.c.run_id==head['run_id']))}
         decisions = [d for d in ledger.decision_history(head['run_id'],head['owner_id']) if d['created_at']<=cutoff and d['payload'].get('feature_schema')==schema]
@@ -178,7 +183,7 @@ def q_dataset(tenant, project, cutoff=None, *, include_synthetic=False, schema=r
                     reward=-penalty+(summary['total'] if terminal else 0), reward_revision=revision,
                     dimensions=dict(normalized_cost=penalty,actual_microusd=actual,task_ids=sorted(t['task_id'] for t in costs),terminal_outcome=summary if terminal else None),
                     feature_schema=schema, group=events[0]['problem_family'],maturity=summary['maturity'],
-                    available_at=max([end['created_at']]+[r['label_available_at'] for r in events]+[t['settled_at'] for t in costs]),
+                    available_at=max([end['created_at'],cost_available_at]+[r['label_available_at'] for r in events]+[t['settled_at'] for t in costs]),
                     review_ids=summary['source_event_ids'],behavior_probability=None,selection_mode=p['selection_mode'],
                     synthetic=any(r.get('synthetic') for r in events),
                     **routing_q.contracts(schema)))

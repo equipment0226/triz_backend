@@ -293,10 +293,12 @@ def artifact(run_id,version_id,actor):
 
 
 def budget(run_id,actor=None):
+    from .cost_restatements import effective, overrides
     h=head(run_id,actor)
     with store.engine.connect() as c:
-        rows=c.execute(select(tasks.c.status,tasks.c.reserve,tasks.c.actual).where(tasks.c.run_id==run_id)).all()
-    actual=sum(r.actual or 0 for r in rows)
+        rows=c.execute(select(tasks.c.task_id,tasks.c.status,tasks.c.reserve,tasks.c.actual).where(tasks.c.run_id==run_id)).all()
+        corrections=overrides(c,run_id)
+    actual=sum(effective(r.actual,r.task_id,corrections) or 0 for r in rows)
     reserved=sum(r.reserve for r in rows if r.status in ('RUNNING','UNKNOWN'))
     return {'limit_microusd':h['budget'],'spent_microusd':actual,'reserved_microusd':reserved,
             'remaining_microusd':max(0,h['budget']-actual-reserved),
@@ -390,17 +392,20 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
                 _event(c, run_id, 'ACTION_PREFLIGHT_BLOCKED', {'input_hash':digest(request),
                     'reason':reason, 'provider_called':False, 'reserved_microusd':0})
                 return {'blocked':reason}
+        from .cost_restatements import effective, overrides
+        corrections=overrides(c,run_id)
         if optional_limit is not None:
-            optional_rows=c.execute(select(attempts.c.details,tasks.c.reserve)
+            optional_rows=c.execute(select(tasks.c.task_id,tasks.c.actual,attempts.c.details,tasks.c.reserve)
                 .join(tasks,tasks.c.task_id==attempts.c.task_id).where(attempts.c.run_id==run_id)).all()
-            committed=0; optional_spent=0; optional_reserved=0
-            for details,held in optional_rows:
-                detail=json.loads(details)
-                if detail.get('request',{}).get('action_context',{}).get('optional'):
-                    actual = detail.get('actual_microusd')
-                    committed+=actual if actual is not None else held
+            counted=set(); committed=0; optional_spent=0; optional_reserved=0
+            for row in optional_rows:
+                detail=json.loads(row.details)
+                if row.task_id not in counted and detail.get('request',{}).get('action_context',{}).get('optional'):
+                    actual=effective(row.actual,row.task_id,corrections)
+                    committed+=actual if actual is not None else row.reserve
                     optional_spent+=actual if actual is not None else 0
-                    optional_reserved+=held if actual is None else 0
+                    optional_reserved+=row.reserve if actual is None else 0
+                    counted.add(row.task_id)
             if committed+reserve>optional_limit:
                 raise BudgetRejected('Optional AX budget exhausted; reservations and unknown costs retained',
                     scope='optional', limit=optional_limit, spent=optional_spent,
@@ -413,24 +418,25 @@ def acquire(run_id,epoch,request,reserve,lease_seconds=1800,*,minimum_remaining=
             for row in rows:
                 action=json.loads(row.details).get('request',{}).get('action_context',{})
                 if row.task_id not in counted and action.get('plan_class')=='INITIAL_SELECTION' and action.get('semantic_episode_id')==current_episode:
-                    committed+=row.actual if row.actual is not None else row.reserve
-                    generation_spent+=row.actual if row.actual is not None else 0
-                    generation_reserved+=row.reserve if row.actual is None else 0
+                    actual=effective(row.actual,row.task_id,corrections)
+                    committed+=actual if actual is not None else row.reserve
+                    generation_spent+=actual if actual is not None else 0
+                    generation_reserved+=row.reserve if actual is None else 0
                     counted.add(row.task_id)
             if committed+reserve>generation_limit:
                 raise BudgetRejected('Initial generation budget exhausted; unknown reservations retained',
                     scope='initial_generation', limit=generation_limit, spent=generation_spent,
                     reserved=generation_reserved, requested=reserve, node=request.get('node', ''))
-        rows=c.execute(select(tasks.c.status,tasks.c.reserve,tasks.c.actual).where(tasks.c.run_id==run_id)).all()
-        used=sum((r.actual or 0)+(r.reserve if r.status in ('RUNNING','UNKNOWN') else 0) for r in rows)
+        rows=c.execute(select(tasks.c.task_id,tasks.c.status,tasks.c.reserve,tasks.c.actual).where(tasks.c.run_id==run_id)).all()
+        used=sum((effective(r.actual,r.task_id,corrections) or 0)+(r.reserve if r.status in ('RUNNING','UNKNOWN') else 0) for r in rows)
         if reserve<0 or used+reserve+minimum_remaining>h['budget']:
-            committed=sum((r.actual or 0)+(r.reserve if r.status=='UNKNOWN' else 0) for r in rows)
+            committed=sum((effective(r.actual,r.task_id,corrections) or 0)+(r.reserve if r.status=='UNKNOWN' else 0) for r in rows)
             if reserve>=0 and committed+reserve+minimum_remaining<=h['budget'] and any(r.status=='RUNNING' for r in rows):
                 raise BudgetBusy('Waiting for in-flight cost reservations to settle')
             if reserve < 0:
                 raise Conflict('Insufficient budget; required validation reserve retained')
             raise BudgetRejected('Insufficient budget; required validation reserve retained',
-                scope='project', limit=h['budget'], spent=sum(r.actual or 0 for r in rows),
+                scope='project', limit=h['budget'], spent=sum(effective(r.actual,r.task_id,corrections) or 0 for r in rows),
                 reserved=sum(r.reserve for r in rows if r.status in ('RUNNING', 'UNKNOWN')),
                 requested=reserve, validation=minimum_remaining, node=request.get('node', ''))
         record=dict(task_id=task_id,run_id=run_id,epoch=epoch,input_snapshot=h['snapshot_id'],

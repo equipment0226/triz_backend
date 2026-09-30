@@ -57,7 +57,7 @@ def bundle(state=None):
                             root/'display_terms.py',root/'report_style.py',root/'solve_contract.py',root/'digest.py',
                             root/'agent.py',root/'llm.py',root/'model_pricing.py',root/'settings.py',
                             root/'prompts_registry.py',root/'evidence.py',root/'idea_consolidation.py',root/'separation_contract.py',
-                            root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',
+                            root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',root/'ax/cost_restatements.py',
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',
                             root/'ax/learning.py',root/'ax/mode_contract.py',root/'ax/action_runtime.py',
                             root/'ax/routing_q.py',root/'ax/exploration_context.py',root/'ax/usage_recovery.py',root/'ax/effect_history.py',root/'ax/effect_ranker.py',

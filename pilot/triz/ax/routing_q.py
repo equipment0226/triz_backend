@@ -388,6 +388,11 @@ def dataset(tenant, project, cutoff=None):
             excluded['test_or_missing_run'] += 1
             continue
         with ledger.store.engine.connect() as c:
+            from .cost_restatements import overrides, effective, available_at
+            corrections=overrides(c,h['run_id'],cutoff)
+            cost_available_at=available_at(c,h['run_id'],cutoff) if corrections else ''
+            task_costs={r.task_id:effective(r.actual,r.task_id,corrections) for r in c.execute(
+                select(ledger.tasks.c.task_id,ledger.tasks.c.actual).where(ledger.tasks.c.run_id==h['run_id']))} if corrections else {}
             events = [dict(r,payload=json.loads(r['payload'])) for r in c.execute(select(ledger.events)
                 .where(ledger.events.c.run_id==h['run_id'],ledger.events.c.created_at<=cutoff)
                 .order_by(ledger.events.c.created_at)).mappings()]
@@ -395,6 +400,9 @@ def dataset(tenant, project, cutoff=None):
         for event in events:
             p=event['payload']
             if event['event_type']=='ACTION_INSTANCE_RESULT' and p.get('optional'):
+                ids=set(p.get('task_ids',[]))
+                if corrections and ids and ids.issubset(task_costs) and all(task_costs[tid] is not None for tid in ids):
+                    p=dict(p,actual_microusd=sum(task_costs[tid] for tid in ids))
                 results[p['action_instance_id']]=p
             if event['event_type']=='OPTIONAL_TRANSITION':
                 transitions[p['decision_id']]=p
@@ -453,7 +461,7 @@ def dataset(tenant, project, cutoff=None):
             permitted=[i for i,a in enumerate(p['actions']) if a['allowed']]
             nxt=next_row['payload'] if next_row else None
             rows.append(dict(decision_id=did,run_id=h['run_id'],semantic_episode_id=p['semantic_episode_id'],
-                group=judgments[0]['group'],available_at=max(j['available_at'] for j in judgments),
+                group=judgments[0]['group'],available_at=max([cost_available_at]+[j['available_at'] for j in judgments]),
                 features=p['features'],actions=tickets,executed_index=p['executed_index'],permitted=permitted,
                 action=support_key(tickets[p['executed_index']]),next_features=nxt['features'] if nxt else p['features'],
                 next_actions=[a['ticket'] for a in nxt['actions']] if nxt else [],

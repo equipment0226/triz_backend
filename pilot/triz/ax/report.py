@@ -161,6 +161,8 @@ def project(state):
     scratch['report_date'] = meta.get('created_at', '')[:16].replace('T', ' ') or '기록 미고정'
     if meta.get('created_at'):
         data['created_at'] = meta['created_at']
+    from .cost_restatements import report_cost
+    data['cost'] = report_cost(state, sid, data['cost'])
     result = GlobalState.model_validate(data)
     object.__setattr__(result, '_ax_report_projection', True)
     return result

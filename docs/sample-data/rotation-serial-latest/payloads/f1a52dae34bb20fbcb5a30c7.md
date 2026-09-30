@@ -1,6 +1,6 @@
 # 저장 데이터 · f1a52dae34bb
 
-원본 값의 정규 JSON SHA-256: `f1a52dae34bb20fbcb5a30c712634c416ac008a0ea40854cdb2a35fa531cddcb`
+정규 JSON SHA-256: `f1a52dae34bb20fbcb5a30c712634c416ac008a0ea40854cdb2a35fa531cddcb`
 
 ```json
 [

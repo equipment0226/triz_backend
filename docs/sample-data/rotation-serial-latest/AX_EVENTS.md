@@ -2,5207 +2,3770 @@
 
 [사례 개요](README.md)
 
-각 행의 상세 링크에는 해당 저장 payload 전체가 있습니다. 별도 요청·응답 원문이 포함되는 필드는 본문 대신 해시를 남겼습니다.
-
-| ID | KST | 종류 | 전체 payload |
-|---|---|---|---|
-| event-0e988893c44a456d869846f410eaaaa3 | 06:46:26 | EPOCH_CHANGED | [보기](#row-event-0e988893c44a456d869846f410eaaaa3) |
-| event-1126c4ec51764fca8c8b75d0b6a6a915 | 06:46:55 | SNAPSHOT_COMMITTED | [보기](#row-event-1126c4ec51764fca8c8b75d0b6a6a915) |
-| event-60135bf499f04333a21301b2267dc539 | 06:47:22 | ACTION_RESERVED | [보기](#row-event-60135bf499f04333a21301b2267dc539) |
-| event-12550159e785428eb582dac492bc7bc9 | 06:47:32 | ACTION_COMPLETED | [보기](#row-event-12550159e785428eb582dac492bc7bc9) |
-| event-f2502343d932403c8d1c433ee87fcbd4 | 06:47:32 | SNAPSHOT_COMMITTED | [보기](#row-event-f2502343d932403c8d1c433ee87fcbd4) |
-| event-3f47739fecff4a359a37565d83aeca61 | 06:49:07 | EPOCH_CHANGED | [보기](#row-event-3f47739fecff4a359a37565d83aeca61) |
-| event-b5ef7fcf0b2343d1b9f5f9f397774f86 | 06:49:31 | SNAPSHOT_COMMITTED | [보기](#row-event-b5ef7fcf0b2343d1b9f5f9f397774f86) |
-| event-2ec47bd9bdae4068afd92f1cc3b922fd | 06:49:49 | ACTION_RESERVED | [보기](#row-event-2ec47bd9bdae4068afd92f1cc3b922fd) |
-| event-5778788995a34b5f8d9cf86626b5d87e | 06:49:58 | ACTION_COMPLETED | [보기](#row-event-5778788995a34b5f8d9cf86626b5d87e) |
-| event-9be5cf3c0fab452395c637015bf22a5a | 06:49:59 | SNAPSHOT_COMMITTED | [보기](#row-event-9be5cf3c0fab452395c637015bf22a5a) |
-| event-23fc4a7d3c484c1881a0fcbf327aa1ad | 06:50:47 | ACTION_RESERVED | [보기](#row-event-23fc4a7d3c484c1881a0fcbf327aa1ad) |
-| event-a8c4f7d1f706492c9524c1a81f090a4a | 06:50:58 | ACTION_COMPLETED | [보기](#row-event-a8c4f7d1f706492c9524c1a81f090a4a) |
-| event-eedaa927823041dd8949e5458ec9a1d9 | 06:51:11 | ACTION_RESERVED | [보기](#row-event-eedaa927823041dd8949e5458ec9a1d9) |
-| event-ff632ebddb564c30adaaa34e533f25e7 | 06:51:13 | ACTION_COMPLETED | [보기](#row-event-ff632ebddb564c30adaaa34e533f25e7) |
-| event-a228557e3dda44e4b87c31aa72cfd3c4 | 06:51:19 | SNAPSHOT_COMMITTED | [보기](#row-event-a228557e3dda44e4b87c31aa72cfd3c4) |
-| event-5aeccff6ab36490ab6922bf6395e4747 | 06:52:06 | EPOCH_CHANGED | [보기](#row-event-5aeccff6ab36490ab6922bf6395e4747) |
-| event-04ebda3cc27a461187fac4757c3c3918 | 06:52:32 | SNAPSHOT_COMMITTED | [보기](#row-event-04ebda3cc27a461187fac4757c3c3918) |
-| event-50587501e57748aaa864a03d2b6fa49f | 06:52:58 | ACTION_RESERVED | [보기](#row-event-50587501e57748aaa864a03d2b6fa49f) |
-| event-fc18e66c2c4d4b49a7a7a06bd7cb33ee | 06:53:09 | ACTION_COMPLETED | [보기](#row-event-fc18e66c2c4d4b49a7a7a06bd7cb33ee) |
-| event-623e4b49a45c455a99745109a440cf7f | 06:53:17 | SNAPSHOT_COMMITTED | [보기](#row-event-623e4b49a45c455a99745109a440cf7f) |
-| event-a5af1e19a18e4a9a83cbd9ef0e88df7a | 06:53:58 | ACTION_RESERVED | [보기](#row-event-a5af1e19a18e4a9a83cbd9ef0e88df7a) |
-| event-f68589db610b46c8a2793e56dc2f7c51 | 06:54:04 | ACTION_COMPLETED | [보기](#row-event-f68589db610b46c8a2793e56dc2f7c51) |
-| event-c72b1c1cf4644e86ab1ca0844be34219 | 06:54:10 | SNAPSHOT_COMMITTED | [보기](#row-event-c72b1c1cf4644e86ab1ca0844be34219) |
-| event-055891ab577e478ebbccdb0a230bba6c | 07:06:02 | EPOCH_CHANGED | [보기](#row-event-055891ab577e478ebbccdb0a230bba6c) |
-| event-34cb350f5b2a4bccaf18647a3c09ea54 | 07:06:31 | SNAPSHOT_COMMITTED | [보기](#row-event-34cb350f5b2a4bccaf18647a3c09ea54) |
-| event-e4959864d59d4b7aacd1fb4a1c4bb9b0 | 07:06:48 | SNAPSHOT_COMMITTED | [보기](#row-event-e4959864d59d4b7aacd1fb4a1c4bb9b0) |
-| event-a7cf32c6f29947a9b7c6ccec41e17c77 | 07:07:35 | ACTION_RESERVED | [보기](#row-event-a7cf32c6f29947a9b7c6ccec41e17c77) |
-| event-4eddf5da69da4de1a9a7152ad7b1993d | 07:07:44 | ACTION_COMPLETED | [보기](#row-event-4eddf5da69da4de1a9a7152ad7b1993d) |
-| event-c91b251ff0fb4bb2ad8d1cd1434b30cf | 07:07:50 | ACTION_RESERVED | [보기](#row-event-c91b251ff0fb4bb2ad8d1cd1434b30cf) |
-| event-fbaf9499429c4efe9ed7601a5758b2fe | 07:08:02 | ACTION_COMPLETED | [보기](#row-event-fbaf9499429c4efe9ed7601a5758b2fe) |
-| event-6479b7682fb940629ffefcf4a2708b5b | 07:08:06 | ACTION_RESERVED | [보기](#row-event-6479b7682fb940629ffefcf4a2708b5b) |
-| event-7258ad7160904c6ab2d1ec67ddbc7d3a | 07:08:10 | ACTION_COMPLETED | [보기](#row-event-7258ad7160904c6ab2d1ec67ddbc7d3a) |
-| event-8648cd3dc21c458ebd23935f7c5c0fea | 07:08:21 | ACTION_RESERVED | [보기](#row-event-8648cd3dc21c458ebd23935f7c5c0fea) |
-| event-2034880183fa4c3486a2b12b7edacb73 | 07:08:23 | ACTION_RESERVED | [보기](#row-event-2034880183fa4c3486a2b12b7edacb73) |
-| event-056e7c0941844960885b1bb6675efe14 | 07:08:24 | ACTION_RESERVED | [보기](#row-event-056e7c0941844960885b1bb6675efe14) |
-| event-200f0a4774594f9f9231b7f7bc9a8d0e | 07:08:26 | ACTION_COMPLETED | [보기](#row-event-200f0a4774594f9f9231b7f7bc9a8d0e) |
-| event-c0cbb0004600420db135f411e9ca4630 | 07:08:35 | ACTION_COMPLETED | [보기](#row-event-c0cbb0004600420db135f411e9ca4630) |
-| event-3c9dff22015f45578b8e631c55bc6dfc | 07:08:35 | ACTION_COMPLETED | [보기](#row-event-3c9dff22015f45578b8e631c55bc6dfc) |
-| event-feb9302f315e487697b01aae6a6a3917 | 07:08:38 | ACTION_RESERVED | [보기](#row-event-feb9302f315e487697b01aae6a6a3917) |
-| event-b98757ce95e84d6083475b4dd5063e02 | 07:08:42 | ACTION_COMPLETED | [보기](#row-event-b98757ce95e84d6083475b4dd5063e02) |
-| event-7503ca69215c499da17fe2a41661431b | 07:08:48 | ACTION_RESERVED | [보기](#row-event-7503ca69215c499da17fe2a41661431b) |
-| event-1c9e768ff6cb429989b50b033db7182e | 07:08:58 | ACTION_COMPLETED | [보기](#row-event-1c9e768ff6cb429989b50b033db7182e) |
-| event-c5d943be20464f8898470298ecdcf5b6 | 07:09:05 | SNAPSHOT_COMMITTED | [보기](#row-event-c5d943be20464f8898470298ecdcf5b6) |
-| event-0ababd31e20e45ee95e150022dcdabcf | 07:09:49 | ACTION_RESERVED | [보기](#row-event-0ababd31e20e45ee95e150022dcdabcf) |
-| event-2cfaa4803bd94947a553949749a62206 | 07:09:51 | ACTION_RESERVED | [보기](#row-event-2cfaa4803bd94947a553949749a62206) |
-| event-ba1e65c0cbfb47ac8f45000ed0aa5c9e | 07:09:52 | ACTION_RESERVED | [보기](#row-event-ba1e65c0cbfb47ac8f45000ed0aa5c9e) |
-| event-58ef89a4e13c4950a044f695e0f535ed | 07:09:54 | ACTION_COMPLETED | [보기](#row-event-58ef89a4e13c4950a044f695e0f535ed) |
-| event-eeefc117534940cf9bed7b7cda2cd4c2 | 07:09:59 | ACTION_COMPLETED | [보기](#row-event-eeefc117534940cf9bed7b7cda2cd4c2) |
-| event-729dfe8a5e70470dbb9859d8b0d34869 | 07:10:03 | ACTION_COMPLETED | [보기](#row-event-729dfe8a5e70470dbb9859d8b0d34869) |
-| event-80fc320b72854697a848ec6c1b47cdec | 07:10:08 | ACTION_RESERVED | [보기](#row-event-80fc320b72854697a848ec6c1b47cdec) |
-| event-42bacd272b5848e186000cd6f8dfc24e | 07:10:16 | ACTION_COMPLETED | [보기](#row-event-42bacd272b5848e186000cd6f8dfc24e) |
-| event-4463bce6274348fbbd84864af80f2acb | 07:10:21 | ACTION_RESERVED | [보기](#row-event-4463bce6274348fbbd84864af80f2acb) |
-| event-c76629e49c954710843a2fa0e30d37b6 | 07:10:26 | ACTION_COMPLETED | [보기](#row-event-c76629e49c954710843a2fa0e30d37b6) |
-| event-1b66ac32a163425bb3be32e0b959f7da | 07:10:31 | SNAPSHOT_COMMITTED | [보기](#row-event-1b66ac32a163425bb3be32e0b959f7da) |
-| event-a03e5772dddf464e9e0b02f59b30bac4 | 07:10:58 | DECISION_RECORDED | [보기](#row-event-a03e5772dddf464e9e0b02f59b30bac4) |
-| event-1afdf23913364d8392ef49c1747e898b | 07:11:16 | ACTION_RESERVED | [보기](#row-event-1afdf23913364d8392ef49c1747e898b) |
-| event-b4e339307ffb4ecd8c5b4f50f98f95c1 | 07:11:17 | ACTION_RESERVED | [보기](#row-event-b4e339307ffb4ecd8c5b4f50f98f95c1) |
-| event-9714e9aa07d5494c9ca8f3b89d03e3f2 | 07:11:19 | ACTION_RESERVED | [보기](#row-event-9714e9aa07d5494c9ca8f3b89d03e3f2) |
-| event-e5a07b125284427f835d539c6be1a43f | 07:11:20 | ACTION_COMPLETED | [보기](#row-event-e5a07b125284427f835d539c6be1a43f) |
-| event-04983c53935c45f3a94876ded364697a | 07:11:27 | ACTION_RESERVED | [보기](#row-event-04983c53935c45f3a94876ded364697a) |
-| event-058067fc7d5147b8a7c143127e601784 | 07:11:28 | ACTION_COMPLETED | [보기](#row-event-058067fc7d5147b8a7c143127e601784) |
-| event-dc700fafecea4aa4ae64516f4ef2adfb | 07:11:31 | ACTION_COMPLETED | [보기](#row-event-dc700fafecea4aa4ae64516f4ef2adfb) |
-| event-86db933698de466c842a79c2a0e397ea | 07:11:37 | ACTION_RESERVED | [보기](#row-event-86db933698de466c842a79c2a0e397ea) |
-| event-bc1c6d0228534c5da8c8ba2a38ec76bd | 07:11:38 | ACTION_RESERVED | [보기](#row-event-bc1c6d0228534c5da8c8ba2a38ec76bd) |
-| event-86fc94ffd11a40a3aab8289f1de2e8e9 | 07:11:43 | ACTION_COMPLETED | [보기](#row-event-86fc94ffd11a40a3aab8289f1de2e8e9) |
-| event-f74867bb282843dfb8bf4273d8c8f518 | 07:11:46 | ACTION_COMPLETED | [보기](#row-event-f74867bb282843dfb8bf4273d8c8f518) |
-| event-57b5ae6ffc47448791cdf5e03ed6c4bc | 07:11:48 | ACTION_RESERVED | [보기](#row-event-57b5ae6ffc47448791cdf5e03ed6c4bc) |
-| event-a6e3b09b730a48bfa3407b8915bc1afb | 07:11:50 | ACTION_COMPLETED | [보기](#row-event-a6e3b09b730a48bfa3407b8915bc1afb) |
-| event-b8b8f7967cd24d34adae94aa0810dc24 | 07:11:55 | ACTION_RESERVED | [보기](#row-event-b8b8f7967cd24d34adae94aa0810dc24) |
-| event-88e2c4dc6e574938a8372a42fb181557 | 07:11:55 | ACTION_COMPLETED | [보기](#row-event-88e2c4dc6e574938a8372a42fb181557) |
-| event-2944ec2b087847f68c96c93282ef719a | 07:12:00 | ACTION_RESERVED | [보기](#row-event-2944ec2b087847f68c96c93282ef719a) |
-| event-9f29311b72aa4c6fa698cb68462b4b90 | 07:12:09 | ACTION_COMPLETED | [보기](#row-event-9f29311b72aa4c6fa698cb68462b4b90) |
-| event-1e6cd610b27848a08be4490359217533 | 07:12:13 | ACTION_RESERVED | [보기](#row-event-1e6cd610b27848a08be4490359217533) |
-| event-4031a56a4b99426596f09118fb13c2f7 | 07:12:15 | ACTION_COMPLETED | [보기](#row-event-4031a56a4b99426596f09118fb13c2f7) |
-| event-fd56b197d1c74e7981bc6e78c4f84188 | 07:12:19 | ACTION_RESERVED | [보기](#row-event-fd56b197d1c74e7981bc6e78c4f84188) |
-| event-a364013b26c3493683f3e645ac0b7374 | 07:12:19 | ACTION_COMPLETED | [보기](#row-event-a364013b26c3493683f3e645ac0b7374) |
-| event-558517318c4e46b8a37ecab95ef0c307 | 07:12:22 | ACTION_RESERVED | [보기](#row-event-558517318c4e46b8a37ecab95ef0c307) |
-| event-d164a735de314d86a13ed6e34329cbe5 | 07:12:34 | ACTION_COMPLETED | [보기](#row-event-d164a735de314d86a13ed6e34329cbe5) |
-| event-12995c59777f4ded80a7b7e22d86b92b | 07:12:46 | ACTION_COMPLETED | [보기](#row-event-12995c59777f4ded80a7b7e22d86b92b) |
-| event-a4041346592f460f84b2a9db835339f0 | 07:12:50 | ACTION_RESERVED | [보기](#row-event-a4041346592f460f84b2a9db835339f0) |
-| event-4b7e68c901004f56824d0bd766e38158 | 07:13:42 | ACTION_COMPLETED | [보기](#row-event-4b7e68c901004f56824d0bd766e38158) |
-| event-9b5cae89dc4549acb947945e1c5fc6c4 | 07:13:46 | ACTION_RESERVED | [보기](#row-event-9b5cae89dc4549acb947945e1c5fc6c4) |
-| event-955c600a2d96454b8aceced93206b230 | 07:13:51 | ACTION_COMPLETED | [보기](#row-event-955c600a2d96454b8aceced93206b230) |
-| event-422f7374075c448eaf802c6717447963 | 07:13:55 | ACTION_RESERVED | [보기](#row-event-422f7374075c448eaf802c6717447963) |
-| event-9b5b4b43965c4d0ca65da1dfa96d82db | 07:14:39 | ACTION_COMPLETED | [보기](#row-event-9b5b4b43965c4d0ca65da1dfa96d82db) |
-| event-4da5eb543307464fb7999dd2c6e7891a | 07:14:48 | DECISION_RECORDED | [보기](#row-event-4da5eb543307464fb7999dd2c6e7891a) |
-| event-3346344519c9499b988722506862caba | 07:14:56 | ACTION_RESERVED | [보기](#row-event-3346344519c9499b988722506862caba) |
-| event-0fedc8c2df4a486199fa7878da7f4bb4 | 07:14:58 | ACTION_RESERVED | [보기](#row-event-0fedc8c2df4a486199fa7878da7f4bb4) |
-| event-99be9e8a26bc46f1bf1aea30e12c3cbb | 07:14:59 | ACTION_RESERVED | [보기](#row-event-99be9e8a26bc46f1bf1aea30e12c3cbb) |
-| event-daea572d8f6549da8d6281cd52e39e7a | 07:15:08 | ACTION_COMPLETED | [보기](#row-event-daea572d8f6549da8d6281cd52e39e7a) |
-| event-da62e611fffc4dc59fcc571e1ac6953b | 07:15:13 | ACTION_COMPLETED | [보기](#row-event-da62e611fffc4dc59fcc571e1ac6953b) |
-| event-743984a14b834df396bf220a22adf3b4 | 07:15:16 | ACTION_COMPLETED | [보기](#row-event-743984a14b834df396bf220a22adf3b4) |
-| event-0a388b5edce64997b8a0fbd0f8f91dbe | 07:15:19 | ACTION_RESERVED | [보기](#row-event-0a388b5edce64997b8a0fbd0f8f91dbe) |
-| event-f48b469d1cd14a42986bc4d4d795def4 | 07:15:41 | ACTION_COMPLETED | [보기](#row-event-f48b469d1cd14a42986bc4d4d795def4) |
-| event-7eff2d349e1d4a82bf227cd3a1ce7c63 | 07:15:47 | DECISION_RECORDED | [보기](#row-event-7eff2d349e1d4a82bf227cd3a1ce7c63) |
-| event-699485d92a3245e693e5a6573fb5022f | 07:15:53 | ACTION_RESERVED | [보기](#row-event-699485d92a3245e693e5a6573fb5022f) |
-| event-ea90e8d1e51e4d199b73e2c01c04f0f5 | 07:15:55 | ACTION_RESERVED | [보기](#row-event-ea90e8d1e51e4d199b73e2c01c04f0f5) |
-| event-170ebb07783e411589126acf37c6bbd3 | 07:16:07 | ACTION_COMPLETED | [보기](#row-event-170ebb07783e411589126acf37c6bbd3) |
-| event-ef9b3688d79d45a38ef72d4e75cd65c1 | 07:16:09 | ACTION_COMPLETED | [보기](#row-event-ef9b3688d79d45a38ef72d4e75cd65c1) |
-| event-b5d831bea559474fa40c3c4502feab10 | 07:16:18 | ACTION_RESERVED | [보기](#row-event-b5d831bea559474fa40c3c4502feab10) |
-| event-cfa1f162458b490bb2154cbe3689d934 | 07:16:55 | ACTION_COMPLETED | [보기](#row-event-cfa1f162458b490bb2154cbe3689d934) |
-| event-ca6a2ff253204ea18f8a3c51ca60d467 | 07:17:00 | ACTION_RESERVED | [보기](#row-event-ca6a2ff253204ea18f8a3c51ca60d467) |
-| event-e0f827808c9a4c4abc3fe8c4e043ce67 | 07:17:28 | ACTION_COMPLETED | [보기](#row-event-e0f827808c9a4c4abc3fe8c4e043ce67) |
-| event-042fafe97b614df0a0e911cf230b17a0 | 07:17:34 | SNAPSHOT_COMMITTED | [보기](#row-event-042fafe97b614df0a0e911cf230b17a0) |
-| event-599e4440c18149a8989b80704eb60050 | 07:18:09 | DECISION_RECORDED | [보기](#row-event-599e4440c18149a8989b80704eb60050) |
-| event-4b65924ac1e849b8bd6a71c469dacba6 | 07:18:11 | SNAPSHOT_COMMITTED | [보기](#row-event-4b65924ac1e849b8bd6a71c469dacba6) |
-| event-2542a5593cb94eb3aa619320fc3cdd59 | 07:19:02 | ACTION_RESERVED | [보기](#row-event-2542a5593cb94eb3aa619320fc3cdd59) |
-| event-bf6913f631f94d2da721df62dd0668b6 | 07:19:04 | ACTION_RESERVED | [보기](#row-event-bf6913f631f94d2da721df62dd0668b6) |
-| event-e30f798011214e8085f7278546136d3f | 07:19:09 | ACTION_RESERVED | [보기](#row-event-e30f798011214e8085f7278546136d3f) |
-| event-836a58dac23c4f2aa763ea24dbb9d98d | 07:19:24 | ACTION_COMPLETED | [보기](#row-event-836a58dac23c4f2aa763ea24dbb9d98d) |
-| event-09f940ea3652416f8ca8e85781389b0a | 07:19:33 | ACTION_COMPLETED | [보기](#row-event-09f940ea3652416f8ca8e85781389b0a) |
-| event-28fe38b24a9942dcb38b0412b649189f | 07:19:35 | ACTION_COMPLETED | [보기](#row-event-28fe38b24a9942dcb38b0412b649189f) |
-| event-0afe5b54ea5f4a029696920b6135d180 | 07:19:53 | ACTION_RESERVED | [보기](#row-event-0afe5b54ea5f4a029696920b6135d180) |
-| event-198afeb848824b0099fbb19d1a1d02d0 | 07:20:02 | ACTION_COMPLETED | [보기](#row-event-198afeb848824b0099fbb19d1a1d02d0) |
-| event-15129f51a77747cf95ed4003de93e3b1 | 07:20:11 | ACTION_RESERVED | [보기](#row-event-15129f51a77747cf95ed4003de93e3b1) |
-| event-0f98422a728f44629d798a246600db75 | 07:20:21 | ACTION_COMPLETED | [보기](#row-event-0f98422a728f44629d798a246600db75) |
-| event-51f3e9fc07b3426ea2347088ce71159e | 07:20:32 | ACTION_RESERVED | [보기](#row-event-51f3e9fc07b3426ea2347088ce71159e) |
-| event-1a6e72b5b6c54e20b4a62211c197bb7d | 07:20:37 | ACTION_COMPLETED | [보기](#row-event-1a6e72b5b6c54e20b4a62211c197bb7d) |
-| event-659ff07d24ee4f4a82ec491fa04ce703 | 07:20:47 | ACTION_RESERVED | [보기](#row-event-659ff07d24ee4f4a82ec491fa04ce703) |
-| event-94b4a9146c814285a86bb75b533b75a4 | 07:20:55 | ACTION_COMPLETED | [보기](#row-event-94b4a9146c814285a86bb75b533b75a4) |
-| event-6933b4fb67224cb3a42e185b0e59ed9e | 07:21:06 | ACTION_RESERVED | [보기](#row-event-6933b4fb67224cb3a42e185b0e59ed9e) |
-| event-448ee272b002463e984541b242a387f4 | 07:21:13 | ACTION_COMPLETED | [보기](#row-event-448ee272b002463e984541b242a387f4) |
-| event-c62c240741bd4aa8a2014657bc62aef5 | 07:21:36 | SNAPSHOT_COMMITTED | [보기](#row-event-c62c240741bd4aa8a2014657bc62aef5) |
-| event-6581d07c7a444e2eab96fa0ca4e60722 | 07:22:17 | DECISION_RECORDED | [보기](#row-event-6581d07c7a444e2eab96fa0ca4e60722) |
-| event-56d8e294f6274bd782545212d0921b45 | 07:22:21 | ACTION_RESERVED | [보기](#row-event-56d8e294f6274bd782545212d0921b45) |
-| event-9cb7615c456d44f28601176bd5349697 | 07:22:37 | ACTION_COMPLETED | [보기](#row-event-9cb7615c456d44f28601176bd5349697) |
-| event-a92b88fe90644dda88f045aa24c7000d | 07:22:41 | ACTION_RESERVED | [보기](#row-event-a92b88fe90644dda88f045aa24c7000d) |
-| event-b7fa110a0980482e90369bc4330530d4 | 07:22:49 | ACTION_COMPLETED | [보기](#row-event-b7fa110a0980482e90369bc4330530d4) |
-| event-16f96a4db4124deb856e7a9eb759bf70 | 07:23:02 | DECISION_RECORDED | [보기](#row-event-16f96a4db4124deb856e7a9eb759bf70) |
-| event-8a16975c25784a0d968b868454e1eb29 | 07:23:05 | ACTION_RESERVED | [보기](#row-event-8a16975c25784a0d968b868454e1eb29) |
-| event-a15f0c26ba35401c8c6924d9606fce88 | 07:23:21 | ACTION_COMPLETED | [보기](#row-event-a15f0c26ba35401c8c6924d9606fce88) |
-| event-e7ed177e88f64b6b97b2ab12d54e76c3 | 07:23:26 | ACTION_RESERVED | [보기](#row-event-e7ed177e88f64b6b97b2ab12d54e76c3) |
-| event-0ef1cff83b814459b988203404c05f76 | 07:23:34 | ACTION_COMPLETED | [보기](#row-event-0ef1cff83b814459b988203404c05f76) |
-| event-77f8301c3d0f43609c2f023494d5d590 | 07:23:48 | DECISION_RECORDED | [보기](#row-event-77f8301c3d0f43609c2f023494d5d590) |
-| event-e408c636650945e7a4ba324b2268fe59 | 07:23:50 | ACTION_RESERVED | [보기](#row-event-e408c636650945e7a4ba324b2268fe59) |
-| event-e7eecdef19004f4bb9147d7f05ecdc6e | 07:24:14 | ACTION_COMPLETED | [보기](#row-event-e7eecdef19004f4bb9147d7f05ecdc6e) |
-| event-148f76e783814d0a85cfe860e1711f66 | 07:24:17 | ACTION_RESERVED | [보기](#row-event-148f76e783814d0a85cfe860e1711f66) |
-| event-c2159b1affa84a528b5916e5af70b17c | 07:24:23 | ACTION_COMPLETED | [보기](#row-event-c2159b1affa84a528b5916e5af70b17c) |
-| event-167ea3032a6c46d8bb2c8f9d41e0b8a1 | 07:24:38 | DECISION_RECORDED | [보기](#row-event-167ea3032a6c46d8bb2c8f9d41e0b8a1) |
-| event-8d43948a3f5c4f48b5fe13269610f1dc | 07:24:42 | ACTION_RESERVED | [보기](#row-event-8d43948a3f5c4f48b5fe13269610f1dc) |
-| event-0b6826c4878a4ca4a9b03adf99ac88f9 | 07:25:02 | ACTION_COMPLETED | [보기](#row-event-0b6826c4878a4ca4a9b03adf99ac88f9) |
-| event-5f7ababdfce443f580f69d5199299364 | 07:25:08 | ACTION_RESERVED | [보기](#row-event-5f7ababdfce443f580f69d5199299364) |
-| event-fe975dff0eec474894a0ef3dc43e76e8 | 07:25:14 | ACTION_COMPLETED | [보기](#row-event-fe975dff0eec474894a0ef3dc43e76e8) |
-| event-d79b680b525c4d188b6bbdd26989f666 | 07:25:27 | SNAPSHOT_COMMITTED | [보기](#row-event-d79b680b525c4d188b6bbdd26989f666) |
-| event-4bc812632c744be3a48e592a997ad0a2 | 07:25:51 | ACTION_RESERVED | [보기](#row-event-4bc812632c744be3a48e592a997ad0a2) |
-| event-af31e64087814d18b174e2c1544a26b5 | 07:25:53 | ACTION_RESERVED | [보기](#row-event-af31e64087814d18b174e2c1544a26b5) |
-| event-071e6c27282b4af180acaf09fa46918a | 07:25:55 | ACTION_RESERVED | [보기](#row-event-071e6c27282b4af180acaf09fa46918a) |
-| event-74efb61f57b84fad9f687224e21a11d2 | 07:25:59 | ACTION_RESERVED | [보기](#row-event-74efb61f57b84fad9f687224e21a11d2) |
-| event-c391f880c5ff4aafb5059b9944db9037 | 07:25:59 | ACTION_COMPLETED | [보기](#row-event-c391f880c5ff4aafb5059b9944db9037) |
-| event-a0f56561506843a38101e062a5e7a45d | 07:25:59 | ACTION_COMPLETED | [보기](#row-event-a0f56561506843a38101e062a5e7a45d) |
-| event-b2118e5f873b4180b51ada02a20fa036 | 07:25:59 | ACTION_COMPLETED | [보기](#row-event-b2118e5f873b4180b51ada02a20fa036) |
-| event-965a2e51a9b341518d78313e3156b5ef | 07:26:05 | ACTION_RESERVED | [보기](#row-event-965a2e51a9b341518d78313e3156b5ef) |
-| event-5f6d178a49894d82b6102655513d3044 | 07:26:07 | ACTION_RESERVED | [보기](#row-event-5f6d178a49894d82b6102655513d3044) |
-| event-309be95ffff4434099e6804115c1ff69 | 07:26:09 | ACTION_RESERVED | [보기](#row-event-309be95ffff4434099e6804115c1ff69) |
-| event-223fa9e0c33840e586a309ca678ae940 | 07:26:09 | ACTION_COMPLETED | [보기](#row-event-223fa9e0c33840e586a309ca678ae940) |
-| event-41e9c19b8f6a45eab1cb38d785f2784c | 07:26:10 | ACTION_COMPLETED | [보기](#row-event-41e9c19b8f6a45eab1cb38d785f2784c) |
-| event-bfcc93a5385a45678edf567f0560a818 | 07:26:14 | ACTION_RESERVED | [보기](#row-event-bfcc93a5385a45678edf567f0560a818) |
-| event-99cc61a3ef6b4b30bda5e792517de769 | 07:26:14 | ACTION_COMPLETED | [보기](#row-event-99cc61a3ef6b4b30bda5e792517de769) |
-| event-3fd60dee2bf34670abb69788185f7491 | 07:26:15 | ACTION_COMPLETED | [보기](#row-event-3fd60dee2bf34670abb69788185f7491) |
-| event-46fc56f597804924acd5894c769acdef | 07:26:19 | ACTION_RESERVED | [보기](#row-event-46fc56f597804924acd5894c769acdef) |
-| event-43a930a76f144ea38525795e0390aac2 | 07:26:21 | ACTION_RESERVED | [보기](#row-event-43a930a76f144ea38525795e0390aac2) |
-| event-c6ba43e8e602413896ff1f1c740d473a | 07:26:21 | ACTION_COMPLETED | [보기](#row-event-c6ba43e8e602413896ff1f1c740d473a) |
-| event-07a4cfa30f424b049e1027cc652e2bf0 | 07:26:24 | ACTION_COMPLETED | [보기](#row-event-07a4cfa30f424b049e1027cc652e2bf0) |
-| event-163b8b1b528f4b6f9e435afad8c85db4 | 07:26:25 | ACTION_COMPLETED | [보기](#row-event-163b8b1b528f4b6f9e435afad8c85db4) |
-| event-6c72e80ae350489586977b64851e910e | 07:26:33 | SNAPSHOT_COMMITTED | [보기](#row-event-6c72e80ae350489586977b64851e910e) |
-| event-0495e68f3ef1419a94fde16bd9a2ec09 | 07:31:28 | EPOCH_CHANGED | [보기](#row-event-0495e68f3ef1419a94fde16bd9a2ec09) |
-| event-2ea76ea9de3842fcade2840b896b1b9e | 07:32:07 | SNAPSHOT_COMMITTED | [보기](#row-event-2ea76ea9de3842fcade2840b896b1b9e) |
-| event-77290f5ad22b47e09aa4bc3f3c83d327 | 07:32:27 | SNAPSHOT_COMMITTED | [보기](#row-event-77290f5ad22b47e09aa4bc3f3c83d327) |
-| event-3d51ae987ebd4817a7b04373d25f3c3c | 07:33:03 | DECISION_RECORDED | [보기](#row-event-3d51ae987ebd4817a7b04373d25f3c3c) |
-| event-6cfe0d1846ec42a28d8c1b3f2592ef6e | 07:33:06 | ACTION_RESERVED | [보기](#row-event-6cfe0d1846ec42a28d8c1b3f2592ef6e) |
-| event-e325f6e4a89c48449978b4464d5c9e07 | 07:33:21 | ACTION_COMPLETED | [보기](#row-event-e325f6e4a89c48449978b4464d5c9e07) |
-| event-3473b9bdae2c4631b742ab041880409b | 07:33:28 | ACTION_RESERVED | [보기](#row-event-3473b9bdae2c4631b742ab041880409b) |
-| event-babc1e536d694b6eb7c9591d8fb9eaba | 07:33:34 | ACTION_COMPLETED | [보기](#row-event-babc1e536d694b6eb7c9591d8fb9eaba) |
-| event-0e6e87a94a3241ec837631fa0e115cf6 | 07:33:46 | DECISION_RECORDED | [보기](#row-event-0e6e87a94a3241ec837631fa0e115cf6) |
-| event-ce1e1c268e4040e5b88c6df64c6cea95 | 07:33:51 | ACTION_RESERVED | [보기](#row-event-ce1e1c268e4040e5b88c6df64c6cea95) |
-| event-22dca37741674fb3999011487380c9f3 | 07:34:09 | ACTION_COMPLETED | [보기](#row-event-22dca37741674fb3999011487380c9f3) |
-| event-54750e0d516d42088d8a6388e6098431 | 07:34:12 | ACTION_RESERVED | [보기](#row-event-54750e0d516d42088d8a6388e6098431) |
-| event-1b514cd7c5cb41caa2908110c6f745c5 | 07:34:18 | ACTION_COMPLETED | [보기](#row-event-1b514cd7c5cb41caa2908110c6f745c5) |
-| event-e81a008d5bb140a8ad0c67d9a7040aed | 07:34:29 | DECISION_RECORDED | [보기](#row-event-e81a008d5bb140a8ad0c67d9a7040aed) |
-| event-9fb047b2b70b4b5c83af1deb6b45eaef | 07:34:32 | ACTION_RESERVED | [보기](#row-event-9fb047b2b70b4b5c83af1deb6b45eaef) |
-| event-790ae30ac24f451bae022de2dc8c9c90 | 07:34:50 | ACTION_COMPLETED | [보기](#row-event-790ae30ac24f451bae022de2dc8c9c90) |
-| event-d116aa8311ca44cf936bbf088bcd641c | 07:34:56 | ACTION_RESERVED | [보기](#row-event-d116aa8311ca44cf936bbf088bcd641c) |
-| event-279e143ca74c449bb51d531b43c9dc53 | 07:35:04 | ACTION_COMPLETED | [보기](#row-event-279e143ca74c449bb51d531b43c9dc53) |
-| event-f3c81d8867c142ce8e7b898fe7b2e7c9 | 07:35:17 | DECISION_RECORDED | [보기](#row-event-f3c81d8867c142ce8e7b898fe7b2e7c9) |
-| event-94df086ddb454b3d9087469bd9751d12 | 07:35:19 | ACTION_RESERVED | [보기](#row-event-94df086ddb454b3d9087469bd9751d12) |
-| event-d0e54aaf509a42a3aa308abfbd69eb01 | 07:35:36 | ACTION_COMPLETED | [보기](#row-event-d0e54aaf509a42a3aa308abfbd69eb01) |
-| event-2bf92af7da3c4f5cb381e40b780729d4 | 07:35:40 | ACTION_RESERVED | [보기](#row-event-2bf92af7da3c4f5cb381e40b780729d4) |
-| event-94ba82653230418aaf6bdde6c6823ccd | 07:35:47 | ACTION_COMPLETED | [보기](#row-event-94ba82653230418aaf6bdde6c6823ccd) |
-| event-7773753aa5784ab48f76154d53cac1ad | 07:35:57 | SNAPSHOT_COMMITTED | [보기](#row-event-7773753aa5784ab48f76154d53cac1ad) |
-| event-fd511c29276442c494548db0b29f88f5 | 07:36:06 | DECISION_RECORDED | [보기](#row-event-fd511c29276442c494548db0b29f88f5) |
-| event-b3d4bc09078e49db856d42e53fa21c24 | 07:36:44 | ACTION_RESERVED | [보기](#row-event-b3d4bc09078e49db856d42e53fa21c24) |
-| event-4060e510cc534997aaec41893e3b7a70 | 07:36:59 | ACTION_COMPLETED | [보기](#row-event-4060e510cc534997aaec41893e3b7a70) |
-| event-37261ac9a54940679e36ffa80686308d | 07:37:02 | ACTION_RESERVED | [보기](#row-event-37261ac9a54940679e36ffa80686308d) |
-| event-364ab6c8e30845718040e32aebe8a66b | 07:37:22 | ACTION_COMPLETED | [보기](#row-event-364ab6c8e30845718040e32aebe8a66b) |
-| event-d9314c6f6b69400791ec5a853366085a | 07:37:25 | ACTION_RESERVED | [보기](#row-event-d9314c6f6b69400791ec5a853366085a) |
-| event-692c4c09ae334f548f0d97264c96f11e | 07:37:36 | ACTION_COMPLETED | [보기](#row-event-692c4c09ae334f548f0d97264c96f11e) |
-| event-324e2bd6dea147388f13704ad4d0e1fc | 07:37:44 | SNAPSHOT_COMMITTED | [보기](#row-event-324e2bd6dea147388f13704ad4d0e1fc) |
-| event-b488967dd386402eaa3a4dd2398a2a7d | 07:38:30 | ACTION_RESERVED | [보기](#row-event-b488967dd386402eaa3a4dd2398a2a7d) |
-| event-e7d03c280ffd45838613415c5e46c30c | 07:38:36 | ACTION_COMPLETED | [보기](#row-event-e7d03c280ffd45838613415c5e46c30c) |
-| event-0dc706bc2e8e475bb7f290fef7647ea4 | 07:38:48 | ACTION_RESERVED | [보기](#row-event-0dc706bc2e8e475bb7f290fef7647ea4) |
-| event-5f60cd06e91c47928a3d0af35c21cded | 07:38:50 | ACTION_RESERVED | [보기](#row-event-5f60cd06e91c47928a3d0af35c21cded) |
-| event-bf3ff13f87d4496f9e6fcccbf4118a75 | 07:38:51 | ACTION_RESERVED | [보기](#row-event-bf3ff13f87d4496f9e6fcccbf4118a75) |
-| event-38e11dd3a3974fb988c29738c867fbfd | 07:38:53 | ACTION_RESERVED | [보기](#row-event-38e11dd3a3974fb988c29738c867fbfd) |
-| event-801e9ddfad1f4c49b6e8b9d61ae086e2 | 07:39:00 | ACTION_COMPLETED | [보기](#row-event-801e9ddfad1f4c49b6e8b9d61ae086e2) |
-| event-b459e485fb99451d8e37e83b2d0facd1 | 07:39:03 | ACTION_RESERVED | [보기](#row-event-b459e485fb99451d8e37e83b2d0facd1) |
-| event-20d5684b630c4170bff3413c03230bd6 | 07:39:04 | ACTION_COMPLETED | [보기](#row-event-20d5684b630c4170bff3413c03230bd6) |
-| event-9e1c250c5ad346e7b3b2cc9bae58d673 | 07:39:07 | ACTION_COMPLETED | [보기](#row-event-9e1c250c5ad346e7b3b2cc9bae58d673) |
-| event-ced785796ca349f799edb71a8e0bb397 | 07:39:07 | ACTION_COMPLETED | [보기](#row-event-ced785796ca349f799edb71a8e0bb397) |
-| event-a331363b127a4e1c97fdccc694ede1bb | 07:39:20 | ACTION_RESERVED | [보기](#row-event-a331363b127a4e1c97fdccc694ede1bb) |
-| event-b62f60de923a419e9d4fa1f0930343d6 | 07:39:20 | ACTION_COMPLETED | [보기](#row-event-b62f60de923a419e9d4fa1f0930343d6) |
-| event-f72dd730ab5b46daabca3c82de0d73da | 07:39:28 | ACTION_COMPLETED | [보기](#row-event-f72dd730ab5b46daabca3c82de0d73da) |
-| event-812a35e85fb44e71b4fc95e723c4aee8 | 07:39:37 | ACTION_RESERVED | [보기](#row-event-812a35e85fb44e71b4fc95e723c4aee8) |
-| event-b378e7ffaf974e62b831ce3973d60dd8 | 07:39:43 | ACTION_RESERVED | [보기](#row-event-b378e7ffaf974e62b831ce3973d60dd8) |
-| event-04187a23c7474b2eab133c256a41ec8b | 07:39:45 | ACTION_RESERVED | [보기](#row-event-04187a23c7474b2eab133c256a41ec8b) |
-| event-be87c2259de046c3b1715ef7afe57985 | 07:39:45 | ACTION_COMPLETED | [보기](#row-event-be87c2259de046c3b1715ef7afe57985) |
-| event-6f0406421cbc4aeb8d1c1d5ab095196a | 07:39:53 | ACTION_COMPLETED | [보기](#row-event-6f0406421cbc4aeb8d1c1d5ab095196a) |
-| event-5d02cb989ddc4947a878744c52425c8b | 07:39:53 | ACTION_COMPLETED | [보기](#row-event-5d02cb989ddc4947a878744c52425c8b) |
-| event-03b49469487f41958eed90f47dd26e77 | 07:40:02 | ACTION_RESERVED | [보기](#row-event-03b49469487f41958eed90f47dd26e77) |
-| event-a2144bede2754cb28840ea6a1c8302a9 | 07:40:14 | ACTION_RESERVED | [보기](#row-event-a2144bede2754cb28840ea6a1c8302a9) |
-| event-4a97d95f572f4d10b04d0930e615a124 | 07:40:14 | ACTION_COMPLETED | [보기](#row-event-4a97d95f572f4d10b04d0930e615a124) |
-| event-e6c179c1ea2c41ebabe209c4a1d831da | 07:40:33 | ACTION_COMPLETED | [보기](#row-event-e6c179c1ea2c41ebabe209c4a1d831da) |
-| event-8598ea15771141e58ac498573237c9a8 | 07:41:01 | ACTION_RESERVED | [보기](#row-event-8598ea15771141e58ac498573237c9a8) |
-| event-97890cc3059849e48dc43de52905e567 | 07:41:05 | ACTION_RESERVED | [보기](#row-event-97890cc3059849e48dc43de52905e567) |
-| event-b289a08c94d34431ac6803eb4f4ed09b | 07:41:10 | ACTION_COMPLETED | [보기](#row-event-b289a08c94d34431ac6803eb4f4ed09b) |
-| event-848f487dc31944aba0729562cea683b2 | 07:41:13 | ACTION_COMPLETED | [보기](#row-event-848f487dc31944aba0729562cea683b2) |
-| event-c0c4e02ab96747ba87e36508df6fda2e | 07:41:57 | ACTION_RESERVED | [보기](#row-event-c0c4e02ab96747ba87e36508df6fda2e) |
-| event-9aa9e3eb1707466aa163e0ab5b156ff3 | 07:42:07 | ACTION_COMPLETED | [보기](#row-event-9aa9e3eb1707466aa163e0ab5b156ff3) |
-| event-70bd128ee8dc489ba9f64acd7ec18e63 | 07:42:14 | SNAPSHOT_COMMITTED | [보기](#row-event-70bd128ee8dc489ba9f64acd7ec18e63) |
-| event-3d7b63e3d368413489cdadd30336985a | 07:42:59 | SNAPSHOT_COMMITTED | [보기](#row-event-3d7b63e3d368413489cdadd30336985a) |
-| event-1e39d8967f1d4a1a94c42a7ea3701877 | 07:43:10 | DECISION_RECORDED | [보기](#row-event-1e39d8967f1d4a1a94c42a7ea3701877) |
-| event-93b93b5530844750979aff68704d0288 | 07:43:38 | SNAPSHOT_COMMITTED | [보기](#row-event-93b93b5530844750979aff68704d0288) |
-| event-df21e948b27145568051ca6b64cd8d70 | 07:44:19 | SNAPSHOT_COMMITTED | [보기](#row-event-df21e948b27145568051ca6b64cd8d70) |
-| event-9e38aa05bfbd4c18adbe4ee4d6e3617c | 07:57:01 | EPOCH_CHANGED | [보기](#row-event-9e38aa05bfbd4c18adbe4ee4d6e3617c) |
-| event-3708c748d0f84f53a4303e6e7c231e1e | 07:57:39 | SNAPSHOT_COMMITTED | [보기](#row-event-3708c748d0f84f53a4303e6e7c231e1e) |
-| event-d3fce5ae797740209fc2d52a11a837cb | 07:58:08 | ACTION_RESERVED | [보기](#row-event-d3fce5ae797740209fc2d52a11a837cb) |
-| event-caf5963a6a02421cbf6ffc5daac943bc | 07:58:13 | ACTION_COMPLETED | [보기](#row-event-caf5963a6a02421cbf6ffc5daac943bc) |
-| event-6c2e88d6298741d596ddc8b00c21f1f9 | 07:58:22 | SNAPSHOT_COMMITTED | [보기](#row-event-6c2e88d6298741d596ddc8b00c21f1f9) |
-
-<a id="row-event-0e988893c44a456d869846f410eaaaa3"></a>
-
-<details>
-<summary>event-0e988893c44a456d869846f410eaaaa3 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-0e988893c44a456d869846f410eaaaa3",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "EPOCH_CHANGED",
-  "payload": {
-    "epoch": 47,
-    "previous": 46,
-    "reason": "user_resume_or_replan"
-  },
-  "created_at": "2026-09-29T21:46:26.233412+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-1126c4ec51764fca8c8b75d0b6a6a915"></a>
-
-<details>
-<summary>event-1126c4ec51764fca8c8b75d0b6a6a915 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-1126c4ec51764fca8c8b75d0b6a6a915",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-e6e662cc4e1a4696b2e92a1ecd6ecab0",
-    "versions": []
-  },
-  "created_at": "2026-09-29T21:46:55.550302+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-60135bf499f04333a21301b2267dc539"></a>
-
-<details>
-<summary>event-60135bf499f04333a21301b2267dc539 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-60135bf499f04333a21301b2267dc539",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 92949,
-    "task_id": "task-4140d22333b0e1515d19ec22bfaef06ac66c89c905e33119c664cbdaeeb2"
-  },
-  "created_at": "2026-09-29T21:47:22.913104+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-12550159e785428eb582dac492bc7bc9"></a>
-
-<details>
-<summary>event-12550159e785428eb582dac492bc7bc9 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-12550159e785428eb582dac492bc7bc9",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 3326,
-    "task_id": "task-4140d22333b0e1515d19ec22bfaef06ac66c89c905e33119c664cbdaeeb2"
-  },
-  "created_at": "2026-09-29T21:47:32.320317+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-f2502343d932403c8d1c433ee87fcbd4"></a>
-
-<details>
-<summary>event-f2502343d932403c8d1c433ee87fcbd4 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-f2502343d932403c8d1c433ee87fcbd4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "constraints",
-      "problem",
-      "definition",
-      "evidence",
-      "report",
-      "concepts",
-      "selection",
-      "analysis",
-      "coherence",
-      "feedback",
-      "report_context",
-      "solve"
-    ],
-    "snapshot_id": "snap-69f32964ae364eeab69e07d5b5375a6f",
-    "versions": [
-      "av-5ce999f9d9444777986ba30b67e5e79e"
-    ]
-  },
-  "created_at": "2026-09-29T21:47:32.606651+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-3f47739fecff4a359a37565d83aeca61"></a>
-
-<details>
-<summary>event-3f47739fecff4a359a37565d83aeca61 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-3f47739fecff4a359a37565d83aeca61",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "EPOCH_CHANGED",
-  "payload": {
-    "epoch": 48,
-    "previous": 47,
-    "reason": "user_resume_or_replan"
-  },
-  "created_at": "2026-09-29T21:49:07.253886+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-b5ef7fcf0b2343d1b9f5f9f397774f86"></a>
-
-<details>
-<summary>event-b5ef7fcf0b2343d1b9f5f9f397774f86 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-b5ef7fcf0b2343d1b9f5f9f397774f86",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-77d1bbb8d3374e44aab6472310bb4c65",
-    "versions": []
-  },
-  "created_at": "2026-09-29T21:49:31.676056+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-2ec47bd9bdae4068afd92f1cc3b922fd"></a>
-
-<details>
-<summary>event-2ec47bd9bdae4068afd92f1cc3b922fd · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-2ec47bd9bdae4068afd92f1cc3b922fd",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 93759,
-    "task_id": "task-31309ea4a9bfa0c8e76281afab271b67a35ba8e2e89d7220c8f54a5531e8"
-  },
-  "created_at": "2026-09-29T21:49:49.902956+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-5778788995a34b5f8d9cf86626b5d87e"></a>
-
-<details>
-<summary>event-5778788995a34b5f8d9cf86626b5d87e · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-5778788995a34b5f8d9cf86626b5d87e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 3407,
-    "task_id": "task-31309ea4a9bfa0c8e76281afab271b67a35ba8e2e89d7220c8f54a5531e8"
-  },
-  "created_at": "2026-09-29T21:49:58.762897+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-9be5cf3c0fab452395c637015bf22a5a"></a>
-
-<details>
-<summary>event-9be5cf3c0fab452395c637015bf22a5a · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-9be5cf3c0fab452395c637015bf22a5a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "constraints",
-      "problem",
-      "definition",
-      "evidence",
-      "report",
-      "concepts",
-      "selection",
-      "analysis",
-      "coherence",
-      "feedback",
-      "report_context",
-      "solve"
-    ],
-    "snapshot_id": "snap-637dd636b5614fdb9b0958244b6bb1ae",
-    "versions": [
-      "av-da1805ee57974f8597fc5971a001282f"
-    ]
-  },
-  "created_at": "2026-09-29T21:49:59.028124+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-23fc4a7d3c484c1881a0fcbf327aa1ad"></a>
-
-<details>
-<summary>event-23fc4a7d3c484c1881a0fcbf327aa1ad · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-23fc4a7d3c484c1881a0fcbf327aa1ad",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 62249,
-    "task_id": "task-454b48aac14d282a3bce3fc190441fb56eea1366db554daf7c2eaec11a7a"
-  },
-  "created_at": "2026-09-29T21:50:47.605067+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-a8c4f7d1f706492c9524c1a81f090a4a"></a>
-
-<details>
-<summary>event-a8c4f7d1f706492c9524c1a81f090a4a · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-a8c4f7d1f706492c9524c1a81f090a4a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6371,
-    "task_id": "task-454b48aac14d282a3bce3fc190441fb56eea1366db554daf7c2eaec11a7a"
-  },
-  "created_at": "2026-09-29T21:50:58.540627+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-eedaa927823041dd8949e5458ec9a1d9"></a>
-
-<details>
-<summary>event-eedaa927823041dd8949e5458ec9a1d9 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-eedaa927823041dd8949e5458ec9a1d9",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 59526,
-    "task_id": "task-83a37ccdeb1c5e04bef657c80f426364dba6e3f3e3a6531d7d2f53705067"
-  },
-  "created_at": "2026-09-29T21:51:11.542249+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-ff632ebddb564c30adaaa34e533f25e7"></a>
-
-<details>
-<summary>event-ff632ebddb564c30adaaa34e533f25e7 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-ff632ebddb564c30adaaa34e533f25e7",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2294,
-    "task_id": "task-83a37ccdeb1c5e04bef657c80f426364dba6e3f3e3a6531d7d2f53705067"
-  },
-  "created_at": "2026-09-29T21:51:13.864370+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-a228557e3dda44e4b87c31aa72cfd3c4"></a>
-
-<details>
-<summary>event-a228557e3dda44e4b87c31aa72cfd3c4 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-a228557e3dda44e4b87c31aa72cfd3c4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "constraints",
-      "problem",
-      "definition",
-      "evidence",
-      "report",
-      "concepts",
-      "selection",
-      "analysis",
-      "coherence",
-      "feedback",
-      "report_context",
-      "solve"
-    ],
-    "snapshot_id": "snap-9c28f1071f1a493fa73df97f966ec5c0",
-    "versions": [
-      "av-04f9e092ef9d43c49ab2f224bd4be2ff"
-    ]
-  },
-  "created_at": "2026-09-29T21:51:19.318625+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-5aeccff6ab36490ab6922bf6395e4747"></a>
-
-<details>
-<summary>event-5aeccff6ab36490ab6922bf6395e4747 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-5aeccff6ab36490ab6922bf6395e4747",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "EPOCH_CHANGED",
-  "payload": {
-    "epoch": 49,
-    "previous": 48,
-    "reason": "user_resume_or_replan"
-  },
-  "created_at": "2026-09-29T21:52:06.711433+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-04ebda3cc27a461187fac4757c3c3918"></a>
-
-<details>
-<summary>event-04ebda3cc27a461187fac4757c3c3918 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-04ebda3cc27a461187fac4757c3c3918",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-057b74df690c4957b6613656b36fcf38",
-    "versions": []
-  },
-  "created_at": "2026-09-29T21:52:32.580085+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-50587501e57748aaa864a03d2b6fa49f"></a>
-
-<details>
-<summary>event-50587501e57748aaa864a03d2b6fa49f · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-50587501e57748aaa864a03d2b6fa49f",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 61270,
-    "task_id": "task-227da7c56e3c5aa2abb5e3824a23bc662fdca5c66998f55afd8f24ce11c7"
-  },
-  "created_at": "2026-09-29T21:52:58.228900+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-fc18e66c2c4d4b49a7a7a06bd7cb33ee"></a>
-
-<details>
-<summary>event-fc18e66c2c4d4b49a7a7a06bd7cb33ee · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-fc18e66c2c4d4b49a7a7a06bd7cb33ee",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6206,
-    "task_id": "task-227da7c56e3c5aa2abb5e3824a23bc662fdca5c66998f55afd8f24ce11c7"
-  },
-  "created_at": "2026-09-29T21:53:09.130972+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-623e4b49a45c455a99745109a440cf7f"></a>
-
-<details>
-<summary>event-623e4b49a45c455a99745109a440cf7f · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-623e4b49a45c455a99745109a440cf7f",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "constraints",
-      "problem",
-      "definition",
-      "evidence",
-      "report",
-      "concepts",
-      "selection",
-      "analysis",
-      "coherence",
-      "feedback",
-      "report_context",
-      "solve"
-    ],
-    "snapshot_id": "snap-530bf632a2824745af2db86e237c95df",
-    "versions": [
-      "av-4415f0c5e3d74db09648dde3edfa65ba"
-    ]
-  },
-  "created_at": "2026-09-29T21:53:17.524313+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-a5af1e19a18e4a9a83cbd9ef0e88df7a"></a>
-
-<details>
-<summary>event-a5af1e19a18e4a9a83cbd9ef0e88df7a · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-a5af1e19a18e4a9a83cbd9ef0e88df7a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 96150,
-    "task_id": "task-55eb7897cf866e0418ecd9216e18ba3ba5256827bc1d057a66356a0940d1"
-  },
-  "created_at": "2026-09-29T21:53:58.054264+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-f68589db610b46c8a2793e56dc2f7c51"></a>
-
-<details>
-<summary>event-f68589db610b46c8a2793e56dc2f7c51 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-f68589db610b46c8a2793e56dc2f7c51",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 3377,
-    "task_id": "task-55eb7897cf866e0418ecd9216e18ba3ba5256827bc1d057a66356a0940d1"
-  },
-  "created_at": "2026-09-29T21:54:04.543393+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-c72b1c1cf4644e86ab1ca0844be34219"></a>
-
-<details>
-<summary>event-c72b1c1cf4644e86ab1ca0844be34219 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-c72b1c1cf4644e86ab1ca0844be34219",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "constraints",
-      "definition",
-      "evidence",
-      "report",
-      "concepts",
-      "selection",
-      "analysis",
-      "coherence",
-      "feedback",
-      "report_context",
-      "solve"
-    ],
-    "snapshot_id": "snap-2498749a17b64716a92df6e26df510fd",
-    "versions": [
-      "av-95b8f1e196294604bc4a71db72e4305c"
-    ]
-  },
-  "created_at": "2026-09-29T21:54:10.683396+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-055891ab577e478ebbccdb0a230bba6c"></a>
-
-<details>
-<summary>event-055891ab577e478ebbccdb0a230bba6c · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-055891ab577e478ebbccdb0a230bba6c",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "EPOCH_CHANGED",
-  "payload": {
-    "epoch": 50,
-    "previous": 49,
-    "reason": "user_resume_or_replan"
-  },
-  "created_at": "2026-09-29T22:06:02.417894+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-34cb350f5b2a4bccaf18647a3c09ea54"></a>
-
-<details>
-<summary>event-34cb350f5b2a4bccaf18647a3c09ea54 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-34cb350f5b2a4bccaf18647a3c09ea54",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-1869b2a3c96f4bffadf87d11c3086237",
-    "versions": []
-  },
-  "created_at": "2026-09-29T22:06:31.412631+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-e4959864d59d4b7aacd1fb4a1c4bb9b0"></a>
-
-<details>
-<summary>event-e4959864d59d4b7aacd1fb4a1c4bb9b0 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-e4959864d59d4b7aacd1fb4a1c4bb9b0",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "constraints",
-      "definition",
-      "evidence",
-      "report",
-      "concepts",
-      "selection",
-      "analysis",
-      "coherence",
-      "feedback",
-      "report_context",
-      "solve"
-    ],
-    "snapshot_id": "snap-48dde9a56a904700ba6518af3610184a",
-    "versions": [
-      "av-011963b3da4b406aa99f3c20e1c2b1ca"
-    ]
-  },
-  "created_at": "2026-09-29T22:06:48.627093+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-a7cf32c6f29947a9b7c6ccec41e17c77"></a>
-
-<details>
-<summary>event-a7cf32c6f29947a9b7c6ccec41e17c77 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-a7cf32c6f29947a9b7c6ccec41e17c77",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 97397,
-    "task_id": "task-07087684b93d7e4dc4fed09b9a9790427b9b9a4f31ebbff06c61d6a06761"
-  },
-  "created_at": "2026-09-29T22:07:35.641277+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-4eddf5da69da4de1a9a7152ad7b1993d"></a>
-
-<details>
-<summary>event-4eddf5da69da4de1a9a7152ad7b1993d · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-4eddf5da69da4de1a9a7152ad7b1993d",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 3713,
-    "task_id": "task-07087684b93d7e4dc4fed09b9a9790427b9b9a4f31ebbff06c61d6a06761"
-  },
-  "created_at": "2026-09-29T22:07:44.671395+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-c91b251ff0fb4bb2ad8d1cd1434b30cf"></a>
-
-<details>
-<summary>event-c91b251ff0fb4bb2ad8d1cd1434b30cf · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-c91b251ff0fb4bb2ad8d1cd1434b30cf",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 100721,
-    "task_id": "task-1ca99fc15ecb6941c30d06eb7a776c61b1fed4719b22e1a0690bef73da6f"
-  },
-  "created_at": "2026-09-29T22:07:50.545760+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-fbaf9499429c4efe9ed7601a5758b2fe"></a>
-
-<details>
-<summary>event-fbaf9499429c4efe9ed7601a5758b2fe · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-fbaf9499429c4efe9ed7601a5758b2fe",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5999,
-    "task_id": "task-1ca99fc15ecb6941c30d06eb7a776c61b1fed4719b22e1a0690bef73da6f"
-  },
-  "created_at": "2026-09-29T22:08:02.909361+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-6479b7682fb940629ffefcf4a2708b5b"></a>
-
-<details>
-<summary>event-6479b7682fb940629ffefcf4a2708b5b · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-6479b7682fb940629ffefcf4a2708b5b",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 41435,
-    "task_id": "task-3e3a156f2cda8792e1bc173cd3d7d211dd2cf0dc92cd8a786cd1873bcc5a"
-  },
-  "created_at": "2026-09-29T22:08:06.283777+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-7258ad7160904c6ab2d1ec67ddbc7d3a"></a>
-
-<details>
-<summary>event-7258ad7160904c6ab2d1ec67ddbc7d3a · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-7258ad7160904c6ab2d1ec67ddbc7d3a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 3168,
-    "task_id": "task-3e3a156f2cda8792e1bc173cd3d7d211dd2cf0dc92cd8a786cd1873bcc5a"
-  },
-  "created_at": "2026-09-29T22:08:10.766705+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-8648cd3dc21c458ebd23935f7c5c0fea"></a>
-
-<details>
-<summary>event-8648cd3dc21c458ebd23935f7c5c0fea · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-8648cd3dc21c458ebd23935f7c5c0fea",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 99469,
-    "task_id": "task-642c473a09db9b1b08fc9f65f36dff000b92664ec1b632f2cfdcf0f061fc"
-  },
-  "created_at": "2026-09-29T22:08:21.897671+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-2034880183fa4c3486a2b12b7edacb73"></a>
-
-<details>
-<summary>event-2034880183fa4c3486a2b12b7edacb73 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-2034880183fa4c3486a2b12b7edacb73",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 100055,
-    "task_id": "task-5f74fe7f1b9e5910240fd1cae9baba4db2712518532e1640b96a9f5ac61d"
-  },
-  "created_at": "2026-09-29T22:08:23.450401+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-056e7c0941844960885b1bb6675efe14"></a>
-
-<details>
-<summary>event-056e7c0941844960885b1bb6675efe14 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-056e7c0941844960885b1bb6675efe14",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 99589,
-    "task_id": "task-1b76d517e1bec52e218a3a83a505618c2e2cf9ddaeea1cf355225acef799"
-  },
-  "created_at": "2026-09-29T22:08:24.987994+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-200f0a4774594f9f9231b7f7bc9a8d0e"></a>
-
-<details>
-<summary>event-200f0a4774594f9f9231b7f7bc9a8d0e · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-200f0a4774594f9f9231b7f7bc9a8d0e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2450,
-    "task_id": "task-1b76d517e1bec52e218a3a83a505618c2e2cf9ddaeea1cf355225acef799"
-  },
-  "created_at": "2026-09-29T22:08:26.593686+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-c0cbb0004600420db135f411e9ca4630"></a>
-
-<details>
-<summary>event-c0cbb0004600420db135f411e9ca4630 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-c0cbb0004600420db135f411e9ca4630",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5607,
-    "task_id": "task-642c473a09db9b1b08fc9f65f36dff000b92664ec1b632f2cfdcf0f061fc"
-  },
-  "created_at": "2026-09-29T22:08:35.203179+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-3c9dff22015f45578b8e631c55bc6dfc"></a>
-
-<details>
-<summary>event-3c9dff22015f45578b8e631c55bc6dfc · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-3c9dff22015f45578b8e631c55bc6dfc",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5799,
-    "task_id": "task-5f74fe7f1b9e5910240fd1cae9baba4db2712518532e1640b96a9f5ac61d"
-  },
-  "created_at": "2026-09-29T22:08:35.585194+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-feb9302f315e487697b01aae6a6a3917"></a>
-
-<details>
-<summary>event-feb9302f315e487697b01aae6a6a3917 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-feb9302f315e487697b01aae6a6a3917",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 40550,
-    "task_id": "task-e0fb50dd1d5d9adf01b1c245776047f193063366a1aeedc7894da26365af"
-  },
-  "created_at": "2026-09-29T22:08:38.763467+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-b98757ce95e84d6083475b4dd5063e02"></a>
-
-<details>
-<summary>event-b98757ce95e84d6083475b4dd5063e02 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-b98757ce95e84d6083475b4dd5063e02",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2880,
-    "task_id": "task-e0fb50dd1d5d9adf01b1c245776047f193063366a1aeedc7894da26365af"
-  },
-  "created_at": "2026-09-29T22:08:42.896859+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-7503ca69215c499da17fe2a41661431b"></a>
-
-<details>
-<summary>event-7503ca69215c499da17fe2a41661431b · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-7503ca69215c499da17fe2a41661431b",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 102827,
-    "task_id": "task-2a14edfec37abdf8af0637571bb6c651219733f5bfb28db7e0617e8042da"
-  },
-  "created_at": "2026-09-29T22:08:48.150480+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-1c9e768ff6cb429989b50b033db7182e"></a>
-
-<details>
-<summary>event-1c9e768ff6cb429989b50b033db7182e · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-1c9e768ff6cb429989b50b033db7182e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5961,
-    "task_id": "task-2a14edfec37abdf8af0637571bb6c651219733f5bfb28db7e0617e8042da"
-  },
-  "created_at": "2026-09-29T22:08:58.065072+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-c5d943be20464f8898470298ecdcf5b6"></a>
-
-<details>
-<summary>event-c5d943be20464f8898470298ecdcf5b6 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-c5d943be20464f8898470298ecdcf5b6",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "constraints",
-      "definition",
-      "evidence",
-      "report",
-      "concepts",
-      "selection",
-      "coherence",
-      "feedback",
-      "report_context",
-      "solve"
-    ],
-    "snapshot_id": "snap-e0ba08dd32b4463c80e07f67ef45bec7",
-    "versions": [
-      "av-2bc340c2ccb84491beb6b27d284b2ef0"
-    ]
-  },
-  "created_at": "2026-09-29T22:09:05.616891+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-0ababd31e20e45ee95e150022dcdabcf"></a>
-
-<details>
-<summary>event-0ababd31e20e45ee95e150022dcdabcf · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-0ababd31e20e45ee95e150022dcdabcf",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 98122,
-    "task_id": "task-4d1ac8442fa88186b887fe20c5e96706d023a37c13a911a8898c161bdbe6"
-  },
-  "created_at": "2026-09-29T22:09:49.697301+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-2cfaa4803bd94947a553949749a62206"></a>
-
-<details>
-<summary>event-2cfaa4803bd94947a553949749a62206 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-2cfaa4803bd94947a553949749a62206",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 105888,
-    "task_id": "task-6056abfac54f7354815838064327a60280048ffc0bd709858fe2f5050a7a"
-  },
-  "created_at": "2026-09-29T22:09:51.288161+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-ba1e65c0cbfb47ac8f45000ed0aa5c9e"></a>
-
-<details>
-<summary>event-ba1e65c0cbfb47ac8f45000ed0aa5c9e · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-ba1e65c0cbfb47ac8f45000ed0aa5c9e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 101398,
-    "task_id": "task-7975fed2633982643412789abe142fb93f8871392f2a615ff59a2fe26dbc"
-  },
-  "created_at": "2026-09-29T22:09:52.728367+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-58ef89a4e13c4950a044f695e0f535ed"></a>
-
-<details>
-<summary>event-58ef89a4e13c4950a044f695e0f535ed · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-58ef89a4e13c4950a044f695e0f535ed",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2899,
-    "task_id": "task-4d1ac8442fa88186b887fe20c5e96706d023a37c13a911a8898c161bdbe6"
-  },
-  "created_at": "2026-09-29T22:09:54.917322+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-eeefc117534940cf9bed7b7cda2cd4c2"></a>
-
-<details>
-<summary>event-eeefc117534940cf9bed7b7cda2cd4c2 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-eeefc117534940cf9bed7b7cda2cd4c2",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 3967,
-    "task_id": "task-7975fed2633982643412789abe142fb93f8871392f2a615ff59a2fe26dbc"
-  },
-  "created_at": "2026-09-29T22:09:59.444475+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-729dfe8a5e70470dbb9859d8b0d34869"></a>
-
-<details>
-<summary>event-729dfe8a5e70470dbb9859d8b0d34869 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-729dfe8a5e70470dbb9859d8b0d34869",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6366,
-    "task_id": "task-6056abfac54f7354815838064327a60280048ffc0bd709858fe2f5050a7a"
-  },
-  "created_at": "2026-09-29T22:10:03.279472+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-80fc320b72854697a848ec6c1b47cdec"></a>
-
-<details>
-<summary>event-80fc320b72854697a848ec6c1b47cdec · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-80fc320b72854697a848ec6c1b47cdec",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 46826,
-    "task_id": "task-5b545aa0bfee7f2701eda8dd6b383b5f92a17d807e87260ae6c6f69af75d"
-  },
-  "created_at": "2026-09-29T22:10:08.687864+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-42bacd272b5848e186000cd6f8dfc24e"></a>
-
-<details>
-<summary>event-42bacd272b5848e186000cd6f8dfc24e · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-42bacd272b5848e186000cd6f8dfc24e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 4642,
-    "task_id": "task-5b545aa0bfee7f2701eda8dd6b383b5f92a17d807e87260ae6c6f69af75d"
-  },
-  "created_at": "2026-09-29T22:10:16.037458+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-4463bce6274348fbbd84864af80f2acb"></a>
-
-<details>
-<summary>event-4463bce6274348fbbd84864af80f2acb · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-4463bce6274348fbbd84864af80f2acb",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 100828,
-    "task_id": "task-c4fa39e362d672f440a677a22488b2fff9952e961d2064bd60a8153507ce"
-  },
-  "created_at": "2026-09-29T22:10:21.124078+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-c76629e49c954710843a2fa0e30d37b6"></a>
-
-<details>
-<summary>event-c76629e49c954710843a2fa0e30d37b6 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-c76629e49c954710843a2fa0e30d37b6",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 3386,
-    "task_id": "task-c4fa39e362d672f440a677a22488b2fff9952e961d2064bd60a8153507ce"
-  },
-  "created_at": "2026-09-29T22:10:26.189477+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-1b66ac32a163425bb3be32e0b959f7da"></a>
-
-<details>
-<summary>event-1b66ac32a163425bb3be32e0b959f7da · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-1b66ac32a163425bb3be32e0b959f7da",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "constraints",
-      "concepts",
-      "evidence",
-      "report",
-      "selection",
-      "coherence",
-      "feedback",
-      "report_context",
-      "solve"
-    ],
-    "snapshot_id": "snap-4487c9a6151141879697ca76241925e4",
-    "versions": [
-      "av-1cb9c589494c44b0a4818055a455b84c",
-      "av-52dc28df694f41eab49c26cd7073fed0"
-    ]
-  },
-  "created_at": "2026-09-29T22:10:31.908876+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-a03e5772dddf464e9e0b02f59b30bac4"></a>
-
-<details>
-<summary>event-a03e5772dddf464e9e0b02f59b30bac4 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-a03e5772dddf464e9e0b02f59b30bac4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-d820d7cad35789e857b53f1f387ee9ad76801e719694d6adf83471d93085"
-  },
-  "created_at": "2026-09-29T22:10:58.189369+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-1afdf23913364d8392ef49c1747e898b"></a>
-
-<details>
-<summary>event-1afdf23913364d8392ef49c1747e898b · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-1afdf23913364d8392ef49c1747e898b",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 98868,
-    "task_id": "task-e933a9eb570490fbf9ca36e6e9adec45b00ec0f392c02449b4ecf7b30265"
-  },
-  "created_at": "2026-09-29T22:11:16.287215+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-b4e339307ffb4ecd8c5b4f50f98f95c1"></a>
-
-<details>
-<summary>event-b4e339307ffb4ecd8c5b4f50f98f95c1 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-b4e339307ffb4ecd8c5b4f50f98f95c1",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 98825,
-    "task_id": "task-66bf3a8cd3eb997b863358a2af7de5045644f3e9a994646f96661f64f8d9"
-  },
-  "created_at": "2026-09-29T22:11:17.909903+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-9714e9aa07d5494c9ca8f3b89d03e3f2"></a>
-
-<details>
-<summary>event-9714e9aa07d5494c9ca8f3b89d03e3f2 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-9714e9aa07d5494c9ca8f3b89d03e3f2",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 100764,
-    "task_id": "task-3db597ee10bd97559977e992f5115063374692ab4a6d2eeacc28bea1399e"
-  },
-  "created_at": "2026-09-29T22:11:19.460190+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-e5a07b125284427f835d539c6be1a43f"></a>
-
-<details>
-<summary>event-e5a07b125284427f835d539c6be1a43f · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-e5a07b125284427f835d539c6be1a43f",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2308,
-    "task_id": "task-66bf3a8cd3eb997b863358a2af7de5045644f3e9a994646f96661f64f8d9"
-  },
-  "created_at": "2026-09-29T22:11:20.336432+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-04983c53935c45f3a94876ded364697a"></a>
-
-<details>
-<summary>event-04983c53935c45f3a94876ded364697a · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-04983c53935c45f3a94876ded364697a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 101066,
-    "task_id": "task-4c134d293a392b94a7b115fead22c921143aa7dcaf458b6cd4ce0633694c"
-  },
-  "created_at": "2026-09-29T22:11:27.794631+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-058067fc7d5147b8a7c143127e601784"></a>
-
-<details>
-<summary>event-058067fc7d5147b8a7c143127e601784 · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-058067fc7d5147b8a7c143127e601784",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 4593,
-    "task_id": "task-3db597ee10bd97559977e992f5115063374692ab4a6d2eeacc28bea1399e"
-  },
-  "created_at": "2026-09-29T22:11:28.864017+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-dc700fafecea4aa4ae64516f4ef2adfb"></a>
-
-<details>
-<summary>event-dc700fafecea4aa4ae64516f4ef2adfb · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-dc700fafecea4aa4ae64516f4ef2adfb",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6753,
-    "task_id": "task-e933a9eb570490fbf9ca36e6e9adec45b00ec0f392c02449b4ecf7b30265"
-  },
-  "created_at": "2026-09-29T22:11:31.779122+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-86db933698de466c842a79c2a0e397ea"></a>
-
-<details>
-<summary>event-86db933698de466c842a79c2a0e397ea · 전체 저장값</summary>
-
-```json
-{
-  "event_id": "event-86db933698de466c842a79c2a0e397ea",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 100811,
-    "task_id": "task-dea0ca3df3616ac722f9f7da8e5fbbb4c2b4d0366fb6e6e811514226e008"
-  },
-  "created_at": "2026-09-29T22:11:37.215187+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-bc1c6d0228534c5da8c8ba2a38ec76bd"></a>
-
-<details>
-<summary>event-bc1c6d0228534c5da8c8ba2a38ec76bd · 전체 저장값</summary>
+이번 구간에 저장된 기록은 251개입니다.
 
-```json
-{
-  "event_id": "event-bc1c6d0228534c5da8c8ba2a38ec76bd",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 108275,
-    "task_id": "task-552ec5c50d4bff94587a877c396ea63ff49794854937527413923215b043"
-  },
-  "created_at": "2026-09-29T22:11:38.773248+00:00"
-}
-```
-
-</details>
-
-<a id="row-event-86fc94ffd11a40a3aab8289f1de2e8e9"></a>
 
+<a id="row-0"></a>
+
+<details>
+<summary>기록 1 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-88d083e6202e4a4988cf6050b368f188" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "EPOCH_CHANGED" | 전체 값 |
+| `payload` | {"epoch": 53, "previous": 52, "reason": "user_resume_or_replan"} | 전체 값 |
+| `created_at` | "2026-09-30T03:50:24.601884+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-1"></a>
+
+<details>
+<summary>기록 2 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-160d00b8241a4f8e8af4d9f99fa69347" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-164fe0d9d21c44cfb95783c77d9de071", "versions": []} | 전체 값 |
+| `created_at` | "2026-09-30T03:50:58.849887+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-2"></a>
+
+<details>
+<summary>기록 3 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0a57622c4a5e406abe959a6ffea76843" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 92413, "task_id": "task-96d416cce2bffe30dd2ae2456a32e931d4ee959fe581a89f3d5b3d19053a"} | 전체 값 |
+| `created_at` | "2026-09-30T03:51:30.623397+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-3"></a>
+
+<details>
+<summary>기록 4 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0d1f848dea9148cca945c3410a656830" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 3818, "task_id": "task-96d416cce2bffe30dd2ae2456a32e931d4ee959fe581a89f3d5b3d19053a"} | 전체 값 |
+| `created_at` | "2026-09-30T03:51:40.933765+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-4"></a>
+
+<details>
+<summary>기록 5 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-4175a1d4a7794e2091192197eb3b2dff" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/dc02fb28174a02fdc6495239.md) |
+| `created_at` | "2026-09-30T03:51:41.439179+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-5"></a>
+
+<details>
+<summary>기록 6 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-c297f93d6a6a47d38f3da0ee40aa95a3" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "EPOCH_CHANGED" | 전체 값 |
+| `payload` | {"epoch": 54, "previous": 53, "reason": "user_resume_or_replan"} | 전체 값 |
+| `created_at` | "2026-09-30T03:53:21.135724+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-6"></a>
+
+<details>
+<summary>기록 7 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3816cc732ee04371b2b69def3916d664" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-536b2744ed69438e8551fd125ae59aaa", "versions": []} | 전체 값 |
+| `created_at` | "2026-09-30T03:53:58.647040+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-7"></a>
+
+<details>
+<summary>기록 8 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-aaed43300cb74b7eae749f6dd0fdd00d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 93372, "task_id": "task-e5b5930949907f20ccf0c63c3c2cd1e47357438d0bcb2b429d12ace6dfd6"} | 전체 값 |
+| `created_at` | "2026-09-30T03:54:23.274507+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-8"></a>
+
+<details>
+<summary>기록 9 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-af00facb6a4b439d8a1394e2542ac516" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 3798, "task_id": "task-e5b5930949907f20ccf0c63c3c2cd1e47357438d0bcb2b429d12ace6dfd6"} | 전체 값 |
+| `created_at` | "2026-09-30T03:54:33.578595+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-9"></a>
+
+<details>
+<summary>기록 10 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-558a6846bf7c44ca8f65ebc4f3bd3752" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/2f1deab2a3cd28b35d5758db.md) |
+| `created_at` | "2026-09-30T03:54:34.143842+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-10"></a>
+
+<details>
+<summary>기록 11 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-bbf88dd9f5ce43579e53f380d60e5091" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 63591, "task_id": "task-3d529c33e8f69919a81303d37dcf45669b54e6b3670770c4736b8e691615"} | 전체 값 |
+| `created_at` | "2026-09-30T03:55:31.100239+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-11"></a>
+
+<details>
+<summary>기록 12 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-ad37e7f5199b40a28265b92ecb4c9df9" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 7246, "task_id": "task-3d529c33e8f69919a81303d37dcf45669b54e6b3670770c4736b8e691615"} | 전체 값 |
+| `created_at` | "2026-09-30T03:55:44.548377+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-12"></a>
+
+<details>
+<summary>기록 13 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5749b4354cd94072a4835fa1081d90bf" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/f5aa23fab79a61b91230237b.md) |
+| `created_at` | "2026-09-30T03:55:52.383496+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-13"></a>
+
+<details>
+<summary>기록 14 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3748ef55971444c78663c09b54f2b7ca" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 97251, "task_id": "task-837950718d92c18bc1a0cdc86c546849b36c92ea38865a897dd2d6a975cc"} | 전체 값 |
+| `created_at` | "2026-09-30T03:56:37.259728+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-14"></a>
+
+<details>
+<summary>기록 15 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-e6be7b5d7db0482688bec9b108e7a6e7" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 3654, "task_id": "task-837950718d92c18bc1a0cdc86c546849b36c92ea38865a897dd2d6a975cc"} | 전체 값 |
+| `created_at` | "2026-09-30T03:56:44.505639+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-15"></a>
+
+<details>
+<summary>기록 16 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-bc7f01b2c5e444ea8d1b10e77e1315ef" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/d5fbd64deddc137a58dde0c2.md) |
+| `created_at` | "2026-09-30T03:56:51.690566+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-16"></a>
+
+<details>
+<summary>기록 17 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-e800d7c809b04f6f874c1679884e93d7" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "EPOCH_CHANGED" | 전체 값 |
+| `payload` | {"epoch": 55, "previous": 54, "reason": "user_resume_or_replan"} | 전체 값 |
+| `created_at` | "2026-09-30T03:57:40.709294+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-17"></a>
+
+<details>
+<summary>기록 18 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-1bd0d355b5da4a42bbfa8a4a081121ad" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-acbc9240dafc4dd4a3ed7991355f01ed", "versions": []} | 전체 값 |
+| `created_at` | "2026-09-30T03:58:14.977246+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-18"></a>
+
+<details>
+<summary>기록 19 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9a778d6ff4ab47688411d8c2cc00cea0" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/2732835321ef3d59cfe280f1.md) |
+| `created_at` | "2026-09-30T03:58:36.131799+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-19"></a>
+
+<details>
+<summary>기록 20 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-f55fa12b5b8c46ba842833b9ddbc2909" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 99231, "task_id": "task-5d2586003cbcc1c9d5ba23cb9eba75c7c192f49ee41fe752517628b2c12a"} | 전체 값 |
+| `created_at` | "2026-09-30T03:59:28.867813+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-20"></a>
+
+<details>
+<summary>기록 21 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-27c02c43d20a4c1fbb496c29126b1398" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 3877, "task_id": "task-5d2586003cbcc1c9d5ba23cb9eba75c7c192f49ee41fe752517628b2c12a"} | 전체 값 |
+| `created_at` | "2026-09-30T03:59:37.114795+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-21"></a>
+
+<details>
+<summary>기록 22 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-dc345b58199c4eb497c884fa176d97e1" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 102990, "task_id": "task-b66ca81e3aa1e434fd8c3c97cd3e09dfc3a3d21dddab071aa68cc68afc7a"} | 전체 값 |
+| `created_at` | "2026-09-30T03:59:45.745035+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-22"></a>
+
+<details>
+<summary>기록 23 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-a3a0e00f8c62401e902de526edadb93b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6641, "task_id": "task-b66ca81e3aa1e434fd8c3c97cd3e09dfc3a3d21dddab071aa68cc68afc7a"} | 전체 값 |
+| `created_at` | "2026-09-30T03:59:58.828269+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-23"></a>
+
+<details>
+<summary>기록 24 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-511de902ea7d432eaf5c83985e5ade15" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 42700, "task_id": "task-64040edcccc9df3c485881d5accf1cc3b1a36feb7c3471408c85398864dc"} | 전체 값 |
+| `created_at` | "2026-09-30T04:00:03.352912+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-24"></a>
+
+<details>
+<summary>기록 25 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7fd14397d8f64e038a174b9428d41b1a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 3646, "task_id": "task-64040edcccc9df3c485881d5accf1cc3b1a36feb7c3471408c85398864dc"} | 전체 값 |
+| `created_at` | "2026-09-30T04:00:09.336272+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-25"></a>
+
+<details>
+<summary>기록 26 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-a02a0780b0ef47dfba88cf16e8f1ce7e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 110445, "task_id": "task-007809559d7bf02ec457b97d1b6835b037108bffbb7867afbfc6452c963d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:00:13.451236+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-26"></a>
+
+<details>
+<summary>기록 27 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-56f7f98611f247cfb765e80496f10d55" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8096, "task_id": "task-007809559d7bf02ec457b97d1b6835b037108bffbb7867afbfc6452c963d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:00:24.869104+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-27"></a>
+
+<details>
+<summary>기록 28 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-87358ff03f0a44fba57c3784e3160f11" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 43059, "task_id": "task-3d0a1f1983f91870b39b33e2549fa3ecf368afe68707d397f61c09c07ada"} | 전체 값 |
+| `created_at` | "2026-09-30T04:00:29.210170+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-28"></a>
+
+<details>
+<summary>기록 29 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9422d0d8aed5444f9e71172b5e063e73" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 3498, "task_id": "task-3d0a1f1983f91870b39b33e2549fa3ecf368afe68707d397f61c09c07ada"} | 전체 값 |
+| `created_at` | "2026-09-30T04:00:34.632595+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-29"></a>
+
+<details>
+<summary>기록 30 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-1bf42b605cb6480c8d563222d1f41cf7" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 102039, "task_id": "task-e4f5d3452c59b97161d9444547d7c66b7d43e140c9b5a31893bc0c17856a"} | 전체 값 |
+| `created_at` | "2026-09-30T04:00:49.352868+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-30"></a>
+
+<details>
+<summary>기록 31 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-908f120a97ce41a6a1fe4fc322a9f569" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 101583, "task_id": "task-4679897664a9193bf4a856f94a689b37b53bab8f110e5a16a50ad38ca299"} | 전체 값 |
+| `created_at` | "2026-09-30T04:00:50.999876+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-31"></a>
+
+<details>
+<summary>기록 32 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-a0d18917af574ad2beef3ae9e79d1624" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 101645, "task_id": "task-48616c5302936ba99c04ce4d80a02acba7d262aef13197ac54e93a566a4c"} | 전체 값 |
+| `created_at` | "2026-09-30T04:00:52.674723+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-32"></a>
+
+<details>
+<summary>기록 33 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-aaf9c3144bf34d3fab927866d8553539" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2776, "task_id": "task-4679897664a9193bf4a856f94a689b37b53bab8f110e5a16a50ad38ca299"} | 전체 값 |
+| `created_at` | "2026-09-30T04:00:53.080213+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-33"></a>
+
+<details>
+<summary>기록 34 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-15e2cfeef0004c98953acbb461aff364" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 5902, "task_id": "task-e4f5d3452c59b97161d9444547d7c66b7d43e140c9b5a31893bc0c17856a"} | 전체 값 |
+| `created_at` | "2026-09-30T04:01:00.994130+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-34"></a>
+
+<details>
+<summary>기록 35 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-b1425519852c4262bf8719f2872eecec" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 41327, "task_id": "task-c7956c4f0b8682c011ece4d05ff548c62a4d6c45bf8636c73352f5f66f57"} | 전체 값 |
+| `created_at` | "2026-09-30T04:01:05.238495+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-35"></a>
+
+<details>
+<summary>기록 36 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-67300f740846452b9f74bc532dc0c36f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 5602, "task_id": "task-48616c5302936ba99c04ce4d80a02acba7d262aef13197ac54e93a566a4c"} | 전체 값 |
+| `created_at` | "2026-09-30T04:01:05.318404+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-36"></a>
+
+<details>
+<summary>기록 37 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-38c0f74413fa495cbe623d6fe1900d3f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 3155, "task_id": "task-c7956c4f0b8682c011ece4d05ff548c62a4d6c45bf8636c73352f5f66f57"} | 전체 값 |
+| `created_at` | "2026-09-30T04:01:09.740499+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-37"></a>
+
+<details>
+<summary>기록 38 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-623040c245644d2aa747f05826acee75" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 104742, "task_id": "task-60732446120732bd78ebfccdd187e0ca01420d387972cdaa98730d2fcf21"} | 전체 값 |
+| `created_at` | "2026-09-30T04:01:17.214148+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-38"></a>
+
+<details>
+<summary>기록 39 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-8fc51214ef31412ca8fdd7f1bb1a333c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6565, "task_id": "task-60732446120732bd78ebfccdd187e0ca01420d387972cdaa98730d2fcf21"} | 전체 값 |
+| `created_at` | "2026-09-30T04:01:28.232133+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-39"></a>
+
 <details>
-<summary>event-86fc94ffd11a40a3aab8289f1de2e8e9 · 전체 저장값</summary>
+<summary>기록 40 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-86fc94ffd11a40a3aab8289f1de2e8e9",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6283,
-    "task_id": "task-4c134d293a392b94a7b115fead22c921143aa7dcaf458b6cd4ce0633694c"
-  },
-  "created_at": "2026-09-29T22:11:43.688440+00:00"
-}
-```
-
-</details>
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-1493bd4dddc241ffa0a75477d3c74779" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/b942bb5856fc4b1a8c9c2fbb.md) |
+| `created_at` | "2026-09-30T04:01:37.119515+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-40"></a>
+
+<details>
+<summary>기록 41 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9356655662714665abaa42266c2366c3" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 106981, "task_id": "task-2d28fa3e44d4c66a701bd010487fe4dbed14722e1408452b0dd98f7c9f2b"} | 전체 값 |
+| `created_at` | "2026-09-30T04:02:29.732010+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-41"></a>
+
+<details>
+<summary>기록 42 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7758159085234d658dcdb92189eab1a6" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 98605, "task_id": "task-25f850857b7c56b7d97140f04149a619fa0b44c39b8b9704a96f09815829"} | 전체 값 |
+| `created_at` | "2026-09-30T04:02:31.362882+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-42"></a>
+
+<details>
+<summary>기록 43 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-fa5d9e05124f4025a3a79d748bd46de9" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 102708, "task_id": "task-2614b383ee7fce0563b15685bf0259266b4b425fc8424acf7dfc343d12ae"} | 전체 값 |
+| `created_at` | "2026-09-30T04:02:33.071083+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-43"></a>
+
+<details>
+<summary>기록 44 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-670da5d6b80740fd86bf1e6b0adc5a26" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 3469, "task_id": "task-25f850857b7c56b7d97140f04149a619fa0b44c39b8b9704a96f09815829"} | 전체 값 |
+| `created_at` | "2026-09-30T04:02:38.293059+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-44"></a>
+
+<details>
+<summary>기록 45 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3d49363094f54b27a22790b2077fec34" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 4748, "task_id": "task-2614b383ee7fce0563b15685bf0259266b4b425fc8424acf7dfc343d12ae"} | 전체 값 |
+| `created_at` | "2026-09-30T04:02:42.252580+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-45"></a>
+
+<details>
+<summary>기록 46 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-f7752751ba2b48d3b6258c8cdb102898" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8569, "task_id": "task-2d28fa3e44d4c66a701bd010487fe4dbed14722e1408452b0dd98f7c9f2b"} | 전체 값 |
+| `created_at` | "2026-09-30T04:02:49.353917+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-46"></a>
+
+<details>
+<summary>기록 47 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-e63ae372f357470ba27239b2461de49f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 50594, "task_id": "task-1f8d183469aef6c6461f5c86097068d29476ac31b51cb6dfee1767ed8b13"} | 전체 값 |
+| `created_at` | "2026-09-30T04:02:53.406028+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-47"></a>
+
+<details>
+<summary>기록 48 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0fc96de5a7c947eb9cf63b7f97246639" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 5246, "task_id": "task-1f8d183469aef6c6461f5c86097068d29476ac31b51cb6dfee1767ed8b13"} | 전체 값 |
+| `created_at` | "2026-09-30T04:03:02.069736+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-48"></a>
+
+<details>
+<summary>기록 49 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-1fc9c709dd624f50bc31399c92b81ba7" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 116853, "task_id": "task-66ee14e6df1ac42207564e39fb8b6b1fda5a24365a159ad30a7c7e7cce46"} | 전체 값 |
+| `created_at` | "2026-09-30T04:03:07.707200+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-49"></a>
+
+<details>
+<summary>기록 50 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-bdeadd24d8ed4cc0af1999e80ddacb6d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 12012, "task_id": "task-66ee14e6df1ac42207564e39fb8b6b1fda5a24365a159ad30a7c7e7cce46"} | 전체 값 |
+| `created_at` | "2026-09-30T04:03:29.602283+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-50"></a>
+
+<details>
+<summary>기록 51 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-872274a5856f4f7f8e8dd67a074154b0" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 53729, "task_id": "task-7061fd35a016b2872791214a81c12fea3f858ffad50fe1574f624540d5ef"} | 전체 값 |
+| `created_at` | "2026-09-30T04:03:33.636571+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-51"></a>
+
+<details>
+<summary>기록 52 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-69f7f0d49603436f8745d42ebeb94f50" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6502, "task_id": "task-7061fd35a016b2872791214a81c12fea3f858ffad50fe1574f624540d5ef"} | 전체 값 |
+| `created_at` | "2026-09-30T04:03:43.014501+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-52"></a>
+
+<details>
+<summary>기록 53 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-c3510c3c245249e1a9d613bf08348825" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 107436, "task_id": "task-188d821e2b857008361290675769dd9786af46b0c1dfa7733cc0258027f3"} | 전체 값 |
+| `created_at` | "2026-09-30T04:03:47.250209+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-53"></a>
+
+<details>
+<summary>기록 54 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-084d24d2f49541aa807ef59a4a5f6fec" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 4706, "task_id": "task-188d821e2b857008361290675769dd9786af46b0c1dfa7733cc0258027f3"} | 전체 값 |
+| `created_at` | "2026-09-30T04:03:53.412013+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-54"></a>
+
+<details>
+<summary>기록 55 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-8fdefaf02b2e45638ac122bc46bb7ff9" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/2a3a91705275a3612f520772.md) |
+| `created_at` | "2026-09-30T04:04:00.257150+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-55"></a>
+
+<details>
+<summary>기록 56 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-60d46e07b1274b14b907cd90e6bd9c02" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-fa48982052572ff95ebbeee57c62cd4ca573af583022956e591d16a982dc"} | 전체 값 |
+| `created_at` | "2026-09-30T04:04:35.611362+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-56"></a>
+
+<details>
+<summary>기록 57 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7242455a6d6d4621830a1f13337c277e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 100025, "task_id": "task-eb6b9c8067a10f2842561bcde7f0bf98cb0472d89f873b055b79224f4b6a"} | 전체 값 |
+| `created_at` | "2026-09-30T04:04:57.027648+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-57"></a>
+
+<details>
+<summary>기록 58 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-de47e90a451f4b3096d1f15edb488949" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 101846, "task_id": "task-7b7cf6ede7f045163aa848d7eb3bd16ec39e6c1867103e114c35772f845e"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:00.161732+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-58"></a>
+
+<details>
+<summary>기록 59 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-e8bb29b292f84cf5a4c55315304909b2" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 100021, "task_id": "task-05512c0144bbc9b1916fe54968d53ae863cf4ec6e79f2e0733bfdc01b7b1"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:01.878090+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-59"></a>
+
+<details>
+<summary>기록 60 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-69212383e0324f698a8cd848dc695f6f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2485, "task_id": "task-eb6b9c8067a10f2842561bcde7f0bf98cb0472d89f873b055b79224f4b6a"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:01.956005+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-60"></a>
+
+<details>
+<summary>기록 61 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7400ea735c1a458da0516e9b9db929b3" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 102031, "task_id": "task-1a7a16d5885f7914bc79649999678e7382da2e0f825c87ffb0bcf95679e2"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:07.766626+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-61"></a>
+
+<details>
+<summary>기록 62 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-fffc83f6270348259b14ba62b0fc380d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 4978, "task_id": "task-7b7cf6ede7f045163aa848d7eb3bd16ec39e6c1867103e114c35772f845e"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:10.807274+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-62"></a>
+
+<details>
+<summary>기록 63 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-dca8860d57184dd49b9b25504bd46479" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 101838, "task_id": "task-a997cdd1d2fd95918448e85cee6ead83eddae19ed9a81210d4feca7e19a0"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:16.930659+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-63"></a>
+
+<details>
+<summary>기록 64 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-69912a1d62784215994ae845a895bc39" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 7245, "task_id": "task-05512c0144bbc9b1916fe54968d53ae863cf4ec6e79f2e0733bfdc01b7b1"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:20.096661+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-64"></a>
+
+<details>
+<summary>기록 65 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-1bcd2172898945ff887e8a073fbc7bde" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6277, "task_id": "task-1a7a16d5885f7914bc79649999678e7382da2e0f825c87ffb0bcf95679e2"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:22.854830+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-65"></a>
+
+<details>
+<summary>기록 66 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-a82590e6da904255b4225710f4495324" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 109750, "task_id": "task-12b0482ccf629af17309947a1acff5f585d39bd9dca9d45c36b92395c3bb"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:26.865260+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-66"></a>
+
+<details>
+<summary>기록 67 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-ece5bfe40afe4966852d704c1695363e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 100032, "task_id": "task-c1e1232a2f24602d6e0cd181f62f055c7698b725edf77ec3d6b8be08017d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:31.242397+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-67"></a>
+
+<details>
+<summary>기록 68 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3f0af2a9b0474d5cb60ab599a392b66e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 5264, "task_id": "task-a997cdd1d2fd95918448e85cee6ead83eddae19ed9a81210d4feca7e19a0"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:31.310063+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-68"></a>
+
+<details>
+<summary>기록 69 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-6a069a2026bb4f949afdf65ff2df000d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2520, "task_id": "task-c1e1232a2f24602d6e0cd181f62f055c7698b725edf77ec3d6b8be08017d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:33.678818+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-69"></a>
+
+<details>
+<summary>기록 70 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-fc3b7995de6b415fa23c0e4ec400a0b6" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 102174, "task_id": "task-87688fa6d8a1dc869848107ead374e31973528858ff61cef69e190975da0"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:37.850551+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-70"></a>
+
+<details>
+<summary>기록 71 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2b348e13a73f46aca4539f8e7e9e702d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8591, "task_id": "task-12b0482ccf629af17309947a1acff5f585d39bd9dca9d45c36b92395c3bb"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:42.607472+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-71"></a>
+
+<details>
+<summary>기록 72 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7fcd2242bbe942f7bf8b2179d82a8182" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 112112, "task_id": "task-67405b6f569f7bee8ab681331a8c18733492a5b2e4e1c84b2bf7f9013936"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:47.031847+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-72"></a>
+
+<details>
+<summary>기록 73 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7bee3755412a44189e135f4d5de4750a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6732, "task_id": "task-87688fa6d8a1dc869848107ead374e31973528858ff61cef69e190975da0"} | 전체 값 |
+| `created_at` | "2026-09-30T04:05:55.727937+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-73"></a>
+
+<details>
+<summary>기록 74 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5c09fe63ef1c4dba856f251a25311a42" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 99972, "task_id": "task-70c570d46cb6cb76dd58cf4b4c2c3bfa9d1000b5d16d45f7e9d64beeb572"} | 전체 값 |
+| `created_at` | "2026-09-30T04:06:06.175206+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-74"></a>
+
+<details>
+<summary>기록 75 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5c380e91a3e1436396f35b332685d34e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 9782, "task_id": "task-67405b6f569f7bee8ab681331a8c18733492a5b2e4e1c84b2bf7f9013936"} | 전체 값 |
+| `created_at` | "2026-09-30T04:06:06.627933+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-75"></a>
+
+<details>
+<summary>기록 76 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-f50abcd58be9447fa6904272c8f2912f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2451, "task_id": "task-70c570d46cb6cb76dd58cf4b4c2c3bfa9d1000b5d16d45f7e9d64beeb572"} | 전체 값 |
+| `created_at` | "2026-09-30T04:06:09.272660+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-76"></a>
+
+<details>
+<summary>기록 77 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9a36018fb5104cc98bbabec557aa4a9f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 100767, "task_id": "task-61157672535aa6dffd1132e837f8c818058b006290239dfc4b8033324e30"} | 전체 값 |
+| `created_at` | "2026-09-30T04:06:12.809559+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-77"></a>
+
+<details>
+<summary>기록 78 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-01fc8b461389476fb2e6d19327c76cc8" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 102090, "task_id": "task-5a80415715466275630d60fcbfa3a220af9c6cf2f28aea0aa83eb5f3c1c1"} | 전체 값 |
+| `created_at` | "2026-09-30T04:06:14.506442+00:00" | 전체 값 |
+
+</details>
+
+<a id="row-78"></a>
+
+<details>
+<summary>기록 79 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-46d6084c6c084a0b9b61d7d929b3db3e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6888, "task_id": "task-5a80415715466275630d60fcbfa3a220af9c6cf2f28aea0aa83eb5f3c1c1"} | 전체 값 |
+| `created_at` | "2026-09-30T04:06:31.667299+00:00" | 전체 값 |
+
+</details>
 
-<a id="row-event-f74867bb282843dfb8bf4273d8c8f518"></a>
+<a id="row-79"></a>
 
 <details>
-<summary>event-f74867bb282843dfb8bf4273d8c8f518 · 전체 저장값</summary>
+<summary>기록 80 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-f74867bb282843dfb8bf4273d8c8f518",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 4547,
-    "task_id": "task-dea0ca3df3616ac722f9f7da8e5fbbb4c2b4d0366fb6e6e811514226e008"
-  },
-  "created_at": "2026-09-29T22:11:46.694387+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-d3c1aee211a34ee185c0ab4f06995283" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 13161, "task_id": "task-61157672535aa6dffd1132e837f8c818058b006290239dfc4b8033324e30"} | 전체 값 |
+| `created_at` | "2026-09-30T04:06:52.899900+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-57b5ae6ffc47448791cdf5e03ed6c4bc"></a>
+<a id="row-80"></a>
 
 <details>
-<summary>event-57b5ae6ffc47448791cdf5e03ed6c4bc · 전체 저장값</summary>
+<summary>기록 81 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-57b5ae6ffc47448791cdf5e03ed6c4bc",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 98849,
-    "task_id": "task-128ac5fa11cc7b7100bdb4fca0ccbbb5b9ae058acbef057a0e63307fedd1"
-  },
-  "created_at": "2026-09-29T22:11:48.507663+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-4d1d9fbf23154695aa3d6201c26f67ea" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 141252, "task_id": "task-0c0e490f096add167ce06b7828fbd033502632c84149a9201d78f50765d7"} | 전체 값 |
+| `created_at` | "2026-09-30T04:06:57.768799+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-a6e3b09b730a48bfa3407b8915bc1afb"></a>
+<a id="row-81"></a>
 
 <details>
-<summary>event-a6e3b09b730a48bfa3407b8915bc1afb · 전체 저장값</summary>
+<summary>기록 82 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-a6e3b09b730a48bfa3407b8915bc1afb",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2259,
-    "task_id": "task-128ac5fa11cc7b7100bdb4fca0ccbbb5b9ae058acbef057a0e63307fedd1"
-  },
-  "created_at": "2026-09-29T22:11:50.465350+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-d04ff6fdce744173b9e7c43700485ddb" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 77195, "task_id": "task-0c0e490f096add167ce06b7828fbd033502632c84149a9201d78f50765d7"} | 전체 값 |
+| `created_at` | "2026-09-30T04:09:48.181976+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-b8b8f7967cd24d34adae94aa0810dc24"></a>
+<a id="row-82"></a>
 
 <details>
-<summary>event-b8b8f7967cd24d34adae94aa0810dc24 · 전체 저장값</summary>
+<summary>기록 83 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-b8b8f7967cd24d34adae94aa0810dc24",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 100973,
-    "task_id": "task-0589e934d2a63a3c2d53936630cbbfbb33447f4ec9e7f63dcae4cb234ae3"
-  },
-  "created_at": "2026-09-29T22:11:55.449772+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-90cacdda0b4149669905092551127b03" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 118955, "task_id": "task-787d899c0b965da6ea0955ea819c25ca2df00d2c29687ebe428368aa531f"} | 전체 값 |
+| `created_at` | "2026-09-30T04:09:54.138534+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-88e2c4dc6e574938a8372a42fb181557"></a>
+<a id="row-83"></a>
 
 <details>
-<summary>event-88e2c4dc6e574938a8372a42fb181557 · 전체 저장값</summary>
+<summary>기록 84 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-88e2c4dc6e574938a8372a42fb181557",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 8450,
-    "task_id": "task-552ec5c50d4bff94587a877c396ea63ff49794854937527413923215b043"
-  },
-  "created_at": "2026-09-29T22:11:55.565092+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9643176f6f434918a92ffdf005cd9541" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 15068, "task_id": "task-787d899c0b965da6ea0955ea819c25ca2df00d2c29687ebe428368aa531f"} | 전체 값 |
+| `created_at` | "2026-09-30T04:09:59.062900+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-2944ec2b087847f68c96c93282ef719a"></a>
+<a id="row-84"></a>
 
 <details>
-<summary>event-2944ec2b087847f68c96c93282ef719a · 전체 저장값</summary>
+<summary>기록 85 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-2944ec2b087847f68c96c93282ef719a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 110394,
-    "task_id": "task-dd7f3f5d9b630f1b0d80f6b7c328ec1c08e8782fb65c5d4fb10bf052e808"
-  },
-  "created_at": "2026-09-29T22:12:00.659595+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-92ea833c3c324d5ebbce8f1d4c45bd75" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 101323, "task_id": "task-0353c7e66812db34ecc64e9f4a3014a3affa4c07c97a15f7d9b244a5ba5b"} | 전체 값 |
+| `created_at` | "2026-09-30T04:10:05.028872+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-9f29311b72aa4c6fa698cb68462b4b90"></a>
+<a id="row-85"></a>
 
 <details>
-<summary>event-9f29311b72aa4c6fa698cb68462b4b90 · 전체 저장값</summary>
+<summary>기록 86 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-9f29311b72aa4c6fa698cb68462b4b90",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6104,
-    "task_id": "task-0589e934d2a63a3c2d53936630cbbfbb33447f4ec9e7f63dcae4cb234ae3"
-  },
-  "created_at": "2026-09-29T22:12:09.995050+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-bd1a979f2a9a493094613c8294e6e2f6" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10365, "task_id": "task-0353c7e66812db34ecc64e9f4a3014a3affa4c07c97a15f7d9b244a5ba5b"} | 전체 값 |
+| `created_at` | "2026-09-30T04:10:30.799150+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-1e6cd610b27848a08be4490359217533"></a>
+<a id="row-86"></a>
 
 <details>
-<summary>event-1e6cd610b27848a08be4490359217533 · 전체 저장값</summary>
+<summary>기록 87 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-1e6cd610b27848a08be4490359217533",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 98843,
-    "task_id": "task-472957fa9690997a5bacd07bcab4c5475b6a601c07389eb4bb4bbc1edc08"
-  },
-  "created_at": "2026-09-29T22:12:13.379096+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-4484bb24f3a74a7ca54d8403c81d1f2d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-b0f567ce8fd3fe68720ecb26dd6f90334e27d7142566da41616d7f96ae01"} | 전체 값 |
+| `created_at` | "2026-09-30T04:10:43.059233+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-4031a56a4b99426596f09118fb13c2f7"></a>
+<a id="row-87"></a>
 
 <details>
-<summary>event-4031a56a4b99426596f09118fb13c2f7 · 전체 저장값</summary>
+<summary>기록 88 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-4031a56a4b99426596f09118fb13c2f7",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2282,
-    "task_id": "task-472957fa9690997a5bacd07bcab4c5475b6a601c07389eb4bb4bbc1edc08"
-  },
-  "created_at": "2026-09-29T22:12:15.555856+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-424e64f131994663a8b6dffab0646571" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 103512, "task_id": "task-810b9f82fdb3aee459b69de39b895f8c85ce9624be89b6e7c8c6e761f2a4"} | 전체 값 |
+| `created_at` | "2026-09-30T04:10:52.996102+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-fd56b197d1c74e7981bc6e78c4f84188"></a>
+<a id="row-88"></a>
 
 <details>
-<summary>event-fd56b197d1c74e7981bc6e78c4f84188 · 전체 저장값</summary>
+<summary>기록 89 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-fd56b197d1c74e7981bc6e78c4f84188",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 100944,
-    "task_id": "task-5b8e3940bc5949ad5095673406f4fa43ec16e402d9f662b1d1383b70c14b"
-  },
-  "created_at": "2026-09-29T22:12:19.167676+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-de5a19b818b0481c8fdfb2ddbe2a137b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 110469, "task_id": "task-2b30875317368c949d772f5c0933284f0510f47ff0c2270c024246c08813"} | 전체 값 |
+| `created_at` | "2026-09-30T04:10:54.755669+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-a364013b26c3493683f3e645ac0b7374"></a>
+<a id="row-89"></a>
 
 <details>
-<summary>event-a364013b26c3493683f3e645ac0b7374 · 전체 저장값</summary>
+<summary>기록 90 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-a364013b26c3493683f3e645ac0b7374",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 9143,
-    "task_id": "task-dd7f3f5d9b630f1b0d80f6b7c328ec1c08e8782fb65c5d4fb10bf052e808"
-  },
-  "created_at": "2026-09-29T22:12:19.252258+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-006fe997c83f4d859819c0ed0867466e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 129357, "task_id": "task-c885f6a180b05d074507be66adc38dbb07eeb19d68352684721a415aec16"} | 전체 값 |
+| `created_at` | "2026-09-30T04:10:57.840129+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-558517318c4e46b8a37ecab95ef0c307"></a>
+<a id="row-90"></a>
 
 <details>
-<summary>event-558517318c4e46b8a37ecab95ef0c307 · 전체 저장값</summary>
+<summary>기록 91 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-558517318c4e46b8a37ecab95ef0c307",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 100029,
-    "task_id": "task-6642720b84a12d6276d735777dd12f7f18f1260942af96a92ba54832292f"
-  },
-  "created_at": "2026-09-29T22:12:22.411596+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9b01db1a1a3348fab3bd2f525bf1f6a3" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8841, "task_id": "task-2b30875317368c949d772f5c0933284f0510f47ff0c2270c024246c08813"} | 전체 값 |
+| `created_at` | "2026-09-30T04:11:11.605661+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-d164a735de314d86a13ed6e34329cbe5"></a>
+<a id="row-91"></a>
 
 <details>
-<summary>event-d164a735de314d86a13ed6e34329cbe5 · 전체 저장값</summary>
+<summary>기록 92 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-d164a735de314d86a13ed6e34329cbe5",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6026,
-    "task_id": "task-5b8e3940bc5949ad5095673406f4fa43ec16e402d9f662b1d1383b70c14b"
-  },
-  "created_at": "2026-09-29T22:12:34.576473+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-e82a25eacf9b49f29a1e615f2ff9bf49" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10082, "task_id": "task-c885f6a180b05d074507be66adc38dbb07eeb19d68352684721a415aec16"} | 전체 값 |
+| `created_at` | "2026-09-30T04:11:12.720971+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-12995c59777f4ded80a7b7e22d86b92b"></a>
+<a id="row-92"></a>
 
 <details>
-<summary>event-12995c59777f4ded80a7b7e22d86b92b · 전체 저장값</summary>
+<summary>기록 93 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-12995c59777f4ded80a7b7e22d86b92b",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 8759,
-    "task_id": "task-6642720b84a12d6276d735777dd12f7f18f1260942af96a92ba54832292f"
-  },
-  "created_at": "2026-09-29T22:12:46.038352+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-32bcdcbe3e9c4c938a23cd6f8cf06539" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 110472, "task_id": "task-9e8a1ac02eb2c53001446fc7a919f36b19d1bcbb0e206d2cdb4786ab7a20"} | 전체 값 |
+| `created_at` | "2026-09-30T04:11:18.195855+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-a4041346592f460f84b2a9db835339f0"></a>
+<a id="row-93"></a>
 
 <details>
-<summary>event-a4041346592f460f84b2a9db835339f0 · 전체 저장값</summary>
+<summary>기록 94 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-a4041346592f460f84b2a9db835339f0",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 134891,
-    "task_id": "task-76f575dbd21e58f2cf411666433e8d2160bef717c3ffde03c1c58a2d8da5"
-  },
-  "created_at": "2026-09-29T22:12:50.352626+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-6ba516e203244e9fa40f14c5af8416b2" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 9996, "task_id": "task-810b9f82fdb3aee459b69de39b895f8c85ce9624be89b6e7c8c6e761f2a4"} | 전체 값 |
+| `created_at` | "2026-09-30T04:11:18.269206+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-4b7e68c901004f56824d0bd766e38158"></a>
+<a id="row-94"></a>
 
 <details>
-<summary>event-4b7e68c901004f56824d0bd766e38158 · 전체 저장값</summary>
+<summary>기록 95 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-4b7e68c901004f56824d0bd766e38158",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 23206,
-    "task_id": "task-76f575dbd21e58f2cf411666433e8d2160bef717c3ffde03c1c58a2d8da5"
-  },
-  "created_at": "2026-09-29T22:13:42.726597+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5d0f2f26ebc84d6486fcbfdba0a56959" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 9253, "task_id": "task-9e8a1ac02eb2c53001446fc7a919f36b19d1bcbb0e206d2cdb4786ab7a20"} | 전체 값 |
+| `created_at` | "2026-09-30T04:11:36.355962+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-9b5cae89dc4549acb947945e1c5fc6c4"></a>
+<a id="row-95"></a>
 
 <details>
-<summary>event-9b5cae89dc4549acb947945e1c5fc6c4 · 전체 저장값</summary>
+<summary>기록 96 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-9b5cae89dc4549acb947945e1c5fc6c4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 91429,
-    "task_id": "task-5a4542ddfa3c99f434e4fc4e4cbe12fb37a628210249e7eda4987499eb97"
-  },
-  "created_at": "2026-09-29T22:13:46.147612+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-32142df78a7e442e85f519a5828433e8" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-f6080ce191fa5e69c3e621a763faa4230485a1b08cb816fdb7a546992e6d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:11:44.077890+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-955c600a2d96454b8aceced93206b230"></a>
+<a id="row-96"></a>
 
 <details>
-<summary>event-955c600a2d96454b8aceced93206b230 · 전체 저장값</summary>
+<summary>기록 97 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-955c600a2d96454b8aceced93206b230",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 10834,
-    "task_id": "task-5a4542ddfa3c99f434e4fc4e4cbe12fb37a628210249e7eda4987499eb97"
-  },
-  "created_at": "2026-09-29T22:13:51.664809+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-c2e025de5e9d4391b28be8b1cc31cddd" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 125031, "task_id": "task-f158f08b4c70c9f43f7d0f463c0ce78e2a704884cdee415b88f3dbf60783"} | 전체 값 |
+| `created_at` | "2026-09-30T04:11:53.744498+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-422f7374075c448eaf802c6717447963"></a>
+<a id="row-97"></a>
 
 <details>
-<summary>event-422f7374075c448eaf802c6717447963 · 전체 저장값</summary>
+<summary>기록 98 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-422f7374075c448eaf802c6717447963",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 101429,
-    "task_id": "task-d41b968ad2122b99d7e4ec29a85a2be72875a5f8a6fb78de92343963a97f"
-  },
-  "created_at": "2026-09-29T22:13:55.301493+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-ac910b4142f54c5c8d2978f1e28eba02" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136925, "task_id": "task-908f316573a241ef496c58ae94dee079fab8d53d3744c8d14af90f7542db"} | 전체 값 |
+| `created_at` | "2026-09-30T04:11:57.420105+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-9b5b4b43965c4d0ca65da1dfa96d82db"></a>
+<a id="row-98"></a>
 
 <details>
-<summary>event-9b5b4b43965c4d0ca65da1dfa96d82db · 전체 저장값</summary>
+<summary>기록 99 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-9b5b4b43965c4d0ca65da1dfa96d82db",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 18422,
-    "task_id": "task-d41b968ad2122b99d7e4ec29a85a2be72875a5f8a6fb78de92343963a97f"
-  },
-  "created_at": "2026-09-29T22:14:39.391672+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-24020991d49f4a2082594f144445951d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8425, "task_id": "task-f158f08b4c70c9f43f7d0f463c0ce78e2a704884cdee415b88f3dbf60783"} | 전체 값 |
+| `created_at` | "2026-09-30T04:12:05.128447+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-4da5eb543307464fb7999dd2c6e7891a"></a>
+<a id="row-99"></a>
 
 <details>
-<summary>event-4da5eb543307464fb7999dd2c6e7891a · 전체 저장값</summary>
+<summary>기록 100 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-4da5eb543307464fb7999dd2c6e7891a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-b6587f90d386926a60eca98c50d78286336e25d4de8e932d431c90cf8ca9"
-  },
-  "created_at": "2026-09-29T22:14:48.752796+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9f77e18afb264206988f8dfd2f3b02f4" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 11583, "task_id": "task-908f316573a241ef496c58ae94dee079fab8d53d3744c8d14af90f7542db"} | 전체 값 |
+| `created_at` | "2026-09-30T04:12:12.734775+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-3346344519c9499b988722506862caba"></a>
+<a id="row-100"></a>
 
 <details>
-<summary>event-3346344519c9499b988722506862caba · 전체 저장값</summary>
+<summary>기록 101 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-3346344519c9499b988722506862caba",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 114477,
-    "task_id": "task-cc7a74def5932b00e6a32472841762a86d290400682cd4c8bdb4f4ce815a"
-  },
-  "created_at": "2026-09-29T22:14:56.671623+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0cf600c50c7e491d8a3852437d5eff4d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 322220, "task_id": "task-c412229a1afc16b2381cb4c8409337e15738cba131e62a14d6bec8e2774d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:12:27.091245+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-0fedc8c2df4a486199fa7878da7f4bb4"></a>
+<a id="row-101"></a>
 
 <details>
-<summary>event-0fedc8c2df4a486199fa7878da7f4bb4 · 전체 저장값</summary>
+<summary>기록 102 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-0fedc8c2df4a486199fa7878da7f4bb4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 101685,
-    "task_id": "task-ce6c19a0a5af121ff0c764a69a871ccea75552e85a42be719fe3ccc68ad7"
-  },
-  "created_at": "2026-09-29T22:14:58.236430+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-87fd3ccb35924aebade3a29da7a5da56" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 42628, "task_id": "task-c412229a1afc16b2381cb4c8409337e15738cba131e62a14d6bec8e2774d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:12:55.646300+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-99be9e8a26bc46f1bf1aea30e12c3cbb"></a>
+<a id="row-102"></a>
 
 <details>
-<summary>event-99be9e8a26bc46f1bf1aea30e12c3cbb · 전체 저장값</summary>
+<summary>기록 103 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-99be9e8a26bc46f1bf1aea30e12c3cbb",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 109677,
-    "task_id": "task-a9795068db3766c716a3f7895fc1598426912edf3c0c8a968d419c8801b4"
-  },
-  "created_at": "2026-09-29T22:14:59.791664+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-90e8695afce64c7396646cd33a26cf8c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/dcc8488adee6f5626a8a37be.md) |
+| `created_at` | "2026-09-30T04:12:58.452473+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-daea572d8f6549da8d6281cd52e39e7a"></a>
+<a id="row-103"></a>
 
 <details>
-<summary>event-daea572d8f6549da8d6281cd52e39e7a · 전체 저장값</summary>
+<summary>기록 104 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-daea572d8f6549da8d6281cd52e39e7a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 7113,
-    "task_id": "task-cc7a74def5932b00e6a32472841762a86d290400682cd4c8bdb4f4ce815a"
-  },
-  "created_at": "2026-09-29T22:15:08.068567+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-268ee292df6a4a17861c39ce9d4abfc5" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "EPOCH_CHANGED" | 전체 값 |
+| `payload` | {"epoch": 56, "previous": 55, "reason": "user_resume_or_replan"} | 전체 값 |
+| `created_at` | "2026-09-30T04:13:25.718285+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-da62e611fffc4dc59fcc571e1ac6953b"></a>
+<a id="row-104"></a>
 
 <details>
-<summary>event-da62e611fffc4dc59fcc571e1ac6953b · 전체 저장값</summary>
+<summary>기록 105 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-da62e611fffc4dc59fcc571e1ac6953b",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6908,
-    "task_id": "task-ce6c19a0a5af121ff0c764a69a871ccea75552e85a42be719fe3ccc68ad7"
-  },
-  "created_at": "2026-09-29T22:15:13.428296+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-02a94542719a44ff9a347669f0f11433" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-5dba114002e041f6a5c116387a346dd5", "versions": []} | 전체 값 |
+| `created_at` | "2026-09-30T04:14:01.568479+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-743984a14b834df396bf220a22adf3b4"></a>
+<a id="row-105"></a>
 
 <details>
-<summary>event-743984a14b834df396bf220a22adf3b4 · 전체 저장값</summary>
+<summary>기록 106 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-743984a14b834df396bf220a22adf3b4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 9089,
-    "task_id": "task-a9795068db3766c716a3f7895fc1598426912edf3c0c8a968d419c8801b4"
-  },
-  "created_at": "2026-09-29T22:15:16.434694+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-ac480343ff664a44a44438b9647d3d76" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-5ef3477f2f90b6c4307eb14b2e4e5f8d39c4ab9c6c489fc967f6d30ca0f4"} | 전체 값 |
+| `created_at` | "2026-09-30T04:14:09.907964+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-0a388b5edce64997b8a0fbd0f8f91dbe"></a>
+<a id="row-106"></a>
 
 <details>
-<summary>event-0a388b5edce64997b8a0fbd0f8f91dbe · 전체 저장값</summary>
+<summary>기록 107 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-0a388b5edce64997b8a0fbd0f8f91dbe",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 109731,
-    "task_id": "task-88d966e551c05c00a46cdc3315ee9a731a95ea40440ebc436e675c36bc5a"
-  },
-  "created_at": "2026-09-29T22:15:19.886954+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3a885ee9a1bc4af4922e40c699a379ac" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 335525, "task_id": "task-d79718f56e2bed82b63009c0f6297fc31ac3a8a89445bf1243e3e8fd661f"} | 전체 값 |
+| `created_at` | "2026-09-30T04:15:34.196781+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-f48b469d1cd14a42986bc4d4d795def4"></a>
+<a id="row-107"></a>
 
 <details>
-<summary>event-f48b469d1cd14a42986bc4d4d795def4 · 전체 저장값</summary>
+<summary>기록 108 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-f48b469d1cd14a42986bc4d4d795def4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 9985,
-    "task_id": "task-88d966e551c05c00a46cdc3315ee9a731a95ea40440ebc436e675c36bc5a"
-  },
-  "created_at": "2026-09-29T22:15:41.138701+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-23124e80467e486a816971b7d413d52f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 46774, "task_id": "task-d79718f56e2bed82b63009c0f6297fc31ac3a8a89445bf1243e3e8fd661f"} | 전체 값 |
+| `created_at` | "2026-09-30T04:15:59.007003+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-7eff2d349e1d4a82bf227cd3a1ce7c63"></a>
+<a id="row-108"></a>
 
 <details>
-<summary>event-7eff2d349e1d4a82bf227cd3a1ce7c63 · 전체 저장값</summary>
+<summary>기록 109 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-7eff2d349e1d4a82bf227cd3a1ce7c63",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-f9ed2c539fd33fbe90fe97d65e3aa3f5719ac436c3070e617ab7898cf85f"
-  },
-  "created_at": "2026-09-29T22:15:47.120363+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-d91799e92e3b4cd7bfa19f9f4a4233a3" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 337168, "task_id": "task-7516bec277efdf1fdd194622c670689a18c8ec9b5ac6f60b544b3cbe2e87"} | 전체 값 |
+| `created_at` | "2026-09-30T04:16:05.620174+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-699485d92a3245e693e5a6573fb5022f"></a>
+<a id="row-109"></a>
 
 <details>
-<summary>event-699485d92a3245e693e5a6573fb5022f · 전체 저장값</summary>
+<summary>기록 110 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-699485d92a3245e693e5a6573fb5022f",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 110205,
-    "task_id": "task-253658de40cc089f0897bab8e8fbe5dfbdaaa2baea96bc0e59c6dbe12ecf"
-  },
-  "created_at": "2026-09-29T22:15:53.999324+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-410984ee0c7048a0be5c1249c507ad82" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 46794, "task_id": "task-7516bec277efdf1fdd194622c670689a18c8ec9b5ac6f60b544b3cbe2e87"} | 전체 값 |
+| `created_at` | "2026-09-30T04:16:28.665096+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-ea90e8d1e51e4d199b73e2c01c04f0f5"></a>
+<a id="row-110"></a>
 
 <details>
-<summary>event-ea90e8d1e51e4d199b73e2c01c04f0f5 · 전체 저장값</summary>
+<summary>기록 111 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-ea90e8d1e51e4d199b73e2c01c04f0f5",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 123333,
-    "task_id": "task-3efae683570aefce12e9028eee5273c3b16f676780e8fbc6adb6ce80b73b"
-  },
-  "created_at": "2026-09-29T22:15:55.489351+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-eb82a88af0f948a39d0a8d40b1461b5b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/f94250160e51667d611795e7.md) |
+| `created_at` | "2026-09-30T04:16:36.724181+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-170ebb07783e411589126acf37c6bbd3"></a>
+<a id="row-111"></a>
 
 <details>
-<summary>event-170ebb07783e411589126acf37c6bbd3 · 전체 저장값</summary>
+<summary>기록 112 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-170ebb07783e411589126acf37c6bbd3",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6812,
-    "task_id": "task-253658de40cc089f0897bab8e8fbe5dfbdaaa2baea96bc0e59c6dbe12ecf"
-  },
-  "created_at": "2026-09-29T22:16:07.171433+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-45bd2d51e69540c58690e3d8999aee64" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-3579ef2e9d424c956f7496936b82ce2f7104ad232bc77b6e8307139707ba"} | 전체 값 |
+| `created_at` | "2026-09-30T04:17:14.281919+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-ef9b3688d79d45a38ef72d4e75cd65c1"></a>
+<a id="row-112"></a>
 
 <details>
-<summary>event-ef9b3688d79d45a38ef72d4e75cd65c1 · 전체 저장값</summary>
+<summary>기록 113 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-ef9b3688d79d45a38ef72d4e75cd65c1",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 9272,
-    "task_id": "task-3efae683570aefce12e9028eee5273c3b16f676780e8fbc6adb6ce80b73b"
-  },
-  "created_at": "2026-09-29T22:16:09.484823+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-03dc8d79c74b4786b0e94c6af998f0f4" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-6526e07589224012b018bd03a2638fdf", "versions": ["av-0cc617111e924d82a364ff49831a20df"]} | 전체 값 |
+| `created_at` | "2026-09-30T04:17:14.443391+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-b5d831bea559474fa40c3c4502feab10"></a>
+<a id="row-113"></a>
 
 <details>
-<summary>event-b5d831bea559474fa40c3c4502feab10 · 전체 저장값</summary>
+<summary>기록 114 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-b5d831bea559474fa40c3c4502feab10",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 388822,
-    "task_id": "task-57c014744c45243421ba2326ede3594bbaa304b6baa20659bd1eca1b5813"
-  },
-  "created_at": "2026-09-29T22:16:18.254921+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3ef4390713be4204b26f33a2b5c06ebd" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 164187, "task_id": "task-2d3e81d6cac68bc28226c369b7dbe00a1804a66b22bd5a0e38d0fbcd3291"} | 전체 값 |
+| `created_at` | "2026-09-30T04:18:12.289556+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-cfa1f162458b490bb2154cbe3689d934"></a>
+<a id="row-114"></a>
 
 <details>
-<summary>event-cfa1f162458b490bb2154cbe3689d934 · 전체 저장값</summary>
+<summary>기록 115 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-cfa1f162458b490bb2154cbe3689d934",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 56918,
-    "task_id": "task-57c014744c45243421ba2326ede3594bbaa304b6baa20659bd1eca1b5813"
-  },
-  "created_at": "2026-09-29T22:16:55.703359+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3d4c39b612894fc6b148b77228df0e59" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 138633, "task_id": "task-255a5d8f1dd63462876a1a4fc12479bafeedc0aa796536cd475eb88c5dd5"} | 전체 값 |
+| `created_at` | "2026-09-30T04:18:14.244045+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-ca6a2ff253204ea18f8a3c51ca60d467"></a>
+<a id="row-115"></a>
 
 <details>
-<summary>event-ca6a2ff253204ea18f8a3c51ca60d467 · 전체 저장값</summary>
+<summary>기록 116 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-ca6a2ff253204ea18f8a3c51ca60d467",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 406255,
-    "task_id": "task-3eb8754bc521e328a8c6913d0a1c38595a7c6044821a1c7c37f50aad61b2"
-  },
-  "created_at": "2026-09-29T22:17:00.179691+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-40cdee1a1ed84cb9ac276a03a97cef0e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 161437, "task_id": "task-3e888950030808b46c26bbe2dc600fc3412f3db61f5ed9206fea94ccf160"} | 전체 값 |
+| `created_at` | "2026-09-30T04:18:17.932067+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-e0f827808c9a4c4abc3fe8c4e043ce67"></a>
+<a id="row-116"></a>
 
 <details>
-<summary>event-e0f827808c9a4c4abc3fe8c4e043ce67 · 전체 저장값</summary>
+<summary>기록 117 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-e0f827808c9a4c4abc3fe8c4e043ce67",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 60189,
-    "task_id": "task-3eb8754bc521e328a8c6913d0a1c38595a7c6044821a1c7c37f50aad61b2"
-  },
-  "created_at": "2026-09-29T22:17:28.650526+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5aaedd0e9abb4df78bc9c55589c59793" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 13219, "task_id": "task-255a5d8f1dd63462876a1a4fc12479bafeedc0aa796536cd475eb88c5dd5"} | 전체 값 |
+| `created_at` | "2026-09-30T04:18:33.937086+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-042fafe97b614df0a0e911cf230b17a0"></a>
+<a id="row-117"></a>
 
 <details>
-<summary>event-042fafe97b614df0a0e911cf230b17a0 · 전체 저장값</summary>
+<summary>기록 118 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-042fafe97b614df0a0e911cf230b17a0",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "constraints",
-      "concepts",
-      "evidence",
-      "report",
-      "selection",
-      "coherence",
-      "feedback",
-      "report_context"
-    ],
-    "snapshot_id": "snap-74a823dc8b0c470bac6070c552f5277b",
-    "versions": [
-      "av-5787558b3bd746ab91a488cd619d84fe"
-    ]
-  },
-  "created_at": "2026-09-29T22:17:34.973255+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9155089e314d499c8e77e6b2ccf0a7cd" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 26705, "task_id": "task-2d3e81d6cac68bc28226c369b7dbe00a1804a66b22bd5a0e38d0fbcd3291"} | 전체 값 |
+| `created_at` | "2026-09-30T04:18:54.383629+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-599e4440c18149a8989b80704eb60050"></a>
+<a id="row-118"></a>
 
 <details>
-<summary>event-599e4440c18149a8989b80704eb60050 · 전체 저장값</summary>
+<summary>기록 119 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-599e4440c18149a8989b80704eb60050",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-2fc4b03d18d357f283c71ae677d28380cd9395a54d6810e49e5d38891fde"
-  },
-  "created_at": "2026-09-29T22:18:09.056575+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-96dd0113538f47dc9e305cc01158623b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 27340, "task_id": "task-3e888950030808b46c26bbe2dc600fc3412f3db61f5ed9206fea94ccf160"} | 전체 값 |
+| `created_at` | "2026-09-30T04:19:02.308066+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-4b65924ac1e849b8bd6a71c469dacba6"></a>
+<a id="row-119"></a>
 
 <details>
-<summary>event-4b65924ac1e849b8bd6a71c469dacba6 · 전체 저장값</summary>
+<summary>기록 120 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-4b65924ac1e849b8bd6a71c469dacba6",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-79aadae8281243288bb60a7919a19408",
-    "versions": [
-      "av-8a5a069aae7740e9951e27625b697aae"
-    ]
-  },
-  "created_at": "2026-09-29T22:18:11.105081+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-f2f62a0e64fe4efeb4f786b6d76f6cf1" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 69264, "task_id": "task-75d79981bca7fe8a0c9311e2dcf9e04ef1ba1f430e81175c38ba24e74115"} | 전체 값 |
+| `created_at` | "2026-09-30T04:19:18.520521+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-2542a5593cb94eb3aa619320fc3cdd59"></a>
+<a id="row-120"></a>
 
 <details>
-<summary>event-2542a5593cb94eb3aa619320fc3cdd59 · 전체 저장값</summary>
+<summary>기록 121 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-2542a5593cb94eb3aa619320fc3cdd59",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 142478,
-    "task_id": "task-d41aa15a4e66825e47cfe54390cc964d26789c3b4d208de94f374b0d30a9"
-  },
-  "created_at": "2026-09-29T22:19:02.886949+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9048f51867164a7a9080d1ff1c8a5620" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8160, "task_id": "task-75d79981bca7fe8a0c9311e2dcf9e04ef1ba1f430e81175c38ba24e74115"} | 전체 값 |
+| `created_at` | "2026-09-30T04:19:27.459567+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-bf6913f631f94d2da721df62dd0668b6"></a>
+<a id="row-121"></a>
 
 <details>
-<summary>event-bf6913f631f94d2da721df62dd0668b6 · 전체 저장값</summary>
+<summary>기록 122 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-bf6913f631f94d2da721df62dd0668b6",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 193272,
-    "task_id": "task-6d08ad3e1053353d3b5068e0dcf408f4868ec7d885d036aeec9afc0529f5"
-  },
-  "created_at": "2026-09-29T22:19:04.531962+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-dd8f90c9a6b64e61aca6216f612e5394" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 66384, "task_id": "task-efcbbcc57d368e9530caea4c0f4210c7a1db3c43fdda0f3f9b5866de7b4d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:19:37.719202+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-e30f798011214e8085f7278546136d3f"></a>
+<a id="row-122"></a>
 
 <details>
-<summary>event-e30f798011214e8085f7278546136d3f · 전체 저장값</summary>
+<summary>기록 123 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-e30f798011214e8085f7278546136d3f",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 136714,
-    "task_id": "task-f8311a43cb6ee1e82c20d50ea74c242f555fd83798ece9ce9392b3220287"
-  },
-  "created_at": "2026-09-29T22:19:09.278201+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-b98d96f172f0406ab5b500a98aa333ac" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 7773, "task_id": "task-efcbbcc57d368e9530caea4c0f4210c7a1db3c43fdda0f3f9b5866de7b4d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:19:46.342956+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-836a58dac23c4f2aa763ea24dbb9d98d"></a>
+<a id="row-123"></a>
 
 <details>
-<summary>event-836a58dac23c4f2aa763ea24dbb9d98d · 전체 저장값</summary>
+<summary>기록 124 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-836a58dac23c4f2aa763ea24dbb9d98d",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 22386,
-    "task_id": "task-6d08ad3e1053353d3b5068e0dcf408f4868ec7d885d036aeec9afc0529f5"
-  },
-  "created_at": "2026-09-29T22:19:24.990270+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2d40e00bf30849fb97dc22414b7bec75" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 62175, "task_id": "task-9fea385c0b523896b0426ffa6e2e3cd883cacbfaa5530bb7408b9502144c"} | 전체 값 |
+| `created_at` | "2026-09-30T04:19:58.557980+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-09f940ea3652416f8ca8e85781389b0a"></a>
+<a id="row-124"></a>
 
 <details>
-<summary>event-09f940ea3652416f8ca8e85781389b0a · 전체 저장값</summary>
+<summary>기록 125 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-09f940ea3652416f8ca8e85781389b0a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 15683,
-    "task_id": "task-f8311a43cb6ee1e82c20d50ea74c242f555fd83798ece9ce9392b3220287"
-  },
-  "created_at": "2026-09-29T22:19:33.069964+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-501e048ad9564fd692d8df2d54a302b9" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6377, "task_id": "task-9fea385c0b523896b0426ffa6e2e3cd883cacbfaa5530bb7408b9502144c"} | 전체 값 |
+| `created_at` | "2026-09-30T04:20:03.951643+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-28fe38b24a9942dcb38b0412b649189f"></a>
+<a id="row-125"></a>
 
 <details>
-<summary>event-28fe38b24a9942dcb38b0412b649189f · 전체 저장값</summary>
+<summary>기록 126 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-28fe38b24a9942dcb38b0412b649189f",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 20201,
-    "task_id": "task-d41aa15a4e66825e47cfe54390cc964d26789c3b4d208de94f374b0d30a9"
-  },
-  "created_at": "2026-09-29T22:19:35.980760+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-31eb4a46edcd4220bf3767d6766ec105" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 67394, "task_id": "task-28eb94c8337dff3b995ab1f65ea8b2c239c98307b05c54470eaafd1f5b3f"} | 전체 값 |
+| `created_at` | "2026-09-30T04:20:15.274927+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-0afe5b54ea5f4a029696920b6135d180"></a>
+<a id="row-126"></a>
 
 <details>
-<summary>event-0afe5b54ea5f4a029696920b6135d180 · 전체 저장값</summary>
+<summary>기록 127 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-0afe5b54ea5f4a029696920b6135d180",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 60549,
-    "task_id": "task-8a2532d98950f9638484d73cef2bf5dab9c05c53f2163731634b6e2dee80"
-  },
-  "created_at": "2026-09-29T22:19:53.026455+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-e14112cf388a4cbcbc8cabe7aa3ea117" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8065, "task_id": "task-28eb94c8337dff3b995ab1f65ea8b2c239c98307b05c54470eaafd1f5b3f"} | 전체 값 |
+| `created_at` | "2026-09-30T04:20:23.988008+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-198afeb848824b0099fbb19d1a1d02d0"></a>
+<a id="row-127"></a>
 
 <details>
-<summary>event-198afeb848824b0099fbb19d1a1d02d0 · 전체 저장값</summary>
+<summary>기록 128 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-198afeb848824b0099fbb19d1a1d02d0",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 7365,
-    "task_id": "task-8a2532d98950f9638484d73cef2bf5dab9c05c53f2163731634b6e2dee80"
-  },
-  "created_at": "2026-09-29T22:20:02.344048+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-dbc1ae9d64604a498c8038ad4789f9e3" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 63270, "task_id": "task-643597ff594e3331a4fcd79bdc6494cee6b654c7acd4b6099cac1a613587"} | 전체 값 |
+| `created_at` | "2026-09-30T04:20:39.108649+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-15129f51a77747cf95ed4003de93e3b1"></a>
+<a id="row-128"></a>
 
 <details>
-<summary>event-15129f51a77747cf95ed4003de93e3b1 · 전체 저장값</summary>
+<summary>기록 129 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-15129f51a77747cf95ed4003de93e3b1",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 61113,
-    "task_id": "task-3c950090e87d8cb0d7de0005aff3b511c5aacdcdc963e8f5c45ab5be5269"
-  },
-  "created_at": "2026-09-29T22:20:11.884397+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-12b69befda1245f1850d581838343b4c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 7026, "task_id": "task-643597ff594e3331a4fcd79bdc6494cee6b654c7acd4b6099cac1a613587"} | 전체 값 |
+| `created_at` | "2026-09-30T04:20:46.278870+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-0f98422a728f44629d798a246600db75"></a>
+<a id="row-129"></a>
 
 <details>
-<summary>event-0f98422a728f44629d798a246600db75 · 전체 저장값</summary>
+<summary>기록 130 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-0f98422a728f44629d798a246600db75",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 7610,
-    "task_id": "task-3c950090e87d8cb0d7de0005aff3b511c5aacdcdc963e8f5c45ab5be5269"
-  },
-  "created_at": "2026-09-29T22:20:21.361897+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-4a445068422a48e8b2325f6838cc3641" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 69513, "task_id": "task-4c40bff126eb88b65b50046eb6ae3733a5352e5a6716616ae937b52e7db3"} | 전체 값 |
+| `created_at` | "2026-09-30T04:21:00.540824+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-51f3e9fc07b3426ea2347088ce71159e"></a>
+<a id="row-130"></a>
 
 <details>
-<summary>event-51f3e9fc07b3426ea2347088ce71159e · 전체 저장값</summary>
+<summary>기록 131 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-51f3e9fc07b3426ea2347088ce71159e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 57094,
-    "task_id": "task-ecf38ecb9336d759930fe036aa3b4e5b2f377f2228b43b72b133e527d9b9"
-  },
-  "created_at": "2026-09-29T22:20:32.002454+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-41b74269d5864ef8938bb814cba68c09" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 9084, "task_id": "task-4c40bff126eb88b65b50046eb6ae3733a5352e5a6716616ae937b52e7db3"} | 전체 값 |
+| `created_at` | "2026-09-30T04:21:11.984254+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-1a6e72b5b6c54e20b4a62211c197bb7d"></a>
+<a id="row-131"></a>
 
 <details>
-<summary>event-1a6e72b5b6c54e20b4a62211c197bb7d · 전체 저장값</summary>
+<summary>기록 132 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-1a6e72b5b6c54e20b4a62211c197bb7d",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5809,
-    "task_id": "task-ecf38ecb9336d759930fe036aa3b4e5b2f377f2228b43b72b133e527d9b9"
-  },
-  "created_at": "2026-09-29T22:20:37.372646+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-866779ca944a4fe2b8ac97a600ba8c63" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 65640, "task_id": "task-7320ddeff65976f99a5632867e351282f7a739d133e3561a5d7105de7642"} | 전체 값 |
+| `created_at` | "2026-09-30T04:21:23.419629+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-659ff07d24ee4f4a82ec491fa04ce703"></a>
+<a id="row-132"></a>
 
 <details>
-<summary>event-659ff07d24ee4f4a82ec491fa04ce703 · 전체 저장값</summary>
+<summary>기록 133 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-659ff07d24ee4f4a82ec491fa04ce703",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 117767,
-    "task_id": "task-63370b1f5ef969c90c03309a474b0204a0ac30179f37a0257a79ebe2a7fc"
-  },
-  "created_at": "2026-09-29T22:20:47.578196+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-95578ed9c7b34d1ca22593e1fbea8dc1" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 7704, "task_id": "task-7320ddeff65976f99a5632867e351282f7a739d133e3561a5d7105de7642"} | 전체 값 |
+| `created_at` | "2026-09-30T04:21:32.967968+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-94b4a9146c814285a86bb75b533b75a4"></a>
+<a id="row-133"></a>
 
 <details>
-<summary>event-94b4a9146c814285a86bb75b533b75a4 · 전체 저장값</summary>
+<summary>기록 134 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-94b4a9146c814285a86bb75b533b75a4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 15462,
-    "task_id": "task-63370b1f5ef969c90c03309a474b0204a0ac30179f37a0257a79ebe2a7fc"
-  },
-  "created_at": "2026-09-29T22:20:55.898698+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-edaf743181844010b9b29a230cd1958b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 62218, "task_id": "task-2ac9e64017116bcf5fd851ba2a64aa4b42205c86818b0388ecd5babb7f0a"} | 전체 값 |
+| `created_at` | "2026-09-30T04:21:48.347122+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-6933b4fb67224cb3a42e185b0e59ed9e"></a>
+<a id="row-134"></a>
 
 <details>
-<summary>event-6933b4fb67224cb3a42e185b0e59ed9e · 전체 저장값</summary>
+<summary>기록 135 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-6933b4fb67224cb3a42e185b0e59ed9e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 50567,
-    "task_id": "task-2f364a5baa91439f0ec5bbd04b3492d01f8ad98ed27684eab863575ac809"
-  },
-  "created_at": "2026-09-29T22:21:06.885069+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-b45e69dcaff3407297c2f17bc2627192" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6774, "task_id": "task-2ac9e64017116bcf5fd851ba2a64aa4b42205c86818b0388ecd5babb7f0a"} | 전체 값 |
+| `created_at` | "2026-09-30T04:21:55.569916+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-448ee272b002463e984541b242a387f4"></a>
+<a id="row-135"></a>
 
 <details>
-<summary>event-448ee272b002463e984541b242a387f4 · 전체 저장값</summary>
+<summary>기록 136 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-448ee272b002463e984541b242a387f4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 4978,
-    "task_id": "task-2f364a5baa91439f0ec5bbd04b3492d01f8ad98ed27684eab863575ac809"
-  },
-  "created_at": "2026-09-29T22:21:13.391532+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-8e2d967ec2db470ba3bb917153bd048f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/c078bd084b7de1a3e5d8b87a.md) |
+| `created_at` | "2026-09-30T04:22:26.878486+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-c62c240741bd4aa8a2014657bc62aef5"></a>
+<a id="row-136"></a>
 
 <details>
-<summary>event-c62c240741bd4aa8a2014657bc62aef5 · 전체 저장값</summary>
+<summary>기록 137 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-c62c240741bd4aa8a2014657bc62aef5",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "constraints",
-      "report",
-      "evidence",
-      "selection",
-      "coherence",
-      "feedback",
-      "report_context"
-    ],
-    "snapshot_id": "snap-5cf9be1da04042098bf9bd21706c7945",
-    "versions": [
-      "av-e7bdb345d9504a35bcb0ff4d88198e5d",
-      "av-2b1d1289efda45a58b8e762312c0ff90"
-    ]
-  },
-  "created_at": "2026-09-29T22:21:36.501795+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-d61cfe9c9a164b9881a7ca8253f9fff4" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-dd4a21870cbb0972bfcfbe6b56bcc717a1003637d2d60df3febf0e94d87c"} | 전체 값 |
+| `created_at` | "2026-09-30T04:23:02.117471+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-6581d07c7a444e2eab96fa0ca4e60722"></a>
+<a id="row-137"></a>
 
 <details>
-<summary>event-6581d07c7a444e2eab96fa0ca4e60722 · 전체 저장값</summary>
+<summary>기록 138 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-6581d07c7a444e2eab96fa0ca4e60722",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-0d68d3b0ad22db4b89171e8538f90d1fb53773677be806a20b7457e1182e"
-  },
-  "created_at": "2026-09-29T22:22:17.038171+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-233410cb7e5d43df9191f3d49c5c3b9e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 121460, "task_id": "task-c47c7889f7064bfa6d66de4232718d16131c0253fa20a3c03725f1f22f54"} | 전체 값 |
+| `created_at` | "2026-09-30T04:23:10.152975+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-56d8e294f6274bd782545212d0921b45"></a>
+<a id="row-138"></a>
 
 <details>
-<summary>event-56d8e294f6274bd782545212d0921b45 · 전체 저장값</summary>
+<summary>기록 139 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-56d8e294f6274bd782545212d0921b45",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120643,
-    "task_id": "task-70a11732d91b3bc0e0b9c3e0bac6b835379d6e2408daaa583902c4a028d0"
-  },
-  "created_at": "2026-09-29T22:22:21.667298+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9ca73776d37a44ada0d4a0eca63908a1" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 9865, "task_id": "task-c47c7889f7064bfa6d66de4232718d16131c0253fa20a3c03725f1f22f54"} | 전체 값 |
+| `created_at` | "2026-09-30T04:23:27.624432+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-9cb7615c456d44f28601176bd5349697"></a>
+<a id="row-139"></a>
 
 <details>
-<summary>event-9cb7615c456d44f28601176bd5349697 · 전체 저장값</summary>
+<summary>기록 140 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-9cb7615c456d44f28601176bd5349697",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 10012,
-    "task_id": "task-70a11732d91b3bc0e0b9c3e0bac6b835379d6e2408daaa583902c4a028d0"
-  },
-  "created_at": "2026-09-29T22:22:37.599167+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-773e472c1f6e4e7d84e6e5e7efd000da" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 62106, "task_id": "task-c238ad9996c60f8e8ca2282a7d322c5e9decbbb7d69d715881ecc2ffe4e8"} | 전체 값 |
+| `created_at` | "2026-09-30T04:23:34.252477+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-a92b88fe90644dda88f045aa24c7000d"></a>
+<a id="row-140"></a>
 
 <details>
-<summary>event-a92b88fe90644dda88f045aa24c7000d · 전체 저장값</summary>
+<summary>기록 141 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-a92b88fe90644dda88f045aa24c7000d",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 56011,
-    "task_id": "task-a2cf5bbb1371956b017fbc718774d4ef68991c4a5d6260a10a2baa217ed4"
-  },
-  "created_at": "2026-09-29T22:22:41.500630+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-8ca7952f62c94fcaba552f948932aa94" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6502, "task_id": "task-c238ad9996c60f8e8ca2282a7d322c5e9decbbb7d69d715881ecc2ffe4e8"} | 전체 값 |
+| `created_at` | "2026-09-30T04:23:39.680257+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-b7fa110a0980482e90369bc4330530d4"></a>
+<a id="row-141"></a>
 
 <details>
-<summary>event-b7fa110a0980482e90369bc4330530d4 · 전체 저장값</summary>
+<summary>기록 142 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-b7fa110a0980482e90369bc4330530d4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5958,
-    "task_id": "task-a2cf5bbb1371956b017fbc718774d4ef68991c4a5d6260a10a2baa217ed4"
-  },
-  "created_at": "2026-09-29T22:22:49.609520+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-52fb91988940410b807564d23fb2defc" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-06af443afd5e1268c50295f801569eefd1b19759f93d050feb5409d34c85"} | 전체 값 |
+| `created_at` | "2026-09-30T04:23:54.422700+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-16f96a4db4124deb856e7a9eb759bf70"></a>
+<a id="row-142"></a>
 
 <details>
-<summary>event-16f96a4db4124deb856e7a9eb759bf70 · 전체 저장값</summary>
+<summary>기록 143 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-16f96a4db4124deb856e7a9eb759bf70",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-459c07076938c350733c27d3e8578e6475e00d4282b9ea9e5ae66614b287"
-  },
-  "created_at": "2026-09-29T22:23:02.585869+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-fef47da1fd09450a8bb135127adb291d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 121460, "task_id": "task-e815817f51c7da9045247ba6b248c505c58ff3cd05033247e475d15a6ec8"} | 전체 값 |
+| `created_at` | "2026-09-30T04:24:00.333878+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-8a16975c25784a0d968b868454e1eb29"></a>
+<a id="row-143"></a>
 
 <details>
-<summary>event-8a16975c25784a0d968b868454e1eb29 · 전체 저장값</summary>
+<summary>기록 144 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-8a16975c25784a0d968b868454e1eb29",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120643,
-    "task_id": "task-3b8023ac8a4d20f7b40bcbfd8e3064c81c2293bb7a7f5b9bd7c70218d029"
-  },
-  "created_at": "2026-09-29T22:23:05.297880+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-d7d87c82a00d411abb381dfd44adc976" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 9174, "task_id": "task-e815817f51c7da9045247ba6b248c505c58ff3cd05033247e475d15a6ec8"} | 전체 값 |
+| `created_at` | "2026-09-30T04:24:15.925195+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-a15f0c26ba35401c8c6924d9606fce88"></a>
+<a id="row-144"></a>
 
 <details>
-<summary>event-a15f0c26ba35401c8c6924d9606fce88 · 전체 저장값</summary>
+<summary>기록 145 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-a15f0c26ba35401c8c6924d9606fce88",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 10507,
-    "task_id": "task-3b8023ac8a4d20f7b40bcbfd8e3064c81c2293bb7a7f5b9bd7c70218d029"
-  },
-  "created_at": "2026-09-29T22:23:21.897163+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-20ab2b1b7db14641a655444cceb17551" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 61168, "task_id": "task-de01642c4a6ba1f049d589819211ba353bd46238c9dea70cff9e83df0876"} | 전체 값 |
+| `created_at` | "2026-09-30T04:24:22.540108+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-e7ed177e88f64b6b97b2ab12d54e76c3"></a>
+<a id="row-145"></a>
 
 <details>
-<summary>event-e7ed177e88f64b6b97b2ab12d54e76c3 · 전체 저장값</summary>
+<summary>기록 146 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-e7ed177e88f64b6b97b2ab12d54e76c3",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 55551,
-    "task_id": "task-e63502bd28fa109c20599a250cd881261ab4a51e03a24cba183be33dab4b"
-  },
-  "created_at": "2026-09-29T22:23:26.231452+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-74eb112912a744a9a964a5f0fd33a2cb" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6554, "task_id": "task-de01642c4a6ba1f049d589819211ba353bd46238c9dea70cff9e83df0876"} | 전체 값 |
+| `created_at` | "2026-09-30T04:24:28.970519+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-0ef1cff83b814459b988203404c05f76"></a>
+<a id="row-146"></a>
 
 <details>
-<summary>event-0ef1cff83b814459b988203404c05f76 · 전체 저장값</summary>
+<summary>기록 147 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-0ef1cff83b814459b988203404c05f76",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5863,
-    "task_id": "task-e63502bd28fa109c20599a250cd881261ab4a51e03a24cba183be33dab4b"
-  },
-  "created_at": "2026-09-29T22:23:34.542756+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7efa431880c94bcdb1f91f6c8886a3b9" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-f1db8e8c14675ccf3d716bb782487b9f8c963f24938d8b7e41581adec5a0"} | 전체 값 |
+| `created_at` | "2026-09-30T04:24:43.820475+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-77f8301c3d0f43609c2f023494d5d590"></a>
+<a id="row-147"></a>
 
 <details>
-<summary>event-77f8301c3d0f43609c2f023494d5d590 · 전체 저장값</summary>
+<summary>기록 148 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-77f8301c3d0f43609c2f023494d5d590",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-858f9f941e098496173ac4c15c45c9c753e689eeb18e3af343e3d7e5e943"
-  },
-  "created_at": "2026-09-29T22:23:48.387281+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-4e99f0e9ab874396993d7d2838be1825" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 127872, "task_id": "task-6cbd68f470f5381b8bd7f6b1983b511e5abdc13787e48d44b259c6832d1e"} | 전체 값 |
+| `created_at` | "2026-09-30T04:24:47.783404+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-e408c636650945e7a4ba324b2268fe59"></a>
+<a id="row-148"></a>
 
 <details>
-<summary>event-e408c636650945e7a4ba324b2268fe59 · 전체 저장값</summary>
+<summary>기록 149 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-e408c636650945e7a4ba324b2268fe59",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120461,
-    "task_id": "task-ee76d0372c5d74a3e5af6b14a4e338129ec4a8139d3c1c3118059f7ec04f"
-  },
-  "created_at": "2026-09-29T22:23:50.965310+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-90cd656329c34b19a1fb2461819612cc" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 11882, "task_id": "task-6cbd68f470f5381b8bd7f6b1983b511e5abdc13787e48d44b259c6832d1e"} | 전체 값 |
+| `created_at` | "2026-09-30T04:25:04.744860+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-e7eecdef19004f4bb9147d7f05ecdc6e"></a>
+<a id="row-149"></a>
 
 <details>
-<summary>event-e7eecdef19004f4bb9147d7f05ecdc6e · 전체 저장값</summary>
+<summary>기록 150 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-e7eecdef19004f4bb9147d7f05ecdc6e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 11715,
-    "task_id": "task-ee76d0372c5d74a3e5af6b14a4e338129ec4a8139d3c1c3118059f7ec04f"
-  },
-  "created_at": "2026-09-29T22:24:14.043241+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7d6328db4743497292fdb731bbef7722" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 72329, "task_id": "task-6756d8a19b733b4fe4c1a8547c711e4df46adbc4c6b032f394a525b3b885"} | 전체 값 |
+| `created_at` | "2026-09-30T04:25:10.548800+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-148f76e783814d0a85cfe860e1711f66"></a>
+<a id="row-150"></a>
 
 <details>
-<summary>event-148f76e783814d0a85cfe860e1711f66 · 전체 저장값</summary>
+<summary>기록 151 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-148f76e783814d0a85cfe860e1711f66",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 57102,
-    "task_id": "task-4fc989e1ce4ad8d0e6e0276cf99d6b54eab65b46a1137ab066fe30d70728"
-  },
-  "created_at": "2026-09-29T22:24:17.663074+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-6571cac11d6e484288a3dd88b99f5a2b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8598, "task_id": "task-6756d8a19b733b4fe4c1a8547c711e4df46adbc4c6b032f394a525b3b885"} | 전체 값 |
+| `created_at` | "2026-09-30T04:25:19.082782+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-c2159b1affa84a528b5916e5af70b17c"></a>
+<a id="row-151"></a>
 
 <details>
-<summary>event-c2159b1affa84a528b5916e5af70b17c · 전체 저장값</summary>
+<summary>기록 152 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-c2159b1affa84a528b5916e5af70b17c",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5893,
-    "task_id": "task-4fc989e1ce4ad8d0e6e0276cf99d6b54eab65b46a1137ab066fe30d70728"
-  },
-  "created_at": "2026-09-29T22:24:23.828686+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-af0584b5861f411eb08f9482c83e1d00" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-a7768cee292a616a4d4f97fdf2127386e6db2fd045cd9a957d742316b723"} | 전체 값 |
+| `created_at` | "2026-09-30T04:25:30.338876+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-167ea3032a6c46d8bb2c8f9d41e0b8a1"></a>
+<a id="row-152"></a>
 
 <details>
-<summary>event-167ea3032a6c46d8bb2c8f9d41e0b8a1 · 전체 저장값</summary>
+<summary>기록 153 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-167ea3032a6c46d8bb2c8f9d41e0b8a1",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-c9019a502ec0f4e71a9a2722c7588724ce244982a827662d142a39063586"
-  },
-  "created_at": "2026-09-29T22:24:38.255927+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0d37af7acc494003906a37908d182f36" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 127872, "task_id": "task-a703932eb882a1b3d4e8cc61813719245814c186691a868671d26656a41c"} | 전체 값 |
+| `created_at` | "2026-09-30T04:25:35.621699+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-8d43948a3f5c4f48b5fe13269610f1dc"></a>
+<a id="row-153"></a>
 
 <details>
-<summary>event-8d43948a3f5c4f48b5fe13269610f1dc · 전체 저장값</summary>
+<summary>기록 154 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-8d43948a3f5c4f48b5fe13269610f1dc",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120461,
-    "task_id": "task-b4aa671f8e608ee1def07050f9fc0bcb37e8565cf1bd7d2887ede01c9c24"
-  },
-  "created_at": "2026-09-29T22:24:42.709297+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-ccc923bc564248fda18f8eb3d1e60730" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 14311, "task_id": "task-a703932eb882a1b3d4e8cc61813719245814c186691a868671d26656a41c"} | 전체 값 |
+| `created_at` | "2026-09-30T04:25:58.286696+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-0b6826c4878a4ca4a9b03adf99ac88f9"></a>
+<a id="row-154"></a>
 
 <details>
-<summary>event-0b6826c4878a4ca4a9b03adf99ac88f9 · 전체 저장값</summary>
+<summary>기록 155 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-0b6826c4878a4ca4a9b03adf99ac88f9",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 11122,
-    "task_id": "task-b4aa671f8e608ee1def07050f9fc0bcb37e8565cf1bd7d2887ede01c9c24"
-  },
-  "created_at": "2026-09-29T22:25:02.234557+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-86eb2eb2747a4c8d97f47ee1b4a8cdd1" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 71299, "task_id": "task-319944d610b87f6b2d33c4e9fcbbff76e16566c6f273f92f64d89f7c9089"} | 전체 값 |
+| `created_at` | "2026-09-30T04:26:04.679485+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-5f7ababdfce443f580f69d5199299364"></a>
+<a id="row-155"></a>
 
 <details>
-<summary>event-5f7ababdfce443f580f69d5199299364 · 전체 저장값</summary>
+<summary>기록 156 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-5f7ababdfce443f580f69d5199299364",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 56229,
-    "task_id": "task-c7e54d3c09f7bb8e9e24c1a73fdc4d4b6d6404992fb450593d9bbb3038ce"
-  },
-  "created_at": "2026-09-29T22:25:08.129875+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-b655b863f5d04f439f4ca5a955491f7e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8557, "task_id": "task-319944d610b87f6b2d33c4e9fcbbff76e16566c6f273f92f64d89f7c9089"} | 전체 값 |
+| `created_at` | "2026-09-30T04:26:12.291396+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-fe975dff0eec474894a0ef3dc43e76e8"></a>
+<a id="row-156"></a>
 
 <details>
-<summary>event-fe975dff0eec474894a0ef3dc43e76e8 · 전체 저장값</summary>
+<summary>기록 157 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-fe975dff0eec474894a0ef3dc43e76e8",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6064,
-    "task_id": "task-c7e54d3c09f7bb8e9e24c1a73fdc4d4b6d6404992fb450593d9bbb3038ce"
-  },
-  "created_at": "2026-09-29T22:25:14.763781+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-404f0c1ec249408f88a721559c18d258" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-bd95c2b311eb491491880ba9bb20c269", "versions": ["av-b7fd646519e84d81867239571062ceb6", "av-b206ea5f995346d7a2ef0bbcdd7ddb88"]} | 전체 값 |
+| `created_at` | "2026-09-30T04:26:25.215875+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-d79b680b525c4d188b6bbdd26989f666"></a>
+<a id="row-157"></a>
 
 <details>
-<summary>event-d79b680b525c4d188b6bbdd26989f666 · 전체 저장값</summary>
+<summary>기록 158 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-d79b680b525c4d188b6bbdd26989f666",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-449e8133744e4505b9e5affe26a8b9d4",
-    "versions": [
-      "av-84af471e3f39499f9f418f1b542f1024",
-      "av-32ca21fd8ff84d06ba5aaf5f449f8e4a"
-    ]
-  },
-  "created_at": "2026-09-29T22:25:27.743625+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-10ef018b9edb4796847447b9d3d13f51" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 97982, "task_id": "task-433083973487651917535eec5a4924b1f073b4b98314d9bcd76e20b91a3a"} | 전체 값 |
+| `created_at` | "2026-09-30T04:26:56.892716+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-4bc812632c744be3a48e592a997ad0a2"></a>
+<a id="row-158"></a>
 
 <details>
-<summary>event-4bc812632c744be3a48e592a997ad0a2 · 전체 저장값</summary>
+<summary>기록 159 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-4bc812632c744be3a48e592a997ad0a2",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 95934,
-    "task_id": "task-d0c9f4e8a3b02a95e0cd324719d47c53647280e61f5986ec42f713cc83a1"
-  },
-  "created_at": "2026-09-29T22:25:51.988234+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-f9c1c432cd2d421ca1728f2f21b9213b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 97473, "task_id": "task-a9169bd17aee35793963890002c83cdf33b0e2392785954655eb14cc722e"} | 전체 값 |
+| `created_at` | "2026-09-30T04:26:59.135724+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-af31e64087814d18b174e2c1544a26b5"></a>
+<a id="row-159"></a>
 
 <details>
-<summary>event-af31e64087814d18b174e2c1544a26b5 · 전체 저장값</summary>
+<summary>기록 160 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-af31e64087814d18b174e2c1544a26b5",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 95983,
-    "task_id": "task-3fec767e46665e187b75cba93fed628cd07a7849f5adaf7578f9361f082b"
-  },
-  "created_at": "2026-09-29T22:25:53.672154+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-359cb2aa1af84ce0b350337c5fae3342" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 98349, "task_id": "task-b896788cdca0986380073eba09585d7f665c3e8152e1f80f94cfcfdc5ab3"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:01.318166+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-071e6c27282b4af180acaf09fa46918a"></a>
+<a id="row-160"></a>
 
 <details>
-<summary>event-071e6c27282b4af180acaf09fa46918a · 전체 저장값</summary>
+<summary>기록 161 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-071e6c27282b4af180acaf09fa46918a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 96177,
-    "task_id": "task-477d1ca6fe0dd50b967d7cbe9669a6237087bc262dd7eede39905fb874d8"
-  },
-  "created_at": "2026-09-29T22:25:55.397349+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-151b240a82324fec837a3afbdeb33880" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 98789, "task_id": "task-66149a335a59a37b21a2c6a1c115fef4e27d20625e35b2d11b01c7bd1e16"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:06.521867+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-74efb61f57b84fad9f687224e21a11d2"></a>
+<a id="row-161"></a>
 
 <details>
-<summary>event-74efb61f57b84fad9f687224e21a11d2 · 전체 저장값</summary>
+<summary>기록 162 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-74efb61f57b84fad9f687224e21a11d2",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 95966,
-    "task_id": "task-7f4e975641627d17c1ce061d2e999f1c89b29be87d8524096f89503fc848"
-  },
-  "created_at": "2026-09-29T22:25:59.015651+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5e91a9f9013f4be7ada2b7bd904a0dfb" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2904, "task_id": "task-433083973487651917535eec5a4924b1f073b4b98314d9bcd76e20b91a3a"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:06.620347+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-c391f880c5ff4aafb5059b9944db9037"></a>
+<a id="row-162"></a>
 
 <details>
-<summary>event-c391f880c5ff4aafb5059b9944db9037 · 전체 저장값</summary>
+<summary>기록 163 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-c391f880c5ff4aafb5059b9944db9037",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2549,
-    "task_id": "task-d0c9f4e8a3b02a95e0cd324719d47c53647280e61f5986ec42f713cc83a1"
-  },
-  "created_at": "2026-09-29T22:25:59.084179+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-790635d4a7e242f0950509702aa9e30d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2982, "task_id": "task-a9169bd17aee35793963890002c83cdf33b0e2392785954655eb14cc722e"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:06.759068+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-a0f56561506843a38101e062a5e7a45d"></a>
+<a id="row-163"></a>
 
 <details>
-<summary>event-a0f56561506843a38101e062a5e7a45d · 전체 저장값</summary>
+<summary>기록 164 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-a0f56561506843a38101e062a5e7a45d",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2536,
-    "task_id": "task-3fec767e46665e187b75cba93fed628cd07a7849f5adaf7578f9361f082b"
-  },
-  "created_at": "2026-09-29T22:25:59.220238+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-47e76e090bd84c518ba28e90c169f73e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2888, "task_id": "task-b896788cdca0986380073eba09585d7f665c3e8152e1f80f94cfcfdc5ab3"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:06.940011+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-b2118e5f873b4180b51ada02a20fa036"></a>
+<a id="row-164"></a>
 
 <details>
-<summary>event-b2118e5f873b4180b51ada02a20fa036 · 전체 저장값</summary>
+<summary>기록 165 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-b2118e5f873b4180b51ada02a20fa036",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2569,
-    "task_id": "task-477d1ca6fe0dd50b967d7cbe9669a6237087bc262dd7eede39905fb874d8"
-  },
-  "created_at": "2026-09-29T22:25:59.586109+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-888576665a5242f0a979e0d722a01984" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 3059, "task_id": "task-66149a335a59a37b21a2c6a1c115fef4e27d20625e35b2d11b01c7bd1e16"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:10.720462+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-965a2e51a9b341518d78313e3156b5ef"></a>
+<a id="row-165"></a>
 
 <details>
-<summary>event-965a2e51a9b341518d78313e3156b5ef · 전체 저장값</summary>
+<summary>기록 166 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-965a2e51a9b341518d78313e3156b5ef",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 95708,
-    "task_id": "task-3d9a7d1d22607343d4b5665d344161df4441f37de4e619bac7ef33525ca8"
-  },
-  "created_at": "2026-09-29T22:26:05.846479+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-82bb5d4d7a364ccfb6a80579bb4a413d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 96883, "task_id": "task-2013132a6413a376d2015c3c511bfcee628c528c720dda62fc6c04b1bed5"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:25.213689+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-5f6d178a49894d82b6102655513d3044"></a>
+<a id="row-166"></a>
 
 <details>
-<summary>event-5f6d178a49894d82b6102655513d3044 · 전체 저장값</summary>
+<summary>기록 167 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-5f6d178a49894d82b6102655513d3044",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 95577,
-    "task_id": "task-530f6a73b36be73f59ac91489ba3addc1bee4b10c9ec1dc7a51c4f182131"
-  },
-  "created_at": "2026-09-29T22:26:07.418859+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-1f36f2ffd16247c7a6d4701ce9f2b4de" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 97238, "task_id": "task-56c179cfc48b0ede2d3b8ddc821902f4b1511d9da1d539f118575c21f94a"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:28.668631+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-309be95ffff4434099e6804115c1ff69"></a>
+<a id="row-167"></a>
 
 <details>
-<summary>event-309be95ffff4434099e6804115c1ff69 · 전체 저장값</summary>
+<summary>기록 168 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-309be95ffff4434099e6804115c1ff69",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 95801,
-    "task_id": "task-f3f92213dab12ac080a2966ae7282644283e5a61b238bf495531cc3a9c7e"
-  },
-  "created_at": "2026-09-29T22:26:09.030894+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-71e8703dc8ce42d494a82f88f2e90fdc" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 97280, "task_id": "task-225d69a61036b2e52c4c1eaedd9b4eb4253d27f7df8d9b365900581fa156"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:32.894556+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-223fa9e0c33840e586a309ca678ae940"></a>
+<a id="row-168"></a>
 
 <details>
-<summary>event-223fa9e0c33840e586a309ca678ae940 · 전체 저장값</summary>
+<summary>기록 169 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-223fa9e0c33840e586a309ca678ae940",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2574,
-    "task_id": "task-7f4e975641627d17c1ce061d2e999f1c89b29be87d8524096f89503fc848"
-  },
-  "created_at": "2026-09-29T22:26:09.140863+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-965327ab749446b68a909e24a693a66c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 97642, "task_id": "task-fba37ec4c9090e7a260ff78167ad327401eb831e5f1f9100b5bbcad06088"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:35.158445+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-41e9c19b8f6a45eab1cb38d785f2784c"></a>
+<a id="row-169"></a>
 
 <details>
-<summary>event-41e9c19b8f6a45eab1cb38d785f2784c · 전체 저장값</summary>
+<summary>기록 170 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-41e9c19b8f6a45eab1cb38d785f2784c",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2417,
-    "task_id": "task-3d9a7d1d22607343d4b5665d344161df4441f37de4e619bac7ef33525ca8"
-  },
-  "created_at": "2026-09-29T22:26:10.586237+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-62d938b2c8cb4a1db0e63174f4467885" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2723, "task_id": "task-2013132a6413a376d2015c3c511bfcee628c528c720dda62fc6c04b1bed5"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:35.280784+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-bfcc93a5385a45678edf567f0560a818"></a>
+<a id="row-170"></a>
 
 <details>
-<summary>event-bfcc93a5385a45678edf567f0560a818 · 전체 저장값</summary>
+<summary>기록 171 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-bfcc93a5385a45678edf567f0560a818",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 95936,
-    "task_id": "task-c10cdda7afba6ebe8ba56a4b3a8f3b2f64e0fab93123588b59925431732f"
-  },
-  "created_at": "2026-09-29T22:26:14.926569+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-d4898ca2a54d44619c45deac75bd98b1" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2740, "task_id": "task-56c179cfc48b0ede2d3b8ddc821902f4b1511d9da1d539f118575c21f94a"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:35.671039+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-99cc61a3ef6b4b30bda5e792517de769"></a>
+<a id="row-171"></a>
 
 <details>
-<summary>event-99cc61a3ef6b4b30bda5e792517de769 · 전체 저장값</summary>
+<summary>기록 172 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-99cc61a3ef6b4b30bda5e792517de769",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2320,
-    "task_id": "task-530f6a73b36be73f59ac91489ba3addc1bee4b10c9ec1dc7a51c4f182131"
-  },
-  "created_at": "2026-09-29T22:26:14.997250+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-c75d6c5b90614743bacbb3e7103f2a33" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2755, "task_id": "task-225d69a61036b2e52c4c1eaedd9b4eb4253d27f7df8d9b365900581fa156"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:37.115411+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-3fd60dee2bf34670abb69788185f7491"></a>
+<a id="row-172"></a>
 
 <details>
-<summary>event-3fd60dee2bf34670abb69788185f7491 · 전체 저장값</summary>
+<summary>기록 173 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-3fd60dee2bf34670abb69788185f7491",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2539,
-    "task_id": "task-f3f92213dab12ac080a2966ae7282644283e5a61b238bf495531cc3a9c7e"
-  },
-  "created_at": "2026-09-29T22:26:15.140242+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5fb97856138b4775a4033060d13474d9" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2913, "task_id": "task-fba37ec4c9090e7a260ff78167ad327401eb831e5f1f9100b5bbcad06088"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:39.946380+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-46fc56f597804924acd5894c769acdef"></a>
+<a id="row-173"></a>
 
 <details>
-<summary>event-46fc56f597804924acd5894c769acdef · 전체 저장값</summary>
+<summary>기록 174 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-46fc56f597804924acd5894c769acdef",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 96328,
-    "task_id": "task-3769af4f88fa2a2ebb6f0e0d057421612b6a58b2ff8a433e81db1574e2fa"
-  },
-  "created_at": "2026-09-29T22:26:19.753449+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-333777ce17cf43e9bcf2757485a6d59d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 96962, "task_id": "task-1ddec92b7d7159732d76f182a2a5b343ca16c85b5f4b08de6696c7efb624"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:47.391945+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-43a930a76f144ea38525795e0390aac2"></a>
+<a id="row-174"></a>
 
 <details>
-<summary>event-43a930a76f144ea38525795e0390aac2 · 전체 저장값</summary>
+<summary>기록 175 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-43a930a76f144ea38525795e0390aac2",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 95808,
-    "task_id": "task-9993c2eab5b616d4af7d3d4d9edb66f64dc6b1fea5bbaf5653e9a6d96273"
-  },
-  "created_at": "2026-09-29T22:26:21.311991+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-d19498c4d40c4946a84d336faf478b05" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 97128, "task_id": "task-2018a941b69de9ae2698444bd6776313a247c9eb715e470d109c911b3136"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:50.576131+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-c6ba43e8e602413896ff1f1c740d473a"></a>
+<a id="row-175"></a>
 
 <details>
-<summary>event-c6ba43e8e602413896ff1f1c740d473a · 전체 저장값</summary>
+<summary>기록 176 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-c6ba43e8e602413896ff1f1c740d473a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2446,
-    "task_id": "task-c10cdda7afba6ebe8ba56a4b3a8f3b2f64e0fab93123588b59925431732f"
-  },
-  "created_at": "2026-09-29T22:26:21.396190+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-59fd4210c2c948f7ab118286d1e1d6cc" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2741, "task_id": "task-1ddec92b7d7159732d76f182a2a5b343ca16c85b5f4b08de6696c7efb624"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:52.211046+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-07a4cfa30f424b049e1027cc652e2bf0"></a>
+<a id="row-176"></a>
 
 <details>
-<summary>event-07a4cfa30f424b049e1027cc652e2bf0 · 전체 저장값</summary>
+<summary>기록 177 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-07a4cfa30f424b049e1027cc652e2bf0",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2623,
-    "task_id": "task-3769af4f88fa2a2ebb6f0e0d057421612b6a58b2ff8a433e81db1574e2fa"
-  },
-  "created_at": "2026-09-29T22:26:24.607866+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2cb56a36b8ed41c2a556732eba1bb2f5" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 2704, "task_id": "task-2018a941b69de9ae2698444bd6776313a247c9eb715e470d109c911b3136"} | 전체 값 |
+| `created_at` | "2026-09-30T04:27:54.758757+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-163b8b1b528f4b6f9e435afad8c85db4"></a>
+<a id="row-177"></a>
 
 <details>
-<summary>event-163b8b1b528f4b6f9e435afad8c85db4 · 전체 저장값</summary>
+<summary>기록 178 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-163b8b1b528f4b6f9e435afad8c85db4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 2506,
-    "task_id": "task-9993c2eab5b616d4af7d3d4d9edb66f64dc6b1fea5bbaf5653e9a6d96273"
-  },
-  "created_at": "2026-09-29T22:26:25.079441+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-4bcd91304fbc4df8acc9a96c2b8a05cd" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/01fcebfcec7c28498cefb79a.md) |
+| `created_at` | "2026-09-30T04:28:06.408974+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-6c72e80ae350489586977b64851e910e"></a>
+<a id="row-178"></a>
 
 <details>
-<summary>event-6c72e80ae350489586977b64851e910e · 전체 저장값</summary>
+<summary>기록 179 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-6c72e80ae350489586977b64851e910e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "report",
-      "evidence",
-      "selection",
-      "coherence",
-      "feedback",
-      "report_context"
-    ],
-    "snapshot_id": "snap-0b378bb6c49242848ff2e058532cd65a",
-    "versions": [
-      "av-0ea83fd7fefc4278afc6325ad95cb099",
-      "av-934e670867bc4eb8a37265b886a62657",
-      "av-a0984695bff14608a062f8772d5c75ca"
-    ]
-  },
-  "created_at": "2026-09-29T22:26:33.487612+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0db3e527b8804a7d894ff775c8204ed8" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "EPOCH_CHANGED" | 전체 값 |
+| `payload` | {"epoch": 57, "previous": 56, "reason": "user_resume_or_replan"} | 전체 값 |
+| `created_at` | "2026-09-30T04:28:53.106250+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-0495e68f3ef1419a94fde16bd9a2ec09"></a>
+<a id="row-179"></a>
 
 <details>
-<summary>event-0495e68f3ef1419a94fde16bd9a2ec09 · 전체 저장값</summary>
+<summary>기록 180 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-0495e68f3ef1419a94fde16bd9a2ec09",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "EPOCH_CHANGED",
-  "payload": {
-    "epoch": 51,
-    "previous": 50,
-    "reason": "user_resume_or_replan"
-  },
-  "created_at": "2026-09-29T22:31:28.318949+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-e88d7010d7dd491cb62df0875dec74fb" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-c72eaf3ce00a4881812212b692427128", "versions": []} | 전체 값 |
+| `created_at` | "2026-09-30T04:29:50.946862+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-2ea76ea9de3842fcade2840b896b1b9e"></a>
+<a id="row-180"></a>
 
 <details>
-<summary>event-2ea76ea9de3842fcade2840b896b1b9e · 전체 저장값</summary>
+<summary>기록 181 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-2ea76ea9de3842fcade2840b896b1b9e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-ac5f5868c8a44072a32c15e8856e4e73",
-    "versions": []
-  },
-  "created_at": "2026-09-29T22:32:07.086727+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-842026e0f7024dfa8149987b394e5bc2" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/927949d15828ce8984cbb047.md) |
+| `created_at` | "2026-09-30T04:30:22.484485+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-77290f5ad22b47e09aa4bc3f3c83d327"></a>
+<a id="row-181"></a>
 
 <details>
-<summary>event-77290f5ad22b47e09aa4bc3f3c83d327 · 전체 저장값</summary>
+<summary>기록 182 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-77290f5ad22b47e09aa4bc3f3c83d327",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "report",
-      "evidence",
-      "selection",
-      "coherence",
-      "feedback",
-      "report_context"
-    ],
-    "snapshot_id": "snap-fedc4ff3f684478b856a0388b9e5ba4d",
-    "versions": [
-      "av-b0e3902510de48e9b02e87891af05f3a",
-      "av-a8bbcf6fe3eb491fa96001cff31d08b3",
-      "av-3d07d4953595484d8b569892c6cb2050"
-    ]
-  },
-  "created_at": "2026-09-29T22:32:27.509069+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-f7f2f6d71e8a479fa6ccff287fde6a27" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-c317f250ff564e0fc077a5af937deb27047be0acb10092ca086226934aa1"} | 전체 값 |
+| `created_at` | "2026-09-30T04:31:30.228714+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-3d51ae987ebd4817a7b04373d25f3c3c"></a>
+<a id="row-182"></a>
 
 <details>
-<summary>event-3d51ae987ebd4817a7b04373d25f3c3c · 전체 저장값</summary>
+<summary>기록 183 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-3d51ae987ebd4817a7b04373d25f3c3c",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-b52c0ee7bbfbf3c1dc45556c9f8f7059551de5fc6cd495c8b9f70abb4307"
-  },
-  "created_at": "2026-09-29T22:33:03.529123+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-623c20a0122a45acb9fc6b169d36640c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 126890, "task_id": "task-8e775beffd34727b0289949205ccc06cc6967c6def86187bff92d7705636"} | 전체 값 |
+| `created_at` | "2026-09-30T04:31:52.493905+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-6cfe0d1846ec42a28d8c1b3f2592ef6e"></a>
+<a id="row-183"></a>
 
 <details>
-<summary>event-6cfe0d1846ec42a28d8c1b3f2592ef6e · 전체 저장값</summary>
+<summary>기록 184 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-6cfe0d1846ec42a28d8c1b3f2592ef6e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120562,
-    "task_id": "task-114324c26650cc9b52f6f2c20d25b68c2521a45215892e253675c4449c72"
-  },
-  "created_at": "2026-09-29T22:33:06.432990+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-67929e5a52ae42cdb72510ba6676d992" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 12018, "task_id": "task-8e775beffd34727b0289949205ccc06cc6967c6def86187bff92d7705636"} | 전체 값 |
+| `created_at` | "2026-09-30T04:32:13.900917+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-e325f6e4a89c48449978b4464d5c9e07"></a>
+<a id="row-184"></a>
 
 <details>
-<summary>event-e325f6e4a89c48449978b4464d5c9e07 · 전체 저장값</summary>
+<summary>기록 185 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-e325f6e4a89c48449978b4464d5c9e07",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 9660,
-    "task_id": "task-114324c26650cc9b52f6f2c20d25b68c2521a45215892e253675c4449c72"
-  },
-  "created_at": "2026-09-29T22:33:21.954969+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2fa93006e2064c32818b227ac86e833a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 70870, "task_id": "task-4d59e2d4177e5dce93098b51643cf44fc49668f8551984dbe35ae16b61fc"} | 전체 값 |
+| `created_at` | "2026-09-30T04:32:39.614965+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-3473b9bdae2c4631b742ab041880409b"></a>
+<a id="row-185"></a>
 
 <details>
-<summary>event-3473b9bdae2c4631b742ab041880409b · 전체 저장값</summary>
+<summary>기록 186 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-3473b9bdae2c4631b742ab041880409b",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 55659,
-    "task_id": "task-3069b26b62950edee3df9cde3f392bb4d253f58c31baac8e9b7ccaa1a12b"
-  },
-  "created_at": "2026-09-29T22:33:28.092094+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-ebda3278dfce467bbab69e293d9f081b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8564, "task_id": "task-4d59e2d4177e5dce93098b51643cf44fc49668f8551984dbe35ae16b61fc"} | 전체 값 |
+| `created_at` | "2026-09-30T04:32:47.484798+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-babc1e536d694b6eb7c9591d8fb9eaba"></a>
+<a id="row-186"></a>
 
 <details>
-<summary>event-babc1e536d694b6eb7c9591d8fb9eaba · 전체 저장값</summary>
+<summary>기록 187 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-babc1e536d694b6eb7c9591d8fb9eaba",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5726,
-    "task_id": "task-3069b26b62950edee3df9cde3f392bb4d253f58c31baac8e9b7ccaa1a12b"
-  },
-  "created_at": "2026-09-29T22:33:34.174553+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5a1334919604449ea581423b1bb2c5c0" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-c25dc88bed1acafaadb9acf471c55d7323641e54031a81c113a2c14c0952"} | 전체 값 |
+| `created_at` | "2026-09-30T04:33:04.602048+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-0e6e87a94a3241ec837631fa0e115cf6"></a>
+<a id="row-187"></a>
 
 <details>
-<summary>event-0e6e87a94a3241ec837631fa0e115cf6 · 전체 저장값</summary>
+<summary>기록 188 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-0e6e87a94a3241ec837631fa0e115cf6",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-6289f2223d47d36098eca1f558d3269074a0abad00c4799b73cb4a162aca"
-  },
-  "created_at": "2026-09-29T22:33:46.969043+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-ef721ce8c4284e0d9ece6912bb33c928" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 126890, "task_id": "task-a9cc82dcf73639720d1f0b34dc3a7214b9fa1bc1e3ff12e86fc837ea0340"} | 전체 값 |
+| `created_at` | "2026-09-30T04:33:17.140028+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-ce1e1c268e4040e5b88c6df64c6cea95"></a>
+<a id="row-188"></a>
 
 <details>
-<summary>event-ce1e1c268e4040e5b88c6df64c6cea95 · 전체 저장값</summary>
+<summary>기록 189 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-ce1e1c268e4040e5b88c6df64c6cea95",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120562,
-    "task_id": "task-68b62b4ad66c385c1bb2e4a209ad1bf9278c748363ea12b0e004adc7b599"
-  },
-  "created_at": "2026-09-29T22:33:51.625954+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-f31804caa5f6438cb69b4be15e941dd5" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 9935, "task_id": "task-a9cc82dcf73639720d1f0b34dc3a7214b9fa1bc1e3ff12e86fc837ea0340"} | 전체 값 |
+| `created_at` | "2026-09-30T04:33:29.709097+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-22dca37741674fb3999011487380c9f3"></a>
+<a id="row-189"></a>
 
 <details>
-<summary>event-22dca37741674fb3999011487380c9f3 · 전체 저장값</summary>
+<summary>기록 190 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-22dca37741674fb3999011487380c9f3",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 10291,
-    "task_id": "task-68b62b4ad66c385c1bb2e4a209ad1bf9278c748363ea12b0e004adc7b599"
-  },
-  "created_at": "2026-09-29T22:34:09.123005+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-e18dcf2147cd455a9ae79c15368080bd" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 67358, "task_id": "task-cc15ffc14846556ca4a4121fd1894b432c56449ac34ff7285e1eab1cd2f4"} | 전체 값 |
+| `created_at` | "2026-09-30T04:33:48.318775+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-54750e0d516d42088d8a6388e6098431"></a>
+<a id="row-190"></a>
 
 <details>
-<summary>event-54750e0d516d42088d8a6388e6098431 · 전체 저장값</summary>
+<summary>기록 191 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-54750e0d516d42088d8a6388e6098431",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 56562,
-    "task_id": "task-8035a77dba796710c70dc826ef206962aa9f89404a0dccbd813fcd4bd025"
-  },
-  "created_at": "2026-09-29T22:34:12.823277+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2902d6bd8884402fb35d6776d60a60d8" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 7617, "task_id": "task-cc15ffc14846556ca4a4121fd1894b432c56449ac34ff7285e1eab1cd2f4"} | 전체 값 |
+| `created_at` | "2026-09-30T04:33:54.854262+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-1b514cd7c5cb41caa2908110c6f745c5"></a>
+<a id="row-191"></a>
 
 <details>
-<summary>event-1b514cd7c5cb41caa2908110c6f745c5 · 전체 저장값</summary>
+<summary>기록 192 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-1b514cd7c5cb41caa2908110c6f745c5",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5578,
-    "task_id": "task-8035a77dba796710c70dc826ef206962aa9f89404a0dccbd813fcd4bd025"
-  },
-  "created_at": "2026-09-29T22:34:18.125674+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-8075d95caa6c406cbfbe5bc62305e11d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-cca943d3138dfb59c671199db7e34c68e189334bf66d3f3e0fc94bb9566e"} | 전체 값 |
+| `created_at` | "2026-09-30T04:34:44.986208+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-e81a008d5bb140a8ad0c67d9a7040aed"></a>
+<a id="row-192"></a>
 
 <details>
-<summary>event-e81a008d5bb140a8ad0c67d9a7040aed · 전체 저장값</summary>
+<summary>기록 193 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-e81a008d5bb140a8ad0c67d9a7040aed",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-5ab82cea6b1e9391424aa162117bd999a1f8e709f0df754aa1ec20f1bf2d"
-  },
-  "created_at": "2026-09-29T22:34:29.942204+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-51660dca16b24f719826b636d1c3f7ea" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 125790, "task_id": "task-9d5425e6cb7616eca9c456fea2f869d52595e44011f9e5d178bea5a537a7"} | 전체 값 |
+| `created_at` | "2026-09-30T04:35:10.033794+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-9fb047b2b70b4b5c83af1deb6b45eaef"></a>
+<a id="row-193"></a>
 
 <details>
-<summary>event-9fb047b2b70b4b5c83af1deb6b45eaef · 전체 저장값</summary>
+<summary>기록 194 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-9fb047b2b70b4b5c83af1deb6b45eaef",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 119866,
-    "task_id": "task-ef02375de8a814b72f3e968fc03afda4041bd5aca605a0c87c4e93c7ed64"
-  },
-  "created_at": "2026-09-29T22:34:32.697796+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-e55d6d205a6a4eaaa310371d7511951e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10076, "task_id": "task-9d5425e6cb7616eca9c456fea2f869d52595e44011f9e5d178bea5a537a7"} | 전체 값 |
+| `created_at` | "2026-09-30T04:35:25.032304+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-790ae30ac24f451bae022de2dc8c9c90"></a>
+<a id="row-194"></a>
 
 <details>
-<summary>event-790ae30ac24f451bae022de2dc8c9c90 · 전체 저장값</summary>
+<summary>기록 195 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-790ae30ac24f451bae022de2dc8c9c90",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 10274,
-    "task_id": "task-ef02375de8a814b72f3e968fc03afda4041bd5aca605a0c87c4e93c7ed64"
-  },
-  "created_at": "2026-09-29T22:34:50.534874+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-885d47dd9a7046dbac0a692da6a3f323" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 65366, "task_id": "task-2af69ca787931e1011e851e6606f298458f097821c8e910690c0e935f2c4"} | 전체 값 |
+| `created_at` | "2026-09-30T04:35:44.685652+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-d116aa8311ca44cf936bbf088bcd641c"></a>
+<a id="row-195"></a>
 
 <details>
-<summary>event-d116aa8311ca44cf936bbf088bcd641c · 전체 저장값</summary>
+<summary>기록 196 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-d116aa8311ca44cf936bbf088bcd641c",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 55020,
-    "task_id": "task-ee690678e6f481d67c54da3d09ba28907b22ad79ad9b1bc2b2ae7049fd56"
-  },
-  "created_at": "2026-09-29T22:34:56.476859+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-03b380bab40844f5805e764542c7abb6" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 7293, "task_id": "task-2af69ca787931e1011e851e6606f298458f097821c8e910690c0e935f2c4"} | 전체 값 |
+| `created_at` | "2026-09-30T04:35:51.698737+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-279e143ca74c449bb51d531b43c9dc53"></a>
+<a id="row-196"></a>
 
 <details>
-<summary>event-279e143ca74c449bb51d531b43c9dc53 · 전체 저장값</summary>
+<summary>기록 197 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-279e143ca74c449bb51d531b43c9dc53",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6041,
-    "task_id": "task-ee690678e6f481d67c54da3d09ba28907b22ad79ad9b1bc2b2ae7049fd56"
-  },
-  "created_at": "2026-09-29T22:35:04.022502+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-b3259f081ec648d2ad64ca8e9c5c4aea" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-c1d175ec645f6cb3c87fadd3c34dbc5ae34f1ccdad0db26c3072c983e431"} | 전체 값 |
+| `created_at` | "2026-09-30T04:36:13.743857+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-f3c81d8867c142ce8e7b898fe7b2e7c9"></a>
+<a id="row-197"></a>
 
 <details>
-<summary>event-f3c81d8867c142ce8e7b898fe7b2e7c9 · 전체 저장값</summary>
+<summary>기록 198 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-f3c81d8867c142ce8e7b898fe7b2e7c9",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-770fa026b2374672cba017d759c75e8fc5cb6bb293c5e5db0c5831b8b359"
-  },
-  "created_at": "2026-09-29T22:35:17.097640+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3ec47441dd51432ca30ba4d731bbfe2c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 125790, "task_id": "task-a3820767839185ee8333935d411ca988c7c2807ce71534f6551910e6c5aa"} | 전체 값 |
+| `created_at` | "2026-09-30T04:36:38.279245+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-94df086ddb454b3d9087469bd9751d12"></a>
+<a id="row-198"></a>
 
 <details>
-<summary>event-94df086ddb454b3d9087469bd9751d12 · 전체 저장값</summary>
+<summary>기록 199 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-94df086ddb454b3d9087469bd9751d12",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 119866,
-    "task_id": "task-170199d152ea86431bce5a808900d1466c7aadd1a4270d00e9a44d5514a7"
-  },
-  "created_at": "2026-09-29T22:35:19.906085+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-a723a150bfbb48d88929ca5f9bcf2ae8" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10246, "task_id": "task-a3820767839185ee8333935d411ca988c7c2807ce71534f6551910e6c5aa"} | 전체 값 |
+| `created_at` | "2026-09-30T04:36:53.190158+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-d0e54aaf509a42a3aa308abfbd69eb01"></a>
+<a id="row-199"></a>
 
 <details>
-<summary>event-d0e54aaf509a42a3aa308abfbd69eb01 · 전체 저장값</summary>
+<summary>기록 200 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-d0e54aaf509a42a3aa308abfbd69eb01",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 9956,
-    "task_id": "task-170199d152ea86431bce5a808900d1466c7aadd1a4270d00e9a44d5514a7"
-  },
-  "created_at": "2026-09-29T22:35:36.507779+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5168c6a070e042b88a1d6b3e23243eee" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 65736, "task_id": "task-73551b14ceab30e8bf368088fcebf6bfc6991e8a9af663ceb12e8d060e3d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:37:10.113750+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-2bf92af7da3c4f5cb381e40b780729d4"></a>
+<a id="row-200"></a>
 
 <details>
-<summary>event-2bf92af7da3c4f5cb381e40b780729d4 · 전체 저장값</summary>
+<summary>기록 201 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-2bf92af7da3c4f5cb381e40b780729d4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 54489,
-    "task_id": "task-babe01a3a7bf779560aa99c50593ddbf7822e2104037004564cb5f7bfbf3"
-  },
-  "created_at": "2026-09-29T22:35:40.755498+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-440aa83ebf314fccb56ff5d0a5649dcd" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 7347, "task_id": "task-73551b14ceab30e8bf368088fcebf6bfc6991e8a9af663ceb12e8d060e3d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:37:17.263131+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-94ba82653230418aaf6bdde6c6823ccd"></a>
+<a id="row-201"></a>
 
 <details>
-<summary>event-94ba82653230418aaf6bdde6c6823ccd · 전체 저장값</summary>
+<summary>기록 202 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-94ba82653230418aaf6bdde6c6823ccd",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5596,
-    "task_id": "task-babe01a3a7bf779560aa99c50593ddbf7822e2104037004564cb5f7bfbf3"
-  },
-  "created_at": "2026-09-29T22:35:47.345926+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7755d520a5b7473ba9004934eafedbfa" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-379b943f2b7249068666ade186a93f7a", "versions": ["av-e862f455d9e140b8931f7af2d7821573", "av-b05ac2f0e64b48d6aa5e91c09b00fe5d"]} | 전체 값 |
+| `created_at` | "2026-09-30T04:37:36.273843+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-7773753aa5784ab48f76154d53cac1ad"></a>
+<a id="row-202"></a>
 
 <details>
-<summary>event-7773753aa5784ab48f76154d53cac1ad · 전체 저장값</summary>
+<summary>기록 203 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-7773753aa5784ab48f76154d53cac1ad",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-7231f58fa80a4136829ac2930ab655d6",
-    "versions": [
-      "av-f87b49192c164f969e931e9e8660b7a4",
-      "av-aa47c29d0ad14ae3bd1d61e736f951a2"
-    ]
-  },
-  "created_at": "2026-09-29T22:35:57.882509+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2d6edcd71b9843b08fcea5472b018a7b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-93426605a24d27439b784ca6b4a1d1a25204a00bde59b650f7f8fe812754"} | 전체 값 |
+| `created_at` | "2026-09-30T04:37:45.882322+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-fd511c29276442c494548db0b29f88f5"></a>
+<a id="row-203"></a>
 
 <details>
-<summary>event-fd511c29276442c494548db0b29f88f5 · 전체 저장값</summary>
+<summary>기록 204 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-fd511c29276442c494548db0b29f88f5",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-20e77609c2235f2cba1aa65bbadf480574b3900c47c82e3723546dae5ae6"
-  },
-  "created_at": "2026-09-29T22:36:06.717196+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-f35d226f244c481e9260672030052de3" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 115558, "task_id": "task-04b554ec43d937c9afb1c886b8a6bb4f9f0884338e283c864fbd687d2f71"} | 전체 값 |
+| `created_at` | "2026-09-30T04:41:12.171884+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-b3d4bc09078e49db856d42e53fa21c24"></a>
+<a id="row-204"></a>
 
 <details>
-<summary>event-b3d4bc09078e49db856d42e53fa21c24 · 전체 저장값</summary>
+<summary>기록 205 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-b3d4bc09078e49db856d42e53fa21c24",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 113541,
-    "task_id": "task-9588b53beb283878569d1b41c9b58103c3fea71cc7a9ff74e36d95753eb1"
-  },
-  "created_at": "2026-09-29T22:36:44.895664+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0728c98c5a8747ceab00f90351c698de" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 7818, "task_id": "task-04b554ec43d937c9afb1c886b8a6bb4f9f0884338e283c864fbd687d2f71"} | 전체 값 |
+| `created_at` | "2026-09-30T04:41:28.339234+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-4060e510cc534997aaec41893e3b7a70"></a>
+<a id="row-205"></a>
 
 <details>
-<summary>event-4060e510cc534997aaec41893e3b7a70 · 전체 저장값</summary>
+<summary>기록 206 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-4060e510cc534997aaec41893e3b7a70",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6628,
-    "task_id": "task-9588b53beb283878569d1b41c9b58103c3fea71cc7a9ff74e36d95753eb1"
-  },
-  "created_at": "2026-09-29T22:36:59.405308+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-ed5c072979f7460dadd2a776bafb152b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 115393, "task_id": "task-9f800905ce00e1dad9b2c86b3838716f3e4eb8ee8e64f7d321d3ccbb3aeb"} | 전체 값 |
+| `created_at` | "2026-09-30T04:41:41.393442+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-37261ac9a54940679e36ffa80686308d"></a>
+<a id="row-206"></a>
 
 <details>
-<summary>event-37261ac9a54940679e36ffa80686308d · 전체 저장값</summary>
+<summary>기록 207 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-37261ac9a54940679e36ffa80686308d",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 113528,
-    "task_id": "task-8d4b6a1414780bbc099250152d5fe47744965a0e8c68690161827d6197bd"
-  },
-  "created_at": "2026-09-29T22:37:02.414491+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3cd18f480a06459a864068b5aaf0f70d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6669, "task_id": "task-9f800905ce00e1dad9b2c86b3838716f3e4eb8ee8e64f7d321d3ccbb3aeb"} | 전체 값 |
+| `created_at` | "2026-09-30T04:41:53.698303+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-364ab6c8e30845718040e32aebe8a66b"></a>
+<a id="row-207"></a>
 
 <details>
-<summary>event-364ab6c8e30845718040e32aebe8a66b · 전체 저장값</summary>
+<summary>기록 208 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-364ab6c8e30845718040e32aebe8a66b",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 8446,
-    "task_id": "task-8d4b6a1414780bbc099250152d5fe47744965a0e8c68690161827d6197bd"
-  },
-  "created_at": "2026-09-29T22:37:22.851391+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0f353d8b1576455283f1fb882e7198cd" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 115384, "task_id": "task-5d001a97f9e27c99e41d5da6af6e567baf2dfe52d85a68feab67f886fa3d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:42:14.092549+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-d9314c6f6b69400791ec5a853366085a"></a>
+<a id="row-208"></a>
 
 <details>
-<summary>event-d9314c6f6b69400791ec5a853366085a · 전체 저장값</summary>
+<summary>기록 209 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-d9314c6f6b69400791ec5a853366085a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 113345,
-    "task_id": "task-3ddb3323d4eed7834b36cb9000a4b295d59770f7dc3ab45a52fdbf8d71b0"
-  },
-  "created_at": "2026-09-29T22:37:25.974918+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5368d6f9c74344eaba1ac0ed6ec65584" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 6813, "task_id": "task-5d001a97f9e27c99e41d5da6af6e567baf2dfe52d85a68feab67f886fa3d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:42:28.447733+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-692c4c09ae334f548f0d97264c96f11e"></a>
+<a id="row-209"></a>
 
 <details>
-<summary>event-692c4c09ae334f548f0d97264c96f11e · 전체 저장값</summary>
+<summary>기록 210 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-692c4c09ae334f548f0d97264c96f11e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5675,
-    "task_id": "task-3ddb3323d4eed7834b36cb9000a4b295d59770f7dc3ab45a52fdbf8d71b0"
-  },
-  "created_at": "2026-09-29T22:37:36.059862+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3942b64433c24e85b0f9d1462094c676" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 115066, "task_id": "task-52455f41692048d593c7f55ec1a6a885b9fb48d182c040864c5b8f1d7c70"} | 전체 값 |
+| `created_at` | "2026-09-30T04:42:57.205658+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-324e2bd6dea147388f13704ad4d0e1fc"></a>
+<a id="row-210"></a>
 
 <details>
-<summary>event-324e2bd6dea147388f13704ad4d0e1fc · 전체 저장값</summary>
+<summary>기록 211 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-324e2bd6dea147388f13704ad4d0e1fc",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "evaluation",
-      "report",
-      "selection",
-      "coherence",
-      "feedback",
-      "report_context"
-    ],
-    "snapshot_id": "snap-a3e819359d8144efae7fd943812a96ac",
-    "versions": [
-      "av-04ff51006a3e4b639cb85bfdc57346e6",
-      "av-cd107f5e5c8941d7b4e6f9e15cf4e3d2",
-      "av-03c8ece38f8543f989d9c637ee499fbe"
-    ]
-  },
-  "created_at": "2026-09-29T22:37:44.713285+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-933cee5f2a6543f3a5ef4b2a8d3e6d3c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 5712, "task_id": "task-52455f41692048d593c7f55ec1a6a885b9fb48d182c040864c5b8f1d7c70"} | 전체 값 |
+| `created_at` | "2026-09-30T04:43:06.024724+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-b488967dd386402eaa3a4dd2398a2a7d"></a>
+<a id="row-211"></a>
 
 <details>
-<summary>event-b488967dd386402eaa3a4dd2398a2a7d · 전체 저장값</summary>
+<summary>기록 212 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-b488967dd386402eaa3a4dd2398a2a7d",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 60359,
-    "task_id": "task-60b076cda4fb165527d2ca6ecc3719151175cf51e0d1316b8b55bb7abc02"
-  },
-  "created_at": "2026-09-29T22:38:30.751122+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-c8dd4edf7a0842458a2c8f51c2370ce9" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | 객체 · invalidated, snapshot_id, versions | [전체 값](payloads/05ed301f42169555226d915e.md) |
+| `created_at` | "2026-09-30T04:43:25.978890+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-e7d03c280ffd45838613415c5e46c30c"></a>
+<a id="row-212"></a>
 
 <details>
-<summary>event-e7d03c280ffd45838613415c5e46c30c · 전체 저장값</summary>
+<summary>기록 213 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-e7d03c280ffd45838613415c5e46c30c",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 3135,
-    "task_id": "task-60b076cda4fb165527d2ca6ecc3719151175cf51e0d1316b8b55bb7abc02"
-  },
-  "created_at": "2026-09-29T22:38:36.689214+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-f82a54c04f7c4a149daec690db7f40ac" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 62186, "task_id": "task-45a5bd564acc34f59cd610dc8974eb64c00e2415c26cd8dff5be3d0ba8bc"} | 전체 값 |
+| `created_at` | "2026-09-30T04:44:31.215992+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-0dc706bc2e8e475bb7f290fef7647ea4"></a>
+<a id="row-213"></a>
 
 <details>
-<summary>event-0dc706bc2e8e475bb7f290fef7647ea4 · 전체 저장값</summary>
+<summary>기록 214 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-0dc706bc2e8e475bb7f290fef7647ea4",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120010,
-    "task_id": "task-90ec03aeab083318be188ef6c4dbe4da525e316b3305a073246aa4a3aa77"
-  },
-  "created_at": "2026-09-29T22:38:48.622286+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-91d2acd840494f8f91c1df11f183ffff" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 3618, "task_id": "task-45a5bd564acc34f59cd610dc8974eb64c00e2415c26cd8dff5be3d0ba8bc"} | 전체 값 |
+| `created_at` | "2026-09-30T04:44:37.644091+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-5f60cd06e91c47928a3d0af35c21cded"></a>
+<a id="row-214"></a>
 
 <details>
-<summary>event-5f60cd06e91c47928a3d0af35c21cded · 전체 저장값</summary>
+<summary>기록 215 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-5f60cd06e91c47928a3d0af35c21cded",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 119999,
-    "task_id": "task-6be2ff6c8c012d06244e96fa00dbb24b3ed175859f601ba755d190606029"
-  },
-  "created_at": "2026-09-29T22:38:50.342331+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-1563a0df876940b78365881bcc8113b5" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136384, "task_id": "task-b39fbcac51eff877b8ee13816441e3a908711ba182a009cb5c87e32527e7"} | 전체 값 |
+| `created_at` | "2026-09-30T04:45:14.766693+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-bf3ff13f87d4496f9e6fcccbf4118a75"></a>
+<a id="row-215"></a>
 
 <details>
-<summary>event-bf3ff13f87d4496f9e6fcccbf4118a75 · 전체 저장값</summary>
+<summary>기록 216 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-bf3ff13f87d4496f9e6fcccbf4118a75",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120078,
-    "task_id": "task-0360d9d8627211ae448947210d06b960afcc916080fab30defc27bc3cd73"
-  },
-  "created_at": "2026-09-29T22:38:51.935590+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0f960285a2b84927a4cc9206fb573a2d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136313, "task_id": "task-d93dc77d3edc9d8f0a6dee6f8ebcf97bf6a6d1b86067f670197cacb83742"} | 전체 값 |
+| `created_at` | "2026-09-30T04:45:27.675269+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-38e11dd3a3974fb988c29738c867fbfd"></a>
+<a id="row-216"></a>
 
 <details>
-<summary>event-38e11dd3a3974fb988c29738c867fbfd · 전체 저장값</summary>
+<summary>기록 217 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-38e11dd3a3974fb988c29738c867fbfd",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120039,
-    "task_id": "task-0cac8021a30fbb4e2ffcb7a06a56c7d5c5b8fc6984fe2da78dfdb8513e9d"
-  },
-  "created_at": "2026-09-29T22:38:53.620504+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-980708d5ee2645378a1e8afcaafb6e08" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136299, "task_id": "task-bc2c8e79ddac5aaca2be8b441fcc3e52e84d7a2af00b2539dd90ba201862"} | 전체 값 |
+| `created_at` | "2026-09-30T04:45:39.739253+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-801e9ddfad1f4c49b6e8b9d61ae086e2"></a>
+<a id="row-217"></a>
 
 <details>
-<summary>event-801e9ddfad1f4c49b6e8b9d61ae086e2 · 전체 저장값</summary>
+<summary>기록 218 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-801e9ddfad1f4c49b6e8b9d61ae086e2",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 7672,
-    "task_id": "task-6be2ff6c8c012d06244e96fa00dbb24b3ed175859f601ba755d190606029"
-  },
-  "created_at": "2026-09-29T22:39:00.788525+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9574ab2395a04259932230148c92b0bc" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136296, "task_id": "task-33c3aaef7999a292b8a35ba0eefea694135d3fc6ade6ca23d3e8bb613352"} | 전체 값 |
+| `created_at` | "2026-09-30T04:45:50.602652+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-b459e485fb99451d8e37e83b2d0facd1"></a>
+<a id="row-218"></a>
 
 <details>
-<summary>event-b459e485fb99451d8e37e83b2d0facd1 · 전체 저장값</summary>
+<summary>기록 219 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-b459e485fb99451d8e37e83b2d0facd1",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 124583,
-    "task_id": "task-2f2b41f7004ff791b699fa3657a9f6b3d2e4a5c6221a554c177977d2cc11"
-  },
-  "created_at": "2026-09-29T22:39:03.785829+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-97e64c6b99434acf906f886eae6cac90" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 12158, "task_id": "task-b39fbcac51eff877b8ee13816441e3a908711ba182a009cb5c87e32527e7"} | 전체 값 |
+| `created_at` | "2026-09-30T04:45:51.132742+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-20d5684b630c4170bff3413c03230bd6"></a>
+<a id="row-219"></a>
 
 <details>
-<summary>event-20d5684b630c4170bff3413c03230bd6 · 전체 저장값</summary>
+<summary>기록 220 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-20d5684b630c4170bff3413c03230bd6",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 9213,
-    "task_id": "task-90ec03aeab083318be188ef6c4dbe4da525e316b3305a073246aa4a3aa77"
-  },
-  "created_at": "2026-09-29T22:39:04.253551+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-600db5fd327b4f228718f3435fdb4207" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 12043, "task_id": "task-d93dc77d3edc9d8f0a6dee6f8ebcf97bf6a6d1b86067f670197cacb83742"} | 전체 값 |
+| `created_at` | "2026-09-30T04:45:51.283372+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-9e1c250c5ad346e7b3b2cc9bae58d673"></a>
+<a id="row-220"></a>
 
 <details>
-<summary>event-9e1c250c5ad346e7b3b2cc9bae58d673 · 전체 저장값</summary>
+<summary>기록 221 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-9e1c250c5ad346e7b3b2cc9bae58d673",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 9519,
-    "task_id": "task-0360d9d8627211ae448947210d06b960afcc916080fab30defc27bc3cd73"
-  },
-  "created_at": "2026-09-29T22:39:07.380384+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-92797a37894741a8a7c6054efe9ec4a5" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 12331, "task_id": "task-bc2c8e79ddac5aaca2be8b441fcc3e52e84d7a2af00b2539dd90ba201862"} | 전체 값 |
+| `created_at` | "2026-09-30T04:45:59.269726+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-ced785796ca349f799edb71a8e0bb397"></a>
+<a id="row-221"></a>
 
 <details>
-<summary>event-ced785796ca349f799edb71a8e0bb397 · 전체 저장값</summary>
+<summary>기록 222 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-ced785796ca349f799edb71a8e0bb397",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 8968,
-    "task_id": "task-0cac8021a30fbb4e2ffcb7a06a56c7d5c5b8fc6984fe2da78dfdb8513e9d"
-  },
-  "created_at": "2026-09-29T22:39:07.465866+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-934c919fd3c547fe92ad2de2f8e20f95" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 11659, "task_id": "task-33c3aaef7999a292b8a35ba0eefea694135d3fc6ade6ca23d3e8bb613352"} | 전체 값 |
+| `created_at` | "2026-09-30T04:46:10.406701+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-a331363b127a4e1c97fdccc694ede1bb"></a>
+<a id="row-222"></a>
 
 <details>
-<summary>event-a331363b127a4e1c97fdccc694ede1bb · 전체 저장값</summary>
+<summary>기록 223 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-a331363b127a4e1c97fdccc694ede1bb",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 119948,
-    "task_id": "task-e478273cebae3b9df5cd11f8ba9758859fa712d47925c2b0c09b1f12dfe4"
-  },
-  "created_at": "2026-09-29T22:39:20.139910+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-49411ab9e3584afe955d9b8de64e1c06" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136353, "task_id": "task-1a93d7c32a971d656641f70e08deeb5f90f36d183669cd9410e0db58e6cb"} | 전체 값 |
+| `created_at` | "2026-09-30T04:46:46.854655+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-b62f60de923a419e9d4fa1f0930343d6"></a>
+<a id="row-223"></a>
 
 <details>
-<summary>event-b62f60de923a419e9d4fa1f0930343d6 · 전체 저장값</summary>
+<summary>기록 224 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-b62f60de923a419e9d4fa1f0930343d6",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 10404,
-    "task_id": "task-2f2b41f7004ff791b699fa3657a9f6b3d2e4a5c6221a554c177977d2cc11"
-  },
-  "created_at": "2026-09-29T22:39:20.536994+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-4584172e38664d80aa4993ad3c5ec924" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136281, "task_id": "task-13c1df5928b052144ce0fb07129e254f9108c57841bccefb4c5de4dd8b32"} | 전체 값 |
+| `created_at` | "2026-09-30T04:46:59.334739+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-f72dd730ab5b46daabca3c82de0d73da"></a>
+<a id="row-224"></a>
 
 <details>
-<summary>event-f72dd730ab5b46daabca3c82de0d73da · 전체 저장값</summary>
+<summary>기록 225 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-f72dd730ab5b46daabca3c82de0d73da",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6918,
-    "task_id": "task-e478273cebae3b9df5cd11f8ba9758859fa712d47925c2b0c09b1f12dfe4"
-  },
-  "created_at": "2026-09-29T22:39:28.761271+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7f0e422e0d3540f3b93c2df166a19a81" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136265, "task_id": "task-e60304da2093962eb36a35ebf56eee40cde2f256b17dac984eaab375959b"} | 전체 값 |
+| `created_at` | "2026-09-30T04:47:10.610293+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-812a35e85fb44e71b4fc95e723c4aee8"></a>
+<a id="row-225"></a>
 
 <details>
-<summary>event-812a35e85fb44e71b4fc95e723c4aee8 · 전체 저장값</summary>
+<summary>기록 226 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-812a35e85fb44e71b4fc95e723c4aee8",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 119977,
-    "task_id": "task-7b44bb5c3dc140574491623249c5e9e408fd5dcccaa0c859a037608b0685"
-  },
-  "created_at": "2026-09-29T22:39:37.651570+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-599510c0b6e940f1bd4cb14300e421cb" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136268, "task_id": "task-623d8eeb04bc16ed3b2fa1366f9d38f80063781de8b5e2861cc0dd2c457e"} | 전체 값 |
+| `created_at` | "2026-09-30T04:47:19.484811+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-b378e7ffaf974e62b831ce3973d60dd8"></a>
+<a id="row-226"></a>
 
 <details>
-<summary>event-b378e7ffaf974e62b831ce3973d60dd8 · 전체 저장값</summary>
+<summary>기록 227 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-b378e7ffaf974e62b831ce3973d60dd8",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120015,
-    "task_id": "task-b358b5f85fe57f1bf8a64783575fb3cd2797705c7e6090d565f5e72029fa"
-  },
-  "created_at": "2026-09-29T22:39:43.133772+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5555c454041c454e9d719a2bfafb3b0f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10818, "task_id": "task-1a93d7c32a971d656641f70e08deeb5f90f36d183669cd9410e0db58e6cb"} | 전체 값 |
+| `created_at` | "2026-09-30T04:47:19.642815+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-04187a23c7474b2eab133c256a41ec8b"></a>
+<a id="row-227"></a>
 
 <details>
-<summary>event-04187a23c7474b2eab133c256a41ec8b · 전체 저장값</summary>
+<summary>기록 228 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-04187a23c7474b2eab133c256a41ec8b",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 119937,
-    "task_id": "task-6f1ff00d9f8425546c7672ef6cea68d7af4f6e87515afd3932830125c2e9"
-  },
-  "created_at": "2026-09-29T22:39:45.448062+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2ab7bbbbb36c4e5fb7dc5285a6d6bc99" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10521, "task_id": "task-13c1df5928b052144ce0fb07129e254f9108c57841bccefb4c5de4dd8b32"} | 전체 값 |
+| `created_at` | "2026-09-30T04:47:19.764283+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-be87c2259de046c3b1715ef7afe57985"></a>
+<a id="row-228"></a>
 
 <details>
-<summary>event-be87c2259de046c3b1715ef7afe57985 · 전체 저장값</summary>
+<summary>기록 229 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-be87c2259de046c3b1715ef7afe57985",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6716,
-    "task_id": "task-7b44bb5c3dc140574491623249c5e9e408fd5dcccaa0c859a037608b0685"
-  },
-  "created_at": "2026-09-29T22:39:45.749293+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-059e9d98bb8a405cb4ce3d6ac13280cb" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10473, "task_id": "task-e60304da2093962eb36a35ebf56eee40cde2f256b17dac984eaab375959b"} | 전체 값 |
+| `created_at` | "2026-09-30T04:47:23.575472+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-6f0406421cbc4aeb8d1c1d5ab095196a"></a>
+<a id="row-229"></a>
 
 <details>
-<summary>event-6f0406421cbc4aeb8d1c1d5ab095196a · 전체 저장값</summary>
+<summary>기록 230 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-6f0406421cbc4aeb8d1c1d5ab095196a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6915,
-    "task_id": "task-b358b5f85fe57f1bf8a64783575fb3cd2797705c7e6090d565f5e72029fa"
-  },
-  "created_at": "2026-09-29T22:39:53.888909+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-9fb94a11dafe480e84c8321fd1737e9c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10265, "task_id": "task-623d8eeb04bc16ed3b2fa1366f9d38f80063781de8b5e2861cc0dd2c457e"} | 전체 값 |
+| `created_at` | "2026-09-30T04:47:32.465638+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-5d02cb989ddc4947a878744c52425c8b"></a>
+<a id="row-230"></a>
 
 <details>
-<summary>event-5d02cb989ddc4947a878744c52425c8b · 전체 저장값</summary>
+<summary>기록 231 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-5d02cb989ddc4947a878744c52425c8b",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6693,
-    "task_id": "task-6f1ff00d9f8425546c7672ef6cea68d7af4f6e87515afd3932830125c2e9"
-  },
-  "created_at": "2026-09-29T22:39:53.993072+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-a8dc64c3d66a42c19272e318c2fcd3d8" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136414, "task_id": "task-1863fa93ae440c880e857aa113742d54c33d9d1aa6b41d167f201c8c0df4"} | 전체 값 |
+| `created_at` | "2026-09-30T04:48:32.051011+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-03b49469487f41958eed90f47dd26e77"></a>
+<a id="row-231"></a>
 
 <details>
-<summary>event-03b49469487f41958eed90f47dd26e77 · 전체 저장값</summary>
+<summary>기록 232 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-03b49469487f41958eed90f47dd26e77",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120095,
-    "task_id": "task-22edd920ad0f0b85efac83e141b8ef08be0df630c3ddf2bf56d1ca0de233"
-  },
-  "created_at": "2026-09-29T22:40:02.354939+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3f2abcba0d174958b5e1344729ae389f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136424, "task_id": "task-418484586f7acc806666a3a6f166e3aedf5878fe6520e665272f28d2354c"} | 전체 값 |
+| `created_at` | "2026-09-30T04:48:52.913989+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-a2144bede2754cb28840ea6a1c8302a9"></a>
+<a id="row-232"></a>
 
 <details>
-<summary>event-a2144bede2754cb28840ea6a1c8302a9 · 전체 저장값</summary>
+<summary>기록 233 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-a2144bede2754cb28840ea6a1c8302a9",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120011,
-    "task_id": "task-7b3fc1500d8ae73a9c97ab1f2e99a22fd55d4dbdff0a3d8d0501b678bee3"
-  },
-  "created_at": "2026-09-29T22:40:14.223732+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0c04b69e8a2e48189c5de00c8c995387" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10322, "task_id": "task-1863fa93ae440c880e857aa113742d54c33d9d1aa6b41d167f201c8c0df4"} | 전체 값 |
+| `created_at` | "2026-09-30T04:48:53.380965+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-4a97d95f572f4d10b04d0930e615a124"></a>
+<a id="row-233"></a>
 
 <details>
-<summary>event-4a97d95f572f4d10b04d0930e615a124 · 전체 저장값</summary>
+<summary>기록 234 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-4a97d95f572f4d10b04d0930e615a124",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 7895,
-    "task_id": "task-22edd920ad0f0b85efac83e141b8ef08be0df630c3ddf2bf56d1ca0de233"
-  },
-  "created_at": "2026-09-29T22:40:14.434601+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-72776ccffd334447a8d86e6d714be41b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 11795, "task_id": "task-418484586f7acc806666a3a6f166e3aedf5878fe6520e665272f28d2354c"} | 전체 값 |
+| `created_at` | "2026-09-30T04:49:09.755618+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-e6c179c1ea2c41ebabe209c4a1d831da"></a>
+<a id="row-234"></a>
 
 <details>
-<summary>event-e6c179c1ea2c41ebabe209c4a1d831da · 전체 저장값</summary>
+<summary>기록 235 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-e6c179c1ea2c41ebabe209c4a1d831da",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 9220,
-    "task_id": "task-7b3fc1500d8ae73a9c97ab1f2e99a22fd55d4dbdff0a3d8d0501b678bee3"
-  },
-  "created_at": "2026-09-29T22:40:33.720096+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7e0418ef92014802b70176e1fd005f97" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136383, "task_id": "task-f253d058d68bab2e0c7ed2970f86f934109c7f8e48723099267bdcc56c3f"} | 전체 값 |
+| `created_at` | "2026-09-30T04:52:50.933134+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-8598ea15771141e58ac498573237c9a8"></a>
+<a id="row-235"></a>
 
 <details>
-<summary>event-8598ea15771141e58ac498573237c9a8 · 전체 저장값</summary>
+<summary>기록 236 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-8598ea15771141e58ac498573237c9a8",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 120033,
-    "task_id": "task-54da606d114c321a6ffe9b50fc3816fa10e95a60fcfeb24eb43cafe13a06"
-  },
-  "created_at": "2026-09-29T22:41:01.528317+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-7963f992a6fc453b81224fd1d3f7f1b8" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 136393, "task_id": "task-fe2b47a69d2fbe25e7445b2e77a0b548a8ec09f46e03fed812f26fd56518"} | 전체 값 |
+| `created_at` | "2026-09-30T04:52:59.934462+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-97890cc3059849e48dc43de52905e567"></a>
+<a id="row-236"></a>
 
 <details>
-<summary>event-97890cc3059849e48dc43de52905e567 · 전체 저장값</summary>
+<summary>기록 237 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-97890cc3059849e48dc43de52905e567",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 119949,
-    "task_id": "task-2fc5bdc35bdfa896c389263cee2c4e33563f24a34225ccb0249a8f85ad7a"
-  },
-  "created_at": "2026-09-29T22:41:05.459903+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2195e1e810844bb691b8b13bd0fcac91" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10274, "task_id": "task-f253d058d68bab2e0c7ed2970f86f934109c7f8e48723099267bdcc56c3f"} | 전체 값 |
+| `created_at` | "2026-09-30T04:53:03.225830+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-b289a08c94d34431ac6803eb4f4ed09b"></a>
+<a id="row-237"></a>
 
 <details>
-<summary>event-b289a08c94d34431ac6803eb4f4ed09b · 전체 저장값</summary>
+<summary>기록 238 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-b289a08c94d34431ac6803eb4f4ed09b",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6792,
-    "task_id": "task-54da606d114c321a6ffe9b50fc3816fa10e95a60fcfeb24eb43cafe13a06"
-  },
-  "created_at": "2026-09-29T22:41:10.030665+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-5486fa443d004aceafe52b98fe355ac8" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 10708, "task_id": "task-fe2b47a69d2fbe25e7445b2e77a0b548a8ec09f46e03fed812f26fd56518"} | 전체 값 |
+| `created_at` | "2026-09-30T04:53:14.020751+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-848f487dc31944aba0729562cea683b2"></a>
+<a id="row-238"></a>
 
 <details>
-<summary>event-848f487dc31944aba0729562cea683b2 · 전체 저장값</summary>
+<summary>기록 239 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-848f487dc31944aba0729562cea683b2",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 6929,
-    "task_id": "task-2fc5bdc35bdfa896c389263cee2c4e33563f24a34225ccb0249a8f85ad7a"
-  },
-  "created_at": "2026-09-29T22:41:13.778688+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-78474b0ec4804d1c82bf001ff5caa759" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 111564, "task_id": "task-5e67663a09cdb6d9e1eff5544277c78f348baabf768f77dee36a15d45f6d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:54:17.506412+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-c0c4e02ab96747ba87e36508df6fda2e"></a>
+<a id="row-239"></a>
 
 <details>
-<summary>event-c0c4e02ab96747ba87e36508df6fda2e · 전체 저장값</summary>
+<summary>기록 240 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-c0c4e02ab96747ba87e36508df6fda2e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 107481,
-    "task_id": "task-d1e1ed932b3564524450d1f414bb1284d42cbcaa2e5b3c2c5d71520faee7"
-  },
-  "created_at": "2026-09-29T22:41:57.165838+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-513285819e894360aaf82cc3a65be27b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 7354, "task_id": "task-5e67663a09cdb6d9e1eff5544277c78f348baabf768f77dee36a15d45f6d"} | 전체 값 |
+| `created_at` | "2026-09-30T04:54:32.399372+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-9aa9e3eb1707466aa163e0ab5b156ff3"></a>
+<a id="row-240"></a>
 
 <details>
-<summary>event-9aa9e3eb1707466aa163e0ab5b156ff3 · 전체 저장값</summary>
+<summary>기록 241 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-9aa9e3eb1707466aa163e0ab5b156ff3",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 5780,
-    "task_id": "task-d1e1ed932b3564524450d1f414bb1284d42cbcaa2e5b3c2c5d71520faee7"
-  },
-  "created_at": "2026-09-29T22:42:07.218854+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-58308c92750f43499cc35318ef569727" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_RESERVED" | 전체 값 |
+| `payload` | {"reserve": 113400, "task_id": "task-e27241035908f1fba291d125857029dfb77234e545786047230f4e90b9a6"} | 전체 값 |
+| `created_at` | "2026-09-30T04:55:12.421650+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-70bd128ee8dc489ba9f64acd7ec18e63"></a>
+<a id="row-241"></a>
 
 <details>
-<summary>event-70bd128ee8dc489ba9f64acd7ec18e63 · 전체 저장값</summary>
+<summary>기록 242 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-70bd128ee8dc489ba9f64acd7ec18e63",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [
-      "feedback",
-      "report_context",
-      "report"
-    ],
-    "snapshot_id": "snap-9e56415fa138459e8d7fd4f2b0224aab",
-    "versions": [
-      "av-2993e53e0aad4bd0911034d2d78d4d5a",
-      "av-4dfbe87665f3492fb5910b3834cf2c5f"
-    ]
-  },
-  "created_at": "2026-09-29T22:42:14.532475+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-3fe552a27a0c44009ea7d6ddbdab789d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "ACTION_COMPLETED" | 전체 값 |
+| `payload` | {"actual_microusd": 8038, "task_id": "task-e27241035908f1fba291d125857029dfb77234e545786047230f4e90b9a6"} | 전체 값 |
+| `created_at` | "2026-09-30T04:55:24.997836+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-3d7b63e3d368413489cdadd30336985a"></a>
+<a id="row-242"></a>
 
 <details>
-<summary>event-3d7b63e3d368413489cdadd30336985a · 전체 저장값</summary>
+<summary>기록 243 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-3d7b63e3d368413489cdadd30336985a",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-3e7bf6228d8c493d9ced98991287bf98",
-    "versions": [
-      "av-fea07164dc5041d4a7c0a765829ae407"
-    ]
-  },
-  "created_at": "2026-09-29T22:42:59.962813+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2347ac730c5f4449b7f0e2068dbf9022" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": ["feedback", "report_context", "report"], "snapshot_id": "snap-87f043e157904c50b4ed98403b6062b3", "versions": ["av-4db00d266d2949db850f27bae8428c67", "av-5584b014787346fba356e45979925c1e"]} | 전체 값 |
+| `created_at` | "2026-09-30T04:55:41.177663+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-1e39d8967f1d4a1a94c42a7ea3701877"></a>
+<a id="row-243"></a>
 
 <details>
-<summary>event-1e39d8967f1d4a1a94c42a7ea3701877 · 전체 저장값</summary>
+<summary>기록 244 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-1e39d8967f1d4a1a94c42a7ea3701877",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "DECISION_RECORDED",
-  "payload": {
-    "decision_id": "dec-6451d50e7b39b502decc397db7d4d3fe780ea0c395c3b632cd65789e3e12"
-  },
-  "created_at": "2026-09-29T22:43:10.326254+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-47cd964943024101ac2a798832853cc1" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-d2bd1fd072dc4d36b3cdc41625404298", "versions": ["av-21512b3349534e5697e35c68cf563444"]} | 전체 값 |
+| `created_at` | "2026-09-30T04:56:44.675044+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-93b93b5530844750979aff68704d0288"></a>
+<a id="row-244"></a>
 
 <details>
-<summary>event-93b93b5530844750979aff68704d0288 · 전체 저장값</summary>
+<summary>기록 245 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-93b93b5530844750979aff68704d0288",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-41ca8f7ce9484568b130ff09276d4620",
-    "versions": [
-      "av-930bb2bc8cf245be82ec07c0e2678202"
-    ]
-  },
-  "created_at": "2026-09-29T22:43:38.271311+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-fe1f1b8ee6d54f13ac4368bd615cf919" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "DECISION_RECORDED" | 전체 값 |
+| `payload` | {"decision_id": "dec-194bbc0bf0ef68abd5f3c5f24898af8661af3b16647c1946025a22c2a6cb"} | 전체 값 |
+| `created_at` | "2026-09-30T04:56:55.034458+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-df21e948b27145568051ca6b64cd8d70"></a>
+<a id="row-245"></a>
 
 <details>
-<summary>event-df21e948b27145568051ca6b64cd8d70 · 전체 저장값</summary>
+<summary>기록 246 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-df21e948b27145568051ca6b64cd8d70",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-12ef7dca76e6425f87bc37a58d0ad316",
-    "versions": [
-      "av-0702df0f5b4f4b0b86557e81397e9e88"
-    ]
-  },
-  "created_at": "2026-09-29T22:44:19.556648+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-e40606db44614b91a2d2529f19a4c36c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-8442fd94b3224ffb8a870bf2f831c82f", "versions": ["av-15bb552c8edd4538b27ec60e6adf32ab"]} | 전체 값 |
+| `created_at` | "2026-09-30T04:57:57.667900+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-9e38aa05bfbd4c18adbe4ee4d6e3617c"></a>
+<a id="row-246"></a>
 
 <details>
-<summary>event-9e38aa05bfbd4c18adbe4ee4d6e3617c · 전체 저장값</summary>
+<summary>기록 247 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-9e38aa05bfbd4c18adbe4ee4d6e3617c",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "EPOCH_CHANGED",
-  "payload": {
-    "epoch": 52,
-    "previous": 51,
-    "reason": "user_resume_or_replan"
-  },
-  "created_at": "2026-09-29T22:57:01.829324+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2835b10bd5624c1e9b444665ad400a4c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-55cb0506888a49b18a68c60eeb14fc31", "versions": ["av-6da74488289847af8f5e447b591a6844"]} | 전체 값 |
+| `created_at` | "2026-09-30T05:02:05.316612+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-3708c748d0f84f53a4303e6e7c231e1e"></a>
+<a id="row-247"></a>
 
 <details>
-<summary>event-3708c748d0f84f53a4303e6e7c231e1e · 전체 저장값</summary>
+<summary>기록 248 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-3708c748d0f84f53a4303e6e7c231e1e",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-ab9f74e25b044c86a2e227b43c6157ff",
-    "versions": []
-  },
-  "created_at": "2026-09-29T22:57:39.195332+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-0dc5334d19874858a44bc1e0d23f2afe" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "EPOCH_CHANGED" | 전체 값 |
+| `payload` | {"epoch": 58, "previous": 57, "reason": "user_resume_or_replan"} | 전체 값 |
+| `created_at` | "2026-09-30T05:05:11.157882+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-d3fce5ae797740209fc2d52a11a837cb"></a>
+<a id="row-248"></a>
 
 <details>
-<summary>event-d3fce5ae797740209fc2d52a11a837cb · 전체 저장값</summary>
+<summary>기록 249 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-d3fce5ae797740209fc2d52a11a837cb",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_RESERVED",
-  "payload": {
-    "reserve": 68573,
-    "task_id": "task-acfd96c9fdfe81af87a0bf528edb501ce874067a2e1532ac50935046125e"
-  },
-  "created_at": "2026-09-29T22:58:08.777677+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-2d3d40a0a7364a479f53cf4e35f50c9f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-6b73a729657440ee99a9f845d2b90693", "versions": []} | 전체 값 |
+| `created_at` | "2026-09-30T05:06:26.414345+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-caf5963a6a02421cbf6ffc5daac943bc"></a>
+<a id="row-249"></a>
 
 <details>
-<summary>event-caf5963a6a02421cbf6ffc5daac943bc · 전체 저장값</summary>
+<summary>기록 250 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-caf5963a6a02421cbf6ffc5daac943bc",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "ACTION_COMPLETED",
-  "payload": {
-    "actual_microusd": 4032,
-    "task_id": "task-acfd96c9fdfe81af87a0bf528edb501ce874067a2e1532ac50935046125e"
-  },
-  "created_at": "2026-09-29T22:58:13.159168+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "event-bcd3de32528a4e428531d85aea431205" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "SNAPSHOT_COMMITTED" | 전체 값 |
+| `payload` | {"invalidated": [], "snapshot_id": "snap-440b573371d94951b0a44e28c3db3abf", "versions": ["av-88c0fdf7108743e990fb193a41299641"]} | 전체 값 |
+| `created_at` | "2026-09-30T05:06:56.846705+00:00" | 전체 값 |
 
 </details>
 
-<a id="row-event-6c2e88d6298741d596ddc8b00c21f1f9"></a>
+<a id="row-250"></a>
 
 <details>
-<summary>event-6c2e88d6298741d596ddc8b00c21f1f9 · 전체 저장값</summary>
+<summary>기록 251 · 전체 저장값</summary>
 
-```json
-{
-  "event_id": "event-6c2e88d6298741d596ddc8b00c21f1f9",
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "event_type": "SNAPSHOT_COMMITTED",
-  "payload": {
-    "invalidated": [],
-    "snapshot_id": "snap-f6d53363d6714c2c8f15d3d5a4c70178",
-    "versions": [
-      "av-0d55982984a84cf581a386c864043cd4"
-    ]
-  },
-  "created_at": "2026-09-29T22:58:22.471342+00:00"
-}
-```
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `event_id` | "cost-restatement-5de95ce3a3ac35352432fca643444c15f7d199f165614991" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `event_type` | "COST_RESTATEMENT_APPLIED" | 전체 값 |
+| `payload` | 객체 · after_cost, after_microusd, applied_at, basis, before_cost, before_microusd … | [전체 값](payloads/3088d7a11aac19ee8d195496.md) |
+| `created_at` | "2026-09-30T05:13:07.962460+00:00" | 전체 값 |
 
 </details>

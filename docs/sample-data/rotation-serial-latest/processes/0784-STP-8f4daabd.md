@@ -1,0 +1,59 @@
+# 미해결 부분 보완
+
+[제약 검토](../stages/09-s7-gate.md)
+
+| 항목 | 저장값 |
+|---|---|
+| step_id / seq | STP-8f4daabd / 784 |
+| 실제 Stage / DB stage | s7_gate / S6_CONCEPT |
+| node | ax_repair_gap-f705ac45d5656e38b0c6b5e9_0 |
+| Agent / Prompt | effects_specialist / P_AX_RECOVERY |
+| 등급 / 모델 | T2 / deepseek-flash |
+| 상태 / 판정 | OK / PASS |
+| KST 시작 / 종료 | 2026-09-30 13:24:43 / 2026-09-30 13:25:05 |
+| 저장 비용 USD | 0.0118818 |
+| 입력 / 출력 토큰 | 21514 / 4523 |
+| 범위 | CURRENT_RERUN |
+
+## Input · 실제 전달 변수
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `action` | "REPAIR_CANDIDATE" | 전체 값 |
+| `baseline` | 객체 · source_idea_ids, active_effect_ids, mechanism_key, intervention_variable, resolution_argument, hypothesis_ids … | [전체 값](../payloads/61244d281a1e194253637e9d.md) |
+| `blockers` | 배열 4개 | [전체 값](../payloads/b0df6d4f085f921c59815619.md) |
+| `requirements` | 객체 · items, open_questions | [전체 값](../payloads/4fcb96787e2cf84e20b67873.md) |
+| `analysis` | 객체 · obligations, resources, existing_mechanisms, contract | [전체 값](../payloads/753a0932df8602c67ec23b2e.md) |
+| `schema` | 객체 · $defs, additionalProperties, properties, required, title, type | [전체 값](../payloads/f051d56485f5a2fe9ea70afd.md) |
+
+## Output · 최종 저장 결과
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `title` | "부하·무부하 프로파일 분리 — 검증계획 의무 연결 보강 및 실행 파라미터 확정" | 전체 값 |
+| `working_principle` | 복귀 구간(역회전)은 글라스가 없어 회전체 관성모멘트가 부하 구간보다 작으므로, 동일 구동 토크에서 더 높은 각가속도를 낼 수 있다. 서보 제어기에 부하 구간용 보수 프로파일과 무부하 복귀 구간용 별도 프로파일 세트를 등록하고, 글라스 클램프 체결 신… | [전체 값](../payloads/88115a93c80199e12283268b.md) |
+| `resolution_argument` | TC1(가속도 상향 → takt 단축 vs 부하율·발열 증가)의 결합을 시간축으로 분리한다. 부하 구간은 기존 보수 프로파일을 유지해 TC2의 보호측(부하율·강성·안정성)을 보존하고, 무부하 복귀 구간에서만 각가속도를 조정해 TC6/TC10의 개선측(… | [전체 값](../payloads/0f209f6b14270aa97825c94f.md) |
+| `changes_to_system` | ["서보 제어기에 부하/무부하 2세트 가감속 프로파일 등록", "글라스 클램프 체결 신호를 프로파일 전환 트리거로 제어기에 입력", "복귀 구간 전용 프로파일 파라미터(가속 시간·최고 각속도·정착 시간) 별도 설정", "복귀 구간 진동·베어링 온도·정착 시간 계측 채널 추가(검증용)"] | 전체 값 |
+| `required_resources` | ["서보 제어기의 가감속 프로파일 파라미터 세트(정보/시스템 내부/무상)", "원위치 복귀(역회전) 구간 — 글라스 없음(시간/시스템 내부/무상)", "부하 상태별 분리 가감속 프로파일(파생 자원/무상)", "신규: 글라스 유무 검출 신호(클램프 체결 센서)", "신규: 복귀 구간 진동·온도·정착 시간 계측 채널"] | 전체 값 |
+| `assumptions` | 배열 10개 | [전체 값](../payloads/c4e5b70b42c072118b3f0211.md) |
+| `open_risks` | 배열 5개 | [전체 값](../payloads/0ba3ecefa3e8f4041c8464aa.md) |
+| `validation_plan` | 배열 4개 | [전체 값](../payloads/fa33d6a48f4caa31295a37ef.md) |
+| `provided_functions` | ["부하 구간 보수 프로파일 유지로 부하율·강성·안정성 HARD 제약 보존", "무부하 복귀 구간 별도 프로파일로 복귀 시간 단축", "클램프 체결 신호 기반 프로파일 전환"] | 전체 값 |
+| `required_functions` | ["글라스 유무(부하 상태) 실시간 검출", "서보 제어기의 복수 프로파일 세트 전환", "복귀 구간 진동·온도·정착 시간 계측"] | 전체 값 |
+| `subproblem` | "" | 전체 값 |
+| `addresses_contradictions` | ["TC-da1055a5", "TC-eefef594", "TC-0b4ac5ca", "TC-53d6299c", "TC-e8fc2c12"] | 전체 값 |
+| `coherence` | 객체 · intervention, target, changed_variable, mediating_functions, outcome, operating_scope … | [전체 값](../payloads/54a5abd8fad48f4ca355ea9c.md) |
+
+## 검증과 추적
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `verdicts` | [{"verdict": "PASS", "score": 1.0, "source": "none"}] | 전체 값 |
+| `error` | "" | 전체 값 |
+| `input_metadata` | {"prompt_id": "P_AX_RECOVERY", "prompt_hash": "f165a78ee5b32b9acc3a0c819170f5e514e7f85b87977b58b84619ff2835f23c"} | 전체 값 |
+| `prompt_text_fingerprints` | {"system": {"sha256": "9673487b77f6e6cff6555d401424c0344ba6dda8365865b278ad83d3ddc06ef8", "utf8_bytes": 6842}, "user": {"sha256": "f165a78ee5b32b9acc3a0c819170f5e514e7f85b87977b58b84619ff2835f23c", "utf8_bytes": 62278}} | 전체 값 |
+| `step_metadata` | 객체 · step_id, run_id, seq, stage, node, label … | [전체 값](../payloads/ccd311dad3b5dd1f5d5f11b0.md) |
+
+출처: `steps.input_slice`, `output_json`, `verdicts`. 구조 검사 통과와 기술적 제약 판정은 서로 다릅니다. 중간 수정 응답은 새로 만들지 않았습니다. Step 비용은 실행 당시 원본이며 비용정정으로 덮어쓰지 않았습니다. 정정 반영 합계는 비용 비교표를 확인합니다.
+
+[원본 비용·정정 비용 비교](../COSTS.md)

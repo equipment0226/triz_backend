@@ -10,6 +10,6 @@
 | reason | s0_bootstrap |
 | manifest_hash | 1562c4de5704ae8efefe9b10d32773068fa6188a467ba19138ada6553165ea99 |
 
-| 산출물 | 정확한 버전 ID | 데이터 |
+| 산출물 | 버전 ID | 전체 데이터 |
 |---|---|---|
-| input | av-e9af8210d5734ab394d6bfa0a680835e | 이전 회차 버전 · 본문 중복 수집 제외 |
+| input | av-e9af8210d5734ab394d6bfa0a680835e | [읽기](../artifacts/input-av-e9af8210d5734ab394d6bfa0a680835e.md) |

@@ -2,62 +2,46 @@
 
 [전체 실제 흐름](../README.md)
 
-구동계 단독, 정렬·클램프를 포함한 직렬 구간, 강성·발열 계면의 세 가지 시스템 후보를 제시했습니다. 사용자는 '로테이션 구동계 + 정렬·클램프 직렬 구간'을 선택했고 user_confirmed=true로 저장되었습니다. 이후 분석은 로테이션 정지 후 정렬·클램프가 시작되는 계면까지 포함합니다.
+호출자: [`nodes.s2_confirm()`](https://github.com/equipment0226/triz_backend/blob/5ce8ec233b3d58d2005530a4e9b3113f5fc235f2/pilot/triz/nodes.py#L163). 함수별 실제 입력·출력은 아래 Step 기록에 연결했습니다.
 
-코드: [`nodes.s2_confirm`](https://github.com/equipment0226/triz_backend/blob/606e6e5c26b21697cd71d784157eaa7477486b21/pilot/triz/nodes.py#L163) · Pipeline key: `s2_confirm`
+| 실행 구간 시작 KST | 시작 event | 완료 event | 중단 event |
+|---|---|---|---|
+| 2026-09-30 12:56:16 | 46324 | — | 46329 |
+| 2026-09-30 12:58:14 | 46330 | 46332 | — |
 
 ```mermaid
 flowchart TD
-    I["문제 틀 · 산업 · 첨부 사실"] --> C["s2_candidates · 후보 생성 1회"]
-    C --> H["사용자 대상 시스템 확정"]
-    H --> R["s2_confirm · 선택값 반영 · 새 모델 호출 없음"]
-    R --> O["최종 problem · confirm · requirements"]
+    I["저장 입력 snapshot / Step Input"] --> S["s2_confirm"]
+    S --> P0["s2_candidates · 1 Step"]
+    P0 --> O["최종 snapshot / Step Output"]
 ```
 
-## 실행과 사용자 응답
+화살표는 기록의 입력·처리·출력 관계입니다. 하위 Step 사이의 순차·병렬 실행을 새로 추정하지 않습니다. 시작 순서는 아래 표와 이벤트 원장을 따릅니다.
 
-| KST 시작 | 시작 event.id | 종료 event.id | 진행 |
-|---|---|---|---|
-| 2026-09-30 06:53:39 | 45973 | — | 사용자 응답 대기 |
-| 2026-09-30 07:06:31 | 45987 | 45989 | 완료 |
+## 최종 Input · 마지막 재개에서 읽은 버전
 
-## 최종 Input · 읽은 버전과 전달값
+| 입력 snapshot | 전체 입력 버전 |
+|---|---|
+| snap-acbc9240dafc4dd4a3ed7991355f01ed | [읽기](../snapshots/snap-acbc9240dafc4dd4a3ed7991355f01ed.md) |
 
-마지막 재개 이후 실제 task가 참조한 `input_snapshot`입니다. 경계 보완 중 버전이 바뀐 경우 여러 개가 표시됩니다. LLM 없는 재개는 해당 `stage_read_set`을 표시합니다.
+## 최종 Output · 완료 시점
 
-| 입력 snapshot | 저장 시점 | 전체 입력 버전 목록 |
+[완료 snapshot](../snapshots/snap-34e7956f50d143cabd2ac774fe607f25.md) · epoch 55 · 2026-09-30 12:58:36 KST
+
+| 산출물 | 버전 ID | 전체 Output |
 |---|---|---|
-| snap-1869b2a3c96f4bffadf87d11c3086237 | stage_read_set | [읽기](../snapshots/snap-1869b2a3c96f4bffadf87d11c3086237.md) |
+| problem | av-d52c84a3bfe447e0b85db367ed3459fa | [읽기](../artifacts/problem-av-d52c84a3bfe447e0b85db367ed3459fa.md) |
 
-실제로 각 함수에 전달된 값은 아래 **하위 처리의 Input**에 모두 연결했습니다. 과거 값을 현재 값으로 덮어 계산하지 않았습니다.
+## 하위 process · 실제 시작 순서
 
-## 최종 Output · Stage 완료 시점
-
-[최종 체크포인트](../snapshots/snap-48dde9a56a904700ba6518af3610184a.md) · epoch 50 · KST 2026-09-30 07:06:48
-
-| 산출물 | 버전 ID | 저장 내용 |
-|---|---|---|
-| problem | av-011963b3da4b406aa99f3c20e1c2b1ca | [전체 Output](../artifacts/problem-av-011963b3da4b406aa99f3c20e1c2b1ca.md) |
-
-## 하위 처리 · 실제 기록 순서
-
-동시에 시작한 작업은 앞 작업의 종료를 기다린다는 뜻이 아닙니다. `seq`와 `step_id`를 함께 표시했습니다.
-
-상태 열은 **Step의 구조·검증 상태**입니다. 예를 들어 gate Step이 `OK / PASS`여도 실제 제약 판정은 Output의 `CONDITIONAL` 또는 `FAIL`일 수 있습니다.
-
-| seq | 하위 process / Input·Output | Agent / Prompt | 상태 / 판정 | 비용 USD |
+| seq / step_id | node · 전체 Input/Output | Agent / Prompt | 상태 / 판정 | USD |
 |---|---|---|---|---|
-| 643 | [s2_candidates](../processes/0643-STP-87544e0b.md) | system_analyst<br>P_S2_CANDIDATES | WARN / UNVERIFIED | 0.0033768 |
+| 733 / STP-b74b8bd4 | [s2_candidates](../processes/0733-STP-b74b8bd4.md) | system_analyst / P_S2_CANDIDATES | WARN / UNVERIFIED | 0.0036531 |
 
-## 함수 내부 연결 · 별도 기록 여부
+## 모델 호출과 비용
 
-| 함수 | Input → Output | 저장 근거 |
-|---|---|---|
-| [`nodes.s2_confirm`](https://github.com/equipment0226/triz_backend/blob/606e6e5c26b21697cd71d784157eaa7477486b21/pilot/triz/nodes.py#L163) | domain, restated_problem, attachment_facts → 시스템 candidates, 작동 구역·시간, 확인 질문 | 해당 node의 steps.input_slice.vars와 steps.output_json, steps.verdicts. 최종 반영값은 Stage artifact. |
-| [`nodes.s2_confirm`](https://github.com/equipment0226/triz_backend/blob/606e6e5c26b21697cd71d784157eaa7477486b21/pilot/triz/nodes.py#L163) | 선택 candidate_id, operative_zone/time, amendment → confirm, target_system, user_confirmed | 재개 시 LLM step 없음. problem.confirm과 사용자 보완 정보, CONFIRM event45978/재개 event45987에서 확인. |
+이번 Stage 구간에 생성된 task는 1개입니다. 실행 당시 actual 합계는 0.003654 USD, 비용정정 반영 합계는 0.001789 USD입니다. 예약액 reserve는 소비액이 아닙니다. Step와 task 사이의 직접 외래키가 없어 병렬 호출을 시간만으로 특정 Step에 붙이지 않았습니다.
 
-## 호출·비용 원장
+[task·usage·가격 근거](../CALLS.md) · [시작·중단·재개 이벤트](../EVENTS.md)
 
-이번 Stage 구간의 AX task는 **1건**입니다. 실제 정산 `actual` 합계는 **0.003377 USD**입니다. Step 수와 task 수는 검증·수정 호출 때문에 다를 수 있습니다. 상속 S0 비용은 이번 합계에서 제외했습니다.
-
-[호출별 입력 snapshot·토큰·비용·원문 해시](../CALLS.md) · [Stage·사용자 이벤트](../EVENTS.md)
+`_pick_tcs`, `_add_ideas`, 집계·해시와 같이 독립 Step이 없는 helper의 중간값은 재구성하지 않았습니다. 호출자의 실제 전달 변수, 최종 Output, 저장 산출물로 확인할 수 있는 범위만 담았습니다.

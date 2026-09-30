@@ -1,6183 +1,2840 @@
-# 모델 호출과 실제 비용
+# 모델 호출과 비용
 
 [사례 개요](README.md)
 
-`ax_tasks`와 `ax_task_attempts`에서 확인한 최신 회차 task 95건입니다. Step과 task 사이에 직접 외래키가 없으므로 병렬 호출을 시간만으로 특정 Step에 귀속시키지 않았습니다. Stage는 실행 이벤트 구간으로 연결했습니다. `reserve`는 예약, `actual`은 정산이며 단위는 microUSD입니다.
+이번 구간에 저장된 기록은 101개입니다.
 
-| KST 생성 | 실제 Stage | node | epoch | 정산 USD | task 상세 |
+task는 중복 없이 한 번씩 집계했습니다. reserve / actual 단위는 microUSD입니다. actual·provider usage·저장 pricing은 실행 당시 원문 값입니다. 정정액은 별도 COST_RESTATEMENT_APPLIED 이벤트에서 계산한 값이며 원본을 덮어쓰지 않았습니다.
+
+[비용정정 근거·비교표](COSTS.md)
+
+| task | KST 생성 | 실제 Stage | node | 원본 USD | 정정 반영 USD |
 |---|---|---|---|---|---|
-| 06:47:22 | s0_research | s0_deep_dive | 47 | 0.003326 | [task-4140d22333b0e1515d19ec22bfaef06ac66c89c905e33119c664cbdaeeb2](#task-4140d22333b0e1515d19ec22bfaef06ac66c89c905e33119c664cbdaeeb2) |
-| 06:49:49 | s0_research | s0_deep_dive | 48 | 0.003407 | [task-31309ea4a9bfa0c8e76281afab271b67a35ba8e2e89d7220c8f54a5531e8](#task-31309ea4a9bfa0c8e76281afab271b67a35ba8e2e89d7220c8f54a5531e8) |
-| 06:50:47 | s1_intake | s1_extract | 48 | 0.006371 | [task-454b48aac14d282a3bce3fc190441fb56eea1366db554daf7c2eaec11a7a](#task-454b48aac14d282a3bce3fc190441fb56eea1366db554daf7c2eaec11a7a) |
-| 06:51:11 | s1_intake | s1_clarify | 48 | 0.002294 | [task-83a37ccdeb1c5e04bef657c80f426364dba6e3f3e3a6531d7d2f53705067](#task-83a37ccdeb1c5e04bef657c80f426364dba6e3f3e3a6531d7d2f53705067) |
-| 06:52:58 | s1_intake | s1_extract | 49 | 0.006206 | [task-227da7c56e3c5aa2abb5e3824a23bc662fdca5c66998f55afd8f24ce11c7](#task-227da7c56e3c5aa2abb5e3824a23bc662fdca5c66998f55afd8f24ce11c7) |
-| 06:53:58 | s2_confirm | s2_candidates | 49 | 0.003377 | [task-55eb7897cf866e0418ecd9216e18ba3ba5256827bc1d057a66356a0940d1](#task-55eb7897cf866e0418ecd9216e18ba3ba5256827bc1d057a66356a0940d1) |
-| 07:07:35 | s3_analyze | s3_nine_windows | 50 | 0.003713 | [task-07087684b93d7e4dc4fed09b9a9790427b9b9a4f31ebbff06c61d6a06761](#task-07087684b93d7e4dc4fed09b9a9790427b9b9a4f31ebbff06c61d6a06761) |
-| 07:07:50 | s3_analyze | s3_function_model | 50 | 0.005999 | [task-1ca99fc15ecb6941c30d06eb7a776c61b1fed4719b22e1a0690bef73da6f](#task-1ca99fc15ecb6941c30d06eb7a776c61b1fed4719b22e1a0690bef73da6f) |
-| 07:08:06 | s3_analyze | independent_verifier | 50 | 0.003168 | [task-3e3a156f2cda8792e1bc173cd3d7d211dd2cf0dc92cd8a786cd1873bcc5a](#task-3e3a156f2cda8792e1bc173cd3d7d211dd2cf0dc92cd8a786cd1873bcc5a) |
-| 07:08:21 | s3_analyze | s3_resources | 50 | 0.005607 | [task-642c473a09db9b1b08fc9f65f36dff000b92664ec1b632f2cfdcf0f061fc](#task-642c473a09db9b1b08fc9f65f36dff000b92664ec1b632f2cfdcf0f061fc) |
-| 07:08:23 | s3_analyze | s3_ceca | 50 | 0.005799 | [task-5f74fe7f1b9e5910240fd1cae9baba4db2712518532e1640b96a9f5ac61d](#task-5f74fe7f1b9e5910240fd1cae9baba4db2712518532e1640b96a9f5ac61d) |
-| 07:08:24 | s3_analyze | s3_sufield | 50 | 0.002450 | [task-1b76d517e1bec52e218a3a83a505618c2e2cf9ddaeea1cf355225acef799](#task-1b76d517e1bec52e218a3a83a505618c2e2cf9ddaeea1cf355225acef799) |
-| 07:08:38 | s3_analyze | independent_verifier | 50 | 0.002880 | [task-e0fb50dd1d5d9adf01b1c245776047f193063366a1aeedc7894da26365af](#task-e0fb50dd1d5d9adf01b1c245776047f193063366a1aeedc7894da26365af) |
-| 07:08:48 | s3_analyze | s3_constraints | 50 | 0.005961 | [task-2a14edfec37abdf8af0637571bb6c651219733f5bfb28db7e0617e8042da](#task-2a14edfec37abdf8af0637571bb6c651219733f5bfb28db7e0617e8042da) |
-| 07:09:49 | s4_define | s4_ifr | 50 | 0.002899 | [task-4d1ac8442fa88186b887fe20c5e96706d023a37c13a911a8898c161bdbe6](#task-4d1ac8442fa88186b887fe20c5e96706d023a37c13a911a8898c161bdbe6) |
-| 07:09:51 | s4_define | s4_contradictions | 50 | 0.006366 | [task-6056abfac54f7354815838064327a60280048ffc0bd709858fe2f5050a7a](#task-6056abfac54f7354815838064327a60280048ffc0bd709858fe2f5050a7a) |
-| 07:09:52 | s4_define | s4_trimming | 50 | 0.003967 | [task-7975fed2633982643412789abe142fb93f8871392f2a615ff59a2fe26dbc](#task-7975fed2633982643412789abe142fb93f8871392f2a615ff59a2fe26dbc) |
-| 07:10:08 | s4_define | independent_verifier | 50 | 0.004642 | [task-5b545aa0bfee7f2701eda8dd6b383b5f92a17d807e87260ae6c6f69af75d](#task-5b545aa0bfee7f2701eda8dd6b383b5f92a17d807e87260ae6c6f69af75d) |
-| 07:10:21 | s4_define | s4_key_problem | 50 | 0.003386 | [task-c4fa39e362d672f440a677a22488b2fff9952e961d2064bd60a8153507ce](#task-c4fa39e362d672f440a677a22488b2fff9952e961d2064bd60a8153507ce) |
-| 07:11:16 | s5_solve | s5_ariz_p1 | 50 | 0.006753 | [task-e933a9eb570490fbf9ca36e6e9adec45b00ec0f392c02449b4ecf7b30265](#task-e933a9eb570490fbf9ca36e6e9adec45b00ec0f392c02449b4ecf7b30265) |
-| 07:11:17 | s5_solve | s5_track_a_select | 50 | 0.002308 | [task-66bf3a8cd3eb997b863358a2af7de5045644f3e9a994646f96661f64f8d9](#task-66bf3a8cd3eb997b863358a2af7de5045644f3e9a994646f96661f64f8d9) |
-| 07:11:19 | s5_solve | s5_track_b | 50 | 0.004593 | [task-3db597ee10bd97559977e992f5115063374692ab4a6d2eeacc28bea1399e](#task-3db597ee10bd97559977e992f5115063374692ab4a6d2eeacc28bea1399e) |
-| 07:11:27 | s5_solve | s5_track_a | 50 | 0.006283 | [task-4c134d293a392b94a7b115fead22c921143aa7dcaf458b6cd4ce0633694c](#task-4c134d293a392b94a7b115fead22c921143aa7dcaf458b6cd4ce0633694c) |
-| 07:11:37 | s5_solve | s5_track_b | 50 | 0.004547 | [task-dea0ca3df3616ac722f9f7da8e5fbbb4c2b4d0366fb6e6e811514226e008](#task-dea0ca3df3616ac722f9f7da8e5fbbb4c2b4d0366fb6e6e811514226e008) |
-| 07:11:38 | s5_solve | s5_ariz_p2 | 50 | 0.008450 | [task-552ec5c50d4bff94587a877c396ea63ff49794854937527413923215b043](#task-552ec5c50d4bff94587a877c396ea63ff49794854937527413923215b043) |
-| 07:11:48 | s5_solve | s5_track_a_select | 50 | 0.002259 | [task-128ac5fa11cc7b7100bdb4fca0ccbbb5b9ae058acbef057a0e63307fedd1](#task-128ac5fa11cc7b7100bdb4fca0ccbbb5b9ae058acbef057a0e63307fedd1) |
-| 07:11:55 | s5_solve | s5_track_a | 50 | 0.006104 | [task-0589e934d2a63a3c2d53936630cbbfbb33447f4ec9e7f63dcae4cb234ae3](#task-0589e934d2a63a3c2d53936630cbbfbb33447f4ec9e7f63dcae4cb234ae3) |
-| 07:12:00 | s5_solve | s5_ariz_p3 | 50 | 0.009143 | [task-dd7f3f5d9b630f1b0d80f6b7c328ec1c08e8782fb65c5d4fb10bf052e808](#task-dd7f3f5d9b630f1b0d80f6b7c328ec1c08e8782fb65c5d4fb10bf052e808) |
-| 07:12:13 | s5_solve | s5_track_a_select | 50 | 0.002282 | [task-472957fa9690997a5bacd07bcab4c5475b6a601c07389eb4bb4bbc1edc08](#task-472957fa9690997a5bacd07bcab4c5475b6a601c07389eb4bb4bbc1edc08) |
-| 07:12:19 | s5_solve | s5_track_a | 50 | 0.006026 | [task-5b8e3940bc5949ad5095673406f4fa43ec16e402d9f662b1d1383b70c14b](#task-5b8e3940bc5949ad5095673406f4fa43ec16e402d9f662b1d1383b70c14b) |
-| 07:12:22 | s5_solve | s5_ariz_p4 | 50 | 0.008759 | [task-6642720b84a12d6276d735777dd12f7f18f1260942af96a92ba54832292f](#task-6642720b84a12d6276d735777dd12f7f18f1260942af96a92ba54832292f) |
-| 07:12:50 | s5_solve | s5_ariz_p5 | 50 | 0.023206 | [task-76f575dbd21e58f2cf411666433e8d2160bef717c3ffde03c1c58a2d8da5](#task-76f575dbd21e58f2cf411666433e8d2160bef717c3ffde03c1c58a2d8da5) |
-| 07:13:46 | s5_solve | s5_ariz_p6 | 50 | 0.010834 | [task-5a4542ddfa3c99f434e4fc4e4cbe12fb37a628210249e7eda4987499eb97](#task-5a4542ddfa3c99f434e4fc4e4cbe12fb37a628210249e7eda4987499eb97) |
-| 07:13:55 | s5_solve | s5_ariz_p7 | 50 | 0.018422 | [task-d41b968ad2122b99d7e4ec29a85a2be72875a5f8a6fb78de92343963a97f](#task-d41b968ad2122b99d7e4ec29a85a2be72875a5f8a6fb78de92343963a97f) |
-| 07:14:56 | s5_solve | s5_track_f | 50 | 0.007113 | [task-cc7a74def5932b00e6a32472841762a86d290400682cd4c8bdb4f4ce815a](#task-cc7a74def5932b00e6a32472841762a86d290400682cd4c8bdb4f4ce815a) |
-| 07:14:58 | s5_solve | s5_track_e | 50 | 0.006908 | [task-ce6c19a0a5af121ff0c764a69a871ccea75552e85a42be719fe3ccc68ad7](#task-ce6c19a0a5af121ff0c764a69a871ccea75552e85a42be719fe3ccc68ad7) |
-| 07:14:59 | s5_solve | s5_track_c | 50 | 0.009089 | [task-a9795068db3766c716a3f7895fc1598426912edf3c0c8a968d419c8801b4](#task-a9795068db3766c716a3f7895fc1598426912edf3c0c8a968d419c8801b4) |
-| 07:15:19 | s5_solve | s5_track_c | 50 | 0.009985 | [task-88d966e551c05c00a46cdc3315ee9a731a95ea40440ebc436e675c36bc5a](#task-88d966e551c05c00a46cdc3315ee9a731a95ea40440ebc436e675c36bc5a) |
-| 07:15:53 | s5_solve | s5_track_g | 50 | 0.006812 | [task-253658de40cc089f0897bab8e8fbe5dfbdaaa2baea96bc0e59c6dbe12ecf](#task-253658de40cc089f0897bab8e8fbe5dfbdaaa2baea96bc0e59c6dbe12ecf) |
-| 07:15:55 | s5_solve | s5_track_h | 50 | 0.009272 | [task-3efae683570aefce12e9028eee5273c3b16f676780e8fbc6adb6ce80b73b](#task-3efae683570aefce12e9028eee5273c3b16f676780e8fbc6adb6ce80b73b) |
-| 07:16:17 | s5_solve | s5_merge | 50 | 0.056918 | [task-57c014744c45243421ba2326ede3594bbaa304b6baa20659bd1eca1b5813](#task-57c014744c45243421ba2326ede3594bbaa304b6baa20659bd1eca1b5813) |
-| 07:17:00 | s5_solve | s5_merge | 50 | 0.060189 | [task-3eb8754bc521e328a8c6913d0a1c38595a7c6044821a1c7c37f50aad61b2](#task-3eb8754bc521e328a8c6913d0a1c38595a7c6044821a1c7c37f50aad61b2) |
-| 07:19:02 | s6_concept | s6_concept | 50 | 0.020201 | [task-d41aa15a4e66825e47cfe54390cc964d26789c3b4d208de94f374b0d30a9](#task-d41aa15a4e66825e47cfe54390cc964d26789c3b4d208de94f374b0d30a9) |
-| 07:19:04 | s6_concept | s6_concept | 50 | 0.022386 | [task-6d08ad3e1053353d3b5068e0dcf408f4868ec7d885d036aeec9afc0529f5](#task-6d08ad3e1053353d3b5068e0dcf408f4868ec7d885d036aeec9afc0529f5) |
-| 07:19:09 | s6_concept | s6_concept | 50 | 0.015683 | [task-f8311a43cb6ee1e82c20d50ea74c242f555fd83798ece9ce9392b3220287](#task-f8311a43cb6ee1e82c20d50ea74c242f555fd83798ece9ce9392b3220287) |
-| 07:19:53 | s6_concept | independent_verifier | 50 | 0.007365 | [task-8a2532d98950f9638484d73cef2bf5dab9c05c53f2163731634b6e2dee80](#task-8a2532d98950f9638484d73cef2bf5dab9c05c53f2163731634b6e2dee80) |
-| 07:20:11 | s6_concept | independent_verifier | 50 | 0.007610 | [task-3c950090e87d8cb0d7de0005aff3b511c5aacdcdc963e8f5c45ab5be5269](#task-3c950090e87d8cb0d7de0005aff3b511c5aacdcdc963e8f5c45ab5be5269) |
-| 07:20:31 | s6_concept | independent_verifier | 50 | 0.005809 | [task-ecf38ecb9336d759930fe036aa3b4e5b2f377f2228b43b72b133e527d9b9](#task-ecf38ecb9336d759930fe036aa3b4e5b2f377f2228b43b72b133e527d9b9) |
-| 07:20:47 | s6_concept | independent_verifier | 50 | 0.015462 | [task-63370b1f5ef969c90c03309a474b0204a0ac30179f37a0257a79ebe2a7fc](#task-63370b1f5ef969c90c03309a474b0204a0ac30179f37a0257a79ebe2a7fc) |
-| 07:21:06 | s6_concept | independent_verifier | 50 | 0.004978 | [task-2f364a5baa91439f0ec5bbd04b3492d01f8ad98ed27684eab863575ac809](#task-2f364a5baa91439f0ec5bbd04b3492d01f8ad98ed27684eab863575ac809) |
-| 07:22:21 | s7_gate | ax_repair_gap-99452800a5dc788ae3d52b55_0 | 50 | 0.010012 | [task-70a11732d91b3bc0e0b9c3e0bac6b835379d6e2408daaa583902c4a028d0](#task-70a11732d91b3bc0e0b9c3e0bac6b835379d6e2408daaa583902c4a028d0) |
-| 07:22:41 | s7_gate | independent_verifier | 50 | 0.005958 | [task-a2cf5bbb1371956b017fbc718774d4ef68991c4a5d6260a10a2baa217ed4](#task-a2cf5bbb1371956b017fbc718774d4ef68991c4a5d6260a10a2baa217ed4) |
-| 07:23:05 | s7_gate | ax_repair_gap-99452800a5dc788ae3d52b55_1 | 50 | 0.010507 | [task-3b8023ac8a4d20f7b40bcbfd8e3064c81c2293bb7a7f5b9bd7c70218d029](#task-3b8023ac8a4d20f7b40bcbfd8e3064c81c2293bb7a7f5b9bd7c70218d029) |
-| 07:23:26 | s7_gate | independent_verifier | 50 | 0.005863 | [task-e63502bd28fa109c20599a250cd881261ab4a51e03a24cba183be33dab4b](#task-e63502bd28fa109c20599a250cd881261ab4a51e03a24cba183be33dab4b) |
-| 07:23:50 | s7_gate | ax_repair_gap-ee8407b02217eddd77e4bfbd_0 | 50 | 0.011715 | [task-ee76d0372c5d74a3e5af6b14a4e338129ec4a8139d3c1c3118059f7ec04f](#task-ee76d0372c5d74a3e5af6b14a4e338129ec4a8139d3c1c3118059f7ec04f) |
-| 07:24:17 | s7_gate | independent_verifier | 50 | 0.005893 | [task-4fc989e1ce4ad8d0e6e0276cf99d6b54eab65b46a1137ab066fe30d70728](#task-4fc989e1ce4ad8d0e6e0276cf99d6b54eab65b46a1137ab066fe30d70728) |
-| 07:24:42 | s7_gate | ax_repair_gap-ee8407b02217eddd77e4bfbd_1 | 50 | 0.011122 | [task-b4aa671f8e608ee1def07050f9fc0bcb37e8565cf1bd7d2887ede01c9c24](#task-b4aa671f8e608ee1def07050f9fc0bcb37e8565cf1bd7d2887ede01c9c24) |
-| 07:25:08 | s7_gate | independent_verifier | 50 | 0.006064 | [task-c7e54d3c09f7bb8e9e24c1a73fdc4d4b6d6404992fb450593d9bbb3038ce](#task-c7e54d3c09f7bb8e9e24c1a73fdc4d4b6d6404992fb450593d9bbb3038ce) |
-| 07:25:51 | s7_gate | s7_gate_2 | 50 | 0.002549 | [task-d0c9f4e8a3b02a95e0cd324719d47c53647280e61f5986ec42f713cc83a1](#task-d0c9f4e8a3b02a95e0cd324719d47c53647280e61f5986ec42f713cc83a1) |
-| 07:25:53 | s7_gate | s7_gate_3 | 50 | 0.002536 | [task-3fec767e46665e187b75cba93fed628cd07a7849f5adaf7578f9361f082b](#task-3fec767e46665e187b75cba93fed628cd07a7849f5adaf7578f9361f082b) |
-| 07:25:55 | s7_gate | s7_gate_1 | 50 | 0.002569 | [task-477d1ca6fe0dd50b967d7cbe9669a6237087bc262dd7eede39905fb874d8](#task-477d1ca6fe0dd50b967d7cbe9669a6237087bc262dd7eede39905fb874d8) |
-| 07:25:59 | s7_gate | s7_gate_4 | 50 | 0.002574 | [task-7f4e975641627d17c1ce061d2e999f1c89b29be87d8524096f89503fc848](#task-7f4e975641627d17c1ce061d2e999f1c89b29be87d8524096f89503fc848) |
-| 07:26:05 | s7_gate | s7_gate_6 | 50 | 0.002417 | [task-3d9a7d1d22607343d4b5665d344161df4441f37de4e619bac7ef33525ca8](#task-3d9a7d1d22607343d4b5665d344161df4441f37de4e619bac7ef33525ca8) |
-| 07:26:07 | s7_gate | s7_gate_5 | 50 | 0.002320 | [task-530f6a73b36be73f59ac91489ba3addc1bee4b10c9ec1dc7a51c4f182131](#task-530f6a73b36be73f59ac91489ba3addc1bee4b10c9ec1dc7a51c4f182131) |
-| 07:26:09 | s7_gate | s7_gate_7 | 50 | 0.002539 | [task-f3f92213dab12ac080a2966ae7282644283e5a61b238bf495531cc3a9c7e](#task-f3f92213dab12ac080a2966ae7282644283e5a61b238bf495531cc3a9c7e) |
-| 07:26:14 | s7_gate | s7_gate_8 | 50 | 0.002446 | [task-c10cdda7afba6ebe8ba56a4b3a8f3b2f64e0fab93123588b59925431732f](#task-c10cdda7afba6ebe8ba56a4b3a8f3b2f64e0fab93123588b59925431732f) |
-| 07:26:19 | s7_gate | s7_gate_9 | 50 | 0.002623 | [task-3769af4f88fa2a2ebb6f0e0d057421612b6a58b2ff8a433e81db1574e2fa](#task-3769af4f88fa2a2ebb6f0e0d057421612b6a58b2ff8a433e81db1574e2fa) |
-| 07:26:21 | s7_gate | s7_gate_10 | 50 | 0.002506 | [task-9993c2eab5b616d4af7d3d4d9edb66f64dc6b1fea5bbaf5653e9a6d96273](#task-9993c2eab5b616d4af7d3d4d9edb66f64dc6b1fea5bbaf5653e9a6d96273) |
-| 07:33:06 | s8_references | ax_repair_gap-80693d8f5a5d25a6d2dfa098_0 | 51 | 0.009660 | [task-114324c26650cc9b52f6f2c20d25b68c2521a45215892e253675c4449c72](#task-114324c26650cc9b52f6f2c20d25b68c2521a45215892e253675c4449c72) |
-| 07:33:28 | s8_references | independent_verifier | 51 | 0.005726 | [task-3069b26b62950edee3df9cde3f392bb4d253f58c31baac8e9b7ccaa1a12b](#task-3069b26b62950edee3df9cde3f392bb4d253f58c31baac8e9b7ccaa1a12b) |
-| 07:33:51 | s8_references | ax_repair_gap-80693d8f5a5d25a6d2dfa098_1 | 51 | 0.010291 | [task-68b62b4ad66c385c1bb2e4a209ad1bf9278c748363ea12b0e004adc7b599](#task-68b62b4ad66c385c1bb2e4a209ad1bf9278c748363ea12b0e004adc7b599) |
-| 07:34:12 | s8_references | independent_verifier | 51 | 0.005578 | [task-8035a77dba796710c70dc826ef206962aa9f89404a0dccbd813fcd4bd025](#task-8035a77dba796710c70dc826ef206962aa9f89404a0dccbd813fcd4bd025) |
-| 07:34:32 | s8_references | ax_repair_gap-23e4763bd7081652230dfb23_0 | 51 | 0.010274 | [task-ef02375de8a814b72f3e968fc03afda4041bd5aca605a0c87c4e93c7ed64](#task-ef02375de8a814b72f3e968fc03afda4041bd5aca605a0c87c4e93c7ed64) |
-| 07:34:56 | s8_references | independent_verifier | 51 | 0.006041 | [task-ee690678e6f481d67c54da3d09ba28907b22ad79ad9b1bc2b2ae7049fd56](#task-ee690678e6f481d67c54da3d09ba28907b22ad79ad9b1bc2b2ae7049fd56) |
-| 07:35:19 | s8_references | ax_repair_gap-23e4763bd7081652230dfb23_1 | 51 | 0.009956 | [task-170199d152ea86431bce5a808900d1466c7aadd1a4270d00e9a44d5514a7](#task-170199d152ea86431bce5a808900d1466c7aadd1a4270d00e9a44d5514a7) |
-| 07:35:40 | s8_references | independent_verifier | 51 | 0.005596 | [task-babe01a3a7bf779560aa99c50593ddbf7822e2104037004564cb5f7bfbf3](#task-babe01a3a7bf779560aa99c50593ddbf7822e2104037004564cb5f7bfbf3) |
-| 07:36:44 | s8_references | s9_evidence_match_0 | 51 | 0.006628 | [task-9588b53beb283878569d1b41c9b58103c3fea71cc7a9ff74e36d95753eb1](#task-9588b53beb283878569d1b41c9b58103c3fea71cc7a9ff74e36d95753eb1) |
-| 07:37:02 | s8_references | s9_evidence_match_1 | 51 | 0.008446 | [task-8d4b6a1414780bbc099250152d5fe47744965a0e8c68690161827d6197bd](#task-8d4b6a1414780bbc099250152d5fe47744965a0e8c68690161827d6197bd) |
-| 07:37:25 | s8_references | s9_evidence_match_2 | 51 | 0.005675 | [task-3ddb3323d4eed7834b36cb9000a4b295d59770f7dc3ab45a52fdbf8d71b0](#task-3ddb3323d4eed7834b36cb9000a4b295d59770f7dc3ab45a52fdbf8d71b0) |
-| 07:38:30 | s8_evaluate | s8_persona_factory | 51 | 0.003135 | [task-60b076cda4fb165527d2ca6ecc3719151175cf51e0d1316b8b55bb7abc02](#task-60b076cda4fb165527d2ca6ecc3719151175cf51e0d1316b8b55bb7abc02) |
-| 07:38:48 | s8_evaluate | s8_review_independent | 51 | 0.009213 | [task-90ec03aeab083318be188ef6c4dbe4da525e316b3305a073246aa4a3aa77](#task-90ec03aeab083318be188ef6c4dbe4da525e316b3305a073246aa4a3aa77) |
-| 07:38:50 | s8_evaluate | s8_review_independent | 51 | 0.007672 | [task-6be2ff6c8c012d06244e96fa00dbb24b3ed175859f601ba755d190606029](#task-6be2ff6c8c012d06244e96fa00dbb24b3ed175859f601ba755d190606029) |
-| 07:38:51 | s8_evaluate | s8_review_independent | 51 | 0.009519 | [task-0360d9d8627211ae448947210d06b960afcc916080fab30defc27bc3cd73](#task-0360d9d8627211ae448947210d06b960afcc916080fab30defc27bc3cd73) |
-| 07:38:53 | s8_evaluate | s8_review_independent | 51 | 0.008968 | [task-0cac8021a30fbb4e2ffcb7a06a56c7d5c5b8fc6984fe2da78dfdb8513e9d](#task-0cac8021a30fbb4e2ffcb7a06a56c7d5c5b8fc6984fe2da78dfdb8513e9d) |
-| 07:39:03 | s8_evaluate | s8_review_independent | 51 | 0.010404 | [task-2f2b41f7004ff791b699fa3657a9f6b3d2e4a5c6221a554c177977d2cc11](#task-2f2b41f7004ff791b699fa3657a9f6b3d2e4a5c6221a554c177977d2cc11) |
-| 07:39:18 | s8_evaluate | s8_review_independent | 51 | 0.006918 | [task-e478273cebae3b9df5cd11f8ba9758859fa712d47925c2b0c09b1f12dfe4](#task-e478273cebae3b9df5cd11f8ba9758859fa712d47925c2b0c09b1f12dfe4) |
-| 07:39:35 | s8_evaluate | s8_review_independent | 51 | 0.006716 | [task-7b44bb5c3dc140574491623249c5e9e408fd5dcccaa0c859a037608b0685](#task-7b44bb5c3dc140574491623249c5e9e408fd5dcccaa0c859a037608b0685) |
-| 07:39:43 | s8_evaluate | s8_review_independent | 51 | 0.006915 | [task-b358b5f85fe57f1bf8a64783575fb3cd2797705c7e6090d565f5e72029fa](#task-b358b5f85fe57f1bf8a64783575fb3cd2797705c7e6090d565f5e72029fa) |
-| 07:39:44 | s8_evaluate | s8_review_independent | 51 | 0.006693 | [task-6f1ff00d9f8425546c7672ef6cea68d7af4f6e87515afd3932830125c2e9](#task-6f1ff00d9f8425546c7672ef6cea68d7af4f6e87515afd3932830125c2e9) |
-| 07:40:02 | s8_evaluate | s8_review_independent | 51 | 0.007895 | [task-22edd920ad0f0b85efac83e141b8ef08be0df630c3ddf2bf56d1ca0de233](#task-22edd920ad0f0b85efac83e141b8ef08be0df630c3ddf2bf56d1ca0de233) |
-| 07:40:11 | s8_evaluate | s8_review_independent | 51 | 0.009220 | [task-7b3fc1500d8ae73a9c97ab1f2e99a22fd55d4dbdff0a3d8d0501b678bee3](#task-7b3fc1500d8ae73a9c97ab1f2e99a22fd55d4dbdff0a3d8d0501b678bee3) |
-| 07:41:00 | s8_evaluate | s8_review_independent | 51 | 0.006792 | [task-54da606d114c321a6ffe9b50fc3816fa10e95a60fcfeb24eb43cafe13a06](#task-54da606d114c321a6ffe9b50fc3816fa10e95a60fcfeb24eb43cafe13a06) |
-| 07:41:05 | s8_evaluate | s8_review_independent | 51 | 0.006929 | [task-2fc5bdc35bdfa896c389263cee2c4e33563f24a34225ccb0249a8f85ad7a](#task-2fc5bdc35bdfa896c389263cee2c4e33563f24a34225ccb0249a8f85ad7a) |
-| 07:41:57 | s8_evaluate | s8_rank | 51 | 0.005780 | [task-d1e1ed932b3564524450d1f414bb1284d42cbcaa2e5b3c2c5d71520faee7](#task-d1e1ed932b3564524450d1f414bb1284d42cbcaa2e5b3c2c5d71520faee7) |
-| 07:58:08 | s10_feedback | s10_distill | 52 | 0.004032 | [task-acfd96c9fdfe81af87a0bf528edb501ce874067a2e1532ac50935046125e](#task-acfd96c9fdfe81af87a0bf528edb501ce874067a2e1532ac50935046125e) |
-
-<a id="task-4140d22333b0e1515d19ec22bfaef06ac66c89c905e33119c664cbdaeeb2"></a>
-
-<details>
-<summary>s0_deep_dive · task-4140d22333b0e1515d19ec22bfaef06ac66c89c905e33119c664cbdaeeb2</summary>
-
-```json
-{
-  "task_id": "task-4140d22333b0e1515d19ec22bfaef06ac66c89c905e33119c664cbdaeeb2",
-  "epoch": 47,
-  "input_snapshot": "snap-e6e662cc4e1a4696b2e92a1ecd6ecab0",
-  "input_hash": "116c5015fd9552da61bbb7ed92c9b6132b77d3ee01db1638304efe1a0258aa66",
-  "status": "COMPLETED",
-  "reserve": 92949,
-  "actual": 3326,
-  "created_at": "2026-09-29T21:47:22.907249+00:00",
-  "settled_at": "2026-09-29T21:47:32.299658+00:00",
-  "node": "s0_deep_dive",
-  "request_fingerprint": {
-    "sha256": "83e0ae3560e646b8d40890eaa595644970a45641bb4d7d92490591960d61cfd5",
-    "utf8_bytes": 11771
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 3424,
-    "tokens_out": 1915,
-    "cost_usd": 0.0033252000000000004,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "d9f68d0ede88338bc7ea68fb100749d34f728c0bee3fe6c001858b5a2f908305",
-        "utf8_bytes": 11419
-      },
-      "response_fingerprint": {
-        "sha256": "5f602631f8783a1f23782a44a1eeb60276efe27b88d5d02e0ac834778e58c00f",
-        "utf8_bytes": 6354
-      },
-      "usage": {
-        "completion_tokens": 1915,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2304,
-        "prompt_cache_miss_tokens": 1120,
-        "prompt_tokens": 3424,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2304,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5339
-      },
-      "finish_reason": "stop",
-      "elapsed": 9.050902843475342
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-31309ea4a9bfa0c8e76281afab271b67a35ba8e2e89d7220c8f54a5531e8"></a>
-
-<details>
-<summary>s0_deep_dive · task-31309ea4a9bfa0c8e76281afab271b67a35ba8e2e89d7220c8f54a5531e8</summary>
-
-```json
-{
-  "task_id": "task-31309ea4a9bfa0c8e76281afab271b67a35ba8e2e89d7220c8f54a5531e8",
-  "epoch": 48,
-  "input_snapshot": "snap-77d1bbb8d3374e44aab6472310bb4c65",
-  "input_hash": "b1180dbe227fa6a2f760494e150f1eb3d57c3ba2a845766030a89cd02c21c699",
-  "status": "COMPLETED",
-  "reserve": 93759,
-  "actual": 3407,
-  "created_at": "2026-09-29T21:49:49.899868+00:00",
-  "settled_at": "2026-09-29T21:49:58.755810+00:00",
-  "node": "s0_deep_dive",
-  "request_fingerprint": {
-    "sha256": "ad93a99c66211f57ee4915c08c1e5eb9161a177deeaabd0c753a96e916384d36",
-    "utf8_bytes": 13180
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 3827,
-    "tokens_out": 1882,
-    "cost_usd": 0.0034065,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "fcbb71f30d5bdb52671fab4261784ec7f95fe4199e3eafadcfd9f8b775dc26eb",
-        "utf8_bytes": 12828
-      },
-      "response_fingerprint": {
-        "sha256": "d9494f37f32cd7238b727725bc733e5e0ff57de38021550bd9184f6f091b1948",
-        "utf8_bytes": 6126
-      },
-      "usage": {
-        "completion_tokens": 1882,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2560,
-        "prompt_cache_miss_tokens": 1267,
-        "prompt_tokens": 3827,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2560,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5709
-      },
-      "finish_reason": "stop",
-      "elapsed": 8.779016971588135
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-454b48aac14d282a3bce3fc190441fb56eea1366db554daf7c2eaec11a7a"></a>
-
-<details>
-<summary>s1_extract · task-454b48aac14d282a3bce3fc190441fb56eea1366db554daf7c2eaec11a7a</summary>
-
-```json
-{
-  "task_id": "task-454b48aac14d282a3bce3fc190441fb56eea1366db554daf7c2eaec11a7a",
-  "epoch": 48,
-  "input_snapshot": "snap-637dd636b5614fdb9b0958244b6bb1ae",
-  "input_hash": "6e0a3017998cf1abaa11cb9be4c8170af55b4f847a1114d63fb4a584ddbedf1f",
-  "status": "COMPLETED",
-  "reserve": 62249,
-  "actual": 6371,
-  "created_at": "2026-09-29T21:50:47.599660+00:00",
-  "settled_at": "2026-09-29T21:50:58.529738+00:00",
-  "node": "s1_extract",
-  "request_fingerprint": {
-    "sha256": "dadfba25a08821925d61e0ea1add1cae09d52ed8009d2945fba68692f01322c5",
-    "utf8_bytes": 25027
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T1",
-    "model": "deepseek-flash",
-    "tokens_in": 7328,
-    "tokens_out": 3477,
-    "cost_usd": 0.006370799999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "3efc6b93196552a763620447ba7827161509aa226742f9e8a12dccef076c9d44",
-        "utf8_bytes": 24676
-      },
-      "response_fingerprint": {
-        "sha256": "e5ec34431e68b4ea996902c1738ac56f52146d72e78d28330eed8a6a90d00633",
-        "utf8_bytes": 11799
-      },
-      "usage": {
-        "completion_tokens": 3477,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2304,
-        "prompt_cache_miss_tokens": 5024,
-        "prompt_tokens": 7328,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2304,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 10805
-      },
-      "finish_reason": "stop",
-      "elapsed": 10.820557832717896
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-83a37ccdeb1c5e04bef657c80f426364dba6e3f3e3a6531d7d2f53705067"></a>
-
-<details>
-<summary>s1_clarify · task-83a37ccdeb1c5e04bef657c80f426364dba6e3f3e3a6531d7d2f53705067</summary>
-
-```json
-{
-  "task_id": "task-83a37ccdeb1c5e04bef657c80f426364dba6e3f3e3a6531d7d2f53705067",
-  "epoch": 48,
-  "input_snapshot": "snap-637dd636b5614fdb9b0958244b6bb1ae",
-  "input_hash": "012088a526ce21aa39a98adbf02e647dc21b57d123b268359d287b41eb623700",
-  "status": "COMPLETED",
-  "reserve": 59526,
-  "actual": 2294,
-  "created_at": "2026-09-29T21:51:11.537903+00:00",
-  "settled_at": "2026-09-29T21:51:13.857874+00:00",
-  "node": "s1_clarify",
-  "request_fingerprint": {
-    "sha256": "41150d3f58ce82bb2ddf50c949246ed2f968317dda9a2468fa914bfcecc30084",
-    "utf8_bytes": 20354
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T1",
-    "model": "deepseek-flash",
-    "tokens_in": 6006,
-    "tokens_out": 410,
-    "cost_usd": 0.0022938,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "9c24624cd2719221df039ae053c1556d66c5a26e8ef12215cdd32f0ba2fdd61e",
-        "utf8_bytes": 20004
-      },
-      "response_fingerprint": {
-        "sha256": "6ef95dad377c7758fda5994582ee3355c7cd8ed5b88d0887e6aa5335514a78c4",
-        "utf8_bytes": 1427
-      },
-      "usage": {
-        "completion_tokens": 410,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 256,
-        "prompt_cache_miss_tokens": 5750,
-        "prompt_tokens": 6006,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 256,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 6416
-      },
-      "finish_reason": "stop",
-      "elapsed": 2.246677875518799
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-227da7c56e3c5aa2abb5e3824a23bc662fdca5c66998f55afd8f24ce11c7"></a>
-
-<details>
-<summary>s1_extract · task-227da7c56e3c5aa2abb5e3824a23bc662fdca5c66998f55afd8f24ce11c7</summary>
-
-```json
-{
-  "task_id": "task-227da7c56e3c5aa2abb5e3824a23bc662fdca5c66998f55afd8f24ce11c7",
-  "epoch": 49,
-  "input_snapshot": "snap-057b74df690c4957b6613656b36fcf38",
-  "input_hash": "9cd7b1d2817bc28a468bc9235d28cd4b5e18f9f27d36be547232f13e10f35e91",
-  "status": "COMPLETED",
-  "reserve": 61270,
-  "actual": 6206,
-  "created_at": "2026-09-29T21:52:58.221945+00:00",
-  "settled_at": "2026-09-29T21:53:09.110461+00:00",
-  "node": "s1_extract",
-  "request_fingerprint": {
-    "sha256": "3623e7b3c20df997bc49327aa50e97dacf496435015d98d3e8badf2625a9c3db",
-    "utf8_bytes": 23394
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T1",
-    "model": "deepseek-flash",
-    "tokens_in": 6850,
-    "tokens_out": 3459,
-    "cost_usd": 0.006205799999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "b59d06f43ade1ee08fa7d941f5074a86f329eb29f37e12c45481273aa6b64291",
-        "utf8_bytes": 23043
-      },
-      "response_fingerprint": {
-        "sha256": "6edf77c03248d7f1612fa681333c1477861a5dc98ceab45629391d8cc9c8d6aa",
-        "utf8_bytes": 11750
-      },
-      "usage": {
-        "completion_tokens": 3459,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 1664,
-        "prompt_cache_miss_tokens": 5186,
-        "prompt_tokens": 6850,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 1664,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 10309
-      },
-      "finish_reason": "stop",
-      "elapsed": 10.759281635284424
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-55eb7897cf866e0418ecd9216e18ba3ba5256827bc1d057a66356a0940d1"></a>
-
-<details>
-<summary>s2_candidates · task-55eb7897cf866e0418ecd9216e18ba3ba5256827bc1d057a66356a0940d1</summary>
-
-```json
-{
-  "task_id": "task-55eb7897cf866e0418ecd9216e18ba3ba5256827bc1d057a66356a0940d1",
-  "epoch": 49,
-  "input_snapshot": "snap-530bf632a2824745af2db86e237c95df",
-  "input_hash": "e4f553d6ba7f36038a65efdb99b4fe1b5879a768a1e93c3fe23e7be6fb2540d7",
-  "status": "COMPLETED",
-  "reserve": 96150,
-  "actual": 3377,
-  "created_at": "2026-09-29T21:53:58.050586+00:00",
-  "settled_at": "2026-09-29T21:54:04.535734+00:00",
-  "node": "s2_candidates",
-  "request_fingerprint": {
-    "sha256": "67485fb2aa748af51e1309a91fb595bce55cf6e6621472f2bc17049102c20614",
-    "utf8_bytes": 17428
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 5112,
-    "tokens_out": 1536,
-    "cost_usd": 0.0033768,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "daa62593cc067a58ac1218d19ae499fd6318d786fd9aa1162b43f2be8ea09db8",
-        "utf8_bytes": 17075
-      },
-      "response_fingerprint": {
-        "sha256": "92f3e67808061dd55e5688226c01fd848985c172571e88865a4bf63ea152ca49",
-        "utf8_bytes": 4749
-      },
-      "usage": {
-        "completion_tokens": 1536,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 256,
-        "prompt_cache_miss_tokens": 4856,
-        "prompt_tokens": 5112,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 256,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 6648
-      },
-      "finish_reason": "stop",
-      "elapsed": 6.415265083312988
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-07087684b93d7e4dc4fed09b9a9790427b9b9a4f31ebbff06c61d6a06761"></a>
-
-<details>
-<summary>s3_nine_windows · task-07087684b93d7e4dc4fed09b9a9790427b9b9a4f31ebbff06c61d6a06761</summary>
-
-```json
-{
-  "task_id": "task-07087684b93d7e4dc4fed09b9a9790427b9b9a4f31ebbff06c61d6a06761",
-  "epoch": 50,
-  "input_snapshot": "snap-48dde9a56a904700ba6518af3610184a",
-  "input_hash": "5769b7445fd12122ad356e93b0df190ff6e171791ddf1d5243d7fcfaf01c107a",
-  "status": "COMPLETED",
-  "reserve": 97397,
-  "actual": 3713,
-  "created_at": "2026-09-29T22:07:35.634910+00:00",
-  "settled_at": "2026-09-29T22:07:44.621892+00:00",
-  "node": "s3_nine_windows",
-  "request_fingerprint": {
-    "sha256": "890240367375f427f6a8996aee31df67d4128144c17ae49414c3ea632cb12ad4",
-    "utf8_bytes": 19460
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 5740,
-    "tokens_out": 1659,
-    "cost_usd": 0.0037128,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "c441eef10955a7fc8a2bb53ec3f16ee5d9daa5ab0d315120e1f6f9a6bd4633e3",
-        "utf8_bytes": 19105
-      },
-      "response_fingerprint": {
-        "sha256": "6df34a229ab0a900240bbd09bc0a5d2cfc4672b2566065eecbb05886b5f555e9",
-        "utf8_bytes": 5506
-      },
-      "usage": {
-        "completion_tokens": 1659,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 1664,
-        "prompt_cache_miss_tokens": 4076,
-        "prompt_tokens": 5740,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 1664,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 7399
-      },
-      "finish_reason": "stop",
-      "elapsed": 8.909832000732422
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-1ca99fc15ecb6941c30d06eb7a776c61b1fed4719b22e1a0690bef73da6f"></a>
-
-<details>
-<summary>s3_function_model · task-1ca99fc15ecb6941c30d06eb7a776c61b1fed4719b22e1a0690bef73da6f</summary>
-
-```json
-{
-  "task_id": "task-1ca99fc15ecb6941c30d06eb7a776c61b1fed4719b22e1a0690bef73da6f",
-  "epoch": 50,
-  "input_snapshot": "snap-48dde9a56a904700ba6518af3610184a",
-  "input_hash": "48b34801bc1761fd51b1cb8121a4faf8e0f27eb5060bc2b24c8e749bd3a66ac2",
-  "status": "COMPLETED",
-  "reserve": 100721,
-  "actual": 5999,
-  "created_at": "2026-09-29T22:07:50.540357+00:00",
-  "settled_at": "2026-09-29T22:08:02.896118+00:00",
-  "node": "s3_function_model",
-  "request_fingerprint": {
-    "sha256": "5aaeaaf49500ece9cd58a6fb2e47e309b069b0dfd5a26625ce8df5d88f8a1d4d",
-    "utf8_bytes": 25178
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7414,
-    "tokens_out": 3145,
-    "cost_usd": 0.0059981999999999995,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "ca7936c1d5fbc236af705b1c403b08184c10c37d071aa9ce4f6bd390466455de",
-        "utf8_bytes": 24821
-      },
-      "response_fingerprint": {
-        "sha256": "029873e2d2d488d05bfb36586ccb18a1957ceaec119104b111592f605f9e331d",
-        "utf8_bytes": 9855
-      },
-      "usage": {
-        "completion_tokens": 3145,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 1664,
-        "prompt_cache_miss_tokens": 5750,
-        "prompt_tokens": 7414,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 1664,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 10559
-      },
-      "finish_reason": "stop",
-      "elapsed": 12.267897129058838
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3e3a156f2cda8792e1bc173cd3d7d211dd2cf0dc92cd8a786cd1873bcc5a"></a>
-
-<details>
-<summary>independent_verifier · task-3e3a156f2cda8792e1bc173cd3d7d211dd2cf0dc92cd8a786cd1873bcc5a</summary>
-
-```json
-{
-  "task_id": "task-3e3a156f2cda8792e1bc173cd3d7d211dd2cf0dc92cd8a786cd1873bcc5a",
-  "epoch": 50,
-  "input_snapshot": "snap-48dde9a56a904700ba6518af3610184a",
-  "input_hash": "0ebe706992d6efe7c729c90ac8d80729e846376f47df52a4157432d209acea13",
-  "status": "COMPLETED",
-  "reserve": 41435,
-  "actual": 3168,
-  "created_at": "2026-09-29T22:08:06.274210+00:00",
-  "settled_at": "2026-09-29T22:08:10.759750+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "0495e98f239c68fd89e828a616d75d0f4a75e680c51417bac60a3d62a1823ab9",
-    "utf8_bytes": 23027
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 6835,
-    "tokens_out": 931,
-    "cost_usd": 0.0031677,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "b11b92707aff6d39174769ae28208eeb367e1907575dc501f37c7e7203a7cd0e",
-        "utf8_bytes": 22667
-      },
-      "response_fingerprint": {
-        "sha256": "b75a6d08480fbea462c1eb76744490bf7f7fb926da4bdd73c1a8753e9d43cfca",
-        "utf8_bytes": 2959
-      },
-      "usage": {
-        "completion_tokens": 931,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 6835,
-        "prompt_tokens": 6835,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 7766
-      },
-      "finish_reason": "stop",
-      "elapsed": 4.404851675033569
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-642c473a09db9b1b08fc9f65f36dff000b92664ec1b632f2cfdcf0f061fc"></a>
-
-<details>
-<summary>s3_resources · task-642c473a09db9b1b08fc9f65f36dff000b92664ec1b632f2cfdcf0f061fc</summary>
-
-```json
-{
-  "task_id": "task-642c473a09db9b1b08fc9f65f36dff000b92664ec1b632f2cfdcf0f061fc",
-  "epoch": 50,
-  "input_snapshot": "snap-48dde9a56a904700ba6518af3610184a",
-  "input_hash": "57b2150a043af770c8156cfafb45c7320ac384401ae91e72e68e9c6f524112bd",
-  "status": "COMPLETED",
-  "reserve": 99469,
-  "actual": 5607,
-  "created_at": "2026-09-29T22:08:21.894349+00:00",
-  "settled_at": "2026-09-29T22:08:35.192844+00:00",
-  "node": "s3_resources",
-  "request_fingerprint": {
-    "sha256": "bbb66e1290d8ceb9f1f4ae9721263783c492366f762fa7480742813d0f997d12",
-    "utf8_bytes": 22959
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 6771,
-    "tokens_out": 2979,
-    "cost_usd": 0.005606099999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "b2b660c074f05fe36816d1ba593898b21971a15fc755279d93ae72577ac3b147",
-        "utf8_bytes": 22607
-      },
-      "response_fingerprint": {
-        "sha256": "69a35cdec68bac0437f0329e39fda658225d9d1968f8176963c61e82cddaaeef",
-        "utf8_bytes": 10227
-      },
-      "usage": {
-        "completion_tokens": 2979,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 1664,
-        "prompt_cache_miss_tokens": 5107,
-        "prompt_tokens": 6771,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 1664,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 9750
-      },
-      "finish_reason": "stop",
-      "elapsed": 13.215503454208374
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-5f74fe7f1b9e5910240fd1cae9baba4db2712518532e1640b96a9f5ac61d"></a>
-
-<details>
-<summary>s3_ceca · task-5f74fe7f1b9e5910240fd1cae9baba4db2712518532e1640b96a9f5ac61d</summary>
-
-```json
-{
-  "task_id": "task-5f74fe7f1b9e5910240fd1cae9baba4db2712518532e1640b96a9f5ac61d",
-  "epoch": 50,
-  "input_snapshot": "snap-48dde9a56a904700ba6518af3610184a",
-  "input_hash": "ab6b467912145e570ae85bb76c87774a0e7d80b9fd4c0e8b3ea51dc0d006722e",
-  "status": "COMPLETED",
-  "reserve": 100055,
-  "actual": 5799,
-  "created_at": "2026-09-29T22:08:23.446660+00:00",
-  "settled_at": "2026-09-29T22:08:35.575513+00:00",
-  "node": "s3_ceca",
-  "request_fingerprint": {
-    "sha256": "731cc018e8a8c86d47327a5956aae9340655f6d4c1cbeecc70e468f9352a4534",
-    "utf8_bytes": 23972
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7131,
-    "tokens_out": 3049,
-    "cost_usd": 0.0057981,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "06239f1d78f24b5b962f4934db61cd5da59c113990d3b322a14d7ae3056b648c",
-        "utf8_bytes": 23624
-      },
-      "response_fingerprint": {
-        "sha256": "e28ccbce14aed7cb7451a6cccf0768074b0c69f7a4f7c89de148808e726d6237",
-        "utf8_bytes": 9258
-      },
-      "usage": {
-        "completion_tokens": 3049,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 1664,
-        "prompt_cache_miss_tokens": 5467,
-        "prompt_tokens": 7131,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 1664,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 10180
-      },
-      "finish_reason": "stop",
-      "elapsed": 12.042414665222168
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-1b76d517e1bec52e218a3a83a505618c2e2cf9ddaeea1cf355225acef799"></a>
-
-<details>
-<summary>s3_sufield · task-1b76d517e1bec52e218a3a83a505618c2e2cf9ddaeea1cf355225acef799</summary>
-
-```json
-{
-  "task_id": "task-1b76d517e1bec52e218a3a83a505618c2e2cf9ddaeea1cf355225acef799",
-  "epoch": 50,
-  "input_snapshot": "snap-48dde9a56a904700ba6518af3610184a",
-  "input_hash": "cfc6d0e82fe50be15b30de52f62ce763a55a78f7d5edafe31d37f9f6a5752a29",
-  "status": "COMPLETED",
-  "reserve": 99589,
-  "actual": 2450,
-  "created_at": "2026-09-29T22:08:24.979974+00:00",
-  "settled_at": "2026-09-29T22:08:26.583459+00:00",
-  "node": "s3_sufield",
-  "request_fingerprint": {
-    "sha256": "da44c61d1455de4ac0b3f257968387416f98b228bba602e93eeced6c161d7ccf",
-    "utf8_bytes": 23157
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 6940,
-    "tokens_out": 306,
-    "cost_usd": 0.0024492,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "160e513a5831bea96c06f768a5edde519e403ad35d6e38a73b755da83a6c6c1c",
-        "utf8_bytes": 22807
-      },
-      "response_fingerprint": {
-        "sha256": "a419f727b2dcb33e26e9347a401d6cad617294e98da7e18415ea54419d4d2453",
-        "utf8_bytes": 924
-      },
-      "usage": {
-        "completion_tokens": 306,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 1664,
-        "prompt_cache_miss_tokens": 5276,
-        "prompt_tokens": 6940,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 1664,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 7246
-      },
-      "finish_reason": "stop",
-      "elapsed": 1.5153698921203613
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-e0fb50dd1d5d9adf01b1c245776047f193063366a1aeedc7894da26365af"></a>
-
-<details>
-<summary>independent_verifier · task-e0fb50dd1d5d9adf01b1c245776047f193063366a1aeedc7894da26365af</summary>
-
-```json
-{
-  "task_id": "task-e0fb50dd1d5d9adf01b1c245776047f193063366a1aeedc7894da26365af",
-  "epoch": 50,
-  "input_snapshot": "snap-48dde9a56a904700ba6518af3610184a",
-  "input_hash": "5b79dff4f690abd4b73e5a08aab8988df39ddde73dd850ca578972d71bd629e5",
-  "status": "COMPLETED",
-  "reserve": 40550,
-  "actual": 2880,
-  "created_at": "2026-09-29T22:08:38.757985+00:00",
-  "settled_at": "2026-09-29T22:08:42.889252+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "0be816e5efd872fb4b481181c08ba33d577b1a9b035a747227261f63412feda4",
-    "utf8_bytes": 20921
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 6489,
-    "tokens_out": 777,
-    "cost_usd": 0.0028791,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "2d071a993a5552446cec5b091d0d22c31e5e87467daef4ba9f7141d33a092a78",
-        "utf8_bytes": 20561
-      },
-      "response_fingerprint": {
-        "sha256": "ff98fbd118e780dfecf113bfb82d2f6ba3069371b2640b0ed05a87711410b901",
-        "utf8_bytes": 2261
-      },
-      "usage": {
-        "completion_tokens": 777,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 6489,
-        "prompt_tokens": 6489,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 7266
-      },
-      "finish_reason": "stop",
-      "elapsed": 4.005887269973755
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-2a14edfec37abdf8af0637571bb6c651219733f5bfb28db7e0617e8042da"></a>
-
-<details>
-<summary>s3_constraints · task-2a14edfec37abdf8af0637571bb6c651219733f5bfb28db7e0617e8042da</summary>
-
-```json
-{
-  "task_id": "task-2a14edfec37abdf8af0637571bb6c651219733f5bfb28db7e0617e8042da",
-  "epoch": 50,
-  "input_snapshot": "snap-48dde9a56a904700ba6518af3610184a",
-  "input_hash": "b3acfad09586112b5dba3c16f0bf24cb17b1838433067d4123e867077b711a30",
-  "status": "COMPLETED",
-  "reserve": 102827,
-  "actual": 5961,
-  "created_at": "2026-09-29T22:08:48.143884+00:00",
-  "settled_at": "2026-09-29T22:08:58.053478+00:00",
-  "node": "s3_constraints",
-  "request_fingerprint": {
-    "sha256": "06f10549a65497637499a8b4f89dc4d0abdb0a7ca2ef0eb6f823839ffde6a745",
-    "utf8_bytes": 28649
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 8517,
-    "tokens_out": 2838,
-    "cost_usd": 0.005960699999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "c496dedf5a1de5cb8b50b214480c5674205a00e380ccb7027547991b985f3fc6",
-        "utf8_bytes": 28295
-      },
-      "response_fingerprint": {
-        "sha256": "1095fbce430ca1f9429af8b73f4a382f675d6610d626d48d13ad712dd75067b1",
-        "utf8_bytes": 9542
-      },
-      "usage": {
-        "completion_tokens": 2838,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 1664,
-        "prompt_cache_miss_tokens": 6853,
-        "prompt_tokens": 8517,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 1664,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 11355
-      },
-      "finish_reason": "stop",
-      "elapsed": 9.833827257156372
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-4d1ac8442fa88186b887fe20c5e96706d023a37c13a911a8898c161bdbe6"></a>
-
-<details>
-<summary>s4_ifr · task-4d1ac8442fa88186b887fe20c5e96706d023a37c13a911a8898c161bdbe6</summary>
-
-```json
-{
-  "task_id": "task-4d1ac8442fa88186b887fe20c5e96706d023a37c13a911a8898c161bdbe6",
-  "epoch": 50,
-  "input_snapshot": "snap-e0ba08dd32b4463c80e07f67ef45bec7",
-  "input_hash": "214ebb3fb5ee56d5a1219aeb5051e8547aab60993f0d8a6c7d72060086e25fc3",
-  "status": "COMPLETED",
-  "reserve": 98122,
-  "actual": 2899,
-  "created_at": "2026-09-29T22:09:49.691637+00:00",
-  "settled_at": "2026-09-29T22:09:54.910596+00:00",
-  "node": "s4_ifr",
-  "request_fingerprint": {
-    "sha256": "409a4314a8afe4ff1d1f0320f1165153ef9a5543e5af90d940b3c3683ccea1ec",
-    "utf8_bytes": 20722
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 6103,
-    "tokens_out": 890,
-    "cost_usd": 0.0028989,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "5c355cca36326cbe2c903a272938a3103a7d61562d51194c012f92c77bfc24a7",
-        "utf8_bytes": 20376
-      },
-      "response_fingerprint": {
-        "sha256": "a25d11da5f8776b5681621f71e00eadfe720974907d23a7927e79464dd79ac2d",
-        "utf8_bytes": 3001
-      },
-      "usage": {
-        "completion_tokens": 890,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 1536,
-        "prompt_cache_miss_tokens": 4567,
-        "prompt_tokens": 6103,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 1536,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 6993
-      },
-      "finish_reason": "stop",
-      "elapsed": 4.951110124588013
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-6056abfac54f7354815838064327a60280048ffc0bd709858fe2f5050a7a"></a>
-
-<details>
-<summary>s4_contradictions · task-6056abfac54f7354815838064327a60280048ffc0bd709858fe2f5050a7a</summary>
-
-```json
-{
-  "task_id": "task-6056abfac54f7354815838064327a60280048ffc0bd709858fe2f5050a7a",
-  "epoch": 50,
-  "input_snapshot": "snap-e0ba08dd32b4463c80e07f67ef45bec7",
-  "input_hash": "95b936a21cda0cacade7ee6803feb7c5ba8fccbc3caaf5eb30d6d86e8a64fe45",
-  "status": "COMPLETED",
-  "reserve": 105888,
-  "actual": 6366,
-  "created_at": "2026-09-29T22:09:51.284363+00:00",
-  "settled_at": "2026-09-29T22:10:03.269185+00:00",
-  "node": "s4_contradictions",
-  "request_fingerprint": {
-    "sha256": "6e12eb93d6d18c8ad9c67a9d11f48acbbffb7b0ed6ee764cb40935c1b1e2f95f",
-    "utf8_bytes": 34079
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 10141,
-    "tokens_out": 2769,
-    "cost_usd": 0.0063651,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "c02d2171b9def05a8b68b570e13f027a215d7ef70368277c369d136db1e47010",
-        "utf8_bytes": 33722
-      },
-      "response_fingerprint": {
-        "sha256": "b68d658d90f79652c5d5b65287072a09d152863ee49fd0e997474313cffcbff3",
-        "utf8_bytes": 8898
-      },
-      "usage": {
-        "completion_tokens": 2769,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 8093,
-        "prompt_tokens": 10141,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 12910
-      },
-      "finish_reason": "stop",
-      "elapsed": 11.829448461532593
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-7975fed2633982643412789abe142fb93f8871392f2a615ff59a2fe26dbc"></a>
-
-<details>
-<summary>s4_trimming · task-7975fed2633982643412789abe142fb93f8871392f2a615ff59a2fe26dbc</summary>
-
-```json
-{
-  "task_id": "task-7975fed2633982643412789abe142fb93f8871392f2a615ff59a2fe26dbc",
-  "epoch": 50,
-  "input_snapshot": "snap-e0ba08dd32b4463c80e07f67ef45bec7",
-  "input_hash": "6616b3210a6a0dc666b5501baf20a9218e8dbe9fd26d9d66f3c61c24a8939698",
-  "status": "COMPLETED",
-  "reserve": 101398,
-  "actual": 3967,
-  "created_at": "2026-09-29T22:09:52.724388+00:00",
-  "settled_at": "2026-09-29T22:09:59.434735+00:00",
-  "node": "s4_trimming",
-  "request_fingerprint": {
-    "sha256": "6dfd31a16a99d3003dc51e77e5c6ca2f51e09c53eb2dec36d9beb077b2ea8bcb",
-    "utf8_bytes": 26219
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7850,
-    "tokens_out": 1343,
-    "cost_usd": 0.0039666,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "b21a6527d820f2161a36ee02411cb6af4dc7302d86185e4d4cfa0fa467eb5453",
-        "utf8_bytes": 25868
-      },
-      "response_fingerprint": {
-        "sha256": "f3541312eb9acc40b3a60e803adfbbd2cf06d6648707304cc7df0ab048d4b8da",
-        "utf8_bytes": 4426
-      },
-      "usage": {
-        "completion_tokens": 1343,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 5802,
-        "prompt_tokens": 7850,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 9193
-      },
-      "finish_reason": "stop",
-      "elapsed": 6.63434624671936
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-5b545aa0bfee7f2701eda8dd6b383b5f92a17d807e87260ae6c6f69af75d"></a>
-
-<details>
-<summary>independent_verifier · task-5b545aa0bfee7f2701eda8dd6b383b5f92a17d807e87260ae6c6f69af75d</summary>
-
-```json
-{
-  "task_id": "task-5b545aa0bfee7f2701eda8dd6b383b5f92a17d807e87260ae6c6f69af75d",
-  "epoch": 50,
-  "input_snapshot": "snap-e0ba08dd32b4463c80e07f67ef45bec7",
-  "input_hash": "0131acd2a2240b5d844c3598459c43d6457f505987a167007c6e2d4e85b2bc91",
-  "status": "COMPLETED",
-  "reserve": 46826,
-  "actual": 4642,
-  "created_at": "2026-09-29T22:10:08.683210+00:00",
-  "settled_at": "2026-09-29T22:10:16.020499+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "054688831e9959ca6fd36d3c8b5330a2c5432a30d7a7cc15a943723caf8db63f",
-    "utf8_bytes": 31813
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 9664,
-    "tokens_out": 1452,
-    "cost_usd": 0.0046416,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "8e95ef090e68565c0224a51491c107c9b7093e4ce5f6f72692af55315c843512",
-        "utf8_bytes": 31453
-      },
-      "response_fingerprint": {
-        "sha256": "1f11d3ffd37ce2d02b8a4b8caefad58c75fe9fb03f23484135c0150a8179616b",
-        "utf8_bytes": 4450
-      },
-      "usage": {
-        "completion_tokens": 1452,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 9664,
-        "prompt_tokens": 9664,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 11116
-      },
-      "finish_reason": "stop",
-      "elapsed": 7.260721445083618
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-c4fa39e362d672f440a677a22488b2fff9952e961d2064bd60a8153507ce"></a>
-
-<details>
-<summary>s4_key_problem · task-c4fa39e362d672f440a677a22488b2fff9952e961d2064bd60a8153507ce</summary>
-
-```json
-{
-  "task_id": "task-c4fa39e362d672f440a677a22488b2fff9952e961d2064bd60a8153507ce",
-  "epoch": 50,
-  "input_snapshot": "snap-e0ba08dd32b4463c80e07f67ef45bec7",
-  "input_hash": "0ea3c22aac733c3248880f857a1c2f35277e1035f1a05840cd9b32886fd8bf45",
-  "status": "COMPLETED",
-  "reserve": 100828,
-  "actual": 3386,
-  "created_at": "2026-09-29T22:10:21.120443+00:00",
-  "settled_at": "2026-09-29T22:10:26.182738+00:00",
-  "node": "s4_key_problem",
-  "request_fingerprint": {
-    "sha256": "906d6fd17ed0396f5d53db237b565d6451873da425c05cfb1af4af412bda6892",
-    "utf8_bytes": 25673
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7577,
-    "tokens_out": 927,
-    "cost_usd": 0.0033855,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "53b30e2db6c16dba6e9f27df69cc8156b16fd88f95a3498f7b70409aff283e5b",
-        "utf8_bytes": 25319
-      },
-      "response_fingerprint": {
-        "sha256": "feb8dfbc91c364fc87513320c4681faed78722aa93721832b56a061cd103dbef",
-        "utf8_bytes": 2923
-      },
-      "usage": {
-        "completion_tokens": 927,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 5529,
-        "prompt_tokens": 7577,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 8504
-      },
-      "finish_reason": "stop",
-      "elapsed": 4.993568658828735
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-e933a9eb570490fbf9ca36e6e9adec45b00ec0f392c02449b4ecf7b30265"></a>
-
-<details>
-<summary>s5_ariz_p1 · task-e933a9eb570490fbf9ca36e6e9adec45b00ec0f392c02449b4ecf7b30265</summary>
-
-```json
-{
-  "task_id": "task-e933a9eb570490fbf9ca36e6e9adec45b00ec0f392c02449b4ecf7b30265",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "689d561e686a63ccc05f320b763dd61cb0ef4a3edfe5987599b19ab1d963075a",
-  "status": "COMPLETED",
-  "reserve": 98868,
-  "actual": 6753,
-  "created_at": "2026-09-29T22:11:16.283189+00:00",
-  "settled_at": "2026-09-29T22:11:31.766804+00:00",
-  "node": "s5_ariz_p1",
-  "request_fingerprint": {
-    "sha256": "593ba7bfb5a4259eaf12e597fe64ce449e0433be6f6c7cd50a9dc3fe291e12c0",
-    "utf8_bytes": 21996
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 6548,
-    "tokens_out": 3990,
-    "cost_usd": 0.0067523999999999995,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "98c1741fa24a5466a99c1a0aac73ab6015fd87353056a93ef88b5d48c8bbce6b",
-        "utf8_bytes": 21645
-      },
-      "response_fingerprint": {
-        "sha256": "1826e0d43fd9ef49e3ce36cf7adfacc7a59f53662bef1f59e82873afe38e24f2",
-        "utf8_bytes": 13001
-      },
-      "usage": {
-        "completion_tokens": 3990,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 4500,
-        "prompt_tokens": 6548,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 10538
-      },
-      "finish_reason": "stop",
-      "elapsed": 15.39468240737915
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-66bf3a8cd3eb997b863358a2af7de5045644f3e9a994646f96661f64f8d9"></a>
-
-<details>
-<summary>s5_track_a_select · task-66bf3a8cd3eb997b863358a2af7de5045644f3e9a994646f96661f64f8d9</summary>
-
-```json
-{
-  "task_id": "task-66bf3a8cd3eb997b863358a2af7de5045644f3e9a994646f96661f64f8d9",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "c49cea8ae0f3993113d45e77e56f8b4e0db821677da26ec691be48ba7e418559",
-  "status": "COMPLETED",
-  "reserve": 98825,
-  "actual": 2308,
-  "created_at": "2026-09-29T22:11:17.905228+00:00",
-  "settled_at": "2026-09-29T22:11:20.325444+00:00",
-  "node": "s5_track_a_select",
-  "request_fingerprint": {
-    "sha256": "1383d643bc76ed4ef6229eb7c8af7f93adff79b8bf5c02efa8c05903d91972fe",
-    "utf8_bytes": 21858
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 6452,
-    "tokens_out": 310,
-    "cost_usd": 0.0023076,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "d49269ba218059cae0db5e15998efdf04106f3884a2e58ce325b3804d190dfc3",
-        "utf8_bytes": 21500
-      },
-      "response_fingerprint": {
-        "sha256": "7bde23b314ca76703b48e84e99125d5eed5fef3a796477c66f1f37a06cfbb5b9",
-        "utf8_bytes": 1026
-      },
-      "usage": {
-        "completion_tokens": 310,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 4404,
-        "prompt_tokens": 6452,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 6762
-      },
-      "finish_reason": "stop",
-      "elapsed": 2.3349475860595703
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3db597ee10bd97559977e992f5115063374692ab4a6d2eeacc28bea1399e"></a>
-
-<details>
-<summary>s5_track_b · task-3db597ee10bd97559977e992f5115063374692ab4a6d2eeacc28bea1399e</summary>
-
-```json
-{
-  "task_id": "task-3db597ee10bd97559977e992f5115063374692ab4a6d2eeacc28bea1399e",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "6768f5e6858ff644024b1e41b88f714e861658184d8cd507f80dab4287e90bd8",
-  "status": "COMPLETED",
-  "reserve": 100764,
-  "actual": 4593,
-  "created_at": "2026-09-29T22:11:19.456146+00:00",
-  "settled_at": "2026-09-29T22:11:28.839521+00:00",
-  "node": "s5_track_b",
-  "request_fingerprint": {
-    "sha256": "10a2af39609807977f576f56dd5600514b2bbe40391636372e52e5dbaa237db4",
-    "utf8_bytes": 25141
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7526,
-    "tokens_out": 1946,
-    "cost_usd": 0.004593,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "5c1946ec534145ce4f0f8b8fba33d550a220cd84cb2f8910bd31a8f1f500c5a0",
-        "utf8_bytes": 24790
-      },
-      "response_fingerprint": {
-        "sha256": "ffb580b5d0c11fc454da41883c652be1eb98597d906d0ffa865ee59aa1c5f51f",
-        "utf8_bytes": 6523
-      },
-      "usage": {
-        "completion_tokens": 1946,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 5478,
-        "prompt_tokens": 7526,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 9472
-      },
-      "finish_reason": "stop",
-      "elapsed": 9.280645608901978
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-4c134d293a392b94a7b115fead22c921143aa7dcaf458b6cd4ce0633694c"></a>
-
-<details>
-<summary>s5_track_a · task-4c134d293a392b94a7b115fead22c921143aa7dcaf458b6cd4ce0633694c</summary>
-
-```json
-{
-  "task_id": "task-4c134d293a392b94a7b115fead22c921143aa7dcaf458b6cd4ce0633694c",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "6caa4e4aa0aa4824249711fa65d57f76c8dfaa35f0104e36cdc7d9528f97a361",
-  "status": "COMPLETED",
-  "reserve": 101066,
-  "actual": 6283,
-  "created_at": "2026-09-29T22:11:27.788636+00:00",
-  "settled_at": "2026-09-29T22:11:43.676417+00:00",
-  "node": "s5_track_a",
-  "request_fingerprint": {
-    "sha256": "ad90b34dbd6cf03dff1889caa72d6f5a5eda98a51caad5f7f461bbcb0c1faa89",
-    "utf8_bytes": 25655
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7627,
-    "tokens_out": 3329,
-    "cost_usd": 0.006282899999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "cc348f18283f76d08a8f6ad3a448a89fa18aeaaede7889472dc903fdd9e757fe",
-        "utf8_bytes": 25304
-      },
-      "response_fingerprint": {
-        "sha256": "3ca3130fedb99915afbea9287a5104c31591be02a2a8bbbaf9a4715300f21075",
-        "utf8_bytes": 11324
-      },
-      "usage": {
-        "completion_tokens": 3329,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 5579,
-        "prompt_tokens": 7627,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 10956
-      },
-      "finish_reason": "stop",
-      "elapsed": 15.778409719467163
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-dea0ca3df3616ac722f9f7da8e5fbbb4c2b4d0366fb6e6e811514226e008"></a>
-
-<details>
-<summary>s5_track_b · task-dea0ca3df3616ac722f9f7da8e5fbbb4c2b4d0366fb6e6e811514226e008</summary>
-
-```json
-{
-  "task_id": "task-dea0ca3df3616ac722f9f7da8e5fbbb4c2b4d0366fb6e6e811514226e008",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "68cc01cff97cbb8a4c94543164996c6c44be3505438f6003295e6b0c8e9e0afa",
-  "status": "COMPLETED",
-  "reserve": 100811,
-  "actual": 4547,
-  "created_at": "2026-09-29T22:11:37.211163+00:00",
-  "settled_at": "2026-09-29T22:11:46.682274+00:00",
-  "node": "s5_track_b",
-  "request_fingerprint": {
-    "sha256": "225b95c66a67b977daa2597bdfdf84360da0ff00986da3f739520c69b44176c1",
-    "utf8_bytes": 25219
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7546,
-    "tokens_out": 1902,
-    "cost_usd": 0.0045462,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "10bd34d0e207f7a3437d24779478dd1015ba33faffb24116e1f12b6335acbbe7",
-        "utf8_bytes": 24868
-      },
-      "response_fingerprint": {
-        "sha256": "c44690ae950bc8a46ba147bceb75d09e318c85016d248a38f2448f9134c9f7a3",
-        "utf8_bytes": 6407
-      },
-      "usage": {
-        "completion_tokens": 1902,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 5498,
-        "prompt_tokens": 7546,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 9448
-      },
-      "finish_reason": "stop",
-      "elapsed": 9.352190256118774
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-552ec5c50d4bff94587a877c396ea63ff49794854937527413923215b043"></a>
-
-<details>
-<summary>s5_ariz_p2 · task-552ec5c50d4bff94587a877c396ea63ff49794854937527413923215b043</summary>
-
-```json
-{
-  "task_id": "task-552ec5c50d4bff94587a877c396ea63ff49794854937527413923215b043",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "78bc999aabeace311ef1d79fb996b26e623ad47f04178f9a318df1f154e69d4d",
-  "status": "COMPLETED",
-  "reserve": 108275,
-  "actual": 8450,
-  "created_at": "2026-09-29T22:11:38.768668+00:00",
-  "settled_at": "2026-09-29T22:11:55.535600+00:00",
-  "node": "s5_ariz_p2",
-  "request_fingerprint": {
-    "sha256": "11a7b9af60de2536df5f82e7d3d3e554d59bffde7a98fc5bfcfcab4ad5f06773",
-    "utf8_bytes": 37951
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 11369,
-    "tokens_out": 4199,
-    "cost_usd": 0.008449499999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "5b64707d9b1ebda0187d9f114f7e172f8c903f4720d52a68241a2b64d6f2fd1c",
-        "utf8_bytes": 37600
-      },
-      "response_fingerprint": {
-        "sha256": "1433d45ce7172f7a4c77e7829f1c477726eb5b90bf8b9db2c60b460884f08867",
-        "utf8_bytes": 12696
-      },
-      "usage": {
-        "completion_tokens": 4199,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 9321,
-        "prompt_tokens": 11369,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 15568
-      },
-      "finish_reason": "stop",
-      "elapsed": 15.299573183059692
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-128ac5fa11cc7b7100bdb4fca0ccbbb5b9ae058acbef057a0e63307fedd1"></a>
-
-<details>
-<summary>s5_track_a_select · task-128ac5fa11cc7b7100bdb4fca0ccbbb5b9ae058acbef057a0e63307fedd1</summary>
-
-```json
-{
-  "task_id": "task-128ac5fa11cc7b7100bdb4fca0ccbbb5b9ae058acbef057a0e63307fedd1",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "a173383622cee0994164b1e96f2c8628f07fc914b61bfaae89a15c6261547d0f",
-  "status": "COMPLETED",
-  "reserve": 98849,
-  "actual": 2259,
-  "created_at": "2026-09-29T22:11:48.503476+00:00",
-  "settled_at": "2026-09-29T22:11:50.421143+00:00",
-  "node": "s5_track_a_select",
-  "request_fingerprint": {
-    "sha256": "ed19bf6fa3ef07ceba9b9dfe7c83253b220a94da38d21d4ca1b2d87bf3b73999",
-    "utf8_bytes": 21898
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 6467,
-    "tokens_out": 265,
-    "cost_usd": 0.0022581,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "9b9a4e3ca87636536dfbe6cfd5e341f8d87b50ace96f10a5cbb5dc80d5c8f4a7",
-        "utf8_bytes": 21540
-      },
-      "response_fingerprint": {
-        "sha256": "bdad3abec0f0416fe0540f468a1800f4a73b42e374a741f625ebc161d6b75174",
-        "utf8_bytes": 888
-      },
-      "usage": {
-        "completion_tokens": 265,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 4419,
-        "prompt_tokens": 6467,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 6732
-      },
-      "finish_reason": "stop",
-      "elapsed": 1.8280811309814453
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-0589e934d2a63a3c2d53936630cbbfbb33447f4ec9e7f63dcae4cb234ae3"></a>
-
-<details>
-<summary>s5_track_a · task-0589e934d2a63a3c2d53936630cbbfbb33447f4ec9e7f63dcae4cb234ae3</summary>
-
-```json
-{
-  "task_id": "task-0589e934d2a63a3c2d53936630cbbfbb33447f4ec9e7f63dcae4cb234ae3",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "29cc8972fb4981c8288d2bada7b10de1e6f517e0655bc976ad05ae2643564438",
-  "status": "COMPLETED",
-  "reserve": 100973,
-  "actual": 6104,
-  "created_at": "2026-09-29T22:11:55.445692+00:00",
-  "settled_at": "2026-09-29T22:12:09.974221+00:00",
-  "node": "s5_track_a",
-  "request_fingerprint": {
-    "sha256": "363118872305902f79e6058d88f20a9544aa649d6aeb57b2dfa5c95d4f22b3f2",
-    "utf8_bytes": 25497
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7572,
-    "tokens_out": 3193,
-    "cost_usd": 0.0061032,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "25ecb58ba391469eec39799cb2f2b9fcbdc0d09fe73d2720b444f46c51cb1d69",
-        "utf8_bytes": 25146
-      },
-      "response_fingerprint": {
-        "sha256": "4f53a17a9ba106640a5498242971cf0c4ab39968ff997b4dfd693c64f5984df0",
-        "utf8_bytes": 10939
-      },
-      "usage": {
-        "completion_tokens": 3193,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2176,
-        "prompt_cache_miss_tokens": 5396,
-        "prompt_tokens": 7572,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2176,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 10765
-      },
-      "finish_reason": "stop",
-      "elapsed": 14.444567680358887
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-dd7f3f5d9b630f1b0d80f6b7c328ec1c08e8782fb65c5d4fb10bf052e808"></a>
-
-<details>
-<summary>s5_ariz_p3 · task-dd7f3f5d9b630f1b0d80f6b7c328ec1c08e8782fb65c5d4fb10bf052e808</summary>
-
-```json
-{
-  "task_id": "task-dd7f3f5d9b630f1b0d80f6b7c328ec1c08e8782fb65c5d4fb10bf052e808",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "50c6ed0f4aa5c125298049a8eefe2ec76560f56a88d3cc0a74886c8e3aae03de",
-  "status": "COMPLETED",
-  "reserve": 110394,
-  "actual": 9143,
-  "created_at": "2026-09-29T22:12:00.655782+00:00",
-  "settled_at": "2026-09-29T22:12:19.236694+00:00",
-  "node": "s5_ariz_p3",
-  "request_fingerprint": {
-    "sha256": "e26081eb20b2d2dfda2830720221e73e59b642f216dd49073cc96957d77a7a29",
-    "utf8_bytes": 41779
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 12566,
-    "tokens_out": 4477,
-    "cost_usd": 0.0091422,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "3fae05dcc0bbd7c483480f01751ff281662ef1ffd38af3d7c416cb91119878b1",
-        "utf8_bytes": 41428
-      },
-      "response_fingerprint": {
-        "sha256": "c260dd3cc78f40351f93f2ec845a850c9f75ef1441fc8c4792a372cadf50f307",
-        "utf8_bytes": 14508
-      },
-      "usage": {
-        "completion_tokens": 4477,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 10518,
-        "prompt_tokens": 12566,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 17043
-      },
-      "finish_reason": "stop",
-      "elapsed": 17.207205295562744
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-472957fa9690997a5bacd07bcab4c5475b6a601c07389eb4bb4bbc1edc08"></a>
-
-<details>
-<summary>s5_track_a_select · task-472957fa9690997a5bacd07bcab4c5475b6a601c07389eb4bb4bbc1edc08</summary>
-
-```json
-{
-  "task_id": "task-472957fa9690997a5bacd07bcab4c5475b6a601c07389eb4bb4bbc1edc08",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "88fd644ea4838b0436c7fc0af2dfe112be02ac4cd550d856c04d1bc8c3abfbc8",
-  "status": "COMPLETED",
-  "reserve": 98843,
-  "actual": 2282,
-  "created_at": "2026-09-29T22:12:13.375374+00:00",
-  "settled_at": "2026-09-29T22:12:15.549979+00:00",
-  "node": "s5_track_a_select",
-  "request_fingerprint": {
-    "sha256": "e646f97672aa70743f68b8a29cfeb8c891e04cb21990f651d220a4f076f4cebe",
-    "utf8_bytes": 21887
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 6465,
-    "tokens_out": 285,
-    "cost_usd": 0.0022815,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "990ba8f96b561e482eea9e9255cd08a3480ae2fd380f37293f3123ac362a6063",
-        "utf8_bytes": 21529
-      },
-      "response_fingerprint": {
-        "sha256": "4eefec53d9e47bd2b983cf295ccb3ed6801bcdbf6e3b31f8ca7a8c0938d8a7bd",
-        "utf8_bytes": 961
-      },
-      "usage": {
-        "completion_tokens": 285,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 4417,
-        "prompt_tokens": 6465,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 6750
-      },
-      "finish_reason": "stop",
-      "elapsed": 2.104461431503296
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-5b8e3940bc5949ad5095673406f4fa43ec16e402d9f662b1d1383b70c14b"></a>
-
-<details>
-<summary>s5_track_a · task-5b8e3940bc5949ad5095673406f4fa43ec16e402d9f662b1d1383b70c14b</summary>
-
-```json
-{
-  "task_id": "task-5b8e3940bc5949ad5095673406f4fa43ec16e402d9f662b1d1383b70c14b",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "60f44259b33bf6eb40b6fddb108d8fd7d56c3c4091dcda8c213759ff6d969b6b",
-  "status": "COMPLETED",
-  "reserve": 100944,
-  "actual": 6026,
-  "created_at": "2026-09-29T22:12:19.157375+00:00",
-  "settled_at": "2026-09-29T22:12:34.564326+00:00",
-  "node": "s5_track_a",
-  "request_fingerprint": {
-    "sha256": "faa2737b42014fd645d3417f88449c67e1ba8706552041cf37767e9889ffb921",
-    "utf8_bytes": 25449
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7570,
-    "tokens_out": 3129,
-    "cost_usd": 0.0060257999999999996,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "b3de834d80ac069da14a15400d8773d30645a9e844b925c6c47562992c2c8659",
-        "utf8_bytes": 25098
-      },
-      "response_fingerprint": {
-        "sha256": "447b9b2f3eaefcfeb0704c1dd71c173abc1eb3a3113dbd1ea15aa41693555e83",
-        "utf8_bytes": 10451
-      },
-      "usage": {
-        "completion_tokens": 3129,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2176,
-        "prompt_cache_miss_tokens": 5394,
-        "prompt_tokens": 7570,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2176,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 10699
-      },
-      "finish_reason": "stop",
-      "elapsed": 15.330825805664062
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-6642720b84a12d6276d735777dd12f7f18f1260942af96a92ba54832292f"></a>
-
-<details>
-<summary>s5_ariz_p4 · task-6642720b84a12d6276d735777dd12f7f18f1260942af96a92ba54832292f</summary>
-
-```json
-{
-  "task_id": "task-6642720b84a12d6276d735777dd12f7f18f1260942af96a92ba54832292f",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "284cf67396bdcd10e9bcb3ff68b37bd9abaf91e767cd6da818f5a16470df8b26",
-  "status": "COMPLETED",
-  "reserve": 100029,
-  "actual": 8759,
-  "created_at": "2026-09-29T22:12:22.407514+00:00",
-  "settled_at": "2026-09-29T22:12:46.028493+00:00",
-  "node": "s5_ariz_p4",
-  "request_fingerprint": {
-    "sha256": "87e14a9f5033a9a8b00bd042b302357d60d962ddf8e3b9ad58401940861a3b1d",
-    "utf8_bytes": 23918
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7147,
-    "tokens_out": 5512,
-    "cost_usd": 0.0087585,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "f1735a63964077ac9cacda91712b3f9dee44631e86d1eaa0c0a02d3c3b995a9d",
-        "utf8_bytes": 23567
-      },
-      "response_fingerprint": {
-        "sha256": "b44ea33d90a52b2e729fe4802957558793b4f11ffa16d0334fe5700bdff9a07e",
-        "utf8_bytes": 18368
-      },
-      "usage": {
-        "completion_tokens": 5512,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2176,
-        "prompt_cache_miss_tokens": 4971,
-        "prompt_tokens": 7147,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2176,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 12659
-      },
-      "finish_reason": "stop",
-      "elapsed": 23.544513702392578
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-76f575dbd21e58f2cf411666433e8d2160bef717c3ffde03c1c58a2d8da5"></a>
-
-<details>
-<summary>s5_ariz_p5 · task-76f575dbd21e58f2cf411666433e8d2160bef717c3ffde03c1c58a2d8da5</summary>
-
-```json
-{
-  "task_id": "task-76f575dbd21e58f2cf411666433e8d2160bef717c3ffde03c1c58a2d8da5",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "30dca9d71b8161abcbb9e53cceb4668542853e215e536d26411067fd64c1d3a2",
-  "status": "COMPLETED",
-  "reserve": 134891,
-  "actual": 23206,
-  "created_at": "2026-09-29T22:12:50.346532+00:00",
-  "settled_at": "2026-09-29T22:13:42.700588+00:00",
-  "node": "s5_ariz_p5",
-  "request_fingerprint": {
-    "sha256": "fd049a968686d8928328309f9082a719acc19123fa9900a73cb2cf9f4e841c1c",
-    "utf8_bytes": 82831
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 24609,
-    "tokens_out": 13186,
-    "cost_usd": 0.023205899999999998,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "c632ca75f31e2755d0cdce73755945cd5872c3abf075bea48b0e867ca2164063",
-        "utf8_bytes": 82480
-      },
-      "response_fingerprint": {
-        "sha256": "16a1e2b763f289669d18a9e7bbb684d09523bb60b8404eacef62046971f36982",
-        "utf8_bytes": 43444
-      },
-      "usage": {
-        "completion_tokens": 13186,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2176,
-        "prompt_cache_miss_tokens": 22433,
-        "prompt_tokens": 24609,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2176,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 37795
-      },
-      "finish_reason": "stop",
-      "elapsed": 52.263617277145386
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-5a4542ddfa3c99f434e4fc4e4cbe12fb37a628210249e7eda4987499eb97"></a>
-
-<details>
-<summary>s5_ariz_p6 · task-5a4542ddfa3c99f434e4fc4e4cbe12fb37a628210249e7eda4987499eb97</summary>
-
-```json
-{
-  "task_id": "task-5a4542ddfa3c99f434e4fc4e4cbe12fb37a628210249e7eda4987499eb97",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "eadfd7f2083fb415df266d24cfc739a0cf6ee4c7bcc5dba244e8681586df5968",
-  "status": "COMPLETED",
-  "reserve": 91429,
-  "actual": 10834,
-  "created_at": "2026-09-29T22:13:46.139519+00:00",
-  "settled_at": "2026-09-29T22:13:51.642281+00:00",
-  "node": "s5_ariz_p6",
-  "request_fingerprint": {
-    "sha256": "2b8ca19c81ff57bd7af793814d62ab377a5772dc3b361a3953e9c7f52b251995",
-    "utf8_bytes": 108700
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 32273,
-    "tokens_out": 960,
-    "cost_usd": 0.0108339,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "f46af67f36d0dd14199affa2cd2e890486c6de6adfce405e2c8fbb7006b5e830",
-        "utf8_bytes": 108349
-      },
-      "response_fingerprint": {
-        "sha256": "439c0a060cdcf28ff188eeab465f596113e8e5923c8cb5962a50349709d67970",
-        "utf8_bytes": 2944
-      },
-      "usage": {
-        "completion_tokens": 960,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 30225,
-        "prompt_tokens": 32273,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 33233
-      },
-      "finish_reason": "stop",
-      "elapsed": 5.422782897949219
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-d41b968ad2122b99d7e4ec29a85a2be72875a5f8a6fb78de92343963a97f"></a>
-
-<details>
-<summary>s5_ariz_p7 · task-d41b968ad2122b99d7e4ec29a85a2be72875a5f8a6fb78de92343963a97f</summary>
-
-```json
-{
-  "task_id": "task-d41b968ad2122b99d7e4ec29a85a2be72875a5f8a6fb78de92343963a97f",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "0fcaa7a0dd844495c6f27261f798d89a8594cad96940ea70d39e494c27d5fe06",
-  "status": "COMPLETED",
-  "reserve": 101429,
-  "actual": 18422,
-  "created_at": "2026-09-29T22:13:55.297684+00:00",
-  "settled_at": "2026-09-29T22:14:39.374891+00:00",
-  "node": "s5_ariz_p7",
-  "request_fingerprint": {
-    "sha256": "5b4a1b6a89694957d9a7ee5acd0c8660bedd395d7e42471fb87d73b1f838996b",
-    "utf8_bytes": 26245
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7925,
-    "tokens_out": 13370,
-    "cost_usd": 0.0184215,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "aebbbf8451c6034fb4de3206da0dfd3638ce0cdaef22bffe76308f9fdef4fae7",
-        "utf8_bytes": 25894
-      },
-      "response_fingerprint": {
-        "sha256": "f9ab398c0268c3e3159426a2bf4a7605b9fcc38a4f2e2d249d4ff0e13b3ba217",
-        "utf8_bytes": 39943
-      },
-      "usage": {
-        "completion_tokens": 13370,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2176,
-        "prompt_cache_miss_tokens": 5749,
-        "prompt_tokens": 7925,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2176,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 21295
-      },
-      "finish_reason": "stop",
-      "elapsed": 44.00018239021301
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-cc7a74def5932b00e6a32472841762a86d290400682cd4c8bdb4f4ce815a"></a>
-
-<details>
-<summary>s5_track_f · task-cc7a74def5932b00e6a32472841762a86d290400682cd4c8bdb4f4ce815a</summary>
-
-```json
-{
-  "task_id": "task-cc7a74def5932b00e6a32472841762a86d290400682cd4c8bdb4f4ce815a",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "3374be6903114b54e7f202561e4840f4c5c1eec1085a32d215f0dcd9df74317e",
-  "status": "COMPLETED",
-  "reserve": 114477,
-  "actual": 7113,
-  "created_at": "2026-09-29T22:14:56.666520+00:00",
-  "settled_at": "2026-09-29T22:15:08.054081+00:00",
-  "node": "s5_track_f",
-  "request_fingerprint": {
-    "sha256": "1af87bce441b41ae3574dd26f2fc0a4aa742e4b4a0e5829a8892acdd7768b17e",
-    "utf8_bytes": 49401
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 14487,
-    "tokens_out": 2305,
-    "cost_usd": 0.0071121,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "fdd40fed31e5560357a7f2fdc7d09f7f326836ee9508d5a09ed05ff7419addf3",
-        "utf8_bytes": 49050
-      },
-      "response_fingerprint": {
-        "sha256": "eb6e7b7750b208480f1783cc3d49cfbf76890d1a586fb012bbf123a15252ab2f",
-        "utf8_bytes": 8014
-      },
-      "usage": {
-        "completion_tokens": 2305,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 12439,
-        "prompt_tokens": 14487,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 16792
-      },
-      "finish_reason": "stop",
-      "elapsed": 11.116084814071655
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-ce6c19a0a5af121ff0c764a69a871ccea75552e85a42be719fe3ccc68ad7"></a>
-
-<details>
-<summary>s5_track_e · task-ce6c19a0a5af121ff0c764a69a871ccea75552e85a42be719fe3ccc68ad7</summary>
-
-```json
-{
-  "task_id": "task-ce6c19a0a5af121ff0c764a69a871ccea75552e85a42be719fe3ccc68ad7",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "78e9f0d53a148f8490a444b2d08a8abb4fc3db6b40be5d1aef9a821c1d124232",
-  "status": "COMPLETED",
-  "reserve": 101685,
-  "actual": 6908,
-  "created_at": "2026-09-29T22:14:58.232638+00:00",
-  "settled_at": "2026-09-29T22:15:13.417490+00:00",
-  "node": "s5_track_e",
-  "request_fingerprint": {
-    "sha256": "82874307466ac9cc45294dbc01f029da658465e232350765344def626ce98d0f",
-    "utf8_bytes": 26816
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 7938,
-    "tokens_out": 3772,
-    "cost_usd": 0.0069078,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "43e8b3de05dbfdd6d79b053d9dfcfa9d9d6d053fc35c4d1e05f13a98c10ada5a",
-        "utf8_bytes": 26465
-      },
-      "response_fingerprint": {
-        "sha256": "ecb81e83224dc7f0eda6bca0b60218d348b83add41582b9ecba7633d68c2aad0",
-        "utf8_bytes": 12652
-      },
-      "usage": {
-        "completion_tokens": 3772,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 5890,
-        "prompt_tokens": 7938,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 11710
-      },
-      "finish_reason": "stop",
-      "elapsed": 15.099320650100708
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-a9795068db3766c716a3f7895fc1598426912edf3c0c8a968d419c8801b4"></a>
-
-<details>
-<summary>s5_track_c · task-a9795068db3766c716a3f7895fc1598426912edf3c0c8a968d419c8801b4</summary>
-
-```json
-{
-  "task_id": "task-a9795068db3766c716a3f7895fc1598426912edf3c0c8a968d419c8801b4",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "313bd5897d511d19844a4c908027c03fc5390fc354f44a220db39552e50976ce",
-  "status": "COMPLETED",
-  "reserve": 109677,
-  "actual": 9089,
-  "created_at": "2026-09-29T22:14:59.786161+00:00",
-  "settled_at": "2026-09-29T22:15:16.421542+00:00",
-  "node": "s5_track_c",
-  "request_fingerprint": {
-    "sha256": "8671c3549334d15c9b2423346cf6ecc917ba16aa317126aa50813690d1bab086",
-    "utf8_bytes": 40074
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 11698,
-    "tokens_out": 4649,
-    "cost_usd": 0.0090882,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "d501e38fd27f1a3e9f42172ae8f4cc20592761eb5d9e7baee3fad051e6a26fbf",
-        "utf8_bytes": 39723
-      },
-      "response_fingerprint": {
-        "sha256": "66741574eb3fa25ea058e982745929f3f03bd7b91345b224ae619f184f97533c",
-        "utf8_bytes": 15506
-      },
-      "usage": {
-        "completion_tokens": 4649,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 9650,
-        "prompt_tokens": 11698,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 16347
-      },
-      "finish_reason": "stop",
-      "elapsed": 16.558908939361572
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-88d966e551c05c00a46cdc3315ee9a731a95ea40440ebc436e675c36bc5a"></a>
-
-<details>
-<summary>s5_track_c · task-88d966e551c05c00a46cdc3315ee9a731a95ea40440ebc436e675c36bc5a</summary>
-
-```json
-{
-  "task_id": "task-88d966e551c05c00a46cdc3315ee9a731a95ea40440ebc436e675c36bc5a",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "f85d0d67f5da9db2a8567422af506c20ec46e5832f695a3244026e1a5f2dd59c",
-  "status": "COMPLETED",
-  "reserve": 109731,
-  "actual": 9985,
-  "created_at": "2026-09-29T22:15:19.881398+00:00",
-  "settled_at": "2026-09-29T22:15:41.125080+00:00",
-  "node": "s5_track_c",
-  "request_fingerprint": {
-    "sha256": "726256ac40fe8138f7e847f1160eda59944552f8637a42e2e09a6b31bef0da0d",
-    "utf8_bytes": 40164
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 11742,
-    "tokens_out": 5385,
-    "cost_usd": 0.0099846,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "3e3819cd6e2be2f8ed8f7a36d53b44c84721e96913a6c7a5d22866dc744115b9",
-        "utf8_bytes": 39813
-      },
-      "response_fingerprint": {
-        "sha256": "f79975613809eeedb07e5ef967a43530e1e48cdc91e5e15697166cae6de85339",
-        "utf8_bytes": 17782
-      },
-      "usage": {
-        "completion_tokens": 5385,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 9694,
-        "prompt_tokens": 11742,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 17127
-      },
-      "finish_reason": "stop",
-      "elapsed": 21.168311595916748
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-253658de40cc089f0897bab8e8fbe5dfbdaaa2baea96bc0e59c6dbe12ecf"></a>
-
-<details>
-<summary>s5_track_g · task-253658de40cc089f0897bab8e8fbe5dfbdaaa2baea96bc0e59c6dbe12ecf</summary>
-
-```json
-{
-  "task_id": "task-253658de40cc089f0897bab8e8fbe5dfbdaaa2baea96bc0e59c6dbe12ecf",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "26f251ec00a48e111271abd83b8614c2f38a62c548ba2938804c7f1863bcdbea",
-  "status": "COMPLETED",
-  "reserve": 110205,
-  "actual": 6812,
-  "created_at": "2026-09-29T22:15:53.993224+00:00",
-  "settled_at": "2026-09-29T22:16:07.160062+00:00",
-  "node": "s5_track_g",
-  "request_fingerprint": {
-    "sha256": "b13e9cab2e6d2749746cba52002606d3632c1cb0b2b8712a7fef30084185c55e",
-    "utf8_bytes": 42195
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 12210,
-    "tokens_out": 2624,
-    "cost_usd": 0.0068118,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "6479aa424732ad130ddf5a79ecd30b8eb90a749923382dfd220efb3f1f679836",
-        "utf8_bytes": 41844
-      },
-      "response_fingerprint": {
-        "sha256": "8ffb71d79807b87c5c867683585e6df24253a2a8d048b6dad403a24859cc2d21",
-        "utf8_bytes": 8799
-      },
-      "usage": {
-        "completion_tokens": 2624,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 10162,
-        "prompt_tokens": 12210,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 14834
-      },
-      "finish_reason": "stop",
-      "elapsed": 13.094518661499023
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3efae683570aefce12e9028eee5273c3b16f676780e8fbc6adb6ce80b73b"></a>
-
-<details>
-<summary>s5_track_h · task-3efae683570aefce12e9028eee5273c3b16f676780e8fbc6adb6ce80b73b</summary>
-
-```json
-{
-  "task_id": "task-3efae683570aefce12e9028eee5273c3b16f676780e8fbc6adb6ce80b73b",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "15c64e3cc9b806086322bdf8b797cf861dc3f17c3d9450a72ef1bf14e574623a",
-  "status": "COMPLETED",
-  "reserve": 123333,
-  "actual": 9272,
-  "created_at": "2026-09-29T22:15:55.484759+00:00",
-  "settled_at": "2026-09-29T22:16:09.469798+00:00",
-  "node": "s5_track_h",
-  "request_fingerprint": {
-    "sha256": "bbfba677280ae9b61e941cfb8797e69a85faa5c8951acca4e5762a2322248825",
-    "utf8_bytes": 64296
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 18926,
-    "tokens_out": 2995,
-    "cost_usd": 0.009271799999999998,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "759f1857cfd1ac0e11ffd7f5914b24cfe009d7ac06ca6a61c9f56b4e408aafea",
-        "utf8_bytes": 63945
-      },
-      "response_fingerprint": {
-        "sha256": "5eb40ca313a9cdad1954b4a3469df1b9810815f34212f342c5ae2eb00f92cc53",
-        "utf8_bytes": 10189
-      },
-      "usage": {
-        "completion_tokens": 2995,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 16878,
-        "prompt_tokens": 18926,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 21921
-      },
-      "finish_reason": "stop",
-      "elapsed": 13.916183948516846
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-57c014744c45243421ba2326ede3594bbaa304b6baa20659bd1eca1b5813"></a>
-
-<details>
-<summary>s5_merge · task-57c014744c45243421ba2326ede3594bbaa304b6baa20659bd1eca1b5813</summary>
-
-```json
-{
-  "task_id": "task-57c014744c45243421ba2326ede3594bbaa304b6baa20659bd1eca1b5813",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "fc1bc7f7fee5a935432cf3dfc1e9746174efe50596a9eb8d4218223af69bd412",
-  "status": "COMPLETED",
-  "reserve": 388822,
-  "actual": 56918,
-  "created_at": "2026-09-29T22:16:17.972695+00:00",
-  "settled_at": "2026-09-29T22:16:55.636258+00:00",
-  "node": "s5_merge",
-  "request_fingerprint": {
-    "sha256": "51506b2c56f495f21cbd67638f47b3c72d959a41c559f12eb0c36d60087cba03",
-    "utf8_bytes": 529906
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 152433,
-    "tokens_out": 9323,
-    "cost_usd": 0.0569175,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "d6a5d9d1b3b9f9a9514ca013c456c4a8d8d1fa78207baa6635b3c8a8b2f00bd6",
-        "utf8_bytes": 529557
-      },
-      "response_fingerprint": {
-        "sha256": "016e39155c4b0d5451dff6c5b0ecd636ee0b9ccf9003732e09e3889db2ad9b1d",
-        "utf8_bytes": 28330
-      },
-      "usage": {
-        "completion_tokens": 9323,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 150385,
-        "prompt_tokens": 152433,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 161756
-      },
-      "finish_reason": "stop",
-      "elapsed": 37.22539281845093
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3eb8754bc521e328a8c6913d0a1c38595a7c6044821a1c7c37f50aad61b2"></a>
-
-<details>
-<summary>s5_merge · task-3eb8754bc521e328a8c6913d0a1c38595a7c6044821a1c7c37f50aad61b2</summary>
-
-```json
-{
-  "task_id": "task-3eb8754bc521e328a8c6913d0a1c38595a7c6044821a1c7c37f50aad61b2",
-  "epoch": 50,
-  "input_snapshot": "snap-4487c9a6151141879697ca76241925e4",
-  "input_hash": "077ca5dd1163c14d0344e3fde518659aef55a51b86a6c33607f8c66d1661a952",
-  "status": "COMPLETED",
-  "reserve": 406255,
-  "actual": 60189,
-  "created_at": "2026-09-29T22:17:00.155540+00:00",
-  "settled_at": "2026-09-29T22:17:28.511956+00:00",
-  "node": "s5_merge",
-  "request_fingerprint": {
-    "sha256": "d2ca6c15b08318ea00d1fffd037a19cb892d03d94095f065c30cb68cb9af2df7",
-    "utf8_bytes": 559547
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 162051,
-    "tokens_out": 9644,
-    "cost_usd": 0.0601881,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "b78f625d5f00f2bb5bd6671258c32ca736b772902166b1f701df03a8fd3408a0",
-        "utf8_bytes": 559198
-      },
-      "response_fingerprint": {
-        "sha256": "7141c1743eb87ba02007e87d3372ba732526c463c83e29ca8fd0bf6e1b30160d",
-        "utf8_bytes": 29366
-      },
-      "usage": {
-        "completion_tokens": 9644,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 152320,
-        "prompt_cache_miss_tokens": 9731,
-        "prompt_tokens": 162051,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 152320,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 171695
-      },
-      "finish_reason": "stop",
-      "elapsed": 28.227619171142578
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-d41aa15a4e66825e47cfe54390cc964d26789c3b4d208de94f374b0d30a9"></a>
-
-<details>
-<summary>s6_concept · task-d41aa15a4e66825e47cfe54390cc964d26789c3b4d208de94f374b0d30a9</summary>
-
-```json
-{
-  "task_id": "task-d41aa15a4e66825e47cfe54390cc964d26789c3b4d208de94f374b0d30a9",
-  "epoch": 50,
-  "input_snapshot": "snap-79aadae8281243288bb60a7919a19408",
-  "input_hash": "bcf9e9b831860fb77bdc5ebe1f3eac79e4170243dbe8d77acf4289b694ecca4e",
-  "status": "COMPLETED",
-  "reserve": 142478,
-  "actual": 20201,
-  "created_at": "2026-09-29T22:19:02.877410+00:00",
-  "settled_at": "2026-09-29T22:19:35.912938+00:00",
-  "node": "s6_concept",
-  "request_fingerprint": {
-    "sha256": "6f6fa3c2786b856228302108f4e5a79135ca24d2e40184b6309112704a3274ce",
-    "utf8_bytes": 98084
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 28408,
-    "tokens_out": 9732,
-    "cost_usd": 0.020200799999999998,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "d8e52e2d316e9433802591089b111ca43311e3a3eb212b712e1babd9a6c9a55e",
-        "utf8_bytes": 97733
-      },
-      "response_fingerprint": {
-        "sha256": "0860f7f84f52c16e60e31cd6a88bc95810f9e1494b5687e03ba9a8afe527c4ec",
-        "utf8_bytes": 32325
-      },
-      "usage": {
-        "completion_tokens": 9732,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 26360,
-        "prompt_tokens": 28408,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 38140
-      },
-      "finish_reason": "stop",
-      "elapsed": 32.91397738456726
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-6d08ad3e1053353d3b5068e0dcf408f4868ec7d885d036aeec9afc0529f5"></a>
-
-<details>
-<summary>s6_concept · task-6d08ad3e1053353d3b5068e0dcf408f4868ec7d885d036aeec9afc0529f5</summary>
-
-```json
-{
-  "task_id": "task-6d08ad3e1053353d3b5068e0dcf408f4868ec7d885d036aeec9afc0529f5",
-  "epoch": 50,
-  "input_snapshot": "snap-79aadae8281243288bb60a7919a19408",
-  "input_hash": "985f223e645001c13afc4580a1f644a454bcde945cff6636011c5e4e7ad4e4ed",
-  "status": "COMPLETED",
-  "reserve": 193272,
-  "actual": 22386,
-  "created_at": "2026-09-29T22:19:04.520043+00:00",
-  "settled_at": "2026-09-29T22:19:24.958801+00:00",
-  "node": "s6_concept",
-  "request_fingerprint": {
-    "sha256": "dce9848c72cfd36a3b72f73f241425161cee2fecab7a04ec7168733808f93a9e",
-    "utf8_bytes": 188063
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 55393,
-    "tokens_out": 4806,
-    "cost_usd": 0.022385099999999998,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "be71a8f5813fd9c6a4436fc5f5894331f53f7923e1d277527b0fedf08c8f9dcf",
-        "utf8_bytes": 187712
-      },
-      "response_fingerprint": {
-        "sha256": "4928852d02dffdc103594d036896c770b8145a058c563aea718681607e4a2966",
-        "utf8_bytes": 16043
-      },
-      "usage": {
-        "completion_tokens": 4806,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 8960,
-        "prompt_cache_miss_tokens": 46433,
-        "prompt_tokens": 55393,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 8960,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 60199
-      },
-      "finish_reason": "stop",
-      "elapsed": 19.844725131988525
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-f8311a43cb6ee1e82c20d50ea74c242f555fd83798ece9ce9392b3220287"></a>
-
-<details>
-<summary>s6_concept · task-f8311a43cb6ee1e82c20d50ea74c242f555fd83798ece9ce9392b3220287</summary>
-
-```json
-{
-  "task_id": "task-f8311a43cb6ee1e82c20d50ea74c242f555fd83798ece9ce9392b3220287",
-  "epoch": 50,
-  "input_snapshot": "snap-79aadae8281243288bb60a7919a19408",
-  "input_hash": "15e8f48890026c78dd2cf7f68792aea4f16f58c69c90b0d515318c667a8ac3a8",
-  "status": "COMPLETED",
-  "reserve": 136714,
-  "actual": 15683,
-  "created_at": "2026-09-29T22:19:09.268301+00:00",
-  "settled_at": "2026-09-29T22:19:33.051749+00:00",
-  "node": "s6_concept",
-  "request_fingerprint": {
-    "sha256": "685cf5ece11037b9398207248f92851849a69d691116ac9f7de9a3dd9ee4f6e9",
-    "utf8_bytes": 87547
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 25672,
-    "tokens_out": 6651,
-    "cost_usd": 0.015682799999999997,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "837992b520b49e35ae07d865d5639dfe1c6023b439c628af55c973cf37292418",
-        "utf8_bytes": 87196
-      },
-      "response_fingerprint": {
-        "sha256": "7d56f94468d81922b707bcb83aafff0ebae9dff9cbbbb2fa2b470fd90c2fdb6e",
-        "utf8_bytes": 22088
-      },
-      "usage": {
-        "completion_tokens": 6651,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 8960,
-        "prompt_cache_miss_tokens": 16712,
-        "prompt_tokens": 25672,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 8960,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 32323
-      },
-      "finish_reason": "stop",
-      "elapsed": 23.691229581832886
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-8a2532d98950f9638484d73cef2bf5dab9c05c53f2163731634b6e2dee80"></a>
-
-<details>
-<summary>independent_verifier · task-8a2532d98950f9638484d73cef2bf5dab9c05c53f2163731634b6e2dee80</summary>
-
-```json
-{
-  "task_id": "task-8a2532d98950f9638484d73cef2bf5dab9c05c53f2163731634b6e2dee80",
-  "epoch": 50,
-  "input_snapshot": "snap-79aadae8281243288bb60a7919a19408",
-  "input_hash": "026b83d1f02a042333d0ecb4854159acca1494e55b9c72954000ae4f5d86b42e",
-  "status": "COMPLETED",
-  "reserve": 60549,
-  "actual": 7365,
-  "created_at": "2026-09-29T22:19:53.018104+00:00",
-  "settled_at": "2026-09-29T22:20:02.331965+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "fe72f874f74018d29320a182b3001f8d71b38b928e95844879ef1fb9d0cd22dd",
-    "utf8_bytes": 56180
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 16669,
-    "tokens_out": 1970,
-    "cost_usd": 0.007364699999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "4e642ca712716c913bb2162712d0f06b0a008f685852f1370dd605d3d37121e9",
-        "utf8_bytes": 55820
-      },
-      "response_fingerprint": {
-        "sha256": "e6959db6ec1dd76a0483fb4f9ff87b22c06464d1298556ce1b4479aea83da4c6",
-        "utf8_bytes": 6062
-      },
-      "usage": {
-        "completion_tokens": 1970,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 16669,
-        "prompt_tokens": 16669,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 18639
-      },
-      "finish_reason": "stop",
-      "elapsed": 9.159316778182983
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3c950090e87d8cb0d7de0005aff3b511c5aacdcdc963e8f5c45ab5be5269"></a>
-
-<details>
-<summary>independent_verifier · task-3c950090e87d8cb0d7de0005aff3b511c5aacdcdc963e8f5c45ab5be5269</summary>
-
-```json
-{
-  "task_id": "task-3c950090e87d8cb0d7de0005aff3b511c5aacdcdc963e8f5c45ab5be5269",
-  "epoch": 50,
-  "input_snapshot": "snap-79aadae8281243288bb60a7919a19408",
-  "input_hash": "2f57809c6fa75fed0bd30d9072cc607bb4a99a5137c08c99cb349b4e44fe0aaa",
-  "status": "COMPLETED",
-  "reserve": 61113,
-  "actual": 7610,
-  "created_at": "2026-09-29T22:20:11.874888+00:00",
-  "settled_at": "2026-09-29T22:20:21.349457+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "35e89c67a4a4dca7a68e3009198978b5b45b47d6e7f3be5f52e40411dd7853f9",
-    "utf8_bytes": 57189
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 16916,
-    "tokens_out": 2112,
-    "cost_usd": 0.0076092,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "974897aad48c575df49050e3ff7d8cb77b7347b462564782308beb906d58ce93",
-        "utf8_bytes": 56829
-      },
-      "response_fingerprint": {
-        "sha256": "258880db53f5be6721352be8ec2036bfb350e8dbe457db9af45257531c62193b",
-        "utf8_bytes": 6500
-      },
-      "usage": {
-        "completion_tokens": 2112,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 16916,
-        "prompt_tokens": 16916,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 19028
-      },
-      "finish_reason": "stop",
-      "elapsed": 9.305439233779907
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-ecf38ecb9336d759930fe036aa3b4e5b2f377f2228b43b72b133e527d9b9"></a>
-
-<details>
-<summary>independent_verifier · task-ecf38ecb9336d759930fe036aa3b4e5b2f377f2228b43b72b133e527d9b9</summary>
-
-```json
-{
-  "task_id": "task-ecf38ecb9336d759930fe036aa3b4e5b2f377f2228b43b72b133e527d9b9",
-  "epoch": 50,
-  "input_snapshot": "snap-79aadae8281243288bb60a7919a19408",
-  "input_hash": "61a4a7dbf9b73ecd686d0f78fe720d7d5199d894d0fa0ce95764b019a6bdd235",
-  "status": "COMPLETED",
-  "reserve": 57094,
-  "actual": 5809,
-  "created_at": "2026-09-29T22:20:31.993809+00:00",
-  "settled_at": "2026-09-29T22:20:37.360997+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "def2a37fd73711ef2d09c609f087ee15edac76efadb543ba24c3ba3c6f64ef85",
-    "utf8_bytes": 50015
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 14833,
-    "tokens_out": 1132,
-    "cost_usd": 0.0058083,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "b3cdaa508e17285dbea6dc9a9d75f4428a38f2458fb95684c0cd3cb15b2b813b",
-        "utf8_bytes": 49655
-      },
-      "response_fingerprint": {
-        "sha256": "d5fc494d9dd00d848533919c22451376f32b361337ae61c354730434fde4a954",
-        "utf8_bytes": 3670
-      },
-      "usage": {
-        "completion_tokens": 1132,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 14833,
-        "prompt_tokens": 14833,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 15965
-      },
-      "finish_reason": "stop",
-      "elapsed": 5.191119909286499
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-63370b1f5ef969c90c03309a474b0204a0ac30179f37a0257a79ebe2a7fc"></a>
-
-<details>
-<summary>independent_verifier · task-63370b1f5ef969c90c03309a474b0204a0ac30179f37a0257a79ebe2a7fc</summary>
-
-```json
-{
-  "task_id": "task-63370b1f5ef969c90c03309a474b0204a0ac30179f37a0257a79ebe2a7fc",
-  "epoch": 50,
-  "input_snapshot": "snap-79aadae8281243288bb60a7919a19408",
-  "input_hash": "9b52780155dd6266070d109aa7961f8465f0a2931586dc9cfb61992013dcc69d",
-  "status": "COMPLETED",
-  "reserve": 117767,
-  "actual": 15462,
-  "created_at": "2026-09-29T22:20:47.569735+00:00",
-  "settled_at": "2026-09-29T22:20:55.868819+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "9aa6df46828d6e8a0751515d7b4afc71cb4c704099fbf0c1a74498ee4b53ca02",
-    "utf8_bytes": 157260
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 46992,
-    "tokens_out": 1137,
-    "cost_usd": 0.015461999999999998,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "4ef580b0c5e60953bb099df258d0a10e5756564b488b98f94a42394be39d90dd",
-        "utf8_bytes": 156900
-      },
-      "response_fingerprint": {
-        "sha256": "4569d176a63b4dd4b9b9ed72e19c48e8ba9728d5e3dbc8106bebacc84f39575f",
-        "utf8_bytes": 3680
-      },
-      "usage": {
-        "completion_tokens": 1137,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 46992,
-        "prompt_tokens": 46992,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 48129
-      },
-      "finish_reason": "stop",
-      "elapsed": 7.405031204223633
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-2f364a5baa91439f0ec5bbd04b3492d01f8ad98ed27684eab863575ac809"></a>
-
-<details>
-<summary>independent_verifier · task-2f364a5baa91439f0ec5bbd04b3492d01f8ad98ed27684eab863575ac809</summary>
-
-```json
-{
-  "task_id": "task-2f364a5baa91439f0ec5bbd04b3492d01f8ad98ed27684eab863575ac809",
-  "epoch": 50,
-  "input_snapshot": "snap-79aadae8281243288bb60a7919a19408",
-  "input_hash": "25b4177497e1d819c96259d38ae0da8a2d4d2b9f4cd3074b107a6b0dd2d3ad86",
-  "status": "COMPLETED",
-  "reserve": 50567,
-  "actual": 4978,
-  "created_at": "2026-09-29T22:21:06.879859+00:00",
-  "settled_at": "2026-09-29T22:21:13.380391+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "a7e2379d8274dc1e0f062363ca19b98c414f3ab246d679880eb643fb920d7dca",
-    "utf8_bytes": 38540
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 11464,
-    "tokens_out": 1282,
-    "cost_usd": 0.0049775999999999996,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "51ac75169d6e8a18ad1de681f25b69ed162407f635f3ae5ceca05455f8592c2e",
-        "utf8_bytes": 38180
-      },
-      "response_fingerprint": {
-        "sha256": "9fce8639ba35b189ae1d6227cb38155406f1ca78762f294dde7f8350486a04ee",
-        "utf8_bytes": 4189
-      },
-      "usage": {
-        "completion_tokens": 1282,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 11464,
-        "prompt_tokens": 11464,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 12746
-      },
-      "finish_reason": "stop",
-      "elapsed": 6.399843692779541
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-70a11732d91b3bc0e0b9c3e0bac6b835379d6e2408daaa583902c4a028d0"></a>
-
-<details>
-<summary>ax_repair_gap-99452800a5dc788ae3d52b55_0 · task-70a11732d91b3bc0e0b9c3e0bac6b835379d6e2408daaa583902c4a028d0</summary>
-
-```json
-{
-  "task_id": "task-70a11732d91b3bc0e0b9c3e0bac6b835379d6e2408daaa583902c4a028d0",
-  "epoch": 50,
-  "input_snapshot": "snap-5cf9be1da04042098bf9bd21706c7945",
-  "input_hash": "63c3fc993ee92dce8c1252183b1a73232719438f0676b5080290291c88a34cb1",
-  "status": "COMPLETED",
-  "reserve": 120643,
-  "actual": 10012,
-  "created_at": "2026-09-29T22:22:21.660939+00:00",
-  "settled_at": "2026-09-29T22:22:37.548021+00:00",
-  "node": "ax_repair_gap-99452800a5dc788ae3d52b55_0",
-  "request_fingerprint": {
-    "sha256": "315d262e705ee554ad9e666617522817c18eeb28e2679acd3f70294aab9782ff",
-    "utf8_bytes": 62295
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 17525,
-    "tokens_out": 3962,
-    "cost_usd": 0.010011899999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "c1cc72ad92e811a99bf01e43d498f9689ae97e9f5689917fbae1ab9934411507",
-        "utf8_bytes": 61915
-      },
-      "response_fingerprint": {
-        "sha256": "429fb83950703fffbc9c50681914b258685bfa89869f03a172073e10d5c686a2",
-        "utf8_bytes": 12901
-      },
-      "usage": {
-        "completion_tokens": 3962,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 15477,
-        "prompt_tokens": 17525,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 21487
-      },
-      "finish_reason": "stop",
-      "elapsed": 15.510929346084595
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-a2cf5bbb1371956b017fbc718774d4ef68991c4a5d6260a10a2baa217ed4"></a>
-
-<details>
-<summary>independent_verifier · task-a2cf5bbb1371956b017fbc718774d4ef68991c4a5d6260a10a2baa217ed4</summary>
-
-```json
-{
-  "task_id": "task-a2cf5bbb1371956b017fbc718774d4ef68991c4a5d6260a10a2baa217ed4",
-  "epoch": 50,
-  "input_snapshot": "snap-5cf9be1da04042098bf9bd21706c7945",
-  "input_hash": "f53f0826e46ce068fd91056931082b108091a9db20be99ce7b57028e1a26c20b",
-  "status": "COMPLETED",
-  "reserve": 56011,
-  "actual": 5958,
-  "created_at": "2026-09-29T22:22:41.491564+00:00",
-  "settled_at": "2026-09-29T22:22:49.583007+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "316ea39e16caf55b5cde6a7714408ba989480531a6d2b4e948587c9bc86bc7ee",
-    "utf8_bytes": 47980
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 14408,
-    "tokens_out": 1363,
-    "cost_usd": 0.005958,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "fb25a0b57c01345e0f1c6359e1e32cb19dd2986e787646a4108bafaccc90ab10",
-        "utf8_bytes": 47620
-      },
-      "response_fingerprint": {
-        "sha256": "8c689aef6a55c59e23362f77ee83c6897b39ef8b48fa100e5088f3d9f930bad3",
-        "utf8_bytes": 4333
-      },
-      "usage": {
-        "completion_tokens": 1363,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 14408,
-        "prompt_tokens": 14408,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 15771
-      },
-      "finish_reason": "stop",
-      "elapsed": 7.372077703475952
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3b8023ac8a4d20f7b40bcbfd8e3064c81c2293bb7a7f5b9bd7c70218d029"></a>
-
-<details>
-<summary>ax_repair_gap-99452800a5dc788ae3d52b55_1 · task-3b8023ac8a4d20f7b40bcbfd8e3064c81c2293bb7a7f5b9bd7c70218d029</summary>
-
-```json
-{
-  "task_id": "task-3b8023ac8a4d20f7b40bcbfd8e3064c81c2293bb7a7f5b9bd7c70218d029",
-  "epoch": 50,
-  "input_snapshot": "snap-5cf9be1da04042098bf9bd21706c7945",
-  "input_hash": "a5292dd08311f3744b38995fac23540bbe52c64a6f7b601dde28130467232666",
-  "status": "COMPLETED",
-  "reserve": 120643,
-  "actual": 10507,
-  "created_at": "2026-09-29T22:23:05.291441+00:00",
-  "settled_at": "2026-09-29T22:23:21.864218+00:00",
-  "node": "ax_repair_gap-99452800a5dc788ae3d52b55_1",
-  "request_fingerprint": {
-    "sha256": "48eec67c1f521a098545fb947e6f9789462a073231dbc081b803eb571d8bc7d8",
-    "utf8_bytes": 62295
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 17525,
-    "tokens_out": 4374,
-    "cost_usd": 0.0105063,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "c1cc72ad92e811a99bf01e43d498f9689ae97e9f5689917fbae1ab9934411507",
-        "utf8_bytes": 61915
-      },
-      "response_fingerprint": {
-        "sha256": "3a9557e8b6841467454be1031db16becdc8b16588695568c8f05a8c8407eae7b",
-        "utf8_bytes": 14543
-      },
-      "usage": {
-        "completion_tokens": 4374,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 17280,
-        "prompt_cache_miss_tokens": 245,
-        "prompt_tokens": 17525,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 17280,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 21899
-      },
-      "finish_reason": "stop",
-      "elapsed": 15.759472131729126
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-e63502bd28fa109c20599a250cd881261ab4a51e03a24cba183be33dab4b"></a>
-
-<details>
-<summary>independent_verifier · task-e63502bd28fa109c20599a250cd881261ab4a51e03a24cba183be33dab4b</summary>
-
-```json
-{
-  "task_id": "task-e63502bd28fa109c20599a250cd881261ab4a51e03a24cba183be33dab4b",
-  "epoch": 50,
-  "input_snapshot": "snap-5cf9be1da04042098bf9bd21706c7945",
-  "input_hash": "a9fa1223dc130d2231a7436c46f0a7a0afc2e1c4b04de5bde6ac00a110280fbe",
-  "status": "COMPLETED",
-  "reserve": 55551,
-  "actual": 5863,
-  "created_at": "2026-09-29T22:23:26.219074+00:00",
-  "settled_at": "2026-09-29T22:23:34.532636+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "014a13e72c80282045693f523900f186277ecda4e45e52d49a80c455cb5ea634",
-    "utf8_bytes": 47161
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 14053,
-    "tokens_out": 1372,
-    "cost_usd": 0.0058623,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "1d9cac43d88b9ccedadde836d308589f41c97542fea3268a6cffd20afa723608",
-        "utf8_bytes": 46801
-      },
-      "response_fingerprint": {
-        "sha256": "df2f2d250520e6617427ba09aa8692ffb0c813168d3ce1e394c94dd1bbe2ad7a",
-        "utf8_bytes": 4463
-      },
-      "usage": {
-        "completion_tokens": 1372,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 14053,
-        "prompt_tokens": 14053,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 15425
-      },
-      "finish_reason": "stop",
-      "elapsed": 6.630642414093018
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-ee76d0372c5d74a3e5af6b14a4e338129ec4a8139d3c1c3118059f7ec04f"></a>
-
-<details>
-<summary>ax_repair_gap-ee8407b02217eddd77e4bfbd_0 · task-ee76d0372c5d74a3e5af6b14a4e338129ec4a8139d3c1c3118059f7ec04f</summary>
-
-```json
-{
-  "task_id": "task-ee76d0372c5d74a3e5af6b14a4e338129ec4a8139d3c1c3118059f7ec04f",
-  "epoch": 50,
-  "input_snapshot": "snap-5cf9be1da04042098bf9bd21706c7945",
-  "input_hash": "61127a3818cc415e89f144ee5f946a701a29a8840b3ec0da8410d03c546887f3",
-  "status": "COMPLETED",
-  "reserve": 120461,
-  "actual": 11715,
-  "created_at": "2026-09-29T22:23:50.953291+00:00",
-  "settled_at": "2026-09-29T22:24:14.024210+00:00",
-  "node": "ax_repair_gap-ee8407b02217eddd77e4bfbd_0",
-  "request_fingerprint": {
-    "sha256": "42a286e13b77a0632ee85c8e70752d2a401eb7083b76ea27eb7a5dbbeba6a7ab",
-    "utf8_bytes": 61961
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 17399,
-    "tokens_out": 5412,
-    "cost_usd": 0.0117141,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "dcc876c42fb818f358ecdab99233bfd8bae28037d93fc34e9e7559102161b3e9",
-        "utf8_bytes": 61581
-      },
-      "response_fingerprint": {
-        "sha256": "5edaf39450d4dec77d90cd6137f979f47a8359c84779b967eb0e80f94c36a53c",
-        "utf8_bytes": 17841
-      },
-      "usage": {
-        "completion_tokens": 5412,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2944,
-        "prompt_cache_miss_tokens": 14455,
-        "prompt_tokens": 17399,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2944,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 22811
-      },
-      "finish_reason": "stop",
-      "elapsed": 22.97486639022827
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-4fc989e1ce4ad8d0e6e0276cf99d6b54eab65b46a1137ab066fe30d70728"></a>
-
-<details>
-<summary>independent_verifier · task-4fc989e1ce4ad8d0e6e0276cf99d6b54eab65b46a1137ab066fe30d70728</summary>
-
-```json
-{
-  "task_id": "task-4fc989e1ce4ad8d0e6e0276cf99d6b54eab65b46a1137ab066fe30d70728",
-  "epoch": 50,
-  "input_snapshot": "snap-5cf9be1da04042098bf9bd21706c7945",
-  "input_hash": "a25a9e3ea9f709a73ab3a87ac7491d25a6285051bf41409b156563ea08d33008",
-  "status": "COMPLETED",
-  "reserve": 57102,
-  "actual": 5893,
-  "created_at": "2026-09-29T22:24:17.654424+00:00",
-  "settled_at": "2026-09-29T22:24:23.802690+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "4df4355fa41d2040d3225bf7b5a7550328d11bca5af17d61b2eedda51ceeea20",
-    "utf8_bytes": 49767
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 14858,
-    "tokens_out": 1196,
-    "cost_usd": 0.0058926,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "3302fdb69e0b3bb77f7c829dc382e567b8520118f57a071deafc0782ef58dd54",
-        "utf8_bytes": 49407
-      },
-      "response_fingerprint": {
-        "sha256": "3eb4fa88dcc84c9c982e937ea9dd9b2e3509e628135b9df153b89758668257a1",
-        "utf8_bytes": 3707
-      },
-      "usage": {
-        "completion_tokens": 1196,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 14858,
-        "prompt_tokens": 14858,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 16054
-      },
-      "finish_reason": "stop",
-      "elapsed": 6.005134582519531
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-b4aa671f8e608ee1def07050f9fc0bcb37e8565cf1bd7d2887ede01c9c24"></a>
-
-<details>
-<summary>ax_repair_gap-ee8407b02217eddd77e4bfbd_1 · task-b4aa671f8e608ee1def07050f9fc0bcb37e8565cf1bd7d2887ede01c9c24</summary>
-
-```json
-{
-  "task_id": "task-b4aa671f8e608ee1def07050f9fc0bcb37e8565cf1bd7d2887ede01c9c24",
-  "epoch": 50,
-  "input_snapshot": "snap-5cf9be1da04042098bf9bd21706c7945",
-  "input_hash": "7c717feea5799aa554962767ba472efcee0c0267269a2f6364e5bf855b7c22d6",
-  "status": "COMPLETED",
-  "reserve": 120461,
-  "actual": 11122,
-  "created_at": "2026-09-29T22:24:42.703407+00:00",
-  "settled_at": "2026-09-29T22:25:02.207908+00:00",
-  "node": "ax_repair_gap-ee8407b02217eddd77e4bfbd_1",
-  "request_fingerprint": {
-    "sha256": "64eb3866c14ffbbfb81d1ac93c11d06449627696604096620dd163b528e6e51e",
-    "utf8_bytes": 61961
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 17399,
-    "tokens_out": 4918,
-    "cost_usd": 0.011121299999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "dcc876c42fb818f358ecdab99233bfd8bae28037d93fc34e9e7559102161b3e9",
-        "utf8_bytes": 61581
-      },
-      "response_fingerprint": {
-        "sha256": "9d07f12fe4fcb58bc26b3b8d7110820ffd0a9ec37a07dbb1bf9dd528a7b5856a",
-        "utf8_bytes": 16176
-      },
-      "usage": {
-        "completion_tokens": 4918,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 17152,
-        "prompt_cache_miss_tokens": 247,
-        "prompt_tokens": 17399,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 17152,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 22317
-      },
-      "finish_reason": "stop",
-      "elapsed": 19.404163599014282
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-c7e54d3c09f7bb8e9e24c1a73fdc4d4b6d6404992fb450593d9bbb3038ce"></a>
-
-<details>
-<summary>independent_verifier · task-c7e54d3c09f7bb8e9e24c1a73fdc4d4b6d6404992fb450593d9bbb3038ce</summary>
-
-```json
-{
-  "task_id": "task-c7e54d3c09f7bb8e9e24c1a73fdc4d4b6d6404992fb450593d9bbb3038ce",
-  "epoch": 50,
-  "input_snapshot": "snap-5cf9be1da04042098bf9bd21706c7945",
-  "input_hash": "bc05e6653a2b7163133e59fdb2569fa6bfc1a9185d5c77e839b87a04a8055124",
-  "status": "COMPLETED",
-  "reserve": 56229,
-  "actual": 6064,
-  "created_at": "2026-09-29T22:25:08.125127+00:00",
-  "settled_at": "2026-09-29T22:25:14.751199+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "b523d5c06eb1fbc200d60ba420a17cb2d4aff99bc2ea3c87098382878494832b",
-    "utf8_bytes": 48316
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 14423,
-    "tokens_out": 1447,
-    "cost_usd": 0.0060633,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "f8d07218dce383851c1cccd983f857c5cebdc2d7f33e005ca844c6fe992ef4ba",
-        "utf8_bytes": 47956
-      },
-      "response_fingerprint": {
-        "sha256": "28c92ca225eb920ca746603672cf722eff43aa2cfe59a56ea13b7ef5fe6e4127",
-        "utf8_bytes": 4549
-      },
-      "usage": {
-        "completion_tokens": 1447,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 14423,
-        "prompt_tokens": 14423,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 15870
-      },
-      "finish_reason": "stop",
-      "elapsed": 6.532864093780518
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-d0c9f4e8a3b02a95e0cd324719d47c53647280e61f5986ec42f713cc83a1"></a>
-
-<details>
-<summary>s7_gate_2 · task-d0c9f4e8a3b02a95e0cd324719d47c53647280e61f5986ec42f713cc83a1</summary>
-
-```json
-{
-  "task_id": "task-d0c9f4e8a3b02a95e0cd324719d47c53647280e61f5986ec42f713cc83a1",
-  "epoch": 50,
-  "input_snapshot": "snap-449e8133744e4505b9e5affe26a8b9d4",
-  "input_hash": "95fe374c8973826ed49df88dc9ade9ff5ff5b1276e8be0b2a39fe6579dfafd71",
-  "status": "COMPLETED",
-  "reserve": 95934,
-  "actual": 2549,
-  "created_at": "2026-09-29T22:25:51.982521+00:00",
-  "settled_at": "2026-09-29T22:25:59.077370+00:00",
-  "node": "s7_gate_2",
-  "request_fingerprint": {
-    "sha256": "8f4a5f87740cc52b185d68fc13a58554bb69d4ac105f513baec08485e3056290",
-    "utf8_bytes": 17779
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 4710,
-    "tokens_out": 946,
-    "cost_usd": 0.0025482,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "56481c7ec4195a41f629cf4e532f36c7d13f68edcd1825f70867ca02c1fef7ff",
-        "utf8_bytes": 17430
-      },
-      "response_fingerprint": {
-        "sha256": "8298bf5279363b03eb93707e3af9091e954a61a587aa5ffd4552577fb2824209",
-        "utf8_bytes": 2949
-      },
-      "usage": {
-        "completion_tokens": 946,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 128,
-        "prompt_cache_miss_tokens": 4582,
-        "prompt_tokens": 4710,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 128,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5656
-      },
-      "finish_reason": "stop",
-      "elapsed": 3.921764373779297
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3fec767e46665e187b75cba93fed628cd07a7849f5adaf7578f9361f082b"></a>
-
-<details>
-<summary>s7_gate_3 · task-3fec767e46665e187b75cba93fed628cd07a7849f5adaf7578f9361f082b</summary>
-
-```json
-{
-  "task_id": "task-3fec767e46665e187b75cba93fed628cd07a7849f5adaf7578f9361f082b",
-  "epoch": 50,
-  "input_snapshot": "snap-449e8133744e4505b9e5affe26a8b9d4",
-  "input_hash": "5740e6e5ead6044807891bfecdd1fef9092a0d2a96b35a7b53ae1cb947981ba1",
-  "status": "COMPLETED",
-  "reserve": 95983,
-  "actual": 2536,
-  "created_at": "2026-09-29T22:25:53.668584+00:00",
-  "settled_at": "2026-09-29T22:25:59.206898+00:00",
-  "node": "s7_gate_3",
-  "request_fingerprint": {
-    "sha256": "b46ba681e5516e2a043c61ba27fad460992e61cc2c8edd0e1fda3cb1355719e9",
-    "utf8_bytes": 17862
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 4751,
-    "tokens_out": 925,
-    "cost_usd": 0.0025353,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "7e4065310e8c1451594b7be60371d1d236802b1d621c03be8388fc682e01c2d7",
-        "utf8_bytes": 17513
-      },
-      "response_fingerprint": {
-        "sha256": "f50415958d765ef8dd953a39a165a2bec3c2cfd3cc97f4676e04ea0dd315f574",
-        "utf8_bytes": 2900
-      },
-      "usage": {
-        "completion_tokens": 925,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 2703,
-        "prompt_tokens": 4751,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5676
-      },
-      "finish_reason": "stop",
-      "elapsed": 4.292987108230591
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-477d1ca6fe0dd50b967d7cbe9669a6237087bc262dd7eede39905fb874d8"></a>
-
-<details>
-<summary>s7_gate_1 · task-477d1ca6fe0dd50b967d7cbe9669a6237087bc262dd7eede39905fb874d8</summary>
-
-```json
-{
-  "task_id": "task-477d1ca6fe0dd50b967d7cbe9669a6237087bc262dd7eede39905fb874d8",
-  "epoch": 50,
-  "input_snapshot": "snap-449e8133744e4505b9e5affe26a8b9d4",
-  "input_hash": "b7a8dd5f90f26bfa44181629d6b8956e2c7a713d124995317709e67392372384",
-  "status": "COMPLETED",
-  "reserve": 96177,
-  "actual": 2569,
-  "created_at": "2026-09-29T22:25:55.391692+00:00",
-  "settled_at": "2026-09-29T22:25:59.576041+00:00",
-  "node": "s7_gate_1",
-  "request_fingerprint": {
-    "sha256": "c60a9c385290f5c050bf1e05615621b6f7eeeafbcdc13592b99367c00225ed42",
-    "utf8_bytes": 18188
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 4850,
-    "tokens_out": 928,
-    "cost_usd": 0.0025686,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "d1442bbca2f16d84f5f5caadf9dc0660ac0179459e4a67f3805db55dd3f70856",
-        "utf8_bytes": 17839
-      },
-      "response_fingerprint": {
-        "sha256": "3e1df1ec1bac7cbfd2040910c5a33178cb1b423019b7774e0d967dc25e13dd4b",
-        "utf8_bytes": 2841
-      },
-      "usage": {
-        "completion_tokens": 928,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 2802,
-        "prompt_tokens": 4850,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5778
-      },
-      "finish_reason": "stop",
-      "elapsed": 4.047523260116577
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-7f4e975641627d17c1ce061d2e999f1c89b29be87d8524096f89503fc848"></a>
-
-<details>
-<summary>s7_gate_4 · task-7f4e975641627d17c1ce061d2e999f1c89b29be87d8524096f89503fc848</summary>
-
-```json
-{
-  "task_id": "task-7f4e975641627d17c1ce061d2e999f1c89b29be87d8524096f89503fc848",
-  "epoch": 50,
-  "input_snapshot": "snap-449e8133744e4505b9e5affe26a8b9d4",
-  "input_hash": "041116dc0011ab7d2df7f990404fc4d057e7bb41e8671d3e4758c97b99a40012",
-  "status": "COMPLETED",
-  "reserve": 95966,
-  "actual": 2574,
-  "created_at": "2026-09-29T22:25:59.011691+00:00",
-  "settled_at": "2026-09-29T22:26:09.101529+00:00",
-  "node": "s7_gate_4",
-  "request_fingerprint": {
-    "sha256": "f84eacfb767787ee19ee14faea40903423ab8cac98b84fece2b36d807e03617f",
-    "utf8_bytes": 17824
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 4748,
-    "tokens_out": 958,
-    "cost_usd": 0.002574,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "f24eb413a94bc3ace3ff510bf390336294b43c028668ca6d4673c5d85d2f89f8",
-        "utf8_bytes": 17475
-      },
-      "response_fingerprint": {
-        "sha256": "56a1ef23cf5aba8e916fe762283b3a474d2d6128d8844d5cb81b2e1d4116795d",
-        "utf8_bytes": 3001
-      },
-      "usage": {
-        "completion_tokens": 958,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 2700,
-        "prompt_tokens": 4748,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5706
-      },
-      "finish_reason": "stop",
-      "elapsed": 4.7850518226623535
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3d9a7d1d22607343d4b5665d344161df4441f37de4e619bac7ef33525ca8"></a>
-
-<details>
-<summary>s7_gate_6 · task-3d9a7d1d22607343d4b5665d344161df4441f37de4e619bac7ef33525ca8</summary>
-
-```json
-{
-  "task_id": "task-3d9a7d1d22607343d4b5665d344161df4441f37de4e619bac7ef33525ca8",
-  "epoch": 50,
-  "input_snapshot": "snap-449e8133744e4505b9e5affe26a8b9d4",
-  "input_hash": "e4f2adb2aea334e04e736c248a364d138af142c031736f5bb7f6bae7a5c551a4",
-  "status": "COMPLETED",
-  "reserve": 95708,
-  "actual": 2417,
-  "created_at": "2026-09-29T22:26:05.842722+00:00",
-  "settled_at": "2026-09-29T22:26:10.576663+00:00",
-  "node": "s7_gate_6",
-  "request_fingerprint": {
-    "sha256": "f0dbfde5c4d3eea6d6bf5fa19dbb289b4897054db1abd572d280644b4bc04ad4",
-    "utf8_bytes": 17393
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 4596,
-    "tokens_out": 865,
-    "cost_usd": 0.0024168,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "df3ec633cdb1c553e6f91669b2b147b1fc1e059a4c76dc2171fcf6252a3e9ce2",
-        "utf8_bytes": 17044
-      },
-      "response_fingerprint": {
-        "sha256": "f53761ffaaaf94a10e6492fa133ce8d9520a4568f35e211015bdbd369ee8292f",
-        "utf8_bytes": 2715
-      },
-      "usage": {
-        "completion_tokens": 865,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 2548,
-        "prompt_tokens": 4596,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5461
-      },
-      "finish_reason": "stop",
-      "elapsed": 3.6529619693756104
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-530f6a73b36be73f59ac91489ba3addc1bee4b10c9ec1dc7a51c4f182131"></a>
-
-<details>
-<summary>s7_gate_5 · task-530f6a73b36be73f59ac91489ba3addc1bee4b10c9ec1dc7a51c4f182131</summary>
-
-```json
-{
-  "task_id": "task-530f6a73b36be73f59ac91489ba3addc1bee4b10c9ec1dc7a51c4f182131",
-  "epoch": 50,
-  "input_snapshot": "snap-449e8133744e4505b9e5affe26a8b9d4",
-  "input_hash": "838acdb6b09b7d723a73e495dd1bfa37c63c81a160d974a7aa3c5dfdbf62bcc7",
-  "status": "COMPLETED",
-  "reserve": 95577,
-  "actual": 2320,
-  "created_at": "2026-09-29T22:26:07.415288+00:00",
-  "settled_at": "2026-09-29T22:26:14.990931+00:00",
-  "node": "s7_gate_5",
-  "request_fingerprint": {
-    "sha256": "75229269b03585c5019d187edbea51621646cfe9b6b2d09a1bc2dd5960a117c8",
-    "utf8_bytes": 17164
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 4532,
-    "tokens_out": 800,
-    "cost_usd": 0.0023196,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "ee3baf6559c698a2ee405df58149b6a3f6559d505d390471cf920ac9502d6a39",
-        "utf8_bytes": 16815
-      },
-      "response_fingerprint": {
-        "sha256": "e92895b4dbce6de1f3befc1786a48104bc2c08e821db5bfa59954bcdeb72ab7e",
-        "utf8_bytes": 2484
-      },
-      "usage": {
-        "completion_tokens": 800,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 2484,
-        "prompt_tokens": 4532,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5332
-      },
-      "finish_reason": "stop",
-      "elapsed": 3.3458080291748047
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-f3f92213dab12ac080a2966ae7282644283e5a61b238bf495531cc3a9c7e"></a>
-
-<details>
-<summary>s7_gate_7 · task-f3f92213dab12ac080a2966ae7282644283e5a61b238bf495531cc3a9c7e</summary>
-
-```json
-{
-  "task_id": "task-f3f92213dab12ac080a2966ae7282644283e5a61b238bf495531cc3a9c7e",
-  "epoch": 50,
-  "input_snapshot": "snap-449e8133744e4505b9e5affe26a8b9d4",
-  "input_hash": "70bbe7148a5637044b22fcdacc458c684d34d42804b69fccc56fbe81a7ed3539",
-  "status": "COMPLETED",
-  "reserve": 95801,
-  "actual": 2539,
-  "created_at": "2026-09-29T22:26:09.026127+00:00",
-  "settled_at": "2026-09-29T22:26:15.096816+00:00",
-  "node": "s7_gate_7",
-  "request_fingerprint": {
-    "sha256": "a79576e06ccf6168a432b3f796056de8ed720a0311c450c1011c103080763ef0",
-    "utf8_bytes": 17546
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 4609,
-    "tokens_out": 963,
-    "cost_usd": 0.0025383,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "1e466785e5f43a697b52c23e6056c8a6234b1503f978096a5edd5e0cc28a484d",
-        "utf8_bytes": 17197
-      },
-      "response_fingerprint": {
-        "sha256": "c96cf0c55b4e517b9b35557a1bea47af62676ef942c22032f4597bf120365a5b",
-        "utf8_bytes": 3002
-      },
-      "usage": {
-        "completion_tokens": 963,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 2561,
-        "prompt_tokens": 4609,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5572
-      },
-      "finish_reason": "stop",
-      "elapsed": 4.237914323806763
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-c10cdda7afba6ebe8ba56a4b3a8f3b2f64e0fab93123588b59925431732f"></a>
-
-<details>
-<summary>s7_gate_8 · task-c10cdda7afba6ebe8ba56a4b3a8f3b2f64e0fab93123588b59925431732f</summary>
-
-```json
-{
-  "task_id": "task-c10cdda7afba6ebe8ba56a4b3a8f3b2f64e0fab93123588b59925431732f",
-  "epoch": 50,
-  "input_snapshot": "snap-449e8133744e4505b9e5affe26a8b9d4",
-  "input_hash": "b408ceeb7d7993c5742ab3525e110204d2371f77539cdcb95f23bfd9dda58d38",
-  "status": "COMPLETED",
-  "reserve": 95936,
-  "actual": 2446,
-  "created_at": "2026-09-29T22:26:14.922056+00:00",
-  "settled_at": "2026-09-29T22:26:21.387695+00:00",
-  "node": "s7_gate_8",
-  "request_fingerprint": {
-    "sha256": "5e0d3975add66ea3a717c0c9cbefbf2daa494e5d210734e559d4c45fe76b1568",
-    "utf8_bytes": 17775
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 4721,
-    "tokens_out": 858,
-    "cost_usd": 0.0024459,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "dda268baba69bffb0e817fd31a1714ec87ada10e974e5f45adc0f90be44d802a",
-        "utf8_bytes": 17426
-      },
-      "response_fingerprint": {
-        "sha256": "6cf00b565fc6edb0f4eb09024e0fe57412589d5c9398ac70306bb069edc0c239",
-        "utf8_bytes": 2632
-      },
-      "usage": {
-        "completion_tokens": 858,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 2673,
-        "prompt_tokens": 4721,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5579
-      },
-      "finish_reason": "stop",
-      "elapsed": 3.9855196475982666
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3769af4f88fa2a2ebb6f0e0d057421612b6a58b2ff8a433e81db1574e2fa"></a>
-
-<details>
-<summary>s7_gate_9 · task-3769af4f88fa2a2ebb6f0e0d057421612b6a58b2ff8a433e81db1574e2fa</summary>
-
-```json
-{
-  "task_id": "task-3769af4f88fa2a2ebb6f0e0d057421612b6a58b2ff8a433e81db1574e2fa",
-  "epoch": 50,
-  "input_snapshot": "snap-449e8133744e4505b9e5affe26a8b9d4",
-  "input_hash": "13092178caa09f5b2a4b885fe162779fef7e7ff40210e62516fec21dd83e19bd",
-  "status": "COMPLETED",
-  "reserve": 96328,
-  "actual": 2623,
-  "created_at": "2026-09-29T22:26:19.750212+00:00",
-  "settled_at": "2026-09-29T22:26:24.600445+00:00",
-  "node": "s7_gate_9",
-  "request_fingerprint": {
-    "sha256": "acb737dff022156a3416048f75bd875bd4ac497b7b460bf1a0b152f374fde8f6",
-    "utf8_bytes": 18425
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 4897,
-    "tokens_out": 961,
-    "cost_usd": 0.0026223,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "841159bdf6163f868a52513f8cda32ade87e934f9eee51ca5342a8866ae46a48",
-        "utf8_bytes": 18076
-      },
-      "response_fingerprint": {
-        "sha256": "f1c5bd32073a0039eff809a8c77f7dc4921570b1b97aaeefac8664ba912bacd3",
-        "utf8_bytes": 2986
-      },
-      "usage": {
-        "completion_tokens": 961,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 2849,
-        "prompt_tokens": 4897,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5858
-      },
-      "finish_reason": "stop",
-      "elapsed": 4.314497709274292
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-9993c2eab5b616d4af7d3d4d9edb66f64dc6b1fea5bbaf5653e9a6d96273"></a>
-
-<details>
-<summary>s7_gate_10 · task-9993c2eab5b616d4af7d3d4d9edb66f64dc6b1fea5bbaf5653e9a6d96273</summary>
-
-```json
-{
-  "task_id": "task-9993c2eab5b616d4af7d3d4d9edb66f64dc6b1fea5bbaf5653e9a6d96273",
-  "epoch": 50,
-  "input_snapshot": "snap-449e8133744e4505b9e5affe26a8b9d4",
-  "input_hash": "91f8ac208cec62fa8988722d37385fc720f9c20d32092101bc5cd0ced72f4b58",
-  "status": "COMPLETED",
-  "reserve": 95808,
-  "actual": 2506,
-  "created_at": "2026-09-29T22:26:21.308864+00:00",
-  "settled_at": "2026-09-29T22:26:25.073469+00:00",
-  "node": "s7_gate_10",
-  "request_fingerprint": {
-    "sha256": "b7674fe0cc8f8e685856fca02f8e2924b6e41be21f94bf5e4a7f6d96dba58b16",
-    "utf8_bytes": 17563
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 4647,
-    "tokens_out": 926,
-    "cost_usd": 0.0025053,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "fd710cf0deaca5b81f981e2c97599f0f5414610c02dc4885d5472ab1d7136f9d",
-        "utf8_bytes": 17213
-      },
-      "response_fingerprint": {
-        "sha256": "58c14d9799329958464927acac7b5af800096da4d7136d3d5b12ed5b76c35360",
-        "utf8_bytes": 3031
-      },
-      "usage": {
-        "completion_tokens": 926,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 2599,
-        "prompt_tokens": 4647,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 5573
-      },
-      "finish_reason": "stop",
-      "elapsed": 3.6865599155426025
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-114324c26650cc9b52f6f2c20d25b68c2521a45215892e253675c4449c72"></a>
-
-<details>
-<summary>ax_repair_gap-80693d8f5a5d25a6d2dfa098_0 · task-114324c26650cc9b52f6f2c20d25b68c2521a45215892e253675c4449c72</summary>
-
-```json
-{
-  "task_id": "task-114324c26650cc9b52f6f2c20d25b68c2521a45215892e253675c4449c72",
-  "epoch": 51,
-  "input_snapshot": "snap-fedc4ff3f684478b856a0388b9e5ba4d",
-  "input_hash": "793965d8eff9c7edf8f037933d4e411d049cbe9c6e2435fa1fa7e2686cd4d0ae",
-  "status": "COMPLETED",
-  "reserve": 120562,
-  "actual": 9660,
-  "created_at": "2026-09-29T22:33:06.427463+00:00",
-  "settled_at": "2026-09-29T22:33:21.928778+00:00",
-  "node": "ax_repair_gap-80693d8f5a5d25a6d2dfa098_0",
-  "request_fingerprint": {
-    "sha256": "39087fdf6c3e11383babbf69b8df29e695893f41a54571e137d6e1064f7caa17",
-    "utf8_bytes": 62204
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 17534,
-    "tokens_out": 3666,
-    "cost_usd": 0.0096594,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "3136125f87337795506518b47a31339d703efdd7928bc9f2e9bf55947c438a89",
-        "utf8_bytes": 61824
-      },
-      "response_fingerprint": {
-        "sha256": "cad9754e1c96f3d281df31883226743f24515b321f1148fc667cde1797231833",
-        "utf8_bytes": 12035
-      },
-      "usage": {
-        "completion_tokens": 3666,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2944,
-        "prompt_cache_miss_tokens": 14590,
-        "prompt_tokens": 17534,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2944,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 21200
-      },
-      "finish_reason": "stop",
-      "elapsed": 15.385301351547241
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3069b26b62950edee3df9cde3f392bb4d253f58c31baac8e9b7ccaa1a12b"></a>
-
-<details>
-<summary>independent_verifier · task-3069b26b62950edee3df9cde3f392bb4d253f58c31baac8e9b7ccaa1a12b</summary>
-
-```json
-{
-  "task_id": "task-3069b26b62950edee3df9cde3f392bb4d253f58c31baac8e9b7ccaa1a12b",
-  "epoch": 51,
-  "input_snapshot": "snap-fedc4ff3f684478b856a0388b9e5ba4d",
-  "input_hash": "40072ad616fe09f0091b07b012ac495011ac30b52e1cb1424cecb72484f1fb45",
-  "status": "COMPLETED",
-  "reserve": 55659,
-  "actual": 5726,
-  "created_at": "2026-09-29T22:33:28.087311+00:00",
-  "settled_at": "2026-09-29T22:33:34.160585+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "e3b080a3417e66d9baa2e22b5b3d0eae1439de2d2b873bcf2a7d7243ec02ddb1",
-    "utf8_bytes": 47468
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 14260,
-    "tokens_out": 1206,
-    "cost_usd": 0.0057252,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "84e8ca6239c686169011cf5334e771aa84402a0e6607e49c5a9e78c480048443",
-        "utf8_bytes": 47108
-      },
-      "response_fingerprint": {
-        "sha256": "5d8d8af0fbaed38b2b23d6cef962eb7258a71ff431f5499b152c6272d2409d39",
-        "utf8_bytes": 3798
-      },
-      "usage": {
-        "completion_tokens": 1206,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 14260,
-        "prompt_tokens": 14260,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 15466
-      },
-      "finish_reason": "stop",
-      "elapsed": 5.957428216934204
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-68b62b4ad66c385c1bb2e4a209ad1bf9278c748363ea12b0e004adc7b599"></a>
-
-<details>
-<summary>ax_repair_gap-80693d8f5a5d25a6d2dfa098_1 · task-68b62b4ad66c385c1bb2e4a209ad1bf9278c748363ea12b0e004adc7b599</summary>
-
-```json
-{
-  "task_id": "task-68b62b4ad66c385c1bb2e4a209ad1bf9278c748363ea12b0e004adc7b599",
-  "epoch": 51,
-  "input_snapshot": "snap-fedc4ff3f684478b856a0388b9e5ba4d",
-  "input_hash": "2b6017a6b1caa303dae140a43b219f341a9e82758f1feafbc222284f5ef0a70f",
-  "status": "COMPLETED",
-  "reserve": 120562,
-  "actual": 10291,
-  "created_at": "2026-09-29T22:33:51.620465+00:00",
-  "settled_at": "2026-09-29T22:34:09.105507+00:00",
-  "node": "ax_repair_gap-80693d8f5a5d25a6d2dfa098_1",
-  "request_fingerprint": {
-    "sha256": "774a1561d92d2ce9b4b1fa9967440da3568fbeccd5eb0c19d8dc015c7221cfe7",
-    "utf8_bytes": 62204
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 17534,
-    "tokens_out": 4192,
-    "cost_usd": 0.0102906,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "3136125f87337795506518b47a31339d703efdd7928bc9f2e9bf55947c438a89",
-        "utf8_bytes": 61824
-      },
-      "response_fingerprint": {
-        "sha256": "55c1be4cb6c4da3e8a5811ed905ef74c5a8f219d70fbde3d84c9d8d188e9f93b",
-        "utf8_bytes": 13585
-      },
-      "usage": {
-        "completion_tokens": 4192,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 17280,
-        "prompt_cache_miss_tokens": 254,
-        "prompt_tokens": 17534,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 17280,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 21726
-      },
-      "finish_reason": "stop",
-      "elapsed": 17.403745412826538
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-8035a77dba796710c70dc826ef206962aa9f89404a0dccbd813fcd4bd025"></a>
-
-<details>
-<summary>independent_verifier · task-8035a77dba796710c70dc826ef206962aa9f89404a0dccbd813fcd4bd025</summary>
-
-```json
-{
-  "task_id": "task-8035a77dba796710c70dc826ef206962aa9f89404a0dccbd813fcd4bd025",
-  "epoch": 51,
-  "input_snapshot": "snap-fedc4ff3f684478b856a0388b9e5ba4d",
-  "input_hash": "a947e74c0fac6a8b07295b3e861c11bc06dea1ae1f11e17fe496f1d9bee7327d",
-  "status": "COMPLETED",
-  "reserve": 56562,
-  "actual": 5578,
-  "created_at": "2026-09-29T22:34:12.817876+00:00",
-  "settled_at": "2026-09-29T22:34:18.115855+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "e2a092d45bd77e602348b25608f354f2a1c9b82f0941e0410c1629afba8ed8bf",
-    "utf8_bytes": 49018
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 14772,
-    "tokens_out": 955,
-    "cost_usd": 0.0055776,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "7f0f2a50d2a8f693e26a1e246a702d0e92c6fc5f61ec03df26fe9ad5604e1397",
-        "utf8_bytes": 48658
-      },
-      "response_fingerprint": {
-        "sha256": "b0e92c7094c112f875d6e78532115ce176dcc84ab9ef669156b86f49830b64ba",
-        "utf8_bytes": 3033
-      },
-      "usage": {
-        "completion_tokens": 955,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 14772,
-        "prompt_tokens": 14772,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 15727
-      },
-      "finish_reason": "stop",
-      "elapsed": 5.220940589904785
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-ef02375de8a814b72f3e968fc03afda4041bd5aca605a0c87c4e93c7ed64"></a>
-
-<details>
-<summary>ax_repair_gap-23e4763bd7081652230dfb23_0 · task-ef02375de8a814b72f3e968fc03afda4041bd5aca605a0c87c4e93c7ed64</summary>
-
-```json
-{
-  "task_id": "task-ef02375de8a814b72f3e968fc03afda4041bd5aca605a0c87c4e93c7ed64",
-  "epoch": 51,
-  "input_snapshot": "snap-fedc4ff3f684478b856a0388b9e5ba4d",
-  "input_hash": "9cfd3d0ded4cd69be337aa6c5bb1ab4d0e94f3e7746ae37fd02e6c76e498ee5b",
-  "status": "COMPLETED",
-  "reserve": 119866,
-  "actual": 10274,
-  "created_at": "2026-09-29T22:34:32.677053+00:00",
-  "settled_at": "2026-09-29T22:34:50.520730+00:00",
-  "node": "ax_repair_gap-23e4763bd7081652230dfb23_0",
-  "request_fingerprint": {
-    "sha256": "199820c6a9591aa79acf8e5734f926a1f0dec04f61375868d5014409b70f8cea",
-    "utf8_bytes": 60964
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 17094,
-    "tokens_out": 4288,
-    "cost_usd": 0.0102738,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "e25312926a4f63a639f74a8a80d2c028f708dfba0b8f3cb0f87e9c6caa1f6079",
-        "utf8_bytes": 60584
-      },
-      "response_fingerprint": {
-        "sha256": "b97aef94c729f1ee2a3098dde9555ea5aa9fd898257922cea3cc3d2e0d3826c3",
-        "utf8_bytes": 13984
-      },
-      "usage": {
-        "completion_tokens": 4288,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2944,
-        "prompt_cache_miss_tokens": 14150,
-        "prompt_tokens": 17094,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2944,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 21382
-      },
-      "finish_reason": "stop",
-      "elapsed": 17.71977925300598
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-ee690678e6f481d67c54da3d09ba28907b22ad79ad9b1bc2b2ae7049fd56"></a>
-
-<details>
-<summary>independent_verifier · task-ee690678e6f481d67c54da3d09ba28907b22ad79ad9b1bc2b2ae7049fd56</summary>
-
-```json
-{
-  "task_id": "task-ee690678e6f481d67c54da3d09ba28907b22ad79ad9b1bc2b2ae7049fd56",
-  "epoch": 51,
-  "input_snapshot": "snap-fedc4ff3f684478b856a0388b9e5ba4d",
-  "input_hash": "69ba794b058255f3b81fcd7f3c2d2992abb46a419e318392ba1de5ad15caf643",
-  "status": "COMPLETED",
-  "reserve": 55020,
-  "actual": 6041,
-  "created_at": "2026-09-29T22:34:56.471433+00:00",
-  "settled_at": "2026-09-29T22:35:04.010080+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "bad713cffe1af4d98c9cda84a02766f0653386d383c6cfc1bc294cacffd21a32",
-    "utf8_bytes": 46132
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 13831,
-    "tokens_out": 1576,
-    "cost_usd": 0.0060405,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "90c866d014cbbcefbecc84a851dc566f3497ccca0f7ea2856951eb8c9c40aa54",
-        "utf8_bytes": 45772
-      },
-      "response_fingerprint": {
-        "sha256": "9c4f19bd8682b5652e8b53e6487b377e6cf61e410df7cf610cd99db176ca6e65",
-        "utf8_bytes": 5018
-      },
-      "usage": {
-        "completion_tokens": 1576,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 13831,
-        "prompt_tokens": 13831,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 15407
-      },
-      "finish_reason": "stop",
-      "elapsed": 7.449976205825806
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-170199d152ea86431bce5a808900d1466c7aadd1a4270d00e9a44d5514a7"></a>
-
-<details>
-<summary>ax_repair_gap-23e4763bd7081652230dfb23_1 · task-170199d152ea86431bce5a808900d1466c7aadd1a4270d00e9a44d5514a7</summary>
-
-```json
-{
-  "task_id": "task-170199d152ea86431bce5a808900d1466c7aadd1a4270d00e9a44d5514a7",
-  "epoch": 51,
-  "input_snapshot": "snap-fedc4ff3f684478b856a0388b9e5ba4d",
-  "input_hash": "634826f8db3ef7694cdd411bb7bce4b2edcb33df129ef9f938f102105b2269b7",
-  "status": "COMPLETED",
-  "reserve": 119866,
-  "actual": 9956,
-  "created_at": "2026-09-29T22:35:19.900763+00:00",
-  "settled_at": "2026-09-29T22:35:36.492845+00:00",
-  "node": "ax_repair_gap-23e4763bd7081652230dfb23_1",
-  "request_fingerprint": {
-    "sha256": "2203c6674b4eb3126dd52e0b54997ad90219ca71de2738546e37e7bb77d9165b",
-    "utf8_bytes": 60964
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 17094,
-    "tokens_out": 4023,
-    "cost_usd": 0.0099558,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "e25312926a4f63a639f74a8a80d2c028f708dfba0b8f3cb0f87e9c6caa1f6079",
-        "utf8_bytes": 60584
-      },
-      "response_fingerprint": {
-        "sha256": "ac23079c09f2eec88b924bf540deaeecd1eaced8563e5e2561173fae7b6f78d7",
-        "utf8_bytes": 13139
-      },
-      "usage": {
-        "completion_tokens": 4023,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 16896,
-        "prompt_cache_miss_tokens": 198,
-        "prompt_tokens": 17094,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 16896,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 21117
-      },
-      "finish_reason": "stop",
-      "elapsed": 16.51467728614807
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-babe01a3a7bf779560aa99c50593ddbf7822e2104037004564cb5f7bfbf3"></a>
-
-<details>
-<summary>independent_verifier · task-babe01a3a7bf779560aa99c50593ddbf7822e2104037004564cb5f7bfbf3</summary>
-
-```json
-{
-  "task_id": "task-babe01a3a7bf779560aa99c50593ddbf7822e2104037004564cb5f7bfbf3",
-  "epoch": 51,
-  "input_snapshot": "snap-fedc4ff3f684478b856a0388b9e5ba4d",
-  "input_hash": "44a1764d889f5072137899e6eebecac57029655301dabe47f5b54e9926ba074c",
-  "status": "COMPLETED",
-  "reserve": 54489,
-  "actual": 5596,
-  "created_at": "2026-09-29T22:35:40.748860+00:00",
-  "settled_at": "2026-09-29T22:35:47.334803+00:00",
-  "node": "independent_verifier",
-  "request_fingerprint": {
-    "sha256": "98b69679b6d3d8d0de271c60df7249fd527a2f8829268f409286b9da5cfe601f",
-    "utf8_bytes": 45244
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 13565,
-    "tokens_out": 1272,
-    "cost_usd": 0.0055959,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "ceb7548d50a8d0ee549af5a88ca7ac832042fde46664593939acfdb37c1cdcba",
-        "utf8_bytes": 44884
-      },
-      "response_fingerprint": {
-        "sha256": "ff0d8463468b5b9523b24b56b36c7eda177828082c9e299b655875dc3f028618",
-        "utf8_bytes": 4100
-      },
-      "usage": {
-        "completion_tokens": 1272,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 13565,
-        "prompt_tokens": 13565,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 14837
-      },
-      "finish_reason": "stop",
-      "elapsed": 6.494372606277466
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-9588b53beb283878569d1b41c9b58103c3fea71cc7a9ff74e36d95753eb1"></a>
-
-<details>
-<summary>s9_evidence_match_0 · task-9588b53beb283878569d1b41c9b58103c3fea71cc7a9ff74e36d95753eb1</summary>
-
-```json
-{
-  "task_id": "task-9588b53beb283878569d1b41c9b58103c3fea71cc7a9ff74e36d95753eb1",
-  "epoch": 51,
-  "input_snapshot": "snap-7231f58fa80a4136829ac2930ab655d6",
-  "input_hash": "6913f94f683ae4f44301ca461f2b0e5f738f8c70ff5a04f78edc919fbb901d64",
-  "status": "COMPLETED",
-  "reserve": 113541,
-  "actual": 6628,
-  "created_at": "2026-09-29T22:36:44.888205+00:00",
-  "settled_at": "2026-09-29T22:36:59.394340+00:00",
-  "node": "s9_evidence_match_0",
-  "request_fingerprint": {
-    "sha256": "8d7762c0fbaa46c1fbdb95b4f347f1ed9ebe06354f677146462d53ee74b43a2a",
-    "utf8_bytes": 48385
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 12319,
-    "tokens_out": 2443,
-    "cost_usd": 0.006627299999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "19a70b68b4708cf5ae11ed2aa5574f178d14d9a3accb4ea4636ec8f947702bf8",
-        "utf8_bytes": 48025
-      },
-      "response_fingerprint": {
-        "sha256": "d12abed2e3410566e40eef43d202c8b29b9a3c80ea843460f5aa53343fbf635f",
-        "utf8_bytes": 8068
-      },
-      "usage": {
-        "completion_tokens": 2443,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 10271,
-        "prompt_tokens": 12319,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 14762
-      },
-      "finish_reason": "stop",
-      "elapsed": 14.42685079574585
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-8d4b6a1414780bbc099250152d5fe47744965a0e8c68690161827d6197bd"></a>
-
-<details>
-<summary>s9_evidence_match_1 · task-8d4b6a1414780bbc099250152d5fe47744965a0e8c68690161827d6197bd</summary>
-
-```json
-{
-  "task_id": "task-8d4b6a1414780bbc099250152d5fe47744965a0e8c68690161827d6197bd",
-  "epoch": 51,
-  "input_snapshot": "snap-7231f58fa80a4136829ac2930ab655d6",
-  "input_hash": "2c09adc207a100b1508610c30997e14613cd6a2a179afd47f4edaea669720cfa",
-  "status": "COMPLETED",
-  "reserve": 113528,
-  "actual": 8446,
-  "created_at": "2026-09-29T22:37:02.409189+00:00",
-  "settled_at": "2026-09-29T22:37:22.839122+00:00",
-  "node": "s9_evidence_match_1",
-  "request_fingerprint": {
-    "sha256": "a3ca07a22eb9a390b74a82459d3a9163e95149c44910cf8db7f117c4e49e72c1",
-    "utf8_bytes": 48364
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 12312,
-    "tokens_out": 3960,
-    "cost_usd": 0.008445600000000001,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "b1689a9e285088893f6da5e429530754ee71c016bdacc45a8172dd2c5305ba32",
-        "utf8_bytes": 48004
-      },
-      "response_fingerprint": {
-        "sha256": "895b442aa3a3f9d9f9c1c1133ea4cdf05de99466da7244c8861f0052ad93d5f7",
-        "utf8_bytes": 13514
-      },
-      "usage": {
-        "completion_tokens": 3960,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 10264,
-        "prompt_tokens": 12312,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 16272
-      },
-      "finish_reason": "stop",
-      "elapsed": 20.35373592376709
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-3ddb3323d4eed7834b36cb9000a4b295d59770f7dc3ab45a52fdbf8d71b0"></a>
-
-<details>
-<summary>s9_evidence_match_2 · task-3ddb3323d4eed7834b36cb9000a4b295d59770f7dc3ab45a52fdbf8d71b0</summary>
-
-```json
-{
-  "task_id": "task-3ddb3323d4eed7834b36cb9000a4b295d59770f7dc3ab45a52fdbf8d71b0",
-  "epoch": 51,
-  "input_snapshot": "snap-7231f58fa80a4136829ac2930ab655d6",
-  "input_hash": "9e2ae471f5cacffa9b0287ce631376ab2a0ef70b83826d42a56730c8878958ec",
-  "status": "COMPLETED",
-  "reserve": 113345,
-  "actual": 5675,
-  "created_at": "2026-09-29T22:37:25.967363+00:00",
-  "settled_at": "2026-09-29T22:37:36.049314+00:00",
-  "node": "s9_evidence_match_2",
-  "request_fingerprint": {
-    "sha256": "102ed03556bf9ba58362029361513217ff2359eb79c89e33694d0fe1e46559b9",
-    "utf8_bytes": 48047
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 12220,
-    "tokens_out": 1674,
-    "cost_usd": 0.0056748,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "ee2b3d32f499d36f2ccdb82cbb3fac63b63ba4947ed6c5da3c430bc675a39a66",
-        "utf8_bytes": 47687
-      },
-      "response_fingerprint": {
-        "sha256": "d2a91fa71bad7f32c9bb2a73743993720306762cca1a45dda96b76ec0c84d8ca",
-        "utf8_bytes": 5678
-      },
-      "usage": {
-        "completion_tokens": 1674,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 10172,
-        "prompt_tokens": 12220,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 13894
-      },
-      "finish_reason": "stop",
-      "elapsed": 9.98752498626709
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-60b076cda4fb165527d2ca6ecc3719151175cf51e0d1316b8b55bb7abc02"></a>
-
-<details>
-<summary>s8_persona_factory · task-60b076cda4fb165527d2ca6ecc3719151175cf51e0d1316b8b55bb7abc02</summary>
-
-```json
-{
-  "task_id": "task-60b076cda4fb165527d2ca6ecc3719151175cf51e0d1316b8b55bb7abc02",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "4e3a8ea4f6fa923ee150b5c4000040dc73ca405b6f23630cc879bed9014a7bba",
-  "status": "COMPLETED",
-  "reserve": 60359,
-  "actual": 3135,
-  "created_at": "2026-09-29T22:38:30.747113+00:00",
-  "settled_at": "2026-09-29T22:38:36.680910+00:00",
-  "node": "s8_persona_factory",
-  "request_fingerprint": {
-    "sha256": "758f1c7bc739b9176814d9acb8da4bef7f37259abfeec6c2b7ae498398284fa0",
-    "utf8_bytes": 21882
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T1",
-    "model": "deepseek-flash",
-    "tokens_in": 6468,
-    "tokens_out": 995,
-    "cost_usd": 0.0031344,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "ed20fbd9807ac02e9ee1de7ff96fff7626d5d4d9dd9afdb259833a66076019b0",
-        "utf8_bytes": 21524
-      },
-      "response_fingerprint": {
-        "sha256": "6eed93970d9686b90edcba1775a5e3056746cdce3ba1ba7b5db6fb3f3229a66b",
-        "utf8_bytes": 3169
-      },
-      "usage": {
-        "completion_tokens": 995,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 4420,
-        "prompt_tokens": 6468,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 7463
-      },
-      "finish_reason": "stop",
-      "elapsed": 5.854734659194946
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-90ec03aeab083318be188ef6c4dbe4da525e316b3305a073246aa4a3aa77"></a>
-
-<details>
-<summary>s8_review_independent · task-90ec03aeab083318be188ef6c4dbe4da525e316b3305a073246aa4a3aa77</summary>
-
-```json
-{
-  "task_id": "task-90ec03aeab083318be188ef6c4dbe4da525e316b3305a073246aa4a3aa77",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "2bee33926568a39c4cee4805bf2024188e6f666bce34ccb16aa1e98f18d35334",
-  "status": "COMPLETED",
-  "reserve": 120010,
-  "actual": 9213,
-  "created_at": "2026-09-29T22:38:48.614148+00:00",
-  "settled_at": "2026-09-29T22:39:04.234685+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "2f4ef77de482a38fc3dab14527bda549c696b0287b0536c77dc8d0fc23f27798",
-    "utf8_bytes": 58564
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17150,
-    "tokens_out": 3390,
-    "cost_usd": 0.009212999999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "da4a010a6aa9aedf7f36e4712478fc76d34f569c6cb44dcc991615454d92804e",
-        "utf8_bytes": 58203
-      },
-      "response_fingerprint": {
-        "sha256": "806e23dc565f5d26212503ce80b23e3fee6619280dab25a88264d6ac98bb261e",
-        "utf8_bytes": 10802
-      },
-      "usage": {
-        "completion_tokens": 3390,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 17150,
-        "prompt_tokens": 17150,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 20540
-      },
-      "finish_reason": "stop",
-      "elapsed": 15.53134799003601
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-6be2ff6c8c012d06244e96fa00dbb24b3ed175859f601ba755d190606029"></a>
-
-<details>
-<summary>s8_review_independent · task-6be2ff6c8c012d06244e96fa00dbb24b3ed175859f601ba755d190606029</summary>
-
-```json
-{
-  "task_id": "task-6be2ff6c8c012d06244e96fa00dbb24b3ed175859f601ba755d190606029",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "dcb3daaccdfeec4776308b8e43db494bf59fe2329311bc78cde3f86bc078abbd",
-  "status": "COMPLETED",
-  "reserve": 119999,
-  "actual": 7672,
-  "created_at": "2026-09-29T22:38:50.336595+00:00",
-  "settled_at": "2026-09-29T22:39:00.778015+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "433901ba1beef6640393b0d39bd2d42d102d20f48fc33d5136ece4386a85917b",
-    "utf8_bytes": 58546
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17123,
-    "tokens_out": 2112,
-    "cost_usd": 0.0076713,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "ddd6695a5a8f0bb225d9f7a6b62d7fa591047ad91d1d39f0192bf1ac08ce3b56",
-        "utf8_bytes": 58185
-      },
-      "response_fingerprint": {
-        "sha256": "ce79ef1051549454808b071368b0144dd335e7831b5525b629350e568d73f8be",
-        "utf8_bytes": 6871
-      },
-      "usage": {
-        "completion_tokens": 2112,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 17123,
-        "prompt_tokens": 17123,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 19235
-      },
-      "finish_reason": "stop",
-      "elapsed": 10.365732192993164
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-0360d9d8627211ae448947210d06b960afcc916080fab30defc27bc3cd73"></a>
-
-<details>
-<summary>s8_review_independent · task-0360d9d8627211ae448947210d06b960afcc916080fab30defc27bc3cd73</summary>
-
-```json
-{
-  "task_id": "task-0360d9d8627211ae448947210d06b960afcc916080fab30defc27bc3cd73",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "1b7b7acb1a58cdbfa437b8b482298e09550bdf35ba7c70d74d6a4eb4af38f885",
-  "status": "COMPLETED",
-  "reserve": 120078,
-  "actual": 9519,
-  "created_at": "2026-09-29T22:38:51.931035+00:00",
-  "settled_at": "2026-09-29T22:39:07.364005+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "deaf99b95376646994f98acfadfbcadd3dbcabb77c795b032ceec06a4474e29e",
-    "utf8_bytes": 58677
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17177,
-    "tokens_out": 3638,
-    "cost_usd": 0.0095187,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "58c2dc93be8950341a3d260714d29c9dce19dbced390f4bdd8a1522be413b517",
-        "utf8_bytes": 58316
-      },
-      "response_fingerprint": {
-        "sha256": "bc1cc05d08e802e941d19ed133c591944a2a896b53d21b95f1c3754ffa0b50cb",
-        "utf8_bytes": 11666
-      },
-      "usage": {
-        "completion_tokens": 3638,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 17177,
-        "prompt_tokens": 17177,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 20815
-      },
-      "finish_reason": "stop",
-      "elapsed": 15.306226253509521
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-0cac8021a30fbb4e2ffcb7a06a56c7d5c5b8fc6984fe2da78dfdb8513e9d"></a>
-
-<details>
-<summary>s8_review_independent · task-0cac8021a30fbb4e2ffcb7a06a56c7d5c5b8fc6984fe2da78dfdb8513e9d</summary>
-
-```json
-{
-  "task_id": "task-0cac8021a30fbb4e2ffcb7a06a56c7d5c5b8fc6984fe2da78dfdb8513e9d",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "49bf6bd0fca4a45901e6d93ba403ce2ecc2791003f70af8534b9d50ca355baf7",
-  "status": "COMPLETED",
-  "reserve": 120039,
-  "actual": 8968,
-  "created_at": "2026-09-29T22:38:53.615970+00:00",
-  "settled_at": "2026-09-29T22:39:07.451474+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "80b7e83ec62606e866b2a12372fdcf08f1a83fd7dc29bf0f456eb76343301236",
-    "utf8_bytes": 58613
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17159,
-    "tokens_out": 3183,
-    "cost_usd": 0.0089673,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "08b55d5ff4fc03d422768804ea8f3978cdae3d24e0d8ce0a34843ee637a877e0",
-        "utf8_bytes": 58252
-      },
-      "response_fingerprint": {
-        "sha256": "fc151c82c9d2e0f6ec1b94571f8a51bd188d2d8d74af82c71d038931e170c973",
-        "utf8_bytes": 10298
-      },
-      "usage": {
-        "completion_tokens": 3183,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 17159,
-        "prompt_tokens": 17159,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 20342
-      },
-      "finish_reason": "stop",
-      "elapsed": 13.62120509147644
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-2f2b41f7004ff791b699fa3657a9f6b3d2e4a5c6221a554c177977d2cc11"></a>
-
-<details>
-<summary>s8_review_independent · task-2f2b41f7004ff791b699fa3657a9f6b3d2e4a5c6221a554c177977d2cc11</summary>
-
-```json
-{
-  "task_id": "task-2f2b41f7004ff791b699fa3657a9f6b3d2e4a5c6221a554c177977d2cc11",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "a4e8036f0d96416b4e9dd8df9c1e1677bfdafeeb01afff10e7504abbac01483b",
-  "status": "COMPLETED",
-  "reserve": 124583,
-  "actual": 10404,
-  "created_at": "2026-09-29T22:39:03.779710+00:00",
-  "settled_at": "2026-09-29T22:39:20.206142+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "be54d3241576eea8e3aad5c027deb2de0c1c21faa1f4fcdb4a7d65f16e185b2c",
-    "utf8_bytes": 66386
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 19576,
-    "tokens_out": 3776,
-    "cost_usd": 0.010404,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "2cb2e47c7e8975454db8e2dd105f2a282a81c15753582c6662c1f9346fc8dd67",
-        "utf8_bytes": 66025
-      },
-      "response_fingerprint": {
-        "sha256": "76457d8e0a7f4b2f17cda92392e233835e283ef64843e1750505d6924f578b66",
-        "utf8_bytes": 12303
-      },
-      "usage": {
-        "completion_tokens": 3776,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 17024,
-        "prompt_cache_miss_tokens": 2552,
-        "prompt_tokens": 19576,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 17024,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 23352
-      },
-      "finish_reason": "stop",
-      "elapsed": 14.06418514251709
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-e478273cebae3b9df5cd11f8ba9758859fa712d47925c2b0c09b1f12dfe4"></a>
-
-<details>
-<summary>s8_review_independent · task-e478273cebae3b9df5cd11f8ba9758859fa712d47925c2b0c09b1f12dfe4</summary>
-
-```json
-{
-  "task_id": "task-e478273cebae3b9df5cd11f8ba9758859fa712d47925c2b0c09b1f12dfe4",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "a902269ebb34c0920964e3074a5784c79840bbb36c08e8550c34456b60259379",
-  "status": "COMPLETED",
-  "reserve": 119948,
-  "actual": 6918,
-  "created_at": "2026-09-29T22:39:18.002535+00:00",
-  "settled_at": "2026-09-29T22:39:28.388466+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "bd76ceb61da7866df4aaef855af34c0e49b627e390340e6509851c92e5085ccf",
-    "utf8_bytes": 58452
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17085,
-    "tokens_out": 1493,
-    "cost_usd": 0.0069171,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "c9e2795e9d77a50b27c6427630f787597c54a72801ec23562b1ae0dc8167f409",
-        "utf8_bytes": 58091
-      },
-      "response_fingerprint": {
-        "sha256": "cdff9929e14dcc264ed4fc6d4738f50ff8340ea74b7c924e337b86f7e462c0c1",
-        "utf8_bytes": 4871
-      },
-      "usage": {
-        "completion_tokens": 1493,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 14336,
-        "prompt_cache_miss_tokens": 2749,
-        "prompt_tokens": 17085,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 14336,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 18578
-      },
-      "finish_reason": "stop",
-      "elapsed": 8.132366418838501
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-7b44bb5c3dc140574491623249c5e9e408fd5dcccaa0c859a037608b0685"></a>
-
-<details>
-<summary>s8_review_independent · task-7b44bb5c3dc140574491623249c5e9e408fd5dcccaa0c859a037608b0685</summary>
-
-```json
-{
-  "task_id": "task-7b44bb5c3dc140574491623249c5e9e408fd5dcccaa0c859a037608b0685",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "86c667ad166dc8684b180ff9b48e19825ae5b30f5f07133ed9879e0406f28e88",
-  "status": "COMPLETED",
-  "reserve": 119977,
-  "actual": 6716,
-  "created_at": "2026-09-29T22:39:35.907582+00:00",
-  "settled_at": "2026-09-29T22:39:45.507435+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "d4a7de05726ba7154ba32453bf15f44a34e86e631973d0d50ff1cb5a87f28e48",
-    "utf8_bytes": 58501
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17094,
-    "tokens_out": 1323,
-    "cost_usd": 0.0067158,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "2858a8ca2719e59ea39b760481985c68a7494956b58cd205a75797f4a637c5c9",
-        "utf8_bytes": 58140
-      },
-      "response_fingerprint": {
-        "sha256": "f1e01ad49acb7b7d1df6a509ac371832b57035eeec3d3152ffc6541ad55575c1",
-        "utf8_bytes": 4164
-      },
-      "usage": {
-        "completion_tokens": 1323,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 14336,
-        "prompt_cache_miss_tokens": 2758,
-        "prompt_tokens": 17094,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 14336,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 18417
-      },
-      "finish_reason": "stop",
-      "elapsed": 7.166075229644775
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-b358b5f85fe57f1bf8a64783575fb3cd2797705c7e6090d565f5e72029fa"></a>
-
-<details>
-<summary>s8_review_independent · task-b358b5f85fe57f1bf8a64783575fb3cd2797705c7e6090d565f5e72029fa</summary>
-
-```json
-{
-  "task_id": "task-b358b5f85fe57f1bf8a64783575fb3cd2797705c7e6090d565f5e72029fa",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "091d42cd49c332c8642e62b9b804a1752053802a12c2103d603134cb5f39f3f1",
-  "status": "COMPLETED",
-  "reserve": 120015,
-  "actual": 6915,
-  "created_at": "2026-09-29T22:39:43.125784+00:00",
-  "settled_at": "2026-09-29T22:39:53.062452+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "f8ee1761533fcc5b6ac8348b27fbbed30259a6fd1d8d9fe5c1599a018e3b38e1",
-    "utf8_bytes": 58565
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17112,
-    "tokens_out": 1484,
-    "cost_usd": 0.006914399999999999,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "e45afd4efd9dea4c58298977991ef1df9535c404b937e0ee893129cac2de4d88",
-        "utf8_bytes": 58204
-      },
-      "response_fingerprint": {
-        "sha256": "1f7d2a53f604dc60463d476ce649d0cec853ecdec754720a43af95be78b128ef",
-        "utf8_bytes": 4874
-      },
-      "usage": {
-        "completion_tokens": 1484,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 14336,
-        "prompt_cache_miss_tokens": 2776,
-        "prompt_tokens": 17112,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 14336,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 18596
-      },
-      "finish_reason": "stop",
-      "elapsed": 7.93290901184082
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-6f1ff00d9f8425546c7672ef6cea68d7af4f6e87515afd3932830125c2e9"></a>
-
-<details>
-<summary>s8_review_independent · task-6f1ff00d9f8425546c7672ef6cea68d7af4f6e87515afd3932830125c2e9</summary>
-
-```json
-{
-  "task_id": "task-6f1ff00d9f8425546c7672ef6cea68d7af4f6e87515afd3932830125c2e9",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "acb219ed1f9bffaad0155f9a5d9360fa9db64fe802d9ff0b462287392a889985",
-  "status": "COMPLETED",
-  "reserve": 119937,
-  "actual": 6693,
-  "created_at": "2026-09-29T22:39:44.829121+00:00",
-  "settled_at": "2026-09-29T22:39:53.978811+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "ec43ea99ac553ee9d0fbdddfed3f29d1c971c7b727ab3cfb10f06bde1cd13114",
-    "utf8_bytes": 58434
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17058,
-    "tokens_out": 1313,
-    "cost_usd": 0.006693,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "c00d1d5c7f822f0af2d46b722c19cde5311863cde3820b2c4090f6a2d09684d6",
-        "utf8_bytes": 58073
-      },
-      "response_fingerprint": {
-        "sha256": "c54428d53ea9c2d34b7d0a923ebce12a4824c67abd6db4f1b14fead1b62bf78d",
-        "utf8_bytes": 4364
-      },
-      "usage": {
-        "completion_tokens": 1313,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 14336,
-        "prompt_cache_miss_tokens": 2722,
-        "prompt_tokens": 17058,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 14336,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 18371
-      },
-      "finish_reason": "stop",
-      "elapsed": 7.470337867736816
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-22edd920ad0f0b85efac83e141b8ef08be0df630c3ddf2bf56d1ca0de233"></a>
-
-<details>
-<summary>s8_review_independent · task-22edd920ad0f0b85efac83e141b8ef08be0df630c3ddf2bf56d1ca0de233</summary>
-
-```json
-{
-  "task_id": "task-22edd920ad0f0b85efac83e141b8ef08be0df630c3ddf2bf56d1ca0de233",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "9f5d402e6dfde9c9298c114c7517d265aa182db856978af53acdff83c91bd668",
-  "status": "COMPLETED",
-  "reserve": 120095,
-  "actual": 7895,
-  "created_at": "2026-09-29T22:40:02.349826+00:00",
-  "settled_at": "2026-09-29T22:40:14.423275+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "06fbfccc6f4b1f890a972de1f937942f49cd3548773db20fd55adb6fa66ae5f4",
-    "utf8_bytes": 58706
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17184,
-    "tokens_out": 2283,
-    "cost_usd": 0.0078948,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "f4cf0bed0def4267c9adef8718467192a64d4e9a7089524f74eb06bd85849c78",
-        "utf8_bytes": 58345
-      },
-      "response_fingerprint": {
-        "sha256": "c3ad73034f8d1438c15707f921ec73c6958257615b03d7c4c575b2a4110d244d",
-        "utf8_bytes": 7222
-      },
-      "usage": {
-        "completion_tokens": 2283,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 17184,
-        "prompt_tokens": 17184,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 19467
-      },
-      "finish_reason": "stop",
-      "elapsed": 10.785257577896118
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-7b3fc1500d8ae73a9c97ab1f2e99a22fd55d4dbdff0a3d8d0501b678bee3"></a>
-
-<details>
-<summary>s8_review_independent · task-7b3fc1500d8ae73a9c97ab1f2e99a22fd55d4dbdff0a3d8d0501b678bee3</summary>
-
-```json
-{
-  "task_id": "task-7b3fc1500d8ae73a9c97ab1f2e99a22fd55d4dbdff0a3d8d0501b678bee3",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "ebeef226bf3d10b96704cf3f9f3c1b353774b64564679202396ae784fa055b4e",
-  "status": "COMPLETED",
-  "reserve": 120011,
-  "actual": 9220,
-  "created_at": "2026-09-29T22:40:11.992215+00:00",
-  "settled_at": "2026-09-29T22:40:33.699410+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "c467b26a8dab507734563db92aca6d8690226e77d52c978b20e8672a8a148f43",
-    "utf8_bytes": 58566
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17148,
-    "tokens_out": 3396,
-    "cost_usd": 0.0092196,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "1028fba6ac848fc2bc38e19f7dc2dcfd6e31d253f2f58c4495e669d6f30ba9d7",
-        "utf8_bytes": 58205
-      },
-      "response_fingerprint": {
-        "sha256": "f2a58171cc6b003e7a5c4c28c92397871329fc2e797a041e9ba9843bfdc8daea",
-        "utf8_bytes": 10902
-      },
-      "usage": {
-        "completion_tokens": 3396,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 0,
-        "prompt_cache_miss_tokens": 17148,
-        "prompt_tokens": 17148,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 0,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 20544
-      },
-      "finish_reason": "stop",
-      "elapsed": 16.282034158706665
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-54da606d114c321a6ffe9b50fc3816fa10e95a60fcfeb24eb43cafe13a06"></a>
-
-<details>
-<summary>s8_review_independent · task-54da606d114c321a6ffe9b50fc3816fa10e95a60fcfeb24eb43cafe13a06</summary>
-
-```json
-{
-  "task_id": "task-54da606d114c321a6ffe9b50fc3816fa10e95a60fcfeb24eb43cafe13a06",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "9bd00c0d463b4292fb96d23a67ae647dfb0ce7cad52ae10e2dad8378751b41b6",
-  "status": "COMPLETED",
-  "reserve": 120033,
-  "actual": 6792,
-  "created_at": "2026-09-29T22:41:00.497532+00:00",
-  "settled_at": "2026-09-29T22:41:10.018927+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "0b1a200c75682bf0e382cf62f7d38a9d8f9cc83974771c381d33665d8354d435",
-    "utf8_bytes": 58594
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17119,
-    "tokens_out": 1380,
-    "cost_usd": 0.0067916999999999995,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "eb68632407c7ee73b9e38bf5692baa6e6ea36c752767e41343b5baded284195d",
-        "utf8_bytes": 58233
-      },
-      "response_fingerprint": {
-        "sha256": "d149c89984ee7e974eac3c126a324e10ce83a22b4963c90494d78fb29f3ce200",
-        "utf8_bytes": 4535
-      },
-      "usage": {
-        "completion_tokens": 1380,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 14336,
-        "prompt_cache_miss_tokens": 2783,
-        "prompt_tokens": 17119,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 14336,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 18499
-      },
-      "finish_reason": "stop",
-      "elapsed": 7.574033498764038
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-2fc5bdc35bdfa896c389263cee2c4e33563f24a34225ccb0249a8f85ad7a"></a>
-
-<details>
-<summary>s8_review_independent · task-2fc5bdc35bdfa896c389263cee2c4e33563f24a34225ccb0249a8f85ad7a</summary>
-
-```json
-{
-  "task_id": "task-2fc5bdc35bdfa896c389263cee2c4e33563f24a34225ccb0249a8f85ad7a",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "106626cfee4ebf7dcb4c8b26b4fe3836f0b62f2a082f552d3ae565e780dd6d06",
-  "status": "COMPLETED",
-  "reserve": 119949,
-  "actual": 6929,
-  "created_at": "2026-09-29T22:41:05.454474+00:00",
-  "settled_at": "2026-09-29T22:41:13.768849+00:00",
-  "node": "s8_review_independent",
-  "request_fingerprint": {
-    "sha256": "5d8a4a1bb20b81482f5a7cc82ceebd2e59d9defb759601c6541b5af589e279cd",
-    "utf8_bytes": 58454
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T3",
-    "model": "deepseek-flash",
-    "tokens_in": 17083,
-    "tokens_out": 1503,
-    "cost_usd": 0.0069285,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "5903b812918366026097d44cf49c65470730cbbe0e6096a1d5166ea17afd8ab9",
-        "utf8_bytes": 58093
-      },
-      "response_fingerprint": {
-        "sha256": "17d3170039447891f40d5e09f758441b855b3c882ef2be487036c0bfd54581f8",
-        "utf8_bytes": 5022
-      },
-      "usage": {
-        "completion_tokens": 1503,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 14336,
-        "prompt_cache_miss_tokens": 2747,
-        "prompt_tokens": 17083,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 14336,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 18586
-      },
-      "finish_reason": "stop",
-      "elapsed": 8.230074644088745
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-d1e1ed932b3564524450d1f414bb1284d42cbcaa2e5b3c2c5d71520faee7"></a>
-
-<details>
-<summary>s8_rank · task-d1e1ed932b3564524450d1f414bb1284d42cbcaa2e5b3c2c5d71520faee7</summary>
-
-```json
-{
-  "task_id": "task-d1e1ed932b3564524450d1f414bb1284d42cbcaa2e5b3c2c5d71520faee7",
-  "epoch": 51,
-  "input_snapshot": "snap-a3e819359d8144efae7fd943812a96ac",
-  "input_hash": "c8f09d4362fc9f457f735f9887c2c4c08976ead259ed929a102bc5ce16bb768a",
-  "status": "COMPLETED",
-  "reserve": 107481,
-  "actual": 5780,
-  "created_at": "2026-09-29T22:41:57.161984+00:00",
-  "settled_at": "2026-09-29T22:42:07.208430+00:00",
-  "node": "s8_rank",
-  "request_fingerprint": {
-    "sha256": "19edcb327043570450e2264b370f0374adf3070fe5cd2a33cb404b9fa7b1eb44",
-    "utf8_bytes": 37027
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T2",
-    "model": "deepseek-flash",
-    "tokens_in": 11138,
-    "tokens_out": 2032,
-    "cost_usd": 0.0057798,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "a0c005449d9775e75f6b631056c6f4eff566e9e977ca66a1728a23b7b5001064",
-        "utf8_bytes": 36679
-      },
-      "response_fingerprint": {
-        "sha256": "d6f83f69153a1b7bd134baeb8396ccebd001f0ffffa7a2d234a8b8a9acea6cf3",
-        "utf8_bytes": 6555
-      },
-      "usage": {
-        "completion_tokens": 2032,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 9090,
-        "prompt_tokens": 11138,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 13170
-      },
-      "finish_reason": "stop",
-      "elapsed": 9.906436920166016
-    }
-  ]
-}
-```
-
-</details>
-
-<a id="task-acfd96c9fdfe81af87a0bf528edb501ce874067a2e1532ac50935046125e"></a>
-
-<details>
-<summary>s10_distill · task-acfd96c9fdfe81af87a0bf528edb501ce874067a2e1532ac50935046125e</summary>
-
-```json
-{
-  "task_id": "task-acfd96c9fdfe81af87a0bf528edb501ce874067a2e1532ac50935046125e",
-  "epoch": 52,
-  "input_snapshot": "snap-ab9f74e25b044c86a2e227b43c6157ff",
-  "input_hash": "e5476b34c8d0d0d9207a516dc3b77f81555f273fe17ca6c964ade8e3b97d6369",
-  "status": "COMPLETED",
-  "reserve": 68573,
-  "actual": 4032,
-  "created_at": "2026-09-29T22:58:08.769274+00:00",
-  "settled_at": "2026-09-29T22:58:13.139294+00:00",
-  "node": "s10_distill",
-  "request_fingerprint": {
-    "sha256": "586d4c12d29f6f80c2fb6c1cd3c76779a2fd1b22b6448869452f635874c36d17",
-    "utf8_bytes": 36393
-  },
-  "request_settings": {},
-  "result_usage": {
-    "tier": "T1",
-    "model": "deepseek-flash",
-    "tokens_in": 10616,
-    "tokens_out": 706,
-    "cost_usd": 0.004032,
-    "raw_error": ""
-  },
-  "provider_attempts": [
-    {
-      "request_fingerprint": {
-        "sha256": "d429dbb83d9f8e14022d37c59a0e370a6a3c56996a809fab81d450186e730df4",
-        "utf8_bytes": 36042
-      },
-      "response_fingerprint": {
-        "sha256": "ed5e9d43f8e4d216e19ace78ceb94cb170df63a1c674c644f86c088d25857459",
-        "utf8_bytes": 2439
-      },
-      "usage": {
-        "completion_tokens": 706,
-        "completion_tokens_details": null,
-        "prompt_cache_hit_tokens": 2048,
-        "prompt_cache_miss_tokens": 8568,
-        "prompt_tokens": 10616,
-        "prompt_tokens_details": {
-          "audio_tokens": null,
-          "cache_write_tokens": null,
-          "cached_tokens": 2048,
-          "image_tokens": null,
-          "text_tokens": null
-        },
-        "total_tokens": 11322
-      },
-      "finish_reason": "stop",
-      "elapsed": 4.268137693405151
-    }
-  ]
-}
-```
+| [task-96d416cce2bffe30dd2ae2456a32e931d4ee959fe581a89f3d5b3d19053a](#row-0) | 2026-09-30 12:51:30 | s0_research | s0_deep_dive | 0.003818 | 0.001608 |
+| [task-e5b5930949907f20ccf0c63c3c2cd1e47357438d0bcb2b429d12ace6dfd6](#row-1) | 2026-09-30 12:54:23 | s0_research | s0_deep_dive | 0.003798 | 0.001561 |
+| [task-3d529c33e8f69919a81303d37dcf45669b54e6b3670770c4736b8e691615](#row-2) | 2026-09-30 12:55:31 | s1_intake | s1_extract | 0.007246 | 0.003322 |
+| [task-837950718d92c18bc1a0cdc86c546849b36c92ea38865a897dd2d6a975cc](#row-3) | 2026-09-30 12:56:37 | s2_confirm | s2_candidates | 0.003654 | 0.001789 |
+| [task-5d2586003cbcc1c9d5ba23cb9eba75c7c192f49ee41fe752517628b2c12a](#row-4) | 2026-09-30 12:59:28 | s3_analyze | s3_nine_windows | 0.003877 | 0.001675 |
+| [task-b66ca81e3aa1e434fd8c3c97cd3e09dfc3a3d21dddab071aa68cc68afc7a](#row-5) | 2026-09-30 12:59:45 | s3_analyze | s3_function_model | 0.006641 | 0.003057 |
+| [task-64040edcccc9df3c485881d5accf1cc3b1a36feb7c3471408c85398864dc](#row-6) | 2026-09-30 13:00:03 | s3_analyze | independent_verifier | 0.003646 | 0.001823 |
+| [task-007809559d7bf02ec457b97d1b6835b037108bffbb7867afbfc6452c963d](#row-7) | 2026-09-30 13:00:13 | s3_analyze | s3_function_model | 0.008096 | 0.002787 |
+| [task-3d0a1f1983f91870b39b33e2549fa3ecf368afe68707d397f61c09c07ada](#row-8) | 2026-09-30 13:00:29 | s3_analyze | independent_verifier | 0.003498 | 0.001731 |
+| [task-e4f5d3452c59b97161d9444547d7c66b7d43e140c9b5a31893bc0c17856a](#row-9) | 2026-09-30 13:00:49 | s3_analyze | s3_ceca | 0.005902 | 0.002688 |
+| [task-4679897664a9193bf4a856f94a689b37b53bab8f110e5a16a50ad38ca299](#row-10) | 2026-09-30 13:00:50 | s3_analyze | s3_sufield | 0.002776 | 0.001125 |
+| [task-48616c5302936ba99c04ce4d80a02acba7d262aef13197ac54e93a566a4c](#row-11) | 2026-09-30 13:00:52 | s3_analyze | s3_resources | 0.005602 | 0.002538 |
+| [task-c7956c4f0b8682c011ece4d05ff548c62a4d6c45bf8636c73352f5f66f57](#row-12) | 2026-09-30 13:01:05 | s3_analyze | independent_verifier | 0.003155 | 0.001578 |
+| [task-60732446120732bd78ebfccdd187e0ca01420d387972cdaa98730d2fcf21](#row-13) | 2026-09-30 13:01:17 | s3_analyze | s3_constraints | 0.006565 | 0.003019 |
+| [task-2d28fa3e44d4c66a701bd010487fe4dbed14722e1408452b0dd98f7c9f2b](#row-14) | 2026-09-30 13:02:29 | s4_define | s4_contradictions | 0.008569 | 0.004040 |
+| [task-25f850857b7c56b7d97140f04149a619fa0b44c39b8b9704a96f09815829](#row-15) | 2026-09-30 13:02:31 | s4_define | s4_ifr | 0.003469 | 0.001434 |
+| [task-2614b383ee7fce0563b15685bf0259266b4b425fc8424acf7dfc343d12ae](#row-16) | 2026-09-30 13:02:33 | s4_define | s4_trimming | 0.004748 | 0.002073 |
+| [task-1f8d183469aef6c6461f5c86097068d29476ac31b51cb6dfee1767ed8b13](#row-17) | 2026-09-30 13:02:53 | s4_define | independent_verifier | 0.005246 | 0.002623 |
+| [task-66ee14e6df1ac42207564e39fb8b6b1fda5a24365a159ad30a7c7e7cce46](#row-18) | 2026-09-30 13:03:07 | s4_define | s4_contradictions | 0.012012 | 0.004426 |
+| [task-7061fd35a016b2872791214a81c12fea3f858ffad50fe1574f624540d5ef](#row-19) | 2026-09-30 13:03:33 | s4_define | independent_verifier | 0.006502 | 0.003082 |
+| [task-188d821e2b857008361290675769dd9786af46b0c1dfa7733cc0258027f3](#row-20) | 2026-09-30 13:03:47 | s4_define | s4_key_problem | 0.004706 | 0.002052 |
+| [task-eb6b9c8067a10f2842561bcde7f0bf98cb0472d89f873b055b79224f4b6a](#row-21) | 2026-09-30 13:04:57 | s5_solve | s5_track_a_select | 0.002485 | 0.000942 |
+| [task-7b7cf6ede7f045163aa848d7eb3bd16ec39e6c1867103e114c35772f845e](#row-22) | 2026-09-30 13:05:00 | s5_solve | s5_track_b | 0.004978 | 0.002188 |
+| [task-05512c0144bbc9b1916fe54968d53ae863cf4ec6e79f2e0733bfdc01b7b1](#row-23) | 2026-09-30 13:05:01 | s5_solve | s5_ariz_p1 | 0.007245 | 0.003322 |
+| [task-1a7a16d5885f7914bc79649999678e7382da2e0f825c87ffb0bcf95679e2](#row-24) | 2026-09-30 13:05:07 | s5_solve | s5_track_a | 0.006277 | 0.002838 |
+| [task-a997cdd1d2fd95918448e85cee6ead83eddae19ed9a81210d4feca7e19a0](#row-25) | 2026-09-30 13:05:16 | s5_solve | s5_track_b | 0.005264 | 0.002312 |
+| [task-12b0482ccf629af17309947a1acff5f585d39bd9dca9d45c36b92395c3bb](#row-26) | 2026-09-30 13:05:26 | s5_solve | s5_ariz_p2 | 0.008591 | 0.003995 |
+| [task-c1e1232a2f24602d6e0cd181f62f055c7698b725edf77ec3d6b8be08017d](#row-27) | 2026-09-30 13:05:31 | s5_solve | s5_track_a_select | 0.002520 | 0.000940 |
+| [task-87688fa6d8a1dc869848107ead374e31973528858ff61cef69e190975da0](#row-28) | 2026-09-30 13:05:37 | s5_solve | s5_track_a | 0.006732 | 0.003046 |
+| [task-67405b6f569f7bee8ab681331a8c18733492a5b2e4e1c84b2bf7f9013936](#row-29) | 2026-09-30 13:05:47 | s5_solve | s5_ariz_p3 | 0.009782 | 0.004590 |
+| [task-70c570d46cb6cb76dd58cf4b4c2c3bfa9d1000b5d16d45f7e9d64beeb572](#row-30) | 2026-09-30 13:06:06 | s5_solve | s5_track_a_select | 0.002451 | 0.000906 |
+| [task-61157672535aa6dffd1132e837f8c818058b006290239dfc4b8033324e30](#row-31) | 2026-09-30 13:06:12 | s5_solve | s5_ariz_p4 | 0.013161 | 0.006261 |
+| [task-5a80415715466275630d60fcbfa3a220af9c6cf2f28aea0aa83eb5f3c1c1](#row-32) | 2026-09-30 13:06:14 | s5_solve | s5_track_a | 0.006888 | 0.003124 |
+| [task-0c0e490f096add167ce06b7828fbd033502632c84149a9201d78f50765d7](#row-33) | 2026-09-30 13:06:57 | s5_solve | s5_ariz_p5 | 0.077195 | 0.034139 |
+| [task-787d899c0b965da6ea0955ea819c25ca2df00d2c29687ebe428368aa531f](#row-34) | 2026-09-30 13:09:54 | s5_solve | s5_ariz_p6 | 0.015068 | 0.007233 |
+| [task-0353c7e66812db34ecc64e9f4a3014a3affa4c07c97a15f7d9b244a5ba5b](#row-35) | 2026-09-30 13:10:05 | s5_solve | s5_ariz_p7 | 0.010365 | 0.004863 |
+| [task-810b9f82fdb3aee459b69de39b895f8c85ce9624be89b6e7c8c6e761f2a4](#row-36) | 2026-09-30 13:10:52 | s5_solve | s5_track_e | 0.009996 | 0.004697 |
+| [task-2b30875317368c949d772f5c0933284f0510f47ff0c2270c024246c08813](#row-37) | 2026-09-30 13:10:54 | s5_solve | s5_track_c | 0.008841 | 0.004120 |
+| [task-c885f6a180b05d074507be66adc38dbb07eeb19d68352684721a415aec16](#row-38) | 2026-09-30 13:10:57 | s5_solve | s5_track_f | 0.010082 | 0.004740 |
+| [task-9e8a1ac02eb2c53001446fc7a919f36b19d1bcbb0e206d2cdb4786ab7a20](#row-39) | 2026-09-30 13:11:18 | s5_solve | s5_track_c | 0.009253 | 0.004307 |
+| [task-f158f08b4c70c9f43f7d0f463c0ce78e2a704884cdee415b88f3dbf60783](#row-40) | 2026-09-30 13:11:53 | s5_solve | s5_track_g | 0.008425 | 0.003912 |
+| [task-908f316573a241ef496c58ae94dee079fab8d53d3744c8d14af90f7542db](#row-41) | 2026-09-30 13:11:57 | s5_solve | s5_track_h | 0.011583 | 0.005491 |
+| [task-c412229a1afc16b2381cb4c8409337e15738cba131e62a14d6bec8e2774d](#row-42) | 2026-09-30 13:12:27 | s5_solve | s5_merge | 0.042628 | 0.021013 |
+| [task-d79718f56e2bed82b63009c0f6297fc31ac3a8a89445bf1243e3e8fd661f](#row-43) | 2026-09-30 13:15:34 | s5_solve | s5_merge | 0.046774 | 0.006171 |
+| [task-7516bec277efdf1fdd194622c670689a18c8ec9b5ac6f60b544b3cbe2e87](#row-44) | 2026-09-30 13:16:05 | s5_solve | s5_merge | 0.046794 | 0.006162 |
+| [task-2d3e81d6cac68bc28226c369b7dbe00a1804a66b22bd5a0e38d0fbcd3291](#row-45) | 2026-09-30 13:18:12 | s6_concept | s6_concept | 0.026705 | 0.013052 |
+| [task-255a5d8f1dd63462876a1a4fc12479bafeedc0aa796536cd475eb88c5dd5](#row-46) | 2026-09-30 13:18:14 | s6_concept | s6_concept | 0.013219 | 0.004728 |
+| [task-3e888950030808b46c26bbe2dc600fc3412f3db61f5ed9206fea94ccf160](#row-47) | 2026-09-30 13:18:17 | s6_concept | s6_concept | 0.027340 | 0.011789 |
+| [task-75d79981bca7fe8a0c9311e2dcf9e04ef1ba1f430e81175c38ba24e74115](#row-48) | 2026-09-30 13:19:18 | s6_concept | independent_verifier | 0.008160 | 0.004080 |
+| [task-efcbbcc57d368e9530caea4c0f4210c7a1db3c43fdda0f3f9b5866de7b4d](#row-49) | 2026-09-30 13:19:37 | s6_concept | independent_verifier | 0.007773 | 0.003887 |
+| [task-9fea385c0b523896b0426ffa6e2e3cd883cacbfaa5530bb7408b9502144c](#row-50) | 2026-09-30 13:19:58 | s6_concept | independent_verifier | 0.006377 | 0.003189 |
+| [task-28eb94c8337dff3b995ab1f65ea8b2c239c98307b05c54470eaafd1f5b3f](#row-51) | 2026-09-30 13:20:15 | s6_concept | independent_verifier | 0.008065 | 0.004033 |
+| [task-643597ff594e3331a4fcd79bdc6494cee6b654c7acd4b6099cac1a613587](#row-52) | 2026-09-30 13:20:39 | s6_concept | independent_verifier | 0.007026 | 0.003513 |
+| [task-4c40bff126eb88b65b50046eb6ae3733a5352e5a6716616ae937b52e7db3](#row-53) | 2026-09-30 13:21:00 | s6_concept | independent_verifier | 0.009084 | 0.004542 |
+| [task-7320ddeff65976f99a5632867e351282f7a739d133e3561a5d7105de7642](#row-54) | 2026-09-30 13:21:23 | s6_concept | independent_verifier | 0.007704 | 0.003852 |
+| [task-2ac9e64017116bcf5fd851ba2a64aa4b42205c86818b0388ecd5babb7f0a](#row-55) | 2026-09-30 13:21:48 | s6_concept | independent_verifier | 0.006774 | 0.003387 |
+| [task-c47c7889f7064bfa6d66de4232718d16131c0253fa20a3c03725f1f22f54](#row-56) | 2026-09-30 13:23:10 | s7_gate | ax_repair_gap-bd9a38e4e0b0f6aea7fe0620_0 | 0.009865 | 0.004632 |
+| [task-c238ad9996c60f8e8ca2282a7d322c5e9decbbb7d69d715881ecc2ffe4e8](#row-57) | 2026-09-30 13:23:34 | s7_gate | independent_verifier | 0.006502 | 0.003251 |
+| [task-e815817f51c7da9045247ba6b248c505c58ff3cd05033247e475d15a6ec8](#row-58) | 2026-09-30 13:24:00 | s7_gate | ax_repair_gap-bd9a38e4e0b0f6aea7fe0620_1 | 0.009174 | 0.001934 |
+| [task-de01642c4a6ba1f049d589819211ba353bd46238c9dea70cff9e83df0876](#row-59) | 2026-09-30 13:24:22 | s7_gate | independent_verifier | 0.006554 | 0.003277 |
+| [task-6cbd68f470f5381b8bd7f6b1983b511e5abdc13787e48d44b259c6832d1e](#row-60) | 2026-09-30 13:24:47 | s7_gate | ax_repair_gap-f705ac45d5656e38b0c6b5e9_0 | 0.011882 | 0.005490 |
+| [task-6756d8a19b733b4fe4c1a8547c711e4df46adbc4c6b032f394a525b3b885](#row-61) | 2026-09-30 13:25:10 | s7_gate | independent_verifier | 0.008598 | 0.004299 |
+| [task-a703932eb882a1b3d4e8cc61813719245814c186691a868671d26656a41c](#row-62) | 2026-09-30 13:25:35 | s7_gate | ax_repair_gap-f705ac45d5656e38b0c6b5e9_1 | 0.014311 | 0.004014 |
+| [task-319944d610b87f6b2d33c4e9fcbbff76e16566c6f273f92f64d89f7c9089](#row-63) | 2026-09-30 13:26:04 | s7_gate | independent_verifier | 0.008557 | 0.004279 |
+| [task-433083973487651917535eec5a4924b1f073b4b98314d9bcd76e20b91a3a](#row-64) | 2026-09-30 13:26:56 | s7_gate | s7_gate_4 | 0.002904 | 0.001433 |
+| [task-a9169bd17aee35793963890002c83cdf33b0e2392785954655eb14cc722e](#row-65) | 2026-09-30 13:26:59 | s7_gate | s7_gate_3 | 0.002982 | 0.001152 |
+| [task-b896788cdca0986380073eba09585d7f665c3e8152e1f80f94cfcfdc5ab3](#row-66) | 2026-09-30 13:27:01 | s7_gate | s7_gate_2 | 0.002888 | 0.001106 |
+| [task-66149a335a59a37b21a2c6a1c115fef4e27d20625e35b2d11b01c7bd1e16](#row-67) | 2026-09-30 13:27:06 | s7_gate | s7_gate_1 | 0.003059 | 0.001191 |
+| [task-2013132a6413a376d2015c3c511bfcee628c528c720dda62fc6c04b1bed5](#row-68) | 2026-09-30 13:27:25 | s7_gate | s7_gate_7 | 0.002723 | 0.001023 |
+| [task-56c179cfc48b0ede2d3b8ddc821902f4b1511d9da1d539f118575c21f94a](#row-69) | 2026-09-30 13:27:28 | s7_gate | s7_gate_6 | 0.002740 | 0.001032 |
+| [task-225d69a61036b2e52c4c1eaedd9b4eb4253d27f7df8d9b365900581fa156](#row-70) | 2026-09-30 13:27:32 | s7_gate | s7_gate_8 | 0.002755 | 0.001039 |
+| [task-fba37ec4c9090e7a260ff78167ad327401eb831e5f1f9100b5bbcad06088](#row-71) | 2026-09-30 13:27:35 | s7_gate | s7_gate_5 | 0.002913 | 0.001118 |
+| [task-1ddec92b7d7159732d76f182a2a5b343ca16c85b5f4b08de6696c7efb624](#row-72) | 2026-09-30 13:27:47 | s7_gate | s7_gate_9 | 0.002741 | 0.001032 |
+| [task-2018a941b69de9ae2698444bd6776313a247c9eb715e470d109c911b3136](#row-73) | 2026-09-30 13:27:50 | s7_gate | s7_gate_10 | 0.002704 | 0.001014 |
+| [task-8e775beffd34727b0289949205ccc06cc6967c6def86187bff92d7705636](#row-74) | 2026-09-30 13:31:52 | s8_references | ax_repair_gap-26e0db61185158a1836b4b6b_0 | 0.012018 | 0.005558 |
+| [task-4d59e2d4177e5dce93098b51643cf44fc49668f8551984dbe35ae16b61fc](#row-75) | 2026-09-30 13:32:39 | s8_references | independent_verifier | 0.008564 | 0.004282 |
+| [task-a9cc82dcf73639720d1f0b34dc3a7214b9fa1bc1e3ff12e86fc837ea0340](#row-76) | 2026-09-30 13:33:17 | s8_references | ax_repair_gap-26e0db61185158a1836b4b6b_1 | 0.009935 | 0.001901 |
+| [task-cc15ffc14846556ca4a4121fd1894b432c56449ac34ff7285e1eab1cd2f4](#row-77) | 2026-09-30 13:33:48 | s8_references | independent_verifier | 0.007617 | 0.003809 |
+| [task-9d5425e6cb7616eca9c456fea2f869d52595e44011f9e5d178bea5a537a7](#row-78) | 2026-09-30 13:35:10 | s8_references | ax_repair_gap-ab829f5d78d52e0eaeb7afea_0 | 0.010076 | 0.004587 |
+| [task-2af69ca787931e1011e851e6606f298458f097821c8e910690c0e935f2c4](#row-79) | 2026-09-30 13:35:44 | s8_references | independent_verifier | 0.007293 | 0.003647 |
+| [task-a3820767839185ee8333935d411ca988c7c2807ce71534f6551910e6c5aa](#row-80) | 2026-09-30 13:36:38 | s8_references | ax_repair_gap-ab829f5d78d52e0eaeb7afea_1 | 0.010246 | 0.002150 |
+| [task-73551b14ceab30e8bf368088fcebf6bfc6991e8a9af663ceb12e8d060e3d](#row-81) | 2026-09-30 13:37:10 | s8_references | independent_verifier | 0.007347 | 0.003674 |
+| [task-04b554ec43d937c9afb1c886b8a6bb4f9f0884338e283c864fbd687d2f71](#row-82) | 2026-09-30 13:41:12 | s8_references | s9_evidence_match_0 | 0.007818 | 0.003608 |
+| [task-9f800905ce00e1dad9b2c86b3838716f3e4eb8ee8e64f7d321d3ccbb3aeb](#row-83) | 2026-09-30 13:41:41 | s8_references | s9_evidence_match_1 | 0.006669 | 0.003015 |
+| [task-5d001a97f9e27c99e41d5da6af6e567baf2dfe52d85a68feab67f886fa3d](#row-84) | 2026-09-30 13:42:13 | s8_references | s9_evidence_match_2 | 0.006813 | 0.003087 |
+| [task-52455f41692048d593c7f55ec1a6a885b9fb48d182c040864c5b8f1d7c70](#row-85) | 2026-09-30 13:42:57 | s8_references | s9_evidence_match_3 | 0.005712 | 0.002536 |
+| [task-45a5bd564acc34f59cd610dc8974eb64c00e2415c26cd8dff5be3d0ba8bc](#row-86) | 2026-09-30 13:44:31 | s8_evaluate | s8_persona_factory | 0.003618 | 0.001508 |
+| [task-b39fbcac51eff877b8ee13816441e3a908711ba182a009cb5c87e32527e7](#row-87) | 2026-09-30 13:45:14 | s8_evaluate | s8_review_independent | 0.012158 | 0.006079 |
+| [task-d93dc77d3edc9d8f0a6dee6f8ebcf97bf6a6d1b86067f670197cacb83742](#row-88) | 2026-09-30 13:45:27 | s8_evaluate | s8_review_independent | 0.012043 | 0.006022 |
+| [task-bc2c8e79ddac5aaca2be8b441fcc3e52e84d7a2af00b2539dd90ba201862](#row-89) | 2026-09-30 13:45:39 | s8_evaluate | s8_review_independent | 0.012331 | 0.006166 |
+| [task-33c3aaef7999a292b8a35ba0eefea694135d3fc6ade6ca23d3e8bb613352](#row-90) | 2026-09-30 13:45:50 | s8_evaluate | s8_review_independent | 0.011659 | 0.005830 |
+| [task-1a93d7c32a971d656641f70e08deeb5f90f36d183669cd9410e0db58e6cb](#row-91) | 2026-09-30 13:46:46 | s8_evaluate | s8_review_independent | 0.010818 | 0.002229 |
+| [task-13c1df5928b052144ce0fb07129e254f9108c57841bccefb4c5de4dd8b32](#row-92) | 2026-09-30 13:46:59 | s8_evaluate | s8_review_independent | 0.010521 | 0.002081 |
+| [task-e60304da2093962eb36a35ebf56eee40cde2f256b17dac984eaab375959b](#row-93) | 2026-09-30 13:47:10 | s8_evaluate | s8_review_independent | 0.010473 | 0.002057 |
+| [task-623d8eeb04bc16ed3b2fa1366f9d38f80063781de8b5e2861cc0dd2c457e](#row-94) | 2026-09-30 13:47:19 | s8_evaluate | s8_review_independent | 0.010265 | 0.001953 |
+| [task-1863fa93ae440c880e857aa113742d54c33d9d1aa6b41d167f201c8c0df4](#row-95) | 2026-09-30 13:48:32 | s8_evaluate | s8_review_independent | 0.010322 | 0.005161 |
+| [task-418484586f7acc806666a3a6f166e3aedf5878fe6520e665272f28d2354c](#row-96) | 2026-09-30 13:48:52 | s8_evaluate | s8_review_independent | 0.011795 | 0.005898 |
+| [task-f253d058d68bab2e0c7ed2970f86f934109c7f8e48723099267bdcc56c3f](#row-97) | 2026-09-30 13:52:50 | s8_evaluate | s8_review_independent | 0.010274 | 0.001957 |
+| [task-fe2b47a69d2fbe25e7445b2e77a0b548a8ec09f46e03fed812f26fd56518](#row-98) | 2026-09-30 13:52:59 | s8_evaluate | s8_review_independent | 0.010708 | 0.002174 |
+| [task-5e67663a09cdb6d9e1eff5544277c78f348baabf768f77dee36a15d45f6d](#row-99) | 2026-09-30 13:54:17 | s8_evaluate | s8_rank | 0.007354 | 0.003376 |
+| [task-e27241035908f1fba291d125857029dfb77234e545786047230f4e90b9a6](#row-100) | 2026-09-30 13:55:12 | s8_evaluate | s8_rank | 0.008038 | 0.002062 |
+
+<a id="row-0"></a>
+
+<details>
+<summary>기록 1 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-96d416cce2bffe30dd2ae2456a32e931d4ee959fe581a89f3d5b3d19053a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 53 | 전체 값 |
+| `input_snapshot` | "snap-164fe0d9d21c44cfb95783c77d9de071" | 전체 값 |
+| `input_hash` | "76fba12067e60a6e20fa6243aa60077711f10b9426f789efbaf79a333134317d" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742090.6170678 | 전체 값 |
+| `reserve` | 92413 | 전체 값 |
+| `actual` | 3818 | 전체 값 |
+| `created_at` | "2026-09-30T03:51:30.617074+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T03:51:40.923210+00:00" | 전체 값 |
+| `node` | "s0_deep_dive" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/05621b39db9c2462369445f5.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 3162, "tokens_out": 2391, "cost_usd": 0.0038177999999999997, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/96d97d6c2f336931cac64464.md) |
+
+</details>
+
+<a id="row-1"></a>
+
+<details>
+<summary>기록 2 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-e5b5930949907f20ccf0c63c3c2cd1e47357438d0bcb2b429d12ace6dfd6" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 54 | 전체 값 |
+| `input_snapshot` | "snap-536b2744ed69438e8551fd125ae59aaa" | 전체 값 |
+| `input_hash` | "c05f0f444fd15672c30d513953ddf1e0ef21e675fd0e3dac055ba8e901a37bb3" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742263.270354 | 전체 값 |
+| `reserve` | 93372 | 전체 값 |
+| `actual` | 3798 | 전체 값 |
+| `created_at` | "2026-09-30T03:54:23.270360+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T03:54:33.564683+00:00" | 전체 값 |
+| `node` | "s0_deep_dive" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/b96aff64b846c40187851f82.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 3623, "tokens_out": 2259, "cost_usd": 0.0037977, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/f4fce0c2ad36427583f4e4c2.md) |
+
+</details>
+
+<a id="row-2"></a>
+
+<details>
+<summary>기록 3 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-3d529c33e8f69919a81303d37dcf45669b54e6b3670770c4736b8e691615" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 54 | 전체 값 |
+| `input_snapshot` | "snap-b5b01fd0ffb54634ae3fcf23ae13447a" | 전체 값 |
+| `input_hash` | "92f1c61256d2843456dea1b83db68bc7f1fa0a5d15047853e21d2a2710d3409c" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742331.0965345 | 전체 값 |
+| `reserve` | 63591 | 전체 값 |
+| `actual` | 7246 | 전체 값 |
+| `created_at` | "2026-09-30T03:55:31.096539+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T03:55:44.536736+00:00" | 전체 값 |
+| `node` | "s1_extract" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/86845153b173276802dad964.md) |
+| `result_usage` | {"tier": "T1", "model": "deepseek-flash", "tokens_in": 8061, "tokens_out": 4023, "cost_usd": 0.0072458999999999996, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/357c3cb25c0e76c1336c1d0d.md) |
+
+</details>
+
+<a id="row-3"></a>
+
+<details>
+<summary>기록 4 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-837950718d92c18bc1a0cdc86c546849b36c92ea38865a897dd2d6a975cc" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 54 | 전체 값 |
+| `input_snapshot` | "snap-7e313b9d637b445d90f429e7ecb6fd00" | 전체 값 |
+| `input_hash` | "f1159a4f5591a8da48b2920778229a413847d4f808e8e111ed43c1ffbdf5eb4d" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742397.2552183 | 전체 값 |
+| `reserve` | 97251 | 전체 값 |
+| `actual` | 3654 | 전체 값 |
+| `created_at` | "2026-09-30T03:56:37.255224+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T03:56:44.499395+00:00" | 전체 값 |
+| `node` | "s2_candidates" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/a4a790d8e885ee3f83bde61c.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 5741, "tokens_out": 1609, "cost_usd": 0.0036530999999999994, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/732bece817d675531832c8ba.md) |
+
+</details>
+
+<a id="row-4"></a>
+
+<details>
+<summary>기록 5 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-5d2586003cbcc1c9d5ba23cb9eba75c7c192f49ee41fe752517628b2c12a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-34e7956f50d143cabd2ac774fe607f25" | 전체 값 |
+| `input_hash` | "4aecd12acad42b6e215eca1713b82341bbf7720e2bd21b7c9435260971f4fd0c" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742568.8638911 | 전체 값 |
+| `reserve` | 99231 | 전체 값 |
+| `actual` | 3877 | 전체 값 |
+| `created_at` | "2026-09-30T03:59:28.863896+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T03:59:37.088391+00:00" | 전체 값 |
+| `node` | "s3_nine_windows" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/9d4c9775f3c27ecf6775c907.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 6754, "tokens_out": 1542, "cost_usd": 0.0038765999999999996, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/df270b0b3b3b3cec31cb36c0.md) |
+
+</details>
+
+<a id="row-5"></a>
+
+<details>
+<summary>기록 6 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-b66ca81e3aa1e434fd8c3c97cd3e09dfc3a3d21dddab071aa68cc68afc7a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-34e7956f50d143cabd2ac774fe607f25" | 전체 값 |
+| `input_hash` | "723fc9e42ec142bd8b8dac68fe3fd717876b85bf5717e6abccbe169689913e3a" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742585.7401445 | 전체 값 |
+| `reserve` | 102990 | 전체 값 |
+| `actual` | 6641 | 전체 값 |
+| `created_at` | "2026-09-30T03:59:45.740151+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T03:59:58.818328+00:00" | 전체 값 |
+| `node` | "s3_function_model" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/6077b257b4b9ca5d3511b8cf.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 8640, "tokens_out": 3374, "cost_usd": 0.0066408000000000005, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/26f58da920c844557f4addd8.md) |
+
+</details>
+
+<a id="row-6"></a>
+
+<details>
+<summary>기록 7 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-64040edcccc9df3c485881d5accf1cc3b1a36feb7c3471408c85398864dc" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-34e7956f50d143cabd2ac774fe607f25" | 전체 값 |
+| `input_hash` | "96f568e49f4f89d14e3e15466d9d76a1fc3f96e2b3a02d94d8b2fb61b180c393" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742603.3468137 | 전체 값 |
+| `reserve` | 42700 | 전체 값 |
+| `actual` | 3646 | 전체 값 |
+| `created_at` | "2026-09-30T04:00:03.346819+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:00:09.324806+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/9ae048757bcf80272681e829.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 7475, "tokens_out": 1169, "cost_usd": 0.0036452999999999998, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/197a3ef0235b0135da01f7d1.md) |
+
+</details>
+
+<a id="row-7"></a>
+
+<details>
+<summary>기록 8 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-007809559d7bf02ec457b97d1b6835b037108bffbb7867afbfc6452c963d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-34e7956f50d143cabd2ac774fe607f25" | 전체 값 |
+| `input_hash` | "4de4042d6abfbc29f69117cf803d4fd4270a0b988eac0e60b921b3ddf070347b" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742613.445578 | 전체 값 |
+| `reserve` | 110445 | 전체 값 |
+| `actual` | 8096 | 전체 값 |
+| `created_at` | "2026-09-30T04:00:13.445586+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:00:24.850987+00:00" | 전체 값 |
+| `node` | "s3_function_model" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/ee23a315a24a255bb66a8708.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 12796, "tokens_out": 3547, "cost_usd": 0.0080952, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/7bb17cf79213cdc74aacccf2.md) |
+
+</details>
+
+<a id="row-8"></a>
+
+<details>
+<summary>기록 9 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-3d0a1f1983f91870b39b33e2549fa3ecf368afe68707d397f61c09c07ada" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-34e7956f50d143cabd2ac774fe607f25" | 전체 값 |
+| `input_hash` | "26bf6a36f9988d7ec9e744bc6ef3b714b5aed3f9a0f95ad4b208d7a35188179b" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742629.2040455 | 전체 값 |
+| `reserve` | 43059 | 전체 값 |
+| `actual` | 3498 | 전체 값 |
+| `created_at` | "2026-09-30T04:00:29.204050+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:00:34.623056+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/c3fc644a42da1c7197f40803.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 7648, "tokens_out": 1003, "cost_usd": 0.003498, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/e438904847ffe49f75825e85.md) |
+
+</details>
+
+<a id="row-9"></a>
+
+<details>
+<summary>기록 10 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-e4f5d3452c59b97161d9444547d7c66b7d43e140c9b5a31893bc0c17856a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-34e7956f50d143cabd2ac774fe607f25" | 전체 값 |
+| `input_hash` | "85e5e8ba36016c92456eb7b00cf66171f998e12b4be7ba418f96ab4a55da5377" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742649.3475711 | 전체 값 |
+| `reserve` | 102039 | 전체 값 |
+| `actual` | 5902 | 전체 값 |
+| `created_at` | "2026-09-30T04:00:49.347577+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:01:00.983548+00:00" | 전체 값 |
+| `node` | "s3_ceca" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/d594fa06461ed2cd19c7e63f.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 8193, "tokens_out": 2870, "cost_usd": 0.0059019, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/3b82ddc25f7c019005e545b6.md) |
+
+</details>
+
+<a id="row-10"></a>
+
+<details>
+<summary>기록 11 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-4679897664a9193bf4a856f94a689b37b53bab8f110e5a16a50ad38ca299" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-34e7956f50d143cabd2ac774fe607f25" | 전체 값 |
+| `input_hash` | "b945d73ccd4861c5083c1825de20a81c945b09243e5342f68f46f4d0e187d9aa" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742650.9963648 | 전체 값 |
+| `reserve` | 101583 | 전체 값 |
+| `actual` | 2776 | 전체 값 |
+| `created_at` | "2026-09-30T04:00:50.996370+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:00:53.073526+00:00" | 전체 값 |
+| `node` | "s3_sufield" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/8707cd69400e5d427ca5cc5b.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 8016, "tokens_out": 309, "cost_usd": 0.0027756, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/0feaa0e473c738864f4f0e7d.md) |
+
+</details>
+
+<a id="row-11"></a>
+
+<details>
+<summary>기록 12 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-48616c5302936ba99c04ce4d80a02acba7d262aef13197ac54e93a566a4c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-34e7956f50d143cabd2ac774fe607f25" | 전체 값 |
+| `input_hash` | "6e80764056287725e827fafae5dc1a0486af3c20212d8d2e29732e0f5191e820" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742652.670997 | 전체 값 |
+| `reserve` | 101645 | 전체 값 |
+| `actual` | 5602 | 전체 값 |
+| `created_at` | "2026-09-30T04:00:52.671003+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:01:05.308885+00:00" | 전체 값 |
+| `node` | "s3_resources" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/35d8934fa72e6301e30ed338.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 7937, "tokens_out": 2684, "cost_usd": 0.0056019, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/30df1bd2ac85dc61e9b1186c.md) |
+
+</details>
+
+<a id="row-12"></a>
+
+<details>
+<summary>기록 13 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-c7956c4f0b8682c011ece4d05ff548c62a4d6c45bf8636c73352f5f66f57" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-34e7956f50d143cabd2ac774fe607f25" | 전체 값 |
+| `input_hash` | "4304456d57f58d3b698064896b496ded4b00eb889b0ae0ee21a8157a940107e3" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742665.2336376 | 전체 값 |
+| `reserve` | 41327 | 전체 값 |
+| `actual` | 3155 | 전체 값 |
+| `created_at` | "2026-09-30T04:01:05.233642+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:01:09.730496+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/43ca08800eecd7cd6b598758.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 6954, "tokens_out": 890, "cost_usd": 0.0031542, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/cf29904808d3abac7332b53d.md) |
+
+</details>
+
+<a id="row-13"></a>
+
+<details>
+<summary>기록 14 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-60732446120732bd78ebfccdd187e0ca01420d387972cdaa98730d2fcf21" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-34e7956f50d143cabd2ac774fe607f25" | 전체 값 |
+| `input_hash` | "caae079329d0530fabfbf45146c0c88c984088089e931cc6298d063ea521c1b6" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742677.2078831 | 전체 값 |
+| `reserve` | 104742 | 전체 값 |
+| `actual` | 6565 | 전체 값 |
+| `created_at` | "2026-09-30T04:01:17.207888+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:01:28.206928+00:00" | 전체 값 |
+| `node` | "s3_constraints" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/518c9d9d132367d94c1a9149.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 9570, "tokens_out": 3078, "cost_usd": 0.0065646, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/7ea3c6b45f1d5b7115a9fcd9.md) |
+
+</details>
+
+<a id="row-14"></a>
+
+<details>
+<summary>기록 15 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-2d28fa3e44d4c66a701bd010487fe4dbed14722e1408452b0dd98f7c9f2b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-598fb131ae484180abf1e4ae394d3457" | 전체 값 |
+| `input_hash` | "5111c6c6bf2cbdef693db2227af21ce43dad9235a5f63d6d0cfbf02821893cc3" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742749.727662 | 전체 값 |
+| `reserve` | 106981 | 전체 값 |
+| `actual` | 8569 | 전체 값 |
+| `created_at` | "2026-09-30T04:02:29.727668+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:02:49.335054+00:00" | 전체 값 |
+| `node` | "s4_contradictions" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/2d10b3255e6ee3c110d510cc.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 10805, "tokens_out": 4439, "cost_usd": 0.008568300000000001, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/d10518729f6aac2f3fc751a2.md) |
+
+</details>
+
+<a id="row-15"></a>
+
+<details>
+<summary>기록 16 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-25f850857b7c56b7d97140f04149a619fa0b44c39b8b9704a96f09815829" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-598fb131ae484180abf1e4ae394d3457" | 전체 값 |
+| `input_hash` | "5f4c4e31f43848234db7b1f07bdcb0fd93fe2769f3f91f8db5d89f20ba885b63" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742751.3565524 | 전체 값 |
+| `reserve` | 98605 | 전체 값 |
+| `actual` | 3469 | 전체 값 |
+| `created_at` | "2026-09-30T04:02:31.356558+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:02:38.286426+00:00" | 전체 값 |
+| `node` | "s4_ifr" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/ca7df8236f2c7ecef8f75cb2.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 6490, "tokens_out": 1268, "cost_usd": 0.0034685999999999996, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/aba624b012849e1fa0a948d6.md) |
+
+</details>
+
+<a id="row-16"></a>
+
+<details>
+<summary>기록 17 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-2614b383ee7fce0563b15685bf0259266b4b425fc8424acf7dfc343d12ae" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-598fb131ae484180abf1e4ae394d3457" | 전체 값 |
+| `input_hash` | "4ef4a3bb0a2ba29d9bfd42450ef28721f79114881e75f85658dbfe249564191e" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742753.0677054 | 전체 값 |
+| `reserve` | 102708 | 전체 값 |
+| `actual` | 4748 | 전체 값 |
+| `created_at` | "2026-09-30T04:02:33.067711+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:02:42.243852+00:00" | 전체 값 |
+| `node` | "s4_trimming" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/912a6ddb721579e779214f23.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 8638, "tokens_out": 1797, "cost_usd": 0.0047478, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/02aff7c9b43f94a2dd90b3f8.md) |
+
+</details>
+
+<a id="row-17"></a>
+
+<details>
+<summary>기록 18 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-1f8d183469aef6c6461f5c86097068d29476ac31b51cb6dfee1767ed8b13" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-598fb131ae484180abf1e4ae394d3457" | 전체 값 |
+| `input_hash` | "2ed665d39f961e5ba065349d55f110bca5de4321ae85cf985671c75c36308723" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742773.3995814 | 전체 값 |
+| `reserve` | 50594 | 전체 값 |
+| `actual` | 5246 | 전체 값 |
+| `created_at` | "2026-09-30T04:02:53.399588+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:03:02.058806+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/db40d97a6cc3e95dc343aeb6.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 11520, "tokens_out": 1491, "cost_usd": 0.0052452, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/7103032d8c4c9bcdeb8e2fb0.md) |
+
+</details>
+
+<a id="row-18"></a>
+
+<details>
+<summary>기록 19 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-66ee14e6df1ac42207564e39fb8b6b1fda5a24365a159ad30a7c7e7cce46" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-598fb131ae484180abf1e4ae394d3457" | 전체 값 |
+| `input_hash` | "f3ef62c2909cef85610c929145c57b34fbf21e3dd2a1004317efd934583df321" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742787.701853 | 전체 값 |
+| `reserve` | 116853 | 전체 값 |
+| `actual` | 12012 | 전체 값 |
+| `created_at` | "2026-09-30T04:03:07.701858+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:03:29.589649+00:00" | 전체 값 |
+| `node` | "s4_contradictions" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/fe00e42e0699757d2e441420.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 15991, "tokens_out": 6012, "cost_usd": 0.012011699999999998, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/6530390efab91b79cd225c1b.md) |
+
+</details>
+
+<a id="row-19"></a>
+
+<details>
+<summary>기록 20 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-7061fd35a016b2872791214a81c12fea3f858ffad50fe1574f624540d5ef" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-598fb131ae484180abf1e4ae394d3457" | 전체 값 |
+| `input_hash` | "24f835b82ff53c68ca5bcd2c72936666b4858fa6993abe1a68e1ea267ab552e7" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742813.6311312 | 전체 값 |
+| `reserve` | 53729 | 전체 값 |
+| `actual` | 6502 | 전체 값 |
+| `created_at` | "2026-09-30T04:03:33.631137+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:03:43.001944+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/da2caa5ba2314cd4381d1ed5.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 13155, "tokens_out": 2129, "cost_usd": 0.0065013, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/d22a1fc51d825543242911e8.md) |
+
+</details>
+
+<a id="row-20"></a>
+
+<details>
+<summary>기록 21 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-188d821e2b857008361290675769dd9786af46b0c1dfa7733cc0258027f3" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-598fb131ae484180abf1e4ae394d3457" | 전체 값 |
+| `input_hash` | "3c7ff5f9fe1206b369924d5d422cda1cbe63abd09853ffa6b322d0d056d1c016" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742827.2457387 | 전체 값 |
+| `reserve` | 107436 | 전체 값 |
+| `actual` | 4706 | 전체 값 |
+| `created_at` | "2026-09-30T04:03:47.245744+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:03:53.402004+00:00" | 전체 값 |
+| `node` | "s4_key_problem" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/a12309e2b7238b337ab8e22b.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 11041, "tokens_out": 1161, "cost_usd": 0.0047055, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/d1ff2fef07a5b009f8a77314.md) |
+
+</details>
+
+<a id="row-21"></a>
+
+<details>
+<summary>기록 22 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-eb6b9c8067a10f2842561bcde7f0bf98cb0472d89f873b055b79224f4b6a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "6ce7fcb526cd02c50d1dc14229347837ec16f141fe2b44e705fa0ea92902ec14" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742897.0199292 | 전체 값 |
+| `reserve` | 100025 | 전체 값 |
+| `actual` | 2485 | 전체 값 |
+| `created_at` | "2026-09-30T04:04:57.019936+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:05:01.949140+00:00" | 전체 값 |
+| `node` | "s5_track_a_select" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/f6077e5f1c0f2bbd8cae0d55.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 7185, "tokens_out": 274, "cost_usd": 0.0024843, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/914950a34681278a4461ce66.md) |
+
+</details>
+
+<a id="row-22"></a>
+
+<details>
+<summary>기록 23 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-7b7cf6ede7f045163aa848d7eb3bd16ec39e6c1867103e114c35772f845e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "f8ac10b3edd5c127a5c9e71310439e789c04321b7f6156274f4d4ba3394f72f6" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742900.1576893 | 전체 값 |
+| `reserve` | 101846 | 전체 값 |
+| `actual` | 4978 | 전체 값 |
+| `created_at` | "2026-09-30T04:05:00.157696+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:05:10.785696+00:00" | 전체 값 |
+| `node` | "s5_track_b" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/2b2b690e01b7121c91ca395a.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 8208, "tokens_out": 2096, "cost_usd": 0.0049776, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/3ad6721aab3a7bb59df329cb.md) |
+
+</details>
+
+<a id="row-23"></a>
+
+<details>
+<summary>기록 24 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-05512c0144bbc9b1916fe54968d53ae863cf4ec6e79f2e0733bfdc01b7b1" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "c77c140f057807ef1ff8d585080c39f6339f1d3c693f008a3a3dc15499ed6ad0" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742901.8732808 | 전체 값 |
+| `reserve` | 100021 | 전체 값 |
+| `actual` | 7245 | 전체 값 |
+| `created_at` | "2026-09-30T04:05:01.873286+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:05:20.086770+00:00" | 전체 값 |
+| `node` | "s5_ariz_p1" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/25d6fd1efbc5498b49dc4701.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 7245, "tokens_out": 4226, "cost_usd": 0.0072447, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/5568383c621d595eb3e633f7.md) |
+
+</details>
+
+<a id="row-24"></a>
+
+<details>
+<summary>기록 25 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-1a7a16d5885f7914bc79649999678e7382da2e0f825c87ffb0bcf95679e2" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "439652c1ebfa48476ece7238f5bcaa5695713b18fa87cc781d6871e1810ccb34" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742907.7628014 | 전체 값 |
+| `reserve` | 102031 | 전체 값 |
+| `actual` | 6277 | 전체 값 |
+| `created_at` | "2026-09-30T04:05:07.762806+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:05:22.839673+00:00" | 전체 값 |
+| `node` | "s5_track_a" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/a3797e6da6a8bf8f44129da7.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 8233, "tokens_out": 3172, "cost_usd": 0.0062763, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/460061c372f3a02f7c62fc1a.md) |
+
+</details>
+
+<a id="row-25"></a>
+
+<details>
+<summary>기록 26 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-a997cdd1d2fd95918448e85cee6ead83eddae19ed9a81210d4feca7e19a0" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "b68059cb2623e93281674c27d8bc385447c9f27376481bc263cb21cbde82a5e7" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742916.9170501 | 전체 값 |
+| `reserve` | 101838 | 전체 값 |
+| `actual` | 5264 | 전체 값 |
+| `created_at` | "2026-09-30T04:05:16.917055+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:05:31.303281+00:00" | 전체 값 |
+| `node` | "s5_track_b" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/0239f8b4400f6ba31b3f2e40.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 8193, "tokens_out": 2338, "cost_usd": 0.0052635, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/55aa0c632651fcc5dd85f2bc.md) |
+
+</details>
+
+<a id="row-26"></a>
+
+<details>
+<summary>기록 27 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-12b0482ccf629af17309947a1acff5f585d39bd9dca9d45c36b92395c3bb" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "ed27aaa217eb2d1566b9de8b0871152b392ec9b8f628cd3b9c1fa27eb04f1230" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742926.8589418 | 전체 값 |
+| `reserve` | 109750 | 전체 값 |
+| `actual` | 8591 | 전체 값 |
+| `created_at` | "2026-09-30T04:05:26.858950+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:05:42.594412+00:00" | 전체 값 |
+| `node` | "s5_ariz_p2" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/073e99448f51928ecaf3da07.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 12336, "tokens_out": 4075, "cost_usd": 0.008590799999999999, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/00297e7f9311e2571a4aac6e.md) |
+
+</details>
+
+<a id="row-27"></a>
+
+<details>
+<summary>기록 28 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-c1e1232a2f24602d6e0cd181f62f055c7698b725edf77ec3d6b8be08017d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "6989d39eb4a5e862e56fb05ec14f3cff08cad862db74e0efafabc9d4ee30d736" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742931.2386882 | 전체 값 |
+| `reserve` | 100032 | 전체 값 |
+| `actual` | 2520 | 전체 값 |
+| `created_at` | "2026-09-30T04:05:31.238693+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:05:33.667705+00:00" | 전체 값 |
+| `node` | "s5_track_a_select" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/16d3386901c8e250dd9bdfe2.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 7191, "tokens_out": 302, "cost_usd": 0.0025197, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/3d724c5e5407f23c71cf260d.md) |
+
+</details>
+
+<a id="row-28"></a>
+
+<details>
+<summary>기록 29 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-87688fa6d8a1dc869848107ead374e31973528858ff61cef69e190975da0" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "2639dc2b939d979905719f5945b6f71c8700d060e239b3215d4096da975a83aa" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742937.8450577 | 전체 값 |
+| `reserve` | 102174 | 전체 값 |
+| `actual` | 6732 | 전체 값 |
+| `created_at` | "2026-09-30T04:05:37.845063+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:05:55.714682+00:00" | 전체 값 |
+| `node` | "s5_track_a" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/e0ad7f8197897d21b4b3f780.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 8313, "tokens_out": 3531, "cost_usd": 0.0067311, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/901402ed55f5cf820e81876b.md) |
+
+</details>
+
+<a id="row-29"></a>
+
+<details>
+<summary>기록 30 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-67405b6f569f7bee8ab681331a8c18733492a5b2e4e1c84b2bf7f9013936" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "217a5b27047cdb431a5465860b14c518e86268ca66195e22b966c451889874a5" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742947.02764 | 전체 값 |
+| `reserve` | 112112 | 전체 값 |
+| `actual` | 9782 | 전체 값 |
+| `created_at` | "2026-09-30T04:05:47.027646+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:06:06.614993+00:00" | 전체 값 |
+| `node` | "s5_ariz_p3" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/06f6e046c8fc097180b3d4a9.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 13708, "tokens_out": 4724, "cost_usd": 0.0097812, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/3745eb3888a75f1635136350.md) |
+
+</details>
+
+<a id="row-30"></a>
+
+<details>
+<summary>기록 31 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-70c570d46cb6cb76dd58cf4b4c2c3bfa9d1000b5d16d45f7e9d64beeb572" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "cd016a55b7340dfc87f735b7460fbe21055fc02a3f427b5b5d3cff9a7c2dde6d" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742966.170987 | 전체 값 |
+| `reserve` | 99972 | 전체 값 |
+| `actual` | 2451 | 전체 값 |
+| `created_at` | "2026-09-30T04:06:06.170992+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:06:08.638126+00:00" | 전체 값 |
+| `node` | "s5_track_a_select" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/ce379f9c47d7083adae53a93.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 7159, "tokens_out": 252, "cost_usd": 0.0024501, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/d878cc811e3cc512f9ef8d36.md) |
+
+</details>
+
+<a id="row-31"></a>
+
+<details>
+<summary>기록 32 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-61157672535aa6dffd1132e837f8c818058b006290239dfc4b8033324e30" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "2447be6eb28e4d9546dd39dac56542ecfa8b9784370c0a4e3e00ce66f8f7f293" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742972.804993 | 전체 값 |
+| `reserve` | 100767 | 전체 값 |
+| `actual` | 13161 | 전체 값 |
+| `created_at` | "2026-09-30T04:06:12.804998+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:06:52.887579+00:00" | 전체 값 |
+| `node` | "s5_ariz_p4" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/1bd1ba7cbd016e55454b3773.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 7608, "tokens_out": 9065, "cost_usd": 0.013160400000000001, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/d0818c98383f893f835c8eb9.md) |
+
+</details>
+
+<a id="row-32"></a>
+
+<details>
+<summary>기록 33 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-5a80415715466275630d60fcbfa3a220af9c6cf2f28aea0aa83eb5f3c1c1" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "f12b94291644164037f38575278d0f92800b21f5a274f158cf1255790251e850" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790742974.503523 | 전체 값 |
+| `reserve` | 102090 | 전체 값 |
+| `actual` | 6888 | 전체 값 |
+| `created_at` | "2026-09-30T04:06:14.503529+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:06:31.622233+00:00" | 전체 값 |
+| `node` | "s5_track_a" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/cb5f04dc3cf1771349a0c0b7.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 8267, "tokens_out": 3673, "cost_usd": 0.0068877, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/8ca56096451fd4a37aace5a6.md) |
+
+</details>
+
+<a id="row-33"></a>
+
+<details>
+<summary>기록 34 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-0c0e490f096add167ce06b7828fbd033502632c84149a9201d78f50765d7" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "aa12674ee1fb2b98736c568c3e762db33a333d69330e01504b9eafde9e17a660" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743017.7630084 | 전체 값 |
+| `reserve` | 141252 | 전체 값 |
+| `actual` | 77195 | 전체 값 |
+| `created_at` | "2026-09-30T04:06:57.763014+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:09:48.137733+00:00" | 전체 값 |
+| `node` | "s5_ariz_p5" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/ec7995ba529be64a2970a5e3.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 56676, "tokens_out": 50160, "cost_usd": 0.07719480000000001, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 2개 | [전체 값](payloads/95ca0f46981ed24d6e56d747.md) |
+
+</details>
+
+<a id="row-34"></a>
+
+<details>
+<summary>기록 35 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-787d899c0b965da6ea0955ea819c25ca2df00d2c29687ebe428368aa531f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "a84de4066a71338c5afd972cd9da86cb2e4de5d0baefe0cd445a58ab00e3bdd3" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743194.1240222 | 전체 값 |
+| `reserve` | 118955 | 전체 값 |
+| `actual` | 15068 | 전체 값 |
+| `created_at` | "2026-09-30T04:09:54.124027+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:09:59.040695+00:00" | 전체 값 |
+| `node` | "s5_ariz_p6" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/fc6c1906c582394a2435d53a.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 47081, "tokens_out": 786, "cost_usd": 0.0150675, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/fca629c56a050d70f9707e8c.md) |
+
+</details>
+
+<a id="row-35"></a>
+
+<details>
+<summary>기록 36 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-0353c7e66812db34ecc64e9f4a3014a3affa4c07c97a15f7d9b244a5ba5b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "02501130324e3f0b435aa4c6fbe6a2200ece93bc70ff89f48e1cd2cf46314088" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743205.0257232 | 전체 값 |
+| `reserve` | 101323 | 전체 값 |
+| `actual` | 10365 | 전체 값 |
+| `created_at` | "2026-09-30T04:10:05.025729+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:10:30.788271+00:00" | 전체 값 |
+| `node` | "s5_ariz_p7" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/2d029b1037f76c5e293f9fda.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 7912, "tokens_out": 6659, "cost_usd": 0.0103644, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/728a832714b230d71e523ca0.md) |
+
+</details>
+
+<a id="row-36"></a>
+
+<details>
+<summary>기록 37 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-810b9f82fdb3aee459b69de39b895f8c85ce9624be89b6e7c8c6e761f2a4" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "99e16784a841c3ac42972d1bbe1ac34d327dbdb7eb7512ab1778f4f51827b21f" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743252.9927144 | 전체 값 |
+| `reserve` | 103512 | 전체 값 |
+| `actual` | 9996 | 전체 값 |
+| `created_at` | "2026-09-30T04:10:52.992719+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:11:18.258256+00:00" | 전체 값 |
+| `node` | "s5_track_e" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/8f37ba1f3325aa7f23d4a154.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 9029, "tokens_out": 6072, "cost_usd": 0.0099951, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/5ebda2211870ca60693df9c0.md) |
+
+</details>
+
+<a id="row-37"></a>
+
+<details>
+<summary>기록 38 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-2b30875317368c949d772f5c0933284f0510f47ff0c2270c024246c08813" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "1b6c56b936eec01755aee31168b8b088d4091e0463df571c8b69c46930b32558" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743254.7437077 | 전체 값 |
+| `reserve` | 110469 | 전체 값 |
+| `actual` | 8841 | 전체 값 |
+| `created_at` | "2026-09-30T04:10:54.743713+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:11:11.593971+00:00" | 전체 값 |
+| `node` | "s5_track_c" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/66adcdba8caad555ec769e44.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 12165, "tokens_out": 4326, "cost_usd": 0.0088407, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/8c76be6415bace73831848a4.md) |
+
+</details>
+
+<a id="row-38"></a>
+
+<details>
+<summary>기록 39 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-c885f6a180b05d074507be66adc38dbb07eeb19d68352684721a415aec16" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "1b4dec628166383332343f51f1f5d15bed1a8973ed41279afb5f4e59fdb1dfab" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743257.8348927 | 전체 값 |
+| `reserve` | 129357 | 전체 값 |
+| `actual` | 10082 | 전체 값 |
+| `created_at` | "2026-09-30T04:10:57.834899+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:11:12.665181+00:00" | 전체 값 |
+| `node` | "s5_track_f" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/99d5241190aff2ae075d0dc7.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 21976, "tokens_out": 2907, "cost_usd": 0.010081199999999998, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/47c7835f00aa8e3fd9c79c9c.md) |
+
+</details>
+
+<a id="row-39"></a>
+
+<details>
+<summary>기록 40 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-9e8a1ac02eb2c53001446fc7a919f36b19d1bcbb0e206d2cdb4786ab7a20" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "45b607e00b2e90571d8cee46d943874dea46c29c788df20bd33ec6383d5f94f3" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743278.1906018 | 전체 값 |
+| `reserve` | 110472 | 전체 값 |
+| `actual` | 9253 | 전체 값 |
+| `created_at` | "2026-09-30T04:11:18.190619+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:11:36.342212+00:00" | 전체 값 |
+| `node` | "s5_track_c" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/a6a18e3dcb9e9c008c63adbe.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 12171, "tokens_out": 4668, "cost_usd": 0.0092529, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/2eedef69558268c8de1a6cb8.md) |
+
+</details>
+
+<a id="row-40"></a>
+
+<details>
+<summary>기록 41 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-f158f08b4c70c9f43f7d0f463c0ce78e2a704884cdee415b88f3dbf60783" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "fae7d73f248225654c321017b50e268928c8652118ef11cd473ec7ecd99e1244" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743313.7369637 | 전체 값 |
+| `reserve` | 125031 | 전체 값 |
+| `actual` | 8425 | 전체 값 |
+| `created_at` | "2026-09-30T04:11:53.736970+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:12:05.115688+00:00" | 전체 값 |
+| `node` | "s5_track_g" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/04a066a085bf580e36ae7e10.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 19689, "tokens_out": 2098, "cost_usd": 0.0084243, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/865889772682c747bd9737a7.md) |
+
+</details>
+
+<a id="row-41"></a>
+
+<details>
+<summary>기록 42 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-908f316573a241ef496c58ae94dee079fab8d53d3744c8d14af90f7542db" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "22d7b30ec5eef408f54de68bf8440d12175cbbdf7cd3998d158faec31cea8aad" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743317.4143498 | 전체 값 |
+| `reserve` | 136925 | 전체 값 |
+| `actual` | 11583 | 전체 값 |
+| `created_at` | "2026-09-30T04:11:57.414367+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:12:12.719827+00:00" | 전체 값 |
+| `node` | "s5_track_h" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/27f7eeceb34d07690ad76453.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 25752, "tokens_out": 3214, "cost_usd": 0.0115824, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/a3d9e75562336c6427954263.md) |
+
+</details>
+
+<a id="row-42"></a>
+
+<details>
+<summary>기록 43 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-c412229a1afc16b2381cb4c8409337e15738cba131e62a14d6bec8e2774d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 55 | 전체 값 |
+| `input_snapshot` | "snap-2a49a7b7a86e427093724c5ee4b0106a" | 전체 값 |
+| `input_hash` | "63ebf1a376cd4d32f1d8e704361ac3e85853f3809e3f584e966d7a386aa4a35c" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743347.0705445 | 전체 값 |
+| `reserve` | 322220 | 전체 값 |
+| `actual` | 42628 | 전체 값 |
+| `created_at` | "2026-09-30T04:12:27.070553+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:12:55.589462+00:00" | 전체 값 |
+| `node` | "s5_merge" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/950e8de304ab1263f6995a11.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 117279, "tokens_out": 6203, "cost_usd": 0.0426273, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/4588ed011bc4d6104c1ce8ad.md) |
+
+</details>
+
+<a id="row-43"></a>
+
+<details>
+<summary>기록 44 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-d79718f56e2bed82b63009c0f6297fc31ac3a8a89445bf1243e3e8fd661f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-5dba114002e041f6a5c116387a346dd5" | 전체 값 |
+| `input_hash` | "90a56c03f9ba2cdc5f3efe60a06dc34e74b92d880d0e7bf28e7984da18814a87" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743534.1796427 | 전체 값 |
+| `reserve` | 335525 | 전체 값 |
+| `actual` | 46774 | 전체 값 |
+| `created_at` | "2026-09-30T04:15:34.179648+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:15:58.949640+00:00" | 전체 값 |
+| `node` | "s5_merge" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/d7b7f97e189a16fb917040a9.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 124575, "tokens_out": 7834, "cost_usd": 0.046773300000000004, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/b55c9c3c48856f953a8f56c5.md) |
+
+</details>
+
+<a id="row-44"></a>
+
+<details>
+<summary>기록 45 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-7516bec277efdf1fdd194622c670689a18c8ec9b5ac6f60b544b3cbe2e87" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-5dba114002e041f6a5c116387a346dd5" | 전체 값 |
+| `input_hash` | "95b92acad077b63f124fb515094e12910f6019fb085290b9d91ae1af9eedfe4f" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743565.6021705 | 전체 값 |
+| `reserve` | 337168 | 전체 값 |
+| `actual` | 46794 | 전체 값 |
+| `created_at` | "2026-09-30T04:16:05.602175+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:16:28.572952+00:00" | 전체 값 |
+| `node` | "s5_merge" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/0ce40296528b849bfa73de64.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 125440, "tokens_out": 7635, "cost_usd": 0.046794, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/6a9279701033a3a7fb1655be.md) |
+
+</details>
+
+<a id="row-45"></a>
+
+<details>
+<summary>기록 46 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-2d3e81d6cac68bc28226c369b7dbe00a1804a66b22bd5a0e38d0fbcd3291" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "880cfd92a05300f941a8f997f728764c24d990c97654de38fa5fd719071f8278" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743692.2821133 | 전체 값 |
+| `reserve` | 164187 | 전체 값 |
+| `actual` | 26705 | 전체 값 |
+| `created_at` | "2026-09-30T04:18:12.282119+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:18:54.348363+00:00" | 전체 값 |
+| `node` | "s6_concept" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/716382c56c8549f51d678382.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 39422, "tokens_out": 12398, "cost_usd": 0.026704199999999997, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/fcf0acb086e3edb61a66a5ef.md) |
+
+</details>
+
+<a id="row-46"></a>
+
+<details>
+<summary>기록 47 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-255a5d8f1dd63462876a1a4fc12479bafeedc0aa796536cd475eb88c5dd5" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "549898bcc69344adf5f3c7a68e62f4ec3314ad02bc1a5489e587aa80880d425e" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743694.2366452 | 전체 값 |
+| `reserve` | 138633 | 전체 값 |
+| `actual` | 13219 | 전체 값 |
+| `created_at` | "2026-09-30T04:18:14.236653+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:18:33.900744+00:00" | 전체 값 |
+| `node` | "s6_concept" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/cf749dceec913253e7ac958e.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 26415, "tokens_out": 4412, "cost_usd": 0.013218899999999999, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/b1ea3be0ca02b175ac12fa12.md) |
+
+</details>
+
+<a id="row-47"></a>
+
+<details>
+<summary>기록 48 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-3e888950030808b46c26bbe2dc600fc3412f3db61f5ed9206fea94ccf160" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "d7238d4eb6c1eadac02619196369b7ad4b7f857c5e1cf227f21f1baa9ef01f11" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743697.9246118 | 전체 값 |
+| `reserve` | 161437 | 전체 값 |
+| `actual` | 27340 | 전체 값 |
+| `created_at` | "2026-09-30T04:18:17.924617+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:19:02.272980+00:00" | 전체 값 |
+| `node` | "s6_concept" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/cc98a1bb06e80133329e34df.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 38055, "tokens_out": 13269, "cost_usd": 0.027339299999999997, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/3c7ba1f50336db8c56ae24f0.md) |
+
+</details>
+
+<a id="row-48"></a>
+
+<details>
+<summary>기록 49 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-75d79981bca7fe8a0c9311e2dcf9e04ef1ba1f430e81175c38ba24e74115" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "ec463c7b8969e50df250fc56f196171585d2c7b5f00837a53d3d42840291a8dd" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743758.5140946 | 전체 값 |
+| `reserve` | 69264 | 전체 값 |
+| `actual` | 8160 | 전체 값 |
+| `created_at` | "2026-09-30T04:19:18.514101+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:19:27.445316+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/9fa4b4f7259a3b1c9c533d0e.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 20786, "tokens_out": 1603, "cost_usd": 0.008159399999999999, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/245db05c2185f690d28e6ca6.md) |
+
+</details>
+
+<a id="row-49"></a>
+
+<details>
+<summary>기록 50 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-efcbbcc57d368e9530caea4c0f4210c7a1db3c43fdda0f3f9b5866de7b4d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "8857b8e64315154ade4cdb8ac09fcb46cc2a94b1928d87228592740a0fedab18" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743777.7142582 | 전체 값 |
+| `reserve` | 66384 | 전체 값 |
+| `actual` | 7773 | 전체 값 |
+| `created_at` | "2026-09-30T04:19:37.714263+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:19:46.330731+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/0c8d2ba277588d49c02787b4.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 19323, "tokens_out": 1646, "cost_usd": 0.0077721, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/6a137b756d9ac7b8fb8834b6.md) |
+
+</details>
+
+<a id="row-50"></a>
+
+<details>
+<summary>기록 51 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-9fea385c0b523896b0426ffa6e2e3cd883cacbfaa5530bb7408b9502144c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "2063db0a9d5d90d2bb5002af8f7579c5c449887ee46ae85814cd0a8bf4f83ceb" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743798.5520627 | 전체 값 |
+| `reserve` | 62175 | 전체 값 |
+| `actual` | 6377 | 전체 값 |
+| `created_at` | "2026-09-30T04:19:58.552067+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:20:03.928094+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/873c9b6f64cbce84338d09f7.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 17176, "tokens_out": 1020, "cost_usd": 0.0063768, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/3cefbc2a4656295f4f7168e1.md) |
+
+</details>
+
+<a id="row-51"></a>
+
+<details>
+<summary>기록 52 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-28eb94c8337dff3b995ab1f65ea8b2c239c98307b05c54470eaafd1f5b3f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "9b36a187a44ab0ace5218ee8fbc4e1e322f42f0fdeca57fdda37f1b9c54bf2f5" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743815.2671762 | 전체 값 |
+| `reserve` | 67394 | 전체 값 |
+| `actual` | 8065 | 전체 값 |
+| `created_at` | "2026-09-30T04:20:15.267182+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:20:23.966094+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/40a12a14850c83cb76d866ee.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 19713, "tokens_out": 1792, "cost_usd": 0.0080643, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/c2ef66a9a0a53e786dda83e9.md) |
+
+</details>
+
+<a id="row-52"></a>
+
+<details>
+<summary>기록 53 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-643597ff594e3331a4fcd79bdc6494cee6b654c7acd4b6099cac1a613587" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "f24af5d980a3d3c407b610b6344d85237ea40ccdcfb681565739cbb944185ef3" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743839.1041813 | 전체 값 |
+| `reserve` | 63270 | 전체 값 |
+| `actual` | 7026 | 전체 값 |
+| `created_at` | "2026-09-30T04:20:39.104187+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:20:46.265794+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/9c7105706649a91423f8c493.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 17822, "tokens_out": 1399, "cost_usd": 0.0070254, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/8af98fd57d1566ee4f3d7020.md) |
+
+</details>
+
+<a id="row-53"></a>
+
+<details>
+<summary>기록 54 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-4c40bff126eb88b65b50046eb6ae3733a5352e5a6716616ae937b52e7db3" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "0b988842d5e9a07da3fcc44ba39f6e38e4b51eea0364955950f3c63536974602" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743860.5342157 | 전체 값 |
+| `reserve` | 69513 | 전체 값 |
+| `actual` | 9084 | 전체 값 |
+| `created_at` | "2026-09-30T04:21:00.534220+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:21:11.964796+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/fe71ec788bbecbfd3561051e.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 21018, "tokens_out": 2315, "cost_usd": 0.009083399999999998, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/397c6ad32c0f125867426717.md) |
+
+</details>
+
+<a id="row-54"></a>
+
+<details>
+<summary>기록 55 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-7320ddeff65976f99a5632867e351282f7a739d133e3561a5d7105de7642" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "53a6998f3da06ec2ebd8a366947c6cb9712f190102199b9e6287ecc0b06fe15f" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743883.4136684 | 전체 값 |
+| `reserve` | 65640 | 전체 값 |
+| `actual` | 7704 | 전체 값 |
+| `created_at` | "2026-09-30T04:21:23.413675+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:21:32.952546+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/175fc8c727b12bc273d7cb41.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 18988, "tokens_out": 1673, "cost_usd": 0.007704, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/3e9831416fc1f738b4de6da8.md) |
+
+</details>
+
+<a id="row-55"></a>
+
+<details>
+<summary>기록 56 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-2ac9e64017116bcf5fd851ba2a64aa4b42205c86818b0388ecd5babb7f0a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-6526e07589224012b018bd03a2638fdf" | 전체 값 |
+| `input_hash` | "0dab009ddfd95b56e382cafee8a360bb3e648ba6057aad12f9dea7f3fd569db8" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743908.340006 | 전체 값 |
+| `reserve` | 62218 | 전체 값 |
+| `actual` | 6774 | 전체 값 |
+| `created_at` | "2026-09-30T04:21:48.340011+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:21:55.556803+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/0b7bb162e9a1b91a35751a4b.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 17093, "tokens_out": 1371, "cost_usd": 0.006773100000000001, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/63e70b78b17ab4f25d11e8d1.md) |
+
+</details>
+
+<a id="row-56"></a>
+
+<details>
+<summary>기록 57 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-c47c7889f7064bfa6d66de4232718d16131c0253fa20a3c03725f1f22f54" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-083679b2e69f4895b5ca55dd287c6839" | 전체 값 |
+| `input_hash` | "e1add4db4cccf36e6951cbcef396630efc84ba6cb4f14be9d7ae1e8d3854264d" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790743990.1434898 | 전체 값 |
+| `reserve` | 121460 | 전체 값 |
+| `actual` | 9865 | 전체 값 |
+| `created_at` | "2026-09-30T04:23:10.143494+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:23:27.599761+00:00" | 전체 값 |
+| `node` | "ax_repair_gap-bd9a38e4e0b0f6aea7fe0620_0" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/2108d90d05aa406d9b751d42.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 18222, "tokens_out": 3665, "cost_usd": 0.0098646, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/526560bdbd8f68c75ec34587.md) |
+
+</details>
+
+<a id="row-57"></a>
+
+<details>
+<summary>기록 58 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-c238ad9996c60f8e8ca2282a7d322c5e9decbbb7d69d715881ecc2ffe4e8" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-083679b2e69f4895b5ca55dd287c6839" | 전체 값 |
+| `input_hash` | "953facf15e7ed3724418bdfac6ef9928a86b8a1eb34c1cb19b55359d42b5cc52" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744014.2473032 | 전체 값 |
+| `reserve` | 62106 | 전체 값 |
+| `actual` | 6502 | 전체 값 |
+| `created_at` | "2026-09-30T04:23:34.247308+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:23:39.668564+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/ee4256a1d09544b0b389a418.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 17292, "tokens_out": 1095, "cost_usd": 0.0065016, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/197af6d5f58c37c66707caec.md) |
+
+</details>
+
+<a id="row-58"></a>
+
+<details>
+<summary>기록 59 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-e815817f51c7da9045247ba6b248c505c58ff3cd05033247e475d15a6ec8" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-083679b2e69f4895b5ca55dd287c6839" | 전체 값 |
+| `input_hash` | "478bd291bc380079c59c12041d048e4864a54fd35c49e35072e164ff9a9ad743" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744040.327019 | 전체 값 |
+| `reserve` | 121460 | 전체 값 |
+| `actual` | 9174 | 전체 값 |
+| `created_at` | "2026-09-30T04:24:00.327024+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:24:15.909980+00:00" | 전체 값 |
+| `node` | "ax_repair_gap-bd9a38e4e0b0f6aea7fe0620_1" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/7e7f2c523a46eddd6f42ddb4.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 18222, "tokens_out": 3089, "cost_usd": 0.0091734, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/28ad1df64fc38547b650d3c9.md) |
+
+</details>
+
+<a id="row-59"></a>
+
+<details>
+<summary>기록 60 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-de01642c4a6ba1f049d589819211ba353bd46238c9dea70cff9e83df0876" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-083679b2e69f4895b5ca55dd287c6839" | 전체 값 |
+| `input_hash` | "3f7e7ce0b9ece8d98f02b6069519f6ddd67b2e842e5cf670ba2a989e3ac8ee18" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744062.5343068 | 전체 값 |
+| `reserve` | 61168 | 전체 값 |
+| `actual` | 6554 | 전체 값 |
+| `created_at` | "2026-09-30T04:24:22.534312+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:24:28.957600+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/707849b133348a7113c6c60f.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 16745, "tokens_out": 1275, "cost_usd": 0.006553499999999999, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/d6ca99ed9b8b487b5bca805d.md) |
+
+</details>
+
+<a id="row-60"></a>
+
+<details>
+<summary>기록 61 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-6cbd68f470f5381b8bd7f6b1983b511e5abdc13787e48d44b259c6832d1e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-083679b2e69f4895b5ca55dd287c6839" | 전체 값 |
+| `input_hash` | "f5264d03c8732d85307d6ee657ec3f4a419c7e9eb73ebbf772f2c0fbc67a1fa0" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744087.768069 | 전체 값 |
+| `reserve` | 127872 | 전체 값 |
+| `actual` | 11882 | 전체 값 |
+| `created_at` | "2026-09-30T04:24:47.768075+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:25:04.727081+00:00" | 전체 값 |
+| `node` | "ax_repair_gap-f705ac45d5656e38b0c6b5e9_0" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/56cea335ba3ea6bc3f2bc3c9.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 21514, "tokens_out": 4523, "cost_usd": 0.0118818, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/68005ef1001f606ad96563f6.md) |
+
+</details>
+
+<a id="row-61"></a>
+
+<details>
+<summary>기록 62 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-6756d8a19b733b4fe4c1a8547c711e4df46adbc4c6b032f394a525b3b885" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-083679b2e69f4895b5ca55dd287c6839" | 전체 값 |
+| `input_hash` | "e9dd29a555a5e0bb6990c08b047d895fea1747bf9a14046b028666f830437a8f" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744110.5433526 | 전체 값 |
+| `reserve` | 72329 | 전체 값 |
+| `actual` | 8598 | 전체 값 |
+| `created_at` | "2026-09-30T04:25:10.543358+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:25:19.053702+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/767c89bcaeb048da41519212.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 23028, "tokens_out": 1408, "cost_usd": 0.008598, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/0e361b1f3f5b9cd9dd7945f3.md) |
+
+</details>
+
+<a id="row-62"></a>
+
+<details>
+<summary>기록 63 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-a703932eb882a1b3d4e8cc61813719245814c186691a868671d26656a41c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-083679b2e69f4895b5ca55dd287c6839" | 전체 값 |
+| `input_hash` | "5c064c7cad394a549d3c52c0c16a82d5fd76f54c9206c49ed73b6db4d57ba825" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744135.616398 | 전체 값 |
+| `reserve` | 127872 | 전체 값 |
+| `actual` | 14311 | 전체 값 |
+| `created_at` | "2026-09-30T04:25:35.616403+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:25:58.266852+00:00" | 전체 값 |
+| `node` | "ax_repair_gap-f705ac45d5656e38b0c6b5e9_1" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/7fd59bee10a768a50b0caa35.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 21514, "tokens_out": 6547, "cost_usd": 0.0143106, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/925361ffb4581163738cc915.md) |
+
+</details>
+
+<a id="row-63"></a>
+
+<details>
+<summary>기록 64 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-319944d610b87f6b2d33c4e9fcbbff76e16566c6f273f92f64d89f7c9089" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-083679b2e69f4895b5ca55dd287c6839" | 전체 값 |
+| `input_hash` | "c3463947111ff8ca4af4751c4b23df14ee2518860654c7a1d89ec42103f965c3" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744164.6736183 | 전체 값 |
+| `reserve` | 71299 | 전체 값 |
+| `actual` | 8557 | 전체 값 |
+| `created_at` | "2026-09-30T04:26:04.673623+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:26:12.279070+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/10cf7f7f4e116709f56fa422.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 22199, "tokens_out": 1581, "cost_usd": 0.0085569, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/9d7ac34c3debcbe3ee084f79.md) |
+
+</details>
+
+<a id="row-64"></a>
+
+<details>
+<summary>기록 65 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-433083973487651917535eec5a4924b1f073b4b98314d9bcd76e20b91a3a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-bd95c2b311eb491491880ba9bb20c269" | 전체 값 |
+| `input_hash` | "53494db6e2f056cbfc6831e58a76e5275246290cf73fced6dc7495569ee28051" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744216.888886 | 전체 값 |
+| `reserve` | 97982 | 전체 값 |
+| `actual` | 2904 | 전체 값 |
+| `created_at` | "2026-09-30T04:26:56.888891+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:27:06.585406+00:00" | 전체 값 |
+| `node` | "s7_gate_4" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/97f113d9012148a5d8fc4a71.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 5734, "tokens_out": 986, "cost_usd": 0.0029034, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/8898b44dd5ee6b32cd62684e.md) |
+
+</details>
+
+<a id="row-65"></a>
+
+<details>
+<summary>기록 66 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-a9169bd17aee35793963890002c83cdf33b0e2392785954655eb14cc722e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-bd95c2b311eb491491880ba9bb20c269" | 전체 값 |
+| `input_hash` | "cc12042207cf0a42a52a5157ef65794fd658b599a83b6f4d84fba1b85807871f" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744219.1224978 | 전체 값 |
+| `reserve` | 97473 | 전체 값 |
+| `actual` | 2982 | 전체 값 |
+| `created_at` | "2026-09-30T04:26:59.122503+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:27:06.724227+00:00" | 전체 값 |
+| `node` | "s7_gate_3" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/02914e0b09f07a76e5e0d2a4.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 5485, "tokens_out": 1113, "cost_usd": 0.0029811, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/3de28d80896df83880e9597d.md) |
+
+</details>
+
+<a id="row-66"></a>
+
+<details>
+<summary>기록 67 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-b896788cdca0986380073eba09585d7f665c3e8152e1f80f94cfcfdc5ab3" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-bd95c2b311eb491491880ba9bb20c269" | 전체 값 |
+| `input_hash` | "e69020f561cc6b04f983fd367fc54e57afebfbb80ff514416ddd8cfea5452eb1" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744221.0517917 | 전체 값 |
+| `reserve` | 98349 | 전체 값 |
+| `actual` | 2888 | 전체 값 |
+| `created_at` | "2026-09-30T04:27:01.051799+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:27:06.931859+00:00" | 전체 값 |
+| `node` | "s7_gate_2" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/10f1cc9f225771e9ad2caaf9.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 5930, "tokens_out": 924, "cost_usd": 0.0028878000000000003, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/aa37cba9cfa49419cf9d77d5.md) |
+
+</details>
+
+<a id="row-67"></a>
+
+<details>
+<summary>기록 68 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-66149a335a59a37b21a2c6a1c115fef4e27d20625e35b2d11b01c7bd1e16" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-bd95c2b311eb491491880ba9bb20c269" | 전체 값 |
+| `input_hash` | "8d2bd921a0c3bdc3caae6feac14b76dea558e14038f7927510cd8862d21d53a3" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744226.518081 | 전체 값 |
+| `reserve` | 98789 | 전체 값 |
+| `actual` | 3059 | 전체 값 |
+| `created_at` | "2026-09-30T04:27:06.518087+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:27:10.678036+00:00" | 전체 값 |
+| `node` | "s7_gate_1" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/ff41da7b7ede5d9678b27209.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 6147, "tokens_out": 1012, "cost_usd": 0.0030584999999999996, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/dbac900f7361469c36574304.md) |
+
+</details>
+
+<a id="row-68"></a>
+
+<details>
+<summary>기록 69 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-2013132a6413a376d2015c3c511bfcee628c528c720dda62fc6c04b1bed5" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-bd95c2b311eb491491880ba9bb20c269" | 전체 값 |
+| `input_hash` | "8226643d1e47f7d4be448eac41ee6c967059c9ab10dd7f5a2063b974d1069db8" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744245.201695 | 전체 값 |
+| `reserve` | 96883 | 전체 값 |
+| `actual` | 2723 | 전체 값 |
+| `created_at` | "2026-09-30T04:27:25.201700+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:27:35.256261+00:00" | 전체 값 |
+| `node` | "s7_gate_7" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/383acdfb05196ee6dc46d110.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 5176, "tokens_out": 975, "cost_usd": 0.0027228, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/22c71d9a2762fdd21d28eee4.md) |
+
+</details>
+
+<a id="row-69"></a>
+
+<details>
+<summary>기록 70 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-56c179cfc48b0ede2d3b8ddc821902f4b1511d9da1d539f118575c21f94a" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-bd95c2b311eb491491880ba9bb20c269" | 전체 값 |
+| `input_hash` | "74dfd651c178443a86cce21d0a4d091fbe48c2243a99f24f57f99a2615482132" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744248.5564768 | 전체 값 |
+| `reserve` | 97238 | 전체 값 |
+| `actual` | 2740 | 전체 값 |
+| `created_at` | "2026-09-30T04:27:28.556485+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:27:35.626776+00:00" | 전체 값 |
+| `node` | "s7_gate_6" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/b77d5c0782efa74ebd840974.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 5404, "tokens_out": 932, "cost_usd": 0.0027396, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/378e48d76504c62accf88328.md) |
+
+</details>
+
+<a id="row-70"></a>
+
+<details>
+<summary>기록 71 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-225d69a61036b2e52c4c1eaedd9b4eb4253d27f7df8d9b365900581fa156" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-bd95c2b311eb491491880ba9bb20c269" | 전체 값 |
+| `input_hash` | "08834cee8721fff4abe02bb5f9294f1a64ffa5e050ec8ba424f5010fb495e9fc" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744252.889148 | 전체 값 |
+| `reserve` | 97280 | 전체 값 |
+| `actual` | 2755 | 전체 값 |
+| `created_at` | "2026-09-30T04:27:32.889152+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:27:37.055455+00:00" | 전체 값 |
+| `node` | "s7_gate_8" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/0cad6b828ddbf6a1d1dad8df.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 5390, "tokens_out": 948, "cost_usd": 0.0027546, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/69e816ad89a6f4a1cd202698.md) |
+
+</details>
+
+<a id="row-71"></a>
+
+<details>
+<summary>기록 72 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-fba37ec4c9090e7a260ff78167ad327401eb831e5f1f9100b5bbcad06088" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-bd95c2b311eb491491880ba9bb20c269" | 전체 값 |
+| `input_hash` | "386b7946435f15727bdbbabe730d811bd688cd0edd71a8924ced2f12bd26583f" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744255.145718 | 전체 값 |
+| `reserve` | 97642 | 전체 값 |
+| `actual` | 2913 | 전체 값 |
+| `created_at` | "2026-09-30T04:27:35.145724+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:27:39.881406+00:00" | 전체 값 |
+| `node` | "s7_gate_5" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/aa5ae8398c7b7af842770d2c.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 5579, "tokens_out": 1032, "cost_usd": 0.0029121, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/9ea4f3edf32eb76d65735656.md) |
+
+</details>
+
+<a id="row-72"></a>
+
+<details>
+<summary>기록 73 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-1ddec92b7d7159732d76f182a2a5b343ca16c85b5f4b08de6696c7efb624" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-bd95c2b311eb491491880ba9bb20c269" | 전체 값 |
+| `input_hash` | "551c1b350ad84c62657b5dc0e04ab0c502c49eb680320d414293dd07c58e8d2b" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744267.3857317 | 전체 값 |
+| `reserve` | 96962 | 전체 값 |
+| `actual` | 2741 | 전체 값 |
+| `created_at` | "2026-09-30T04:27:47.385737+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:27:52.190490+00:00" | 전체 값 |
+| `node` | "s7_gate_9" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/12ac9ffcdc4c8ddc944b2a50.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 5236, "tokens_out": 975, "cost_usd": 0.0027408, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/7929dccaf77f3390dea4b26a.md) |
+
+</details>
+
+<a id="row-73"></a>
+
+<details>
+<summary>기록 74 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-2018a941b69de9ae2698444bd6776313a247c9eb715e470d109c911b3136" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 56 | 전체 값 |
+| `input_snapshot` | "snap-bd95c2b311eb491491880ba9bb20c269" | 전체 값 |
+| `input_hash` | "1ba0cc0308debe322850d4f6466cbe96b2e58aa92e53c75461564cea7f0fc9ee" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744270.5684083 | 전체 값 |
+| `reserve` | 97128 | 전체 값 |
+| `actual` | 2704 | 전체 값 |
+| `created_at` | "2026-09-30T04:27:50.568415+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:27:54.752583+00:00" | 전체 값 |
+| `node` | "s7_gate_10" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/7e4143669281244a6468ddee.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 5300, "tokens_out": 928, "cost_usd": 0.0027036, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/91ea8b02128931db026ca3f9.md) |
+
+</details>
+
+<a id="row-74"></a>
+
+<details>
+<summary>기록 75 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-8e775beffd34727b0289949205ccc06cc6967c6def86187bff92d7705636" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-9be9f0ee5dba4e77aff67c21a391ffff" | 전체 값 |
+| `input_hash` | "e4968ce4d0a47129ad46dec3dcdb3c9bbcf30de38820a866f00d65e26b29c9a1" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744512.4853246 | 전체 값 |
+| `reserve` | 126890 | 전체 값 |
+| `actual` | 12018 | 전체 값 |
+| `created_at` | "2026-09-30T04:31:52.485331+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:32:12.152700+00:00" | 전체 값 |
+| `node` | "ax_repair_gap-26e0db61185158a1836b4b6b_0" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/c89f2f4b327329bf7bd10234.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 20994, "tokens_out": 4766, "cost_usd": 0.0120174, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/3ba610b1b6b23f14b8777cc1.md) |
+
+</details>
+
+<a id="row-75"></a>
+
+<details>
+<summary>기록 76 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-4d59e2d4177e5dce93098b51643cf44fc49668f8551984dbe35ae16b61fc" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-9be9f0ee5dba4e77aff67c21a391ffff" | 전체 값 |
+| `input_hash` | "e0ecffdeff8fefdee6f92a94af462efb7c10082e14ba19580137d4d016b89844" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744559.5979426 | 전체 값 |
+| `reserve` | 70870 | 전체 값 |
+| `actual` | 8564 | 전체 값 |
+| `created_at` | "2026-09-30T04:32:39.597949+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:32:47.454412+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/60fa055b51034b718ca2fa9d.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 21889, "tokens_out": 1664, "cost_usd": 0.008563499999999998, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/5c3335f18c79eaa06c7d35fc.md) |
+
+</details>
+
+<a id="row-76"></a>
+
+<details>
+<summary>기록 77 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-a9cc82dcf73639720d1f0b34dc3a7214b9fa1bc1e3ff12e86fc837ea0340" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-9be9f0ee5dba4e77aff67c21a391ffff" | 전체 값 |
+| `input_hash` | "5d0ea8c516ce68a420d9ffa2a1122e0cecb310967b9ee00491f2dbf61864cb15" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744597.1213686 | 전체 값 |
+| `reserve` | 126890 | 전체 값 |
+| `actual` | 9935 | 전체 값 |
+| `created_at` | "2026-09-30T04:33:17.121375+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:33:29.675531+00:00" | 전체 값 |
+| `node` | "ax_repair_gap-26e0db61185158a1836b4b6b_1" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/aeb7bf82d3a638771b142b3d.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 20994, "tokens_out": 3030, "cost_usd": 0.009934199999999999, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/34b01613c3eb627d5d4befed.md) |
+
+</details>
+
+<a id="row-77"></a>
+
+<details>
+<summary>기록 78 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-cc15ffc14846556ca4a4121fd1894b432c56449ac34ff7285e1eab1cd2f4" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-9be9f0ee5dba4e77aff67c21a391ffff" | 전체 값 |
+| `input_hash` | "a97f84a0264752cc2c8dea6b15215dbac144021431ad17c6cea5e1db5af5aa9a" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744628.281931 | 전체 값 |
+| `reserve` | 67358 | 전체 값 |
+| `actual` | 7617 | 전체 값 |
+| `created_at` | "2026-09-30T04:33:48.281937+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:33:54.737054+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/1759123fa05f4b91d5be6a5a.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 20197, "tokens_out": 1298, "cost_usd": 0.0076167, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/c46adc8b4944b0cbf2632f2b.md) |
+
+</details>
+
+<a id="row-78"></a>
+
+<details>
+<summary>기록 79 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-9d5425e6cb7616eca9c456fea2f869d52595e44011f9e5d178bea5a537a7" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-9be9f0ee5dba4e77aff67c21a391ffff" | 전체 값 |
+| `input_hash` | "827e3b33c4d42eb02cac7a5adadd94165e29f269ab9fc703dc3130ba44471bcb" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744710.0262408 | 전체 값 |
+| `reserve` | 125790 | 전체 값 |
+| `actual` | 10076 | 전체 값 |
+| `created_at` | "2026-09-30T04:35:10.026248+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:35:24.780640+00:00" | 전체 값 |
+| `node` | "ax_repair_gap-ab829f5d78d52e0eaeb7afea_0" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/74687a2fb49a001587080fb2.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 20440, "tokens_out": 3286, "cost_usd": 0.0100752, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/a330c81a95b4b4c4373ff215.md) |
+
+</details>
+
+<a id="row-79"></a>
+
+<details>
+<summary>기록 80 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-2af69ca787931e1011e851e6606f298458f097821c8e910690c0e935f2c4" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-9be9f0ee5dba4e77aff67c21a391ffff" | 전체 값 |
+| `input_hash` | "5806c04c94249778557b266391d3a62f59bb555f4da48c0b3f50780f27513673" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744744.6783442 | 전체 값 |
+| `reserve` | 65366 | 전체 값 |
+| `actual` | 7293 | 전체 값 |
+| `created_at` | "2026-09-30T04:35:44.678350+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:35:51.678864+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/28855474c2649a378d8bf930.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 18921, "tokens_out": 1347, "cost_usd": 0.007292699999999999, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/c242e2c46324821406879946.md) |
+
+</details>
+
+<a id="row-80"></a>
+
+<details>
+<summary>기록 81 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-a3820767839185ee8333935d411ca988c7c2807ce71534f6551910e6c5aa" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-9be9f0ee5dba4e77aff67c21a391ffff" | 전체 값 |
+| `input_hash` | "672a592cb521176c6cfcae31f144dd134ad5053dfb3fb1faa6b74e8b91cfd80a" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744798.216926 | 전체 값 |
+| `reserve` | 125790 | 전체 값 |
+| `actual` | 10246 | 전체 값 |
+| `created_at` | "2026-09-30T04:36:38.216932+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:36:53.039943+00:00" | 전체 값 |
+| `node` | "ax_repair_gap-ab829f5d78d52e0eaeb7afea_1" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/d3b8dab2b318a75b73230820.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 20440, "tokens_out": 3428, "cost_usd": 0.0102456, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/351c99330697fc1ea8c20265.md) |
+
+</details>
+
+<a id="row-81"></a>
+
+<details>
+<summary>기록 82 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-73551b14ceab30e8bf368088fcebf6bfc6991e8a9af663ceb12e8d060e3d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-9be9f0ee5dba4e77aff67c21a391ffff" | 전체 값 |
+| `input_hash` | "dd0f33a56a36305602797a2b0557bcf57cf35ba4c9e339847e2ef05084f2aa9a" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790744830.0973332 | 전체 값 |
+| `reserve` | 65736 | 전체 값 |
+| `actual` | 7347 | 전체 값 |
+| `created_at` | "2026-09-30T04:37:10.097340+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:37:17.250300+00:00" | 전체 값 |
+| `node` | "independent_verifier" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/4a7af19f0e04ac4e597624c4.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 19118, "tokens_out": 1343, "cost_usd": 0.007346999999999999, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/30ef6eb7cfe3a7a41ecdfa8a.md) |
+
+</details>
+
+<a id="row-82"></a>
+
+<details>
+<summary>기록 83 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-04b554ec43d937c9afb1c886b8a6bb4f9f0884338e283c864fbd687d2f71" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-379b943f2b7249068666ade186a93f7a" | 전체 값 |
+| `input_hash` | "1cf815e7da43d282bbe34459996365289d1b614abb0a7413bdcc3d3ab72e89e0" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745072.161235 | 전체 값 |
+| `reserve` | 115558 | 전체 값 |
+| `actual` | 7818 | 전체 값 |
+| `created_at` | "2026-09-30T04:41:12.161240+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:41:28.327143+00:00" | 전체 값 |
+| `node` | "s9_evidence_match_0" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/ad8261e025a75c782e64425c.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 13319, "tokens_out": 3185, "cost_usd": 0.0078177, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/da2b56467793c7e9a6df72f7.md) |
+
+</details>
+
+<a id="row-83"></a>
+
+<details>
+<summary>기록 84 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-9f800905ce00e1dad9b2c86b3838716f3e4eb8ee8e64f7d321d3ccbb3aeb" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-379b943f2b7249068666ade186a93f7a" | 전체 값 |
+| `input_hash` | "ae5d198002c2b3312837949b3a529ab02243e7a70c258b34f8379e9b079916da" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745101.388883 | 전체 값 |
+| `reserve` | 115393 | 전체 값 |
+| `actual` | 6669 | 전체 값 |
+| `created_at` | "2026-09-30T04:41:41.388887+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:41:53.678152+00:00" | 전체 값 |
+| `node` | "s9_evidence_match_1" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/1c285fb2f39781b9ecc63da7.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 13259, "tokens_out": 2242, "cost_usd": 0.0066681, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/f5c0b8ecb9dcf0c7ccd3363c.md) |
+
+</details>
+
+<a id="row-84"></a>
+
+<details>
+<summary>기록 85 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-5d001a97f9e27c99e41d5da6af6e567baf2dfe52d85a68feab67f886fa3d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-379b943f2b7249068666ade186a93f7a" | 전체 값 |
+| `input_hash` | "fb826e3690311aff715aeaaeaec2e70afdb1689e7c4cc9c62efee886be0d7546" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745133.225736 | 전체 값 |
+| `reserve` | 115384 | 전체 값 |
+| `actual` | 6813 | 전체 값 |
+| `created_at` | "2026-09-30T04:42:13.225743+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:42:28.409924+00:00" | 전체 값 |
+| `node` | "s9_evidence_match_2" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/081b56bab0a2fc4d474e7fb1.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 13255, "tokens_out": 2363, "cost_usd": 0.0068121, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/7639d9bfb06fa74a79b76914.md) |
+
+</details>
+
+<a id="row-85"></a>
+
+<details>
+<summary>기록 86 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-52455f41692048d593c7f55ec1a6a885b9fb48d182c040864c5b8f1d7c70" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-379b943f2b7249068666ade186a93f7a" | 전체 값 |
+| `input_hash` | "c10647cd2fb37d0e613c046b48daf6059b5b88c966760d283381161a5f238d87" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745177.2002642 | 전체 값 |
+| `reserve` | 115066 | 전체 값 |
+| `actual` | 5712 | 전체 값 |
+| `created_at` | "2026-09-30T04:42:57.200271+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:43:05.371327+00:00" | 전체 값 |
+| `node` | "s9_evidence_match_3" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/c3d38ba9a254233a6a320bd7.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 13074, "tokens_out": 1491, "cost_usd": 0.0057114, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/b0d50ff7e212b83ad2af02c1.md) |
+
+</details>
+
+<a id="row-86"></a>
+
+<details>
+<summary>기록 87 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-45a5bd564acc34f59cd610dc8974eb64c00e2415c26cd8dff5be3d0ba8bc" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "fbce03cdd9398bf535e8dcdc674cb15ce35c56533de0347989eb696daffe8ab3" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745271.2008393 | 전체 값 |
+| `reserve` | 62186 | 전체 값 |
+| `actual` | 3618 | 전체 값 |
+| `created_at` | "2026-09-30T04:44:31.200844+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:44:37.628017+00:00" | 전체 값 |
+| `node` | "s8_persona_factory" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/1c9f432bbfceb5df9ed7e1de.md) |
+| `result_usage` | {"tier": "T1", "model": "deepseek-flash", "tokens_in": 7494, "tokens_out": 1141, "cost_usd": 0.0036173999999999998, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/1b83751412fd969de5d7797a.md) |
+
+</details>
+
+<a id="row-87"></a>
+
+<details>
+<summary>기록 88 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-b39fbcac51eff877b8ee13816441e3a908711ba182a009cb5c87e32527e7" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "a13c6cefe00f119f6c910d0ac75b2e6c304609f418af8f4a67658eb3524221ce" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745314.7237232 | 전체 값 |
+| `reserve` | 136384 | 전체 값 |
+| `actual` | 12158 | 전체 값 |
+| `created_at` | "2026-09-30T04:45:14.723729+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:45:51.110516+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/b828df71d85b3c6ff635d406.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25238, "tokens_out": 3822, "cost_usd": 0.0121578, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/ec105bb2696989b22cd4ce2d.md) |
+
+</details>
+
+<a id="row-88"></a>
+
+<details>
+<summary>기록 89 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-d93dc77d3edc9d8f0a6dee6f8ebcf97bf6a6d1b86067f670197cacb83742" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "565469503fdc4056535b49a49ae81b94bc8df8bf4348833a8cdf65add19b3d20" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745327.5257533 | 전체 값 |
+| `reserve` | 136313 | 전체 값 |
+| `actual` | 12043 | 전체 값 |
+| `created_at` | "2026-09-30T04:45:27.525770+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:45:51.227119+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/e8254090a3f87e6785dd0ac3.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25202, "tokens_out": 3735, "cost_usd": 0.012042599999999999, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/2af44809e40dcba5d43c77cf.md) |
+
+</details>
+
+<a id="row-89"></a>
+
+<details>
+<summary>기록 90 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-bc2c8e79ddac5aaca2be8b441fcc3e52e84d7a2af00b2539dd90ba201862" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "e1286b0bb5eeba76dfc652392ddf3cb71e78623ab7b7d78c1d829e10da87cbca" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745339.6987808 | 전체 값 |
+| `reserve` | 136299 | 전체 값 |
+| `actual` | 12331 | 전체 값 |
+| `created_at` | "2026-09-30T04:45:39.698786+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:45:58.920408+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/b68f5cd2fcc69460dfb0083a.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25203, "tokens_out": 3975, "cost_usd": 0.012330899999999999, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/4e15319ba01f49c0b21d53dc.md) |
+
+</details>
+
+<a id="row-90"></a>
+
+<details>
+<summary>기록 91 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-33c3aaef7999a292b8a35ba0eefea694135d3fc6ade6ca23d3e8bb613352" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "4bb9f55531c2bb0888ba4c6f2493b74d482650e0ddb912aa37fb71b0b7afa157" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745350.5566766 | 전체 값 |
+| `reserve` | 136296 | 전체 값 |
+| `actual` | 11659 | 전체 값 |
+| `created_at` | "2026-09-30T04:45:50.556682+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:46:09.240449+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/0b7301bec85ac4aa3be5c6cb.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25189, "tokens_out": 3418, "cost_usd": 0.0116583, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/2491661241158f125439087f.md) |
+
+</details>
+
+<a id="row-91"></a>
+
+<details>
+<summary>기록 92 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-1a93d7c32a971d656641f70e08deeb5f90f36d183669cd9410e0db58e6cb" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "08987745b79d4411e8edbf8415b5330fa6b3d129b0c1c8aed4d6c0e66c1af1ed" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745406.8463814 | 전체 값 |
+| `reserve` | 136353 | 전체 값 |
+| `actual` | 10818 | 전체 값 |
+| `created_at` | "2026-09-30T04:46:46.846386+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:47:19.611608+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/7158fe03b9e67982ea3afe46.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25209, "tokens_out": 2712, "cost_usd": 0.0108171, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/ef74a52c68c9dbb7988fc8f8.md) |
+
+</details>
+
+<a id="row-92"></a>
+
+<details>
+<summary>기록 93 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-13c1df5928b052144ce0fb07129e254f9108c57841bccefb4c5de4dd8b32" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "68f752b0afb2796e63808c117bec5c31cd76653317490371cadb560204559596" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745419.323452 | 전체 값 |
+| `reserve` | 136281 | 전체 값 |
+| `actual` | 10521 | 전체 값 |
+| `created_at` | "2026-09-30T04:46:59.323457+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:47:19.742157+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/108c02a73a20389d860e9d4b.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25173, "tokens_out": 2474, "cost_usd": 0.010520700000000001, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/ffa3b135335f03eed0b4b9ef.md) |
+
+</details>
+
+<a id="row-93"></a>
+
+<details>
+<summary>기록 94 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-e60304da2093962eb36a35ebf56eee40cde2f256b17dac984eaab375959b" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "ac0ef4811c22be63f719bdf6b544e415ba15259aa4944cfe413d9bf63ea3424a" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745430.6004958 | 전체 값 |
+| `reserve` | 136265 | 전체 값 |
+| `actual` | 10473 | 전체 값 |
+| `created_at` | "2026-09-30T04:47:10.600502+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:47:23.531068+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/65ebbd337488b9852f58d617.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25160, "tokens_out": 2437, "cost_usd": 0.0104724, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/538923d4cc587925fccaed4a.md) |
+
+</details>
+
+<a id="row-94"></a>
+
+<details>
+<summary>기록 95 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-623d8eeb04bc16ed3b2fa1366f9d38f80063781de8b5e2861cc0dd2c457e" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "5c061d8b24d5f224288e6107e17f023de63b72b0c79ddcc8493dddbe4f50ff67" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745439.4789174 | 전체 값 |
+| `reserve` | 136268 | 전체 값 |
+| `actual` | 10265 | 전체 값 |
+| `created_at` | "2026-09-30T04:47:19.478923+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:47:30.807452+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/31377f21604cbcb37bf63f04.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25174, "tokens_out": 2260, "cost_usd": 0.0102642, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/7792efabeaf79cab7074c702.md) |
+
+</details>
+
+<a id="row-95"></a>
+
+<details>
+<summary>기록 96 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-1863fa93ae440c880e857aa113742d54c33d9d1aa6b41d167f201c8c0df4" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "8c4b71d9c4e76f5a1d47003c0fc189ea057354a22224059c1a4e431f52f1aa85" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745512.0431976 | 전체 값 |
+| `reserve` | 136414 | 전체 값 |
+| `actual` | 10322 | 전체 값 |
+| `created_at` | "2026-09-30T04:48:32.043204+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:48:53.359566+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/47eb5dfd9c0525d8b162735c.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25253, "tokens_out": 2288, "cost_usd": 0.0103215, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/cd803c943628a9a56c7e8f9c.md) |
+
+</details>
+
+<a id="row-96"></a>
+
+<details>
+<summary>기록 97 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-418484586f7acc806666a3a6f166e3aedf5878fe6520e665272f28d2354c" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "0fadbe527f061c0e88650149ed1cf3e2a00345f53bd0162910e20f282f0e8a1a" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745532.8980494 | 전체 값 |
+| `reserve` | 136424 | 전체 값 |
+| `actual` | 11795 | 전체 값 |
+| `created_at` | "2026-09-30T04:48:52.898055+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:49:08.354234+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/d75693c1a85f36f8430b4703.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25260, "tokens_out": 3514, "cost_usd": 0.0117948, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/72f05f59b91bd8417321daf0.md) |
+
+</details>
+
+<a id="row-97"></a>
+
+<details>
+<summary>기록 98 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-f253d058d68bab2e0c7ed2970f86f934109c7f8e48723099267bdcc56c3f" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "a1b433fdef2a2cde1dc15d022220c72581471d72e1649ac3bfff24a50f75d07f" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745770.9263434 | 전체 값 |
+| `reserve` | 136383 | 전체 값 |
+| `actual` | 10274 | 전체 값 |
+| `created_at` | "2026-09-30T04:52:50.926350+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:53:03.143886+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/a6cc97cd5aa8352883a4cc23.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25224, "tokens_out": 2255, "cost_usd": 0.0102732, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/d9a76ac2c257aad4a592f5d6.md) |
+
+</details>
+
+<a id="row-98"></a>
+
+<details>
+<summary>기록 99 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-fe2b47a69d2fbe25e7445b2e77a0b548a8ec09f46e03fed812f26fd56518" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "551d8955adb2f04666f4d039a72193eb4f2b6f99338c033b8fa0cd2edf14c4c1" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745779.9153044 | 전체 값 |
+| `reserve` | 136393 | 전체 값 |
+| `actual` | 10708 | 전체 값 |
+| `created_at` | "2026-09-30T04:52:59.915311+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:53:13.991305+00:00" | 전체 값 |
+| `node` | "s8_review_independent" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/b70002f75c611422297799b8.md) |
+| `result_usage` | {"tier": "T3", "model": "deepseek-flash", "tokens_in": 25231, "tokens_out": 2615, "cost_usd": 0.0107073, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/95b46312bd0e450825a541fd.md) |
+
+</details>
+
+<a id="row-99"></a>
+
+<details>
+<summary>기록 100 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-5e67663a09cdb6d9e1eff5544277c78f348baabf768f77dee36a15d45f6d" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "7fa1d8f5046db8082a93506e39b118ed1f6d84507ed9e0e884c94f0488c681bd" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745857.4986372 | 전체 값 |
+| `reserve` | 111564 | 전체 값 |
+| `actual` | 7354 | 전체 값 |
+| `created_at` | "2026-09-30T04:54:17.498644+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:54:32.382641+00:00" | 전체 값 |
+| `node` | "s8_rank" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/231abb0e8ae1564d2cb427a3.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 13361, "tokens_out": 2788, "cost_usd": 0.0073539, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/408ca1ca03096f2babbbb7f9.md) |
+
+</details>
+
+<a id="row-100"></a>
+
+<details>
+<summary>기록 101 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `task_id` | "task-e27241035908f1fba291d125857029dfb77234e545786047230f4e90b9a6" | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `epoch` | 57 | 전체 값 |
+| `input_snapshot` | "snap-e37db405a2774f429721bf92198e2c89" | 전체 값 |
+| `input_hash` | "6eb47d01ebf2e6eb02fe3f1d7533e3eb0fd010a43b86a3d73de8cad9e2709208" | 전체 값 |
+| `status` | "COMPLETED" | 전체 값 |
+| `fence` | 1 | 전체 값 |
+| `lease_until` | 1790745912.273816 | 전체 값 |
+| `reserve` | 113400 | 전체 값 |
+| `actual` | 8038 | 전체 값 |
+| `created_at` | "2026-09-30T04:55:12.273822+00:00" | 전체 값 |
+| `settled_at` | "2026-09-30T04:55:24.981982+00:00" | 전체 값 |
+| `node` | "s8_rank" | 전체 값 |
+| `attempts` | 배열 1개 | [전체 값](payloads/c88c2210b58eabd1b47712c0.md) |
+| `result_usage` | {"tier": "T2", "model": "deepseek-flash", "tokens_in": 14363, "tokens_out": 3107, "cost_usd": 0.0080373, "raw_error": ""} | 전체 값 |
+| `pricing_metadata` | {"cost_basis": "configured_token_rates"} | 전체 값 |
+| `provider_attempts` | 배열 1개 | [전체 값](payloads/2e731a61af18a41ecd131a77.md) |
 
 </details>

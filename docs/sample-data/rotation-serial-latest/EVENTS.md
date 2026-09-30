@@ -2,9805 +2,4568 @@
 
 [사례 개요](README.md)
 
-각 행의 상세 링크에는 해당 저장 payload 전체가 있습니다. 별도 요청·응답 원문이 포함되는 필드는 본문 대신 해시를 남겼습니다.
-
-| ID | KST | 종류 | 전체 payload |
-|---|---|---|---|
-| 45932 | 06:46:54 | stage_start | [보기](#row-45932) |
-| 45933 | 06:47:03 | stage | [보기](#row-45933) |
-| 45934 | 06:47:09 | node_start | [보기](#row-45934) |
-| 45936 | 06:47:32 | verify | [보기](#row-45936) |
-| 45937 | 06:47:32 | node_end | [보기](#row-45937) |
-| 45938 | 06:47:32 | interrupt | [보기](#row-45938) |
-| 45950 | 06:49:31 | stage_start | [보기](#row-45950) |
-| 45951 | 06:49:36 | stage | [보기](#row-45951) |
-| 45952 | 06:49:40 | node_start | [보기](#row-45952) |
-| 45953 | 06:49:58 | verify | [보기](#row-45953) |
-| 45954 | 06:49:58 | node_end | [보기](#row-45954) |
-| 45955 | 06:50:06 | stage_end | [보기](#row-45955) |
-| 45956 | 06:50:19 | stage_start | [보기](#row-45956) |
-| 45957 | 06:50:25 | stage | [보기](#row-45957) |
-| 45958 | 06:50:32 | node_start | [보기](#row-45958) |
-| 45959 | 06:50:58 | verify | [보기](#row-45959) |
-| 45960 | 06:50:58 | node_end | [보기](#row-45960) |
-| 45961 | 06:50:58 | artifact | [보기](#row-45961) |
-| 45962 | 06:51:04 | node_start | [보기](#row-45962) |
-| 45963 | 06:51:13 | verify | [보기](#row-45963) |
-| 45964 | 06:51:14 | node_end | [보기](#row-45964) |
-| 45965 | 06:51:19 | interrupt | [보기](#row-45965) |
-| 45966 | 06:52:32 | stage_start | [보기](#row-45966) |
-| 45967 | 06:52:37 | stage | [보기](#row-45967) |
-| 45968 | 06:52:41 | node_start | [보기](#row-45968) |
-| 45969 | 06:53:10 | verify | [보기](#row-45969) |
-| 45970 | 06:53:10 | node_end | [보기](#row-45970) |
-| 45971 | 06:53:10 | artifact | [보기](#row-45971) |
-| 45972 | 06:53:24 | stage_end | [보기](#row-45972) |
-| 45973 | 06:53:39 | stage_start | [보기](#row-45973) |
-| 45974 | 06:53:44 | stage | [보기](#row-45974) |
-| 45975 | 06:53:49 | node_start | [보기](#row-45975) |
-| 45976 | 06:54:04 | verify | [보기](#row-45976) |
-| 45977 | 06:54:04 | node_end | [보기](#row-45977) |
-| 45978 | 06:54:10 | interrupt | [보기](#row-45978) |
-| 45987 | 07:06:31 | stage_start | [보기](#row-45987) |
-| 45988 | 07:06:36 | stage | [보기](#row-45988) |
-| 45989 | 07:06:58 | stage_end | [보기](#row-45989) |
-| 45990 | 07:07:10 | stage_start | [보기](#row-45990) |
-| 45991 | 07:07:17 | stage | [보기](#row-45991) |
-| 45992 | 07:07:23 | node_start | [보기](#row-45992) |
-| 45993 | 07:07:44 | verify | [보기](#row-45993) |
-| 45994 | 07:07:44 | node_end | [보기](#row-45994) |
-| 45995 | 07:07:44 | node_start | [보기](#row-45995) |
-| 45996 | 07:08:10 | verify | [보기](#row-45996) |
-| 45997 | 07:08:10 | node_end | [보기](#row-45997) |
-| 45998 | 07:08:10 | node_start | [보기](#row-45998) |
-| 45999 | 07:08:10 | node_start | [보기](#row-45999) |
-| 46000 | 07:08:10 | node_start | [보기](#row-46000) |
-| 46001 | 07:08:26 | verify | [보기](#row-46001) |
-| 46002 | 07:08:26 | node_end | [보기](#row-46002) |
-| 46003 | 07:08:35 | verify | [보기](#row-46003) |
-| 46004 | 07:08:35 | node_end | [보기](#row-46004) |
-| 46005 | 07:08:43 | verify | [보기](#row-46005) |
-| 46006 | 07:08:43 | node_end | [보기](#row-46006) |
-| 46007 | 07:08:43 | node_start | [보기](#row-46007) |
-| 46008 | 07:08:58 | verify | [보기](#row-46008) |
-| 46009 | 07:08:58 | node_end | [보기](#row-46009) |
-| 46010 | 07:08:58 | artifact | [보기](#row-46010) |
-| 46011 | 07:08:58 | artifact | [보기](#row-46011) |
-| 46012 | 07:09:12 | stage_end | [보기](#row-46012) |
-| 46013 | 07:09:26 | stage_start | [보기](#row-46013) |
-| 46014 | 07:09:33 | stage | [보기](#row-46014) |
-| 46015 | 07:09:39 | node_start | [보기](#row-46015) |
-| 46016 | 07:09:39 | node_start | [보기](#row-46016) |
-| 46017 | 07:09:39 | node_start | [보기](#row-46017) |
-| 46018 | 07:09:55 | verify | [보기](#row-46018) |
-| 46019 | 07:09:55 | node_end | [보기](#row-46019) |
-| 46020 | 07:09:59 | verify | [보기](#row-46020) |
-| 46021 | 07:09:59 | node_end | [보기](#row-46021) |
-| 46022 | 07:10:16 | verify | [보기](#row-46022) |
-| 46023 | 07:10:16 | node_end | [보기](#row-46023) |
-| 46024 | 07:10:16 | node_start | [보기](#row-46024) |
-| 46025 | 07:10:26 | verify | [보기](#row-46025) |
-| 46026 | 07:10:26 | node_end | [보기](#row-46026) |
-| 46027 | 07:10:26 | artifact | [보기](#row-46027) |
-| 46028 | 07:10:37 | stage_end | [보기](#row-46028) |
-| 46029 | 07:10:50 | stage_start | [보기](#row-46029) |
-| 46030 | 07:10:58 | coordination | [보기](#row-46030) |
-| 46031 | 07:10:58 | stage | [보기](#row-46031) |
-| 46032 | 07:11:04 | tracks | [보기](#row-46032) |
-| 46033 | 07:11:04 | node_start | [보기](#row-46033) |
-| 46034 | 07:11:06 | node_start | [보기](#row-46034) |
-| 46035 | 07:11:06 | node_start | [보기](#row-46035) |
-| 46036 | 07:11:06 | node_start | [보기](#row-46036) |
-| 46037 | 07:11:20 | verify | [보기](#row-46037) |
-| 46038 | 07:11:20 | node_end | [보기](#row-46038) |
-| 46039 | 07:11:20 | node_start | [보기](#row-46039) |
-| 46040 | 07:11:25 | node_end | [보기](#row-46040) |
-| 46041 | 07:11:25 | search_status | [보기](#row-46041) |
-| 46042 | 07:11:31 | verify | [보기](#row-46042) |
-| 46043 | 07:11:31 | node_end | [보기](#row-46043) |
-| 46044 | 07:11:31 | node_start | [보기](#row-46044) |
-| 46045 | 07:11:32 | verify | [보기](#row-46045) |
-| 46046 | 07:11:32 | node_end | [보기](#row-46046) |
-| 46047 | 07:11:32 | node_start | [보기](#row-46047) |
-| 46048 | 07:11:43 | verify | [보기](#row-46048) |
-| 46049 | 07:11:43 | node_end | [보기](#row-46049) |
-| 46050 | 07:11:43 | node_start | [보기](#row-46050) |
-| 46051 | 07:11:47 | verify | [보기](#row-46051) |
-| 46052 | 07:11:47 | node_end | [보기](#row-46052) |
-| 46053 | 07:11:51 | verify | [보기](#row-46053) |
-| 46054 | 07:11:51 | node_end | [보기](#row-46054) |
-| 46055 | 07:11:51 | node_start | [보기](#row-46055) |
-| 46056 | 07:11:57 | verify | [보기](#row-46056) |
-| 46057 | 07:11:57 | node_end | [보기](#row-46057) |
-| 46058 | 07:11:57 | node_start | [보기](#row-46058) |
-| 46059 | 07:12:10 | verify | [보기](#row-46059) |
-| 46060 | 07:12:10 | node_end | [보기](#row-46060) |
-| 46061 | 07:12:10 | node_start | [보기](#row-46061) |
-| 46062 | 07:12:15 | verify | [보기](#row-46062) |
-| 46063 | 07:12:16 | node_end | [보기](#row-46063) |
-| 46064 | 07:12:16 | node_start | [보기](#row-46064) |
-| 46065 | 07:12:19 | verify | [보기](#row-46065) |
-| 46066 | 07:12:19 | node_end | [보기](#row-46066) |
-| 46067 | 07:12:19 | node_start | [보기](#row-46067) |
-| 46068 | 07:12:34 | verify | [보기](#row-46068) |
-| 46069 | 07:12:34 | node_end | [보기](#row-46069) |
-| 46070 | 07:12:46 | verify | [보기](#row-46070) |
-| 46071 | 07:12:46 | node_end | [보기](#row-46071) |
-| 46072 | 07:12:46 | node_start | [보기](#row-46072) |
-| 46073 | 07:13:42 | verify | [보기](#row-46073) |
-| 46074 | 07:13:42 | node_end | [보기](#row-46074) |
-| 46075 | 07:13:42 | node_start | [보기](#row-46075) |
-| 46076 | 07:13:51 | verify | [보기](#row-46076) |
-| 46077 | 07:13:51 | node_end | [보기](#row-46077) |
-| 46078 | 07:13:51 | node_start | [보기](#row-46078) |
-| 46079 | 07:14:39 | verify | [보기](#row-46079) |
-| 46080 | 07:14:39 | node_end | [보기](#row-46080) |
-| 46081 | 07:14:39 | warning | [보기](#row-46081) |
-| 46082 | 07:14:39 | warning | [보기](#row-46082) |
-| 46083 | 07:14:39 | warning | [보기](#row-46083) |
-| 46084 | 07:14:39 | warning | [보기](#row-46084) |
-| 46085 | 07:14:39 | warning | [보기](#row-46085) |
-| 46086 | 07:14:39 | warning | [보기](#row-46086) |
-| 46087 | 07:14:39 | warning | [보기](#row-46087) |
-| 46088 | 07:14:39 | warning | [보기](#row-46088) |
-| 46089 | 07:14:39 | warning | [보기](#row-46089) |
-| 46090 | 07:14:39 | warning | [보기](#row-46090) |
-| 46091 | 07:14:39 | warning | [보기](#row-46091) |
-| 46092 | 07:14:39 | warning | [보기](#row-46092) |
-| 46093 | 07:14:39 | warning | [보기](#row-46093) |
-| 46094 | 07:14:39 | warning | [보기](#row-46094) |
-| 46095 | 07:14:39 | warning | [보기](#row-46095) |
-| 46096 | 07:14:39 | warning | [보기](#row-46096) |
-| 46097 | 07:14:39 | warning | [보기](#row-46097) |
-| 46098 | 07:14:48 | tracks | [보기](#row-46098) |
-| 46099 | 07:14:50 | node_start | [보기](#row-46099) |
-| 46100 | 07:14:50 | node_start | [보기](#row-46100) |
-| 46101 | 07:14:50 | node_start | [보기](#row-46101) |
-| 46102 | 07:15:08 | verify | [보기](#row-46102) |
-| 46103 | 07:15:08 | node_end | [보기](#row-46103) |
-| 46104 | 07:15:13 | verify | [보기](#row-46104) |
-| 46105 | 07:15:13 | node_end | [보기](#row-46105) |
-| 46106 | 07:15:16 | verify | [보기](#row-46106) |
-| 46107 | 07:15:16 | node_end | [보기](#row-46107) |
-| 46108 | 07:15:16 | node_start | [보기](#row-46108) |
-| 46109 | 07:15:41 | verify | [보기](#row-46109) |
-| 46110 | 07:15:41 | node_end | [보기](#row-46110) |
-| 46111 | 07:15:47 | tracks | [보기](#row-46111) |
-| 46112 | 07:15:48 | node_start | [보기](#row-46112) |
-| 46113 | 07:15:49 | node_start | [보기](#row-46113) |
-| 46114 | 07:16:07 | verify | [보기](#row-46114) |
-| 46115 | 07:16:07 | node_end | [보기](#row-46115) |
-| 46116 | 07:16:09 | verify | [보기](#row-46116) |
-| 46117 | 07:16:09 | node_end | [보기](#row-46117) |
-| 46118 | 07:16:14 | node_start | [보기](#row-46118) |
-| 46119 | 07:16:56 | verify | [보기](#row-46119) |
-| 46120 | 07:17:28 | verify | [보기](#row-46120) |
-| 46121 | 07:17:28 | node_end | [보기](#row-46121) |
-| 46122 | 07:17:29 | artifact | [보기](#row-46122) |
-| 46123 | 07:17:43 | stage_end | [보기](#row-46123) |
-| 46124 | 07:18:01 | stage_start | [보기](#row-46124) |
-| 46125 | 07:18:19 | stage | [보기](#row-46125) |
-| 46126 | 07:18:53 | node_start | [보기](#row-46126) |
-| 46127 | 07:18:53 | node_start | [보기](#row-46127) |
-| 46128 | 07:18:53 | node_start | [보기](#row-46128) |
-| 46129 | 07:19:25 | verify | [보기](#row-46129) |
-| 46130 | 07:19:25 | node_end | [보기](#row-46130) |
-| 46131 | 07:19:33 | verify | [보기](#row-46131) |
-| 46132 | 07:19:33 | node_end | [보기](#row-46132) |
-| 46133 | 07:19:40 | verify | [보기](#row-46133) |
-| 46134 | 07:19:40 | node_end | [보기](#row-46134) |
-| 46135 | 07:19:48 | node_start | [보기](#row-46135) |
-| 46136 | 07:20:02 | node_end | [보기](#row-46136) |
-| 46137 | 07:20:08 | node_start | [보기](#row-46137) |
-| 46138 | 07:20:21 | node_end | [보기](#row-46138) |
-| 46139 | 07:20:28 | node_start | [보기](#row-46139) |
-| 46140 | 07:20:37 | node_end | [보기](#row-46140) |
-| 46141 | 07:20:44 | node_start | [보기](#row-46141) |
-| 46142 | 07:20:56 | node_end | [보기](#row-46142) |
-| 46143 | 07:21:03 | node_start | [보기](#row-46143) |
-| 46144 | 07:21:13 | node_end | [보기](#row-46144) |
-| 46145 | 07:21:29 | artifact | [보기](#row-46145) |
-| 46146 | 07:21:45 | stage_end | [보기](#row-46146) |
-| 46147 | 07:22:07 | stage_start | [보기](#row-46147) |
-| 46148 | 07:22:17 | node_start | [보기](#row-46148) |
-| 46149 | 07:22:37 | verify | [보기](#row-46149) |
-| 46150 | 07:22:38 | node_end | [보기](#row-46150) |
-| 46151 | 07:22:38 | node_start | [보기](#row-46151) |
-| 46152 | 07:22:49 | node_end | [보기](#row-46152) |
-| 46153 | 07:23:02 | node_start | [보기](#row-46153) |
-| 46154 | 07:23:22 | verify | [보기](#row-46154) |
-| 46155 | 07:23:22 | node_end | [보기](#row-46155) |
-| 46156 | 07:23:22 | node_start | [보기](#row-46156) |
-| 46157 | 07:23:34 | node_end | [보기](#row-46157) |
-| 46158 | 07:23:48 | node_start | [보기](#row-46158) |
-| 46159 | 07:24:14 | verify | [보기](#row-46159) |
-| 46160 | 07:24:14 | node_end | [보기](#row-46160) |
-| 46161 | 07:24:15 | node_start | [보기](#row-46161) |
-| 46162 | 07:24:25 | node_end | [보기](#row-46162) |
-| 46163 | 07:24:38 | node_start | [보기](#row-46163) |
-| 46164 | 07:25:02 | verify | [보기](#row-46164) |
-| 46165 | 07:25:03 | node_end | [보기](#row-46165) |
-| 46166 | 07:25:05 | node_start | [보기](#row-46166) |
-| 46167 | 07:25:14 | node_end | [보기](#row-46167) |
-| 46168 | 07:25:33 | stage | [보기](#row-46168) |
-| 46169 | 07:25:44 | node_start | [보기](#row-46169) |
-| 46170 | 07:25:44 | node_start | [보기](#row-46170) |
-| 46171 | 07:25:44 | node_start | [보기](#row-46171) |
-| 46172 | 07:25:44 | node_start | [보기](#row-46172) |
-| 46173 | 07:25:59 | verify | [보기](#row-46173) |
-| 46174 | 07:25:59 | node_end | [보기](#row-46174) |
-| 46175 | 07:25:59 | verify | [보기](#row-46175) |
-| 46176 | 07:25:59 | node_start | [보기](#row-46176) |
-| 46177 | 07:25:59 | node_end | [보기](#row-46177) |
-| 46178 | 07:25:59 | node_start | [보기](#row-46178) |
-| 46179 | 07:25:59 | verify | [보기](#row-46179) |
-| 46180 | 07:25:59 | node_end | [보기](#row-46180) |
-| 46181 | 07:25:59 | node_start | [보기](#row-46181) |
-| 46182 | 07:26:09 | verify | [보기](#row-46182) |
-| 46183 | 07:26:09 | node_end | [보기](#row-46183) |
-| 46184 | 07:26:09 | node_start | [보기](#row-46184) |
-| 46185 | 07:26:10 | verify | [보기](#row-46185) |
-| 46186 | 07:26:10 | node_end | [보기](#row-46186) |
-| 46187 | 07:26:10 | node_start | [보기](#row-46187) |
-| 46188 | 07:26:15 | verify | [보기](#row-46188) |
-| 46189 | 07:26:15 | verify | [보기](#row-46189) |
-| 46190 | 07:26:15 | node_end | [보기](#row-46190) |
-| 46191 | 07:26:15 | node_end | [보기](#row-46191) |
-| 46192 | 07:26:15 | node_start | [보기](#row-46192) |
-| 46193 | 07:26:21 | verify | [보기](#row-46193) |
-| 46194 | 07:26:21 | node_end | [보기](#row-46194) |
-| 46195 | 07:26:24 | verify | [보기](#row-46195) |
-| 46196 | 07:26:24 | node_end | [보기](#row-46196) |
-| 46197 | 07:26:25 | verify | [보기](#row-46197) |
-| 46198 | 07:26:25 | node_end | [보기](#row-46198) |
-| 46199 | 07:26:25 | artifact | [보기](#row-46199) |
-| 46200 | 07:26:33 | interrupt | [보기](#row-46200) |
-| 46201 | 07:32:06 | stage_start | [보기](#row-46201) |
-| 46202 | 07:32:13 | stage | [보기](#row-46202) |
-| 46203 | 07:32:19 | gate_decisions | [보기](#row-46203) |
-| 46204 | 07:32:37 | stage_end | [보기](#row-46204) |
-| 46205 | 07:32:55 | stage_start | [보기](#row-46205) |
-| 46206 | 07:33:03 | node_start | [보기](#row-46206) |
-| 46207 | 07:33:22 | verify | [보기](#row-46207) |
-| 46208 | 07:33:22 | node_end | [보기](#row-46208) |
-| 46209 | 07:33:23 | node_start | [보기](#row-46209) |
-| 46210 | 07:33:34 | node_end | [보기](#row-46210) |
-| 46211 | 07:33:47 | node_start | [보기](#row-46211) |
-| 46212 | 07:34:09 | verify | [보기](#row-46212) |
-| 46213 | 07:34:09 | node_end | [보기](#row-46213) |
-| 46214 | 07:34:10 | node_start | [보기](#row-46214) |
-| 46215 | 07:34:18 | node_end | [보기](#row-46215) |
-| 46216 | 07:34:29 | node_start | [보기](#row-46216) |
-| 46217 | 07:34:50 | verify | [보기](#row-46217) |
-| 46218 | 07:34:50 | node_end | [보기](#row-46218) |
-| 46219 | 07:34:51 | node_start | [보기](#row-46219) |
-| 46220 | 07:35:04 | node_end | [보기](#row-46220) |
-| 46221 | 07:35:17 | node_start | [보기](#row-46221) |
-| 46222 | 07:35:36 | verify | [보기](#row-46222) |
-| 46223 | 07:35:36 | node_end | [보기](#row-46223) |
-| 46224 | 07:35:37 | node_start | [보기](#row-46224) |
-| 46225 | 07:35:47 | node_end | [보기](#row-46225) |
-| 46226 | 07:36:06 | stage | [보기](#row-46226) |
-| 46227 | 07:36:15 | node_start | [보기](#row-46227) |
-| 46228 | 07:36:35 | node_end | [보기](#row-46228) |
-| 46229 | 07:36:35 | search_status | [보기](#row-46229) |
-| 46230 | 07:36:42 | node_start | [보기](#row-46230) |
-| 46231 | 07:36:59 | verify | [보기](#row-46231) |
-| 46232 | 07:36:59 | node_end | [보기](#row-46232) |
-| 46233 | 07:36:59 | node_start | [보기](#row-46233) |
-| 46234 | 07:37:22 | verify | [보기](#row-46234) |
-| 46235 | 07:37:22 | node_end | [보기](#row-46235) |
-| 46236 | 07:37:23 | node_start | [보기](#row-46236) |
-| 46237 | 07:37:36 | verify | [보기](#row-46237) |
-| 46238 | 07:37:36 | node_end | [보기](#row-46238) |
-| 46239 | 07:37:52 | stage_end | [보기](#row-46239) |
-| 46240 | 07:38:11 | stage_start | [보기](#row-46240) |
-| 46241 | 07:38:19 | stage | [보기](#row-46241) |
-| 46242 | 07:38:28 | node_start | [보기](#row-46242) |
-| 46243 | 07:38:36 | verify | [보기](#row-46243) |
-| 46244 | 07:38:36 | node_end | [보기](#row-46244) |
-| 46245 | 07:38:42 | personas | [보기](#row-46245) |
-| 46246 | 07:38:42 | review_phase | [보기](#row-46246) |
-| 46247 | 07:38:42 | node_start | [보기](#row-46247) |
-| 46248 | 07:38:42 | node_start | [보기](#row-46248) |
-| 46249 | 07:38:43 | node_start | [보기](#row-46249) |
-| 46250 | 07:38:43 | node_start | [보기](#row-46250) |
-| 46251 | 07:39:00 | verify | [보기](#row-46251) |
-| 46252 | 07:39:04 | verify | [보기](#row-46252) |
-| 46253 | 07:39:04 | node_end | [보기](#row-46253) |
-| 46254 | 07:39:12 | verify | [보기](#row-46254) |
-| 46255 | 07:39:12 | node_start | [보기](#row-46255) |
-| 46256 | 07:39:12 | verify | [보기](#row-46256) |
-| 46257 | 07:39:12 | node_end | [보기](#row-46257) |
-| 46258 | 07:39:14 | node_end | [보기](#row-46258) |
-| 46259 | 07:39:30 | node_start | [보기](#row-46259) |
-| 46260 | 07:39:30 | verify | [보기](#row-46260) |
-| 46261 | 07:39:30 | verify | [보기](#row-46261) |
-| 46262 | 07:39:30 | node_start | [보기](#row-46262) |
-| 46263 | 07:39:30 | node_end | [보기](#row-46263) |
-| 46264 | 07:39:32 | node_end | [보기](#row-46264) |
-| 46265 | 07:39:41 | node_start | [보기](#row-46265) |
-| 46266 | 07:39:49 | verify | [보기](#row-46266) |
-| 46267 | 07:39:57 | node_start | [보기](#row-46267) |
-| 46268 | 07:39:57 | node_end | [보기](#row-46268) |
-| 46269 | 07:39:59 | verify | [보기](#row-46269) |
-| 46270 | 07:39:59 | verify | [보기](#row-46270) |
-| 46271 | 07:40:09 | node_start | [보기](#row-46271) |
-| 46272 | 07:40:09 | node_end | [보기](#row-46272) |
-| 46273 | 07:40:09 | node_end | [보기](#row-46273) |
-| 46274 | 07:40:26 | verify | [보기](#row-46274) |
-| 46275 | 07:40:39 | node_end | [보기](#row-46275) |
-| 46276 | 07:40:42 | verify | [보기](#row-46276) |
-| 46277 | 07:40:55 | node_start | [보기](#row-46277) |
-| 46278 | 07:40:55 | node_end | [보기](#row-46278) |
-| 46279 | 07:41:02 | node_start | [보기](#row-46279) |
-| 46280 | 07:41:10 | verify | [보기](#row-46280) |
-| 46281 | 07:41:10 | node_end | [보기](#row-46281) |
-| 46282 | 07:41:21 | verify | [보기](#row-46282) |
-| 46283 | 07:41:27 | node_end | [보기](#row-46283) |
-| 46284 | 07:41:54 | review_phase | [보기](#row-46284) |
-| 46285 | 07:41:54 | node_start | [보기](#row-46285) |
-| 46286 | 07:42:07 | verify | [보기](#row-46286) |
-| 46287 | 07:42:07 | node_end | [보기](#row-46287) |
-| 46288 | 07:42:07 | artifact | [보기](#row-46288) |
-| 46289 | 07:42:23 | stage_end | [보기](#row-46289) |
-| 46290 | 07:42:39 | stage_start | [보기](#row-46290) |
-| 46291 | 07:43:10 | stage | [보기](#row-46291) |
-| 46292 | 07:43:30 | report | [보기](#row-46292) |
-| 46293 | 07:43:47 | stage_end | [보기](#row-46293) |
-| 46294 | 07:44:04 | stage_start | [보기](#row-46294) |
-| 46295 | 07:44:12 | stage | [보기](#row-46295) |
-| 46296 | 07:44:19 | interrupt | [보기](#row-46296) |
-| 46297 | 07:57:38 | stage_start | [보기](#row-46297) |
-| 46298 | 07:57:47 | stage | [보기](#row-46298) |
-| 46299 | 07:57:51 | node_start | [보기](#row-46299) |
-| 46300 | 07:58:13 | verify | [보기](#row-46300) |
-| 46301 | 07:58:13 | node_end | [보기](#row-46301) |
-| 46302 | 07:58:13 | rag_write | [보기](#row-46302) |
-| 46303 | 07:58:30 | stage_end | [보기](#row-46303) |
-| 46304 | 07:58:37 | done | [보기](#row-46304) |
-
-<a id="row-45932"></a>
-
-<details>
-<summary>45932 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45932,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T21:46:54",
-    "stage": "s0_research",
-    "label": "산업·기술 심층 검토",
-    "index": 1,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-45933"></a>
-
-<details>
-<summary>45933 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45933,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T21:47:03",
-    "stage": "S0_RESEARCH"
-  }
-}
-```
-
-</details>
-
-<a id="row-45934"></a>
-
-<details>
-<summary>45934 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45934,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T21:47:09",
-    "step_id": "STP-2706d40f",
-    "seq": 638,
-    "stage": "S0_RESEARCH",
-    "node": "s0_deep_dive",
-    "label": "산업·메커니즘 심층 검토",
-    "agent": "domain_researcher",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-45936"></a>
-
-<details>
-<summary>45936 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45936,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T21:47:32",
-    "node": "s0_deep_dive",
-    "step_id": "STP-2706d40f",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-45937"></a>
-
-<details>
-<summary>45937 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45937,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T21:47:32",
-    "step_id": "STP-2706d40f",
-    "node": "s0_deep_dive",
-    "label": "산업·메커니즘 심층 검토",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00333,
-    "total_cost": 6.85427
-  }
-}
-```
-
-</details>
-
-<a id="row-45938"></a>
-
-<details>
-<summary>45938 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45938,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "interrupt",
-    "ts": "2026-09-29T21:47:32",
-    "kind": "CLARIFY",
-    "title": "산업과 분석 깊이를 먼저 확인할게요",
-    "stage": "s0_research"
-  }
-}
-```
-
-</details>
-
-<a id="row-45950"></a>
-
-<details>
-<summary>45950 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45950,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T21:49:31",
-    "stage": "s0_research",
-    "label": "산업·기술 심층 검토",
-    "index": 1,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-45951"></a>
-
-<details>
-<summary>45951 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45951,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T21:49:36",
-    "stage": "S0_RESEARCH"
-  }
-}
-```
-
-</details>
-
-<a id="row-45952"></a>
-
-<details>
-<summary>45952 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45952,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T21:49:40",
-    "step_id": "STP-80d197c1",
-    "seq": 639,
-    "stage": "S0_RESEARCH",
-    "node": "s0_deep_dive",
-    "label": "수정한 산업·난이도 재검토",
-    "agent": "domain_researcher",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-45953"></a>
-
-<details>
-<summary>45953 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45953,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T21:49:58",
-    "node": "s0_deep_dive",
-    "step_id": "STP-80d197c1",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-45954"></a>
-
-<details>
-<summary>45954 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45954,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T21:49:58",
-    "step_id": "STP-80d197c1",
-    "node": "s0_deep_dive",
-    "label": "수정한 산업·난이도 재검토",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00341,
-    "total_cost": 6.85768
-  }
-}
-```
-
-</details>
-
-<a id="row-45955"></a>
-
-<details>
-<summary>45955 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45955,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T21:50:06",
-    "stage": "s0_research",
-    "index": 2
-  }
-}
-```
-
-</details>
-
-<a id="row-45956"></a>
-
-<details>
-<summary>45956 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45956,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T21:50:19",
-    "stage": "s1_intake",
-    "label": "문제 추출·역질의",
-    "index": 2,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-45957"></a>
-
-<details>
-<summary>45957 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45957,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T21:50:25",
-    "stage": "S1_INTAKE"
-  }
-}
-```
-
-</details>
-
-<a id="row-45958"></a>
-
-<details>
-<summary>45958 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45958,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T21:50:32",
-    "step_id": "STP-2faef8a0",
-    "seq": 640,
-    "stage": "S1_INTAKE",
-    "node": "s1_extract",
-    "label": "문제·도메인·제약 추출",
-    "agent": "interviewer",
-    "tier": "T1"
-  }
-}
-```
-
-</details>
-
-<a id="row-45959"></a>
-
-<details>
-<summary>45959 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45959,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T21:50:58",
-    "node": "s1_extract",
-    "step_id": "STP-2faef8a0",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-45960"></a>
-
-<details>
-<summary>45960 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45960,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T21:50:58",
-    "step_id": "STP-2faef8a0",
-    "node": "s1_extract",
-    "label": "문제·도메인·제약 추출",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00637,
-    "total_cost": 6.86405
-  }
-}
-```
-
-</details>
-
-<a id="row-45961"></a>
-
-<details>
-<summary>45961 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45961,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "artifact",
-    "ts": "2026-09-29T21:50:58",
-    "kind": "INTAKE",
-    "data": {
-      "domain": {
-        "problem_type": "PHYSICAL_TECHNICAL",
-        "difficulty": "frontier",
-        "physical_scope": "회전 동역학·구조 강성·동적 제어 — 180도 로테이션 구동계의 가감속 프로파일과 takt time 단축, 모터·인덱서 부하율·강성·하드웨어 안정성 간 상충",
-        "industry": "디스플레이 제조 장비",
-        "sub_domain": "대형 OLED 배면 증착 인라인 반송·로테이션 설비",
-        "job_family": "생산기술·장비 엔지니어링",
-        "legacy_note": "패턴 글라스를 180도 로테이션하는 서보 제어 가감속 프로파일 방식 구동계, 투입>로테이션>배출>원위치 복귀 시퀀스",
-        "target_system": "로테이션 구동계 단독(모터·인덱서·회전축)",
-        "super_system": "상위 대형 OLED 배면 증착 인라인 반송 라인 스케줄러",
-        "sub_systems": [
-          "모터·인덱서 출력축",
-          "회전축·베어링 결합부",
-          "클램프 계면",
-          "서보 제어기·가감속 프로파일",
-          "정렬·클램프 공정 유닛"
-        ],
-        "operating_env": "인라인 반송 라인 내 로테이션 스테이션, 2m급 대형 글라스(수십 kg) 취급, 서보 제어 운전",
-        "domain_tags": [
-          "takt time 단축(cycle time reduction)",
-          "회전 동역학(rotational dynamics)",
-          "가감속 프로파일(motion profile)",
-          "서보 제어(servo control)",
-          "부하율(load ratio)",
-          "구조 강성(structural stiffness)",
-          "고유진동수(natural frequency)",
-          "베어링 발열(bearing heating)",
-          "정착 시간(settling time)",
-          "하드웨어 안정성(hardware stability)"
-        ],
-        "is_engineering": true
-      },
-      "frame": {
-        "raw_query": "Display 산업에서 (대형 OLED) 배면 증착을 위해 상면에 패턴이 존재하는 반송물을(pattern glass) 반대로 180도 로테이션 해주는 설비가 있다. \r\nLine LOB 향상을 위해 해당 장비의 takt time을 단축해야 하나, 단순히 전체 속도를 향상하기 위해서는 로테이션에 개입하는 모터 및 인덱서의 부하율, 강성, 하드웨어 안정성 등의 문제로 인해 제약이 존재하는 상황이다. \r\n장비는 투입 > 로테이션 > 배출 후, 다시 원위치로 돌아와 다음 패턴 글라스의 투입을 대기하는 시퀀스로 구성되어있다. \r\n괜찮은 해결책은?",
-        "restated_problem": "대형 OLED 패턴 글라스 180도 로테이션 설비의 takt time을 53초에서 50초 이하로 단축하되, 모터·인덱서 부하율·강성·하드웨어 안정성 저하 없이 달성해야 한다.",
-        "symptom": "로테이션 가속·감속·정지 구간이 takt의 지배적 병목이며, 전체 속도 상향 시 부하율·강성·안정성 제약에 걸린다.",
-        "when_where": "로테이션 가속·감속·정지 구간(발생중), 모터·인덱서 출력축과 회전축 결합부",
-        "current_workaround": "가속 시간이 길고 최고 각속도가 낮은 보수적 가감속 프로파일로 운전",
-        "prior_attempts": [],
-        "success_criteria": [
-          "takt time <= 50초 달성",
-          "모터·인덱서 부하율 허용 범위 이내 유지",
-          "강성 저하 없음",
-          "하드웨어 안정성 저하 없음"
-        ],
-        "missing_info": [
-          "모터·인덱서 정격 토크 수치가 없어 부하율 여유의 절대적 판단이 불가하다.",
-          "글라스 관성모멘트 실측값이 없어 각가속도 상향 시 필요 토크 산정이 불가하다.",
-          "가감속 프로파일 파라미터(가속 시간, 최고 각속도, 정착 시간)가 없어 단축 여지 산정이 불가하다.",
-          "정렬·클램프 공정 소요 시간이 없어 직렬 구간 병목 비중 판단이 불가하다.",
-          "단계별 타임스탬프 실측 분해 데이터가 없어 병목 구간 확정이 불가하다.",
-          "운전 중 베어링·접촉면 온도 측정값이 없어 발열 한계 판단이 불가하다.",
-          "회전축·베어링·클램프 계면 고유진동수가 없어 공진 위험 판단이 불가하다.",
-          "강성·하드웨어 안정성 정량 허용 기준값이 없어 HARD 제약 위반 판정이 불가하다."
-        ],
-        "confidence": 0.6
-      },
-      "constraints": {
-        "items": [
-          {
-            "id": "CON-9d6e66bc",
-            "kind": "NUMERIC",
-            "category": "USER_STATED",
-            "statement": "takt time을 50초 이하로 단축해야 한다",
-            "parameter": "takt time",
-            "operator": "<=",
-            "value": "50",
-            "unit": "s",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": true,
-            "rationale": "Line LOB 향상 목표",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-dae6f5cf",
-            "kind": "NUMERIC",
-            "category": "USER_STATED",
-            "statement": "현재 takt time은 53초이다",
-            "parameter": "current takt time",
-            "operator": "==",
-            "value": "53",
-            "unit": "s",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "현재 기준값",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-0f5af14b",
-            "kind": "MUST_NOT_HAVE",
-            "category": "USER_STATED",
-            "statement": "모터 및 인덱서의 부하율이 허용 범위를 초과해서는 안 된다",
-            "parameter": "load ratio",
-            "operator": "<=",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": true,
-            "rationale": "부하율 제약",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-5ec0d728",
-            "kind": "MUST_NOT_HAVE",
-            "category": "USER_STATED",
-            "statement": "강성이 저하되어서는 안 된다",
-            "parameter": "stiffness",
-            "operator": ">=",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": true,
-            "rationale": "강성 제약",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-3d97063f",
-            "kind": "MUST_NOT_HAVE",
-            "category": "USER_STATED",
-            "statement": "하드웨어 안정성이 저하되어서는 안 된다",
-            "parameter": "hardware stability",
-            "operator": ">=",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": true,
-            "rationale": "안정성 제약",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-b344a24b",
-            "kind": "PREFERENCE",
-            "category": "USER_STATED",
-            "statement": "장비 시퀀스(투입>로테이션>배출>원위치 복귀)를 유지하는 것이 바람직하다",
-            "parameter": "sequence",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "시퀀스 변경 가능성 미확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-28f0b851",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "정렬·클램프 공정 유닛 정지 후 정렬·클램프 공정이 로테이션과 직렬로 소요 시간을 추가한다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "정렬·클램프 공정 존재, 소요 시간 수치 미확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-99bb71c8",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "로테이션 구동은 서보 제어 가감속 프로파일 방식이다",
-            "parameter": "제어 방식",
-            "operator": "==",
-            "value": "서보 제어 가감속",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "구동 방식 확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-b176beb1",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "로테이션 가속·감속·정지 구간이 takt의 지배적 병목이다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "단계별 타임스탬프 분해 데이터 미확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-5d8eab71",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "글라스는 2m급 대형이며 수십 kg 수준이다",
-            "parameter": "glass size/weight",
-            "operator": "==",
-            "value": "2m급, 수십 kg",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 0.6,
-            "hard": false,
-            "rationale": "추정: 실측 미확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-c58e549c",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "고속화 시 베어링·접촉면 발열이 증가할 수 있다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 0.6,
-            "hard": false,
-            "rationale": "추정: 직접 관측 근거 없음",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-42a66334",
-            "kind": "MUST_NOT_HAVE",
-            "category": "USER_STATED",
-            "statement": "정렬·클램프 공정을 로테이션 감속 구간과 중첩(병렬화)할 수 없다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "중첩 불가(잘못하면 Slip 파손)",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-a6e8ac62",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "원위치 복귀는 역회전 방식이며 복귀 시 글라스가 없다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "복귀 동작 구조 확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-b833a99b",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "모터·인덱서 정격 토크와 현재 부하율은 미확인이다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "확인 필요 항목",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-3231ebfc",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "가감속 프로파일 파라미터(가속 시간, 최고 각속도, 정착 시간)는 미확인이다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "확인 필요 항목",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-701b3d90",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "회전축·베어링·클램프 계면 고유진동수는 미확인이다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "확인 필요 항목",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-33a0cabd",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "로테이션 구동계 전체 강성·하드웨어 안정성의 정량 허용 기준값은 미확인이다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "확인 필요 항목",
-            "violation_example": ""
-          }
-        ],
-        "open_questions": [
-          "모터·인덱서의 정격 토크와 현재 부하율은 얼마인가?",
-          "글라스의 크기·중량·관성모멘트는 얼마인가?",
-          "가감속 프로파일(가속 시간, 최고 각속도, 정착 시간)은 어떻게 설정되어 있는가?",
-          "정지 후 정렬·클램프 공정의 소요 시간은 얼마인가?",
-          "단계별 타임스탬프 분해(투입/가속/정속/감속/정지/정렬·클램프/배출/복귀/대기) 실측 데이터가 있는가?",
-          "운전 중 베어링·접촉면 온도 측정값이 있는가?",
-          "회전축·베어링·클램프 계면 고유진동수는 얼마인가?",
-          "강성·하드웨어 안정성의 정량 허용 기준값은 얼마인가?"
-        ]
-      }
-    }
-  }
-}
-```
-
-</details>
-
-<a id="row-45962"></a>
-
-<details>
-<summary>45962 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45962,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T21:51:04",
-    "step_id": "STP-e0dbc382",
-    "seq": 641,
-    "stage": "S1_INTAKE",
-    "node": "s1_clarify",
-    "label": "역질의 생성 (2차)",
-    "agent": "interviewer",
-    "tier": "T1"
-  }
-}
-```
-
-</details>
-
-<a id="row-45963"></a>
-
-<details>
-<summary>45963 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45963,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T21:51:13",
-    "node": "s1_clarify",
-    "step_id": "STP-e0dbc382",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-45964"></a>
-
-<details>
-<summary>45964 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45964,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T21:51:14",
-    "step_id": "STP-e0dbc382",
-    "node": "s1_clarify",
-    "label": "역질의 생성 (2차)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00229,
-    "total_cost": 6.86634
-  }
-}
-```
-
-</details>
-
-<a id="row-45965"></a>
-
-<details>
-<summary>45965 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45965,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "interrupt",
-    "ts": "2026-09-29T21:51:19",
-    "kind": "CLARIFY",
-    "title": "추가 정보가 필요합니다",
-    "stage": "s1_intake"
-  }
-}
-```
-
-</details>
-
-<a id="row-45966"></a>
-
-<details>
-<summary>45966 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45966,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T21:52:32",
-    "stage": "s1_intake",
-    "label": "문제 추출·역질의",
-    "index": 2,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-45967"></a>
-
-<details>
-<summary>45967 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45967,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T21:52:37",
-    "stage": "S1_INTAKE"
-  }
-}
-```
-
-</details>
-
-<a id="row-45968"></a>
-
-<details>
-<summary>45968 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45968,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T21:52:41",
-    "step_id": "STP-59592074",
-    "seq": 642,
-    "stage": "S1_INTAKE",
-    "node": "s1_extract",
-    "label": "문제·도메인·제약 추출",
-    "agent": "interviewer",
-    "tier": "T1"
-  }
-}
-```
-
-</details>
-
-<a id="row-45969"></a>
-
-<details>
-<summary>45969 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45969,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T21:53:10",
-    "node": "s1_extract",
-    "step_id": "STP-59592074",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-45970"></a>
-
-<details>
-<summary>45970 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45970,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T21:53:10",
-    "step_id": "STP-59592074",
-    "node": "s1_extract",
-    "label": "문제·도메인·제약 추출",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00621,
-    "total_cost": 6.87255
-  }
-}
-```
-
-</details>
-
-<a id="row-45971"></a>
-
-<details>
-<summary>45971 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45971,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "artifact",
-    "ts": "2026-09-29T21:53:10",
-    "kind": "INTAKE",
-    "data": {
-      "domain": {
-        "problem_type": "PHYSICAL_TECHNICAL",
-        "difficulty": "frontier",
-        "physical_scope": "회전 동역학·구조 강성·동적 제어 — 180도 로테이션 구동계의 가감속 프로파일과 takt time 단축, 모터·인덱서 부하율·강성·하드웨어 안정성 간 상충",
-        "industry": "디스플레이 제조 장비",
-        "sub_domain": "대형 OLED 배면 증착용 패턴 글라스 180도 로테이션 설비",
-        "job_family": "생산기술·설비 엔지니어링",
-        "legacy_note": "투입>로테이션>배출>원위치 복귀(역회전) 시퀀스, 서보 제어 가감속 프로파일 구동, 정렬·클램프 공정이 로테이션과 직렬 배치",
-        "target_system": "로테이션 구동계 단독(모터·인덱서·회전축)",
-        "super_system": "패턴 글라스 반송·증착 인라인 설비",
-        "sub_systems": [
-          "서보 모터",
-          "인덱서",
-          "회전축·베어링",
-          "클램프·정렬 유닛",
-          "제어기(가감속 프로파일)"
-        ],
-        "operating_env": "디스플레이 라인 인라인, 2m급 대형 글라스 반송, 연속 takt 운전",
-        "domain_tags": [
-          "takt time 단축(cycle time reduction)",
-          "서보 가감속 프로파일(motion profile)",
-          "회전 동역학(rotational dynamics)",
-          "구조 강성(structural stiffness)",
-          "진동·공진(vibration/resonance)",
-          "부하율(load ratio)",
-          "정착 시간(settling time)",
-          "베어링 발열(bearing heating)",
-          "대형 유리 반송(large glass handling)",
-          "인덱서(indexer)"
-        ],
-        "is_engineering": true
-      },
-      "frame": {
-        "raw_query": "Display 산업에서 (대형 OLED) 배면 증착을 위해 상면에 패턴이 존재하는 반송물을(pattern glass) 반대로 180도 로테이션 해주는 설비가 있다. \r\nLine LOB 향상을 위해 해당 장비의 takt time을 단축해야 하나, 단순히 전체 속도를 향상하기 위해서는 로테이션에 개입하는 모터 및 인덱서의 부하율, 강성, 하드웨어 안정성 등의 문제로 인해 제약이 존재하는 상황이다. \r\n장비는 투입 > 로테이션 > 배출 후, 다시 원위치로 돌아와 다음 패턴 글라스의 투입을 대기하는 시퀀스로 구성되어있다. \r\n괜찮은 해결책은?",
-        "restated_problem": "패턴 글라스 180도 로테이션 설비의 takt time을 53초에서 50초 이하로 단축하되, 모터·인덱서 부하율·강성·하드웨어 안정성 저하 없이 달성해야 한다.",
-        "symptom": "로테이션 가속·감속·정지 구간이 takt의 지배적 병목이며, 전체 속도 상향 시 부하율·강성·안정성 제약에 부딪힘",
-        "when_where": "로테이션 가속·감속·정지 구간, 모터·인덱서 출력축과 회전축 결합부",
-        "current_workaround": "가감속 프로파일을 보수적으로 설정하여 운전(가속 시간 길고 최고 각속도 낮음)",
-        "prior_attempts": [],
-        "success_criteria": [
-          "takt time <= 50초 달성",
-          "모터·인덱서 부하율 허용 범위 내 유지",
-          "강성·하드웨어 안정성 저하 없음"
-        ],
-        "missing_info": [
-          "모터·인덱서 정격 토크와 현재 부하율 정확 수치가 필요하다(부하율 여유 판정)",
-          "글라스 관성모멘트 실측값이 필요하다(각가속도-토크 산정)",
-          "가감속 프로파일 파라미터(가속 시간, 최고 각속도, 정착 시간)가 필요하다(단축 여지 판정)",
-          "정렬·클램프 공정 소요 시간이 필요하다(직렬 병목 비중 판정)",
-          "단계별 타임스탬프 실측 분해 데이터가 필요하다(병목 위치 확정)",
-          "회전축·베어링·클램프 계면 고유진동수가 필요하다(공진 위험 판정)",
-          "강성·하드웨어 안정성 정량 허용 기준값이 필요하다(HARD 제약 위반 판정)",
-          "운전 중 베어링·접촉면 온도 측정값이 필요하다(발열 한계 판정)"
-        ],
-        "confidence": 0.8
-      },
-      "constraints": {
-        "items": [
-          {
-            "id": "CON-2e5d6859",
-            "kind": "NUMERIC",
-            "category": "USER_STATED",
-            "statement": "takt time을 50초 이하로 단축해야 한다",
-            "parameter": "takt time",
-            "operator": "<=",
-            "value": "50",
-            "unit": "s",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": true,
-            "rationale": "Line LOB 향상 목표",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-87d3c928",
-            "kind": "NUMERIC",
-            "category": "USER_STATED",
-            "statement": "현재 takt time은 53초이다",
-            "parameter": "current takt time",
-            "operator": "==",
-            "value": "53",
-            "unit": "s",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "현재 기준값",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-bae6ac73",
-            "kind": "MUST_NOT_HAVE",
-            "category": "USER_STATED",
-            "statement": "모터 및 인덱서의 부하율이 허용 범위를 초과해서는 안 된다",
-            "parameter": "load ratio",
-            "operator": "<=",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": true,
-            "rationale": "부하율 제약",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-88d264f2",
-            "kind": "MUST_NOT_HAVE",
-            "category": "USER_STATED",
-            "statement": "강성이 저하되어서는 안 된다",
-            "parameter": "stiffness",
-            "operator": ">=",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": true,
-            "rationale": "강성 제약",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-f82435ee",
-            "kind": "MUST_NOT_HAVE",
-            "category": "USER_STATED",
-            "statement": "하드웨어 안정성이 저하되어서는 안 된다",
-            "parameter": "hardware stability",
-            "operator": ">=",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": true,
-            "rationale": "안정성 제약",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-67ea8d4a",
-            "kind": "PREFERENCE",
-            "category": "USER_STATED",
-            "statement": "장비 시퀀스(투입>로테이션>배출>원위치 복귀)를 유지하는 것이 바람직하다",
-            "parameter": "sequence",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "시퀀스 변경 가능성 미확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-9f449042",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "정렬·클램프 공정 유닛 정지 후 정렬·클램프 공정이 로테이션과 직렬로 소요 시간을 추가한다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "정렬·클램프 공정 존재, 소요 시간 수치 미확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-f1a96104",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "로테이션 구동은 서보 제어 가감속 프로파일 방식이다",
-            "parameter": "제어 방식",
-            "operator": "==",
-            "value": "서보 제어 가감속",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "구동 방식 확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-6f1aa3c0",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "로테이션 가속·감속·정지 구간이 takt의 지배적 병목이다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "단계별 타임스탬프 분해 데이터 미확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-81c154fe",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "글라스는 2m급 대형이며 수십 kg 수준이다",
-            "parameter": "glass size/weight",
-            "operator": "==",
-            "value": "2m급, 수십 kg",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "추정: 실측 미확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-489f9a78",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "고속화 시 베어링·접촉면 발열이 증가할 수 있다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "추정: 직접 관측 근거 없음",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-8b834790",
-            "kind": "MUST_NOT_HAVE",
-            "category": "USER_STATED",
-            "statement": "정렬·클램프 공정을 로테이션 감속 구간과 중첩(병렬화)할 수 없다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "중첩 불가(잘못하면 Slip 파손)",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-fe966295",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "원위치 복귀는 역회전 방식이며 복귀 시 글라스가 없다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "복귀 동작 구조 확인",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-03a2c34e",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "모터·인덱서 정격 토크와 현재 부하율은 미확인이다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "확인 필요 항목",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-a25b3ab7",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "가감속 프로파일 파라미터(가속 시간, 최고 각속도, 정착 시간)는 미확인이다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "확인 필요 항목",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-f512b60e",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "회전축·베어링·클램프 계면 고유진동수는 미확인이다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "확인 필요 항목",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-0255b86a",
-            "kind": "MUST_HAVE",
-            "category": "USER_STATED",
-            "statement": "로테이션 구동계 전체 강성·하드웨어 안정성의 정량 허용 기준값은 미확인이다",
-            "parameter": "",
-            "operator": "==",
-            "value": "",
-            "unit": "",
-            "zone": "",
-            "source": "USER",
-            "confidence": 1.0,
-            "hard": false,
-            "rationale": "확인 필요 항목",
-            "violation_example": ""
-          },
-          {
-            "id": "CON-f3ea19b8",
-            "kind": "NUMERIC",
-            "category": "USER_STATED",
-            "statement": "현재 부하율은 60% 수준으로 여유가 있다",
-            "parameter": "load ratio",
-            "operator": "==",
-            "value": "60",
-            "unit": "%",
-            "zone": "",
-            "source": "USER",
-            "confidence": 0.6,
-            "hard": false,
-            "rationale": "첨부 답변, 정확 수치 미확인",
-            "violation_example": ""
-          }
-        ],
-        "open_questions": [
-          "모터·인덱서의 정격 토크와 현재 부하율은 얼마인가?",
-          "글라스의 크기·중량·관성모멘트는 얼마인가?",
-          "가감속 프로파일(가속 시간, 최고 각속도, 정착 시간)은 어떻게 설정되어 있는가?",
-          "정지 후 정렬·클램프 공정의 소요 시간은 얼마인가?",
-          "단계별 타임스탬프 분해(투입/가속/정속/감속/정지/정렬·클램프/배출/복귀/대기) 실측 데이터가 있는가?",
-          "운전 중 베어링·접촉면 온도 측정값이 있는가?",
-          "회전축·베어링·클램프 계면 고유진동수는 얼마인가?",
-          "강성·하드웨어 안정성의 정량 허용 기준값은 얼마인가?"
-        ]
-      }
-    }
-  }
-}
-```
-
-</details>
-
-<a id="row-45972"></a>
-
-<details>
-<summary>45972 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45972,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T21:53:24",
-    "stage": "s1_intake",
-    "index": 3
-  }
-}
-```
-
-</details>
-
-<a id="row-45973"></a>
-
-<details>
-<summary>45973 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45973,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T21:53:39",
-    "stage": "s2_confirm",
-    "label": "대상 시스템 확정",
-    "index": 3,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-45974"></a>
-
-<details>
-<summary>45974 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45974,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T21:53:44",
-    "stage": "S2_CONFIRM"
-  }
-}
-```
-
-</details>
-
-<a id="row-45975"></a>
-
-<details>
-<summary>45975 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45975,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T21:53:49",
-    "step_id": "STP-87544e0b",
-    "seq": 643,
-    "stage": "S2_CONFIRM",
-    "node": "s2_candidates",
-    "label": "대상 시스템 후보 생성",
-    "agent": "system_analyst",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-45976"></a>
-
-<details>
-<summary>45976 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45976,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T21:54:04",
-    "node": "s2_candidates",
-    "step_id": "STP-87544e0b",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-45977"></a>
-
-<details>
-<summary>45977 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45977,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T21:54:04",
-    "step_id": "STP-87544e0b",
-    "node": "s2_candidates",
-    "label": "대상 시스템 후보 생성",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00338,
-    "total_cost": 6.87592
-  }
-}
-```
-
-</details>
-
-<a id="row-45978"></a>
-
-<details>
-<summary>45978 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45978,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "interrupt",
-    "ts": "2026-09-29T21:54:10",
-    "kind": "CONFIRM",
-    "title": "대상 시스템을 확정해 주세요",
-    "stage": "s2_confirm"
-  }
-}
-```
-
-</details>
-
-<a id="row-45987"></a>
-
-<details>
-<summary>45987 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45987,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:06:31",
-    "stage": "s2_confirm",
-    "label": "대상 시스템 확정",
-    "index": 3,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-45988"></a>
-
-<details>
-<summary>45988 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45988,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:06:36",
-    "stage": "S2_CONFIRM"
-  }
-}
-```
-
-</details>
-
-<a id="row-45989"></a>
-
-<details>
-<summary>45989 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45989,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T22:06:58",
-    "stage": "s2_confirm",
-    "index": 4
-  }
-}
-```
-
-</details>
-
-<a id="row-45990"></a>
-
-<details>
-<summary>45990 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45990,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:07:10",
-    "stage": "s3_analyze",
-    "label": "시스템·기능·자원·인과 분석",
-    "index": 4,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-45991"></a>
-
-<details>
-<summary>45991 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45991,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:07:17",
-    "stage": "S3_ANALYZE"
-  }
-}
-```
-
-</details>
-
-<a id="row-45992"></a>
-
-<details>
-<summary>45992 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45992,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:07:23",
-    "step_id": "STP-e97e8b15",
-    "seq": 644,
-    "stage": "S3_ANALYZE",
-    "node": "s3_nine_windows",
-    "label": "9-Windows 전개",
-    "agent": "system_analyst",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-45993"></a>
-
-<details>
-<summary>45993 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45993,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:07:44",
-    "node": "s3_nine_windows",
-    "step_id": "STP-e97e8b15",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-45994"></a>
-
-<details>
-<summary>45994 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45994,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:07:44",
-    "step_id": "STP-e97e8b15",
-    "node": "s3_nine_windows",
-    "label": "9-Windows 전개",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00371,
-    "total_cost": 6.87964
-  }
-}
-```
-
-</details>
-
-<a id="row-45995"></a>
-
-<details>
-<summary>45995 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45995,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:07:44",
-    "step_id": "STP-174c4be3",
-    "seq": 645,
-    "stage": "S3_ANALYZE",
-    "node": "s3_function_model",
-    "label": "기능 분석(컴포넌트/상호작용/기능도)",
-    "agent": "system_analyst",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-45996"></a>
-
-<details>
-<summary>45996 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45996,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:08:10",
-    "node": "s3_function_model",
-    "step_id": "STP-174c4be3",
-    "verdict": "PASS",
-    "score": 0.9,
-    "attempt": 1,
-    "instructions": [
-      "'서보 제어기 → 정렬·클램프 공정 유닛' 유해 기능의 수행 주체를 제약 조건의 대리인이 아니라 실제 물리적 작동 경로(예: 감속 중 스테이지 각속도가 0이 될 때까지 클램프 접촉이 불가하여 발생하는 접촉 응력/Slip 위험)로 재기술하라.",
-      "'서보 제어기 → 서보 모터'의 '보수적 가감속 프로파일로 시간 과다' 유해 기능에 대해, 보수적 설정의 물리적 근거(예: 관성모멘트 미확인에 따른 안전계수 적용)를 명시하여 문제 유형을 보존하라."
-    ]
-  }
-}
-```
-
-</details>
-
-<a id="row-45997"></a>
-
-<details>
-<summary>45997 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45997,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:08:10",
-    "step_id": "STP-174c4be3",
-    "node": "s3_function_model",
-    "label": "기능 분석(컴포넌트/상호작용/기능도)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 0.9,
-    "attempts": 1,
-    "cost": 0.00917,
-    "total_cost": 6.8888
-  }
-}
-```
-
-</details>
-
-<a id="row-45998"></a>
-
-<details>
-<summary>45998 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45998,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:08:10",
-    "step_id": "STP-c3b447c6",
-    "seq": 647,
-    "stage": "S3_ANALYZE",
-    "node": "s3_resources",
-    "label": "자원 분석",
-    "agent": "resource_analyst",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-45999"></a>
-
-<details>
-<summary>45999 · 전체 저장값</summary>
-
-```json
-{
-  "id": 45999,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:08:10",
-    "step_id": "STP-546553d2",
-    "seq": 646,
-    "stage": "S3_ANALYZE",
-    "node": "s3_sufield",
-    "label": "물질-장 분석(Su-Field)",
-    "agent": "sufield_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46000"></a>
-
-<details>
-<summary>46000 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46000,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:08:10",
-    "step_id": "STP-55291250",
-    "seq": 648,
-    "stage": "S3_ANALYZE",
-    "node": "s3_ceca",
-    "label": "인과사슬 분석(CECA)",
-    "agent": "root_cause_analyst",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46001"></a>
-
-<details>
-<summary>46001 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46001,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:08:26",
-    "node": "s3_sufield",
-    "step_id": "STP-546553d2",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46002"></a>
-
-<details>
-<summary>46002 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46002,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:08:26",
-    "step_id": "STP-546553d2",
-    "node": "s3_sufield",
-    "label": "물질-장 분석(Su-Field)",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00245,
-    "total_cost": 6.89125
-  }
-}
-```
-
-</details>
-
-<a id="row-46003"></a>
-
-<details>
-<summary>46003 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46003,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:08:35",
-    "node": "s3_resources",
-    "step_id": "STP-c3b447c6",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46004"></a>
-
-<details>
-<summary>46004 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46004,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:08:35",
-    "step_id": "STP-c3b447c6",
-    "node": "s3_resources",
-    "label": "자원 분석",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00561,
-    "total_cost": 6.89686
-  }
-}
-```
-
-</details>
-
-<a id="row-46005"></a>
-
-<details>
-<summary>46005 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46005,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:08:43",
-    "node": "s3_ceca",
-    "step_id": "STP-55291250",
-    "verdict": "PASS",
-    "score": 0.88,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46006"></a>
-
-<details>
-<summary>46006 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46006,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:08:43",
-    "step_id": "STP-55291250",
-    "node": "s3_ceca",
-    "label": "인과사슬 분석(CECA)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 0.88,
-    "attempts": 1,
-    "cost": 0.00868,
-    "total_cost": 6.90554
-  }
-}
-```
-
-</details>
-
-<a id="row-46007"></a>
-
-<details>
-<summary>46007 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46007,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:08:43",
-    "step_id": "STP-0c22f250",
-    "seq": 649,
-    "stage": "S3_ANALYZE",
-    "node": "s3_constraints",
-    "label": "도메인·시스템 내재 제약 발굴",
-    "agent": "constraint_analyst",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46008"></a>
-
-<details>
-<summary>46008 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46008,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:08:58",
-    "node": "s3_constraints",
-    "step_id": "STP-0c22f250",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46009"></a>
-
-<details>
-<summary>46009 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46009,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:08:58",
-    "step_id": "STP-0c22f250",
-    "node": "s3_constraints",
-    "label": "도메인·시스템 내재 제약 발굴",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00596,
-    "total_cost": 6.9115
-  }
-}
-```
-
-</details>
-
-<a id="row-46010"></a>
-
-<details>
-<summary>46010 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46010,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "artifact",
-    "ts": "2026-09-29T22:08:58",
-    "kind": "CONSTRAINT_DISCOVERY",
-    "data": {
-      "added": 0,
-      "taboo": 4,
-      "items": []
-    }
-  }
-}
-```
-
-</details>
-
-<a id="row-46011"></a>
-
-<details>
-<summary>46011 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46011,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "artifact",
-    "ts": "2026-09-29T22:08:58",
-    "kind": "ANALYSIS",
-    "data": {
-      "components": 16,
-      "functions": 13,
-      "su_fields": 3,
-      "resources": 30,
-      "ceca_nodes": 8,
-      "constraints": 18
-    }
-  }
-}
-```
-
-</details>
-
-<a id="row-46012"></a>
-
-<details>
-<summary>46012 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46012,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T22:09:12",
-    "stage": "s3_analyze",
-    "index": 5
-  }
-}
-```
-
-</details>
-
-<a id="row-46013"></a>
-
-<details>
-<summary>46013 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46013,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:09:26",
-    "stage": "s4_define",
-    "label": "이상해결책·모순 정의",
-    "index": 5,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46014"></a>
-
-<details>
-<summary>46014 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46014,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:09:33",
-    "stage": "S4_DEFINE"
-  }
-}
-```
-
-</details>
-
-<a id="row-46015"></a>
-
-<details>
-<summary>46015 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46015,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:09:39",
-    "step_id": "STP-8edf7496",
-    "seq": 650,
-    "stage": "S4_DEFINE",
-    "node": "s4_ifr",
-    "label": "이상해결책(IFR) 정의",
-    "agent": "triz_master",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46016"></a>
-
-<details>
-<summary>46016 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46016,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:09:39",
-    "step_id": "STP-04084dd2",
-    "seq": 651,
-    "stage": "S4_DEFINE",
-    "node": "s4_contradictions",
-    "label": "모순 도출(기술적/물리적)",
-    "agent": "contradiction_definer",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46017"></a>
-
-<details>
-<summary>46017 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46017,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:09:39",
-    "step_id": "STP-de5d769d",
-    "seq": 652,
-    "stage": "S4_DEFINE",
-    "node": "s4_trimming",
-    "label": "트리밍 후보 도출",
-    "agent": "trimming_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46018"></a>
-
-<details>
-<summary>46018 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46018,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:09:55",
-    "node": "s4_ifr",
-    "step_id": "STP-8edf7496",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46019"></a>
-
-<details>
-<summary>46019 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46019,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:09:55",
-    "step_id": "STP-8edf7496",
-    "node": "s4_ifr",
-    "label": "이상해결책(IFR) 정의",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.0029,
-    "total_cost": 6.9144
-  }
-}
-```
-
-</details>
-
-<a id="row-46020"></a>
-
-<details>
-<summary>46020 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46020,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:09:59",
-    "node": "s4_trimming",
-    "step_id": "STP-de5d769d",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46021"></a>
-
-<details>
-<summary>46021 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46021,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:09:59",
-    "step_id": "STP-de5d769d",
-    "node": "s4_trimming",
-    "label": "트리밍 후보 도출",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00397,
-    "total_cost": 6.91837
-  }
-}
-```
-
-</details>
-
-<a id="row-46022"></a>
-
-<details>
-<summary>46022 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46022,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:10:16",
-    "node": "s4_contradictions",
-    "step_id": "STP-04084dd2",
-    "verdict": "PASS",
-    "score": 0.7525000000000002,
-    "attempt": 1,
-    "instructions": [
-      "#21 동력 파라미터를 '부하율'로 등치한 매핑을 재검토하라. 부하율이 동력 정의문('단위 시간당 수행되는 일')과 정확히 대응하는지 확인하고, 대응이 약하면 별도 파라미터로 분리하거나 rationale에 물리적 연결(토크×각속도=동력, 부하율=동력/정격)을 명시하라.",
-      "TC1에서 '가속도 상향'을 개선 파라미터 #9 '속도'로 매핑한 것을 수정하라. 가속도와 속도는 구분되는 속성이므로, 개선 파라미터를 '가속도' 또는 '가감속 프로파일'로 명확히 하거나 #9 매핑 근거를 보강하라.",
-      "PC4의 state_b를 '구조 강성이 낮아야 한다'로 두면서 reason을 '관성모멘트 감소'로 든 불일치를 해소하라. 동일 속성(강성)의 상반 요구가 되도록 재서술하거나, 관성모멘트를 별도 파라미터로 분리하라."
-    ]
-  }
-}
-```
-
-</details>
-
-<a id="row-46023"></a>
-
-<details>
-<summary>46023 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46023,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:10:16",
-    "step_id": "STP-04084dd2",
-    "node": "s4_contradictions",
-    "label": "모순 도출(기술적/물리적)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 0.7525000000000002,
-    "attempts": 1,
-    "cost": 0.01101,
-    "total_cost": 6.92938
-  }
-}
-```
-
-</details>
-
-<a id="row-46024"></a>
-
-<details>
-<summary>46024 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46024,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:10:16",
-    "step_id": "STP-ecc9066d",
-    "seq": 653,
-    "stage": "S4_DEFINE",
-    "node": "s4_key_problem",
-    "label": "핵심 문제 선정",
-    "agent": "triz_master",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46025"></a>
-
-<details>
-<summary>46025 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46025,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:10:26",
-    "node": "s4_key_problem",
-    "step_id": "STP-ecc9066d",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46026"></a>
-
-<details>
-<summary>46026 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46026,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:10:26",
-    "step_id": "STP-ecc9066d",
-    "node": "s4_key_problem",
-    "label": "핵심 문제 선정",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00339,
-    "total_cost": 6.93276
-  }
-}
-```
-
-</details>
-
-<a id="row-46027"></a>
-
-<details>
-<summary>46027 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46027,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "artifact",
-    "ts": "2026-09-29T22:10:26",
-    "kind": "DEFINITION",
-    "data": {
-      "tc": 6,
-      "pc": 4,
-      "trimming": 6,
-      "key_problems": [
-        "가감속 프로파일 상향을 통한 로테이션 구간 takt 단축 (부하율·강성·안정성 동시 보호)",
-        "정렬·클램프 직렬 구간과 로테이션 감속 구간의 시간 결합 해소",
-        "회전축-베어링 계면의 고속화 발열·강성 상충 관리"
-      ]
-    }
-  }
-}
-```
-
-</details>
-
-<a id="row-46028"></a>
-
-<details>
-<summary>46028 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46028,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T22:10:37",
-    "stage": "s4_define",
-    "index": 6
-  }
-}
-```
-
-</details>
-
-<a id="row-46029"></a>
-
-<details>
-<summary>46029 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46029,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:10:50",
-    "stage": "s5_solve",
-    "label": "다중 기법 해결책 탐색",
-    "index": 6,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46030"></a>
-
-<details>
-<summary>46030 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46030,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "coordination",
-    "ts": "2026-09-29T22:10:58",
-    "decision_id": "dec-d820d7cad35789e857b53f1f387ee9ad76801e719694d6adf83471d93085",
-    "tracks": [
-      "D_ARIZ",
-      "A_MATRIX",
-      "B_SEPARATION"
-    ],
-    "pending_tracks": [
-      "C_STANDARDS",
-      "E_TRIMMING",
-      "F_TRENDS",
-      "G_FOS",
-      "H_EFFECTS"
-    ],
-    "required_tracks": [
-      "D_ARIZ",
-      "A_MATRIX",
-      "B_SEPARATION",
-      "C_STANDARDS",
-      "E_TRIMMING",
-      "F_TRENDS",
-      "G_FOS",
-      "H_EFFECTS"
-    ],
-    "expected_tracks": [
-      "A_MATRIX",
-      "B_SEPARATION",
-      "C_STANDARDS",
-      "D_ARIZ",
-      "E_TRIMMING",
-      "F_TRENDS",
-      "G_FOS",
-      "H_EFFECTS"
-    ],
-    "coverage_contract": "mode-tracks-v1",
-    "reason": "분석 모드의 필수 경로를 배치 크기 제한 안에서 순차 실행한다.",
-    "snapshot_id": "snap-4487c9a6151141879697ca76241925e4"
-  }
-}
-```
-
-</details>
-
-<a id="row-46031"></a>
-
-<details>
-<summary>46031 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46031,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:10:58",
-    "stage": "S5_SOLVE"
-  }
-}
-```
-
-</details>
-
-<a id="row-46032"></a>
-
-<details>
-<summary>46032 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46032,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "tracks",
-    "ts": "2026-09-29T22:11:04",
-    "tracks": [
-      "A_MATRIX",
-      "B_SEPARATION",
-      "D_ARIZ"
-    ]
-  }
-}
-```
-
-</details>
-
-<a id="row-46033"></a>
-
-<details>
-<summary>46033 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46033,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:11:04",
-    "step_id": "STP-5c0f3ac6",
-    "seq": 654,
-    "stage": "S5_SOLVE",
-    "node": "s5_search_retrieval",
-    "label": "특허·논문 검색 수집 상태",
-    "agent": "patent_researcher",
-    "tier": ""
-  }
-}
-```
-
-</details>
-
-<a id="row-46034"></a>
-
-<details>
-<summary>46034 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46034,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:11:06",
-    "step_id": "STP-afe46119",
-    "seq": 655,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_a_select",
-    "label": "발명원리 선별(TC-ba15f1e6)",
-    "agent": "inventor_a",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46035"></a>
-
-<details>
-<summary>46035 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46035,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:11:06",
-    "step_id": "STP-aa6e2b89",
-    "seq": 657,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_b",
-    "label": "Track B 분리원리(PC-8efb2898)",
-    "agent": "inventor_b",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46036"></a>
-
-<details>
-<summary>46036 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46036,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:11:06",
-    "step_id": "STP-b4a05607",
-    "seq": 656,
-    "stage": "S5_SOLVE",
-    "node": "s5_ariz_p1",
-    "label": "ARIZ Part1 문제 분석",
-    "agent": "ariz_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46037"></a>
-
-<details>
-<summary>46037 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46037,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:11:20",
-    "node": "s5_track_a_select",
-    "step_id": "STP-afe46119",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46038"></a>
-
-<details>
-<summary>46038 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46038,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:11:20",
-    "step_id": "STP-afe46119",
-    "node": "s5_track_a_select",
-    "label": "발명원리 선별(TC-ba15f1e6)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00231,
-    "total_cost": 6.93507
-  }
-}
-```
-
-</details>
-
-<a id="row-46039"></a>
-
-<details>
-<summary>46039 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46039,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:11:20",
-    "step_id": "STP-f422fe90",
-    "seq": 658,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_a",
-    "label": "Track A 발명원리 적용(TC-ba15f1e6)",
-    "agent": "inventor_a",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46040"></a>
-
-<details>
-<summary>46040 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46040,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:11:25",
-    "step_id": "STP-5c0f3ac6",
-    "node": "s5_search_retrieval",
-    "label": "특허·논문 검색 수집 상태",
-    "status": "WARN",
-    "verdict": null,
-    "score": null,
-    "attempts": 0,
-    "cost": 0.0,
-    "total_cost": 6.93507
-  }
-}
-```
-
-</details>
-
-<a id="row-46041"></a>
-
-<details>
-<summary>46041 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46041,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "search_status",
-    "ts": "2026-09-29T22:11:25",
-    "queries_used": 40,
-    "query_limit": 40,
-    "patent_provider_configured": true,
-    "patent_search": "Qdrant 전체 산업 특허 검색 · MySQL",
-    "patent_error_reasons": [
-      "VECTOR_SEARCH_UNAVAILABLE"
-    ],
-    "patent_status": "PARTIAL",
-    "patent_queries": 21,
-    "patent_records": 12,
-    "patent_queries_failed": 21,
-    "patent_queries_unknown": 0,
-    "records": 110,
-    "retry_after": 1790719945.1310806
-  }
-}
-```
-
-</details>
-
-<a id="row-46042"></a>
-
-<details>
-<summary>46042 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46042,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:11:31",
-    "node": "s5_track_b",
-    "step_id": "STP-aa6e2b89",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46043"></a>
-
-<details>
-<summary>46043 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46043,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:11:31",
-    "step_id": "STP-aa6e2b89",
-    "node": "s5_track_b",
-    "label": "Track B 분리원리(PC-8efb2898)",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00459,
-    "total_cost": 6.93966
-  }
-}
-```
-
-</details>
-
-<a id="row-46044"></a>
-
-<details>
-<summary>46044 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46044,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:11:31",
-    "step_id": "STP-6f538056",
-    "seq": 659,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_b",
-    "label": "Track B 분리원리(PC-82950bf3)",
-    "agent": "inventor_b",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46045"></a>
-
-<details>
-<summary>46045 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46045,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:11:32",
-    "node": "s5_ariz_p1",
-    "step_id": "STP-b4a05607",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46046"></a>
-
-<details>
-<summary>46046 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46046,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:11:32",
-    "step_id": "STP-b4a05607",
-    "node": "s5_ariz_p1",
-    "label": "ARIZ Part1 문제 분석",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00675,
-    "total_cost": 6.94642
-  }
-}
-```
-
-</details>
-
-<a id="row-46047"></a>
-
-<details>
-<summary>46047 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46047,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:11:32",
-    "step_id": "STP-dc6a5452",
-    "seq": 660,
-    "stage": "S5_SOLVE",
-    "node": "s5_ariz_p2",
-    "label": "ARIZ Part2 자원 분석",
-    "agent": "ariz_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46048"></a>
-
-<details>
-<summary>46048 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46048,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:11:43",
-    "node": "s5_track_a",
-    "step_id": "STP-f422fe90",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46049"></a>
-
-<details>
-<summary>46049 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46049,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:11:43",
-    "step_id": "STP-f422fe90",
-    "node": "s5_track_a",
-    "label": "Track A 발명원리 적용(TC-ba15f1e6)",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00628,
-    "total_cost": 6.9527
-  }
-}
-```
-
-</details>
-
-<a id="row-46050"></a>
-
-<details>
-<summary>46050 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46050,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:11:43",
-    "step_id": "STP-f521d3b4",
-    "seq": 661,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_a_select",
-    "label": "발명원리 선별(TC-c8cf7951)",
-    "agent": "inventor_a",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46051"></a>
-
-<details>
-<summary>46051 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46051,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:11:47",
-    "node": "s5_track_b",
-    "step_id": "STP-6f538056",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46052"></a>
-
-<details>
-<summary>46052 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46052,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:11:47",
-    "step_id": "STP-6f538056",
-    "node": "s5_track_b",
-    "label": "Track B 분리원리(PC-82950bf3)",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00455,
-    "total_cost": 6.95725
-  }
-}
-```
-
-</details>
-
-<a id="row-46053"></a>
-
-<details>
-<summary>46053 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46053,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:11:51",
-    "node": "s5_track_a_select",
-    "step_id": "STP-f521d3b4",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46054"></a>
-
-<details>
-<summary>46054 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46054,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:11:51",
-    "step_id": "STP-f521d3b4",
-    "node": "s5_track_a_select",
-    "label": "발명원리 선별(TC-c8cf7951)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00226,
-    "total_cost": 6.9595
-  }
-}
-```
-
-</details>
-
-<a id="row-46055"></a>
-
-<details>
-<summary>46055 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46055,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:11:51",
-    "step_id": "STP-f149d0bd",
-    "seq": 662,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_a",
-    "label": "Track A 발명원리 적용(TC-c8cf7951)",
-    "agent": "inventor_a",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46056"></a>
-
-<details>
-<summary>46056 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46056,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:11:57",
-    "node": "s5_ariz_p2",
-    "step_id": "STP-dc6a5452",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46057"></a>
-
-<details>
-<summary>46057 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46057,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:11:57",
-    "step_id": "STP-dc6a5452",
-    "node": "s5_ariz_p2",
-    "label": "ARIZ Part2 자원 분석",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00845,
-    "total_cost": 6.96795
-  }
-}
-```
-
-</details>
-
-<a id="row-46058"></a>
-
-<details>
-<summary>46058 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46058,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:11:57",
-    "step_id": "STP-b5dd6c1b",
-    "seq": 663,
-    "stage": "S5_SOLVE",
-    "node": "s5_ariz_p3",
-    "label": "ARIZ Part3 IFR·물리모순",
-    "agent": "ariz_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46059"></a>
-
-<details>
-<summary>46059 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46059,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:12:10",
-    "node": "s5_track_a",
-    "step_id": "STP-f149d0bd",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46060"></a>
-
-<details>
-<summary>46060 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46060,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:12:10",
-    "step_id": "STP-f149d0bd",
-    "node": "s5_track_a",
-    "label": "Track A 발명원리 적용(TC-c8cf7951)",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.0061,
-    "total_cost": 6.97406
-  }
-}
-```
-
-</details>
-
-<a id="row-46061"></a>
-
-<details>
-<summary>46061 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46061,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:12:10",
-    "step_id": "STP-ff0af390",
-    "seq": 664,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_a_select",
-    "label": "발명원리 선별(TC-b5b764b0)",
-    "agent": "inventor_a",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46062"></a>
-
-<details>
-<summary>46062 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46062,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:12:15",
-    "node": "s5_track_a_select",
-    "step_id": "STP-ff0af390",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46063"></a>
-
-<details>
-<summary>46063 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46063,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:12:16",
-    "step_id": "STP-ff0af390",
-    "node": "s5_track_a_select",
-    "label": "발명원리 선별(TC-b5b764b0)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00228,
-    "total_cost": 6.97634
-  }
-}
-```
-
-</details>
-
-<a id="row-46064"></a>
-
-<details>
-<summary>46064 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46064,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:12:16",
-    "step_id": "STP-621540f9",
-    "seq": 665,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_a",
-    "label": "Track A 발명원리 적용(TC-b5b764b0)",
-    "agent": "inventor_a",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46065"></a>
-
-<details>
-<summary>46065 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46065,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:12:19",
-    "node": "s5_ariz_p3",
-    "step_id": "STP-b5dd6c1b",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46066"></a>
-
-<details>
-<summary>46066 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46066,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:12:19",
-    "step_id": "STP-b5dd6c1b",
-    "node": "s5_ariz_p3",
-    "label": "ARIZ Part3 IFR·물리모순",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00914,
-    "total_cost": 6.98548
-  }
-}
-```
-
-</details>
-
-<a id="row-46067"></a>
-
-<details>
-<summary>46067 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46067,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:12:19",
-    "step_id": "STP-09c6dec4",
-    "seq": 666,
-    "stage": "S5_SOLVE",
-    "node": "s5_ariz_p4",
-    "label": "ARIZ Part4 자원 동원(SLP 등)",
-    "agent": "ariz_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46068"></a>
-
-<details>
-<summary>46068 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46068,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:12:34",
-    "node": "s5_track_a",
-    "step_id": "STP-621540f9",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46069"></a>
-
-<details>
-<summary>46069 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46069,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:12:34",
-    "step_id": "STP-621540f9",
-    "node": "s5_track_a",
-    "label": "Track A 발명원리 적용(TC-b5b764b0)",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00603,
-    "total_cost": 6.99151
-  }
-}
-```
-
-</details>
-
-<a id="row-46070"></a>
-
-<details>
-<summary>46070 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46070,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:12:46",
-    "node": "s5_ariz_p4",
-    "step_id": "STP-09c6dec4",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46071"></a>
-
-<details>
-<summary>46071 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46071,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:12:46",
-    "step_id": "STP-09c6dec4",
-    "node": "s5_ariz_p4",
-    "label": "ARIZ Part4 자원 동원(SLP 등)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00876,
-    "total_cost": 7.00027
-  }
-}
-```
-
-</details>
-
-<a id="row-46072"></a>
-
-<details>
-<summary>46072 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46072,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:12:46",
-    "step_id": "STP-e6882719",
-    "seq": 667,
-    "stage": "S5_SOLVE",
-    "node": "s5_ariz_p5",
-    "label": "ARIZ Part5 지식베이스 적용",
-    "agent": "ariz_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46073"></a>
-
-<details>
-<summary>46073 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46073,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:13:42",
-    "node": "s5_ariz_p5",
-    "step_id": "STP-e6882719",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46074"></a>
-
-<details>
-<summary>46074 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46074,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:13:42",
-    "step_id": "STP-e6882719",
-    "node": "s5_ariz_p5",
-    "label": "ARIZ Part5 지식베이스 적용",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.02321,
-    "total_cost": 7.02347
-  }
-}
-```
-
-</details>
-
-<a id="row-46075"></a>
-
-<details>
-<summary>46075 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46075,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:13:42",
-    "step_id": "STP-234152f4",
-    "seq": 668,
-    "stage": "S5_SOLVE",
-    "node": "s5_ariz_p6",
-    "label": "ARIZ Part6 문제 재해석 제안",
-    "agent": "ariz_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46076"></a>
-
-<details>
-<summary>46076 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46076,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:13:51",
-    "node": "s5_ariz_p6",
-    "step_id": "STP-234152f4",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46077"></a>
-
-<details>
-<summary>46077 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46077,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:13:51",
-    "step_id": "STP-234152f4",
-    "node": "s5_ariz_p6",
-    "label": "ARIZ Part6 문제 재해석 제안",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.01083,
-    "total_cost": 7.03431
-  }
-}
-```
-
-</details>
-
-<a id="row-46078"></a>
-
-<details>
-<summary>46078 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46078,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:13:51",
-    "step_id": "STP-52c17d24",
-    "seq": 669,
-    "stage": "S5_SOLVE",
-    "node": "s5_ariz_p7",
-    "label": "ARIZ Part7 해결안 검증",
-    "agent": "ariz_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46079"></a>
-
-<details>
-<summary>46079 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46079,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:14:39",
-    "node": "s5_ariz_p7",
-    "step_id": "STP-52c17d24",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46080"></a>
-
-<details>
-<summary>46080 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46080,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:14:39",
-    "step_id": "STP-52c17d24",
-    "node": "s5_ariz_p7",
-    "label": "ARIZ Part7 해결안 검증",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.01842,
-    "total_cost": 7.05273
-  }
-}
-```
-
-</details>
-
-<a id="row-46081"></a>
-
-<details>
-<summary>46081 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46081,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.1/3.2.1] 윤활 분자층·강자성 입자·전기유변 입자 전이'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46082"></a>
-
-<details>
-<summary>46082 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46082,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.1/1.2.1] 윤활 필름·다공질 댐퍼 삽입'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46083"></a>
-
-<details>
-<summary>46083 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46083,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.1/1.2.3] 가진력·발열을 별도 댐퍼·방열체가 받도록 함'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46084"></a>
-
-<details>
-<summary>46084 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46084,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.1/2.4.6] 베어링 윤활제에 강자성 입자 도입, 자기장으로 점도 제어'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46085"></a>
-
-<details>
-<summary>46085 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46085,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.2] 자동차 클러치·토크 컨버터 습식 마찰판·오일 순환 이식'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46086"></a>
-
-<details>
-<summary>46086 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46086,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.2] 로봇 관절 가변 강성 액추에이터(VSA)처럼 가변 강성 요소'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46087"></a>
-
-<details>
-<summary>46087 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46087,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.2] 서보 프레스 유압 클램프처럼 정지 시 유압·공압 압착'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46088"></a>
-
-<details>
-<summary>46088 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46088,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.2] 자기 점성(MR) 댐퍼처럼 계면 윤활제를 MR 유체로 대체'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46089"></a>
-
-<details>
-<summary>46089 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46089,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.3/CONDITION] 각가속도·토크 임계값 조건으로 전기유변·MR 유체 전환'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46090"></a>
-
-<details>
-<summary>46090 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46090,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.3/SYSTEM_LEVEL] 계면에 유연 요소, 회전 스테이지 구조체가 전체 강성 담당'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46091"></a>
-
-<details>
-<summary>46091 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46091,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.4/1.35] T2 자기장으로 계면 입자 정렬, T1 정렬 토크로 강결합 보조'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46092"></a>
-
-<details>
-<summary>46092 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46092,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.4/1.1] 계면 간극을 전자석 인력·간극 센서 피드백으로 능동 유지'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46093"></a>
-
-<details>
-<summary>46093 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46093,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.4/12.83] 계면 간극을 인덕턴스 변화로 실시간 감지'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46094"></a>
-
-<details>
-<summary>46094 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46094,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.4/12.12] 로테이션 각도·정지 위치를 ToF로 측정'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46095"></a>
-
-<details>
-<summary>46095 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46095,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '[5.4/17.39] 계면 접촉면 재질의 변형 시효 특성으로 T1 마찰 고정력 강화'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46096"></a>
-
-<details>
-<summary>46096 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46096,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '회전축·베어링·클램프 계면 간극을 유압·공압으로 능동 조정'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46097"></a>
-
-<details>
-<summary>46097 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46097,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "warning",
-    "ts": "2026-09-29T22:14:39",
-    "message": "ARIZ 7.2: '자기장+강자성 입자 또는 열+형상기억합금 쌍을 도입'는 모순 해소가 아니라 절충으로 판정됨"
-  }
-}
-```
-
-</details>
-
-<a id="row-46098"></a>
-
-<details>
-<summary>46098 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46098,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "tracks",
-    "ts": "2026-09-29T22:14:48",
-    "tracks": [
-      "C_STANDARDS",
-      "E_TRIMMING",
-      "F_TRENDS"
-    ]
-  }
-}
-```
-
-</details>
-
-<a id="row-46099"></a>
-
-<details>
-<summary>46099 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46099,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:14:50",
-    "step_id": "STP-1333457e",
-    "seq": 670,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_e",
-    "label": "Track E 트리밍 구체화",
-    "agent": "trimming_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46100"></a>
-
-<details>
-<summary>46100 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46100,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:14:50",
-    "step_id": "STP-3795488e",
-    "seq": 671,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_c",
-    "label": "Track C 76표준해(SU-0c5b17f5)",
-    "agent": "standards_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46101"></a>
-
-<details>
-<summary>46101 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46101,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:14:50",
-    "step_id": "STP-46504cca",
-    "seq": 672,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_f",
-    "label": "Track F 진화 트렌드",
-    "agent": "evolution_analyst",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46102"></a>
-
-<details>
-<summary>46102 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46102,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:15:08",
-    "node": "s5_track_f",
-    "step_id": "STP-46504cca",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46103"></a>
-
-<details>
-<summary>46103 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46103,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:15:08",
-    "step_id": "STP-46504cca",
-    "node": "s5_track_f",
-    "label": "Track F 진화 트렌드",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00711,
-    "total_cost": 7.05984
-  }
-}
-```
-
-</details>
-
-<a id="row-46104"></a>
-
-<details>
-<summary>46104 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46104,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:15:13",
-    "node": "s5_track_e",
-    "step_id": "STP-1333457e",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46105"></a>
-
-<details>
-<summary>46105 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46105,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:15:13",
-    "step_id": "STP-1333457e",
-    "node": "s5_track_e",
-    "label": "Track E 트리밍 구체화",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00691,
-    "total_cost": 7.06675
-  }
-}
-```
-
-</details>
-
-<a id="row-46106"></a>
-
-<details>
-<summary>46106 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46106,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:15:16",
-    "node": "s5_track_c",
-    "step_id": "STP-3795488e",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46107"></a>
-
-<details>
-<summary>46107 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46107,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:15:16",
-    "step_id": "STP-3795488e",
-    "node": "s5_track_c",
-    "label": "Track C 76표준해(SU-0c5b17f5)",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00909,
-    "total_cost": 7.07584
-  }
-}
-```
-
-</details>
-
-<a id="row-46108"></a>
-
-<details>
-<summary>46108 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46108,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:15:16",
-    "step_id": "STP-9b08c9cd",
-    "seq": 673,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_c",
-    "label": "Track C 76표준해(SU-fdb79fda)",
-    "agent": "standards_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46109"></a>
-
-<details>
-<summary>46109 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46109,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:15:41",
-    "node": "s5_track_c",
-    "step_id": "STP-9b08c9cd",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46110"></a>
-
-<details>
-<summary>46110 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46110,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:15:41",
-    "step_id": "STP-9b08c9cd",
-    "node": "s5_track_c",
-    "label": "Track C 76표준해(SU-fdb79fda)",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00998,
-    "total_cost": 7.08582
-  }
-}
-```
-
-</details>
-
-<a id="row-46111"></a>
-
-<details>
-<summary>46111 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46111,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "tracks",
-    "ts": "2026-09-29T22:15:47",
-    "tracks": [
-      "G_FOS",
-      "H_EFFECTS"
-    ]
-  }
-}
-```
-
-</details>
-
-<a id="row-46112"></a>
-
-<details>
-<summary>46112 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46112,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:15:48",
-    "step_id": "STP-5a211e0b",
-    "seq": 674,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_g",
-    "label": "Track G 기능지향탐색(FOS)",
-    "agent": "cross_domain_scout",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46113"></a>
-
-<details>
-<summary>46113 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46113,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:15:49",
-    "step_id": "STP-cd7aca37",
-    "seq": 675,
-    "stage": "S5_SOLVE",
-    "node": "s5_track_h",
-    "label": "Track H 효과(Effects) 적용",
-    "agent": "effects_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46114"></a>
-
-<details>
-<summary>46114 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46114,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:16:07",
-    "node": "s5_track_g",
-    "step_id": "STP-5a211e0b",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46115"></a>
-
-<details>
-<summary>46115 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46115,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:16:07",
-    "step_id": "STP-5a211e0b",
-    "node": "s5_track_g",
-    "label": "Track G 기능지향탐색(FOS)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00681,
-    "total_cost": 7.09264
-  }
-}
-```
-
-</details>
-
-<a id="row-46116"></a>
-
-<details>
-<summary>46116 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46116,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:16:09",
-    "node": "s5_track_h",
-    "step_id": "STP-cd7aca37",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46117"></a>
-
-<details>
-<summary>46117 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46117,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:16:09",
-    "step_id": "STP-cd7aca37",
-    "node": "s5_track_h",
-    "label": "Track H 효과(Effects) 적용",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00927,
-    "total_cost": 7.10191
-  }
-}
-```
-
-</details>
-
-<a id="row-46118"></a>
-
-<details>
-<summary>46118 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46118,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:16:14",
-    "step_id": "STP-9442b996",
-    "seq": 676,
-    "stage": "S5_SOLVE",
-    "node": "s5_merge",
-    "label": "전체 아이디어 통합 검토·대표안 선정",
-    "agent": "solution_curator",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46119"></a>
-
-<details>
-<summary>46119 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46119,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:16:56",
-    "node": "s5_merge",
-    "step_id": "STP-9442b996",
-    "verdict": "REVISE",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": [
-      "FATAL-CONSOLIDATION: 검토에서 누락된 입력 ID: IDEA-2f8a6bd9, IDEA-d982bac9"
-    ]
-  }
-}
-```
-
-</details>
-
-<a id="row-46120"></a>
-
-<details>
-<summary>46120 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46120,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:17:28",
-    "node": "s5_merge",
-    "step_id": "STP-9442b996",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 2,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46121"></a>
-
-<details>
-<summary>46121 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46121,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:17:28",
-    "step_id": "STP-9442b996",
-    "node": "s5_merge",
-    "label": "전체 아이디어 통합 검토·대표안 선정",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 2,
-    "cost": 0.11711,
-    "total_cost": 7.21902
-  }
-}
-```
-
-</details>
-
-<a id="row-46122"></a>
-
-<details>
-<summary>46122 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46122,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "artifact",
-    "ts": "2026-09-29T22:17:29",
-    "kind": "IDEAS",
-    "data": {
-      "count": 10,
-      "tracks": [
-        "A_MATRIX",
-        "B_SEPARATION",
-        "D_ARIZ",
-        "C_STANDARDS",
-        "E_TRIMMING",
-        "F_TRENDS",
-        "G_FOS",
-        "H_EFFECTS"
-      ],
-      "need_more": true
-    }
-  }
-}
-```
-
-</details>
-
-<a id="row-46123"></a>
-
-<details>
-<summary>46123 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46123,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T22:17:43",
-    "stage": "s5_solve",
-    "index": 7
-  }
-}
-```
-
-</details>
-
-<a id="row-46124"></a>
-
-<details>
-<summary>46124 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46124,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:18:01",
-    "stage": "s6_concept",
-    "label": "개념 구체화",
-    "index": 7,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46125"></a>
-
-<details>
-<summary>46125 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46125,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:18:19",
-    "stage": "S6_CONCEPT"
-  }
-}
-```
-
-</details>
-
-<a id="row-46126"></a>
-
-<details>
-<summary>46126 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46126,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:18:53",
-    "step_id": "STP-dc783d31",
-    "seq": 678,
-    "stage": "S6_CONCEPT",
-    "node": "s6_concept",
-    "label": "해결 개념 구체화 (2/3)",
-    "agent": "concept_architect",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46127"></a>
-
-<details>
-<summary>46127 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46127,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:18:53",
-    "step_id": "STP-d2fcfb3d",
-    "seq": 677,
-    "stage": "S6_CONCEPT",
-    "node": "s6_concept",
-    "label": "해결 개념 구체화 (1/3)",
-    "agent": "concept_architect",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46128"></a>
-
-<details>
-<summary>46128 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46128,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:18:53",
-    "step_id": "STP-134d3aa2",
-    "seq": 679,
-    "stage": "S6_CONCEPT",
-    "node": "s6_concept",
-    "label": "해결 개념 구체화 (3/3)",
-    "agent": "concept_architect",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46129"></a>
-
-<details>
-<summary>46129 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46129,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:19:25",
-    "node": "s6_concept",
-    "step_id": "STP-134d3aa2",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46130"></a>
-
-<details>
-<summary>46130 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46130,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:19:25",
-    "step_id": "STP-134d3aa2",
-    "node": "s6_concept",
-    "label": "해결 개념 구체화 (3/3)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.02239,
-    "total_cost": 7.2414
-  }
-}
-```
-
-</details>
-
-<a id="row-46131"></a>
-
-<details>
-<summary>46131 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46131,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:19:33",
-    "node": "s6_concept",
-    "step_id": "STP-d2fcfb3d",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46132"></a>
-
-<details>
-<summary>46132 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46132,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:19:33",
-    "step_id": "STP-d2fcfb3d",
-    "node": "s6_concept",
-    "label": "해결 개념 구체화 (1/3)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.01568,
-    "total_cost": 7.25709
-  }
-}
-```
-
-</details>
-
-<a id="row-46133"></a>
-
-<details>
-<summary>46133 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46133,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:19:40",
-    "node": "s6_concept",
-    "step_id": "STP-dc783d31",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46134"></a>
-
-<details>
-<summary>46134 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46134,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:19:40",
-    "step_id": "STP-dc783d31",
-    "node": "s6_concept",
-    "label": "해결 개념 구체화 (2/3)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.0202,
-    "total_cost": 7.27729
-  }
-}
-```
-
-</details>
-
-<a id="row-46135"></a>
-
-<details>
-<summary>46135 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46135,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:19:48",
-    "step_id": "STP-878ae922",
-    "seq": 680,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/5)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46136"></a>
-
-<details>
-<summary>46136 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46136,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:20:02",
-    "step_id": "STP-878ae922",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/5)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 0.7249999999999999,
-    "attempts": 0,
-    "cost": 0.00736,
-    "total_cost": 7.28465
-  }
-}
-```
-
-</details>
-
-<a id="row-46137"></a>
-
-<details>
-<summary>46137 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46137,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:20:08",
-    "step_id": "STP-7a178eea",
-    "seq": 681,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (2/5)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46138"></a>
-
-<details>
-<summary>46138 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46138,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:20:21",
-    "step_id": "STP-7a178eea",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (2/5)",
-    "status": "WARN",
-    "verdict": "REVISE",
-    "score": 0.645,
-    "attempts": 0,
-    "cost": 0.00761,
-    "total_cost": 7.29226
-  }
-}
-```
-
-</details>
-
-<a id="row-46139"></a>
-
-<details>
-<summary>46139 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46139,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:20:28",
-    "step_id": "STP-db9ad5bd",
-    "seq": 682,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (3/5)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46140"></a>
-
-<details>
-<summary>46140 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46140,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:20:37",
-    "step_id": "STP-db9ad5bd",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (3/5)",
-    "status": "WARN",
-    "verdict": "REVISE",
-    "score": 0.645,
-    "attempts": 0,
-    "cost": 0.00581,
-    "total_cost": 7.29807
-  }
-}
-```
-
-</details>
-
-<a id="row-46141"></a>
-
-<details>
-<summary>46141 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46141,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:20:44",
-    "step_id": "STP-83e658d4",
-    "seq": 683,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (4/5)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46142"></a>
-
-<details>
-<summary>46142 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46142,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:20:56",
-    "step_id": "STP-83e658d4",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (4/5)",
-    "status": "WARN",
-    "verdict": "REVISE",
-    "score": 0.68,
-    "attempts": 0,
-    "cost": 0.01546,
-    "total_cost": 7.31353
-  }
-}
-```
-
-</details>
-
-<a id="row-46143"></a>
-
-<details>
-<summary>46143 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46143,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:21:03",
-    "step_id": "STP-e44b3edf",
-    "seq": 684,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (5/5)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46144"></a>
-
-<details>
-<summary>46144 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46144,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:21:13",
-    "step_id": "STP-e44b3edf",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (5/5)",
-    "status": "WARN",
-    "verdict": "REVISE",
-    "score": 0.6950000000000001,
-    "attempts": 0,
-    "cost": 0.00498,
-    "total_cost": 7.31851
-  }
-}
-```
-
-</details>
-
-<a id="row-46145"></a>
-
-<details>
-<summary>46145 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46145,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "artifact",
-    "ts": "2026-09-29T22:21:29",
-    "kind": "CONCEPTS",
-    "data": {
-      "count": 10,
-      "titles": [
-        "부하별 가변 가감속 프로파일",
-        "가감속 프로파일 단계적 상향",
-        "정렬 액추에이터 사전 스트로크",
-        "복귀 구간 정렬·클램프 사전 준비",
-        "가진 진동 분리형 축 결합부",
-        "베어링 윤활 점도 저감 및 회생 제동 활용",
-        "공진 이격 조건부 가속 상향",
-        "상위 takt 배분 구간별 할당",
-        "감속 구간 마찰 구속 조기 정렬",
-        "클램프 패드 유연막 분산 접촉"
-      ]
-    }
-  }
-}
-```
-
-</details>
-
-<a id="row-46146"></a>
-
-<details>
-<summary>46146 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46146,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T22:21:45",
-    "stage": "s6_concept",
-    "index": 8
-  }
-}
-```
-
-</details>
-
-<a id="row-46147"></a>
-
-<details>
-<summary>46147 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46147,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:22:07",
-    "stage": "s7_gate",
-    "label": "제약 검토",
-    "index": 8,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46148"></a>
-
-<details>
-<summary>46148 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46148,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:22:17",
-    "step_id": "STP-ebe5008d",
-    "seq": 685,
-    "stage": "S6_CONCEPT",
-    "node": "ax_repair_gap-99452800a5dc788ae3d52b55_0",
-    "label": "미해결 부분 보완",
-    "agent": "effects_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46149"></a>
-
-<details>
-<summary>46149 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46149,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:22:37",
-    "node": "ax_repair_gap-99452800a5dc788ae3d52b55_0",
-    "step_id": "STP-ebe5008d",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46150"></a>
-
-<details>
-<summary>46150 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46150,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:22:38",
-    "step_id": "STP-ebe5008d",
-    "node": "ax_repair_gap-99452800a5dc788ae3d52b55_0",
-    "label": "미해결 부분 보완",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.01001,
-    "total_cost": 7.32852
-  }
-}
-```
-
-</details>
-
-<a id="row-46151"></a>
-
-<details>
-<summary>46151 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46151,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:22:38",
-    "step_id": "STP-c707d3fe",
-    "seq": 686,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46152"></a>
-
-<details>
-<summary>46152 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46152,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:22:49",
-    "step_id": "STP-c707d3fe",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "status": "WARN",
-    "verdict": "REVISE",
-    "score": 0.7050000000000001,
-    "attempts": 0,
-    "cost": 0.00596,
-    "total_cost": 7.33448
-  }
-}
-```
-
-</details>
-
-<a id="row-46153"></a>
-
-<details>
-<summary>46153 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46153,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:23:02",
-    "step_id": "STP-1a391d27",
-    "seq": 687,
-    "stage": "S6_CONCEPT",
-    "node": "ax_repair_gap-99452800a5dc788ae3d52b55_1",
-    "label": "미해결 부분 보완",
-    "agent": "effects_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46154"></a>
-
-<details>
-<summary>46154 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46154,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:23:22",
-    "node": "ax_repair_gap-99452800a5dc788ae3d52b55_1",
-    "step_id": "STP-1a391d27",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46155"></a>
-
-<details>
-<summary>46155 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46155,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:23:22",
-    "step_id": "STP-1a391d27",
-    "node": "ax_repair_gap-99452800a5dc788ae3d52b55_1",
-    "label": "미해결 부분 보완",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.01051,
-    "total_cost": 7.34499
-  }
-}
-```
-
-</details>
-
-<a id="row-46156"></a>
-
-<details>
-<summary>46156 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46156,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:23:22",
-    "step_id": "STP-362ca555",
-    "seq": 688,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46157"></a>
-
-<details>
-<summary>46157 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46157,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:23:34",
-    "step_id": "STP-362ca555",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 0.7274999999999999,
-    "attempts": 0,
-    "cost": 0.00586,
-    "total_cost": 7.35085
-  }
-}
-```
-
-</details>
-
-<a id="row-46158"></a>
-
-<details>
-<summary>46158 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46158,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:23:48",
-    "step_id": "STP-08742341",
-    "seq": 689,
-    "stage": "S6_CONCEPT",
-    "node": "ax_repair_gap-ee8407b02217eddd77e4bfbd_0",
-    "label": "미해결 부분 보완",
-    "agent": "effects_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46159"></a>
-
-<details>
-<summary>46159 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46159,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:24:14",
-    "node": "ax_repair_gap-ee8407b02217eddd77e4bfbd_0",
-    "step_id": "STP-08742341",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46160"></a>
-
-<details>
-<summary>46160 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46160,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:24:14",
-    "step_id": "STP-08742341",
-    "node": "ax_repair_gap-ee8407b02217eddd77e4bfbd_0",
-    "label": "미해결 부분 보완",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.01171,
-    "total_cost": 7.36257
-  }
-}
-```
-
-</details>
-
-<a id="row-46161"></a>
-
-<details>
-<summary>46161 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46161,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:24:15",
-    "step_id": "STP-7ff7e56e",
-    "seq": 690,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46162"></a>
-
-<details>
-<summary>46162 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46162,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:24:25",
-    "step_id": "STP-7ff7e56e",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 0.7425,
-    "attempts": 0,
-    "cost": 0.00589,
-    "total_cost": 7.36846
-  }
-}
-```
-
-</details>
-
-<a id="row-46163"></a>
-
-<details>
-<summary>46163 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46163,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:24:38",
-    "step_id": "STP-a363be35",
-    "seq": 691,
-    "stage": "S6_CONCEPT",
-    "node": "ax_repair_gap-ee8407b02217eddd77e4bfbd_1",
-    "label": "미해결 부분 보완",
-    "agent": "effects_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46164"></a>
-
-<details>
-<summary>46164 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46164,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:25:02",
-    "node": "ax_repair_gap-ee8407b02217eddd77e4bfbd_1",
-    "step_id": "STP-a363be35",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46165"></a>
-
-<details>
-<summary>46165 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46165,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:25:03",
-    "step_id": "STP-a363be35",
-    "node": "ax_repair_gap-ee8407b02217eddd77e4bfbd_1",
-    "label": "미해결 부분 보완",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.01112,
-    "total_cost": 7.37958
-  }
-}
-```
-
-</details>
-
-<a id="row-46166"></a>
-
-<details>
-<summary>46166 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46166,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:25:05",
-    "step_id": "STP-b0494faa",
-    "seq": 692,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46167"></a>
-
-<details>
-<summary>46167 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46167,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:25:14",
-    "step_id": "STP-b0494faa",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 0.7449999999999999,
-    "attempts": 0,
-    "cost": 0.00606,
-    "total_cost": 7.38564
-  }
-}
-```
-
-</details>
-
-<a id="row-46168"></a>
-
-<details>
-<summary>46168 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46168,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:25:33",
-    "stage": "S7_CONSTRAINT"
-  }
-}
-```
-
-</details>
-
-<a id="row-46169"></a>
-
-<details>
-<summary>46169 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46169,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:25:44",
-    "step_id": "STP-e1e32e0c",
-    "seq": 694,
-    "stage": "S7_CONSTRAINT",
-    "node": "s7_gate_2",
-    "label": "제약 검토 2–2/10",
-    "agent": "gatekeeper",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46170"></a>
-
-<details>
-<summary>46170 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46170,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:25:44",
-    "step_id": "STP-d056afa6",
-    "seq": 693,
-    "stage": "S7_CONSTRAINT",
-    "node": "s7_gate_1",
-    "label": "제약 검토 1–1/10",
-    "agent": "gatekeeper",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46171"></a>
-
-<details>
-<summary>46171 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46171,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:25:44",
-    "step_id": "STP-46d53f89",
-    "seq": 696,
-    "stage": "S7_CONSTRAINT",
-    "node": "s7_gate_4",
-    "label": "제약 검토 4–4/10",
-    "agent": "gatekeeper",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46172"></a>
-
-<details>
-<summary>46172 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46172,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:25:44",
-    "step_id": "STP-e1e29499",
-    "seq": 695,
-    "stage": "S7_CONSTRAINT",
-    "node": "s7_gate_3",
-    "label": "제약 검토 3–3/10",
-    "agent": "gatekeeper",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46173"></a>
-
-<details>
-<summary>46173 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46173,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:25:59",
-    "node": "s7_gate_2",
-    "step_id": "STP-e1e32e0c",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46174"></a>
-
-<details>
-<summary>46174 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46174,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:25:59",
-    "step_id": "STP-e1e32e0c",
-    "node": "s7_gate_2",
-    "label": "제약 검토 2–2/10",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00255,
-    "total_cost": 7.39073
-  }
-}
-```
-
-</details>
-
-<a id="row-46175"></a>
-
-<details>
-<summary>46175 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46175,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:25:59",
-    "node": "s7_gate_3",
-    "step_id": "STP-e1e29499",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46176"></a>
-
-<details>
-<summary>46176 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46176,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:25:59",
-    "step_id": "STP-ddce579f",
-    "seq": 697,
-    "stage": "S7_CONSTRAINT",
-    "node": "s7_gate_5",
-    "label": "제약 검토 5–5/10",
-    "agent": "gatekeeper",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46177"></a>
-
-<details>
-<summary>46177 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46177,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:25:59",
-    "step_id": "STP-e1e29499",
-    "node": "s7_gate_3",
-    "label": "제약 검토 3–3/10",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00254,
-    "total_cost": 7.39073
-  }
-}
-```
-
-</details>
-
-<a id="row-46178"></a>
-
-<details>
-<summary>46178 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46178,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:25:59",
-    "step_id": "STP-5e1a5e63",
-    "seq": 698,
-    "stage": "S7_CONSTRAINT",
-    "node": "s7_gate_6",
-    "label": "제약 검토 6–6/10",
-    "agent": "gatekeeper",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46179"></a>
-
-<details>
-<summary>46179 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46179,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:25:59",
-    "node": "s7_gate_1",
-    "step_id": "STP-d056afa6",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46180"></a>
-
-<details>
-<summary>46180 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46180,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:25:59",
-    "step_id": "STP-d056afa6",
-    "node": "s7_gate_1",
-    "label": "제약 검토 1–1/10",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00257,
-    "total_cost": 7.3933
-  }
-}
-```
-
-</details>
-
-<a id="row-46181"></a>
-
-<details>
-<summary>46181 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46181,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:25:59",
-    "step_id": "STP-3e6bed03",
-    "seq": 699,
-    "stage": "S7_CONSTRAINT",
-    "node": "s7_gate_7",
-    "label": "제약 검토 7–7/10",
-    "agent": "gatekeeper",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46182"></a>
-
-<details>
-<summary>46182 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46182,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:26:09",
-    "node": "s7_gate_4",
-    "step_id": "STP-46d53f89",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46183"></a>
-
-<details>
-<summary>46183 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46183,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:26:09",
-    "step_id": "STP-46d53f89",
-    "node": "s7_gate_4",
-    "label": "제약 검토 4–4/10",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00257,
-    "total_cost": 7.39587
-  }
-}
-```
-
-</details>
-
-<a id="row-46184"></a>
-
-<details>
-<summary>46184 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46184,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:26:09",
-    "step_id": "STP-030a8fb8",
-    "seq": 700,
-    "stage": "S7_CONSTRAINT",
-    "node": "s7_gate_8",
-    "label": "제약 검토 8–8/10",
-    "agent": "gatekeeper",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46185"></a>
-
-<details>
-<summary>46185 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46185,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:26:10",
-    "node": "s7_gate_6",
-    "step_id": "STP-5e1a5e63",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46186"></a>
-
-<details>
-<summary>46186 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46186,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:26:10",
-    "step_id": "STP-5e1a5e63",
-    "node": "s7_gate_6",
-    "label": "제약 검토 6–6/10",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00242,
-    "total_cost": 7.39829
-  }
-}
-```
-
-</details>
-
-<a id="row-46187"></a>
-
-<details>
-<summary>46187 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46187,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:26:10",
-    "step_id": "STP-41b2ea79",
-    "seq": 701,
-    "stage": "S7_CONSTRAINT",
-    "node": "s7_gate_9",
-    "label": "제약 검토 9–9/10",
-    "agent": "gatekeeper",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46188"></a>
-
-<details>
-<summary>46188 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46188,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:26:15",
-    "node": "s7_gate_5",
-    "step_id": "STP-ddce579f",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46189"></a>
-
-<details>
-<summary>46189 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46189,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:26:15",
-    "node": "s7_gate_7",
-    "step_id": "STP-3e6bed03",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46190"></a>
-
-<details>
-<summary>46190 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46190,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:26:15",
-    "step_id": "STP-ddce579f",
-    "node": "s7_gate_5",
-    "label": "제약 검토 5–5/10",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00232,
-    "total_cost": 7.40315
-  }
-}
-```
-
-</details>
-
-<a id="row-46191"></a>
-
-<details>
-<summary>46191 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46191,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:26:15",
-    "step_id": "STP-3e6bed03",
-    "node": "s7_gate_7",
-    "label": "제약 검토 7–7/10",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00254,
-    "total_cost": 7.40315
-  }
-}
-```
-
-</details>
-
-<a id="row-46192"></a>
-
-<details>
-<summary>46192 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46192,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:26:15",
-    "step_id": "STP-accde3d1",
-    "seq": 702,
-    "stage": "S7_CONSTRAINT",
-    "node": "s7_gate_10",
-    "label": "제약 검토 10–10/10",
-    "agent": "gatekeeper",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46193"></a>
-
-<details>
-<summary>46193 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46193,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:26:21",
-    "node": "s7_gate_8",
-    "step_id": "STP-030a8fb8",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46194"></a>
-
-<details>
-<summary>46194 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46194,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:26:21",
-    "step_id": "STP-030a8fb8",
-    "node": "s7_gate_8",
-    "label": "제약 검토 8–8/10",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00245,
-    "total_cost": 7.40559
-  }
-}
-```
-
-</details>
-
-<a id="row-46195"></a>
-
-<details>
-<summary>46195 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46195,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:26:24",
-    "node": "s7_gate_9",
-    "step_id": "STP-41b2ea79",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46196"></a>
-
-<details>
-<summary>46196 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46196,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:26:24",
-    "step_id": "STP-41b2ea79",
-    "node": "s7_gate_9",
-    "label": "제약 검토 9–9/10",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00262,
-    "total_cost": 7.40822
-  }
-}
-```
-
-</details>
-
-<a id="row-46197"></a>
-
-<details>
-<summary>46197 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46197,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:26:25",
-    "node": "s7_gate_10",
-    "step_id": "STP-accde3d1",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46198"></a>
-
-<details>
-<summary>46198 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46198,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:26:25",
-    "step_id": "STP-accde3d1",
-    "node": "s7_gate_10",
-    "label": "제약 검토 10–10/10",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00251,
-    "total_cost": 7.41072
-  }
-}
-```
-
-</details>
-
-<a id="row-46199"></a>
-
-<details>
-<summary>46199 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46199,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "artifact",
-    "ts": "2026-09-29T22:26:25",
-    "kind": "CONSTRAINT_GATE",
-    "data": {
-      "pass": 0,
-      "conditional": 9,
-      "fail": 1
-    }
-  }
-}
-```
-
-</details>
-
-<a id="row-46200"></a>
-
-<details>
-<summary>46200 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46200,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "interrupt",
-    "ts": "2026-09-29T22:26:33",
-    "kind": "DECIDE",
-    "title": "제약 판정이 보류된 해결책을 확인해 주세요",
-    "stage": "s7_gate"
-  }
-}
-```
-
-</details>
-
-<a id="row-46201"></a>
-
-<details>
-<summary>46201 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46201,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:32:06",
-    "stage": "s7_gate",
-    "label": "제약 검토",
-    "index": 8,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46202"></a>
-
-<details>
-<summary>46202 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46202,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:32:13",
-    "stage": "S7_CONSTRAINT"
-  }
-}
-```
-
-</details>
-
-<a id="row-46203"></a>
-
-<details>
-<summary>46203 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46203,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "gate_decisions",
-    "ts": "2026-09-29T22:32:19",
-    "decisions": {
-      "CPT-S6-32d46b742a89c1c2": "accept",
-      "CPT-S6-099405e4edc0a658": "accept",
-      "CPT-S6-d2c3056109ec002a": "accept",
-      "CPT-S6-ac128a6d03303a81": "accept",
-      "CPT-S6-33d3b8f2d4fa57e5": "accept",
-      "CPT-S6-de9b1cabaf6dacce": "accept",
-      "CPT-S6-b6dfcbd4dd9d8841": "accept",
-      "CPT-S6-53eba83ed0bdf8cf": "drop",
-      "CPT-S6-783786b342651a96": "accept"
-    }
-  }
-}
-```
-
-</details>
-
-<a id="row-46204"></a>
-
-<details>
-<summary>46204 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46204,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T22:32:37",
-    "stage": "s7_gate",
-    "index": 9
-  }
-}
-```
-
-</details>
-
-<a id="row-46205"></a>
-
-<details>
-<summary>46205 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46205,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:32:55",
-    "stage": "s8_references",
-    "label": "근거 자료·적용 조건 검토",
-    "index": 9,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46206"></a>
-
-<details>
-<summary>46206 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46206,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:33:03",
-    "step_id": "STP-583c4e9c",
-    "seq": 703,
-    "stage": "S6_CONCEPT",
-    "node": "ax_repair_gap-80693d8f5a5d25a6d2dfa098_0",
-    "label": "미해결 부분 보완",
-    "agent": "effects_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46207"></a>
-
-<details>
-<summary>46207 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46207,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:33:22",
-    "node": "ax_repair_gap-80693d8f5a5d25a6d2dfa098_0",
-    "step_id": "STP-583c4e9c",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46208"></a>
-
-<details>
-<summary>46208 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46208,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:33:22",
-    "step_id": "STP-583c4e9c",
-    "node": "ax_repair_gap-80693d8f5a5d25a6d2dfa098_0",
-    "label": "미해결 부분 보완",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00966,
-    "total_cost": 7.42038
-  }
-}
-```
-
-</details>
-
-<a id="row-46209"></a>
-
-<details>
-<summary>46209 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46209,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:33:23",
-    "step_id": "STP-e0e257ce",
-    "seq": 704,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46210"></a>
-
-<details>
-<summary>46210 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46210,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:33:34",
-    "step_id": "STP-e0e257ce",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "status": "WARN",
-    "verdict": "REVISE",
-    "score": 0.705,
-    "attempts": 0,
-    "cost": 0.00573,
-    "total_cost": 7.42611
-  }
-}
-```
-
-</details>
-
-<a id="row-46211"></a>
-
-<details>
-<summary>46211 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46211,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:33:47",
-    "step_id": "STP-94f8aba6",
-    "seq": 705,
-    "stage": "S6_CONCEPT",
-    "node": "ax_repair_gap-80693d8f5a5d25a6d2dfa098_1",
-    "label": "미해결 부분 보완",
-    "agent": "effects_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46212"></a>
-
-<details>
-<summary>46212 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46212,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:34:09",
-    "node": "ax_repair_gap-80693d8f5a5d25a6d2dfa098_1",
-    "step_id": "STP-94f8aba6",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46213"></a>
-
-<details>
-<summary>46213 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46213,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:34:09",
-    "step_id": "STP-94f8aba6",
-    "node": "ax_repair_gap-80693d8f5a5d25a6d2dfa098_1",
-    "label": "미해결 부분 보완",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.01029,
-    "total_cost": 7.4364
-  }
-}
-```
-
-</details>
-
-<a id="row-46214"></a>
-
-<details>
-<summary>46214 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46214,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:34:10",
-    "step_id": "STP-9762d548",
-    "seq": 706,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46215"></a>
-
-<details>
-<summary>46215 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46215,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:34:18",
-    "step_id": "STP-9762d548",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "status": "WARN",
-    "verdict": "REVISE",
-    "score": 0.6874999999999999,
-    "attempts": 0,
-    "cost": 0.00558,
-    "total_cost": 7.44198
-  }
-}
-```
-
-</details>
-
-<a id="row-46216"></a>
-
-<details>
-<summary>46216 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46216,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:34:29",
-    "step_id": "STP-56e22e2f",
-    "seq": 707,
-    "stage": "S6_CONCEPT",
-    "node": "ax_repair_gap-23e4763bd7081652230dfb23_0",
-    "label": "미해결 부분 보완",
-    "agent": "effects_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46217"></a>
-
-<details>
-<summary>46217 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46217,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:34:50",
-    "node": "ax_repair_gap-23e4763bd7081652230dfb23_0",
-    "step_id": "STP-56e22e2f",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46218"></a>
-
-<details>
-<summary>46218 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46218,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:34:50",
-    "step_id": "STP-56e22e2f",
-    "node": "ax_repair_gap-23e4763bd7081652230dfb23_0",
-    "label": "미해결 부분 보완",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.01027,
-    "total_cost": 7.45225
-  }
-}
-```
-
-</details>
-
-<a id="row-46219"></a>
-
-<details>
-<summary>46219 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46219,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:34:51",
-    "step_id": "STP-8902abc2",
-    "seq": 708,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46220"></a>
-
-<details>
-<summary>46220 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46220,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:35:04",
-    "step_id": "STP-8902abc2",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 0.7449999999999999,
-    "attempts": 0,
-    "cost": 0.00604,
-    "total_cost": 7.45829
-  }
-}
-```
-
-</details>
-
-<a id="row-46221"></a>
-
-<details>
-<summary>46221 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46221,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:35:17",
-    "step_id": "STP-cea0e0f8",
-    "seq": 709,
-    "stage": "S6_CONCEPT",
-    "node": "ax_repair_gap-23e4763bd7081652230dfb23_1",
-    "label": "미해결 부분 보완",
-    "agent": "effects_specialist",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46222"></a>
-
-<details>
-<summary>46222 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46222,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:35:36",
-    "node": "ax_repair_gap-23e4763bd7081652230dfb23_1",
-    "step_id": "STP-cea0e0f8",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46223"></a>
-
-<details>
-<summary>46223 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46223,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:35:36",
-    "step_id": "STP-cea0e0f8",
-    "node": "ax_repair_gap-23e4763bd7081652230dfb23_1",
-    "label": "미해결 부분 보완",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00996,
-    "total_cost": 7.46825
-  }
-}
-```
-
-</details>
-
-<a id="row-46224"></a>
-
-<details>
-<summary>46224 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46224,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:35:37",
-    "step_id": "STP-85ba7c8b",
-    "seq": 710,
-    "stage": "S6_CONCEPT",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "agent": "independent_auditor",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46225"></a>
-
-<details>
-<summary>46225 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46225,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:35:47",
-    "step_id": "STP-85ba7c8b",
-    "node": "s6_quality",
-    "label": "독립 품질 검토 (1/1)",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 0.7450000000000001,
-    "attempts": 0,
-    "cost": 0.0056,
-    "total_cost": 7.47384
-  }
-}
-```
-
-</details>
-
-<a id="row-46226"></a>
-
-<details>
-<summary>46226 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46226,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:36:06",
-    "stage": "S8_REFERENCES"
-  }
-}
-```
-
-</details>
-
-<a id="row-46227"></a>
-
-<details>
-<summary>46227 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46227,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:36:15",
-    "step_id": "STP-e0d306a2",
-    "seq": 711,
-    "stage": "S8_REFERENCES",
-    "node": "s9_search_retrieval",
-    "label": "특허·논문 검색 수집 상태",
-    "agent": "patent_researcher",
-    "tier": ""
-  }
-}
-```
-
-</details>
-
-<a id="row-46228"></a>
-
-<details>
-<summary>46228 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46228,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:36:35",
-    "step_id": "STP-e0d306a2",
-    "node": "s9_search_retrieval",
-    "label": "특허·논문 검색 수집 상태",
-    "status": "WARN",
-    "verdict": null,
-    "score": null,
-    "attempts": 0,
-    "cost": 0.0,
-    "total_cost": 7.47384
-  }
-}
-```
-
-</details>
-
-<a id="row-46229"></a>
-
-<details>
-<summary>46229 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46229,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "search_status",
-    "ts": "2026-09-29T22:36:35",
-    "queries_used": 40,
-    "query_limit": 40,
-    "patent_provider_configured": true,
-    "patent_search": "Qdrant 전체 산업 특허 검색 · MySQL",
-    "patent_error_reasons": [
-      "VECTOR_SEARCH_UNAVAILABLE"
-    ],
-    "patent_status": "PARTIAL",
-    "patent_queries": 21,
-    "patent_records": 12,
-    "patent_queries_failed": 21,
-    "patent_queries_unknown": 0,
-    "records": 110,
-    "retry_after": 1790721455.4722624
-  }
-}
-```
-
-</details>
-
-<a id="row-46230"></a>
-
-<details>
-<summary>46230 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46230,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:36:42",
-    "step_id": "STP-2ff14bf1",
-    "seq": 712,
-    "stage": "S8_REFERENCES",
-    "node": "s9_evidence_match_0",
-    "label": "특허·논문 적용성 검토",
-    "agent": "patent_researcher",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46231"></a>
-
-<details>
-<summary>46231 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46231,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:36:59",
-    "node": "s9_evidence_match_0",
-    "step_id": "STP-2ff14bf1",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46232"></a>
-
-<details>
-<summary>46232 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46232,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:36:59",
-    "step_id": "STP-2ff14bf1",
-    "node": "s9_evidence_match_0",
-    "label": "특허·논문 적용성 검토",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00663,
-    "total_cost": 7.48047
-  }
-}
-```
-
-</details>
-
-<a id="row-46233"></a>
-
-<details>
-<summary>46233 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46233,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:36:59",
-    "step_id": "STP-3614dc2d",
-    "seq": 713,
-    "stage": "S8_REFERENCES",
-    "node": "s9_evidence_match_1",
-    "label": "특허·논문 적용성 검토",
-    "agent": "patent_researcher",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46234"></a>
-
-<details>
-<summary>46234 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46234,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:37:22",
-    "node": "s9_evidence_match_1",
-    "step_id": "STP-3614dc2d",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46235"></a>
-
-<details>
-<summary>46235 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46235,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:37:22",
-    "step_id": "STP-3614dc2d",
-    "node": "s9_evidence_match_1",
-    "label": "특허·논문 적용성 검토",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00845,
-    "total_cost": 7.48892
-  }
-}
-```
-
-</details>
-
-<a id="row-46236"></a>
-
-<details>
-<summary>46236 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46236,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:37:23",
-    "step_id": "STP-377bf78e",
-    "seq": 714,
-    "stage": "S8_REFERENCES",
-    "node": "s9_evidence_match_2",
-    "label": "특허·논문 적용성 검토",
-    "agent": "patent_researcher",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46237"></a>
-
-<details>
-<summary>46237 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46237,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:37:36",
-    "node": "s9_evidence_match_2",
-    "step_id": "STP-377bf78e",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46238"></a>
-
-<details>
-<summary>46238 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46238,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:37:36",
-    "step_id": "STP-377bf78e",
-    "node": "s9_evidence_match_2",
-    "label": "특허·논문 적용성 검토",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00567,
-    "total_cost": 7.49459
-  }
-}
-```
-
-</details>
-
-<a id="row-46239"></a>
-
-<details>
-<summary>46239 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46239,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T22:37:52",
-    "stage": "s8_references",
-    "index": 10
-  }
-}
-```
-
-</details>
-
-<a id="row-46240"></a>
-
-<details>
-<summary>46240 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46240,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:38:11",
-    "stage": "s8_evaluate",
-    "label": "다직군 평가",
-    "index": 10,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46241"></a>
-
-<details>
-<summary>46241 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46241,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:38:19",
-    "stage": "S8_EVALUATE"
-  }
-}
-```
-
-</details>
-
-<a id="row-46242"></a>
-
-<details>
-<summary>46242 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46242,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:38:28",
-    "step_id": "STP-4b38652a",
-    "seq": 715,
-    "stage": "S8_EVALUATE",
-    "node": "s8_persona_factory",
-    "label": "검토 페르소나 생성",
-    "agent": "role_router",
-    "tier": "T1"
-  }
-}
-```
-
-</details>
-
-<a id="row-46243"></a>
-
-<details>
-<summary>46243 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46243,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:38:36",
-    "node": "s8_persona_factory",
-    "step_id": "STP-4b38652a",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46244"></a>
-
-<details>
-<summary>46244 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46244,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:38:36",
-    "step_id": "STP-4b38652a",
-    "node": "s8_persona_factory",
-    "label": "검토 페르소나 생성",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00313,
-    "total_cost": 7.49773
-  }
-}
-```
-
-</details>
-
-<a id="row-46245"></a>
-
-<details>
-<summary>46245 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46245,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "personas",
-    "ts": "2026-09-29T22:38:42",
-    "reviewers": [
-      {
-        "persona_id": "PER-d9a432eb",
-        "role_name": "로테이션 구동계 설비 기술 리더",
-        "seniority": "추정: 디스플레이 인라인 설비 기계·구동계 설계·개조 경력 15년 이상, 서보 구동·인덱서 적용 경험 보유",
-        "mandate": "로테이션 구동계 개조안의 기술적 성립성과 HARD 제약(부하율·강성·하드웨어 안정성 저하 금지) 미위반을 책임진다.",
-        "dimensions": [
-          "FEASIBILITY",
-          "RISK"
-        ],
-        "bias_note": "보수적. 정격 토크·고유진동수·강성 허용 기준값이 미확인인 상태에서의 가속도 상향에 민감하며, 측정 근거 없는 변경을 거부한다.",
-        "veto_power": false
-      },
-      {
-        "persona_id": "PER-8ccfa343",
-        "role_name": "EHS·설비 안전 담당",
-        "seniority": "추정: 산업안전·설비 안전 규정 대응 경력 10년 이상",
-        "mandate": "고속화·가속도 상향 운전 시 베어링 발열·진동·비산·파손 등 안전·환경 규정 위반을 차단한다. CAUSAL의 근거와 실패 조건을 검토한다.",
-        "dimensions": [
-          "SAFETY",
-          "CAUSAL"
-        ],
-        "bias_note": "보수적. 발열·진동 증가 가능성과 대형 글라스(2m급, 수십 kg) 취급 안전에 민감하다.",
-        "veto_power": true
-      },
-      {
-        "persona_id": "PER-e11ad79c",
-        "role_name": "설비 투자 심의역",
-        "seniority": "추정: 생산기술 투자 심의·CAPEX 집행 경력 10년 이상",
-        "mandate": "개조안(프로파일 튜닝, 진동 절연 요소, 윤활 교체, 클램프 패드 교체 등)의 CAPEX 타당성과 회수 기간을 심의한다. GOAL의 근거와 실패 조건을 검토한다.",
-        "dimensions": [
-          "COST",
-          "GOAL"
-        ],
-        "bias_note": "보수적. 미확인 수치 기반의 대규모 하드웨어 개조보다 소프트웨어·파라미터 변경 우선을 선호한다.",
-        "veto_power": false
-      },
-      {
-        "persona_id": "PER-cc70cff8",
-        "role_name": "생산 가동률 PM",
-        "seniority": "추정: 인라인 라인 가동률·정지 시간 관리 경력 10년 이상",
-        "mandate": "개조 검증·적용 과정에서의 라인 정지 시간과 takt 50초 이하 달성 일정을 통제한다. RESOLUTION의 근거와 실패 조건을 검토한다.",
-        "dimensions": [
-          "TIME",
-          "RESOLUTION"
-        ],
-        "bias_note": "실용적. 검증 실험의 라인 점유 시간과 단계적 상향 적용의 일정 리스크에 민감하다.",
-        "veto_power": false
-      },
-      {
-        "persona_id": "PER-42b4c415",
-        "role_name": "서보 모션 제어 엔지니어",
-        "seniority": "추정: 서보 제어·가감속 프로파일 튜닝 경력 10년 이상, 정착 시간·오버슈트·대역폭 조정 실무 보유",
-        "mandate": "가감속 프로파일 변경(가속 시간·최고 각속도·정착 시간)과 부하별 프로파일 분리 적용의 제어적 실현성과 정착 안정성을 책임진다.",
-        "dimensions": [
-          "FEASIBILITY",
-          "QUALITY"
-        ],
-        "bias_note": "실험적. 프로파일 변경 여지가 있다는 답변에 기반해 단계적 상향을 선호하나, 정착 시간이 서보 대역폭 한계에 근접했는지에 민감하다.",
-        "veto_power": false
-      },
-      {
-        "persona_id": "PER-917f1fc2",
-        "role_name": "생산 품질·수율 관리자",
-        "seniority": "추정: 디스플레이 패널 공정 품질 관리 경력 10년 이상, Slip·정렬 오차·미세 스크래치 불량 대응 경험 보유",
-        "mandate": "가속도 상향·정렬 스트로크 단축이 정렬 정밀도와 Slip 파손·미세 불량에 미치는 영향을 통제하여 수율 손실을 막는다.",
-        "dimensions": [
-          "QUALITY",
-          "RISK"
-        ],
-        "bias_note": "보수적. 감속 구간과 정렬·클램프 중첩 불가(soft) 조건과 Slip 파손 리스크에 민감하다.",
-        "veto_power": false
-      }
-    ]
-  }
-}
-```
-
-</details>
-
-<a id="row-46246"></a>
-
-<details>
-<summary>46246 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46246,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "review_phase",
-    "ts": "2026-09-29T22:38:42",
-    "phase": "independent",
-    "label": "직군별 독립 평가",
-    "rounds": 0
-  }
-}
-```
-
-</details>
-
-<a id="row-46247"></a>
-
-<details>
-<summary>46247 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46247,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:38:42",
-    "step_id": "STP-4b75fe30",
-    "seq": 716,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 로테이션 구동계 설비 기술 리더",
-    "agent": "persona::PER-d9a432eb",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46248"></a>
-
-<details>
-<summary>46248 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46248,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:38:42",
-    "step_id": "STP-d8ee8b50",
-    "seq": 717,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: EHS·설비 안전 담당",
-    "agent": "persona::PER-8ccfa343",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46249"></a>
-
-<details>
-<summary>46249 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46249,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:38:43",
-    "step_id": "STP-7ed398b8",
-    "seq": 718,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 설비 투자 심의역",
-    "agent": "persona::PER-e11ad79c",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46250"></a>
-
-<details>
-<summary>46250 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46250,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:38:43",
-    "step_id": "STP-667b56ea",
-    "seq": 719,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 생산 가동률 PM",
-    "agent": "persona::PER-cc70cff8",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46251"></a>
-
-<details>
-<summary>46251 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46251,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:39:00",
-    "node": "s8_review_independent",
-    "step_id": "STP-667b56ea",
-    "verdict": "REVISE",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": [
-      "FATAL-REVIEW: DET-R7: 담당 평가 차원 누락: [('CPT-S6-099405e4edc0a658', 'RESOLUTION'), ('CPT-S6-32d46b742a89c1c2', 'RESOLUTION'), ('CPT-S6-33d3b8f2d4fa57e5', 'RESOLUTION'), ('CPT-S6-ac128a6d03303a81', 'RESOLUTION'), ('CPT-S6-d2c3056109ec002a', 'RESOLUTION'), ('CPT-S6-de9b1cabaf6dacce', 'RESOLUTION')]"
-    ]
-  }
-}
-```
-
-</details>
-
-<a id="row-46252"></a>
-
-<details>
-<summary>46252 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46252,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:39:04",
-    "node": "s8_review_independent",
-    "step_id": "STP-d8ee8b50",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46253"></a>
-
-<details>
-<summary>46253 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46253,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:39:04",
-    "step_id": "STP-d8ee8b50",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: EHS·설비 안전 담당",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00921,
-    "total_cost": 7.51461
-  }
-}
-```
-
-</details>
-
-<a id="row-46254"></a>
-
-<details>
-<summary>46254 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46254,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:39:12",
-    "node": "s8_review_independent",
-    "step_id": "STP-4b75fe30",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46255"></a>
-
-<details>
-<summary>46255 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46255,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:39:12",
-    "step_id": "STP-2618d71d",
-    "seq": 720,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: EHS·설비 안전 담당",
-    "agent": "persona::PER-8ccfa343",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46256"></a>
-
-<details>
-<summary>46256 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46256,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:39:12",
-    "node": "s8_review_independent",
-    "step_id": "STP-7ed398b8",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46257"></a>
-
-<details>
-<summary>46257 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46257,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:39:12",
-    "step_id": "STP-4b75fe30",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 로테이션 구동계 설비 기술 리더",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00952,
-    "total_cost": 7.5331
-  }
-}
-```
-
-</details>
-
-<a id="row-46258"></a>
-
-<details>
-<summary>46258 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46258,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:39:14",
-    "step_id": "STP-7ed398b8",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 설비 투자 심의역",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00897,
-    "total_cost": 7.5331
-  }
-}
-```
-
-</details>
-
-<a id="row-46259"></a>
-
-<details>
-<summary>46259 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46259,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:39:30",
-    "step_id": "STP-d9d7a870",
-    "seq": 721,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 로테이션 구동계 설비 기술 리더",
-    "agent": "persona::PER-d9a432eb",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46260"></a>
-
-<details>
-<summary>46260 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46260,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:39:30",
-    "node": "s8_review_independent",
-    "step_id": "STP-667b56ea",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 2,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46261"></a>
-
-<details>
-<summary>46261 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46261,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:39:30",
-    "node": "s8_review_independent",
-    "step_id": "STP-2618d71d",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46262"></a>
-
-<details>
-<summary>46262 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46262,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:39:30",
-    "step_id": "STP-6d983e86",
-    "seq": 722,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 설비 투자 심의역",
-    "agent": "persona::PER-e11ad79c",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46263"></a>
-
-<details>
-<summary>46263 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46263,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:39:30",
-    "step_id": "STP-667b56ea",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 생산 가동률 PM",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 2,
-    "cost": 0.01808,
-    "total_cost": 7.55042
-  }
-}
-```
-
-</details>
-
-<a id="row-46264"></a>
-
-<details>
-<summary>46264 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46264,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:39:32",
-    "step_id": "STP-2618d71d",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: EHS·설비 안전 담당",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00692,
-    "total_cost": 7.55042
-  }
-}
-```
-
-</details>
-
-<a id="row-46265"></a>
-
-<details>
-<summary>46265 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46265,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:39:41",
-    "step_id": "STP-bc1b417c",
-    "seq": 723,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 생산 가동률 PM",
-    "agent": "persona::PER-cc70cff8",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46266"></a>
-
-<details>
-<summary>46266 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46266,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:39:49",
-    "node": "s8_review_independent",
-    "step_id": "STP-6d983e86",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46267"></a>
-
-<details>
-<summary>46267 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46267,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:39:57",
-    "step_id": "STP-b3cf260e",
-    "seq": 724,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 서보 모션 제어 엔지니어",
-    "agent": "persona::PER-42b4c415",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46268"></a>
-
-<details>
-<summary>46268 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46268,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:39:57",
-    "step_id": "STP-6d983e86",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 설비 투자 심의역",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00672,
-    "total_cost": 7.55714
-  }
-}
-```
-
-</details>
-
-<a id="row-46269"></a>
-
-<details>
-<summary>46269 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46269,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:39:59",
-    "node": "s8_review_independent",
-    "step_id": "STP-d9d7a870",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46270"></a>
-
-<details>
-<summary>46270 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46270,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:39:59",
-    "node": "s8_review_independent",
-    "step_id": "STP-bc1b417c",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46271"></a>
-
-<details>
-<summary>46271 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46271,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:40:09",
-    "step_id": "STP-96e56bc1",
-    "seq": 725,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 생산 품질·수율 관리자",
-    "agent": "persona::PER-917f1fc2",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46272"></a>
-
-<details>
-<summary>46272 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46272,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:40:09",
-    "step_id": "STP-d9d7a870",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 로테이션 구동계 설비 기술 리더",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00691,
-    "total_cost": 7.57075
-  }
-}
-```
-
-</details>
-
-<a id="row-46273"></a>
-
-<details>
-<summary>46273 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46273,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:40:09",
-    "step_id": "STP-bc1b417c",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 생산 가동률 PM",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00669,
-    "total_cost": 7.57075
-  }
-}
-```
-
-</details>
-
-<a id="row-46274"></a>
-
-<details>
-<summary>46274 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46274,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:40:26",
-    "node": "s8_review_independent",
-    "step_id": "STP-b3cf260e",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46275"></a>
-
-<details>
-<summary>46275 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46275,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:40:39",
-    "step_id": "STP-b3cf260e",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 서보 모션 제어 엔지니어",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00789,
-    "total_cost": 7.57864
-  }
-}
-```
-
-</details>
-
-<a id="row-46276"></a>
-
-<details>
-<summary>46276 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46276,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:40:42",
-    "node": "s8_review_independent",
-    "step_id": "STP-96e56bc1",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46277"></a>
-
-<details>
-<summary>46277 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46277,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:40:55",
-    "step_id": "STP-7ed87a9c",
-    "seq": 726,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 서보 모션 제어 엔지니어",
-    "agent": "persona::PER-42b4c415",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46278"></a>
-
-<details>
-<summary>46278 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46278,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:40:55",
-    "step_id": "STP-96e56bc1",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 생산 품질·수율 관리자",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00922,
-    "total_cost": 7.58786
-  }
-}
-```
-
-</details>
-
-<a id="row-46279"></a>
-
-<details>
-<summary>46279 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46279,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:41:02",
-    "step_id": "STP-df1c8062",
-    "seq": 727,
-    "stage": "S8_EVALUATE",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 생산 품질·수율 관리자",
-    "agent": "persona::PER-917f1fc2",
-    "tier": "T3"
-  }
-}
-```
-
-</details>
-
-<a id="row-46280"></a>
-
-<details>
-<summary>46280 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46280,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:41:10",
-    "node": "s8_review_independent",
-    "step_id": "STP-7ed87a9c",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46281"></a>
-
-<details>
-<summary>46281 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46281,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:41:10",
-    "step_id": "STP-7ed87a9c",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 서보 모션 제어 엔지니어",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00679,
-    "total_cost": 7.59465
-  }
-}
-```
-
-</details>
-
-<a id="row-46282"></a>
-
-<details>
-<summary>46282 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46282,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:41:21",
-    "node": "s8_review_independent",
-    "step_id": "STP-df1c8062",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46283"></a>
-
-<details>
-<summary>46283 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46283,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:41:27",
-    "step_id": "STP-df1c8062",
-    "node": "s8_review_independent",
-    "label": "직군별 독립 평가: 생산 품질·수율 관리자",
-    "status": "WARN",
-    "verdict": "UNVERIFIED",
-    "score": 0.0,
-    "attempts": 1,
-    "cost": 0.00693,
-    "total_cost": 7.60158
-  }
-}
-```
-
-</details>
-
-<a id="row-46284"></a>
-
-<details>
-<summary>46284 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46284,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "review_phase",
-    "ts": "2026-09-29T22:41:54",
-    "phase": "completed",
-    "label": "직군별 독립 평가 완료",
-    "rounds": 0
-  }
-}
-```
-
-</details>
-
-<a id="row-46285"></a>
-
-<details>
-<summary>46285 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46285,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:41:54",
-    "step_id": "STP-0d1d3ef5",
-    "seq": 728,
-    "stage": "S8_EVALUATE",
-    "node": "s8_rank",
-    "label": "포트폴리오 구성·우선순위",
-    "agent": "portfolio_manager",
-    "tier": "T2"
-  }
-}
-```
-
-</details>
-
-<a id="row-46286"></a>
-
-<details>
-<summary>46286 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46286,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:42:07",
-    "node": "s8_rank",
-    "step_id": "STP-0d1d3ef5",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46287"></a>
-
-<details>
-<summary>46287 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46287,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:42:07",
-    "step_id": "STP-0d1d3ef5",
-    "node": "s8_rank",
-    "label": "포트폴리오 구성·우선순위",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00578,
-    "total_cost": 7.60736
-  }
-}
-```
-
-</details>
-
-<a id="row-46288"></a>
-
-<details>
-<summary>46288 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46288,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "artifact",
-    "ts": "2026-09-29T22:42:07",
-    "kind": "RANKING",
-    "data": [
-      {
-        "rank": 1,
-        "title": "가감속 프로파일 단계적 상향",
-        "score": 2.0,
-        "quadrant": "AVOID"
-      },
-      {
-        "rank": 2,
-        "title": "부하별 가변 가감속 프로파일",
-        "score": 2.0,
-        "quadrant": "AVOID"
-      },
-      {
-        "rank": 3,
-        "title": "공진 이격 조건부 가속 상향",
-        "score": 2.0,
-        "quadrant": "AVOID"
-      },
-      {
-        "rank": 4,
-        "title": "정렬 액추에이터 사전 스트로크",
-        "score": 2.0,
-        "quadrant": "AVOID"
-      },
-      {
-        "rank": 5,
-        "title": "복귀 구간 정렬·클램프 사전 준비",
-        "score": 2.0,
-        "quadrant": "AVOID"
-      },
-      {
-        "rank": 6,
-        "title": "클램프 패드 유연막 분산 접촉",
-        "score": 2.0,
-        "quadrant": "AVOID"
-      },
-      {
-        "rank": 7,
-        "title": "가진 진동 분리형 축 결합부",
-        "score": 2.0,
-        "quadrant": "AVOID"
-      },
-      {
-        "rank": 8,
-        "title": "베어링 윤활 점도 저감 및 회생 제동 활용",
-        "score": 2.0,
-        "quadrant": "AVOID"
-      }
-    ]
-  }
-}
-```
-
-</details>
-
-<a id="row-46289"></a>
-
-<details>
-<summary>46289 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46289,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T22:42:23",
-    "stage": "s8_evaluate",
-    "index": 11
-  }
-}
-```
-
-</details>
-
-<a id="row-46290"></a>
-
-<details>
-<summary>46290 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46290,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:42:39",
-    "stage": "s9_report",
-    "label": "시각화 보고서",
-    "index": 11,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46291"></a>
-
-<details>
-<summary>46291 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46291,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:43:10",
-    "stage": "S9_REPORT"
-  }
-}
-```
-
-</details>
-
-<a id="row-46292"></a>
-
-<details>
-<summary>46292 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46292,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "report",
-    "ts": "2026-09-29T22:43:30",
-    "length": 270205
-  }
-}
-```
-
-</details>
-
-<a id="row-46293"></a>
-
-<details>
-<summary>46293 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46293,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T22:43:47",
-    "stage": "s9_report",
-    "index": 12
-  }
-}
-```
-
-</details>
-
-<a id="row-46294"></a>
-
-<details>
-<summary>46294 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46294,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:44:04",
-    "stage": "s10_feedback",
-    "label": "피드백",
-    "index": 12,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46295"></a>
-
-<details>
-<summary>46295 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46295,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:44:12",
-    "stage": "S10_FEEDBACK"
-  }
-}
-```
-
-</details>
-
-<a id="row-46296"></a>
-
-<details>
-<summary>46296 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46296,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "interrupt",
-    "ts": "2026-09-29T22:44:19",
-    "kind": "FEEDBACK",
-    "title": "해결책에 대한 피드백을 남겨 주세요",
-    "stage": "s10_feedback"
-  }
-}
-```
-
-</details>
-
-<a id="row-46297"></a>
-
-<details>
-<summary>46297 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46297,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_start",
-    "ts": "2026-09-29T22:57:38",
-    "stage": "s10_feedback",
-    "label": "피드백",
-    "index": 12,
-    "total": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46298"></a>
-
-<details>
-<summary>46298 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46298,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage",
-    "ts": "2026-09-29T22:57:47",
-    "stage": "S10_FEEDBACK"
-  }
-}
-```
-
-</details>
-
-<a id="row-46299"></a>
-
-<details>
-<summary>46299 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46299,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_start",
-    "ts": "2026-09-29T22:57:51",
-    "step_id": "STP-b5bdeb3a",
-    "seq": 729,
-    "stage": "S10_FEEDBACK",
-    "node": "s10_distill",
-    "label": "피드백 정제",
-    "agent": "rag_writer",
-    "tier": "T1"
-  }
-}
-```
-
-</details>
-
-<a id="row-46300"></a>
-
-<details>
-<summary>46300 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46300,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "verify",
-    "ts": "2026-09-29T22:58:13",
-    "node": "s10_distill",
-    "step_id": "STP-b5bdeb3a",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempt": 1,
-    "instructions": []
-  }
-}
-```
-
-</details>
-
-<a id="row-46301"></a>
-
-<details>
-<summary>46301 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46301,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "node_end",
-    "ts": "2026-09-29T22:58:13",
-    "step_id": "STP-b5bdeb3a",
-    "node": "s10_distill",
-    "label": "피드백 정제",
-    "status": "OK",
-    "verdict": "PASS",
-    "score": 1.0,
-    "attempts": 1,
-    "cost": 0.00403,
-    "total_cost": 7.61139
-  }
-}
-```
-
-</details>
-
-<a id="row-46302"></a>
-
-<details>
-<summary>46302 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46302,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "rag_write",
-    "ts": "2026-09-29T22:58:13",
-    "records": 6
-  }
-}
-```
-
-</details>
-
-<a id="row-46303"></a>
-
-<details>
-<summary>46303 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46303,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "stage_end",
-    "ts": "2026-09-29T22:58:30",
-    "stage": "s10_feedback",
-    "index": 13
-  }
-}
-```
-
-</details>
-
-<a id="row-46304"></a>
-
-<details>
-<summary>46304 · 전체 저장값</summary>
-
-```json
-{
-  "id": 46304,
-  "run_id": "run-baa72a38ef40c8c63155ffc7a1dd25ee",
-  "payload": {
-    "type": "done",
-    "ts": "2026-09-29T22:58:37",
-    "cost": 7.611395
-  }
-}
-```
+이번 구간에 저장된 기록은 351개입니다.
+
+
+<a id="row-0"></a>
+
+<details>
+<summary>기록 1 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46305 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T03:50:58", "stage": "s0_research", "label": "산업·기술 심층 검토", "index": 1, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-1"></a>
+
+<details>
+<summary>기록 2 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46306 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T03:51:06", "stage": "S0_RESEARCH"} | 전체 값 |
+
+</details>
+
+<a id="row-2"></a>
+
+<details>
+<summary>기록 3 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46307 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T03:51:16", "step_id": "STP-7309575d", "seq": 730, "stage": "S0_RESEARCH", "node": "s0_deep_dive", "label": "산업·메커니즘 심층 검토", "agent": "domain_researcher", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-3"></a>
+
+<details>
+<summary>기록 4 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46308 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T03:51:41", "node": "s0_deep_dive", "step_id": "STP-7309575d", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-4"></a>
+
+<details>
+<summary>기록 5 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46309 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/67be49cc39ab05f595316126.md) |
+
+</details>
+
+<a id="row-5"></a>
+
+<details>
+<summary>기록 6 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46310 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "interrupt", "ts": "2026-09-30T03:51:41", "kind": "CLARIFY", "title": "산업과 분석 깊이를 먼저 확인할게요", "stage": "s0_research"} | 전체 값 |
+
+</details>
+
+<a id="row-6"></a>
+
+<details>
+<summary>기록 7 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46311 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T03:53:58", "stage": "s0_research", "label": "산업·기술 심층 검토", "index": 1, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-7"></a>
+
+<details>
+<summary>기록 8 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46312 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T03:54:07", "stage": "S0_RESEARCH"} | 전체 값 |
+
+</details>
+
+<a id="row-8"></a>
+
+<details>
+<summary>기록 9 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46313 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T03:54:12", "step_id": "STP-4c5ca061", "seq": 731, "stage": "S0_RESEARCH", "node": "s0_deep_dive", "label": "수정한 산업·난이도 재검토", "agent": "domain_researcher", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-9"></a>
+
+<details>
+<summary>기록 10 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46314 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T03:54:33", "node": "s0_deep_dive", "step_id": "STP-4c5ca061", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-10"></a>
+
+<details>
+<summary>기록 11 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46315 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/690c17535c7c55511752da51.md) |
+
+</details>
+
+<a id="row-11"></a>
+
+<details>
+<summary>기록 12 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46316 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T03:54:42", "stage": "s0_research", "index": 2} | 전체 값 |
+
+</details>
+
+<a id="row-12"></a>
+
+<details>
+<summary>기록 13 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46317 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T03:55:01", "stage": "s1_intake", "label": "문제 추출·역질의", "index": 2, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-13"></a>
+
+<details>
+<summary>기록 14 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46318 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T03:55:10", "stage": "S1_INTAKE"} | 전체 값 |
+
+</details>
+
+<a id="row-14"></a>
+
+<details>
+<summary>기록 15 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46319 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T03:55:20", "step_id": "STP-593e053e", "seq": 732, "stage": "S1_INTAKE", "node": "s1_extract", "label": "문제·도메인·제약 추출", "agent": "interviewer", "tier": "T1"} | 전체 값 |
+
+</details>
+
+<a id="row-15"></a>
+
+<details>
+<summary>기록 16 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46320 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T03:55:44", "node": "s1_extract", "step_id": "STP-593e053e", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-16"></a>
+
+<details>
+<summary>기록 17 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46321 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/2e0821b8e844672f7760fad5.md) |
+
+</details>
+
+<a id="row-17"></a>
+
+<details>
+<summary>기록 18 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46322 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, kind, data | [전체 값](payloads/4cd6e6916e856ab962311d32.md) |
+
+</details>
+
+<a id="row-18"></a>
+
+<details>
+<summary>기록 19 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46323 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T03:55:59", "stage": "s1_intake", "index": 3} | 전체 값 |
+
+</details>
+
+<a id="row-19"></a>
+
+<details>
+<summary>기록 20 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46324 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T03:56:16", "stage": "s2_confirm", "label": "대상 시스템 확정", "index": 3, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-20"></a>
+
+<details>
+<summary>기록 21 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46325 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T03:56:23", "stage": "S2_CONFIRM"} | 전체 값 |
+
+</details>
+
+<a id="row-21"></a>
+
+<details>
+<summary>기록 22 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46326 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T03:56:32", "step_id": "STP-b74b8bd4", "seq": 733, "stage": "S2_CONFIRM", "node": "s2_candidates", "label": "대상 시스템 후보 생성", "agent": "system_analyst", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-22"></a>
+
+<details>
+<summary>기록 23 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46327 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T03:56:44", "node": "s2_candidates", "step_id": "STP-b74b8bd4", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-23"></a>
+
+<details>
+<summary>기록 24 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46328 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/22a6f5b7939e70f115d2535d.md) |
+
+</details>
+
+<a id="row-24"></a>
+
+<details>
+<summary>기록 25 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46329 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "interrupt", "ts": "2026-09-30T03:56:51", "kind": "CONFIRM", "title": "대상 시스템을 확정해 주세요", "stage": "s2_confirm"} | 전체 값 |
+
+</details>
+
+<a id="row-25"></a>
+
+<details>
+<summary>기록 26 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46330 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T03:58:14", "stage": "s2_confirm", "label": "대상 시스템 확정", "index": 3, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-26"></a>
+
+<details>
+<summary>기록 27 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46331 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T03:58:22", "stage": "S2_CONFIRM"} | 전체 값 |
+
+</details>
+
+<a id="row-27"></a>
+
+<details>
+<summary>기록 28 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46332 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T03:58:44", "stage": "s2_confirm", "index": 4} | 전체 값 |
+
+</details>
+
+<a id="row-28"></a>
+
+<details>
+<summary>기록 29 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46333 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T03:59:01", "stage": "s3_analyze", "label": "시스템·기능·자원·인과 분석", "index": 4, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-29"></a>
+
+<details>
+<summary>기록 30 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46334 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T03:59:10", "stage": "S3_ANALYZE"} | 전체 값 |
+
+</details>
+
+<a id="row-30"></a>
+
+<details>
+<summary>기록 31 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46335 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T03:59:18", "step_id": "STP-33dced34", "seq": 734, "stage": "S3_ANALYZE", "node": "s3_nine_windows", "label": "9-Windows 전개", "agent": "system_analyst", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-31"></a>
+
+<details>
+<summary>기록 32 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46336 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T03:59:37", "node": "s3_nine_windows", "step_id": "STP-33dced34", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-32"></a>
+
+<details>
+<summary>기록 33 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46337 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/8eb97c62df26d60007871bd9.md) |
+
+</details>
+
+<a id="row-33"></a>
+
+<details>
+<summary>기록 34 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46338 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T03:59:37", "step_id": "STP-e066ffae", "seq": 735, "stage": "S3_ANALYZE", "node": "s3_function_model", "label": "기능 분석(컴포넌트/상호작용/기능도)", "agent": "system_analyst", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-34"></a>
+
+<details>
+<summary>기록 35 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46339 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, node, step_id, verdict, score … | [전체 값](payloads/394518351da3141dd0d3ea30.md) |
+
+</details>
+
+<a id="row-35"></a>
+
+<details>
+<summary>기록 36 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46340 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, node, step_id, verdict, score … | [전체 값](payloads/aed6649b314e90446b2fe482.md) |
+
+</details>
+
+<a id="row-36"></a>
+
+<details>
+<summary>기록 37 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46341 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/bb9714bdc415ec91d8231c27.md) |
+
+</details>
+
+<a id="row-37"></a>
+
+<details>
+<summary>기록 38 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46342 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:00:34", "step_id": "STP-09f7535e", "seq": 736, "stage": "S3_ANALYZE", "node": "s3_sufield", "label": "물질-장 분석(Su-Field)", "agent": "sufield_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-38"></a>
+
+<details>
+<summary>기록 39 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46343 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:00:34", "step_id": "STP-13f959e1", "seq": 738, "stage": "S3_ANALYZE", "node": "s3_ceca", "label": "인과사슬 분석(CECA)", "agent": "root_cause_analyst", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-39"></a>
+
+<details>
+<summary>기록 40 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46344 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:00:34", "step_id": "STP-83596e18", "seq": 737, "stage": "S3_ANALYZE", "node": "s3_resources", "label": "자원 분석", "agent": "resource_analyst", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-40"></a>
+
+<details>
+<summary>기록 41 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46345 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:00:53", "node": "s3_sufield", "step_id": "STP-09f7535e", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-41"></a>
+
+<details>
+<summary>기록 42 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46346 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/f839248f8934ec344432ccf3.md) |
+
+</details>
+
+<a id="row-42"></a>
+
+<details>
+<summary>기록 43 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46347 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:01:05", "node": "s3_resources", "step_id": "STP-83596e18", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-43"></a>
+
+<details>
+<summary>기록 44 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46348 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/e38601b6514bbabeaadaa119.md) |
+
+</details>
+
+<a id="row-44"></a>
+
+<details>
+<summary>기록 45 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46349 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:01:09", "node": "s3_ceca", "step_id": "STP-13f959e1", "verdict": "PASS", "score": 0.8750000000000001, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-45"></a>
+
+<details>
+<summary>기록 46 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46350 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/c8e15232962b86edd75ec54b.md) |
+
+</details>
+
+<a id="row-46"></a>
+
+<details>
+<summary>기록 47 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46351 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:01:09", "step_id": "STP-9013f39e", "seq": 739, "stage": "S3_ANALYZE", "node": "s3_constraints", "label": "도메인·시스템 내재 제약 발굴", "agent": "constraint_analyst", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-47"></a>
+
+<details>
+<summary>기록 48 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46352 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:01:28", "node": "s3_constraints", "step_id": "STP-9013f39e", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-48"></a>
+
+<details>
+<summary>기록 49 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46353 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/a193648756351b921fa95992.md) |
+
+</details>
+
+<a id="row-49"></a>
+
+<details>
+<summary>기록 50 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46354 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "artifact", "ts": "2026-09-30T04:01:28", "kind": "CONSTRAINT_DISCOVERY", "data": {"added": 0, "taboo": 3, "items": []}} | 전체 값 |
+
+</details>
+
+<a id="row-50"></a>
+
+<details>
+<summary>기록 51 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46355 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "artifact", "ts": "2026-09-30T04:01:28", "kind": "ANALYSIS", "data": {"components": 18, "functions": 13, "su_fields": 3, "resources": 26, "ceca_nodes": 12, "constraints": 20}} | 전체 값 |
+
+</details>
+
+<a id="row-51"></a>
+
+<details>
+<summary>기록 52 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46356 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T04:01:47", "stage": "s3_analyze", "index": 5} | 전체 값 |
+
+</details>
+
+<a id="row-52"></a>
+
+<details>
+<summary>기록 53 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46357 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T04:02:04", "stage": "s4_define", "label": "이상해결책·모순 정의", "index": 5, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-53"></a>
+
+<details>
+<summary>기록 54 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46358 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T04:02:12", "stage": "S4_DEFINE"} | 전체 값 |
+
+</details>
+
+<a id="row-54"></a>
+
+<details>
+<summary>기록 55 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46359 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:02:20", "step_id": "STP-594f58cf", "seq": 741, "stage": "S4_DEFINE", "node": "s4_contradictions", "label": "모순 도출(기술적/물리적)", "agent": "contradiction_definer", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-55"></a>
+
+<details>
+<summary>기록 56 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46360 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:02:20", "step_id": "STP-4443d347", "seq": 742, "stage": "S4_DEFINE", "node": "s4_trimming", "label": "트리밍 후보 도출", "agent": "trimming_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-56"></a>
+
+<details>
+<summary>기록 57 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46361 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:02:20", "step_id": "STP-c0ed32e5", "seq": 740, "stage": "S4_DEFINE", "node": "s4_ifr", "label": "이상해결책(IFR) 정의", "agent": "triz_master", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-57"></a>
+
+<details>
+<summary>기록 58 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46362 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:02:38", "node": "s4_ifr", "step_id": "STP-c0ed32e5", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-58"></a>
+
+<details>
+<summary>기록 59 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46363 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/71d8771644e117e1b6115520.md) |
+
+</details>
+
+<a id="row-59"></a>
+
+<details>
+<summary>기록 60 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46364 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:02:42", "node": "s4_trimming", "step_id": "STP-4443d347", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-60"></a>
+
+<details>
+<summary>기록 61 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46365 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/0f028b90a4ba8fc1f8ae5066.md) |
+
+</details>
+
+<a id="row-61"></a>
+
+<details>
+<summary>기록 62 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46366 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, node, step_id, verdict, score … | [전체 값](payloads/b3fe08a096d8514b0fbbb205.md) |
+
+</details>
+
+<a id="row-62"></a>
+
+<details>
+<summary>기록 63 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46367 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, node, step_id, verdict, score … | [전체 값](payloads/397bc43292349f96675171f1.md) |
+
+</details>
+
+<a id="row-63"></a>
+
+<details>
+<summary>기록 64 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46368 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/949ceb5fbb1d6215f82b5fac.md) |
+
+</details>
+
+<a id="row-64"></a>
+
+<details>
+<summary>기록 65 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46369 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, message | [전체 값](payloads/1bd4843409ac257003e941de.md) |
+
+</details>
+
+<a id="row-65"></a>
+
+<details>
+<summary>기록 66 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46370 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:03:43", "step_id": "STP-6d3405cf", "seq": 743, "stage": "S4_DEFINE", "node": "s4_key_problem", "label": "핵심 문제 선정", "agent": "triz_master", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-66"></a>
+
+<details>
+<summary>기록 67 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46371 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:03:53", "node": "s4_key_problem", "step_id": "STP-6d3405cf", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-67"></a>
+
+<details>
+<summary>기록 68 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46372 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/cf579d1b7b1e00706d67e244.md) |
+
+</details>
+
+<a id="row-68"></a>
+
+<details>
+<summary>기록 69 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46373 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, kind, data | [전체 값](payloads/dc8529426a48325b9fbab4d0.md) |
+
+</details>
+
+<a id="row-69"></a>
+
+<details>
+<summary>기록 70 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46374 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T04:04:08", "stage": "s4_define", "index": 6} | 전체 값 |
+
+</details>
+
+<a id="row-70"></a>
+
+<details>
+<summary>기록 71 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46375 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T04:04:26", "stage": "s5_solve", "label": "다중 기법 해결책 탐색", "index": 6, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-71"></a>
+
+<details>
+<summary>기록 72 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46376 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, decision_id, tracks, pending_tracks, required_tracks … | [전체 값](payloads/8678299386668338e72ed043.md) |
+
+</details>
+
+<a id="row-72"></a>
+
+<details>
+<summary>기록 73 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46377 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T04:04:36", "stage": "S5_SOLVE"} | 전체 값 |
+
+</details>
+
+<a id="row-73"></a>
+
+<details>
+<summary>기록 74 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46378 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "tracks", "ts": "2026-09-30T04:04:45", "tracks": ["A_MATRIX", "B_SEPARATION", "D_ARIZ"]} | 전체 값 |
+
+</details>
+
+<a id="row-74"></a>
+
+<details>
+<summary>기록 75 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46379 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:04:45", "step_id": "STP-d4725775", "seq": 744, "stage": "S5_SOLVE", "node": "s5_search_retrieval", "label": "특허·논문 검색 수집 상태", "agent": "patent_researcher", "tier": ""} | 전체 값 |
+
+</details>
+
+<a id="row-75"></a>
+
+<details>
+<summary>기록 76 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46380 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:04:47", "step_id": "STP-603f6648", "seq": 745, "stage": "S5_SOLVE", "node": "s5_track_a_select", "label": "발명원리 선별(TC-da1055a5)", "agent": "inventor_a", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-76"></a>
+
+<details>
+<summary>기록 77 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46381 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:04:47", "step_id": "STP-9134de15", "seq": 746, "stage": "S5_SOLVE", "node": "s5_ariz_p1", "label": "ARIZ Part1 문제 분석", "agent": "ariz_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-77"></a>
+
+<details>
+<summary>기록 78 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46382 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:04:47", "step_id": "STP-31cf6284", "seq": 747, "stage": "S5_SOLVE", "node": "s5_track_b", "label": "Track B 분리원리(PC-9ffb539d)", "agent": "inventor_b", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-78"></a>
+
+<details>
+<summary>기록 79 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46383 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:05:02", "node": "s5_track_a_select", "step_id": "STP-603f6648", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-79"></a>
+
+<details>
+<summary>기록 80 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46384 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/8621429ce3b269ae0cfb449b.md) |
+
+</details>
+
+<a id="row-80"></a>
+
+<details>
+<summary>기록 81 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46385 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:05:02", "step_id": "STP-2cae9b7c", "seq": 748, "stage": "S5_SOLVE", "node": "s5_track_a", "label": "Track A 발명원리 적용(TC-da1055a5)", "agent": "inventor_a", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-81"></a>
+
+<details>
+<summary>기록 82 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46386 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:05:10", "node": "s5_track_b", "step_id": "STP-31cf6284", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-82"></a>
+
+<details>
+<summary>기록 83 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46387 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/728d6d39f86fe4d45b0e29af.md) |
+
+</details>
+
+<a id="row-83"></a>
+
+<details>
+<summary>기록 84 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46388 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:05:11", "step_id": "STP-a9204201", "seq": 749, "stage": "S5_SOLVE", "node": "s5_track_b", "label": "Track B 분리원리(PC-137adf9f)", "agent": "inventor_b", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-84"></a>
+
+<details>
+<summary>기록 85 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46389 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:05:20", "node": "s5_ariz_p1", "step_id": "STP-9134de15", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-85"></a>
+
+<details>
+<summary>기록 86 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46390 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/399b7e0a4029dd41aa09a7cd.md) |
+
+</details>
+
+<a id="row-86"></a>
+
+<details>
+<summary>기록 87 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46391 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:05:20", "step_id": "STP-c81ea983", "seq": 750, "stage": "S5_SOLVE", "node": "s5_ariz_p2", "label": "ARIZ Part2 자원 분석", "agent": "ariz_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-87"></a>
+
+<details>
+<summary>기록 88 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46392 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:05:23", "node": "s5_track_a", "step_id": "STP-2cae9b7c", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-88"></a>
+
+<details>
+<summary>기록 89 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46393 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/e7107c25f60241cc5264493a.md) |
+
+</details>
+
+<a id="row-89"></a>
+
+<details>
+<summary>기록 90 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46394 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:05:23", "step_id": "STP-fc00e72a", "seq": 751, "stage": "S5_SOLVE", "node": "s5_track_a_select", "label": "발명원리 선별(TC-eefef594)", "agent": "inventor_a", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-90"></a>
+
+<details>
+<summary>기록 91 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46395 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:05:31", "node": "s5_track_b", "step_id": "STP-a9204201", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-91"></a>
+
+<details>
+<summary>기록 92 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46396 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/fca569d5198a7dd46f2b6d2f.md) |
+
+</details>
+
+<a id="row-92"></a>
+
+<details>
+<summary>기록 93 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46397 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:05:33", "node": "s5_track_a_select", "step_id": "STP-fc00e72a", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-93"></a>
+
+<details>
+<summary>기록 94 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46398 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/b3d5f01815286c286f0bc40e.md) |
+
+</details>
+
+<a id="row-94"></a>
+
+<details>
+<summary>기록 95 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46399 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:05:33", "step_id": "STP-289a7036", "seq": 752, "stage": "S5_SOLVE", "node": "s5_track_a", "label": "Track A 발명원리 적용(TC-eefef594)", "agent": "inventor_a", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-95"></a>
+
+<details>
+<summary>기록 96 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46400 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:05:42", "node": "s5_ariz_p2", "step_id": "STP-c81ea983", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-96"></a>
+
+<details>
+<summary>기록 97 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46401 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/cfb44899d36879eb2634659d.md) |
+
+</details>
+
+<a id="row-97"></a>
+
+<details>
+<summary>기록 98 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46402 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:05:42", "step_id": "STP-b1ab51c7", "seq": 753, "stage": "S5_SOLVE", "node": "s5_ariz_p3", "label": "ARIZ Part3 IFR·물리모순", "agent": "ariz_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-98"></a>
+
+<details>
+<summary>기록 99 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46403 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/d9c940abf11b913e489000e3.md) |
+
+</details>
+
+<a id="row-99"></a>
+
+<details>
+<summary>기록 100 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46404 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, queries_used, query_limit, patent_provider_configured, patent_search … | [전체 값](payloads/d8850dee63425da98e2af6c2.md) |
+
+</details>
+
+<a id="row-100"></a>
+
+<details>
+<summary>기록 101 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46405 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:06:01", "node": "s5_track_a", "step_id": "STP-289a7036", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-101"></a>
+
+<details>
+<summary>기록 102 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46406 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/c658c4e97e6ac190741d22fa.md) |
+
+</details>
+
+<a id="row-102"></a>
+
+<details>
+<summary>기록 103 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46407 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:06:01", "step_id": "STP-983df571", "seq": 754, "stage": "S5_SOLVE", "node": "s5_track_a_select", "label": "발명원리 선별(TC-0b4ac5ca)", "agent": "inventor_a", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-103"></a>
+
+<details>
+<summary>기록 104 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46408 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:06:06", "node": "s5_ariz_p3", "step_id": "STP-b1ab51c7", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-104"></a>
+
+<details>
+<summary>기록 105 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46409 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/6b13c221a07fe90a739d709e.md) |
+
+</details>
+
+<a id="row-105"></a>
+
+<details>
+<summary>기록 106 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46410 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:06:06", "step_id": "STP-10bc35f6", "seq": 755, "stage": "S5_SOLVE", "node": "s5_ariz_p4", "label": "ARIZ Part4 자원 동원(SLP 등)", "agent": "ariz_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-106"></a>
+
+<details>
+<summary>기록 107 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46411 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:06:09", "node": "s5_track_a_select", "step_id": "STP-983df571", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-107"></a>
+
+<details>
+<summary>기록 108 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46412 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/678224954d410b8176c07525.md) |
+
+</details>
+
+<a id="row-108"></a>
+
+<details>
+<summary>기록 109 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46413 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:06:09", "step_id": "STP-c43c3a77", "seq": 756, "stage": "S5_SOLVE", "node": "s5_track_a", "label": "Track A 발명원리 적용(TC-0b4ac5ca)", "agent": "inventor_a", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-109"></a>
+
+<details>
+<summary>기록 110 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46414 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:06:31", "node": "s5_track_a", "step_id": "STP-c43c3a77", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-110"></a>
+
+<details>
+<summary>기록 111 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46415 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/45883e622755f115b222bb9e.md) |
+
+</details>
+
+<a id="row-111"></a>
+
+<details>
+<summary>기록 112 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46416 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:06:53", "node": "s5_ariz_p4", "step_id": "STP-10bc35f6", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-112"></a>
+
+<details>
+<summary>기록 113 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46417 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/53120f879d7c43e399244309.md) |
+
+</details>
+
+<a id="row-113"></a>
+
+<details>
+<summary>기록 114 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46418 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:06:53", "step_id": "STP-d1364e8b", "seq": 757, "stage": "S5_SOLVE", "node": "s5_ariz_p5", "label": "ARIZ Part5 지식베이스 적용", "agent": "ariz_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-114"></a>
+
+<details>
+<summary>기록 115 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46419 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:09:48", "node": "s5_ariz_p5", "step_id": "STP-d1364e8b", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-115"></a>
+
+<details>
+<summary>기록 116 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46420 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/7934064147cdf419f7bb123b.md) |
+
+</details>
+
+<a id="row-116"></a>
+
+<details>
+<summary>기록 117 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46421 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:09:48", "step_id": "STP-f409bf86", "seq": 758, "stage": "S5_SOLVE", "node": "s5_ariz_p6", "label": "ARIZ Part6 문제 재해석 제안", "agent": "ariz_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-117"></a>
+
+<details>
+<summary>기록 118 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46422 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:09:59", "node": "s5_ariz_p6", "step_id": "STP-f409bf86", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-118"></a>
+
+<details>
+<summary>기록 119 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46423 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/9dd2d4c2ef890277f3488f20.md) |
+
+</details>
+
+<a id="row-119"></a>
+
+<details>
+<summary>기록 120 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46424 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:09:59", "step_id": "STP-55457a33", "seq": 759, "stage": "S5_SOLVE", "node": "s5_ariz_p7", "label": "ARIZ Part7 해결안 검증", "agent": "ariz_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-120"></a>
+
+<details>
+<summary>기록 121 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46425 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:10:30", "node": "s5_ariz_p7", "step_id": "STP-55457a33", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-121"></a>
+
+<details>
+<summary>기록 122 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46426 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/4583984a9dc869e8f994a83d.md) |
+
+</details>
+
+<a id="row-122"></a>
+
+<details>
+<summary>기록 123 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46427 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "warning", "ts": "2026-09-30T04:10:30", "message": "ARIZ 7.2: '부하/무부하 분리 가감속 프로파일'는 모순 해소가 아니라 절충으로 판정됨"} | 전체 값 |
+
+</details>
+
+<a id="row-123"></a>
+
+<details>
+<summary>기록 124 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46428 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "warning", "ts": "2026-09-30T04:10:30", "message": "ARIZ 7.2: '서보 모터 토크 제어 기반 동적 가속도 클램프'는 모순 해소가 아니라 절충으로 판정됨"} | 전체 값 |
+
+</details>
+
+<a id="row-124"></a>
+
+<details>
+<summary>기록 125 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46429 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "tracks", "ts": "2026-09-30T04:10:43", "tracks": ["C_STANDARDS", "E_TRIMMING", "F_TRENDS"]} | 전체 값 |
+
+</details>
+
+<a id="row-125"></a>
+
+<details>
+<summary>기록 126 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46430 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:10:45", "step_id": "STP-1e1e36f5", "seq": 760, "stage": "S5_SOLVE", "node": "s5_track_e", "label": "Track E 트리밍 구체화", "agent": "trimming_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-126"></a>
+
+<details>
+<summary>기록 127 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46431 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:10:45", "step_id": "STP-324725fc", "seq": 761, "stage": "S5_SOLVE", "node": "s5_track_c", "label": "Track C 76표준해(SU-f2b725eb)", "agent": "standards_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-127"></a>
+
+<details>
+<summary>기록 128 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46432 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:10:45", "step_id": "STP-89c20be9", "seq": 762, "stage": "S5_SOLVE", "node": "s5_track_f", "label": "Track F 진화 트렌드", "agent": "evolution_analyst", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-128"></a>
+
+<details>
+<summary>기록 129 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46433 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:11:11", "node": "s5_track_c", "step_id": "STP-324725fc", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-129"></a>
+
+<details>
+<summary>기록 130 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46434 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/234cc1512971934333f355c8.md) |
+
+</details>
+
+<a id="row-130"></a>
+
+<details>
+<summary>기록 131 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46435 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:11:11", "step_id": "STP-525bc18b", "seq": 763, "stage": "S5_SOLVE", "node": "s5_track_c", "label": "Track C 76표준해(SU-22c035ac)", "agent": "standards_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-131"></a>
+
+<details>
+<summary>기록 132 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46436 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:11:13", "node": "s5_track_f", "step_id": "STP-89c20be9", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-132"></a>
+
+<details>
+<summary>기록 133 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46437 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/99df6ea599ac5710a80b0799.md) |
+
+</details>
+
+<a id="row-133"></a>
+
+<details>
+<summary>기록 134 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46438 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:11:18", "node": "s5_track_e", "step_id": "STP-1e1e36f5", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-134"></a>
+
+<details>
+<summary>기록 135 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46439 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/557b35c9696f9ba6813a31f5.md) |
+
+</details>
+
+<a id="row-135"></a>
+
+<details>
+<summary>기록 136 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46440 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:11:36", "node": "s5_track_c", "step_id": "STP-525bc18b", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-136"></a>
+
+<details>
+<summary>기록 137 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46441 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/c0b0b18f8ca45488d8e184c0.md) |
+
+</details>
+
+<a id="row-137"></a>
+
+<details>
+<summary>기록 138 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46442 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "tracks", "ts": "2026-09-30T04:11:44", "tracks": ["G_FOS", "H_EFFECTS"]} | 전체 값 |
+
+</details>
+
+<a id="row-138"></a>
+
+<details>
+<summary>기록 139 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46443 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:11:45", "step_id": "STP-83115fb3", "seq": 764, "stage": "S5_SOLVE", "node": "s5_track_g", "label": "Track G 기능지향탐색(FOS)", "agent": "cross_domain_scout", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-139"></a>
+
+<details>
+<summary>기록 140 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46444 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:11:46", "step_id": "STP-d780e149", "seq": 765, "stage": "S5_SOLVE", "node": "s5_track_h", "label": "Track H 효과(Effects) 적용", "agent": "effects_specialist", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-140"></a>
+
+<details>
+<summary>기록 141 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46445 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:12:05", "node": "s5_track_g", "step_id": "STP-83115fb3", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-141"></a>
+
+<details>
+<summary>기록 142 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46446 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/e80fe333c97f634eec612ef0.md) |
+
+</details>
+
+<a id="row-142"></a>
+
+<details>
+<summary>기록 143 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46447 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:12:12", "node": "s5_track_h", "step_id": "STP-d780e149", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-143"></a>
+
+<details>
+<summary>기록 144 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46448 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/6ee0b048c26402973f5f6f21.md) |
+
+</details>
+
+<a id="row-144"></a>
+
+<details>
+<summary>기록 145 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46449 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:12:21", "step_id": "STP-db0f136c", "seq": 766, "stage": "S5_SOLVE", "node": "s5_merge", "label": "전체 아이디어 통합 검토·대표안 선정", "agent": "solution_curator", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-145"></a>
+
+<details>
+<summary>기록 146 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46450 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, node, step_id, verdict, score … | [전체 값](payloads/610dee20a263e66b0b1fab0f.md) |
+
+</details>
+
+<a id="row-146"></a>
+
+<details>
+<summary>기록 147 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46451 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_error", "ts": "2026-09-30T04:12:58", "node": "s5_merge", "error": "실행 시간 예산을 초과했습니다."} | 전체 값 |
+
+</details>
+
+<a id="row-147"></a>
+
+<details>
+<summary>기록 148 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46452 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/66e75d3af9092a1b42d28dbe.md) |
+
+</details>
+
+<a id="row-148"></a>
+
+<details>
+<summary>기록 149 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46453 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "warning", "ts": "2026-09-30T04:12:58", "message": "실행 시간 예산을 초과했습니다."} | 전체 값 |
+
+</details>
+
+<a id="row-149"></a>
+
+<details>
+<summary>기록 150 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46454 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "retry_required", "ts": "2026-09-30T04:13:10", "status": "INTERRUPTED", "notification_id": "retry-8e4c1c6e1d1d4615ba1b6b27523774ba", "message": "분석 실행 예산에 도달했습니다. 실행 설정을 확인하고 이어서 실행해 주세요.", "stage": "s5_solve"} | 전체 값 |
+
+</details>
+
+<a id="row-150"></a>
+
+<details>
+<summary>기록 151 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46455 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T04:14:01", "stage": "s5_solve", "label": "다중 기법 해결책 탐색", "index": 6, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-151"></a>
+
+<details>
+<summary>기록 152 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46456 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, decision_id, tracks, pending_tracks, required_tracks … | [전체 값](payloads/b2bacff39da2d34e226ea4c8.md) |
+
+</details>
+
+<a id="row-152"></a>
+
+<details>
+<summary>기록 153 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46457 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T04:14:10", "stage": "S5_SOLVE"} | 전체 값 |
+
+</details>
+
+<a id="row-153"></a>
+
+<details>
+<summary>기록 154 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46458 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "tracks", "ts": "2026-09-30T04:14:18", "tracks": []} | 전체 값 |
+
+</details>
+
+<a id="row-154"></a>
+
+<details>
+<summary>기록 155 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46459 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:14:18", "step_id": "STP-48eb0c9f", "seq": 767, "stage": "S5_SOLVE", "node": "s5_search_retrieval", "label": "특허·논문 검색 수집 상태", "agent": "patent_researcher", "tier": ""} | 전체 값 |
+
+</details>
+
+<a id="row-155"></a>
+
+<details>
+<summary>기록 156 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46460 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/841d3a066d9771dfafced836.md) |
+
+</details>
+
+<a id="row-156"></a>
+
+<details>
+<summary>기록 157 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46461 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, queries_used, query_limit, patent_provider_configured, patent_search … | [전체 값](payloads/932b285f3d2e5678a54818ac.md) |
+
+</details>
+
+<a id="row-157"></a>
+
+<details>
+<summary>기록 158 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46462 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:15:23", "step_id": "STP-25eb1abb", "seq": 768, "stage": "S5_SOLVE", "node": "s5_merge", "label": "전체 아이디어 통합 검토·대표안 선정", "agent": "solution_curator", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-158"></a>
+
+<details>
+<summary>기록 159 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46463 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, node, step_id, verdict, score … | [전체 값](payloads/1d50ca4768fd2b033e72517c.md) |
+
+</details>
+
+<a id="row-159"></a>
+
+<details>
+<summary>기록 160 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46464 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, node, step_id, verdict, score … | [전체 값](payloads/a97be864470ee16d0628b6d1.md) |
+
+</details>
+
+<a id="row-160"></a>
+
+<details>
+<summary>기록 161 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46465 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:16:28", "node": "s5_merge", "step_id": "STP-25eb1abb", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 3, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-161"></a>
+
+<details>
+<summary>기록 162 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46466 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/b9550edf51d2077ab460aba2.md) |
+
+</details>
+
+<a id="row-162"></a>
+
+<details>
+<summary>기록 163 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46467 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, kind, data | [전체 값](payloads/373825e88d4d3a87024f5b48.md) |
+
+</details>
+
+<a id="row-163"></a>
+
+<details>
+<summary>기록 164 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46468 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T04:16:45", "stage": "s5_solve", "index": 7} | 전체 값 |
+
+</details>
+
+<a id="row-164"></a>
+
+<details>
+<summary>기록 165 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46469 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T04:17:03", "stage": "s6_concept", "label": "개념 구체화", "index": 7, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-165"></a>
+
+<details>
+<summary>기록 166 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46470 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T04:17:21", "stage": "S6_CONCEPT"} | 전체 값 |
+
+</details>
+
+<a id="row-166"></a>
+
+<details>
+<summary>기록 167 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46471 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:17:59", "step_id": "STP-3559b148", "seq": 769, "stage": "S6_CONCEPT", "node": "s6_concept", "label": "해결 개념 구체화 (1/3)", "agent": "concept_architect", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-167"></a>
+
+<details>
+<summary>기록 168 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46472 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:17:59", "step_id": "STP-89e7e646", "seq": 770, "stage": "S6_CONCEPT", "node": "s6_concept", "label": "해결 개념 구체화 (2/3)", "agent": "concept_architect", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-168"></a>
+
+<details>
+<summary>기록 169 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46473 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:17:59", "step_id": "STP-ec5338cd", "seq": 771, "stage": "S6_CONCEPT", "node": "s6_concept", "label": "해결 개념 구체화 (3/3)", "agent": "concept_architect", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-169"></a>
+
+<details>
+<summary>기록 170 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46474 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:18:34", "node": "s6_concept", "step_id": "STP-ec5338cd", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-170"></a>
+
+<details>
+<summary>기록 171 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46475 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/e95050e6857f428e29a6fdbf.md) |
+
+</details>
+
+<a id="row-171"></a>
+
+<details>
+<summary>기록 172 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46476 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:18:54", "node": "s6_concept", "step_id": "STP-3559b148", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-172"></a>
+
+<details>
+<summary>기록 173 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46477 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/45548d95526543ced5006115.md) |
+
+</details>
+
+<a id="row-173"></a>
+
+<details>
+<summary>기록 174 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46478 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:19:02", "node": "s6_concept", "step_id": "STP-89e7e646", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-174"></a>
+
+<details>
+<summary>기록 175 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46479 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/fdd4b6399b13461405d5ef9a.md) |
+
+</details>
+
+<a id="row-175"></a>
+
+<details>
+<summary>기록 176 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46480 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:19:13", "step_id": "STP-a33e9678", "seq": 772, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (1/8)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-176"></a>
+
+<details>
+<summary>기록 177 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46481 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/c76bf80203652b1b546e7a67.md) |
+
+</details>
+
+<a id="row-177"></a>
+
+<details>
+<summary>기록 178 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46482 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:19:34", "step_id": "STP-93b57d68", "seq": 773, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (2/8)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-178"></a>
+
+<details>
+<summary>기록 179 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46483 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/0a3054c93f7dae1d6efa9e28.md) |
+
+</details>
+
+<a id="row-179"></a>
+
+<details>
+<summary>기록 180 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46484 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:19:54", "step_id": "STP-0bf53c71", "seq": 774, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (3/8)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-180"></a>
+
+<details>
+<summary>기록 181 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46485 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/b62f7953ad29a6e1361a8732.md) |
+
+</details>
+
+<a id="row-181"></a>
+
+<details>
+<summary>기록 182 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46486 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:20:10", "step_id": "STP-27775be7", "seq": 775, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (4/8)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-182"></a>
+
+<details>
+<summary>기록 183 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46487 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/f85674f554e6abda1a7d75f2.md) |
+
+</details>
+
+<a id="row-183"></a>
+
+<details>
+<summary>기록 184 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46488 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:20:33", "step_id": "STP-2689da15", "seq": 776, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (5/8)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-184"></a>
+
+<details>
+<summary>기록 185 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46489 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/cc727e1e66fa2dcbd84de81d.md) |
+
+</details>
+
+<a id="row-185"></a>
+
+<details>
+<summary>기록 186 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46490 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:20:54", "step_id": "STP-2360ffd4", "seq": 777, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (6/8)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-186"></a>
+
+<details>
+<summary>기록 187 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46491 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/bd7e1001147a0e030ccc498a.md) |
+
+</details>
+
+<a id="row-187"></a>
+
+<details>
+<summary>기록 188 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46492 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:21:19", "step_id": "STP-ee33f993", "seq": 778, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (7/8)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-188"></a>
+
+<details>
+<summary>기록 189 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46493 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/d9c8e7fc4ca37df577b379f6.md) |
+
+</details>
+
+<a id="row-189"></a>
+
+<details>
+<summary>기록 190 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46494 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:21:41", "step_id": "STP-d647dc05", "seq": 779, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (8/8)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-190"></a>
+
+<details>
+<summary>기록 191 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46495 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/da96ad39af46eda086669ac8.md) |
+
+</details>
+
+<a id="row-191"></a>
+
+<details>
+<summary>기록 192 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46496 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, kind, data | [전체 값](payloads/9585be5d61b08cdc76dfafea.md) |
+
+</details>
+
+<a id="row-192"></a>
+
+<details>
+<summary>기록 193 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46497 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T04:22:34", "stage": "s6_concept", "index": 8} | 전체 값 |
+
+</details>
+
+<a id="row-193"></a>
+
+<details>
+<summary>기록 194 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46498 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T04:22:54", "stage": "s7_gate", "label": "제약 검토", "index": 8, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-194"></a>
+
+<details>
+<summary>기록 195 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46499 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/a91fb94c1c7a5d375590a148.md) |
+
+</details>
+
+<a id="row-195"></a>
+
+<details>
+<summary>기록 196 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46500 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:23:27", "node": "ax_repair_gap-bd9a38e4e0b0f6aea7fe0620_0", "step_id": "STP-7d84296c", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-196"></a>
+
+<details>
+<summary>기록 197 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46501 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/ff42bec7ff01eaae0ac61fa1.md) |
+
+</details>
+
+<a id="row-197"></a>
+
+<details>
+<summary>기록 198 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46502 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:23:28", "step_id": "STP-acce7339", "seq": 781, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (1/1)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-198"></a>
+
+<details>
+<summary>기록 199 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46503 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/82124a945ad4aa5d74329689.md) |
+
+</details>
+
+<a id="row-199"></a>
+
+<details>
+<summary>기록 200 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46504 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/f9b657272c162f87332d7653.md) |
+
+</details>
+
+<a id="row-200"></a>
+
+<details>
+<summary>기록 201 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46505 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:24:16", "node": "ax_repair_gap-bd9a38e4e0b0f6aea7fe0620_1", "step_id": "STP-e915faf4", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-201"></a>
+
+<details>
+<summary>기록 202 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46506 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/6216acbcc3f01e4d3e7b5068.md) |
+
+</details>
+
+<a id="row-202"></a>
+
+<details>
+<summary>기록 203 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46507 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:24:16", "step_id": "STP-721585da", "seq": 783, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (1/1)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-203"></a>
+
+<details>
+<summary>기록 204 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46508 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/2bf087cfa075b78f6f88d558.md) |
+
+</details>
+
+<a id="row-204"></a>
+
+<details>
+<summary>기록 205 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46509 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/2e5481de275d661a707e1385.md) |
+
+</details>
+
+<a id="row-205"></a>
+
+<details>
+<summary>기록 206 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46510 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:25:05", "node": "ax_repair_gap-f705ac45d5656e38b0c6b5e9_0", "step_id": "STP-8f4daabd", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-206"></a>
+
+<details>
+<summary>기록 207 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46511 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/1603bbceb920e8c92f26100c.md) |
+
+</details>
+
+<a id="row-207"></a>
+
+<details>
+<summary>기록 208 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46512 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:25:06", "step_id": "STP-23e9a3a9", "seq": 785, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (1/1)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-208"></a>
+
+<details>
+<summary>기록 209 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46513 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/167f64f46192964381e57707.md) |
+
+</details>
+
+<a id="row-209"></a>
+
+<details>
+<summary>기록 210 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46514 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/9fbd167f5f8e9d0747081b7b.md) |
+
+</details>
+
+<a id="row-210"></a>
+
+<details>
+<summary>기록 211 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46526 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:25:58", "node": "ax_repair_gap-f705ac45d5656e38b0c6b5e9_1", "step_id": "STP-120c1bac", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-211"></a>
+
+<details>
+<summary>기록 212 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46527 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/71a2c8ac24bdf62122ab4748.md) |
+
+</details>
+
+<a id="row-212"></a>
+
+<details>
+<summary>기록 213 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46528 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:25:59", "step_id": "STP-ee6a01ff", "seq": 787, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (1/1)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-213"></a>
+
+<details>
+<summary>기록 214 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46544 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/6da91994db93b7587ec9a38c.md) |
+
+</details>
+
+<a id="row-214"></a>
+
+<details>
+<summary>기록 215 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46550 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T04:26:33", "stage": "S7_CONSTRAINT"} | 전체 값 |
+
+</details>
+
+<a id="row-215"></a>
+
+<details>
+<summary>기록 216 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46554 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:26:42", "step_id": "STP-9c0bc933", "seq": 790, "stage": "S7_CONSTRAINT", "node": "s7_gate_3", "label": "제약 검토 3–3/10", "agent": "gatekeeper", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-216"></a>
+
+<details>
+<summary>기록 217 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46555 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:26:42", "step_id": "STP-52870462", "seq": 789, "stage": "S7_CONSTRAINT", "node": "s7_gate_2", "label": "제약 검토 2–2/10", "agent": "gatekeeper", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-217"></a>
+
+<details>
+<summary>기록 218 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46556 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:26:42", "step_id": "STP-2880340b", "seq": 791, "stage": "S7_CONSTRAINT", "node": "s7_gate_4", "label": "제약 검토 4–4/10", "agent": "gatekeeper", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-218"></a>
+
+<details>
+<summary>기록 219 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46557 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:26:42", "step_id": "STP-9427bab2", "seq": 788, "stage": "S7_CONSTRAINT", "node": "s7_gate_1", "label": "제약 검토 1–1/10", "agent": "gatekeeper", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-219"></a>
+
+<details>
+<summary>기록 220 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46573 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:27:06", "node": "s7_gate_4", "step_id": "STP-2880340b", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-220"></a>
+
+<details>
+<summary>기록 221 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46574 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/be95df4867b0963bc840e74a.md) |
+
+</details>
+
+<a id="row-221"></a>
+
+<details>
+<summary>기록 222 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46575 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:27:06", "node": "s7_gate_3", "step_id": "STP-9c0bc933", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-222"></a>
+
+<details>
+<summary>기록 223 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46576 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:27:07", "step_id": "STP-154b59cd", "seq": 792, "stage": "S7_CONSTRAINT", "node": "s7_gate_5", "label": "제약 검토 5–5/10", "agent": "gatekeeper", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-223"></a>
+
+<details>
+<summary>기록 224 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46577 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/1a034631841b81f30b330b49.md) |
+
+</details>
+
+<a id="row-224"></a>
+
+<details>
+<summary>기록 225 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46578 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:27:07", "node": "s7_gate_2", "step_id": "STP-52870462", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-225"></a>
+
+<details>
+<summary>기록 226 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46579 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:27:07", "step_id": "STP-a98e4f7c", "seq": 793, "stage": "S7_CONSTRAINT", "node": "s7_gate_6", "label": "제약 검토 6–6/10", "agent": "gatekeeper", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-226"></a>
+
+<details>
+<summary>기록 227 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46580 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/c5dee747d52edc9057e08503.md) |
+
+</details>
+
+<a id="row-227"></a>
+
+<details>
+<summary>기록 228 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46581 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:27:07", "step_id": "STP-9e178adf", "seq": 794, "stage": "S7_CONSTRAINT", "node": "s7_gate_7", "label": "제약 검토 7–7/10", "agent": "gatekeeper", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-228"></a>
+
+<details>
+<summary>기록 229 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46582 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:27:10", "node": "s7_gate_1", "step_id": "STP-9427bab2", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-229"></a>
+
+<details>
+<summary>기록 230 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46583 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/1b4ce8e0e64a5dd37607b127.md) |
+
+</details>
+
+<a id="row-230"></a>
+
+<details>
+<summary>기록 231 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46584 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:27:10", "step_id": "STP-6b354219", "seq": 795, "stage": "S7_CONSTRAINT", "node": "s7_gate_8", "label": "제약 검토 8–8/10", "agent": "gatekeeper", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-231"></a>
+
+<details>
+<summary>기록 232 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46600 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:27:35", "node": "s7_gate_7", "step_id": "STP-9e178adf", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-232"></a>
+
+<details>
+<summary>기록 233 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46601 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/75606ccae5a12dd5a49710b6.md) |
+
+</details>
+
+<a id="row-233"></a>
+
+<details>
+<summary>기록 234 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46603 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:27:36", "step_id": "STP-8665fdb0", "seq": 796, "stage": "S7_CONSTRAINT", "node": "s7_gate_9", "label": "제약 검토 9–9/10", "agent": "gatekeeper", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-234"></a>
+
+<details>
+<summary>기록 235 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46604 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:27:36", "node": "s7_gate_6", "step_id": "STP-a98e4f7c", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-235"></a>
+
+<details>
+<summary>기록 236 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46605 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/e09fdbf7cbe9e0f48fbb2181.md) |
+
+</details>
+
+<a id="row-236"></a>
+
+<details>
+<summary>기록 237 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46606 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:27:36", "step_id": "STP-b82a464c", "seq": 797, "stage": "S7_CONSTRAINT", "node": "s7_gate_10", "label": "제약 검토 10–10/10", "agent": "gatekeeper", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-237"></a>
+
+<details>
+<summary>기록 238 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46607 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:27:37", "node": "s7_gate_8", "step_id": "STP-6b354219", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-238"></a>
+
+<details>
+<summary>기록 239 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46608 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/170f40e80f19306f26744213.md) |
+
+</details>
+
+<a id="row-239"></a>
+
+<details>
+<summary>기록 240 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46609 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:27:40", "node": "s7_gate_5", "step_id": "STP-154b59cd", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-240"></a>
+
+<details>
+<summary>기록 241 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46610 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/2c15c33959f839307022db2e.md) |
+
+</details>
+
+<a id="row-241"></a>
+
+<details>
+<summary>기록 242 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46614 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:27:53", "node": "s7_gate_9", "step_id": "STP-8665fdb0", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-242"></a>
+
+<details>
+<summary>기록 243 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46615 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/13ab23f2377401547dac4a40.md) |
+
+</details>
+
+<a id="row-243"></a>
+
+<details>
+<summary>기록 244 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46620 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:27:54", "node": "s7_gate_10", "step_id": "STP-b82a464c", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-244"></a>
+
+<details>
+<summary>기록 245 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46621 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/62d0e87d5a7516f79dc19547.md) |
+
+</details>
+
+<a id="row-245"></a>
+
+<details>
+<summary>기록 246 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46622 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "artifact", "ts": "2026-09-30T04:27:54", "kind": "CONSTRAINT_GATE", "data": {"pass": 0, "conditional": 10, "fail": 0}} | 전체 값 |
+
+</details>
+
+<a id="row-246"></a>
+
+<details>
+<summary>기록 247 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46630 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "interrupt", "ts": "2026-09-30T04:28:05", "kind": "DECIDE", "title": "제약 판정이 보류된 해결책을 확인해 주세요", "stage": "s7_gate"} | 전체 값 |
+
+</details>
+
+<a id="row-247"></a>
+
+<details>
+<summary>기록 248 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46669 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T04:29:48", "stage": "s7_gate", "label": "제약 검토", "index": 8, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-248"></a>
+
+<details>
+<summary>기록 249 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46670 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T04:30:07", "stage": "S7_CONSTRAINT"} | 전체 값 |
+
+</details>
+
+<a id="row-249"></a>
+
+<details>
+<summary>기록 250 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46674 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, decisions | [전체 값](payloads/ef9c08c49f3a2b968a32f3e5.md) |
+
+</details>
+
+<a id="row-250"></a>
+
+<details>
+<summary>기록 251 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46675 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T04:30:35", "stage": "s7_gate", "index": 9} | 전체 값 |
+
+</details>
+
+<a id="row-251"></a>
+
+<details>
+<summary>기록 252 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46684 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T04:31:05", "stage": "s8_references", "label": "근거 자료·적용 조건 검토", "index": 9, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-252"></a>
+
+<details>
+<summary>기록 253 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46697 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/a62f7d4fb8903ba927299d7b.md) |
+
+</details>
+
+<a id="row-253"></a>
+
+<details>
+<summary>기록 254 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46702 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:32:16", "node": "ax_repair_gap-26e0db61185158a1836b4b6b_0", "step_id": "STP-e65b5de9", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-254"></a>
+
+<details>
+<summary>기록 255 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46703 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/74b1b6e68e18a445a7991641.md) |
+
+</details>
+
+<a id="row-255"></a>
+
+<details>
+<summary>기록 256 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46704 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:32:18", "step_id": "STP-1e302e13", "seq": 799, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (1/1)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-256"></a>
+
+<details>
+<summary>기록 257 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46712 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/d20de94b4f29e873e97d25e7.md) |
+
+</details>
+
+<a id="row-257"></a>
+
+<details>
+<summary>기록 258 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46718 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/336d68c3cafea8f687870905.md) |
+
+</details>
+
+<a id="row-258"></a>
+
+<details>
+<summary>기록 259 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46742 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:33:29", "node": "ax_repair_gap-26e0db61185158a1836b4b6b_1", "step_id": "STP-2e11af7f", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-259"></a>
+
+<details>
+<summary>기록 260 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46743 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/635dedb7c38b371b59fd44fc.md) |
+
+</details>
+
+<a id="row-260"></a>
+
+<details>
+<summary>기록 261 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46744 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:33:30", "step_id": "STP-002d0250", "seq": 801, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (1/1)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-261"></a>
+
+<details>
+<summary>기록 262 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46750 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/ecf8428dd139d6b1834e60e5.md) |
+
+</details>
+
+<a id="row-262"></a>
+
+<details>
+<summary>기록 263 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46754 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/e3ebc2c82ea8bb91ed0672c5.md) |
+
+</details>
+
+<a id="row-263"></a>
+
+<details>
+<summary>기록 264 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46761 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:35:25", "node": "ax_repair_gap-ab829f5d78d52e0eaeb7afea_0", "step_id": "STP-14c02a17", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-264"></a>
+
+<details>
+<summary>기록 265 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46762 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/3644e89ea3c6f30c77b14130.md) |
+
+</details>
+
+<a id="row-265"></a>
+
+<details>
+<summary>기록 266 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46763 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:35:26", "step_id": "STP-09f1251d", "seq": 803, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (1/1)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-266"></a>
+
+<details>
+<summary>기록 267 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46773 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/c66cd33ade9a95c9d5dbb248.md) |
+
+</details>
+
+<a id="row-267"></a>
+
+<details>
+<summary>기록 268 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46782 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/019bd5c6d8bfec8559ba4e67.md) |
+
+</details>
+
+<a id="row-268"></a>
+
+<details>
+<summary>기록 269 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46787 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:36:55", "node": "ax_repair_gap-ab829f5d78d52e0eaeb7afea_1", "step_id": "STP-bfd2d873", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-269"></a>
+
+<details>
+<summary>기록 270 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46788 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/e06afee846e9f750258da076.md) |
+
+</details>
+
+<a id="row-270"></a>
+
+<details>
+<summary>기록 271 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46789 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:36:57", "step_id": "STP-f85b77fe", "seq": 805, "stage": "S6_CONCEPT", "node": "s6_quality", "label": "독립 품질 검토 (1/1)", "agent": "independent_auditor", "tier": "T3"} | 전체 값 |
+
+</details>
+
+<a id="row-271"></a>
+
+<details>
+<summary>기록 272 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46795 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/f32e2eeecf6b989321600122.md) |
+
+</details>
+
+<a id="row-272"></a>
+
+<details>
+<summary>기록 273 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46798 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T04:37:46", "stage": "S8_REFERENCES"} | 전체 값 |
+
+</details>
+
+<a id="row-273"></a>
+
+<details>
+<summary>기록 274 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46800 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:37:55", "step_id": "STP-a1cef78f", "seq": 806, "stage": "S8_REFERENCES", "node": "s9_search_retrieval", "label": "특허·논문 검색 수집 상태", "agent": "patent_researcher", "tier": ""} | 전체 값 |
+
+</details>
+
+<a id="row-274"></a>
+
+<details>
+<summary>기록 275 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46862 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/664308255ba11952c0f9d5a9.md) |
+
+</details>
+
+<a id="row-275"></a>
+
+<details>
+<summary>기록 276 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46863 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, queries_used, query_limit, patent_provider_configured, patent_search … | [전체 값](payloads/fde6664f8c4916f7d3fe87af.md) |
+
+</details>
+
+<a id="row-276"></a>
+
+<details>
+<summary>기록 277 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46864 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:40:53", "step_id": "STP-461665dc", "seq": 807, "stage": "S8_REFERENCES", "node": "s9_evidence_match_0", "label": "특허·논문 적용성 검토", "agent": "patent_researcher", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-277"></a>
+
+<details>
+<summary>기록 278 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46873 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:41:28", "node": "s9_evidence_match_0", "step_id": "STP-461665dc", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-278"></a>
+
+<details>
+<summary>기록 279 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46874 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/c036061b48ea1b0e9664b552.md) |
+
+</details>
+
+<a id="row-279"></a>
+
+<details>
+<summary>기록 280 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46875 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:41:28", "step_id": "STP-5bbf98ea", "seq": 808, "stage": "S8_REFERENCES", "node": "s9_evidence_match_1", "label": "특허·논문 적용성 검토", "agent": "patent_researcher", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-280"></a>
+
+<details>
+<summary>기록 281 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46876 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:41:53", "node": "s9_evidence_match_1", "step_id": "STP-5bbf98ea", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-281"></a>
+
+<details>
+<summary>기록 282 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46877 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/3f2809d83e8760d218d802b6.md) |
+
+</details>
+
+<a id="row-282"></a>
+
+<details>
+<summary>기록 283 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46878 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:41:54", "step_id": "STP-fd4331ca", "seq": 809, "stage": "S8_REFERENCES", "node": "s9_evidence_match_2", "label": "특허·논문 적용성 검토", "agent": "patent_researcher", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-283"></a>
+
+<details>
+<summary>기록 284 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46888 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:42:32", "node": "s9_evidence_match_2", "step_id": "STP-fd4331ca", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-284"></a>
+
+<details>
+<summary>기록 285 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46891 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/f11aba5ee878f2dcc31357a2.md) |
+
+</details>
+
+<a id="row-285"></a>
+
+<details>
+<summary>기록 286 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46892 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:42:35", "step_id": "STP-029afaa7", "seq": 810, "stage": "S8_REFERENCES", "node": "s9_evidence_match_3", "label": "특허·논문 적용성 검토", "agent": "patent_researcher", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-286"></a>
+
+<details>
+<summary>기록 287 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46909 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:43:07", "node": "s9_evidence_match_3", "step_id": "STP-029afaa7", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-287"></a>
+
+<details>
+<summary>기록 288 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46911 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/7e51ddad812404cde2f0ad84.md) |
+
+</details>
+
+<a id="row-288"></a>
+
+<details>
+<summary>기록 289 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46921 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T04:43:38", "stage": "s8_references", "index": 10} | 전체 값 |
+
+</details>
+
+<a id="row-289"></a>
+
+<details>
+<summary>기록 290 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46926 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T04:44:01", "stage": "s8_evaluate", "label": "다직군 평가", "index": 10, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-290"></a>
+
+<details>
+<summary>기록 291 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46927 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T04:44:09", "stage": "S8_EVALUATE"} | 전체 값 |
+
+</details>
+
+<a id="row-291"></a>
+
+<details>
+<summary>기록 292 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46931 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:44:19", "step_id": "STP-197884fd", "seq": 811, "stage": "S8_EVALUATE", "node": "s8_persona_factory", "label": "검토 페르소나 생성", "agent": "role_router", "tier": "T1"} | 전체 값 |
+
+</details>
+
+<a id="row-292"></a>
+
+<details>
+<summary>기록 293 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46935 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:44:37", "node": "s8_persona_factory", "step_id": "STP-197884fd", "verdict": "PASS", "score": 1.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-293"></a>
+
+<details>
+<summary>기록 294 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46936 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/a13762e09bf9721b43ce93e0.md) |
+
+</details>
+
+<a id="row-294"></a>
+
+<details>
+<summary>기록 295 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46937 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, reviewers | [전체 값](payloads/377a383909d517a05895dd29.md) |
+
+</details>
+
+<a id="row-295"></a>
+
+<details>
+<summary>기록 296 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46938 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "review_phase", "ts": "2026-09-30T04:44:49", "phase": "independent", "label": "직군별 독립 평가", "rounds": 0} | 전체 값 |
+
+</details>
+
+<a id="row-296"></a>
+
+<details>
+<summary>기록 297 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46939 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/26bdd7cd06f8e78ea4ea4c4b.md) |
+
+</details>
+
+<a id="row-297"></a>
+
+<details>
+<summary>기록 298 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46940 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/8b4c6f57cda1538920075802.md) |
+
+</details>
+
+<a id="row-298"></a>
+
+<details>
+<summary>기록 299 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46941 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/ea44e0ee904edfb2218713aa.md) |
+
+</details>
+
+<a id="row-299"></a>
+
+<details>
+<summary>기록 300 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46942 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/9b61d8101f4a3264b3850590.md) |
+
+</details>
+
+<a id="row-300"></a>
+
+<details>
+<summary>기록 301 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46952 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:45:51", "node": "s8_review_independent", "step_id": "STP-31f25af6", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-301"></a>
+
+<details>
+<summary>기록 302 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46953 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:45:51", "node": "s8_review_independent", "step_id": "STP-f87d76ab", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-302"></a>
+
+<details>
+<summary>기록 303 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46954 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/502a591a1f6842dab5504d7f.md) |
+
+</details>
+
+<a id="row-303"></a>
+
+<details>
+<summary>기록 304 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46955 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/4b9d0837fac7be7e7608c661.md) |
+
+</details>
+
+<a id="row-304"></a>
+
+<details>
+<summary>기록 305 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46964 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/5c940ec2aeca924bd31e85da.md) |
+
+</details>
+
+<a id="row-305"></a>
+
+<details>
+<summary>기록 306 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46965 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:46:11", "node": "s8_review_independent", "step_id": "STP-55f99884", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-306"></a>
+
+<details>
+<summary>기록 307 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46966 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/57025c4bb6c108969b5023f0.md) |
+
+</details>
+
+<a id="row-307"></a>
+
+<details>
+<summary>기록 308 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46967 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:46:11", "node": "s8_review_independent", "step_id": "STP-0517e697", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-308"></a>
+
+<details>
+<summary>기록 309 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46968 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/10eeeeb6794f28b1278c19f3.md) |
+
+</details>
+
+<a id="row-309"></a>
+
+<details>
+<summary>기록 310 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46969 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/e2c47dae43fb9c0d73ec8b17.md) |
+
+</details>
+
+<a id="row-310"></a>
+
+<details>
+<summary>기록 311 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46973 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/1bb41f27e1108842ce7edfe3.md) |
+
+</details>
+
+<a id="row-311"></a>
+
+<details>
+<summary>기록 312 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46974 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/ab8dc9b66b0542c28a4d91f6.md) |
+
+</details>
+
+<a id="row-312"></a>
+
+<details>
+<summary>기록 313 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46998 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:47:19", "node": "s8_review_independent", "step_id": "STP-d502940a", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-313"></a>
+
+<details>
+<summary>기록 314 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 46999 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:47:19", "node": "s8_review_independent", "step_id": "STP-b3b5cfd2", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-314"></a>
+
+<details>
+<summary>기록 315 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47000 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/86e958886cb52d990f43071c.md) |
+
+</details>
+
+<a id="row-315"></a>
+
+<details>
+<summary>기록 316 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47001 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/409a4835e76160892a9c52ec.md) |
+
+</details>
+
+<a id="row-316"></a>
+
+<details>
+<summary>기록 317 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47012 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:47:53", "node": "s8_review_independent", "step_id": "STP-49d27218", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-317"></a>
+
+<details>
+<summary>기록 318 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47013 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:47:55", "node": "s8_review_independent", "step_id": "STP-1e3b72ec", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-318"></a>
+
+<details>
+<summary>기록 319 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47016 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/9ac6e00d8bd8b862339ce6f1.md) |
+
+</details>
+
+<a id="row-319"></a>
+
+<details>
+<summary>기록 320 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47017 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/86941c71305161cb077a5501.md) |
+
+</details>
+
+<a id="row-320"></a>
+
+<details>
+<summary>기록 321 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47018 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/1f54b7bf6b809467c86d3a0e.md) |
+
+</details>
+
+<a id="row-321"></a>
+
+<details>
+<summary>기록 322 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47020 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/84c6cb545761abf1fcd9574c.md) |
+
+</details>
+
+<a id="row-322"></a>
+
+<details>
+<summary>기록 323 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47025 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:49:23", "node": "s8_review_independent", "step_id": "STP-3dec6b7b", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-323"></a>
+
+<details>
+<summary>기록 324 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47026 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:49:23", "node": "s8_review_independent", "step_id": "STP-654bd5ef", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-324"></a>
+
+<details>
+<summary>기록 325 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47038 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/8cd8da6ac862960ad40655fd.md) |
+
+</details>
+
+<a id="row-325"></a>
+
+<details>
+<summary>기록 326 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47039 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/e75771542d0729abc483d028.md) |
+
+</details>
+
+<a id="row-326"></a>
+
+<details>
+<summary>기록 327 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47045 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/bdd8447d44a0f585229e7abb.md) |
+
+</details>
+
+<a id="row-327"></a>
+
+<details>
+<summary>기록 328 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47046 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, seq, stage, node … | [전체 값](payloads/d6eb69fe8e7a25fb9ec39bb0.md) |
+
+</details>
+
+<a id="row-328"></a>
+
+<details>
+<summary>기록 329 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47059 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:53:03", "node": "s8_review_independent", "step_id": "STP-e0b2df13", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-329"></a>
+
+<details>
+<summary>기록 330 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47060 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/f57d8316d064dbe1f3b4b710.md) |
+
+</details>
+
+<a id="row-330"></a>
+
+<details>
+<summary>기록 331 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47062 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:53:25", "node": "s8_review_independent", "step_id": "STP-e1514a7c", "verdict": "UNVERIFIED", "score": 0.0, "attempt": 1, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-331"></a>
+
+<details>
+<summary>기록 332 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47065 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/e557d9b41e6c0e8eecab73a7.md) |
+
+</details>
+
+<a id="row-332"></a>
+
+<details>
+<summary>기록 333 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47067 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "review_phase", "ts": "2026-09-30T04:53:59", "phase": "completed", "label": "직군별 독립 평가 완료", "rounds": 0} | 전체 값 |
+
+</details>
+
+<a id="row-333"></a>
+
+<details>
+<summary>기록 334 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47068 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "node_start", "ts": "2026-09-30T04:53:59", "step_id": "STP-a594cc12", "seq": 824, "stage": "S8_EVALUATE", "node": "s8_rank", "label": "포트폴리오 구성·우선순위", "agent": "portfolio_manager", "tier": "T2"} | 전체 값 |
+
+</details>
+
+<a id="row-334"></a>
+
+<details>
+<summary>기록 335 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47069 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:54:32", "node": "s8_rank", "step_id": "STP-a594cc12", "verdict": "REVISE", "score": 0.0, "attempt": 1, "instructions": ["FATAL-RANK: 모든 입력 후보를 정확히 한 번씩 포함하세요."]} | 전체 값 |
+
+</details>
+
+<a id="row-335"></a>
+
+<details>
+<summary>기록 336 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47075 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "verify", "ts": "2026-09-30T04:55:25", "node": "s8_rank", "step_id": "STP-a594cc12", "verdict": "PASS", "score": 1.0, "attempt": 2, "instructions": []} | 전체 값 |
+
+</details>
+
+<a id="row-336"></a>
+
+<details>
+<summary>기록 337 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47076 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, step_id, node, label, status … | [전체 값](payloads/ecaa0ae6456cfab01ee009a3.md) |
+
+</details>
+
+<a id="row-337"></a>
+
+<details>
+<summary>기록 338 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47077 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | 객체 · type, ts, kind, data | [전체 값](payloads/752cf0c38ac7c0abbf1cfabb.md) |
+
+</details>
+
+<a id="row-338"></a>
+
+<details>
+<summary>기록 339 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47078 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T04:55:50", "stage": "s8_evaluate", "index": 11} | 전체 값 |
+
+</details>
+
+<a id="row-339"></a>
+
+<details>
+<summary>기록 340 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47080 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T04:56:12", "stage": "s9_report", "label": "시각화 보고서", "index": 11, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-340"></a>
+
+<details>
+<summary>기록 341 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47086 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T04:56:55", "stage": "S9_REPORT"} | 전체 값 |
+
+</details>
+
+<a id="row-341"></a>
+
+<details>
+<summary>기록 342 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47093 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "report", "ts": "2026-09-30T04:57:42", "length": 348303} | 전체 값 |
+
+</details>
+
+<a id="row-342"></a>
+
+<details>
+<summary>기록 343 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47094 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T04:58:08", "stage": "s9_report", "index": 12} | 전체 값 |
+
+</details>
+
+<a id="row-343"></a>
+
+<details>
+<summary>기록 344 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47126 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T05:00:52", "stage": "s10_feedback", "label": "피드백", "index": 12, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-344"></a>
+
+<details>
+<summary>기록 345 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47147 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T05:01:37", "stage": "S10_FEEDBACK"} | 전체 값 |
+
+</details>
+
+<a id="row-345"></a>
+
+<details>
+<summary>기록 346 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47161 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "interrupt", "ts": "2026-09-30T05:02:02", "kind": "FEEDBACK", "title": "해결책에 대한 피드백을 남겨 주세요", "stage": "s10_feedback"} | 전체 값 |
+
+</details>
+
+<a id="row-346"></a>
+
+<details>
+<summary>기록 347 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47269 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_start", "ts": "2026-09-30T05:06:21", "stage": "s10_feedback", "label": "피드백", "index": 12, "total": 13} | 전체 값 |
+
+</details>
+
+<a id="row-347"></a>
+
+<details>
+<summary>기록 348 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47273 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage", "ts": "2026-09-30T05:06:37", "stage": "S10_FEEDBACK"} | 전체 값 |
+
+</details>
+
+<a id="row-348"></a>
+
+<details>
+<summary>기록 349 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47274 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "rag_write", "ts": "2026-09-30T05:06:45", "records": 0} | 전체 값 |
+
+</details>
+
+<a id="row-349"></a>
+
+<details>
+<summary>기록 350 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47276 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "stage_end", "ts": "2026-09-30T05:07:05", "stage": "s10_feedback", "index": 13} | 전체 값 |
+
+</details>
+
+<a id="row-350"></a>
+
+<details>
+<summary>기록 351 · 전체 저장값</summary>
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `id` | 47278 | 전체 값 |
+| `run_id` | "run-baa72a38ef40c8c63155ffc7a1dd25ee" | 전체 값 |
+| `payload` | {"type": "done", "ts": "2026-09-30T05:07:16", "cost": 8.582863} | 전체 값 |
 
 </details>

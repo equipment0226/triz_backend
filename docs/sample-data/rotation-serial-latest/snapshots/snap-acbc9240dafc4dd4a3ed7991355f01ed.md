@@ -1,0 +1,16 @@
+# 저장 시점 · stage_read_set
+
+[산출물·스냅샷 목록](../ARTIFACTS.md)
+
+| 항목 | 저장값 |
+|---|---|
+| snapshot_id | snap-acbc9240dafc4dd4a3ed7991355f01ed |
+| epoch | 55 |
+| created_at | 2026-09-30T03:58:14.974699+00:00 |
+| reason | stage_read_set |
+| manifest_hash | 9e52304800922d3a47ae54687fc029c4fd724afea0b46e012adcca27a24fc183 |
+
+| 산출물 | 버전 ID | 전체 데이터 |
+|---|---|---|
+| input | av-6cda3a4a5db74300a4e9ca3b58ed19cc | [읽기](../artifacts/input-av-6cda3a4a5db74300a4e9ca3b58ed19cc.md) |
+| problem | av-3cac57b29aa74c25bdd706c2e40db825 | [읽기](../artifacts/problem-av-3cac57b29aa74c25bdd706c2e40db825.md) |

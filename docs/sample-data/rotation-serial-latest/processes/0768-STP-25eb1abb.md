@@ -1,0 +1,55 @@
+# 전체 아이디어 통합 검토·대표안 선정
+
+[다중 기법 해결책 탐색](../stages/07-s5-solve.md)
+
+| 항목 | 저장값 |
+|---|---|
+| step_id / seq | STP-25eb1abb / 768 |
+| 실제 Stage / DB stage | s5_solve / S5_SOLVE |
+| node | s5_merge |
+| Agent / Prompt | solution_curator / P_S5_MERGE |
+| 등급 / 모델 | T2 / deepseek-flash |
+| 상태 / 판정 | WARN / UNVERIFIED |
+| KST 시작 / 종료 | 2026-09-30 13:15:23 / 2026-09-30 13:16:28 |
+| 저장 비용 USD | 0.0935673 |
+| 입력 / 출력 토큰 | 250015 / 15469 |
+| 범위 | CURRENT_RERUN |
+
+## Input · 실제 전달 변수
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `all_ideas` | 배열 76개 | [전체 값](../payloads/c6354dd4bc331df2c2d93d0a.md) |
+| `allowed_idea_ids` | 배열 76개 | [전체 값](../payloads/5879b572607db4316b3ed254.md) |
+| `facts` | 객체 · user_query, frame, attachments, answers, deep_dive_answers, deep_dive_answer_turns … | [전체 값](../payloads/cda155e8088903c753502d7f.md) |
+| `redefinition_hints` | 배열 2개 | [전체 값](../payloads/5a351efd0b4ec8b715798b6b.md) |
+| `causal_packet` | 배열 11개 | [전체 값](../payloads/32d370f883c413b6041fd5a1.md) |
+| `evidence` | 배열 6개 | [전체 값](../payloads/93305731715daf7a292d51dd.md) |
+| `key_problems` | 배열 3개 | [전체 값](../payloads/1aa7815557e00016904b8b44.md) |
+| `contradictions` | 배열 16개 | [전체 값](../payloads/7b5b30717f9ee6e6160f9089.md) |
+| `constraints` | 객체 · items, open_questions | [전체 값](../payloads/4fcb96787e2cf84e20b67873.md) |
+| `consolidation_contract` | [전체 원안 검토·대표 아이디어 최대 10개 계약 v2 — 이전의 무제한 유지 지시보다 우선] 모든 입력을 비교 검토한 뒤 후속 상세검토할 대표 ideas를 최대 10개로 통합·선정한다. 10개를 채울 의무는 없다. 앞 순서, 발상 기법별 할당, 다양… | [전체 값](../payloads/24ca79820bfc9ce49347f476.md) |
+
+## Output · 최종 저장 결과
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `ideas` | 배열 10개 | [전체 값](../payloads/8afc032d2e5b38d64ba61008.md) |
+| `deferred` | 배열 13개 | [전체 값](../payloads/b7c743252637038b3c96e466.md) |
+| `coverage_note` | 전체 입력 76개 원안을 검토하여 10개 대표안으로 통합·선정하고, 14개 원안을 13개 deferred 그룹으로 보류했다. IDEA-8e8f9190은 대표안 1(부하 상태별 프로파일 분리)에만 단일 배정하고 deferred 중복 배정을 제거했다. 대… | [전체 값](../payloads/c24df1024610c3c551ab2a0e.md) |
+| `gaps` | 배열 3개 | [전체 값](../payloads/1b94c0cf9b0d1f003b7dbc72.md) |
+| `need_more` | false | 전체 값 |
+
+## 검증과 추적
+
+| 필드 | 저장값 / 미리보기 | 상세 |
+|---|---|---|
+| `verdicts` | 배열 3개 | [전체 값](../payloads/17e6426e746d5ebc09b25429.md) |
+| `error` | "" | 전체 값 |
+| `input_metadata` | 객체 · prompt_id, prompt_hash, replay_source | [전체 값](../payloads/e238b5b49566a9f8dc50bb9c.md) |
+| `prompt_text_fingerprints` | {"system": {"sha256": "9673487b77f6e6cff6555d401424c0344ba6dda8365865b278ad83d3ddc06ef8", "utf8_bytes": 6842}, "user": {"sha256": "ca94f0f504d50a85ca219c6bdadfb159c849e2fc7a89ceb92159da07632df362", "utf8_bytes": 386191}} | 전체 값 |
+| `step_metadata` | 객체 · step_id, run_id, seq, stage, node, label … | [전체 값](../payloads/123f4ff73d8a279a91e51aff.md) |
+
+출처: `steps.input_slice`, `output_json`, `verdicts`. 구조 검사 통과와 기술적 제약 판정은 서로 다릅니다. 중간 수정 응답은 새로 만들지 않았습니다. Step 비용은 실행 당시 원본이며 비용정정으로 덮어쓰지 않았습니다. 정정 반영 합계는 비용 비교표를 확인합니다.
+
+[원본 비용·정정 비용 비교](../COSTS.md)

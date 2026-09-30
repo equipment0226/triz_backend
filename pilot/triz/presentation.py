@@ -94,10 +94,14 @@ def view(state):
     from .display_terms import display_text
     from .render import _ENUM_KO
     from .labels import _structural
+    from .reference_titles import protected_fields, title as reference_title
     def readable(value):
         if isinstance(value,str): return display_text(value,_ENUM_KO)
         if isinstance(value,list): return [readable(v) for v in value]
-        if isinstance(value,dict): return {k:v if _structural(k) else readable(v) for k,v in value.items()}
+        if isinstance(value,dict):
+            protected=protected_fields(value)
+            return {k:reference_title(value) if k=='title' and protected else
+                v if _structural(k) or k in protected else readable(v) for k,v in value.items()}
         return value
     for solution in result['solutions']:
         for key in ('title','summary','description','mechanism','changes','effect','assumptions','risks',

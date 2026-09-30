@@ -39,12 +39,17 @@ def plain_text(value):
     return result
 
 def plain_value(value):
+    from .reference_titles import protected_fields, title as reference_title
+    protected = protected_fields(value)
     if isinstance(value, str):
         return plain_text(value)
     if isinstance(value, BaseModel):
-        return value.model_copy(update={k: plain_value(getattr(value, k)) for k in type(value).model_fields})
+        return value.model_copy(update={k: reference_title(value) if k == 'title' and protected else
+            getattr(value, k) if k in protected else plain_value(getattr(value, k)) for k in type(value).model_fields})
     if isinstance(value, dict):
-        return {k: v if k in ('url', 'identifier', 'id', 'run_id', 'user_id', 'markdown') else plain_value(v) for k, v in value.items()}
+        return {k: reference_title(value) if k == 'title' and protected else
+            v if k in protected or k in ('url', 'identifier', 'id', 'run_id', 'user_id', 'markdown') else plain_value(v)
+            for k, v in value.items()}
     if isinstance(value, list):
         return [plain_value(v) for v in value]
     return value
@@ -78,6 +83,7 @@ def report_state(state):
     return result
 
 def reference_cards(state, concept):
+    from .reference_titles import title as reference_title
     labels = build_label_map(state)
     def human(s): return plain_text(humanize(str(s or ''), labels))
     cards = []
@@ -85,7 +91,7 @@ def reference_cards(state, concept):
         if not r.url.startswith(('https://', 'http://')):
             continue
         mapping = state.scratch.get('evidence_mappings', {}).get(concept.id, {}).get(r.identifier, {})
-        cards.append(dict(title=r.title or r.claim, url=r.url, kind={'PATENT':'특허','PAPER':'논문'}.get(r.source_type,'참고자료'),
+        cards.append(dict(title=reference_title(r) or r.claim, url=r.url, kind={'PATENT':'특허','PAPER':'논문'}.get(r.source_type,'참고자료'),
             description=human(mapping.get('mechanism') or r.claim), scope=human(r.evidence_scope),
             identifier=r.identifier, status='연결 근거' if r.verified else '미검증 참고자료'))
     for related in state.scratch.get('related_references', []):
@@ -94,7 +100,7 @@ def reference_cards(state, concept):
         r = related['reference']
         if not r.get('url', '').startswith(('https://', 'http://')):
             continue
-        cards.append(dict(title=r['title'], url=r['url'], kind='특허' if r.get('source_type')=='PATENT' else '논문',
+        cards.append(dict(title=reference_title(r), url=r['url'], kind='특허' if r.get('source_type')=='PATENT' else '논문',
             description=human(related.get('reason')), scope='', identifier=r.get('identifier',''),
             status='유사 사례 · 적용성 추가 검토 필요'))
     return cards
@@ -103,7 +109,7 @@ def references_html(state, concept):
     out = ['<div class="reference-list">']
     for r in reference_cards(state, concept):
         out.append('<article class="reference-card"><p class="reference-status">'+escape(r['status'])+'</p>'
-            '<a class="reference-title" target="_blank" rel="noopener noreferrer" href="'+escape(r['url'],quote=True)+'">'
+            '<a class="reference-title" translate="no" target="_blank" rel="noopener noreferrer" href="'+escape(r['url'],quote=True)+'">'
             '<span class="reference-kind">'+escape(r['kind'])+'</span> '+escape(r['title'])+' ↗</a>'
             '<p class="reference-description">'+escape(r['description'])+'</p>'
             '<p class="reference-meta">'+escape(r['identifier']+' · '+r['scope'])+'</p></article>')

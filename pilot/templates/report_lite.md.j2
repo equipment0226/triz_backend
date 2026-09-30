@@ -67,7 +67,7 @@
 - **필요 자원**: {{ c.required_resources | join(', ') }}
 - **위험**: {{ c.open_risks | join(' / ') }}
 {% if c.evidence_ids %}
-- **참고자료**: {% for eid in c.evidence_ids %}{% set ev = evidence_map.get(eid) %}{% if ev and ev.url %}[{{ ev.title[:40] or ev.identifier }}]({{ ev.url }}){{ ' · ' if not loop.last }}{% endif %}{% endfor %}
+- **참고자료**: {% for eid in c.evidence_ids %}{% set ev = evidence_map.get(eid) %}{% if ev and ev.url %}[{{ ev.title or ev.identifier }}]({{ ev.url }}){{ ' · ' if not loop.last }}{% endif %}{% endfor %}
 {% endif %}
 **다직군 평가**
 

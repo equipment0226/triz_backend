@@ -929,7 +929,7 @@
 | # | 유형 | 제목 | 식별자 | 연도 | 링크 |
 |---|---|---|---|---|---|
 {% for ev in linked %}
-| {{ ( loop.index ) | cell }} | {{ ( SOURCE_KO.get(ev.source_type, ev.source_type) ) | cell }} | {{ ( ev.title or ev.claim ) | cell }} | {{ ( ev.identifier or '-' ) | cell }} | {{ ( ev.year or '-' ) | cell }} | [열기]({{ ( ev.url ) | cell }}) |
+| {{ ( loop.index ) | cell }} | {{ ( SOURCE_KO.get(ev.source_type, ev.source_type) ) | cell }} | {{ ev.title | title_cell if ev.title else ev.claim | cell }} | {{ ( ev.identifier or '-' ) | cell }} | {{ ( ev.year or '-' ) | cell }} | [열기]({{ ( ev.url ) | cell }}) |
 {% endfor %}
 {% else %}
 검색으로 확보한 참고자료 없음.

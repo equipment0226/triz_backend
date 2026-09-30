@@ -168,15 +168,19 @@ def label_of(value, labels: dict[str, str], keep_code: bool = False) -> str:
 
 def display_value(value, labels):
     """Copy nested display text while retaining machine keys and relationships."""
+    from .reference_titles import protected_fields, title as reference_title
     human = _humanizer(labels)
     def visit(item):
+        protected = protected_fields(item)
         if isinstance(item, str):
             return human(item)
         if isinstance(item, BaseModel):
-            return item.model_copy(update={k: visit(getattr(item, k))
+            return item.model_copy(update={k: reference_title(item) if k == 'title' and protected else
+                getattr(item, k) if k in protected else visit(getattr(item, k))
                 for k in type(item).model_fields if not _structural(k)})
         if isinstance(item, dict):
-            return {k: v if _structural(k) else visit(v) for k, v in item.items()}
+            return {k: reference_title(item) if k == 'title' and protected else
+                v if _structural(k) or k in protected else visit(v) for k, v in item.items()}
         if isinstance(item, list):
             return [visit(v) for v in item]
         if isinstance(item, tuple):

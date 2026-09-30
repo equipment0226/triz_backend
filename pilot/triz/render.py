@@ -372,6 +372,7 @@ def _env(labels: dict[str, str], keep_code: bool = False) -> Environment:
     env.filters["pred"] = predicate
     env.filters["join"] = _safe_join
     env.filters["cell"] = _cell
+    env.filters["title_cell"] = lambda value: re.sub(r"\s*\n\s*", " ", str(value or '')).replace('|', r'\|')
     return env
 
 
@@ -469,7 +470,8 @@ def render_report(state: GlobalState, narrative: dict, template: str = "", *, di
         reformulation_step_titles=STEP_TITLES,
     )
     from .report_style import plain_text
-    return plain_text(_localize(humanize(md, labels)))
+    from .reference_titles import for_state, transform_prose
+    return transform_prose(md, for_state(state), lambda text: plain_text(_localize(humanize(text, labels))))
 
 
 def save(state: GlobalState, markdown: str) -> Path:

@@ -110,10 +110,12 @@ def discover(ctx, before_concepts=False):
         from .ax import enabled as ax_enabled
         if ax_enabled(st) and q['kind']=='PATENT' and settings.patent_search_provider not in ('vector','none','free'):
             hits=[]
-            detail.update(status='UNAVAILABLE',provider=settings.patent_search_provider,errors=['V3 per-run search pricing is not registered'])
+            detail.update(status='UNAVAILABLE',provider=settings.patent_search_provider,
+                errors=[{'provider':settings.patent_search_provider,'reason':'SEARCH_PRICING_NOT_REGISTERED'}])
         elif ax_enabled(st) and q['kind']=='PATENT' and settings.tavily_key and not settings.free_patent_search:
             hits=[]
-            detail.update(status='UNAVAILABLE',provider='tavily',errors=['V3 paid search is not enabled'])
+            detail.update(status='UNAVAILABLE',provider='tavily',
+                errors=[{'provider':'tavily','reason':'PAID_SEARCH_NOT_ENABLED'}])
         else:
             hits = scholar.search_kind(q["query"], q["kind"], 6, diagnostics=detail)
         return [annotate(plan, hits, detail)]

@@ -128,6 +128,89 @@ def test_uninitialized_index_and_outage_never_fall_back_to_bigquery(storage, mon
     assert 'google_patents' not in scholar.enabled_providers()
 
 
+def test_queries_have_separate_deadlines_but_embedding_and_sql_remain_batched(storage, monkeypatch):
+    corpus.ingest([document()], {'complete': True})
+    vector.index_pending()
+    q = storage[1]
+    original_query, original_fetch, original_embed = q.query_batch_points, corpus.fetch, vector.embed
+    calls, hydrations, embeddings = [], [], []
+
+    def bounded_query(*args, **kwargs):
+        calls.append(kwargs)
+        if len(kwargs['requests']) > 1:
+            raise TimeoutError('The combined search exceeds the request deadline')
+        return original_query(*args, **kwargs)
+
+    def fetch(numbers):
+        hydrations.append(numbers)
+        return original_fetch(numbers)
+
+    def embed(texts, query=False):
+        embeddings.append((texts, query))
+        return original_embed(texts, query=query)
+
+    monkeypatch.setattr(q, 'query_batch_points', bounded_query)
+    monkeypatch.setattr(corpus, 'fetch', fetch)
+    monkeypatch.setattr(vector, 'embed', embed)
+    queries = ['gasket preload', 'vibration suppression', 'seal alignment', 'elastic joint']
+    results = vector.search_batch(queries)
+    assert all(hits and info['status'] == 'OK' for hits, info in results)
+    assert [hits[0]['query'] for hits, _ in results] == queries
+    assert embeddings == [(queries, True)]
+    assert len(hydrations) == 1
+    assert len(calls) == 4
+    assert all(c['timeout'] == settings.patent_search_timeout for c in calls)
+    assert all(c['requests'][0].limit == 72 for c in calls)
+
+
+@pytest.mark.parametrize('failure', ['timeout', 'invalid_payload'])
+def test_one_failed_query_preserves_other_queries_and_safe_diagnostics(storage, monkeypatch, failure):
+    import httpx
+    from qdrant_client.http.exceptions import UnexpectedResponse
+
+    corpus.ingest([document()], {'complete': True})
+    vector.index_pending()
+    original = storage[1].query_batch_points
+    calls = []
+
+    def query(*args, **kwargs):
+        calls.append(kwargs)
+        if len(calls) == 2:
+            if failure == 'timeout':
+                raise UnexpectedResponse(500, 'Internal Server Error',
+                    b'{"status":{"error":"Search timed out; https://private:secret@example.invalid"}}', httpx.Headers())
+            return [SimpleNamespace(points=[SimpleNamespace(payload={})])]
+        return original(*args, **kwargs)
+
+    monkeypatch.setattr(storage[1], 'query_batch_points', query)
+    results = vector.search_batch(['first', 'second', 'third'])
+    assert [len(hits) for hits, _ in results] == [1, 0, 1]
+    assert [info['status'] for _, info in results] == ['OK', 'UNAVAILABLE', 'OK']
+    error = results[1][1]['errors'][0]
+    assert error['failure_stage'] == 'VECTOR_QUERY'
+    assert error['reason'] == ('VECTOR_SEARCH_TIMEOUT' if failure == 'timeout' else 'INVALID_VECTOR_RESPONSE')
+    assert error['http_status'] == (500 if failure == 'timeout' else None)
+    assert results[1][1]['duration_ms'] >= 0
+    assert 'secret' not in str(results) and 'example.invalid' not in str(results)
+
+
+@pytest.mark.parametrize('stage', ['CPU_EMBEDDING', 'SQL_HYDRATION'])
+def test_non_vector_failure_identifies_stage_without_exposing_exception_text(storage, monkeypatch, stage):
+    corpus.ingest([document()], {'complete': True})
+    vector.index_pending()
+
+    def fail(*args, **kwargs):
+        raise RuntimeError('private credential and search text')
+
+    monkeypatch.setattr(vector if stage == 'CPU_EMBEDDING' else corpus,
+                        'embed' if stage == 'CPU_EMBEDDING' else 'fetch', fail)
+    results = vector.search_batch(['first', 'second'])
+    assert all(not hits and info['status'] == 'UNAVAILABLE' for hits, info in results)
+    assert all(info['errors'][0]['failure_stage'] == stage for _, info in results)
+    assert all(info['errors'][0]['exception_type'] == 'RuntimeError' for _, info in results)
+    assert 'private credential' not in str(results)
+
+
 def test_evidence_discovery_uses_vector_batch(storage, state, monkeypatch):
     corpus.ingest([document()]); vector.index_pending()
     monkeypatch.setattr(agent, 'run_agent', lambda *a, **kw: {'queries': [

@@ -119,33 +119,83 @@ def index_pending(batch_size=128, max_batches=0, emit=lambda **kw: None):
         return total
 
 
+def _unavailable(exc, stage, started):
+    """Keep useful diagnostics without storing exception text, URLs or credentials."""
+    import httpx
+    allowed = {'INVALID_QUERY', 'INDEX_NOT_READY', 'QDRANT_NOT_CONFIGURED',
+               'PATENT_DATABASE_NOT_CONFIGURED', 'INVALID_VECTOR_RESPONSE'}
+    reason = str(exc) if str(exc) in allowed else 'VECTOR_SEARCH_UNAVAILABLE'
+    source = getattr(exc, 'source', None) or exc.__cause__ or exc
+    content = getattr(exc, 'content', b'')
+    if isinstance(content, bytes):
+        content = content.decode('utf-8', errors='replace')
+    timed_out = isinstance(source, (TimeoutError, httpx.TimeoutException)) or (
+        stage == 'VECTOR_QUERY' and any(word in str(content).lower() for word in ('timeout', 'timed out')))
+    if timed_out:
+        reason = 'VECTOR_SEARCH_TIMEOUT' if stage == 'VECTOR_QUERY' else 'PATENT_SEARCH_TIMEOUT'
+    status = getattr(exc, 'status_code', None)
+    return [], dict(provider=PROVIDER, status='UNAVAILABLE', records=0,
+        duration_ms=round((time.monotonic()-started)*1000),
+        errors=[dict(provider=PROVIDER, reason=reason, retry_after=time.time()+60,
+            failure_stage=stage, exception_type=type(exc).__name__,
+            http_status=status if isinstance(status, int) else None)])
+
+
 def search_batch(queries, k=6):
     from qdrant_client import models as m
     if not queries:
         return []
     started = time.monotonic()
+    stage = 'VALIDATE_QUERY'
     try:
         if not 1 <= k <= 10 or len(queries) > 64 or any(
                 not isinstance(q, str) or not q.strip() or len(q) > 1000 for q in queries):
             raise RuntimeError('INVALID_QUERY')
+        stage = 'INDEX_CHECKPOINT'
         if corpus.checkpoint('index') != index_config():
             raise RuntimeError('INDEX_NOT_READY')
+        stage = 'SOURCE_CHECKPOINT'
         source = corpus.checkpoint('source')
         corpus_complete = bool(source.get('complete')) and not corpus.has_pending()
+        stage = 'CPU_EMBEDDING'
         vectors = embed(queries, query=True)
-        responses = client().query_batch_points(settings.patent_collection, requests=[m.QueryRequest(
-            query=v, limit=min(200, k * 12), with_payload=True, with_vector=False,
-            score_threshold=settings.patent_min_score,
-            params=m.SearchParams(hnsw_ef=128, quantization=m.QuantizationSearchParams(
-                rescore=True, oversampling=2.0))) for v in vectors], timeout=settings.patent_search_timeout)
-        if len(responses) != len(queries):
+        if len(vectors) != len(queries):
             raise RuntimeError('INVALID_VECTOR_RESPONSE')
+    except Exception as exc:
+        return [_unavailable(exc, stage, started) for _ in queries]
+
+    # Qdrant applies its timeout to the entire request. Large requests exhausted
+    # that shared deadline even when each individual search could finish in time.
+    # Keep CPU embedding and SQL hydration batched, but bound each ANN request
+    # separately and retain successful queries when another query fails.
+    responses, failures = [], {}
+    for index, v in enumerate(vectors):
+        try:
+            batch = client().query_batch_points(settings.patent_collection, requests=[m.QueryRequest(
+                query=v, limit=min(200, k * 12), with_payload=True, with_vector=False,
+                score_threshold=settings.patent_min_score,
+                params=m.SearchParams(hnsw_ef=128, quantization=m.QuantizationSearchParams(
+                    rescore=True, oversampling=2.0)))], timeout=settings.patent_search_timeout)
+            if len(batch) != 1 or any(not isinstance(p.payload, dict) or not p.payload.get('publication_number')
+                                      for p in batch[0].points):
+                raise RuntimeError('INVALID_VECTOR_RESPONSE')
+            responses.append(batch[0])
+        except Exception as exc:
+            responses.append(None)
+            failures[index] = _unavailable(exc, 'VECTOR_QUERY', started)
+
+    stage = 'SQL_HYDRATION'
+    try:
         # All industries participate. Metadata never adds an implicit domain filter.
-        numbers = list({p.payload['publication_number'] for res in responses for p in res.points})
+        numbers = list({p.payload['publication_number'] for res in responses if res is not None for p in res.points})
         documents = corpus.fetch(numbers)
         from .scholar import _clean, _rec
         results = []
-        for query, response in zip(queries, responses):
+        stage = 'RESULT_MAPPING'
+        for index, (query, response) in enumerate(zip(queries, responses)):
+            if index in failures:
+                results.append(failures[index])
+                continue
             hits, families = [], set()
             missing = False
             for point in response.points:
@@ -179,8 +229,5 @@ def search_batch(queries, k=6):
                 duration_ms=round((time.monotonic()-started)*1000), collection=settings.patent_collection)))
         return results
     except Exception as exc:
-        allowed = {'INVALID_QUERY', 'INDEX_NOT_READY', 'QDRANT_NOT_CONFIGURED',
-                   'PATENT_DATABASE_NOT_CONFIGURED', 'INVALID_VECTOR_RESPONSE'}
-        reason = str(exc) if str(exc) in allowed else 'VECTOR_SEARCH_UNAVAILABLE'
-        return [([], dict(provider=PROVIDER, status='UNAVAILABLE', records=0,
-            errors=[dict(provider=PROVIDER, reason=reason, retry_after=time.time()+60)])) for _ in queries]
+        return [failures[index] if index in failures else _unavailable(exc, stage, started)
+                for index in range(len(queries))]

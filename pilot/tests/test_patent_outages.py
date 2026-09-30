@@ -112,3 +112,40 @@ def test_existing_provider_selection_ignores_unrequested_alternative_key(monkeyp
     monkeypatch.setattr(scholar.httpx,'get',lambda url,**kw:response(url,503))
     detail={};scholar.search_kind('gasket','PATENT',diagnostics=detail)
     assert detail['provider']=='google_patents'
+
+
+@pytest.mark.parametrize('provider,free_search,expected_provider,reason', [
+    ('bigquery', True, 'bigquery', 'SEARCH_PRICING_NOT_REGISTERED'),
+    ('free', False, 'tavily', 'PAID_SEARCH_NOT_ENABLED'),
+])
+def test_ax_paid_search_guard_records_failure_and_can_retry_without_provider_calls(
+        state, monkeypatch, provider, free_search, expected_provider, reason):
+    from triz.ax import WORKFLOW
+
+    state.scratch['workflow_version'] = WORKFLOW
+    monkeypatch.setattr(settings, 'patent_search_provider', provider)
+    monkeypatch.setattr(settings, 'free_patent_search', free_search)
+    monkeypatch.setattr(settings, 'tavily_key', 'offline-test-key')
+    monkeypatch.setattr(scholar, 'search_kind', lambda *a, **kw: pytest.fail('Blocked provider must not be called'))
+    monkeypatch.setattr(scholar, 'patent_search_batch', lambda *a, **kw: pytest.fail('Blocked batch must not be called'))
+    plan(monkeypatch)
+
+    evidence.discover(RunContext(state))
+    key = 'PATENT:gasket preload'
+    detail = state.scratch['search_diagnostics'][key]
+    assert detail['status'] == 'UNAVAILABLE'
+    assert detail['provider'] == expected_provider
+    assert detail['errors'] == [{'provider':expected_provider, 'reason':reason}]
+    assert key not in state.scratch['search_cache']
+    assert state.steps[-1].status == 'WARN'
+    summary = evidence.search_summary(state)
+    assert summary['patent_status'] == 'UNAVAILABLE'
+    assert summary['patent_error_reasons'] == [reason]
+
+    # The original query can be retried even when the distinct-query budget is spent.
+    before = len(state.steps)
+    monkeypatch.setattr(agent, 'run_agent', lambda *a, **kw: pytest.fail('Retry must reuse the saved plan'))
+    evidence.discover(RunContext(state))
+    assert len(state.steps) == before + 1
+    assert state.steps[-1].status == 'WARN'
+    assert state.scratch['search_status']['patent_error_reasons'] == [reason]

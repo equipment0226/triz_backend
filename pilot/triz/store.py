@@ -6,7 +6,7 @@ import threading
 import uuid
 from contextlib import contextmanager
 from datetime import datetime, timezone
-from sqlalchemy import Column, Float, Index, Integer, MetaData, String, Table, Text, create_engine, delete, event, func, select, text, update
+from sqlalchemy import CheckConstraint, Column, Float, Index, Integer, MetaData, String, Table, Text, create_engine, delete, event, func, select, text, update
 from sqlalchemy.dialects.mysql import LONGTEXT, insert as mysql_insert
 from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from .schema import GlobalState
@@ -18,6 +18,17 @@ def table(name, fields, key):
     return Table(name, metadata, *[Column(n, t, primary_key=n == key,
         autoincrement=(n == key and t is Integer)) for n, t in fields.items()], mysql_charset="utf8mb4")
 accounts = table("accounts", dict(user_id=String(64), email=String(320), name=Text, created_at=String(40)), "user_id")
+ticket_accounts = Table("account_tickets", metadata,
+    Column("user_id", String(64), primary_key=True),
+    Column("balance", Integer, nullable=False),
+    Column("initial_grant", Integer, nullable=False),
+    Column("created_at", String(40), nullable=False),
+    CheckConstraint("balance >= 0", name="ck_ticket_balance_nonnegative"), mysql_charset="utf8mb4")
+ticket_charges = Table("account_ticket_charges", metadata,
+    Column("run_id", String(64), primary_key=True),
+    Column("user_id", String(64), nullable=False, index=True),
+    Column("charged_at", String(40), nullable=False), mysql_charset="utf8mb4")
+TICKET_OWNER_EMAIL = "equipment0226@gmail.com"
 sessions = table("account_sessions", dict(token_hash=String(64), user_id=String(64), expires_at=Float), "token_hash")
 published_runs = table("published_runs", dict(run_id=String(64), consent_user_id=String(64), consented_at=String(40), basis=String(32)), "run_id")
 runs = table("runs", dict(run_id=String(64), user_id=String(64), title=Text, mode=String(16),
@@ -56,6 +67,10 @@ def init():
         with _init_lock:
             if not _initialized:
                 metadata.create_all(engine)
+                # Additive, idempotent migration: existing accounts get their
+                # initial grant once; restarting never resets spent tickets.
+                with engine.begin() as c:
+                    _backfill_ticket_accounts(c)
                 _initialized = True
 def _now():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -70,6 +85,58 @@ def _upsert(c, target, values):
     stmt = ins.on_duplicate_key_update(**{k: ins.inserted[k] for k in changes}) if engine.dialect.name == "mysql" else ins.on_conflict_do_update(
         index_elements=[col.name for col in target.primary_key], set_=changes)
     c.execute(stmt)
+
+def _insert_once(c, target, values):
+    ins = (mysql_insert if engine.dialect.name == "mysql" else sqlite_insert)(target).values(**values)
+    key = next(iter(target.primary_key)).name
+    stmt = (ins.on_duplicate_key_update(**{key: target.c[key]}) if engine.dialect.name == "mysql"
+            else ins.on_conflict_do_nothing(index_elements=[col.name for col in target.primary_key]))
+    c.execute(stmt)
+
+def _ensure_ticket_account(c, user_id, email):
+    grant = 100 if (email or "").strip().casefold() == TICKET_OWNER_EMAIL else 1
+    _insert_once(c, ticket_accounts, dict(user_id=user_id, balance=grant, initial_grant=grant, created_at=_now()))
+    if grant == 100:
+        # An existing Google account may first be recognized as the owner on
+        # login. Top up its original entitlement, preserving all prior spends.
+        c.execute(update(ticket_accounts).where(ticket_accounts.c.user_id == user_id,
+            ticket_accounts.c.initial_grant < grant).values(
+                balance=ticket_accounts.c.balance + grant - ticket_accounts.c.initial_grant,
+                initial_grant=grant))
+
+def _backfill_ticket_accounts(c):
+    for account in c.execute(select(accounts.c.user_id, accounts.c.email).order_by(accounts.c.user_id)).mappings().all():
+        _ensure_ticket_account(c, account['user_id'], account['email'])
+
+def migrate_tickets():
+    """Safe to rerun after deployment; grants are never daily/login refills."""
+    init()
+    with engine.begin() as c:
+        _backfill_ticket_accounts(c)
+        return {"accounts": c.execute(select(func.count()).select_from(ticket_accounts)).scalar_one(),
+                "charges": c.execute(select(func.count()).select_from(ticket_charges)).scalar_one()}
+
+def ticket_balance(user_id):
+    init()
+    with engine.connect() as c:
+        return c.execute(select(ticket_accounts.c.balance).where(ticket_accounts.c.user_id == user_id)).scalar_one()
+
+class InsufficientTickets(ValueError):
+    pass
+
+class TicketSubmissionConflict(ValueError):
+    pass
+
+def _charge_run_ticket(c, user_id, run_id):
+    # The conditional UPDATE locks the wallet across processes, on both MySQL
+    # and SQLite. The debit, ledger row, run, and initial state commit together.
+    if c.execute(select(ticket_charges.c.run_id).where(ticket_charges.c.run_id == run_id)).scalar():
+        raise TicketSubmissionConflict("This submission was already charged")
+    debited = c.execute(update(ticket_accounts).where(ticket_accounts.c.user_id == user_id,
+        ticket_accounts.c.balance >= 1).values(balance=ticket_accounts.c.balance - 1))
+    if debited.rowcount != 1:
+        raise InsufficientTickets("No tickets available")
+    c.execute(ticket_charges.insert().values(run_id=run_id, user_id=user_id, charged_at=_now()))
 def archive(run_id, name, value):
     if not re.fullmatch(r"[A-Za-z0-9_-]+", run_id) or not re.fullmatch(r"[A-Za-z0-9_.-]+", name):
         raise ValueError("Invalid artifact identifier")
@@ -103,9 +170,11 @@ def run_lock(run_id):
             yield
     finally:
         mutex.release()
-def create_run(state, title=""):
+def create_run(state, title="", *, charge_ticket=False):
     init()
     with engine.begin() as c:
+        if charge_ticket:
+            _charge_run_ticket(c, state.user_id, state.run_id)
         c.execute(runs.insert().values(run_id=state.run_id, user_id=state.user_id,
             title=title or state.raw_query[:60], mode=state.control.mode.value,
             industry=state.domain.industry, target_system=state.domain.target_system,
@@ -287,16 +356,15 @@ def create_session(subject, email, name):
     token = secrets.token_urlsafe(32)
     with engine.begin() as c:
         # The immutable Google subject, not the changeable email, owns the account.
-        existing = c.execute(select(accounts.c.user_id).where(accounts.c.user_id == user_id)).scalar()
-        if existing:
-            c.execute(update(accounts).where(accounts.c.user_id == user_id).values(email=email, name=name))
-        else:
-            c.execute(accounts.insert().values(user_id=user_id, email=email, name=name, created_at=_now()))
+        _insert_once(c, accounts, dict(user_id=user_id, email=email, name=name, created_at=_now()))
+        c.execute(update(accounts).where(accounts.c.user_id == user_id).values(email=email, name=name))
+        _ensure_ticket_account(c, user_id, email)
         c.execute(delete(sessions).where(sessions.c.expires_at < time.time()))
         c.execute(sessions.insert().values(token_hash=hashlib.sha256(token.encode()).hexdigest(), user_id=user_id, expires_at=time.time() + 43200))
+        balance = c.execute(select(ticket_accounts.c.balance).where(ticket_accounts.c.user_id == user_id)).scalar_one()
     if settings.legacy_owner_email and email.lower() == settings.legacy_owner_email:
         claim_legacy_runs(user_id)
-    return {"token": token, "user": {"id": user_id, "email": email, "name": name}}
+    return {"token": token, "user": {"id": user_id, "email": email, "name": name, "ticket_balance": balance}}
 
 def claim_legacy_runs(user_id):
     """Migrate the former single-user workspace only to its configured, Google-verified owner."""
@@ -320,9 +388,10 @@ def session_user(token):
         return None
     init()
     with engine.connect() as c:
-        row = c.execute(select(accounts).join(sessions, accounts.c.user_id == sessions.c.user_id).where(
+        row = c.execute(select(accounts, ticket_accounts.c.balance).join(sessions, accounts.c.user_id == sessions.c.user_id)
+            .join(ticket_accounts, accounts.c.user_id == ticket_accounts.c.user_id).where(
             sessions.c.token_hash == hashlib.sha256(token.encode()).hexdigest(), sessions.c.expires_at > time.time())).mappings().first()
-    return {"id": row["user_id"], "email": row["email"], "name": row["name"]} if row else None
+    return {"id": row["user_id"], "email": row["email"], "name": row["name"], "ticket_balance": row["balance"]} if row else None
 
 def revoke_session(token):
     import hashlib

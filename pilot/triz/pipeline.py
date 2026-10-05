@@ -40,7 +40,7 @@ def envelope(state):
                 epoch=state.scratch.get("execution_epoch", 0), status=state.status,
                 continue_execution=state.status == "RUNNING" and not state.pending)
 def create_run(raw_query, *, mode=None, user_id="local", attachments=None, workflow_version=None,
-               run_id=None, creation_fingerprint=None, training_consent=None, explicit_required_tracks=()):
+               run_id=None, creation_fingerprint=None, training_consent=None, explicit_required_tracks=(), charge_ticket=False):
     if not raw_query.strip():
         raise ValueError("문제를 입력해 주세요.")
     state = GlobalState(run_id=run_id or f"run-{uuid.uuid4().hex[:12]}", user_id=user_id, raw_query=raw_query)
@@ -65,7 +65,7 @@ def create_run(raw_query, *, mode=None, user_id="local", attachments=None, workf
     state.scratch.update(training_consent=training_consent,
         training_consent_version='project-default-v1' if default_training else 'explicit-project-consent-v1',
         explicit_required_tracks=sorted(set(explicit_required_tracks)))
-    store.create_run(state)
+    store.create_run(state, charge_ticket=charge_ticket)
     return finish_creation(state, workflow_version=workflow_version)
 
 

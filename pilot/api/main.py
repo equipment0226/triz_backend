@@ -259,13 +259,22 @@ def _create_submission(query, mode, attachments, user_id, public_consent, reques
                 return state.run_id, setup_pending
             state = pipeline.create_run(query.strip(), mode=mode, attachments=attachments,
                 user_id=user_id, run_id=run_id, creation_fingerprint=fingerprint,
-                training_consent=training_consent, explicit_required_tracks=explicit_required_tracks)
+                training_consent=training_consent, explicit_required_tracks=explicit_required_tracks,
+                charge_ticket=settings.require_user_auth or user_id != 'local')
             if public_consent:
                 store.publish_run(state.run_id, user_id)
             return state.run_id, True
+    except store.InsufficientTickets as exc:
+        raise HTTPException(402, {"code": "insufficient_tickets",
+            "message": "사용 가능한 티켓이 없습니다. 새 분석에는 티켓 1개가 필요합니다.",
+            "ticket_balance": 0}) from exc
+    except store.TicketSubmissionConflict as exc:
+        raise HTTPException(409, {"code": "submission_already_used",
+            "message": "이미 사용한 분석 요청입니다. 새 문제 분석으로 시작해 주세요."}) from exc
     except RuntimeError as exc:
         if str(exc) == 'Run is busy':
-            raise HTTPException(409, '같은 문제를 접수하고 있습니다. 잠시 후 다시 확인해 주세요.') from exc
+            raise HTTPException(409, {"code": "submission_in_progress",
+                "message": "같은 문제를 접수하고 있습니다. 잠시 후 다시 확인해 주세요."}) from exc
         raise
 
 
@@ -356,7 +365,16 @@ async def create_run(
         # Preserve its files until their ownership can be established.
     if created:
         background_tasks.add_task(_start_created_run, run_id)
-    return {"run_id": run_id, "reused": not created}
+    result = {"run_id": run_id, "reused": not created}
+    if user_id != 'local':
+        try:
+            result['ticket_balance'] = await asyncio.to_thread(store.ticket_balance, user_id)
+        except Exception:
+            # A balance-display outage must not turn accepted creation into a
+            # failure or prevent its queued background dispatch.
+            import logging
+            logging.getLogger(__name__).warning('Ticket balance unavailable after accepted creation')
+    return result
 
 
 @app.get("/api/runs")

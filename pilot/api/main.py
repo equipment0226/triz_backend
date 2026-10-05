@@ -71,6 +71,8 @@ async def lifespan(app):
             await monitor
 
 app = FastAPI(title="TRIZ Studio", version="2.0.0", lifespan=lifespan)
+from api.search import router as search_router
+app.include_router(search_router)
 from triz.ax.api import router as ax_router
 app.include_router(ax_router)
 from patent_draft.api import router as patent_router, internal as patent_internal, error_handler as patent_error_handler

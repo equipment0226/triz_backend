@@ -168,6 +168,22 @@ API와 MCP가 서로 다른 프로세스/서비스라면 같은 코드·설정 �
 
 현재 [Docker 정의](../Dockerfile)는 Python 3.11, `/app/pilot`, 내장 MCP와 `/data` 경로를 사용한다. [Railway 설정](../railway.json)은 `/healthz`와 한 replica를 지정하지만 저장소 루트의 `Dockerfile`을 기대한다. 실제 배포 checkout의 파일 배치와 서비스 설정을 확인해야 하며, 이 작업공간의 `deploy/` 파일 경로를 그대로 가정하지 않는다.
 
+## Google 검색 등록
+
+대표 주소는 `https://trizstudio.online/`이다. [공개 검색 파일](../pilot/public/)은 백엔드의 [고정 경로 라우터](../pilot/api/search.py)에서 제공하며, 별도 프런트엔드 게이트웨이는 다음 세 경로의 GET/HEAD를 로그인 없이 백엔드로 전달해야 한다. 백엔드 Docker 이미지에는 `pilot/public/`이 포함된다.
+
+| 공개 주소 | 용도 |
+| --- | --- |
+| `/googledb97084bf62cb561.html` | 사용자가 제공한 Google 소유권 확인 파일. 이름과 본문을 변경하거나 인증 후 삭제하지 않는다. |
+| `/robots.txt` | 공개 페이지 크롤링 허용 및 사이트맵 안내. API·로그인·내부 경로는 크롤링 대상에서 제외한다. |
+| `/sitemap.xml` | 대표 홈페이지 URL. 사용자별 분석·보고서 URL을 포함하지 않는다. |
+
+배포 후 위 주소가 쿠키·로그인·리디렉션 없이 HTTP 200을 반환하고, 인증 파일 본문이 `google-site-verification: googledb97084bf62cb561.html`인지 확인한다. API의 기존 접근 제어는 유지한다. robots.txt의 제외 규칙 자체는 접근 제어 수단이 아니다.
+
+[Google Search Console](https://search.google.com/search-console)에 **URL 접두사** 속성 `https://trizstudio.online/`을 추가하고, 해당 파일을 발급받은 Google 계정으로 HTML 파일 소유권 확인을 완료한다. 이후 사이트맵 `https://trizstudio.online/sitemap.xml`을 제출하고 홈페이지 URL 검사를 통해 색인 생성을 요청한다. 파일 배포만으로 Search Console의 확인·제출이 완료되지는 않으며, 실제 색인과 검색 노출 여부는 Google이 결정한다.
+
+모든 하위 도메인·프로토콜을 포함하는 **도메인 속성**을 등록하려면 별도의 DNS TXT 확인이 필요하다. HTML 파일은 URL 접두사 속성에 사용한다. 자세한 절차는 [Google 소유권 확인 안내](https://support.google.com/webmasters/answer/9008080?hl=ko)를 따른다.
+
 ## 중단·재개와 사용량 미확인
 
 1. 상태, `pending.kind`, 최근 단계·호출 기록, `interruption_reason`, AX 비용 예약·정산을 읽는다. 사용자 질문은 `/resume`, 일반 중단은 `/continue`의 대상이다.

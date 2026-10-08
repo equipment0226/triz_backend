@@ -130,8 +130,18 @@ class Constraint(BaseModel):
     violation_example: str = ""    # 이 제약을 위반하는 전형적 오답
 
 
+class BaselineFact(BaseModel):
+    """A sourced current condition; never an obligation to preserve that value."""
+    id: str = Field(default_factory=lambda: new_id("FACT"))
+    statement: str
+    source_path: str
+    source_quote: str
+    context: str = ""
+
+
 class ConstraintSet(BaseModel):
     items: list[Constraint] = []
+    baseline_facts: list[BaselineFact] = []
     open_questions: list[str] = []
 
     def hard_items(self) -> list[Constraint]:

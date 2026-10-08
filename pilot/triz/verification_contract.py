@@ -5,9 +5,15 @@ import copy
 import json
 import math
 
-VERSION = "analysis-verification-v4-20261008"
+VERSION = "analysis-verification-v5-20261008"
+SOURCE_ALIAS_CONTRACT = (
+    "raw_query와 user_query는 같은 직접 사용자 원문의 이름이다. source packet에서 canonical_path가 "
+    "같은 유효 alias는 동등하게 인정한다. raw_query를 권장하지만 실제 source packet에 존재하며 "
+    "원문 인용이 일치하는 경로를 이름만 이유로 REVISE하거나 서로 바꾸게 하지 않는다. "
+    "별칭 허용은 원문과의 정확 일치나 요구·관측의 의미 검증을 생략하는 권한이 아니다. "
+)
 RUBRIC_NODES = {
-    "R1_INTAKE": "s1_extract", "R2_CANDIDATE": "s2_candidates",
+    "R1_INTAKE": "s1_extract", "R1_CONSTRAINT_ROLES": "s1_extract", "R2_CANDIDATE": "s2_candidates",
     "R3_FUNC": "s3_function_model", "R3_SUF": "s3_sufield",
     "R3_RES": "s3_resources", "R3_CECA": "s3_ceca",
     "R4_IFR": "s4_ifr", "R4_CONTRA": "s4_contradictions",
@@ -18,7 +24,8 @@ RUBRIC_NODES = {
 
 def is_critical(rubric_id=None, node=""):
     # Intake may legitimately be incomplete before clarification and confirmation.
-    return str(rubric_id or "").startswith(("R3_", "R4_")) or node.startswith(("s3_", "s4_"))
+    return (rubric_id == 'R1_CONSTRAINT_ROLES' or
+            str(rubric_id or "").startswith(("R3_", "R4_")) or node.startswith(("s3_", "s4_")))
 
 
 def effective_rubric(settings, rubric_id):
@@ -192,11 +199,14 @@ def constraint_discovery_supplement():
         "constraints는 신규 DOMAIN 가설만 source=DOMAIN, hard=false, confidence<=0.6으로 기록한다. "
         "user_constraints는 누락된 직접 USER 제약만 source=USER, confidence=1, "
         "source_path/source_quote로 analysis_context.user_constraint_sources의 정확한 text를 인용한다. "
+        + SOURCE_ALIAS_CONTRACT +
         "질문 맥락을 함께 읽고 각 USER 행의 대상·조건·수치·단위·의무 수준을 독립 의미 검증한다. "
         "인용 문자열 일치만으로 USER 승격하지 않는다. 선호는 hard=false, 직접 명시된 의무·상한·금지는 hard=true다. "
         "연봉 인상률<=10%의 직접 상한은 규정·예산 출처가 미상이어도 soft가 아니며, 전체 금전 보상 상한으로 넓히지 않는다. "
         "frame/confirmed_facts 요약과 기존 INFERRED hard 행은 직접 사용자 확인이 아니다. "
         "기존 가설과 충돌하는 직접 사용자 입력은 최신 원문을 우선해 판단하되 기존 행을 임의 수정하지 않는다. "
+        "observations.baseline_facts는 현재 상태·관측 맥락이며 신규 제약으로 재출력하지 않는다. "
+        "현재값의 정확한 인용만으로 개선 후 유지 의무를 만들지 않는다. 설계 하중·계측 오차의 검증 맥락은 보존한다. "
         "taboo.confirmed=true는 confirmed_hard_constraint_ids에 있는 기존 USER/REGULATION hard ID만 인용한다. "
         "INFERRED hard의 confidence를 높여 확인된 금기로 만들지 않는다. "
         "수리 시 기존 제약을 재출력한 중복 행은 배열에서 제거하고 최상위 세 배열은 보존한다. "
@@ -205,6 +215,9 @@ def constraint_discovery_supplement():
 
 
 def generation_supplement(state, node):
+    if node == 's1_extract':
+        from .baseline_facts import extraction_supplement
+        return extraction_supplement(state) + SOURCE_ALIAS_CONTRACT
     if not is_critical(node=node):
         return ""
     from .analysis_guidance import analysis_guidance
@@ -223,12 +236,27 @@ def generation_supplement(state, node):
             "자동 생성한 요약·기능 모델·원인 가설을 관측 사실로 승격하지 않는다.\n" +
             json.dumps(support, ensure_ascii=False) +
             analysis_guidance(state, node) +
-            (constraint_discovery_supplement() if node == 's3_constraints' else ''))
+            (constraint_discovery_supplement() if node == 's3_constraints' else '') +
+            '\n[현재 상태 원문 — 유지 의무가 아님]\n' +
+            json.dumps([fact.model_dump() for fact in state.constraints.baseline_facts], ensure_ascii=False))
 
 
 def verifier_supplement(rubric):
     required = [{"id": row["id"], "min_score": row.get("min_score", 1.0), "text": row["text"]}
                 for row in rubric.get("criteria", []) if row.get("required")]
+    if rubric.get('id') == 'R1_CONSTRAINT_ROLES':
+        return (f"\n\n[인테이크 역할 분류 검증 계약 {VERSION}]\n"
+                "아래 C1/C2 역할 분류만 검증한다. 정보 충분성·경계 확정·TRIZ 분석 산출물은 이 검사의 요건이 아니다. "
+                "모든 기준을 정확히 한 번 1(충족)/0(실제 위반)로 판정한다. 단지 상세화 가능하다는 이유로 감점하지 않는다. "
+                "원문 실제 요구의 누락/기준 사실화와 현재 사실의 유지 의무 승격을 직접 원문 및 질문 맥락에 대조한다. "
+                "제공되지 않은 업종·경계·수치·조건은 unknown/open_questions로 허용하고 추가 질문으로 진행할 수 있다. "
+                "기존 모델이 만든 제약은 원문 근거가 아니며 정확 인용만으로 의무성이 증명되지 않는다. "
+                + SOURCE_ALIAS_CONTRACT +
+                "결함은 element_findings에 path, issue, suggested_correction, evidence, criterion_id를 연결하고 "
+                "현재 값과 충돌하는 원문을 정확히 인용한다. 미해결 실제 결함 또는 수정 지시가 있으면 PASS 금지. "
+                "이전 판정은 모델 의견이며 현재 전체 결과를 독립 검사한다. 정보가 부족하다는 이유만으로 요구를 발명하지 않는다. "
+                "선택적 문체 제안은 comment에만 적고 결함이 없으면 revision_instructions와 element_findings는 빈 배열이다. "
+                "수정 지시 없는 REVISE/REJECT는 금지한다.\n필수 기준: " + json.dumps(required, ensure_ascii=False))
     return (f"\n\n[필수 독립 검증 계약 {VERSION}]\n"
             "모든 기준을 정확히 한 번 채점한다. required 기준은 문체의 완벽성이 아닌 요구 충족 여부로 "
             "1(충족)/0(실제 위반)을 판단한다. 단지 더 상세히 쓸 수 있다는 이유로 0.8/0.9를 주지 않는다. "
@@ -236,6 +264,7 @@ def verifier_supplement(rubric):
             "필수 기준 미달, 미해결 수정 지시 또는 결함이 있으면 PASS 금지. "
             "제공된 deterministic_inventory의 실제 BASIC 개수·인덱스·rank·등록 이름을 대조한다. "
             "검사 대상에 없는 값이나 기계적 사실과 반대인 주장을 결함 근거로 만들지 않는다. "
+            + SOURCE_ALIAS_CONTRACT +
             "observations.source_provenance를 확인한다. frame/confirmed_facts는 생성 요약이므로 원문·실제 사용자 답변과 대조한다. "
             "원문에 없는 시도·실패 이력을 frame.prior_attempts만으로 관측이라고 인정하지 않는다. "
             "boundary.chosen_system과 사용자 확정 경계를 보존하고 상위 시스템의 목적을 모듈 주기능으로 강요하지 않는다. "
@@ -272,6 +301,7 @@ def verifier_supplement(rubric):
 
 def repair_supplement(verdict):
     return (f"\n\n[전체 산출물 선택 수정 계약 {VERSION}]\n"
+            + SOURCE_ALIAS_CONTRACT +
             "아래 지적의 경로와 의존 요소만 수정한 뒤 원래 스키마의 전체 JSON을 반환한다. "
             "부분 객체, 변경 목록, JSON patch만 반환하지 않는다. 모든 필수 최상위 필드를 보존한다. "
             "통과한 요소와 식별자는 유지하되, 지적된 중복·허구·잘못된 요소는 근거에 따라 제거·교체한다. "

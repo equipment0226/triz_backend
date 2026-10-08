@@ -12,6 +12,12 @@ R1_INTAKE:
     - { id: C4, weight: 0.20, text: "모순 후보가 'A를 높이면 B가 나빠진다' 형태로 2개 이상 도출되었는가" }
     - { id: C5, weight: 0.10, text: "제약조건의 수치와 단위가 분리되어 기입되었는가(수치 제약이 있는 경우)" }
 
+R1_CONSTRAINT_ROLES:
+  description: "인테이크 현재 사실·실제 요구의 역할 보존"
+  criteria:
+    - { id: C1, weight: 0.50, required: true, min_score: 1.0, text: "원문과 질문 맥락을 대조해 현재값·관측·비용·구성비·이력을 개선 후 유지 의무로 승격하지 않고 baseline_facts 또는 현재 상태 맥락으로 보존하는가? 현재라는 표현만으로 실제 명시된 고정 조건·설계 하중·규정을 제거하지 않는가? 정확한 인용은 출처 증거일 뿐 의무성 증명이 아니다" }
+    - { id: C2, weight: 0.50, required: true, min_score: 1.0, text: "사용자가 실제 명시한 목표·상한·하한·금지·필수 조건·선호를 범위·조건·예외·단위·의무 수준과 함께 active items에 보존하고 baseline으로 제외하거나 누락하지 않는가? 원문에 없는 요구를 발명하지 않는가? 아직 말하지 않은 업종·경계·수치·조건은 unknown/open_questions로 허용하고 정보 충분성 자체를 결격 사유로 삼지 않는다" }
+
 R2_CANDIDATE:
   description: "시스템 후보 제시의 타당성"
   criteria:

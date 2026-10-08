@@ -34,7 +34,8 @@
    - missing_info: 부족한 항목을 "무엇이 왜 필요한지" 형태로 기술
 
 3) constraints ★ 가장 중요
-   - 사용자가 명시한 모든 수치·금지·필수사항을 개별 항목으로 분해
+   - 사용자가 명시한 목표·한계·금지·필수사항을 items에 개별 항목으로 분해한다. 모든 수치를 제약으로 만들지 않는다.
+   - 현재 측정값·운전값·비용·구성비·발생 횟수·과거 이력은 baseline_facts에 statement/source_path/source_quote/context로 보존한다. 현재값을 개선 후 유지 의무로 승격하지 않는다. 실제 고정 조건·설계 하중·규정·물리 조건은 그 적용 맥락을 유지한다.
    - kind: MUST_HAVE | MUST_NOT_HAVE | NUMERIC | PREFERENCE
    - NUMERIC은 parameter / operator(<=,>=,==,!=) / value / unit 을 분리 기입
    - 명시되지 않았지만 업종상 당연한 제약은 source="INFERRED", confidence<=0.6, hard=false
@@ -54,7 +55,7 @@
 {
  "domain":{"industry":"","sub_domain":"","job_family":"","legacy_note":"","target_system":"","super_system":"","sub_systems":[],"operating_env":"","domain_tags":[],"is_engineering":true,"problem_type":"PHYSICAL_TECHNICAL","difficulty":"advanced","physical_scope":""},
  "frame":{"restated_problem":"","symptom":"","when_where":"","current_workaround":"","prior_attempts":[],"success_criteria":[],"missing_info":[],"confidence":0.0},
- "constraints":{"items":[{"kind":"NUMERIC","statement":"","parameter":"","operator":">=","value":"","unit":"","source":"USER","confidence":1.0,"hard":true,"rationale":""}],"open_questions":[]},
+ "constraints":{"items":[{"kind":"NUMERIC","statement":"","parameter":"","operator":">=","value":"","unit":"","source":"USER","confidence":1.0,"hard":true,"rationale":""}],"baseline_facts":[],"open_questions":[]},
  "candidate_characteristics":[],
  "candidate_conflicts":[]
 }

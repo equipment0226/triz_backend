@@ -49,6 +49,11 @@ def constraints_block(state: GlobalState) -> str:
                      '기존 HARD는 현재 제약으로 유지하되 그 출처를 USER로 바꾸거나 확정 근거로 승격하지 않는다.')
     if state.constraints.open_questions:
         lines.append("- (확인 필요) " + " / ".join(state.constraints.open_questions))
+    if state.constraints.baseline_facts:
+        lines.append('\n[현재 상태·관측 맥락 — 이 값을 그대로 유지해야 하는 준수 제약이 아님]')
+        lines.append('개선 전 기준과 설계·계측 맥락으로 사용한다. 실제 사용자 목표·한계는 위 제약을 따른다. '
+                     '특히 계측 오차와 시험 조건은 실제 성능 판정에 계속 반영한다.')
+        lines.append(json.dumps([fact.model_dump() for fact in state.constraints.baseline_facts], ensure_ascii=False))
 
     taboo = confirmed_taboos(state)
     if taboo:

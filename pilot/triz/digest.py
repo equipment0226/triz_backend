@@ -39,6 +39,8 @@ def facts_packet(s):
                 "confirmed_boundary": ("USER_CONFIRMED_DEFINITION_NOT_EVENT_OBSERVATION"
                     if s.confirm.user_confirmed and s.confirm.chosen() else "MODEL_PROPOSED_BOUNDARY"),
             },
+            "baseline_facts": [fact.model_dump() for fact in s.constraints.baseline_facts],
+            "baseline_policy": "현재 상태·측정·현황의 원문 근거다. 개선 후에도 이 값을 유지해야 하는 의무가 아니다. 실제 설계 하중·계측 오차·운영 조건은 해법 검증의 맥락에 계속 반영한다.",
             "user_query": s.raw_query, "frame": frame_digest(s),
             "attachments": attachment_facts(s), "answers": clarify_history(s),
             "deep_dive_answers": s.scratch.get("deep_dive", {}).get("answers", []),

@@ -18,7 +18,7 @@ def _text(value):
 
 
 def user_constraint_sources(state):
-    """Return exact state paths and the original question alongside each answer.
+    """Return direct sources, original questions and the raw-query display alias.
 
     Attachment extracted_facts, model frames, constraints, chosen candidates and
     deep-dive confirmed_facts never authenticate a new USER constraint. Bare
@@ -31,6 +31,11 @@ def user_constraint_sources(state):
             sources[path] = {'text': text, 'question': question}
 
     add('raw_query', _get(state, 'raw_query'))
+    if 'raw_query' in sources:
+        # facts_packet.observations.user_query is a presentation name for the
+        # same original state.raw_query, never another independent source.
+        sources['raw_query']['canonical_path'] = 'raw_query'
+        sources['user_query'] = dict(sources['raw_query'])
     intake = _get(state, 'intake')
     turns = _get(intake, 'clarify_turns', [])
     if isinstance(turns, list):
@@ -85,3 +90,46 @@ def validate_user_constraint_source(row, sources):
             len(compact) < MIN_CONTEXTUAL_QUOTE_CHARS or not has_words):
         return ['FATAL-CONSTRAINT-SOURCE: 숫자·단어 조각만 인용하지 말고 조건과 범위가 드러나는 원문을 인용하라. 짧은 답변은 질문 맥락과 함께 답변 전체를 인용하라.']
     return []
+
+
+def constraint_source_facts(data, sources):
+    """Bounded exact provenance facts for semantic reviewers, not a PASS gate.
+
+    A matching path and quote authenticate only the citation. They do not prove
+    that the quote requires the claimed constraint or that its scope is valid.
+    """
+    groups = []
+    if isinstance(data, Mapping):
+        constraints = data.get('constraints')
+        if isinstance(constraints, list):
+            groups.append(('constraints', constraints))
+        elif isinstance(constraints, Mapping):
+            groups.extend((('constraints.items', constraints.get('items')),
+                           ('constraints.baseline_facts', constraints.get('baseline_facts'))))
+        groups.append(('user_constraints', data.get('user_constraints')))
+        groups.append(('baseline_facts', data.get('baseline_facts')))
+    rows = []
+    count = 0
+    for array, values in groups:
+        if not isinstance(values, list):
+            continue
+        for index, row in enumerate(values):
+            count += 1
+            if len(rows) >= 40:
+                continue
+            row = row if isinstance(row, Mapping) else {}
+            path, quote = row.get('source_path'), row.get('source_quote')
+            item = sources.get(path) if isinstance(sources, Mapping) and isinstance(path, str) else None
+            known = isinstance(item, Mapping) and _text(item.get('text'))
+            exact = bool(known and _text(quote) and quote in item['text'])
+            canonical = item.get('canonical_path', path) if known else None
+            rows.append({'array': array, 'index': index,
+                'id': row['id'][:160] if isinstance(row.get('id'), str) else None,
+                'source_path': path[:240] if isinstance(path, str) else None,
+                'canonical_path': canonical, 'path_exists': bool(known),
+                'quote_exact_match': exact,
+                'provenance_valid': not validate_user_constraint_source(row, sources)})
+    return {'source': 'deterministic_primary_source_inspection',
+        'source_aliases': {'user_query': 'raw_query'} if isinstance(sources, Mapping) and 'user_query' in sources else {},
+        'canonical_path_preference': 'raw_query', 'semantic_claim_validated': False,
+        'row_count': count, 'rows': rows, 'rows_truncated': count > len(rows)}

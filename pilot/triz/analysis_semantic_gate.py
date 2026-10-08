@@ -10,6 +10,10 @@ from collections.abc import Mapping
 
 VERSION = 'focused-analysis-v1-20261009'
 RULES = {
+    'R1_CONSTRAINT_ROLES': {
+        'INTAKE_ROLE_ASSIGNMENT': '현재값·관측·비용·구성비·이력은 기준 사실이며 개선 후에도 같은 값을 유지할 의무가 아니다. 질문과 원문을 대조해 active constraints.items로 잘못 승격하지 않는다. 반대로 현재라는 표현이 있어도 사용자가 명시한 고정 조건·유지 의무·설계 하중·규정은 요구다. 계측 오차 같은 기준정보의 검증 맥락도 계속 보존한다. 문체·분류명의 동의어는 결함이 아니다.',
+        'INTAKE_REQUIREMENT_COVERAGE': '사용자가 실제 명시한 목표·상한·하한·금지·필수 조건·선호는 범위·조건·예외·의무 수준에 맞게 active constraints.items에 남겨야 한다. 정확히 인용했어도 실제 요구를 baseline_facts로만 빼거나 누락하면 실패다. 아직 제공되지 않은 업종·시스템·수치·의무는 unknown/open_questions로 허용한다. 정보 충분성이나 경계 확정 자체를 요구하지 않으며 새 요구를 발명하지 않는다.',
+    },
     'R3_FUNC': {
         'COMPONENT_ONTOLOGY': '컴포넌트는 경계 안의 실제 요소·행위자·규칙·정보 대상이어야 한다. 성능 속성·목표값·하중·상태만을 가짜 부품으로 만들어 object 참조를 맞추지 않는다. 조직 규칙·데이터는 실제 기능 담당자나 대상으로 허용한다.',
         'BASIC_AND_ACTION': 'BASIC은 확정 경계의 실제 유익 작용을 대표하며 action은 subject가 object 속성을 변화·유지시키는 구체 작용이다. 목표·권고·관리한다·최적화한다만으로 대체하지 않는다. 대표 BASIC은 하나이며 공동목적의 다른 USEFUL/AUXILIARY도 허용한다. BASIC의 INSUFFICIENT/EXCESSIVE는 허용한다.',
@@ -27,13 +31,14 @@ RULES = {
     'R3_CONSTRAINT': {
         'DIRECT_SOURCE_SCOPE': '신규 USER 제약은 직접 원문·질문 맥락이 대상·조건·수치·단위·의무 수준을 뒷받침해야 한다. 원문 정확 인용만으로 의미를 확정하지 않는다. 연봉 인상률 상한을 모든 금전 보상 상한으로 넓히지 않는다.',
         'ALTERNATIVES_AND_TABOO': '파생 taboo는 인용한 제약의 조건·예외·AND/OR 대안보다 엄격해질 수 없다. 비식별화 또는 사용 범위 제한은 둘 중 하나의 대안이며 비식별화 없는 모든 사용을 금지하지 않는다. 금지된 결과를 모든 수단의 금지로 넓히지 않는다.',
-        'CONSTRAINT_SOURCE_STATUS': '기존 제약은 수정 대상이 아닌 아카이브다. 신규 DOMAIN 가설과 직접 USER 요구를 구별한다. 요구값의 실제 측정 근거가 없다는 이유로 USER HARD를 soft화하거나 INFERRED HARD를 직접 USER 확인으로 승격하지 않는다. 재출력 행 제거는 기존 저장 제약의 완화가 아니다.',
+        'CONSTRAINT_SOURCE_STATUS': '기존 제약은 수정 대상이 아닌 아카이브다. 신규 DOMAIN 가설과 직접 USER 요구를 구별한다. 요구값의 실제 측정 근거가 없다는 이유로 USER HARD를 soft화하거나 INFERRED HARD를 직접 USER 확인으로 승격하지 않는다. baseline_facts의 현재값·현황·과거 이력은 유지 의무가 아니며 정확한 인용만으로 USER 제약에 재추가하지 않는다. 실제 고정조건·설계하중·계측맥락과는 구별한다. 재출력 행 제거는 기존 저장 제약의 완화가 아니다.',
     },
     'R4_TRIM': {
         'TRIM_CONSTRAINT_SCOPE': '트리밍 판단에서 인용한 기존 제약의 원문 대상·조건·예외·의무를 보존한다. 열 배출 요구를 흡수재 총량 보존 의무로 바꾸는 등 다른 성능이나 특정 구현 보존 의무를 만들지 않는다. 제약에 없는 조건부 설계 가설은 가설로 명시할 수 있으나 확인된 HARD 의무로 표현하지 않는다.',
     },
 }
 CRITERIA = {
+    'INTAKE_ROLE_ASSIGNMENT': 'C1', 'INTAKE_REQUIREMENT_COVERAGE': 'C2',
     'COMPONENT_ONTOLOGY': 'C3', 'BASIC_AND_ACTION': 'C1', 'EVIDENCE_STATUS': 'C3',
     'REQUIREMENT_VS_OBSERVATION': 'C3', 'RESOURCE_AVAILABILITY': 'C3', 'IDEALITY_CLAIMS': 'C3',
     'SAME_PROPERTY_OPPOSITES': 'C3', 'PC_REQUIREMENT_EVIDENCE': 'C3',
@@ -61,7 +66,8 @@ def request_packet(state, rubric_id, artifact):
             'operative_time': state.confirm.operative_time,
         },
         'existing_constraints': [row.model_dump() for row in state.constraints.items],
-        'source_policy': '직접 사용자 보고도 요구·허용값·가능성·실측을 구별한다. 기존 INFERRED/DOMAIN 및 이전 모델 산출물은 직접 관측의 증거가 아니다. 누락된 근거를 상상하지 않는다.',
+        'baseline_facts': [fact.model_dump() for fact in state.constraints.baseline_facts],
+        'source_policy': '직접 사용자 보고도 요구·허용값·가능성·실측을 구별한다. 기존 INFERRED/DOMAIN 및 이전 모델 산출물은 직접 관측의 증거가 아니다. 누락된 근거를 상상하지 않는다. raw_query와 user_query는 같은 원문의 이름이다. source packet의 canonical_path가 같은 유효 alias는 이름만 이유로 거부하거나 서로 바꾸게 하지 않는다.',
     }
     # Older sessions preserve the user's answer but not its original question.
     # Keep self-contained reports available to the auditor without treating the
@@ -92,6 +98,13 @@ def request_packet(state, rubric_id, artifact):
 
 
 def render_request(packet):
+    rule_ids = list(packet['rules'])
+    skeleton = {'checks': [
+        {'id': rule_id, 'status': 'PASS 또는 REVISE', 'reason': '판정 이유', 'findings': []}
+        for rule_id in rule_ids]}
+    finding_shape = {'artifact_path': '/필드/0/속성', 'artifact_quote': '현재 값의 정확한 인용',
+        'evidence_path': '/context/... 또는 /rules/ID', 'evidence_quote': '근거의 정확한 인용',
+        'issue': '실제 위반', 'suggested_correction': '해당 범위의 구체 수정'}
     return (
         '별도 집중 의미 검증이다. 일반 검증의 PASS를 근거로 삼지 말고 아래 규칙만 독립 검사하라. '
         '문체·동의어·개선 가능성·더 자세한 설명은 결함이 아니다. 제공된 현재 전체 artifact와 근거를 읽고 '
@@ -103,11 +116,14 @@ def render_request(packet):
         '인용한다. 존재하지 않는 경로·상상한 값·생략한 한정·과거 산출물을 현재 결함으로 인용하지 않는다. '
         'JSON 문자열 인용의 공백·철자도 원문 그대로 사용한다. PASS의 findings는 []; REVISE는 근거 있는 findings가 '
         '하나 이상 필요하다. 이전 지적에 얽매이지 말고 현재 결과를 검증하며 동일 명제의 가설 한정을 함께 읽어라. '
-        '점수는 출력하지 않는다. 전체 JSON만 반환한다:\n'
-        '{"checks":[{"id":"rule ID","status":"PASS 또는 REVISE","reason":"판정 이유",'
-        '"findings":[{"artifact_path":"/필드/0/속성","artifact_quote":"현재 값의 정확한 인용",'
-        '"evidence_path":"/context/... 또는 /rules/ID","evidence_quote":"근거의 정확한 인용",'
-        '"issue":"실제 위반","suggested_correction":"해당 범위의 구체 수정"}]}]}\n'
+        '점수는 출력하지 않는다. checks는 제약 행별·지적별 배열이 아니라 아래 규칙별 배열이다. '
+        'id는 아래 실제 ID를 그대로 쓰고 C1/C2 같은 루브릭 기준이나 제약 ID로 바꾸지 않는다. '
+        '필수 check ID 목록: ' + json.dumps(rule_ids, ensure_ascii=False) + '\n'
+        '아래 출력 골격의 각 판정과 이유를 독립 검토 결과로 채운 전체 JSON만 반환한다. '
+        '골격에는 사전 판정이 없으며 PASS 또는 REVISE라는 선택 안내를 실제 판정 하나로 바꾼다:\n'
+        + json.dumps(skeleton, ensure_ascii=False) + '\n'
+        'REVISE인 행의 findings에는 다음 형식의 실제 근거를 하나 이상 채운다. PASS인 행은 findings=[]다:\n'
+        + json.dumps(finding_shape, ensure_ascii=False) + '\n[현재 산출물과 검증 근거]\n'
         + json.dumps(packet, ensure_ascii=False)
     )
 
@@ -137,15 +153,33 @@ def _quote_matches(value, quote):
     return isinstance(quote, str) and bool(quote.strip()) and quote in text
 
 
+def _invalid_rule_ids(packet, rows, reason):
+    """Expose exact coverage errors to format repair without accepting aliases."""
+    expected = list(packet['rules'])
+    received = [row.get('id') if isinstance(row, dict) else None for row in rows]
+    string_ids = [key for key in received if isinstance(key, str)]
+    duplicate = list(dict.fromkeys(key for key in string_ids if string_ids.count(key) > 1))
+    diagnostics = {
+        'expected': expected,
+        'received': received,
+        'missing': [key for key in expected if key not in string_ids],
+        'duplicate': duplicate,
+        'unknown': [key for key in received if not isinstance(key, str) or key not in expected],
+    }
+    result = unavailable(reason + ' ' + json.dumps(diagnostics, ensure_ascii=False))
+    result['rule_id_diagnostics'] = diagnostics
+    return result
+
+
 def normalize_review(raw, packet):
     """Unverifiable allegations cannot become either a repair order or a PASS."""
     if not isinstance(raw, dict) or not isinstance(raw.get('checks'), list):
-        return unavailable('집중 검증 checks 배열이 누락되었다.')
+        return _invalid_rule_ids(packet, [], '집중 검증 checks 배열이 누락되었다.')
     expected = set(packet['rules'])
     rows = raw['checks']
     ids = [row.get('id') if isinstance(row, dict) else None for row in rows]
     if any(not isinstance(key, str) for key in ids) or len(ids) != len(expected) or set(ids) != expected:
-        return unavailable('집중 검증의 규칙별 판정이 누락·중복되거나 알 수 없는 ID가 있다.')
+        return _invalid_rule_ids(packet, rows, '집중 검증의 규칙별 판정이 누락·중복되거나 알 수 없는 ID가 있다.')
     findings, instructions = [], []
     for row in rows:
         status = row.get('status')

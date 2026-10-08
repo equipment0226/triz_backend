@@ -10,7 +10,7 @@ from . import agent, digest, domain, knowledge as K, llm, prompts_registry as P,
 from .coerce import build, build_list
 from .context import AbortRun, HumanInterrupt, RunContext
 from .schema import (
-    ARIZRun, ARIZStep, CauseEffectChain, CauseNode, ClarifyTurn, Component, ConceptEvaluation,
+    ARIZRun, ARIZStep, BaselineFact, CauseEffectChain, CauseNode, ClarifyTurn, Component, ConceptEvaluation,
     ConceptSpec, Constraint, ConstraintCheckResult, ConstraintSet, DomainContext, EvidenceCard,
     FunctionEdge, IFR, InteractionCell, InteractionMatrix, KeyProblem, MatrixLookup, NineWindows,
     PhysicalContradiction, ProblemFrame, RawIdea, ReportArtifact, ResourceItem, ReviewerScore,
@@ -85,9 +85,11 @@ def s1_extract(ctx: RunContext) -> None:
         if payload.get("skip"):
             st.scratch["clarify_skipped"] = True
 
+    from .baseline_facts import check_extraction
     data = agent.run_agent(
         ctx, node="s1_extract", label="문제·도메인·제약 추출", stage=Stage.S1.value,
-        agent_id="interviewer", prompt_id="P_S1_EXTRACT", tier="T2", rubric_id="R1_INTAKE",
+        agent_id="interviewer", prompt_id="P_S1_EXTRACT", tier="T2", rubric_id="R1_CONSTRAINT_ROLES",
+        checker=lambda value: check_extraction(value, st),
         facts=st.raw_query,
         vars={"raw_query": st.raw_query,
               "attachment_facts": digest.attachment_facts(st),
@@ -112,7 +114,9 @@ def s1_extract(ctx: RunContext) -> None:
     refresh_fallback_title(st)
     cs = (data.get("constraints") or {})
     items = build_list(Constraint, cs.get("items"))
-    st.constraints = ConstraintSet(items=items, open_questions=cs.get("open_questions") or [])
+    st.constraints = ConstraintSet(items=items,
+        baseline_facts=[BaselineFact.model_validate(row) for row in cs.get('baseline_facts', [])],
+        open_questions=cs.get("open_questions") or [])
     st.intake.candidate_characteristics = data.get("candidate_characteristics") or []
     st.intake.candidate_conflicts = data.get("candidate_conflicts") or []
 
@@ -1343,7 +1347,8 @@ def s7_gate(ctx: RunContext) -> None:
     from .ax.mode_contract import unified
     from .ax.contracts import digest as hash_input
     gate_cache=st.scratch.setdefault('adaptive_gate_cache',{}) if unified(st) else {}
-    gate_keys={c['concept_id']:hash_input([c,verify.constraints_full(st),st.scratch.get('ax_condition_facts',{}),
+    baseline_context = [fact.model_dump() for fact in st.constraints.baseline_facts]
+    gate_keys={c['concept_id']:hash_input([c,verify.constraints_full(st),baseline_context,st.scratch.get('ax_condition_facts',{}),
         st.scratch.get('ax_bundle',{}).get('models'),st.scratch.get('ax_bundle',{}).get('prompts',{}).get('P_S7_GATEKEEPER')]) for c in concepts}
     reused_ids={cid for cid,key in gate_keys.items() if key in gate_cache}
     cached_results=[ConstraintCheckResult.model_validate(r) for cid in reused_ids for r in gate_cache[gate_keys[cid]]]
@@ -1359,6 +1364,10 @@ def s7_gate(ctx: RunContext) -> None:
             agent_id="gatekeeper", prompt_id="P_S7_GATEKEEPER", tier="T2",
             system_override="You are a strict compliance gatekeeper. Output JSON only. "
                             "Judge only constraint compliance, nothing else. "
+                            + ("The following are sourced current-state facts, not obligations to preserve their values. "
+                               "Use measurement uncertainty, test loads and operating context when judging the actual "
+                               "constraints; never create per_constraint rows for these facts: "
+                               + json.dumps(baseline_context, ensure_ascii=False) if baseline_context else "")
                             + ("The following facts are USER_REPORTED, not measured proof. Preserve unresolved obligations: "
                                + json.dumps(condition_facts, ensure_ascii=False) if condition_facts else ""),
             vars={"constraints_full": verify.constraints_full(st), "concepts_for_gate": batch}, default={}) or {}

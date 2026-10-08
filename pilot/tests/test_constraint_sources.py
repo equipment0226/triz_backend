@@ -27,7 +27,7 @@ def fixture_state():
 def test_whitelisted_sources_keep_full_question_context_and_no_generated_provenance():
     state = fixture_state(); before = copy.deepcopy(state.model_dump())
     sources = user_constraint_sources(state)
-    assert set(sources) == {'raw_query', 'intake.clarify_turns[0].user_answer',
+    assert set(sources) == {'raw_query', 'user_query', 'intake.clarify_turns[0].user_answer',
                            'confirm.user_amendments[0]', 'scratch.deep_dive.answer_turns[0].answer'}
     assert sources['intake.clarify_turns[0].user_answer'] == {
         'text':'현재 연봉의 10% 이내로만 인상 가능', 'question':'현재 핵심 인재에게 지급 가능한 최대 연봉 수준은?'}

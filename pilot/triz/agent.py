@@ -113,6 +113,12 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str, *, p
     support = {"observations": digest.facts_packet(ctx.state), "provided_context": facts,
                "problem_type": domain.problem_type(ctx.state)}
     analysis_node = contract.RUBRIC_NODES.get(rubric_id, "")
+    if rubric_id in ("R1_CONSTRAINT_ROLES", "R3_CONSTRAINT"):
+        from .constraint_sources import constraint_source_facts, user_constraint_sources
+        from .baseline_facts import sources as primary_sources
+        source_rows = (primary_sources(ctx.state) if rubric_id == "R1_CONSTRAINT_ROLES"
+                       else user_constraint_sources(ctx.state))
+        support["deterministic_source_inventory"] = constraint_source_facts(data, source_rows)
     if contract.is_critical(rubric_id):
         support["analysis_context"] = contract.analysis_context(ctx.state, analysis_node)
         from .analysis_checks import artifact_structure_facts
@@ -177,7 +183,9 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str, *, p
                 focused_result = tracked_chat(
                     ctx, system='You are an independent focused semantic auditor. Output JSON only.',
                     user=focused_user, tier='T3', temperature=0.0, expect='object',
-                    max_tokens=12000, _analysis_reasoning=True)
+                    # Reasoning tokens share the completion budget. Complex
+                    # grounded reviews exhausted 12k before finishing their JSON.
+                    max_tokens=32000, _analysis_reasoning=True)
                 prior = out['_tokens']
                 out['_tokens'] = (prior[0] + focused_result.tokens_in, prior[1] + focused_result.tokens_out,
                                   prior[2] + focused_result.cost_usd)
@@ -323,7 +331,7 @@ def run_agent(
     except (OSError, TypeError):
         checker_source = str(checker)
     # Lambdas/wrappers delegate to shared checks and typed schemas.
-    from . import analysis_checks, analysis_semantic_gate, constraint_sources, schema
+    from . import analysis_checks, analysis_semantic_gate, baseline_facts, constraint_sources, schema
     def cross_reference_issues(value):
         if not node.startswith(('s3_', 's4_')):
             return []
@@ -336,7 +344,7 @@ def run_agent(
             value, [row.id for row in state.constraints.items], declared_constraint_ids=declared)
 
     validation_source = hashlib.sha256("".join(inspect.getsource(module) for module in
-        (verify, analysis_checks, analysis_semantic_gate, constraint_sources, schema, contract)).encode()).hexdigest()
+        (verify, analysis_checks, analysis_semantic_gate, baseline_facts, constraint_sources, schema, contract)).encode()).hexdigest()
     tc = settings.tiers[tier]
     from . import digest
     audit_context = {"facts": digest.facts_packet(state),

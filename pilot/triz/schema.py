@@ -227,6 +227,25 @@ class FunctionEdge(BaseModel):
     parameter_affected: str = ""
     rank: Literal["BASIC", "AUXILIARY", "CORRECTIVE"] = "AUXILIARY"
     cost_hint: Literal["LOW", "MID", "HIGH", "UNKNOWN"] = "UNKNOWN"
+    # A generated mechanism is not an observation merely because its edge is
+    # useful or structurally valid. Older saved edges remain loadable.
+    notes: str = ""
+    evidence_status: Literal["OBSERVED", "HYPOTHESIS", "DERIVED"] = "HYPOTHESIS"
+    evidence_refs: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="before")
+    @classmethod
+    def _preserve_note_alias(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        data = dict(data)
+        if "note" in data:
+            alias = _as_text(data["note"])
+            notes = _as_text(data.get("notes", ""))
+            # Preserve both comments if a repair supplied both spellings;
+            # subsequent serialization always uses the canonical notes key.
+            data["notes"] = "\n".join(value for value in (notes, alias if alias != notes else "") if value)
+        return data
 
 
 class InteractionCell(BaseModel):

@@ -31,17 +31,17 @@ R3_NW:
 R3_FUNC:
   description: "확정 경계에서 주기능과 기능 모델의 의미 정합성"
   criteria:
-    - { id: C1, weight: 0.30, required: true, min_score: 1.0, text: "앱의 대표 주기능 BASIC이 정확히 하나의 USEFUL 작용으로 지정되고 최종 확정 경계·사용자 수정에 맞는 본래 존재 목적을 실현하는가? 실제 function_edges의 rank를 세고 도구·처리 대상·작용·대상 속성을 대조하며 개수만으로 통과시키지 않는가? 같은 subject의 보조/교정 간선은 BASIC이 아니며 수행자가 구성요소라는 이유만으로 경계 불일치가 되지 않는다. 개선 목표·유해 기능·중간 수단 승격과 하위 경계에 상위 목적 강요를 피하는가" }
+    - { id: C1, weight: 0.30, required: true, min_score: 1.0, text: "앱의 대표 BASIC 하나가 USEFUL이며 확정 경계·사용자 수정에 맞는 본래 유익 기능을 실제 수행하는가? rank를 세고 도구·대상·작용·속성과 대표 선정 근거를 대조하며 개수만으로 통과시키지 않는다. 공동목적이 여러 개면 다른 필수 유익 기능은 전체 모델의 USEFUL/AUXILIARY로 보존할 수 있다. 이 표기는 목적 삭제/중요도 격하가 아니며 모든 목적의 한 간선 합성을 강요하지 않는다. 같은 subject의 보조 간선은 BASIC이 아니며 구성요소도 수행자다. 개선 목표·유해 기능·중간 수단 승격과 하위 경계에 상위 목적 강요를 피하는가" }
     - { id: C2, weight: 0.20, text: "문제 현상을 유해 작용 또는 부족/과잉 유익 작용으로 구분하고 인과적인 수행 주체를 명확히 하는가" }
-    - { id: C3, weight: 0.25, required: true, min_score: 1.0, text: "subject/object가 등록된 수행 주체/작용 대상이고 action이 완결된 구체 작용, parameter_affected가 그 대상의 변화·유지 속성인가? PRODUCT가 object인 것은 정상이다. 속성을 object로 바꾸거나 가짜 성능 파라미터 구성요소를 만들지 않는다. 관리한다·최적화한다 같은 모호한 동사 대신 산정·배분·이동·차단 등의 실제 작용을 설명하는가? 권한/유인을 물리적 힘으로 치환하지 않는가" }
+    - { id: C3, weight: 0.25, required: true, min_score: 1.0, text: "subject/object가 등록된 수행 주체/작용 대상이고 action은 완결된 구체 작용, parameter_affected는 대상의 변화·유지 속성인가? PRODUCT가 object인 것은 정상이다. 노출 정도·사용 범위·잔존 기간·전달 경로·승인 상태도 기능적 속성이며 동의어 교체만 강요하지 않는다. 속성을 object로 바꾸거나 가짜 파라미터 구성요소를 만들지 않는다. 관리한다·최적화한다 대신 실제 작용을 설명하며 권한/유인을 물리적 힘으로 치환하지 않는가? notes/evidence_status/evidence_refs와 연결된 상호작용의 가설 한정을 보존하고 kind·level과 근거 확실성을 혼동하지 않는가" }
     - { id: C4, weight: 0.10, text: "관련 상위 시스템/환경과 기능 연결을 포함하되 수량 때문에 부품을 창작하지 않는가" }
     - { id: C5, weight: 0.15, text: "처리 대상 PRODUCT와 수행 도구를 구별하며 kind·level·rank를 서로 독립적으로 분류하는가? BASIC=USEFUL의 level은 INSUFFICIENT/NORMAL/EXCESSIVE 모두 가능하며 통과 목적으로 NORMAL을 강요하지 않는다. PRODUCT가 object인 정상 방향을 뒤집지 않는가" }
 
 R3_SUF:
   description: "현재 문제의 물질-장 역할과 완전성"
   criteria:
-    - { id: C1, weight: 0.40, required: true, min_score: 1.0, text: "확인된 물리 범위 안에서 S1=작용 받는 물질, S2=도구 물질, F=실제 매개 작용을 구별하고 정책·현상·성능 지표를 물질/물리 장으로 만들지 않는가? 물리 범위가 없을 때 비적용 처리가 타당한가" }
-    - { id: C2, weight: 0.35, required: true, min_score: 1.0, text: "completeness는 S1/S2/F의 실제 결손, effect는 작용의 충분성/유해성에 따라 판정하고 결손을 가짜 요소로 채우거나 해법용 S3를 현재 물질로 넣지 않는가" }
+    - { id: C1, weight: 0.40, required: true, min_score: 1.0, text: "확인된 물리 범위에서 S1=작용 받는 실물 물질/부품, S2=작용을 전달하는 실물 도구, F=매개 작용으로 S2→F→S1을 유지하는가? 클램핑 하중·계면 전단응력·열사이클 부하·온도는 힘/상태이지 물질이 아니다. components에 그 이름이 있어도 물질성이 입증되지 않는다. 같은 물질의 S1/S2 역할은 모델별 작용 방향으로 판단하고 일괄 역전시키지 않는가? 물리 범위가 없으면 비적용이 타당한가" }
+    - { id: C2, weight: 0.35, required: true, min_score: 1.0, text: "completeness는 S1/S2/F의 실제 결손, effect는 명시한 대상 속성·조건에서의 충분성/유해성으로 판정하는가? 같은 하중이 접촉 열전달을 개선하면서 계면 파손을 일으킬 수 있어 유익 효과가 다른 모델의 HARMFUL/EXCESSIVE를 배제하지 않는다. EXCESSIVE는 해당 작용의 과도성 근거가 필요하고 증가만으로 확정하지 않는다. 결손을 가짜 요소로 채우거나 해법용 S3를 현재 물질로 넣지 않는가" }
     - { id: C3, weight: 0.25, text: "모델마다 하나의 문제 작용을 표현하고 명칭·방향·조건·도식이 일치하는가" }
 
 R3_RES:
@@ -56,7 +56,7 @@ R3_CECA:
   criteria:
     - { id: C1, weight: 0.35, required: true, min_score: 1.0, text: "초기 사용자 손실과 원인 경로를 연결하고 관측·도출·경쟁 가설을 구분하는가? 관측 근거 없는 인과나 생성된 앞 단계 주장을 OBSERVED로 승격하지 않는가" }
     - { id: C2, weight: 0.30, text: "관리 부족/노후화 같은 총론이나 동의어 반복 대신 문제 유형에 맞는 작동 경로와 AND/OR 조건을 설명하는가" }
-    - { id: C3, weight: 0.20, text: "참조 방향·ID·비순환성이 맞고 통제/지배 법칙의 경계에서 근본 원인을 식별하는가? 깊이를 채우기 위해 허구 원인을 만들지 않는가" }
+    - { id: C3, weight: 0.20, text: "원인 노드.parents=[그 원인이 유발하는 결과 ID]의 저장 방향과 ID·비순환성이 맞는가? TARGET_DISADVANTAGE.parents=[]이다. 결과 노드에 원인 ID를 역으로 넣거나 AND/OR 원인 그룹을 결과의 parents에 옮기지 않는다. 통제/지배 법칙 경계에서 멈추며 깊이를 채우기 위해 허구 원인을 만들지 않는가" }
     - { id: C4, weight: 0.15, text: "모순 씨앗의 보존할 유익 기능과 가설의 대조·반증 조건을 설명하는가" }
 
 R3_CONSTRAINT:

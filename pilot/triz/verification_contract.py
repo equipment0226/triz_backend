@@ -5,7 +5,7 @@ import copy
 import json
 import math
 
-VERSION = "analysis-verification-v2-20261008"
+VERSION = "analysis-verification-v3-20261008"
 RUBRIC_NODES = {
     "R1_INTAKE": "s1_extract", "R2_CANDIDATE": "s2_candidates",
     "R3_FUNC": "s3_function_model", "R3_SUF": "s3_sufield",
@@ -180,9 +180,12 @@ def generation_supplement(state, node):
         support["observations"] = digest.facts_packet(state)
     return (f"\n\n[분석 검증 계약 {VERSION}]\n"
             "확정 경계를 기준으로 분석한다. 상위 시스템의 목적과 선택한 모듈의 주기능을 혼동하지 않는다. "
-            "observations는 사용자 입력 근거이고 analysis_context의 기존 분석은 검토할 주장이다. "
+            "observations.source_contract/source_provenance에 따라 직접 사용자 보고와 생성 요약을 구별한다. "
+            "frame와 confirmed_facts는 생성 요약이며 필드 이름만으로 관측 사실이 되지 않는다. "
+            "analysis_context의 기존 분석도 검토할 주장이다. "
             "관측 근거를 인용할 때 observations.user_query, observations.attachments, observations.answers, "
             "observations.confirmed_facts 등의 실제 경로와 뒷받침하는 내용을 적는다. "
+            "시도·실패 이력은 원문/사용자 답변의 직접 근거가 있어야 한다. '현실에서 안 통한다'는 의견을 '이미 시도해서 실패했다'로 바꾸지 않는다. "
             "자동 생성한 요약·기능 모델·원인 가설을 관측 사실로 승격하지 않는다.\n" +
             json.dumps(support, ensure_ascii=False) +
             analysis_guidance(state, node))
@@ -198,11 +201,24 @@ def verifier_supplement(rubric):
             "필수 기준 미달, 미해결 수정 지시 또는 결함이 있으면 PASS 금지. "
             "제공된 deterministic_inventory의 실제 BASIC 개수·인덱스·rank·등록 이름을 대조한다. "
             "검사 대상에 없는 값이나 기계적 사실과 반대인 주장을 결함 근거로 만들지 않는다. "
+            "observations.source_provenance를 확인한다. frame/confirmed_facts는 생성 요약이므로 원문·실제 사용자 답변과 대조한다. "
+            "원문에 없는 시도·실패 이력을 frame.prior_attempts만으로 관측이라고 인정하지 않는다. "
             "boundary.chosen_system과 사용자 확정 경계를 보존하고 상위 시스템의 목적을 모듈 주기능으로 강요하지 않는다. "
             "BASIC은 선택한 시스템의 존재 목적을 나타내는 유익 기능이며 수행자는 그 구성요소일 수 있다. "
             "BASIC 개수는 rank로만 센다. 같은 수행자의 보조/교정 작용은 별개 주기능이 아니다. "
+            "독립된 공동목적이 여러 개면 근거 있는 대표 BASIC 하나와 다른 필수 USEFUL 간선을 전체 모델에서 함께 평가한다. "
+            "다른 핵심 기능의 AUXILIARY 표시는 앱 저장 규약이며 목적 삭제·중요도 격하가 아니다. 모든 목적을 한 BASIC에 합성하라고 강요하지 않는다. "
             "kind·level·rank는 독립이다. BASIC=USEFUL이면서 INSUFFICIENT 또는 EXCESSIVE일 수 있고 NORMAL을 강요하지 않는다. "
             "PRODUCT가 object인 것은 정상이다. subject/object는 등록된 대상, 그 속성은 parameter_affected에 둔다. "
+            "대상의 노출 정도·사용 범위·잔존 기간·전달 경로·승인 상태도 기능적 속성이다. 의미가 같은 '노출 정도→노출 여부' 같은 말바꾸기만을 필수 수정으로 요구하지 않는다. "
+            "근거 상태는 evidence_status(OBSERVED/HYPOTHESIS/DERIVED), 인용은 evidence_refs, 한정·선정 이유는 notes다. "
+            "HARMFUL은 예상 작용의 유해성도 표현하며 그 자체로 관측을 주장하지 않는다. level은 근거 확실성이 아니다. "
+            "동일 주체-대상-작용의 interaction_cells.note나 components.notes에 명확한 가설 한정이 있으면 전체 맥락으로 인정하고 간선 notes에도 보존한다. "
+            "유익/유해 간선의 공존과 interaction_cells의 '+-' 요약은 모순이 아니며 작용 조건·속성으로 구별한다. "
+            "Su-Field에서 하중·응력·열사이클 부하는 물질이 아니다. S1/S2는 실제 운반체이며 S2→F→S1 방향을 모델별로 판단한다. "
+            "한 하중의 유익 열전달과 유해 손상이 공존할 수 있고 유익 효과가 다른 작용의 HARMFUL/EXCESSIVE를 배제하지 않는다. "
+            "CECA는 원인 노드.parents=[그 원인이 유발하는 결과 ID], TARGET_DISADVANTAGE.parents=[]이다. "
+            "손실 N1←의도 N2←원인 N3이면 N2.parents=[N1], N3.parents=[N2]이며 N2.parents에 N3를 넣지 않는다. AND/OR도 이 방향을 바꾸지 않는다. "
             "조직의 규칙·권한·유인 작용은 물리적 힘이라고 주장하지 않는 한 허용되는 기능 표현이다. "
             "수정 예시는 결정검사와 동일한 스키마를 만족해야 하며 관리한다·최적화한다 같은 금지된 모호 동사나 속성 객체화를 권고하지 않는다. "
             "NW는 명시된 사건 전후/비교조건의 기준값과 장기 세대 이력을 구분한다. 확인된 이전 기준값·처리 이력을 과거 시제만으로 거부하지 않는다. "
@@ -211,6 +227,8 @@ def verifier_supplement(rubric):
             '{"path":"function_edges[0].rank","issue":"결함",'
             '"suggested_correction":"근거에 맞는 수정", "evidence":"산출물 또는 관측 근거", "criterion_id":"C1"}. '
             "필수 미달은 element_findings로 위반 위치·값·근거와 실행 가능한 수정안을 연결한다. "
+            "model_opinions의 이전 판정·수정 지시는 모델 의견이며 관측 근거나 통과 권한이 아니다. "
+            "현재 전체 출력을 독립 검증하되 앞선 지시를 뒤집으면 어떤 원문/스키마 근거로 그 지시가 잘못됐는지 criterion comment에 설명한다. "
             "이미 수정된 과거 지적을 반복하지 말고 현재 전체 JSON의 실제 결함을 한 번에 찾아라. "
             "선택적 문체/상세화 조언은 comment에만 적고, 결함이 없으면 revision_instructions와 element_findings는 빈 배열이다. "
             "수정 지시 없는 REVISE/REJECT는 금지한다.\n필수 기준: " + json.dumps(required, ensure_ascii=False))
@@ -225,6 +243,10 @@ def repair_supplement(verdict):
             "subject/object 변경 시 실제 컴포넌트의 이름·역할, 모든 연결 간선·상호작용·도식을 함께 갱신한다. "
             "가짜 성능 속성 노드를 만들어 참조만 맞추지 않는다. action에는 관리한다·최적화한다 대신 실제 변화/유지를 일으키는 구체 작용을 쓴다. "
             "이미 표시된 가설·가능성, 관측된 사건 전후 기준값, BASIC의 부족/과잉 수준을 점수 때문에 사실과 다르게 바꾸지 않는다. "
+            "notes·evidence_status·evidence_refs를 전체 JSON에 보존한다. 불확실한 유해 작용은 HARMFUL+HYPOTHESIS가 가능하며 level로 불확실성을 대신하지 않는다. "
+            "공동목적의 대표 BASIC 하나를 선택한 이유를 notes에 적고 다른 필수 유익 작용도 보존한다. 동의어 치환·불필요한 합성/분리 대신 실제 결함을 고친다. "
+            "CECA는 원인 노드.parents=[결과 ID], TARGET_DISADVANTAGE.parents=[]이다. N2가 N1의 원인이면 N2.parents=[N1]만 두고 N1.parents에 N2를 역추가하지 않는다. "
+            "대안 원인들은 같은 결과를 parents로 가리키며 AND/OR을 위해 방향을 뒤집지 않는다. 수리 후 전체 손실 연결과 순환 여부를 다시 확인한다. "
             "이전 지적과 이번 지적을 함께 검토하되 모순되는 지시에는 최신 원문 근거와 스키마를 우선하고 허용된 notes 등에 판단 근거를 남긴다. "
             "수정 후 전체 산출물이 다시 결정론 검사와 독립 검증을 받는다.\n" +
             json.dumps({"element_findings": verdict.get("element_findings", []),

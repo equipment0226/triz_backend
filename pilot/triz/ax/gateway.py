@@ -11,6 +11,7 @@ from .contracts import Conflict,BudgetBusy
 
 def chat(ctx, **kwargs):
     node=kwargs.pop('_node','independent_verifier')
+    analysis_reasoning=kwargs.pop('_analysis_reasoning',False)
     state=ctx.state
     from .registry import pinned_permissions_current
     if not pinned_permissions_current(state):
@@ -27,7 +28,8 @@ def chat(ctx, **kwargs):
         if expected and kwargs.get('tier','T2')!=expected:
             raise AbortRun('선택된 작업의 모델 역할과 실제 호출 설정이 일치하지 않습니다.')
         action_context=dict(action_context,call_model_role=role,actual_tier=kwargs.get('tier','T2'))
-    config=bundle['models'][kwargs.get('tier','T2')]
+    from ..analysis_model_policy import analysis_model_config
+    config=analysis_model_config(bundle['models'][kwargs.get('tier','T2')], analysis_reasoning)
     attempts=max(1,int(bundle['config'].get('ax',{}).get('max_provider_attempts',2)))
     request=dict(kwargs,model_config=config,retries=attempts)
     from .mode_contract import unified

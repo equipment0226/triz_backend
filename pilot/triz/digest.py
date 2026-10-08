@@ -11,7 +11,35 @@ def target_system(s):
 
 
 def facts_packet(s):
-    return {"user_query": s.raw_query, "frame": frame_digest(s),
+    """Keep legacy paths while distinguishing direct reports from model summaries.
+
+    `observations` and `confirmed_facts` are historical field names, not proof of
+    observation. A generated intake frame must never authenticate its own claims.
+    """
+    return {"source_contract": {
+                "version": "source-provenance-v1-20261008",
+                "meaning": "observations는 입력 묶음 이름일 뿐 모든 항목이 직접 관측이라는 뜻이 아니다.",
+                "priority": "최신 명시 사용자 수정·답변과 원문을 우선한다. 첨부 추출은 원자료 범위를 확인하고, 생성 요약은 독립 근거로 쓰지 않는다.",
+                "direct_report_paths": ["user_query", "answers", "deep_dive_answers",
+                                        "deep_dive_answer_turns", "amendments"],
+                "generated_summary_paths": ["frame", "confirmed_facts"],
+                "report_modality": "사용자 응답도 의견·가능성·목표·실제 관측을 구별한다. 질문의 전제나 미응답은 사용자 확인 사실이 아니다.",
+                "history_rule": "시도·실패·운영 이력은 원문 또는 사용자 답변의 직접 인용이 있어야 한다. '작동하지 않을 것이다/현실에서 안 통한다'는 의견을 '시도해서 실패했다'는 이력으로 바꾸지 않는다.",
+                "summary_rule": "frame.prior_attempts와 confirmed_facts의 필드 이름은 확인 증거가 아니다. 직접 근거가 없거나 원문과 충돌하면 해당 요약 주장은 미확인/가설로 남긴다.",
+            },
+            "source_provenance": {
+                "user_query": "USER_REPORTED",
+                "answers": "USER_REPORTED_ANSWERS_WITH_QUESTION_CONTEXT",
+                "deep_dive_answers": "USER_REPORTED",
+                "deep_dive_answer_turns": "USER_REPORTED_ANSWERS_WITH_QUESTION_CONTEXT",
+                "amendments": "USER_REPORTED_CORRECTIONS",
+                "attachments": "EXTRACTED_FROM_USER_ATTACHMENT",
+                "frame": "MODEL_GENERATED_SUMMARY_NOT_DIRECT_OBSERVATION",
+                "confirmed_facts": "MODEL_GENERATED_SYNTHESIS_REQUIRES_PRIMARY_SUPPORT",
+                "confirmed_boundary": ("USER_CONFIRMED_DEFINITION_NOT_EVENT_OBSERVATION"
+                    if s.confirm.user_confirmed and s.confirm.chosen() else "MODEL_PROPOSED_BOUNDARY"),
+            },
+            "user_query": s.raw_query, "frame": frame_digest(s),
             "attachments": attachment_facts(s), "answers": clarify_history(s),
             "deep_dive_answers": s.scratch.get("deep_dive", {}).get("answers", []),
             "deep_dive_answer_turns": s.scratch.get("deep_dive", {}).get("answer_turns", []),
@@ -126,8 +154,19 @@ def function_digest(s: GlobalState, only_problem: bool = False) -> list[str]:
         mark = "유해" if e.kind == "HARMFUL" else "유익"
         lvl = {"INSUFFICIENT": "부족", "NORMAL": "적정", "EXCESSIVE": "과잉"}[e.level]
         out.append(f"[{mark}/{lvl}/{e.rank}] {e.subject} → {e.action} → {e.object}"
-                   + (f" (영향: {e.parameter_affected})" if e.parameter_affected else ""))
+                   + (f" (영향: {e.parameter_affected})" if e.parameter_affected else "")
+                   + _function_evidence(e))
     return out
+
+
+def _function_evidence(edge) -> str:
+    """Keep epistemic status independent of usefulness/rank/performance level."""
+    status = getattr(edge, "evidence_status", "HYPOTHESIS")
+    refs = getattr(edge, "evidence_refs", [])
+    notes = getattr(edge, "notes", "")
+    return (f" [근거 상태: {status}]"
+            + (f" [출처: {'; '.join(refs)}]" if refs else "")
+            + (f" [해석·조건: {notes}]" if notes else ""))
 
 
 def basic_function(s: GlobalState) -> str:
@@ -140,7 +179,8 @@ def basic_function(s: GlobalState) -> str:
             basics[0].subject not in names or basics[0].object not in names):
         raise AbortRun("유효한 주기능(BASIC)이 없어 다음 분석을 진행할 수 없습니다. 기능 분석부터 다시 실행해 주세요.")
     edge = basics[0]
-    return f"{edge.subject} → {edge.action} → {edge.object} (유지·변경 속성: {edge.parameter_affected})"
+    return (f"{edge.subject} → {edge.action} → {edge.object} (유지·변경 속성: {edge.parameter_affected})"
+            + _function_evidence(edge))
 
 
 def resources_digest(s: GlobalState, include_blocked: bool = False) -> list[str]:

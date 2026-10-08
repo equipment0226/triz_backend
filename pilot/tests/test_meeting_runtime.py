@@ -39,7 +39,7 @@ def install_runtime(monkeypatch, responder):
         with lock:
             requests.append({**kwargs, "role_id": metadata["vars"]["role_id"]})
         return SimpleNamespace(data=data, model="offline-meeting-reviewer", tokens_in=10,
-                               tokens_out=20, cost_usd=0.0)
+                               tokens_out=20, cost_usd=0.0, meta={})
 
     monkeypatch.setattr(agent, "run_agent", run)
     monkeypatch.setattr(agent, "tracked_chat", chat)
@@ -145,7 +145,7 @@ def test_real_agent_rechecks_cached_output_against_changed_checker_closure(state
     def chat(ctx, **kwargs):
         generated.append(required["value"])
         return SimpleNamespace(data={"value": required["value"]}, model="offline-cache-policy",
-                               tokens_in=10, tokens_out=20, cost_usd=0.0)
+                               tokens_in=10, tokens_out=20, cost_usd=0.0, meta={})
 
     monkeypatch.setattr(agent, "tracked_chat", chat)
     ctx = RunContext(state)

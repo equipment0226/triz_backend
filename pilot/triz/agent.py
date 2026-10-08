@@ -26,16 +26,22 @@ def tracked_chat(ctx, **kwargs):
     if ax_enabled(ctx.state):
         from .ax.gateway import chat
         return chat(ctx, **kwargs)
+    reasoning = kwargs.pop('_analysis_reasoning', False)
     node = kwargs.pop("_node", "independent_verifier")
     deadline = ctx.state.scratch.get("execution_deadline")
     if deadline and time.time() >= deadline:
         raise AbortRun("분석 실행 시간 예산에 도달했습니다. 이어서 실행하면 새 시간 예산으로 재개합니다.")
     tc = settings.tiers[kwargs.get("tier", "T2")]
+    config = {key:value for key,value in vars(tc).items() if key != 'api_key'}
+    if reasoning is True:
+        from .analysis_model_policy import analysis_model_config
+        config = analysis_model_config(config, True)
+        kwargs['model_config'] = config
     max_output = kwargs.get("max_tokens") or tc.max_tokens
     # UTF-8 bytes are a conservative token upper bound; include retry payload overhead.
     input_bound = len((kwargs["system"] + kwargs["user"]).encode("utf-8")) + 16000
     from .model_pricing import reserve_microusd
-    reserve = reserve_microusd(vars(tc), input_bound, max_output, settings.max_retries) / 1_000_000
+    reserve = reserve_microusd(config, input_bound, max_output, settings.max_retries) / 1_000_000
     with ctx.lock:
         if ctx.budget.get("provider_status"):
             raise ProviderUnavailable(ctx.budget["provider_status"])
@@ -97,7 +103,7 @@ def _budget_tier(ctx: RunContext, tier: str) -> str:
     return tier
 
 
-def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str) -> dict:
+def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str, *, previous_verdicts=None) -> dict:
     rubric = contract.effective_rubric(settings, rubric_id)
     if not rubric or not settings.cfg("verification.enabled", True):
         return {"verdict": "UNVERIFIED", "score": 0.0, "skipped": True}
@@ -111,6 +117,10 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str) -> d
         support["analysis_context"] = contract.analysis_context(ctx.state, analysis_node)
         from .analysis_checks import artifact_structure_facts
         support["deterministic_inventory"] = artifact_structure_facts(rubric_id, data)
+        if previous_verdicts:
+            support['prior_reviews_model_opinions'] = [
+                {key:row.get(key) for key in ('verdict','source','per_criterion','revision_instructions','element_findings')}
+                for row in previous_verdicts[-5:]]
     if rubric_id in ("R4_CONTRA", "R6_CONCEPT"):
         support["derived_causal_hypotheses"] = digest.causal_packet(ctx.state)
         support["contradictions"] = digest.contradictions_digest(ctx.state)
@@ -135,11 +145,16 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str) -> d
     if analysis_node:
         from .analysis_guidance import analysis_guidance
         user += analysis_guidance(ctx.state, analysis_node)
+    verifier_tokens = int(settings.cfg('verification.max_tokens',
+        min(4500,1200+240*len(data.get('concepts',[]))) if isinstance(data,dict) else 1200))
+    critical = contract.is_critical(rubric_id)
+    if critical:
+        verifier_tokens = max(verifier_tokens, 16000)
     try:
         res = tracked_chat(ctx, system="You are a strict independent auditor. Output JSON only.",
                             user=user, tier="T3", temperature=0.0, expect="object",
-                            max_tokens=int(settings.cfg('verification.max_tokens',
-                                min(4500,1200+240*len(data.get('concepts',[]))) if isinstance(data,dict) else 1200)))
+                            max_tokens=verifier_tokens,
+                            **({'_analysis_reasoning':True} if critical else {}))
     except llm.LLMError as exc:
         out = {"verdict": "UNVERIFIED", "score": 0.0, "error": str(exc), "skipped": True}
         usage = getattr(exc, "usage", None)
@@ -283,11 +298,20 @@ def run_agent(
                      "contradictions": digest.contradictions_digest(state),
                      "analysis_context": contract.analysis_context(state, node)} if rubric_id else None
     effective_rubric = contract.effective_rubric(settings, rubric_id) if rubric_id else None
+    reasoning_profile = []
+    if critical:
+        from .analysis_model_policy import analysis_model_config
+        pinned_models = state.scratch.get('ax_bundle', {}).get('models', {})
+        for model_tier in (tier, 'T3'):
+            selected_model = pinned_models.get(model_tier) or settings.tiers[model_tier].__dict__
+            reasoning_profile.append(analysis_model_config(
+                {key:value for key,value in selected_model.items() if key != 'api_key'}, True))
     cache_key = hashlib.sha256(json.dumps([node, prompt_id, expect, rubric_id, checker_source,
         contract.VERSION, validation_source, effective_rubric, system, base_user, tier, facts, audit_context,
         settings.tiers[tier].model, settings.tiers[tier].base_url, max_tokens, temperature,
         tc.temperature, tc.max_tokens, tc.json_mode, tc.supports_temperature, tc.token_parameter,
-        settings.cfg("verification", {}), *([repair_attempts] if repair_attempts is not None else [])],
+        settings.cfg("verification", {}), *([repair_attempts] if repair_attempts is not None else []),
+        *([reasoning_profile] if critical else [])],
         sort_keys=True, default=str).encode()).hexdigest()
     cache = state.scratch.setdefault("agent_cache", {})
     if explicit_effects:
@@ -343,7 +367,8 @@ def run_agent(
         step.verify_attempts = attempt
         try:
             res = tracked_chat(ctx, _node=node, system=system, user=user, tier=cur_tier, expect=expect,
-                                temperature=temperature, max_tokens=max_tokens)
+                                temperature=temperature, max_tokens=max_tokens,
+                                **({'_analysis_reasoning':True} if critical else {}))
         except AbortRun as exc:
             _finish_aborted_step(ctx, step, exc)
             raise
@@ -414,7 +439,8 @@ def run_agent(
                        "revision_instructions": issues, "fatal_flaws": []}
         elif rubric_id and (critical or node not in settings.cfg("verification.skip_nodes", [])):
             try:
-                verdict = verify_artifact(ctx, rubric_id, data, facts)
+                verdict = verify_artifact(ctx, rubric_id, data, facts,
+                    **({'previous_verdicts':step.verdicts} if critical and step.verdicts else {}))
             except AbortRun as exc:
                 step.output_json = _as_dict(data)
                 _finish_aborted_step(ctx, step, exc)

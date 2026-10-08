@@ -33,7 +33,7 @@ def response(data, finish="stop"):
 
 def install_sdk(monkeypatch, side_effect):
     create = Mock(side_effect=side_effect)
-    monkeypatch.setattr(llm, "_client", lambda tier:
+    monkeypatch.setattr(llm, "_client", lambda tier, base_url=None:
         SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create))))
     monkeypatch.setattr(llm, "chat_json", CHAT_JSON)
     return create

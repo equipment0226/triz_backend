@@ -123,6 +123,9 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str, *, p
                 for row in previous_verdicts[-5:]]
     if rubric_id in ("R4_CONTRA", "R6_CONCEPT"):
         support["derived_causal_hypotheses"] = digest.causal_packet(ctx.state)
+    # The contradiction artifact is already the review target. Its previously
+    # saved version is neither upstream evidence nor an independent authority.
+    if rubric_id == "R6_CONCEPT":
         support["contradictions"] = digest.contradictions_digest(ctx.state)
     if rubric_id == "R4_CONTRA":
         from . import knowledge as K
@@ -164,6 +167,46 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str, *, p
     out = contract.normalize_verdict(res.data, rubric)
     out["rubric"] = rubric_id
     out["_tokens"] = (res.tokens_in, res.tokens_out, res.cost_usd)
+    from . import analysis_semantic_gate as semantic_gate
+    if out['verdict'] == 'PASS' and semantic_gate.supported(rubric_id):
+        packet = semantic_gate.request_packet(ctx.state, rubric_id, data)
+        focused_user = semantic_gate.render_request(packet)
+        focused_history = []
+        for focused_attempt in range(2):
+            try:
+                focused_result = tracked_chat(
+                    ctx, system='You are an independent focused semantic auditor. Output JSON only.',
+                    user=focused_user, tier='T3', temperature=0.0, expect='object',
+                    max_tokens=12000, _analysis_reasoning=True)
+                prior = out['_tokens']
+                out['_tokens'] = (prior[0] + focused_result.tokens_in, prior[1] + focused_result.tokens_out,
+                                  prior[2] + focused_result.cost_usd)
+                focused = semantic_gate.normalize_review(focused_result.data, packet)
+                focused_history.append(focused)
+            except llm.LLMError as exc:
+                usage = getattr(exc, 'usage', None)
+                if usage:
+                    prior = out['_tokens']
+                    out['_tokens'] = (prior[0] + usage.tokens_in, prior[1] + usage.tokens_out,
+                                      prior[2] + usage.cost_usd)
+                focused = semantic_gate.unavailable(f'집중 의미 검증 호출 실패: {exc}')
+                focused_history.append(focused)
+                break
+            if focused['verdict'] != 'UNVERIFIED' or focused_attempt:
+                break
+            # Repair reviewer formatting/evidence coordinates, not the artifact.
+            focused_user = (semantic_gate.render_request(packet) + '\n[집중 검증 응답 형식·근거 수리]\n'
+                '산출물은 그대로다. 아래 검증 응답의 오류를 고쳐 모든 check의 전체 JSON을 다시 제출하라. '
+                '인용이나 경로를 만들지 말고 현재 artifact/context와 정확히 대조하라.\n'
+                + json.dumps({'error': focused['error'], 'previous_review': focused_result.data}, ensure_ascii=False))
+        out['generic_verdict'] = 'PASS'
+        out['focused_semantic_gate'] = dict(focused, review_attempts=focused_history)
+        out['verdict'] = focused['verdict']
+        if focused['verdict'] != 'PASS':
+            out['revision_instructions'] = focused.get('revision_instructions', [])
+            out['element_findings'] = focused.get('element_findings', [])
+        if focused.get('verification_unavailable'):
+            out['verification_unavailable'] = True
     return out
 
 
@@ -280,23 +323,35 @@ def run_agent(
     except (OSError, TypeError):
         checker_source = str(checker)
     # Lambdas/wrappers delegate to shared checks and typed schemas.
-    from . import analysis_checks, schema
+    from . import analysis_checks, analysis_semantic_gate, constraint_sources, schema
     def cross_reference_issues(value):
         if not node.startswith(('s3_', 's4_')):
             return []
         declared = []
-        if node == 's3_constraints' and isinstance(value, dict) and isinstance(value.get('constraints'), list):
-            declared = [row.get('id') for row in value['constraints'] if isinstance(row, dict)]
+        if node == 's3_constraints' and isinstance(value, dict):
+            declared = [row.get('id') for key in ('constraints', 'user_constraints')
+                        for row in (value[key] if isinstance(value.get(key), list) else [])
+                        if isinstance(row, dict)]
         return analysis_checks.unknown_constraint_references(
             value, [row.id for row in state.constraints.items], declared_constraint_ids=declared)
 
     validation_source = hashlib.sha256("".join(inspect.getsource(module) for module in
-        (verify, analysis_checks, schema, contract)).encode()).hexdigest()
+        (verify, analysis_checks, analysis_semantic_gate, constraint_sources, schema, contract)).encode()).hexdigest()
     tc = settings.tiers[tier]
     from . import digest
-    audit_context = {"facts": digest.facts_packet(state), "causal": digest.causal_packet(state),
-                     "contradictions": digest.contradictions_digest(state),
+    audit_context = {"facts": digest.facts_packet(state),
                      "analysis_context": contract.analysis_context(state, node)} if rubric_id else None
+    if analysis_semantic_gate.supported(rubric_id):
+        # Focused support includes original attachment text and legacy user
+        # reports. Any correction must invalidate its previous independent PASS.
+        audit_context['focused_semantic_support'] = analysis_semantic_gate.request_packet(
+            state, rubric_id, {})['context']
+    # Match the verifier's real upstream support rather than hashing every
+    # analysis product. Sibling completion must not invalidate a prior PASS.
+    if rubric_id in ("R4_CONTRA", "R6_CONCEPT"):
+        audit_context["causal"] = digest.causal_packet(state)
+    if rubric_id == "R6_CONCEPT":
+        audit_context["contradictions"] = digest.contradictions_digest(state)
     effective_rubric = contract.effective_rubric(settings, rubric_id) if rubric_id else None
     reasoning_profile = []
     if critical:
@@ -457,6 +512,12 @@ def run_agent(
         ctx.emit("verify", node=node, step_id=step.step_id, verdict=verdict.get("verdict"),
                  score=verdict.get("score"), attempt=attempt,
                  instructions=verdict.get("revision_instructions", [])[:3])
+
+        if critical and verdict.get('verification_unavailable'):
+            step.output_json = _as_dict(data)
+            step.error = '독립 의미 검증 응답을 확인하지 못했습니다. 검증기를 복구한 뒤 이어서 재검증해야 합니다.'
+            ctx.finish_step(step, 'FAILED')
+            raise AbortRun(f'{label}: {step.error}')
 
         if verdict.get("verdict") == "PASS" or (not critical and verdict.get("verdict") == "UNVERIFIED"):
             step.output_json = _as_dict(data)

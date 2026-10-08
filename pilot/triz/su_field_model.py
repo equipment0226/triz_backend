@@ -14,9 +14,18 @@ def check_model(model):
     if not isinstance(nodes,list) or not 1 <= len(nodes) <= 12: return ['모델 노드는 1~12개 필요']
     if not isinstance(edges,list) or len(edges)>24: return ['모델 간선 배열 필요(최대 24개)']
     ids=[]
-    for node in nodes:
-        if not isinstance(node,dict) or not IDENTIFIER.fullmatch(str(node.get('id',''))) or not isinstance(node.get('label'),str) or not node['label'].strip():
-            return ['모델 노드의 식별자·명칭 누락']
+    for index,node in enumerate(nodes):
+        if not isinstance(node,dict):
+            return [f'nodes[{index}]: id와 label을 가진 노드 객체가 필요하다']
+        if not IDENTIFIER.fullmatch(str(node.get('id',''))):
+            return [f"nodes[{index}].id={node.get('id')!r}: 허용되지 않은 모델 식별자. "
+                    "허용 형식은 S 뒤 양의 정수와 선택적 소문자 1자(S1, S2, S1a), "
+                    "또는 F 뒤 선택적 숫자(F, F1, F2)이며 끝에 ′, ', ’, * 중 하나를 붙일 수 있다. "
+                    "측정계·관측자도 M1/M2/O 같은 별도 접두사가 아니라 충돌 없는 S계열 id를 쓰고 "
+                    "실제 명칭·역할은 label에 유지한다. 이름을 바꾸면 모든 edges.source/target 및 "
+                    "resulting_su_field의 같은 참조를 함께 바꾸되 작용 방향·종류·의미는 바꾸지 않는다."]
+        if not isinstance(node.get('label'),str) or not node['label'].strip():
+            return [f"nodes[{index}].label: 노드 {node['id']!r}의 실제 물질·장 명칭이 필요하다"]
         ids.append(key(node['id']))
     if len(set(ids))!=len(ids): return ['모델 노드 식별자 중복']
     for edge in edges:

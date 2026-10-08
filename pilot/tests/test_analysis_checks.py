@@ -78,6 +78,9 @@ def test_repaired_function_is_revalidated_then_consumed_by_ifr(state, monkeypatc
     rb = effective_rubric(settings, 'R3_FUNC')
     verdict = {'verdict': 'PASS', 'per_criterion': [{'id': row['id'], 'score': 1} for row in rb['criteria']]}
     responses = [bad, good, verdict]
+    from triz.analysis_semantic_gate import RULES
+    responses.append({'checks': [{'id': key, 'status': 'PASS', 'reason': 'offline valid storage function', 'findings': []}
+                                 for key in RULES['R3_FUNC']]})
     calls = []
     def chat(ctx, **kwargs):
         calls.append(kwargs)

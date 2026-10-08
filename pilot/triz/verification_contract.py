@@ -5,7 +5,7 @@ import copy
 import json
 import math
 
-VERSION = "analysis-verification-v3-20261008"
+VERSION = "analysis-verification-v4-20261008"
 RUBRIC_NODES = {
     "R1_INTAKE": "s1_extract", "R2_CANDIDATE": "s2_candidates",
     "R3_FUNC": "s3_function_model", "R3_SUF": "s3_sufield",
@@ -131,6 +131,13 @@ def normalize_verdict(raw, rubric):
 
 
 def analysis_context(state, node=""):
+    """Provide only upstream analysis products for generation and verification.
+
+    S3 runs NW -> functions -> parallel Su-Field/resources/CECA -> constraints.
+    A node's own saved output and parallel/downstream results are not evidence
+    for that node. Excluding them also makes partial-stage resumes reusable.
+    S4 consumes S3; only key-problem selection consumes the other S4 products.
+    """
     from . import digest
     chosen = state.confirm.chosen() if state.confirm.user_confirmed else None
     context = {
@@ -147,7 +154,7 @@ def analysis_context(state, node=""):
         },
         "success_criteria": list(state.intake.frame.success_criteria),
     }
-    if node.startswith(("s3_", "s4_")) and node != "s3_function_model":
+    if node in ("s3_sufield", "s3_resources", "s3_ceca", "s3_constraints") or node.startswith("s4_"):
         context["function_model"] = {
             "components": [row.model_dump() for row in state.analysis.components],
             "function_edges": [row.model_dump() for row in state.analysis.function_edges],
@@ -160,14 +167,41 @@ def analysis_context(state, node=""):
         context["resources"] = [row.model_dump() for row in state.analysis.resources]
         context["resources_unavailable_reason"] = state.analysis.resources_unavailable_reason
     if node == "s3_constraints":
+        from .constraint_sources import user_constraint_sources
         context["su_fields"] = [row.model_dump() for row in state.analysis.su_fields]
         context["existing_constraints"] = [row.model_dump() for row in state.constraints.items]
+        context["user_constraint_sources"] = user_constraint_sources(state)
+        context["confirmed_hard_constraint_ids"] = [
+            row.id for row in state.constraints.items
+            if row.hard and row.source in ("USER", "REGULATION")]
     if node == "s4_key_problem":
         context["technical_contradictions"] = [row.model_dump() for row in state.definition.technical_contradictions]
         context["physical_contradictions"] = [row.model_dump() for row in state.definition.physical_contradictions]
         context["physical_not_applicable_reason"] = state.definition.physical_not_applicable_reason
         context["ifr"] = state.definition.ifr.model_dump() if state.definition.ifr else None
     return context
+
+
+def constraint_discovery_supplement():
+    """Always-on delta/source contract, including runs with older pinned prompts."""
+    return (
+        "\n[제약 추가분 계약]\n"
+        "s3_constraints 출력은 {constraints:[], user_constraints:[], taboo:[]} 전체 객체인 추가분이다. "
+        "기존 analysis_context.existing_constraints는 ID/source/hard/confidence를 가진 읽기 전용 아카이브다. "
+        "기존 ID나 같은 뜻의 statement는 출력에서 제외한다. 이는 저장된 기존 제약의 삭제·완화가 아니다. "
+        "constraints는 신규 DOMAIN 가설만 source=DOMAIN, hard=false, confidence<=0.6으로 기록한다. "
+        "user_constraints는 누락된 직접 USER 제약만 source=USER, confidence=1, "
+        "source_path/source_quote로 analysis_context.user_constraint_sources의 정확한 text를 인용한다. "
+        "질문 맥락을 함께 읽고 각 USER 행의 대상·조건·수치·단위·의무 수준을 독립 의미 검증한다. "
+        "인용 문자열 일치만으로 USER 승격하지 않는다. 선호는 hard=false, 직접 명시된 의무·상한·금지는 hard=true다. "
+        "연봉 인상률<=10%의 직접 상한은 규정·예산 출처가 미상이어도 soft가 아니며, 전체 금전 보상 상한으로 넓히지 않는다. "
+        "frame/confirmed_facts 요약과 기존 INFERRED hard 행은 직접 사용자 확인이 아니다. "
+        "기존 가설과 충돌하는 직접 사용자 입력은 최신 원문을 우선해 판단하되 기존 행을 임의 수정하지 않는다. "
+        "taboo.confirmed=true는 confirmed_hard_constraint_ids에 있는 기존 USER/REGULATION hard ID만 인용한다. "
+        "INFERRED hard의 confidence를 높여 확인된 금기로 만들지 않는다. "
+        "수리 시 기존 제약을 재출력한 중복 행은 배열에서 제거하고 최상위 세 배열은 보존한다. "
+        "기존 저장 hard를 낮추거나 직접 사용자 상한을 DOMAIN 가설로 돌려 통과시키지 않는다.\n"
+    )
 
 
 def generation_supplement(state, node):
@@ -188,7 +222,8 @@ def generation_supplement(state, node):
             "시도·실패 이력은 원문/사용자 답변의 직접 근거가 있어야 한다. '현실에서 안 통한다'는 의견을 '이미 시도해서 실패했다'로 바꾸지 않는다. "
             "자동 생성한 요약·기능 모델·원인 가설을 관측 사실로 승격하지 않는다.\n" +
             json.dumps(support, ensure_ascii=False) +
-            analysis_guidance(state, node))
+            analysis_guidance(state, node) +
+            (constraint_discovery_supplement() if node == 's3_constraints' else ''))
 
 
 def verifier_supplement(rubric):
@@ -231,7 +266,8 @@ def verifier_supplement(rubric):
             "현재 전체 출력을 독립 검증하되 앞선 지시를 뒤집으면 어떤 원문/스키마 근거로 그 지시가 잘못됐는지 criterion comment에 설명한다. "
             "이미 수정된 과거 지적을 반복하지 말고 현재 전체 JSON의 실제 결함을 한 번에 찾아라. "
             "선택적 문체/상세화 조언은 comment에만 적고, 결함이 없으면 revision_instructions와 element_findings는 빈 배열이다. "
-            "수정 지시 없는 REVISE/REJECT는 금지한다.\n필수 기준: " + json.dumps(required, ensure_ascii=False))
+            "수정 지시 없는 REVISE/REJECT는 금지한다.\n필수 기준: " + json.dumps(required, ensure_ascii=False) +
+            (constraint_discovery_supplement() if rubric.get('id') == 'R3_CONSTRAINT' else ''))
 
 
 def repair_supplement(verdict):
@@ -239,6 +275,8 @@ def repair_supplement(verdict):
             "아래 지적의 경로와 의존 요소만 수정한 뒤 원래 스키마의 전체 JSON을 반환한다. "
             "부분 객체, 변경 목록, JSON patch만 반환하지 않는다. 모든 필수 최상위 필드를 보존한다. "
             "통과한 요소와 식별자는 유지하되, 지적된 중복·허구·잘못된 요소는 근거에 따라 제거·교체한다. "
+            "s3_constraints는 추가분이므로 기존 저장 제약을 재출력한 행은 제거하되 constraints/user_constraints/taboo 배열을 보존한다. "
+            "이 행 제거는 저장 아카이브를 삭제하거나 hard를 완화하는 것이 아니다. 신규 직접 USER 제약의 정확한 source_path/source_quote와 원문 범위·의무는 유지한다. "
             "검증 의견도 원문·현재 출력·스키마와 대조한다. PRODUCT를 object에서 빼거나 속성을 object로 만드는 잘못된 지시는 따르지 않는다. "
             "subject/object 변경 시 실제 컴포넌트의 이름·역할, 모든 연결 간선·상호작용·도식을 함께 갱신한다. "
             "가짜 성능 속성 노드를 만들어 참조만 맞추지 않는다. action에는 관리한다·최적화한다 대신 실제 변화/유지를 일으키는 구체 작용을 쓴다. "
@@ -260,7 +298,7 @@ ARTIFACT_FIELDS = {
     's3_sufield': {'su_fields'},
     's3_resources': {'resources', 'unavailable_reason'},
     's3_ceca': {'nodes', 'mermaid'},
-    's3_constraints': {'constraints', 'taboo'},
+    's3_constraints': {'constraints', 'user_constraints', 'taboo'},
     's4_ifr': {'statement', 'x_element', 'without', 'ideality_note', 'intensified', 'constraint_conflicts'},
     's4_contradictions': {'technical_contradictions', 'physical_contradictions',
                           'mapping_notes', 'physical_not_applicable_reason'},

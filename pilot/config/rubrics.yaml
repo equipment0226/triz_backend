@@ -62,7 +62,7 @@ R3_CECA:
 R3_CONSTRAINT:
   description: "발견 제약과 확인된 요구의 구분"
   criteria:
-    - { id: C1, weight: 0.50, required: true, min_score: 1.0, text: "사용자 미확인 제약은 hard=false/confidence<=0.6의 가설로 두고 관행·선호·미확인 법규/수치를 절대 금지로 만들지 않는가? confirmed taboo는 실제 확인 HARD 제약 ID에 근거하는가" }
+    - { id: C1, weight: 0.50, required: true, min_score: 1.0, text: "추가분 constraints는 신규 DOMAIN 가설(hard=false/confidence<=0.6)만, user_constraints는 기존에 없는 직접 USER 제약만 담는가? USER 각 행의 source_path/source_quote를 질문·원문과 대조해 적용 대상·조건·수치·단위·의무 수준이 실제로 뒷받침되는가? 직접 명시된 상한을 이유 미상 때문에 soft화하거나 다른 보상/대상으로 확장하지 않는가? 기존 INFERRED를 USER로 승격하지 않고 기존 행을 재출력·수정하지 않는가? confirmed taboo는 제공된 실제 확인 HARD ID에 근거하는가" }
     - { id: C2, weight: 0.30, text: "최신 사용자 수정·예외·적용 범위와 확정 제약을 유지하고 물리 범위를 넘어 새 조건을 강요하지 않는가" }
     - { id: C3, weight: 0.20, text: "rationale·위반 사례·수치·단위가 해당 제약과 연결되며 중복·무관한 규칙을 늘리지 않는가" }
 

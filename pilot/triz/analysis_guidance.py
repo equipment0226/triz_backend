@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
-ANALYSIS_CONTRACT_VERSION = "triz-analysis-v3-20261008"
+ANALYSIS_CONTRACT_VERSION = "triz-analysis-v4-20261008"
 MAX_GUIDANCE_CHARS = 3600
 _CATALOG_PATH = Path(__file__).with_name("knowledge") / "analysis_guidance_v1.json"
 

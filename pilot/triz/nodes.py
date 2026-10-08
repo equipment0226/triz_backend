@@ -342,14 +342,17 @@ def s3_analyze(ctx: RunContext) -> None:
 
 
 def _discover_constraints(ctx: RunContext) -> None:
-    """사용자가 말하지 않은 '시스템이 당연히 가지는' 제약을 발굴한다."""
+    """Append verified discoveries; never rewrite the archived constraint set."""
+    from .constraint_sources import user_constraint_sources
     st = ctx.state
+    archived = [c.model_dump() for c in st.constraints.items]
+    direct_sources = user_constraint_sources(st)
+    confirmed_ids = [c.id for c in st.constraints.hard_items() if c.source in ("USER", "REGULATION")]
     d = agent.run_agent(
         ctx, node="s3_constraints", label="도메인·시스템 내재 제약 발굴", stage=Stage.S3.value,
         agent_id="constraint_analyst", prompt_id="P_S3_CONSTRAINTS", tier="T2",
         rubric_id="R3_CONSTRAINT", checker=lambda d: verify.check_discovered_constraints(
-            d, [c.id for c in st.constraints.hard_items() if c.source in ("USER", "REGULATION")],
-            [c.id for c in st.constraints.items]),
+            d, confirmed_ids, [c.id for c in st.constraints.items], archived, direct_sources),
         vars={"industry": st.domain.industry, "target_system": digest.target_system(st),
               "super_system": st.domain.super_system,
               "operating_env": st.domain.operating_env,
@@ -357,19 +360,24 @@ def _discover_constraints(ctx: RunContext) -> None:
               "resources": digest.resources_digest(st),
               "operative_zone": st.confirm.operative_zone,
               "operative_time": st.confirm.operative_time,
-              "user_constraints": [c.statement for c in st.constraints.items]},
+              # Keep the legacy variable for pinned templates, with provenance.
+              "user_constraints": archived, "existing_constraints": archived,
+              "confirmed_hard_constraint_ids": confirmed_ids,
+              "user_constraint_sources": direct_sources},
         default={},
     ) or {}
 
-    existing = {c.statement.strip() for c in st.constraints.items}
+    existing = {' '.join(c.statement.split()) for c in st.constraints.items}
     added = 0
-    for c in [Constraint.model_validate(dict(row, source="DOMAIN")) for row in d["constraints"]]:
-        if not c.statement or c.statement.strip() in existing:
+    # Construct all rows first, after structural AND independent semantic gates.
+    # A direct USER cap keeps its scope/hardness; DOMAIN hypotheses remain soft.
+    additions = [Constraint.model_validate(dict(row, source="DOMAIN")) for row in d["constraints"]]
+    additions += [Constraint.model_validate(row) for row in d.get("user_constraints", [])]
+    for c in additions:
+        statement = ' '.join(c.statement.split())
+        if not statement or statement in existing:
             continue
-        existing.add(c.statement.strip())
-        # Unconfirmed domain practice is a hypothesis, not an absolute requirement.
-        c.hard = False
-        c.confidence = min(c.confidence, 0.6)
+        existing.add(statement)
         st.constraints.items.append(c)
         added += 1
 

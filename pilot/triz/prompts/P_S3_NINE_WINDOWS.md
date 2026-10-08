@@ -12,6 +12,6 @@
 - SUB_PAST/SUB_PRESENT/SUB_FUTURE, SYS_PAST/SYS_PRESENT/SYS_FUTURE, SUPER_PAST/SUPER_PRESENT/SUPER_FUTURE 9칸 모두 작성하되 불명확한 칸은 '미확인: ...'로 이유를 쓴다. 과거 운전 방식·도입 이력·미래 수치를 창작하지 않는다.
 - observations.frame.prior_attempts와 confirmed_facts는 생성 요약이다. 실제 시도·실패를 주장하려면 원문/사용자 답변의 직접 구절을 인용한다. '성과 공개는 현실에서 안 통한다'는 의견만 있으면 과거 실행·실패는 미확인이다. 저장된 요약이나 기존 PASS를 별도 관측 증거로 쓰지 않는다.
 - 각 칸 1~3문장. 정보 문제는 상태·흐름, 조직 문제는 행위자·규칙·의사결정 수준으로 작성한다. MIXED 물리 범위를 확장하지 않는다.
-- insights 3~6개는 탐색 목표. 사전 개입/상위 자원/하위 작용/과거 접근의 제약 중 근거 있는 기회를 제시하고 '확인할 조건'을 포함한다. insights를 다음 단계의 관측 사실로 승격하지 않는다.
+- insights는 문자열 배열(list[str])이다. 예: ["개입 가능성: …; 근거: …; 확인할 조건: …"]. 객체 배열로 바꾸지 않는다. 3~6개는 탐색 목표. 사전 개입/상위 자원/하위 작용/과거 접근의 제약 중 근거 있는 기회를 제시하고 '확인할 조건'을 포함한다. insights를 다음 단계의 관측 사실로 승격하지 않는다.
 [출력 JSON]
 {"cells":{"SUB_PAST":"","SUB_PRESENT":"","SUB_FUTURE":"","SYS_PAST":"","SYS_PRESENT":"","SYS_FUTURE":"","SUPER_PAST":"","SUPER_PRESENT":"","SUPER_FUTURE":""},"insights":[]}

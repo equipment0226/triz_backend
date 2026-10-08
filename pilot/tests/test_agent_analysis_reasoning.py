@@ -102,6 +102,11 @@ def test_only_critical_verifier_gets_reasoning_token_floor_and_scoped_prior_revi
     rb = verification_contract.effective_rubric(settings, rubric_id)
     def chat(ctx, **kwargs):
         calls.append(kwargs)
+        if 'focused semantic auditor' in kwargs['system']:
+            from triz.analysis_semantic_gate import RULES
+            return llm.LLMResult(data={'checks': [
+                {'id': key, 'status': 'PASS', 'reason': 'offline reasoning fixture', 'findings': []}
+                for key in RULES[rubric_id]]})
         return llm.LLMResult(data={'verdict': 'PASS', 'per_criterion': [
             {'id': c['id'], 'score': 1.0} for c in rb['criteria']]})
     monkeypatch.setattr(agent, 'tracked_chat', chat)
@@ -115,6 +120,10 @@ def test_only_critical_verifier_gets_reasoning_token_floor_and_scoped_prior_revi
     assert verdict['verdict'] == 'PASS'
     assert calls[0]['max_tokens'] == expected_tokens
     assert (calls[0].get('_analysis_reasoning') is True) is flagged
+    if rubric_id == 'R3_FUNC':
+        assert len(calls) == 2 and calls[1]['_analysis_reasoning'] is True
+    else:
+        assert len(calls) == 1
     facts = rendered[0]['facts_block']
     if flagged:
         assert facts['deterministic_inventory']['basic_count'] == 1

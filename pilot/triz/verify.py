@@ -33,13 +33,20 @@ def constraints_block(state: GlobalState) -> str:
         zone = f" @{c.zone}" if c.zone else ""
         tag = KIND_KO.get(c.kind, c.kind)
         cat = CATEGORY_KO.get(c.category, c.category)
+        if c.category == 'USER_STATED' and c.source != 'USER':
+            cat = '입력 기반 추론' if c.source == 'INFERRED' else '입력 분류'
         hard = "HARD" if c.hard else "soft"
-        line = f"- ({c.id}/{tag}/{cat}/{hard}){zone} {c.statement}{num}"
+        line = (f"- ({c.id}/{tag}/{cat}/{hard})[source={c.source}; confidence={c.confidence:g}]"
+                f"{zone} {c.statement}{num}")
         if c.rationale:
             line += f"\n    └ 이유: {c.rationale}"
         if c.violation_example:
             line += f"\n    └ 흔한 오답: {c.violation_example}"
         lines.append(line)
+    if items:
+        lines.append('출처 규칙: USER는 사용자 입력, INFERRED/DOMAIN은 생성된 추론이다. '
+                     '분류명·HARD·confidence만으로 사용자 확인 사실이 되지 않는다. '
+                     '기존 HARD는 현재 제약으로 유지하되 그 출처를 USER로 바꾸거나 확정 근거로 승격하지 않는다.')
     if state.constraints.open_questions:
         lines.append("- (확인 필요) " + " / ".join(state.constraints.open_questions))
 

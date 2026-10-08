@@ -233,6 +233,10 @@ def test_verifier_receives_user_confirmed_module_boundary(state, monkeypatch):
     monkeypatch.setitem(settings.triz["verification"], "critical_rubrics", [])
     def chat(ctx, **kwargs):
         captured.append(kwargs["user"])
+        if 'focused semantic auditor' in kwargs['system']:
+            from triz.analysis_semantic_gate import RULES
+            return result({'checks': [{'id': key, 'status': 'PASS', 'reason': 'offline boundary fixture', 'findings': []}
+                                      for key in RULES['R3_FUNC']]})
         rb = contract.effective_rubric(settings, "R3_FUNC")
         return result({"verdict": "PASS", "per_criterion": [{"id": c["id"], "score": 1.} for c in rb["criteria"]]})
     monkeypatch.setattr(agent, "tracked_chat", chat)

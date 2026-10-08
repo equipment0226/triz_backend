@@ -122,6 +122,8 @@ class Constraint(BaseModel):
     unit: str = ""
     zone: str = ""                 # 적용 영역(예: "챔버 내부"). 비어 있으면 시스템 전체
     source: Literal["USER", "INFERRED", "REGULATION", "AGENT", "DOMAIN"] = "USER"
+    source_path: str = ""          # exact allowlisted path to a direct user statement
+    source_quote: str = ""         # verbatim quote; semantic scope still requires review
     confidence: float = 1.0
     hard: bool = True
     rationale: str = ""

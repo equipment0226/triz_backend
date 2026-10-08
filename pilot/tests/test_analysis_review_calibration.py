@@ -73,6 +73,11 @@ def test_old_pinned_verifier_receives_current_calibration_and_full_guidance(
 
     def chat(ctx, **kwargs):
         captured.append(kwargs["user"])
+        if 'focused semantic auditor' in kwargs['system']:
+            from triz.analysis_semantic_gate import RULES
+            return SimpleNamespace(data={'checks': [{'id': key, 'status': 'PASS',
+                'reason': 'offline calibration fixture', 'findings': []} for key in RULES[rubric_id]]},
+                tokens_in=0, tokens_out=0, cost_usd=0.)
         rb = contract.effective_rubric(settings, rubric_id)
         return SimpleNamespace(
             data={"verdict": "PASS", "per_criterion": [

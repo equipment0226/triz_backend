@@ -28,6 +28,7 @@ def _rows(data, key, *, empty=False):
     models = {'components': schema.Component, 'function_edges': schema.FunctionEdge,
               'interaction_cells': schema.InteractionCell, 'su_fields': schema.SuFieldModel,
               'resources': schema.ResourceItem, 'constraints': schema.Constraint,
+              'user_constraints': schema.Constraint,
               'nodes': schema.CauseNode, 'technical_contradictions': schema.TechnicalContradiction,
               'physical_contradictions': schema.PhysicalContradiction,
               'trimming': schema.TrimmingItem, 'key_problems': schema.KeyProblem}
@@ -155,6 +156,9 @@ def function_model(data):
                 issues.append(f"FATAL-FUNC: function_edges[{i}].{key} '{e.get(key)}'가 컴포넌트 목록에 없다.")
         if e.get('rank') not in ('BASIC','AUXILIARY','CORRECTIVE') or e.get('kind') not in ('USEFUL','HARMFUL'):
             issues.append(f'FATAL-FUNC: function_edges[{i}]의 rank/kind가 유효하지 않다.')
+        if e.get('rank') == 'CORRECTIVE' and e.get('kind') == 'HARMFUL':
+            issues.append(f'FATAL-FUNC: function_edges[{i}]의 CORRECTIVE는 유해 작용을 줄이는 USEFUL 교정 기능이다. '
+                          '교정 수단의 부작용은 별도 HARMFUL/AUXILIARY로 보존하고, 통과 목적으로 USEFUL로 바꾸지 마라.')
         if e.get('level') not in ('INSUFFICIENT','NORMAL','EXCESSIVE'):
             issues.append(f'FATAL-FUNC: function_edges[{i}].level이 유효하지 않다.')
         if any(v in str(e.get('action','')) for v in ('제공한다','개선한다','최적화한다','수행한다','관리한다')):
@@ -184,8 +188,15 @@ def nine_windows(data):
     issues = [f'FATAL-NW: cells.{key}가 비어 있다.' for key in sorted(expected) if not _text(data['cells'].get(key))]
     if any(not isinstance(value,str) for value in data['cells'].values()):
         issues.append('FATAL-NW: cells의 값은 문자열이어야 한다.')
-    if not _strings(data.get('insights')) or not data.get('insights'):
-        issues.append('FATAL-NW: 근거와 개입 여지를 설명하는 insights가 필요하다.')
+    insights = data.get('insights')
+    if not isinstance(insights, list) or not insights:
+        issues.append('FATAL-NW: insights는 비어 있지 않은 문자열 배열(list[str])이어야 한다. 근거와 개입 여지·확인할 조건을 문자열에 함께 적어라.')
+    else:
+        for i, insight in enumerate(insights):
+            if not _text(insight):
+                issues.append(f'FATAL-NW: insights[{i}]는 비어 있지 않은 문자열이어야 한다. '
+                              'insight/evidence/intervention/condition_to_check 등의 객체로 쓰지 말고 '
+                              '그 내용과 근거를 보존해 하나의 문자열로 합쳐라. 전체 cells와 insights를 다시 반환하라.')
     return issues
 
 
@@ -231,21 +242,53 @@ def resources(data):
     return issues
 
 
-def discovered_constraints(data,confirmed_hard_ids=(),existing_ids=()):
+def discovered_constraints(data,confirmed_hard_ids=(),existing_ids=(),
+                           existing_constraints=(),user_sources=None):
+    """Validate append-only discovery, never rewrite the stored constraint set."""
     rows,issues = _rows(data,'constraints',empty=True)
+    # Missing optional USER discoveries in legacy output means no additions.
+    user_rows,more = _rows(dict(data,user_constraints=data.get('user_constraints',[])),
+                            'user_constraints',empty=True) if isinstance(data,dict) else ([],[])
+    issues += more
     taboo,more = _rows(data,'taboo',empty=True)
     issues += more
     known = set(confirmed_hard_ids)
-    for i,row in enumerate(rows):
-        issues += _required(row,('statement','rationale'),f'constraints[{i}]')
-        if _reference(row.get('id'),set(existing_ids)):
-            issues.append(f'FATAL-CONSTRAINT: constraints[{i}]가 기존 제약 ID를 재정의한다. 새 가설만 추가하라.')
-        confidence = row.get('confidence')
-        if (row.get('hard') is not False or isinstance(confidence,bool) or
-                not isinstance(confidence,(int,float)) or not math.isfinite(confidence) or not 0 <= confidence <= .6):
-            issues.append(f'FATAL-CONSTRAINT: constraints[{i}]의 미확인 도메인 가설은 hard=false, confidence 0~0.6이어야 한다.')
-        if row.get('operator','none') != 'none' and not _text(row.get('value')):
-            issues.append(f'FATAL-CONSTRAINT: constraints[{i}]의 수치/집합 제약에 값이 없다.')
+    archived = [c.model_dump() if hasattr(c,'model_dump') else c for c in existing_constraints]
+    statements = {' '.join(c.get('statement','').split()) for c in archived if isinstance(c,dict)}
+    ids = set(existing_ids) | {c.get('id') for c in archived if isinstance(c,dict)}
+    seen_statements,seen_ids = set(),set()
+    for key,candidates in (('constraints',rows),('user_constraints',user_rows)):
+        for i,row in enumerate(candidates):
+            path = f'{key}[{i}]'
+            issues += _required(row,('statement','rationale'),path)
+            statement = ' '.join(row.get('statement','').split()) if isinstance(row.get('statement'),str) else ''
+            if _reference(row.get('id'),ids) or (statement and statement in statements):
+                issues.append(f'FATAL-CONSTRAINT: {path}는 이미 저장된 제약이다. 출력 배열에서만 제외하라. 기존 저장 제약의 hard/source/statement를 변경하거나 낮추지 않는다.')
+            if statement and statement in seen_statements:
+                issues.append(f'FATAL-CONSTRAINT: {path}가 다른 신규 행과 중복된다. 같은 제약을 두 출처 배열에 중복 추가하지 않는다.')
+            if _text(row.get('id')) and row['id'] in seen_ids:
+                issues.append(f'FATAL-CONSTRAINT: {path}의 신규 ID가 다른 행과 중복된다.')
+            seen_statements.add(statement)
+            if _text(row.get('id')):
+                seen_ids.add(row['id'])
+            confidence = row.get('confidence')
+            finite_confidence = (not isinstance(confidence,bool) and isinstance(confidence,(int,float))
+                                 and math.isfinite(confidence))
+            if key == 'constraints':
+                if row.get('source','DOMAIN') != 'DOMAIN':
+                    issues.append(f'FATAL-CONSTRAINT: {path}는 신규 DOMAIN 가설 전용이다. 직접 사용자 근거가 있는 누락 제약만 user_constraints로 분리하라.')
+                if row.get('hard') is not False or not finite_confidence or not 0 <= confidence <= .6:
+                    issues.append(f'FATAL-CONSTRAINT: {path}의 신규 도메인 가설은 hard=false, confidence 0~0.6이어야 한다. 기존 hard 제약의 재출력이라면 완화하지 말고 이 배열에서 제외하라.')
+            else:
+                from .constraint_sources import validate_user_constraint_source
+                issues += [f'FATAL-CONSTRAINT: {path}: {issue}' for issue in
+                           validate_user_constraint_source(row,user_sources or {})]
+                if row.get('source') != 'USER' or not isinstance(row.get('hard'),bool):
+                    issues.append(f'FATAL-CONSTRAINT: {path}는 source=USER와 원문 의무 수준에 맞는 불리언 hard를 명시해야 한다.')
+                if not finite_confidence or confidence != 1:
+                    issues.append(f'FATAL-CONSTRAINT: {path}는 정확한 직접 인용이 있는 사용자 제약만 confidence=1로 추가한다.')
+            if row.get('operator','none') != 'none' and not _text(row.get('value')):
+                issues.append(f'FATAL-CONSTRAINT: {path}의 수치/집합 제약에 값이 없다.')
     for i,item in enumerate(taboo):
         issues += _required(item,('item','why'),f'taboo[{i}]')
         if not isinstance(item.get('confirmed',False),bool):

@@ -35,6 +35,15 @@ def test_s3_to_track_c_keeps_parent_and_submethods_through_storage_and_report(st
             # Untrusted hints returned by a model must not become routing truth.
             return {'su_fields': [dict(m.model_dump(), standard_class_hint=['9.9.9'])
                                   for m in source_models]}
+        if prompt == 'P_S3_FUNCTION_MODEL':
+            from test_analysis_checks import functional_model
+            return functional_model()
+        if prompt == 'P_S3_RESOURCES':
+            return {'resources': [], 'unavailable_reason': 'No resources supplied in this routing fixture'}
+        if prompt == 'P_S3_CECA':
+            return {'nodes': []}
+        if prompt == 'P_S3_CONSTRAINTS':
+            return {'constraints': [], 'taboo': []}
         if prompt != 'P_S5_TRACK_C':
             return {}
         calls.append(kwargs)
@@ -198,7 +207,12 @@ def test_all_76_parent_codes_remain_report_linked_without_rewriting_reference_as
     assert len(catalog) == 76
     assert set(validate_specs(catalog)) == {s['code'] for s in catalog}
     state.solve.standard_apps = [
-        {'standard_code':s['code'],'standard_title':'부정확한 생성 제목','idea':'적용 조건 검토'}
+        {'standard_code':s['code'],'standard_title':'부정확한 생성 제목','idea':'적용 조건 검토',
+         # Reports display saved application graphs, not unrequested reference figures.
+         'resulting_model': {'nodes': [{'id': 'S1', 'label': 'test product'},
+                                       {'id': 'S2', 'label': 'test carrier'},
+                                       {'id': 'F', 'label': 'test field'}],
+                             'edges': [{'source': 'S2', 'target': 'S1', 'label': 'test action'}]}}
         for s in catalog
     ]
     state.report = ReportArtifact()

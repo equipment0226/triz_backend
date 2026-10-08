@@ -33,7 +33,7 @@ def only_part5(monkeypatch):
 
 
 def chat_result(data):
-    return SimpleNamespace(data=deepcopy(data), model="offline", tokens_in=1, tokens_out=1, cost_usd=0)
+    return SimpleNamespace(meta={}, data=deepcopy(data), model="offline", tokens_in=1, tokens_out=1, cost_usd=0)
 
 
 @pytest.mark.parametrize("problem", ["missing_steps", "duplicate_step", "empty_output",

@@ -295,6 +295,7 @@ class AnalysisBundle(BaseModel):
     interaction_matrix: Optional[InteractionMatrix] = None
     su_fields: list[SuFieldModel] = []
     resources: list[ResourceItem] = []
+    resources_unavailable_reason: str = ""
     ceca: Optional[CauseEffectChain] = None
     consistency_issues: list[str] = []
 
@@ -364,6 +365,8 @@ class DefinitionBundle(BaseModel):
     mini_problem: str = ""
     technical_contradictions: list[TechnicalContradiction] = []
     physical_contradictions: list[PhysicalContradiction] = []
+    physical_not_applicable_reason: str = ""
+    contradiction_mapping_notes: list[str] = []
     trimming: list[TrimmingItem] = []
     key_problems: list[KeyProblem] = []
     dropped: list[dict] = []

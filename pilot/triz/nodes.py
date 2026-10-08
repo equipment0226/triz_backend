@@ -231,17 +231,13 @@ def s3_analyze(ctx: RunContext) -> None:
         d = agent.run_agent(
             ctx, node="s3_nine_windows", label="9-Windows 전개", stage=Stage.S3.value,
             agent_id="system_analyst", prompt_id="P_S3_NINE_WINDOWS", tier="T2",
+            rubric_id="R3_NW", checker=verify.check_nine_windows,
             vars={"target_system": digest.target_system(st), "super_system": st.domain.super_system,
                   "restated_problem": st.intake.frame.restated_problem,
                   "operative_time": st.confirm.operative_time},
             default={},
         ) or {}
-        cells = d.get("cells")
-        if not isinstance(cells, dict):
-            cells = {k: v for k, v in d.items()
-                     if isinstance(v, str) and k.split("_")[0] in ("SUB", "SYS", "SUPER")}
-        st.analysis.nine_windows = NineWindows(cells=cells,
-                                               insights=d.get("insights") or [])
+        st.analysis.nine_windows = NineWindows.model_validate(d)
 
     def function_model():
         chosen = st.confirm.chosen()
@@ -261,9 +257,9 @@ def s3_analyze(ctx: RunContext) -> None:
                   "min_harmful": cfg("analysis.min_harmful_functions", 1)},
             default={},
         ) or {}
-        st.analysis.components = build_list(Component, d.get("components"))
-        st.analysis.function_edges = build_list(FunctionEdge, d.get("function_edges"))
-        cells = build_list(InteractionCell, d.get("interaction_cells"))
+        st.analysis.components = [Component.model_validate(row) for row in d["components"]]
+        st.analysis.function_edges = [FunctionEdge.model_validate(row) for row in d["function_edges"]]
+        cells = [InteractionCell.model_validate(row) for row in d["interaction_cells"]]
         st.analysis.interaction_matrix = InteractionMatrix(
             components=[c.name for c in st.analysis.components], cells=cells)
         st.analysis.function_mermaid = d.get("mermaid", "")
@@ -271,7 +267,7 @@ def s3_analyze(ctx: RunContext) -> None:
     def su_field():
         d = agent.run_agent(
             ctx, node="s3_sufield", label="물질-장 분석(Su-Field)", stage=Stage.S3.value,
-            agent_id="sufield_specialist", prompt_id="P_S3_SUFIELD", tier="T2", rubric_id="R3_SUF",
+            agent_id="sufield_specialist", prompt_id="P_S3_SUFIELD", tier="T2", rubric_id="R3_SUF", checker=verify.check_sufields,
             vars={"problem_functions": digest.function_digest(st, only_problem=True),
                   "components": digest.components_digest(st),
                   "operative_zone": st.confirm.operative_zone,
@@ -280,7 +276,7 @@ def s3_analyze(ctx: RunContext) -> None:
             default={},
         ) or {}
         models = []
-        for su in build_list(SuFieldModel, d.get("su_fields")):
+        for su in [SuFieldModel.model_validate(row) for row in d["su_fields"]]:
             su.standard_class_hint = K.standard_hints(su.completeness, su.effect)
             models.append(su)
         st.analysis.su_fields = models
@@ -288,7 +284,7 @@ def s3_analyze(ctx: RunContext) -> None:
     def resources():
         d = agent.run_agent(
             ctx, node="s3_resources", label="자원 분석", stage=Stage.S3.value,
-            agent_id="resource_analyst", prompt_id="P_S3_RESOURCES", tier="T2", rubric_id="R3_RES",
+            agent_id="resource_analyst", prompt_id="P_S3_RESOURCES", tier="T2", rubric_id="R3_RES", checker=verify.check_resources,
             vars={"components": digest.components_digest(st),
                   "super_system": st.domain.super_system,
                   "operating_env": st.domain.operating_env,
@@ -299,7 +295,8 @@ def s3_analyze(ctx: RunContext) -> None:
                   "min_resources": cfg("analysis.min_resources", 8)},
             default={},
         ) or {}
-        st.analysis.resources = build_list(ResourceItem, d.get("resources"))
+        st.analysis.resources = [ResourceItem.model_validate(row) for row in d["resources"]]
+        st.analysis.resources_unavailable_reason = d.get("unavailable_reason") or ""
 
     def ceca():
         d = agent.run_agent(
@@ -314,7 +311,7 @@ def s3_analyze(ctx: RunContext) -> None:
                   "min_depth": cfg("analysis.ceca_min_depth", 3)},
             default={},
         ) or {}
-        nodes = build_list(CauseNode, d.get("nodes"))
+        nodes = [CauseNode.model_validate(row) for row in d["nodes"]]
         st.analysis.ceca = CauseEffectChain(nodes=nodes, mermaid=d.get("mermaid") or "")
 
     nine_windows()
@@ -350,6 +347,9 @@ def _discover_constraints(ctx: RunContext) -> None:
     d = agent.run_agent(
         ctx, node="s3_constraints", label="도메인·시스템 내재 제약 발굴", stage=Stage.S3.value,
         agent_id="constraint_analyst", prompt_id="P_S3_CONSTRAINTS", tier="T2",
+        rubric_id="R3_CONSTRAINT", checker=lambda d: verify.check_discovered_constraints(
+            d, [c.id for c in st.constraints.hard_items() if c.source in ("USER", "REGULATION")],
+            [c.id for c in st.constraints.items]),
         vars={"industry": st.domain.industry, "target_system": digest.target_system(st),
               "super_system": st.domain.super_system,
               "operating_env": st.domain.operating_env,
@@ -363,7 +363,7 @@ def _discover_constraints(ctx: RunContext) -> None:
 
     existing = {c.statement.strip() for c in st.constraints.items}
     added = 0
-    for c in build_list(Constraint, d.get("constraints"), source="DOMAIN"):
+    for c in [Constraint.model_validate(dict(row, source="DOMAIN")) for row in d["constraints"]]:
         if not c.statement or c.statement.strip() in existing:
             continue
         existing.add(c.statement.strip())
@@ -391,12 +391,13 @@ def s4_define(ctx: RunContext) -> None:
     domain.sync_contract(st)
     scheme = "ENG_39" if st.domain.is_engineering else "BIZ_31"
     st.scratch["param_scheme"] = scheme
+    basic = digest.basic_function(st)  # Validate before any downstream model call.
 
     def define_ifr():
         ifr_d = agent.run_agent(
             ctx, node="s4_ifr", label="이상해결책(IFR) 정의", stage=Stage.S4.value,
-            agent_id="triz_master", prompt_id="P_S4_IFR", tier="T2", rubric_id="R4_IFR",
-            vars={"basic_function": digest.basic_function(st),
+            agent_id="triz_master", prompt_id="P_S4_IFR", tier="T2", rubric_id="R4_IFR", checker=verify.check_ifr,
+            vars={"basic_function": basic,
                   "key_disadvantages": digest.ceca_keys(st),
                   "root_causes": digest.ceca_roots(st),
                   "resource_names": [r.name for r in st.analysis.resources],
@@ -404,14 +405,15 @@ def s4_define(ctx: RunContext) -> None:
                   "operative_time": st.confirm.operative_time},
             default={},
         ) or {}
-        st.definition.ifr = build(IFR, ifr_d) or IFR()
+        st.definition.ifr = IFR.model_validate(ifr_d)
 
 
     def define_contradictions():
         con_d = agent.run_agent(
             ctx, node="s4_contradictions", label="모순 도출(기술적/물리적)", stage=Stage.S4.value,
             agent_id="contradiction_definer", prompt_id="P_S4_CONTRADICTIONS", tier="T2",
-            rubric_id="R4_CONTRA", checker=lambda d: verify.check_contradictions(d, scheme),
+            rubric_id="R4_CONTRA", checker=lambda d: verify.check_contradictions(
+                d, scheme, [n.id for n in st.analysis.ceca.nodes] if st.analysis.ceca else []),
             facts="\n".join(digest.function_digest(st, only_problem=True)),
             vars={"restated_problem": st.intake.frame.restated_problem,
                   "characteristics": st.intake.candidate_characteristics,
@@ -427,41 +429,50 @@ def s4_define(ctx: RunContext) -> None:
 
         tcs: list[TechnicalContradiction] = []
         label_to_id: dict[str, str] = {}
-        for tc in build_list(TechnicalContradiction, con_d.get("technical_contradictions"),
-                             param_scheme=scheme):
+        for tc in [TechnicalContradiction.model_validate(dict(row, param_scheme=scheme))
+                   for row in con_d["technical_contradictions"]]:
             tcs.append(tc)
             label_to_id[tc.label] = tc.id
         pcs: list[PhysicalContradiction] = []
         for raw, pc in zip(con_d.get("physical_contradictions") or [],
-                           build_list(PhysicalContradiction,
-                                      con_d.get("physical_contradictions"))):
+                           [PhysicalContradiction.model_validate(row)
+                            for row in con_d["physical_contradictions"]]):
             if isinstance(raw, dict):
                 pc.derived_from_tc_id = label_to_id.get(raw.get("derived_from_tc_label", ""), "")
             pcs.append(pc)
         st.definition.technical_contradictions = tcs
         st.definition.physical_contradictions = pcs
+        st.definition.physical_not_applicable_reason = con_d.get("physical_not_applicable_reason") or ""
+        st.definition.contradiction_mapping_notes = con_d.get("mapping_notes") or []
 
 
     def define_trimming():
         trim_d = agent.run_agent(
             ctx, node="s4_trimming", label="트리밍 후보 도출", stage=Stage.S4.value,
             agent_id="trimming_specialist", prompt_id="P_S4_TRIMMING", tier="T2",
+            rubric_id="R4_TRIM", checker=lambda d: verify.check_trimming(
+                d, [c.name for c in st.analysis.components],
+                [e.subject for e in st.analysis.function_edges if e.rank == "BASIC"]),
             vars={"function_edges": digest.function_digest(st),
                   "components": digest.components_digest(st),
                   "resources": digest.resources_digest(st)},
             default={},
         ) or {}
-        st.definition.trimming = build_list(TrimmingItem, trim_d.get("trimming"))
+        st.definition.trimming = [TrimmingItem.model_validate(row) for row in trim_d["trimming"]]
 
 
     with ThreadPoolExecutor(max_workers=max(1, min(3, int(cfg("run.parallel_workers", 4))))) as pool:
         list(pool.map(lambda fn: fn(), [define_ifr, define_contradictions, define_trimming]))
     tcs = st.definition.technical_contradictions
     pcs = st.definition.physical_contradictions
+    if not tcs and not pcs:
+        ctx.persist()
+        raise AbortRun("근거 있는 모순이 도출되지 않았습니다. 문제와 인과 근거를 보완한 뒤 다시 실행해 주세요.")
 
     key_d = agent.run_agent(
         ctx, node="s4_key_problem", label="핵심 문제 선정", stage=Stage.S4.value,
         agent_id="triz_master", prompt_id="P_S4_KEY_PROBLEM", tier="T2",
+        rubric_id="R4_KEY", checker=lambda d: verify.check_key_problems(d, [c.id for c in [*tcs, *pcs]]),
         vars={"technical_contradictions": [t.model_dump() for t in tcs],
               "physical_contradictions": [p.model_dump() for p in pcs],
               "key_disadvantages": digest.ceca_keys(st),
@@ -470,7 +481,7 @@ def s4_define(ctx: RunContext) -> None:
         default={},
     ) or {}
     kps = []
-    for kp in build_list(KeyProblem, key_d.get("key_problems")):
+    for kp in [KeyProblem.model_validate(row) for row in key_d["key_problems"]]:
         kp.priority_score = round(kp.impact * 0.6 + kp.tractability * 0.4, 2)
         kps.append(kp)
     st.definition.key_problems = sorted(kps, key=lambda x: -x.priority_score)

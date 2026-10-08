@@ -37,11 +37,15 @@ def new_runs_enabled():
 
 
 def bundle(state=None):
+    from ..verification_contract import VERSION as verification_version
+    from ..analysis_guidance import ANALYSIS_CONTRACT_VERSION
     root=Path(__file__).resolve().parents[1]
     data={'workflow':WORKFLOW,'release_version':RELEASE,'coherence_contract':'coherence-v1','coordinator_hitl':False,'policy_version':'rules-v1','feature_schema':'ax-features-v2',
           'action_catalog':'ax-actions-v1','rule_catalog_version':'empty-v1',
           'concept_effect_contract':'explicit-active-effects-v1',
           'rag_case_contract':'latest-final-feedback-case-v2',
+          'analysis_verification_contract':verification_version,
+          'analysis_guidance_contract':ANALYSIS_CONTRACT_VERSION,
           'rule_catalog':[], 'policy':None,
           'models':{t:{k:getattr(c,k) for k in MODEL_FIELDS} for t,c in settings.tiers.items()},
           'prompts':{p:prompts_registry.raw(p) for p in prompts_registry.list_prompts()},
@@ -55,7 +59,9 @@ def bundle(state=None):
           'source_hashes':{str(p.relative_to(root.parent)).replace('\\','/'):digest(p.read_text(encoding='utf-8')) for p in
                            [root/'nodes.py',root/'quality.py',root/'verify.py',root/'render.py',root/'reformulation.py',
                             root/'display_terms.py',root/'report_style.py',root/'solve_contract.py',root/'digest.py',
-                            root/'agent.py',root/'llm.py',root/'model_pricing.py',root/'settings.py',
+                            root/'agent.py',root/'analysis_checks.py',root/'verification_contract.py',
+                            root/'analysis_guidance.py',root/'knowledge/analysis_guidance_v1.json',
+                            root/'schema.py',root/'llm.py',root/'model_pricing.py',root/'settings.py',
                             root/'prompts_registry.py',root/'evidence.py',root/'idea_consolidation.py',root/'separation_contract.py',
                             root/'ax/runtime.py',root/'ax/coordinator.py',root/'ax/coherence.py',root/'ax/cost_restatements.py',
                             root/'ax/coherence_recovery.py',root/'ax/validation.py',root/'ax/report.py',

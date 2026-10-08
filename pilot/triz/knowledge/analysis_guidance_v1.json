@@ -1,0 +1,292 @@
+{
+  "version": "triz-analysis-v1-20261008",
+  "reviewed_on": "2026-10-08",
+  "provenance": "Static synthetic teaching contrasts curated for this application; not generated or retrieved from user histories at runtime.",
+  "sources": [
+    {
+      "url": "https://wiki.matriz.org/knowledge-base/triz/problem-solving-tools-5807/function-cost-analysis-7189/function-analysis-5611/function-modeling-5810/main-function-5872/",
+      "supports": "Main function depends on the system boundary and intended useful purpose."
+    },
+    {
+      "url": "https://wiki.matriz.org/knowledge-base/triz/problem-solving-tools-5807/function-cost-analysis-7189/function-analysis-5611/function-modeling-5810/function-ranking-5941/basic-function-5722/",
+      "supports": "Formal basic functions are component actions on the system target and differ from the whole-system main function."
+    },
+    {
+      "url": "https://wiki.matriz.org/knowledge-base/triz/problem-solving-tools-5807/function-cost-analysis-7189/function-analysis-5611/function-modeling-5810/function-5674/",
+      "supports": "Carrier, action and object; action changes or preserves an object parameter; usefulness, performance and rank are distinct."
+    },
+    {
+      "url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/substance-field-modeling/standard-inventive-solutions/substance-field-model/",
+      "supports": "Substances and an interacting field model one problem; incomplete, insufficient and harmful models differ."
+    },
+    {
+      "url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/contradictions/",
+      "supports": "Technical contradiction couples different performance parameters; physical contradiction places conflicting demands on one property."
+    },
+    {
+      "url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5890/ariz-5892/ariz-block-1/",
+      "supports": "Operating zone/time, available resources and ideal result preserving needed function with minimal harmful changes."
+    },
+    {
+      "url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5807/cause-effect-chain-analysis-5817/",
+      "supports": "Disadvantage chains link initial losses to causes; AND/OR and stopping at influence boundaries."
+    },
+    {
+      "url": "https://wiki.matriz.org/docs/triz/problem-solving-tools-5807/trimming-6398/trimming-rules-6730/",
+      "supports": "Device A/B/C elimination and redistribution rules, replacement-carrier conditions, and distinct process rules."
+    }
+  ],
+  "application_conventions": [
+    "rank=BASIC marks exactly one representative main useful function for downstream app stages. Formal MATRIZ basic/main distinction and multiple useful target actions remain acknowledged.",
+    "AUXILIARY stores supporting actions; CORRECTIVE is useful defect correction, not a synonym for HARMFUL.",
+    "Organization/software use an explicit functional analogy; physical Su-Field analysis requires an actual physical scope.",
+    "Trimming D is the app's supersystem/environment redistribution code, not a universal fourth device rule.",
+    "S1=receiving article; S2=acting tool; S3 is an optional observed third substance in the application's extended schema."
+  ],
+  "common": "인과·수치·구조는 관측/도출/가설을 구분한다. 개수·점수를 맞추려 허구를 추가하지 않는다. 전체 JSON과 내부 ID/명칭 참조를 보존한다. 필수 의미 기준은 높은 평균 점수로 상쇄하지 않는다.",
+  "stages": {
+    "s3_nine_windows": "9-Windows: 같은 사건의 전/중/후와 하위/확정/상위 경계를 일관되게 교차한다. 세대 진화는 별도 가설. 미래 개선 시나리오를 현재 사실로 쓰지 않는다.",
+    "s3_function_model": "BASIC: 본래 유익 목적을 도구→동작→처리 대상→대상 속성으로 연결한다. 앱은 대표 주기능 하나를 저장하며, 공식 MATRIZ의 복수 basic 기능/시스템 main 기능과 구분한다. 고장·개선 목표·중간 수단을 자동 승격하거나 하위 경계에 상위 목적을 강요하지 않는다. kind/level/rank는 독립 축이며 BASIC과 CORRECTIVE는 USEFUL이다.",
+    "s3_sufield": "Su-Field: S1=작용 받는 물질, S2=도구 물질, F=실제 매개 작용. S2→F→S1 하나의 작용. 물질/장 결손과 성능 부족은 다르며 COMPLETE+HARMFUL도 가능하다. 현상·성능 지표를 물질로, 정책·알고리즘을 물리 장으로 만들지 않는다. 물리 범위가 없으면 비적용/빈 모델이다.",
+    "s3_resources": "자원: 기존 존재와 실제 접근·전환 가능성을 분리한다. 새 설비/예산을 무료 자원으로 넣지 않는다. 가설·수량 미확인·파생 원천·필요 조건을 quantity_note에 표시한다. blocked_by_constraint 자원은 IFR에 무조건 사용하지 않는다.",
+    "s3_ceca": "CECA: 손실→중간 단점→개입 가능한 원인. 저장 parents는 원인에서 바로 위 결과 ID를 가리킨다. 관측 인용 없는 인과는 가설로 표시하고 경쟁 설명·반증 실험을 둔다. ROOT_CAUSE도 입증 사실이 아니다. AND/OR 조건과 단점 간 실제 작동 경로를 설명한다.",
+    "s3_constraints": "발견 제약: 확인되지 않은 조건은 hard=false, confidence<=0.6인 가설이다. 최신 사용자 예외를 보존한다. confirmed taboo는 실제 확인 hard 제약 ID가 있을 때만 허용한다. 상식·관행·선호를 새 절대 금지로 만들지 않는다.",
+    "s4_ifr": "IFR: 확정 경계의 필요한 유익 기능을 보존한다. 기존 고압/고온/승인 반복 같은 수단을 보존 목표로 고정하지 않는다. X는 미지의 기능 담당자, 강화 IFR은 확인된 기존 자원만의 요구이지 달성 사실이 아니다. 실제 OZ/OT·유해 현상을 연결하고 앞선 BASIC 충돌을 숨기지 않는다.",
+    "s4_contradictions": "TC: 같은 조치가 서로 다른 성능을 개선/악화하는 인과 결합. PC: 같은 요소의 같은 조절 속성에 이유가 있는 반대 상태 요구. 서로 다른 부품/속성을 PC로 합치지 않는다. 사전 번호가 같다는 이유만으로 PC가 되는 것은 아니다. 미확인 역방향은 가설, 적용 불가는 빈 배열+이유.",
+    "s4_trimming": "트리밍: 제거 요소의 모든 필요한 유익 기능을 확인하고 이전/자기수행/필요 소멸 조건을 입증한다. 대체자 이름뿐 아니라 자원·접촉·용량·책임 조건을 risk_note에 적는다. 필수 요구를 삭제하거나 새 매개물만 추가하면 트리밍이 아니다. A/B/C 원전과 앱의 D 자원 구분을 혼동하지 않는다.",
+    "s4_key_problem": "핵심 문제: 실제 모순 ID와 사용자 손실에 연결하고 선택/보류를 빠짐없이 구분한다. 중복 TC/PC를 별개 문제로 부풀리지 않는다. 계층 다양성·개수보다 확정 경계·근거·개입 가능성이 우선이다."
+  },
+  "examples": [
+    {
+      "id": "FN_TRANSPORT",
+      "nodes": [
+        "s3_function_model"
+      ],
+      "families": [
+        "physical"
+      ],
+      "context": "확정 경계=물체 이송 장치.",
+      "incorrect": "벨트→지지→물체 BASIC; 이송 AUX.",
+      "correct": "벨트→이동시킨다→물체 BASIC(속성=위치); 지지 AUX.",
+      "reason": "지지 자체를 위한 받침대가 아니라 이송 장치의 목적을 선택한다."
+    },
+    {
+      "id": "FN_SEAL_SCOPE",
+      "nodes": [
+        "s3_function_model"
+      ],
+      "families": [
+        "physical"
+      ],
+      "boundary_terms": [
+        "seal",
+        "씰",
+        "밀봉"
+      ],
+      "context": "확정 경계=밀봉 접촉부.",
+      "incorrect": "상위 냉각 장치 목적을 강요해 열 제거 BASIC.",
+      "correct": "씰→외부 유출을 차단한다→유체 BASIC(속성=누출량).",
+      "reason": "같은 부품도 선택 경계의 처리 대상과 목적을 기준으로 판단한다."
+    },
+    {
+      "id": "FN_CLEAN_SCOPE",
+      "nodes": [
+        "s3_function_model"
+      ],
+      "families": [
+        "physical"
+      ],
+      "boundary_terms": [
+        "세정",
+        "클린"
+      ],
+      "context": "확정 경계=세정 공정.",
+      "incorrect": "상위 생산 장비 목적을 강요해 제품 성막 BASIC.",
+      "correct": "세정 유체→제거한다→표면 오염물 BASIC(속성=잔류량).",
+      "reason": "선택한 하위 공정의 직접 처리 기능을 보존한다."
+    },
+    {
+      "id": "FN_SOFTWARE",
+      "nodes": [
+        "s3_function_model"
+      ],
+      "families": [
+        "information",
+        "generic"
+      ],
+      "context": "확정 경계=문서 검색 서비스.",
+      "incorrect": "서버→전력을 소비한다→전원 BASIC 또는 만족도 향상 BASIC.",
+      "correct": "검색기→요청에 맞는 문서를 검색·반환한다→검색 요청 BASIC(속성=응답 결과).",
+      "reason": "인프라 수단과 사업 성과 대신 경계의 유용한 입력-출력 변환을 정의한다."
+    },
+    {
+      "id": "FN_ORGANIZATION",
+      "nodes": [
+        "s3_function_model"
+      ],
+      "families": [
+        "organization"
+      ],
+      "context": "확정 경계=공동 비용 정산 규칙.",
+      "incorrect": "계약서→만료일 지정→참여자 BASIC.",
+      "correct": "정산 규칙→사용 내역에 따라 배분한다→참여자별 부담액 BASIC.",
+      "reason": "관련 계약 조건 하나를 전체 정산 기능으로 승격하지 않는다."
+    },
+    {
+      "id": "SU_HEAT",
+      "nodes": [
+        "s3_sufield"
+      ],
+      "families": [
+        "physical"
+      ],
+      "context": "가열판이 액체를 충분히 데우지 못함.",
+      "incorrect": "S1=가열판, S2=온도 부족, F=온도 목표; MISSING_F.",
+      "correct": "S1=액체, S2=가열판, F=Th(열 전달), COMPLETE+USEFUL_INSUFFICIENT.",
+      "reason": "열 전달 경로의 존재와 충분성은 다르다."
+    },
+    {
+      "id": "SU_NONPHYSICAL",
+      "nodes": [
+        "s3_sufield"
+      ],
+      "families": [
+        "organization",
+        "information",
+        "generic"
+      ],
+      "context": "승인 규칙 때문에 결재가 지연되며 물리 범위 없음.",
+      "incorrect": "S1=직원, S2=규칙, F=압력.",
+      "correct": "물리 Su-Field 비적용; 행위자·규칙·처리 상태의 기능/인과 모델로 분석.",
+      "reason": "조직적 압박은 기계적 압력이 아니다."
+    },
+    {
+      "id": "RESOURCE_EXISTENCE",
+      "nodes": [
+        "s3_resources"
+      ],
+      "families": [
+        "physical",
+        "organization",
+        "information",
+        "generic"
+      ],
+      "context": "현재 기록에는 저장된 로그만 확인됨.",
+      "incorrect": "새 자동화 서버를 FREE 자원으로 등록.",
+      "correct": "기존 로그를 INFORMATION 자원으로 등록하고 보존기간·접근권한 미확인 표시.",
+      "reason": "필요한 해결 수단과 실제 가용 자원을 구분한다."
+    },
+    {
+      "id": "CAUSE_EVIDENCE",
+      "nodes": [
+        "s3_ceca"
+      ],
+      "families": [
+        "physical",
+        "organization",
+        "information",
+        "generic"
+      ],
+      "context": "동시에 발생한 지연과 사용량 증가만 관측됨.",
+      "incorrect": "사용량 증가가 유일 근본원인이라는 OBSERVED.",
+      "correct": "연관 관측과 자원 경합 원인 가설을 분리하고 부하 대조 실험으로 반증.",
+      "reason": "동시 관측은 인과 방향과 유일 원인을 입증하지 않는다."
+    },
+    {
+      "id": "IFR_PURPOSE",
+      "nodes": [
+        "s4_ifr"
+      ],
+      "families": [
+        "physical",
+        "organization",
+        "information",
+        "generic"
+      ],
+      "context": "높은 압착력으로 접촉을 확보하나 손상이 생김.",
+      "incorrect": "높은 압착력을 유지하면서 손상 제거.",
+      "correct": "필요한 접촉·전달 기능을 유지하면서 손상 제거; 압착력은 변경 가능한 수단.",
+      "reason": "필수 유익 결과를 보존하고 기존 구현 수단을 고정하지 않는다."
+    },
+    {
+      "id": "PC_ONE_PROPERTY",
+      "nodes": [
+        "s4_contradictions"
+      ],
+      "families": [
+        "physical",
+        "organization",
+        "information",
+        "generic"
+      ],
+      "context": "같은 체결면의 접촉 압력 때문에 전달 성능과 손상이 결합됨.",
+      "incorrect": "압력은 높아야 하고 다른 부품 온도는 낮아야 한다를 PC로 기록.",
+      "correct": "같은 접촉 압력이 전달을 위해 높아야 하고 손상 억제를 위해 낮아야 한다.",
+      "reason": "동일 요소·동일 속성·서로 정당화된 두 요구를 유지한다."
+    },
+    {
+      "id": "TRIM_TRANSFER",
+      "nodes": [
+        "s4_trimming"
+      ],
+      "families": [
+        "physical",
+        "organization",
+        "information",
+        "generic"
+      ],
+      "context": "별도 중간 검토자가 기록 검증과 예외 처리를 담당함.",
+      "incorrect": "검토자를 삭제하면 비용이 줄어든다는 설명만.",
+      "correct": "기존 접수 단계로 검증을 이전하고 담당 권한·처리량·예외 책임과 미확인 조건 명시.",
+      "reason": "유익 기능 전체의 이전 조건을 검토해야 한다."
+    },
+    {
+      "id": "NW_NOT_HISTORY",
+      "nodes": [
+        "s3_nine_windows"
+      ],
+      "families": [
+        "physical",
+        "organization",
+        "information",
+        "generic"
+      ],
+      "context": "현재 수작업 여부만 확인됨.",
+      "incorrect": "과거는 모두 수작업이었고 미래 센서 도입은 확정.",
+      "correct": "과거 방식 미확인; 미래 자동화는 검토 가설이며 접근권한·설비 조건 확인.",
+      "reason": "시간축 탐색은 역사·미래 사실의 창작 근거가 아니다."
+    },
+    {
+      "id": "CONSTRAINT_NOT_TABOO",
+      "nodes": [
+        "s3_constraints"
+      ],
+      "families": [
+        "physical",
+        "organization",
+        "information",
+        "generic"
+      ],
+      "context": "사용자는 설치 공간만 제한함.",
+      "incorrect": "관행상 재료 교체 금지와 신규 센서 금지를 HARD로 추가.",
+      "correct": "양립성 검토 필요를 soft 가설로 기록하고 확인된 공간 제약만 보존.",
+      "reason": "흔한 관행은 사용자 승인된 금지가 아니다."
+    },
+    {
+      "id": "KEY_ACTUAL_ID",
+      "nodes": [
+        "s4_key_problem"
+      ],
+      "families": [
+        "physical",
+        "organization",
+        "information",
+        "generic"
+      ],
+      "context": "입력 모순 T1과 T2가 같은 손실을 설명함.",
+      "incorrect": "다양성을 맞추려고 새로운 상위 문제 T3 생성.",
+      "correct": "실제 T1/T2를 핵심 문제에 연결하고 미선정 모순의 보류 이유 기록.",
+      "reason": "문제 선정 단계는 근거 없는 새 범위를 만드는 단계가 아니다."
+    }
+  ]
+}

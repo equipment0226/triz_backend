@@ -59,7 +59,7 @@ def test_default_pipeline_uses_independent_kpis_and_keeps_report_comments_and_ca
     def chat(ctx, **kwargs):
         data = respond(ctx, **local.call)
         requests.append(kwargs)
-        return SimpleNamespace(data=data, model="offline", tokens_in=10, tokens_out=20, cost_usd=0.0)
+        return SimpleNamespace(meta={}, data=data, model="offline", tokens_in=10, tokens_out=20, cost_usd=0.0)
     monkeypatch.setattr(agent, "run_agent", run)
     monkeypatch.setattr(agent, "tracked_chat", chat)
     monkeypatch.setattr(agent, "verify_artifact", lambda *a, **kw: {"verdict": "PASS", "score": 1.0})

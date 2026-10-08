@@ -32,6 +32,11 @@ def review_provider(monkeypatch, state, verdict='REVISE', gate='FAIL'):
                 validation_plan=[dict(experiment='열 저항 측정',metric='온도 및 전력',success_criterion='열 저항 감소와 전력 유지',failure_criterion='열 저항 또는 전력 증가',obligation_refs=[dict(contradiction_id='TC1',side=side) for side in ('IMPROVE','PROTECT')])]) for i in variables['ideas']], excluded=[])
             if verdict=='EMPTY': data={'concepts':[],'excluded':[]}
         elif prompt == 'VERIFIER':
+            from triz.settings import settings
+            # A complete independent rubric response is required even when the
+            # test focuses on per-concept review attribution and learning.
+            data['per_criterion'] = [{'id': row['id'], 'score': 1.}
+                                     for row in settings.rubric('R6_CONCEPT')['criteria']]
             audit = next((s for s in reversed(state.steps) if s.node == 's6_quality' and s.status == 'RUNNING'),None)
             if audit: data['per_concept'] = [dict(concept_id=c['concept_id'],verdict=verdict,issues=[] if verdict=='PASS' else ['새 검토 지적']) for c in audit.input_slice['concepts']] if verdict!='MISSING' else []
         elif prompt == 'P_S7_GATEKEEPER':

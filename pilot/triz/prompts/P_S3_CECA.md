@@ -1,35 +1,20 @@
-당신은 근본원인 분석(Cause-Effect Chain Analysis) 전문가다.
-표면 현상에서 출발해 "왜?"를 반복하여 근본 원인까지 논리 사슬을 만들어라.
-
+원인-결과 사슬(CECA)을 작성하라. 기능 분석의 단점을 출발점으로 손실의 작동 경로와 검증할 가설을 구분한다.
 [표면 문제] {{symptom}}
 [유해/부족 기능] {{problem_functions}}
-[시스템 사실] {{components}}
+[컴포넌트 모델 — 자동 생성 주장 포함] {{components}}
 [성공 기준] {{success_criteria}}
 
---- 작성 규칙 ---
-1. 최상단 노드는 node_type="TARGET_DISADVANTAGE" (사업/사용자 관점 손실. 예: "수율 저하로 인한 생산 손실")
-2. 아래로 내려가며 원인을 전개. 각 노드는 하나의 인과 주장이다. evidence_status=OBSERVED|HYPOTHESIS|DERIVED, evidence_refs, hypothesis_ids, falsification_test로 관측과 가설을 구분한다.
-   - id는 "N1","N2",... 로 부여하고, parents에는 바로 위(결과) 노드 id를 넣는다.
-   - 여러 원인이 동시에 필요하면 logic="AND", 어느 하나면 되면 logic="OR"
-3. 깊이는 최소 {{min_depth}}단, 최대 6단.
-4. 시스템 내부에서 더 이상 통제 불가능하거나 지배 법칙·정보 규칙·인센티브·설계 전제에 도달하면
-   node_type="ROOT_CAUSE"로 표시하고 멈춘다.
-5. 다음에 해당하는 노드는 is_contradiction_seed=true:
-   - 없애면 다른 유익 기능이 손상되는 노드
-   - 상반된 요구가 한 요소에 걸리는 노드
-   - 개선하면 다른 지표가 나빠지는 노드
-6. node_type="KEY_DISADVANTAGE": 사슬에서 가장 적은 비용으로 끊을 수 있는 지점 1~3개.
-7. 추측에는 "추정:" 접두사를 붙이고 comment에 검증 방법을 적어라.
-
-[금지]
-- "관리 부족", "노후화" 같은 총론적 원인. 물리적/논리적 메커니즘으로 서술하라.
-- 이름만 바꿔 반복하는 원인. 작동 경로를 기술하라. 조직 문제는 어떤 규칙이 누구의 어떤 선택을 바꾸는지, 정보 문제는 어떤 상태 전이가 실패하는지 적는다.
-- 순환 참조, 중복 ID, 최상단 손실과 무관한 노드.
-- 경쟁 가설을 비교하고 하나가 틀릴 때 사슬이 어떻게 달라지는지 comment에 적는다.
-- 해결책 서술.
-
-mermaid: `flowchart TD` 로 시작. 위(손실)에서 아래(근본원인)로 연결. 노드 라벨은 큰따옴표로.
-
+- TARGET_DISADVANTAGE는 프로젝트의 필요 성과가 달성되지 않는 손실이다. 개선 목표 자체나 해결책을 원인으로 넣지 않는다.
+- 각 노드는 하나의 단점/인과 주장. id=N1,N2,..., parents는 이 원인이 유발하는 바로 위 결과 노드의 id다. 즉 저장 방향은 원인 노드→parents의 결과이며, 그림은 결과에서 원인을 내려다본다.
+- 결과에 동시에 필요한 복수 원인은 AND, 독립적인 대안 원인은 OR. 같은 결과를 가리키는 원인 노드들의 logic에 일관된 결합을 표시하고 comment로 어떤 원인들이 묶이는지 설명한다. 단일 원인 연결은 NONE. 서로 다른 결합이 필요하면 중간 단점 노드로 분리한다.
+- OBSERVED는 사용자 관측/첨부에 직접 뒷받침되는 내용만. evidence_refs에 실제 입력 근거를 적는다. 사용자 목표, 생성된 컴포넌트 역할, 앞 단계 가설은 관측 증거가 아니다.
+- DERIVED는 확인된 전제와 명시된 논리/관계로 도출할 때만. 원인 방향이 미확인·복수 설명 가능하면 HYPOTHESIS.
+- 가설은 text의 '가설:' 또는 '추정:'과 hypothesis_ids, falsification_test를 쓴다. 관측 가능한 대조 조건과 반증 결과를 명시한다. 경쟁 가설을 원인 확정으로 합치지 않는다.
+- {{min_depth}}단은 탐색 목표, 최대 6단. 근거가 부족하면 짧은 사슬과 미확인 사유가 허구의 깊이보다 옳다. 자연 법칙 또는 이 프로젝트에서 통제할 수 없는 경계에서 ROOT_CAUSE로 멈춘다. ROOT_CAUSE 표시가 원인 입증을 의미하지 않는다.
+- KEY_DISADVANTAGE는 해결하면 초기 손실에 영향을 줄 수 있는 개입 지점 1~3개. 비용이 낮다는 근거가 없으면 단정하지 않는다.
+- 제거 시 다른 유익 기능을 훼손하거나 동일 요소에 상반 요구를 만드는 지점만 is_contradiction_seed=true. comment에 보존할 유익 기능을 명시한다.
+- 물리는 관련 계면·작용, 정보는 상태 전이, 조직은 규칙→행위자의 선택→결과로 설명한다. '노후화/관리 부족'에서 멈추거나 권한을 힘으로 치환하지 않는다.
+- 순환 참조, 중복 ID, 동의어 반복, 이름만 있는 결과→결과 연결, 해결책·센서 추가를 원인처럼 기록하는 것을 금지한다.
+mermaid는 flowchart TD, 큰따옴표 노드 라벨.
 [출력 JSON]
-{"nodes":[{"id":"N1","text":"","node_type":"TARGET_DISADVANTAGE","parents":[],"logic":"NONE","is_contradiction_seed":false,"comment":"","evidence_status":"HYPOTHESIS","evidence_refs":[],"hypothesis_ids":[],"falsification_test":""}],
- "mermaid":""}
+{"nodes":[{"id":"N1","text":"","node_type":"TARGET_DISADVANTAGE","parents":[],"logic":"NONE","is_contradiction_seed":false,"comment":"","evidence_status":"HYPOTHESIS","evidence_refs":[],"hypothesis_ids":[],"falsification_test":""}],"mermaid":""}

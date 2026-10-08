@@ -165,7 +165,7 @@ def test_part6_repair_exhaustion_is_failed_and_never_runs_part7(state, monkeypat
     def chat(ctx, **kwargs):
         calls.append(kwargs)
         assert kwargs["_node"] == "s5_ariz_p6"
-        return SimpleNamespace(data={"items": []}, model="offline", tokens_in=1, tokens_out=1, cost_usd=0)
+        return SimpleNamespace(meta={}, data={"items": []}, model="offline", tokens_in=1, tokens_out=1, cost_usd=0)
     monkeypatch.setattr(agent, "tracked_chat", chat)
     with pytest.raises(AbortRun, match="치명적 결함"):
         nodes._track_d_ariz(RunContext(state))
@@ -189,7 +189,7 @@ def test_old_pin_missing_part6_gets_only_the_explicit_new_prompt(state, monkeypa
         assert "in-track-review-v1" in kwargs["user"]
         assert "Wafer production line" in kwargs["user"]
         assert "Remove particles while preserving fine patterns." in kwargs["user"]
-        return SimpleNamespace(data=model_review(), model="offline", tokens_in=1, tokens_out=1, cost_usd=0)
+        return SimpleNamespace(meta={}, data=model_review(), model="offline", tokens_in=1, tokens_out=1, cost_usd=0)
 
     monkeypatch.setattr(agent, "tracked_chat", chat)
     nodes._track_d_ariz(RunContext(state))

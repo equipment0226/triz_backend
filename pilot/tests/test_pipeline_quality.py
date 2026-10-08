@@ -257,6 +257,10 @@ def test_gate_batches_execute_concurrently_but_keep_order(state, monkeypatch):
 
 
 def test_s4_waits_for_parallel_definitions_before_selecting_problem(state, monkeypatch):
+    from triz.schema import Component, FunctionEdge
+    state.analysis.components = [Component(name='tool'), Component(name='product', level='PRODUCT')]
+    state.analysis.function_edges = [FunctionEdge(subject='tool', action='holds', object='product',
+                                                  parameter_affected='position', rank='BASIC')]
     barrier = threading.Barrier(3)
     finished = []
     def respond(ctx, **kw):
@@ -267,8 +271,8 @@ def test_s4_waits_for_parallel_definitions_before_selecting_problem(state, monke
         barrier.wait(timeout=5)
         finished.append(kw['node'])
         if kw['node'] == 's4_contradictions':
-            return {'technical_contradictions': [{'label': 'coupled goals'}]}
-        return {}
+            return {'technical_contradictions': [{'label': 'coupled goals'}], 'physical_contradictions': []}
+        return {'trimming': []} if kw['node'] == 's4_trimming' else {}
     monkeypatch.setattr(agent, 'run_agent', respond)
     nodes.s4_define(RunContext(state))
 

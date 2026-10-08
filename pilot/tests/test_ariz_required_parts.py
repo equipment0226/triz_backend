@@ -92,7 +92,7 @@ def test_real_agent_repairs_required_steps_or_marks_failure(state, monkeypatch, 
         else:
             assert node == "s5_ariz_p4"
             data = ariz_payload(4)
-        return SimpleNamespace(data=data, model="offline", tokens_in=1, tokens_out=1, cost_usd=0)
+        return SimpleNamespace(meta={}, data=data, model="offline", tokens_in=1, tokens_out=1, cost_usd=0)
     monkeypatch.setattr(agent, "tracked_chat", chat)
     if repair_succeeds:
         nodes._track_d_ariz(RunContext(state))

@@ -131,10 +131,16 @@ def function_digest(s: GlobalState, only_problem: bool = False) -> list[str]:
 
 
 def basic_function(s: GlobalState) -> str:
-    for e in s.analysis.function_edges:
-        if e.rank == "BASIC":
-            return f"{e.subject} → {e.action} → {e.object}"
-    return s.domain.target_system
+    from .context import AbortRun
+    basics = [edge for edge in s.analysis.function_edges if edge.rank == "BASIC"]
+    names = {component.name for component in s.analysis.components}
+    if (len(basics) != 1 or basics[0].kind != "USEFUL" or
+            any(not getattr(basics[0], key).strip() for key in
+                ("subject", "action", "object", "parameter_affected")) or
+            basics[0].subject not in names or basics[0].object not in names):
+        raise AbortRun("유효한 주기능(BASIC)이 없어 다음 분석을 진행할 수 없습니다. 기능 분석부터 다시 실행해 주세요.")
+    edge = basics[0]
+    return f"{edge.subject} → {edge.action} → {edge.object} (유지·변경 속성: {edge.parameter_affected})"
 
 
 def resources_digest(s: GlobalState, include_blocked: bool = False) -> list[str]:

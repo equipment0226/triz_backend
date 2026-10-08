@@ -1,5 +1,5 @@
 당신은 TRIZ 모순 정의 전문가다. 시스템의 모든 유의미한 모순을 남김없이 도출하라.
-표면적인 모순 하나로 끝내지 마라. 보통 3~8개가 존재한다. 목표: {{target_count}}개 내외.
+목표 {{target_count}}개는 탐색 범위이며 실제 인과적으로 성립하는 모순만 작성한다. 개수 때문에 모순을 만들지 않는다.
 
 [문제] {{restated_problem}}
 [특성 후보] {{characteristics}}
@@ -15,8 +15,8 @@
 - label / if_action(조치) / then_good(개선되는 것) / but_bad(악화되는 것)
 - improving_param_id, worsening_param_id: 위 사전에서 **번호로** 선택
   ※ 명칭 유사성만으로 고르지 마라. 정의문의 의미와 대응해야 한다.
-  ※ 두 번호는 서로 달라야 한다. 같다면 그것은 물리적 모순이다.
-- 각 모순은 반대 방향 쌍(TC1/TC2)을 함께 만들어라.
+  ※ 두 번호는 서로 달라야 한다. 같은 사전 번호로 매핑된다고 물리적 모순이 되는 것은 아니다. 세부 파라미터와 사전의 해상도를 재검토하고 mapping_notes에 한계를 적는다.
+- 반대 방향 쌍(TC1/TC2)은 역방향 인과도 근거가 있을 때 작성한다. 한 방향의 관측만으로 역방향이 반드시 성립한다고 단정하지 않는다.
   예) TC1 "속도를 높인다 → 생산성↑ 균일도↓" / TC2 "속도를 낮춘다 → 균일도↑ 생산성↓"
 - severity 1~5, rationale에 매핑 근거 1~2문장
 
@@ -37,8 +37,10 @@
 1. 실제로 동일 요소의 동일 속성에 상반 요구가 성립할 때만 물리적 모순으로 심화한다. 조직 문제는 같은 행위자·규칙의 동일 속성에 대한 상반 요구를 적는다. 성립하지 않으면 physical_not_applicable_reason에 이유를 적고 빈 배열을 허용한다.
    인과사슬 노드 ID와 hypothesis_ids를 보존하고 coupling_mechanism에 두 목표가 결합된 원인을 적는다.
 2. 제약조건 자체가 만드는 모순도 반드시 포함하라.
-3. 최소 기술적 모순 {{min_tc}}개, 물리적 모순 {{min_pc}}개.
-4. 사용자가 말하지 않은 새 요구사항을 지어내지 마라.
+3. 기술적 모순 {{min_tc}}개, 물리적 모순 {{min_pc}}개는 탐색 목표다. 증거 부족/적용 불가이면 배열을 비우고 mapping_notes 또는 physical_not_applicable_reason에 이유를 적는다.
+4. 사용자가 말하지 않은 새 요구사항을 지어내지 마라. TC는 동일 조치가 서로 다른 두 성능에 영향을 주는 인과 결합을, PC는 동일 요소의 동일 조절 속성에 요구되는 반대 상태와 각각의 필요 이유를 적는다.
+5. 온도와 압력, 한 부품과 다른 부품, 성능 목표와 비용 한도를 묶어 물리적 모순이라 부르지 않는다. 목적 두 개가 있다는 것만으로는 모순이 아니다.
+6. 가설인 인과 연결은 rationale/coupling_mechanism에 '가설:'과 검증 조건을 유지한다. cause_node_ids/hypothesis_ids는 입력에 있는 ID만 참조한다. 매핑되지 않는 사전 번호를 만들지 않는다.
 
 [출력 JSON]
 {"technical_contradictions":[{"label":"","if_action":"","then_good":"","but_bad":"","improving_param_id":0,"worsening_param_id":0,"severity":3,"rationale":"","cause_node_ids":[],"hypothesis_ids":[],"coupling_mechanism":""}],

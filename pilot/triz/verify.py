@@ -188,44 +188,24 @@ def rubric_criteria_text(rubric: dict) -> str:
 
 # ──────────────────────────────── 결정론적 검사 (LLM 없이)
 def check_function_model(data: dict) -> list[str]:
-    issues: list[str] = []
-    names = {c.get("name", "") for c in data.get("components", [])}
-    edges = data.get("function_edges", [])
-    if not edges:
-        return ["기능 간선이 비어 있다."]
-    for e in edges:
-        if e.get("subject") not in names:
-            issues.append(f"DET-05: 기능 주체 '{e.get('subject')}'가 컴포넌트 목록에 없다.")
-        if e.get("object") not in names:
-            issues.append(f"DET-05: 기능 대상 '{e.get('object')}'가 컴포넌트 목록에 없다.")
-    basics = [e for e in edges if e.get("rank") == "BASIC"]
-    if len(basics) != 1:
-        issues.append(f"DET-05b: 주기능(BASIC)은 정확히 1개여야 하는데 {len(basics)}개다.")
-    harmful = [e for e in edges if e.get("kind") == "HARMFUL"]
-    if not harmful and not any(e.get("level") == "INSUFFICIENT" for e in edges):
-        issues.append("DET-05c: 문제를 나타내는 유해 또는 부족 기능이 없다.")
-    vague = ("제공한다", "개선한다", "최적화한다", "수행한다", "관리한다")
-    for e in edges:
-        if any(v in (e.get("action") or "") for v in vague):
-            issues.append(f"DET-05d: 모호한 기능 동사 '{e.get('action')}' — 구체 동사로 바꿔라.")
-    if not any(c.get("level") == "PRODUCT" for c in data.get("components", [])):
-        issues.append("DET-05e: 가공/처리 대상(PRODUCT) 컴포넌트가 없다.")
-    comps = data.get("components", [])
-    min_comp = 2
-    if len(comps) < min_comp:
-        issues.append(f"DET-05f: 컴포넌트가 {min_comp}개 이상 필요한데 {len(comps)}개다. "
-                      "작용 주체와 처리 대상을 구분하라.")
-    subs = [c for c in comps if c.get("level") == "SUB"]
-    # Domain-specific depth is audited by R3_FUNC; a fixed gearbox-oriented count
-    # caused fabricated components in software and semiconductor models.
-    return issues[:8]
+    from .analysis_checks import function_model
+    return function_model(data)
+
+
+from .analysis_checks import (
+    nine_windows as check_nine_windows, sufields as check_sufields,
+    resources as check_resources, discovered_constraints as check_discovered_constraints,
+    ifr as check_ifr, trimming as check_trimming, key_problems as check_key_problems,
+)
 
 
 def check_ceca(data: dict) -> list[str]:
-    issues: list[str] = []
-    nodes = data.get("nodes", [])
-    if not nodes:
-        return ["인과사슬 노드가 비어 있다."]
+    from .analysis_checks import _rows, _strings, _text, ceca_structure
+    nodes, issues = _rows(data, 'nodes')
+    if issues:
+        return issues
+    if any(not _text(node.get('id')) or not _strings(node.get('parents')) for node in nodes):
+        return ['FATAL-CECA: 각 노드에는 문자열 ID와 부모 ID 배열이 필요하다.']
     ids = {n.get("id") for n in nodes}
     if len(ids) != len(nodes) or None in ids or "" in ids:
         return ["FATAL-CECA: 노드 ID가 비어 있거나 중복된다."]
@@ -239,7 +219,7 @@ def check_ceca(data: dict) -> list[str]:
         issues.append("DET-06c: 최상단 손실(TARGET_DISADVANTAGE) 노드가 없다.")
     # 깊이 계산
     try:
-        depth = _chain_depth(nodes)
+        _chain_depth(nodes)
     except ValueError:
         return ["FATAL-CECA: 인과사슬에 순환 참조가 있다."]
     roots = {n['id'] for n in nodes if n.get('node_type') == 'TARGET_DISADVANTAGE'}
@@ -248,14 +228,13 @@ def check_ceca(data: dict) -> list[str]:
         reachable.update(n['id'] for n in nodes if set(n.get('parents', [])) & reachable)
     if reachable != ids:
         issues.append("FATAL-CECA: 최상단 손실과 연결되지 않은 원인 노드가 있다.")
-    mind = settings.cfg("analysis.ceca_min_depth", 3)
-    if depth < mind:
-        issues.append(f"DET-06d: 사슬 깊이가 {depth}단으로 최소 {mind}단에 미달한다.")
+    # Depth is an exploration target, not permission to invent causal links.
+    # Semantic sufficiency and the reason to stop are audited by R3_CECA.
     banned = ("관리 부족", "노후화", "인력 부족", "예산 부족")
     for n in nodes:
         if any(b in (n.get("text") or "") for b in banned):
             issues.append(f"DET-06e: 총론적 원인 '{n.get('text')}' — 메커니즘으로 서술하라.")
-    return issues[:8]
+    return issues + ceca_structure(data)
 
 
 def _chain_depth(nodes: list[dict]) -> int:
@@ -274,30 +253,9 @@ def _chain_depth(nodes: list[dict]) -> int:
     return max((depth(key) for key in by_id), default=0)
 
 
-def check_contradictions(data: dict, scheme: str = "ENG_39") -> list[str]:
-    issues: list[str] = []
-    tcs = data.get("technical_contradictions", [])
-    pcs = data.get("physical_contradictions", [])
-    min_tc = settings.cfg("definition.min_technical_contradictions", 1)
-    min_pc = settings.cfg("definition.min_physical_contradictions", 1)
-    if len(tcs) < min_tc:
-        issues.append(f"DET-01a: 기술적 모순이 최소 {min_tc}개 필요하다.")
-    if len(pcs) < min_pc and not data.get("physical_not_applicable_reason"):
-        issues.append(f"DET-03a: 물리적 모순이 최소 {min_pc}개 필요하다.")
-    for tc in tcs:
-        imp, wor = tc.get("improving_param_id"), tc.get("worsening_param_id")
-        if not K.valid_param(imp, scheme) or not K.valid_param(wor, scheme):
-            issues.append(f"DET-01: 파라미터 번호 오류 (개선 {imp}, 악화 {wor}).")
-        elif imp == wor:
-            issues.append(f"DET-01b: 개선/악화 파라미터가 같다(#{imp}). 물리적 모순으로 재정의하라.")
-    for pc in pcs:
-        if not pc.get("state_a") or not pc.get("state_b"):
-            issues.append("DET-03: 물리적 모순의 두 상태가 모두 기술되어야 한다.")
-        if pc.get("state_a", "").strip() == pc.get("state_b", "").strip():
-            issues.append("DET-03b: 물리적 모순의 두 상태가 동일하다.")
-        if not pc.get("parameter"):
-            issues.append("DET-03c: 물리적 모순의 대상 파라미터가 비어 있다.")
-    return issues[:8]
+def check_contradictions(data: dict, scheme: str = "ENG_39", cause_ids=None) -> list[str]:
+    from .analysis_checks import contradictions
+    return contradictions(data, scheme, cause_ids)
 
 
 def check_principles(data: dict, allowed: list[int]) -> list[str]:
@@ -313,17 +271,23 @@ def check_principles(data: dict, allowed: list[int]) -> list[str]:
 
 
 def check_standards(data: dict, allowed=None) -> list[str]:
+    """Invalid supplied standard/model structures must repair or stop.
+
+    Do not require a graph: a text-only application need not invent one.
+    """
+    if not isinstance(data, dict) or not isinstance(data.get('applications', []), list):
+        return ['FATAL-STD: DET-08: applications 배열을 포함한 JSON 객체가 필요합니다.']
     valid = K.standard_codes() if allowed is None else set(allowed) & K.standard_codes()
     issues = []
     for a in data.get("applications", []):
         if not isinstance(a,dict):
-            issues.append('DET-08: 표준해 적용안 형식 오류')
+            issues.append('FATAL-STD: DET-08: 표준해 적용안 형식 오류')
             continue
-        if a.get("standard_code") not in valid:
-            issues.append(f"DET-08: 존재하지 않는 표준해 코드 '{a.get('standard_code')}'.")
+        if not isinstance(a.get("standard_code"), str) or a["standard_code"] not in valid:
+            issues.append(f"FATAL-STD: DET-08: 후보 목록에 없는 표준해 코드 '{a.get('standard_code')}'.")
         if a.get('resulting_model') is not None:
             from .su_field_model import check_model
-            issues.extend('DET-08-model: '+message for message in check_model(a['resulting_model']))
+            issues.extend('FATAL-STD: DET-08-model: '+message for message in check_model(a['resulting_model']))
     return issues[:8]
 
 

@@ -1,57 +1,39 @@
-당신은 {{industry}} 분야 수석 시스템 분석가이자 TRIZ 기능분석 전문가다.
-확정된 대상 시스템에 대해 3단계 기능분석을 수행하라.
-
-[확정 시스템]
-{{chosen_system}}
-
+당신은 {{industry}} 분야 시스템 분석가다. 확정 경계와 최신 사용자 수정을 기준으로 기능분석을 수행하라.
+[확정 시스템] {{chosen_system}}
 [문제 영역] {{problem_zone}}
 [작용 영역(OZ)] {{operative_zone}}
 [첨부 사실] {{attachment_facts}}
-[9-Windows 통찰] {{nw_insights}}
+[9-Windows 탐색 통찰 — 확인 사실이 아님] {{nw_insights}}
 
---- 1단계: 컴포넌트 분석 ---
-components (권장 {{min_components}}~{{max_components}}개; 단순 문제에서 수량을 채우려고 부품을 가정하지 마라). 각 항목 level:
-  PRODUCT(가공/처리 대상), TARGET(대상 시스템 구성요소), SUPER(상위 시스템),
-  SUB(구성요소의 하위 요소), ENVIRONMENT(주변 환경 물질/장)
+1. 경계와 존재 목적을 먼저 구분한다.
+- 주기능(Main function)은 이 경계의 시스템이 본래 수행하도록 설계된 유익 작용이다. 불량 감소·수율 향상 같은 개선 목표, 현재 고장, 해결 수단 자체가 아니다.
+- 도구(tool/function carrier)가 처리 대상(product/function object)의 어떤 속성을 변화·유지하는지 식별한다. 시스템 이름, 문제 제목, 첫 USEFUL 간선만 보고 정하지 마라.
+- 확정된 하위 모듈을 평가할 때 상위 장비 목적을 강요하지 않는다. 사용자가 확정한 수정은 이전 후보 설명보다 우선한다.
+- MATRIZ의 엄밀한 basic function은 구성요소가 대상에 수행하는 유익 기능이며 복수일 수 있다. 이 앱의 rank=BASIC은 후속 단계에 전달할 대표 주기능 한 개를 표시하는 저장 규약이다. 이를 TRIZ의 보편적인 단일 기능 규칙으로 오해하지 마라.
+- 대표 BASIC은 선택 경계의 존재 목적을 실현하는 USEFUL 작용 하나다. 지지·가열·힘 인가·명령 생성이 목적을 위한 중간 수단에 불과하다면 그 수단을 승격하지 않는다. 반대로 지지대·히터·명령 생성기 자체를 선택했다면 해당 작용이 주기능일 수 있다.
+- 독립된 필요 출력이 여러 개면 하나를 대표로 선정한 근거를 components.notes에 남기고 나머지 기능도 간선으로 보존한다. unrelated 목표들을 한 동사에 합치지 않는다.
 
-**분해 깊이 — 이것이 이 단계의 핵심이다.**
-산업별 분석 계약의 depth에 맞춰 실제 원인이 작용하는 곳까지 내려가라.
-- PHYSICAL_TECHNICAL: 관련 공정·재료·계면에서 힘·열·반응 등 지배 경로를 분석한다. 관련 없는 부품을 만들어 수량을 채우지 않는다.
-- INFORMATION_SOFTWARE: 요청·데이터·공유 상태·큐·일관성 경계까지 분석한다.
-- ORGANIZATIONAL_BUSINESS: 행위자 → 정보/권한/유인 → 실제 선택/행동 → 결과까지 추적한다. 사람을 물질이나 힘으로 치환하지 않는다.
-- MIXED: 계층별 인과관계를 연결하되 물리 분석은 확인된 physical_scope에 한정한다.
-깊이는 부품 수가 아니라 손실을 발생시키는 경로의 설명력이다. 관측되지 않은 연결은 가설로 표시한다.
+2. components: 권장 {{min_components}}~{{max_components}}개. 실제 확인된 구조만 분해하고 개수 때문에 요소를 만들지 않는다.
+- PRODUCT=이 경계에서 처리·이동·변형·정보화되는 대상/유용 출력, TARGET=시스템 구성요소, SUB=하위 요소, SUPER=상위 요소, ENVIRONMENT=환경.
+- role은 입력→작용→출력을 설명한다. PRODUCT를 도구와 구별하고, 성능 수치·손실 이름을 물체처럼 추가하여 참조 검사를 우회하지 않는다.
+- 경계·수행 주체·대상·주기능 선정 이유를 관련 role/notes에 기록한다. 미확인은 notes에 '가설:'과 확인 조건을 쓴다.
+- 물리 문제는 관련 공정·계면의 작용까지, 정보 문제는 요청·데이터·상태 전이까지, 조직 문제는 행위자·규칙·권한·유인·선택까지 분석한다. MIXED의 물리 분석은 확인된 physical_scope 안으로 제한한다.
+- 관련된 SUPER/ENVIRONMENT만 포함한다. 없는 부품·센서·제어계를 새로 발명하지 않는다.
 
-그 밖 규칙:
-- PRODUCT를 1개 이상 반드시 식별하라(무엇이 처리·이동·변형되는가).
-- SUPER와 ENVIRONMENT를 합쳐 2개 이상 포함하라(자원 발굴의 원천).
-- role에는 "무엇을 받아 무엇을 내보내는가"를 적어 경로가 끊기지 않게 하라.
+3. interaction_cells: 유의미한 쌍만 최대 15개. '+' 유익, '-' 유해, '0' 무관, '+-' 혼재. note에 변하는 속성과 경로를 적는다.
 
---- 2단계: 상호작용 분석 ---
-interaction_cells: 컴포넌트 쌍의 접촉/영향을 "+"(유익) "-"(유해) "0"(무관) "+-"(혼재)로 표기.
-- 물리적 접촉뿐 아니라 열·전자기·유체·정보 흐름도 상호작용이다.
-- "-" 또는 "+-"인 쌍에는 note로 무엇이 나빠지는지 적어라.
-- 유의미한 쌍만 (최대 15개) 출력하라.
+4. function_edges: '수행 주체 → 완결된 동작 → 작용 대상'.
+- subject/object는 components.name과 정확히 일치한다. 자기 자신에 대한 순환 작용이면 실제 서로 다른 부분을 식별하여 분리한다.
+- action은 대상 속성의 변화/유지를 나타내는 동사구, parameter_affected는 그 대상의 해당 속성이다. '분석하여', '과정에서', '고객에게' 같은 미완결 문장 조각과 목적어 혼동을 금지한다.
+- '보호/개선/최적화'라는 선언 대신 무엇을 차단·이동·전달·결정하는지 적는다. 측정 가능성 때문에 미확인 목표 수치를 발명하지 않는다.
+- kind=USEFUL/HARMFUL은 변화의 바람직함, level=INSUFFICIENT/NORMAL/EXCESSIVE는 유익 작용의 수행 정도, rank=BASIC/AUXILIARY/CORRECTIVE는 기능 역할로 서로 다른 축이다.
+- BASIC은 정확히 한 개이며 USEFUL이어야 한다. AUXILIARY는 지원 작용, CORRECTIVE는 이미 발생하는 결함/유해 작용을 줄이는 유익 교정 작용이다. HARMFUL을 CORRECTIVE로 표시하지 않는다.
+- HARMFUL의 level은 스키마 호환상 NORMAL로 두며 '정상이라 유해하지 않다'고 해석하지 않는다. 부족한 USEFUL을 자동으로 HARMFUL로 바꾸지 않는다.
+- 유해 기능 {{min_harmful}}개는 탐색 목표다. 확인된 문제를 HARMFUL 또는 USEFUL/INSUFFICIENT로 표현하고 수량을 채우려고 원인을 만들어내지 않는다.
+- cost_hint=LOW/MID/HIGH/UNKNOWN. 미확인 비용은 UNKNOWN.
+- 제출 전 BASIC의 도구·대상·작용·대상 속성·확정 경계·본래 유익 목적을 다시 대조한다. 간선 순서로 BASIC을 자동 지정하지 않는다.
 
---- 3단계: 기능 모델 ---
-function_edges: "주체가 대상에 대해 수행하는 동작".
-- subject/object는 반드시 위 components의 name과 문자열이 정확히 일치해야 한다.
-- action: 측정 가능한 동사구. "기판을 지지한다", "진동을 전달한다" 형태.
-  "제공한다/개선한다/최적화한다" 같은 모호 동사 금지.
-- kind: USEFUL | HARMFUL
-- level: INSUFFICIENT | NORMAL | EXCESSIVE
-- rank: BASIC(주기능, 정확히 1개) | AUXILIARY | CORRECTIVE
-- parameter_affected: 그 기능이 바꾸는 대상의 파라미터
-- cost_hint: LOW|MID|HIGH|UNKNOWN
-규칙:
-- HARMFUL 간선을 최소 {{min_harmful}}개 도출하라. 문제 현상은 반드시 유해 기능 또는 부족 기능으로 표현되어야 한다.
-- 각 유해 기능의 '수행 주체'를 명확히 하라. 주체가 불명확하면 components에 추가하라.
-- 유해 기능의 주체는 **실제 인과적으로 개입할 수 있는 요소**로 지정하라.
-  조직 문제의 예: "개인 매출만 보상하는 규칙이 공동 기여 기록을 누락시킨다"처럼 구체적 작동 경로를 적는다.
-
-mermaid: flowchart LR. 유익 기능은 `-->`, 유해 기능은 `-.->` 로 표기하고 라벨을 붙인다.
-반드시 `flowchart LR` 로 시작하고 노드 라벨은 큰따옴표로 감싼다.
-
+mermaid는 flowchart LR로 시작하며 유익 -->, 유해 -.->, 큰따옴표 노드 라벨을 사용한다.
 [출력 JSON]
 {"components":[{"name":"","level":"TARGET","role":"","notes":""}],
  "interaction_cells":[{"a":"","b":"","sign":"-","note":""}],

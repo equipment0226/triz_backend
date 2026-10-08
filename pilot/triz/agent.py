@@ -6,7 +6,7 @@ import hashlib
 import time
 from typing import Any, Callable, Optional
 
-from . import llm, prompts_registry as P, verify
+from . import llm, prompts_registry as P, verify, verification_contract as contract
 from .context import RunContext, AbortRun, ProviderUnavailable
 from .settings import settings
 
@@ -98,14 +98,17 @@ def _budget_tier(ctx: RunContext, tier: str) -> str:
 
 
 def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str) -> dict:
-    rubric = settings.rubric(rubric_id)
+    rubric = contract.effective_rubric(settings, rubric_id)
     if not rubric or not settings.cfg("verification.enabled", True):
         return {"verdict": "UNVERIFIED", "score": 0.0, "skipped": True}
-    if rubric_id not in settings.cfg("verification.critical_rubrics", [rubric_id]):
+    if not contract.is_critical(rubric_id) and rubric_id not in settings.cfg("verification.critical_rubrics", [rubric_id]):
         return {"verdict": "UNVERIFIED", "score": 0.0, "skipped": True, "source": "policy"}
     from . import digest, domain
     support = {"observations": digest.facts_packet(ctx.state), "provided_context": facts,
                "problem_type": domain.problem_type(ctx.state)}
+    analysis_node = contract.RUBRIC_NODES.get(rubric_id, "")
+    if contract.is_critical(rubric_id):
+        support["analysis_context"] = contract.analysis_context(ctx.state, analysis_node)
     if rubric_id in ("R4_CONTRA", "R6_CONCEPT"):
         support["derived_causal_hypotheses"] = digest.causal_packet(ctx.state)
         support["contradictions"] = digest.contradictions_digest(ctx.state)
@@ -126,32 +129,22 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str) -> d
         pass_threshold=rubric["pass_threshold"],
         reject_below=rubric["reject_below"],
     )
+    user += contract.verifier_supplement(rubric)
+    if analysis_node:
+        from .analysis_guidance import analysis_guidance
+        user += analysis_guidance(ctx.state, analysis_node)
     try:
         res = tracked_chat(ctx, system="You are a strict independent auditor. Output JSON only.",
                             user=user, tier="T3", temperature=0.0, expect="object",
                             max_tokens=int(settings.cfg('verification.max_tokens',
                                 min(4500,1200+240*len(data.get('concepts',[]))) if isinstance(data,dict) else 1200)))
     except llm.LLMError as exc:
-        return {"verdict": "UNVERIFIED", "score": 0.0, "error": str(exc), "skipped": True}
-    out = res.data if isinstance(res.data, dict) else {}
-    if out.get("verdict") not in ("PASS", "REVISE", "REJECT"):
-        out["verdict"] = "UNVERIFIED"
-    criteria = out.get("per_criterion")
-    if criteria:
-        try:
-            scores = {c['id']: float(c['score']) for c in criteria}
-            required = rubric.get('criteria', [])
-            if any(c['id'] not in scores or not 0 <= scores[c['id']] <= 1 for c in required):
-                raise ValueError('incomplete criterion scores')
-            total_weight = sum(c.get('weight', 0) for c in required)
-            out['score'] = sum(scores[c['id']] * c.get('weight', 0) for c in required) / total_weight
-            out['verdict'] = ('PASS' if out['score'] >= rubric['pass_threshold'] else
-                              'REJECT' if out['score'] < rubric['reject_below'] else 'REVISE')
-        except (ValueError, KeyError, TypeError, ZeroDivisionError):
-            out['verdict'] = 'UNVERIFIED'
-    if out.get("fatal_flaws"):
-        out["verdict"] = "REJECT"
-    out.setdefault("score", 0.0)
+        out = {"verdict": "UNVERIFIED", "score": 0.0, "error": str(exc), "skipped": True}
+        usage = getattr(exc, "usage", None)
+        if usage:
+            out["_tokens"] = (usage.tokens_in, usage.tokens_out, usage.cost_usd)
+        return out
+    out = contract.normalize_verdict(res.data, rubric)
     out["rubric"] = rubric_id
     out["_tokens"] = (res.tokens_in, res.tokens_out, res.cost_usd)
     return out
@@ -178,8 +171,9 @@ def run_agent(
     max_tokens: Optional[int] = None,
     default: Any = None,
 ) -> Any:
-    """단일 LLM 노드 실행. 계정 오류는 중단하고 일시적 호출 실패는 default를 반환한다."""
+    """Generate, repair and audit; critical analysis never commits invalid output."""
     state = ctx.state
+    critical = contract.is_critical(rubric_id, node)
     tier = _budget_tier(ctx, routed_tier(node, tier))
     if max_tokens is None and node.startswith("s5_"):
         # Resolve before cost reservation and cache hashing. Tier-wide defaults can
@@ -188,6 +182,11 @@ def run_agent(
                          int(settings.cfg("solutions.track_max_tokens", 8000)))
     step = ctx.start_step(node=node, label=label, stage=stage, agent_id=agent_id,
                           prompt_id=prompt_id, tier=tier)
+    if critical and rubric_id and (not contract.effective_rubric(settings, rubric_id) or
+                                   not settings.cfg("verification.enabled", True)):
+        step.error = "필수 분석 검증이 비활성화되었거나 검증 기준이 없습니다."
+        ctx.finish_step(step, "FAILED")
+        raise AbortRun(f"{label}: {step.error}")
 
     # 동적으로 투입된 에이전트의 추가 지시 (노드별 + 현재 단계 전체)
     stage_key = state.scratch.get("stage_key", "")
@@ -207,6 +206,7 @@ def run_agent(
         prompt_vars.setdefault("contradictions", digest.contradictions_digest(state))
     from .ax.runtime import render_prompt
     base_user = render_prompt(state, prompt_id, **prompt_vars) + domain_context(state, node) + inject_block
+    base_user += contract.generation_supplement(state, node)
     from .ax import concept_effects
     explicit_effects = prompt_id == 'P_S6_CONCEPT' and concept_effects.enabled(state)
     if explicit_effects:
@@ -262,15 +262,30 @@ def run_agent(
         checker_source = inspect.getsource(checker) if checker else ""
     except (OSError, TypeError):
         checker_source = str(checker)
+    # Lambdas/wrappers delegate to shared checks and typed schemas.
+    from . import analysis_checks, schema
+    def cross_reference_issues(value):
+        if not node.startswith(('s3_', 's4_')):
+            return []
+        declared = []
+        if node == 's3_constraints' and isinstance(value, dict) and isinstance(value.get('constraints'), list):
+            declared = [row.get('id') for row in value['constraints'] if isinstance(row, dict)]
+        return analysis_checks.unknown_constraint_references(
+            value, [row.id for row in state.constraints.items], declared_constraint_ids=declared)
+
+    validation_source = hashlib.sha256("".join(inspect.getsource(module) for module in
+        (verify, analysis_checks, schema, contract)).encode()).hexdigest()
     tc = settings.tiers[tier]
     from . import digest
     audit_context = {"facts": digest.facts_packet(state), "causal": digest.causal_packet(state),
-                     "contradictions": digest.contradictions_digest(state)} if rubric_id else None
+                     "contradictions": digest.contradictions_digest(state),
+                     "analysis_context": contract.analysis_context(state, node)} if rubric_id else None
+    effective_rubric = contract.effective_rubric(settings, rubric_id) if rubric_id else None
     cache_key = hashlib.sha256(json.dumps([node, prompt_id, expect, rubric_id, checker_source,
-        settings.rubrics.get(rubric_id, {}), system, base_user, tier, facts, audit_context,
+        contract.VERSION, validation_source, effective_rubric, system, base_user, tier, facts, audit_context,
         settings.tiers[tier].model, settings.tiers[tier].base_url, max_tokens, temperature,
         tc.temperature, tc.max_tokens, tc.json_mode, tc.supports_temperature, tc.token_parameter,
-        settings.triz.get("verification", {}), *([repair_attempts] if repair_attempts is not None else [])],
+        settings.cfg("verification", {}), *([repair_attempts] if repair_attempts is not None else [])],
         sort_keys=True, default=str).encode()).hexdigest()
     cache = state.scratch.setdefault("agent_cache", {})
     if explicit_effects:
@@ -288,7 +303,14 @@ def run_agent(
             try:
                 if normalizer:
                     cached_data = normalizer(cached_data)
-                reusable = not checker or not checker(cached_data)
+                reusable = (not checker or not checker(cached_data)) and not cross_reference_issues(cached_data)
+                if critical:
+                    reusable = reusable and isinstance(cached_data, dict if expect == "object" else list)
+                    if rubric_id:
+                        prior_verdicts = previous.get("verdicts") or []
+                        reusable = reusable and bool(prior_verdicts) and bool(effective_rubric)
+                        if reusable:
+                            reusable = contract.normalize_verdict(prior_verdicts[-1], effective_rubric)["verdict"] == "PASS"
             except Exception:  # A changed checker must not trap retries on stale output.
                 reusable = False
             if reusable:
@@ -302,6 +324,7 @@ def run_agent(
     attempt = 0
     user = base_user
     data: Any = None
+    repair_reference = None
     cur_tier = tier
 
     while True:
@@ -322,6 +345,8 @@ def run_agent(
             step.error = str(exc)
             ctx.emit("node_error", node=node, error=str(exc))
             ctx.finish_step(step, "FAILED")
+            if critical:
+                raise AbortRun(f"{label}: 모델 호출이 실패해 검증되지 않은 분석을 중단합니다.") from exc
             ctx.warn(f"{label}: LLM 호출 실패 → 기본값으로 진행 ({exc})")
             return default
         if res.meta.get('durable_replay'):
@@ -351,25 +376,32 @@ def run_agent(
                 merged.update(item)
             else:
                 data = merged or {"items": data}
-        if normalizer:
-            data = normalizer(data)
         step.tokens_in += res.tokens_in
         step.tokens_out += res.tokens_out
         step.cost_usd += res.cost_usd
         step.model = res.model
         step.tier = cur_tier
 
-        issues = []
+        issues = cross_reference_issues(data)
+        if normalizer:
+            try:
+                data = normalizer(data)
+            except Exception as exc:  # Malformed output is a repairable validation failure.
+                issues.append(f"DET-SCHEMA: 정규화 실패: {exc}")
+        if critical and not isinstance(data, dict if expect == "object" else list):
+            issues.append(f"DET-SCHEMA: {expect} 형식의 전체 JSON이 필요하다.")
+        if critical and repair_reference is not None:
+            issues.extend(contract.repair_shape_issues(repair_reference, data, node=node))
         if checker:
             try:
-                issues = checker(data) or []
+                issues.extend(checker(data) or [])
             except Exception as exc:  # noqa: BLE001
-                issues = [f"검사기 오류: {exc}"]
+                issues.append(f"검사기 오류: {exc}")
 
         if issues:
             verdict = {"verdict": "REVISE", "score": 0.0, "source": "deterministic",
                        "revision_instructions": issues, "fatal_flaws": []}
-        elif rubric_id and node not in settings.cfg("verification.skip_nodes", []):
+        elif rubric_id and (critical or node not in settings.cfg("verification.skip_nodes", [])):
             try:
                 verdict = verify_artifact(ctx, rubric_id, data, facts)
             except AbortRun as exc:
@@ -389,7 +421,7 @@ def run_agent(
                  score=verdict.get("score"), attempt=attempt,
                  instructions=verdict.get("revision_instructions", [])[:3])
 
-        if verdict.get("verdict") in ("PASS", "UNVERIFIED"):
+        if verdict.get("verdict") == "PASS" or (not critical and verdict.get("verdict") == "UNVERIFIED"):
             step.output_json = _as_dict(data)
             status = "OK" if verdict.get("verdict") == "PASS" else "WARN"
             ctx.finish_step(step, status)
@@ -398,6 +430,8 @@ def run_agent(
                     cache[cache_key] = step.step_id
             return data
 
+        if repair_reference is None and isinstance(data, dict):
+            repair_reference = data
         if attempt > max_repair:
             if verdict.get("fatal_flaws") or any(str(i).startswith("FATAL-") for i in issues):
                 step.output_json = _as_dict(data)
@@ -410,9 +444,18 @@ def run_agent(
             if settings.cfg("verification.escalate_tier_on_fail", True) and cur_tier != "T2" and not step.escalated and not ctx.state.cost.over_budget:
                 cur_tier = _promote(cur_tier)
                 step.escalated = True
-                user = base_user
+                user = base_user + "\n\n" + render_prompt(state, "P_REPAIR",
+                    previous_output=json.dumps(data, ensure_ascii=False),
+                    verdict=verdict.get("verdict"), score=verdict.get("score"),
+                    fatal_flaws=verdict.get("fatal_flaws", []),
+                    revision_instructions=verdict.get("revision_instructions", [])) + contract.repair_supplement(verdict)
                 ctx.emit("escalate", node=node, tier=cur_tier)
                 continue
+            if critical:
+                step.output_json = _as_dict(data)
+                step.error = "필수 분석 검증을 통과하지 못했습니다. 수정 후 다시 실행해야 합니다."
+                ctx.finish_step(step, "FAILED")
+                raise AbortRun(f"{label}: 검증 결함이 남아 후속 분석을 중단합니다.")
             step.output_json = _as_dict(data)
             ctx.finish_step(step, "WARN")
             ctx.warn(f"⚠️ 미검증 통과: {label} (판정 {verdict.get('verdict')}, "
@@ -426,7 +469,7 @@ def run_agent(
             score=verdict.get("score"),
             fatal_flaws=verdict.get("fatal_flaws", []),
             revision_instructions=verdict.get("revision_instructions", []),
-        )
+        ) + contract.repair_supplement(verdict)
 
 
 def _finish_aborted_step(ctx, step, exc):

@@ -5,7 +5,7 @@ import copy
 import json
 import math
 
-VERSION = "analysis-verification-v1-20261008"
+VERSION = "analysis-verification-v2-20261008"
 RUBRIC_NODES = {
     "R1_INTAKE": "s1_extract", "R2_CANDIDATE": "s2_candidates",
     "R3_FUNC": "s3_function_model", "R3_SUF": "s3_sufield",
@@ -192,13 +192,27 @@ def verifier_supplement(rubric):
     required = [{"id": row["id"], "min_score": row.get("min_score", 1.0), "text": row["text"]}
                 for row in rubric.get("criteria", []) if row.get("required")]
     return (f"\n\n[필수 독립 검증 계약 {VERSION}]\n"
-            "모든 기준을 정확히 한 번 채점한다. 필수 기준 미달, 미해결 수정 지시 또는 결함이 있으면 PASS 금지. "
+            "모든 기준을 정확히 한 번 채점한다. required 기준은 문체의 완벽성이 아닌 요구 충족 여부로 "
+            "1(충족)/0(실제 위반)을 판단한다. 단지 더 상세히 쓸 수 있다는 이유로 0.8/0.9를 주지 않는다. "
+            "위반에는 정확한 JSON path, 현재 값의 직접 인용, 해당 기준 및 입력 근거와의 충돌 또는 필수 근거의 누락을 제시한다. "
+            "필수 기준 미달, 미해결 수정 지시 또는 결함이 있으면 PASS 금지. "
+            "제공된 deterministic_inventory의 실제 BASIC 개수·인덱스·rank·등록 이름을 대조한다. "
+            "검사 대상에 없는 값이나 기계적 사실과 반대인 주장을 결함 근거로 만들지 않는다. "
             "boundary.chosen_system과 사용자 확정 경계를 보존하고 상위 시스템의 목적을 모듈 주기능으로 강요하지 않는다. "
-            "BASIC은 선택한 시스템의 존재 목적을 나타내는 유익 기능이어야 한다. "
+            "BASIC은 선택한 시스템의 존재 목적을 나타내는 유익 기능이며 수행자는 그 구성요소일 수 있다. "
+            "BASIC 개수는 rank로만 센다. 같은 수행자의 보조/교정 작용은 별개 주기능이 아니다. "
+            "kind·level·rank는 독립이다. BASIC=USEFUL이면서 INSUFFICIENT 또는 EXCESSIVE일 수 있고 NORMAL을 강요하지 않는다. "
+            "PRODUCT가 object인 것은 정상이다. subject/object는 등록된 대상, 그 속성은 parameter_affected에 둔다. "
+            "조직의 규칙·권한·유인 작용은 물리적 힘이라고 주장하지 않는 한 허용되는 기능 표현이다. "
+            "수정 예시는 결정검사와 동일한 스키마를 만족해야 하며 관리한다·최적화한다 같은 금지된 모호 동사나 속성 객체화를 권고하지 않는다. "
+            "NW는 명시된 사건 전후/비교조건의 기준값과 장기 세대 이력을 구분한다. 확인된 이전 기준값·처리 이력을 과거 시제만으로 거부하지 않는다. "
+            "가능성에 대한 응답은 사건 발생 단정이 아니며 확정 경계 정의는 관측 위조가 아니다. 가설 표기의 문장·문단·셀 적용 범위를 읽는다. "
             "수정사항을 element_findings 배열로 구체화할 수 있다: "
             '{"path":"function_edges[0].rank","issue":"결함",'
             '"suggested_correction":"근거에 맞는 수정", "evidence":"산출물 또는 관측 근거", "criterion_id":"C1"}. '
-            "결함이 없으면 revision_instructions와 element_findings는 빈 배열이다. "
+            "필수 미달은 element_findings로 위반 위치·값·근거와 실행 가능한 수정안을 연결한다. "
+            "이미 수정된 과거 지적을 반복하지 말고 현재 전체 JSON의 실제 결함을 한 번에 찾아라. "
+            "선택적 문체/상세화 조언은 comment에만 적고, 결함이 없으면 revision_instructions와 element_findings는 빈 배열이다. "
             "수정 지시 없는 REVISE/REJECT는 금지한다.\n필수 기준: " + json.dumps(required, ensure_ascii=False))
 
 
@@ -207,6 +221,11 @@ def repair_supplement(verdict):
             "아래 지적의 경로와 의존 요소만 수정한 뒤 원래 스키마의 전체 JSON을 반환한다. "
             "부분 객체, 변경 목록, JSON patch만 반환하지 않는다. 모든 필수 최상위 필드를 보존한다. "
             "통과한 요소와 식별자는 유지하되, 지적된 중복·허구·잘못된 요소는 근거에 따라 제거·교체한다. "
+            "검증 의견도 원문·현재 출력·스키마와 대조한다. PRODUCT를 object에서 빼거나 속성을 object로 만드는 잘못된 지시는 따르지 않는다. "
+            "subject/object 변경 시 실제 컴포넌트의 이름·역할, 모든 연결 간선·상호작용·도식을 함께 갱신한다. "
+            "가짜 성능 속성 노드를 만들어 참조만 맞추지 않는다. action에는 관리한다·최적화한다 대신 실제 변화/유지를 일으키는 구체 작용을 쓴다. "
+            "이미 표시된 가설·가능성, 관측된 사건 전후 기준값, BASIC의 부족/과잉 수준을 점수 때문에 사실과 다르게 바꾸지 않는다. "
+            "이전 지적과 이번 지적을 함께 검토하되 모순되는 지시에는 최신 원문 근거와 스키마를 우선하고 허용된 notes 등에 판단 근거를 남긴다. "
             "수정 후 전체 산출물이 다시 결정론 검사와 독립 검증을 받는다.\n" +
             json.dumps({"element_findings": verdict.get("element_findings", []),
                         "revision_instructions": verdict.get("revision_instructions", []),

@@ -109,6 +109,8 @@ def verify_artifact(ctx: RunContext, rubric_id: str, data: Any, facts: str) -> d
     analysis_node = contract.RUBRIC_NODES.get(rubric_id, "")
     if contract.is_critical(rubric_id):
         support["analysis_context"] = contract.analysis_context(ctx.state, analysis_node)
+        from .analysis_checks import artifact_structure_facts
+        support["deterministic_inventory"] = artifact_structure_facts(rubric_id, data)
     if rubric_id in ("R4_CONTRA", "R6_CONCEPT"):
         support["derived_causal_hypotheses"] = digest.causal_packet(ctx.state)
         support["contradictions"] = digest.contradictions_digest(ctx.state)
@@ -321,6 +323,15 @@ def run_agent(
 
     max_repair = (int(settings.cfg("verification.max_repair_attempts", 2)) if repair_attempts is None
                   else max(0, min(3, int(repair_attempts))))
+    # Format/reference repair must not consume the only opportunity to correct
+    # a semantic finding discovered by the first independent review afterwards.
+    # Explicit per-call limits still apply to callers with a narrower contract.
+    staged_repair = critical and repair_attempts is None
+    repair_limits = {
+        "structure": max(0, min(3, int(settings.cfg("verification.analysis_structure_repairs", 2)))),
+        "semantic": max(0, min(4, int(settings.cfg("verification.analysis_semantic_repairs", 3)))),
+    }
+    repair_counts = {"structure": 0, "semantic": 0}
     attempt = 0
     user = base_user
     data: Any = None
@@ -432,7 +443,10 @@ def run_agent(
 
         if repair_reference is None and isinstance(data, dict):
             repair_reference = data
-        if attempt > max_repair:
+        repair_phase = "structure" if issues else "semantic"
+        exhausted = (repair_counts[repair_phase] >= repair_limits[repair_phase]
+                     if staged_repair else attempt > max_repair)
+        if exhausted:
             if verdict.get("fatal_flaws") or any(str(i).startswith("FATAL-") for i in issues):
                 step.output_json = _as_dict(data)
                 step.error = "치명적 분석 결함이 수리되지 않았습니다."
@@ -462,6 +476,8 @@ def run_agent(
                      f"사유: {'; '.join((verdict.get('revision_instructions') or ['-'])[:2])})")
             return data
 
+        repair_counts[repair_phase] += 1
+        step.input_slice["repair_counts"] = dict(repair_counts)
         user = base_user + "\n\n" + render_prompt(state,
             "P_REPAIR",
             previous_output=json.dumps(data, ensure_ascii=False),
@@ -470,6 +486,19 @@ def run_agent(
             fatal_flaws=verdict.get("fatal_flaws", []),
             revision_instructions=verdict.get("revision_instructions", []),
         ) + contract.repair_supplement(verdict)
+        if critical:
+            # Keep the corrected artifact plus all prior findings in view so a
+            # new local fix cannot silently undo an earlier necessary repair.
+            history = [{"source": item.get("source", "independent"),
+                        "verdict": item.get("verdict"),
+                        "revision_instructions": item.get("revision_instructions", []),
+                        "element_findings": item.get("element_findings", [])}
+                       for item in step.verdicts]
+            user += ("\n\n[누적 검증 및 수정 이력]\n" + json.dumps(history, ensure_ascii=False)
+                     + "\n이미 바로잡은 결함을 되돌리지 말라. 새 지적은 현재 출력과 원본 근거에 대조하라. "
+                       "지적이 실제 출력과 어긋나면 올바른 내용을 유지하고 전체 결과 안에서 근거를 명확히 하라. "
+                       "요소·식별자·주체·객체를 변경하면 관련 목록, 참조, 연결 및 도표도 함께 갱신하라. "
+                       "근거 없는 요소를 만들어 검사만 통과시키지 말라.")
 
 
 def _finish_aborted_step(ctx, step, exc):

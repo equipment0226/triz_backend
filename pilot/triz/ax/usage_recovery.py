@@ -80,13 +80,96 @@ def _eligible(task, request, episode):
             and request_episode(request) == episode)
 
 
+def _previous_episode_event_id(task_id, episode):
+    return 'usage-previous-' + digest(dict(task_id=task_id, semantic_episode_id=episode))[:48]
+
+
+def _previous_episode_approval(c, run_id, task_id, episode):
+    if not isinstance(episode, str) or not episode.strip():
+        return None
+    raw = c.execute(select(ledger.events.c.payload).where(ledger.events.c.run_id == run_id,
+        ledger.events.c.event_id == _previous_episode_event_id(task_id, episode),
+        ledger.events.c.event_type == 'UNKNOWN_PREVIOUS_EPISODE_AUTHORIZED')).scalar()
+    return json.loads(raw) if raw else None
+
+
+def _different_episodes(source, current):
+    return (isinstance(source, str) and bool(source.strip())
+            and isinstance(current, str) and bool(current.strip()) and source != current)
+
+
+def _previous_episode_unblocked(c, run_id, task_id, episode):
+    value = _previous_episode_approval(c, run_id, task_id, episode)
+    if not value or value.get('task_id') != task_id or value.get('semantic_episode_id') != episode:
+        return False
+    source = request_episode(_request(c, {'task_id': task_id}))
+    return (_different_episodes(source, episode) and value.get('source_semantic_episode_id') == source
+            and value.get('acknowledged_possible_duplicate_charge') is True)
+
+
 def blocking_count(state):
     episode = state.scratch.get('semantic_episode_id')
     with store.engine.connect() as c:
         rows = c.execute(select(ledger.tasks.c.task_id).where(ledger.tasks.c.run_id == state.run_id,
             ledger.tasks.c.status == 'UNKNOWN')).scalars().all()
-        return sum(not (episode and value and value.get('semantic_episode_id') == episode)
+        return sum(not ((episode and value and value.get('semantic_episode_id') == episode)
+                       or _previous_episode_unblocked(c, state.run_id, task_id, episode))
                    for task_id in rows for value in [approval(c, state.run_id, task_id)])
+
+
+def authorize_previous_episode(run_id, actor, task_id, expected_epoch, *, reason,
+                               acknowledge_possible_duplicate_charge=False):
+    """Operator-only consent to continue one new episode despite an old UNKNOWN.
+
+    There is intentionally no public API route. The caller must supply the owner
+    and explicit consent. This neither settles the old charge nor authorizes its
+    replay: only this task's preflight block in this semantic episode is waived.
+    Ordinary ledger acquisition still enforces all new request costs and limits.
+    """
+    if acknowledge_possible_duplicate_charge is not True:
+        raise ValueError('Explicit acknowledgement of possible duplicate charge is required')
+    if not isinstance(reason, str) or not reason.strip() or len(reason) > 2000:
+        raise ValueError('A nonempty operator reason of at most 2000 characters is required')
+    with store.run_lock(run_id):
+        state = store.load_state(run_id)
+        if not state:
+            raise ValueError('Run not found')
+        with ledger.transaction() as c:
+            head = ledger._head(c, run_id, lock=True)
+            ledger.authorize(head, actor)
+            if head['epoch'] != expected_epoch or state.scratch.get('execution_epoch') != expected_epoch:
+                raise Conflict('Execution epoch changed; refresh before authorizing')
+            if state.status not in ('INTERRUPTED', 'FAILED') or state.pending:
+                raise Conflict('Only an interrupted run without pending input can be authorized')
+            task = c.execute(select(ledger.tasks).where(ledger.tasks.c.run_id == run_id,
+                ledger.tasks.c.task_id == task_id)).mappings().first()
+            episode = state.scratch.get('semantic_episode_id')
+            source = request_episode(_request(c, task)) if task else None
+            if not task or task['status'] != 'UNKNOWN' or not _different_episodes(source, episode):
+                raise Conflict('An UNKNOWN task from a different recorded semantic episode is required')
+            previous = _previous_episode_approval(c, run_id, task_id, episode)
+            if previous:
+                if (previous.get('source_semantic_episode_id') != source
+                        or previous.get('task_id') != task_id
+                        or previous.get('acknowledged_possible_duplicate_charge') is not True):
+                    raise Conflict('Existing approval does not match the recorded task')
+                return previous
+            from .cost_restatements import effective, overrides
+            corrections = overrides(c, run_id)
+            rows = c.execute(select(ledger.tasks.c.task_id, ledger.tasks.c.status, ledger.tasks.c.actual, ledger.tasks.c.reserve)
+                .where(ledger.tasks.c.run_id == run_id)).all()
+            used = sum((effective(r.actual, r.task_id, corrections) or 0)
+                       + (r.reserve if r.status in ('RUNNING', 'UNKNOWN') else 0) for r in rows)
+            hold = json.loads(head['bundle'])['limits']['validation_reserve_microusd']
+            if used + task['reserve'] + hold > head['budget']:
+                raise Conflict('Insufficient budget with the old reservation and validation reserve retained')
+            value = dict(version='unknown-previous-episode-v1', task_id=task_id, actor=actor,
+                expected_epoch=expected_epoch, semantic_episode_id=episode,
+                source_semantic_episode_id=source, reason=reason.strip(),
+                acknowledged_possible_duplicate_charge=True, retained_reserve_microusd=task['reserve'])
+            ledger._event(c, run_id, 'UNKNOWN_PREVIOUS_EPISODE_AUTHORIZED', value,
+                event_id=_previous_episode_event_id(task_id, episode))
+            return value
 
 
 def describe(run_id, actor):

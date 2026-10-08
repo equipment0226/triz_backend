@@ -1,5 +1,5 @@
 {
-  "version": "triz-analysis-v1-20261008",
+  "version": "triz-analysis-v2-20261008",
   "reviewed_on": "2026-10-08",
   "provenance": "Static synthetic teaching contrasts curated for this application; not generated or retrieved from user histories at runtime.",
   "sources": [
@@ -43,10 +43,10 @@
     "Trimming D is the app's supersystem/environment redistribution code, not a universal fourth device rule.",
     "S1=receiving article; S2=acting tool; S3 is an optional observed third substance in the application's extended schema."
   ],
-  "common": "인과·수치·구조는 관측/도출/가설을 구분한다. 개수·점수를 맞추려 허구를 추가하지 않는다. 전체 JSON과 내부 ID/명칭 참조를 보존한다. 필수 의미 기준은 높은 평균 점수로 상쇄하지 않는다.",
+  "common": "인과·수치·구조는 관측/도출/가설을 구분한다. 개수·점수를 맞추려 허구를 추가하지 않는다. 전체 JSON과 내부 ID/명칭 참조를 보존한다. required 기준은 실제 결함의 유무로 1(충족)/0(위반)을 판정하는 게이트이며 문체 완벽성 점수가 아니다. 위반이면 정확한 경로·현 출력 인용·근거 충돌·실행 가능한 수정안을 제시한다. 위반 근거를 찾지 못했다는 이유로 근거 공백 자체를 지우지는 않되, 일반적 아쉬움만으로 필수 기준을 감점하지 않는다. 선택적 표현 개선은 comment에만 적고 실제 미충족 요구만 revision_instructions에 넣는다.",
   "stages": {
-    "s3_nine_windows": "9-Windows: 같은 사건의 전/중/후와 하위/확정/상위 경계를 일관되게 교차한다. 세대 진화는 별도 가설. 미래 개선 시나리오를 현재 사실로 쓰지 않는다.",
-    "s3_function_model": "BASIC: 본래 유익 목적을 도구→동작→처리 대상→대상 속성으로 연결한다. 앱은 대표 주기능 하나를 저장하며, 공식 MATRIZ의 복수 basic 기능/시스템 main 기능과 구분한다. 고장·개선 목표·중간 수단을 자동 승격하거나 하위 경계에 상위 목적을 강요하지 않는다. kind/level/rank는 독립 축이며 BASIC과 CORRECTIVE는 USEFUL이다.",
+    "s3_nine_windows": "9-Windows: 사건의 전/중/후 또는 비교조건을 먼저 칸 안에 명시하고 하위/확정/상위 경계와 교차한다. 사용자가 준 개입 전후 기준값은 PAST/PRESENT에 배치할 수 있다. 과거 시제만으로 사실 위조라 하지 않으며 표면 처리 이력 등 명시된 이력은 근거로 인정한다. 장기 운영 역사·날짜는 별도 근거가 필요하고 세대 진화는 별도 가설이다. 사용자 응답의 가능성 판단은 실제 발생 단정과 다르다. 확정 경계 정의는 관측 주장과 구별하되 그 정의를 현재 칸에 쓰는 것은 결함이 아니다. 가설 표시는 문장·문단·셀 전체의 적용 범위로 읽어 이미 한정된 미래안에 매 문장 동일 라벨을 강요하지 않는다. 가능을 실제 진행 중으로 바꾸거나 미확인 수치를 관측으로 단정한 부분은 원문과 대조해 수정한다.",
+    "s3_function_model": "BASIC: 본래 유익 목적을 수행 주체→동작→처리 대상과 그 속성으로 연결한다. 앱의 대표 하나와 공식 MATRIZ의 복수 basic/시스템 main을 구분한다. 실제 rank=BASIC인 간선만 세며 같은 subject의 AUXILIARY/CORRECTIVE는 개수에 넣지 않는다. 선택 경계의 목적을 실제 실현하면 구성요소가 수행자일 수 있다. subject/object는 components.name, parameter_affected는 대상 속성이다. PRODUCT가 object인 방향은 정상이며 사람 대신 경쟁력 같은 속성명을 object로 바꾸지 않는다. 정보·조직에서는 실재 규칙·계획·기록도 구성요소가 되며 규칙의 산정·규정 작용을 물리 실행자가 아니라는 이유만으로 거부하지 않는다. 관리한다·최적화한다·개선한다·수행한다·제공한다를 수리 동사로 제안하지 말고 실제 산정·배분·차단·전달 작용을 쓴다. 새 주체/대상을 선택하면 근거 있는 components, 연결 간선·상호작용·도식도 함께 갱신하되 가짜 속성 노드를 만들지 않는다. 고장·개선 목표·중간 수단 승격과 하위 경계에 상위 목적 강요를 피한다. kind/level/rank는 독립 축이며 BASIC과 CORRECTIVE는 USEFUL이다. BASIC의 INSUFFICIENT/EXCESSIVE는 허용하며 NORMAL을 강요하지 않는다.",
     "s3_sufield": "Su-Field: S1=작용 받는 물질, S2=도구 물질, F=실제 매개 작용. S2→F→S1 하나의 작용. 물질/장 결손과 성능 부족은 다르며 COMPLETE+HARMFUL도 가능하다. 현상·성능 지표를 물질로, 정책·알고리즘을 물리 장으로 만들지 않는다. 물리 범위가 없으면 비적용/빈 모델이다.",
     "s3_resources": "자원: 기존 존재와 실제 접근·전환 가능성을 분리한다. 새 설비/예산을 무료 자원으로 넣지 않는다. 가설·수량 미확인·파생 원천·필요 조건을 quantity_note에 표시한다. blocked_by_constraint 자원은 IFR에 무조건 사용하지 않는다.",
     "s3_ceca": "CECA: 손실→중간 단점→개입 가능한 원인. 저장 parents는 원인에서 바로 위 결과 ID를 가리킨다. 관측 인용 없는 인과는 가설로 표시하고 경쟁 설명·반증 실험을 둔다. ROOT_CAUSE도 입증 사실이 아니다. AND/OR 조건과 단점 간 실제 작동 경로를 설명한다.",
@@ -129,8 +129,8 @@
       ],
       "context": "확정 경계=공동 비용 정산 규칙.",
       "incorrect": "계약서→만료일 지정→참여자 BASIC.",
-      "correct": "정산 규칙→사용 내역에 따라 배분한다→참여자별 부담액 BASIC.",
-      "reason": "관련 계약 조건 하나를 전체 정산 기능으로 승격하지 않는다."
+      "correct": "등록된 정산 규칙→사용 내역에 따라 부담액을 산정한다→참여자별 정산 내역(PRODUCT) BASIC; parameter_affected=청구 금액.",
+      "reason": "관련 계약 조건 하나를 전체 정산 기능으로 승격하지 않으며 처리 기록과 그 금액 속성을 구별한다."
     },
     {
       "id": "SU_HEAT",
@@ -251,10 +251,10 @@
         "information",
         "generic"
       ],
-      "context": "현재 수작업 여부만 확인됨.",
-      "incorrect": "과거는 모두 수작업이었고 미래 센서 도입은 확정.",
-      "correct": "과거 방식 미확인; 미래 자동화는 검토 가설이며 접근권한·설비 조건 확인.",
-      "reason": "시간축 탐색은 역사·미래 사실의 창작 근거가 아니다."
+      "context": "사용자가 설정 변경 전 80℃, 변경 후 72℃라는 비교만 확인함.",
+      "incorrect": "과거 수년간 80℃였다 또는 미래 장치 도입으로 60℃ 달성 확정.",
+      "correct": "PAST=변경 전 기준조건 80℃, PRESENT=변경 후 72℃; 장기 이력 미확인; FUTURE=가능한 방향(가설): 열경로 변경, 효과 실측 필요.",
+      "reason": "관측된 기준값은 사건 전후축의 근거다. 날짜·역사를 추가하지 않으며 셀 전체에 적용된 가설 라벨을 인정한다."
     },
     {
       "id": "CONSTRAINT_NOT_TABOO",

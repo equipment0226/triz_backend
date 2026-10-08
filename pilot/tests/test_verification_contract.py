@@ -144,6 +144,44 @@ def test_partial_repair_cannot_drop_other_envelope_fields(state, runner):
     assert len(calls) == 3 and not state.scratch["agent_cache"]
 
 
+def test_structure_repair_does_not_exhaust_first_semantic_repair(state, runner, monkeypatch):
+    run, responses, calls = runner
+    monkeypatch.setitem(settings.triz["verification"], "max_repair_attempts", 1)
+    responses.extend([result({}), result({"rows": ["wrong meaning"]}),
+        result(review("REVISE", revision_instructions=["Use the observed mechanism"])),
+        result({"rows": ["observed mechanism"]}), result(review())])
+    assert run() == {"rows": ["observed mechanism"]}
+    assert state.steps[-1].status == "OK"
+    assert state.steps[-1].input_slice["repair_counts"] == {"structure": 1, "semantic": 1}
+    assert "rows required" in calls[3]["user"]
+    assert "Use the observed mechanism" in calls[3]["user"]
+
+
+def test_semantic_repair_retains_previous_findings_until_jointly_resolved(state, runner):
+    run, responses, calls = runner
+    responses.extend([result({"rows": ["wrong mechanism"]}),
+        result(review("REVISE", revision_instructions=["Correct the mechanism and its references"])),
+        result({"rows": ["correct mechanism"], "extra": True}),
+        result(review("REVISE", revision_instructions=["Provide the observed boundary"])),
+        result({"rows": ["correct mechanism in observed boundary"]}), result(review())])
+    assert run() == {"rows": ["correct mechanism in observed boundary"]}
+    assert state.steps[-1].input_slice["repair_counts"]["semantic"] == 2
+    assert "Correct the mechanism" in calls[4]["user"]
+    assert "Provide the observed boundary" in calls[4]["user"]
+
+
+def test_analysis_semantic_repairs_remain_bounded_and_never_force_pass(state, runner, monkeypatch):
+    run, responses, calls = runner
+    monkeypatch.setitem(settings.triz["verification"], "analysis_semantic_repairs", 2)
+    for _ in range(3):
+        responses.extend([result({"rows": ["still unsupported"]}),
+                          result(review("REVISE", revision_instructions=["Unsupported mechanism"]))])
+    with pytest.raises(AbortRun):
+        run()
+    assert len(calls) == 6 and state.steps[-1].status == "FAILED"
+    assert not state.scratch["agent_cache"]
+
+
 @pytest.mark.parametrize("verdict", ["REVISE", "REJECT", "UNVERIFIED"])
 def test_critical_audit_failure_stops_downstream(state, runner, verdict):
     run, responses, calls = runner

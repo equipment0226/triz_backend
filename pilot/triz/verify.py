@@ -202,13 +202,13 @@ from .analysis_checks import (
 def check_ceca(data: dict) -> list[str]:
     from .analysis_checks import _rows, _strings, _text, ceca_structure
     nodes, issues = _rows(data, 'nodes')
-    if issues:
+    if not nodes:
         return issues
     if any(not _text(node.get('id')) or not _strings(node.get('parents')) for node in nodes):
-        return ['FATAL-CECA: 각 노드에는 문자열 ID와 부모 ID 배열이 필요하다.']
+        return issues + ['FATAL-CECA: 각 노드에는 문자열 ID와 부모 ID 배열이 필요하다.']
     ids = {n.get("id") for n in nodes}
     if len(ids) != len(nodes) or None in ids or "" in ids:
-        return ["FATAL-CECA: 노드 ID가 비어 있거나 중복된다."]
+        return issues + ["FATAL-CECA: 노드 ID가 비어 있거나 중복된다."]
     for n in nodes:
         for p in n.get("parents", []):
             if p not in ids:
@@ -221,7 +221,7 @@ def check_ceca(data: dict) -> list[str]:
     try:
         _chain_depth(nodes)
     except ValueError:
-        return ["FATAL-CECA: 인과사슬에 순환 참조가 있다."]
+        issues.append("FATAL-CECA: 인과사슬에 순환 참조가 있다.")
     roots = {n['id'] for n in nodes if n.get('node_type') == 'TARGET_DISADVANTAGE'}
     reachable = set(roots)
     for _ in nodes:
@@ -234,7 +234,7 @@ def check_ceca(data: dict) -> list[str]:
     for n in nodes:
         if any(b in (n.get("text") or "") for b in banned):
             issues.append(f"DET-06e: 총론적 원인 '{n.get('text')}' — 메커니즘으로 서술하라.")
-    return issues + ceca_structure(data)
+    return list(dict.fromkeys(issues + ceca_structure(data)))
 
 
 def _chain_depth(nodes: list[dict]) -> int:

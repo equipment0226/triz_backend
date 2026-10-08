@@ -40,8 +40,16 @@ def _rows(data, key, *, empty=False):
         for i, row in enumerate(rows):
             try:
                 models[key].model_validate(row)
-            except ValueError:
-                issues.append(f'FATAL-ANALYSIS: {key}[{i}]의 필드 형식이 저장 스키마와 맞지 않는다.')
+            except ValueError as exc:
+                # Repair needs the actual field and enum/type contract, not an
+                # opaque row-level failure that produces the same bad output.
+                errors = exc.errors(include_url=False, include_input=False) if hasattr(exc, 'errors') else []
+                for error in errors[:6]:
+                    field = '.'.join(str(part) for part in error.get('loc', ()))
+                    path = f'{key}[{i}]' + ('.' + field if field else '')
+                    issues.append(f"FATAL-ANALYSIS: {path}: {error.get('msg', '저장 스키마 형식 오류')}")
+                if not errors:
+                    issues.append(f'FATAL-ANALYSIS: {key}[{i}]의 필드 형식이 저장 스키마와 맞지 않는다.')
     return rows, issues
 
 
@@ -52,6 +60,67 @@ def _strings(value):
 def _required(row, fields, path):
     return [f"FATAL-ANALYSIS: {path}.{field}에 비어 있지 않은 문자열이 필요하다."
             for field in fields if not _text(row.get(field))]
+
+
+def artifact_structure_facts(rubric_id, data):
+    """Bounded facts from JSON labels, never a substitute for semantic review.
+
+    BASIC is counted only from explicit ``rank == BASIC`` rows. Sharing the
+    same subject or pointing at a PRODUCT does not make another edge BASIC.
+    Names are compared exactly, as in the storage/reference contract.
+    """
+    if rubric_id != 'R3_FUNC':
+        return {}
+    if not isinstance(data, dict):
+        return {'artifact_is_object': False}
+    limit = 40
+    components = data.get('components')
+    edges = data.get('function_edges')
+    component_rows = components if isinstance(components, list) else []
+    edge_rows = edges if isinstance(edges, list) else []
+    known = {row['name'] for row in component_rows
+             if isinstance(row, dict) and isinstance(row.get('name'), str)}
+    basics = [(i, row) for i, row in enumerate(edge_rows)
+              if isinstance(row, dict) and row.get('rank') == 'BASIC']
+    products = [(i, row) for i, row in enumerate(component_rows)
+                if isinstance(row, dict) and row.get('level') == 'PRODUCT']
+    unknown = []
+    for i, row in enumerate(edge_rows):
+        if not isinstance(row, dict):
+            continue
+        for field in ('subject', 'object'):
+            if not _reference(row.get(field), known):
+                unknown.append({'index': i, 'field': field, 'value': row.get(field)})
+
+    def compact(value):
+        if isinstance(value, str):
+            return value[:240]
+        return None  # Do not dump a malformed nested value into the verifier.
+
+    return {
+        'artifact_is_object': True,
+        'source': 'deterministic_json_inspection',
+        'scope': '구조 사실만 집계했다. BASIC 의미 적합성·컴포넌트 실재성·작용 타당성을 승인하지 않는다.',
+        'basic_count_rule': 'rank가 정확히 BASIC인 간선만 센다. 동일 subject의 AUXILIARY/CORRECTIVE는 별개다.',
+        'object_parameter_rule': 'object는 컴포넌트, parameter_affected는 그 대상의 속성이다. object가 속성명일 필요는 없다.',
+        'components_is_array': isinstance(components, list),
+        'function_edges_is_array': isinstance(edges, list),
+        'component_count': len(component_rows),
+        'function_edge_count': len(edge_rows),
+        'basic_count': len(basics),
+        'basic_indexes': [i for i, _ in basics[:limit]],
+        'basic_functions': [dict(index=i, **{key: compact(row.get(key)) for key in (
+            'subject', 'action', 'object', 'kind', 'level', 'rank', 'parameter_affected')})
+            for i, row in basics[:limit]],
+        'product_component_count': len(products),
+        'product_components': [{'index': i, 'name': compact(row.get('name'))}
+                               for i, row in products[:limit]],
+        'unknown_endpoint_count': len(unknown),
+        'unknown_endpoints': [dict(row, value=compact(row['value'])) for row in unknown[:limit]],
+        'truncated_lists': [name for name, rows in (
+            ('basic_functions', basics), ('product_components', products), ('unknown_endpoints', unknown))
+            if len(rows) > limit],
+    }
 
 
 def function_model(data):
@@ -255,7 +324,7 @@ def key_problems(data,contradiction_ids):
 
 def ceca_structure(data):
     nodes, issues = _rows(data, 'nodes')
-    if issues:
+    if not nodes:
         return issues
     if not isinstance(data.get('mermaid',''),str):
         issues.append('FATAL-CECA: mermaid는 문자열이어야 한다.')

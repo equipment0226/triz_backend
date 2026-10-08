@@ -115,7 +115,9 @@ evaluation:
 verification:
   max_tokens: 8000
   enabled: true
-  max_repair_attempts: 1      # 전체 수리 상한, 승급 시 카운터 초기화 금지
+  max_repair_attempts: 1      # 일반 노드 수리 상한, 승급 시 카운터 초기화 금지
+  analysis_structure_repairs: 2 # S3/S4 형식·참조 수리 기회
+  analysis_semantic_repairs: 3  # S3/S4 독립 의미검증 후 수리 기회. 구조 수리와 별도, 총 5회 이내.
   critical_rubrics: [R3_NW, R3_FUNC, R3_SUF, R3_RES, R3_CECA, R3_CONSTRAINT, R4_IFR, R4_CONTRA, R4_TRIM, R4_KEY, R6_CONCEPT]
   escalate_tier_on_fail: true # 실패 시 상위 티어로 승급 재시도
   pass_threshold_default: 0.72

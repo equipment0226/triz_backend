@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
-ANALYSIS_CONTRACT_VERSION = "triz-analysis-v1-20261008"
+ANALYSIS_CONTRACT_VERSION = "triz-analysis-v2-20261008"
 MAX_GUIDANCE_CHARS = 2800
 _CATALOG_PATH = Path(__file__).with_name("knowledge") / "analysis_guidance_v1.json"
 
@@ -114,6 +114,13 @@ def analysis_guidance(state: Any, node: str) -> str:
                 f"오답: {example['incorrect']} 정답: {example['correct']} "
                 f"판단: {example['reason']}"
             )
+    # Keep complete rules and examples; never cut a qualifying clause mid-sentence.
+    # Context fields above are bounded; optional examples fit only as whole blocks.
     result = "\n".join(lines)
-    # Input fields and example counts are bounded above. Keep a final hard cap.
-    return result[:MAX_GUIDANCE_CHARS]
+    while len(result) > MAX_GUIDANCE_CHARS and selected:
+        lines = lines[:-(len(selected) + 1)]
+        selected = []
+        result = "\n".join(lines)
+    if len(result) > MAX_GUIDANCE_CHARS:
+        raise ValueError("TRIZ analysis guidance exceeds its complete-contract budget")
+    return result

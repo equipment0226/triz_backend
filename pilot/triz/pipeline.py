@@ -407,8 +407,10 @@ def continue_run(run_id):
             state.cost.budget_usd=budget(state.run_id)['limit_microusd']/1e6
         refresh = state.scratch.get("review_refresh", {})
         if refresh and refresh.get("status") != "COMPLETED":
-            state.cost.budget_usd = float(refresh.get("budget_usd",
-                state.cost.budget_usd + float(refresh.get("baseline_cost", 0))))
+            # Restore an older refresh allowance without undoing an explicit
+            # operator increase made after the refresh was interrupted.
+            state.cost.budget_usd = max(state.cost.budget_usd, float(refresh.get("budget_usd",
+                state.cost.budget_usd + float(refresh.get("baseline_cost", 0)))))
         state.cost.over_budget = state.cost.total_usd > state.cost.budget_usd
         state.scratch["active_seconds"] = 0
         return state.control.stage_index < len(PIPELINE)
@@ -561,20 +563,26 @@ def recover_orphans():
                 if not active and time.time() - last_progress < DISPATCH_GRACE_SECONDS:
                     continue
                 _upgrade(state)
-                _recover_step_journal(state)
-                state.scratch.pop("execution_stage_active", None)
-                state.scratch.pop("execution_deadline", None)
                 reason = '실행 워커가 종료되어 분석이 중단되었습니다. 완료된 분석은 보존되어 있습니다.'
                 from .ax import enabled as ax_enabled
                 if ax_enabled(state):
                     from .ax import ledger
+                    from .ax.contracts import Conflict
                     try:
                         usage = ledger.recover_interrupted(state)
+                    except Conflict:
+                        # Validate the ledger before rewriting durable step history.
+                        # Retain this run for repair and still inspect other owners.
+                        log.exception("Cannot recover conflicting checkpoint for %s; state and usage retained", state.run_id)
+                        continue
                     except ValueError as exc:
                         if str(exc)!='AX run not found': raise
                         # A damaged/deleted journal for one legacy checkpoint must
                         # not stop recovery of every other owner's run. Never
                         # rebuild its usage as zero or launch a replacement call.
+                        _recover_step_journal(state)
+                        state.scratch.pop("execution_stage_active", None)
+                        state.scratch.pop("execution_deadline", None)
                         _mark_interrupted(state,'실행 원장이 없어 비용·실행 상태를 확인할 수 없습니다. 원장 복구가 필요합니다.')
                         store.save_state(state)
                         _emit_retry(state)
@@ -586,6 +594,9 @@ def recover_orphans():
                         reason += ' 저장된 단계에서 이어서 실행해 주세요.'
                 else:
                     reason += ' 저장된 단계에서 이어서 실행해 주세요.'
+                _recover_step_journal(state)
+                state.scratch.pop("execution_stage_active", None)
+                state.scratch.pop("execution_deadline", None)
                 _mark_interrupted(state, reason)
                 store.save_state(state)
                 _emit_retry(state)

@@ -91,6 +91,44 @@ def test_invalid_checkpoint_does_not_block_recovery_of_another_run(monkeypatch):
         assert c.execute(select(store.runs.c.status).where(store.runs.c.run_id == invalid.run_id)).scalar_one() == 'RUNNING'
 
 
+def test_epoch_conflict_preserves_journals_and_does_not_block_another_orphan(caplog):
+    from triz.ax import ledger
+    conflicting = pipeline.create_run('Conflicting orphan checkpoint', workflow_version='triz-ax-v3.1')
+    healthy = pipeline.create_run('Healthy orphan after conflict', workflow_version='legacy')
+    settled = ledger.acquire(conflicting.run_id, 0, {'node': 'completed'}, 15000)
+    ledger.settle(settled, {'data': {'saved': True}}, 10000)
+    ledger.acquire(conflicting.run_id, 0, {'node': 'in_flight'}, 20000)
+    conflicting.cost.total_usd = .01
+    RunContext(conflicting).start_step(node='in_flight', label='Saved call', stage='S5_SOLVE',
+                                       agent_id='solver', prompt_id='P_SAVED', tier='T2')
+    for state in (conflicting, healthy):
+        state.status = 'RUNNING'
+        state.scratch['execution_stage_active'] = {'epoch': 0, 'index': 6}
+        store.save_state(state)
+    with store.engine.begin() as connection:
+        connection.execute(update(ledger.heads).where(ledger.heads.c.run_id == conflicting.run_id)
+                           .values(epoch=1))
+
+    def saved_rows():
+        tables = (store.runs, store.states, store.steps, store.event_log,
+                  ledger.heads, ledger.tasks, ledger.attempts, ledger.events)
+        with store.engine.connect() as connection:
+            return {table.name: [dict(row) for row in connection.execute(select(table)
+                .where(table.c.run_id == conflicting.run_id)
+                .order_by(*table.primary_key.columns)).mappings()] for table in tables}
+
+    before = saved_rows()
+    budget_before = ledger.budget(conflicting.run_id)
+    recovered = pipeline.recover_orphans()
+    assert healthy.run_id in recovered and conflicting.run_id not in recovered
+    assert store.load_state(healthy.run_id).status == 'INTERRUPTED'
+    assert saved_rows() == before
+    assert ledger.budget(conflicting.run_id) == budget_before
+    assert budget_before['spent_microusd'] == 10000
+    assert budget_before['reserved_microusd'] == 20000
+    assert conflicting.run_id in caplog.text and 'Stale recovery epoch' in caplog.text
+
+
 def test_grouped_deferrals_expand_without_dropping_or_reassigning_ids():
     raw = {'ideas': [{'keep_ids': ['A'], 'selection_reason': 'Directly addresses cause'}],
            'deferred': [{'keep_ids': ['B', 'C'], 'reason': 'Both require unavailable sensing'}]}

@@ -56,6 +56,41 @@ def test_refresh_retry_keeps_progress_and_does_not_add_budget_again(state):
     assert "initial:A" in current.evaluation.meeting.completed_calls
 
 
+@pytest.mark.parametrize("retry_path", ["ui", "job"])
+def test_authorized_budget_increase_survives_refresh_retries(state, monkeypatch, retry_path):
+    from triz import budget_limits
+
+    completed(state)
+    refresh_job.prepare(state.run_id, "test-refresh")
+    current = store.load_state(state.run_id)
+    refresh_cap = current.cost.budget_usd
+    current.status = "INTERRUPTED"
+    current.scratch["review_refresh"]["status"] = "INTERRUPTED"
+    current.evaluation.meeting.completed_calls["initial:A"] = {"scores": []}
+    current.cost.total_usd = refresh_cap + .05
+    current.cost.over_budget = True
+    store.save_state(current)
+    expanded_cap = refresh_cap + 2
+    budget_limits.increase(state.run_id, expanded_cap, reason="Explicit test authorization")
+    monkeypatch.setattr(pipeline, "start", lambda _: None)
+
+    # Both owner retry routes must retain the operator's increase, without
+    # granting another allowance or losing already completed review calls.
+    for _ in range(2):
+        if retry_path == "ui":
+            assert pipeline.continue_run(state.run_id)
+        else:
+            assert refresh_job.prepare(state.run_id, "test-refresh") is not None
+        resumed = store.load_state(state.run_id)
+        assert resumed.cost.budget_usd == expanded_cap
+        assert resumed.cost.total_usd == refresh_cap + .05
+        assert not resumed.cost.over_budget
+        assert "initial:A" in resumed.evaluation.meeting.completed_calls
+        assert resumed.concepts == state.concepts and resumed.feedback == state.feedback
+        resumed.status = "INTERRUPTED"
+        store.save_state(resumed)
+
+
 def test_refresh_never_takes_over_an_active_or_unfinished_case(state):
     state.status = "RUNNING"
     store.save_state(state)

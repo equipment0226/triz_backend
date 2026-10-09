@@ -1,0 +1,127 @@
+{
+  "id": "TRIZAnalysisLabInspect20261009",
+  "name": "TRIZ API 검증 — 해결안 개별 검증",
+  "active": false,
+  "nodes": [
+    {
+      "id": "bb26caa4-6edc-5508-a7a2-11055921edf7",
+      "name": "해결안 개별 검증 입력",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.4,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "formTitle": "해결안 개별 검증 입력",
+        "formDescription": "기존 분석의 품질 판정, 제약 검토, 실제 근거, 독립 평가와 제외 이유를 해결안별로 확인합니다. 추가 모델 호출은 없습니다.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "continuation",
+              "fieldType": "textarea",
+              "placeholder": "기존 수동 분석 출력의 continuation 전체",
+              "requiredField": false
+            },
+            {
+              "fieldLabel": "candidate_id",
+              "fieldType": "textarea",
+              "placeholder": "특정 concept_id를 입력하거나 비워서 모든 해결안을 표시",
+              "requiredField": false
+            }
+          ]
+        },
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "webhookId": "854f0e2c-73a6-5c62-84dc-24de2a54a140",
+      "notes": "워크플로는 비활성 상태입니다. 이 노드의 Test URL에서 수동 입력합니다. 실제 질의·continuation을 노드 설정이나 pinData에 저장하지 마세요."
+    },
+    {
+      "id": "efd0805f-2c5a-58e8-b283-37df813e3446",
+      "name": "해결안별 판정·근거 조회",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        350,
+        0
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/inspect",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:String($json.continuation || \"\").trim(), candidate_id:String($json.candidate_id || \"\").trim()}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "서명된 출력 값만 읽습니다. 운영 분석 DB 조회·저장과 추가 모델 호출은 없습니다.",
+      "notesInFlow": true
+    },
+    {
+      "id": "cb115d32-e3d8-5078-beeb-d36ebc5cafce",
+      "name": "해결안 하나씩 출력",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        700,
+        0
+      ],
+      "parameters": {
+        "fieldToSplitOut": "solutions",
+        "include": "allOtherFields",
+        "options": {
+          "destinationFieldName": "solution_validation"
+        }
+      },
+      "notes": "각 item의 solution_validation에 생성 후보, 포함/제외 이유, 품질 검토, 제약 조건, 근거, 개별 평가를 표시합니다.",
+      "notesInFlow": true
+    }
+  ],
+  "connections": {
+    "해결안 개별 검증 입력": {
+      "main": [
+        [
+          {
+            "node": "해결안별 판정·근거 조회",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "해결안별 판정·근거 조회": {
+      "main": [
+        [
+          {
+            "node": "해결안 하나씩 출력",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "executionTimeout": 14400,
+    "saveDataSuccessExecution": "none",
+    "saveDataErrorExecution": "none",
+    "saveManualExecutions": false,
+    "saveExecutionProgress": false,
+    "timezone": "Asia/Seoul"
+  },
+  "pinData": {},
+  "tags": [],
+  "description": "추가 과금 없이 기존 테스트 출력의 해결안을 개별 검증하는 흐름. 채택/보상 피드백이나 학습 데이터를 저장하지 않음."
+}

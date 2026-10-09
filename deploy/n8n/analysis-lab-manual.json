@@ -1,0 +1,1120 @@
+{
+  "id": "TRIZAnalysisLabManual20261009",
+  "name": "TRIZ API 검증 — 수동 문제 분석",
+  "active": false,
+  "nodes": [
+    {
+      "id": "86b19f75-bed1-54d1-9f3f-275f28352e92",
+      "name": "수동 질의 또는 확인 후 재개",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.4,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "formTitle": "수동 질의 또는 확인 후 재개",
+        "formDescription": "처음에는 raw_query를 입력합니다. 확인이 필요하면 종료 출력의 pending을 읽고, continuation과 human_response를 입력해 다시 실행합니다. 피드백·학습 단계는 실행하지 않습니다.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "raw_query",
+              "fieldType": "textarea",
+              "placeholder": "처음 실행할 때 문제를 입력합니다. 재개할 때는 비워둡니다.",
+              "requiredField": false
+            },
+            {
+              "fieldLabel": "mode",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "STANDARD"
+                  },
+                  {
+                    "option": "QUICK"
+                  },
+                  {
+                    "option": "DEEP"
+                  }
+                ]
+              },
+              "requiredField": false
+            },
+            {
+              "fieldLabel": "budget_usd",
+              "fieldType": "textarea",
+              "placeholder": "기본 5. 0 초과 5 이하. 동일 테스트 전체 호출 한도입니다.",
+              "requiredField": false
+            },
+            {
+              "fieldLabel": "continuation",
+              "fieldType": "textarea",
+              "placeholder": "재개할 때 이전 최종 출력의 continuation 전체를 복사합니다.",
+              "requiredField": false
+            },
+            {
+              "fieldLabel": "human_response",
+              "fieldType": "textarea",
+              "placeholder": "확인·선택 응답 JSON. 현재 pending.interrupt_id를 포함해야 합니다.",
+              "requiredField": false
+            }
+          ]
+        },
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "webhookId": "69be5b19-10b6-5655-bf7b-0dbb813c0281",
+      "notes": "워크플로는 비활성 상태입니다. 이 노드의 Test URL에서 수동 입력합니다. 실제 질의·continuation을 노드 설정이나 pinData에 저장하지 마세요."
+    },
+    {
+      "id": "f3f3b6a3-c1b2-56a6-8ae0-63b84764a546",
+      "name": "입력 JSON 확인",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        250,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nconst text = (key) => String(input[key] ?? '').trim();\nlet human = null;\nif (text('human_response')) {\n  human = JSON.parse(text('human_response'));\n  if (!human || typeof human !== 'object' || Array.isArray(human)) throw new Error('human_response는 JSON 객체여야 합니다.');\n}\nreturn [{json: {raw_query: text('raw_query'), mode: text('mode') || 'STANDARD',\n  budget_usd: text('budget_usd') ? Number(text('budget_usd')) : 5,\n  continuation: text('continuation'), human_response: human}}];"
+      }
+    },
+    {
+      "id": "8586b2e0-8310-58db-af68-b00f1029c3eb",
+      "name": "새 분석 또는 사용자 응답 반영",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        510,
+        0
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/begin",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "기존 MCP 서버의 triz_lab_execute를 사용합니다. 새 분석을 만들거나 현재 확인 응답을 반영하고 다음 stage만 결정합니다. 운영 run을 생성하지 않습니다.",
+      "notesInFlow": true
+    },
+    {
+      "id": "cc008a9b-397c-5782-95ab-7de14f5ac164",
+      "name": "실행할 stage 있음?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        780,
+        0
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ready",
+              "leftValue": "={{ $json.continue_execution }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "e4c7f9f9-6a92-5376-888a-80bdbbcfdbbf",
+      "name": "기존 stage 순서",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1040,
+        0
+      ],
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s0_bootstrap",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s0_bootstrap",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s0_bootstrap"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s0_research",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s0_research",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s0_research"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s1_intake",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s1_intake",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s1_intake"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s2_confirm",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s2_confirm",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s2_confirm"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s3_analyze",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s3_analyze",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s3_analyze"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s4_define",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s4_define",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s4_define"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s5_solve",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s5_solve",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s5_solve"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s6_concept",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s6_concept",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s6_concept"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s7_gate",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s7_gate",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s7_gate"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s8_references",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s8_references",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s8_references"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s8_evaluate",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s8_evaluate",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s8_evaluate"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s9_report",
+                    "leftValue": "={{ $json.next_stage_key }}",
+                    "rightValue": "s9_report",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "s9_report"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      }
+    },
+    {
+      "id": "3c66016a-9735-5efa-bce5-ae04fd1e05f2",
+      "name": "00 s0_bootstrap · 실행 계획",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        -500
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s0_bootstrap\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s0_bootstrap\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_PROJECT_TITLE, P_REPAIR, P_S0_BOOTSTRAP, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT\n지식 자료: ",
+      "notesInFlow": true
+    },
+    {
+      "id": "74679b94-4f88-5c81-bcfd-e6e83c5303f8",
+      "name": "01 s0_research · 산업·기술 심층 검토",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        -320
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s0_research\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.domain.deep_dive\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_REPAIR, P_S0_DEEP_DIVE, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT\n지식 자료: ",
+      "notesInFlow": true
+    },
+    {
+      "id": "6341f353-c727-5d05-832d-e1456a776ebd",
+      "name": "02 s1_intake · 문제 추출·역질의",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        -140
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s1_intake\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s1_extract\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_REPAIR, P_S1_CLARIFY, P_S1_EXTRACT, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT\n지식 자료: ",
+      "notesInFlow": true
+    },
+    {
+      "id": "136b8a97-f352-5810-b646-938caeccb664",
+      "name": "03 s2_confirm · 대상 시스템 확정",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        40
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s2_confirm\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s2_confirm\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_REPAIR, P_S2_CANDIDATES, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT\n지식 자료: ",
+      "notesInFlow": true
+    },
+    {
+      "id": "d049d1d9-27ee-5328-a1ea-8fd1ef5975a6",
+      "name": "04 s3_analyze · 시스템·기능·자원·인과 분석",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        220
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s3_analyze\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s3_analyze\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_REPAIR, P_S3_CECA, P_S3_CONSTRAINTS, P_S3_FUNCTION_MODEL, P_S3_NINE_WINDOWS, P_S3_RESOURCES, P_S3_SUFIELD, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT\n지식 자료: ",
+      "notesInFlow": true
+    },
+    {
+      "id": "2094bc17-23f5-53a6-a9d9-645931e793ad",
+      "name": "05 s4_define · 이상해결책·모순 정의",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        400
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s4_define\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s4_define\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_REPAIR, P_S4_CONTRADICTIONS, P_S4_IFR, P_S4_KEY_PROBLEM, P_S4_TRIMMING, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT\n지식 자료: triz/knowledge/params_39.json, triz/knowledge/params_biz_31.json",
+      "notesInFlow": true
+    },
+    {
+      "id": "19636817-cee3-5868-b5de-c099cba37760",
+      "name": "06 s5_solve · 다중 기법 해결책 탐색",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        580
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s5_solve\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s5_solve\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_EVIDENCE_PLAN, P_REPAIR, P_S5_ARIZ_PART1, P_S5_ARIZ_PART2, P_S5_ARIZ_PART3, P_S5_ARIZ_PART4, P_S5_ARIZ_PART5, P_S5_ARIZ_PART6, P_S5_ARIZ_PART7, P_S5_MATRIX_FALLBACK, P_S5_MERGE, P_S5_TRACK_A, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT\n지식 자료: triz/knowledge/ariz_85c.yaml, triz/knowledge/effects.json, triz/knowledge/effects_sources.json, triz/knowledge/matrix_39x39.json, triz/knowledge/params_39.json, triz/knowledge/params_biz_31.json, triz/knowledge/principles_40.json, triz/knowledge/separation.json, triz/knowledge/separation_legacy_v1.json, triz/knowledge/standards_76.json, triz/knowledge/trends.json",
+      "notesInFlow": true
+    },
+    {
+      "id": "5f524414-58a1-58f7-839e-276620550e9b",
+      "name": "07 s6_concept · 개념 구체화",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        760
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s6_concept\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s6_concept\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_REPAIR, P_S5_ARIZ_PART5, P_S5_ARIZ_PART6, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT, P_S7_GATEKEEPER, P_S8_RANK, P_VERIFIER_GENERIC\n지식 자료: triz/knowledge/params_39.json, triz/knowledge/params_biz_31.json",
+      "notesInFlow": true
+    },
+    {
+      "id": "25402841-88f8-5fe8-80b8-b81d163dabe5",
+      "name": "08 s7_gate · 제약 검토",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        940
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s7_gate\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s7_gate\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_REPAIR, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT, P_S7_GATEKEEPER\n지식 자료: ",
+      "notesInFlow": true
+    },
+    {
+      "id": "dc214aab-8801-56c6-8f8c-4bcafaed6262",
+      "name": "09 s8_references · 근거 자료·적용 조건 검토",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        1120
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s8_references\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s8_references\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_EVIDENCE_MATCH, P_EVIDENCE_PLAN, P_REPAIR, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT\n지식 자료: triz/knowledge/params_39.json, triz/knowledge/params_biz_31.json, triz/knowledge/principles_40.json, triz/knowledge/separation.json, triz/knowledge/separation_legacy_v1.json",
+      "notesInFlow": true
+    },
+    {
+      "id": "23f17aec-b3ab-5587-bec8-eb70025bd329",
+      "name": "10 s8_evaluate · 다직군 평가",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        1300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s8_evaluate\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s8_evaluate\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_PERSONA_FACTORY, P_REPAIR, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT, P_S8_MEETING_EXCHANGE, P_S8_MEETING_FINAL, P_S8_MEETING_INITIAL, P_S8_RANK, P_S8_REVIEW, P_VERIFIER_GENERIC\n지식 자료: ",
+      "notesInFlow": true
+    },
+    {
+      "id": "28039258-3586-5559-9ec1-6bffc454f8a5",
+      "name": "11 s9_report · 시각화 보고서",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1310,
+        1480
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://trizbackend.railway.internal:8000/internal/lab/stage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({continuation:$json.continuation, stage_key:\"s9_report\"}) }}",
+        "options": {
+          "timeout": 3600000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "TRIZStudioV2Auth",
+          "name": "TRIZ Studio Service"
+        }
+      },
+      "retryOnFail": false,
+      "notes": "원본 함수: triz.nodes.s9_report\n기존 node·agent·prompt를 그대로 실행합니다. 분기·병렬 순서는 원본 함수가 제어하며 실제 실행 순서는 출력 steps에서 확인합니다.\n프롬프트 후보: P_COMMON_PREAMBLE, P_REPAIR, P_S5_MERGE, P_S5_TRACK_B, P_S5_TRACK_C, P_S5_TRACK_E, P_S5_TRACK_F, P_S5_TRACK_G, P_S5_TRACK_H, P_S6_CONCEPT, P_S9_NARRATIVE\n지식 자료: triz/knowledge/effects.json, triz/knowledge/effects_sources.json, triz/knowledge/params_39.json, triz/knowledge/params_biz_31.json, triz/knowledge/principles_40.json, triz/knowledge/separation.json, triz/knowledge/separation_legacy_v1.json, triz/knowledge/standards_76.json",
+      "notesInFlow": true
+    },
+    {
+      "id": "2c7e924d-8c85-5cd9-871a-d743094303eb",
+      "name": "출력 · 사용자 확인 또는 완료",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1670,
+        760
+      ],
+      "parameters": {},
+      "notes": "pending은 수동 확인 요청입니다. 다음 실행 폼에 continuation과 응답을 넣습니다. solutions는 제외된 후보까지 포함한 개별 검증 결과입니다. steps는 node/agent/prompt/input/output/verdict 기록입니다. S9 보고서는 inline 출력이며 S10 피드백·강화학습은 없습니다.",
+      "notesInFlow": true
+    }
+  ],
+  "connections": {
+    "수동 질의 또는 확인 후 재개": {
+      "main": [
+        [
+          {
+            "node": "입력 JSON 확인",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "입력 JSON 확인": {
+      "main": [
+        [
+          {
+            "node": "새 분석 또는 사용자 응답 반영",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "새 분석 또는 사용자 응답 반영": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "실행할 stage 있음?": {
+      "main": [
+        [
+          {
+            "node": "기존 stage 순서",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "출력 · 사용자 확인 또는 완료",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "00 s0_bootstrap · 실행 계획": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "01 s0_research · 산업·기술 심층 검토": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "02 s1_intake · 문제 추출·역질의": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "03 s2_confirm · 대상 시스템 확정": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "04 s3_analyze · 시스템·기능·자원·인과 분석": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "05 s4_define · 이상해결책·모순 정의": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "06 s5_solve · 다중 기법 해결책 탐색": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "07 s6_concept · 개념 구체화": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "08 s7_gate · 제약 검토": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "09 s8_references · 근거 자료·적용 조건 검토": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "10 s8_evaluate · 다직군 평가": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "11 s9_report · 시각화 보고서": {
+      "main": [
+        [
+          {
+            "node": "실행할 stage 있음?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "기존 stage 순서": {
+      "main": [
+        [
+          {
+            "node": "00 s0_bootstrap · 실행 계획",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "01 s0_research · 산업·기술 심층 검토",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "02 s1_intake · 문제 추출·역질의",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "03 s2_confirm · 대상 시스템 확정",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "04 s3_analyze · 시스템·기능·자원·인과 분석",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "05 s4_define · 이상해결책·모순 정의",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "06 s5_solve · 다중 기법 해결책 탐색",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "07 s6_concept · 개념 구체화",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "08 s7_gate · 제약 검토",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "09 s8_references · 근거 자료·적용 조건 검토",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "10 s8_evaluate · 다직군 평가",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "11 s9_report · 시각화 보고서",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "출력 · 사용자 확인 또는 완료",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "executionTimeout": 14400,
+    "saveDataSuccessExecution": "none",
+    "saveDataErrorExecution": "none",
+    "saveManualExecutions": false,
+    "saveExecutionProgress": false,
+    "timezone": "Asia/Seoul"
+  },
+  "pinData": {},
+  "tags": [],
+  "description": "기존 TRIZ의 12단계와 동일 prompt/agent/knowledge/MCP/Qdrant를 사용하는 memory-only 수동 분석. 사용자 확인 시 종료하고 출력으로 재개."
+}

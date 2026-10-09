@@ -23,6 +23,14 @@ def threaded(fn):
 mcp = FastMCP(f"TRIZ {module}", host=os.getenv("MCP_HOST", "127.0.0.1"),
     port=int(os.getenv("MCP_PORT", "8001")), stateless_http=True, json_response=True)
 
+
+@mcp.tool()
+async def triz_lab_execute(payload: dict) -> dict:
+    """Run a native manual test stage in an isolated memory journal, without saving a production run."""
+    from .lab_transport import execute
+    return await execute(payload)
+
+
 @mcp.tool()
 @threaded
 def triz_execute_stage(run_id: str, stage_index: int, epoch: int) -> dict:

@@ -8,7 +8,7 @@ import json
 import re
 import unicodedata
 from collections import defaultdict
-from sqlalchemy import Column, String, select
+from sqlalchemy import Column, Index, String, select
 from . import ledger
 from .contracts import canonical, digest, now, Conflict
 from .mode_contract import contract
@@ -18,6 +18,7 @@ applications = ledger.table('effect_applications', Column('application_id', Stri
     Column('run_id', String(64), nullable=False), Column('tenant_id', String(64), nullable=False),
     Column('project_id', String(64), nullable=False), Column('payload', ledger.JSON, nullable=False),
     Column('created_at', String(40), nullable=False))
+Index('ix_ax_effect_application_run', applications.c.run_id)
 reviews = ledger.table('effect_reviews', Column('event_id', String(100), primary_key=True),
     Column('application_id', String(80), nullable=False), Column('run_id', String(64), nullable=False),
     Column('payload', ledger.JSON, nullable=False), Column('created_at', String(40), nullable=False))

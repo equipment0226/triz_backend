@@ -10,6 +10,7 @@ import uuid
 from sqlalchemy import (MetaData, Table, Column, String, Integer, BigInteger,
                         Text, Double, Index, UniqueConstraint, select, update, func, inspect)
 from sqlalchemy.dialects.mysql import LONGTEXT
+from sqlalchemy.exc import DBAPIError
 from .. import store
 from .contracts import canonical, digest, now, Conflict, AccessDenied, Review, BudgetBusy
 
@@ -84,10 +85,67 @@ outbox = table('outbox', Column('event_id', String(80), primary_key=True),
 for name, t, columns in [('artifact_run', artifacts, ('run_id','artifact_key')),
                         ('snapshot_run', snapshots, ('run_id','created_at')),
                         ('task_run', tasks, ('run_id','status')),
+                        ('attempt_run', attempts, ('run_id',)),
+                        ('event_run_type_time', events, ('run_id','event_type','created_at','event_id')),
                         ('decision_run', decisions, ('run_id','created_at')),
                         ('review_run', reviews, ('run_id','created_at')),
                         ('outbox_pending', outbox, ('status','lease_until'))]:
     Index('ix_ax_' + name, *[t.c[c] for c in columns])
+
+
+RUN_LOOKUP_INDEXES = (
+    ('ax_task_attempts', 'ix_ax_attempt_run', ('run_id',)),
+    ('ax_events', 'ix_ax_event_run_type_time', ('run_id', 'event_type', 'created_at', 'event_id')),
+    ('ax_effect_applications', 'ix_ax_effect_application_run', ('run_id',)),
+)
+
+
+def _lookup_index_present(connection, table_name, index_name, columns):
+    existing = inspect(connection).get_indexes(table_name)
+    named = next((item for item in existing if item['name'] == index_name), None)
+    if named and tuple(named['column_names']) != columns:
+        raise ValueError('Existing AX lookup index has unexpected columns: ' + index_name)
+    return any(tuple(item['column_names']) == columns for item in existing)
+
+
+def ensure_run_lookup_indexes(engine=None):
+    """Add missing indexes to existing journals without replacing their rows.
+
+    MySQL must support online index creation; never fall back to a table copy
+    or a blocking DDL mode. Restore the pooled session's metadata-lock timeout.
+    """
+    engine = engine if engine is not None else store.engine
+    with engine.connect() as connection:
+        mysql = connection.dialect.name == 'mysql'
+        previous_wait = None
+        if mysql:
+            previous_wait = int(connection.exec_driver_sql('SELECT @@SESSION.lock_wait_timeout').scalar_one())
+            connection.exec_driver_sql('SET SESSION lock_wait_timeout = 5')
+        try:
+            for table_name, index_name, columns in RUN_LOOKUP_INDEXES:
+                if _lookup_index_present(connection, table_name, index_name, columns):
+                    continue
+                if mysql:
+                    quote = connection.dialect.identifier_preparer.quote
+                    sql = ('ALTER TABLE ' + quote(table_name) + ' ADD INDEX ' + quote(index_name)
+                           + ' (' + ', '.join(quote(column) for column in columns)
+                           + '), ALGORITHM=INPLACE, LOCK=NONE')
+                    try:
+                        connection.exec_driver_sql(sql)
+                    except DBAPIError as exc:
+                        # Another startup may have added the same declared index.
+                        # Suppress only MySQL duplicate-name errors with its exact
+                        # expected columns now present; all other failures stop.
+                        code = (getattr(exc.orig, 'args', ()) or (None,))[0]
+                        if code != 1061 or not _lookup_index_present(connection, table_name, index_name, columns):
+                            raise
+                else:
+                    index = next(item for item in metadata.tables[table_name].indexes if item.name == index_name)
+                    index.create(connection, checkfirst=True)
+            connection.commit()
+        finally:
+            if previous_wait is not None:
+                connection.exec_driver_sql('SET SESSION lock_wait_timeout = ' + str(previous_wait))
 
 
 def init():
@@ -96,6 +154,7 @@ def init():
     from . import worker
     from . import effect_history
     metadata.create_all(store.engine)
+    ensure_run_lookup_indexes()
     if store.engine.dialect.name == 'mysql':
         # MySQL FLOAT cannot round-trip Unix epoch seconds accurately enough for
         # a 60-second lease. Upgrade only these two AX fields; retain all rows.
